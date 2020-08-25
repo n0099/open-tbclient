@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
 import com.baidu.sofire.MyService;
 import com.baidu.sofire.ac.U;
-/* loaded from: classes3.dex */
+/* loaded from: classes20.dex */
 public final class b {
     public static void a(Context context, int i, boolean z) {
         long j = 600000;
@@ -40,11 +40,11 @@ public final class b {
                 com.baidu.sofire.b.a();
                 alarmManager.cancel(service);
                 if (!z) {
-                    alarmManager.set(0, currentTimeMillis, service);
+                    alarmManager.set(1, currentTimeMillis, service);
                 }
             }
         } catch (Throwable th) {
-            d.a();
+            e.a();
         }
     }
 }

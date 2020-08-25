@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class MapFragment extends Fragment {
     private static final String a = MapFragment.class.getSimpleName();
     private MapView b;

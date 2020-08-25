@@ -13,7 +13,7 @@ import com.baidu.mapapi.animation.SingleScaleAnimation;
 import com.baidu.mapapi.animation.Transformation;
 import com.baidu.mapapi.map.Marker;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class d extends c {
     private Animator a = null;
     private long b = 0;

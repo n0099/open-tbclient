@@ -6,7 +6,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.PollOptionData;
 import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.core.view.VoteView;
 import com.baidu.tbadk.coreExtra.data.WriteVoteData;
 import com.baidu.tbadk.coreExtra.data.WriteVoteItemData;
@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 /* loaded from: classes3.dex */
 public class a {
-    private VoteView agF;
+    private VoteView ahO;
     private TbPageContext<WriteActivity> mPageContext;
     private RelativeLayout mRootView;
     private WriteVoteData mWriteVoteData;
@@ -24,21 +24,21 @@ public class a {
     public a(TbPageContext<WriteActivity> tbPageContext, RelativeLayout relativeLayout) {
         this.mPageContext = tbPageContext;
         this.mRootView = relativeLayout;
-        this.agF = new VoteView(this.mPageContext.getPageActivity());
-        this.agF.setPageContext(this.mPageContext);
-        this.agF.setDeleteOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.vote.a.1
+        this.ahO = new VoteView(this.mPageContext.getPageActivity());
+        this.ahO.setPageContext(this.mPageContext);
+        this.ahO.setDeleteOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.vote.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(a.this.mPageContext.getPageActivity());
-                aVar.xk(a.this.mPageContext.getString(R.string.vote_delete_dialog_title));
+                aVar.zy(a.this.mPageContext.getString(R.string.vote_delete_dialog_title));
                 aVar.setTitleShowCenter(true);
-                aVar.xl(a.this.mPageContext.getString(R.string.vote_delete_dialog_message));
+                aVar.zz(a.this.mPageContext.getString(R.string.vote_delete_dialog_message));
                 aVar.setMessageShowCenter(true);
                 aVar.a(R.string.delete, new a.b() { // from class: com.baidu.tieba.write.write.vote.a.1.1
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                         a.this.mWriteVoteData = null;
-                        a.this.wF(false);
+                        a.this.xv(false);
                         aVar2.dismiss();
                     }
                 });
@@ -48,34 +48,34 @@ public class a {
                         aVar2.dismiss();
                     }
                 });
-                aVar.b(a.this.mPageContext).aYL();
+                aVar.b(a.this.mPageContext).bhg();
             }
         });
-        this.agF.setVoteViewDeleteVisibility(0);
-        this.mRootView.addView(this.agF);
-        wF(false);
+        this.ahO.setVoteViewDeleteVisibility(0);
+        this.mRootView.addView(this.ahO);
+        xv(false);
     }
 
-    public void an(View.OnClickListener onClickListener) {
-        if (this.agF != null && onClickListener != null) {
-            this.agF.setOnClickListener(onClickListener);
+    public void ao(View.OnClickListener onClickListener) {
+        if (this.ahO != null && onClickListener != null) {
+            this.ahO.setOnClickListener(onClickListener);
         }
     }
 
     public void setOnItemClickListener(View.OnClickListener onClickListener) {
-        if (this.agF != null && onClickListener != null) {
-            this.agF.setOnItemClickListener(onClickListener);
+        if (this.ahO != null && onClickListener != null) {
+            this.ahO.setOnItemClickListener(onClickListener);
         }
     }
 
-    public void wF(boolean z) {
+    public void xv(boolean z) {
         this.mRootView.setVisibility(z ? 0 : 8);
     }
 
     public void b(WriteVoteData writeVoteData) {
-        if (writeVoteData != null && this.agF != null) {
+        if (writeVoteData != null && this.ahO != null) {
             this.mWriteVoteData = writeVoteData;
-            this.agF.setVoteTitle(this.mWriteVoteData.getTitle());
+            this.ahO.setVoteTitle(this.mWriteVoteData.getTitle());
             String string = this.mWriteVoteData.getIsMulti() == 1 ? this.mPageContext.getString(R.string.vote_type_multiple) : this.mPageContext.getString(R.string.vote_type_single);
             int expireType = this.mWriteVoteData.getExpireType();
             String str = "";
@@ -85,9 +85,9 @@ public class a {
                 str = String.format(this.mPageContext.getString(R.string.write_vote_content_time), Integer.valueOf(calendar.get(2) + 1), Integer.valueOf(calendar.get(5)));
             }
             if (StringUtils.isNull(str)) {
-                this.agF.setVoteSubContent(string);
+                this.ahO.setVoteSubContent(string);
             } else {
-                this.agF.setVoteSubContent(string + " · " + str);
+                this.ahO.setVoteSubContent(string + " · " + str);
             }
             ArrayList arrayList = new ArrayList();
             for (WriteVoteItemData writeVoteItemData : this.mWriteVoteData.getOptions()) {
@@ -96,11 +96,11 @@ public class a {
                 pollOptionData.setText(writeVoteItemData.getText());
                 arrayList.add(pollOptionData);
             }
-            if (!x.isEmpty(arrayList)) {
+            if (!y.isEmpty(arrayList)) {
                 if (arrayList.size() > 3) {
-                    this.agF.setData(arrayList.subList(0, 3));
+                    this.ahO.setData(arrayList.subList(0, 3));
                 } else {
-                    this.agF.setData(arrayList);
+                    this.ahO.setData(arrayList);
                 }
             }
         }
@@ -111,6 +111,6 @@ public class a {
     }
 
     public void onChangeSkinType(int i) {
-        this.agF.onChangeSkinType(i);
+        this.ahO.onChangeSkinType(i);
     }
 }

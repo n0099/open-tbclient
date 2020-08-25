@@ -2,19 +2,19 @@ package com.baidu.tbadk.pageInfo;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class TbPageTag implements Parcelable {
     public static final Parcelable.Creator<TbPageTag> CREATOR = new Parcelable.Creator<TbPageTag>() { // from class: com.baidu.tbadk.pageInfo.TbPageTag.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: R */
+        /* renamed from: S */
         public TbPageTag createFromParcel(Parcel parcel) {
             return new TbPageTag(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: oo */
+        /* renamed from: qz */
         public TbPageTag[] newArray(int i) {
             return new TbPageTag[i];
         }

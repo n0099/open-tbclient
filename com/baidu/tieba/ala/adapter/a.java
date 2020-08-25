@@ -15,9 +15,9 @@ import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.live.tbadk.util.TextHelper;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a extends BaseAdapter {
-    private ArrayList<com.baidu.tieba.ala.data.a> flH;
+    private ArrayList<com.baidu.tieba.ala.data.a> fxd;
     private Context mContext;
 
     public a(Context context) {
@@ -25,26 +25,26 @@ public class a extends BaseAdapter {
     }
 
     public void setData(ArrayList<com.baidu.tieba.ala.data.a> arrayList) {
-        if (this.flH == null) {
-            this.flH = new ArrayList<>();
+        if (this.fxd == null) {
+            this.fxd = new ArrayList<>();
         } else {
-            this.flH.clear();
+            this.fxd.clear();
         }
-        this.flH.addAll(arrayList);
+        this.fxd.addAll(arrayList);
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return ListUtils.getCount(this.flH);
+        return ListUtils.getCount(this.fxd);
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.flH == null || i < 0 || i >= this.flH.size()) {
+        if (this.fxd == null || i < 0 || i >= this.fxd.size()) {
             return null;
         }
-        return this.flH.get(i);
+        return this.fxd.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -54,71 +54,71 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0538a c0538a;
+        C0584a c0584a;
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.h.ala_challenge_history_list_item_view, (ViewGroup) null);
-            C0538a c0538a2 = new C0538a(view);
-            view.setTag(c0538a2);
-            c0538a = c0538a2;
+            C0584a c0584a2 = new C0584a(view);
+            view.setTag(c0584a2);
+            c0584a = c0584a2;
         } else {
-            c0538a = (C0538a) view.getTag();
+            c0584a = (C0584a) view.getTag();
         }
         com.baidu.tieba.ala.data.a aVar = (com.baidu.tieba.ala.data.a) getItem(i);
         if (aVar != null) {
-            c0538a.a(aVar);
+            c0584a.a(aVar);
         }
         return view;
     }
 
     /* renamed from: com.baidu.tieba.ala.adapter.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    protected class C0538a {
-        private LinearLayout flI;
-        private HeadImageView flJ;
-        private TextView flK;
-        private RelativeLayout flL;
-        private TextView flM;
-        private ImageView flN;
-        private TextView flO;
-        private LinearLayout flP;
-        private HeadImageView flQ;
-        private TextView flR;
+    /* loaded from: classes7.dex */
+    protected class C0584a {
+        private LinearLayout fxe;
+        private HeadImageView fxf;
+        private TextView fxg;
+        private RelativeLayout fxh;
+        private TextView fxi;
+        private ImageView fxj;
+        private TextView fxk;
+        private LinearLayout fxl;
+        private HeadImageView fxm;
+        private TextView fxn;
 
-        public C0538a(View view) {
-            this.flI = (LinearLayout) view.findViewById(a.g.item_challenge_history_left);
-            this.flJ = (HeadImageView) view.findViewById(a.g.img_challenge_history_left);
-            this.flK = (TextView) view.findViewById(a.g.text_challenge_history_left);
-            this.flL = (RelativeLayout) view.findViewById(a.g.challenge_center_layout);
-            this.flM = (TextView) view.findViewById(a.g.pk_history_anchor_score);
-            this.flN = (ImageView) view.findViewById(a.g.pk_history_icon);
-            this.flO = (TextView) view.findViewById(a.g.pk_history_rival_score);
-            this.flP = (LinearLayout) view.findViewById(a.g.item_challenge_history_right);
-            this.flQ = (HeadImageView) view.findViewById(a.g.img_challenge_history_right);
-            this.flR = (TextView) view.findViewById(a.g.text_challenge_history_right);
-            this.flJ.setIsRound(true);
-            this.flJ.setAutoChangeStyle(false);
-            this.flQ.setIsRound(true);
-            this.flQ.setAutoChangeStyle(false);
+        public C0584a(View view) {
+            this.fxe = (LinearLayout) view.findViewById(a.g.item_challenge_history_left);
+            this.fxf = (HeadImageView) view.findViewById(a.g.img_challenge_history_left);
+            this.fxg = (TextView) view.findViewById(a.g.text_challenge_history_left);
+            this.fxh = (RelativeLayout) view.findViewById(a.g.challenge_center_layout);
+            this.fxi = (TextView) view.findViewById(a.g.pk_history_anchor_score);
+            this.fxj = (ImageView) view.findViewById(a.g.pk_history_icon);
+            this.fxk = (TextView) view.findViewById(a.g.pk_history_rival_score);
+            this.fxl = (LinearLayout) view.findViewById(a.g.item_challenge_history_right);
+            this.fxm = (HeadImageView) view.findViewById(a.g.img_challenge_history_right);
+            this.fxn = (TextView) view.findViewById(a.g.text_challenge_history_right);
+            this.fxf.setIsRound(true);
+            this.fxf.setAutoChangeStyle(false);
+            this.fxm.setIsRound(true);
+            this.fxm.setAutoChangeStyle(false);
         }
 
         public void a(com.baidu.tieba.ala.data.a aVar) {
             if (aVar != null) {
-                this.flJ.startLoad(aVar.fIB.portrait, 12, false);
-                String name_show = aVar.fIB.getName_show();
+                this.fxf.startLoad(aVar.fTS.portrait, 12, false);
+                String name_show = aVar.fTS.getName_show();
                 if (TextHelper.getTextLengthWithEmoji(name_show) > 8) {
                     name_show = TextHelper.subStringWithEmoji(name_show, 8) + StringHelper.STRING_MORE;
                 }
-                this.flK.setText(name_show);
-                this.flQ.startLoad(aVar.fIC.portrait, 12, false);
-                String name_show2 = aVar.fIC.getName_show();
+                this.fxg.setText(name_show);
+                this.fxm.startLoad(aVar.fTT.portrait, 12, false);
+                String name_show2 = aVar.fTT.getName_show();
                 if (TextHelper.getTextLengthWithEmoji(name_show2) > 8) {
                     name_show2 = TextHelper.subStringWithEmoji(name_show2, 8) + StringHelper.STRING_MORE;
                 }
-                this.flR.setText(name_show2);
-                String numberUniformFormatExtra = StringHelper.numberUniformFormatExtra(aVar.fIA.fIG);
-                String numberUniformFormatExtra2 = StringHelper.numberUniformFormatExtra(aVar.fIA.fIH);
-                this.flM.setText(numberUniformFormatExtra);
-                this.flO.setText(numberUniformFormatExtra2);
+                this.fxn.setText(name_show2);
+                String numberUniformFormatExtra = StringHelper.numberUniformFormatExtra(aVar.fTR.fTX);
+                String numberUniformFormatExtra2 = StringHelper.numberUniformFormatExtra(aVar.fTR.fTY);
+                this.fxi.setText(numberUniformFormatExtra);
+                this.fxk.setText(numberUniformFormatExtra2);
             }
         }
     }

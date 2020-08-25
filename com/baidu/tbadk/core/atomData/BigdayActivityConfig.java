@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class BigdayActivityConfig extends IntentConfig {
     public static final String BIGDAY_ID = "bigday_id";
     public static final String IMG_URL = "img_url";

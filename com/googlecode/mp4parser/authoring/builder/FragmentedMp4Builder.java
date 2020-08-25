@@ -1,5 +1,6 @@
 package com.googlecode.mp4parser.authoring.builder;
 
+import com.baidu.android.imsdk.internal.IMConnection;
 import com.coremedia.iso.BoxParser;
 import com.coremedia.iso.IsoFile;
 import com.coremedia.iso.IsoTypeWriter;
@@ -63,7 +64,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class FragmentedMp4Builder implements Mp4Builder {
     private static final Logger LOG = Logger.getLogger(FragmentedMp4Builder.class.getName());
     protected FragmentIntersectionFinder intersectionFinder;
@@ -143,7 +144,7 @@ public class FragmentedMp4Builder implements Mp4Builder {
         long j3 = 10000;
         do {
             long round = Math.round(((j * d2) / j3) - j) * 1000;
-            linkedList.add(new ProgressiveDownloadInformationBox.Entry(j3, round > 0 ? round + 3000 : 0L));
+            linkedList.add(new ProgressiveDownloadInformationBox.Entry(j3, round > 0 ? round + IMConnection.RETRY_DELAY_TIMES : 0L));
             j3 *= 2;
         } while (d2 > j3);
         progressiveDownloadInformationBox.setEntries(linkedList);
@@ -214,20 +215,20 @@ public class FragmentedMp4Builder implements Mp4Builder {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes8.dex */
     public class a implements Box {
-        private final /* synthetic */ int mfS;
-        long nmn = -1;
-        private final /* synthetic */ long nmo;
-        private final /* synthetic */ long nmp;
-        private final /* synthetic */ Track nmq;
+        private final /* synthetic */ int mxC;
+        long nGe = -1;
+        private final /* synthetic */ long nGf;
+        private final /* synthetic */ long nGg;
+        private final /* synthetic */ Track nGh;
         Container parent;
 
         a(long j, long j2, Track track, int i) {
-            this.nmo = j;
-            this.nmp = j2;
-            this.nmq = track;
-            this.mfS = i;
+            this.nGf = j;
+            this.nGg = j2;
+            this.nGh = track;
+            this.mxC = i;
         }
 
         @Override // com.coremedia.iso.boxes.Box
@@ -247,14 +248,14 @@ public class FragmentedMp4Builder implements Mp4Builder {
 
         @Override // com.coremedia.iso.boxes.Box
         public long getSize() {
-            if (this.nmn != -1) {
-                return this.nmn;
+            if (this.nGe != -1) {
+                return this.nGe;
             }
             long j = 8;
-            for (Sample sample : FragmentedMp4Builder.this.getSamples(this.nmo, this.nmp, this.nmq, this.mfS)) {
+            for (Sample sample : FragmentedMp4Builder.this.getSamples(this.nGf, this.nGg, this.nGh, this.mxC)) {
                 j = sample.getSize() + j;
             }
-            this.nmn = j;
+            this.nGe = j;
             return j;
         }
 
@@ -270,7 +271,7 @@ public class FragmentedMp4Builder implements Mp4Builder {
             allocate.put(IsoFile.fourCCtoBytes(getType()));
             allocate.rewind();
             writableByteChannel.write(allocate);
-            for (Sample sample : FragmentedMp4Builder.this.getSamples(this.nmo, this.nmp, this.nmq, this.mfS)) {
+            for (Sample sample : FragmentedMp4Builder.this.getSamples(this.nGf, this.nGg, this.nGh, this.mxC)) {
                 sample.writeTo(writableByteChannel);
             }
         }

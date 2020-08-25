@@ -8,7 +8,7 @@ import android.graphics.Rect;
 import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class FragmentTabRootView extends LinearLayout {
     private Matrix mMatrix;
     private Paint mPaint;

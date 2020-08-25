@@ -6,7 +6,7 @@ import tbclient.Hottopic.HotThread;
 /* loaded from: classes15.dex */
 public class g implements q {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public String iJX;
+    public String iYV;
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
@@ -15,7 +15,7 @@ public class g implements q {
 
     public void a(HotThread hotThread) {
         if (hotThread != null) {
-            this.iJX = hotThread.hot_title;
+            this.iYV = hotThread.hot_title;
         }
     }
 }

@@ -5,24 +5,24 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes19.dex */
 public class g {
-    public PoiInfo drY;
-    public boolean drZ;
+    public PoiInfo dBZ;
+    public boolean dCa;
     public boolean isSelected;
 
     public g(PoiInfo poiInfo, boolean z, boolean z2) {
         if (poiInfo == null) {
-            this.drY = new PoiInfo();
+            this.dBZ = new PoiInfo();
         }
-        this.drY = poiInfo;
+        this.dBZ = poiInfo;
         this.isSelected = z;
-        this.drZ = z2;
+        this.dCa = z2;
     }
 
     public g(PoiInfo poiInfo) {
         this(poiInfo, false, false);
     }
 
-    public static List<g> av(List<PoiInfo> list) {
+    public static List<g> aw(List<PoiInfo> list) {
         if (list == null || list.size() <= 0) {
             return new ArrayList();
         }

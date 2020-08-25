@@ -2,7 +2,7 @@ package com.baidu.tieba.live.tbean.data;
 
 import com.baidu.live.tbadk.core.data.BaseData;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class DiscountData extends BaseData {
     public int rebate;
     public int recharge;

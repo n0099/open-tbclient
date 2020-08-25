@@ -2,7 +2,7 @@ package com.baidu.ala.gift;
 
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaDynamicGiftLocalInfoConfig {
     public static final String DIR_NAME = ".dynamic";
     public static final String DIR_PATH = TbadkCoreApplication.getInst().getApp().getFilesDir() + "/" + TbConfig.getTempDirName() + "/" + DIR_NAME + "/";

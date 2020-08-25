@@ -9,7 +9,7 @@ import android.view.MotionEvent;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 /* loaded from: classes4.dex */
 public class NestScrollingTypedListView extends BdTypeListView {
-    private int fBM;
+    private int fNe;
     private boolean isFirst;
     private NestedScrollingChildHelper mChildHelper;
     private int mLastTouchX;
@@ -70,7 +70,7 @@ public class NestScrollingTypedListView extends BdTypeListView {
         obtain.offsetLocation(this.mNestedOffsets[0], this.mNestedOffsets[1]);
         switch (actionMasked) {
             case 0:
-                y(motionEvent);
+                N(motionEvent);
                 break;
             case 1:
                 stopNestedScroll();
@@ -89,10 +89,10 @@ public class NestScrollingTypedListView extends BdTypeListView {
                 if (this.isFirst) {
                     Log.i("pyt", "FIRST");
                     this.isFirst = false;
-                    y(motionEvent);
+                    N(motionEvent);
                     return true;
-                } else if (!bu(this.fBM, i2)) {
-                    this.fBM = i2;
+                } else if (!bD(this.fNe, i2)) {
+                    this.fNe = i2;
                     Log.i("pyt", "move lastY" + this.mLastTouchY + ",y=" + y + ",dy=" + i2);
                     if (dispatchNestedPreScroll(i, i2, this.mScrollConsumed, this.mScrollOffset)) {
                         obtain.offsetLocation(this.mScrollOffset[0], this.mScrollOffset[1]);
@@ -116,8 +116,8 @@ public class NestScrollingTypedListView extends BdTypeListView {
         return true;
     }
 
-    private void y(MotionEvent motionEvent) {
-        this.fBM = 0;
+    private void N(MotionEvent motionEvent) {
+        this.fNe = 0;
         int[] iArr = this.mNestedOffsets;
         this.mNestedOffsets[1] = 0;
         iArr[0] = 0;
@@ -127,7 +127,7 @@ public class NestScrollingTypedListView extends BdTypeListView {
         startNestedScroll(2);
     }
 
-    private boolean bu(int i, int i2) {
+    private boolean bD(int i, int i2) {
         return (i > 0 && i2 < 0) || (i < 0 && i2 > 0);
     }
 

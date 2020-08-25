@@ -9,11 +9,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.UtilHelper;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PersonEmptyView extends LinearLayout {
-    private ImageView fGi;
-    private TextView fGj;
-    private TextView fGk;
+    private TextView fRA;
+    private TextView fRB;
+    private ImageView fRz;
 
     public PersonEmptyView(Context context) {
         super(context);
@@ -33,33 +33,33 @@ public class PersonEmptyView extends LinearLayout {
     private void init() {
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(a.h.ala_person_empty_view, this);
-        this.fGi = (ImageView) findViewById(a.g.empty_image);
+        this.fRz = (ImageView) findViewById(a.g.empty_image);
         if (UtilHelper.getRealScreenOrientation(getContext()) == 2) {
-            ViewGroup.LayoutParams layoutParams = this.fGi.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.fRz.getLayoutParams();
             layoutParams.height = (int) getContext().getResources().getDimension(a.e.sdk_ds250);
             layoutParams.width = (int) getContext().getResources().getDimension(a.e.sdk_ds334);
-            this.fGi.setPadding(0, (int) getContext().getResources().getDimension(a.e.sdk_ds64), 0, 0);
-            this.fGi.setLayoutParams(layoutParams);
+            this.fRz.setPadding(0, (int) getContext().getResources().getDimension(a.e.sdk_ds64), 0, 0);
+            this.fRz.setLayoutParams(layoutParams);
         }
-        this.fGj = (TextView) findViewById(a.g.empty_text);
-        this.fGk = (TextView) findViewById(a.g.empty_sub_text);
+        this.fRA = (TextView) findViewById(a.g.empty_text);
+        this.fRB = (TextView) findViewById(a.g.empty_sub_text);
     }
 
     public void setParams(int i, int i2, int i3) {
         if (i != -1) {
-            this.fGi.setImageResource(i);
+            this.fRz.setImageResource(i);
         } else {
-            this.fGi.setVisibility(8);
+            this.fRz.setVisibility(8);
         }
         if (i2 != -1) {
-            this.fGj.setText(i2);
+            this.fRA.setText(i2);
         } else {
-            this.fGj.setVisibility(8);
+            this.fRA.setVisibility(8);
         }
         if (i3 != -1) {
-            this.fGk.setText(i3);
+            this.fRB.setText(i3);
         } else {
-            this.fGk.setVisibility(8);
+            this.fRB.setVisibility(8);
         }
     }
 }

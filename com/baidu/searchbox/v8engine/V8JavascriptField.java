@@ -7,6 +7,6 @@ import java.lang.annotation.Target;
 @Target({ElementType.FIELD})
 @NotProguard
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public @interface V8JavascriptField {
 }

@@ -9,7 +9,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.Anti;
 import tbclient.DeleteThreadInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class AntiData implements Serializable {
     private static final long serialVersionUID = 2355009973517935888L;
     private String block_forum_id;
@@ -21,11 +21,13 @@ public class AntiData implements Serializable {
     private int hide_stat;
     private int ifpost;
     private int ifposta;
+    private boolean isSexyForum;
     public BlockPopInfoData mFrsForbidenDialogInfo;
     private int need_vcode;
     private int pollLevel;
     private String poll_message;
     private String tbs;
+    private String teenModeInterval;
     private String user_id;
     private String user_name;
     private String vcode_md5;
@@ -38,6 +40,7 @@ public class AntiData implements Serializable {
     private int ifvoice = 1;
     private int ifaddition = 0;
     public int replyPrivateFlag = 1;
+    private boolean canGoods = false;
 
     public boolean isIfvoice() {
         return this.ifvoice == 1;
@@ -204,6 +207,9 @@ public class AntiData implements Serializable {
             }
             this.replyPrivateFlag = anti.reply_private_flag.intValue();
             this.pollLevel = anti.poll_level.intValue();
+            this.isSexyForum = anti.is_sexyforum.booleanValue();
+            this.teenModeInterval = anti.teenmode_interval;
+            this.canGoods = anti.can_goods.intValue() == 1;
         }
     }
 
@@ -251,6 +257,8 @@ public class AntiData implements Serializable {
                 }
                 this.replyPrivateFlag = jSONObject.optInt("reply_private_flag", 1);
                 this.pollLevel = jSONObject.optInt("poll_level", 0);
+                this.isSexyForum = jSONObject.optBoolean("is_sexyforum", false);
+                this.teenModeInterval = jSONObject.optString("teenmode_interval", "");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -290,6 +298,8 @@ public class AntiData implements Serializable {
             }
             jSONObject.put("reply_private_flag", this.replyPrivateFlag);
             jSONObject.put("poll_level", this.pollLevel);
+            jSONObject.put("is_sexyforum", this.isSexyForum);
+            jSONObject.put("teenmode_interval", this.teenModeInterval);
             return jSONObject.toString();
         } catch (JSONException e) {
             BdLog.e(e.getMessage());
@@ -323,5 +333,17 @@ public class AntiData implements Serializable {
 
     public void setPollLevel(int i) {
         this.pollLevel = i;
+    }
+
+    public boolean isSexyForum() {
+        return this.isSexyForum;
+    }
+
+    public String getTeenModeInterval() {
+        return this.teenModeInterval;
+    }
+
+    public boolean getCanGoods() {
+        return this.canGoods;
     }
 }

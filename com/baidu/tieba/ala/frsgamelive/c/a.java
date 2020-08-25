@@ -2,15 +2,15 @@ package com.baidu.tieba.ala.frsgamelive.c;
 
 import android.view.View;
 import android.widget.TextView;
-import com.baidu.adp.widget.ListView.ad;
+import com.baidu.adp.widget.ListView.af;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class a extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.a> {
-    private TextView fMj;
-    private TextView fMk;
+    private TextView fYh;
+    private TextView fYi;
     private int mSkinType;
     private TbPageContext mTbPageContext;
 
@@ -19,16 +19,16 @@ public class a extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.
         this.mSkinType = 3;
         this.mTbPageContext = tbPageContext;
         View view = getView();
-        this.fMj = (TextView) view.findViewById(R.id.frs_game_live_recommand1);
-        this.fMk = (TextView) view.findViewById(R.id.frs_game_live_recommand2);
+        this.fYh = (TextView) view.findViewById(R.id.frs_game_live_recommand1);
+        this.fYi = (TextView) view.findViewById(R.id.frs_game_live_recommand2);
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ao.setViewTextColor(this.fMj, R.color.cp_cont_d);
-            ao.setViewTextColor(this.fMk, R.color.cp_cont_d);
+            ap.setViewTextColor(this.fYh, (int) R.color.cp_cont_d);
+            ap.setViewTextColor(this.fYi, (int) R.color.cp_cont_d);
             this.mSkinType = i;
         }
     }
@@ -50,12 +50,12 @@ public class a extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.
 
     /* renamed from: com.baidu.tieba.ala.frsgamelive.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0556a extends ad.a {
-        public a fMl;
+    public static class C0603a extends af.a {
+        public a fYj;
 
-        public C0556a(a aVar) {
+        public C0603a(a aVar) {
             super(aVar.getView());
-            this.fMl = aVar;
+            this.fYj = aVar;
         }
     }
 }

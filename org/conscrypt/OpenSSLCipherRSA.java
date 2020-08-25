@@ -33,7 +33,7 @@ import javax.crypto.spec.SecretKeySpec;
 import org.conscrypt.EvpMdRef;
 import org.conscrypt.NativeRef;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public abstract class OpenSSLCipherRSA extends CipherSpi {
     private byte[] buffer;
     private int bufferOffset;
@@ -284,7 +284,7 @@ public abstract class OpenSSLCipherRSA extends CipherSpi {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes12.dex */
     public static abstract class DirectRSA extends OpenSSLCipherRSA {
         public DirectRSA(int i) {
             super(i);
@@ -314,21 +314,21 @@ public abstract class OpenSSLCipherRSA extends CipherSpi {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes12.dex */
     public static final class PKCS1 extends DirectRSA {
         public PKCS1() {
             super(1);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes12.dex */
     public static final class Raw extends DirectRSA {
         public Raw() {
             super(3);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes12.dex */
     static class OAEP extends OpenSSLCipherRSA {
         private byte[] label;
         private long mgf1Md;
@@ -459,35 +459,35 @@ public abstract class OpenSSLCipherRSA extends CipherSpi {
             return this.encrypting ? NativeCrypto.EVP_PKEY_encrypt(this.pkeyCtx, bArr2, 0, bArr, 0, bArr.length) : NativeCrypto.EVP_PKEY_decrypt(this.pkeyCtx, bArr2, 0, bArr, 0, bArr.length);
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes12.dex */
         public static final class SHA1 extends OAEP {
             public SHA1() {
                 super(EvpMdRef.SHA1.EVP_MD, EvpMdRef.SHA1.SIZE_BYTES);
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes12.dex */
         public static final class SHA224 extends OAEP {
             public SHA224() {
                 super(EvpMdRef.SHA224.EVP_MD, EvpMdRef.SHA224.SIZE_BYTES);
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes12.dex */
         public static final class SHA256 extends OAEP {
             public SHA256() {
                 super(EvpMdRef.SHA256.EVP_MD, EvpMdRef.SHA256.SIZE_BYTES);
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes12.dex */
         public static final class SHA384 extends OAEP {
             public SHA384() {
                 super(EvpMdRef.SHA384.EVP_MD, EvpMdRef.SHA384.SIZE_BYTES);
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes12.dex */
         public static final class SHA512 extends OAEP {
             public SHA512() {
                 super(EvpMdRef.SHA512.EVP_MD, EvpMdRef.SHA512.SIZE_BYTES);

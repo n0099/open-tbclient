@@ -1,28 +1,28 @@
 package com.baidu.platform.comapi.walknavi.segmentbrowse;
 
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class a {
     private String a;
     private String b;
-    private ArrayList<com.baidu.platform.comapi.walknavi.segmentbrowse.widget.c> c = new ArrayList<>();
-    private ArrayList<com.baidu.platform.comapi.walknavi.segmentbrowse.widget.c> d = new ArrayList<>();
+    private ArrayList<com.baidu.platform.comapi.walknavi.segmentbrowse.widget.b> c = new ArrayList<>();
+    private ArrayList<com.baidu.platform.comapi.walknavi.segmentbrowse.widget.b> d = new ArrayList<>();
     private int e;
     private int f;
 
-    public ArrayList<com.baidu.platform.comapi.walknavi.segmentbrowse.widget.c> a() {
+    public ArrayList<com.baidu.platform.comapi.walknavi.segmentbrowse.widget.b> a() {
         return this.c;
     }
 
-    public void a(ArrayList<com.baidu.platform.comapi.walknavi.segmentbrowse.widget.c> arrayList) {
+    public void a(ArrayList<com.baidu.platform.comapi.walknavi.segmentbrowse.widget.b> arrayList) {
         this.c = arrayList;
     }
 
-    public ArrayList<com.baidu.platform.comapi.walknavi.segmentbrowse.widget.c> b() {
+    public ArrayList<com.baidu.platform.comapi.walknavi.segmentbrowse.widget.b> b() {
         return this.d;
     }
 
-    public void b(ArrayList<com.baidu.platform.comapi.walknavi.segmentbrowse.widget.c> arrayList) {
+    public void b(ArrayList<com.baidu.platform.comapi.walknavi.segmentbrowse.widget.b> arrayList) {
         this.d = arrayList;
     }
 

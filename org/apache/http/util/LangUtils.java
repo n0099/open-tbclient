@@ -1,6 +1,6 @@
 package org.apache.http.util;
 @Deprecated
-/* loaded from: classes20.dex */
+/* loaded from: classes9.dex */
 public final class LangUtils {
     public static final int HASH_OFFSET = 37;
     public static final int HASH_SEED = 17;

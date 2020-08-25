@@ -1,45 +1,25 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.tbadkCore.data.PostData;
-import java.util.List;
-import tbclient.PbPage.RecommendBook;
-/* loaded from: classes.dex */
-public class ay extends PostData {
-    public static final BdUniqueId dPY = BdUniqueId.gen();
-    public int dOd;
-    public String dOr;
-    public String dOs;
-    public String dOt;
-    public String dPZ;
-    public String dQa;
-    public String dQb;
-    public List<String> dQc;
-    public String dQd;
-    public String dQe;
+import tbclient.PbPage.NewsInfo;
+/* loaded from: classes2.dex */
+public class ay {
+    public String buttonText;
+    public int dEg;
+    public String dZp;
+    public String dZq;
+    public int position = 0;
+    public String subtitle;
+    public String summary;
 
-    public void a(RecommendBook recommendBook) {
-        if (recommendBook != null) {
-            this.dPZ = recommendBook.recommend_text;
-            this.dQa = recommendBook.suggest_text;
-            this.dQb = recommendBook.suggest_url;
-            this.dOr = recommendBook.book_id;
-            this.dOd = recommendBook.book_type.intValue();
-            this.dOt = recommendBook.book_cover;
-            this.dOs = recommendBook.book_title;
-            this.dQc = recommendBook.book_tips;
-            this.dQd = recommendBook.botton_text;
-            this.dQe = recommendBook.subscript_icon;
+    public void a(NewsInfo newsInfo) {
+        if (newsInfo != null) {
+            this.dZp = newsInfo.news_link;
+            this.summary = newsInfo.summary;
+            this.position = newsInfo.position.intValue();
+            this.dEg = newsInfo.news_type.intValue();
+            this.dZq = newsInfo.news_icon;
+            this.subtitle = newsInfo.subtitle;
+            this.buttonText = newsInfo.button_text;
         }
-    }
-
-    public boolean hasData() {
-        return (this == null || StringUtils.isNull(this.dOr)) ? false : true;
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.q
-    public BdUniqueId getType() {
-        return dPY;
     }
 }

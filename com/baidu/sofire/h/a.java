@@ -7,10 +7,9 @@ import android.os.Message;
 import android.text.TextUtils;
 import com.baidu.sofire.b;
 import com.baidu.sofire.e;
-import com.baidu.sofire.i.d;
-import com.baidu.sofire.i.f;
-import com.baidu.sofire.i.l;
-import com.baidu.sofire.i.o;
+import com.baidu.sofire.i.g;
+import com.baidu.sofire.i.m;
+import com.baidu.sofire.i.p;
 import com.baidu.sofire.rp.receiver.Receiver;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,18 +17,19 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes20.dex */
 public final class a {
-    e a;
+    public static long d = 0;
+    public e a;
     public Context b;
-    com.baidu.sofire.g.a c;
-    public Receiver d;
-    private HandlerC0286a e = new HandlerC0286a(l.a());
+    public Receiver c;
+    private HandlerC0321a e = new HandlerC0321a(m.a());
+    private com.baidu.sofire.g.a f;
 
     public a(Context context) {
         this.b = context.getApplicationContext();
         this.a = new e(this.b);
-        this.c = new com.baidu.sofire.g.a(this.b);
+        this.f = new com.baidu.sofire.g.a(this.b);
     }
 
     public final void a(Message message) {
@@ -38,9 +38,9 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.sofire.h.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class HandlerC0286a extends Handler {
-        public HandlerC0286a(Looper looper) {
+    /* loaded from: classes20.dex */
+    public class HandlerC0321a extends Handler {
+        public HandlerC0321a(Looper looper) {
             super(looper);
         }
 
@@ -49,131 +49,106 @@ public final class a {
             try {
                 switch (message.what) {
                     case 0:
-                        a.a(a.this);
-                        return;
+                        a.c(a.this);
+                        break;
                     case 1:
                         com.baidu.sofire.e.a.a(a.this.b).a((com.baidu.sofire.f.a) message.obj);
                         b.a();
                         Message message2 = new Message();
                         message2.what = 10;
                         sendMessage(message2);
-                        return;
+                        break;
                     case 2:
                         b.a();
-                        a.a(a.this);
-                        a.a(a.this, 0, d.m(a.this.b));
-                        return;
-                    case 3:
-                        com.baidu.sofire.d.a aVar = (com.baidu.sofire.d.a) message.obj;
-                        if (aVar != null) {
-                            a aVar2 = a.this;
-                            String d = aVar2.a.d(aVar.e);
-                            com.baidu.sofire.f.a aVar3 = new com.baidu.sofire.f.a();
-                            aVar3.b = aVar.e;
-                            aVar3.g = 0;
-                            aVar3.c = 1;
-                            aVar3.e = System.currentTimeMillis();
-                            aVar3.f = 1;
-                            aVar3.d = d.a(aVar2.b, aVar, d, false).toString();
-                            com.baidu.sofire.e.a.a(aVar2.b).a(aVar3);
-                            e eVar = aVar2.a;
-                            eVar.f.putBoolean("re_net_ins_" + aVar.e, true);
-                            eVar.f.commit();
-                            String a = o.a(d.l(aVar2.b).toString());
-                            if (!com.baidu.sofire.e.a.a(aVar2.b).b(a)) {
-                                return;
-                            }
-                            aVar3.b = "1001001";
-                            aVar3.d = d.a(aVar2.b, aVar.a, aVar.c, aVar3.b, d.l(aVar2.b).toString()).toString();
-                            com.baidu.sofire.e.a.a(aVar2.b).a(aVar3);
-                            com.baidu.sofire.e.a.a(aVar2.b).a(a);
-                            return;
-                        }
-                        return;
+                        a.c(a.this);
+                        a.a(a.this, 0, com.baidu.sofire.i.e.m(a.this.b));
+                        break;
                     case 4:
                         String valueOf = String.valueOf(message.obj);
                         if (!TextUtils.isEmpty(valueOf)) {
-                            com.baidu.sofire.e.a.a(a.this.b).a(o.a(valueOf));
-                            return;
+                            com.baidu.sofire.e.a.a(a.this.b).a(p.a(valueOf));
+                            break;
                         }
-                        return;
+                        break;
                     case 5:
-                        a aVar4 = a.this;
-                        e eVar2 = new e(aVar4.b);
-                        int y = eVar2.y();
-                        new StringBuilder(" 2").append(Integer.toString(y));
-                        b.a();
-                        long currentTimeMillis = System.currentTimeMillis() - eVar2.e.getLong("re_last_ofline_time", 0L);
-                        if (currentTimeMillis >= y * 3600000) {
-                            f.a(aVar4.b).c();
-                            d.a(aVar4.b, y * 3600000);
-                            eVar2.b(System.currentTimeMillis());
-                        } else {
-                            d.a(aVar4.b, (y * 3600000) - currentTimeMillis);
-                        }
+                        com.baidu.sofire.j.a.a().a(a.this.b, null);
+                        a.b(a.this);
                         Message message3 = new Message();
                         message3.what = 10;
                         sendMessage(message3);
-                        return;
+                        break;
                     case 6:
-                        a.a(a.this, 1, d.m(a.this.b));
-                        return;
+                        int m = com.baidu.sofire.i.e.m(a.this.b);
+                        if (2 == m) {
+                            a.a(a.this, 0, m);
+                            break;
+                        } else {
+                            a.a(a.this, 1, m);
+                            break;
+                        }
                     case 7:
-                        a.a(a.this);
-                        a.a(a.this, 1, d.m(a.this.b));
-                        return;
+                        a.c(a.this);
+                        int m2 = com.baidu.sofire.i.e.m(a.this.b);
+                        if (2 == m2) {
+                            a.a(a.this, 0, m2);
+                            break;
+                        } else {
+                            a.a(a.this, 1, m2);
+                            break;
+                        }
                     case 8:
-                        a.a(a.this, 3, d.m(a.this.b));
-                        return;
+                        a.a(a.this, 3, com.baidu.sofire.i.e.m(a.this.b));
+                        break;
                     case 9:
                         a.a(a.this, 0, 2);
-                        return;
+                        break;
                     case 10:
-                        int m = d.m(a.this.b);
-                        if (2 == m) {
+                        int m3 = com.baidu.sofire.i.e.m(a.this.b);
+                        if (2 == m3) {
                             b.a();
-                            if (com.baidu.sofire.e.a.a(a.this.b).b() >= new e(a.this.b).e.getInt("up_nu_co", 50)) {
+                            if (com.baidu.sofire.e.a.a(a.this.b).b() < new e(a.this.b).e.getInt("up_nu_co", 50)) {
+                                List<com.baidu.sofire.f.a> a = com.baidu.sofire.e.a.a(a.this.b).a(true, m3);
+                                new StringBuilder(" Dela ").append(a.size());
                                 b.a();
-                                a.a(a.this, 0, m);
-                                return;
-                            }
-                            List<com.baidu.sofire.f.a> a2 = com.baidu.sofire.e.a.a(a.this.b).a(true, m);
-                            new StringBuilder(" Dela ").append(a2.size());
-                            b.a();
-                            if (a2.size() > 0) {
+                                if (a.size() > 0) {
+                                    b.a();
+                                    a.a(a.this, 0, m3);
+                                    break;
+                                }
+                            } else {
                                 b.a();
-                                a.a(a.this, 0, m);
-                                return;
+                                a.a(a.this, 0, m3);
+                                break;
                             }
-                            return;
-                        } else if (1 == m) {
+                        } else if (1 == m3) {
                             b.a();
-                            a.a(a.this, 4, m);
-                            return;
-                        } else {
-                            return;
+                            a.a(a.this, 4, m3);
+                            break;
                         }
+                        break;
                     case 11:
                         String valueOf2 = String.valueOf(message.obj);
-                        JSONObject a3 = d.a(a.this.b, new JSONObject(valueOf2));
-                        com.baidu.sofire.g.a aVar5 = a.this.c;
-                        String jSONArray = new JSONArray().put(a3).toString();
-                        a.a(new JSONObject(valueOf2));
-                        if (!aVar5.a(jSONArray)) {
-                            d.a(a.this.b, valueOf2);
-                            return;
+                        JSONObject a2 = com.baidu.sofire.i.e.a(a.this.b, new JSONObject(valueOf2));
+                        com.baidu.sofire.g.a aVar = a.this.f;
+                        String jSONArray = new JSONArray().put(a2).toString();
+                        a.b(new JSONObject(valueOf2));
+                        if (!aVar.a(jSONArray)) {
+                            com.baidu.sofire.i.e.a(a.this.b, valueOf2);
+                            break;
                         }
-                        return;
-                    default:
-                        return;
+                        break;
                 }
             } catch (Throwable th) {
-                d.a();
+                com.baidu.sofire.i.e.a();
             }
         }
     }
 
-    static String a(JSONObject jSONObject) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public static String b(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return null;
+        }
         try {
             JSONObject jSONObject2 = jSONObject.getJSONObject("Common_section");
             if (jSONObject2 == null || !jSONObject2.has("12")) {
@@ -181,17 +156,17 @@ public final class a {
             }
             return jSONObject2.optString("12", "");
         } catch (Throwable th) {
-            d.a();
+            com.baidu.sofire.i.e.a();
             return null;
         }
     }
 
     private static boolean a() {
-        if (com.baidu.sofire.e.a.a > 0 && System.currentTimeMillis() - com.baidu.sofire.e.a.a < 600000) {
-            return false;
-        }
-        if (System.currentTimeMillis() - com.baidu.sofire.e.a.a > 600000) {
-            com.baidu.sofire.e.a.a = 0L;
+        if (d > 0) {
+            if (System.currentTimeMillis() - d < 300000) {
+                return false;
+            }
+            d = 0L;
         }
         return true;
     }
@@ -218,15 +193,15 @@ public final class a {
             }
             com.baidu.sofire.f.a next = it.next();
             try {
-                String jSONObject2 = d.a(this.b, new JSONObject(next.d)).toString();
+                String jSONObject2 = com.baidu.sofire.i.e.a(this.b, new JSONObject(next.d)).toString();
                 try {
                     jSONObject = new JSONObject(jSONObject2);
                     length = jSONObject2.length();
                 } catch (Exception e) {
-                    d.a();
+                    com.baidu.sofire.i.e.a();
                 }
             } catch (Exception e2) {
-                d.a();
+                com.baidu.sofire.i.e.a();
             }
             if (i4 + length >= 1048576 * i3) {
                 new StringBuilder().append(i3).append(" : ").append(i4 + length);
@@ -275,14 +250,22 @@ public final class a {
             }
             i2 = i5 + 1;
         }
-        if (jSONArray.length() > 0 && this.c.a(jSONArray.toString())) {
-            com.baidu.sofire.e.a.a(this.b).a(arrayList3);
+        if (jSONArray.length() > 0) {
+            if (this.f.a(jSONArray.toString())) {
+                com.baidu.sofire.e.a.a(this.b).a(arrayList3);
+            } else {
+                d = System.currentTimeMillis();
+            }
         }
         if (hashMap.size() > 0) {
             for (String str2 : hashMap.keySet()) {
                 JSONArray jSONArray4 = (JSONArray) hashMap.get(str2);
-                if (jSONArray4 != null && jSONArray4.length() > 0 && this.c.a(jSONArray4.toString())) {
-                    com.baidu.sofire.e.a.a(this.b).a((List) hashMap2.get(str2));
+                if (jSONArray4 != null && jSONArray4.length() > 0) {
+                    if (this.f.a(jSONArray4.toString())) {
+                        com.baidu.sofire.e.a.a(this.b).a((List) hashMap2.get(str2));
+                    } else {
+                        d = System.currentTimeMillis();
+                    }
                 }
             }
         }
@@ -315,38 +298,57 @@ public final class a {
         }
     }
 
-    static /* synthetic */ void a(a aVar) {
+    public final synchronized void a(com.baidu.sofire.d.a aVar) {
+        String string = this.a.e.getString("re_net_ali2_" + aVar.d, "");
+        String c = com.baidu.sofire.i.e.c();
+        if (!string.equals(c)) {
+            String d2 = this.a.d(aVar.d);
+            com.baidu.sofire.f.a aVar2 = new com.baidu.sofire.f.a();
+            aVar2.b = aVar.d;
+            aVar2.g = 0;
+            aVar2.c = 2;
+            aVar2.e = System.currentTimeMillis();
+            aVar2.f = 1;
+            aVar2.i = 5;
+            aVar2.d = com.baidu.sofire.i.e.a(this.b, aVar, d2, true).toString();
+            com.baidu.sofire.e.a.a(this.b).a(aVar2);
+            String a = p.a(com.baidu.sofire.i.e.l(this.b).toString());
+            if (com.baidu.sofire.e.a.a(this.b).b(a)) {
+                aVar2.b = "1001001";
+                aVar2.i = 0;
+                aVar2.d = com.baidu.sofire.i.e.a(this.b, aVar.a, aVar.c, aVar2.b, com.baidu.sofire.i.e.l(this.b).toString()).toString();
+                com.baidu.sofire.e.a.a(this.b).a(aVar2);
+                com.baidu.sofire.e.a.a(this.b).a(a);
+            }
+            e eVar = this.a;
+            eVar.f.putString("re_net_ali2_" + aVar.d, c);
+            eVar.f.commit();
+        }
+    }
+
+    static /* synthetic */ void b(a aVar) {
+        e eVar = new e(aVar.b);
+        int y = eVar.y();
+        new StringBuilder(" 2").append(Integer.toString(y));
+        b.a();
+        long currentTimeMillis = System.currentTimeMillis() - eVar.e.getLong("re_last_ofline_time", 0L);
+        if (currentTimeMillis >= y * 3600000) {
+            g.a(aVar.b).c();
+            com.baidu.sofire.i.e.a(aVar.b, y * 3600000);
+            eVar.b(System.currentTimeMillis());
+            return;
+        }
+        com.baidu.sofire.i.e.a(aVar.b, (y * 3600000) - currentTimeMillis);
+    }
+
+    static /* synthetic */ void c(a aVar) {
         List<com.baidu.sofire.d.a> x = aVar.a.x();
         if (x == null) {
             return;
         }
         for (com.baidu.sofire.d.a aVar2 : x) {
             if (aVar.a(aVar.a.e.getString("li_pk_s", ""), aVar2.b)) {
-                String string = aVar.a.e.getString("re_net_ali2_" + aVar2.d, "");
-                String c = d.c();
-                if (!string.equals(c)) {
-                    String d = aVar.a.d(aVar2.d);
-                    com.baidu.sofire.f.a aVar3 = new com.baidu.sofire.f.a();
-                    aVar3.b = aVar2.d;
-                    aVar3.g = 0;
-                    aVar3.c = 2;
-                    aVar3.e = System.currentTimeMillis();
-                    aVar3.f = 1;
-                    aVar3.i = 5;
-                    aVar3.d = d.a(aVar.b, aVar2, d, true).toString();
-                    com.baidu.sofire.e.a.a(aVar.b).a(aVar3);
-                    String a = o.a(d.l(aVar.b).toString());
-                    if (com.baidu.sofire.e.a.a(aVar.b).b(a)) {
-                        aVar3.b = "1001001";
-                        aVar3.i = 0;
-                        aVar3.d = d.a(aVar.b, aVar2.a, aVar2.c, aVar3.b, d.l(aVar.b).toString()).toString();
-                        com.baidu.sofire.e.a.a(aVar.b).a(aVar3);
-                        com.baidu.sofire.e.a.a(aVar.b).a(a);
-                    }
-                    e eVar = aVar.a;
-                    eVar.f.putString("re_net_ali2_" + aVar2.d, c);
-                    eVar.f.commit();
-                }
+                aVar.a(aVar2);
             }
         }
     }

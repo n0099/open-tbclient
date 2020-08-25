@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import protobuf.CommitReceivedPmsg.CommitReceivedPmsgResIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ResponsedPersonalMsgReadMessage extends TbSocketReponsedMessage {
     private long groupId;
     private long hasSentMsgId;

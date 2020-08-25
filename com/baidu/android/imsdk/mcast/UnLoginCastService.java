@@ -2,6 +2,7 @@ package com.baidu.android.imsdk.mcast;
 
 import android.content.Context;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
+import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.mcast.ParseM3u8;
 import com.baidu.android.imsdk.mcast.UpMessageManager;
@@ -17,7 +18,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class UnLoginCastService {
     static final int BACKPLAY = 1;
     static final int NOWPLAY = 0;
@@ -135,7 +136,7 @@ public class UnLoginCastService {
                             }
                         }
                     }
-                }, 3000L);
+                }, IMConnection.RETRY_DELAY_TIMES);
                 return true;
             }
         }
@@ -387,7 +388,7 @@ public class UnLoginCastService {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public class Uptask extends UpMessageManager.Task {
         public Uptask(String str, String str2) {
             super(str, str2);

@@ -2,13 +2,13 @@ package com.baidu.tbadk.m;
 
 import com.baidu.adp.lib.util.StringUtils;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class d {
     private String abTag;
     private String currentPageKey;
-    public String eGC;
-    private String eGD;
-    public String eGE;
+    public String eRi;
+    private String eRj;
+    public String eRk;
     private long fid;
     public boolean isRouteStat = false;
     public String isVertical;
@@ -75,6 +75,10 @@ public class d {
         return this.pid;
     }
 
+    public void setPid(long j) {
+        this.pid = j;
+    }
+
     public long getStayDurationTime() {
         return this.stayDurationTime;
     }
@@ -91,20 +95,20 @@ public class d {
         return this.task_id;
     }
 
-    public String blk() {
+    public String btX() {
         return this.abTag;
     }
 
-    public void Ae(String str) {
+    public void Cu(String str) {
         this.abTag = str;
     }
 
-    public String bll() {
-        return this.eGD;
+    public String btY() {
+        return this.eRj;
     }
 
-    public void Af(String str) {
-        this.eGD = str;
+    public void Cv(String str) {
+        this.eRj = str;
     }
 
     public boolean isDirtyData() {

@@ -1,5 +1,5 @@
 package com.baidu.platform.domain;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class a implements c {
     @Override // com.baidu.platform.domain.c
     public String a() {
@@ -63,7 +63,7 @@ public class a implements c {
 
     @Override // com.baidu.platform.domain.c
     public String m() {
-        return "http://api.map.baidu.com/sdkproxy/lbs_androidsdk/phpui/v1/";
+        return "http://api.map.baidu.com/sdkproxy/lbs_androidsdk/phpui2/v1/";
     }
 
     @Override // com.baidu.platform.domain.c

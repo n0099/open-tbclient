@@ -3,7 +3,7 @@ package com.baidu.tbadk.data;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.UserManChannelInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class UserVideoChannelInfoData implements Serializable {
     private static final long serialVersionUID = 1412620310378110L;
     private int followChannel;

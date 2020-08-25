@@ -1,19 +1,16 @@
 package com.baidu.swan.games.m.a;
 
-import com.baidu.swan.games.screenrecord.a.d;
-/* loaded from: classes7.dex */
+import android.content.Context;
+import android.view.View;
+import com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView;
+/* loaded from: classes8.dex */
 public class c implements com.baidu.swan.games.m.b.c {
     @Override // com.baidu.swan.games.m.b.c
-    public void a(d dVar, com.baidu.swan.games.screenrecord.a.c cVar) {
-        if (cVar != null) {
-            cVar.a(dVar, "Method 'clipVideo' is not implemented.");
-        }
+    public View a(Context context, GameCloseGuidePopView.a aVar) {
+        return null;
     }
 
     @Override // com.baidu.swan.games.m.b.c
-    public void a(com.baidu.swan.games.u.b.c cVar, com.baidu.swan.games.u.b.b bVar) {
-        if (bVar != null) {
-            bVar.a(cVar, "Method 'shareVideo' is not implemented.");
-        }
+    public void release() {
     }
 }

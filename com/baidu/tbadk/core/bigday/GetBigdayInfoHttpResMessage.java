@@ -7,7 +7,7 @@ import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import tbclient.GetBigday.BigdayInfo;
 import tbclient.GetBigday.GetBigdayResIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class GetBigdayInfoHttpResMessage extends HttpResponsedMessage {
     public ArrayList<a> bigdayInfos;
 
@@ -30,7 +30,7 @@ public class GetBigdayInfoHttpResMessage extends HttpResponsedMessage {
                     if (bigdayInfo != null) {
                         a aVar = new a();
                         aVar.a(bigdayInfo);
-                        if (aVar.aTC()) {
+                        if (aVar.bbT()) {
                             this.bigdayInfos.add(aVar);
                         }
                     }
@@ -44,9 +44,9 @@ public class GetBigdayInfoHttpResMessage extends HttpResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         super.afterDispatchInBackGround(i, (int) bArr);
         if (bArr != null) {
-            l<byte[]> xi = com.baidu.tbadk.core.c.a.aYG().xi("tb.bigday_datas");
-            xi.remove("tb.bigday_datas");
-            xi.setForever("tb.bigday_datas", bArr);
+            l<byte[]> zw = com.baidu.tbadk.core.c.a.bhb().zw("tb.bigday_datas");
+            zw.remove("tb.bigday_datas");
+            zw.setForever("tb.bigday_datas", bArr);
         }
     }
 }

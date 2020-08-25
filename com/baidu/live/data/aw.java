@@ -1,19 +1,22 @@
 package com.baidu.live.data;
 
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class aw {
-    public JSONObject aDS;
-    public JSONObject aDT;
+    public int aIY;
+    public int aIZ;
+    public int aJa;
+    public String aJb;
 
-    public aw(JSONObject jSONObject) {
-        parseData(jSONObject);
-    }
-
-    private void parseData(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.aDS = jSONObject.optJSONObject("bubble_effect");
-            this.aDT = jSONObject.optJSONObject("nickname_effect");
+    public static aw B(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return null;
         }
+        aw awVar = new aw();
+        awVar.aIY = jSONObject.optInt("supernatant_time") * 1000;
+        awVar.aIZ = jSONObject.optInt("suoernatant_shownum");
+        awVar.aJa = jSONObject.optInt("pop_window_time") * 1000;
+        awVar.aJb = jSONObject.optString("guide_follow_text");
+        return awVar;
     }
 }

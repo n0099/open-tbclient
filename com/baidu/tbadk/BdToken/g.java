@@ -6,21 +6,21 @@ import com.baidu.tieba.R;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.DecryptCode.DataRes;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class g {
-    public String dGx;
-    public Integer dGy;
+    public String dPF;
+    public Integer dPG;
     private int urlType;
     private static final String DEFAULT_TITLE = TbadkCoreApplication.getInst().getString(R.string.tb_token);
     private static final String DEFAULT_TIPS = TbadkCoreApplication.getInst().getString(R.string.tb_ai_apps_tips);
-    private static final String dGt = TbadkCoreApplication.getInst().getString(R.string.cancel);
-    private static final String dGu = TbadkCoreApplication.getInst().getString(R.string.check_immediately);
+    private static final String dPB = TbadkCoreApplication.getInst().getString(R.string.cancel);
+    private static final String dPC = TbadkCoreApplication.getInst().getString(R.string.check_immediately);
     private String title = "";
     private String img = "";
     private String tips = "";
     private String url = "";
-    private String dGv = "";
-    private String dGw = "";
+    private String dPD = "";
+    private String dPE = "";
     public String appId = "";
     public String appName = "";
 
@@ -36,15 +36,15 @@ public class g {
                     this.appId = jSONObject.optString("appid");
                     this.appName = jSONObject.optString("appname");
                     String optString = jSONObject.optString("url");
-                    this.dGy = Integer.valueOf(jSONObject.optInt("is_game"));
-                    this.url = com.baidu.tieba.aiapps.a.a(this.appId, optString, "9104", this.dGy);
-                    this.dGx = jSONObject.optString("swan_app_id");
+                    this.dPG = Integer.valueOf(jSONObject.optInt("is_game"));
+                    this.url = com.baidu.tieba.aiapps.a.a(this.appId, optString, "9104", this.dPG);
+                    this.dPF = jSONObject.optString("swan_app_id");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
-            this.dGv = StringUtils.isNull(dataRes.btn_sure) ? dGu : dataRes.btn_sure;
-            this.dGw = StringUtils.isNull(dataRes.btn_cancel) ? dGt : dataRes.btn_cancel;
+            this.dPD = StringUtils.isNull(dataRes.btn_sure) ? dPC : dataRes.btn_sure;
+            this.dPE = StringUtils.isNull(dataRes.btn_cancel) ? dPB : dataRes.btn_cancel;
         } else if (this.urlType == 2) {
             this.title = dataRes.title;
             this.url = dataRes.url;
@@ -53,8 +53,8 @@ public class g {
             this.title = dataRes.title;
             this.img = dataRes.img;
             this.tips = dataRes.tips;
-            this.dGv = dataRes.btn_sure;
-            this.dGw = dataRes.btn_cancel;
+            this.dPD = dataRes.btn_sure;
+            this.dPE = dataRes.btn_cancel;
         }
     }
 
@@ -74,15 +74,15 @@ public class g {
         return this.url;
     }
 
-    public String aQx() {
-        return this.dGv;
+    public String aYN() {
+        return this.dPD;
     }
 
-    public String aQy() {
-        return this.dGw;
+    public String aYO() {
+        return this.dPE;
     }
 
-    public int aQz() {
+    public int aYP() {
         return this.urlType;
     }
 }

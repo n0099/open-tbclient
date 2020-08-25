@@ -3,6 +3,7 @@ package com.baidu.mapsdkplatform.comapi;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
+import android.os.Process;
 import android.util.Log;
 import com.baidu.adp.plugin.install.PluginInstallerService;
 import java.io.File;
@@ -14,7 +15,7 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class NativeLoader {
     private static Context b;
     private static NativeLoader e;
@@ -26,7 +27,7 @@ public class NativeLoader {
     private static String h = null;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public enum a {
         ARMEABI("armeabi"),
         ARMV7("armeabi-v7a"),
@@ -195,7 +196,7 @@ public class NativeLoader {
     }
 
     private String b() {
-        File file = new File(b.getFilesDir(), "libs");
+        File file = new File(b.getFilesDir(), "libs" + File.separator + f.a());
         if (!file.exists()) {
             file.mkdirs();
         }
@@ -209,20 +210,20 @@ public class NativeLoader {
             if (c.contains(str)) {
                 z = true;
             } else {
-                switch (d.a[f.ordinal()]) {
-                    case 1:
+                switch (f) {
+                    case ARM64:
                         z = c(str, mapLibraryName);
                         break;
-                    case 2:
+                    case ARMV7:
                         z = a(str, mapLibraryName);
                         break;
-                    case 3:
+                    case ARMEABI:
                         z = b(str, mapLibraryName);
                         break;
-                    case 4:
+                    case X86_64:
                         z = e(str, mapLibraryName);
                         break;
-                    case 5:
+                    case X86:
                         z = d(str, mapLibraryName);
                         break;
                 }
@@ -238,7 +239,7 @@ public class NativeLoader {
         if (a(str2, a.ARMEABI)) {
             return f(str2, str);
         }
-        Log.e(a, "found lib" + str + ".so error");
+        Log.e(a, "found lib " + a.ARMEABI.a() + "/" + str + ".so error");
         return false;
     }
 
@@ -251,7 +252,7 @@ public class NativeLoader {
         if (str.contains("arm") && str.contains("v7")) {
             f = a.ARMV7;
         }
-        if (str.contains("arm") && str.contains("64")) {
+        if (str.contains("arm") && str.contains("64") && d()) {
             f = a.ARM64;
         }
         if (str.contains("x86")) {
@@ -268,6 +269,16 @@ public class NativeLoader {
         return !a(str2, a.ARM64) ? a(str, str2) : f(str2, str);
     }
 
+    private static boolean d() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            return Process.is64Bit();
+        }
+        if (Build.VERSION.SDK_INT >= 21) {
+            return Build.CPU_ABI.equals(Build.SUPPORTED_64_BIT_ABIS[0]);
+        }
+        return false;
+    }
+
     private boolean d(String str, String str2) {
         return !a(str2, a.X86) ? a(str, str2) : f(str2, str);
     }
@@ -282,6 +293,7 @@ public class NativeLoader {
             synchronized (c) {
                 c.add(str2);
             }
+            g(str, str2);
             return true;
         } catch (Throwable th) {
             synchronized (d) {
@@ -289,6 +301,25 @@ public class NativeLoader {
                 a(th);
                 return false;
             }
+        }
+    }
+
+    private void g(String str, String str2) {
+        if (str == null || str.isEmpty() || !str.contains("libBaiduMapSDK_")) {
+            return;
+        }
+        try {
+            String[] split = str.split("_v");
+            if (split.length > 1) {
+                File[] listFiles = new File(b()).listFiles(new d(this, split[1]));
+                if (listFiles == null || listFiles.length == 0) {
+                    return;
+                }
+                for (File file : listFiles) {
+                    file.delete();
+                }
+            }
+        } catch (Exception e2) {
         }
     }
 

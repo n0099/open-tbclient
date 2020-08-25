@@ -2,6 +2,7 @@ package com.baidu.sapi2.utils;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -22,9 +23,11 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Environment;
+import android.os.Process;
 import android.os.StatFs;
 import android.os.SystemClock;
 import android.provider.Settings;
+import android.provider.Telephony;
 import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
@@ -38,10 +41,7 @@ import com.baidu.android.util.devices.RomUtils;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.mobstat.Config;
 import com.baidu.pass.common.SecurityUtil;
-import com.baidu.pass.gid.BaiduGIDManager;
-import com.baidu.pass.gid.utils.Event;
-import com.baidu.pass.gid.utils.GIDEvent;
-import com.baidu.sapi2.SapiAccount;
+import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.SapiWebView;
@@ -52,6 +52,7 @@ import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.searchbox.account.contants.LoginConstants;
 import com.baidu.webkit.internal.ETAG;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -83,8 +84,8 @@ import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
-public class SapiUtils implements com.baidu.sapi2.c {
+/* loaded from: classes12.dex */
+public class SapiUtils implements NoProguard {
     public static final String COOKIE_HTTPS_URL_PREFIX = "https://";
     public static final String COOKIE_URL_PREFIX = "https://www.";
     public static final String KEY_QR_LOGIN_LP = "lp";
@@ -307,7 +308,7 @@ public class SapiUtils implements com.baidu.sapi2.c {
     }
 
     public static String getCookieBduss() {
-        return getCookie(j.a(j.l), "BDUSS");
+        return getCookie(f.a(f.l), "BDUSS");
     }
 
     public static String getCookiePtoken() {
@@ -335,6 +336,21 @@ public class SapiUtils implements com.baidu.sapi2.c {
 
     public static List<String> getCuidAuthorizedDomains() {
         return SapiContext.getInstance().getCuidAuthorizedDomains();
+    }
+
+    @TargetApi(3)
+    public static String getCurProcessName(Context context) {
+        try {
+            int myPid = Process.myPid();
+            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses()) {
+                if (runningAppProcessInfo.pid == myPid) {
+                    return runningAppProcessInfo.processName;
+                }
+            }
+        } catch (Throwable th) {
+            Log.e(th);
+        }
+        return "";
     }
 
     public static boolean getDefaultHttpsEnabled() {
@@ -409,14 +425,15 @@ public class SapiUtils implements com.baidu.sapi2.c {
         hashMap.put(SocialType.QQ_SSO.getName() + "", 6);
         hashMap.put(SocialType.HUAWEI.getName() + "", 10);
         hashMap.put("slient_share", 7);
-        hashMap.put(com.baidu.sapi2.share.m.i, 8);
-        hashMap.put(com.baidu.sapi2.share.m.j, 9);
+        hashMap.put(com.baidu.sapi2.share.b.j, 8);
+        hashMap.put(com.baidu.sapi2.share.b.k, 9);
         hashMap.put("oneKeyLogin", 12);
         hashMap.put("finger_account", 15);
         hashMap.put("CM", 16);
         hashMap.put("CU", 17);
         hashMap.put("CT", 18);
         hashMap.put(SapiWebView.SWITCH_ACCOUNT_PAGE, 19);
+        hashMap.put("naQrlogin", 20);
         if (hashMap.containsKey(string)) {
             return ((Integer) hashMap.get(string)).intValue();
         }
@@ -588,14 +605,16 @@ public class SapiUtils implements com.baidu.sapi2.c {
 
     public static String getWifiInfo(Context context) {
         String str;
+        String str2;
+        String str3;
         int i;
         int i2 = 0;
         StringBuffer stringBuffer = new StringBuffer();
         try {
             WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
             WifiInfo connectionInfo = ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol() ? wifiManager.getConnectionInfo() : null;
-            String str2 = "";
-            String str3 = "";
+            str2 = "";
+            str3 = "";
             if (connectionInfo != null) {
                 int abs = StrictMath.abs(connectionInfo.getRssi());
                 String ssid = connectionInfo.getSSID();
@@ -631,11 +650,14 @@ public class SapiUtils implements com.baidu.sapi2.c {
                     }
                 }
             }
-            str = !TextUtils.isEmpty(str2) ? d + str2 + e + i + e + str3 + e + '1' : "";
         } catch (Exception e2) {
             Log.e(e2);
-            str = "";
         }
+        if (!TextUtils.isEmpty(str2)) {
+            str = d + str2 + e + i + e + str3 + e + '1';
+            return str + stringBuffer.toString();
+        }
+        str = "";
         return str + stringBuffer.toString();
     }
 
@@ -750,10 +772,6 @@ public class SapiUtils implements com.baidu.sapi2.c {
         return (new File("/system/bin/su").exists() && a("/system/bin/su")) || (new File("/system/xbin/su").exists() && a("/system/xbin/su"));
     }
 
-    public static boolean isValidAccount(SapiAccount sapiAccount) {
-        return (sapiAccount == null || TextUtils.isEmpty(sapiAccount.bduss) || TextUtils.isEmpty(sapiAccount.uid) || TextUtils.isEmpty(sapiAccount.displayname)) ? false : true;
-    }
-
     public static boolean isValidPhoneNumber(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
@@ -823,7 +841,7 @@ public class SapiUtils implements com.baidu.sapi2.c {
                     hashMap2.put("islogin", "1");
                 }
                 hashMap2.put("client", "android");
-                t.a(t.a, hashMap2);
+                k.a(k.a, hashMap2);
             }
             return urlParamsToMap;
         } else {
@@ -838,6 +856,30 @@ public class SapiUtils implements com.baidu.sapi2.c {
     public static void resetSilentShareStatus() {
         if (SapiContext.getInstance().getCurrentAccount() == null) {
             SapiContext.getInstance().resetSilentShareStatus();
+        }
+    }
+
+    public static void sendSms(Context context, String str, List<String> list) {
+        String defaultSmsPackage;
+        String str2 = "";
+        String str3 = "Samsung".equalsIgnoreCase(Build.MANUFACTURER) ? Constants.ACCEPT_TIME_SEPARATOR_SP : ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR;
+        if (list != null && !list.isEmpty()) {
+            str2 = TextUtils.join(str3, list);
+        }
+        Uri parse = Uri.parse("smsto:" + str2);
+        Intent intent = new Intent();
+        intent.setData(parse);
+        intent.putExtra("sms_body", str);
+        intent.setAction("android.intent.action.SENDTO");
+        if (Build.VERSION.SDK_INT >= 19 && (defaultSmsPackage = Telephony.Sms.getDefaultSmsPackage(context)) != null) {
+            intent.setPackage(defaultSmsPackage);
+        }
+        if (!(context instanceof Activity)) {
+            intent.addFlags(268435456);
+        }
+        try {
+            context.startActivity(intent);
+        } catch (Exception e2) {
         }
     }
 
@@ -940,105 +982,121 @@ public class SapiUtils implements com.baidu.sapi2.c {
         return ServiceManager.getInstance().getIsAccountManager().getIsAccountService().webLogin(context, str);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [12=5, 16=4] */
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x0058, code lost:
-        if (r0 == null) goto L35;
+    public static boolean webLogin(Context context, String str, String str2) {
+        return ServiceManager.getInstance().getIsAccountManager().getIsAccountService().webLogin(context, str, str2);
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [40=4, 28=4] */
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x0058, code lost:
+        if (r0 == null) goto L33;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x005a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x005a, code lost:
         r0.destroy();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x005d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x005d, code lost:
         return false;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:42:0x007e, code lost:
-        if (r0 == null) goto L35;
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x006e, code lost:
+        if (r0 != null) goto L32;
      */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x0070  */
-    /* JADX WARN: Removed duplicated region for block: B:64:0x006b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x0088  */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x0083 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:65:0x006b A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private static boolean a(String str) {
-        BufferedReader bufferedReader;
-        IOException e2;
-        BufferedReader bufferedReader2;
         Process process;
-        Process process2 = null;
+        Process process2;
+        IOException e2;
+        BufferedReader bufferedReader;
+        BufferedReader bufferedReader2 = null;
         try {
-            process = Runtime.getRuntime().exec("ls -l " + str);
-        } catch (IOException e3) {
-            e2 = e3;
-            bufferedReader2 = null;
-            process = null;
-        } catch (Throwable th) {
-            th = th;
-            bufferedReader = null;
-        }
-        try {
-            bufferedReader2 = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            Process process3 = Runtime.getRuntime().exec("ls -l " + str);
             try {
+                bufferedReader = new BufferedReader(new InputStreamReader(process3.getInputStream()));
+            } catch (IOException e3) {
+                process2 = process3;
+                e = e3;
+                IOException iOException = e;
+                process3 = process2;
+                e2 = iOException;
                 try {
-                    String readLine = bufferedReader2.readLine();
-                    if (readLine != null && readLine.length() >= 4) {
-                        char charAt = readLine.charAt(3);
-                        if (charAt == 's' || charAt == 'x') {
-                            try {
-                                bufferedReader2.close();
-                            } catch (Exception e4) {
-                                Log.e(e4);
-                            }
-                            if (process != null) {
-                                process.destroy();
-                            }
-                            return true;
-                        }
-                    }
-                    try {
-                        bufferedReader2.close();
-                    } catch (Exception e5) {
-                        Log.e(e5);
-                    }
-                } catch (IOException e6) {
-                    e2 = e6;
                     Log.e(e2);
                     if (bufferedReader2 != null) {
                         try {
                             bufferedReader2.close();
-                        } catch (Exception e7) {
-                            Log.e(e7);
+                        } catch (Exception e4) {
+                            Log.e(e4);
                         }
                     }
+                } catch (Throwable th) {
+                    process = process3;
+                    th = th;
+                    if (bufferedReader2 != null) {
+                        try {
+                            bufferedReader2.close();
+                        } catch (Exception e5) {
+                            Log.e(e5);
+                        }
+                    }
+                    if (process != null) {
+                        process.destroy();
+                    }
+                    throw th;
                 }
             } catch (Throwable th2) {
-                bufferedReader = bufferedReader2;
-                Process process3 = process;
+                process = process3;
                 th = th2;
-                process2 = process3;
-                if (bufferedReader != null) {
-                    try {
-                        bufferedReader.close();
-                    } catch (Exception e8) {
-                        Log.e(e8);
+            }
+            try {
+                String readLine = bufferedReader.readLine();
+                if (readLine != null && readLine.length() >= 4) {
+                    char charAt = readLine.charAt(3);
+                    if (charAt == 's' || charAt == 'x') {
+                        try {
+                            bufferedReader.close();
+                        } catch (Exception e6) {
+                            Log.e(e6);
+                        }
+                        if (process3 != null) {
+                            process3.destroy();
+                        }
+                        return true;
                     }
                 }
-                if (process2 != null) {
-                    process2.destroy();
+                try {
+                    bufferedReader.close();
+                } catch (Exception e7) {
+                    Log.e(e7);
+                }
+            } catch (IOException e8) {
+                e2 = e8;
+                bufferedReader2 = bufferedReader;
+                Log.e(e2);
+                if (bufferedReader2 != null) {
+                }
+            } catch (Throwable th3) {
+                bufferedReader2 = bufferedReader;
+                th = th3;
+                process = process3;
+                if (bufferedReader2 != null) {
+                }
+                if (process != null) {
                 }
                 throw th;
             }
         } catch (IOException e9) {
-            e2 = e9;
-            bufferedReader2 = null;
-        } catch (Throwable th3) {
-            bufferedReader = null;
-            process2 = process;
-            th = th3;
-            if (bufferedReader != null) {
-            }
-            if (process2 != null) {
-            }
-            throw th;
+            e = e9;
+            process2 = null;
+        } catch (Throwable th4) {
+            th = th4;
+            process = null;
         }
+    }
+
+    public static String buildBDUSSCookie(String str, String str2) {
+        return buildBDUSSCookie(str, "BDUSS", str2);
     }
 
     public static boolean hasActiveNetwork(Context context) {
@@ -1053,58 +1111,26 @@ public class SapiUtils implements com.baidu.sapi2.c {
         }
     }
 
-    public static boolean webLogin(Context context, String str, String str2) {
-        return ServiceManager.getInstance().getIsAccountManager().getIsAccountService().webLogin(context, str, str2);
-    }
-
-    public static String buildBDUSSCookie(String str, String str2) {
-        return buildBDUSSCookie(str, "BDUSS", str2);
-    }
-
-    public static void reportGid(int i) {
-        Event event = null;
+    public static boolean webLogout(Context context) {
+        if (context == null) {
+            return false;
+        }
         try {
-            if (i != 12001) {
-                switch (i) {
-                    case 10001:
-                        event = GIDEvent.BUSINESS_APP_PROCESS_START;
-                        break;
-                    case 10002:
-                        event = GIDEvent.BUSINESS_ACCOUNT_LOGIN;
-                        break;
-                    case 10003:
-                        event = GIDEvent.BUSINESS_ACCOUNT_REG;
-                        break;
-                    case 10004:
-                        event = GIDEvent.BUSINESS_GET_GID;
-                        break;
-                    case 10005:
-                        event = GIDEvent.BUSINESS_LOGOUT;
-                        break;
-                    case 10006:
-                        event = GIDEvent.SYSTEM_SCREEN_ON;
-                        break;
-                    default:
-                        switch (i) {
-                            case 11001:
-                                event = GIDEvent.SYSTEM_NETWORK_CHANGE_TO_AVALIABLE;
-                                break;
-                            case 11002:
-                                event = GIDEvent.SYSTEM_NETWORK_CHANGE_MOB_TO_WIFI;
-                                break;
-                            case 11003:
-                                event = GIDEvent.SYSTEM_NETWORK_CHANGE_WIFI_TO_MOB;
-                                break;
-                        }
-                }
-            } else {
-                event = GIDEvent.TIME_FREQ;
+            ArrayList arrayList = new ArrayList();
+            for (String str : getAuthorizedDomains()) {
+                arrayList.add(new PassNameValuePair(COOKIE_URL_PREFIX + str, buildBDUSSCookie(str, "")));
             }
-            if (event == null) {
-                return;
+            for (String str2 : getAuthorizedDomainsForPtoken()) {
+                arrayList.add(new PassNameValuePair(COOKIE_URL_PREFIX + str2, buildPtokenCookie(str2, "")));
+                arrayList.add(new PassNameValuePair(COOKIE_HTTPS_URL_PREFIX + str2, buildPtokenCookie(str2, "")));
             }
-            BaiduGIDManager.getInstance().check(event);
+            for (String str3 : getAuthorizedDomainsForPtoken()) {
+                arrayList.add(new PassNameValuePair(COOKIE_HTTPS_URL_PREFIX + str3, buildStokenCookie(str3, "")));
+            }
+            syncCookies(context, arrayList);
+            return true;
         } catch (Throwable th) {
+            return false;
         }
     }
 
@@ -1133,29 +1159,6 @@ public class SapiUtils implements com.baidu.sapi2.c {
             }
         }
         return sb.toString();
-    }
-
-    public static boolean webLogout(Context context) {
-        if (context == null) {
-            return false;
-        }
-        try {
-            ArrayList arrayList = new ArrayList();
-            for (String str : getAuthorizedDomains()) {
-                arrayList.add(new PassNameValuePair(COOKIE_URL_PREFIX + str, buildBDUSSCookie(str, "")));
-            }
-            for (String str2 : getAuthorizedDomainsForPtoken()) {
-                arrayList.add(new PassNameValuePair(COOKIE_URL_PREFIX + str2, buildPtokenCookie(str2, "")));
-                arrayList.add(new PassNameValuePair(COOKIE_HTTPS_URL_PREFIX + str2, buildPtokenCookie(str2, "")));
-            }
-            for (String str3 : getAuthorizedDomainsForPtoken()) {
-                arrayList.add(new PassNameValuePair(COOKIE_HTTPS_URL_PREFIX + str3, buildStokenCookie(str3, "")));
-            }
-            syncCookies(context, arrayList);
-            return true;
-        } catch (Throwable th) {
-            return false;
-        }
     }
 
     private static String a(String str, String str2, String str3, Date date, boolean z) {

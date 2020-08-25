@@ -3,7 +3,7 @@ package rx.c;
 import rx.d;
 import rx.h;
 import rx.k;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class h {
     @Deprecated
     public <T> h.a<T> b(h.a<T> aVar) {
@@ -21,7 +21,7 @@ public abstract class h {
     }
 
     @Deprecated
-    public <T> Throwable Z(Throwable th) {
+    public <T> Throwable Y(Throwable th) {
         return th;
     }
 

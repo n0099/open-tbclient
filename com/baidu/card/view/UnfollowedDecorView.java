@@ -10,17 +10,17 @@ import android.widget.ImageView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.bv;
+import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.util.k;
 import com.baidu.tieba.R;
 import com.baidu.tieba.c.g;
 /* loaded from: classes15.dex */
 public class UnfollowedDecorView extends AppCompatImageView implements View.OnClickListener {
-    private int aeY;
-    private int aeZ;
-    public g ajy;
+    private int agi;
+    private int agj;
+    public g akN;
 
     public UnfollowedDecorView(Context context) {
         this(context, null);
@@ -32,25 +32,25 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
 
     public UnfollowedDecorView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aeY = R.drawable.ic_icon_pure_card_delete_svg;
-        this.aeZ = R.color.cp_cont_g;
-        this.ajy = new g(o((Activity) context));
+        this.agi = R.drawable.ic_icon_pure_card_delete_svg;
+        this.agj = R.color.cp_cont_g;
+        this.akN = new g(o((Activity) context));
         setOnClickListener(this);
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        SvgManager.baR().a(this, R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.bjq().a(this, R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (!k.isFastDoubleClick()) {
-            this.ajy.zA();
-            this.ajy.showDialog();
+            this.akN.Fd();
+            this.akN.Nv();
         }
     }
 
-    public void q(bv bvVar) {
-        this.ajy.q(bvVar);
-        if (!ax.w(bvVar) && bvVar.aYd()) {
+    public void q(bw bwVar) {
+        this.akN.q(bwVar);
+        if (!ay.w(bwVar) && bwVar.bgw()) {
             setVisibility(0);
         } else {
             setVisibility(8);
@@ -58,7 +58,7 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
     }
 
     public void onChangeSkinType() {
-        SvgManager.baR().a(this, this.aeY, this.aeZ, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.bjq().a(this, this.agi, this.agj, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     private TbPageContext o(Activity activity) {
@@ -72,8 +72,8 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
     }
 
     public void setSvgResId(int i, int i2) {
-        this.aeY = i;
-        this.aeZ = i2;
-        SvgManager.baR().a(this, this.aeY, this.aeZ, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.agi = i;
+        this.agj = i2;
+        SvgManager.bjq().a(this, this.agi, this.agj, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 }

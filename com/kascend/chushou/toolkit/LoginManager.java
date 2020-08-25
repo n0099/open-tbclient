@@ -54,7 +54,7 @@ public class LoginManager {
     }
 
     public void baiduLogin(String str) {
-        com.kascend.chushou.c.c.dMl().e(str, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.toolkit.LoginManager.1
+        com.kascend.chushou.c.c.dYm().e(str, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.toolkit.LoginManager.1
             @Override // com.kascend.chushou.c.b
             public void a() {
                 RxExecutor.postDelayed(null, EventThread.MAIN_THREAD, 30L, TimeUnit.MILLISECONDS, new Runnable() { // from class: com.kascend.chushou.toolkit.LoginManager.1.1
@@ -68,42 +68,42 @@ public class LoginManager {
             @Override // com.kascend.chushou.c.b
             public void a(String str2, JSONObject jSONObject) {
                 LoginManager.this.showProcessDialog(false);
-                g.Mc(a.i.cs_baidu_login_success);
-                ParserRet dW = com.kascend.chushou.c.g.dW(jSONObject);
-                if (dW.mRc == 0 && dW.mData != null) {
-                    LoginManager.this.userLoginIn((MyUserInfo) dW.mData);
+                g.OF(a.i.cs_baidu_login_success);
+                ParserRet eh = com.kascend.chushou.c.g.eh(jSONObject);
+                if (eh.mRc == 0 && eh.mData != null) {
+                    LoginManager.this.userLoginIn((MyUserInfo) eh.mData);
                     return;
                 }
-                a(dW.mRc, dW.mMessage);
+                a(eh.mRc, eh.mMessage);
             }
 
             @Override // com.kascend.chushou.c.b
             public void a(int i, String str2) {
                 LoginManager.this.showProcessDialog(false);
                 LoginManager.this.userLogout();
-                g.Mc(a.i.cs_baidu_login_failed);
+                g.OF(a.i.cs_baidu_login_failed);
             }
         });
     }
 
     public void openLogin(String str, String str2, String str3, final SimpleCallback simpleCallback) {
-        com.kascend.chushou.c.c.dMl().a(str, str2, str3, new JsonCallbackWrapper() { // from class: com.kascend.chushou.toolkit.LoginManager.2
+        com.kascend.chushou.c.c.dYm().a(str, str2, str3, new JsonCallbackWrapper() { // from class: com.kascend.chushou.toolkit.LoginManager.2
             @Override // tv.chushou.basis.http.listener.JsonCallbackWrapper
             public void callStart() {
             }
 
             @Override // tv.chushou.basis.http.listener.JsonCallbackWrapper
             public void callSuccess(String str4, JSONObject jSONObject) {
-                ParserRet dW = com.kascend.chushou.c.g.dW(jSONObject);
-                if (dW.mRc == 0 && dW.mData != null) {
-                    LoginManager.this.userLoginIn((MyUserInfo) dW.mData);
+                ParserRet eh = com.kascend.chushou.c.g.eh(jSONObject);
+                if (eh.mRc == 0 && eh.mData != null) {
+                    LoginManager.this.userLoginIn((MyUserInfo) eh.mData);
                     if (simpleCallback != null) {
                         simpleCallback.onSuccess();
                         return;
                     }
                     return;
                 }
-                callFailure(dW.mRc, dW.mMessage, str4);
+                callFailure(eh.mRc, eh.mMessage, str4);
             }
 
             @Override // tv.chushou.basis.http.listener.JsonCallbackWrapper
@@ -117,7 +117,7 @@ public class LoginManager {
     }
 
     public void autoLogin(final SimpleCallback simpleCallback) {
-        com.kascend.chushou.c.c.dMl().a(new JsonCallbackWrapper() { // from class: com.kascend.chushou.toolkit.LoginManager.3
+        com.kascend.chushou.c.c.dYm().a(new JsonCallbackWrapper() { // from class: com.kascend.chushou.toolkit.LoginManager.3
             @Override // tv.chushou.basis.http.listener.JsonCallbackWrapper
             public void callStart() {
                 if (simpleCallback != null) {
@@ -127,16 +127,16 @@ public class LoginManager {
 
             @Override // tv.chushou.basis.http.listener.JsonCallbackWrapper
             public void callSuccess(String str, JSONObject jSONObject) {
-                ParserRet dW = com.kascend.chushou.c.g.dW(jSONObject);
-                if (dW.mRc == 0 && dW.mData != null) {
-                    LoginManager.this.userLoginIn((MyUserInfo) dW.mData);
+                ParserRet eh = com.kascend.chushou.c.g.eh(jSONObject);
+                if (eh.mRc == 0 && eh.mData != null) {
+                    LoginManager.this.userLoginIn((MyUserInfo) eh.mData);
                     if (simpleCallback != null) {
                         simpleCallback.onSuccess();
                         return;
                     }
                     return;
                 }
-                callFailure(dW.mRc, dW.mMessage, str);
+                callFailure(eh.mRc, eh.mMessage, str);
             }
 
             @Override // tv.chushou.basis.http.listener.JsonCallbackWrapper
@@ -153,7 +153,7 @@ public class LoginManager {
             simpleCallback.onStart();
         }
         if (islogined()) {
-            com.kascend.chushou.c.c.dMl().b(new JsonCallbackWrapper() { // from class: com.kascend.chushou.toolkit.LoginManager.4
+            com.kascend.chushou.c.c.dYm().b(new JsonCallbackWrapper() { // from class: com.kascend.chushou.toolkit.LoginManager.4
                 @Override // tv.chushou.basis.http.listener.JsonCallbackWrapper
                 public void callStart() {
                 }
@@ -184,35 +184,35 @@ public class LoginManager {
 
     public void userLogout() {
         this.mUserInfo = null;
-        tv.chushou.basis.d.a.a.a aVar = (tv.chushou.basis.d.a.a.a) tv.chushou.basis.d.b.dZH().S(tv.chushou.basis.d.a.a.a.class);
+        tv.chushou.basis.d.a.a.a aVar = (tv.chushou.basis.d.a.a.a) tv.chushou.basis.d.b.elL().S(tv.chushou.basis.d.a.a.a.class);
         if (aVar != null) {
             aVar.remove("token");
         }
-        com.kascend.chushou.d.h.dMp().h();
-        com.kascend.chushou.d.h.dMp().e("");
-        com.kascend.chushou.d.h.dMp().d(false);
-        com.kascend.chushou.d.h.dMp().c(false);
+        com.kascend.chushou.d.h.dYr().h();
+        com.kascend.chushou.d.h.dYr().e("");
+        com.kascend.chushou.d.h.dYr().d(false);
+        com.kascend.chushou.d.h.dYr().c(false);
         tv.chushou.zues.a.a.post(new i(1, true));
-        tv.chushou.basis.d.b.dZG().d(TAG, "userLogout");
+        tv.chushou.basis.d.b.elK().d(TAG, "userLogout");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void userLoginIn(MyUserInfo myUserInfo) {
         this.mUserInfo = myUserInfo;
-        tv.chushou.basis.d.a.a.a aVar = (tv.chushou.basis.d.a.a.a) tv.chushou.basis.d.b.dZH().S(tv.chushou.basis.d.a.a.a.class);
+        tv.chushou.basis.d.a.a.a aVar = (tv.chushou.basis.d.a.a.a) tv.chushou.basis.d.b.elL().S(tv.chushou.basis.d.a.a.a.class);
         if (aVar != null) {
             aVar.putString("token", myUserInfo.mToken);
         }
-        com.kascend.chushou.d.h.dMp().a(myUserInfo);
-        com.kascend.chushou.d.h.dMp().e(myUserInfo.mToken);
+        com.kascend.chushou.d.h.dYr().a(myUserInfo);
+        com.kascend.chushou.d.h.dYr().e(myUserInfo.mToken);
         tv.chushou.zues.a.a.post(new i(0, true));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showProcessDialog(boolean z) {
-        Activity e = com.kascend.chushou.d.b.e();
-        if ((e instanceof BaseActivity) && !e.isFinishing()) {
-            ((BaseActivity) e).i(z);
+        Activity dYn = com.kascend.chushou.d.b.dYn();
+        if ((dYn instanceof BaseActivity) && !dYn.isFinishing()) {
+            ((BaseActivity) dYn).i(z);
         }
     }
 }

@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.frs.FrsTabItemData;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class TransmitForumData implements Parcelable, com.baidu.adp.widget.ListView.q {
     public static final int TYPE_RECOMMEND = 1;
     public static final int TYPE_SELF_SELECT = 0;
@@ -20,14 +20,14 @@ public class TransmitForumData implements Parcelable, com.baidu.adp.widget.ListV
     public static final Parcelable.Creator<TransmitForumData> CREATOR = new Parcelable.Creator<TransmitForumData>() { // from class: com.baidu.tbadk.core.data.TransmitForumData.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: M */
+        /* renamed from: N */
         public TransmitForumData createFromParcel(Parcel parcel) {
             return new TransmitForumData(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: ll */
+        /* renamed from: nr */
         public TransmitForumData[] newArray(int i) {
             return new TransmitForumData[i];
         }

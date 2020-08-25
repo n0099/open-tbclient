@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
 import com.baidu.tbadk.mvc.b.f;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a implements f {
     private long cartoonId;
     private int chapterId;
@@ -22,7 +22,7 @@ public class a implements f {
     private String liveId = "";
     private String userName = "";
     private String description = "";
-    private boolean jVk = true;
+    private boolean kkG = true;
 
     public boolean equals(Object obj) {
         if (obj == null || !(obj instanceof a)) {
@@ -80,7 +80,7 @@ public class a implements f {
         return (((this.isHostOnly ? 1 : 0) + (hashCode6 * 7)) * 7) + (this.isSquence ? 1 : 0);
     }
 
-    public boolean dL(JSONObject jSONObject) {
+    public boolean dW(JSONObject jSONObject) {
         String optString = jSONObject.optString("forum_name");
         String optString2 = jSONObject.optString("thread_id");
         String optString3 = jSONObject.optString("thread_name");
@@ -178,7 +178,7 @@ public class a implements f {
         return this.threadId;
     }
 
-    public String cHq() {
+    public String cSf() {
         return this.threadName;
     }
 
@@ -202,27 +202,27 @@ public class a implements f {
         this.forumName = str;
     }
 
-    public String bjg() {
+    public String brS() {
         return this.postID;
     }
 
-    public void JX(String str) {
+    public void MP(String str) {
         this.postID = str;
     }
 
-    public boolean cHr() {
+    public boolean cSg() {
         return this.isHostOnly;
     }
 
-    public void rz(boolean z) {
+    public void sf(boolean z) {
         this.isHostOnly = z;
     }
 
-    public boolean cHs() {
+    public boolean cSh() {
         return this.isSquence;
     }
 
-    public void rA(boolean z) {
+    public void sg(boolean z) {
         this.isSquence = z;
     }
 
@@ -230,7 +230,7 @@ public class a implements f {
         return this.liveId;
     }
 
-    public void eH(String str) {
+    public void gb(String str) {
         this.liveId = str;
     }
 
@@ -250,12 +250,12 @@ public class a implements f {
         this.description = str;
     }
 
-    public boolean cHt() {
-        return this.jVk;
+    public boolean cSi() {
+        return this.kkG;
     }
 
-    public void rB(boolean z) {
-        this.jVk = z;
+    public void sh(boolean z) {
+        this.kkG = z;
     }
 
     @Override // com.baidu.tbadk.mvc.b.d
@@ -264,15 +264,15 @@ public class a implements f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public String bkE() {
+    public String btq() {
         return toJsonObject().toString();
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public boolean zZ(String str) {
+    public boolean Cp(String str) {
         if (str != null) {
             try {
-                return dL(new JSONObject(str));
+                return dW(new JSONObject(str));
             } catch (JSONException e) {
                 e.printStackTrace();
             }

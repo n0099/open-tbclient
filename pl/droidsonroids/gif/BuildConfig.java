@@ -1,5 +1,5 @@
 package pl.droidsonroids.gif;
-/* loaded from: classes18.dex */
+/* loaded from: classes4.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "pl.droidsonroids.gif";
     public static final String BUILD_TYPE = "release";

@@ -9,32 +9,32 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
-import com.baidu.swan.apps.aq.al;
+import com.baidu.swan.apps.ap.ak;
 import com.baidu.swan.apps.res.widget.b.d;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class h extends com.baidu.swan.apps.api.a.d {
     public h(@NonNull com.baidu.swan.apps.api.a.b bVar) {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b hT(String str) {
+    public com.baidu.swan.apps.api.c.b jq(String str) {
         if (DEBUG) {
             Log.d("Api-ToastApi", "handle: " + str);
         }
-        if (VF()) {
+        if (abL()) {
             com.baidu.swan.apps.console.c.e("Api-ToastApi", "Api-ToastApi does not supported when app is invisible.");
             return new com.baidu.swan.apps.api.c.b(1001, "Api-ToastApi does not supported when app is invisible.");
         }
-        com.baidu.swan.apps.runtime.e arw = com.baidu.swan.apps.runtime.e.arw();
-        if (arw == null) {
+        com.baidu.swan.apps.runtime.e azJ = com.baidu.swan.apps.runtime.e.azJ();
+        if (azJ == null) {
             return new com.baidu.swan.apps.api.c.b(1001, "SwanApp is null");
         }
-        Pair<com.baidu.swan.apps.api.c.b, JSONObject> aS = com.baidu.swan.apps.api.d.b.aS("Api-ToastApi", str);
-        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aS.first;
+        Pair<com.baidu.swan.apps.api.c.b, JSONObject> aX = com.baidu.swan.apps.api.d.b.aX("Api-ToastApi", str);
+        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aX.first;
         if (!bVar.isSuccess()) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-ToastApi", "parse fail");
@@ -42,9 +42,9 @@ public class h extends com.baidu.swan.apps.api.a.d {
             }
             return bVar;
         }
-        JSONObject jSONObject = (JSONObject) aS.second;
+        JSONObject jSONObject = (JSONObject) aX.second;
         String optString = jSONObject.optString("type", "1");
-        final int ar = ar(jSONObject);
+        final int at = at(jSONObject);
         final String optString2 = jSONObject.optString("message");
         if (TextUtils.isEmpty(optString2)) {
             com.baidu.swan.apps.console.c.e("Api-ToastApi", "message is null");
@@ -52,7 +52,7 @@ public class h extends com.baidu.swan.apps.api.a.d {
         }
         final boolean optBoolean = jSONObject.optBoolean("mask");
         String optString3 = jSONObject.optString("image", "-1");
-        final Drawable a = a(getContext(), optString3, arw);
+        final Drawable a = a(getContext(), optString3, azJ);
         if (DEBUG) {
             Log.e("Api-ToastApi", "imagepath = " + optString3);
         }
@@ -90,52 +90,52 @@ public class h extends com.baidu.swan.apps.api.a.d {
         }
         switch (c) {
             case 0:
-                al.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.api.module.e.h.1
+                ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.api.module.e.h.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        h.this.b(h.this.getContext(), optString2, ar, optBoolean);
+                        h.this.b(h.this.getContext(), optString2, at, optBoolean);
                     }
                 });
                 break;
             case 1:
-                al.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.api.module.e.h.2
+                ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.api.module.e.h.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        h.this.a(h.this.getContext(), optString2, ar, a, optBoolean);
+                        h.this.a(h.this.getContext(), optString2, at, a, optBoolean);
                     }
                 });
                 break;
             case 2:
-                al.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.api.module.e.h.3
+                ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.api.module.e.h.3
                     @Override // java.lang.Runnable
                     public void run() {
-                        h.this.c(h.this.getContext(), optString2, ar, optBoolean);
+                        h.this.c(h.this.getContext(), optString2, at, optBoolean);
                     }
                 });
                 break;
             case 3:
-                al.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.api.module.e.h.4
+                ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.api.module.e.h.4
                     @Override // java.lang.Runnable
                     public void run() {
-                        h.this.b(h.this.getContext(), optString2, ar, optString5, optString4);
+                        h.this.b(h.this.getContext(), optString2, at, optString5, optString4);
                     }
                 });
                 break;
             default:
-                VR();
+                abX();
                 return new com.baidu.swan.apps.api.c.b(302, "the toast type is unknown");
         }
         return new com.baidu.swan.apps.api.c.b(0);
     }
 
-    public com.baidu.swan.apps.api.c.b VQ() {
+    public com.baidu.swan.apps.api.c.b abW() {
         if (DEBUG) {
             Log.d("Api-ToastApi", "handle");
         }
-        if (com.baidu.swan.apps.runtime.e.arw() == null) {
+        if (com.baidu.swan.apps.runtime.e.azJ() == null) {
             return new com.baidu.swan.apps.api.c.b(1001, "SwanApp is null");
         }
-        al.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.api.module.e.h.5
+        ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.api.module.e.h.5
             @Override // java.lang.Runnable
             public void run() {
                 com.baidu.swan.apps.res.widget.b.d.cancelToast();
@@ -146,7 +146,7 @@ public class h extends com.baidu.swan.apps.api.a.d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(Context context, @NonNull String str, int i, @NonNull String str2, final String str3) {
-        com.baidu.swan.apps.res.widget.b.d.ci(context).g(str).h(str2).hc(i).b(new d.a() { // from class: com.baidu.swan.apps.api.module.e.h.6
+        com.baidu.swan.apps.res.widget.b.d.co(context).g(str).h(str2).jj(i).b(new d.a() { // from class: com.baidu.swan.apps.api.module.e.h.6
             @Override // com.baidu.swan.apps.res.widget.b.d.a
             public void onToastClick() {
                 if (!TextUtils.isEmpty(str3)) {
@@ -158,34 +158,34 @@ public class h extends com.baidu.swan.apps.api.a.d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(Context context, @NonNull String str, int i, boolean z) {
-        com.baidu.swan.apps.res.widget.b.d.a(context, str).hc(i).fp(z).gY(2).showToast();
+        com.baidu.swan.apps.res.widget.b.d.a(context, str).jj(i).fI(z).jf(2).showToast();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, @NonNull String str, int i, Drawable drawable, boolean z) {
-        com.baidu.swan.apps.res.widget.b.d.a(context, H(str, 14)).d(drawable).hc(i).fp(z).showHighlightToast();
+        com.baidu.swan.apps.res.widget.b.d.a(context, I(str, 14)).d(drawable).jj(i).fI(z).showHighlightToast();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(Context context, @NonNull String str, int i, boolean z) {
-        com.baidu.swan.apps.res.widget.b.d.a(context, H(str, 14)).hc(i).fp(z).showHighLoadingToast();
+        com.baidu.swan.apps.res.widget.b.d.a(context, I(str, 14)).jj(i).fI(z).showHighLoadingToast();
     }
 
-    private void VR() {
+    private void abX() {
         if (DEBUG) {
             Log.w("Api-ToastApi", "the toast type is unknown");
         }
     }
 
-    public static int ar(JSONObject jSONObject) {
-        int hU = hU(jSONObject.optString("time")) / 1000;
-        if (hU <= 0) {
+    public static int at(JSONObject jSONObject) {
+        int jr = jr(jSONObject.optString("time")) / 1000;
+        if (jr <= 0) {
             return 2;
         }
-        return hU;
+        return jr;
     }
 
-    public static String H(String str, int i) {
+    public static String I(String str, int i) {
         return b(str, i, false);
     }
 
@@ -225,7 +225,7 @@ public class h extends com.baidu.swan.apps.api.a.d {
         return stringBuffer.toString();
     }
 
-    private static int hU(String str) {
+    private static int jr(String str) {
         if (TextUtils.isEmpty(str)) {
             return -1;
         }
@@ -244,16 +244,16 @@ public class h extends com.baidu.swan.apps.api.a.d {
         if (DEBUG) {
             Log.e("Api-ToastApi", "imagePath = " + str);
         }
-        ExifInterface hV = hV(str);
-        if (hV == null) {
+        ExifInterface js = js(str);
+        if (js == null) {
             if (DEBUG) {
                 Log.e("Api-ToastApi", "exifInterface is null");
                 return null;
             }
             return null;
         }
-        int intValue = Integer.valueOf(hV.getAttribute(android.support.media.ExifInterface.TAG_IMAGE_WIDTH)).intValue();
-        int intValue2 = Integer.valueOf(hV.getAttribute(android.support.media.ExifInterface.TAG_IMAGE_LENGTH)).intValue();
+        int intValue = Integer.valueOf(js.getAttribute(android.support.media.ExifInterface.TAG_IMAGE_WIDTH)).intValue();
+        int intValue2 = Integer.valueOf(js.getAttribute(android.support.media.ExifInterface.TAG_IMAGE_LENGTH)).intValue();
         if (DEBUG) {
             Log.e("Api-ToastApi", "width = " + intValue + "， height = " + intValue2);
         }
@@ -277,7 +277,7 @@ public class h extends com.baidu.swan.apps.api.a.d {
         return bitmapDrawable;
     }
 
-    private static ExifInterface hV(String str) {
+    private static ExifInterface js(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

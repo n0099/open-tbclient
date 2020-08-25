@@ -21,14 +21,14 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class IMQueryGroupListRequest extends GroupBaseHttpRequest {
     private static final String TAG = IMQueryGroupListRequest.class.getSimpleName();
     private long mAppid;
     private String mBuid;
     private String mKey;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     class Mytask extends TaskManager.Task {
         public Mytask(String str, String str2) {
             super(str, str2);

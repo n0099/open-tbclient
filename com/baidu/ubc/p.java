@@ -5,14 +5,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes18.dex */
 public class p {
-    private long Zt;
-    private JSONObject dAA;
-    private String dAB;
-    private boolean dAC = false;
-    private JSONArray dAE;
-    private int dAz;
+    private long ZY;
+    private int dJI;
+    private JSONObject dJJ;
+    private String dJK;
+    private boolean dJL = false;
+    private JSONArray dJN;
     private String mCategory;
     private String mContent;
     private long mEndTime;
@@ -25,15 +25,15 @@ public class p {
 
     public p(String str, int i, String str2, int i2) {
         this.mId = str;
-        this.dAz = i;
+        this.dJI = i;
         this.mContent = str2;
         this.mOption = i2;
     }
 
     public p(String str, int i, JSONObject jSONObject, int i2) {
         this.mId = str;
-        this.dAz = i;
-        this.dAA = jSONObject;
+        this.dJI = i;
+        this.dJJ = jSONObject;
         this.mOption = i2;
     }
 
@@ -41,27 +41,27 @@ public class p {
         return this.mId;
     }
 
-    public int aNr() {
-        return this.dAz;
+    public int aVR() {
+        return this.dJI;
     }
 
     public String getContent() {
         return this.mContent;
     }
 
-    public JSONObject aNt() {
-        return this.dAA;
+    public JSONObject aVT() {
+        return this.dJJ;
     }
 
-    public long aNy() {
-        return this.Zt;
+    public long aVY() {
+        return this.ZY;
     }
 
     public long getEndTime() {
         return this.mEndTime;
     }
 
-    public String aNz() {
+    public String aVZ() {
         return this.mState;
     }
 
@@ -69,36 +69,36 @@ public class p {
         return this.mOption;
     }
 
-    public String aNs() {
-        return this.dAB;
+    public String aVS() {
+        return this.dJK;
     }
 
     public void setId(String str) {
         this.mId = str;
     }
 
-    public void ke(int i) {
-        this.dAz = i;
+    public void mk(int i) {
+        this.dJI = i;
     }
 
     public void setContent(String str) {
         this.mContent = str;
     }
 
-    public void cg(long j) {
-        this.Zt = j;
+    public void cq(long j) {
+        this.ZY = j;
     }
 
     public void setEndTime(long j) {
         this.mEndTime = j;
     }
 
-    public void va(String str) {
+    public void xl(String str) {
         this.mState = str;
     }
 
-    public void vb(String str) {
-        this.dAB = str;
+    public void xm(String str) {
+        this.dJK = str;
     }
 
     public void setCategory(String str) {
@@ -109,31 +109,31 @@ public class p {
         return this.mCategory;
     }
 
-    public void gN(boolean z) {
-        this.dAC = z;
+    public void hh(boolean z) {
+        this.dJL = z;
     }
 
-    public boolean aNo() {
-        return this.dAC;
+    public boolean aVO() {
+        return this.dJL;
     }
 
-    public void aNv() {
-        if (g.dAa().uQ(this.mId)) {
-            this.dAB = UBC.getUBCContext().anq();
+    public void aVV() {
+        if (g.dLN().xb(this.mId)) {
+            this.dJK = UBC.getUBCContext().avl();
         }
     }
 
-    public void vc(String str) {
+    public void xn(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                this.dAE = new JSONArray(str);
+                this.dJN = new JSONArray(str);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public JSONArray aNA() {
-        return this.dAE;
+    public JSONArray aWa() {
+        return this.dJN;
     }
 }

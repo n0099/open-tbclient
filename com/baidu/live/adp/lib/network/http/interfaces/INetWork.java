@@ -3,7 +3,7 @@ package com.baidu.live.adp.lib.network.http.interfaces;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface INetWork {
     void cancel();
 

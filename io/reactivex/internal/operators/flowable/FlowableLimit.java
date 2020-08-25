@@ -9,25 +9,25 @@ public final class FlowableLimit<T> extends a<T, T> {
     final long n;
 
     @Override // io.reactivex.g
-    protected void a(org.a.c<? super T> cVar) {
-        this.nSG.a((j) new LimitSubscriber(cVar, this.n));
+    protected void a(org.b.c<? super T> cVar) {
+        this.omB.a((j) new LimitSubscriber(cVar, this.n));
     }
 
     /* loaded from: classes7.dex */
-    static final class LimitSubscriber<T> extends AtomicLong implements j<T>, org.a.d {
+    static final class LimitSubscriber<T> extends AtomicLong implements j<T>, org.b.d {
         private static final long serialVersionUID = 2288246011222124525L;
-        final org.a.c<? super T> actual;
+        final org.b.c<? super T> actual;
         long remaining;
-        org.a.d upstream;
+        org.b.d upstream;
 
-        LimitSubscriber(org.a.c<? super T> cVar, long j) {
+        LimitSubscriber(org.b.c<? super T> cVar, long j) {
             this.actual = cVar;
             this.remaining = j;
             lazySet(j);
         }
 
-        @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        @Override // io.reactivex.j, org.b.c
+        public void onSubscribe(org.b.d dVar) {
             if (SubscriptionHelper.validate(this.upstream, dVar)) {
                 if (this.remaining == 0) {
                     dVar.cancel();
@@ -39,7 +39,7 @@ public final class FlowableLimit<T> extends a<T, T> {
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(T t) {
             long j = this.remaining;
             if (j > 0) {
@@ -53,7 +53,7 @@ public final class FlowableLimit<T> extends a<T, T> {
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
             if (this.remaining > 0) {
                 this.remaining = 0L;
@@ -63,7 +63,7 @@ public final class FlowableLimit<T> extends a<T, T> {
             io.reactivex.e.a.onError(th);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
             if (this.remaining > 0) {
                 this.remaining = 0L;
@@ -71,7 +71,7 @@ public final class FlowableLimit<T> extends a<T, T> {
             }
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void request(long j) {
             long j2;
             long j3;
@@ -88,7 +88,7 @@ public final class FlowableLimit<T> extends a<T, T> {
             }
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void cancel() {
             this.upstream.cancel();
         }

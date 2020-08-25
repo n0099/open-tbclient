@@ -20,8 +20,8 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.adp.widget.ListView.ab;
 import com.baidu.adp.widget.ListView.q;
-import com.baidu.adp.widget.ListView.z;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.util.CommonStatisticKey;
 import com.baidu.live.tbadk.core.util.StringHelper;
@@ -33,31 +33,29 @@ import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.data.ac;
-import com.baidu.tbadk.core.data.ai;
-import com.baidu.tbadk.core.data.bu;
+import com.baidu.tbadk.core.data.ad;
+import com.baidu.tbadk.core.data.aj;
+import com.baidu.tbadk.core.data.bv;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tbadk.core.util.bd;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tbadk.core.view.UserPhotoLayout;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tbadk.core.view.commonBtn.c;
 import com.baidu.tbadk.coreExtra.view.BannerView;
 import com.baidu.tbadk.n.h;
 import com.baidu.tbadk.n.m;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.card.s;
-import com.baidu.tieba.frs.ab;
-import com.baidu.tieba.frs.r;
-import com.baidu.tieba.frs.t;
+import com.baidu.tieba.frs.s;
 import com.baidu.tieba.frs.tab.TabData;
 import com.baidu.tieba.frs.tab.d;
 import com.baidu.tieba.frs.u;
-import com.baidu.tieba.s.c;
+import com.baidu.tieba.frs.v;
 import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
@@ -71,73 +69,73 @@ import tbclient.ThemeElement;
 /* loaded from: classes16.dex */
 public class a implements TabLayout.OnTabSelectedListener {
     private static final Pattern pbPattern0 = Pattern.compile("(/p/){1}(\\d+)");
-    private FrameLayout drp;
+    private FrameLayout dBr;
     private final int ds16;
     private final int ds28;
     private final int ds32;
-    private ac evc;
-    private PbListView fsC;
-    private FrsGoodFragment hYP;
-    private TabLayout hYQ;
-    private TabLayout hYR;
-    private b hYS;
-    public String hYU;
+    private ad eFA;
+    private PbListView fDW;
+    private FrsGoodFragment imX;
+    private TabLayout imY;
+    private TabLayout imZ;
+    private b ina;
+    public String inc;
     private ThemeColorInfo mThemeColorInfo;
     private RelativeLayout mContainer = null;
-    private BdTypeRecyclerView hIh = null;
-    private BannerView hYT = null;
-    private boolean hYV = false;
-    private boolean hYW = false;
-    private int hYX = 0;
-    private View.OnClickListener hNR = new View.OnClickListener() { // from class: com.baidu.tieba.frs.good.a.1
+    private BdTypeRecyclerView hVx = null;
+    private BannerView inb = null;
+    private boolean ind = false;
+    private boolean ine = false;
+    private int inf = 0;
+    private View.OnClickListener ibW = new View.OnClickListener() { // from class: com.baidu.tieba.frs.good.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.hYP != null) {
-                a.this.hYP.onScrollToBottom();
+            if (a.this.imX != null) {
+                a.this.imX.onScrollToBottom();
             }
         }
     };
-    private BannerView.a hYY = new BannerView.a() { // from class: com.baidu.tieba.frs.good.a.4
+    private BannerView.a ing = new BannerView.a() { // from class: com.baidu.tieba.frs.good.a.4
         @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
-        public void bgW() {
-            a.this.cgG();
+        public void bpI() {
+            a.this.crl();
         }
 
         @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
-        public void bgX() {
-            a.this.cgI();
+        public void bpJ() {
+            a.this.crn();
         }
     };
-    private CustomMessageListener hYZ = new CustomMessageListener(CmdConfigCustom.DELETE_AD_FROM_FEED) { // from class: com.baidu.tieba.frs.good.a.7
+    private CustomMessageListener inh = new CustomMessageListener(CmdConfigCustom.DELETE_AD_FROM_FEED) { // from class: com.baidu.tieba.frs.good.a.7
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
-                a.this.Gl(str);
-                a.this.Gk(str);
-                a.this.hYS.refreshData();
+                a.this.IN(str);
+                a.this.IM(str);
+                a.this.ina.refreshData();
             }
         }
     };
 
     public a(FrsGoodFragment frsGoodFragment, View view, boolean z) {
-        this.hYP = null;
-        this.hYP = frsGoodFragment;
-        m(view, z);
-        this.ds16 = l.getDimens(this.hYP.getPageContext().getPageActivity(), R.dimen.tbds16);
-        this.ds32 = l.getDimens(this.hYP.getPageContext().getPageActivity(), R.dimen.tbds32);
-        this.ds28 = l.getDimens(this.hYP.getPageContext().getPageActivity(), R.dimen.tbds28);
+        this.imX = null;
+        this.imX = frsGoodFragment;
+        l(view, z);
+        this.ds16 = l.getDimens(this.imX.getPageContext().getPageActivity(), R.dimen.tbds16);
+        this.ds32 = l.getDimens(this.imX.getPageContext().getPageActivity(), R.dimen.tbds32);
+        this.ds28 = l.getDimens(this.imX.getPageContext().getPageActivity(), R.dimen.tbds28);
     }
 
-    private void m(View view, boolean z) {
+    private void l(View view, boolean z) {
         this.mContainer = (RelativeLayout) view.findViewById(R.id.frs_good_container);
-        cj(view);
-        this.hIh = (BdTypeRecyclerView) view.findViewById(R.id.frs_good_lv_thread);
-        this.hIh.setLayoutManager(new LinearLayoutManager(this.hIh.getContext()));
-        this.hIh.setFadingEdgeLength(0);
-        this.hIh.setOverScrollMode(2);
-        this.hIh.setRecyclerListener(new RecyclerView.RecyclerListener() { // from class: com.baidu.tieba.frs.good.a.2
+        cl(view);
+        this.hVx = (BdTypeRecyclerView) view.findViewById(R.id.frs_good_lv_thread);
+        this.hVx.setLayoutManager(new LinearLayoutManager(this.hVx.getContext()));
+        this.hVx.setFadingEdgeLength(0);
+        this.hVx.setOverScrollMode(2);
+        this.hVx.setRecyclerListener(new RecyclerView.RecyclerListener() { // from class: com.baidu.tieba.frs.good.a.2
             @Override // android.support.v7.widget.RecyclerView.RecyclerListener
             public void onViewRecycled(RecyclerView.ViewHolder viewHolder) {
                 View view2 = viewHolder.itemView;
@@ -156,34 +154,34 @@ public class a implements TabLayout.OnTabSelectedListener {
                 }
             }
         });
-        this.fsC = new PbListView(this.hYP.getPageContext().getPageActivity());
-        this.fsC.createView();
-        this.fsC.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
-        this.fsC.setHeight(l.getDimens(this.hYP.getActivity(), R.dimen.tbds182));
-        this.fsC.setLineGone();
-        this.fsC.setTextSize(R.dimen.tbfontsize33);
-        this.fsC.setTextColor(ao.getColor(R.color.cp_cont_j));
-        this.fsC.setNoMoreTextColorId(R.color.cp_cont_e);
-        this.hIh.setOnSrollToBottomListener(this.hYP);
-        this.drp = (FrameLayout) view.findViewById(R.id.frs_list_content);
-        this.hYS = new b(this.hYP, this.hIh);
-        jH(false);
-        this.hYP.registerListener(this.hYZ);
+        this.fDW = new PbListView(this.imX.getPageContext().getPageActivity());
+        this.fDW.createView();
+        this.fDW.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
+        this.fDW.setHeight(l.getDimens(this.imX.getActivity(), R.dimen.tbds182));
+        this.fDW.setLineGone();
+        this.fDW.setTextSize(R.dimen.tbfontsize33);
+        this.fDW.setTextColor(ap.getColor(R.color.cp_cont_j));
+        this.fDW.setNoMoreTextColorId(R.color.cp_cont_e);
+        this.hVx.setOnSrollToBottomListener(this.imX);
+        this.dBr = (FrameLayout) view.findViewById(R.id.frs_list_content);
+        this.ina = new b(this.imX, this.hVx);
+        kf(false);
+        this.imX.registerListener(this.inh);
     }
 
-    private void b(ac acVar) {
-        if (this.hYT == null) {
-            this.hYT = new BannerView(this.hYP.getPageContext().getPageActivity());
-            this.hYT.setLayoutParams(new AbsListView.LayoutParams(-1, this.hYP.getResources().getDimensionPixelSize(R.dimen.ds100)));
-            this.hYT.setVisibility(8);
-            this.hYT.setBannerViewClickListener(this.hYY);
-            this.hYT.setBannerData(acVar);
-            this.hYT.setBannerViewEvent(new TbImageView.a() { // from class: com.baidu.tieba.frs.good.a.3
+    private void b(ad adVar) {
+        if (this.inb == null) {
+            this.inb = new BannerView(this.imX.getPageContext().getPageActivity());
+            this.inb.setLayoutParams(new AbsListView.LayoutParams(-1, this.imX.getResources().getDimensionPixelSize(R.dimen.ds100)));
+            this.inb.setVisibility(8);
+            this.inb.setBannerViewClickListener(this.ing);
+            this.inb.setBannerData(adVar);
+            this.inb.setBannerViewEvent(new TbImageView.a() { // from class: com.baidu.tieba.frs.good.a.3
                 @Override // com.baidu.tbadk.widget.TbImageView.a
                 public void onComplete(String str, boolean z) {
-                    if (z && a.this.hYT.bgU() && !a.this.hYV && a.this.hIh != null) {
-                        a.this.hYV = true;
-                        a.this.hIh.addHeaderView(a.this.hYT, 1);
+                    if (z && a.this.inb.bpG() && !a.this.ind && a.this.hVx != null) {
+                        a.this.ind = true;
+                        a.this.hVx.addHeaderView(a.this.inb, 1);
                     }
                 }
 
@@ -197,73 +195,73 @@ public class a implements TabLayout.OnTabSelectedListener {
     /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: com.baidu.tieba.frs.good.FrsGoodFragment */
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Multi-variable type inference failed */
-    public void cgG() {
-        if (this.evc != null) {
-            String value = this.evc.getValue();
-            if (this.evc.aUx() == 1) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_FACESHOP_FACEPACKAGEDETAIL, new FacePackageDetailActivityConfig(this.hYP.getPageContext().getPageActivity(), value, false, "frs_banner")));
-            } else if (this.evc.aUx() == 2) {
+    public void crl() {
+        if (this.eFA != null) {
+            String value = this.eFA.getValue();
+            if (this.eFA.bcQ() == 1) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_FACESHOP_FACEPACKAGEDETAIL, new FacePackageDetailActivityConfig(this.imX.getPageContext().getPageActivity(), value, false, "frs_banner")));
+            } else if (this.eFA.bcQ() == 2) {
                 if (value.contains("tieba.baidu.com")) {
                     Matcher matcher = pbPattern0.matcher(value);
                     if (matcher.find()) {
                         try {
                             String group = matcher.group(2);
-                            PbActivityConfig createNormalCfg = new PbActivityConfig(this.hYP.getPageContext().getPageActivity()).createNormalCfg(group, null, "frs_banner");
+                            PbActivityConfig createNormalCfg = new PbActivityConfig(this.imX.getPageContext().getPageActivity()).createNormalCfg(group, null, "frs_banner");
                             createNormalCfg.setForumId(group);
                             createNormalCfg.setStartFrom(3);
-                            this.hYP.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createNormalCfg));
+                            this.imX.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createNormalCfg));
                         } catch (Exception e) {
                             BdLog.e(e.toString());
                         }
                     }
                 }
-            } else if (this.evc.aUx() == 3) {
+            } else if (this.eFA.bcQ() == 3) {
                 new UtilHelper.a();
                 UtilHelper.a isNativeAddress = UtilHelper.isNativeAddress(value);
-                if (isNativeAddress.ebG != UtilHelper.NativePageType.NONE) {
-                    switch (isNativeAddress.ebG) {
+                if (isNativeAddress.elp != UtilHelper.NativePageType.NONE) {
+                    switch (isNativeAddress.elp) {
                         case FRS:
-                            this.hYP.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.hYP.getPageContext().getPageActivity()).createNormalCfg(isNativeAddress.id, "frs_banner")));
+                            this.imX.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.imX.getPageContext().getPageActivity()).createNormalCfg(isNativeAddress.id, "frs_banner")));
                             return;
                         case PB:
-                            PbActivityConfig createNormalCfg2 = new PbActivityConfig(this.hYP.getPageContext().getPageActivity()).createNormalCfg(isNativeAddress.id, null, "frs_banner");
+                            PbActivityConfig createNormalCfg2 = new PbActivityConfig(this.imX.getPageContext().getPageActivity()).createNormalCfg(isNativeAddress.id, null, "frs_banner");
                             createNormalCfg2.setForumId(isNativeAddress.id);
                             createNormalCfg2.setStartFrom(3);
-                            this.hYP.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createNormalCfg2));
+                            this.imX.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createNormalCfg2));
                             return;
                         default:
                             return;
                     }
                 }
-                bd.baV().b(this.hYP.getPageContext(), new String[]{value});
+                be.bju().b(this.imX.getPageContext(), new String[]{value});
                 if (!StringUtils.isNull(value) && value.startsWith(UrlSchemaHelper.SCHEMA_TYPE_GAME_DETAIL)) {
-                    TiebaStatic.eventStat(this.hYP.getPageContext().getPageActivity(), "frs_banner", "click", 1, "ref_id", CommonStatisticKey.REF_TYPE_FRS_AD, "ref_type", "603");
+                    TiebaStatic.eventStat(this.imX.getPageContext().getPageActivity(), "frs_banner", "click", 1, "ref_id", CommonStatisticKey.REF_TYPE_FRS_AD, "ref_type", "603");
                 }
-            } else if (this.evc.aUx() == 4) {
-                this.hYP.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.hYP.getPageContext().getPageActivity()).createNormalCfg(value, "frs_banner")));
+            } else if (this.eFA.bcQ() == 4) {
+                this.imX.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.imX.getPageContext().getPageActivity()).createNormalCfg(value, "frs_banner")));
             }
         }
     }
 
     public void refreshView() {
-        if (this.hYS != null) {
-            this.hYS.notifyDataSetChanged();
+        if (this.ina != null) {
+            this.ina.notifyDataSetChanged();
         }
     }
 
     public void setOnScrollListener(RecyclerView.OnScrollListener onScrollListener) {
-        this.hIh.setOnScrollListener(onScrollListener);
+        this.hVx.setOnScrollListener(onScrollListener);
     }
 
-    public void a(z zVar) {
-        this.hYS.a(zVar);
+    public void a(ab abVar) {
+        this.ina.a(abVar);
     }
 
     public void onDestroy() {
-        this.hYS.onDestory();
-        this.hIh.setOnSrollToBottomListener(null);
-        a(this.hYQ);
-        a(this.hYR);
+        this.ina.onDestory();
+        this.hVx.setOnSrollToBottomListener(null);
+        a(this.imY);
+        a(this.imZ);
     }
 
     private void a(TabLayout tabLayout) {
@@ -272,53 +270,53 @@ public class a implements TabLayout.OnTabSelectedListener {
         }
     }
 
-    public void jH(boolean z) {
+    public void kf(boolean z) {
         if (!z) {
-            u uVar = new u();
-            uVar.tabId = 301;
-            uVar.eZg = false;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, uVar));
+            v vVar = new v();
+            vVar.tabId = 301;
+            vVar.fky = false;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, vVar));
         }
     }
 
-    public void cea() {
-        u uVar = new u();
-        uVar.tabId = 301;
-        uVar.eZg = false;
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, uVar));
+    public void coE() {
+        v vVar = new v();
+        vVar.tabId = 301;
+        vVar.fky = false;
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, vVar));
     }
 
-    public void bBY() {
-        this.hIh.setVisibility(0);
+    public void bLs() {
+        this.hVx.setVisibility(0);
     }
 
-    public void ccH() {
-        if (this.hYS != null) {
-            this.hYS.notifyDataSetChanged();
+    public void cne() {
+        if (this.ina != null) {
+            this.ina.notifyDataSetChanged();
         }
     }
 
     public void c(FrsViewData frsViewData) {
         if (frsViewData != null && frsViewData.getForum() != null && frsViewData.getForum().getGood_classify() != null) {
-            ArrayList<ai> good_classify = frsViewData.getForum().getGood_classify();
+            ArrayList<aj> good_classify = frsViewData.getForum().getGood_classify();
             TabData tabData = new TabData();
             d dVar = new d();
             dVar.tabId = 0;
-            dVar.name = this.hYP.getPageContext().getResources().getString(R.string.all);
+            dVar.name = this.imX.getPageContext().getResources().getString(R.string.all);
             tabData.add(dVar);
-            for (ai aiVar : good_classify) {
-                if (aiVar != null && aiVar.aUA() > 0 && !TextUtils.isEmpty(aiVar.aUz()) && !TextUtils.isEmpty(aiVar.aUz().trim())) {
+            for (aj ajVar : good_classify) {
+                if (ajVar != null && ajVar.bcT() > 0 && !TextUtils.isEmpty(ajVar.bcS()) && !TextUtils.isEmpty(ajVar.bcS().trim())) {
                     d dVar2 = new d();
-                    dVar2.tabId = aiVar.aUA();
-                    dVar2.name = aiVar.aUz();
+                    dVar2.tabId = ajVar.bcT();
+                    dVar2.name = ajVar.bcS();
                     tabData.add(dVar2);
                 }
             }
-            if (x.getCount(tabData) > 1) {
-                cgK();
-                this.hYW = true;
-                a(tabData, this.hYQ);
-                a(tabData, this.hYR);
+            if (y.getCount(tabData) > 1) {
+                crp();
+                this.ine = true;
+                a(tabData, this.imY);
+                a(tabData, this.imZ);
             }
         }
     }
@@ -344,18 +342,18 @@ public class a implements TabLayout.OnTabSelectedListener {
                 }
                 TabLayout.Tab tab = tabAt;
                 if (!(tab.getCustomView() instanceof TBSpecificationBtn)) {
-                    TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(this.hYP.getContext());
-                    com.baidu.tbadk.core.view.commonBtn.d dVar = new com.baidu.tbadk.core.view.commonBtn.d();
-                    dVar.mX(R.color.cp_cont_c);
-                    tBSpecificationBtn.setConfig(dVar);
+                    TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(this.imX.getContext());
+                    c cVar = new c();
+                    cVar.pd(R.color.cp_cont_c);
+                    tBSpecificationBtn.setConfig(cVar);
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                     layoutParams.setMargins(this.ds16, this.ds32, this.ds16, this.ds32);
                     tBSpecificationBtn.setLayoutParams(layoutParams);
                     tab.setCustomView(tBSpecificationBtn);
                 }
-                ((TBSpecificationBtn) tab.getCustomView()).setText(as.cutForumNameWithSuffix(tabData.get(i2).name, 10, StringHelper.STRING_MORE));
+                ((TBSpecificationBtn) tab.getCustomView()).setText(at.cutForumNameWithSuffix(tabData.get(i2).name, 10, StringHelper.STRING_MORE));
                 tab.setTag(Integer.valueOf(tabData.get(i2).tabId));
-                if (tabData.get(i2).tabId == this.hYX) {
+                if (tabData.get(i2).tabId == this.inf) {
                     tab.select();
                 }
             }
@@ -365,126 +363,126 @@ public class a implements TabLayout.OnTabSelectedListener {
 
     public void a(ArrayList<q> arrayList, int i, FrsViewData frsViewData, int i2) {
         if (arrayList == null || arrayList.size() <= 0) {
-            r rVar = new r();
+            s sVar = new s();
             arrayList = new ArrayList<>();
-            arrayList.add(rVar);
+            arrayList.add(sVar);
         }
-        this.hYS.b(arrayList, frsViewData);
-        this.hYW = false;
+        this.ina.b(arrayList, frsViewData);
+        this.ine = false;
     }
 
     public BdTypeRecyclerView getListView() {
-        return this.hIh;
+        return this.hVx;
     }
 
-    public void cgH() {
-        this.hYS.notifyDataSetInvalidated();
+    public void crm() {
+        this.ina.notifyDataSetInvalidated();
     }
 
     public void setListViewSelection(int i) {
-        this.hIh.setSelection(i);
+        this.hVx.setSelection(i);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: com.baidu.tieba.frs.good.FrsGoodFragment */
     /* JADX WARN: Multi-variable type inference failed */
     public void b(ForumData forumData, UserData userData) {
-        if (!this.hYV && forumData != null && forumData.getFrsBannerData() != null && forumData.getFrsBannerData().isValid()) {
-            this.evc = forumData.getFrsBannerData();
-            b(this.evc);
-            this.hYT.reset();
-            this.hIh.removeHeaderView(this.hYT);
-            if (this.evc.getType() == 1 && !TextUtils.isEmpty(this.evc.aUy())) {
-                this.hYT.setData(this.hYP.getPageContext(), this.evc.aUy());
-                if (this.evc.getValue().startsWith(UrlSchemaHelper.SCHEMA_TYPE_GAME_DETAIL)) {
-                    TiebaStatic.eventStat(this.hYP.getPageContext().getPageActivity(), "game_show", "show", 1, "ref_id", CommonStatisticKey.REF_TYPE_FRS_AD, "ref_type", "603");
+        if (!this.ind && forumData != null && forumData.getFrsBannerData() != null && forumData.getFrsBannerData().isValid()) {
+            this.eFA = forumData.getFrsBannerData();
+            b(this.eFA);
+            this.inb.reset();
+            this.hVx.removeHeaderView(this.inb);
+            if (this.eFA.getType() == 1 && !TextUtils.isEmpty(this.eFA.bcR())) {
+                this.inb.setData(this.imX.getPageContext(), this.eFA.bcR());
+                if (this.eFA.getValue().startsWith(UrlSchemaHelper.SCHEMA_TYPE_GAME_DETAIL)) {
+                    TiebaStatic.eventStat(this.imX.getPageContext().getPageActivity(), "game_show", "show", 1, "ref_id", CommonStatisticKey.REF_TYPE_FRS_AD, "ref_type", "603");
                 }
             }
         }
     }
 
-    public void cgI() {
-        if (this.hYT != null) {
-            this.hYV = false;
-            this.hIh.removeHeaderView(this.hYT);
+    public void crn() {
+        if (this.inb != null) {
+            this.ind = false;
+            this.hVx.removeHeaderView(this.inb);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.hYS != null) {
-            this.hYS.cfh();
-            this.hYS.notifyDataSetChanged();
-            this.hYS.onChangeSkinType(i);
+        if (this.ina != null) {
+            this.ina.cpM();
+            this.ina.notifyDataSetChanged();
+            this.ina.onChangeSkinType(i);
         }
-        this.hYP.getBaseFragmentActivity().getLayoutMode().setNightMode(i == 1);
-        this.hYP.getBaseFragmentActivity().getLayoutMode().onModeChanged(this.mContainer);
-        if (this.hYT != null) {
-            this.hYT.bgV();
+        this.imX.getBaseFragmentActivity().getLayoutMode().setNightMode(i == 1);
+        this.imX.getBaseFragmentActivity().getLayoutMode().onModeChanged(this.mContainer);
+        if (this.inb != null) {
+            this.inb.bpH();
         }
-        if (this.fsC != null) {
-            this.fsC.setTextColor(ao.getColor(R.color.cp_cont_j));
-            this.fsC.changeSkin(i);
+        if (this.fDW != null) {
+            this.fDW.setTextColor(ap.getColor(R.color.cp_cont_j));
+            this.fDW.changeSkin(i);
         }
-        b(this.hYQ);
-        b(this.hYR);
+        b(this.imY);
+        b(this.imZ);
     }
 
     public void startPullRefresh() {
-        u uVar = new u();
-        uVar.tabId = 301;
-        uVar.eZg = true;
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, uVar));
+        v vVar = new v();
+        vVar.tabId = 301;
+        vVar.fky = true;
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, vVar));
     }
 
-    public void bxe() {
-        u uVar = new u();
-        uVar.tabId = 301;
-        uVar.eZg = false;
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, uVar));
+    public void bGd() {
+        v vVar = new v();
+        vVar.tabId = 301;
+        vVar.fky = false;
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, vVar));
     }
 
-    public b cgJ() {
-        return this.hYS;
+    public b cro() {
+        return this.ina;
     }
 
-    public RelativeLayout bPb() {
+    public RelativeLayout bZb() {
         return this.mContainer;
     }
 
-    public void nY(boolean z) {
-        ab abVar = new ab();
-        abVar.tabId = 301;
-        abVar.eiE = z;
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(9205410, abVar));
+    public void oC(boolean z) {
+        com.baidu.tieba.frs.ad adVar = new com.baidu.tieba.frs.ad();
+        adVar.tabId = 301;
+        adVar.esv = z;
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(9205410, adVar));
     }
 
-    public void ccW() {
-        if (m.blA().blB()) {
-            int lastVisiblePosition = this.hIh.getLastVisiblePosition();
+    public void cnt() {
+        if (m.bun().buo()) {
+            int lastVisiblePosition = this.hVx.getLastVisiblePosition();
             for (int i = 0; i <= lastVisiblePosition; i++) {
-                View childAt = this.hIh.getChildAt(i);
-                if (childAt != null && (childAt instanceof View) && childAt.getTag() != null && (childAt.getTag() instanceof t)) {
-                    t tVar = (t) childAt.getTag();
-                    if (tVar.hJe != null) {
-                        h perfLog = tVar.hJe.getPerfLog();
+                View childAt = this.hVx.getChildAt(i);
+                if (childAt != null && (childAt instanceof View) && childAt.getTag() != null && (childAt.getTag() instanceof u)) {
+                    u uVar = (u) childAt.getTag();
+                    if (uVar.hWu != null) {
+                        h perfLog = uVar.hWu.getPerfLog();
                         perfLog.setSubType(1000);
-                        perfLog.eHc = true;
+                        perfLog.eRI = true;
                         if (lastVisiblePosition == i) {
                             int[] iArr = new int[2];
-                            tVar.hJe.getLocationOnScreen(iArr);
+                            uVar.hWu.getLocationOnScreen(iArr);
                             if (iArr[1] > l.getEquipmentHeight(TbadkCoreApplication.getInst().getContext())) {
                             }
                         }
-                        tVar.hJe.startLogPerf();
+                        uVar.hWu.startLogPerf();
                     }
-                    if (tVar.hJd != null && (tVar.hJd instanceof ViewGroup)) {
-                        FrsCommonImageLayout frsCommonImageLayout = tVar.hJd;
+                    if (uVar.hWt != null && (uVar.hWt instanceof ViewGroup)) {
+                        FrsCommonImageLayout frsCommonImageLayout = uVar.hWt;
                         for (int i2 = 0; i2 < frsCommonImageLayout.getChildCount(); i2++) {
                             View childAt2 = frsCommonImageLayout.getChildAt(i2);
                             if (childAt2 instanceof TbImageView) {
                                 TbImageView tbImageView = (TbImageView) childAt2;
                                 h perfLog2 = tbImageView.getPerfLog();
                                 perfLog2.setSubType(1000);
-                                perfLog2.eHc = true;
+                                perfLog2.eRI = true;
                                 if (lastVisiblePosition == i) {
                                     int[] iArr2 = new int[2];
                                     childAt2.getLocationOnScreen(iArr2);
@@ -501,36 +499,36 @@ public class a implements TabLayout.OnTabSelectedListener {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bxS() {
-        this.hIh.setNextPage(this.fsC);
-        this.fsC.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-        this.fsC.setOnClickListener(null);
-        this.fsC.startLoadData();
+    public void bGR() {
+        this.hVx.setNextPage(this.fDW);
+        this.fDW.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        this.fDW.setOnClickListener(null);
+        this.fDW.startLoadData();
     }
 
-    public void ccX() {
-        this.hIh.setNextPage(this.fsC);
-        this.fsC.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-        this.fsC.setOnClickListener(this.hNR);
-        this.fsC.endLoadData();
-        this.fsC.setText(this.hYP.getResources().getString(R.string.list_click_load_more));
+    public void cnu() {
+        this.hVx.setNextPage(this.fDW);
+        this.fDW.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        this.fDW.setOnClickListener(this.ibW);
+        this.fDW.endLoadData();
+        this.fDW.setText(this.imX.getResources().getString(R.string.list_click_load_more));
     }
 
-    public void bxT() {
-        this.hIh.setNextPage(this.fsC);
-        this.fsC.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-        this.fsC.setOnClickListener(null);
-        this.fsC.endLoadData();
-        this.fsC.setText(this.hYP.getResources().getString(R.string.list_has_no_more));
+    public void bGS() {
+        this.hVx.setNextPage(this.fDW);
+        this.fDW.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        this.fDW.setOnClickListener(null);
+        this.fDW.endLoadData();
+        this.fDW.setText(this.imX.getResources().getString(R.string.list_has_no_more));
     }
 
-    public void bxU() {
-        this.hIh.setNextPage(null);
+    public void bGT() {
+        this.hVx.setNextPage(null);
     }
 
-    public void nZ(boolean z) {
-        this.drp.setVisibility(z ? 0 : 8);
-        or(z);
+    public void oD(boolean z) {
+        this.dBr.setVisibility(z ? 0 : 8);
+        oV(z);
     }
 
     @Override // android.support.design.widget.TabLayout.OnTabSelectedListener
@@ -538,13 +536,13 @@ public class a implements TabLayout.OnTabSelectedListener {
         if (tab != null) {
             if (tab.getTag() instanceof Integer) {
                 int intValue = ((Integer) tab.getTag()).intValue();
-                com.baidu.tieba.frs.d.d.hOG.icQ = intValue;
-                if (!this.hYW) {
-                    this.hYX = intValue;
-                    a(intValue, this.hYR, false);
-                    this.hYP.vQ(this.hYX);
-                    s.bRL().mH(false);
-                    c.dkh().b(this.hYP.getUniqueId(), false);
+                com.baidu.tieba.frs.d.d.icL.iqX = intValue;
+                if (!this.ine) {
+                    this.inf = intValue;
+                    a(intValue, this.imZ, false);
+                    this.imX.yj(this.inf);
+                    com.baidu.tieba.card.s.cbX().nk(false);
+                    com.baidu.tieba.s.c.dvE().b(this.imX.getUniqueId(), false);
                 }
             }
             setTabColorSelected(tab);
@@ -553,39 +551,39 @@ public class a implements TabLayout.OnTabSelectedListener {
 
     @Override // android.support.design.widget.TabLayout.OnTabSelectedListener
     public void onTabUnselected(TabLayout.Tab tab) {
-        bxe();
+        bGd();
         setTabColorUnSelected(tab);
     }
 
     @Override // android.support.design.widget.TabLayout.OnTabSelectedListener
     public void onTabReselected(TabLayout.Tab tab) {
         if (tab != null && tab.getCustomView() != null) {
-            if (!this.hYW && (tab.getTag() instanceof Integer)) {
-                this.hYX = ((Integer) tab.getTag()).intValue();
-                this.hYP.vQ(this.hYX);
+            if (!this.ine && (tab.getTag() instanceof Integer)) {
+                this.inf = ((Integer) tab.getTag()).intValue();
+                this.imX.yj(this.inf);
             }
             setTabColorSelected(tab);
         }
     }
 
-    private void cgK() {
-        if (this.hYQ == null) {
-            this.hYQ = (TabLayout) LayoutInflater.from(this.hYP.getContext()).inflate(R.layout.frs_good_second_layout, (ViewGroup) null);
-            this.hYQ.setLayoutParams(new RecyclerView.LayoutParams(-1, l.getDimens(this.hYP.getContext(), R.dimen.tbds126)));
-            this.hYQ.setOnTabSelectedListener(this);
-            b(this.hYQ);
-            this.hIh.addHeaderView(this.hYQ);
+    private void crp() {
+        if (this.imY == null) {
+            this.imY = (TabLayout) LayoutInflater.from(this.imX.getContext()).inflate(R.layout.frs_good_second_layout, (ViewGroup) null);
+            this.imY.setLayoutParams(new RecyclerView.LayoutParams(-1, l.getDimens(this.imX.getContext(), R.dimen.tbds126)));
+            this.imY.setOnTabSelectedListener(this);
+            b(this.imY);
+            this.hVx.addHeaderView(this.imY);
         }
     }
 
-    private void cj(View view) {
-        this.hYR = (TabLayout) view.findViewById(R.id.frs_good_fake_tabview);
-        this.hYR.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() { // from class: com.baidu.tieba.frs.good.a.5
+    private void cl(View view) {
+        this.imZ = (TabLayout) view.findViewById(R.id.frs_good_fake_tabview);
+        this.imZ.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() { // from class: com.baidu.tieba.frs.good.a.5
             @Override // android.support.design.widget.TabLayout.OnTabSelectedListener
             public void onTabSelected(TabLayout.Tab tab) {
                 if (tab != null) {
                     if (tab.getTag() instanceof Integer) {
-                        a.this.a(((Integer) tab.getTag()).intValue(), a.this.hYQ, true);
+                        a.this.a(((Integer) tab.getTag()).intValue(), a.this.imY, true);
                     }
                     a.this.setTabColorSelected(tab);
                 }
@@ -593,7 +591,7 @@ public class a implements TabLayout.OnTabSelectedListener {
 
             @Override // android.support.design.widget.TabLayout.OnTabSelectedListener
             public void onTabUnselected(TabLayout.Tab tab) {
-                a.this.bxe();
+                a.this.bGd();
                 a.this.setTabColorUnSelected(tab);
             }
 
@@ -631,30 +629,30 @@ public class a implements TabLayout.OnTabSelectedListener {
         }
     }
 
-    private void or(boolean z) {
+    private void oV(boolean z) {
         if (z) {
-            this.hYR.setVisibility(8);
-        } else if (this.hYR.getTabCount() > 1) {
-            this.hYR.setVisibility(0);
+            this.imZ.setVisibility(8);
+        } else if (this.imZ.getTabCount() > 1) {
+            this.imZ.setVisibility(0);
         }
     }
 
     private void b(TabLayout tabLayout) {
         if (tabLayout != null) {
-            ao.setBackgroundColor(tabLayout, R.color.cp_bg_line_e);
+            ap.setBackgroundColor(tabLayout, R.color.cp_bg_line_e);
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < tabLayout.getTabCount()) {
                     TabLayout.Tab tabAt = tabLayout.getTabAt(i2);
                     if (tabAt != null && (tabAt.getCustomView() instanceof TBSpecificationBtn)) {
-                        com.baidu.tbadk.core.view.commonBtn.d dVar = (com.baidu.tbadk.core.view.commonBtn.d) ((TBSpecificationBtn) tabAt.getCustomView()).getStyleConfig();
+                        c cVar = (c) ((TBSpecificationBtn) tabAt.getCustomView()).getStyleConfig();
                         if (!tabAt.isSelected()) {
-                            dVar.mX(R.color.cp_cont_c);
-                        } else if (as.isEmpty(this.hYU)) {
-                            dVar.mX(R.color.cp_cont_b);
+                            cVar.pd(R.color.cp_cont_c);
+                        } else if (at.isEmpty(this.inc)) {
+                            cVar.pd(R.color.cp_cont_b);
                         } else {
-                            dVar.mY(com.baidu.tieba.lego.card.d.a.dU(this.hYU));
+                            cVar.pe(com.baidu.tieba.lego.card.d.b.fn(this.inc));
                         }
                     }
                     i = i2 + 1;
@@ -677,8 +675,8 @@ public class a implements TabLayout.OnTabSelectedListener {
             } else {
                 themeElement = this.mThemeColorInfo.day;
             }
-            if (!as.isEmpty(themeElement.font_color)) {
-                this.hYU = themeElement.font_color;
+            if (!at.isEmpty(themeElement.font_color)) {
+                this.inc = themeElement.font_color;
             }
         }
     }
@@ -686,11 +684,11 @@ public class a implements TabLayout.OnTabSelectedListener {
     /* JADX INFO: Access modifiers changed from: private */
     public void setTabColorSelected(TabLayout.Tab tab) {
         if (tab.getCustomView() != null) {
-            com.baidu.tbadk.core.view.commonBtn.d dVar = (com.baidu.tbadk.core.view.commonBtn.d) ((TBSpecificationBtn) tab.getCustomView()).getStyleConfig();
-            if (as.isEmpty(this.hYU)) {
-                dVar.mX(R.color.cp_cont_b);
+            c cVar = (c) ((TBSpecificationBtn) tab.getCustomView()).getStyleConfig();
+            if (at.isEmpty(this.inc)) {
+                cVar.pd(R.color.cp_cont_b);
             } else {
-                dVar.mY(com.baidu.tieba.lego.card.d.a.dU(this.hYU));
+                cVar.pe(com.baidu.tieba.lego.card.d.b.fn(this.inc));
             }
         }
     }
@@ -698,48 +696,48 @@ public class a implements TabLayout.OnTabSelectedListener {
     /* JADX INFO: Access modifiers changed from: private */
     public void setTabColorUnSelected(TabLayout.Tab tab) {
         if (tab != null && tab.getCustomView() != null) {
-            ((com.baidu.tbadk.core.view.commonBtn.d) ((TBSpecificationBtn) tab.getCustomView()).getStyleConfig()).mX(R.color.cp_cont_c);
+            ((c) ((TBSpecificationBtn) tab.getCustomView()).getStyleConfig()).pd(R.color.cp_cont_c);
         }
     }
 
-    public void zc() {
-        if (cgJ() != null) {
-            List<q> dataList = cgJ().getDataList();
-            if (!x.isEmpty(dataList)) {
+    public void EF() {
+        if (cro() != null) {
+            List<q> dataList = cro().getDataList();
+            if (!y.isEmpty(dataList)) {
                 for (q qVar : dataList) {
-                    if (qVar instanceof bu) {
-                        bu buVar = (bu) qVar;
-                        if (buVar.dRu != 0 && buVar.dLK != null) {
-                            int[] imageWidthAndHeight = buVar.dLK.getImageWidthAndHeight();
-                            buVar.dRu = imageWidthAndHeight[0];
-                            buVar.dRv = imageWidthAndHeight[1];
+                    if (qVar instanceof bv) {
+                        bv bvVar = (bv) qVar;
+                        if (bvVar.eaP != 0 && bvVar.dUS != null) {
+                            int[] imageWidthAndHeight = bvVar.dUS.getImageWidthAndHeight();
+                            bvVar.eaP = imageWidthAndHeight[0];
+                            bvVar.eaQ = imageWidthAndHeight[1];
                         }
                     }
                 }
-                e.lt().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.good.a.6
+                e.mS().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.good.a.6
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.cgJ().notifyDataSetChanged();
+                        a.this.cro().notifyDataSetChanged();
                     }
                 }, 500L);
             }
         }
     }
 
-    public void Gk(String str) {
-        if (this.hYP.cgD() != null) {
-            this.hYP.cgD().Gm(str);
+    public void IM(String str) {
+        if (this.imX.cri() != null) {
+            this.imX.cri().IO(str);
         }
     }
 
-    public void Gl(String str) {
-        if (!StringUtils.isNull(str) && !x.isEmpty(this.hYS.getDataList())) {
-            Iterator<q> it = this.hYS.cgR().iterator();
+    public void IN(String str) {
+        if (!StringUtils.isNull(str) && !y.isEmpty(this.ina.getDataList())) {
+            Iterator<q> it = this.ina.crw().iterator();
             while (it.hasNext()) {
                 q next = it.next();
                 if (next instanceof com.baidu.tieba.InjectPlugin.a) {
                     com.baidu.tieba.InjectPlugin.a aVar = (com.baidu.tieba.InjectPlugin.a) next;
-                    if ((aVar.bqq() instanceof AdvertAppInfo) && str.equals(((AdvertAppInfo) aVar.bqq()).dMW)) {
+                    if ((aVar.bzo() instanceof AdvertAppInfo) && str.equals(((AdvertAppInfo) aVar.bzo()).dWf)) {
                         it.remove();
                     }
                 }

@@ -7,22 +7,22 @@ import android.widget.LinearLayout;
 import com.baidu.adp.lib.util.l;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
-import com.baidu.tbadk.core.view.commonBtn.c;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.editortools.RawLayout;
-import com.baidu.tbadk.editortools.m;
+import com.baidu.tbadk.editortools.n;
 import com.baidu.tieba.R;
 /* loaded from: classes17.dex */
-public class PbLocationInfoContainer extends LinearLayout implements View.OnClickListener, m {
-    private boolean hNI;
-    private TBSpecificationBtn jFI;
-    private EditorTools jFJ;
-    private int jFK;
+public class PbLocationInfoContainer extends LinearLayout implements View.OnClickListener, n {
+    private boolean ibN;
+    private TBSpecificationBtn jUZ;
+    private EditorTools jVa;
+    private int jVb;
 
     public PbLocationInfoContainer(Context context) {
         super(context);
-        this.jFK = 0;
-        this.hNI = true;
+        this.jVb = 0;
+        this.ibN = true;
         initView();
     }
 
@@ -33,26 +33,26 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
         RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(-2, l.getDimens(getContext(), R.dimen.ds48));
         layoutParams.setMargins(0, l.getDimens(getContext(), R.dimen.ds30), 0, l.getDimens(getContext(), R.dimen.ds12));
         setLayoutParams(layoutParams);
-        c cVar = new c();
-        cVar.mX(R.color.cp_cont_b);
-        cVar.k(R.drawable.ic_icon_pure_post_location16_svg, 0, true);
-        cVar.mS(R.color.cp_cont_e);
-        cVar.aS(l.getDimens(getContext(), R.dimen.tbds22), l.getDimens(getContext(), R.dimen.tbds28));
-        this.jFI = new TBSpecificationBtn(getContext());
-        this.jFI.setConfig(cVar);
-        this.jFI.setTextSize(R.dimen.tbds32);
-        this.jFI.setOnClickListener(this);
-        this.jFI.setText(getContext().getString(R.string.location_where_are_you));
-        addView(this.jFI, new LinearLayout.LayoutParams(-2, l.getDimens(getContext(), R.dimen.tbds63)));
+        com.baidu.tbadk.core.view.commonBtn.b bVar = new com.baidu.tbadk.core.view.commonBtn.b();
+        bVar.pd(R.color.cp_cont_b);
+        bVar.a(R.drawable.ic_icon_pure_post_location16_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
+        bVar.oY(R.color.cp_cont_e);
+        bVar.ba(l.getDimens(getContext(), R.dimen.tbds22), l.getDimens(getContext(), R.dimen.tbds28));
+        this.jUZ = new TBSpecificationBtn(getContext());
+        this.jUZ.setConfig(bVar);
+        this.jUZ.setTextSize(R.dimen.tbds32);
+        this.jUZ.setOnClickListener(this);
+        this.jUZ.setText(getContext().getString(R.string.location_where_are_you));
+        addView(this.jUZ, new LinearLayout.LayoutParams(-2, l.getDimens(getContext(), R.dimen.tbds63)));
     }
 
-    public void bci() {
-        this.jFI.bci();
+    public void changeSkinType(int i) {
+        this.jUZ.changeSkinType(i);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.jFI) {
+        if (view == this.jUZ) {
             b(new com.baidu.tbadk.editortools.a(18, -1, null));
         }
     }
@@ -67,11 +67,11 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
                 }
                 com.baidu.tbadk.editortools.d.a aVar2 = (com.baidu.tbadk.editortools.d.a) aVar.data;
                 if (aVar2.state == 1) {
-                    this.jFI.setText(getContext().getString(R.string.location_loading));
+                    this.jUZ.setText(getContext().getString(R.string.location_loading));
                 } else if (!TextUtils.isEmpty(aVar2.addr)) {
-                    this.jFI.setText(aVar2.addr);
+                    this.jUZ.setText(aVar2.addr);
                 } else {
-                    this.jFI.setText(getContext().getString(R.string.location_where_are_you));
+                    this.jUZ.setText(getContext().getString(R.string.location_where_are_you));
                 }
             } else if (aVar.code == 20) {
                 hide();
@@ -79,47 +79,47 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.m
+    @Override // com.baidu.tbadk.editortools.n
     public void setEditorTools(EditorTools editorTools) {
-        this.jFJ = editorTools;
+        this.jVa = editorTools;
     }
 
-    @Override // com.baidu.tbadk.editortools.m
+    @Override // com.baidu.tbadk.editortools.n
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.jFJ != null) {
-            this.jFJ.b(aVar);
+        if (this.jVa != null) {
+            this.jVa.b(aVar);
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.m
+    @Override // com.baidu.tbadk.editortools.n
     public void setToolId(int i) {
-        this.jFK = i;
+        this.jVb = i;
     }
 
-    @Override // com.baidu.tbadk.editortools.m
+    @Override // com.baidu.tbadk.editortools.n
     public int getToolId() {
-        return this.jFK;
+        return this.jVb;
     }
 
-    @Override // com.baidu.tbadk.editortools.m
+    @Override // com.baidu.tbadk.editortools.n
     public void init() {
     }
 
-    @Override // com.baidu.tbadk.editortools.m
+    @Override // com.baidu.tbadk.editortools.n
     public void display() {
-        if (this.hNI) {
-            this.hNI = false;
+        if (this.ibN) {
+            this.ibN = false;
             b(new com.baidu.tbadk.editortools.a(18, -1, Config.TRACE_VISIT_FIRST));
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.m
+    @Override // com.baidu.tbadk.editortools.n
     public void hide() {
-        this.jFI.setText(getContext().getString(R.string.location_where_are_you));
+        this.jUZ.setText(getContext().getString(R.string.location_where_are_you));
     }
 
-    @Override // com.baidu.tbadk.editortools.m
+    @Override // com.baidu.tbadk.editortools.n
     public void onChangeSkinType(int i) {
-        bci();
+        changeSkinType(i);
     }
 }

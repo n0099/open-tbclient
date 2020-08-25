@@ -9,6 +9,6 @@ import java.lang.annotation.Target;
 @Beta
 @Documented
 @Retention(RetentionPolicy.CLASS)
-/* loaded from: classes18.dex */
+/* loaded from: classes4.dex */
 public @interface Beta {
 }

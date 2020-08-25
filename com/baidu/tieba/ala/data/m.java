@@ -1,12 +1,12 @@
 package com.baidu.tieba.ala.data;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class m {
-    private String aBY;
-    private int fJA;
-    private String fJB;
-    private String fJC;
-    private String fjG;
-    private String fji;
+    private String aHi;
+    private int fUR;
+    private String fUS;
+    private String fUT;
+    private String fuE;
+    private String fvc;
     private String mIcon;
     private String mName;
     public int mStatus;
@@ -15,29 +15,29 @@ public class m {
     }
 
     public m(String str, String str2, String str3, String str4, String str5, String str6, String str7, int i) {
-        this.fJB = str;
+        this.fUS = str;
         this.mIcon = str2;
         this.mName = str3;
-        this.fJC = str4;
-        this.fjG = str5;
-        this.fji = str6;
-        this.aBY = str7;
+        this.fUT = str4;
+        this.fvc = str5;
+        this.fuE = str6;
+        this.aHi = str7;
         this.mStatus = i;
     }
 
-    public int bzR() {
-        return this.fJA;
+    public int bIU() {
+        return this.fUR;
     }
 
-    public void qW(int i) {
-        this.fJA = i;
+    public void ti(int i) {
+        this.fUR = i;
     }
 
-    public String bzS() {
-        return this.fJB;
+    public String bIV() {
+        return this.fUS;
     }
 
-    public String bzT() {
+    public String bIW() {
         return this.mIcon;
     }
 
@@ -45,15 +45,15 @@ public class m {
         return this.mName;
     }
 
-    public String bzU() {
-        return this.fJC;
+    public String bIX() {
+        return this.fUT;
     }
 
-    public String bzV() {
-        return this.fjG;
+    public String bIY() {
+        return this.fvc;
     }
 
-    public String bzW() {
-        return this.fji;
+    public String bIZ() {
+        return this.fuE;
     }
 }

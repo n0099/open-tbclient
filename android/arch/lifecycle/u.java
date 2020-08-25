@@ -3,62 +3,62 @@ package android.arch.lifecycle;
 import android.arch.lifecycle.Lifecycle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public class u {
     private final Handler mHandler = new Handler();
-    private final k yX;
-    private a zf;
+    private a zE;
+    private final k zw;
 
     public u(@NonNull j jVar) {
-        this.yX = new k(jVar);
+        this.zw = new k(jVar);
     }
 
     private void d(Lifecycle.Event event) {
-        if (this.zf != null) {
-            this.zf.run();
+        if (this.zE != null) {
+            this.zE.run();
         }
-        this.zf = new a(this.yX, event);
-        this.mHandler.postAtFrontOfQueue(this.zf);
+        this.zE = new a(this.zw, event);
+        this.mHandler.postAtFrontOfQueue(this.zE);
     }
 
-    public void gu() {
+    public void hI() {
         d(Lifecycle.Event.ON_CREATE);
     }
 
-    public void gv() {
+    public void hJ() {
         d(Lifecycle.Event.ON_START);
     }
 
-    public void gw() {
+    public void hK() {
         d(Lifecycle.Event.ON_START);
     }
 
-    public void gx() {
+    public void hL() {
         d(Lifecycle.Event.ON_STOP);
         d(Lifecycle.Event.ON_DESTROY);
     }
 
     public Lifecycle getLifecycle() {
-        return this.yX;
+        return this.zw;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes20.dex */
     public static class a implements Runnable {
-        private final k yX;
-        final Lifecycle.Event zg;
-        private boolean zh = false;
+        final Lifecycle.Event zF;
+        private boolean zG = false;
+        private final k zw;
 
         a(@NonNull k kVar, Lifecycle.Event event) {
-            this.yX = kVar;
-            this.zg = event;
+            this.zw = kVar;
+            this.zF = event;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (!this.zh) {
-                this.yX.b(this.zg);
-                this.zh = true;
+            if (!this.zG) {
+                this.zw.b(this.zF);
+                this.zG = true;
             }
         }
     }

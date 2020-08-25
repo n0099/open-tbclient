@@ -7,40 +7,40 @@ import android.view.ViewGroup;
 import com.baidu.live.view.PriorityVerticalLinearLayout;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class DispatchedPvlLayout extends PriorityVerticalLinearLayout {
-    private boolean boL;
-    private boolean boM;
-    private a boN;
+    private a buA;
+    private boolean buy;
+    private boolean buz;
 
     public DispatchedPvlLayout(Context context) {
         super(context);
-        this.boL = false;
-        this.boM = false;
+        this.buy = false;
+        this.buz = false;
     }
 
     public DispatchedPvlLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.boL = false;
-        this.boM = false;
+        this.buy = false;
+        this.buz = false;
     }
 
     public DispatchedPvlLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.boL = false;
-        this.boM = false;
+        this.buy = false;
+        this.buz = false;
     }
 
     @Override // com.baidu.live.view.PriorityVerticalLinearLayout, android.view.ViewGroup
     public void addView(View view, int i, ViewGroup.LayoutParams layoutParams) {
-        if ((!this.boL || !b.a(view, this.boN)) && layoutParams != null) {
+        if ((!this.buy || !b.a(view, this.buA)) && layoutParams != null) {
             super.addView(view, i, layoutParams);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.ViewManager
     public void removeView(View view) {
-        if (this.boM || !this.boL || !b.b(view, this.boN)) {
+        if (this.buz || !this.buy || !b.b(view, this.buA)) {
             super.removeView(view);
         }
     }
@@ -48,55 +48,55 @@ public class DispatchedPvlLayout extends PriorityVerticalLinearLayout {
     @Override // android.view.ViewGroup
     public void removeAllViews() {
         super.removeAllViews();
-        if (this.boL && this.boN != null) {
-            this.boN.KQ();
+        if (this.buy && this.buA != null) {
+            this.buA.QP();
         }
     }
 
     @Override // android.view.ViewGroup
     public int indexOfChild(View view) {
-        if (!this.boM && this.boL) {
-            if (this.boN == null || !this.boN.aa(view)) {
+        if (!this.buz && this.buy) {
+            if (this.buA == null || !this.buA.ab(view)) {
                 return super.indexOfChild(view);
             }
-            return this.boN.indexOfChild(view);
+            return this.buA.indexOfChild(view);
         }
         return super.indexOfChild(view);
     }
 
     public void setViewActionDispatched(boolean z) {
-        if (this.boL != z) {
-            this.boL = z;
+        if (this.buy != z) {
+            this.buy = z;
             if (z) {
-                KP();
+                QO();
             }
         }
     }
 
-    private void KP() {
-        if (this.boL && getChildCount() > 0 && this.boN != null) {
+    private void QO() {
+        if (this.buy && getChildCount() > 0 && this.buA != null) {
             LinkedList linkedList = new LinkedList();
             for (int i = 0; i < getChildCount(); i++) {
                 View childAt = getChildAt(i);
-                if (this.boN.aa(childAt)) {
+                if (this.buA.ab(childAt)) {
                     linkedList.add(childAt);
                 }
             }
             if (!linkedList.isEmpty()) {
-                this.boM = true;
+                this.buz = true;
                 Iterator it = linkedList.iterator();
                 while (it.hasNext()) {
                     View view = (View) it.next();
                     super.removeView(view);
-                    this.boN.onViewAdded(view);
+                    this.buA.onViewAdded(view);
                 }
-                this.boM = false;
+                this.buz = false;
             }
         }
     }
 
     public void setViewActionDispatchListener(a aVar) {
-        this.boN = aVar;
-        KP();
+        this.buA = aVar;
+        QO();
     }
 }

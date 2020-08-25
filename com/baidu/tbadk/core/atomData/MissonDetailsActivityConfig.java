@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class MissonDetailsActivityConfig extends IntentConfig {
     public static final String ANTI_DATA = "anti_data";
     public static final String CURRENT_LEVEL = "current_level";

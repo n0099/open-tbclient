@@ -1,6 +1,6 @@
 package org.apache.http;
 @Deprecated
-/* loaded from: classes20.dex */
+/* loaded from: classes9.dex */
 public interface HeaderElement {
     String getName();
 

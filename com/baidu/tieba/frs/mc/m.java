@@ -5,41 +5,41 @@ import com.baidu.tbadk.mvc.message.MvcHttpMessage;
 import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
 import com.baidu.tbadk.mvc.message.MvcNetMessage;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
-import com.baidu.tieba.tbadkCore.q;
+import com.baidu.tieba.tbadkCore.r;
 /* loaded from: classes16.dex */
 public class m implements MessageQueue.IdleHandler {
-    private q iam;
-    private FrsModelController ibs;
-    private MvcHttpResponsedMessage<com.baidu.tieba.tbadkCore.m> ibt;
-    private MvcHttpMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> ibu;
-    private MvcNetMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> ibv;
+    private r iou;
+    private MvcHttpResponsedMessage<com.baidu.tieba.tbadkCore.m> ipA;
+    private MvcHttpMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> ipB;
+    private MvcNetMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> ipC;
+    private FrsModelController ipz;
 
     public void f(FrsModelController frsModelController) {
-        this.ibs = frsModelController;
+        this.ipz = frsModelController;
     }
 
     public void a(MvcHttpResponsedMessage<com.baidu.tieba.tbadkCore.m> mvcHttpResponsedMessage) {
-        this.ibt = mvcHttpResponsedMessage;
+        this.ipA = mvcHttpResponsedMessage;
     }
 
     public void a(MvcHttpMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> mvcHttpMessage) {
-        this.ibu = mvcHttpMessage;
+        this.ipB = mvcHttpMessage;
     }
 
     public void a(MvcNetMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> mvcNetMessage) {
-        this.ibv = mvcNetMessage;
+        this.ipC = mvcNetMessage;
     }
 
-    public void a(q qVar) {
-        this.iam = qVar;
+    public void a(r rVar) {
+        this.iou = rVar;
     }
 
     @Override // android.os.MessageQueue.IdleHandler
     public boolean queueIdle() {
-        if (this.ibs != null) {
-            this.ibs.b(this.ibt, this.ibu, this.ibv);
-            if (this.iam != null) {
-                this.iam.cbJ();
+        if (this.ipz != null) {
+            this.ipz.b(this.ipA, this.ipB, this.ipC);
+            if (this.iou != null) {
+                this.iou.cmg();
             }
         }
         return false;

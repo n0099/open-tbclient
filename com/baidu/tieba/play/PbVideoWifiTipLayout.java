@@ -6,18 +6,18 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.R;
 import java.text.DecimalFormat;
 import tbclient.VideoInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class PbVideoWifiTipLayout extends LinearLayout {
-    private TextView lbR;
-    private TextView lbS;
-    private TextView lbT;
-    private TextView lbU;
-    private TextView lbV;
-    private View.OnClickListener lbW;
+    private TextView lsh;
+    private TextView lsi;
+    private TextView lsj;
+    private TextView lsk;
+    private TextView lsl;
+    private View.OnClickListener lsm;
 
     public PbVideoWifiTipLayout(Context context) {
         super(context);
@@ -36,32 +36,32 @@ public class PbVideoWifiTipLayout extends LinearLayout {
 
     private void initView() {
         inflate(getContext(), R.layout.layout_video_wifi_tip, this);
-        this.lbR = (TextView) findViewById(R.id.tv_video_duration);
-        this.lbS = (TextView) findViewById(R.id.tv_video_data);
-        this.lbT = (TextView) findViewById(R.id.tv_play);
-        this.lbU = (TextView) findViewById(R.id.tv_divider);
-        this.lbV = (TextView) findViewById(R.id.tv_open_free_data);
-        this.lbV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.play.PbVideoWifiTipLayout.1
+        this.lsh = (TextView) findViewById(R.id.tv_video_duration);
+        this.lsi = (TextView) findViewById(R.id.tv_video_data);
+        this.lsj = (TextView) findViewById(R.id.tv_play);
+        this.lsk = (TextView) findViewById(R.id.tv_divider);
+        this.lsl = (TextView) findViewById(R.id.tv_open_free_data);
+        this.lsl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.play.PbVideoWifiTipLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 com.baidu.tbadk.browser.a.startWebActivity(true, PbVideoWifiTipLayout.this.getContext(), PbVideoWifiTipLayout.this.getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
-                if (PbVideoWifiTipLayout.this.lbW != null) {
-                    PbVideoWifiTipLayout.this.lbW.onClick(view);
+                if (PbVideoWifiTipLayout.this.lsm != null) {
+                    PbVideoWifiTipLayout.this.lsm.onClick(view);
                 }
             }
         });
     }
 
     public TextView getTvPlay() {
-        return this.lbT;
+        return this.lsj;
     }
 
     public TextView getTvOpenFreeData() {
-        return this.lbV;
+        return this.lsl;
     }
 
     public void setFreeClickListener(View.OnClickListener onClickListener) {
-        this.lbW = onClickListener;
+        this.lsm = onClickListener;
     }
 
     public void setData(VideoInfo videoInfo) {
@@ -72,21 +72,21 @@ public class PbVideoWifiTipLayout extends LinearLayout {
 
     public void setData(int i, int i2) {
         if (i > 0) {
-            this.lbR.setText(String.format(getResources().getString(R.string.pb_video_duration), as.stringForVideoTime(i * 1000)));
+            this.lsh.setText(String.format(getResources().getString(R.string.pb_video_duration), at.stringForVideoTime(i * 1000)));
         } else {
-            this.lbR.setVisibility(8);
-            this.lbU.setVisibility(8);
+            this.lsh.setVisibility(8);
+            this.lsk.setVisibility(8);
         }
         if (i2 > 0) {
-            this.lbS.setText(String.format(getResources().getString(R.string.pb_video_data), new DecimalFormat("0.0").format(i2 / 1048576.0f)));
+            this.lsi.setText(String.format(getResources().getString(R.string.pb_video_data), new DecimalFormat("0.0").format(i2 / 1048576.0f)));
         } else {
-            this.lbS.setVisibility(8);
-            this.lbU.setVisibility(8);
+            this.lsi.setVisibility(8);
+            this.lsk.setVisibility(8);
         }
-        this.lbV.setVisibility(0);
+        this.lsl.setVisibility(0);
     }
 
     public void setOnPlayClickListener(View.OnClickListener onClickListener) {
-        this.lbT.setOnClickListener(onClickListener);
+        this.lsj.setOnClickListener(onClickListener);
     }
 }

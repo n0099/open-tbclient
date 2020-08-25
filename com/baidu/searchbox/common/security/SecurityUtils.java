@@ -3,7 +3,7 @@ package com.baidu.searchbox.common.security;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 public final class SecurityUtils {
     public static boolean checkActivityRefuseServiceAndFinish(Activity activity) {
         if (activity == null || !checkIntentRefuseService(activity.getIntent())) {

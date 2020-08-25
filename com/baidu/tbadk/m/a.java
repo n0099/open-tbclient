@@ -1,7 +1,7 @@
 package com.baidu.tbadk.m;
 
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface a {
     String getCurrentPageKey();
 

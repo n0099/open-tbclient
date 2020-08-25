@@ -25,7 +25,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 @RequiresApi(api = 15)
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class FluttiePlugin implements Application.ActivityLifecycleCallbacks, MethodChannel.MethodCallHandler {
     private PluginRegistry.Registrar registrar;
     private RenderingThreads renderingThreads;
@@ -140,7 +140,7 @@ public class FluttiePlugin implements Application.ActivityLifecycleCallbacks, Me
                 double doubleValue2 = ((Double) methodCall.argument("pref_size_h")).doubleValue();
                 float f = 1.0f;
                 if (doubleValue > 0.0d && doubleValue2 > 0.0d) {
-                    f = (float) Math.min(doubleValue / eVar.gS().height(), doubleValue2 / eVar.gS().width());
+                    f = (float) Math.min(doubleValue / eVar.it().height(), doubleValue2 / eVar.it().width());
                 }
                 TextureRegistry.SurfaceTextureEntry createSurfaceTexture = this.registrar.textures().createSurfaceTexture();
                 FluttieAnimation fluttieAnimation = new FluttieAnimation(this, createSurfaceTexture, eVar, f, (String) methodCall.argument("img_assets_path"));
@@ -190,8 +190,8 @@ public class FluttiePlugin implements Application.ActivityLifecycleCallbacks, Me
                         result.error("Could not load composition", "CompositionLoadError", null);
                         return;
                     }
-                    if (!eVar.gR().isEmpty()) {
-                        Iterator<String> it = eVar.gR().iterator();
+                    if (!eVar.is().isEmpty()) {
+                        Iterator<String> it = eVar.is().iterator();
                         while (it.hasNext()) {
                             it.next();
                         }
@@ -236,7 +236,7 @@ public class FluttiePlugin implements Application.ActivityLifecycleCallbacks, Me
         }
         switch (c) {
             case 0:
-                f.l(str2, null).a(iVar).c(iVar2);
+                f.n(str2, null).a(iVar).c(iVar2);
                 return;
             case 1:
                 f.t(this.registrar.context(), this.registrar.lookupKeyForAsset(str2)).a(iVar).c(iVar2);
@@ -245,7 +245,7 @@ public class FluttiePlugin implements Application.ActivityLifecycleCallbacks, Me
                 if (str2.endsWith(".json")) {
                     str2 = str2.substring(0, str2.length() - 5);
                 }
-                int identifier = g.jE().getResources().getIdentifier(LottieNameTransform.getAndroidNameFromIos(str2), "raw", BdBaseApplication.getInst().getPackageName());
+                int identifier = g.ld().getResources().getIdentifier(LottieNameTransform.getAndroidNameFromIos(str2), "raw", BdBaseApplication.getInst().getPackageName());
                 if (identifier != 0) {
                     f.d(this.registrar.context(), identifier).a(iVar).c(iVar2);
                     return;

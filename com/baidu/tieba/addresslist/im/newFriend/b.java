@@ -14,28 +14,28 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes15.dex */
 public class b {
-    private static b ffy;
+    private static b fqR;
 
     private b() {
     }
 
-    public static synchronized b bsK() {
+    public static synchronized b bBH() {
         b bVar;
         synchronized (b.class) {
-            if (ffy == null) {
-                ffy = new b();
+            if (fqR == null) {
+                fqR = new b();
             }
-            bVar = ffy;
+            bVar = fqR;
         }
         return bVar;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [72=4] */
-    public int bsL() {
+    public int bBI() {
         int i = 0;
         Cursor cursor = null;
         try {
-            cursor = h.ctm().rawQuery("select count(*) from tb_new_friends WHERE  ( isread=? and ustatus=? ) or (isread=? and ustatus=? )", new String[]{String.valueOf(0), String.valueOf(1), String.valueOf(0), String.valueOf(4)});
+            cursor = h.cEd().rawQuery("select count(*) from tb_new_friends WHERE  ( isread=? and ustatus=? ) or (isread=? and ustatus=? )", new String[]{String.valueOf(0), String.valueOf(1), String.valueOf(0), String.valueOf(4)});
             if (cursor != null && cursor.moveToNext()) {
                 i = cursor.getInt(0);
             }
@@ -49,19 +49,19 @@ public class b {
         return i;
     }
 
-    public void bsM() {
+    public void bBJ() {
         ContentValues contentValues = new ContentValues();
         contentValues.put("isread", (Integer) 1);
-        h.ctm().a("tb_new_friends", contentValues, null, null);
+        h.cEd().a("tb_new_friends", contentValues, null, null);
     }
 
-    public boolean ds(long j) {
-        return a(g.ctk(), j);
+    public boolean dD(long j) {
+        return a(g.cEb(), j);
     }
 
     private boolean a(SQLiteDatabase sQLiteDatabase, long j) {
         try {
-            return h.ctm().a("tb_new_friends", "uid = ?", new String[]{String.valueOf(j)});
+            return h.cEd().a("tb_new_friends", "uid = ?", new String[]{String.valueOf(j)});
         } catch (Exception e) {
             e.printStackTrace();
             return false;
@@ -77,13 +77,13 @@ public class b {
     private boolean b(SQLiteDatabase sQLiteDatabase, long j) {
         boolean z = true;
         if (sQLiteDatabase == null) {
-            sQLiteDatabase = g.ctk();
+            sQLiteDatabase = g.cEb();
         }
         if (sQLiteDatabase != null) {
             Cursor cursor = null;
             try {
                 try {
-                    cursor = h.ctm().rawQuery("select * from tb_new_friends WHERE uid=?", new String[]{String.valueOf(j)});
+                    cursor = h.cEd().rawQuery("select * from tb_new_friends WHERE uid=?", new String[]{String.valueOf(j)});
                     if (cursor != null) {
                     }
                     z = false;
@@ -106,22 +106,22 @@ public class b {
         return false;
     }
 
-    public boolean dt(long j) {
-        return b(g.ctk(), j);
+    public boolean dE(long j) {
+        return b(g.cEb(), j);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [177=4] */
-    private long L(SQLiteDatabase sQLiteDatabase) {
+    private long O(SQLiteDatabase sQLiteDatabase) {
         Cursor cursor;
         Cursor cursor2;
         if (sQLiteDatabase == null) {
-            sQLiteDatabase = g.ctk();
+            sQLiteDatabase = g.cEb();
         }
         if (sQLiteDatabase != null) {
             Cursor cursor3 = null;
             try {
                 try {
-                    cursor2 = h.ctm().rawQuery("select * from tb_new_friends", new String[0]);
+                    cursor2 = h.cEd().rawQuery("select * from tb_new_friends", new String[0]);
                     if (cursor2 != null) {
                         try {
                             if (cursor2.moveToNext()) {
@@ -170,10 +170,10 @@ public class b {
         return 0L;
     }
 
-    private int M(SQLiteDatabase sQLiteDatabase) {
+    private int P(SQLiteDatabase sQLiteDatabase) {
         int i = 0;
         if (sQLiteDatabase == null) {
-            sQLiteDatabase = g.ctk();
+            sQLiteDatabase = g.cEb();
         }
         Cursor cursor = null;
         try {
@@ -185,7 +185,7 @@ public class b {
             n.close(cursor);
         }
         if (sQLiteDatabase != null) {
-            cursor = h.ctm().rawQuery("select * from tb_new_friends", new String[0]);
+            cursor = h.cEd().rawQuery("select * from tb_new_friends", new String[0]);
             if (cursor == null || !cursor.moveToFirst()) {
                 n.close(cursor);
             } else {
@@ -197,7 +197,7 @@ public class b {
 
     public void g(com.baidu.tieba.im.data.a aVar) {
         try {
-            a(g.ctk(), aVar);
+            a(g.cEb(), aVar);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -206,7 +206,7 @@ public class b {
     public void bu(List<com.baidu.tieba.im.data.a> list) {
         try {
             for (com.baidu.tieba.im.data.a aVar : list) {
-                a(g.ctk(), aVar);
+                a(g.cEb(), aVar);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -216,12 +216,12 @@ public class b {
     private void a(SQLiteDatabase sQLiteDatabase, com.baidu.tieba.im.data.a aVar) throws Exception {
         if (aVar != null && aVar.getId() != 0 && !TextUtils.isEmpty(aVar.getName())) {
             if (sQLiteDatabase == null) {
-                sQLiteDatabase = g.ctk();
+                sQLiteDatabase = g.cEb();
             }
             if (sQLiteDatabase != null) {
                 a(sQLiteDatabase, aVar.getId());
-                if (M(sQLiteDatabase) >= 200) {
-                    ds(L(sQLiteDatabase));
+                if (P(sQLiteDatabase) >= 200) {
+                    dD(O(sQLiteDatabase));
                 }
                 if (sQLiteDatabase != null) {
                     ContentValues contentValues = new ContentValues();
@@ -230,20 +230,20 @@ public class b {
                     contentValues.put("uportrait", aVar.getPortrait());
                     contentValues.put("ucontent", aVar.getContent());
                     contentValues.put("ustatus", Integer.valueOf(aVar.getStatus()));
-                    contentValues.put("isread", Integer.valueOf(aVar.csW()));
-                    h.ctm().a("tb_new_friends", (String) null, contentValues);
+                    contentValues.put("isread", Integer.valueOf(aVar.cDN()));
+                    h.cEd().a("tb_new_friends", (String) null, contentValues);
                 }
             }
         }
     }
 
-    public List<com.baidu.tieba.im.data.a> bsN() {
+    public List<com.baidu.tieba.im.data.a> bBK() {
         Cursor cursor = null;
-        SQLiteDatabase ctk = g.ctk();
+        SQLiteDatabase cEb = g.cEb();
         ArrayList arrayList = new ArrayList();
         try {
-            if (ctk != null) {
-                cursor = h.ctm().rawQuery("select * from tb_new_friends ORDER BY _id DESC", null);
+            if (cEb != null) {
+                cursor = h.cEd().rawQuery("select * from tb_new_friends ORDER BY _id DESC", null);
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
                         com.baidu.tieba.im.data.a aVar = new com.baidu.tieba.im.data.a();
@@ -252,7 +252,7 @@ public class b {
                             i(aVar);
                         }
                         aVar.setContent(cursor.getString(cursor.getColumnIndex("ucontent")));
-                        aVar.yB(cursor.getInt(cursor.getColumnIndex("isread")));
+                        aVar.AV(cursor.getInt(cursor.getColumnIndex("isread")));
                         aVar.setName(cursor.getString(cursor.getColumnIndex(BdStatsConstant.StatsKey.UNAME)));
                         aVar.setPortrait(cursor.getString(cursor.getColumnIndex("uportrait")));
                         aVar.setStatus(cursor.getInt(cursor.getColumnIndex("ustatus")));
@@ -273,16 +273,16 @@ public class b {
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:11:0x0054 -> B:15:0x004e). Please submit an issue!!! */
     public int h(com.baidu.tieba.im.data.a aVar) {
         int i = 0;
-        SQLiteDatabase ctk = g.ctk();
-        if (ctk != null) {
+        SQLiteDatabase cEb = g.cEb();
+        if (cEb != null) {
             try {
-                if (b(ctk, aVar.getId())) {
+                if (b(cEb, aVar.getId())) {
                     ContentValues contentValues = new ContentValues();
                     contentValues.put("ustatus", Integer.valueOf(aVar.getStatus()));
-                    contentValues.put("isread", Integer.valueOf(aVar.csW()));
-                    i = h.ctm().a("tb_new_friends", contentValues, "uid=?", new String[]{String.valueOf(aVar.getId())});
+                    contentValues.put("isread", Integer.valueOf(aVar.cDN()));
+                    i = h.cEd().a("tb_new_friends", contentValues, "uid=?", new String[]{String.valueOf(aVar.getId())});
                 } else {
-                    a(ctk, aVar);
+                    a(cEb, aVar);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -293,14 +293,14 @@ public class b {
 
     private int i(com.baidu.tieba.im.data.a aVar) {
         int i = 0;
-        SQLiteDatabase ctk = g.ctk();
-        if (ctk != null) {
+        SQLiteDatabase cEb = g.cEb();
+        if (cEb != null) {
             try {
-                if (b(ctk, aVar.getId())) {
+                if (b(cEb, aVar.getId())) {
                     ContentValues contentValues = new ContentValues();
                     long correctUserIdAfterOverflowCut = UtilHelper.getCorrectUserIdAfterOverflowCut(aVar.getId());
                     contentValues.put("uid", Long.valueOf(correctUserIdAfterOverflowCut));
-                    i = h.ctm().a("tb_new_friends", contentValues, "uid=?", new String[]{String.valueOf(aVar.getId())});
+                    i = h.cEd().a("tb_new_friends", contentValues, "uid=?", new String[]{String.valueOf(aVar.getId())});
                     aVar.setId(correctUserIdAfterOverflowCut);
                     return i;
                 }
@@ -313,23 +313,23 @@ public class b {
         return 0;
     }
 
-    public List<com.baidu.tieba.im.data.a> bsO() {
+    public List<com.baidu.tieba.im.data.a> bBL() {
         ArrayList arrayList = new ArrayList();
         Cursor cursor = null;
         try {
-            cursor = h.ctm().rawQuery("select * from tb_new_friends WHERE isread=? ORDER BY _id DESC", new String[]{String.valueOf(0)});
+            cursor = h.cEd().rawQuery("select * from tb_new_friends WHERE isread=? ORDER BY _id DESC", new String[]{String.valueOf(0)});
             if (cursor != null) {
                 while (cursor.moveToNext()) {
                     com.baidu.tieba.im.data.a aVar = new com.baidu.tieba.im.data.a();
                     aVar.setId(cursor.getLong(cursor.getColumnIndex("uid")));
                     aVar.setContent(cursor.getString(cursor.getColumnIndex("ucontent")));
-                    aVar.yB(cursor.getInt(cursor.getColumnIndex("isread")));
+                    aVar.AV(cursor.getInt(cursor.getColumnIndex("isread")));
                     aVar.setName(cursor.getString(cursor.getColumnIndex(BdStatsConstant.StatsKey.UNAME)));
                     aVar.setPortrait(cursor.getString(cursor.getColumnIndex("uportrait")));
                     aVar.setStatus(cursor.getInt(cursor.getColumnIndex("ustatus")));
                     arrayList.add(aVar);
                 }
-                bsM();
+                bBJ();
             }
         } catch (SQLiteException e) {
             e.printStackTrace();
@@ -341,15 +341,15 @@ public class b {
         return arrayList;
     }
 
-    public synchronized com.baidu.tieba.im.data.a du(long j) {
+    public synchronized com.baidu.tieba.im.data.a dF(long j) {
         com.baidu.tieba.im.data.a aVar;
         aVar = new com.baidu.tieba.im.data.a();
         Cursor cursor = null;
         try {
             try {
-                cursor = h.ctm().rawQuery("select * from tb_new_friends where uid=?", new String[]{String.valueOf(j)});
+                cursor = h.cEd().rawQuery("select * from tb_new_friends where uid=?", new String[]{String.valueOf(j)});
                 if (cursor != null && cursor.moveToNext()) {
-                    aVar.yB(cursor.getInt(cursor.getColumnIndex("isread")));
+                    aVar.AV(cursor.getInt(cursor.getColumnIndex("isread")));
                     aVar.setStatus(cursor.getInt(cursor.getColumnIndex("ustatus")));
                     aVar.setContent(cursor.getString(cursor.getColumnIndex("ucontent")));
                     aVar.setName(cursor.getString(cursor.getColumnIndex(BdStatsConstant.StatsKey.UNAME)));

@@ -11,87 +11,87 @@ import master.flame.danmaku.danmaku.model.m;
 import master.flame.danmaku.danmaku.model.n;
 /* loaded from: classes6.dex */
 public class a extends master.flame.danmaku.danmaku.b.b {
-    private final DanmakuContext oaH;
-    private f ofa;
-    private b.f ofb;
-    private final b ofd;
-    private k ofe;
-    private a.InterfaceC0919a ofg;
-    private final b.f ofc = new b.f() { // from class: master.flame.danmaku.danmaku.b.a.a.1
+    private final DanmakuContext ouG;
+    private f oyX;
+    private b.f oyY;
+    private final b oza;
+    private k ozb;
+    private a.InterfaceC0977a ozc;
+    private final b.f oyZ = new b.f() { // from class: master.flame.danmaku.danmaku.b.a.a.1
         @Override // master.flame.danmaku.danmaku.b.a.b.f
         public boolean a(d dVar, float f, int i, boolean z) {
-            if (dVar.obP == 0 && a.this.oaH.odT.b(dVar, i, 0, a.this.ofa, z, a.this.oaH)) {
+            if (dVar.ovN == 0 && a.this.ouG.oxQ.b(dVar, i, 0, a.this.oyX, z, a.this.ouG)) {
                 dVar.setVisibility(false);
                 return true;
             }
             return false;
         }
     };
-    private C0920a ofh = new C0920a();
+    private C0978a ozd = new C0978a();
 
     /* renamed from: master.flame.danmaku.danmaku.b.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    private class C0920a extends l.c<d> {
-        private d ofj;
-        public m ofk;
-        public a.b ofl;
-        public long ofm;
+    private class C0978a extends l.c<d> {
+        private d ozf;
+        public m ozg;
+        public a.b ozh;
+        public long ozi;
 
-        private C0920a() {
+        private C0978a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // master.flame.danmaku.danmaku.model.l.b
         /* renamed from: e */
-        public int bM(d dVar) {
-            this.ofj = dVar;
-            if (dVar.isTimeOut()) {
-                this.ofk.o(dVar);
+        public int bO(d dVar) {
+            this.ozf = dVar;
+            if (dVar.ehy()) {
+                this.ozg.o(dVar);
                 return 0;
-            } else if (this.ofl.oeJ || !dVar.dVG()) {
-                if (!dVar.dVy()) {
-                    a.this.oaH.odT.a(dVar, this.ofl.oeK, this.ofl.oeL, this.ofl.oaM, false, a.this.oaH);
+            } else if (this.ozh.oyG || !dVar.ehJ()) {
+                if (!dVar.ehB()) {
+                    a.this.ouG.oxQ.a(dVar, this.ozh.oyH, this.ozh.oyI, this.ozh.ouL, false, a.this.ouG);
                 }
-                if (dVar.dVF() >= this.ofm) {
-                    if (dVar.obP == 0 && dVar.dVz()) {
+                if (dVar.ehI() >= this.ozi) {
+                    if (dVar.ovN == 0 && dVar.ehC()) {
                         return 0;
                     }
-                    if (dVar.dVx()) {
-                        n<?> dVv = dVar.dVv();
-                        if (a.this.ofe != null && (dVv == null || dVv.get() == null)) {
-                            a.this.ofe.a(dVar);
+                    if (dVar.ehA()) {
+                        n<?> ehx = dVar.ehx();
+                        if (a.this.ozb != null && (ehx == null || ehx.get() == null)) {
+                            a.this.ozb.a(dVar);
                         }
                         return 1;
                     }
                     if (dVar.getType() == 1) {
-                        this.ofl.oeK++;
+                        this.ozh.oyH++;
                     }
-                    if (!dVar.dVu()) {
-                        dVar.a(this.ofk, false);
+                    if (!dVar.ehw()) {
+                        dVar.a(this.ozg, false);
                     }
                     if (!dVar.isPrepared()) {
-                        dVar.b(this.ofk, false);
+                        dVar.b(this.ozg, false);
                     }
-                    a.this.ofd.a(dVar, this.ofk, a.this.ofb);
+                    a.this.oza.a(dVar, this.ozg, a.this.oyY);
                     if (dVar.isShown()) {
-                        if (dVar.obM != null || dVar.dVD() <= this.ofk.getHeight()) {
-                            int a = dVar.a(this.ofk);
+                        if (dVar.ovK != null || dVar.ehG() <= this.ozg.getHeight()) {
+                            int a = dVar.a(this.ozg);
                             if (a == 1) {
-                                this.ofl.oeW++;
+                                this.ozh.oyT++;
                             } else if (a == 2) {
-                                this.ofl.oeX++;
-                                if (a.this.ofe != null) {
-                                    a.this.ofe.a(dVar);
+                                this.ozh.oyU++;
+                                if (a.this.ozb != null) {
+                                    a.this.ozb.a(dVar);
                                 }
                             }
-                            this.ofl.ed(dVar.getType(), 1);
-                            this.ofl.LB(1);
-                            this.ofl.v(dVar);
-                            if (a.this.ofg == null || dVar.ocf == a.this.oaH.odS.oct) {
+                            this.ozh.el(dVar.getType(), 1);
+                            this.ozh.Oe(1);
+                            this.ozh.v(dVar);
+                            if (a.this.ozc == null || dVar.owd == a.this.ouG.oxP.owq) {
                                 return 0;
                             }
-                            dVar.ocf = a.this.oaH.odS.oct;
-                            a.this.ofg.i(dVar);
+                            dVar.owd = a.this.ouG.oxP.owq;
+                            a.this.ozc.i(dVar);
                             return 0;
                         }
                         return 0;
@@ -105,62 +105,62 @@ public class a extends master.flame.danmaku.danmaku.b.b {
         }
 
         @Override // master.flame.danmaku.danmaku.model.l.b
-        public void dVQ() {
-            this.ofl.oeM = this.ofj;
-            super.dVQ();
+        public void ehT() {
+            this.ozh.oyJ = this.ozf;
+            super.ehT();
         }
     }
 
     public a(DanmakuContext danmakuContext) {
-        this.oaH = danmakuContext;
-        this.ofd = new b(danmakuContext.dWf());
+        this.ouG = danmakuContext;
+        this.oza = new b(danmakuContext.eii());
     }
 
     @Override // master.flame.danmaku.danmaku.b.a
     public void clear() {
-        dWz();
-        this.oaH.odT.clear();
+        eiC();
+        this.ouG.oxQ.clear();
     }
 
     @Override // master.flame.danmaku.danmaku.b.a
-    public void dWz() {
-        this.ofd.clear();
+    public void eiC() {
+        this.oza.clear();
     }
 
     @Override // master.flame.danmaku.danmaku.b.a
     public void release() {
-        this.ofd.release();
-        this.oaH.odT.clear();
+        this.oza.release();
+        this.ouG.oxQ.clear();
     }
 
     @Override // master.flame.danmaku.danmaku.b.a
-    public void yd(boolean z) {
-        this.ofb = z ? this.ofc : null;
+    public void yV(boolean z) {
+        this.oyY = z ? this.oyZ : null;
     }
 
     @Override // master.flame.danmaku.danmaku.b.a
     public void a(m mVar, l lVar, long j, a.b bVar) {
-        this.ofa = bVar.oaM;
-        this.ofh.ofk = mVar;
-        this.ofh.ofl = bVar;
-        this.ofh.ofm = j;
-        lVar.a(this.ofh);
+        this.oyX = bVar.ouL;
+        this.ozd.ozg = mVar;
+        this.ozd.ozh = bVar;
+        this.ozd.ozi = j;
+        lVar.a(this.ozd);
     }
 
     @Override // master.flame.danmaku.danmaku.b.a
     public void a(k kVar) {
-        this.ofe = kVar;
+        this.ozb = kVar;
     }
 
     @Override // master.flame.danmaku.danmaku.b.a
-    public void a(a.InterfaceC0919a interfaceC0919a) {
-        this.ofg = interfaceC0919a;
+    public void a(a.InterfaceC0977a interfaceC0977a) {
+        this.ozc = interfaceC0977a;
     }
 
     @Override // master.flame.danmaku.danmaku.b.a
-    public void ye(boolean z) {
-        if (this.ofd != null) {
-            this.ofd.ye(z);
+    public void yW(boolean z) {
+        if (this.oza != null) {
+            this.oza.yW(z);
         }
     }
 }

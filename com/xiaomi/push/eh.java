@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class eh extends ed {
     private SharedPreferences a;
 
@@ -13,19 +13,19 @@ public class eh extends ed {
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo161a() {
+    public int mo166a() {
         return 9;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public ho mo161a() {
+    public ho mo166a() {
         return ho.TopApp;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo161a() {
+    public String mo166a() {
         return null;
     }
 }

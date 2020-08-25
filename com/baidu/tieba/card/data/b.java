@@ -1,9 +1,8 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.q;
-/* loaded from: classes.dex */
-public abstract class b implements q, com.baidu.afd.j {
+/* loaded from: classes2.dex */
+public abstract class b implements com.baidu.adp.widget.ListView.q, com.baidu.afd.j {
     public int position;
     private com.baidu.afd.i trigger;
     public boolean needTopMargin = false;

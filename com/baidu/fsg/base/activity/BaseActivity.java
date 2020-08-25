@@ -18,7 +18,7 @@ import com.baidu.fsg.base.widget.SafeScrollView;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class BaseActivity extends Activity implements NoProguard {
     public static final int DIALOG_LOADING = 242;
     public static final int DIALOG_PROMPT = 241;
@@ -84,7 +84,7 @@ public class BaseActivity extends Activity implements NoProguard {
     @Override // android.app.Activity
     protected Dialog onCreateDialog(int i) {
         switch (i) {
-            case 242:
+            case DIALOG_LOADING /* 242 */:
                 return new com.baidu.fsg.base.activity.a.a(this);
             default:
                 return super.onCreateDialog(i);

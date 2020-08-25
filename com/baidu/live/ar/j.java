@@ -2,8 +2,14 @@ package com.baidu.live.ar;
 
 import com.baidu.live.ar.AlaFilterAndBeautyData;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface j {
+    void AW();
+
+    void AX();
+
+    void AY();
+
     void a(float f, AlaFilterAndBeautyData.BeautyAdjustKey beautyAdjustKey);
 
     void a(float f, HashMap<String, Object> hashMap);
@@ -12,17 +18,11 @@ public interface j {
 
     void onFilterSelected(String str, String str2, float f);
 
-    void p(int i, int i2);
-
-    void q(int i, int i2);
-
-    void r(int i, int i2);
-
     void s(int i, int i2);
 
-    void vA();
+    void t(int i, int i2);
 
-    void vy();
+    void u(int i, int i2);
 
-    void vz();
+    void v(int i, int i2);
 }

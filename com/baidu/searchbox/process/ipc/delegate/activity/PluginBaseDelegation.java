@@ -1,5 +1,5 @@
 package com.baidu.searchbox.process.ipc.delegate.activity;
-/* loaded from: classes18.dex */
+/* loaded from: classes14.dex */
 public abstract class PluginBaseDelegation extends ActivityDelegation {
     public abstract String getPluginPackageName();
 }

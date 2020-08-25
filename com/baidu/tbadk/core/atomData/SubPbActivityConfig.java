@@ -13,7 +13,7 @@ import com.baidu.tbadk.data.IconData;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class SubPbActivityConfig extends IntentConfig {
     public static final String ICON_LIST = "icon_list";
     public static final String KEY_ANTI = "anti";
@@ -26,6 +26,7 @@ public class SubPbActivityConfig extends IntentConfig {
     public static final String KEY_IS_JUMP_FROM_PB = "is_jump_from_pb";
     public static final String KEY_IS_OPEN_EDITOR = "key_is_open_editor";
     public static final String KEY_IS_SHOW_GO_TO_SUBJECT = "is_show_go_to_subject";
+    public static final String KEY_IS_USE_SPID = "key_is_use_spid";
     public static final String KEY_ORI_UGC_NID = "key_ori_ugc_nid";
     public static final String KEY_ORI_UGC_TID = "key_ori_ugc_tid";
     public static final String KEY_ORI_UGC_TOP_PID = "key_ori_ugc_top_pid";
@@ -184,6 +185,13 @@ public class SubPbActivityConfig extends IntentConfig {
         Intent intent = getIntent();
         if (intent != null) {
             intent.putExtra(KEY_IS_OPEN_EDITOR, z);
+        }
+    }
+
+    public void setKeyIsUseSpid(boolean z) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_IS_USE_SPID, z);
         }
     }
 }

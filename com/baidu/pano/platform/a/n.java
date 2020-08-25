@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.SystemClock;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.pano.platform.a.b;
 import com.baidu.pano.platform.a.q;
 import com.baidu.pano.platform.a.w;
@@ -12,7 +13,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Collections;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public abstract class n<T> implements Comparable<n<T>> {
     private static long p;
     private final w.a a;
@@ -31,7 +32,7 @@ public abstract class n<T> implements Comparable<n<T>> {
     private s n;
     private b.a o;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public enum a {
         LOW,
         NORMAL,
@@ -113,7 +114,7 @@ public abstract class n<T> implements Comparable<n<T>> {
             return;
         }
         long elapsedRealtime = SystemClock.elapsedRealtime() - this.m;
-        if (elapsedRealtime >= 3000) {
+        if (elapsedRealtime >= IMConnection.RETRY_DELAY_TIMES) {
             w.b("%d ms: %s", Long.valueOf(elapsedRealtime), toString());
         }
     }

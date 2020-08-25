@@ -1,7 +1,7 @@
 package org.conscrypt;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public abstract class AllocatedBuffer {
     public abstract ByteBuffer nioBuffer();
 

@@ -13,15 +13,15 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class b {
     private static final HashMap<Integer, Integer[]> sBtnStyleMap = new HashMap<>(2);
-    private InterfaceC0492b dVH;
+    private InterfaceC0538b efh;
     private final Activity mActivity;
     private final ViewGroup mContentView;
     private com.baidu.adp.base.e<?> mContext;
@@ -39,7 +39,7 @@ public class b {
     private int mTextViewGravity = -1;
     private int mItemView = R.layout.dialog_bdlist_item;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static final class a {
         public static final int BOTTOM_TO_TOP = R.style.dialog_ani_b2t;
         public static final int TOP_TO_BOTTOM = R.style.dialog_ani_t2b;
@@ -48,8 +48,8 @@ public class b {
     }
 
     /* renamed from: com.baidu.tbadk.core.dialog.b$b  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public interface InterfaceC0492b {
+    /* loaded from: classes2.dex */
+    public interface InterfaceC0538b {
         void a(b bVar, int i, View view);
     }
 
@@ -66,38 +66,38 @@ public class b {
         this.mLineView = this.mRootView.findViewById(R.id.line_bg);
     }
 
-    public b xm(String str) {
+    public b zA(String str) {
         this.mTitle = str;
         return this;
     }
 
-    public b lr(int i) {
-        return xm(this.mActivity.getResources().getString(i));
+    public b nx(int i) {
+        return zA(this.mActivity.getResources().getString(i));
     }
 
-    public b a(CharSequence[] charSequenceArr, InterfaceC0492b interfaceC0492b) {
+    public b a(CharSequence[] charSequenceArr, InterfaceC0538b interfaceC0538b) {
         if (charSequenceArr != null && charSequenceArr.length > 0) {
-            return a(Arrays.asList(charSequenceArr), interfaceC0492b);
+            return a(Arrays.asList(charSequenceArr), interfaceC0538b);
         }
         return this;
     }
 
-    public b a(List<CharSequence> list, InterfaceC0492b interfaceC0492b) {
+    public b a(List<CharSequence> list, InterfaceC0538b interfaceC0538b) {
         if (list != null && list.size() > 0) {
             this.mItems = list;
-            if (interfaceC0492b != null) {
-                this.dVH = interfaceC0492b;
+            if (interfaceC0538b != null) {
+                this.efh = interfaceC0538b;
             }
         }
         return this;
     }
 
-    public b ls(int i) {
+    public b ny(int i) {
         this.mAnimationStyleId = i;
         return this;
     }
 
-    public b lt(int i) {
+    public b nz(int i) {
         this.mDialogGravity = i;
         return this;
     }
@@ -125,7 +125,7 @@ public class b {
         return this;
     }
 
-    public b aYN() {
+    public b bhi() {
         if (!this.mDialogCreated) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
@@ -189,20 +189,20 @@ public class b {
         textView.setText(charSequence);
         if (i == this.mItems.size() - 1) {
             findViewById.setVisibility(8);
-            ao.setBackgroundResource(inflate, R.drawable.dialog_single_button_bg_selector);
+            ap.setBackgroundResource(inflate, R.drawable.dialog_single_button_bg_selector);
         } else if (this.mItems.size() == 1) {
             findViewById.setVisibility(8);
-            ao.setBackgroundResource(inflate, R.drawable.dialog_single_button_only_one_bg_selector);
+            ap.setBackgroundResource(inflate, R.drawable.dialog_single_button_only_one_bg_selector);
         } else if (i == 0 && StringUtils.isNull(this.mTitle)) {
-            ao.setBackgroundResource(inflate, R.drawable.dialog_single_button_first_bg_selector);
+            ap.setBackgroundResource(inflate, R.drawable.dialog_single_button_first_bg_selector);
         } else {
-            ao.setBackgroundResource(inflate, R.drawable.dialg_alert_btn_bg);
+            ap.setBackgroundResource(inflate, R.drawable.dialg_alert_btn_bg);
         }
-        if (this.dVH != null) {
+        if (this.efh != null) {
             linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    b.this.dVH.a(b.this, i, textView);
+                    b.this.efh.a(b.this, i, textView);
                 }
             });
         }

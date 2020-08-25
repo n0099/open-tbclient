@@ -1,5 +1,5 @@
 package com.baidu.searchbox.upload.provider.listener;
-/* loaded from: classes14.dex */
+/* loaded from: classes8.dex */
 public interface UploadImageListener {
     void uploadFail();
 

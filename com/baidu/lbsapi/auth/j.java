@@ -3,7 +3,7 @@ package com.baidu.lbsapi.auth;
 import android.content.Context;
 import java.util.Hashtable;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class j implements Runnable {
     final /* synthetic */ int a;
     final /* synthetic */ boolean b;
@@ -24,29 +24,23 @@ public class j implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        Context context;
         boolean b;
+        Context context;
+        boolean b2;
         m mVar;
         m mVar2;
-        boolean b2;
-        if (a.a) {
-            StringBuilder append = new StringBuilder().append("status = ").append(this.a).append("; forced = ").append(this.b).append("checkAK = ");
-            b2 = this.f.b(this.c);
-            a.a(append.append(b2).toString());
-        }
+        StringBuilder append = new StringBuilder().append("status = ").append(this.a).append("; forced = ").append(this.b).append("checkAK = ");
+        b = this.f.b(this.c);
+        a.a(append.append(b).toString());
         if (this.a != 601 && !this.b && this.a != -1) {
-            b = this.f.b(this.c);
-            if (!b) {
+            b2 = this.f.b(this.c);
+            if (!b2) {
                 if (602 != this.a) {
-                    if (a.a) {
-                        a.a("authenticate else  ");
-                    }
+                    a.a("authenticate else");
                     this.f.a((String) null, this.c);
                     return;
                 }
-                if (a.a) {
-                    a.a("authenticate wait  ");
-                }
+                a.a("authenticate wait ");
                 mVar = LBSAuthManager.d;
                 if (mVar != null) {
                     mVar2 = LBSAuthManager.d;
@@ -56,21 +50,15 @@ public class j implements Runnable {
                 return;
             }
         }
-        if (a.a) {
-            a.a("authenticate sendAuthRequest");
-        }
+        a.a("authenticate sendAuthRequest");
         context = LBSAuthManager.a;
         String[] b3 = b.b(context);
-        if (a.a) {
-            a.a("authStrings.length:" + b3.length);
-        }
         if (b3 == null || b3.length <= 1) {
             this.f.a(this.b, this.d, this.e, this.c);
             return;
         }
-        if (a.a) {
-            a.a("more sha1 auth");
-        }
+        a.a("authStrings.length:" + b3.length);
+        a.a("more sha1 auth");
         this.f.a(this.b, this.d, this.e, b3, this.c);
     }
 }

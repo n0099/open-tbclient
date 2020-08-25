@@ -3,9 +3,9 @@ package com.baidu.tbadk.core.util;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class r {
-    public static r dZz = null;
+    public static r ejf = null;
 
     public abstract com.baidu.tbadk.core.data.p getmCdnLogData();
 
@@ -16,17 +16,17 @@ public abstract class r {
     public abstract void setmCdnLogData(com.baidu.tbadk.core.data.p pVar);
 
     public static r getInstance() {
-        if (dZz == null) {
+        if (ejf == null) {
             synchronized (r.class) {
-                if (dZz == null) {
+                if (ejf == null) {
                     CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_CDN_PROBLEM_UPLOADER, r.class);
                     if (runTask != null && runTask.getData() != null) {
-                        dZz = (r) runTask.getData();
+                        ejf = (r) runTask.getData();
                     }
-                    return dZz;
+                    return ejf;
                 }
             }
         }
-        return dZz;
+        return ejf;
     }
 }

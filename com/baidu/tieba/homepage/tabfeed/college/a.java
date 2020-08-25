@@ -12,9 +12,9 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.h.f;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
@@ -22,10 +22,10 @@ import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnItemData;
 import java.util.List;
 /* loaded from: classes16.dex */
 public class a extends RecyclerView.Adapter {
-    private List<SpecialColumnItemData> iDf;
+    private List<SpecialColumnItemData> iSd;
     private Context mContext;
     private int mIconResId;
-    private f<SpecialColumnItemData> iDg = null;
+    private f<SpecialColumnItemData> iSe = null;
     private final int TYPE_NORMAL = 1;
     private final int TYPE_VIDEO = 2;
     private final int TYPE_LIVE = 3;
@@ -33,7 +33,7 @@ public class a extends RecyclerView.Adapter {
 
     public a(Context context, List<SpecialColumnItemData> list) {
         this.mContext = context;
-        this.iDf = list;
+        this.iSd = list;
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
@@ -42,14 +42,14 @@ public class a extends RecyclerView.Adapter {
             return new b(LayoutInflater.from(this.mContext).inflate(R.layout.layout_item_colleage_second_photo, (ViewGroup) null));
         }
         if (i == 3 || i == 4) {
-            return new C0648a(LayoutInflater.from(this.mContext).inflate(R.layout.layout_item_colleage_second_live, (ViewGroup) null));
+            return new C0699a(LayoutInflater.from(this.mContext).inflate(R.layout.layout_item_colleage_second_live, (ViewGroup) null));
         }
         return null;
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemViewType(int i) {
-        SpecialColumnItemData specialColumnItemData = this.iDf.get(i);
+        SpecialColumnItemData specialColumnItemData = this.iSd.get(i);
         if (specialColumnItemData.specialType == 1) {
             return 1;
         }
@@ -67,17 +67,17 @@ public class a extends RecyclerView.Adapter {
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, final int i) {
-        final SpecialColumnItemData xG = xG(i);
+        final SpecialColumnItemData Aa = Aa(i);
         if (viewHolder instanceof b) {
-            ((b) viewHolder).a(xG);
-        } else if (viewHolder instanceof C0648a) {
-            ((C0648a) viewHolder).a(xG);
+            ((b) viewHolder).a(Aa);
+        } else if (viewHolder instanceof C0699a) {
+            ((C0699a) viewHolder).a(Aa);
         }
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.tabfeed.college.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.iDg != null) {
-                    a.this.iDg.a(view, xG, i, i);
+                if (a.this.iSe != null) {
+                    a.this.iSe.a(view, Aa, i, i);
                 }
             }
         });
@@ -87,53 +87,53 @@ public class a extends RecyclerView.Adapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes16.dex */
     public class b extends RecyclerView.ViewHolder {
-        public TextView ehD;
-        public TextView iDj;
-        public ImageView iDm;
-        public View iDn;
-        public TextView iDp;
-        public TextView iDq;
-        public TbImageView iDr;
-        public RelativeLayout iDs;
+        public TextView eru;
+        public TextView iSh;
+        public ImageView iSk;
+        public View iSl;
+        public TextView iSn;
+        public TextView iSo;
+        public TbImageView iSp;
+        public RelativeLayout iSq;
 
         public b(View view) {
             super(view);
-            this.ehD = (TextView) view.findViewById(R.id.tv_title);
-            this.iDr = (TbImageView) view.findViewById(R.id.tb_imageview_pic);
-            this.iDp = (TextView) view.findViewById(R.id.tv_left_watch);
-            this.iDq = (TextView) view.findViewById(R.id.tv_left_agree);
-            this.iDm = (ImageView) view.findViewById(R.id.video_play_iv);
-            this.iDj = (TextView) view.findViewById(R.id.text_tv);
-            this.iDn = view.findViewById(R.id.gradient_cover);
-            this.iDs = (RelativeLayout) view.findViewById(R.id.rl_photo_view);
+            this.eru = (TextView) view.findViewById(R.id.tv_title);
+            this.iSp = (TbImageView) view.findViewById(R.id.tb_imageview_pic);
+            this.iSn = (TextView) view.findViewById(R.id.tv_left_watch);
+            this.iSo = (TextView) view.findViewById(R.id.tv_left_agree);
+            this.iSk = (ImageView) view.findViewById(R.id.video_play_iv);
+            this.iSh = (TextView) view.findViewById(R.id.text_tv);
+            this.iSl = view.findViewById(R.id.gradient_cover);
+            this.iSq = (RelativeLayout) view.findViewById(R.id.rl_photo_view);
         }
 
         void a(SpecialColumnItemData specialColumnItemData) {
             if (specialColumnItemData != null) {
-                this.ehD.setText(specialColumnItemData.title);
-                this.iDr.setConrers(15);
-                this.iDr.setRadius(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10));
-                this.iDr.setDrawCorner(true);
-                this.iDr.setPlaceHolder(2);
-                this.iDr.startLoad(specialColumnItemData.image, 10, false);
-                this.iDr.setGifIconSupport(false);
-                this.iDq.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.person_view_item_live_zan_num), as.numberUniformFormatExtra(specialColumnItemData.agree_num)));
-                this.iDj.setText(specialColumnItemData.text);
+                this.eru.setText(specialColumnItemData.title);
+                this.iSp.setConrers(15);
+                this.iSp.setRadius(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10));
+                this.iSp.setDrawCorner(true);
+                this.iSp.setPlaceHolder(2);
+                this.iSp.startLoad(specialColumnItemData.image, 10, false);
+                this.iSp.setGifIconSupport(false);
+                this.iSo.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.person_view_item_live_zan_num), at.numberUniformFormatExtra(specialColumnItemData.agree_num)));
+                this.iSh.setText(specialColumnItemData.text);
                 if (specialColumnItemData.specialType == 2) {
-                    this.iDm.setVisibility(0);
-                    this.iDn.setVisibility(0);
-                    this.iDn.setAlpha(0.5f);
-                    this.iDj.setVisibility(0);
+                    this.iSk.setVisibility(0);
+                    this.iSl.setVisibility(0);
+                    this.iSl.setAlpha(0.5f);
+                    this.iSh.setVisibility(0);
                     a.this.mIconResId = R.drawable.ic_icon_pure_video_play12_svg;
-                    this.iDp.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.person_play_num), as.numberUniformFormatExtra(specialColumnItemData.freq_num)));
-                    com.baidu.tbadk.core.util.e.a.bbr().ma(0).i(R.color.cp_mask_b_alpha50, R.color.cp_mask_b).mf(l.getDimens(a.this.mContext, R.dimen.tbds10)).aX(this.iDn);
+                    this.iSn.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.person_play_num), at.numberUniformFormatExtra(specialColumnItemData.freq_num)));
+                    com.baidu.tbadk.core.util.e.a.bjQ().oe(0).i(R.color.cp_mask_b_alpha50, R.color.cp_mask_b).oj(l.getDimens(a.this.mContext, R.dimen.tbds10)).aZ(this.iSl);
                     return;
                 }
-                this.iDn.setVisibility(8);
-                this.iDm.setVisibility(8);
-                this.iDj.setVisibility(8);
+                this.iSl.setVisibility(8);
+                this.iSk.setVisibility(8);
+                this.iSh.setVisibility(8);
                 a.this.mIconResId = 0;
-                this.iDp.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.person_view_num), as.numberUniformFormatExtra(specialColumnItemData.freq_num)));
+                this.iSn.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.person_view_num), at.numberUniformFormatExtra(specialColumnItemData.freq_num)));
             }
         }
     }
@@ -141,67 +141,67 @@ public class a extends RecyclerView.Adapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.homepage.tabfeed.college.a$a  reason: collision with other inner class name */
     /* loaded from: classes16.dex */
-    public class C0648a extends RecyclerView.ViewHolder {
-        public TextView iDj;
-        public TextView iDk;
-        public TbImageView iDl;
-        public ImageView iDm;
-        public View iDn;
-        public LinearLayout iDo;
+    public class C0699a extends RecyclerView.ViewHolder {
+        public TextView iSh;
+        public TextView iSi;
+        public TbImageView iSj;
+        public ImageView iSk;
+        public View iSl;
+        public LinearLayout iSm;
 
-        public C0648a(View view) {
+        public C0699a(View view) {
             super(view);
-            this.iDl = (TbImageView) view.findViewById(R.id.iv_imageView);
-            this.iDm = (ImageView) view.findViewById(R.id.video_play_iv);
-            this.iDj = (TextView) view.findViewById(R.id.text_tv);
-            this.iDk = (TextView) view.findViewById(R.id.tv_content);
-            this.iDn = view.findViewById(R.id.gradient_cover);
-            this.iDo = (LinearLayout) view.findViewById(R.id.ll_live_main);
+            this.iSj = (TbImageView) view.findViewById(R.id.iv_imageView);
+            this.iSk = (ImageView) view.findViewById(R.id.video_play_iv);
+            this.iSh = (TextView) view.findViewById(R.id.text_tv);
+            this.iSi = (TextView) view.findViewById(R.id.tv_content);
+            this.iSl = view.findViewById(R.id.gradient_cover);
+            this.iSm = (LinearLayout) view.findViewById(R.id.ll_live_main);
         }
 
         void a(SpecialColumnItemData specialColumnItemData) {
             if (specialColumnItemData != null) {
-                this.iDk.setText(specialColumnItemData.title);
-                this.iDl.setConrers(15);
-                this.iDl.setRadius(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10));
-                this.iDl.setDrawCorner(true);
-                this.iDl.setPlaceHolder(2);
-                this.iDl.startLoad(specialColumnItemData.image, 10, false);
-                this.iDj.setText(specialColumnItemData.text);
-                this.iDm.setVisibility(0);
+                this.iSi.setText(specialColumnItemData.title);
+                this.iSj.setConrers(15);
+                this.iSj.setRadius(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10));
+                this.iSj.setDrawCorner(true);
+                this.iSj.setPlaceHolder(2);
+                this.iSj.startLoad(specialColumnItemData.image, 10, false);
+                this.iSh.setText(specialColumnItemData.text);
+                this.iSk.setVisibility(0);
                 a.this.mIconResId = R.drawable.ic_icon_pure_common_live12_svg;
-                this.iDn.setAlpha(0.5f);
-                com.baidu.tbadk.core.util.e.a.bbr().ma(0).mf(l.getDimens(a.this.mContext, R.dimen.tbds10)).i(R.color.cp_mask_b_alpha50, R.color.cp_mask_b).aX(this.iDn);
+                this.iSl.setAlpha(0.5f);
+                com.baidu.tbadk.core.util.e.a.bjQ().oe(0).oj(l.getDimens(a.this.mContext, R.dimen.tbds10)).i(R.color.cp_mask_b_alpha50, R.color.cp_mask_b).aZ(this.iSl);
             }
         }
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return x.getCount(this.iDf);
+        return y.getCount(this.iSd);
     }
 
-    private SpecialColumnItemData xG(int i) {
-        return (SpecialColumnItemData) x.getItem(this.iDf, i);
+    private SpecialColumnItemData Aa(int i) {
+        return (SpecialColumnItemData) y.getItem(this.iSd, i);
     }
 
     private void c(RecyclerView.ViewHolder viewHolder) {
         if (viewHolder instanceof b) {
-            ao.setViewTextColor(((b) viewHolder).ehD, R.color.cp_cont_b);
-            ao.setViewTextColor(((b) viewHolder).iDp, R.color.cp_cont_d);
-            ao.setViewTextColor(((b) viewHolder).iDq, R.color.cp_cont_d);
-            ao.setViewTextColor(((b) viewHolder).iDj, R.color.cp_cont_a);
-            SvgManager.baR().a(((b) viewHolder).iDm, this.mIconResId, R.color.cp_cont_a, SvgManager.SvgResourceStateType.NORMAL);
-            com.baidu.tbadk.core.util.e.a.h(((b) viewHolder).iDs, R.color.cp_bg_line_e, R.color.cp_bg_line_c);
-        } else if (viewHolder instanceof C0648a) {
-            ao.setViewTextColor(((C0648a) viewHolder).iDk, R.color.cp_cont_b);
-            ao.setViewTextColor(((C0648a) viewHolder).iDj, R.color.cp_cont_a);
-            SvgManager.baR().a(((C0648a) viewHolder).iDm, this.mIconResId, R.color.cp_cont_a, SvgManager.SvgResourceStateType.NORMAL);
-            com.baidu.tbadk.core.util.e.a.h(((C0648a) viewHolder).iDo, R.color.cp_bg_line_e, R.color.cp_bg_line_c);
+            ap.setViewTextColor(((b) viewHolder).eru, R.color.cp_cont_b);
+            ap.setViewTextColor(((b) viewHolder).iSn, R.color.cp_cont_d);
+            ap.setViewTextColor(((b) viewHolder).iSo, R.color.cp_cont_d);
+            ap.setViewTextColor(((b) viewHolder).iSh, R.color.cp_cont_a);
+            SvgManager.bjq().a(((b) viewHolder).iSk, this.mIconResId, R.color.cp_cont_a, SvgManager.SvgResourceStateType.NORMAL);
+            com.baidu.tbadk.core.util.e.a.g(((b) viewHolder).iSq, R.color.cp_bg_line_e, R.color.cp_bg_line_c);
+        } else if (viewHolder instanceof C0699a) {
+            ap.setViewTextColor(((C0699a) viewHolder).iSi, R.color.cp_cont_b);
+            ap.setViewTextColor(((C0699a) viewHolder).iSh, R.color.cp_cont_a);
+            SvgManager.bjq().a(((C0699a) viewHolder).iSk, this.mIconResId, R.color.cp_cont_a, SvgManager.SvgResourceStateType.NORMAL);
+            com.baidu.tbadk.core.util.e.a.g(((C0699a) viewHolder).iSm, R.color.cp_bg_line_e, R.color.cp_bg_line_c);
         }
     }
 
     public void a(f<SpecialColumnItemData> fVar) {
-        this.iDg = fVar;
+        this.iSe = fVar;
     }
 }

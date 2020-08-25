@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes16.dex */
 public class n extends com.baidu.tieba.card.data.b implements q {
-    public static BdUniqueId kPK = BdUniqueId.gen();
-    public List<a> kPc = new ArrayList();
+    public static BdUniqueId lfA = BdUniqueId.gen();
+    public List<a> leS = new ArrayList();
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return kPK;
+        return lfA;
     }
 }

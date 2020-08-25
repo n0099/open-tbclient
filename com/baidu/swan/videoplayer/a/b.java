@@ -1,10 +1,10 @@
 package com.baidu.swan.videoplayer.a;
 
 import com.baidu.swan.videoplayer.SwanVideoView;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public abstract class b implements a {
     @Override // com.baidu.swan.videoplayer.a.a
-    public void gR(boolean z) {
+    public void hl(boolean z) {
     }
 
     @Override // com.baidu.swan.videoplayer.a.a
@@ -32,7 +32,7 @@ public abstract class b implements a {
     }
 
     @Override // com.baidu.swan.videoplayer.a.a
-    public void f(int i, int i2, String str) {
+    public void onError(int i, int i2, String str) {
     }
 
     @Override // com.baidu.swan.videoplayer.a.a
@@ -44,6 +44,6 @@ public abstract class b implements a {
     }
 
     @Override // com.baidu.swan.videoplayer.a.a
-    public void P(int i, int i2) {
+    public void onVideoSizeChanged(int i, int i2) {
     }
 }

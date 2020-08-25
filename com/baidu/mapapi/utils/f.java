@@ -1,8 +1,9 @@
 package com.baidu.mapapi.utils;
 
 import android.content.Context;
+import com.baidu.android.imsdk.internal.IMConnection;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public final class f implements Runnable {
     final /* synthetic */ Context a;
     final /* synthetic */ int b;
@@ -18,7 +19,7 @@ public final class f implements Runnable {
         Thread thread;
         long currentTimeMillis = System.currentTimeMillis();
         do {
-            if (System.currentTimeMillis() - currentTimeMillis > 3000) {
+            if (System.currentTimeMillis() - currentTimeMillis > IMConnection.RETRY_DELAY_TIMES) {
                 b.a(this.a);
                 b.a(this.b, this.a);
             }

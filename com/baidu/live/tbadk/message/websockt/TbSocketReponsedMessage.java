@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.message.websockt;
 
 import com.baidu.live.adp.framework.message.SocketResponsedMessage;
 import com.baidu.live.adp.lib.cache.BdKVCache;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class TbSocketReponsedMessage extends SocketResponsedMessage {
     public TbSocketReponsedMessage(int i) {
         super(i);

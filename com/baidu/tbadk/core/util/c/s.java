@@ -6,7 +6,7 @@ import android.graphics.Rect;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.BitmapHelper;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class s extends a {
     private int procType;
 
@@ -31,18 +31,18 @@ public class s extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean bbj() {
+    public boolean bjI() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean bbk() {
+    public boolean bjJ() {
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.util.c.a
-    public com.baidu.adp.lib.Disk.ops.c yc(String str) {
+    public com.baidu.adp.lib.Disk.ops.c Aq(String str) {
         return new com.baidu.adp.lib.Disk.ops.b(TbConfig.IMAGE_CACHE_DIR_NAME, str, DiskFileOperate.Action.READ);
     }
 
@@ -50,13 +50,13 @@ public class s extends a {
     @Override // com.baidu.tbadk.core.util.c.a, com.baidu.adp.lib.e.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a zV = com.baidu.tbadk.imageManager.c.bkk().zV(str);
-        if (zV != null) {
-            zV.TY.resourceFromType = "memory";
-            zV.TY.costTime = 0L;
-            zV.TY.isScuess = true;
+        com.baidu.adp.widget.ImageView.a Cl = com.baidu.tbadk.imageManager.c.bsW().Cl(str);
+        if (Cl != null) {
+            Cl.UB.resourceFromType = "memory";
+            Cl.UB.costTime = 0L;
+            Cl.UB.isScuess = true;
         }
-        return zV;
+        return Cl;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -98,7 +98,7 @@ public class s extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public int bbl() {
+    public int bjK() {
         return this.procType;
     }
 }

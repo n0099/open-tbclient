@@ -9,130 +9,130 @@ import android.graphics.RectF;
 import android.os.Message;
 import com.baidu.live.gift.d;
 import com.baidu.live.gift.dynamicGift.AlaDynamicGiftAnimationView;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private AlaDynamicGiftAnimationView.a aOb;
-    private d aOe;
-    private int aOh;
-    private int aOk;
-    private int aOl;
+    private AlaDynamicGiftAnimationView.a aTo;
+    private d aTr;
+    private int aTu;
+    private int aTx;
+    private int aTy;
     private int mFrameCount;
     private int mImageHeight;
     private int mImageWidth;
     private int mScreenHeight;
-    private double aOf = 100.0d;
+    private double aTs = 100.0d;
     private int mRepeatCount = 1;
-    private int aOg = 0;
-    private float aOi = 1.0f;
-    private int aOj = 0;
-    private boolean aOn = false;
-    private b aOm = new b();
+    private int aTt = 0;
+    private float aTv = 1.0f;
+    private int aTw = 0;
+    private boolean aTA = false;
+    private b aTz = new b();
 
     public void setScreen(int i, int i2) {
-        this.aOh = i;
+        this.aTu = i;
         this.mScreenHeight = i2;
-        if (this.aOm != null) {
-            this.aOm.setScreen(this.aOh, this.mScreenHeight);
+        if (this.aTz != null) {
+            this.aTz.setScreen(this.aTu, this.mScreenHeight);
         }
     }
 
     public void setData(com.baidu.live.gift.c cVar) {
         if (cVar != null) {
-            this.aOg = 0;
-            this.aOn = false;
-            this.aOj = 0;
-            this.aOe = cVar.aHB.aHA;
-            this.mFrameCount = this.aOe.frame_count;
-            this.mRepeatCount = this.aOe.repeatCount;
-            this.mImageWidth = this.aOe.width;
-            this.mImageHeight = this.aOe.height;
-            this.aOf = (1.0d / this.aOe.frame_rate) * 1000.0d;
-            this.aOi = AN();
-            this.aOl = (int) (this.aOe.oppositeX * this.aOh);
-            this.aOk = (int) (this.aOe.oppositeY * this.mScreenHeight);
-            if (this.aOm != null) {
-                this.aOm.onDestroy();
-                this.aOm = null;
+            this.aTt = 0;
+            this.aTA = false;
+            this.aTw = 0;
+            this.aTr = cVar.aML.aMK;
+            this.mFrameCount = this.aTr.frame_count;
+            this.mRepeatCount = this.aTr.repeatCount;
+            this.mImageWidth = this.aTr.width;
+            this.mImageHeight = this.aTr.height;
+            this.aTs = (1.0d / this.aTr.frame_rate) * 1000.0d;
+            this.aTv = Gq();
+            this.aTy = (int) (this.aTr.oppositeX * this.aTu);
+            this.aTx = (int) (this.aTr.oppositeY * this.mScreenHeight);
+            if (this.aTz != null) {
+                this.aTz.onDestroy();
+                this.aTz = null;
             }
-            this.aOm = new b();
-            this.aOm.setScreen(this.aOh, this.mScreenHeight);
-            this.aOm.b(cVar);
+            this.aTz = new b();
+            this.aTz.setScreen(this.aTu, this.mScreenHeight);
+            this.aTz.b(cVar);
         }
     }
 
     public void g(Canvas canvas) {
         RectF rectF;
-        if (AO()) {
+        if (Gr()) {
             if (this.mRepeatCount <= 1) {
-                if (this.aOb != null) {
-                    this.aOb.AM();
+                if (this.aTo != null) {
+                    this.aTo.Gp();
                     return;
                 }
                 return;
             }
-            this.aOg = 0;
+            this.aTt = 0;
             this.mRepeatCount--;
         }
-        if (this.aOb != null) {
-            if (this.aOg == 0 && !this.aOn) {
-                this.aOn = true;
-                this.aOb.AL();
+        if (this.aTo != null) {
+            if (this.aTt == 0 && !this.aTA) {
+                this.aTA = true;
+                this.aTo.Go();
             } else {
-                this.aOb.cu(this.aOg);
+                this.aTo.ej(this.aTt);
             }
         }
-        c cv = this.aOm.cv(this.aOg);
-        if (cv == null || cv.bitmap == null || cv.bitmap.isRecycled()) {
-            if (this.aOj > 5) {
-                if (this.aOb != null) {
-                    this.aOb.AM();
+        c ek = this.aTz.ek(this.aTt);
+        if (ek == null || ek.bitmap == null || ek.bitmap.isRecycled()) {
+            if (this.aTw > 5) {
+                if (this.aTo != null) {
+                    this.aTo.Gp();
                 }
-            } else if (this.aOj > 1) {
-                this.aOm.AT();
+            } else if (this.aTw > 1) {
+                this.aTz.Gw();
             }
             Message obtain = Message.obtain();
             obtain.what = 1;
-            if (this.aOm != null && this.aOm.getHandler() != null) {
-                this.aOm.getHandler().sendMessage(obtain);
+            if (this.aTz != null && this.aTz.getHandler() != null) {
+                this.aTz.getHandler().sendMessage(obtain);
             }
-            this.aOj++;
+            this.aTw++;
             return;
         }
-        this.aOg++;
-        float width = cv.aOQ * cv.bitmap.getWidth() * this.aOi;
-        float height = cv.aOQ * cv.bitmap.getHeight() * this.aOi;
+        this.aTt++;
+        float width = ek.aUe * ek.bitmap.getWidth() * this.aTv;
+        float height = ek.aUe * ek.bitmap.getHeight() * this.aTv;
         canvas.save();
-        if (this.aOl + width > this.aOh) {
-            this.aOl = (int) (this.aOh - width);
+        if (this.aTy + width > this.aTu) {
+            this.aTy = (int) (this.aTu - width);
         }
-        if (this.aOk + height > this.mScreenHeight) {
-            this.aOk = (int) (this.mScreenHeight - height);
+        if (this.aTx + height > this.mScreenHeight) {
+            this.aTx = (int) (this.mScreenHeight - height);
         }
-        if (this.aOe.isBottomMargin()) {
-            rectF = new RectF(this.aOl, (this.mScreenHeight - height) - this.aOk, width + this.aOl, this.mScreenHeight - this.aOk);
+        if (this.aTr.isBottomMargin()) {
+            rectF = new RectF(this.aTy, (this.mScreenHeight - height) - this.aTx, width + this.aTy, this.mScreenHeight - this.aTx);
         } else {
-            rectF = new RectF(this.aOl, this.aOk, width + this.aOl, height + this.aOk);
+            rectF = new RectF(this.aTy, this.aTx, width + this.aTy, height + this.aTx);
         }
         Paint paint = new Paint();
         paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_OVER));
         try {
-            if (!cv.bitmap.isRecycled()) {
-                canvas.drawBitmap(cv.bitmap, (Rect) null, rectF, paint);
+            if (!ek.bitmap.isRecycled()) {
+                canvas.drawBitmap(ek.bitmap, (Rect) null, rectF, paint);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         canvas.restore();
-        cv.aOR = true;
-        this.aOm.ff(cv.filePath);
+        ek.aUf = true;
+        this.aTz.gA(ek.filePath);
         Message obtain2 = Message.obtain();
         obtain2.what = 1;
-        this.aOm.getHandler().sendMessage(obtain2);
+        this.aTz.getHandler().sendMessage(obtain2);
     }
 
-    private float AN() {
-        float f = this.aOh > this.mScreenHeight ? (this.aOh * 1.0f) / 1334.0f : (this.aOh * 1.0f) / 750.0f;
-        if (this.aOh > this.mScreenHeight) {
+    private float Gq() {
+        float f = this.aTu > this.mScreenHeight ? (this.aTu * 1.0f) / 1334.0f : (this.aTu * 1.0f) / 750.0f;
+        if (this.aTu > this.mScreenHeight) {
             float f2 = (this.mScreenHeight * 1.0f) / 750.0f;
         } else {
             float f3 = (this.mScreenHeight * 1.0f) / 1334.0f;
@@ -140,25 +140,25 @@ public class a {
         return f;
     }
 
-    private boolean AO() {
-        return this.aOg + 1 >= this.mFrameCount;
+    private boolean Gr() {
+        return this.aTt + 1 >= this.mFrameCount;
     }
 
     public void release() {
-        if (this.aOm != null) {
-            this.aOm.clearCache();
+        if (this.aTz != null) {
+            this.aTz.clearCache();
         }
     }
 
-    public boolean AP() {
-        return this.aOm.AP();
+    public boolean Gs() {
+        return this.aTz.Gs();
     }
 
-    public double AQ() {
-        return this.aOf;
+    public double Gt() {
+        return this.aTs;
     }
 
     public void a(AlaDynamicGiftAnimationView.a aVar) {
-        this.aOb = aVar;
+        this.aTo = aVar;
     }
 }

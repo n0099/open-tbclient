@@ -6,29 +6,29 @@ import android.os.Message;
 import com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider;
 import com.baidu.media.duplayer.Keep;
 import java.lang.ref.WeakReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class CtrlPoint extends CtrlPointProvider {
     private long b;
-    CtrlPointProvider.CtrlPointListener buD;
+    CtrlPointProvider.CtrlPointListener bAo;
     private Handler c = new Handler(Looper.getMainLooper()) { // from class: com.baidu.media.dlna.CtrlPoint.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 1:
-                    if (CtrlPoint.this.buD != null) {
-                        CtrlPoint.this.buD.onPrepared();
+                    if (CtrlPoint.this.bAo != null) {
+                        CtrlPoint.this.bAo.onPrepared();
                         break;
                     }
                     break;
                 case 2:
-                    if (CtrlPoint.this.buD != null) {
-                        CtrlPoint.this.buD.onComplete();
+                    if (CtrlPoint.this.bAo != null) {
+                        CtrlPoint.this.bAo.onComplete();
                         break;
                     }
                     break;
                 case 3:
-                    if (CtrlPoint.this.buD != null) {
-                        CtrlPoint.this.buD.onError(message.arg1, message.arg2);
+                    if (CtrlPoint.this.bAo != null) {
+                        CtrlPoint.this.bAo.onError(message.arg1, message.arg2);
                         break;
                     }
                     break;
@@ -150,7 +150,7 @@ public class CtrlPoint extends CtrlPointProvider {
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public void setListener(CtrlPointProvider.CtrlPointListener ctrlPointListener) {
         if (this.b != 0) {
-            this.buD = ctrlPointListener;
+            this.bAo = ctrlPointListener;
             nativeCtrlPointSetListener(this.b, new WeakReference(this));
         }
     }

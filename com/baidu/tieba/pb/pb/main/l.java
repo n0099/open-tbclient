@@ -3,18 +3,20 @@ package com.baidu.tieba.pb.pb.main;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.baidu.adp.widget.ListView.ad;
+import com.baidu.adp.widget.ListView.af;
 import com.baidu.tieba.R;
 /* loaded from: classes16.dex */
-public class l extends ad.a {
-    private ViewGroup klD;
+public class l extends af.a {
+    private ViewGroup kAV;
+    private View mRootView;
     private TextView mTitle;
     private View mTopLine;
 
     public l(View view) {
         super(view);
+        this.mRootView = view;
         this.mTopLine = view.findViewById(R.id.pb_child_title_top_line);
-        this.klD = (ViewGroup) view.findViewById(R.id.rl_pb_child_title_area);
+        this.kAV = (ViewGroup) view.findViewById(R.id.rl_pb_child_title_area);
         this.mTitle = (TextView) view.findViewById(R.id.tv_pb_child_title);
     }
 
@@ -23,8 +25,18 @@ public class l extends ad.a {
     }
 
     public void onChangeSkinType() {
-        com.baidu.tbadk.core.util.ao.setBackgroundColor(this.mTopLine, R.color.cp_bg_line_c);
-        com.baidu.tbadk.core.util.ao.setBackgroundColor(this.klD, R.color.cp_bg_line_e);
-        com.baidu.tbadk.core.util.ao.setViewTextColor(this.mTitle, R.color.cp_cont_b);
+        com.baidu.tbadk.core.util.ap.setBackgroundColor(this.mTopLine, R.color.cp_bg_line_c);
+        com.baidu.tbadk.core.util.ap.setBackgroundColor(this.kAV, R.color.cp_bg_line_e);
+        com.baidu.tbadk.core.util.ap.setViewTextColor(this.mTitle, R.color.cp_cont_b);
+    }
+
+    public View getRootView() {
+        return this.mRootView;
+    }
+
+    public void DX(int i) {
+        if (this.mRootView != null) {
+            this.mRootView.setVisibility(i);
+        }
     }
 }

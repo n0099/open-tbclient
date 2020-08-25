@@ -22,7 +22,7 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 final class AccessibilityViewEmbedder {
     private static final String TAG = "AccessibilityBridge";
     private int nextFlutterId;
@@ -244,7 +244,7 @@ final class AccessibilityViewEmbedder {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes19.dex */
     public static class ViewAndId {
         final int id;
         final View view;
@@ -271,7 +271,7 @@ final class AccessibilityViewEmbedder {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes19.dex */
     public static class ReflectionAccessors {
         @Nullable
         private final Field childNodeIdsField;

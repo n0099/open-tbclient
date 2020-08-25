@@ -1,8 +1,13 @@
 package com.baidu.ar;
 
+import android.graphics.SurfaceTexture;
 import android.view.View;
 /* loaded from: classes11.dex */
 public interface IDuMix extends View.OnTouchListener {
+    void changeInputSize(int i, int i2);
+
+    void changeInputSize(SurfaceTexture surfaceTexture, int i, int i2);
+
     void changeOutput(DuMixOutput duMixOutput);
 
     void changeOutputSize(int i, int i2);

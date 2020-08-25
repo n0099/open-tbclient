@@ -9,14 +9,14 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class PerformerBox extends AbstractFullBox {
     public static final String TYPE = "perf";
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_4 = null;
     private String language;
     private String performer;
 
@@ -26,11 +26,11 @@ public class PerformerBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("PerformerBox.java", PerformerBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getLanguage", "com.coremedia.iso.boxes.PerformerBox", "", "", "", FieldUtil.TYPE_STRING), 41);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "getPerformer", "com.coremedia.iso.boxes.PerformerBox", "", "", "", FieldUtil.TYPE_STRING), 45);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "setLanguage", "com.coremedia.iso.boxes.PerformerBox", FieldUtil.TYPE_STRING, "language", "", "void"), 49);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setPerformer", "com.coremedia.iso.boxes.PerformerBox", FieldUtil.TYPE_STRING, "performer", "", "void"), 53);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.PerformerBox", "", "", "", FieldUtil.TYPE_STRING), 76);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "getLanguage", "com.coremedia.iso.boxes.PerformerBox", "", "", "", FieldUtil.TYPE_STRING), 41);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "getPerformer", "com.coremedia.iso.boxes.PerformerBox", "", "", "", FieldUtil.TYPE_STRING), 45);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.d("1", "setLanguage", "com.coremedia.iso.boxes.PerformerBox", FieldUtil.TYPE_STRING, "language", "", "void"), 49);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.d("1", "setPerformer", "com.coremedia.iso.boxes.PerformerBox", FieldUtil.TYPE_STRING, "performer", "", "void"), 53);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.d("1", "toString", "com.coremedia.iso.boxes.PerformerBox", "", "", "", FieldUtil.TYPE_STRING), 76);
     }
 
     public PerformerBox() {

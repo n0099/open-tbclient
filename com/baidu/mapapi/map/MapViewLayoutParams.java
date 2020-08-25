@@ -3,7 +3,7 @@ package com.baidu.mapapi.map;
 import android.graphics.Point;
 import android.view.ViewGroup;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
     public static final int ALIGN_BOTTOM = 16;
     public static final int ALIGN_CENTER_HORIZONTAL = 4;
@@ -18,7 +18,7 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
     float e;
     int f;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public static final class Builder {
         private int a;
         private int b;
@@ -45,7 +45,7 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
                 z = false;
             }
             if (z) {
-                throw new IllegalStateException("if it is map mode, you must supply position info; else if it is absolute mode, you must supply the point info");
+                throw new IllegalStateException("BDMapSDKException: if it is map mode, you must supply position info; else if it is absolute mode, you must supply the point info");
             }
             return new MapViewLayoutParams(this.a, this.b, this.c, this.d, this.e, this.f, this.g, this.h);
         }
@@ -81,7 +81,7 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public enum ELayoutMode {
         mapMode,
         absoluteMode

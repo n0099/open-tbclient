@@ -1,32 +1,32 @@
 package com.baidu.live.data;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class aa {
-    private int aCl;
-    private int aCm;
-    private int aCn;
+    public String aDS;
+    public String aDg;
+    public int aEF;
+    public int aEG;
+    public String aEH;
+    public int duration;
+    public String iconUrl;
+    public int limit;
+    public String picUrl;
 
     public void parseJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.aCl = jSONObject.optInt("category_select_switch", 0);
-            this.aCm = jSONObject.optInt("im_audience_watch_switch", 0);
-            this.aCn = jSONObject.optInt("im_audience_watch_time", 60);
+        JSONObject optJSONObject;
+        if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
+            this.aEF = optJSONObject.optInt("interval");
+            this.picUrl = optJSONObject.optString("pic_url");
+            this.aEG = optJSONObject.optInt("is_month_super_customer");
+            this.aDg = optJSONObject.optString(BigdayActivityConfig.JUMP_URL);
+            this.limit = optJSONObject.optInt(Constants.EXTRA_CONFIG_LIMIT);
+            this.duration = optJSONObject.optInt("duration");
+            this.aDS = optJSONObject.optString("toast_text");
+            this.iconUrl = optJSONObject.optString("icon_url");
+            this.aEH = optJSONObject.optString("btn_url");
         }
-    }
-
-    public static boolean xg() {
-        return (com.baidu.live.v.a.Hs().aZn == null || com.baidu.live.v.a.Hs().aZn.aCj == null || com.baidu.live.v.a.Hs().aZn.aCj.aCl != 1) ? false : true;
-    }
-
-    public static boolean xh() {
-        return (com.baidu.live.v.a.Hs().aZn == null || com.baidu.live.v.a.Hs().aZn.aCj == null || com.baidu.live.v.a.Hs().aZn.aCj.aCm != 1) ? false : true;
-    }
-
-    public static int xi() {
-        if (com.baidu.live.v.a.Hs().aZn == null || com.baidu.live.v.a.Hs().aZn.aCj == null) {
-            return 0;
-        }
-        return com.baidu.live.v.a.Hs().aZn.aCj.aCn;
     }
 }

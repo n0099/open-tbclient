@@ -2,7 +2,7 @@ package com.baidu.swan.bdprivate.extensions.loginauthmobile;
 
 import android.os.Bundle;
 import com.baidu.swan.bdprivate.extensions.quicklogin.QuickLoginInfo;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public class e {
     public static SwanAppLoginAndGetMobileDialog a(String str, boolean z, QuickLoginInfo quickLoginInfo, String str2, String str3) {
         SwanAppLoginAndGetMobileDialog swanAppPhoneLoginDialog;

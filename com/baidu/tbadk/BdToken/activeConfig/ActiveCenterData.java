@@ -1,6 +1,6 @@
 package com.baidu.tbadk.BdToken.activeConfig;
 
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -8,7 +8,7 @@ import tbclient.ActiveCenter;
 import tbclient.ActiveCenterMission;
 import tbclient.ActiveCenterStatus;
 import tbclient.ActiveConfig.DataRes;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ActiveCenterData implements Serializable {
     public static final String PREF_KEY_ACTIVE_DIALOG_DAY_NUM = "pref_key_active_dialog_day_num";
     public int is_first_up;
@@ -60,7 +60,7 @@ public class ActiveCenterData implements Serializable {
     }
 
     public ActiveCenterStatusData getTodayMissionStatus() {
-        if (x.isEmpty(this.mission_status_list)) {
+        if (y.isEmpty(this.mission_status_list)) {
             return null;
         }
         Iterator<ActiveCenterStatusData> it = this.mission_status_list.iterator();
@@ -80,7 +80,7 @@ public class ActiveCenterData implements Serializable {
         return this.mission.task_type;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class ActiveCenterMissionData implements Serializable {
         public int active_id;
         public int cleartime;
@@ -105,7 +105,7 @@ public class ActiveCenterData implements Serializable {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class ActiveCenterStatusData implements Serializable {
         public int day;
         public String desc;

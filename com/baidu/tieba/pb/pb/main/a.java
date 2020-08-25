@@ -10,47 +10,47 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 /* loaded from: classes16.dex */
 public class a {
-    private TbPageContext dVN;
+    private TbPageContext efn;
 
     public a(TbPageContext tbPageContext) {
-        this.dVN = tbPageContext;
+        this.efn = tbPageContext;
     }
 
     public boolean a(PbModel pbModel) {
         String str;
         int i = 2;
-        if (this.dVN.getPageActivity() == null || pbModel == null || pbModel.kli == null) {
+        if (this.efn.getPageActivity() == null || pbModel == null || pbModel.kAA == null) {
             return false;
         }
-        if ("3".equals(pbModel.kli.kik)) {
-            MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(this.dVN.getPageActivity()).createNormalCfg(2);
-            createNormalCfg.setSubTabName(this.dVN.getString(R.string.tab_name_topic_rank));
-            this.dVN.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, createNormalCfg));
+        if ("3".equals(pbModel.kAA.kxC)) {
+            MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(this.efn.getPageActivity()).createNormalCfg(2);
+            createNormalCfg.setSubTabName(this.efn.getString(R.string.tab_name_topic_rank));
+            this.efn.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, createNormalCfg));
             return true;
         }
-        String string = com.baidu.tbadk.core.sharedPref.b.aZP().getString("key_pb_back_sid1", "");
-        String string2 = com.baidu.tbadk.core.sharedPref.b.aZP().getString("key_pb_back_sid2", "");
-        if (!TextUtils.isEmpty(string) && com.baidu.tbadk.a.c.aRw().vO(string) != null) {
+        String string = com.baidu.tbadk.core.sharedPref.b.bik().getString("key_pb_back_sid1", "");
+        String string2 = com.baidu.tbadk.core.sharedPref.b.bik().getString("key_pb_back_sid2", "");
+        if (!TextUtils.isEmpty(string) && com.baidu.tbadk.a.c.aZN().xZ(string) != null) {
             str = "1";
         } else {
-            str = (TextUtils.isEmpty(string2) || com.baidu.tbadk.a.c.aRw().vO(string2) == null) ? null : "2";
+            str = (TextUtils.isEmpty(string2) || com.baidu.tbadk.a.c.aZN().xZ(string2) == null) ? null : "2";
         }
-        if (str == null && pbModel.kli.kij != null) {
-            str = pbModel.kli.kij;
+        if (str == null && pbModel.kAA.kxB != null) {
+            str = pbModel.kAA.kxB;
         }
         if (str != null) {
             if (str.equals("1")) {
-                MainTabActivityConfig createNormalCfg2 = new MainTabActivityConfig(this.dVN.getPageActivity()).createNormalCfg(2);
+                MainTabActivityConfig createNormalCfg2 = new MainTabActivityConfig(this.efn.getPageActivity()).createNormalCfg(2);
                 createNormalCfg2.setSubTab(1, null);
-                this.dVN.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, createNormalCfg2));
+                this.efn.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, createNormalCfg2));
                 a(pbModel, 1);
                 return true;
             } else if (str.equals("2")) {
-                MainTabActivityConfig createNormalCfg3 = new MainTabActivityConfig(this.dVN.getPageActivity()).createNormalCfg(1);
-                createNormalCfg3.setSubTab(0, pbModel.kli.kik);
-                this.dVN.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, createNormalCfg3));
-                if (!"游戏".equals(pbModel.kli.kik)) {
-                    i = "数码".equals(pbModel.kli.kik) ? 3 : 0;
+                MainTabActivityConfig createNormalCfg3 = new MainTabActivityConfig(this.efn.getPageActivity()).createNormalCfg(1);
+                createNormalCfg3.setSubTab(0, pbModel.kAA.kxC);
+                this.efn.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, createNormalCfg3));
+                if (!"游戏".equals(pbModel.kAA.kxC)) {
+                    i = "数码".equals(pbModel.kAA.kxC) ? 3 : 0;
                 }
                 a(pbModel, i);
                 return true;
@@ -63,19 +63,19 @@ public class a {
 
     private void a(PbModel pbModel, int i) {
         if (pbModel != null) {
-            com.baidu.tbadk.core.util.ap apVar = new com.baidu.tbadk.core.util.ap("c13719");
-            apVar.dn("fid", pbModel.kli.getForumId());
-            apVar.dn("tid", pbModel.kli.getThreadId());
-            apVar.ah("obj_type", i);
-            if (pbModel.cOv() == 5) {
-                apVar.ah("obj_source", 1);
-            } else if (pbModel.cOv() == 7) {
-                apVar.ah("obj_source", 2);
+            com.baidu.tbadk.core.util.aq aqVar = new com.baidu.tbadk.core.util.aq("c13719");
+            aqVar.dD("fid", pbModel.kAA.getForumId());
+            aqVar.dD("tid", pbModel.kAA.getThreadId());
+            aqVar.ai("obj_type", i);
+            if (pbModel.cZl() == 5) {
+                aqVar.ai("obj_source", 1);
+            } else if (pbModel.cZl() == 7) {
+                aqVar.ai("obj_source", 2);
             } else {
-                apVar.ah("obj_source", 3);
+                aqVar.ai("obj_source", 3);
             }
-            apVar.dn("uid", TbadkCoreApplication.getCurrentAccount());
-            TiebaStatic.log(apVar);
+            aqVar.dD("uid", TbadkCoreApplication.getCurrentAccount());
+            TiebaStatic.log(aqVar);
         }
     }
 }

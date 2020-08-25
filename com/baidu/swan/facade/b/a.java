@@ -6,27 +6,27 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.http.HttpManager;
 import com.baidu.searchbox.http.callback.StringResponseCallback;
 import com.baidu.searchbox.unitedscheme.SchemeConfig;
-import com.baidu.swan.apps.an.e;
+import com.baidu.swan.apps.am.e;
 import com.baidu.swan.apps.res.widget.b.d;
 import com.baidubce.http.Headers;
 import okhttp3.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes20.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final String cYr = SchemeConfig.getSchemeHead() + "://";
+    private static final String dhw = SchemeConfig.getSchemeHead() + "://";
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void rh(final String str) {
-        HttpManager.getDefault(AppRuntime.getAppContext()).getRequest().setHeader("Swan-Accept", "swan/json").userAgent(com.baidu.swan.apps.ao.a.avZ()).url(str).build().executeAsyncOnUIBack(new StringResponseCallback() { // from class: com.baidu.swan.facade.b.a.1
-            private Response cYs;
+    public static void tp(final String str) {
+        HttpManager.getDefault(AppRuntime.getAppContext()).getRequest().setHeader("Swan-Accept", "swan/json").userAgent(com.baidu.swan.apps.an.a.aEi()).url(str).build().executeAsyncOnUIBack(new StringResponseCallback() { // from class: com.baidu.swan.facade.b.a.1
+            private Response dhx;
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.StringResponseCallback, com.baidu.searchbox.http.callback.ResponseCallback
             public String parseResponse(Response response, int i) throws Exception {
-                this.cYs = response;
+                this.dhx = response;
                 return super.parseResponse(response, i);
             }
 
@@ -38,17 +38,17 @@ public class a {
                     Log.d("SwanAppExchanger", "startLaunchAction onSuccess status: " + i);
                 }
                 if (i != 200) {
-                    String e = a.e(this.cYs);
+                    String e = a.e(this.dhx);
                     if (TextUtils.isEmpty(e)) {
                         a.d("get launch scheme fail: request fail with code " + i, str, str2, true);
                         return;
                     } else {
-                        b.rk(e);
+                        b.ts(e);
                         return;
                     }
                 }
                 try {
-                    b.rk(new JSONObject(str2).optString("data"));
+                    b.ts(new JSONObject(str2).optString("data"));
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                     a.d("get launch scheme fail: " + e2.getMessage(), str, str2, false);
@@ -67,7 +67,7 @@ public class a {
         if (z) {
             d.a(AppRuntime.getAppContext(), "打开失败，请检查网络设置").showToast();
         }
-        e.avX().g(new com.baidu.swan.apps.an.a().bJ(1L).bK(12L).qm(str));
+        e.aEg().j(new com.baidu.swan.apps.am.a().bO(1L).bP(12L).sm(str));
         if (DEBUG) {
             Log.w("SwanAppExchanger", "open aiapp fail, url : " + str2);
         }
@@ -82,6 +82,6 @@ public class a {
         if (TextUtils.isEmpty(header) || !header.startsWith("baiduboxapp://")) {
             return null;
         }
-        return header.replace("baiduboxapp://", cYr);
+        return header.replace("baiduboxapp://", dhw);
     }
 }

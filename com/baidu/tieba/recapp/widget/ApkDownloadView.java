@@ -28,48 +28,48 @@ import java.util.List;
 /* loaded from: classes20.dex */
 public class ApkDownloadView extends FrameLayout implements com.baidu.tieba.ad.download.mvp.b {
     private CustomMessageListener downloadListener;
-    private CustomMessageListener loa;
-    private DownloadData lsC;
-    private a ltq;
-    private FeedAdProgressButton lts;
-    private FeedAdProgressText ltt;
-    private b.a ltu;
-    private DownloadStatus ltv;
+    private CustomMessageListener lEz;
+    private DownloadData lIX;
+    private a lJL;
+    private FeedAdProgressButton lJM;
+    private FeedAdProgressText lJN;
+    private b.a lJO;
+    private DownloadStatus lJP;
 
     public ApkDownloadView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet);
         this.downloadListener = null;
-        this.loa = null;
+        this.lEz = null;
         init(context);
     }
 
     public ApkDownloadView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.downloadListener = null;
-        this.loa = null;
+        this.lEz = null;
         init(context);
     }
 
     public ApkDownloadView(Context context) {
         super(context);
         this.downloadListener = null;
-        this.loa = null;
+        this.lEz = null;
         init(context);
     }
 
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.apk_download_view_layout, (ViewGroup) this, true);
-        this.lts = (FeedAdProgressButton) inflate.findViewById(R.id.feed_ad_operate_progress_button);
-        this.ltt = (FeedAdProgressText) inflate.findViewById(R.id.feed_ad_operate_progress_text);
-        this.ltq = this.lts;
+        this.lJM = (FeedAdProgressButton) inflate.findViewById(R.id.feed_ad_operate_progress_button);
+        this.lJN = (FeedAdProgressText) inflate.findViewById(R.id.feed_ad_operate_progress_text);
+        this.lJL = this.lJM;
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setData(DownloadData downloadData) {
         if (downloadData != null) {
-            this.lsC = (DownloadData) downloadData.clone();
-            if (this.lsC != null) {
-                setTag(this.lsC);
+            this.lIX = (DownloadData) downloadData.clone();
+            if (this.lIX != null) {
+                setTag(this.lIX);
                 q(downloadData);
             }
         }
@@ -77,90 +77,96 @@ public class ApkDownloadView extends FrameLayout implements com.baidu.tieba.ad.d
 
     public void setIsPbDownload(boolean z) {
         if (z) {
-            this.lts.setVisibility(8);
-            this.ltt.setVisibility(0);
-            this.ltq = this.ltt;
+            this.lJM.setVisibility(8);
+            this.lJN.setVisibility(0);
+            this.lJL = this.lJN;
             return;
         }
-        this.ltt.setVisibility(8);
-        this.lts.setVisibility(0);
-        this.ltq = this.lts;
+        this.lJN.setVisibility(8);
+        this.lJM.setVisibility(0);
+        this.lJL = this.lJM;
     }
 
     public void setDefaultText(String str) {
-        if (!TextUtils.isEmpty(str) && this.ltq != null) {
-            this.ltq.setButtonText(str);
+        if (!TextUtils.isEmpty(str) && this.lJL != null) {
+            this.lJL.setButtonText(str);
         }
     }
 
     public void setTextSize(int i) {
-        this.ltq.setButtonTextSize(i);
+        this.lJL.setButtonTextSize(i);
     }
 
     public void setTextColorInitSkin(@ColorRes int i) {
-        if (this.ltq instanceof FeedAdProgressButton) {
-            ((FeedAdProgressButton) this.ltq).setTextColorInitSkin(i);
+        if (this.lJL instanceof FeedAdProgressButton) {
+            ((FeedAdProgressButton) this.lJL).setTextColorInitSkin(i);
         }
     }
 
     public void setBackgroundSkin(@DrawableRes int i) {
-        if (this.ltq instanceof FeedAdProgressButton) {
-            ((FeedAdProgressButton) this.ltq).setBackgroundSkin(i);
+        if (this.lJL instanceof FeedAdProgressButton) {
+            ((FeedAdProgressButton) this.lJL).setBackgroundSkin(i);
+        }
+    }
+
+    public void setForegroundSkin(@DrawableRes int i) {
+        if (this.lJL instanceof FeedAdProgressButton) {
+            ((FeedAdProgressButton) this.lJL).setForeground(i);
         }
     }
 
     public void setTextColor(int i) {
-        this.ltq.setButtonTextColor(i);
+        this.lJL.setButtonTextColor(i);
     }
 
     public void setTextNightColor(int i) {
-        this.ltq.setButtonTextNightColor(i);
+        this.lJL.setButtonTextNightColor(i);
     }
 
     public void q(DownloadData downloadData) {
         if (downloadData != null) {
             switch (downloadData.getStatus()) {
                 case 1:
-                    DZ(u(downloadData));
+                    Gu(u(downloadData));
                     return;
                 case 2:
                 case 7:
-                    this.ltq.setButtonText(getResources().getString(R.string.go_on_download), u(downloadData));
+                    this.lJL.setButtonText(getResources().getString(R.string.go_on_download), u(downloadData));
                     return;
                 case 3:
-                    this.ltq.setButtonText(getResources().getString(R.string.immediately_install), 0);
+                    this.lJL.setButtonText(getResources().getString(R.string.immediately_install), 0);
                     return;
                 case 4:
                 default:
                     return;
                 case 5:
-                    DZ(u(downloadData));
+                    Gu(u(downloadData));
                     return;
                 case 6:
-                    this.ltq.setButtonText(getResources().getString(R.string.install_app));
+                    this.lJL.setButtonText(getResources().getString(R.string.install_app));
                     return;
                 case 8:
-                    this.ltq.setButtonText(getResources().getString(R.string.immediately_open), 0);
+                    this.lJL.setButtonText(getResources().getString(R.string.immediately_open), 0);
                     return;
             }
         }
     }
 
     public void r(DownloadData downloadData) {
-        this.ltq.setButtonText(getResources().getString(R.string.go_on_download), u(downloadData));
+        this.lJL.setButtonText(getResources().getString(R.string.go_on_download), u(downloadData));
     }
 
     public void s(DownloadData downloadData) {
-        DZ(u(downloadData));
+        Gu(u(downloadData));
     }
 
     public void t(DownloadData downloadData) {
-        this.ltq.setButtonText(getResources().getString(R.string.install_app));
+        this.lJL.setButtonText(getResources().getString(R.string.install_app));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void DZ(int i) {
-        this.ltq.setProgress(Math.max(0, i));
+    public void Gu(int i) {
+        this.lJL.setProgress(Math.max(0, i));
     }
 
     public static int u(DownloadData downloadData) {
@@ -169,66 +175,66 @@ public class ApkDownloadView extends FrameLayout implements com.baidu.tieba.ad.d
         }
         int process = downloadData.getProcess();
         if (process <= 0) {
-            process = i.dcm().dt(downloadData.getId(), downloadData.getName());
+            process = i.dnu().dJ(downloadData.getId(), downloadData.getName());
         }
         return Math.max(process, 0);
     }
 
     public static int getStatus(DownloadData downloadData) {
         d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-        return (adAdSense == null || adAdSense.bdT()) ? i.getStatus(downloadData) : e.getStatus(downloadData);
+        return (adAdSense == null || adAdSense.bmz()) ? i.getStatus(downloadData) : e.getStatus(downloadData);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        bsc();
-        dds();
+        bAZ();
+        doD();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        bsb();
+        bAY();
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
         super.setVisibility(i);
         if (i == 0) {
-            bsb();
+            bAY();
         } else {
-            bsc();
+            bAZ();
         }
     }
 
     public void onChangeSkinType(int i) {
-        this.ltq.onChangeSkinType();
+        this.lJL.onChangeSkinType();
     }
 
     public void changeSkin() {
-        this.ltq.changeSkin();
+        this.lJL.changeSkin();
     }
 
-    private void bsb() {
+    private void bAY() {
         if (this.downloadListener != null) {
             MessageManager.getInstance().registerListener(this.downloadListener);
         }
-        if (this.loa != null) {
-            MessageManager.getInstance().registerListener(this.loa);
+        if (this.lEz != null) {
+            MessageManager.getInstance().registerListener(this.lEz);
         }
     }
 
-    private void bsc() {
+    private void bAZ() {
         if (this.downloadListener != null) {
             MessageManager.getInstance().unRegisterListener(this.downloadListener);
         }
-        if (this.loa != null) {
-            MessageManager.getInstance().unRegisterListener(this.loa);
+        if (this.lEz != null) {
+            MessageManager.getInstance().unRegisterListener(this.lEz);
         }
     }
 
-    private void dds() {
+    private void doD() {
         setOnClickInterceptListener(null);
     }
 
@@ -237,7 +243,7 @@ public class ApkDownloadView extends FrameLayout implements com.baidu.tieba.ad.d
             this.downloadListener = new CustomMessageListener(CmdConfigCustom.CMD_FILE_DOWNLOAD) { // from class: com.baidu.tieba.recapp.widget.ApkDownloadView.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Code restructure failed: missing block: B:13:0x0046, code lost:
-                    if (r5.ltw.lsC.getId().equals(r1.getId()) != false) goto L16;
+                    if (r5.lJQ.lIX.getId().equals(r1.getId()) != false) goto L16;
                  */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 /*
@@ -245,7 +251,7 @@ public class ApkDownloadView extends FrameLayout implements com.baidu.tieba.ad.d
                 */
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                     DownloadData downloadData;
-                    if ((customResponsedMessage instanceof DownloadMessage) && ApkDownloadView.this.lsC != null) {
+                    if ((customResponsedMessage instanceof DownloadMessage) && ApkDownloadView.this.lIX != null) {
                         List<DownloadData> data = ((DownloadMessage) customResponsedMessage).getData();
                         int i = 0;
                         while (true) {
@@ -254,7 +260,7 @@ public class ApkDownloadView extends FrameLayout implements com.baidu.tieba.ad.d
                                 break;
                             }
                             downloadData = data.get(i2);
-                            if (TextUtils.isEmpty(ApkDownloadView.this.lsC.getId())) {
+                            if (TextUtils.isEmpty(ApkDownloadView.this.lIX.getId())) {
                                 i = i2 + 1;
                             }
                         }
@@ -262,9 +268,9 @@ public class ApkDownloadView extends FrameLayout implements com.baidu.tieba.ad.d
                         if (downloadData != null) {
                             int v = ApkDownloadView.this.v(downloadData);
                             if (i.getStatus(downloadData) == 1) {
-                                ApkDownloadView.this.DZ(v);
+                                ApkDownloadView.this.Gu(v);
                             } else if (i.getStatus(downloadData) == 3) {
-                                ApkDownloadView.this.ltq.setButtonText(ApkDownloadView.this.getResources().getString(R.string.immediately_install));
+                                ApkDownloadView.this.lJL.setButtonText(ApkDownloadView.this.getResources().getString(R.string.immediately_install));
                             } else {
                                 ApkDownloadView.this.r(downloadData);
                             }
@@ -275,20 +281,20 @@ public class ApkDownloadView extends FrameLayout implements com.baidu.tieba.ad.d
             };
             this.downloadListener.setTag(bdUniqueId);
         }
-        if (this.loa == null) {
-            this.loa = new CustomMessageListener(CmdConfigCustom.CMD_APP_DOWNLOAD_MSG) { // from class: com.baidu.tieba.recapp.widget.ApkDownloadView.2
+        if (this.lEz == null) {
+            this.lEz = new CustomMessageListener(CmdConfigCustom.CMD_APP_DOWNLOAD_MSG) { // from class: com.baidu.tieba.recapp.widget.ApkDownloadView.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    if (customResponsedMessage != null && ApkDownloadView.this.lsC != null) {
+                    if (customResponsedMessage != null && ApkDownloadView.this.lIX != null) {
                         DownloadData downloadData = (DownloadData) customResponsedMessage.getData();
-                        if (ApkDownloadView.this.lsC.getId() != null && downloadData != null && ApkDownloadView.this.lsC.getId().equals(downloadData.getId())) {
+                        if (ApkDownloadView.this.lIX.getId() != null && downloadData != null && ApkDownloadView.this.lIX.getId().equals(downloadData.getId())) {
                             ApkDownloadView.this.q(downloadData);
                         }
                     }
                 }
             };
-            this.loa.setTag(bdUniqueId);
+            this.lEz.setTag(bdUniqueId);
         }
     }
 
@@ -302,24 +308,24 @@ public class ApkDownloadView extends FrameLayout implements com.baidu.tieba.ad.d
 
     @Override // com.baidu.tieba.ad.download.mvp.b
     public void a(@NonNull DownloadStatus downloadStatus) {
-        this.ltv = downloadStatus;
-        if (this.lsC != null) {
-            this.lsC.setStatus(getDownloadStatus());
-            q(this.lsC);
+        this.lJP = downloadStatus;
+        if (this.lIX != null) {
+            this.lIX.setStatus(getDownloadStatus());
+            q(this.lIX);
         }
     }
 
     @Override // com.baidu.tieba.ad.download.mvp.b
-    public void dE(int i) {
-        if (this.ltv == DownloadStatus.STATUS_DOWNLOADING) {
-            DZ(i);
+    public void fy(int i) {
+        if (this.lJP == DownloadStatus.STATUS_DOWNLOADING) {
+            Gu(i);
         }
     }
 
     @Override // com.baidu.tieba.ad.download.mvp.b
     public void a(DownloadStatus downloadStatus, int i) {
         a(downloadStatus);
-        dE(i);
+        fy(i);
     }
 
     @Override // com.baidu.tieba.ad.download.mvp.b
@@ -334,29 +340,30 @@ public class ApkDownloadView extends FrameLayout implements com.baidu.tieba.ad.d
     }
 
     @Override // com.baidu.tieba.ad.download.mvp.b
-    public void bA(View view) {
-        if (this.ltu != null) {
-            this.ltu.bA(view);
+    public boolean bC(View view) {
+        if (this.lJO != null) {
+            return this.lJO.bC(view);
         }
+        return false;
     }
 
     public void setOnClickInterceptListener(b.a aVar) {
-        this.ltu = aVar;
+        this.lJO = aVar;
     }
 
     public int getDownloadStatus() {
-        if (this.ltv == null || this.ltv == DownloadStatus.STATUS_NONE) {
+        if (this.lJP == null || this.lJP == DownloadStatus.STATUS_NONE) {
             return 6;
         }
-        if (this.ltv == DownloadStatus.STATUS_DOWNLOADING) {
+        if (this.lJP == DownloadStatus.STATUS_DOWNLOADING) {
             return 1;
         }
-        if (this.ltv == DownloadStatus.STATUS_PAUSED) {
+        if (this.lJP == DownloadStatus.STATUS_PAUSED) {
             return 7;
         }
-        if (this.ltv == DownloadStatus.STATUS_SUCCESS) {
+        if (this.lJP == DownloadStatus.STATUS_SUCCESS) {
             return 3;
         }
-        return this.ltv == DownloadStatus.STATUS_INSTALL_SUCCESS ? 8 : 6;
+        return this.lJP == DownloadStatus.STATUS_INSTALL_SUCCESS ? 8 : 6;
     }
 }

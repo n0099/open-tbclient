@@ -1,7 +1,7 @@
 package com.baidu.mapapi.walknavi.adapter;
 
 import com.baidu.platform.comapi.walknavi.WalkNaviModeSwitchListener;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public interface IWNaviStatusListener {
     void onNaviExit();
 

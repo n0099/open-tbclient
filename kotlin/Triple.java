@@ -3,7 +3,7 @@ package kotlin;
 import java.io.Serializable;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public final class Triple<A, B, C> implements Serializable {
     private final A first;
     private final B second;

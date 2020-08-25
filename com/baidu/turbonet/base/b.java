@@ -6,19 +6,19 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes19.dex */
+/* loaded from: classes10.dex */
 public class b<E> implements Iterable<E> {
     static final /* synthetic */ boolean $assertionsDisabled;
     public final List<E> mObservers = new ArrayList();
-    private int mGr = 0;
+    private int mZq = 0;
     private int mCount = 0;
-    private boolean mGs = false;
+    private boolean mZr = false;
 
     static {
         $assertionsDisabled = !b.class.desiredAssertionStatus();
     }
 
-    public boolean aK(E e) {
+    public boolean aM(E e) {
         if (e == null || this.mObservers.contains(e)) {
             return false;
         }
@@ -36,7 +36,7 @@ public class b<E> implements Iterable<E> {
     }
 
     private void compact() {
-        if (!$assertionsDisabled && this.mGr != 0) {
+        if (!$assertionsDisabled && this.mZq != 0) {
             throw new AssertionError();
         }
         for (int size = this.mObservers.size() - 1; size >= 0; size--) {
@@ -47,18 +47,18 @@ public class b<E> implements Iterable<E> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dyc() {
-        this.mGr++;
+    public void dJP() {
+        this.mZq++;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dyd() {
-        this.mGr--;
-        if (!$assertionsDisabled && this.mGr < 0) {
+    public void dJQ() {
+        this.mZq--;
+        if (!$assertionsDisabled && this.mZq < 0) {
             throw new AssertionError();
         }
-        if (this.mGr <= 0 && this.mGs) {
-            this.mGs = false;
+        if (this.mZq <= 0 && this.mZr) {
+            this.mZr = false;
             compact();
         }
     }
@@ -69,48 +69,48 @@ public class b<E> implements Iterable<E> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public E Hz(int i) {
+    public E JZ(int i) {
         return this.mObservers.get(i);
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes10.dex */
     private class a implements c<E> {
-        private int mGt;
-        private boolean mGu;
         private int mIndex;
+        private int mZs;
+        private boolean mZt;
 
         private a() {
             this.mIndex = 0;
-            this.mGu = false;
-            b.this.dyc();
-            this.mGt = b.this.capacity();
+            this.mZt = false;
+            b.this.dJP();
+            this.mZs = b.this.capacity();
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
             int i = this.mIndex;
-            while (i < this.mGt && b.this.Hz(i) == null) {
+            while (i < this.mZs && b.this.JZ(i) == null) {
                 i++;
             }
-            if (i < this.mGt) {
+            if (i < this.mZs) {
                 return true;
             }
-            dye();
+            dJR();
             return false;
         }
 
         @Override // java.util.Iterator
         public E next() {
-            while (this.mIndex < this.mGt && b.this.Hz(this.mIndex) == null) {
+            while (this.mIndex < this.mZs && b.this.JZ(this.mIndex) == null) {
                 this.mIndex++;
             }
-            if (this.mIndex < this.mGt) {
+            if (this.mIndex < this.mZs) {
                 b bVar = b.this;
                 int i = this.mIndex;
                 this.mIndex = i + 1;
-                return (E) bVar.Hz(i);
+                return (E) bVar.JZ(i);
             }
-            dye();
+            dJR();
             throw new NoSuchElementException();
         }
 
@@ -119,10 +119,10 @@ public class b<E> implements Iterable<E> {
             throw new UnsupportedOperationException();
         }
 
-        private void dye() {
-            if (!this.mGu) {
-                this.mGu = true;
-                b.this.dyd();
+        private void dJR() {
+            if (!this.mZt) {
+                this.mZt = true;
+                b.this.dJQ();
             }
         }
     }

@@ -12,27 +12,27 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowableSampleTimed<T> extends a<T, T> {
-    final boolean nTw;
+    final boolean ons;
     final long period;
     final v scheduler;
     final TimeUnit unit;
 
     @Override // io.reactivex.g
-    protected void a(org.a.c<? super T> cVar) {
+    protected void a(org.b.c<? super T> cVar) {
         io.reactivex.subscribers.b bVar = new io.reactivex.subscribers.b(cVar);
-        if (this.nTw) {
-            this.nSG.a((j) new SampleTimedEmitLast(bVar, this.period, this.unit, this.scheduler));
+        if (this.ons) {
+            this.omB.a((j) new SampleTimedEmitLast(bVar, this.period, this.unit, this.scheduler));
         } else {
-            this.nSG.a((j) new SampleTimedNoLast(bVar, this.period, this.unit, this.scheduler));
+            this.omB.a((j) new SampleTimedNoLast(bVar, this.period, this.unit, this.scheduler));
         }
     }
 
     /* loaded from: classes7.dex */
-    static abstract class SampleTimedSubscriber<T> extends AtomicReference<T> implements j<T>, Runnable, org.a.d {
+    static abstract class SampleTimedSubscriber<T> extends AtomicReference<T> implements j<T>, Runnable, org.b.d {
         private static final long serialVersionUID = -3517602651313910099L;
-        final org.a.c<? super T> actual;
+        final org.b.c<? super T> actual;
         final long period;
-        org.a.d s;
+        org.b.d s;
         final v scheduler;
         final TimeUnit unit;
         final AtomicLong requested = new AtomicLong();
@@ -40,15 +40,15 @@ public final class FlowableSampleTimed<T> extends a<T, T> {
 
         abstract void complete();
 
-        SampleTimedSubscriber(org.a.c<? super T> cVar, long j, TimeUnit timeUnit, v vVar) {
+        SampleTimedSubscriber(org.b.c<? super T> cVar, long j, TimeUnit timeUnit, v vVar) {
             this.actual = cVar;
             this.period = j;
             this.unit = timeUnit;
             this.scheduler = vVar;
         }
 
-        @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        @Override // io.reactivex.j, org.b.c
+        public void onSubscribe(org.b.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
@@ -57,18 +57,18 @@ public final class FlowableSampleTimed<T> extends a<T, T> {
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(T t) {
             lazySet(t);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
             cancelTimer();
             this.actual.onError(th);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
             cancelTimer();
             complete();
@@ -78,14 +78,14 @@ public final class FlowableSampleTimed<T> extends a<T, T> {
             DisposableHelper.dispose(this.timer);
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 io.reactivex.internal.util.b.a(this.requested, j);
             }
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void cancel() {
             cancelTimer();
             this.s.cancel();
@@ -109,7 +109,7 @@ public final class FlowableSampleTimed<T> extends a<T, T> {
     static final class SampleTimedNoLast<T> extends SampleTimedSubscriber<T> {
         private static final long serialVersionUID = -7139995637533111443L;
 
-        SampleTimedNoLast(org.a.c<? super T> cVar, long j, TimeUnit timeUnit, v vVar) {
+        SampleTimedNoLast(org.b.c<? super T> cVar, long j, TimeUnit timeUnit, v vVar) {
             super(cVar, j, timeUnit, vVar);
         }
 
@@ -129,7 +129,7 @@ public final class FlowableSampleTimed<T> extends a<T, T> {
         private static final long serialVersionUID = -7139995637533111443L;
         final AtomicInteger wip;
 
-        SampleTimedEmitLast(org.a.c<? super T> cVar, long j, TimeUnit timeUnit, v vVar) {
+        SampleTimedEmitLast(org.b.c<? super T> cVar, long j, TimeUnit timeUnit, v vVar) {
             super(cVar, j, timeUnit, vVar);
             this.wip = new AtomicInteger(1);
         }

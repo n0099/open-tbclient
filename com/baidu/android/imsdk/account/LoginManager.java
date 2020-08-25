@@ -9,10 +9,10 @@ import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.imsdk.IMService;
+import com.baidu.imsdk.a;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class LoginManager {
     private static Context mContext;
     private static LoginManager mInstance = null;
@@ -21,7 +21,7 @@ public class LoginManager {
     LoginState mLoginState = LoginState.NOT_LOGIN;
     private int cidTryLoginedTimes = 1;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public enum LoginState {
         NOT_LOGIN,
         LOGINING,
@@ -88,9 +88,9 @@ public class LoginManager {
             this.cidTryLoginedTimes--;
             this.mLoginState = LoginState.NOT_LOGIN;
         } else if (110 != i && 7 != i && 23 != i && 1004 != i && 1001 != i && 8010 != i && 4001 != i) {
-            LogUtils.d(this.TAG, "error :" + i + ", and retry ：" + IMUserLoginByTokenMsg.sRetrytimes + "， isLcp :" + IMService.isSmallFlow);
+            LogUtils.d(this.TAG, "error :" + i + ", and retry ：" + IMUserLoginByTokenMsg.sRetrytimes + "， isLcp :" + a.ayn);
             this.mLoginState = LoginState.NOT_LOGIN;
-            if (IMService.isSmallFlow && IMUserLoginByTokenMsg.sRetrytimes < 3) {
+            if (a.ayn && IMUserLoginByTokenMsg.sRetrytimes < 3) {
                 int loginType = AccountManagerImpl.getInstance(mContext).getLoginType();
                 LogUtils.d(this.TAG, "lcp，im login ：" + IMUserLoginByTokenMsg.sRetrytimes + ", loginType :" + loginType);
                 if (loginType == 1) {
@@ -98,7 +98,7 @@ public class LoginManager {
                 } else if (loginType == 6) {
                     BIMManager.login(null, AccountManagerImpl.getInstance(mContext).getCuid(), loginType, AccountManagerImpl.getInstance(mContext).getFrom(), AccountManagerImpl.getInstance(mContext).getcFrom(), removeLoginListener());
                 }
-            } else if (!IMService.isSmallFlow && IMConnection.getInstance(mContext).shouldRetryLogin()) {
+            } else if (!a.ayn && IMConnection.getInstance(mContext).shouldRetryLogin()) {
                 LogUtils.d(this.TAG, "IMConnection，im login ：" + IMUserLoginByTokenMsg.sRetrytimes);
                 IMConnection.getInstance(mContext).disconnectedByPeer();
             }

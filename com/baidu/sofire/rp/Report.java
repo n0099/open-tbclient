@@ -3,9 +3,9 @@ package com.baidu.sofire.rp;
 import android.content.Context;
 import android.os.Message;
 import com.baidu.sofire.b;
-import com.baidu.sofire.i.d;
-import com.baidu.sofire.i.f;
-/* loaded from: classes3.dex */
+import com.baidu.sofire.i.e;
+import com.baidu.sofire.i.g;
+/* loaded from: classes20.dex */
 public class Report {
     private static Report a;
     private Context b;
@@ -27,9 +27,9 @@ public class Report {
 
     public void i(String str, String str2, String str3, String str4, String str5) {
         try {
-            d.a(this.b, str, str2, str3, str4, str5);
+            e.a(this.b, str, str2, str3, str4, str5);
         } catch (Throwable th) {
-            d.a();
+            e.a();
         }
     }
 
@@ -37,9 +37,9 @@ public class Report {
         try {
             new StringBuilder().append(str);
             b.a();
-            d.a(this.b, str);
+            e.a(this.b, str);
         } catch (Throwable th) {
-            d.a();
+            e.a();
         }
     }
 
@@ -47,51 +47,51 @@ public class Report {
         try {
             new StringBuilder().append(str);
             b.a();
-            f a2 = f.a(this.b);
+            g a2 = g.a(this.b);
             Message message = new Message();
             message.what = 11;
             message.obj = str;
             a2.a.a(message);
         } catch (Throwable th) {
-            d.a();
+            e.a();
         }
     }
 
     public void r(boolean z) {
         try {
-            f.a(this.b).a();
+            g.a(this.b).a();
         } catch (Throwable th) {
-            d.a();
+            e.a();
         }
     }
 
     public void w(String str) {
         try {
-            d.b(this.b, str);
+            e.b(this.b, str);
         } catch (Throwable th) {
-            d.a();
+            e.a();
         }
     }
 
     public void n() {
         try {
-            f a2 = f.a(this.b);
+            g a2 = g.a(this.b);
             Message message = new Message();
             message.what = 6;
             a2.a.a(message);
         } catch (Throwable th) {
-            d.a();
+            e.a();
         }
     }
 
     public void fr() {
         try {
-            f a2 = f.a(this.b);
+            g a2 = g.a(this.b);
             Message message = new Message();
             message.what = 9;
             a2.a.a(message);
         } catch (Throwable th) {
-            d.a();
+            e.a();
         }
     }
 }

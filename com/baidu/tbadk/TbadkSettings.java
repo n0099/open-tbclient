@@ -2,7 +2,7 @@ package com.baidu.tbadk;
 
 import android.content.SharedPreferences;
 import com.baidu.tbadk.core.sharedPref.b;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class TbadkSettings {
     private static TbadkSettings mSettings = new TbadkSettings();
     protected SharedPreferences sp;
@@ -15,38 +15,38 @@ public class TbadkSettings {
     }
 
     public void saveString(String str, String str2) {
-        b.aZP().putString(str, str2);
+        b.bik().putString(str, str2);
     }
 
     public String loadString(String str, String str2) {
-        return b.aZP().getString(str, str2);
+        return b.bik().getString(str, str2);
     }
 
     public boolean loadBoolean(String str, boolean z) {
-        return b.aZP().getBoolean(str, z);
+        return b.bik().getBoolean(str, z);
     }
 
     public void saveBoolean(String str, boolean z) {
-        b.aZP().putBoolean(str, z);
+        b.bik().putBoolean(str, z);
     }
 
     public int loadInt(String str, int i) {
-        return b.aZP().getInt(str, i);
+        return b.bik().getInt(str, i);
     }
 
     public void saveInt(String str, int i) {
-        b.aZP().putInt(str, i);
+        b.bik().putInt(str, i);
     }
 
     public long loadLong(String str, long j) {
-        return b.aZP().getLong(str, j);
+        return b.bik().getLong(str, j);
     }
 
     public void saveLong(String str, long j) {
-        b.aZP().putLong(str, j);
+        b.bik().putLong(str, j);
     }
 
     public boolean isContains(String str) {
-        return b.aZP().isContains(str);
+        return b.bik().isContains(str);
     }
 }

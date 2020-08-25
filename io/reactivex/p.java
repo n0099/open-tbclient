@@ -3,18 +3,18 @@ package io.reactivex;
 import io.reactivex.internal.util.NotificationLite;
 /* loaded from: classes7.dex */
 public final class p<T> {
-    static final p<Object> nRU = new p<>(null);
+    static final p<Object> olP = new p<>(null);
     final Object value;
 
     private p(Object obj) {
         this.value = obj;
     }
 
-    public boolean dSP() {
+    public boolean eeR() {
         return NotificationLite.isError(this.value);
     }
 
-    public Throwable dSQ() {
+    public Throwable eeS() {
         Object obj = this.value;
         if (NotificationLite.isError(obj)) {
             return NotificationLite.getError(obj);
@@ -48,17 +48,17 @@ public final class p<T> {
         return "OnNextNotification[" + this.value + "]";
     }
 
-    public static <T> p<T> bA(T t) {
+    public static <T> p<T> bC(T t) {
         io.reactivex.internal.functions.a.k(t, "value is null");
         return new p<>(t);
     }
 
-    public static <T> p<T> J(Throwable th) {
+    public static <T> p<T> I(Throwable th) {
         io.reactivex.internal.functions.a.k(th, "error is null");
         return new p<>(NotificationLite.error(th));
     }
 
-    public static <T> p<T> dSR() {
-        return (p<T>) nRU;
+    public static <T> p<T> eeT() {
+        return (p<T>) olP;
     }
 }

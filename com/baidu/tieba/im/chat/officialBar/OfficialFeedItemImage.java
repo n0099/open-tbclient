@@ -10,26 +10,26 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.message.chat.a;
 /* loaded from: classes20.dex */
 public class OfficialFeedItemImage extends RelativeLayout {
-    private boolean iSr;
-    private TextView iUo;
-    private TbImageView iUq;
-    private ImageView iUr;
-    private TextView iUs;
-    private View iUt;
-    private View iUu;
-    private View iUv;
+    private boolean jho;
+    private TextView jjm;
+    private TbImageView jjo;
+    private ImageView jjp;
+    private TextView jjq;
+    private View jjr;
+    private View jjs;
+    private View jjt;
     private Context mContext;
 
     public OfficialFeedItemImage(Context context, boolean z) {
         this(context, (AttributeSet) null);
-        this.iSr = z;
+        this.jho = z;
     }
 
     public OfficialFeedItemImage(Context context, AttributeSet attributeSet) {
@@ -40,62 +40,62 @@ public class OfficialFeedItemImage extends RelativeLayout {
 
     private void initView() {
         LayoutInflater.from(this.mContext).inflate(R.layout.official_feed_item_image, (ViewGroup) this, true);
-        this.iUq = (TbImageView) findViewById(R.id.message_image);
-        this.iUr = (ImageView) findViewById(R.id.message_read_icon);
-        this.iUs = (TextView) findViewById(R.id.message_read_count);
-        this.iUo = (TextView) findViewById(R.id.message_title);
-        this.iUt = findViewById(R.id.black_mask);
-        this.iUq.setConrers(15);
-        this.iUq.setRadius(l.getDimens(this.mContext, R.dimen.tbds21));
-        this.iUu = findViewById(R.id.image_container);
-        this.iUv = findViewById(R.id.msg_read_container);
-        crB();
+        this.jjo = (TbImageView) findViewById(R.id.message_image);
+        this.jjp = (ImageView) findViewById(R.id.message_read_icon);
+        this.jjq = (TextView) findViewById(R.id.message_read_count);
+        this.jjm = (TextView) findViewById(R.id.message_title);
+        this.jjr = findViewById(R.id.black_mask);
+        this.jjo.setConrers(15);
+        this.jjo.setRadius(l.getDimens(this.mContext, R.dimen.tbds21));
+        this.jjs = findViewById(R.id.image_container);
+        this.jjt = findViewById(R.id.msg_read_container);
+        cCt();
     }
 
-    public void crC() {
-        this.iUq.setRadius(l.getDimens(this.mContext, R.dimen.tbds31));
-        this.iUq.setConrers(3);
-        ViewGroup.LayoutParams layoutParams = this.iUu.getLayoutParams();
+    public void cCu() {
+        this.jjo.setRadius(l.getDimens(this.mContext, R.dimen.tbds31));
+        this.jjo.setConrers(3);
+        ViewGroup.LayoutParams layoutParams = this.jjs.getLayoutParams();
         layoutParams.height = l.getDimens(this.mContext, R.dimen.tbds579);
-        this.iUu.setLayoutParams(layoutParams);
-        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.iUv.getLayoutParams();
+        this.jjs.setLayoutParams(layoutParams);
+        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.jjt.getLayoutParams();
         layoutParams2.leftMargin = l.getDimens(this.mContext, R.dimen.tbds27);
-        this.iUv.setLayoutParams(layoutParams2);
-        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.iUo.getLayoutParams();
+        this.jjt.setLayoutParams(layoutParams2);
+        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.jjm.getLayoutParams();
         layoutParams3.leftMargin = l.getDimens(this.mContext, R.dimen.tbds30);
         layoutParams3.bottomMargin = l.getDimens(this.mContext, R.dimen.tbds27);
-        this.iUo.setLayoutParams(layoutParams3);
+        this.jjm.setLayoutParams(layoutParams3);
     }
 
-    public void crB() {
-        SvgManager.baR().a(this.iUr, R.drawable.icon_pure_broadcast_read16_svg, R.color.cp_cont_a, SvgManager.SvgResourceStateType.NORMAL);
-        com.baidu.tbadk.core.util.e.a.c i = com.baidu.tbadk.core.util.e.a.bbr().ma(0).i(R.color.cp_mask_b_alpha0, R.color.cp_mask_b_alpha42);
-        if (this.iSr) {
-            i.aX(this.iUt);
+    public void cCt() {
+        SvgManager.bjq().a(this.jjp, R.drawable.icon_pure_broadcast_read16_svg, R.color.cp_cont_a, SvgManager.SvgResourceStateType.NORMAL);
+        com.baidu.tbadk.core.util.e.a.b i = com.baidu.tbadk.core.util.e.a.bjQ().oe(0).i(R.color.cp_mask_b_alpha0, R.color.cp_mask_b_alpha42);
+        if (this.jho) {
+            i.aZ(this.jjr);
         } else {
-            i.U(l.getDimens(getContext(), R.dimen.tbds21)).T(l.getDimens(getContext(), R.dimen.tbds21)).aX(this.iUt);
+            i.Z(l.getDimens(getContext(), R.dimen.tbds21)).Y(l.getDimens(getContext(), R.dimen.tbds21)).aZ(this.jjr);
         }
-        ao.setViewTextColor(this.iUs, R.color.cp_cont_a);
-        ao.setViewTextColor(this.iUo, R.color.cp_cont_a);
+        ap.setViewTextColor(this.jjq, R.color.cp_cont_a);
+        ap.setViewTextColor(this.jjm, R.color.cp_cont_a);
     }
 
-    public void setData(a.C0667a c0667a, int i, com.baidu.tieba.im.forum.broadcast.data.b bVar) {
-        this.iUq.startLoad(c0667a.src, 10, false);
-        this.iUo.setText(c0667a.title);
+    public void setData(a.C0719a c0719a, int i, com.baidu.tieba.im.forum.broadcast.data.b bVar) {
+        this.jjo.startLoad(c0719a.src, 10, false);
+        this.jjm.setText(c0719a.title);
         if (bVar != null) {
-            i = bVar.ctK();
+            i = bVar.cEB();
         }
-        yw(i);
+        AQ(i);
     }
 
-    public void yw(int i) {
+    public void AQ(int i) {
         if (i > 0) {
-            this.iUs.setText(this.mContext.getString(R.string.person_view_num, as.cE(i)));
-            this.iUs.setVisibility(0);
-            this.iUr.setVisibility(0);
+            this.jjq.setText(this.mContext.getString(R.string.person_view_num, at.cP(i)));
+            this.jjq.setVisibility(0);
+            this.jjp.setVisibility(0);
             return;
         }
-        this.iUs.setVisibility(8);
-        this.iUr.setVisibility(8);
+        this.jjq.setVisibility(8);
+        this.jjp.setVisibility(8);
     }
 }

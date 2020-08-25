@@ -1,5 +1,5 @@
 package com.baidu.tbadk.util;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class k {
     private static long lastClickTime;
 

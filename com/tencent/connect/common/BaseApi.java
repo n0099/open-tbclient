@@ -9,7 +9,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
-import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.auth.c;
@@ -54,7 +53,7 @@ public abstract class BaseApi {
         bundle.putString("status_machine", Build.MODEL);
         bundle.putString("status_version", Build.VERSION.SDK);
         bundle.putString("sdkv", Constants.SDK_VERSION);
-        bundle.putString("sdkp", Config.APP_VERSION_CODE);
+        bundle.putString("sdkp", "a");
         if (this.b != null && this.b.isSessionValid()) {
             bundle.putString("access_token", this.b.getAccessToken());
             bundle.putString("oauth_consumer_key", this.b.getAppId());
@@ -103,7 +102,7 @@ public abstract class BaseApi {
             bundle.putString("pf", Constants.DEFAULT_PF);
         }
         bundle.putString("sdkv", Constants.SDK_VERSION);
-        bundle.putString("sdkp", Config.APP_VERSION_CODE);
+        bundle.putString("sdkp", "a");
         return bundle;
     }
 

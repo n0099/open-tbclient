@@ -1,7 +1,7 @@
 package com.baidu.platform.comjni.jninative.tts;
 
-import com.baidu.platform.comapi.wnplatform.m.b;
-/* loaded from: classes10.dex */
+import com.baidu.platform.comapi.wnplatform.n.b;
+/* loaded from: classes20.dex */
 public class WNaviTTSPlayer {
     private static b mTtsPlayerListener = null;
     private static boolean bStopVoiceOutput = false;
@@ -17,7 +17,7 @@ public class WNaviTTSPlayer {
         mTtsPlayerListener = bVar;
     }
 
-    public static int playTTSText(String str, int i, int i2) {
+    public static int playTTSText(String str, int i, int i2, int i3) {
         if (mTtsPlayerListener == null || bStopVoiceOutput) {
             return 0;
         }

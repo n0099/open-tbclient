@@ -3,14 +3,14 @@ package com.baidu.ar.track2d;
 public interface ITrack2DState {
 
     /* loaded from: classes11.dex */
-    public enum a {
+    public enum DistanceState {
         NORMAL,
         TOO_FAR,
         TOO_NEAR,
         UNKNOWN
     }
 
-    a distanceState();
+    DistanceState distanceState();
 
     boolean isModelAppear();
 

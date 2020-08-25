@@ -9,7 +9,7 @@ import com.baidu.live.barrage.a.b;
 import com.baidu.live.barrage.view.ImBarrageItemView;
 import com.baidu.live.barrage.view.ImBarrageOptionListView;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ALaBarrageInitialize {
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913216, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.live.barrage.ALaBarrageInitialize.1

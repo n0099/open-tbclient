@@ -2,12 +2,12 @@ package com.baidu.pass.biometrics.face.liveness.dto;
 
 import android.text.TextUtils;
 import com.baidu.pass.biometrics.base.dto.PassBiometricDto;
-import com.baidu.pass.biometrics.face.liveness.beans.BeanDataCache;
+import com.baidu.pass.biometrics.face.liveness.a.a;
 import com.baidu.pass.biometrics.face.liveness.utils.enums.PassFaceRecogType;
 import com.baidu.webkit.internal.ETAG;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class PassFaceRecogDTO extends PassBiometricDto {
     public static final int IMAGE_FLAG_CUT_AND_ORIGIN_IMAGE = 3;
     public static final int IMAGE_FLAG_CUT_IMAGE = 1;
@@ -31,6 +31,25 @@ public class PassFaceRecogDTO extends PassBiometricDto {
     public boolean guideLiveness = true;
     public String imageFlag = "0";
 
+    private int a() {
+        PassBiometricDto a = a.a().a("request_data");
+        if (a != null && (a instanceof PassFaceRecogDTO)) {
+            PassFaceRecogDTO passFaceRecogDTO = (PassFaceRecogDTO) a;
+            if (!TextUtils.isEmpty(passFaceRecogDTO.imageFlag)) {
+                try {
+                    return Integer.parseInt(passFaceRecogDTO.imageFlag);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return 0;
+    }
+
+    public String getAccessToken() {
+        return this.extraParamsMap.get("access_token");
+    }
+
     public String getSpParams() {
         StringBuilder sb = new StringBuilder();
         for (Map.Entry<String, String> entry : this.extraParamsMap.entrySet()) {
@@ -49,30 +68,11 @@ public class PassFaceRecogDTO extends PassBiometricDto {
         return this.extraParamsMap.get(KEY_EXTRA_PASS_PRODUCT_ID);
     }
 
-    public String getAccessToken() {
-        return this.extraParamsMap.get("access_token");
+    public boolean isReturnCutImage() {
+        return (a() & 1) == 1;
     }
 
     public boolean isReturnOriginImage() {
-        return (returnImageFlag() & 2) == 2;
-    }
-
-    public boolean isReturnCutImage() {
-        return (returnImageFlag() & 1) == 1;
-    }
-
-    private int returnImageFlag() {
-        PassBiometricDto cacheData = BeanDataCache.getInstance().getCacheData("request_data");
-        if (cacheData != null && (cacheData instanceof PassFaceRecogDTO)) {
-            PassFaceRecogDTO passFaceRecogDTO = (PassFaceRecogDTO) cacheData;
-            if (!TextUtils.isEmpty(passFaceRecogDTO.imageFlag)) {
-                try {
-                    return Integer.parseInt(passFaceRecogDTO.imageFlag);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        return 0;
+        return (a() & 2) == 2;
     }
 }

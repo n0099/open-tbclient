@@ -7,16 +7,16 @@ import rx.a;
 import rx.d;
 import rx.exceptions.MissingBackpressureException;
 import rx.internal.util.BackpressureDrainManager;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class m<T> implements d.b<T, T> {
-    private final Long omi = null;
-    private final rx.functions.a omj = null;
-    private final a.d omk = rx.a.ojg;
+    private final Long oGe = null;
+    private final rx.functions.a oGf = null;
+    private final a.d oGg = rx.a.oDc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class b {
-        static final m<?> omp = new m<>();
+        static final m<?> oGl = new m<>();
     }
 
     @Override // rx.functions.f
@@ -24,37 +24,37 @@ public class m<T> implements d.b<T, T> {
         return call((rx.j) ((rx.j) obj));
     }
 
-    public static <T> m<T> dYf() {
-        return (m<T>) b.omp;
+    public static <T> m<T> ekj() {
+        return (m<T>) b.oGl;
     }
 
     m() {
     }
 
     public rx.j<? super T> call(rx.j<? super T> jVar) {
-        a aVar = new a(jVar, this.omi, this.omj, this.omk);
+        a aVar = new a(jVar, this.oGe, this.oGf, this.oGg);
         jVar.add(aVar);
-        jVar.setProducer(aVar.dYh());
+        jVar.setProducer(aVar.ekl());
         return aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class a<T> extends rx.j<T> implements BackpressureDrainManager.a {
         private final rx.j<? super T> child;
-        private final rx.functions.a omj;
-        private final a.d omk;
-        private final AtomicLong omm;
-        private final BackpressureDrainManager omo;
-        private final ConcurrentLinkedQueue<Object> oml = new ConcurrentLinkedQueue<>();
-        private final AtomicBoolean omn = new AtomicBoolean(false);
+        private final rx.functions.a oGf;
+        private final a.d oGg;
+        private final AtomicLong oGi;
+        private final BackpressureDrainManager oGk;
+        private final ConcurrentLinkedQueue<Object> oGh = new ConcurrentLinkedQueue<>();
+        private final AtomicBoolean oGj = new AtomicBoolean(false);
 
         public a(rx.j<? super T> jVar, Long l, rx.functions.a aVar, a.d dVar) {
             this.child = jVar;
-            this.omm = l != null ? new AtomicLong(l.longValue()) : null;
-            this.omj = aVar;
-            this.omo = new BackpressureDrainManager(this);
-            this.omk = dVar;
+            this.oGi = l != null ? new AtomicLong(l.longValue()) : null;
+            this.oGf = aVar;
+            this.oGk = new BackpressureDrainManager(this);
+            this.oGg = dVar;
         }
 
         @Override // rx.j
@@ -64,33 +64,33 @@ public class m<T> implements d.b<T, T> {
 
         @Override // rx.e
         public void onCompleted() {
-            if (!this.omn.get()) {
-                this.omo.terminateAndDrain();
+            if (!this.oGj.get()) {
+                this.oGk.terminateAndDrain();
             }
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            if (!this.omn.get()) {
-                this.omo.terminateAndDrain(th);
+            if (!this.oGj.get()) {
+                this.oGk.terminateAndDrain(th);
             }
         }
 
         @Override // rx.e
         public void onNext(T t) {
-            if (dYg()) {
-                this.oml.offer(NotificationLite.next(t));
-                this.omo.drain();
+            if (ekk()) {
+                this.oGh.offer(NotificationLite.next(t));
+                this.oGk.drain();
             }
         }
 
         @Override // rx.internal.util.BackpressureDrainManager.a
-        public boolean bY(Object obj) {
+        public boolean cc(Object obj) {
             return NotificationLite.a(this.child, obj);
         }
 
         @Override // rx.internal.util.BackpressureDrainManager.a
-        public void X(Throwable th) {
+        public void W(Throwable th) {
             if (th != null) {
                 this.child.onError(th);
             } else {
@@ -100,42 +100,42 @@ public class m<T> implements d.b<T, T> {
 
         @Override // rx.internal.util.BackpressureDrainManager.a
         public Object peek() {
-            return this.oml.peek();
+            return this.oGh.peek();
         }
 
         @Override // rx.internal.util.BackpressureDrainManager.a
         public Object poll() {
-            Object poll = this.oml.poll();
-            if (this.omm != null && poll != null) {
-                this.omm.incrementAndGet();
+            Object poll = this.oGh.poll();
+            if (this.oGi != null && poll != null) {
+                this.oGi.incrementAndGet();
             }
             return poll;
         }
 
-        private boolean dYg() {
+        private boolean ekk() {
             long j;
             boolean z;
-            if (this.omm == null) {
+            if (this.oGi == null) {
                 return true;
             }
             do {
-                j = this.omm.get();
+                j = this.oGi.get();
                 if (j <= 0) {
                     try {
-                        z = this.omk.dXx() && poll() != null;
+                        z = this.oGg.ejB() && poll() != null;
                     } catch (MissingBackpressureException e) {
-                        if (this.omn.compareAndSet(false, true)) {
+                        if (this.oGj.compareAndSet(false, true)) {
                             unsubscribe();
                             this.child.onError(e);
                         }
                         z = false;
                     }
-                    if (this.omj != null) {
+                    if (this.oGf != null) {
                         try {
-                            this.omj.call();
+                            this.oGf.call();
                         } catch (Throwable th) {
-                            rx.exceptions.a.K(th);
-                            this.omo.terminateAndDrain(th);
+                            rx.exceptions.a.J(th);
+                            this.oGk.terminateAndDrain(th);
                             return false;
                         }
                     }
@@ -143,12 +143,12 @@ public class m<T> implements d.b<T, T> {
                         return false;
                     }
                 }
-            } while (!this.omm.compareAndSet(j, j - 1));
+            } while (!this.oGi.compareAndSet(j, j - 1));
             return true;
         }
 
-        protected rx.f dYh() {
-            return this.omo;
+        protected rx.f ekl() {
+            return this.oGk;
         }
     }
 }

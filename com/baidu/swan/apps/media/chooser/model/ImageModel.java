@@ -2,19 +2,19 @@ package com.baidu.swan.apps.media.chooser.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ImageModel extends MediaModel {
     public static final Parcelable.Creator<ImageModel> CREATOR = new Parcelable.Creator<ImageModel>() { // from class: com.baidu.swan.apps.media.chooser.model.ImageModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: s */
+        /* renamed from: t */
         public ImageModel createFromParcel(Parcel parcel) {
             return new ImageModel(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: gk */
+        /* renamed from: io */
         public ImageModel[] newArray(int i) {
             return new ImageModel[i];
         }

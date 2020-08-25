@@ -5,15 +5,15 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class SelectRuleView extends LinearLayout {
-    List<String> eMh;
-    private int eMn;
-    List<String> eMo;
-    List<String> eMp;
+    List<String> eWN;
+    private int eWT;
+    List<String> eWU;
+    List<String> eWV;
     private int mSkinType;
     private int mType;
 
@@ -28,7 +28,7 @@ public class SelectRuleView extends LinearLayout {
     public SelectRuleView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mType = 0;
-        this.eMn = 2;
+        this.eWT = 2;
         this.mSkinType = 3;
         initUI();
     }
@@ -40,10 +40,10 @@ public class SelectRuleView extends LinearLayout {
     }
 
     public void setData(List<String> list, List<String> list2) {
-        if (!x.isEmpty(list) || !x.isEmpty(list2)) {
-            bnr();
-            this.eMo = list;
-            this.eMp = list2;
+        if (!y.isEmpty(list) || !y.isEmpty(list2)) {
+            bwf();
+            this.eWU = list;
+            this.eWV = list2;
             List<String> arrayList = new ArrayList<>();
             arrayList.addAll(list);
             List<String> arrayList2 = new ArrayList<>();
@@ -55,11 +55,11 @@ public class SelectRuleView extends LinearLayout {
             while (arrayList.size() < size) {
                 arrayList.add("");
             }
-            for (int i = 0; i < ((this.eMn + size) - 1) / this.eMn; i++) {
+            for (int i = 0; i < ((this.eWT + size) - 1) / this.eWT; i++) {
                 SelectRuleRowItem selectRuleRowItem = new SelectRuleRowItem(getContext());
                 selectRuleRowItem.setType(this.mType);
-                int i2 = this.eMn * i;
-                int i3 = (i + 1) * this.eMn;
+                int i2 = this.eWT * i;
+                int i3 = (i + 1) * this.eWT;
                 selectRuleRowItem.setData(d(arrayList, i2, i3), d(arrayList2, i2, i3));
                 addView(selectRuleRowItem);
             }
@@ -67,11 +67,11 @@ public class SelectRuleView extends LinearLayout {
     }
 
     public void setData(List<String> list, List<String> list2, List<String> list3) {
-        if (!x.isEmpty(list2) || !x.isEmpty(list3) || !x.isEmpty(list)) {
-            bnr();
-            this.eMo = list2;
-            this.eMp = list3;
-            this.eMh = list;
+        if (!y.isEmpty(list2) || !y.isEmpty(list3) || !y.isEmpty(list)) {
+            bwf();
+            this.eWU = list2;
+            this.eWV = list3;
+            this.eWN = list;
             List<String> arrayList = new ArrayList<>();
             arrayList.addAll(list2);
             List<String> arrayList2 = new ArrayList<>();
@@ -91,11 +91,11 @@ public class SelectRuleView extends LinearLayout {
             while (arrayList3.size() < size) {
                 arrayList3.add("");
             }
-            for (int i = 0; i < ((this.eMn + size) - 1) / this.eMn; i++) {
+            for (int i = 0; i < ((this.eWT + size) - 1) / this.eWT; i++) {
                 SelectRuleRowItem selectRuleRowItem = new SelectRuleRowItem(getContext());
                 selectRuleRowItem.setType(this.mType);
-                int i2 = this.eMn * i;
-                int i3 = (i + 1) * this.eMn;
+                int i2 = this.eWT * i;
+                int i3 = (i + 1) * this.eWT;
                 selectRuleRowItem.setData(d(arrayList3, i2, i3), d(arrayList, i2, i3), d(arrayList2, i2, i3));
                 addView(selectRuleRowItem);
             }
@@ -103,7 +103,7 @@ public class SelectRuleView extends LinearLayout {
     }
 
     public void setColumn(int i) {
-        this.eMn = i;
+        this.eWT = i;
     }
 
     public void setType(int i) {
@@ -111,7 +111,7 @@ public class SelectRuleView extends LinearLayout {
     }
 
     private List<String> d(List<String> list, int i, int i2) {
-        if (x.isEmpty(list) || i > list.size() || i < 0) {
+        if (y.isEmpty(list) || i > list.size() || i < 0) {
             return null;
         }
         if (list.size() >= i2) {
@@ -124,16 +124,16 @@ public class SelectRuleView extends LinearLayout {
         return arrayList;
     }
 
-    private void bnr() {
+    private void bwf() {
         removeAllViews();
     }
 
-    public void oA(int i) {
+    public void qM(int i) {
         if (this.mSkinType != i) {
             if (this.mType == 0) {
-                setData(this.eMo, this.eMp);
+                setData(this.eWU, this.eWV);
             } else if (this.mType == 1) {
-                setData(this.eMh, this.eMo, this.eMp);
+                setData(this.eWN, this.eWU, this.eWV);
             }
         }
     }

@@ -3,7 +3,7 @@ package io.flutter.embedding.engine.plugins;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import java.util.Set;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public interface PluginRegistry {
     void add(@NonNull FlutterPlugin flutterPlugin);
 

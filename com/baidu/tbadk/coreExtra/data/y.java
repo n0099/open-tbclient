@@ -1,29 +1,33 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import org.json.JSONObject;
-/* loaded from: classes.dex */
+import android.support.v7.widget.ActivityChooserView;
+/* loaded from: classes2.dex */
 public class y {
-    private long end_time;
-    private String link_url;
-    private long start_time;
+    private int FrsMaxCache;
+    private int FrsPn;
+    private int maxCache;
 
-    public String beh() {
-        return this.link_url;
+    public int getMaxCache() {
+        return this.maxCache == 0 ? ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED : this.maxCache;
     }
 
-    public long getStartTime() {
-        return this.start_time;
+    public void setMaxCache(String str) {
+        this.maxCache = com.baidu.adp.lib.f.b.toInt(str, 0);
     }
 
-    public long getEndTime() {
-        return this.end_time;
+    public int getFrsMaxCache() {
+        return this.FrsMaxCache;
     }
 
-    public void parseJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.link_url = jSONObject.optString("link_url", "");
-            this.start_time = jSONObject.optLong("start_time", 0L);
-            this.end_time = jSONObject.optLong("end_time", 0L);
-        }
+    public void setFrsMaxCache(String str) {
+        this.FrsMaxCache = com.baidu.adp.lib.f.b.toInt(str, 0);
+    }
+
+    public int getFrsPn() {
+        return this.FrsPn;
+    }
+
+    public void setFrsPn(String str) {
+        this.FrsPn = com.baidu.adp.lib.f.b.toInt(str, 0);
     }
 }

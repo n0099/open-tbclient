@@ -4,16 +4,16 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.util.StateSet;
 import android.view.View;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d extends StateListDrawable {
-    private a dpH;
+    private a dzJ;
     private View mView = null;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
-        void aH(View view);
+        void aJ(View view);
 
-        void aI(View view);
+        void aK(View view);
     }
 
     public d() {
@@ -26,16 +26,16 @@ public class d extends StateListDrawable {
     }
 
     public void a(a aVar) {
-        this.dpH = aVar;
+        this.dzJ = aVar;
     }
 
     @Override // android.graphics.drawable.StateListDrawable, android.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
     protected boolean onStateChange(int[] iArr) {
-        if (this.mView != null && this.dpH != null) {
+        if (this.mView != null && this.dzJ != null) {
             if (StateSet.stateSetMatches(new int[]{16842919}, iArr)) {
-                this.dpH.aH(this.mView);
+                this.dzJ.aJ(this.mView);
             } else {
-                this.dpH.aI(this.mView);
+                this.dzJ.aK(this.mView);
             }
         }
         return super.onStateChange(iArr);

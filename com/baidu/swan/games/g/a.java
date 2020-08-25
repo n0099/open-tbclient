@@ -5,23 +5,23 @@ import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.games.binding.model.c;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static final boolean DEBUG = b.DEBUG;
 
     public static void authorizeEval(JsObject jsObject) {
         final c e = c.e(jsObject);
         if (e != null) {
-            e arw = e.arw();
-            if (arw == null) {
+            e azJ = e.azJ();
+            if (azJ == null) {
                 a(e, false, "authorize:fail internal error");
             } else {
-                arw.arH().d("mapp_enable_eval", new com.baidu.swan.apps.aq.e.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.games.g.a.1
+                azJ.azU().e("mapp_enable_eval", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.games.g.a.1
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.baidu.swan.apps.aq.e.b
+                    @Override // com.baidu.swan.apps.ap.e.b
                     /* renamed from: c */
-                    public void H(com.baidu.swan.apps.setting.oauth.e eVar) {
-                        if (eVar == null || eVar.forbidden || eVar.cMo != 1) {
+                    public void I(com.baidu.swan.apps.setting.oauth.e eVar) {
+                        if (eVar == null || eVar.forbidden || eVar.cVk != 1) {
                             a.a(c.this, false, "system deny");
                         } else {
                             a.a(c.this, true, "authorize:ok");

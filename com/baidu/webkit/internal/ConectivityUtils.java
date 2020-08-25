@@ -5,7 +5,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.telephony.TelephonyManager;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class ConectivityUtils implements INoProGuard {
     private static final String APN_3GNET = "3gnet";
     private static final String APN_3GWAP = "3gwap";
@@ -37,7 +37,7 @@ public class ConectivityUtils implements INoProGuard {
             applicationContext = context.getApplicationContext();
             connectivityManager = (ConnectivityManager) applicationContext.getSystemService("connectivity");
         } catch (Exception e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         }
         if (connectivityManager == null) {
             str = "unknown";

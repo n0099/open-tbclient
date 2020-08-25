@@ -6,35 +6,35 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-import com.baidu.tieba.frs.j;
+import com.baidu.tieba.frs.k;
 import com.baidu.tieba.tbadkCore.l;
 /* loaded from: classes16.dex */
-public class c extends j<l, d> {
-    private boolean hOL;
-    protected a hSX;
+public class c extends k<l, d> {
+    private boolean icQ;
+    protected a ihf;
 
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
         super(tbPageContext, bdUniqueId);
-        this.hOL = z;
+        this.icQ = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bp */
+    /* renamed from: bo */
     public d b(ViewGroup viewGroup) {
         View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.frs_feed_item_layout, (ViewGroup) null);
-        this.hSX = new a(this.mPageContext, inflate, 2, this.hOL, this.mPageId);
+        this.ihf = new a(this.mPageContext, inflate, 2, this.icQ, this.mPageId);
         return new d(inflate);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.j, com.baidu.adp.widget.ListView.a
+    @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, l lVar, d dVar) {
         super.a(i, view, viewGroup, (ViewGroup) lVar, (l) dVar);
         if (lVar != null) {
-            this.hSX.g(lVar.getForumId(), lVar.dku());
+            this.ihf.f(lVar.getForumId(), lVar.dvR());
         }
         return view;
     }

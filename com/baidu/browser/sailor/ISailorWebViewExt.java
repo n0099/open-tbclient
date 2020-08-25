@@ -3,14 +3,16 @@ package com.baidu.browser.sailor;
 import android.graphics.Bitmap;
 import android.widget.ZoomButtonsController;
 import com.baidu.browser.core.INoProGuard;
-import com.baidu.browser.sailor.lightapp.BdLightappActionClient;
-import com.baidu.browser.sailor.lightapp.BdLightappKernelClient;
 import com.baidu.webkit.sdk.WebView;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public interface ISailorWebViewExt extends INoProGuard {
+    void addNoStatePrefetch(String str, String str2);
+
     boolean canGoToPreloadNextExt();
+
+    void cancelCurrentNoStatePrefetch();
 
     void changeWapPreloadUrlStyleExt(int i, String str);
 
@@ -88,8 +90,6 @@ public interface ISailorWebViewExt extends INoProGuard {
     @Deprecated
     void hideMagnifierExt(int i, int i2);
 
-    void invokeLightappJsReadyEventExt();
-
     boolean isDestroyedExt();
 
     boolean isDrawSelectionPointerExt();
@@ -103,8 +103,6 @@ public interface ISailorWebViewExt extends INoProGuard {
     boolean isMobileSiteExt();
 
     boolean isNeedImpactScriptExt();
-
-    boolean isNeedInvokeLightappJSReadyEventExt();
 
     boolean isShiftPressedModeExt();
 
@@ -124,6 +122,10 @@ public interface ISailorWebViewExt extends INoProGuard {
     void moveMagnifierExt(int i, int i2);
 
     boolean notifyNativeExitFullScreenIfNeededExt(int i);
+
+    void onPauseAll();
+
+    void onResumeAll();
 
     void onSearchKeyword(String str, String str2);
 
@@ -164,10 +166,6 @@ public interface ISailorWebViewExt extends INoProGuard {
     void setFixWebViewSecurityHolesExt(boolean z);
 
     boolean setImageNightColorExt(int i);
-
-    void setLightappActionClientExt(BdLightappActionClient bdLightappActionClient);
-
-    void setLightappKernalClientExt(BdLightappKernelClient bdLightappKernelClient);
 
     boolean setLinkTextNightColorExt(int i);
 

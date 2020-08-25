@@ -6,58 +6,58 @@ import com.baidu.ar.d;
 import java.lang.ref.WeakReference;
 /* loaded from: classes11.dex */
 public class a extends d implements ITrack2D {
-    private WeakReference<ITrack2D> ll;
-    private ITrack2DStateChangedListener wF;
+    private WeakReference<ITrack2D> lU;
+    private ITrack2DStateChangedListener xd;
 
     @Override // com.baidu.ar.d
     public void a(c cVar) {
         if (cVar instanceof ITrack2D) {
-            this.ll = new WeakReference<>((ITrack2D) cVar);
-            if (this.wF != null) {
-                ((ITrack2D) cVar).setStateChangedListener(this.wF);
+            this.lU = new WeakReference<>((ITrack2D) cVar);
+            if (this.xd != null) {
+                ((ITrack2D) cVar).setStateChangedListener(this.xd);
             }
         }
     }
 
     @Override // com.baidu.ar.track2d.ITrack2D
     public Bitmap getTargetBitmap() {
-        if (this.ll == null || this.ll.get() == null) {
+        if (this.lU == null || this.lU.get() == null) {
             return null;
         }
-        return this.ll.get().getTargetBitmap();
+        return this.lU.get().getTargetBitmap();
     }
 
     @Override // com.baidu.ar.track2d.ITrack2D
     public void haltTrack() {
-        if (this.ll == null || this.ll.get() == null) {
+        if (this.lU == null || this.lU.get() == null) {
             return;
         }
-        this.ll.get().haltTrack();
+        this.lU.get().haltTrack();
     }
 
     @Override // com.baidu.ar.d
     public void release() {
-        if (this.ll != null) {
-            this.ll.clear();
-            this.ll = null;
+        if (this.lU != null) {
+            this.lU.clear();
+            this.lU = null;
         }
-        this.wF = null;
+        this.xd = null;
     }
 
     @Override // com.baidu.ar.track2d.ITrack2D
     public void resumeTrack() {
-        if (this.ll == null || this.ll.get() == null) {
+        if (this.lU == null || this.lU.get() == null) {
             return;
         }
-        this.ll.get().resumeTrack();
+        this.lU.get().resumeTrack();
     }
 
     @Override // com.baidu.ar.track2d.ITrack2D
     public void setStateChangedListener(ITrack2DStateChangedListener iTrack2DStateChangedListener) {
-        this.wF = iTrack2DStateChangedListener;
-        if (this.wF == null || this.ll == null || this.ll.get() == null) {
+        this.xd = iTrack2DStateChangedListener;
+        if (this.xd == null || this.lU == null || this.lU.get() == null) {
             return;
         }
-        this.ll.get().setStateChangedListener(this.wF);
+        this.lU.get().setStateChangedListener(this.xd);
     }
 }

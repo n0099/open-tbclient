@@ -5,11 +5,11 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-/* loaded from: classes10.dex */
+/* loaded from: classes19.dex */
 public class BdRootActivity extends Activity {
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        return b.ro().getResources();
+        return b.ta().getResources();
     }
 
     @Override // android.app.Activity
@@ -19,6 +19,6 @@ public class BdRootActivity extends Activity {
 
     @Override // android.content.ContextWrapper, android.content.Context
     public SharedPreferences getSharedPreferences(String str, int i) {
-        return b.ro().getSharedPreferences(str, i);
+        return b.ta().getSharedPreferences(str, i);
     }
 }

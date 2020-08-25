@@ -10,7 +10,7 @@ import com.baidu.tieba.im.message.MessageSyncMessage;
 import com.baidu.tieba.im.message.ResponsePullMessage;
 import com.baidu.tieba.im.message.ResponseUnLoginMessage;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class d extends j {
     public d() {
         super(CmdConfigSocket.CMD_MESSAGE_SYNC);
@@ -41,7 +41,7 @@ public class d extends j {
                 }
             }
             if (!a(responsePullMessage)) {
-                b.cwz().cwG();
+                b.cHq().cHx();
                 return socketResponsedMessage;
             }
             return socketResponsedMessage;
@@ -67,12 +67,12 @@ public class d extends j {
                 return false;
             }
             LongSparseArray<Long> longSparseArray = new LongSparseArray<>();
-            LongSparseArray<Long> cwg = com.baidu.tieba.im.memorycache.b.cvV().cwg();
+            LongSparseArray<Long> cGX = com.baidu.tieba.im.memorycache.b.cGM().cGX();
             boolean z = false;
             for (GroupMsgData groupMsgData : groupMsg) {
                 if (groupMsgData != null && groupMsgData.getGroupInfo() != null) {
-                    if (com.baidu.tieba.im.memorycache.c.zc(groupMsgData.getGroupInfo().getCustomType())) {
-                        Long l2 = cwg.get(groupMsgData.getGroupInfo().getGroupId());
+                    if (com.baidu.tieba.im.memorycache.c.Bv(groupMsgData.getGroupInfo().getCustomType())) {
+                        Long l2 = cGX.get(groupMsgData.getGroupInfo().getGroupId());
                         if (l2 != null && (l = messageSyncMessage.getGroupMids().get(groupMsgData.getGroupInfo().getGroupId())) != null) {
                             if (l2.longValue() > l.longValue()) {
                                 z = true;
@@ -88,7 +88,7 @@ public class d extends j {
             if (!z || longSparseArray.size() <= 0) {
                 return false;
             }
-            b.cwz().a(longSparseArray);
+            b.cHq().a(longSparseArray);
             return true;
         }
         return false;

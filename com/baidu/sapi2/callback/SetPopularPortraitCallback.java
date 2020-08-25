@@ -1,6 +1,7 @@
 package com.baidu.sapi2.callback;
 
+import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.result.SetPopularPortraitResult;
-/* loaded from: classes12.dex */
-public abstract class SetPopularPortraitCallback implements SapiCallback<SetPopularPortraitResult> {
+/* loaded from: classes6.dex */
+public abstract class SetPopularPortraitCallback implements NoProguard, SapiCallback<SetPopularPortraitResult> {
 }

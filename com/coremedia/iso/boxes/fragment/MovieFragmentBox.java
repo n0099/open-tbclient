@@ -5,7 +5,7 @@ import com.googlecode.mp4parser.AbstractContainerBox;
 import com.googlecode.mp4parser.DataSource;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class MovieFragmentBox extends AbstractContainerBox {
     public static final String TYPE = "moof";
 

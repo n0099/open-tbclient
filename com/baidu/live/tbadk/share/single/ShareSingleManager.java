@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.share.single;
 
 import com.baidu.live.tbadk.share.single.interfaces.IShareChannel;
 import com.baidu.live.tbadk.share.single.interfaces.IShareChannelBuild;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ShareSingleManager {
     private IShareChannel mShareChannel;
     private IShareChannelBuild mShareChannelBuilder;
@@ -34,7 +34,7 @@ public class ShareSingleManager {
         this.mShareChannel = this.mShareChannelBuilder.build();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class InstanceHolder {
         private static final ShareSingleManager sInst = new ShareSingleManager();
     }

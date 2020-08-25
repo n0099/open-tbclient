@@ -1,6 +1,8 @@
 package com.baidu.sapi2.result;
-/* loaded from: classes5.dex */
-public class QrAppLoginResult extends SapiResult {
+
+import com.baidu.sapi2.NoProguard;
+/* loaded from: classes12.dex */
+public class QrAppLoginResult extends SapiResult implements NoProguard {
     public static final String ERROR_MSG_UNKNOWN = "登录失败";
     public static final int RESULT_CODE_BDUSS_EMPTY = 160102;
     public static final int RESULT_CODE_BDUSS_EXPIRED = 2;

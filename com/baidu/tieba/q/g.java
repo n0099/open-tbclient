@@ -2,15 +2,15 @@ package com.baidu.tieba.q;
 
 import com.baidu.ubc.q;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class g implements q {
     @Override // com.baidu.ubc.q
-    public String anq() {
+    public String avl() {
         return null;
     }
 
     @Override // com.baidu.ubc.q
-    public boolean mR(String str) {
+    public boolean oQ(String str) {
         return false;
     }
 
@@ -20,7 +20,7 @@ public class g implements q {
     }
 
     @Override // com.baidu.ubc.q
-    public List<String> dhY() {
+    public List<String> dtt() {
         return null;
     }
 }

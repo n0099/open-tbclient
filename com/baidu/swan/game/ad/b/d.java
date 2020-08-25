@@ -3,10 +3,9 @@ package com.baidu.swan.game.ad.b;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
-import com.baidu.sapi2.dto.FaceBaseDTO;
-import com.baidu.swan.apps.aq.ai;
-import com.baidu.swan.apps.aq.aj;
-import com.baidu.swan.apps.aq.al;
+import com.baidu.swan.apps.ap.ah;
+import com.baidu.swan.apps.ap.ai;
+import com.baidu.swan.apps.ap.ak;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.swan.apps.u.c.b;
 import com.baidu.webkit.internal.ETAG;
@@ -15,122 +14,122 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes19.dex */
 public abstract class d {
-    private static String daI = "ug_";
-    private static String daJ = "ug_business";
-    private static String daK = "ctkey";
-    private static String daL = "CTK";
-    private static String daM = "eqid";
-    private static String daN = "sid_eid";
-    private static String daO = "exps";
-    private String cZn;
-    private String daP;
-    private String daQ;
-    public b daU;
-    private String daV;
+    private static String dkS = "ug_";
+    private static String dkT = "ug_business";
+    private static String dkU = "ctkey";
+    private static String dkV = "CTK";
+    private static String dkW = "eqid";
+    private static String dkX = "sid_eid";
+    private static String dkY = "exps";
+    private String diB;
+    private String dkZ;
+    private String dla;
+    public b dle;
+    private String dlf;
     protected Context mContext;
-    private String daH = "https://mobads.baidu.com/cpro/ui/mads.php";
-    private String daR = "1";
-    private String daS = "2";
-    private String daT = "8.800201";
+    private String dkR = "https://mobads.baidu.com/cpro/ui/mads.php";
+    private String dlb = "1";
+    private String dlc = "2";
+    private String dld = "8.800201";
 
-    protected abstract String aAy();
+    protected abstract String aJi();
 
-    protected abstract HashMap<String, String> aAz();
+    protected abstract HashMap<String, String> aJj();
 
     public d(Context context, b bVar) {
         this.mContext = context;
-        this.daU = bVar;
-        if (this.daU != null) {
-            this.cZn = this.daU.aAv();
-            this.daP = this.daU.getAppSid();
-            this.daQ = this.daU.aAw();
+        this.dle = bVar;
+        if (this.dle != null) {
+            this.diB = this.dle.aJf();
+            this.dkZ = this.dle.getAppSid();
+            this.dla = this.dle.aJg();
         }
-        if (!al.axe()) {
-            this.daV = com.baidu.swan.game.ad.d.e.aAF();
+        if (!ak.aFn()) {
+            this.dlf = com.baidu.swan.game.ad.d.e.aJo();
         }
     }
 
-    public String aAA() {
-        HashMap<String, String> aAB = aAB();
-        aAB.putAll(aAz());
-        return com.baidu.swan.game.ad.d.c.getRequestAdUrl(this.daH, aAB);
+    public String aJk() {
+        HashMap<String, String> aJl = aJl();
+        aJl.putAll(aJj());
+        return com.baidu.swan.game.ad.d.c.getRequestAdUrl(this.dkR, aJl);
     }
 
-    protected String amT() {
-        return com.baidu.swan.apps.t.a.ahH().Us().getCookie(".baidu.com");
+    protected String auQ() {
+        return com.baidu.swan.apps.t.a.apj().aau().getCookie(".baidu.com");
     }
 
-    private HashMap<String, String> aAB() {
+    private HashMap<String, String> aJl() {
         String str;
-        b.a arz;
+        b.a azM;
         JSONArray optJSONArray;
         JSONObject jSONObject;
         HashMap<String, String> hashMap = new HashMap<>();
         try {
-            hashMap.put(IXAdRequestInfo.QUERY_WIDTH, String.valueOf(Math.round(ai.getDisplayWidth(this.mContext) / ai.getDensity(this.mContext))));
-            hashMap.put(IXAdRequestInfo.QUERY_HEIGHT, String.valueOf(Math.round(ai.getDisplayHeight(this.mContext) / ai.getDensity(this.mContext))));
-            hashMap.put("net", "" + ayK());
-            hashMap.put("n", this.daR);
-            hashMap.put("pk", this.daQ);
-            hashMap.put("appid", this.daP);
-            hashMap.put("sw", "" + ai.getDisplayWidth(this.mContext));
-            hashMap.put(IXAdRequestInfo.SCREEN_HEIGHT, "" + ai.getDisplayHeight(this.mContext));
-            hashMap.put(IXAdRequestInfo.SN, "" + aAC());
+            hashMap.put(IXAdRequestInfo.QUERY_WIDTH, String.valueOf(Math.round(ah.getDisplayWidth(this.mContext) / ah.getDensity(this.mContext))));
+            hashMap.put(IXAdRequestInfo.QUERY_HEIGHT, String.valueOf(Math.round(ah.getDisplayHeight(this.mContext) / ah.getDensity(this.mContext))));
+            hashMap.put("net", "" + aGT());
+            hashMap.put("n", this.dlb);
+            hashMap.put("pk", this.dla);
+            hashMap.put("appid", this.dkZ);
+            hashMap.put("sw", "" + ah.getDisplayWidth(this.mContext));
+            hashMap.put(IXAdRequestInfo.SCREEN_HEIGHT, "" + ah.getDisplayHeight(this.mContext));
+            hashMap.put(IXAdRequestInfo.SN, "" + getSn());
             hashMap.put("os", "android");
-            hashMap.put("apid", "" + this.cZn);
+            hashMap.put("apid", "" + this.diB);
             hashMap.put("chid", "0");
-            String axd = al.axd();
-            if (axd.equals("0")) {
-                axd = "";
+            String aFm = ak.aFm();
+            if (aFm.equals("0")) {
+                aFm = "";
             }
-            hashMap.put("imei", axd);
-            hashMap.put("cuid", com.baidu.swan.apps.t.a.aho().bf(com.baidu.swan.apps.t.a.ahj()));
-            hashMap.put(IXAdRequestInfo.OSV, com.baidu.swan.apps.h.c.Xw());
-            hashMap.put(IXAdRequestInfo.PHONE_TYPE, com.baidu.swan.apps.h.c.getDeviceModel());
-            hashMap.put("v", al.getVersionName());
-            String cookieValue = aj.getCookieValue(amT(), "BAIDUID");
+            hashMap.put("imei", aFm);
+            hashMap.put("cuid", com.baidu.swan.apps.t.a.aoO().bl(com.baidu.swan.apps.t.a.aoJ()));
+            hashMap.put(IXAdRequestInfo.OSV, com.baidu.swan.apps.i.c.adC());
+            hashMap.put(IXAdRequestInfo.PHONE_TYPE, com.baidu.swan.apps.i.c.getDeviceModel());
+            hashMap.put(IXAdRequestInfo.APP_VERSION_NAME, ak.getVersionName());
+            String cookieValue = ai.getCookieValue(auQ(), "BAIDUID");
             if (!TextUtils.isEmpty(cookieValue) && cookieValue.split(":").length > 0) {
                 str = cookieValue.split(":")[0];
             } else {
                 str = "";
             }
             hashMap.put(ETAG.KEY_BAIDU_ID, str);
-            hashMap.put(IXAdRequestInfo.P_VER, this.daT);
-            hashMap.put("rpt", this.daS);
+            hashMap.put(IXAdRequestInfo.P_VER, this.dld);
+            hashMap.put("rpt", this.dlc);
             hashMap.put("tab", "2");
             hashMap.put("req_id", "");
-            com.baidu.swan.apps.runtime.e arw = com.baidu.swan.apps.runtime.e.arw();
-            String aAy = aAy();
-            hashMap.put(daO, aAy);
-            if (arw != null && (arz = arw.arz()) != null) {
-                hashMap.put(FaceBaseDTO.KEY_BUSINESS_SCENE, arz.ajg());
-                JSONObject aiQ = arz.aiQ();
-                if (aiQ != null) {
-                    hashMap.put("eqid", aiQ.optString(daM, ""));
+            com.baidu.swan.apps.runtime.e azJ = com.baidu.swan.apps.runtime.e.azJ();
+            String aJi = aJi();
+            hashMap.put(dkY, aJi);
+            if (azJ != null && (azM = azJ.azM()) != null) {
+                hashMap.put("scene", azM.aqN());
+                JSONObject aqw = azM.aqw();
+                if (aqw != null) {
+                    hashMap.put("eqid", aqw.optString(dkW, ""));
                 }
-                JSONObject ajy = arz.ajy();
-                if (ajy != null) {
-                    if (ajy.has(daJ) && (jSONObject = ajy.getJSONObject(daJ)) != null) {
+                JSONObject arf = azM.arf();
+                if (arf != null) {
+                    if (arf.has(dkT) && (jSONObject = arf.getJSONObject(dkT)) != null) {
                         Iterator<String> keys = jSONObject.keys();
                         while (keys != null && keys.hasNext()) {
                             String next = keys.next();
                             if (!TextUtils.isEmpty(next)) {
                                 String optString = jSONObject.optString(next, "none");
-                                if (daL.equals(next)) {
-                                    hashMap.put(daK, optString);
-                                    this.daV = optString;
+                                if (dkV.equals(next)) {
+                                    hashMap.put(dkU, optString);
+                                    this.dlf = optString;
                                 } else {
-                                    hashMap.put(daI + next, optString);
+                                    hashMap.put(dkS + next, optString);
                                 }
                             }
                         }
                     }
-                    if (ajy.has(daN) && (optJSONArray = ajy.optJSONArray(daN)) != null && optJSONArray.length() > 0) {
+                    if (arf.has(dkX) && (optJSONArray = arf.optJSONArray(dkX)) != null && optJSONArray.length() > 0) {
                         StringBuilder sb = new StringBuilder();
-                        if (!TextUtils.isEmpty(aAy)) {
-                            sb.append(aAy + Constants.ACCEPT_TIME_SEPARATOR_SP);
+                        if (!TextUtils.isEmpty(aJi)) {
+                            sb.append(aJi + Constants.ACCEPT_TIME_SEPARATOR_SP);
                         }
                         for (int i = 0; i < optJSONArray.length(); i++) {
                             String optString2 = optJSONArray.optString(i);
@@ -142,23 +141,23 @@ public abstract class d {
                             }
                         }
                         if (sb.length() > 0) {
-                            hashMap.put(daO, sb.toString());
+                            hashMap.put(dkY, sb.toString());
                         }
                     }
                 }
             }
-            if (!hashMap.containsKey(daL) && !TextUtils.isEmpty(this.daV)) {
-                hashMap.put(daL, this.daV);
+            if (!hashMap.containsKey(dkV) && !TextUtils.isEmpty(this.dlf)) {
+                hashMap.put(dkV, this.dlf);
             }
-            hashMap.put("con_name", com.baidu.swan.apps.t.a.ahU().getHostName());
+            hashMap.put("con_name", com.baidu.swan.apps.t.a.apw().getHostName());
             return hashMap;
         } catch (Exception e) {
             return hashMap;
         }
     }
 
-    private int ayK() {
-        switch (SwanAppNetworkUtils.amW()) {
+    private int aGT() {
+        switch (SwanAppNetworkUtils.auT()) {
             case NONE:
             default:
                 return 0;
@@ -175,16 +174,16 @@ public abstract class d {
         }
     }
 
-    private String aAC() {
+    private String getSn() {
         try {
-            String axd = al.axd();
-            return TextUtils.isEmpty(axd) ? al.getWifiInfo(this.mContext) : axd;
+            String aFm = ak.aFm();
+            return TextUtils.isEmpty(aFm) ? ak.getWifiInfo(this.mContext) : aFm;
         } catch (Exception e) {
             return "";
         }
     }
 
-    public String aAD() {
-        return this.daV;
+    public String aJm() {
+        return this.dlf;
     }
 }

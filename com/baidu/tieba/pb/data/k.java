@@ -4,15 +4,15 @@ import java.util.List;
 import tbclient.ManagerElection;
 /* loaded from: classes16.dex */
 public class k {
-    private boolean gQx;
-    private int kiq;
-    private int kir;
-    private List<String> kis;
-    private List<String> kit;
-    private List<String> kiu;
-    private String kiv;
-    private boolean kiw;
-    private int kix;
+    private boolean hdn;
+    private int kxI;
+    private int kxJ;
+    private List<String> kxK;
+    private List<String> kxL;
+    private List<String> kxM;
+    private String kxN;
+    private boolean kxO;
+    private int kxP;
     private int status;
 
     public static k b(ManagerElection managerElection) {
@@ -20,16 +20,16 @@ public class k {
             return null;
         }
         k kVar = new k();
-        kVar.kir = managerElection.begin_vote_time.intValue();
-        kVar.gQx = managerElection.can_vote.intValue() == 1;
-        kVar.kiq = managerElection.vote_num.intValue();
-        kVar.kiw = managerElection.is_show_distribute.intValue() == 1;
-        kVar.kix = managerElection.remainder_time.intValue();
+        kVar.kxJ = managerElection.begin_vote_time.intValue();
+        kVar.hdn = managerElection.can_vote.intValue() == 1;
+        kVar.kxI = managerElection.vote_num.intValue();
+        kVar.kxO = managerElection.is_show_distribute.intValue() == 1;
+        kVar.kxP = managerElection.remainder_time.intValue();
         kVar.status = managerElection.status.intValue();
-        kVar.kiv = managerElection.tail_text;
-        kVar.kis = managerElection.vote_condition_pic;
-        kVar.kit = managerElection.vote_condition_title;
-        kVar.kiu = managerElection.vote_condition;
+        kVar.kxN = managerElection.tail_text;
+        kVar.kxK = managerElection.vote_condition_pic;
+        kVar.kxL = managerElection.vote_condition_title;
+        kVar.kxM = managerElection.vote_condition;
         return kVar;
     }
 
@@ -37,43 +37,43 @@ public class k {
         return this.status;
     }
 
-    public boolean cLg() {
-        return this.kiw;
+    public boolean cVU() {
+        return this.kxO;
     }
 
-    public int cLh() {
-        return this.kix;
+    public int cVV() {
+        return this.kxP;
     }
 
-    public int cLi() {
-        return this.kiq;
+    public int cVW() {
+        return this.kxI;
     }
 
-    public List<String> cLj() {
-        return this.kit;
+    public List<String> cVX() {
+        return this.kxL;
     }
 
-    public List<String> cLk() {
-        return this.kiu;
+    public List<String> cVY() {
+        return this.kxM;
     }
 
-    public String cLl() {
-        return this.kiv;
+    public String cVZ() {
+        return this.kxN;
     }
 
-    public boolean bQE() {
-        return this.gQx;
+    public boolean caP() {
+        return this.hdn;
     }
 
-    public void mw(boolean z) {
-        this.gQx = z;
+    public void mZ(boolean z) {
+        this.hdn = z;
     }
 
     public void setStatus(int i) {
         this.status = i;
     }
 
-    public void Bx(int i) {
-        this.kiq = i;
+    public void DQ(int i) {
+        this.kxI = i;
     }
 }

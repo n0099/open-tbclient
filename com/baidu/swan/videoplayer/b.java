@@ -3,20 +3,20 @@ package com.baidu.swan.videoplayer;
 import android.util.Log;
 import android.view.View;
 import java.lang.ref.WeakReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public final class b {
-    private WeakReference<View> dBI;
-    private int dBJ;
-    private int dBK;
-    private int dBL;
-    private int dBM = 0;
+    private WeakReference<View> dKT;
+    private int dKU;
+    private int dKV;
+    private int dKW;
+    private int dKX = 0;
     private int mMeasuredHeight;
     private int mMeasuredWidth;
     private int mVideoHeight;
     private int mVideoWidth;
 
     public b(View view) {
-        this.dBI = new WeakReference<>(view);
+        this.dKT = new WeakReference<>(view);
     }
 
     public void setVideoSize(int i, int i2) {
@@ -25,12 +25,12 @@ public final class b {
     }
 
     public void setVideoSampleAspectRatio(int i, int i2) {
-        this.dBJ = i;
-        this.dBK = i2;
+        this.dKU = i;
+        this.dKV = i2;
     }
 
     public void setVideoRotation(int i) {
-        this.dBL = i;
+        this.dKW = i;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:68:0x0104, code lost:
@@ -39,19 +39,19 @@ public final class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void az(int i, int i2) {
+    public void aG(int i, int i2) {
         int i3;
         float f;
         float f2;
         int i4;
         int i5;
-        if (this.dBL == 90 || this.dBL == 270) {
+        if (this.dKW == 90 || this.dKW == 270) {
             i = i2;
             i2 = i;
         }
         int defaultSize = View.getDefaultSize(this.mVideoWidth, i);
         int defaultSize2 = View.getDefaultSize(this.mVideoHeight, i2);
-        if (this.dBM != 3) {
+        if (this.dKX != 3) {
             if (this.mVideoWidth > 0 && this.mVideoHeight > 0) {
                 int mode = View.MeasureSpec.getMode(i);
                 int size = View.MeasureSpec.getSize(i);
@@ -59,10 +59,10 @@ public final class b {
                 int size2 = View.MeasureSpec.getSize(i2);
                 if (mode == Integer.MIN_VALUE && mode2 == Integer.MIN_VALUE) {
                     float f3 = size / size2;
-                    switch (this.dBM) {
+                    switch (this.dKX) {
                         case 4:
                             f = 1.7777778f;
-                            if (this.dBL == 90 || this.dBL == 270) {
+                            if (this.dKW == 90 || this.dKW == 270) {
                                 f2 = 1.0f / 1.7777778f;
                                 break;
                             }
@@ -70,7 +70,7 @@ public final class b {
                             break;
                         case 5:
                             f = 1.3333334f;
-                            if (this.dBL == 90 || this.dBL == 270) {
+                            if (this.dKW == 90 || this.dKW == 270) {
                                 f2 = 1.0f / 1.3333334f;
                                 break;
                             }
@@ -78,15 +78,15 @@ public final class b {
                             break;
                         default:
                             f = this.mVideoWidth / this.mVideoHeight;
-                            if (this.dBJ > 0 && this.dBK > 0) {
-                                f2 = (f * this.dBJ) / this.dBK;
+                            if (this.dKU > 0 && this.dKV > 0) {
+                                f2 = (f * this.dKU) / this.dKV;
                                 break;
                             }
                             f2 = f;
                             break;
                     }
                     boolean z = f2 > f3;
-                    switch (this.dBM) {
+                    switch (this.dKX) {
                         case 0:
                         case 4:
                         case 5:
@@ -166,15 +166,15 @@ public final class b {
         this.mMeasuredHeight = i2;
     }
 
-    public int aOm() {
+    public int aWK() {
         return this.mMeasuredWidth;
     }
 
-    public int aOn() {
+    public int aWL() {
         return this.mMeasuredHeight;
     }
 
     public void setAspectRatio(int i) {
-        this.dBM = i;
+        this.dKX = i;
     }
 }

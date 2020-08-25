@@ -6,9 +6,8 @@ import com.baidu.android.imsdk.ChatObject;
 import com.baidu.android.imsdk.GetChatObjectInfoForRecordHandler;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.android.util.devices.NetWorkUtils;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class GetGroupfoForRecordHandler extends GetChatObjectInfoForRecordHandler {
     public GetGroupfoForRecordHandler(Context context) {
         super(context);
@@ -20,8 +19,8 @@ public class GetGroupfoForRecordHandler extends GetChatObjectInfoForRecordHandle
             deleteUUid();
             if (callBack != null) {
                 GroupInfo groupInfo = new GroupInfo(String.valueOf(j));
-                groupInfo.setDescription(NetWorkUtils.NETWORK_TYPE_CELL_UN_CONNECTED);
-                groupInfo.setGroupName(NetWorkUtils.NETWORK_TYPE_CELL_UN_CONNECTED);
+                groupInfo.setDescription("no");
+                groupInfo.setGroupName("no");
                 groupInfo.setType(3);
                 callBack.onSuccess(3, 1, groupInfo);
                 return;

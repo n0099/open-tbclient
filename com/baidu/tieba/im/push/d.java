@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.im.data.GroupMsgData;
 import com.baidu.tieba.im.message.ResponseUnLoginMessage;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class d extends j {
     public d() {
         super(CmdConfigSocket.CMD_PUSH_MESSAGE);

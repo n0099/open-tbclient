@@ -3,28 +3,28 @@ package com.baidu.ar.child;
 import com.baidu.ar.child.a.e;
 /* loaded from: classes11.dex */
 public class b {
-    private com.baidu.ar.child.a.a kW;
-    private e kX;
-    private float kY;
+    private com.baidu.ar.child.a.a lF;
+    private e lG;
+    private float lH;
 
     public b(com.baidu.ar.child.a.a aVar, float f) {
-        this.kW = aVar;
-        this.kY = f;
+        this.lF = aVar;
+        this.lH = f;
     }
 
     public void a(e eVar) {
-        this.kX = eVar;
+        this.lG = eVar;
     }
 
-    public com.baidu.ar.child.a.a cs() {
-        return this.kW;
+    public com.baidu.ar.child.a.a cS() {
+        return this.lF;
     }
 
-    public float ct() {
-        return this.kY;
+    public float cT() {
+        return this.lH;
     }
 
-    public e cu() {
-        return this.kX;
+    public e cU() {
+        return this.lG;
     }
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import tbclient.Anti;
 import tbclient.DynamicInfo;
 import tbclient.ForumDynamic;
+import tbclient.HotUserRankEntry;
 import tbclient.PostInfoList;
 import tbclient.Profile.NicknameInfo;
 import tbclient.Profile.TAInfo;
@@ -13,7 +14,7 @@ import tbclient.Profile.UserGodInfo;
 import tbclient.TbBookrack;
 import tbclient.ThreadInfo;
 import tbclient.User;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface c {
     Anti GetAntiStat();
 
@@ -29,7 +30,9 @@ public interface c {
 
     int getErrorCode();
 
-    com.baidu.tieba.i.a getGoodsWindowInfo();
+    com.baidu.tieba.i.b getGoodsWindowInfo();
+
+    HotUserRankEntry getHotRankEntry();
 
     AlaLiveInfoCoreData getLiveInfo();
 

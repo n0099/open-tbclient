@@ -11,11 +11,11 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 /* loaded from: classes9.dex */
 public abstract class j<E> extends h {
-    private com.baidu.swan.support.v4.b.f<String, o> dyF;
-    final l dyq;
-    private p dyu;
-    private boolean dyv;
-    private boolean dyw;
+    private p dHD;
+    private boolean dHE;
+    private boolean dHF;
+    private com.baidu.swan.support.v4.b.f<String, o> dHO;
+    final l dHz;
     private final Activity mActivity;
     final Context mContext;
     private final Handler mHandler;
@@ -27,7 +27,7 @@ public abstract class j<E> extends h {
     }
 
     j(Activity activity, Context context, Handler handler, int i) {
-        this.dyq = new l();
+        this.dHz = new l();
         this.mActivity = activity;
         this.mContext = context;
         this.mHandler = handler;
@@ -37,7 +37,7 @@ public abstract class j<E> extends h {
     public void onDump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
     }
 
-    public boolean e(Fragment fragment) {
+    public boolean g(Fragment fragment) {
         return true;
     }
 
@@ -86,84 +86,84 @@ public abstract class j<E> extends h {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l aMx() {
-        return this.dyq;
+    public l aUX() {
+        return this.dHz;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void uG(String str) {
+    public void wR(String str) {
         p pVar;
-        if (this.dyF != null && (pVar = (p) this.dyF.get(str)) != null && !pVar.mRetaining) {
+        if (this.dHO != null && (pVar = (p) this.dHO.get(str)) != null && !pVar.mRetaining) {
             pVar.doDestroy();
-            this.dyF.remove(str);
+            this.dHO.remove(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void d(Fragment fragment) {
+    public void f(Fragment fragment) {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void doLoaderStart() {
-        if (!this.dyv) {
-            this.dyv = true;
-            if (this.dyu != null) {
-                this.dyu.aMB();
-            } else if (!this.dyw) {
-                this.dyu = d("(root)", this.dyv, false);
-                if (this.dyu != null && !this.dyu.mStarted) {
-                    this.dyu.aMB();
+        if (!this.dHE) {
+            this.dHE = true;
+            if (this.dHD != null) {
+                this.dHD.aVb();
+            } else if (!this.dHF) {
+                this.dHD = d("(root)", this.dHE, false);
+                if (this.dHD != null && !this.dHD.mStarted) {
+                    this.dHD.aVb();
                 }
             }
-            this.dyw = true;
+            this.dHF = true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void doLoaderStop(boolean z) {
-        if (this.dyu != null && this.dyv) {
-            this.dyv = false;
+        if (this.dHD != null && this.dHE) {
+            this.dHE = false;
             if (z) {
-                this.dyu.aMC();
+                this.dHD.aVc();
             } else {
-                this.dyu.doStop();
+                this.dHD.doStop();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void doLoaderDestroy() {
-        if (this.dyu != null) {
-            this.dyu.doDestroy();
+        if (this.dHD != null) {
+            this.dHD.doDestroy();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void reportLoaderStart() {
-        if (this.dyF != null) {
-            int size = this.dyF.size();
+        if (this.dHO != null) {
+            int size = this.dHO.size();
             p[] pVarArr = new p[size];
             for (int i = size - 1; i >= 0; i--) {
-                pVarArr[i] = (p) this.dyF.valueAt(i);
+                pVarArr[i] = (p) this.dHO.valueAt(i);
             }
             for (int i2 = 0; i2 < size; i2++) {
                 p pVar = pVarArr[i2];
-                pVar.aMD();
-                pVar.aMF();
+                pVar.aVd();
+                pVar.aVf();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p d(String str, boolean z, boolean z2) {
-        if (this.dyF == null) {
-            this.dyF = new com.baidu.swan.support.v4.b.f<>();
+        if (this.dHO == null) {
+            this.dHO = new com.baidu.swan.support.v4.b.f<>();
         }
-        p pVar = (p) this.dyF.get(str);
+        p pVar = (p) this.dHO.get(str);
         if (pVar == null) {
             if (z2) {
                 p pVar2 = new p(str, this, z);
-                this.dyF.put(str, pVar2);
+                this.dHO.put(str, pVar2);
                 return pVar2;
             }
             return pVar;
@@ -173,13 +173,13 @@ public abstract class j<E> extends h {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public com.baidu.swan.support.v4.b.f<String, o> aMw() {
+    public com.baidu.swan.support.v4.b.f<String, o> aUW() {
         boolean z;
-        if (this.dyF != null) {
-            int size = this.dyF.size();
+        if (this.dHO != null) {
+            int size = this.dHO.size();
             p[] pVarArr = new p[size];
             for (int i = size - 1; i >= 0; i--) {
-                pVarArr[i] = (p) this.dyF.valueAt(i);
+                pVarArr[i] = (p) this.dHO.valueAt(i);
             }
             z = false;
             for (int i2 = 0; i2 < size; i2++) {
@@ -188,34 +188,34 @@ public abstract class j<E> extends h {
                     z = true;
                 } else {
                     pVar.doDestroy();
-                    this.dyF.remove(pVar.mWho);
+                    this.dHO.remove(pVar.mWho);
                 }
             }
         } else {
             z = false;
         }
         if (z) {
-            return this.dyF;
+            return this.dHO;
         }
         return null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(com.baidu.swan.support.v4.b.f<String, o> fVar) {
-        this.dyF = fVar;
+        this.dHO = fVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void dumpLoaders(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
         printWriter.print(str);
         printWriter.print("mLoadersStarted=");
-        printWriter.println(this.dyv);
-        if (this.dyu != null) {
+        printWriter.println(this.dHE);
+        if (this.dHD != null) {
             printWriter.print(str);
             printWriter.print("Loader Manager ");
-            printWriter.print(Integer.toHexString(System.identityHashCode(this.dyu)));
+            printWriter.print(Integer.toHexString(System.identityHashCode(this.dHD)));
             printWriter.println(":");
-            this.dyu.dump(str + "  ", fileDescriptor, printWriter, strArr);
+            this.dHD.dump(str + "  ", fileDescriptor, printWriter, strArr);
         }
     }
 }

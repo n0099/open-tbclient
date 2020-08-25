@@ -1,9 +1,7 @@
 package com.baidu.pass.biometrics.base.armor;
-/* loaded from: classes4.dex */
+/* loaded from: classes20.dex */
 public class RimArmor {
-    private static RimArmor ins;
-
-    public native String getToken();
+    private static RimArmor a;
 
     private RimArmor() {
     }
@@ -11,11 +9,13 @@ public class RimArmor {
     public static synchronized RimArmor getInstance() {
         RimArmor rimArmor;
         synchronized (RimArmor.class) {
-            if (ins == null) {
-                ins = new RimArmor();
+            if (a == null) {
+                a = new RimArmor();
             }
-            rimArmor = ins;
+            rimArmor = a;
         }
         return rimArmor;
     }
+
+    public native String getToken();
 }

@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.core.pms;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public enum PMSDownloadType {
     PRE,
     ASYNC,
@@ -8,5 +8,6 @@ public enum PMSDownloadType {
     BATCH,
     ALONE_SUB,
     SWAN_APP_UPDATE_CORE,
-    SWAN_GAME_UPDATE_CORE
+    SWAN_GAME_UPDATE_CORE,
+    SO_LIB
 }

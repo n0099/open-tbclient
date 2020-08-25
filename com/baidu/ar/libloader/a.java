@@ -7,7 +7,7 @@ public interface a {
 
     /* renamed from: com.baidu.ar.libloader.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0086a {
+    public interface InterfaceC0083a {
         void a(ARType aRType, String str, String str2);
     }
 
@@ -23,11 +23,11 @@ public interface a {
 
     void a(Context context, b bVar);
 
-    void a(ARType aRType, String str, String str2, InterfaceC0086a interfaceC0086a);
+    void a(ARType aRType, String str, String str2, InterfaceC0083a interfaceC0083a);
 
     void a(String str, c cVar);
 
-    void ao(String str);
+    void as(String str);
 
     void release();
 

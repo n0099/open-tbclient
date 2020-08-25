@@ -3,21 +3,21 @@ package com.baidu.pyramid.runtime.multiprocess;
 import android.util.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class g {
-    private static d bHp;
+    private static d bMP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void k(Exception exc) {
-        if (bHp != null) {
-            bHp.gW(l(exc).toString());
+        if (bMP != null) {
+            bMP.iq(l(exc).toString());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void gW(String str) {
-        if (bHp != null) {
-            bHp.gW(str);
+    public static void iq(String str) {
+        if (bMP != null) {
+            bMP.iq(str);
         }
     }
 
@@ -27,7 +27,7 @@ public class g {
         try {
             jSONObject.put("process_name", a.getProcessName());
             jSONObject.put("stack_trace", Log.getStackTraceString(exc));
-            jSONObject.put("process_info", a.Qo());
+            jSONObject.put("process_info", a.Wj());
             jSONObject.put("report_time", System.currentTimeMillis());
         } catch (JSONException e) {
         }

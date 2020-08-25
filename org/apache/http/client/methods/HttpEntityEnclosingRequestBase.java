@@ -3,7 +3,7 @@ package org.apache.http.client.methods;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpEntityEnclosingRequest;
 @Deprecated
-/* loaded from: classes20.dex */
+/* loaded from: classes9.dex */
 public abstract class HttpEntityEnclosingRequestBase extends HttpRequestBase implements HttpEntityEnclosingRequest {
     public HttpEntityEnclosingRequestBase() {
         throw new RuntimeException("Stub!");

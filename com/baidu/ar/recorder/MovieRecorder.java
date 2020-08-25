@@ -14,34 +14,37 @@ import com.baidu.ar.record.b;
 import com.baidu.ar.recorder.b.c;
 import com.baidu.ar.recorder.b.d;
 import com.baidu.ar.recorder.b.e;
+import com.baidu.platform.comapi.map.NodeType;
 import com.baidu.searchbox.v8engine.util.TimeUtils;
 import java.nio.ByteBuffer;
 /* loaded from: classes11.dex */
 public class MovieRecorder implements b {
     public static final int ERROR_CODE_ON_START = 4001;
     public static final int ERROR_CODE_ON_STOP = 4002;
-    private static final String TAG = MovieRecorder.class.getSimpleName();
-    private static volatile int sN = 0;
-    private static volatile boolean sX = false;
-    private static volatile MovieRecorder te;
+    private static volatile MovieRecorder tJ;
     private Context mContext;
-    private EncoderParams sE;
-    private MovieRecorderCallback sF;
-    private HandlerThread sQ;
-    private a sT;
-    private com.baidu.ar.recorder.a sU;
-    private d sV;
-    private e sW;
-    private com.baidu.ar.recorder.a.a sY;
-    private c sZ;
-    private com.baidu.ar.recorder.a.b tb;
-    private c tc;
-    private int sO = 0;
-    private boolean sP = false;
-    private volatile boolean sR = false;
-    private boolean sS = false;
-    private volatile boolean ta = false;
-    private volatile boolean td = false;
+    private d tA;
+    private e tB;
+    private com.baidu.ar.recorder.a.a tD;
+    private c tE;
+    private com.baidu.ar.recorder.a.b tG;
+    private c tH;
+    private EncoderParams tj;
+    private MovieRecorderCallback tk;
+
+    /* renamed from: tv  reason: collision with root package name */
+    private HandlerThread f965tv;
+    private a ty;
+    private com.baidu.ar.recorder.a tz;
+    private static final String TAG = MovieRecorder.class.getSimpleName();
+    private static volatile int ts = 0;
+    private static volatile boolean tC = false;
+    private int tt = 0;
+    private boolean tu = false;
+    private volatile boolean tw = false;
+    private boolean tx = false;
+    private volatile boolean tF = false;
+    private volatile boolean tI = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes11.dex */
@@ -53,41 +56,41 @@ public class MovieRecorder implements b {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             switch (message.what) {
-                case 7000:
-                    if (MovieRecorder.this.sF != null) {
-                        MovieRecorder.this.sF.onRecorderInit((Surface) message.obj);
+                case NodeType.E_PARTICLE /* 7000 */:
+                    if (MovieRecorder.this.tk != null) {
+                        MovieRecorder.this.tk.onRecorderInit((Surface) message.obj);
                         break;
                     }
                     break;
                 case ARPMessageType.MSG_OPEN_OFFSCREEN_UPDATE /* 7001 */:
-                    if (MovieRecorder.this.sF != null) {
-                        MovieRecorder.this.sF.onRecorderStart(((Boolean) message.obj).booleanValue());
+                    if (MovieRecorder.this.tk != null) {
+                        MovieRecorder.this.tk.onRecorderStart(((Boolean) message.obj).booleanValue());
                     }
-                    MovieRecorder.this.sR = false;
+                    MovieRecorder.this.tw = false;
                     break;
                 case 7002:
-                    if (MovieRecorder.this.sF != null) {
-                        MovieRecorder.this.sF.onRecorderProcess(((Integer) message.obj).intValue());
+                    if (MovieRecorder.this.tk != null) {
+                        MovieRecorder.this.tk.onRecorderProcess(((Integer) message.obj).intValue());
                         break;
                     }
                     break;
                 case 7003:
-                    if (MovieRecorder.this.sF != null) {
-                        MovieRecorder.this.sF.onRecorderComplete(((Boolean) message.obj).booleanValue(), MovieRecorder.this.sE != null ? MovieRecorder.this.sE.getOutputFile() : null);
+                    if (MovieRecorder.this.tk != null) {
+                        MovieRecorder.this.tk.onRecorderComplete(((Boolean) message.obj).booleanValue(), MovieRecorder.this.tj != null ? MovieRecorder.this.tj.getOutputFile() : null);
                         break;
                     }
                     break;
                 case 7004:
-                    if (MovieRecorder.this.sF != null) {
-                        MovieRecorder.this.sF.onRecorderError(((Integer) message.obj).intValue());
+                    if (MovieRecorder.this.tk != null) {
+                        MovieRecorder.this.tk.onRecorderError(((Integer) message.obj).intValue());
                         break;
                     }
                     break;
                 case 7005:
-                    MovieRecorder.this.ej();
+                    MovieRecorder.this.fv();
                     break;
                 case 7006:
-                    MovieRecorder.this.sR = false;
+                    MovieRecorder.this.tw = false;
                     MovieRecorder.this.stopRecorder();
                     break;
             }
@@ -95,333 +98,333 @@ public class MovieRecorder implements b {
         }
     }
 
-    private static void K(int i) {
-        sN = i;
+    private static void L(boolean z) {
+        tC = z;
     }
 
-    private static void K(boolean z) {
-        sX = z;
+    private static void M(int i) {
+        ts = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void d(int i, boolean z) {
-        com.baidu.ar.f.b.i(TAG, "checkMovieRecordStartState condition = " + i + " && state = " + z);
-        e(i, z);
-        com.baidu.ar.f.b.i(TAG, "checkMovieRecordStartState sMovieRecordState = " + sN);
-        if (er()) {
-            this.sT.sendMessage(this.sT.obtainMessage(ARPMessageType.MSG_OPEN_OFFSCREEN_UPDATE, Boolean.valueOf(es())));
+    public synchronized void e(int i, boolean z) {
+        com.baidu.ar.g.b.k(TAG, "checkMovieRecordStartState condition = " + i + " && state = " + z);
+        f(i, z);
+        com.baidu.ar.g.b.k(TAG, "checkMovieRecordStartState sMovieRecordState = " + ts);
+        if (fD()) {
+            this.ty.sendMessage(this.ty.obtainMessage(ARPMessageType.MSG_OPEN_OFFSCREEN_UPDATE, Boolean.valueOf(fE())));
         }
     }
 
-    private void e(int i, boolean z) {
+    private void f(int i, boolean z) {
         if (z) {
-            sN |= i;
+            ts |= i;
         }
-        this.sO++;
+        this.tt++;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void ej() {
-        el();
-        em();
-        if (en()) {
-            eo();
-            ep();
-        } else if (this.sS) {
-            ek();
-        } else {
-            eq();
+    private void fA() {
+        if (this.tD != null) {
+            this.tD.a(this.tj, this.tA, this.tE);
         }
     }
 
-    private void ek() {
-        if (this.sT != null) {
-            this.sT.sendMessageDelayed(this.sT.obtainMessage(ARPMessageType.MSG_OPEN_OFFSCREEN_UPDATE, false), 500L);
+    private void fB() {
+        this.tG.a(this.tj, this.tA, this.tH);
+    }
+
+    private void fC() {
+        com.baidu.ar.g.b.k(TAG, "restartRecorder mRestartTried = " + this.tx);
+        if (this.ty != null) {
+            this.tx = true;
+            this.ty.sendMessageDelayed(this.ty.obtainMessage(7005), 500L);
         }
     }
 
-    private void el() {
-        if (Build.VERSION.SDK_INT >= 18) {
-            this.sV = new d();
-        }
-        if (this.sE.isAudioIncluded()) {
-            this.sY = new com.baidu.ar.recorder.a.a();
-        } else {
-            sX = true;
-        }
-        this.tb = new com.baidu.ar.recorder.a.b();
-        this.sO = 0;
-        if (!this.sP && this.sQ == null) {
-            this.sQ = new HandlerThread(TAG);
-            this.sQ.start();
-        }
-        if (this.sT != null) {
-            this.sT.removeCallbacksAndMessages(null);
-        } else if (this.sQ != null) {
-            this.sT = new a(this.sQ.getLooper());
-        } else {
-            this.sT = new a(this.mContext.getMainLooper());
-        }
-        this.sU = new com.baidu.ar.recorder.a(this.sE.getOutputTotalMs());
-    }
-
-    private void em() {
-        this.tc = new c() { // from class: com.baidu.ar.recorder.MovieRecorder.1
-            @Override // com.baidu.ar.recorder.b.c
-            public void M(boolean z) {
-                MovieRecorder.this.td = z;
-                MovieRecorder.this.d(2, z);
-            }
-
-            @Override // com.baidu.ar.recorder.b.c
-            public void N(boolean z) {
-            }
-
-            @Override // com.baidu.ar.recorder.b.c
-            public void O(boolean z) {
-                if (MovieRecorder.this.tb != null) {
-                    MovieRecorder.this.tb.ew();
-                    MovieRecorder.this.tb = null;
-                }
-                MovieRecorder.this.tc = null;
-                MovieRecorder.this.f(2, z);
-            }
-
-            @Override // com.baidu.ar.recorder.b.c
-            public void a(boolean z, Object obj) {
-                if (z) {
-                    if (MovieRecorder.this.sT != null) {
-                        MovieRecorder.this.sT.sendMessage(MovieRecorder.this.sT.obtainMessage(7000, obj));
-                    }
-                    if (MovieRecorder.this.tb != null) {
-                        MovieRecorder.this.tb.startRecording();
-                    }
-                }
-            }
-        };
-        this.sZ = new c() { // from class: com.baidu.ar.recorder.MovieRecorder.2
-            @Override // com.baidu.ar.recorder.b.c
-            public void M(boolean z) {
-                MovieRecorder.this.ta = z;
-                MovieRecorder.this.d(4, z);
-            }
-
-            @Override // com.baidu.ar.recorder.b.c
-            public void N(boolean z) {
-                boolean unused = MovieRecorder.sX = z;
-            }
-
-            @Override // com.baidu.ar.recorder.b.c
-            public void O(boolean z) {
-                MovieRecorder.this.sY.ew();
-                MovieRecorder.this.sY = null;
-                MovieRecorder.this.sZ = null;
-                MovieRecorder.this.f(4, z);
-            }
-
-            @Override // com.baidu.ar.recorder.b.c
-            public void a(boolean z, Object obj) {
-                if (z) {
-                    MovieRecorder.this.sY.startRecording();
-                }
-            }
-        };
-        this.sW = new e() { // from class: com.baidu.ar.recorder.MovieRecorder.3
-            @Override // com.baidu.ar.recorder.b.e
-            public void P(boolean z) {
-                MovieRecorder.this.d(1, z);
-            }
-
-            @Override // com.baidu.ar.recorder.b.e
-            public void Q(boolean z) {
-                if (Build.VERSION.SDK_INT >= 18) {
-                    MovieRecorder.this.sV.eK();
-                    MovieRecorder.this.sV = null;
-                }
-                MovieRecorder.this.sW = null;
-                MovieRecorder.this.f(1, z);
-            }
-        };
-    }
-
-    private boolean en() {
-        boolean z = true;
-        if (this.sY != null && this.sY.isRunning()) {
-            com.baidu.ar.f.b.b(TAG, "prepareMovieRecorder mAudioRecorder.isRunning !!!");
-            this.sY.stopRecording();
-            this.sY.ew();
-            z = false;
-        }
-        if (this.tb != null && this.tb.isRunning()) {
-            com.baidu.ar.f.b.b(TAG, "prepareMovieRecorder mVideoRecorder.isRunning !!!");
-            this.tb.stopRecording();
-            this.tb.ew();
-            z = false;
-        }
-        if (this.sE == null || this.sV.a(this.sE.getOutputFile(), this.sE.getOutputFormat(), this.sW)) {
-            return z;
-        }
-        com.baidu.ar.f.b.b(TAG, "prepareMovieRecorder movieMuxerInit error!!!");
-        return false;
-    }
-
-    private void eo() {
-        if (this.sY != null) {
-            this.sY.a(this.sE, this.sV, this.sZ);
-        }
-    }
-
-    private void ep() {
-        this.tb.a(this.sE, this.sV, this.tc);
-    }
-
-    private void eq() {
-        com.baidu.ar.f.b.i(TAG, "restartRecorder mRestartTried = " + this.sS);
-        if (this.sT != null) {
-            this.sS = true;
-            this.sT.sendMessageDelayed(this.sT.obtainMessage(7005), 500L);
-        }
-    }
-
-    private boolean er() {
-        if (this.sE == null) {
+    private boolean fD() {
+        if (this.tj == null) {
             return false;
         }
-        return this.sE.isAudioIncluded() ? this.sO == 3 : this.sO == 2;
+        return this.tj.isAudioIncluded() ? this.tt == 3 : this.tt == 2;
     }
 
-    private synchronized boolean es() {
+    private synchronized boolean fE() {
         int i;
-        com.baidu.ar.f.b.i(TAG, "isMovieRecordStarted sMovieRecordState = " + sN);
-        i = (sN ^ 1) ^ 2;
-        if (this.sE != null) {
-            if (this.sE.isAudioIncluded()) {
+        com.baidu.ar.g.b.k(TAG, "isMovieRecordStarted sMovieRecordState = " + ts);
+        i = (ts ^ 1) ^ 2;
+        if (this.tj != null) {
+            if (this.tj.isAudioIncluded()) {
                 i ^= 4;
             }
         }
         return i == 0;
     }
 
-    private boolean et() {
-        return this.sO == 0;
+    private boolean fF() {
+        return this.tt == 0;
     }
 
-    private synchronized boolean eu() {
-        return sN == 0;
+    private synchronized boolean fG() {
+        return ts == 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void f(int i, boolean z) {
-        com.baidu.ar.f.b.i(TAG, "checkMovieRecordStopState condition = " + i + " && state = " + z);
-        g(i, z);
-        com.baidu.ar.f.b.i(TAG, "checkMovieRecordStopState sMovieRecordState = " + sN);
-        if (et() && this.sT != null) {
-            this.sT.sendMessage(this.sT.obtainMessage(7003, Boolean.valueOf(eu())));
+    public void fv() {
+        fx();
+        fy();
+        if (fz()) {
+            fA();
+            fB();
+        } else if (this.tx) {
+            fw();
+        } else {
+            fC();
         }
     }
 
-    private void g(int i, boolean z) {
-        if (z) {
-            sN ^= i;
+    private void fw() {
+        if (this.ty != null) {
+            this.ty.sendMessageDelayed(this.ty.obtainMessage(ARPMessageType.MSG_OPEN_OFFSCREEN_UPDATE, false), 500L);
         }
-        this.sO--;
+    }
+
+    private void fx() {
+        if (Build.VERSION.SDK_INT >= 18) {
+            this.tA = new d();
+        }
+        if (this.tj.isAudioIncluded()) {
+            this.tD = new com.baidu.ar.recorder.a.a();
+        } else {
+            tC = true;
+        }
+        this.tG = new com.baidu.ar.recorder.a.b();
+        this.tt = 0;
+        if (!this.tu && this.f965tv == null) {
+            this.f965tv = new HandlerThread(TAG);
+            this.f965tv.start();
+        }
+        if (this.ty != null) {
+            this.ty.removeCallbacksAndMessages(null);
+        } else if (this.f965tv != null) {
+            this.ty = new a(this.f965tv.getLooper());
+        } else {
+            this.ty = new a(this.mContext.getMainLooper());
+        }
+        this.tz = new com.baidu.ar.recorder.a(this.tj.getOutputTotalMs());
+    }
+
+    private void fy() {
+        this.tH = new c() { // from class: com.baidu.ar.recorder.MovieRecorder.1
+            @Override // com.baidu.ar.recorder.b.c
+            public void N(boolean z) {
+                MovieRecorder.this.tI = z;
+                MovieRecorder.this.e(2, z);
+            }
+
+            @Override // com.baidu.ar.recorder.b.c
+            public void O(boolean z) {
+            }
+
+            @Override // com.baidu.ar.recorder.b.c
+            public void P(boolean z) {
+                if (MovieRecorder.this.tG != null) {
+                    MovieRecorder.this.tG.fI();
+                    MovieRecorder.this.tG = null;
+                }
+                MovieRecorder.this.tH = null;
+                MovieRecorder.this.g(2, z);
+            }
+
+            @Override // com.baidu.ar.recorder.b.c
+            public void a(boolean z, Object obj) {
+                if (z) {
+                    if (MovieRecorder.this.ty != null) {
+                        MovieRecorder.this.ty.sendMessage(MovieRecorder.this.ty.obtainMessage(NodeType.E_PARTICLE, obj));
+                    }
+                    if (MovieRecorder.this.tG != null) {
+                        MovieRecorder.this.tG.startRecording();
+                    }
+                }
+            }
+        };
+        this.tE = new c() { // from class: com.baidu.ar.recorder.MovieRecorder.2
+            @Override // com.baidu.ar.recorder.b.c
+            public void N(boolean z) {
+                MovieRecorder.this.tF = z;
+                MovieRecorder.this.e(4, z);
+            }
+
+            @Override // com.baidu.ar.recorder.b.c
+            public void O(boolean z) {
+                boolean unused = MovieRecorder.tC = z;
+            }
+
+            @Override // com.baidu.ar.recorder.b.c
+            public void P(boolean z) {
+                MovieRecorder.this.tD.fI();
+                MovieRecorder.this.tD = null;
+                MovieRecorder.this.tE = null;
+                MovieRecorder.this.g(4, z);
+            }
+
+            @Override // com.baidu.ar.recorder.b.c
+            public void a(boolean z, Object obj) {
+                if (z) {
+                    MovieRecorder.this.tD.startRecording();
+                }
+            }
+        };
+        this.tB = new e() { // from class: com.baidu.ar.recorder.MovieRecorder.3
+            @Override // com.baidu.ar.recorder.b.e
+            public void Q(boolean z) {
+                MovieRecorder.this.e(1, z);
+            }
+
+            @Override // com.baidu.ar.recorder.b.e
+            public void R(boolean z) {
+                if (Build.VERSION.SDK_INT >= 18) {
+                    MovieRecorder.this.tA.fW();
+                    MovieRecorder.this.tA = null;
+                }
+                MovieRecorder.this.tB = null;
+                MovieRecorder.this.g(1, z);
+            }
+        };
+    }
+
+    private boolean fz() {
+        boolean z = true;
+        if (this.tD != null && this.tD.isRunning()) {
+            com.baidu.ar.g.b.b(TAG, "prepareMovieRecorder mAudioRecorder.isRunning !!!");
+            this.tD.stopRecording();
+            this.tD.fI();
+            z = false;
+        }
+        if (this.tG != null && this.tG.isRunning()) {
+            com.baidu.ar.g.b.b(TAG, "prepareMovieRecorder mVideoRecorder.isRunning !!!");
+            this.tG.stopRecording();
+            this.tG.fI();
+            z = false;
+        }
+        if (this.tj == null || this.tA.a(this.tj.getOutputFile(), this.tj.getOutputFormat(), this.tB)) {
+            return z;
+        }
+        com.baidu.ar.g.b.b(TAG, "prepareMovieRecorder movieMuxerInit error!!!");
+        return false;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public synchronized void g(int i, boolean z) {
+        com.baidu.ar.g.b.k(TAG, "checkMovieRecordStopState condition = " + i + " && state = " + z);
+        h(i, z);
+        com.baidu.ar.g.b.k(TAG, "checkMovieRecordStopState sMovieRecordState = " + ts);
+        if (fF() && this.ty != null) {
+            this.ty.sendMessage(this.ty.obtainMessage(7003, Boolean.valueOf(fG())));
+        }
     }
 
     public static MovieRecorder getInstance() {
-        if (te == null) {
+        if (tJ == null) {
             synchronized (MovieRecorder.class) {
-                if (te == null) {
-                    te = new MovieRecorder();
+                if (tJ == null) {
+                    tJ = new MovieRecorder();
                 }
             }
         }
-        return te;
+        return tJ;
+    }
+
+    private void h(int i, boolean z) {
+        if (z) {
+            ts ^= i;
+        }
+        this.tt--;
     }
 
     private static void releaseInstance() {
-        te = null;
+        tJ = null;
     }
 
     private void u(long j) {
-        if (!this.sU.ev()) {
-            this.sU.v(j);
+        if (!this.tz.fH()) {
+            this.tz.v(j);
             return;
         }
-        int w = this.sU.w(j);
-        if (w <= 0 || this.sT == null) {
+        int w = this.tz.w(j);
+        if (w <= 0 || this.ty == null) {
             return;
         }
-        this.sT.sendMessage(this.sT.obtainMessage(7002, Integer.valueOf(w)));
+        this.ty.sendMessage(this.ty.obtainMessage(7002, Integer.valueOf(w)));
     }
 
     @Override // com.baidu.ar.record.b
     public void onAudioFrameAvailable(ByteBuffer byteBuffer, int i, long j) {
-        if (this.ta && this.sY != null && this.sY.isRunning()) {
-            this.sY.a(byteBuffer, i, j);
+        if (this.tF && this.tD != null && this.tD.isRunning()) {
+            this.tD.a(byteBuffer, i, j);
         }
     }
 
     public void onDestroy() {
-        this.sU = null;
+        this.tz = null;
         this.mContext = null;
-        this.sE = null;
-        this.sF = null;
-        K(0);
+        this.tj = null;
+        this.tk = null;
+        M(0);
         releaseInstance();
-        if (this.sT != null) {
-            this.sT.removeCallbacksAndMessages(null);
-            this.sT = null;
+        if (this.ty != null) {
+            this.ty.removeCallbacksAndMessages(null);
+            this.ty = null;
         }
-        if (this.sQ != null) {
-            this.sQ.quit();
-            this.sQ = null;
+        if (this.f965tv != null) {
+            this.f965tv.quit();
+            this.f965tv = null;
         }
     }
 
     @Override // com.baidu.ar.record.b
     public void onVideoFrameAvailable(long j) {
-        if (this.tb != null && this.tb.isRunning() && this.td && sX) {
-            this.tb.x(j);
+        if (this.tG != null && this.tG.isRunning() && this.tI && tC) {
+            this.tG.x(j);
             u(j / TimeUtils.NANOS_PER_MS);
         }
     }
 
     @Override // com.baidu.ar.record.b
     public void startRecorder(Context context, EncoderParams encoderParams, MovieRecorderCallback movieRecorderCallback) {
-        com.baidu.ar.f.b.i(TAG, "startRecorder mStarting = " + this.sR);
-        if (this.sR) {
-            ek();
+        com.baidu.ar.g.b.k(TAG, "startRecorder mStarting = " + this.tw);
+        if (this.tw) {
+            fw();
             return;
         }
-        this.sR = true;
+        this.tw = true;
         this.mContext = context;
-        this.sE = encoderParams;
-        this.sF = movieRecorderCallback;
-        ej();
+        this.tj = encoderParams;
+        this.tk = movieRecorderCallback;
+        fv();
     }
 
     @Override // com.baidu.ar.record.b
     public void stopRecorder() {
-        com.baidu.ar.f.b.i(TAG, "stopRecorder mStarting = " + this.sR);
-        if (this.sR) {
-            if (!es() && this.sT != null) {
-                this.sT.sendMessage(this.sT.obtainMessage(7004, Integer.valueOf((int) ERROR_CODE_ON_STOP)));
+        com.baidu.ar.g.b.k(TAG, "stopRecorder mStarting = " + this.tw);
+        if (this.tw) {
+            if (!fE() && this.ty != null) {
+                this.ty.sendMessage(this.ty.obtainMessage(7004, Integer.valueOf((int) ERROR_CODE_ON_STOP)));
             }
-            com.baidu.ar.f.b.c(TAG, "stopRecorder() MovieRecorder is starting, we will try to stop 500ms later!!!");
-            if (this.sT != null) {
-                this.sT.sendMessageDelayed(this.sT.obtainMessage(7006), 500L);
+            com.baidu.ar.g.b.c(TAG, "stopRecorder() MovieRecorder is starting, we will try to stop 500ms later!!!");
+            if (this.ty != null) {
+                this.ty.sendMessageDelayed(this.ty.obtainMessage(7006), 500L);
                 return;
             }
             return;
         }
-        this.ta = false;
-        this.td = false;
-        if (this.sY != null && this.sY.isRunning()) {
-            this.sY.stopRecording();
+        this.tF = false;
+        this.tI = false;
+        if (this.tD != null && this.tD.isRunning()) {
+            this.tD.stopRecording();
         }
-        if (this.tb != null && this.tb.isRunning()) {
-            this.tb.stopRecording();
+        if (this.tG != null && this.tG.isRunning()) {
+            this.tG.stopRecording();
         }
-        K(false);
+        L(false);
     }
 }

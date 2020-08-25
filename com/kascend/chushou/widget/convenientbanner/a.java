@@ -6,15 +6,15 @@ public final class a {
 
     /* renamed from: com.kascend.chushou.widget.convenientbanner.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static final class C0855a {
-        public static final int banner_indicator = 2131692349;
+    public static final class C0913a {
+        public static final int banner_indicator = 2131692366;
         public static final int banner_item_tag = 2131689519;
-        public static final int banner_loop_viewpager = 2131692348;
+        public static final int banner_loop_viewpager = 2131692365;
     }
 
     /* loaded from: classes5.dex */
     public static final class b {
-        public static final int banner_layout = 2130903533;
+        public static final int banner_layout = 2130903541;
     }
 
     /* loaded from: classes5.dex */

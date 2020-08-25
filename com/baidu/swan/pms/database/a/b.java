@@ -6,15 +6,14 @@ import android.database.SQLException;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import java.util.List;
-/* loaded from: classes19.dex */
+/* loaded from: classes14.dex */
 public abstract class b<T> {
     public abstract ContentValues af(T t);
 
-    public abstract <T> List<T> h(Cursor cursor) throws SQLException;
+    public abstract List<T> h(Cursor cursor) throws SQLException;
 
-    public abstract <T> T j(Cursor cursor) throws SQLException;
+    public abstract T j(Cursor cursor) throws SQLException;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean a(Cursor cursor, com.baidu.swan.pms.model.e eVar) {
@@ -23,7 +22,7 @@ public abstract class b<T> {
             int columnIndex2 = cursor.getColumnIndex("category");
             int columnIndex3 = cursor.getColumnIndex(SharedPrefConfig.VERSION_NAME);
             int columnIndex4 = cursor.getColumnIndex("version_code");
-            int columnIndex5 = cursor.getColumnIndex(TiebaInitialize.LogFields.SIZE);
+            int columnIndex5 = cursor.getColumnIndex("size");
             int columnIndex6 = cursor.getColumnIndex("md5");
             int columnIndex7 = cursor.getColumnIndex("sign");
             int columnIndex8 = cursor.getColumnIndex("downloadUrl");
@@ -37,7 +36,7 @@ public abstract class b<T> {
             if (TextUtils.isEmpty(string)) {
                 return false;
             }
-            eVar.dvZ = string;
+            eVar.dFj = string;
             eVar.category = cursor.getInt(columnIndex2);
             eVar.versionName = cursor.getString(columnIndex3);
             eVar.versionCode = cursor.getInt(columnIndex4);
@@ -49,7 +48,7 @@ public abstract class b<T> {
             eVar.currentSize = cursor.getLong(columnIndex11);
             eVar.createTime = cursor.getLong(columnIndex12);
             eVar.updateTime = cursor.getLong(columnIndex13);
-            eVar.dwa = cursor.getLong(columnIndex9);
+            eVar.dFk = cursor.getLong(columnIndex9);
             eVar.state = cursor.getInt(columnIndex14);
             return true;
         }
@@ -58,11 +57,11 @@ public abstract class b<T> {
 
     public ContentValues e(com.baidu.swan.pms.model.e eVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("bundle_id", eVar.dvZ);
+        contentValues.put("bundle_id", eVar.dFj);
         contentValues.put("category", Integer.valueOf(eVar.category));
         contentValues.put(SharedPrefConfig.VERSION_NAME, eVar.versionName);
-        contentValues.put("version_code", Integer.valueOf(eVar.versionCode));
-        contentValues.put(TiebaInitialize.LogFields.SIZE, Long.valueOf(eVar.size));
+        contentValues.put("version_code", Long.valueOf(eVar.versionCode));
+        contentValues.put("size", Long.valueOf(eVar.size));
         contentValues.put("md5", eVar.md5);
         contentValues.put("sign", eVar.sign);
         contentValues.put("downloadUrl", eVar.downloadUrl);

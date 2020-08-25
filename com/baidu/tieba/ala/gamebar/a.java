@@ -8,13 +8,13 @@ import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.mainTab.b;
 import com.baidu.tbadk.mainTab.c;
 import com.baidu.tieba.R;
-import com.baidu.tieba.frs.ak;
+import com.baidu.tieba.frs.am;
 /* loaded from: classes4.dex */
 public class a extends b {
-    private AlaGameFrsLiveTabFragment fMX = new AlaGameFrsLiveTabFragment();
+    private AlaGameFrsLiveTabFragment fYV = new AlaGameFrsLiveTabFragment();
 
     public a() {
-        getFragmentTabStructure().frag = this.fMX;
+        getFragmentTabStructure().frag = this.fYV;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -31,9 +31,9 @@ public class a extends b {
         return cVar;
     }
 
-    public void a(ak akVar) {
-        if (akVar != null && akVar.vg(2)) {
-            akVar.b(this);
+    public void a(am amVar) {
+        if (amVar != null && amVar.xx(2)) {
+            amVar.b(this);
         }
     }
 
@@ -45,20 +45,20 @@ public class a extends b {
     }
 
     public void setForumId(String str) {
-        if (this.fMX != null) {
-            this.fMX.setForumId(str);
+        if (this.fYV != null) {
+            this.fYV.setForumId(str);
         }
     }
 
     public void setForumName(String str) {
-        if (this.fMX != null) {
-            this.fMX.setForumName(str);
+        if (this.fYV != null) {
+            this.fYV.setForumName(str);
         }
     }
 
     public void setForumGameLabel(String str) {
-        if (this.fMX != null) {
-            this.fMX.setForumGameLabel(str);
+        if (this.fYV != null) {
+            this.fYV.setForumGameLabel(str);
         }
     }
 }

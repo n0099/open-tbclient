@@ -1,11 +1,11 @@
 package com.baidu.tbadk.mvc.c;
 
 import com.baidu.adp.BdUniqueId;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface a {
     boolean a(b bVar);
 
-    boolean bkH();
+    boolean btt();
 
     BdUniqueId getUniqueId();
 }

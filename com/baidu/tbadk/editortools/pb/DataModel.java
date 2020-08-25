@@ -2,13 +2,13 @@ package com.baidu.tbadk.editortools.pb;
 
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class DataModel<T> extends BdBaseModel<T> {
-    public abstract boolean bjf();
+    public abstract WriteData BU(String str);
 
-    public abstract String bjg();
+    public abstract boolean brR();
 
-    public abstract WriteData zE(String str);
+    public abstract String brS();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public DataModel(com.baidu.adp.base.e<T> eVar) {

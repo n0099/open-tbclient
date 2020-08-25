@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import android.text.TextUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class df {
     public static int a(Context context, int i) {
         int a = gx.a(context);
@@ -34,17 +34,17 @@ public class df {
                 if (ixVar != null) {
                     try {
                         if (ixVar instanceof id) {
-                            String str = ((id) ixVar).f568d;
-                            return (TextUtils.isEmpty(str) || fa.a(fa.m265a(str)) == -1) ? a : fa.a(fa.m265a(str));
+                            String str = ((id) ixVar).f565d;
+                            return (TextUtils.isEmpty(str) || fa.a(fa.m270a(str)) == -1) ? a : fa.a(fa.m270a(str));
                         } else if (ixVar instanceof il) {
-                            String str2 = ((il) ixVar).f627d;
+                            String str2 = ((il) ixVar).f624d;
                             if (TextUtils.isEmpty(str2)) {
                                 return a;
                             }
-                            if (fa.a(fa.m265a(str2)) != -1) {
-                                a = fa.a(fa.m265a(str2));
+                            if (fa.a(fa.m270a(str2)) != -1) {
+                                a = fa.a(fa.m270a(str2));
                             }
-                            if (hw.UploadTinyData.equals(fa.m265a(str2))) {
+                            if (hw.UploadTinyData.equals(fa.m270a(str2))) {
                                 return -1;
                             }
                             return a;
@@ -125,7 +125,7 @@ public class df {
             iw.a(iiVar, bArr);
             a(str, context, iiVar, bArr.length);
         } catch (jc e) {
-            com.xiaomi.channel.commonutils.logger.b.m49a("fail to convert bytes to container");
+            com.xiaomi.channel.commonutils.logger.b.m54a("fail to convert bytes to container");
         }
     }
 }

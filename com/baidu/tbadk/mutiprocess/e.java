@@ -7,14 +7,14 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Process;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class e implements d {
-    private a eFn;
-    private c eFo;
+    private a ePR;
+    private c ePS;
     private Application mApplication;
     private String mPackageName = null;
-    private final i eFp = new i();
-    private final j eFq = new j();
+    private final i ePT = new i();
+    private final j ePU = new j();
 
     public e(Application application) {
         this.mApplication = application;
@@ -22,7 +22,7 @@ public class e implements d {
 
     @Override // com.baidu.tbadk.mutiprocess.d
     public void a(c cVar) {
-        this.eFo = cVar;
+        this.ePS = cVar;
     }
 
     @Override // com.baidu.tbadk.mutiprocess.d
@@ -38,11 +38,11 @@ public class e implements d {
     private void registerReceiver() {
         try {
             unregisterReceiver();
-            this.eFn = new a();
+            this.ePR = new a();
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.setPriority(1000);
             intentFilter.addAction("intent.action.ACTION.TB.MUTI_PROCESS");
-            this.mApplication.registerReceiver(this.eFn, intentFilter);
+            this.mApplication.registerReceiver(this.ePR, intentFilter);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -50,8 +50,8 @@ public class e implements d {
 
     private void unregisterReceiver() {
         try {
-            if (this.eFn != null && this.mApplication != null) {
-                this.mApplication.unregisterReceiver(this.eFn);
+            if (this.ePR != null && this.mApplication != null) {
+                this.mApplication.unregisterReceiver(this.ePR);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -59,30 +59,30 @@ public class e implements d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class a extends BroadcastReceiver {
         private a() {
         }
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            com.baidu.tbadk.mutiprocess.a F;
-            if (intent != null && "intent.action.ACTION.TB.MUTI_PROCESS".equals(intent.getAction()) && (F = e.this.eFp.F(intent)) != null) {
+            com.baidu.tbadk.mutiprocess.a H;
+            if (intent != null && "intent.action.ACTION.TB.MUTI_PROCESS".equals(intent.getAction()) && (H = e.this.ePT.H(intent)) != null) {
                 int myPid = Process.myPid();
-                int pid = F.getPid();
-                if (F != null && F.getType() == 1) {
+                int pid = H.getPid();
+                if (H != null && H.getType() == 1) {
                     if (myPid == pid) {
                         return;
                     }
-                } else if (F.getType() == 2) {
+                } else if (H.getType() == 2) {
                     if (myPid != pid) {
                         return;
                     }
-                } else if (F.getType() == 3 && !TbadkCoreApplication.getInst().isMainProcess(true)) {
+                } else if (H.getType() == 3 && !TbadkCoreApplication.getInst().isMainProcess(true)) {
                     return;
                 }
-                if (e.this.eFo != null) {
-                    e.this.eFo.b(F);
+                if (e.this.ePS != null) {
+                    e.this.ePS.b(H);
                 }
             }
         }
@@ -96,7 +96,7 @@ public class e implements d {
             Intent intent = new Intent();
             intent.setPackage(getPackageName());
             intent.setAction("intent.action.ACTION.TB.MUTI_PROCESS");
-            this.eFq.a(intent, aVar);
+            this.ePU.a(intent, aVar);
             this.mApplication.sendBroadcast(intent);
         } catch (Exception e) {
             e.printStackTrace();

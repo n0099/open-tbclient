@@ -4,6 +4,9 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.SimpleVideoPlayActivityConfig;
+import com.baidu.tieba.play.SimpleVideoPlayActivity;
 /* loaded from: classes15.dex */
 public class TbadkStatic {
     public static String Tag = "tag";
@@ -18,5 +21,6 @@ public class TbadkStatic {
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
+        TbadkCoreApplication.getInst().RegisterIntent(SimpleVideoPlayActivityConfig.class, SimpleVideoPlayActivity.class);
     }
 }

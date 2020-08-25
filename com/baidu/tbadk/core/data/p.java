@@ -4,45 +4,45 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class p {
-    private boolean dOe;
-    private int dOf;
-    private int dOg;
-    private int dOh = 25;
-    private int dOi = 25;
-    private int dOj = 10;
+    private boolean dXn;
+    private int dXo;
+    private int dXp;
+    private int dXq = 25;
+    private int dXr = 25;
+    private int dXs = 10;
     private int time;
 
     public int getSuccRank() {
-        return this.dOh;
+        return this.dXq;
     }
 
     public int getErrRank() {
-        return this.dOi;
+        return this.dXr;
     }
 
     public int getSlowRank() {
-        return this.dOj;
+        return this.dXs;
     }
 
     public boolean ismSwitch() {
-        return this.dOe;
+        return this.dXn;
     }
 
     public void setmSwitch(boolean z) {
-        if (this.dOe != z) {
-            com.baidu.adp.lib.stats.a lo = com.baidu.tbadk.core.util.u.lo();
-            lo.append("act", "fallback");
-            lo.append("result", z ? "1" : "0");
-            lo.append("type", "switch");
-            BdStatisticsManager.getInstance().debug("img", lo);
+        if (this.dXn != z) {
+            com.baidu.adp.lib.stats.a mN = com.baidu.tbadk.core.util.u.mN();
+            mN.append("act", "fallback");
+            mN.append("result", z ? "1" : "0");
+            mN.append("type", "switch");
+            BdStatisticsManager.getInstance().debug("img", mN);
         }
-        this.dOe = z;
+        this.dXn = z;
     }
 
     public int getSlowNumber() {
-        return this.dOf;
+        return this.dXo;
     }
 
     public int getTime() {
@@ -50,7 +50,7 @@ public class p {
     }
 
     public int getErrNumber() {
-        return this.dOg;
+        return this.dXp;
     }
 
     public void parseJson(String str) {
@@ -59,7 +59,7 @@ public class p {
                 parseJson(new JSONObject(str));
             }
         } catch (Exception e) {
-            this.dOe = false;
+            this.dXn = false;
             BdLog.e(e.getMessage());
         }
     }
@@ -68,30 +68,30 @@ public class p {
         if (jSONObject != null) {
             try {
                 if (jSONObject.optInt("switch") == 1) {
-                    this.dOe = true;
+                    this.dXn = true;
                 } else {
-                    this.dOe = false;
+                    this.dXn = false;
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("err");
                 if (optJSONObject != null) {
-                    this.dOg = optJSONObject.optInt("num");
+                    this.dXp = optJSONObject.optInt("num");
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
                 if (optJSONObject2 != null) {
                     this.time = optJSONObject2.optInt("time");
-                    this.dOf = optJSONObject2.optInt("num");
+                    this.dXo = optJSONObject2.optInt("num");
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("rank");
                 if (optJSONObject3 != null) {
-                    this.dOh = optJSONObject3.optInt("succ");
-                    this.dOi = optJSONObject3.optInt("err");
-                    this.dOj = optJSONObject3.optInt("slow");
+                    this.dXq = optJSONObject3.optInt("succ");
+                    this.dXr = optJSONObject3.optInt("err");
+                    this.dXs = optJSONObject3.optInt("slow");
                 }
-                if (this.time <= 0 || this.dOf <= 0 || this.dOg <= 0) {
-                    this.dOe = false;
+                if (this.time <= 0 || this.dXo <= 0 || this.dXp <= 0) {
+                    this.dXn = false;
                 }
             } catch (Exception e) {
-                this.dOe = false;
+                this.dXn = false;
                 BdLog.e(e.getMessage());
             }
         }

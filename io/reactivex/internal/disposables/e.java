@@ -8,7 +8,7 @@ import java.util.List;
 /* loaded from: classes7.dex */
 public final class e implements io.reactivex.disposables.b, a {
     volatile boolean disposed;
-    List<io.reactivex.disposables.b> nSj;
+    List<io.reactivex.disposables.b> ome;
 
     @Override // io.reactivex.disposables.b
     public void dispose() {
@@ -16,9 +16,9 @@ public final class e implements io.reactivex.disposables.b, a {
             synchronized (this) {
                 if (!this.disposed) {
                     this.disposed = true;
-                    List<io.reactivex.disposables.b> list = this.nSj;
-                    this.nSj = null;
-                    fL(list);
+                    List<io.reactivex.disposables.b> list = this.ome;
+                    this.ome = null;
+                    fV(list);
                 }
             }
         }
@@ -35,10 +35,10 @@ public final class e implements io.reactivex.disposables.b, a {
         if (!this.disposed) {
             synchronized (this) {
                 if (!this.disposed) {
-                    List list = this.nSj;
+                    List list = this.ome;
                     if (list == null) {
                         list = new LinkedList();
-                        this.nSj = list;
+                        this.ome = list;
                     }
                     list.add(bVar);
                     return true;
@@ -65,7 +65,7 @@ public final class e implements io.reactivex.disposables.b, a {
         if (!this.disposed) {
             synchronized (this) {
                 if (!this.disposed) {
-                    List<io.reactivex.disposables.b> list = this.nSj;
+                    List<io.reactivex.disposables.b> list = this.ome;
                     if (list != null && list.remove(bVar)) {
                         z = true;
                     }
@@ -75,14 +75,14 @@ public final class e implements io.reactivex.disposables.b, a {
         return z;
     }
 
-    void fL(List<io.reactivex.disposables.b> list) {
+    void fV(List<io.reactivex.disposables.b> list) {
         if (list != null) {
             ArrayList arrayList = null;
             for (io.reactivex.disposables.b bVar : list) {
                 try {
                     bVar.dispose();
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.K(th);
+                    io.reactivex.exceptions.a.J(th);
                     ArrayList arrayList2 = arrayList == null ? new ArrayList() : arrayList;
                     arrayList2.add(th);
                     arrayList = arrayList2;
@@ -90,7 +90,7 @@ public final class e implements io.reactivex.disposables.b, a {
             }
             if (arrayList != null) {
                 if (arrayList.size() == 1) {
-                    throw ExceptionHelper.M((Throwable) arrayList.get(0));
+                    throw ExceptionHelper.L((Throwable) arrayList.get(0));
                 }
                 throw new CompositeException(arrayList);
             }

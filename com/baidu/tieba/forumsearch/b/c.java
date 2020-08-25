@@ -7,38 +7,38 @@ import tbclient.SearchPostForum.DataRes;
 import tbclient.SearchPostForum.SearchForum;
 /* loaded from: classes18.dex */
 public class c {
-    private SearchForum hDP;
-    private List<SearchForum> hDQ;
-    private ArrayList<q> hDR;
-    private String hDo;
+    private String hQD;
+    private SearchForum hRd;
+    private List<SearchForum> hRe;
+    private ArrayList<q> hRf;
 
     public c(String str) {
-        this.hDo = str;
+        this.hQD = str;
     }
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.hDP = dataRes.exact_match;
-            this.hDQ = dataRes.fuzzy_match;
-            this.hDR = new ArrayList<>();
-            b bVar = new b(this.hDo);
-            if (this.hDP != null) {
-                bVar.a(this.hDP);
-                this.hDR.add(bVar);
+            this.hRd = dataRes.exact_match;
+            this.hRe = dataRes.fuzzy_match;
+            this.hRf = new ArrayList<>();
+            b bVar = new b(this.hQD);
+            if (this.hRd != null) {
+                bVar.a(this.hRd);
+                this.hRf.add(bVar);
             }
-            if (this.hDQ != null) {
-                for (SearchForum searchForum : this.hDQ) {
+            if (this.hRe != null) {
+                for (SearchForum searchForum : this.hRe) {
                     if (searchForum != null) {
-                        b bVar2 = new b(this.hDo);
+                        b bVar2 = new b(this.hQD);
                         bVar2.a(searchForum);
-                        this.hDR.add(bVar2);
+                        this.hRf.add(bVar2);
                     }
                 }
             }
         }
     }
 
-    public ArrayList<q> can() {
-        return this.hDR;
+    public ArrayList<q> ckJ() {
+        return this.hRf;
     }
 }

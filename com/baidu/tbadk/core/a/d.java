@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.switchs.StokenEnableSwitch;
 import java.util.LinkedList;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class d {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void onFailed();
 
@@ -34,51 +34,53 @@ public class d {
         if (!StringUtils.isNull(str)) {
             LinkedList linkedList = new LinkedList();
             linkedList.add("tb");
-            SapiAccountManager.getInstance().getAccountService().getTplStoken(new GetTplStokenCallback() { // from class: com.baidu.tbadk.core.a.d.1
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.sapi2.callback.SapiCallback
-                public void onSuccess(GetTplStokenResult getTplStokenResult) {
-                    if (getTplStokenResult == null) {
-                        if (aVar != null) {
-                            aVar.onFailed();
+            if (SapiAccountManager.getInstance().getAccountService() != null) {
+                SapiAccountManager.getInstance().getAccountService().getTplStoken(new GetTplStokenCallback() { // from class: com.baidu.tbadk.core.a.d.1
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // com.baidu.sapi2.callback.SapiCallback
+                    public void onSuccess(GetTplStokenResult getTplStokenResult) {
+                        if (getTplStokenResult == null) {
+                            if (aVar != null) {
+                                aVar.onFailed();
+                                return;
+                            }
                             return;
                         }
-                        return;
-                    }
-                    Map<String, String> map = getTplStokenResult.tplStokenMap;
-                    if (map == null || map.size() <= 0) {
-                        if (aVar != null) {
-                            aVar.onFailed();
+                        Map<String, String> map = getTplStokenResult.tplStokenMap;
+                        if (map == null || map.size() <= 0) {
+                            if (aVar != null) {
+                                aVar.onFailed();
+                                return;
+                            }
                             return;
                         }
-                        return;
+                        String str2 = map.get("tb");
+                        if (StringUtils.isNULL(str2)) {
+                            if (aVar != null) {
+                                aVar.onFailed();
+                            }
+                        } else if (aVar != null) {
+                            aVar.onSuccess(str2);
+                        }
                     }
-                    String str2 = map.get("tb");
-                    if (StringUtils.isNULL(str2)) {
+
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // com.baidu.sapi2.callback.SapiCallback
+                    public void onFailure(GetTplStokenResult getTplStokenResult) {
                         if (aVar != null) {
                             aVar.onFailed();
                         }
-                    } else if (aVar != null) {
-                        aVar.onSuccess(str2);
                     }
-                }
 
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.sapi2.callback.SapiCallback
-                public void onFailure(GetTplStokenResult getTplStokenResult) {
-                    if (aVar != null) {
-                        aVar.onFailed();
+                    @Override // com.baidu.sapi2.callback.SapiCallback
+                    public void onStart() {
                     }
-                }
 
-                @Override // com.baidu.sapi2.callback.SapiCallback
-                public void onStart() {
-                }
-
-                @Override // com.baidu.sapi2.callback.SapiCallback
-                public void onFinish() {
-                }
-            }, str, linkedList);
+                    @Override // com.baidu.sapi2.callback.SapiCallback
+                    public void onFinish() {
+                    }
+                }, str, linkedList);
+            }
         }
     }
 }

@@ -66,7 +66,7 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.imsdk.IMService;
+import com.baidu.imsdk.a;
 import com.baidu.tieba.imMessageCenter.mention.FeedData;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -78,7 +78,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class ChatMsgManagerImpl {
     private static final String TAG = ChatMsgManagerImpl.class.getSimpleName();
     private static final int USER_IDENTITY_UPDATE_TIME = 600000;
@@ -301,7 +301,7 @@ public class ChatMsgManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_CLIENT_MAX_MSGID, deleteAllMsg);
             creatMethodIntent.putExtra(Constants.EXTRA_CONTACTER_IS_ZHIDA, false);
             try {
-                IMService.enqueueWork(mContext, creatMethodIntent);
+                a.al(mContext).e(mContext, creatMethodIntent);
             } catch (Exception e) {
                 LogUtils.e(TAG, "Exception ", e);
             }
@@ -333,7 +333,7 @@ public class ChatMsgManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_CONTACTER_IS_ZHIDA, z);
             tryPutPaid(creatMethodIntent);
             try {
-                IMService.enqueueWork(mContext, creatMethodIntent);
+                a.al(mContext).e(mContext, creatMethodIntent);
             } catch (Exception e) {
                 LogUtils.e(TAG, "Exception ", e);
             }
@@ -359,7 +359,7 @@ public class ChatMsgManagerImpl {
                 creatMethodIntent.putExtra(Constants.EXTRA_CONTACTER_IS_ZHIDA, z);
                 tryPutPaid(creatMethodIntent);
                 try {
-                    IMService.enqueueWork(mContext, creatMethodIntent);
+                    a.al(mContext).e(mContext, creatMethodIntent);
                     return deleteMsgBatch;
                 } catch (Exception e) {
                     LogUtils.e(TAG, "Exception ", e);
@@ -417,7 +417,7 @@ public class ChatMsgManagerImpl {
                     creatMethodIntent.putExtra(Constants.EXTRA_SEND_MSG, chatMsg);
                     creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
                     try {
-                        IMService.enqueueWork(mContext, creatMethodIntent);
+                        a.al(mContext).e(mContext, creatMethodIntent);
                         return;
                     } catch (Exception e) {
                         onSendMessageResult(6, chatMsg, -1L, addListener);
@@ -449,7 +449,7 @@ public class ChatMsgManagerImpl {
         }
         String addListener = ListenerManager.getInstance().addListener(iSendMessageListener);
         if (AccountManager.isLogin(mContext)) {
-            if (IMService.isSmallFlow && chatMsg.getCategory() == 4) {
+            if (a.ayn && chatMsg.getCategory() == 4) {
                 creatMethodIntent = Utility.createMcastMethodIntent(mContext, 55);
             } else {
                 creatMethodIntent = Utility.creatMethodIntent(mContext, 55);
@@ -457,7 +457,7 @@ public class ChatMsgManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_SEND_MSG, chatMsg);
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             try {
-                IMService.enqueueWork(mContext, creatMethodIntent);
+                a.al(mContext).e(mContext, creatMethodIntent);
                 return;
             } catch (Exception e) {
                 onSendMessageResult(6, chatMsg, -1L, addListener);
@@ -635,7 +635,7 @@ public class ChatMsgManagerImpl {
                 creatMethodIntent.putExtra(Constants.EXTRA_CONTACTER_IS_ZHIDA, z);
                 tryPutPaid(creatMethodIntent);
                 try {
-                    IMService.enqueueWork(mContext, creatMethodIntent);
+                    a.al(mContext).e(mContext, creatMethodIntent);
                 } catch (Exception e) {
                     LogUtils.e(TAG, "Exception ", e);
                 }
@@ -672,7 +672,7 @@ public class ChatMsgManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_CONTACTER_IS_ZHIDA, z);
             tryPutPaid(creatMethodIntent);
             try {
-                IMService.enqueueWork(mContext, creatMethodIntent);
+                a.al(mContext).e(mContext, creatMethodIntent);
             } catch (Exception e) {
                 LogUtils.e(TAG, "Exception ", e);
             }
@@ -705,7 +705,7 @@ public class ChatMsgManagerImpl {
                 creatMethodIntent.putExtra(Constants.EXTRA_CONTACTER_IS_ZHIDA, false);
                 tryPutPaid(creatMethodIntent);
                 try {
-                    IMService.enqueueWork(mContext, creatMethodIntent);
+                    a.al(mContext).e(mContext, creatMethodIntent);
                 } catch (Exception e) {
                     LogUtils.e(TAG, "Exception ", e);
                 }
@@ -912,7 +912,7 @@ public class ChatMsgManagerImpl {
         if (j2 < 0 || j3 < 0) {
             onFetchMsgByIdResult(context, 1005, Constants.ERROR_MSG_PARAMETER_ERROR, i, j, j2, j3, i2, -1, 0L, null, null, addListener);
         } else if (AccountManager.isLogin(context)) {
-            if (IMService.isSmallFlow && i == 4) {
+            if (a.ayn && i == 4) {
                 creatMethodIntent = Utility.createMcastMethodIntent(context, 93);
             } else {
                 creatMethodIntent = Utility.creatMethodIntent(context, 93);
@@ -927,7 +927,7 @@ public class ChatMsgManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_JUMP_MSG, i4);
             creatMethodIntent.putExtra(Constants.EXTRA_RETRY_TIME, i5);
             try {
-                IMService.enqueueWork(mContext, creatMethodIntent);
+                a.al(mContext).e(mContext, creatMethodIntent);
             } catch (Exception e) {
                 onFetchMsgByIdResult(context, 6, "start service exception", i, j, j2, j3, i2, -1, 0L, null, null, addListener);
                 LogUtils.e(TAG, "Exception ", e);
@@ -970,7 +970,7 @@ public class ChatMsgManagerImpl {
         creatMethodIntent.putExtra(Constants.EXTRA_CONFIG_CURSOR, j);
         creatMethodIntent.putExtra(Constants.EXTRA_CONFIG_LIMIT, j2);
         try {
-            IMService.enqueueWork(mContext, creatMethodIntent);
+            a.al(mContext).e(mContext, creatMethodIntent);
         } catch (Exception e) {
             LogUtils.e(TAG, "Exception ", e);
         }
@@ -1201,7 +1201,7 @@ public class ChatMsgManagerImpl {
                 BindStateManager.saveUnBindInfo(mContext, AccountManager.getToken(mContext), Utility.getIMDeviceId(mContext), Long.valueOf(AccountManager.getUK(mContext)));
                 Intent creatMethodIntent = Utility.creatMethodIntent(mContext, 92);
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
-                IMService.enqueueWork(mContext, creatMethodIntent);
+                a.al(mContext).e(mContext, creatMethodIntent);
                 return;
             } catch (Exception e) {
                 onUnRegisterNotifyResult(addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR);
@@ -1235,6 +1235,7 @@ public class ChatMsgManagerImpl {
 
     public void deliverReliableMcastMessage(String str, JSONArray jSONArray, List<Long> list) {
         onDeliverMcastResponse(str, jSONArray, this.mReceiveStudioListeners.get(str), list);
+        deliverMcastMessage(jSONArray);
     }
 
     private void onDeliverMcastResponse(String str, JSONArray jSONArray, ILiveMsgReceiveListener iLiveMsgReceiveListener, List<Long> list) {
@@ -1279,15 +1280,15 @@ public class ChatMsgManagerImpl {
         LogUtils.d(TAG, "mReceiveStudioListener is null");
     }
 
-    public void fetchMsgRequst(long j, long j2, int i, long j3, long j4, long j5, int i2, IFetchMsgByIdListener iFetchMsgByIdListener) {
+    public void fetchMsgRequst(long j, long j2, int i, long j3, long j4, long j5, int i2, IFetchMsgByIdListener iFetchMsgByIdListener, boolean z) {
         LogUtils.d(TAG, "fetchMsgRequst ---> begin :" + j4 + ", end :" + j5);
-        IMFetchMsgRequest iMFetchMsgRequest = new IMFetchMsgRequest(mContext, ListenerManager.getInstance().addListener(iFetchMsgByIdListener), j, j2, j3, i, i2, j4, j5);
+        IMFetchMsgRequest iMFetchMsgRequest = new IMFetchMsgRequest(mContext, ListenerManager.getInstance().addListener(iFetchMsgByIdListener), j, j2, j3, i, i2, j4, j5, z);
         HttpHelper.executor(mContext, iMFetchMsgRequest, iMFetchMsgRequest);
     }
 
-    public void fetchMsgByHostRequst(long j, int i, long j2, long j3, long j4, int i2, IFetchMsgByIdListener iFetchMsgByIdListener) {
+    public void fetchMsgByHostRequst(long j, int i, long j2, long j3, long j4, int i2, IFetchMsgByIdListener iFetchMsgByIdListener, boolean z) {
         LogUtils.d(TAG, "fetchMsgByHostRequst ---> begin :" + j3 + ", end :" + j4);
-        IMFetchMsgByHostRequest iMFetchMsgByHostRequest = new IMFetchMsgByHostRequest(mContext, ListenerManager.getInstance().addListener(iFetchMsgByIdListener), j, j2, i, i2, j3, j4);
+        IMFetchMsgByHostRequest iMFetchMsgByHostRequest = new IMFetchMsgByHostRequest(mContext, ListenerManager.getInstance().addListener(iFetchMsgByIdListener), j, j2, i, i2, j3, j4, z);
         HttpHelper.executor(mContext, iMFetchMsgByHostRequest, iMFetchMsgByHostRequest);
     }
 
@@ -1488,44 +1489,44 @@ public class ChatMsgManagerImpl {
         HttpHelper.executor(context, iMMediaFetchMsgHttpRequest, iMMediaFetchMsgHttpRequest);
     }
 
-    public void mediaSendChatMsg(Context context, long j, int i, long j2, String str, ChatMsg chatMsg, IMediaSendChatMsgListener iMediaSendChatMsgListener) {
+    public void mediaSendChatMsg(long j, int i, long j2, String str, ChatMsg chatMsg, IMediaSendChatMsgListener iMediaSendChatMsgListener) {
         LogUtils.d(TAG, "BC> contactor=" + j + ", contactorType" + i + ", contactorPauid" + j2 + ", contactorThirdid" + str + ", listener=" + iMediaSendChatMsgListener + ", sendMsg=" + chatMsg);
-        if (!AccountManager.getMediaRole(context)) {
+        if (!AccountManager.getMediaRole(mContext)) {
             iMediaSendChatMsgListener.onMediaSendChatMsgResult(2000, chatMsg);
             return;
         }
-        IMMediaSendMsgHttpRequest iMMediaSendMsgHttpRequest = new IMMediaSendMsgHttpRequest(context, j, i, j2, str, chatMsg, ListenerManager.getInstance().addListener(iMediaSendChatMsgListener));
-        HttpHelper.executor(context, iMMediaSendMsgHttpRequest, iMMediaSendMsgHttpRequest);
+        IMMediaSendMsgHttpRequest iMMediaSendMsgHttpRequest = new IMMediaSendMsgHttpRequest(mContext, j, i, j2, str, chatMsg, ListenerManager.getInstance().addListener(iMediaSendChatMsgListener));
+        HttpHelper.executor(mContext, iMMediaSendMsgHttpRequest, iMMediaSendMsgHttpRequest);
     }
 
-    public void mediaSendChatMsg(Context context, long j, ChatMsg chatMsg, IMediaSendChatMsgListener iMediaSendChatMsgListener) {
+    public void mediaSendChatMsg(long j, ChatMsg chatMsg, IMediaSendChatMsgListener iMediaSendChatMsgListener) {
         LogUtils.d(TAG, "BC> contactor=" + j + ", listener=" + iMediaSendChatMsgListener + ", sendMsg=" + chatMsg);
-        if (!AccountManager.getMediaRole(context)) {
+        if (!AccountManager.getMediaRole(mContext)) {
             iMediaSendChatMsgListener.onMediaSendChatMsgResult(2000, chatMsg);
             return;
         }
-        IMMediaSendMsgHttpRequest iMMediaSendMsgHttpRequest = new IMMediaSendMsgHttpRequest(context, j, chatMsg, ListenerManager.getInstance().addListener(iMediaSendChatMsgListener));
-        HttpHelper.executor(context, iMMediaSendMsgHttpRequest, iMMediaSendMsgHttpRequest);
+        IMMediaSendMsgHttpRequest iMMediaSendMsgHttpRequest = new IMMediaSendMsgHttpRequest(mContext, j, chatMsg, ListenerManager.getInstance().addListener(iMediaSendChatMsgListener));
+        HttpHelper.executor(mContext, iMMediaSendMsgHttpRequest, iMMediaSendMsgHttpRequest);
     }
 
-    public void mediaDeleteChatMsg(Context context, long j, long j2, List<Long> list, IMediaDeleteChatMsgListener iMediaDeleteChatMsgListener) {
+    public void mediaDeleteChatMsg(long j, long j2, List<Long> list, IMediaDeleteChatMsgListener iMediaDeleteChatMsgListener) {
         LogUtils.d(TAG, "BC> contactor=" + j + ", listener=" + iMediaDeleteChatMsgListener + ", needDeleteMsgIds=" + list + ", maxDeleteMsgId=" + j2);
-        if (!AccountManager.getMediaRole(context)) {
+        if (!AccountManager.getMediaRole(mContext)) {
             iMediaDeleteChatMsgListener.onMediaDeleteChatMsgResult(2000, null);
             return;
         }
-        IMMediaDeleteMsgHttpRequest iMMediaDeleteMsgHttpRequest = new IMMediaDeleteMsgHttpRequest(context, j, j2, list, ListenerManager.getInstance().addListener(iMediaDeleteChatMsgListener));
-        HttpHelper.executor(context, iMMediaDeleteMsgHttpRequest, iMMediaDeleteMsgHttpRequest);
+        IMMediaDeleteMsgHttpRequest iMMediaDeleteMsgHttpRequest = new IMMediaDeleteMsgHttpRequest(mContext, j, j2, list, ListenerManager.getInstance().addListener(iMediaDeleteChatMsgListener));
+        HttpHelper.executor(mContext, iMMediaDeleteMsgHttpRequest, iMMediaDeleteMsgHttpRequest);
     }
 
-    public void mediaDeleteChatMsg(Context context, long j, int i, long j2, String str, long j3, List<Long> list, IMediaDeleteChatMsgListener iMediaDeleteChatMsgListener) {
+    public void mediaDeleteChatMsg(long j, int i, long j2, String str, long j3, List<Long> list, IMediaDeleteChatMsgListener iMediaDeleteChatMsgListener) {
         LogUtils.d(TAG, "BC> contactor=" + j + ", contactorType" + i + ", contactorPauid" + j2 + ", contactorThirdid" + str + ", listener=" + iMediaDeleteChatMsgListener + ", needDeleteMsgIds=" + list + ", maxDeleteMsgId=" + j3);
-        if (!AccountManager.getMediaRole(context)) {
+        if (!AccountManager.getMediaRole(mContext)) {
             iMediaDeleteChatMsgListener.onMediaDeleteChatMsgResult(2000, null);
             return;
         }
-        IMMediaDeleteMsgHttpRequest iMMediaDeleteMsgHttpRequest = new IMMediaDeleteMsgHttpRequest(context, j, i, j2, str, j3, list, ListenerManager.getInstance().addListener(iMediaDeleteChatMsgListener));
-        HttpHelper.executor(context, iMMediaDeleteMsgHttpRequest, iMMediaDeleteMsgHttpRequest);
+        IMMediaDeleteMsgHttpRequest iMMediaDeleteMsgHttpRequest = new IMMediaDeleteMsgHttpRequest(mContext, j, i, j2, str, j3, list, ListenerManager.getInstance().addListener(iMediaDeleteChatMsgListener));
+        HttpHelper.executor(mContext, iMMediaDeleteMsgHttpRequest, iMMediaDeleteMsgHttpRequest);
     }
 
     public void mediaRegisterChatMsgChangedListener(IMediaChatMsgChangedListener iMediaChatMsgChangedListener) {

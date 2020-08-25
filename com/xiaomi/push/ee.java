@@ -3,7 +3,7 @@ package com.xiaomi.push;
 import android.content.Context;
 import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class ee extends ed {
     private boolean a;
     private boolean b;
@@ -51,19 +51,19 @@ public class ee extends ed {
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo161a() {
+    public int mo166a() {
         return 13;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public ho mo161a() {
+    public ho mo166a() {
         return ho.DeviceBaseInfo;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo161a() {
-        return b() + "|" + d() + "|" + e() + "|" + a(this.f236a);
+    public String mo166a() {
+        return b() + "|" + d() + "|" + e() + "|" + a(this.f233a);
     }
 }

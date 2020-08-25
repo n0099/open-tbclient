@@ -22,11 +22,11 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.ui.SwanAppScrollView;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BaseActivityDialog extends Activity implements DialogInterface {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private SwanAppScrollView cCL;
-    private a cFR;
+    private SwanAppScrollView cKZ;
+    private a cOP;
     private int mBtnHeight;
     private LinearLayout mBtnPanelLayout;
     private FrameLayout mDialogContent;
@@ -48,8 +48,8 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         super.onCreate(bundle);
         setContentView(a.g.aiapps_alert_dialog);
         getWindow().setLayout(-1, -1);
-        this.cFR = a.od(getIntent().getStringExtra("BOX_ACTIVITY_DIALOG_FOR_BUILDER"));
-        if (this.cFR == null) {
+        this.cOP = a.qc(getIntent().getStringExtra("BOX_ACTIVITY_DIALOG_FOR_BUILDER"));
+        if (this.cOP == null) {
             if (DEBUG) {
                 Log.e("BaseActivityDialog", "The builder for dialog activity can NOT be null.");
             }
@@ -70,7 +70,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
     @Override // android.content.DialogInterface
     public void cancel() {
         DialogInterface.OnCancelListener onCancelListener;
-        if (this.cFR != null && (onCancelListener = this.cFR.cancelListener) != null) {
+        if (this.cOP != null && (onCancelListener = this.cOP.cancelListener) != null) {
             onCancelListener.onCancel(this);
         }
         finish();
@@ -90,7 +90,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
 
     protected void onDismiss() {
         DialogInterface.OnDismissListener onDismissListener;
-        if (this.cFR != null && (onDismissListener = this.cFR.dismissListener) != null) {
+        if (this.cOP != null && (onDismissListener = this.cOP.dismissListener) != null) {
             onDismissListener.onDismiss(this);
         }
     }
@@ -111,21 +111,21 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         this.mIcon = (ImageView) findViewById(a.f.dialog_icon);
         this.mDialogLayout = (RelativeLayout) findViewById(a.f.searchbox_alert_dialog);
         this.mDivider2 = findViewById(a.f.divider2);
-        this.cCL = (SwanAppScrollView) findViewById(a.f.message_scrollview);
+        this.cKZ = (SwanAppScrollView) findViewById(a.f.message_scrollview);
         this.mBtnPanelLayout = (LinearLayout) findViewById(a.f.btn_panel);
         this.mBtnHeight = getResources().getDimensionPixelSize(a.d.aiapps_dialog_btns_height);
-        if (this.cFR.mScrollViewHeight > 0) {
-            this.cCL.getLayoutParams().height = this.cFR.mScrollViewHeight;
+        if (this.cOP.mScrollViewHeight > 0) {
+            this.cKZ.getLayoutParams().height = this.cOP.mScrollViewHeight;
         }
-        if (com.baidu.swan.apps.aq.c.isGingerbread() || com.baidu.swan.apps.aq.c.isGingerbreadmr1()) {
+        if (com.baidu.swan.apps.ap.c.isGingerbread() || com.baidu.swan.apps.ap.c.isGingerbreadmr1()) {
             int dimensionPixelSize = this.mMessage.getResources().getDimensionPixelSize(a.d.aiapps_dialog_text_padding);
             this.mMessage.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
         }
     }
 
     protected void setupViews() {
-        if (this.cFR != null) {
-            a aVar = this.cFR;
+        if (this.cOP != null) {
+            a aVar = this.cOP;
             setTitle(aVar.title);
             setIcon(aVar.icon);
             setMessage(aVar.message);
@@ -229,8 +229,8 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 BaseActivityDialog.this.onButtonClick(-1);
-                if (BaseActivityDialog.this.cFR != null) {
-                    BaseActivityDialog.this.cFR.onEvent(new a.C0384a(BaseActivityDialog.this, -1));
+                if (BaseActivityDialog.this.cOP != null) {
+                    BaseActivityDialog.this.cOP.onEvent(new a.C0430a(BaseActivityDialog.this, -1));
                 }
                 BaseActivityDialog.this.dismiss();
             }
@@ -255,8 +255,8 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 BaseActivityDialog.this.onButtonClick(-2);
-                if (BaseActivityDialog.this.cFR != null) {
-                    BaseActivityDialog.this.cFR.onEvent(new a.C0384a(BaseActivityDialog.this, -2));
+                if (BaseActivityDialog.this.cOP != null) {
+                    BaseActivityDialog.this.cOP.onEvent(new a.C0430a(BaseActivityDialog.this, -2));
                 }
                 BaseActivityDialog.this.dismiss();
             }
@@ -283,14 +283,14 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
     }
 
     private void release() {
-        if (this.cFR != null) {
-            this.cFR.release();
-            this.cFR = null;
+        if (this.cOP != null) {
+            this.cOP.release();
+            this.cOP = null;
         }
         setView(null);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static final int DIALOG_NEGATIVE_TEXT_CANCEL = a.h.aiapps_dialog_negative_title_cancel;
         public static final int DIALOG_POSITIVE_TEXT_OK = a.h.aiapps_dialog_positive_title_ok;
@@ -327,20 +327,20 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             this.mDialogClass = cls;
         }
 
-        public a gK(int i) {
-            return ob(this.mContext.getString(i));
+        public a iR(int i) {
+            return qa(this.mContext.getString(i));
         }
 
-        public a ob(String str) {
+        public a qa(String str) {
             this.title = str;
             return this;
         }
 
-        public a gL(int i) {
-            return oc(this.mContext.getString(i));
+        public a iS(int i) {
+            return qb(this.mContext.getString(i));
         }
 
-        public a oc(String str) {
+        public a qb(String str) {
             this.message = str;
             return this;
         }
@@ -362,6 +362,11 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         public a b(String str, DialogInterface.OnClickListener onClickListener) {
             this.negativeText = str;
             this.negativeListener = onClickListener;
+            return this;
+        }
+
+        public a a(DialogInterface.OnDismissListener onDismissListener) {
+            this.dismissListener = onDismissListener;
             return this;
         }
 
@@ -399,12 +404,12 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                     }
                     a.a(valueOf, a.this);
                     intent.addFlags(268435456);
-                    com.baidu.swan.apps.aq.e.startActivitySafely(appContext, intent);
+                    com.baidu.swan.apps.ap.e.startActivitySafely(appContext, intent);
                 }
             });
         }
 
-        static a od(String str) {
+        static a qc(String str) {
             a remove;
             if (!TextUtils.isEmpty(str)) {
                 synchronized (sBuilderMap) {
@@ -423,10 +428,10 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             }
         }
 
-        public void onEvent(C0384a c0384a) {
-            if (c0384a != null) {
+        public void onEvent(C0430a c0430a) {
+            if (c0430a != null) {
                 DialogInterface.OnClickListener onClickListener = null;
-                switch (c0384a.which) {
+                switch (c0430a.which) {
                     case -2:
                         onClickListener = this.negativeListener;
                         break;
@@ -437,18 +442,18 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                 if (onClickListener == null) {
                     return;
                 }
-                onClickListener.onClick(c0384a.dialog, c0384a.which);
+                onClickListener.onClick(c0430a.dialog, c0430a.which);
             }
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public static class C0384a {
+        /* loaded from: classes8.dex */
+        public static class C0430a {
             private DialogInterface dialog;
             private int which;
 
-            public C0384a(DialogInterface dialogInterface, int i) {
+            public C0430a(DialogInterface dialogInterface, int i) {
                 this.dialog = dialogInterface;
                 this.which = i;
             }
@@ -457,7 +462,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        Resources skinResources = com.baidu.swan.apps.t.a.ahF().getSkinResources();
+        Resources skinResources = com.baidu.swan.apps.t.a.apf().getSkinResources();
         return skinResources != null ? skinResources : super.getResources();
     }
 }

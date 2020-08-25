@@ -11,25 +11,25 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes19.dex */
 public class c extends com.baidu.swan.apps.component.b.a<TextureMapView, com.baidu.swan.apps.w.a.c> {
-    public String bVn;
+    public String caV;
     public Context context;
-    public List<b> cpI;
-    public List<a> cpL;
-    public String drl;
+    public List<a> cxB;
+    public List<b> cxy;
+    public String dBn;
     @NonNull
-    public TextureMapView drm;
+    public TextureMapView dBo;
     public String id;
     public boolean isShowLocation;
 
     public c(@NonNull Context context, @NonNull com.baidu.swan.apps.w.a.c cVar) {
         super(context, cVar);
-        this.cpI = new ArrayList();
-        this.cpL = new ArrayList();
-        this.drl = cVar.bVm;
-        this.id = cVar.bVl;
-        this.bVn = cVar.bVn;
+        this.cxy = new ArrayList();
+        this.cxB = new ArrayList();
+        this.dBn = cVar.caU;
+        this.id = cVar.caT;
+        this.caV = cVar.caV;
         this.context = context;
-        this.drm = new TextureMapView(context);
+        this.dBo = new TextureMapView(context);
         this.isShowLocation = cVar.isShowLocation;
     }
 
@@ -42,27 +42,27 @@ public class c extends com.baidu.swan.apps.component.b.a<TextureMapView, com.bai
 
     @Nullable
     public b b(Marker marker) {
-        for (b bVar : this.cpI) {
-            if (marker == bVar.dqX) {
+        for (b bVar : this.cxy) {
+            if (marker == bVar.dAZ) {
                 return bVar;
             }
         }
         return null;
     }
 
-    public List<b> uc(String str) {
+    public List<b> ws(String str) {
         ArrayList arrayList = new ArrayList(1);
-        for (b bVar : this.cpI) {
-            if (bVar.dqW != null && TextUtils.equals(str, bVar.dqW.id)) {
+        for (b bVar : this.cxy) {
+            if (bVar.dAY != null && TextUtils.equals(str, bVar.dAY.id)) {
                 arrayList.add(bVar);
             }
         }
         return arrayList;
     }
 
-    public a aN(View view) {
-        for (a aVar : this.cpL) {
-            if (aVar.dqV == view) {
+    public a aP(View view) {
+        for (a aVar : this.cxB) {
+            if (aVar.dAX == view) {
                 return aVar;
             }
         }
@@ -70,23 +70,23 @@ public class c extends com.baidu.swan.apps.component.b.a<TextureMapView, com.bai
     }
 
     public void clear() {
-        for (b bVar : this.cpI) {
-            this.drm.removeView(bVar.drb);
+        for (b bVar : this.cxy) {
+            this.dBo.removeView(bVar.dBd);
         }
-        this.cpI.clear();
-        for (a aVar : this.cpL) {
-            this.drm.removeView(aVar.dqV);
+        this.cxy.clear();
+        for (a aVar : this.cxB) {
+            this.dBo.removeView(aVar.dAX);
         }
-        this.cpL.clear();
-        this.drm.getMap().clear();
+        this.cxB.clear();
+        this.dBo.getMap().clear();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.component.b.a
     @NonNull
-    /* renamed from: dt */
-    public TextureMapView ba(@NonNull Context context) {
-        return this.drm;
+    /* renamed from: dz */
+    public TextureMapView bf(@NonNull Context context) {
+        return this.dBo;
     }
 }

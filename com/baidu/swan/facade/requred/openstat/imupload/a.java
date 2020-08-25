@@ -3,10 +3,10 @@ package com.baidu.swan.facade.requred.openstat.imupload;
 import android.annotation.SuppressLint;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes4.dex */
+/* loaded from: classes20.dex */
 public class a {
     @SuppressLint({"DefaultLocale"})
-    public static String p(String str, long j) {
+    public static String s(String str, long j) {
         return md5(String.format("%d%s%d", 1, str.toLowerCase(), Long.valueOf(j)));
     }
 

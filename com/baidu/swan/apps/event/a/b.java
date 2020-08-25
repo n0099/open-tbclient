@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b extends a {
     protected final Map<String, String> mParams;
 
@@ -14,17 +14,17 @@ public class b extends a {
 
     public b(@NonNull String str, @Nullable Map<String, String> map) {
         this.mParams = new HashMap();
-        this.bSl = str;
+        this.bXU = str;
         if (map != null) {
             this.mParams.putAll(map);
         }
     }
 
     @Override // com.baidu.swan.apps.event.a.a
-    public String kH(String str) {
+    public String mw(String str) {
         StringBuilder sb = new StringBuilder();
         for (Map.Entry<String, String> entry : this.mParams.entrySet()) {
-            sb.append(com.baidu.swan.apps.event.a.y(str, entry.getKey(), entry.getValue()));
+            sb.append(com.baidu.swan.apps.event.a.A(str, entry.getKey(), entry.getValue()));
         }
         return sb.toString();
     }

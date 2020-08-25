@@ -22,27 +22,26 @@ import com.baidu.tbadk.a.c;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
 import com.baidu.tbadk.core.sharedPref.b;
-import com.baidu.tbadk.core.util.ah;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.aa;
+import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.coreExtra.data.VersionData;
-import com.baidu.tbadk.coreExtra.data.af;
-import com.baidu.tbadk.coreExtra.data.o;
-import com.baidu.tbadk.coreExtra.data.x;
-import com.baidu.tbadk.coreExtra.data.y;
-import com.baidu.tbadk.coreExtra.model.d;
+import com.baidu.tbadk.coreExtra.data.ab;
+import com.baidu.tbadk.coreExtra.data.ai;
+import com.baidu.tbadk.coreExtra.data.r;
+import com.baidu.tbadk.coreExtra.messageCenter.d;
+import com.baidu.tbadk.coreExtra.model.e;
 import com.baidu.tbadk.mutiprocess.sync.SyncDataEvent;
 import com.baidu.tbadk.plugins.XiaoyingUtil;
 import com.baidu.tieba.g;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.Date;
 import java.util.Random;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class TiebaSyncService extends BdBaseService {
     private static String mStatistics = null;
     private a mSyncTask = null;
     private int mHaveRetry = 0;
-    private d mModel = null;
+    private e mModel = null;
     private Handler mHandler = new Handler();
     private Runnable mRunnable = new Runnable() { // from class: com.baidu.tieba.service.TiebaSyncService.1
         @Override // java.lang.Runnable
@@ -104,88 +103,88 @@ public class TiebaSyncService extends BdBaseService {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public class a extends BdAsyncTask<String, Integer, d> {
-        z byq;
+    /* loaded from: classes2.dex */
+    public class a extends BdAsyncTask<String, Integer, e> {
+        aa bDY;
 
         private a() {
-            this.byq = null;
+            this.bDY = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: N */
-        public d doInBackground(String... strArr) {
-            d dVar;
+        /* renamed from: O */
+        public e doInBackground(String... strArr) {
+            e eVar;
             Exception e;
             try {
-                this.byq = new z(TbConfig.SERVER_ADDRESS + TbConfig.GET_SYNC_ADDRESS);
-                this.byq.addPostData("_os_version", Build.VERSION.RELEASE);
-                this.byq.addPostData(HttpConstants.HTTP_BOARD, Build.BOARD);
-                this.byq.addPostData(Constants.PHONE_BRAND, Build.BRAND);
-                this.byq.addPostData("incremental", Build.VERSION.INCREMENTAL);
-                this.byq.addPostData("model", Build.MODEL);
+                this.bDY = new aa(TbConfig.SERVER_ADDRESS + TbConfig.GET_SYNC_ADDRESS);
+                this.bDY.addPostData("_os_version", Build.VERSION.RELEASE);
+                this.bDY.addPostData(HttpConstants.HTTP_BOARD, Build.BOARD);
+                this.bDY.addPostData(Constants.PHONE_BRAND, Build.BRAND);
+                this.bDY.addPostData("incremental", Build.VERSION.INCREMENTAL);
+                this.bDY.addPostData("model", Build.MODEL);
                 Application app = TbadkCoreApplication.getInst().getApp();
                 StringBuffer stringBuffer = new StringBuffer(15);
                 stringBuffer.append(String.valueOf(l.getEquipmentWidth(app)));
                 stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 stringBuffer.append(String.valueOf(l.getEquipmentHeight(app)));
-                this.byq.addPostData("_phone_screen", stringBuffer.toString());
-                this.byq.addPostData("scr_w", String.valueOf(l.getEquipmentWidth(app)));
-                this.byq.addPostData("scr_h", String.valueOf(l.getEquipmentHeight(app)));
-                this.byq.addPostData("scr_dip", String.valueOf(l.getEquipmentDensity(app)));
-                if (com.baidu.tbadk.coreExtra.messageCenter.d.bfO().bfR() > 0) {
-                    this.byq.addPostData("_msg_status", "0");
+                this.bDY.addPostData("_phone_screen", stringBuffer.toString());
+                this.bDY.addPostData("scr_w", String.valueOf(l.getEquipmentWidth(app)));
+                this.bDY.addPostData("scr_h", String.valueOf(l.getEquipmentHeight(app)));
+                this.bDY.addPostData("scr_dip", String.valueOf(l.getEquipmentDensity(app)));
+                if (d.boy().boB() > 0) {
+                    this.bDY.addPostData("_msg_status", "0");
                 } else {
-                    this.byq.addPostData("_msg_status", "1");
+                    this.bDY.addPostData("_msg_status", "1");
                 }
                 String activeVersion = TbadkCoreApplication.getInst().getActiveVersion();
                 if (activeVersion != null) {
                     if (activeVersion.length() < 1) {
                         activeVersion = "0";
                     }
-                    this.byq.addPostData("_active", activeVersion);
+                    this.bDY.addPostData("_active", activeVersion);
                 }
-                this.byq.addPostData("_pic_quality", String.valueOf(TbadkCoreApplication.getInst().getViewImageQuality()));
+                this.bDY.addPostData("_pic_quality", String.valueOf(TbadkCoreApplication.getInst().getViewImageQuality()));
                 if (TiebaSyncService.mStatistics != null) {
-                    this.byq.addPostData("_msg_type", TiebaSyncService.mStatistics);
+                    this.bDY.addPostData("_msg_type", TiebaSyncService.mStatistics);
                 }
                 String packageName = TbadkCoreApplication.getInst().getPackageName();
-                this.byq.addPostData("package", packageName);
-                this.byq.addPostData("versioncode", TbadkCoreApplication.getInst().getVersionCode() + "");
-                this.byq.addPostData("signmd5", au.creatSignInt(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
-                this.byq.addPostData("md5", g.getTiebaApkMd5());
-                String postNetData = this.byq.postNetData();
-                if (this.byq.isNetSuccess()) {
+                this.bDY.addPostData("package", packageName);
+                this.bDY.addPostData("versioncode", TbadkCoreApplication.getInst().getVersionCode() + "");
+                this.bDY.addPostData("signmd5", av.creatSignInt(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
+                this.bDY.addPostData("md5", g.getTiebaApkMd5());
+                String postNetData = this.bDY.postNetData();
+                if (this.bDY.isNetSuccess()) {
                     TbadkCoreApplication.getInst().clearActiveVersion();
                 }
-                if (this.byq.bav().baX().isRequestSuccess()) {
-                    dVar = new d();
+                if (this.bDY.biQ().bjw().isRequestSuccess()) {
+                    eVar = new e();
                     try {
-                        dVar.parserJson(postNetData);
-                        if (TbadkCoreApplication.getClientId() == null && dVar.bgs().getClientId() != null && dVar.bgs().getClientId().length() > 0) {
-                            TbadkCoreApplication.saveClientId(TiebaSyncService.this, dVar.bgs().getClientId());
-                            TbadkCoreApplication.setClientId(dVar.bgs().getClientId());
+                        eVar.parserJson(postNetData);
+                        if (TbadkCoreApplication.getClientId() == null && eVar.bpd().getClientId() != null && eVar.bpd().getClientId().length() > 0) {
+                            TbadkCoreApplication.saveClientId(TiebaSyncService.this, eVar.bpd().getClientId());
+                            TbadkCoreApplication.setClientId(eVar.bpd().getClientId());
                         }
-                        if (dVar.bgo() != null) {
-                            b.aZP().putInt("crash_limit_count", dVar.bgo().getCrashLimitCount());
+                        if (eVar.boZ() != null) {
+                            b.bik().putInt("crash_limit_count", eVar.boZ().getCrashLimitCount());
                         }
-                        com.baidu.tbadk.coreExtra.data.d adAdSense = dVar.getAdAdSense();
-                        if (dVar.getAdAdSense() != null && !TextUtils.isEmpty(adAdSense.getUrl())) {
-                            b.aZP().putString("sync_ad_privacy_url", adAdSense.getUrl());
+                        com.baidu.tbadk.coreExtra.data.d adAdSense = eVar.getAdAdSense();
+                        if (eVar.getAdAdSense() != null && !TextUtils.isEmpty(adAdSense.getUrl())) {
+                            b.bik().putString("sync_ad_privacy_url", adAdSense.getUrl());
                         }
                         String unused = TiebaSyncService.mStatistics = null;
-                        return dVar;
+                        return eVar;
                     } catch (Exception e2) {
                         e = e2;
                         BdLog.detailException(e);
-                        return dVar;
+                        return eVar;
                     }
                 }
                 return null;
             } catch (Exception e3) {
-                dVar = null;
+                eVar = null;
                 e = e3;
             }
         }
@@ -193,8 +192,8 @@ public class TiebaSyncService extends BdBaseService {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             TiebaSyncService.this.mSyncTask = null;
-            if (this.byq != null) {
-                this.byq.cancelNetConnect();
+            if (this.bDY != null) {
+                this.bDY.cancelNetConnect();
             }
             super.cancel(true);
         }
@@ -203,28 +202,28 @@ public class TiebaSyncService extends BdBaseService {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
-        public void onPostExecute(d dVar) {
+        public void onPostExecute(e eVar) {
             String str;
-            super.onPostExecute(dVar);
+            super.onPostExecute(eVar);
             TiebaSyncService.this.mSyncTask = null;
-            if (dVar != null) {
-                com.baidu.tbadk.util.b.bml().bmm();
-                TiebaSyncService.this.mModel = dVar;
-                com.baidu.tieba.b.a(TiebaSyncService.this.mModel.bgv());
+            if (eVar != null) {
+                com.baidu.tbadk.util.b.buY().buZ();
+                TiebaSyncService.this.mModel = eVar;
+                com.baidu.tieba.b.a(TiebaSyncService.this.mModel.bpg());
                 TiebaSyncService.this.onPostExecuteUpdateData();
-                TbadkCoreApplication.getInst().setIsNoInterestTag(1 == TiebaSyncService.this.mModel.bgw());
-                TbadkCoreApplication.getInst().setIsFirstTimeMotivate(TiebaSyncService.this.mModel.bgx());
-                TbadkCoreApplication.getInst().setIsNeedNewUserLead(TiebaSyncService.this.mModel.bgy());
+                TbadkCoreApplication.getInst().setIsNoInterestTag(1 == TiebaSyncService.this.mModel.bph());
+                TbadkCoreApplication.getInst().setIsFirstTimeMotivate(TiebaSyncService.this.mModel.bpi());
+                TbadkCoreApplication.getInst().setIsNeedNewUserLead(TiebaSyncService.this.mModel.bpj());
                 TbadkCoreApplication.getInst().loadLcsSwitchStratgy();
-                String bgp = TiebaSyncService.this.mModel.bgp();
-                if (!StringUtils.isNull(bgp)) {
-                    TbadkCoreApplication.getInst().setConfigVersion(bgp);
+                String bpa = TiebaSyncService.this.mModel.bpa();
+                if (!StringUtils.isNull(bpa)) {
+                    TbadkCoreApplication.getInst().setConfigVersion(bpa);
                 }
                 TiebaSyncService.this.onPostExecuteConfigData();
                 TiebaSyncService.this.onPostExecuteWlConfigData();
                 TiebaSyncService.this.onPostExecuteProfilData();
-                if (TiebaSyncService.this.mModel.bgu() != null) {
-                    TbSingleton.getInstance().setNewGodData(TiebaSyncService.this.mModel.bgu());
+                if (TiebaSyncService.this.mModel.bpf() != null) {
+                    TbSingleton.getInstance().setNewGodData(TiebaSyncService.this.mModel.bpf());
                 }
                 if (TiebaSyncService.this.mModel.getAdAdSense() != null) {
                     TbadkCoreApplication.getInst().setAdAdSense(TiebaSyncService.this.mModel.getAdAdSense());
@@ -232,23 +231,23 @@ public class TiebaSyncService extends BdBaseService {
                 if (TiebaSyncService.this.mModel.getActivitySwitch() != null) {
                     TbadkCoreApplication.getInst().setActivitySwitch(TiebaSyncService.this.mModel.getActivitySwitch());
                 }
-                if (TiebaSyncService.this.mModel.bgz() != null) {
-                    com.baidu.tbadk.util.a.bmh().a(TiebaSyncService.this.mModel.bgz());
+                if (TiebaSyncService.this.mModel.bpk() != null) {
+                    com.baidu.tbadk.util.a.buU().a(TiebaSyncService.this.mModel.bpk());
                 }
-                if (TiebaSyncService.this.mModel.bgA() != null) {
-                    com.baidu.tbadk.util.a.bmh().a(TiebaSyncService.this.mModel.bgA());
+                if (TiebaSyncService.this.mModel.bpl() != null) {
+                    com.baidu.tbadk.util.a.buU().a(TiebaSyncService.this.mModel.bpl());
                 }
-                com.baidu.tbadk.a.b.aRs().K(TiebaSyncService.this.mModel.bgB());
-                c.aRw().K(TiebaSyncService.this.mModel.bgC());
+                com.baidu.tbadk.a.b.aZJ().M(TiebaSyncService.this.mModel.bpm());
+                c.aZN().M(TiebaSyncService.this.mModel.bpn());
                 TbadkCoreApplication.getInst().setLastSyncFinishTime(System.currentTimeMillis());
                 SyncDataEvent syncDataEvent = new SyncDataEvent();
-                if (TiebaSyncService.this.mModel.bgt() != null) {
-                    str = TiebaSyncService.this.mModel.bgt().getSampleId();
+                if (TiebaSyncService.this.mModel.bpe() != null) {
+                    str = TiebaSyncService.this.mModel.bpe().getSampleId();
                 } else {
                     str = "";
                 }
                 syncDataEvent.sampleId = str;
-                syncDataEvent.abtestExtraData = TiebaSyncService.this.mModel.bgA();
+                syncDataEvent.abtestExtraData = TiebaSyncService.this.mModel.bpl();
                 com.baidu.tbadk.mutiprocess.g.publishEvent(syncDataEvent);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SYNC_FINISH));
                 TiebaSyncService.this.stopSelf();
@@ -266,53 +265,53 @@ public class TiebaSyncService extends BdBaseService {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onPostExecuteProfilData() {
-        y profileData = this.mModel.getProfileData();
+        ab profileData = this.mModel.getProfileData();
         if (profileData != null) {
             TbadkCoreApplication.getInst().setProfileData(profileData);
-            String beh = profileData.beh();
+            String bmR = profileData.bmR();
             long startTime = profileData.getStartTime();
             long endTime = profileData.getEndTime();
-            b.aZP().putString("sync_send_maintab_my_tab_lottie_url", beh);
-            b.aZP().putLong("sync_send_maintab_my_tab_lottie_start_time", startTime);
-            b.aZP().putLong("sync_send_maintab_my_tab_lottie_end_time", endTime);
+            b.bik().putString("sync_send_maintab_my_tab_lottie_url", bmR);
+            b.bik().putLong("sync_send_maintab_my_tab_lottie_start_time", startTime);
+            b.bik().putLong("sync_send_maintab_my_tab_lottie_end_time", endTime);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onPostExecuteConfigData() {
         int performSampleCount;
-        o bgo = this.mModel.bgo();
-        if (bgo != null) {
+        r boZ = this.mModel.boZ();
+        if (boZ != null) {
             int nextInt = new Random().nextInt(10000) + 1;
-            int bec = bgo.bec();
-            if (bec > 0 && nextInt % bec == 0 && (performSampleCount = TbadkCoreApplication.getInst().getPerformSampleCount()) < 10) {
+            int bmM = boZ.bmM();
+            if (bmM > 0 && nextInt % bmM == 0 && (performSampleCount = TbadkCoreApplication.getInst().getPerformSampleCount()) < 10) {
                 TbadkCoreApplication.getInst().setPerformSampleCount(performSampleCount + 1);
             }
-            if (bgo.bed() != null) {
-                TbadkCoreApplication.getInst().setCheckUrl(bgo.bed().ben());
+            if (boZ.bmN() != null) {
+                TbadkCoreApplication.getInst().setCheckUrl(boZ.bmN().bmX());
             }
-            TbadkCoreApplication.getInst().setLastUpdateMemberCenterTime(bgo.bee());
+            TbadkCoreApplication.getInst().setLastUpdateMemberCenterTime(boZ.bmO());
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAINTAB_MEMBER_RED_TIP, true));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onPostExecuteUpdateData() {
-        VersionData bgr = this.mModel.bgr();
-        if (bgr != null && bgr.hasNewVer() && TbConfig.COULD_UPDATE) {
-            TbadkCoreApplication.getInst().setVersionData(bgr);
+        VersionData bpc = this.mModel.bpc();
+        if (bpc != null && bpc.hasNewVer() && TbConfig.COULD_UPDATE) {
+            TbadkCoreApplication.getInst().setVersionData(bpc);
             broadcastNewVersion();
-            if (bgr.forceUpdate()) {
-                if (this.mModel.bgo() != null && TbadkCoreApplication.getInst().getResumeNum() > 0) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), bgr, this.mModel.bgq())));
+            if (bpc.forceUpdate()) {
+                if (this.mModel.boZ() != null && TbadkCoreApplication.getInst().getResumeNum() > 0) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), bpc, this.mModel.bpb())));
                     return;
                 }
                 return;
             }
             Long valueOf = Long.valueOf(TbadkCoreApplication.getInst().getUpdateNotifyTime());
             Long valueOf2 = Long.valueOf(new Date().getTime());
-            if (valueOf2.longValue() - valueOf.longValue() > 86400000 && bgr.getStrategy() == 0 && this.mModel.bgo() != null && TbadkCoreApplication.getInst().getResumeNum() > 0) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), bgr, this.mModel.bgq())));
+            if (valueOf2.longValue() - valueOf.longValue() > 86400000 && bpc.getStrategy() == 0 && this.mModel.boZ() != null && TbadkCoreApplication.getInst().getResumeNum() > 0) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), bpc, this.mModel.bpb())));
                 TbadkCoreApplication.getInst().setUpdateNotifyTime(valueOf2.longValue());
             }
         }
@@ -320,90 +319,90 @@ public class TiebaSyncService extends BdBaseService {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onPostExecuteWlConfigData() {
-        af bgt = this.mModel.bgt();
-        if (bgt != null) {
-            TbadkCoreApplication.getInst().setActivityPrizeData(bgt.getActivityPrizeData());
-            TbadkCoreApplication.getInst().getListItemRule().setMaxCache(bgt.beD());
-            TbadkCoreApplication.getInst().getListItemRule().setFrsPn(bgt.beF());
-            TbadkCoreApplication.getInst().getListItemRule().setFrsMaxCache(bgt.beE());
-            TbadkCoreApplication.getInst().setUseNewResign(bgt.beP());
-            TbadkCoreApplication.getInst().setUegVoiceWarning(bgt.getUegVoiceWarning());
-            TbadkCoreApplication.getInst().setUrlText(bgt.beX());
-            TbadkCoreApplication.getInst().setGameInfoData(bgt.beQ(), bgt.beS(), bgt.beR());
-            ah.baD().saveOrUpdateImages(bgt.bey(), bgt.bez(), bgt.beA(), bgt.beB(), bgt.beC());
-            String bex = bgt.bex();
-            b aZP = b.aZP();
-            if (bex == null) {
-                bex = "";
+        ai bpe = this.mModel.bpe();
+        if (bpe != null) {
+            TbadkCoreApplication.getInst().setActivityPrizeData(bpe.getActivityPrizeData());
+            TbadkCoreApplication.getInst().getListItemRule().setMaxCache(bpe.bnn());
+            TbadkCoreApplication.getInst().getListItemRule().setFrsPn(bpe.bnp());
+            TbadkCoreApplication.getInst().getListItemRule().setFrsMaxCache(bpe.bno());
+            TbadkCoreApplication.getInst().setUseNewResign(bpe.bnz());
+            TbadkCoreApplication.getInst().setUegVoiceWarning(bpe.getUegVoiceWarning());
+            TbadkCoreApplication.getInst().setUrlText(bpe.bnH());
+            TbadkCoreApplication.getInst().setGameInfoData(bpe.bnA(), bpe.bnC(), bpe.bnB());
+            com.baidu.tbadk.core.util.ai.bjb().saveOrUpdateImages(bpe.bni(), bpe.bnj(), bpe.bnk(), bpe.bnl(), bpe.bnm());
+            String bnh = bpe.bnh();
+            b bik = b.bik();
+            if (bnh == null) {
+                bnh = "";
             }
-            aZP.putString("apply_vip_live_room_pid", bex);
-            b.aZP().putString("tail_link", bgt.beG());
-            b.aZP().putString("bubble_link", bgt.beH());
-            long beI = bgt.beI();
-            if (beI >= 0 && beI != TbadkCoreApplication.getInst().getUseTimeInterval()) {
-                TbadkCoreApplication.getInst().setUseTimeInterval(bgt.beI());
+            bik.putString("apply_vip_live_room_pid", bnh);
+            b.bik().putString("tail_link", bpe.bnq());
+            b.bik().putString("bubble_link", bpe.bnr());
+            long bns = bpe.bns();
+            if (bns >= 0 && bns != TbadkCoreApplication.getInst().getUseTimeInterval()) {
+                TbadkCoreApplication.getInst().setUseTimeInterval(bpe.bns());
             }
-            long bfa = bgt.bfa() * 1000;
-            if (bfa > 0) {
-                b.aZP().putLong("KEY_UPLOAD_LOG_INTERVAL", bfa);
+            long bnK = bpe.bnK() * 1000;
+            if (bnK > 0) {
+                b.bik().putLong("KEY_UPLOAD_LOG_INTERVAL", bnK);
             } else {
-                long beY = bgt.beY() * 1000;
-                if (beY > 0) {
-                    b.aZP().putLong("KEY_UPLOAD_LOG_INTERVAL", beY);
+                long bnI = bpe.bnI() * 1000;
+                if (bnI > 0) {
+                    b.bik().putLong("KEY_UPLOAD_LOG_INTERVAL", bnI);
                 }
             }
-            XiaoyingUtil.setShowTime(bgt.beJ());
-            TbadkCoreApplication.getInst().setLastUpdateThemeTime(bgt.beK());
-            b.aZP().putLong("recommend_frs_cache_time", bgt.beN());
-            b.aZP().putInt("home_page_max_thread_count", bgt.beO());
-            b.aZP().putBoolean("localvideo_open", bgt.beU());
+            XiaoyingUtil.setShowTime(bpe.bnt());
+            TbadkCoreApplication.getInst().setLastUpdateThemeTime(bpe.bnu());
+            b.bik().putLong("recommend_frs_cache_time", bpe.bnx());
+            b.bik().putInt("home_page_max_thread_count", bpe.bny());
+            b.bik().putBoolean("localvideo_open", bpe.bnE());
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_LEFT_NAV_DRESSUP_CENTER_TIP));
-            b.aZP().putInt("card_show_statistic_max_count", bgt.erd);
-            b.aZP().putString("nick_name_activity_link", bgt.beW());
-            String string = b.aZP().getString("clean_smart_frs_cookie", "");
-            String beT = bgt.beT();
-            if (!TextUtils.equals(string, beT)) {
+            b.bik().putInt("card_show_statistic_max_count", bpe.eBx);
+            b.bik().putString("nick_name_activity_link", bpe.bnG());
+            String string = b.bik().getString("clean_smart_frs_cookie", "");
+            String bnD = bpe.bnD();
+            if (!TextUtils.equals(string, bnD)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CLEAN_SMART_FRS_COOKIE, Boolean.TRUE));
             }
-            b.aZP().putString("clean_smart_frs_cookie", beT);
-            b.aZP().putInt("recommend_tab_show", bgt.beL());
-            b.aZP().putInt("ribao_switch", bgt.beM());
-            TbConfig.setMaxPhotoMemoryCache(bgt.beV());
-            b.aZP().putInt("key_card_show_type", bgt.bfb());
-            TbadkCoreApplication.getInst().setCardShowType(bgt.bfb());
-            b.aZP().putInt("key_card_abstract_switch", bgt.bfc());
-            x bfd = bgt.bfd();
-            if (bfd != null) {
-                b.aZP().putBoolean("nani_key_is_show_download_nani_panel", bfd.eqn);
-                b.aZP().putBoolean("nani_key_is_activate_app", bfd.eqo);
-                b.aZP().putInt("nani_key_download_show_position", bfd.eqp);
-                b.aZP().putInt("nani_key_download_show_rate", bfd.eqq);
-                b.aZP().putString("nani_key_download_link_url", bfd.eqr);
-                b.aZP().putString("nani_key_download_txt", bfd.eqs);
-                b.aZP().putString("nani_key_show_tail_txt", bfd.eqt);
-                b.aZP().putInt("nani_key_show_tail_video_type", bfd.equ);
-                b.aZP().putString("nani_key_show_tail_txt", bfd.eqt);
-                b.aZP().putString("nani_key_pre_h5_link", bfd.eqv);
+            b.bik().putString("clean_smart_frs_cookie", bnD);
+            b.bik().putInt("recommend_tab_show", bpe.bnv());
+            b.bik().putInt("ribao_switch", bpe.bnw());
+            TbConfig.setMaxPhotoMemoryCache(bpe.bnF());
+            b.bik().putInt("key_card_show_type", bpe.bnL());
+            TbadkCoreApplication.getInst().setCardShowType(bpe.bnL());
+            b.bik().putInt("key_card_abstract_switch", bpe.bnM());
+            com.baidu.tbadk.coreExtra.data.aa bnN = bpe.bnN();
+            if (bnN != null) {
+                b.bik().putBoolean("nani_key_is_show_download_nani_panel", bnN.eAH);
+                b.bik().putBoolean("nani_key_is_activate_app", bnN.eAI);
+                b.bik().putInt("nani_key_download_show_position", bnN.eAJ);
+                b.bik().putInt("nani_key_download_show_rate", bnN.eAK);
+                b.bik().putString("nani_key_download_link_url", bnN.eAL);
+                b.bik().putString("nani_key_download_txt", bnN.eAM);
+                b.bik().putString("nani_key_show_tail_txt", bnN.eAN);
+                b.bik().putInt("nani_key_show_tail_video_type", bnN.eAO);
+                b.bik().putString("nani_key_show_tail_txt", bnN.eAN);
+                b.bik().putString("nani_key_pre_h5_link", bnN.eAP);
             }
-            if (bgt.bfi() != null) {
-                TbSingleton.getInstance().setShakeData(bgt.bfi());
+            if (bpe.bnS() != null) {
+                TbSingleton.getInstance().setShakeData(bpe.bnS());
             }
-            if (!TextUtils.isEmpty(bgt.getSharePanelText())) {
-                TbSingleton.getInstance().setSharePanelText(bgt.getSharePanelText());
+            if (!TextUtils.isEmpty(bpe.getSharePanelText())) {
+                TbSingleton.getInstance().setSharePanelText(bpe.getSharePanelText());
             }
-            b.aZP().putLong("key_frs_cache_time", bgt.bfe() * 1000);
-            TbSingleton.getInstance().setPushDialogLoopTime(bgt.bff());
-            TbSingleton.getInstance().setPushDialogShowTime(bgt.bfg());
-            TbSingleton.getInstance().setCanShowPermDlg(bgt.bfh());
-            TbSingleton.getInstance().setShowPersonCenterLiteGame(bgt.bfj());
-            TbSingleton.getInstance().setProfileGameCenterKey(bgt.bfk());
-            TbSingleton.getInstance().setMissionEntranceUrl(bgt.getMissionEntranceUrl());
-            TbSingleton.getInstance().setMissionEntranceIcon(bgt.getMissionEntranceIcon());
-            TbSingleton.getInstance().setMissionEntranceObjSource(bgt.getMissionEntranceObjSource());
-            TbSingleton.getInstance().setWalletSignLink(bgt.getWalletSignLink());
-            TbSingleton.getInstance().setSampleId(bgt.getSampleId());
-            TbSingleton.getInstance().setLiveForumMap(bgt.bew());
-            TbSingleton.getInstance().setClipboardDelayTime(bgt.beZ());
+            b.bik().putLong("key_frs_cache_time", bpe.bnO() * 1000);
+            TbSingleton.getInstance().setPushDialogLoopTime(bpe.bnP());
+            TbSingleton.getInstance().setPushDialogShowTime(bpe.bnQ());
+            TbSingleton.getInstance().setCanShowPermDlg(bpe.bnR());
+            TbSingleton.getInstance().setShowPersonCenterLiteGame(bpe.bnT());
+            TbSingleton.getInstance().setProfileGameCenterKey(bpe.bnU());
+            TbSingleton.getInstance().setMissionEntranceUrl(bpe.getMissionEntranceUrl());
+            TbSingleton.getInstance().setMissionEntranceIcon(bpe.getMissionEntranceIcon());
+            TbSingleton.getInstance().setMissionEntranceObjSource(bpe.getMissionEntranceObjSource());
+            TbSingleton.getInstance().setWalletSignLink(bpe.getWalletSignLink());
+            TbSingleton.getInstance().setSampleId(bpe.getSampleId());
+            TbSingleton.getInstance().setLiveForumMap(bpe.bng());
+            TbSingleton.getInstance().setClipboardDelayTime(bpe.bnJ());
         }
     }
 }

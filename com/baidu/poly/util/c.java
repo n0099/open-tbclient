@@ -9,9 +9,25 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class c {
-    public static String m(File file) {
+    public static String a(InputStream inputStream) {
+        if (inputStream == null) {
+            return null;
+        }
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+        StringBuilder sb = new StringBuilder();
+        while (true) {
+            String readLine = bufferedReader.readLine();
+            if (readLine != null) {
+                sb.append(readLine);
+            } else {
+                return sb.toString();
+            }
+        }
+    }
+
+    public static String n(File file) {
         FileInputStream fileInputStream;
         String str = null;
         if (file != null) {
@@ -36,22 +52,6 @@ public class c {
             }
         }
         return str;
-    }
-
-    public static String a(InputStream inputStream) {
-        if (inputStream == null) {
-            return null;
-        }
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-        StringBuilder sb = new StringBuilder();
-        while (true) {
-            String readLine = bufferedReader.readLine();
-            if (readLine != null) {
-                sb.append(readLine);
-            } else {
-                return sb.toString();
-            }
-        }
     }
 
     public static void a(String str, File file) {

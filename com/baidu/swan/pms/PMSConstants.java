@@ -1,10 +1,10 @@
 package com.baidu.swan.pms;
-/* loaded from: classes19.dex */
+/* loaded from: classes14.dex */
 public class PMSConstants {
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes14.dex */
     public static final class a {
-        public static String ak(int i, String str) {
+        public static String ai(int i, String str) {
             switch (i) {
                 case 1001:
                     return "system error";
@@ -43,7 +43,7 @@ public class PMSConstants {
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes14.dex */
     public enum PayProtected {
         NO_PAY_PROTECTED(0),
         PAY_PROTECTED(1);
@@ -55,7 +55,7 @@ public class PMSConstants {
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes14.dex */
     public enum CustomerService {
         NO_CUSTOMER_SERVICE(0),
         CUSTOMER_SERVICE(1);
@@ -67,7 +67,7 @@ public class PMSConstants {
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes14.dex */
     public enum CloudSwitch {
         NO_DISPLAY(0),
         DISPLAY(1);
@@ -76,6 +76,13 @@ public class PMSConstants {
 
         CloudSwitch(int i) {
             this.value = i;
+        }
+    }
+
+    /* loaded from: classes14.dex */
+    public static final class b {
+        public static int getVersion() {
+            return 1;
         }
     }
 }

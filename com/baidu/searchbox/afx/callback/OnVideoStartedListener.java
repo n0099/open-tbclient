@@ -1,5 +1,5 @@
 package com.baidu.searchbox.afx.callback;
-/* loaded from: classes6.dex */
+/* loaded from: classes18.dex */
 public interface OnVideoStartedListener {
     void onVideoStarted();
 }

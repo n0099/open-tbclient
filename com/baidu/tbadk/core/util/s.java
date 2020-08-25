@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util;
 import android.os.Handler;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface s {
     void addPostData(String str, String str2);
 

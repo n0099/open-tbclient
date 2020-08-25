@@ -4,50 +4,50 @@ import master.flame.danmaku.danmaku.model.a.c;
 /* loaded from: classes6.dex */
 class a<T extends c<T>> implements b<T> {
     private final boolean mInfinite;
-    private int oeA;
-    private final d<T> oex;
-    private final int oey;
-    private T oez;
+    private final d<T> oyu;
+    private final int oyv;
+    private T oyw;
+    private int oyx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(d<T> dVar, int i) {
         if (i <= 0) {
             throw new IllegalArgumentException("The pool limit must be > 0");
         }
-        this.oex = dVar;
-        this.oey = i;
+        this.oyu = dVar;
+        this.oyv = i;
         this.mInfinite = false;
     }
 
     @Override // master.flame.danmaku.danmaku.model.a.b
-    public T dWu() {
-        T dWt;
-        if (this.oez != null) {
-            T t = this.oez;
-            this.oez = (T) t.dWq();
-            this.oeA--;
-            dWt = t;
+    public T eix() {
+        T eiw;
+        if (this.oyw != null) {
+            T t = this.oyw;
+            this.oyw = (T) t.eit();
+            this.oyx--;
+            eiw = t;
         } else {
-            dWt = this.oex.dWt();
+            eiw = this.oyu.eiw();
         }
-        if (dWt != null) {
-            dWt.bO(null);
-            dWt.yc(false);
-            this.oex.b(dWt);
+        if (eiw != null) {
+            eiw.bQ(null);
+            eiw.yU(false);
+            this.oyu.b(eiw);
         }
-        return dWt;
+        return eiw;
     }
 
     @Override // master.flame.danmaku.danmaku.model.a.b
     public void c(T t) {
-        if (!t.dWo()) {
-            if (this.mInfinite || this.oeA < this.oey) {
-                this.oeA++;
-                t.bO(this.oez);
-                t.yc(true);
-                this.oez = t;
+        if (!t.eir()) {
+            if (this.mInfinite || this.oyx < this.oyv) {
+                this.oyx++;
+                t.bQ(this.oyw);
+                t.yU(true);
+                this.oyw = t;
             }
-            this.oex.a(t);
+            this.oyu.a(t);
         }
     }
 }

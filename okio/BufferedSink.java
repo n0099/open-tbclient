@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.channels.WritableByteChannel;
 import java.nio.charset.Charset;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public interface BufferedSink extends WritableByteChannel, Sink {
     Buffer buffer();
 

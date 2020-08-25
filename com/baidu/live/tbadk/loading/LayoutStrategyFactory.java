@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class LayoutStrategyFactory {
     private LayoutStrategyFactory() {
     }

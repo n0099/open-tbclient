@@ -7,7 +7,7 @@ import android.os.Bundle;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public final class BitmapDescriptor {
     Bitmap a;
     private Bundle b;
@@ -37,8 +37,9 @@ public final class BitmapDescriptor {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Bundle b() {
+        MessageDigest messageDigest;
         if (this.a == null) {
-            throw new IllegalStateException("the bitmap has been recycled! you can not use it again");
+            throw new IllegalStateException("BDMapSDKException: the bitmap has been recycled! you can not use it again");
         }
         if (this.b == null) {
             Bundle bundle = new Bundle();
@@ -46,22 +47,31 @@ public final class BitmapDescriptor {
             bundle.putInt("image_height", this.a.getHeight());
             byte[] a = a();
             bundle.putByteArray("image_data", a);
-            MessageDigest messageDigest = null;
             try {
                 messageDigest = MessageDigest.getInstance("MD5");
             } catch (NoSuchAlgorithmException e) {
                 e.printStackTrace();
+                messageDigest = null;
             }
-            messageDigest.update(a, 0, a.length);
-            byte[] digest = messageDigest.digest();
-            StringBuilder sb = new StringBuilder("");
-            for (byte b : digest) {
-                sb.append(Integer.toString((b & 255) + 256, 16).substring(1));
+            if (messageDigest != null) {
+                messageDigest.update(a, 0, a.length);
+                byte[] digest = messageDigest.digest();
+                StringBuilder sb = new StringBuilder("");
+                for (byte b : digest) {
+                    sb.append(Integer.toString((b & 255) + 256, 16).substring(1));
+                }
+                bundle.putString("image_hashcode", sb.toString());
             }
-            bundle.putString("image_hashcode", sb.toString());
             this.b = bundle;
         }
         return this.b;
+    }
+
+    public void clearCache() {
+        if (this.b != null) {
+            this.b.clear();
+            this.b = null;
+        }
     }
 
     public Bitmap getBitmap() {

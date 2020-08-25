@@ -6,9 +6,9 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public @interface o {
-    boolean aZB() default false;
+    boolean bhW() default false;
 
     String value() default "";
 }

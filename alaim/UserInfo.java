@@ -4,7 +4,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class UserInfo extends Message {
     public static final String DEFAULT_DESCRIPTION = "";
     public static final String DEFAULT_NICKNAME = "";
@@ -216,7 +216,7 @@ public final class UserInfo extends Message {
         this.im_effect = builder.im_effect;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<UserInfo> {
         public Integer audienceLevel;
         public String description;

@@ -7,10 +7,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class SupportMapFragment extends Fragment {
     private static final String a = SupportMapFragment.class.getSimpleName();
-    private MapView b;
+    private TextureMapView b;
     private BaiduMapOptions c;
 
     public SupportMapFragment() {
@@ -35,7 +35,7 @@ public class SupportMapFragment extends Fragment {
         return this.b.getMap();
     }
 
-    public MapView getMapView() {
+    public TextureMapView getMapView() {
         return this.b;
     }
 
@@ -61,7 +61,7 @@ public class SupportMapFragment extends Fragment {
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.b = new MapView(getActivity(), this.c);
+        this.b = new TextureMapView(getActivity(), this.c);
         return this.b;
     }
 

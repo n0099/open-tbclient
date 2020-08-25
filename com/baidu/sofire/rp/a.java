@@ -4,9 +4,8 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.sofire.e;
-import com.baidu.sofire.i.d;
-import com.baidu.sofire.i.g;
-/* loaded from: classes3.dex */
+import com.baidu.sofire.i.h;
+/* loaded from: classes20.dex */
 public final class a {
     public static String a(Context context) {
         String str = "";
@@ -18,7 +17,7 @@ public final class a {
             }
             str = eVar.o();
             if (TextUtils.isEmpty(str)) {
-                str = g.e(context);
+                str = h.e(context);
                 if (!TextUtils.isEmpty(str)) {
                     if (TextUtils.isEmpty(str)) {
                         eVar.d.putString("rpiiemn", "");
@@ -30,7 +29,7 @@ public final class a {
                 }
             }
         } catch (Throwable th) {
-            d.a();
+            com.baidu.sofire.i.e.a();
         }
         return str;
     }
@@ -41,14 +40,14 @@ public final class a {
             e eVar = new e(context);
             str = eVar.b.getString("rpandid", "");
             if (TextUtils.isEmpty(str)) {
-                str = g.f(context);
+                str = h.f(context);
                 if (!TextUtils.isEmpty(str)) {
                     eVar.d.putString("rpandid", str);
                     eVar.d.commit();
                 }
             }
         } catch (Throwable th) {
-            d.a();
+            com.baidu.sofire.i.e.a();
         }
         return str;
     }

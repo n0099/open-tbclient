@@ -3,13 +3,13 @@ package com.baidu.tieba.ala.frsgamelive.c;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import com.baidu.adp.widget.ListView.ad;
+import com.baidu.adp.widget.ListView.af;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.gamelist.b.a> {
-    private d fMq;
-    private d fMr;
+    private d fYo;
+    private d fYp;
 
     public c(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
@@ -18,8 +18,8 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.gamelist.b.a> 
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        this.fMq.onChangeSkinType(tbPageContext, i);
-        this.fMr.onChangeSkinType(tbPageContext, i);
+        this.fYo.onChangeSkinType(tbPageContext, i);
+        this.fYp.onChangeSkinType(tbPageContext, i);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -31,19 +31,19 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.gamelist.b.a> 
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.gamelist.b.a aVar) {
         if (aVar != null) {
-            this.fMq.a(aVar.fNk);
-            this.fMr.a(aVar.fNl);
+            this.fYo.a(aVar.fZi);
+            this.fYp.a(aVar.fZj);
         }
     }
 
     public void c(com.baidu.tieba.ala.e eVar) {
-        this.fMq.d(eVar);
-        this.fMr.d(eVar);
+        this.fYo.d(eVar);
+        this.fYp.d(eVar);
     }
 
     public void setLabelName(String str) {
-        this.fMq.setLabelName(str);
-        this.fMr.setLabelName(str);
+        this.fYo.setLabelName(str);
+        this.fYp.setLabelName(str);
     }
 
     @Override // android.view.View.OnClickListener
@@ -51,22 +51,22 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.gamelist.b.a> 
     }
 
     private void initView() {
-        this.fMq = new d(getTbPageContext());
-        this.fMr = new d(getTbPageContext());
+        this.fYo = new d(getTbPageContext());
+        this.fYp = new d(getTbPageContext());
         ViewGroup viewGroup = (ViewGroup) getView();
         View view = new View(getContext());
-        viewGroup.addView(this.fMq.getView());
+        viewGroup.addView(this.fYo.getView());
         viewGroup.addView(view, new LinearLayout.LayoutParams(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.ds16), -1));
-        viewGroup.addView(this.fMr.getView());
+        viewGroup.addView(this.fYp.getView());
     }
 
     /* loaded from: classes4.dex */
-    public static class a extends ad.a {
-        public c fMs;
+    public static class a extends af.a {
+        public c fYq;
 
         public a(c cVar) {
             super(cVar.getView());
-            this.fMs = cVar;
+            this.fYq = cVar;
         }
     }
 }

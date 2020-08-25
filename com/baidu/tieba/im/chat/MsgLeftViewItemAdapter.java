@@ -6,7 +6,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.chat.e;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class MsgLeftViewItemAdapter extends e<MsgleftView> {
     private boolean mNeedShowName;
 
@@ -15,14 +15,14 @@ public class MsgLeftViewItemAdapter extends e<MsgleftView> {
         this.mNeedShowName = true;
     }
 
-    public void pz(boolean z) {
+    public void qf(boolean z) {
         this.mNeedShowName = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bS */
+    /* renamed from: bO */
     public e.a<MsgleftView> b(ViewGroup viewGroup) {
         MsgleftView msgleftView = new MsgleftView(this.mPageContext);
         return new a(msgleftView.getConvertView(), msgleftView);
@@ -33,24 +33,24 @@ public class MsgLeftViewItemAdapter extends e<MsgleftView> {
     @Override // com.baidu.tieba.im.chat.e, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgleftView> aVar) {
         super.a(i, view, viewGroup, chatMessage, (e.a) aVar);
-        MsgleftView cra = aVar.cra();
-        cra.yq(this.iQM);
-        cra.pz(this.mNeedShowName);
+        MsgleftView cBS = aVar.cBS();
+        cBS.AK(this.jfJ);
+        cBS.qf(this.mNeedShowName);
         chatMessage.getCacheData().setIs_left(1);
-        cra.a(this.iQD);
-        cra.setOnItemViewLongClickListener(this.iQE);
-        cra.setPosition(i);
-        cra.eM(this.flq);
-        cra.eL(chatMessage.getCacheData().getLastMsgTime());
-        cra.a(viewGroup, chatMessage);
-        cra.b(viewGroup, chatMessage);
+        cBS.a(this.jfA);
+        cBS.setOnItemViewLongClickListener(this.jfB);
+        cBS.setPosition(i);
+        cBS.eY(this.fwM);
+        cBS.eX(chatMessage.getCacheData().getLastMsgTime());
+        cBS.a(viewGroup, chatMessage);
+        cBS.b(viewGroup, chatMessage);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class a extends e.a<MsgleftView> {
         public a(View view, MsgleftView msgleftView) {
             super(view, msgleftView);

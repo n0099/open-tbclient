@@ -7,7 +7,7 @@ import android.util.Base64;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes20.dex */
 public final class e {
     public SharedPreferences a;
     public SharedPreferences b;
@@ -122,7 +122,7 @@ public final class e {
             str = new String(com.baidu.sofire.i.a.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), Base64.decode(string, 10), true), "UTF-8");
         } catch (Throwable th) {
             str = "";
-            com.baidu.sofire.i.d.a();
+            com.baidu.sofire.i.e.a();
         }
         return str;
     }
@@ -137,7 +137,7 @@ public final class e {
             str = new String(com.baidu.sofire.i.a.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), Base64.decode(string, 10), true), "UTF-8");
         } catch (Throwable th) {
             str = "";
-            com.baidu.sofire.i.d.a();
+            com.baidu.sofire.i.e.a();
         }
         return str;
     }
@@ -152,7 +152,7 @@ public final class e {
             str = new String(com.baidu.sofire.i.a.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), Base64.decode(string, 10), true), "UTF-8");
         } catch (Throwable th) {
             str = "";
-            com.baidu.sofire.i.d.a();
+            com.baidu.sofire.i.e.a();
         }
         return str;
     }
@@ -167,7 +167,7 @@ public final class e {
             this.d.putString("rpnewuidn", new String(Base64.encode(com.baidu.sofire.i.a.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), str.getBytes("UTF-8")), 10), "UTF-8"));
             this.d.commit();
         } catch (Throwable th) {
-            com.baidu.sofire.i.d.a();
+            com.baidu.sofire.i.e.a();
         }
     }
 
@@ -342,7 +342,7 @@ public final class e {
         }
         int i = this.e.getInt("re_net_hr", 3);
         try {
-            String[] g = com.baidu.sofire.i.d.g(this.g);
+            String[] g = com.baidu.sofire.i.e.g(this.g);
             if (g != null && g.length == 2 && !TextUtils.isEmpty(g[0]) && !TextUtils.isEmpty(g[1]) && "200080".equals(g[0])) {
                 if ("com.baidu.BaiduMap".equals(this.g.getPackageName()) && i < 24) {
                     return 24;

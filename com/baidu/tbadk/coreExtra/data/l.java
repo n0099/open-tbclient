@@ -1,31 +1,28 @@
 package com.baidu.tbadk.coreExtra.data;
-/* loaded from: classes.dex */
+
+import org.json.JSONObject;
+/* loaded from: classes2.dex */
 public class l {
-    private int mChunkNo;
-    private String mMd5;
-    private long mTotalLength;
+    private int eAj;
+    private m eAk;
 
-    public String getMd5() {
-        return this.mMd5;
+    public void cY(JSONObject jSONObject) {
+        JSONObject optJSONObject = jSONObject.optJSONObject("common");
+        if (optJSONObject != null) {
+            this.eAj = optJSONObject.optInt("version");
+        }
+        JSONObject optJSONObject2 = jSONObject.optJSONObject("special");
+        if (optJSONObject2 != null) {
+            this.eAk = new m();
+            this.eAk.cY(optJSONObject2);
+        }
     }
 
-    public void setMd5(String str) {
-        this.mMd5 = str;
+    public int bmI() {
+        return this.eAj;
     }
 
-    public long getTotalLength() {
-        return this.mTotalLength;
-    }
-
-    public void setTotalLength(long j) {
-        this.mTotalLength = j;
-    }
-
-    public int getChunkNo() {
-        return this.mChunkNo;
-    }
-
-    public void setChunkNo(int i) {
-        this.mChunkNo = i;
+    public m bmJ() {
+        return this.eAk;
     }
 }

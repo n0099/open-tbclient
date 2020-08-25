@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import android.support.v7.widget.ActivityChooserView;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class jl {
     private static int a = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
 
@@ -16,13 +16,13 @@ public class jl {
         }
         switch (b) {
             case 2:
-                jiVar.m489a();
+                jiVar.m494a();
                 return;
             case 3:
                 jiVar.a();
                 return;
             case 4:
-                jiVar.m477a();
+                jiVar.m482a();
                 return;
             case 5:
             case 7:
@@ -30,50 +30,50 @@ public class jl {
             default:
                 return;
             case 6:
-                jiVar.m487a();
+                jiVar.m492a();
                 return;
             case 8:
-                jiVar.m478a();
+                jiVar.m483a();
                 return;
             case 10:
-                jiVar.m479a();
+                jiVar.m484a();
                 return;
             case 11:
-                jiVar.m486a();
+                jiVar.m491a();
                 return;
             case 12:
-                jiVar.m484a();
+                jiVar.m489a();
                 while (true) {
-                    jf m480a = jiVar.m480a();
-                    if (m480a.a == 0) {
+                    jf m485a = jiVar.m485a();
+                    if (m485a.a == 0) {
                         jiVar.f();
                         return;
                     } else {
-                        a(jiVar, m480a.a, i - 1);
+                        a(jiVar, m485a.a, i - 1);
                         jiVar.g();
                     }
                 }
             case 13:
-                jh m482a = jiVar.m482a();
-                while (i2 < m482a.f785a) {
-                    a(jiVar, m482a.a, i - 1);
-                    a(jiVar, m482a.b, i - 1);
+                jh m487a = jiVar.m487a();
+                while (i2 < m487a.f782a) {
+                    a(jiVar, m487a.a, i - 1);
+                    a(jiVar, m487a.b, i - 1);
                     i2++;
                 }
                 jiVar.h();
                 return;
             case 14:
-                jm m483a = jiVar.m483a();
-                while (i2 < m483a.f786a) {
-                    a(jiVar, m483a.a, i - 1);
+                jm m488a = jiVar.m488a();
+                while (i2 < m488a.f783a) {
+                    a(jiVar, m488a.a, i - 1);
                     i2++;
                 }
                 jiVar.j();
                 return;
             case 15:
-                jg m481a = jiVar.m481a();
-                while (i2 < m481a.f784a) {
-                    a(jiVar, m481a.a, i - 1);
+                jg m486a = jiVar.m486a();
+                while (i2 < m486a.f781a) {
+                    a(jiVar, m486a.a, i - 1);
                     i2++;
                 }
                 jiVar.i();

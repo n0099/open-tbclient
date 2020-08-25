@@ -1,16 +1,56 @@
 package com.baidu.tbadk.core.data;
-/* loaded from: classes.dex */
-public class bj extends t {
-    private boolean dQD;
-    private String title;
 
-    public bj(String str, boolean z) {
-        kK(7);
-        this.dQD = z;
-        this.title = str;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.RecommendForumInfo;
+/* loaded from: classes2.dex */
+public class bj extends u {
+    public static final BdUniqueId TYPE = BdUniqueId.gen();
+    public String className;
+    public int dZU;
+    private ArrayList<bi> dZV;
+    public String title;
+
+    public bj() {
+        mQ(9);
+        this.dZV = new ArrayList<>();
     }
 
-    public String getTitle() {
-        return this.title;
+    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
+    public BdUniqueId getType() {
+        return dXF;
+    }
+
+    @Override // com.baidu.tbadk.core.data.u, com.baidu.tbadk.core.data.AbsThreadDataSupport
+    public bw bce() {
+        return null;
+    }
+
+    @Override // com.baidu.tbadk.core.data.u, com.baidu.tbadk.core.data.AbsThreadDataSupport
+    public ar bcg() {
+        return new ar();
+    }
+
+    public void aL(List<RecommendForumInfo> list) {
+        if (list != null && list.size() > 0) {
+            ArrayList arrayList = new ArrayList();
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                RecommendForumInfo recommendForumInfo = list.get(i);
+                bi biVar = new bi();
+                if (recommendForumInfo != null && recommendForumInfo.forum_id != null && recommendForumInfo.forum_id.longValue() != 0 && !StringUtils.isNull(recommendForumInfo.forum_name) && recommendForumInfo.is_like != null && recommendForumInfo.is_like.intValue() != 1) {
+                    biVar.a(recommendForumInfo);
+                    arrayList.add(biVar);
+                }
+            }
+            this.dZV.clear();
+            this.dZV.addAll(com.baidu.tbadk.core.util.y.trimToSize(arrayList, 15));
+        }
+    }
+
+    public ArrayList<bi> bdK() {
+        return this.dZV;
     }
 }

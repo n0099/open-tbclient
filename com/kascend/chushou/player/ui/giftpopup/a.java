@@ -25,12 +25,12 @@ public class a implements View.OnClickListener {
     private ImageView k;
     private RelativeLayout l;
     private boolean m = false;
-    private FoodView nAa;
-    private FrescoThumbnailView nAb;
-    public ListItem nnt;
-    private GiftPopupLayout nzX;
-    private RedpacketNotifier nzY;
-    private InteractNotifier nzZ;
+    public ListItem nHk;
+    private GiftPopupLayout nTL;
+    private RedpacketNotifier nTM;
+    private InteractNotifier nTN;
+    private FoodView nTO;
+    private FrescoThumbnailView nTP;
 
     public a(View view, int i) {
         this.h = 1;
@@ -42,7 +42,7 @@ public class a implements View.OnClickListener {
         d();
         c(list);
         a(aVar);
-        this.nzZ.a(bVar, aVar2, aVar3);
+        this.nTN.a(bVar, aVar2, aVar3);
     }
 
     public void a(boolean z) {
@@ -50,18 +50,18 @@ public class a implements View.OnClickListener {
             this.c.setVisibility(0);
             if (!z) {
                 this.d.setVisibility(8);
-                this.nzX.setVisibility(8);
+                this.nTL.setVisibility(8);
                 this.l.setVisibility(8);
                 return;
             }
             this.d.setVisibility(0);
-            this.nzX.setVisibility(0);
+            this.nTL.setVisibility(0);
             this.l.setVisibility(0);
             if (this.h == 2 && (this.c.getContext() instanceof Activity)) {
                 Activity activity = (Activity) this.c.getContext();
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.c.getLayoutParams();
-                if (tv.chushou.zues.utils.systemBar.b.gK(activity)) {
-                    marginLayoutParams.bottomMargin = tv.chushou.zues.utils.systemBar.b.gI(activity) + tv.chushou.zues.utils.a.dip2px(activity, 68.0f);
+                if (tv.chushou.zues.utils.systemBar.b.hc(activity)) {
+                    marginLayoutParams.bottomMargin = tv.chushou.zues.utils.systemBar.b.ha(activity) + tv.chushou.zues.utils.a.dip2px(activity, 68.0f);
                 } else {
                     marginLayoutParams.bottomMargin = tv.chushou.zues.utils.a.dip2px(activity, 68.0f);
                 }
@@ -75,19 +75,19 @@ public class a implements View.OnClickListener {
     }
 
     public void b() {
-        if (this.nzX != null) {
-            this.nzX.removeAllViews();
-            this.nzX.setVisibility(8);
+        if (this.nTL != null) {
+            this.nTL.removeAllViews();
+            this.nTL.setVisibility(8);
         }
-        if (this.nzZ != null) {
-            this.nzZ.b();
-            this.nzZ.setVisibility(8);
+        if (this.nTN != null) {
+            this.nTN.b();
+            this.nTN.setVisibility(8);
         }
-        if (this.nzY != null) {
-            this.nzY.setVisibility(8);
+        if (this.nTM != null) {
+            this.nTM.setVisibility(8);
         }
-        if (this.nAa != null) {
-            this.nAa.setVisibility(8);
+        if (this.nTO != null) {
+            this.nTO.setVisibility(8);
         }
     }
 
@@ -98,7 +98,7 @@ public class a implements View.OnClickListener {
     public void a(com.kascend.chushou.player.ui.h5.redpacket.a aVar) {
         if (aVar != null) {
             d();
-            this.nzY.a(aVar, true);
+            this.nTM.a(aVar, true);
         }
     }
 
@@ -122,60 +122,60 @@ public class a implements View.OnClickListener {
 
     public void a(List<ListItem> list) {
         if (h.isEmpty(list)) {
-            if (this.nzX != null) {
-                this.nzX.removeAllViews();
-                this.nzX.setVisibility(8);
+            if (this.nTL != null) {
+                this.nTL.removeAllViews();
+                this.nTL.setVisibility(8);
                 return;
             }
             return;
         }
         d();
-        this.nzX.a(list, this.h);
+        this.nTL.a(list, this.h);
     }
 
     public void a(int i) {
         if (i <= 0) {
-            if (this.nzY != null) {
-                this.nzY.setVisibility(8);
+            if (this.nTM != null) {
+                this.nTM.setVisibility(8);
                 return;
             }
             return;
         }
         d();
-        this.nzY.a(i, true);
+        this.nTM.a(i, true);
     }
 
     public void a(long j) {
         d();
-        if (this.nzZ != null) {
-            this.nzZ.b(j);
+        if (this.nTN != null) {
+            this.nTN.b(j);
         }
     }
 
     public void b(int i) {
         d();
-        if (this.nzZ != null) {
-            this.nzZ.a(i);
+        if (this.nTN != null) {
+            this.nTN.a(i);
         }
     }
 
     public void b(long j) {
         d();
-        if (this.nzZ != null) {
-            this.nzZ.a(j);
+        if (this.nTN != null) {
+            this.nTN.a(j);
         }
     }
 
     public void c() {
         d();
-        if (this.nzZ != null) {
-            this.nzZ.a();
+        if (this.nTN != null) {
+            this.nTN.a();
         }
     }
 
     public void a(ListItem listItem, FoodView.a aVar) {
-        if (this.nAa != null && listItem != null) {
-            this.nAa.a(listItem, 0, aVar);
+        if (this.nTO != null && listItem != null) {
+            this.nTO.a(listItem, 0, aVar);
         }
     }
 
@@ -183,20 +183,20 @@ public class a implements View.OnClickListener {
         if (!this.m) {
             if (this.h == 1) {
                 this.c = ((ViewStub) this.b.findViewById(a.f.viewstub_gift_popup_landscape)).inflate();
-                this.nzX = (GiftPopupLayout) this.c.findViewById(a.f.gift_popup_layout_landscape);
-                this.nzY = (RedpacketNotifier) this.c.findViewById(a.f.redpacket_notifier_landscape);
-                this.nzZ = (InteractNotifier) this.c.findViewById(a.f.interact_notifier_landscape);
+                this.nTL = (GiftPopupLayout) this.c.findViewById(a.f.gift_popup_layout_landscape);
+                this.nTM = (RedpacketNotifier) this.c.findViewById(a.f.redpacket_notifier_landscape);
+                this.nTN = (InteractNotifier) this.c.findViewById(a.f.interact_notifier_landscape);
             } else {
                 this.c = ((ViewStub) this.b.findViewById(a.f.viewstub_gift_popup_portrait)).inflate();
-                this.nzX = (GiftPopupLayout) this.c.findViewById(a.f.gift_popup_layout_portrait);
-                this.nzY = (RedpacketNotifier) this.c.findViewById(a.f.redpacket_notifier_portrait);
-                this.nzZ = (InteractNotifier) this.c.findViewById(a.f.interact_notifier_portrait);
+                this.nTL = (GiftPopupLayout) this.c.findViewById(a.f.gift_popup_layout_portrait);
+                this.nTM = (RedpacketNotifier) this.c.findViewById(a.f.redpacket_notifier_portrait);
+                this.nTN = (InteractNotifier) this.c.findViewById(a.f.interact_notifier_portrait);
             }
-            this.nAa = (FoodView) this.c.findViewById(a.f.ad_pendant);
+            this.nTO = (FoodView) this.c.findViewById(a.f.ad_pendant);
             this.d = this.c.findViewById(a.f.rl_vertical_container);
-            this.nAb = (FrescoThumbnailView) this.c.findViewById(a.f.ic_shopwindow);
+            this.nTP = (FrescoThumbnailView) this.c.findViewById(a.f.ic_shopwindow);
             this.k = (ImageView) this.c.findViewById(a.f.iv_shopwindow_close);
-            this.nAb.setOnClickListener(this);
+            this.nTP.setOnClickListener(this);
             this.k.setOnClickListener(this);
             this.l = (RelativeLayout) this.c.findViewById(a.f.rl_shopwindow);
             this.m = true;
@@ -207,14 +207,14 @@ public class a implements View.OnClickListener {
     public void onClick(View view) {
         int id = view.getId();
         if (id == a.f.ic_shopwindow) {
-            if (this.nnt != null) {
-                if (this.nAb.getContext() instanceof Activity) {
-                    e.a(this.nAb.getContext(), this.nnt, (JSONObject) null);
+            if (this.nHk != null) {
+                if (this.nTP.getContext() instanceof Activity) {
+                    e.a(this.nTP.getContext(), this.nHk, (JSONObject) null);
                     return;
                 }
-                Activity e = com.kascend.chushou.d.b.e();
-                if (e != null) {
-                    e.a(e, this.nnt, (JSONObject) null);
+                Activity dYn = com.kascend.chushou.d.b.dYn();
+                if (dYn != null) {
+                    e.a(dYn, this.nHk, (JSONObject) null);
                 }
             }
         } else if (id == a.f.iv_shopwindow_close && this.l != null) {
@@ -223,12 +223,12 @@ public class a implements View.OnClickListener {
     }
 
     public void b(List<ListItem> list) {
-        if (this.nAb != null && !h.isEmpty(list)) {
-            this.nnt = list.get(0);
-            this.nAb.setVisibility(0);
-            this.nAb.a(this.nnt.mCover, 0, 0, 0, 1);
+        if (this.nTP != null && !h.isEmpty(list)) {
+            this.nHk = list.get(0);
+            this.nTP.setVisibility(0);
+            this.nTP.a(this.nHk.mCover, 0, 0, 0, 1);
             if (this.k != null) {
-                if (this.nnt.mShowClose) {
+                if (this.nHk.mShowClose) {
                     this.k.setVisibility(0);
                 } else {
                     this.k.setVisibility(8);

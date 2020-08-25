@@ -1,5 +1,5 @@
 package com.baidu.helios.common.cc;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 abstract class e {
     protected long b;
     protected int c;
@@ -19,5 +19,5 @@ abstract class e {
         return this.f;
     }
 
-    public abstract a m(byte[] bArr, int i, int i2);
+    public abstract a n(byte[] bArr, int i, int i2);
 }

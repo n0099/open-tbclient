@@ -11,7 +11,7 @@ import com.baidu.cyberplayer.sdk.rtc.RTCRoomProvider;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class d {
     private static CyberPlayerCoreProvider a = null;
     private static String b = "com.baidu.media.duplayer";

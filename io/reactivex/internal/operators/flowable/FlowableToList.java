@@ -8,32 +8,32 @@ import java.util.Collection;
 import java.util.concurrent.Callable;
 /* loaded from: classes7.dex */
 public final class FlowableToList<T, U extends Collection<? super T>> extends a<T, U> {
-    final Callable<U> nTE;
+    final Callable<U> onA;
 
     @Override // io.reactivex.g
-    protected void a(org.a.c<? super U> cVar) {
+    protected void a(org.b.c<? super U> cVar) {
         try {
-            this.nSG.a((j) new ToListSubscriber(cVar, (Collection) io.reactivex.internal.functions.a.k(this.nTE.call(), "The collectionSupplier returned a null collection. Null values are generally not allowed in 2.x operators and sources.")));
+            this.omB.a((j) new ToListSubscriber(cVar, (Collection) io.reactivex.internal.functions.a.k(this.onA.call(), "The collectionSupplier returned a null collection. Null values are generally not allowed in 2.x operators and sources.")));
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.K(th);
+            io.reactivex.exceptions.a.J(th);
             EmptySubscription.error(th, cVar);
         }
     }
 
     /* loaded from: classes7.dex */
-    static final class ToListSubscriber<T, U extends Collection<? super T>> extends DeferredScalarSubscription<U> implements j<T>, org.a.d {
+    static final class ToListSubscriber<T, U extends Collection<? super T>> extends DeferredScalarSubscription<U> implements j<T>, org.b.d {
         private static final long serialVersionUID = -8134157938864266736L;
-        org.a.d s;
+        org.b.d s;
 
         /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: U extends java.util.Collection<? super T> */
         /* JADX WARN: Multi-variable type inference failed */
-        ToListSubscriber(org.a.c<? super U> cVar, U u) {
+        ToListSubscriber(org.b.c<? super U> cVar, U u) {
             super(cVar);
             this.value = u;
         }
 
-        @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        @Override // io.reactivex.j, org.b.c
+        public void onSubscribe(org.b.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
@@ -41,7 +41,7 @@ public final class FlowableToList<T, U extends Collection<? super T>> extends a<
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(T t) {
             Collection collection = (Collection) this.value;
             if (collection != null) {
@@ -49,18 +49,18 @@ public final class FlowableToList<T, U extends Collection<? super T>> extends a<
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
             this.value = null;
             this.actual.onError(th);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
             complete(this.value);
         }
 
-        @Override // io.reactivex.internal.subscriptions.DeferredScalarSubscription, org.a.d
+        @Override // io.reactivex.internal.subscriptions.DeferredScalarSubscription, org.b.d
         public void cancel() {
             super.cancel();
             this.s.cancel();

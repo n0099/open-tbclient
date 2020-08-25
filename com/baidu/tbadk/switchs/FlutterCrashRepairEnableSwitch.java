@@ -2,7 +2,7 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.featureSwitch.a;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class FlutterCrashRepairEnableSwitch extends a {
     public static final String KEY = "flutter_crash_repair_enable_android_117";
     public static final int TYPE_CLOSE = 0;

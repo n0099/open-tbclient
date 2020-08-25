@@ -1,5 +1,5 @@
 package com.baidu.live.p;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface a {
-    void bY(boolean z);
+    void cg(boolean z);
 }

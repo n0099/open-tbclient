@@ -2,19 +2,19 @@ package com.baidu.mapapi.search.route;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes10.dex */
-final class c implements Parcelable.Creator<BikingRouteLine> {
+/* loaded from: classes20.dex */
+final class c implements Parcelable.Creator<BikingRouteResult> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public BikingRouteLine createFromParcel(Parcel parcel) {
-        return new BikingRouteLine(parcel);
+    public BikingRouteResult createFromParcel(Parcel parcel) {
+        return new BikingRouteResult(parcel);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public BikingRouteLine[] newArray(int i) {
-        return new BikingRouteLine[i];
+    public BikingRouteResult[] newArray(int i) {
+        return new BikingRouteResult[i];
     }
 }

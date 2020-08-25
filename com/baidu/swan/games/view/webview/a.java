@@ -13,16 +13,16 @@ import com.baidu.searchbox.v8engine.event.EventTarget;
 import com.baidu.searchbox.v8engine.event.EventTargetImpl;
 import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.swan.apps.adaptation.b.g;
-import com.baidu.swan.apps.aq.al;
+import com.baidu.swan.apps.ap.ak;
 import com.baidu.swan.apps.core.turbo.d;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.games.view.webview.b;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends EventTargetImpl {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private g dpT;
-    private C0464a dpU;
+    private g dzV;
+    private C0512a dzW;
     private volatile String mCurrentUrl;
 
     public a(com.baidu.swan.games.f.b bVar) {
@@ -33,30 +33,30 @@ public class a extends EventTargetImpl {
     public void open(JsObject jsObject) {
         com.baidu.swan.games.binding.model.c e = com.baidu.swan.games.binding.model.c.e(jsObject);
         if (e == null) {
-            w(BdStatsConstant.StatsType.ERROR, cI(null, PayHelper.STATUS_SUCC));
+            v(BdStatsConstant.StatsType.ERROR, dc(null, PayHelper.STATUS_SUCC));
             return;
         }
         final String optString = e.optString("url", null);
-        if (!ua(optString)) {
-            w(BdStatsConstant.StatsType.ERROR, cI(optString, PayHelper.STATUS_SUCC));
-        } else if (!com.baidu.swan.apps.ah.a.b.oG(optString)) {
-            w(BdStatsConstant.StatsType.ERROR, cI(optString, PayHelper.STATUS_FAIL));
+        if (!wq(optString)) {
+            v(BdStatsConstant.StatsType.ERROR, dc(optString, PayHelper.STATUS_SUCC));
+        } else if (!com.baidu.swan.apps.ag.a.b.qD(optString)) {
+            v(BdStatsConstant.StatsType.ERROR, dc(optString, PayHelper.STATUS_FAIL));
         } else {
             if (DEBUG) {
                 Log.i("GameWebViewApi", "open:" + optString);
             }
             this.mCurrentUrl = optString;
-            al.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.webview.a.1
+            ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.webview.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.this.dpT == null) {
-                        a.this.aIq();
+                    if (a.this.dzV == null) {
+                        a.this.aRg();
                     }
-                    if (!a.this.dpT.UG()) {
-                        a.this.dpT.UU();
+                    if (!a.this.dzV.aaJ()) {
+                        a.this.dzV.aaZ();
                     }
-                    a.this.dpT.loadUrl(optString);
-                    a.this.w("open", new b.a(optString));
+                    a.this.dzV.loadUrl(optString);
+                    a.this.v("open", new b.a(optString));
                 }
             });
         }
@@ -64,14 +64,14 @@ public class a extends EventTargetImpl {
 
     @JavascriptInterface
     public void close() {
-        al.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.webview.a.2
+        ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.webview.a.2
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.dpT != null && a.this.dpT.UG()) {
-                    a.this.dpT.UV();
-                    a.this.dpT.destroy();
-                    a.this.dpT = null;
-                    a.this.w("close", new b.a(a.this.mCurrentUrl));
+                if (a.this.dzV != null && a.this.dzV.aaJ()) {
+                    a.this.dzV.aba();
+                    a.this.dzV.destroy();
+                    a.this.dzV = null;
+                    a.this.v("close", new b.a(a.this.mCurrentUrl));
                 }
             }
         });
@@ -81,18 +81,18 @@ public class a extends EventTargetImpl {
     public void setCloseViewVisibility(JsObject jsObject) {
         com.baidu.swan.games.binding.model.c e = com.baidu.swan.games.binding.model.c.e(jsObject);
         if (e == null) {
-            w(BdStatsConstant.StatsType.ERROR, cI(null, PayHelper.STATUS_SUCC));
+            v(BdStatsConstant.StatsType.ERROR, dc(null, PayHelper.STATUS_SUCC));
             return;
         }
         final String optString = e.optString("setCloseViewVisibility", null);
-        al.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.webview.a.3
+        ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.webview.a.3
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.dpT != null) {
+                if (a.this.dzV != null) {
                     if (TextUtils.equals("1", optString)) {
-                        a.this.dpT.dp(true);
+                        a.this.dzV.dx(true);
                     } else {
-                        a.this.dpT.dp(false);
+                        a.this.dzV.dx(false);
                     }
                 }
             }
@@ -109,39 +109,39 @@ public class a extends EventTargetImpl {
                 com.baidu.swan.games.utils.b.a(e, false, null);
                 return;
             }
-            this.dpU = new C0464a(optString, optString2, System.currentTimeMillis());
+            this.dzW = new C0512a(optString, optString2, System.currentTimeMillis());
             if (DEBUG) {
-                Log.d("GameWebViewApi", "onGameLoadingStart: " + this.dpU);
+                Log.d("GameWebViewApi", "onGameLoadingStart: " + this.dzW);
             }
             com.baidu.swan.games.utils.b.a(e, true, null);
         }
     }
 
     public void onGameLoadingFinish() {
-        if (this.dpU == null) {
+        if (this.dzW == null) {
             if (DEBUG) {
                 Log.d("GameWebViewApi", "onGameLoadingFinish: H5GameInfo is null.");
                 return;
             }
             return;
         }
-        e arw = e.arw();
-        if (arw == null) {
+        e azJ = e.azJ();
+        if (azJ == null) {
             if (DEBUG) {
                 Log.d("GameWebViewApi", "onGameLoadingFinish: SwanApp is null.");
                 return;
             }
             return;
         }
-        this.dpU.dpY = System.currentTimeMillis();
+        this.dzW.dAa = System.currentTimeMillis();
         if (DEBUG) {
-            Log.d("GameWebViewApi", "onGameLoadingFinish: " + this.dpU);
+            Log.d("GameWebViewApi", "onGameLoadingFinish: " + this.dzW);
         }
-        c.a(arw, this.dpU);
-        this.dpU = null;
+        c.a(azJ, this.dzW);
+        this.dzW = null;
     }
 
-    private boolean ua(String str) {
+    private boolean wq(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -150,10 +150,10 @@ public class a extends EventTargetImpl {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aIq() {
-        if (this.dpT == null) {
-            this.dpT = d.adw().adx().bo(com.baidu.swan.apps.t.a.ahj());
-            this.dpT.d(new View.OnClickListener() { // from class: com.baidu.swan.games.view.webview.a.4
+    public void aRg() {
+        if (this.dzV == null) {
+            this.dzV = d.ajS().ajT().bv(com.baidu.swan.apps.t.a.aoJ());
+            this.dzV.d(new View.OnClickListener() { // from class: com.baidu.swan.games.view.webview.a.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     a.this.close();
@@ -162,7 +162,7 @@ public class a extends EventTargetImpl {
         }
     }
 
-    private b.C0465b cI(String str, @NonNull String str2) {
+    private b.C0513b dc(String str, @NonNull String str2) {
         char c = 65535;
         switch (str2.hashCode()) {
             case 1507424:
@@ -180,51 +180,51 @@ public class a extends EventTargetImpl {
         }
         switch (c) {
             case 0:
-                return new b.C0465b(str, str2, "open:url is invalid");
+                return new b.C0513b(str, str2, "open:url is invalid");
             case 1:
-                return new b.C0465b(str, str2, "open:host not in white list");
+                return new b.C0513b(str, str2, "open:host not in white list");
             default:
                 return null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void w(String str, Object obj) {
+    public void v(String str, Object obj) {
         if (DEBUG) {
             Log.i("GameWebViewApi", "dispatchEvent:" + str + Constants.ACCEPT_TIME_SEPARATOR_SP + obj);
         }
         dispatchEvent(new JSEvent(str, obj));
     }
 
-    public static a aIr() {
-        com.baidu.swan.games.f.a aEP = com.baidu.swan.games.j.a.aEO().aEP();
-        if (aEP == null) {
+    public static a aRh() {
+        com.baidu.swan.games.f.a aND = com.baidu.swan.games.j.a.aNC().aND();
+        if (aND == null) {
             return null;
         }
-        EventTarget aEm = aEP.aEm();
-        if (aEm instanceof com.baidu.swan.games.binding.c) {
-            return ((com.baidu.swan.games.binding.c) aEm).getWebViewManager();
+        EventTarget aNb = aND.aNb();
+        if (aNb instanceof com.baidu.swan.games.binding.c) {
+            return ((com.baidu.swan.games.binding.c) aNb).getWebViewManager();
         }
         return null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.swan.games.view.webview.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C0464a {
-        long dpX;
-        long dpY;
+    /* loaded from: classes8.dex */
+    public static class C0512a {
+        long dAa;
+        long dzZ;
         String mGameId;
         String mGameName;
 
-        private C0464a(String str, String str2, long j) {
+        private C0512a(String str, String str2, long j) {
             this.mGameId = str;
             this.mGameName = str2;
-            this.dpX = j;
+            this.dzZ = j;
         }
 
         public String toString() {
-            return "H5GameInfo{mGameId='" + this.mGameId + "', mGameName='" + this.mGameName + "', mStartLoadingTimestamp=" + this.dpX + ", mFinishLoadingTimestamp=" + this.dpY + '}';
+            return "H5GameInfo{mGameId='" + this.mGameId + "', mGameName='" + this.mGameName + "', mStartLoadingTimestamp=" + this.dzZ + ", mFinishLoadingTimestamp=" + this.dAa + '}';
         }
     }
 }

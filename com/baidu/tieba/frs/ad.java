@@ -1,6 +1,7 @@
 package com.baidu.tieba.frs;
-/* loaded from: classes.dex */
+/* loaded from: classes16.dex */
 public class ad {
-    public int hJP;
-    public String name;
+    public boolean esv = true;
+    public au hXc;
+    public int tabId;
 }

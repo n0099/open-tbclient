@@ -7,10 +7,10 @@ import java.util.regex.Pattern;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 @Immutable
-/* loaded from: classes3.dex */
+/* loaded from: classes8.dex */
 public class a {
     @Nullable
-    private static Pattern nam;
+    private static Pattern nub;
     public final int from;
     public final int to;
 
@@ -19,8 +19,8 @@ public class a {
         this.to = i2;
     }
 
-    public String dGf() {
-        return String.format(null, "bytes=%s-%s", Jc(this.from), Jc(this.to));
+    public String dSe() {
+        return String.format(null, "bytes=%s-%s", LG(this.from), LG(this.to));
     }
 
     public boolean a(@Nullable a aVar) {
@@ -28,10 +28,10 @@ public class a {
     }
 
     public String toString() {
-        return String.format(null, "%s-%s", Jc(this.from), Jc(this.to));
+        return String.format(null, "%s-%s", LG(this.from), LG(this.to));
     }
 
-    private static String Jc(int i) {
+    private static String LG(int i) {
         return i == Integer.MAX_VALUE ? "" : Integer.toString(i);
     }
 
@@ -50,25 +50,25 @@ public class a {
         return com.facebook.common.util.a.hashCode(this.from, this.to);
     }
 
-    public static a Jd(int i) {
+    public static a LH(int i) {
         g.checkArgument(i >= 0);
         return new a(i, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
     }
 
-    public static a Je(int i) {
+    public static a LI(int i) {
         g.checkArgument(i > 0);
         return new a(0, i);
     }
 
     @Nullable
-    public static a RA(@Nullable String str) throws IllegalArgumentException {
+    public static a UE(@Nullable String str) throws IllegalArgumentException {
         a aVar = null;
         if (str != null) {
-            if (nam == null) {
-                nam = Pattern.compile("[-/ ]");
+            if (nub == null) {
+                nub = Pattern.compile("[-/ ]");
             }
             try {
-                String[] split = nam.split(str);
+                String[] split = nub.split(str);
                 g.checkArgument(split.length == 4);
                 g.checkArgument(split[0].equals("bytes"));
                 int parseInt = Integer.parseInt(split[1]);

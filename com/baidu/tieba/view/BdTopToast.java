@@ -13,21 +13,27 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class BdTopToast extends LinearLayout {
-    private TextView cdm;
-    private Animation ifH;
-    private Animation ifI;
+    private TextView cjk;
+    private Animation itL;
+    private Animation itM;
+    private int mDuration;
+    private BottomShadowLinearLayout mGv;
+    private boolean mGw;
     private Runnable mHideRunnable;
     private ImageView mIconView;
     private View mStatusBarView;
-    private BottomShadowLinearLayout moH;
-    private boolean moI;
+
+    public BdTopToast(Context context, int i) {
+        this(context);
+        this.mDuration = i;
+    }
 
     public BdTopToast(Context context) {
-        this(context, null);
+        this(context, (AttributeSet) null);
     }
 
     public BdTopToast(Context context, @Nullable AttributeSet attributeSet) {
@@ -36,6 +42,7 @@ public class BdTopToast extends LinearLayout {
 
     public BdTopToast(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
+        this.mDuration = -1;
         init();
     }
 
@@ -46,16 +53,16 @@ public class BdTopToast extends LinearLayout {
             addView(this.mStatusBarView, 0, new LinearLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight()));
         }
         LayoutInflater.from(getContext()).inflate(R.layout.bd_top_toast_layout, this);
-        this.moH = (BottomShadowLinearLayout) findViewById(R.id.bd_top_toast_group);
+        this.mGv = (BottomShadowLinearLayout) findViewById(R.id.bd_top_toast_group);
         this.mIconView = (ImageView) findViewById(R.id.bd_top_toast_icon);
-        this.cdm = (TextView) findViewById(R.id.bd_top_toast_content);
+        this.cjk = (TextView) findViewById(R.id.bd_top_toast_content);
         initAnimation();
     }
 
     private void initAnimation() {
-        this.ifH = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
-        this.ifI = AnimationUtils.loadAnimation(getContext(), R.anim.out_to_top);
-        this.ifI.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.BdTopToast.1
+        this.itL = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
+        this.itM = AnimationUtils.loadAnimation(getContext(), R.anim.out_to_top);
+        this.itM.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.BdTopToast.1
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
@@ -80,17 +87,17 @@ public class BdTopToast extends LinearLayout {
         };
     }
 
-    public BdTopToast wd(boolean z) {
-        this.moI = z;
+    public BdTopToast wS(boolean z) {
+        this.mGw = z;
         return this;
     }
 
-    public BdTopToast Pr(String str) {
-        this.cdm.setText(str);
+    public BdTopToast Sp(String str) {
+        this.cjk.setText(str);
         return this;
     }
 
-    public void aF(ViewGroup viewGroup) {
+    public void aE(ViewGroup viewGroup) {
         if (viewGroup != null) {
             if (getParent() != null) {
                 ((ViewGroup) getParent()).removeView(this);
@@ -98,32 +105,36 @@ public class BdTopToast extends LinearLayout {
             release();
             viewGroup.addView(this, -1, -2);
             onChangeSkinType();
-            startAnimation(this.ifH);
-            com.baidu.adp.lib.f.e.lt().postDelayed(this.mHideRunnable, 5000L);
+            startAnimation(this.itL);
+            if (this.mDuration >= 0) {
+                com.baidu.adp.lib.f.e.mS().postDelayed(this.mHideRunnable, this.mDuration);
+            } else {
+                com.baidu.adp.lib.f.e.mS().postDelayed(this.mHideRunnable, 5000L);
+            }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hide() {
         release();
-        startAnimation(this.ifI);
+        startAnimation(this.itM);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void release() {
-        com.baidu.adp.lib.f.e.lt().removeCallbacks(this.mHideRunnable);
+        com.baidu.adp.lib.f.e.mS().removeCallbacks(this.mHideRunnable);
         clearAnimation();
     }
 
     public void onChangeSkinType() {
-        ao.setBackgroundColor(this.mStatusBarView, R.color.cp_bg_line_h);
-        if (this.moI) {
-            SvgManager.baR().a(this.mIconView, R.drawable.ic_icon_pure_succeed_use_n, (SvgManager.SvgResourceStateType) null);
-            ao.setViewTextColor(this.cdm, R.color.cp_link_tip_a);
+        ap.setBackgroundColor(this.mStatusBarView, R.color.cp_bg_line_h);
+        if (this.mGw) {
+            SvgManager.bjq().a(this.mIconView, R.drawable.ic_icon_pure_succeed_use_n, (SvgManager.SvgResourceStateType) null);
+            ap.setViewTextColor(this.cjk, R.color.cp_link_tip_a);
         } else {
-            SvgManager.baR().a(this.mIconView, R.drawable.ic_icon_pure_defeated_use_n, (SvgManager.SvgResourceStateType) null);
-            ao.setViewTextColor(this.cdm, R.color.cp_cont_h);
+            SvgManager.bjq().a(this.mIconView, R.drawable.ic_icon_pure_defeated_use_n, (SvgManager.SvgResourceStateType) null);
+            ap.setViewTextColor(this.cjk, R.color.cp_cont_h);
         }
-        this.moH.onChangeSkinType();
+        this.mGv.onChangeSkinType();
     }
 }

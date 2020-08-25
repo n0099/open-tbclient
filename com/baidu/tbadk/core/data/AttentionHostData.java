@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.data;
 import com.baidu.adp.lib.util.StringUtils;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class AttentionHostData implements Serializable {
     private static final long serialVersionUID = -2696089215466586871L;
     public boolean isAttention;

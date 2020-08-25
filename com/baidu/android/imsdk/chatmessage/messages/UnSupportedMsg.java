@@ -2,7 +2,7 @@ package com.baidu.android.imsdk.chatmessage.messages;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class UnSupportedMsg extends NormalMsg {
     public static String unSupportedMsgDesc = "[不支持的消息类型，请升级应用后查看]";
     public static final Parcelable.Creator<UnSupportedMsg> CREATOR = new Parcelable.Creator<UnSupportedMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.UnSupportedMsg.1

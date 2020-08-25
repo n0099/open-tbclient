@@ -1,10 +1,9 @@
 package com.baidu.webkit.sdk.system;
 
-import com.a.a.a.a.a.a.a;
 import com.baidu.webkit.sdk.WebBackForwardList;
 import com.baidu.webkit.sdk.WebHistoryItem;
 import java.lang.reflect.Method;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 final class WebBackForwardListImpl extends WebBackForwardList implements Cloneable {
     private static Method cloneMethod;
     private final android.webkit.WebBackForwardList mList;
@@ -13,7 +12,7 @@ final class WebBackForwardListImpl extends WebBackForwardList implements Cloneab
         try {
             cloneMethod = android.webkit.WebBackForwardList.class.getDeclaredMethod("clone", null);
         } catch (Exception e) {
-            a.a(e);
+            e.printStackTrace();
         }
     }
 
@@ -38,7 +37,7 @@ final class WebBackForwardListImpl extends WebBackForwardList implements Cloneab
                 return from((android.webkit.WebBackForwardList) cloneMethod.invoke(this.mList, null));
             }
         } catch (Exception e) {
-            a.a(e);
+            e.printStackTrace();
         }
         return null;
     }

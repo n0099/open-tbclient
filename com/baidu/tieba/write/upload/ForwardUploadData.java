@@ -9,7 +9,7 @@ import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
 import com.baidu.webkit.internal.ETAG;
 import java.io.Serializable;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ForwardUploadData extends BaseUploadData implements Serializable {
     public static final String FORWARD_CHANNEL = "swan_details_tieba_post_share_collect_comment";
     public static final String FORWARD_NORMAL_THREAD_URL = "https://mbd.baidu.com/ma/landingpage?t=smartapp_share&appid=flFqXclepWs7RdugAszy9eERL7G5dS0I&url=/pages/pb/pb?tid=";
@@ -18,7 +18,7 @@ public class ForwardUploadData extends BaseUploadData implements Serializable {
     public Forward forward;
     public String forward_content;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static final class ExtInfo implements Serializable {
         public String forward_comment_thread_id;
         public String forward_is_comment;
@@ -26,7 +26,7 @@ public class ForwardUploadData extends BaseUploadData implements Serializable {
         public String share_type;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class Forward implements Serializable {
         public String account_type;
         public String avatar;

@@ -1,5 +1,5 @@
 package com.google.zxing.oned.rss;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 public final class RSSUtils {
     private RSSUtils() {
     }

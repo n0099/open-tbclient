@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.ala.atomdata.AlaPersonCenterExpActivityConfig;
 import com.baidu.ala.atomdata.AlaSDKShareEmptyActivityConfig;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class c extends IntentConfig {
     public c(Context context, int i, boolean z) {
         super(context);

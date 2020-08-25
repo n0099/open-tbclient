@@ -1,9 +1,9 @@
 package com.baidu.platform.core.c;
 
 import com.baidu.mapapi.search.poi.PoiIndoorOption;
-import com.baidu.mobstat.Config;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.meizu.cloud.pushsdk.notification.model.ActVideoSetting;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class c extends com.baidu.platform.base.e {
     public c(PoiIndoorOption poiIndoorOption) {
         a(poiIndoorOption);
@@ -11,12 +11,12 @@ public class c extends com.baidu.platform.base.e {
 
     private void a(PoiIndoorOption poiIndoorOption) {
         this.a.a("qt", "indoor_s");
-        this.a.a(Config.EVENT_HEAT_X, "0");
+        this.a.a("x", "0");
         this.a.a("y", "0");
         this.a.a("from", "android_map_sdk");
         String str = poiIndoorOption.bid;
         if (str != null && !str.equals("")) {
-            this.a.a("bid", str);
+            this.a.a(MapBundleKey.MapObjKey.OBJ_BID, str);
         }
         String str2 = poiIndoorOption.wd;
         if (str2 != null && !str2.equals("")) {

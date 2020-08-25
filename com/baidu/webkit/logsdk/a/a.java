@@ -22,7 +22,7 @@ import java.net.URLEncoder;
 import java.util.HashSet;
 import java.util.Iterator;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public final class a {
     private static String n;
     private String a;
@@ -226,7 +226,7 @@ public final class a {
             bufferedReader.close();
             return readLine;
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
             return "";
         }
     }

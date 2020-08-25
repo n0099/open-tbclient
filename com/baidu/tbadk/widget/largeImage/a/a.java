@@ -5,10 +5,10 @@ import android.graphics.Canvas;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import com.baidu.tbadk.TbConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private final C0518a eQx;
+    private final C0564a fbd;
     private Bitmap mBitmap;
     private int mBlockSize;
     private Canvas mCanvas;
@@ -17,7 +17,7 @@ public class a {
     private final Rect mSrc;
 
     public a(int i) {
-        this.eQx = new C0518a();
+        this.fbd = new C0564a();
         this.mSrc = new Rect();
         this.mDst = new Rect();
         this.mPositionInOriginBitmap = new Rect();
@@ -27,7 +27,7 @@ public class a {
     }
 
     public a(Bitmap bitmap) {
-        this.eQx = new C0518a();
+        this.fbd = new C0564a();
         this.mSrc = new Rect();
         this.mDst = new Rect();
         this.mPositionInOriginBitmap = new Rect();
@@ -74,33 +74,33 @@ public class a {
     }
 
     public void setPosition(int i, int i2, int i3) {
-        this.eQx.row = i;
-        this.eQx.column = i2;
-        this.eQx.sampleScale = i3;
+        this.fbd.row = i;
+        this.fbd.column = i2;
+        this.fbd.sampleScale = i3;
     }
 
-    public C0518a boh() {
-        return this.eQx;
+    public C0564a bwU() {
+        return this.fbd;
     }
 
     public Rect getPositionInOriginBitmap() {
-        int i = this.mBlockSize * this.eQx.column * this.eQx.sampleScale;
-        int i2 = this.mBlockSize * this.eQx.row * this.eQx.sampleScale;
-        this.mPositionInOriginBitmap.set(i, i2, (this.mBlockSize * this.eQx.sampleScale) + i, (this.mBlockSize * this.eQx.sampleScale) + i2);
+        int i = this.mBlockSize * this.fbd.column * this.fbd.sampleScale;
+        int i2 = this.mBlockSize * this.fbd.row * this.fbd.sampleScale;
+        this.mPositionInOriginBitmap.set(i, i2, (this.mBlockSize * this.fbd.sampleScale) + i, (this.mBlockSize * this.fbd.sampleScale) + i2);
         return this.mPositionInOriginBitmap;
     }
 
     /* renamed from: com.baidu.tbadk.widget.largeImage.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public static class C0518a {
+    /* loaded from: classes2.dex */
+    public static class C0564a {
         int column;
         int row;
         int sampleScale;
 
-        public C0518a() {
+        public C0564a() {
         }
 
-        public C0518a(int i, int i2, int i3) {
+        public C0564a(int i, int i2, int i3) {
             this.row = i;
             this.column = i2;
             this.sampleScale = i3;
@@ -111,9 +111,9 @@ public class a {
         }
 
         public boolean equals(Object obj) {
-            if (obj instanceof C0518a) {
-                C0518a c0518a = (C0518a) obj;
-                return this.row == c0518a.getRow() && this.column == c0518a.getColumn() && this.sampleScale == c0518a.getSampleScale();
+            if (obj instanceof C0564a) {
+                C0564a c0564a = (C0564a) obj;
+                return this.row == c0564a.getRow() && this.column == c0564a.getColumn() && this.sampleScale == c0564a.getSampleScale();
             }
             return false;
         }

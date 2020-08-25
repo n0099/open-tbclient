@@ -1,5 +1,5 @@
 package android.support.constraint.solver.widgets;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class ResolutionDimension extends ResolutionNode {
     float value = 0.0f;
 

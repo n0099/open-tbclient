@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.face.data.EmotionImageData;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class EmotionEditActivityConfig extends IntentConfig {
     public static final String EMOTION_DATA = "EmotionImageData";
     public static final String EMOTION_IS_GIF = "EmotionIsGif";

@@ -20,10 +20,10 @@ import com.baidu.tbadk.browser.newshare.ThreadAchievementShareInfo;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tbadk.util.ac;
@@ -32,31 +32,31 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.main.bd;
 import com.baidu.tieba.share.ImplicitShareMessage;
 import com.google.gson.Gson;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ThreadAchievementShareDialogView extends LinearLayout {
-    private com.baidu.tbadk.core.dialog.a ZV;
-    private final ThreadAchievementShareInfo dJO;
-    private Gson dKB;
-    private TextView dKC;
-    private TextView dKD;
-    private TextView dKE;
-    private TextView dKF;
-    private TextView dKG;
-    private TextView dKH;
-    private TextView dKI;
-    private TextView dKJ;
-    private bd dKK;
-    private Bitmap dKL;
-    private View dKM;
-    private ImageView dKN;
-    private LinearLayout dKO;
-    private FrameLayout dKP;
-    private HeadImageView dKQ;
-    private TextView dKR;
-    private TextView dKS;
-    private FrameLayout dKT;
-    private int dKU;
-    private ImageView dKV;
+    private com.baidu.tbadk.core.dialog.a aaB;
+    private final ThreadAchievementShareInfo dSW;
+    private Gson dTJ;
+    private TextView dTK;
+    private TextView dTL;
+    private TextView dTM;
+    private TextView dTN;
+    private TextView dTO;
+    private TextView dTP;
+    private TextView dTQ;
+    private TextView dTR;
+    private bd dTS;
+    private Bitmap dTT;
+    private View dTU;
+    private ImageView dTV;
+    private LinearLayout dTW;
+    private FrameLayout dTX;
+    private HeadImageView dTY;
+    private TextView dTZ;
+    private TextView dUa;
+    private FrameLayout dUb;
+    private int dUc;
+    private ImageView dUd;
     private Context mContext;
     private TbPageContext mPageContext;
     private PermissionJudgePolicy mPermissionJudgement;
@@ -64,153 +64,153 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
 
     public ThreadAchievementShareDialogView(Context context, String str) {
         super(context);
-        this.dKB = new Gson();
+        this.dTJ = new Gson();
         this.mContext = context;
-        this.dJO = wy(str);
+        this.dSW = yJ(str);
     }
 
-    private ThreadAchievementShareInfo wy(String str) {
+    private ThreadAchievementShareInfo yJ(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return (ThreadAchievementShareInfo) this.dKB.fromJson(str, (Class<Object>) ThreadAchievementShareInfo.class);
+        return (ThreadAchievementShareInfo) this.dTJ.fromJson(str, (Class<Object>) ThreadAchievementShareInfo.class);
     }
 
     public boolean a(TbPageContext tbPageContext, com.baidu.tbadk.core.dialog.a aVar) {
         this.mPageContext = tbPageContext;
-        this.ZV = aVar;
+        this.aaB = aVar;
         initUI(this.mContext);
-        if (this.dJO.getParams() != null && !x.isEmpty(this.dJO.getParams().getThread_list())) {
-            this.dKP.addView(new a(this.mContext, this.dJO).getView());
-            this.dKJ.setText(this.dJO.getParams().getTitle());
-            ap apVar = new ap("c13724");
-            apVar.ah("obj_source", 1);
-            TiebaStatic.log(apVar);
-            this.dKU = 2;
-        } else if (this.dJO.getParams() != null) {
-            if (this.dJO.getParams().getVideo_info() != null) {
-                this.dKP.addView(new c(this.mContext, this.dJO).getView());
+        if (this.dSW.getParams() != null && !y.isEmpty(this.dSW.getParams().getThread_list())) {
+            this.dTX.addView(new a(this.mContext, this.dSW).getView());
+            this.dTR.setText(this.dSW.getParams().getTitle());
+            aq aqVar = new aq("c13724");
+            aqVar.ai("obj_source", 1);
+            TiebaStatic.log(aqVar);
+            this.dUc = 2;
+        } else if (this.dSW.getParams() != null) {
+            if (this.dSW.getParams().getVideo_info() != null) {
+                this.dTX.addView(new c(this.mContext, this.dSW).getView());
             } else {
-                this.dKP.addView(new b(this.mContext, this.dJO).getView());
+                this.dTX.addView(new b(this.mContext, this.dSW).getView());
             }
-            this.dKJ.setText(this.dJO.getParams().getTitle());
-            ap apVar2 = new ap(TbadkCoreStatisticKey.WEBVIEW_SHARE);
-            apVar2.ah("obj_source", 2);
-            TiebaStatic.log(apVar2);
-            this.dKU = 3;
+            this.dTR.setText(this.dSW.getParams().getTitle());
+            aq aqVar2 = new aq(TbadkCoreStatisticKey.WEBVIEW_SHARE);
+            aqVar2.ai("obj_source", 2);
+            TiebaStatic.log(aqVar2);
+            this.dUc = 3;
         }
-        aTn();
+        bbE();
         return true;
     }
 
-    private void aTn() {
+    private void bbE() {
         String user_img;
-        if (this.dJO != null) {
-            ThreadAchievementShareInfo.UserBean user = this.dJO.getParams().getUser();
+        if (this.dSW != null) {
+            ThreadAchievementShareInfo.UserBean user = this.dSW.getParams().getUser();
             if (!TextUtils.isEmpty(user.getImg())) {
                 user_img = user.getImg();
             } else {
                 user_img = user.getUser_img();
             }
-            this.dKQ.startLoad("http://tb.himg.baidu.com/sys/portrait/item/" + user_img + ".jpg", 12, false);
-            this.dKI.setText(user.getUsername());
-            if (!TextUtils.isEmpty(this.dJO.getParams().getUrl())) {
-                wz(this.dJO.getParams().getUrl());
-                this.dKN.setVisibility(0);
+            this.dTY.startLoad("http://tb.himg.baidu.com/sys/portrait/item/" + user_img + ".jpg", 12, false);
+            this.dTQ.setText(user.getUsername());
+            if (!TextUtils.isEmpty(this.dSW.getParams().getUrl())) {
+                yK(this.dSW.getParams().getUrl());
+                this.dTV.setVisibility(0);
                 return;
             }
-            this.dKN.setVisibility(8);
+            this.dTV.setVisibility(8);
         }
     }
 
     private void initUI(Context context) {
         LayoutInflater.from(context).inflate(R.layout.webview_poster_share, this);
         this.mRootView = (LinearLayout) findViewById(R.id.frs_private_share);
-        this.dKM = this.mRootView.findViewById(R.id.poster_head_bg);
-        ao.setBackgroundResource(this.mRootView, R.drawable.bg_frs_private_dialog);
-        ao.setBackgroundResource(this.dKM, R.drawable.pic_announcement_round);
-        this.dKP = (FrameLayout) this.mRootView.findViewById(R.id.poster_container);
-        this.dKJ = (TextView) this.mRootView.findViewById(R.id.achievement_desc);
-        this.dKQ = (HeadImageView) this.mRootView.findViewById(R.id.head_portrait);
-        this.dKI = (TextView) this.mRootView.findViewById(R.id.user_name);
-        ao.setViewTextColor(this.dKI, R.color.cp_cont_a);
-        ao.setViewTextColor(this.dKJ, R.color.cp_cont_a);
-        this.dKQ.setIsRound(true);
-        this.dKQ.setPlaceHolder(2);
-        this.dKQ.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.dKO = (LinearLayout) this.mRootView.findViewById(R.id.share_view_layout);
-        this.dKN = (ImageView) this.mRootView.findViewById(R.id.share_qrcode);
-        this.dKR = (TextView) this.mRootView.findViewById(R.id.qrcode_top_desc);
-        this.dKS = (TextView) this.mRootView.findViewById(R.id.qrcode_bottom_desc);
-        this.dKT = (FrameLayout) this.mRootView.findViewById(R.id.qrcode_layout);
-        this.dKV = (ImageView) this.mRootView.findViewById(R.id.close_button);
-        this.dKV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView.1
+        this.dTU = this.mRootView.findViewById(R.id.poster_head_bg);
+        ap.setBackgroundResource(this.mRootView, R.drawable.bg_frs_private_dialog);
+        ap.setBackgroundResource(this.dTU, R.drawable.pic_announcement_round);
+        this.dTX = (FrameLayout) this.mRootView.findViewById(R.id.poster_container);
+        this.dTR = (TextView) this.mRootView.findViewById(R.id.achievement_desc);
+        this.dTY = (HeadImageView) this.mRootView.findViewById(R.id.head_portrait);
+        this.dTQ = (TextView) this.mRootView.findViewById(R.id.user_name);
+        ap.setViewTextColor(this.dTQ, R.color.cp_cont_a);
+        ap.setViewTextColor(this.dTR, R.color.cp_cont_a);
+        this.dTY.setIsRound(true);
+        this.dTY.setPlaceHolder(2);
+        this.dTY.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.dTW = (LinearLayout) this.mRootView.findViewById(R.id.share_view_layout);
+        this.dTV = (ImageView) this.mRootView.findViewById(R.id.share_qrcode);
+        this.dTZ = (TextView) this.mRootView.findViewById(R.id.qrcode_top_desc);
+        this.dUa = (TextView) this.mRootView.findViewById(R.id.qrcode_bottom_desc);
+        this.dUb = (FrameLayout) this.mRootView.findViewById(R.id.qrcode_layout);
+        this.dUd = (ImageView) this.mRootView.findViewById(R.id.close_button);
+        this.dUd.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ThreadAchievementShareDialogView.this.ZV != null && ThreadAchievementShareDialogView.this.ZV.isShowing()) {
-                    ThreadAchievementShareDialogView.this.ZV.dismiss();
+                if (ThreadAchievementShareDialogView.this.aaB != null && ThreadAchievementShareDialogView.this.aaB.isShowing()) {
+                    ThreadAchievementShareDialogView.this.aaB.dismiss();
                 }
             }
         });
-        ao.setImageResource(this.dKV, R.drawable.icon_popup_shut_n);
-        ao.setViewTextColor(this.dKR, R.color.cp_cont_d);
-        ao.setViewTextColor(this.dKS, R.color.cp_cont_d);
-        ao.setBackgroundColor(this.dKT, R.color.cp_bg_line_d);
-        ao.setBackgroundResource(this.dKO, R.drawable.bg_frs_private_dialog);
-        this.dKC = (TextView) this.mRootView.findViewById(R.id.frs_private_share_download);
-        a(this.dKC, new com.baidu.tbadk.core.util.d.b(R.drawable.icon_mask_frs_private_share_download40_svg));
-        this.dKC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView.2
+        ap.setImageResource(this.dUd, R.drawable.icon_popup_shut_n);
+        ap.setViewTextColor(this.dTZ, R.color.cp_cont_d);
+        ap.setViewTextColor(this.dUa, R.color.cp_cont_d);
+        ap.setBackgroundColor(this.dUb, R.color.cp_bg_line_d);
+        ap.setBackgroundResource(this.dTW, R.drawable.bg_frs_private_dialog);
+        this.dTK = (TextView) this.mRootView.findViewById(R.id.frs_private_share_download);
+        a(this.dTK, new com.baidu.tbadk.core.util.d.b(R.drawable.icon_mask_frs_private_share_download40_svg));
+        this.dTK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                ThreadAchievementShareDialogView.this.t(ThreadAchievementShareDialogView.this.aTo());
+                ThreadAchievementShareDialogView.this.t(ThreadAchievementShareDialogView.this.bbF());
             }
         });
-        this.dKD = (TextView) this.mRootView.findViewById(R.id.frs_private_share_wechat);
-        a(this.dKD, new com.baidu.tbadk.core.util.d.b(R.drawable.icon_mask_share_wechat40_svg));
-        this.dKD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView.3
+        this.dTL = (TextView) this.mRootView.findViewById(R.id.frs_private_share_wechat);
+        a(this.dTL, new com.baidu.tbadk.core.util.d.b(R.drawable.icon_mask_share_wechat40_svg));
+        this.dTL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                ThreadAchievementShareDialogView.this.c(ThreadAchievementShareDialogView.this.aTo(), 3);
+                ThreadAchievementShareDialogView.this.d(ThreadAchievementShareDialogView.this.bbF(), 3);
             }
         });
-        this.dKE = (TextView) this.mRootView.findViewById(R.id.frs_private_share_moment);
-        a(this.dKE, new com.baidu.tbadk.core.util.d.b(R.drawable.icon_mask_share_circle40_svg));
-        this.dKE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView.4
+        this.dTM = (TextView) this.mRootView.findViewById(R.id.frs_private_share_moment);
+        a(this.dTM, new com.baidu.tbadk.core.util.d.b(R.drawable.icon_mask_share_circle40_svg));
+        this.dTM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                ThreadAchievementShareDialogView.this.c(ThreadAchievementShareDialogView.this.aTo(), 2);
+                ThreadAchievementShareDialogView.this.d(ThreadAchievementShareDialogView.this.bbF(), 2);
             }
         });
-        this.dKF = (TextView) this.mRootView.findViewById(R.id.frs_private_share_qzone);
-        a(this.dKF, new com.baidu.tbadk.core.util.d.b(R.drawable.icon_mask_share_qqzone40_svg));
-        this.dKF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView.5
+        this.dTN = (TextView) this.mRootView.findViewById(R.id.frs_private_share_qzone);
+        a(this.dTN, new com.baidu.tbadk.core.util.d.b(R.drawable.icon_mask_share_qqzone40_svg));
+        this.dTN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                ThreadAchievementShareDialogView.this.c(ThreadAchievementShareDialogView.this.aTo(), 4);
+                ThreadAchievementShareDialogView.this.d(ThreadAchievementShareDialogView.this.bbF(), 4);
             }
         });
-        this.dKG = (TextView) this.mRootView.findViewById(R.id.frs_private_share_qq);
-        a(this.dKG, new com.baidu.tbadk.core.util.d.b(R.drawable.icon_mask_share_qq40_svg));
-        this.dKG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView.6
+        this.dTO = (TextView) this.mRootView.findViewById(R.id.frs_private_share_qq);
+        a(this.dTO, new com.baidu.tbadk.core.util.d.b(R.drawable.icon_mask_share_qq40_svg));
+        this.dTO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                ThreadAchievementShareDialogView.this.c(ThreadAchievementShareDialogView.this.aTo(), 8);
+                ThreadAchievementShareDialogView.this.d(ThreadAchievementShareDialogView.this.bbF(), 8);
             }
         });
-        this.dKH = (TextView) this.mRootView.findViewById(R.id.frs_private_share_weibo);
-        a(this.dKH, new com.baidu.tbadk.core.util.d.b(R.drawable.icon_mask_share_weibo40_svg));
-        this.dKH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView.7
+        this.dTP = (TextView) this.mRootView.findViewById(R.id.frs_private_share_weibo);
+        a(this.dTP, new com.baidu.tbadk.core.util.d.b(R.drawable.icon_mask_share_weibo40_svg));
+        this.dTP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView.7
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                ThreadAchievementShareDialogView.this.c(ThreadAchievementShareDialogView.this.aTo(), 6);
+                ThreadAchievementShareDialogView.this.d(ThreadAchievementShareDialogView.this.bbF(), 6);
             }
         });
     }
 
-    private void wz(String str) {
+    private void yK(String str) {
         CustomResponsedMessage runTask;
         if (str != null && str.length() != 0 && (runTask = MessageManager.getInstance().runTask(2921388, Bitmap.class, str)) != null && runTask.getData() != null) {
-            this.dKN.setImageBitmap((Bitmap) runTask.getData());
+            this.dTV.setImageBitmap((Bitmap) runTask.getData());
         }
     }
 
@@ -220,7 +220,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
             int dimens = l.getDimens(getContext(), R.dimen.tbds88);
             drawable.setBounds(0, 0, dimens, dimens);
             textView.setCompoundDrawables(null, drawable, null, null);
-            ao.setViewTextColor(textView, R.color.cp_cont_f);
+            ap.setViewTextColor(textView, R.color.cp_cont_f);
             ViewGroup.LayoutParams layoutParams = textView.getLayoutParams();
             layoutParams.width = getTextViewWidth();
             textView.setLayoutParams(layoutParams);
@@ -239,38 +239,38 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         return equipmentWidth / 6;
     }
 
-    public Bitmap aTo() {
-        if (this.dKL == null) {
-            ao.setBackgroundColor(this.dKO, R.color.cp_bg_line_d);
-            ao.setBackgroundResource(this.dKM, R.drawable.pic_announcement);
-            this.dKO.buildDrawingCache();
-            this.dKL = this.dKO.getDrawingCache();
+    public Bitmap bbF() {
+        if (this.dTT == null) {
+            ap.setBackgroundColor(this.dTW, R.color.cp_bg_line_d);
+            ap.setBackgroundResource(this.dTU, R.drawable.pic_announcement);
+            this.dTW.buildDrawingCache();
+            this.dTT = this.dTW.getDrawingCache();
         }
-        ao.setBackgroundResource(this.dKO, R.drawable.bg_frs_private_dialog);
-        ao.setBackgroundResource(this.dKM, R.drawable.pic_announcement_round);
-        return this.dKL;
+        ap.setBackgroundResource(this.dTW, R.drawable.bg_frs_private_dialog);
+        ap.setBackgroundResource(this.dTU, R.drawable.pic_announcement_round);
+        return this.dTT;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void t(Bitmap bitmap) {
-        if (!aTp()) {
-            if (this.dKK == null) {
-                this.dKK = new bd(this.mPageContext);
+        if (!bbG()) {
+            if (this.dTS == null) {
+                this.dTS = new bd(this.mPageContext);
             }
-            if (this.dJO.getParams() != null && !TextUtils.isEmpty(this.dJO.getParams().getUrl())) {
-                this.dKK.j(this.dJO.getParams().getUrl(), BitmapHelper.Bitmap2Bytes(bitmap, 100));
+            if (this.dSW.getParams() != null && !TextUtils.isEmpty(this.dSW.getParams().getUrl())) {
+                this.dTS.j(this.dSW.getParams().getUrl(), BitmapHelper.Bitmap2Bytes(bitmap, 100));
             } else {
-                this.dKK.j("http://tieba.baidu.com", BitmapHelper.Bitmap2Bytes(bitmap, 100));
+                this.dTS.j("http://tieba.baidu.com", BitmapHelper.Bitmap2Bytes(bitmap, 100));
             }
-            this.dKV.performClick();
-            ap apVar = new ap("c13724");
-            apVar.ah("obj_type", 1);
-            apVar.ah("obj_source", this.dKU);
-            TiebaStatic.log(apVar);
+            this.dUd.performClick();
+            aq aqVar = new aq("c13724");
+            aqVar.ai("obj_type", 1);
+            aqVar.ai("obj_source", this.dUc);
+            TiebaStatic.log(aqVar);
         }
     }
 
-    private boolean aTp() {
+    private boolean bbG() {
         if (this.mPermissionJudgement == null) {
             this.mPermissionJudgement = new PermissionJudgePolicy();
         }
@@ -280,28 +280,28 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void c(final Bitmap bitmap, final int i) {
-        if (bitmap != null && !aTp()) {
-            ap apVar = new ap("c13724");
+    public void d(final Bitmap bitmap, final int i) {
+        if (bitmap != null && !bbG()) {
+            aq aqVar = new aq("c13724");
             if (i == 3) {
-                apVar.ah("obj_type", 2);
+                aqVar.ai("obj_type", 2);
             } else if (i == 2) {
-                apVar.ah("obj_type", 3);
+                aqVar.ai("obj_type", 3);
             } else if (i == 8) {
-                apVar.ah("obj_type", 4);
+                aqVar.ai("obj_type", 4);
             } else if (i == 4) {
-                apVar.ah("obj_type", 5);
+                aqVar.ai("obj_type", 5);
             } else {
-                apVar.ah("obj_type", 6);
+                aqVar.ai("obj_type", 6);
             }
-            apVar.ah("obj_source", this.dKU);
-            TiebaStatic.log(apVar);
+            aqVar.ai("obj_source", this.dUc);
+            TiebaStatic.log(aqVar);
             ad.a(new ac<ShareItem>() { // from class: com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView.8
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.ac
-                /* renamed from: aTq */
+                /* renamed from: bbH */
                 public ShareItem doInBackground() {
-                    return ThreadAchievementShareDialogView.this.d(bitmap, i);
+                    return ThreadAchievementShareDialogView.this.e(bitmap, i);
                 }
             }, new com.baidu.tbadk.util.l<ShareItem>() { // from class: com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView.9
                 /* JADX DEBUG: Method merged with bridge method */
@@ -315,15 +315,15 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ShareItem d(Bitmap bitmap, int i) {
+    public ShareItem e(Bitmap bitmap, int i) {
         ShareItem shareItem = new ShareItem();
-        shareItem.euf = false;
-        shareItem.eue = false;
+        shareItem.eEF = false;
+        shareItem.eEE = false;
         shareItem.shareType = 1;
         shareItem.title = this.mContext.getString(R.string.app_name);
         shareItem.content = "";
         shareItem.w(bitmap);
-        shareItem.bgO();
+        shareItem.bpz();
         return shareItem;
     }
 }

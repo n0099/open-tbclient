@@ -5,11 +5,11 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.aa;
 import java.net.URLEncoder;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
-    public static boolean xg(int i) {
+    public static boolean zA(int i) {
         switch (i) {
             case CmdConfigSocket.CMD_GROUP_CHAT_MSG /* 202001 */:
             case CmdConfigSocket.CMD_COMMIT_PERSONAL_MSG /* 205001 */:
@@ -21,32 +21,32 @@ public class a {
         }
     }
 
-    public static boolean b(z zVar) {
-        if (zVar == null) {
+    public static boolean b(aa aaVar) {
+        if (aaVar == null) {
             return false;
         }
-        if ((zVar.isNetSuccess() ? zVar.getServerErrorCode() : zVar.getNetErrorCode()) == 1990055) {
-            ckW();
+        if ((aaVar.isNetSuccess() ? aaVar.getServerErrorCode() : aaVar.getNetErrorCode()) == 1990055) {
+            cvF();
             return true;
         }
         return false;
     }
 
-    public static void ckW() {
+    public static void cvF() {
         if (!l.isMainThread()) {
             TbadkCoreApplication.getInst().handler.post(new Runnable() { // from class: com.baidu.tieba.j.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.ckX();
+                    a.cvG();
                 }
             });
         } else {
-            ckX();
+            cvG();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void ckX() {
+    public static final void cvG() {
         Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
         StringBuilder sb = new StringBuilder(UrlSchemaHelper.REAL_NAME_AUTH_URL);
         sb.append("&u=").append(URLEncoder.encode(UrlSchemaHelper.FINISH_THIS_WEBVIEW));

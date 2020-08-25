@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.net.URLEncoder;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class SingleSquareActivityConfig extends IntentConfig {
     public static final String BACK_SPECIAL = "back_special";
     public static final String PAGE_NAME = "square_page";

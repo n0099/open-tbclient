@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import org.apache.http.conn.routing.HttpRoute;
 @Deprecated
-/* loaded from: classes20.dex */
+/* loaded from: classes9.dex */
 public class RouteSpecificPool {
     protected final LinkedList<BasicPoolEntry> freeEntries;
     protected final int maxEntries;

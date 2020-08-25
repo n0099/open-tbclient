@@ -5,51 +5,51 @@ import com.baidu.live.adp.framework.listener.HttpMessageListener;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tieba.ala.liveroom.turntable.a;
 import com.baidu.tieba.ala.liveroom.turntable.lucky.TurnTableLuckyMomentsResponseMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class c implements a {
-    private a.InterfaceC0591a gxy;
-    private HttpMessageListener gxz;
+    private a.InterfaceC0640a gJx;
+    private HttpMessageListener gJy;
 
     @Override // com.baidu.tieba.ala.liveroom.turntable.a
-    public void a(a.InterfaceC0591a interfaceC0591a) {
-        this.gxy = interfaceC0591a;
+    public void a(a.InterfaceC0640a interfaceC0640a) {
+        this.gJx = interfaceC0640a;
     }
 
     @Override // com.baidu.tieba.ala.liveroom.turntable.a
-    public void Ea(String str) {
-        bMH();
+    public void Gz(String str) {
+        bWE();
         com.baidu.tieba.ala.liveroom.turntable.lucky.d dVar = new com.baidu.tieba.ala.liveroom.turntable.lucky.d();
-        dVar.eH(str);
+        dVar.gb(str);
         MessageManager.getInstance().sendMessage(dVar);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.turntable.a
     public void release() {
-        this.gxy = null;
+        this.gJx = null;
         unRegisterListener();
     }
 
-    private void bMH() {
-        if (this.gxz == null) {
-            this.gxz = new HttpMessageListener(1021157) { // from class: com.baidu.tieba.ala.liveroom.turntable.c.1
+    private void bWE() {
+        if (this.gJy == null) {
+            this.gJy = new HttpMessageListener(1021157) { // from class: com.baidu.tieba.ala.liveroom.turntable.c.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                    if (c.this.gxy != null && (httpResponsedMessage instanceof TurnTableLuckyMomentsResponseMessage)) {
+                    if (c.this.gJx != null && (httpResponsedMessage instanceof TurnTableLuckyMomentsResponseMessage)) {
                         TurnTableLuckyMomentsResponseMessage turnTableLuckyMomentsResponseMessage = (TurnTableLuckyMomentsResponseMessage) httpResponsedMessage;
                         if (turnTableLuckyMomentsResponseMessage.hasError() || httpResponsedMessage.getError() != 0) {
-                            c.this.gxy.aY(turnTableLuckyMomentsResponseMessage.getError(), turnTableLuckyMomentsResponseMessage.getErrorString());
+                            c.this.gJx.aW(turnTableLuckyMomentsResponseMessage.getError(), turnTableLuckyMomentsResponseMessage.getErrorString());
                         } else {
-                            c.this.gxy.a(((com.baidu.tieba.ala.liveroom.turntable.lucky.d) httpResponsedMessage.getOrginalMessage()).getLiveId(), ((TurnTableLuckyMomentsResponseMessage) httpResponsedMessage).gxZ);
+                            c.this.gJx.a(((com.baidu.tieba.ala.liveroom.turntable.lucky.d) httpResponsedMessage.getOrginalMessage()).getLiveId(), ((TurnTableLuckyMomentsResponseMessage) httpResponsedMessage).gJY);
                         }
                     }
                 }
             };
-            MessageManager.getInstance().registerListener(this.gxz);
+            MessageManager.getInstance().registerListener(this.gJy);
         }
     }
 
     private void unRegisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.gxz);
+        MessageManager.getInstance().unRegisterListener(this.gJy);
     }
 }

@@ -6,9 +6,8 @@ import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.sofire.b;
 import com.baidu.sofire.e;
-import com.baidu.sofire.i.d;
-import com.baidu.sofire.i.f;
-/* loaded from: classes3.dex */
+import com.baidu.sofire.i.g;
+/* loaded from: classes20.dex */
 public class Receiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
@@ -22,11 +21,11 @@ public class Receiver extends BroadcastReceiver {
                 int y = eVar.y();
                 new StringBuilder().append(y);
                 b.a();
-                d.a(context, y * 3600000);
-                f.a(context).c();
+                com.baidu.sofire.i.e.a(context, y * 3600000);
+                g.a(context).c();
                 eVar.b(System.currentTimeMillis());
             } catch (Throwable th) {
-                d.a();
+                com.baidu.sofire.i.e.a();
             }
         }
     }

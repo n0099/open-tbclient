@@ -1,5 +1,5 @@
 package com.tencent.mm.opensdk.utils;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class Log {
     private static ILog logImpl;
 

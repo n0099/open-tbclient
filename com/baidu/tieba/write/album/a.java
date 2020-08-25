@@ -7,61 +7,61 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
-    private Fragment[] aQH;
-    private String bjk;
-    private String bjl;
-    private TbPageContext huq;
-    private e muL;
-    private String[] muM;
-    private ImageListFragment muN;
-    private AlbumImageBrowseFragment muO;
+    private Fragment[] aVV;
+    private String boP;
+    private String boQ;
+    private TbPageContext hHG;
+    private e mMZ;
+    private String[] mNa;
+    private ImageListFragment mNb;
+    private AlbumImageBrowseFragment mNc;
 
     public a(TbPageContext tbPageContext, e eVar) {
         super(tbPageContext);
-        this.bjk = "tag_image";
-        this.bjl = "tag_b_image";
-        this.huq = tbPageContext;
-        this.muL = eVar;
+        this.boP = "tag_image";
+        this.boQ = "tag_b_image";
+        this.hHG = tbPageContext;
+        this.mMZ = eVar;
     }
 
-    public void II() {
-        this.aQH = new Fragment[2];
-        this.muM = new String[2];
-        this.muN = new ImageListFragment();
-        this.muN.a(this.muL);
-        this.aQH[0] = this.muN;
-        this.muM[0] = this.bjk;
-        this.muO = new AlbumImageBrowseFragment();
-        this.muO.a(this.muL);
-        this.aQH[1] = this.muO;
-        this.muM[1] = this.bjl;
+    public void OB() {
+        this.aVV = new Fragment[2];
+        this.mNa = new String[2];
+        this.mNb = new ImageListFragment();
+        this.mNb.a(this.mMZ);
+        this.aVV[0] = this.mNb;
+        this.mNa[0] = this.boP;
+        this.mNc = new AlbumImageBrowseFragment();
+        this.mNc.a(this.mMZ);
+        this.aVV[1] = this.mNc;
+        this.mNa[1] = this.boQ;
     }
 
-    public Fragment Ha(int i) {
+    public Fragment Jx(int i) {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.aQH[i];
+        return this.aVV[i];
     }
 
-    public String Hb(int i) {
+    public String Jy(int i) {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.muM[i];
+        return this.mNa[i];
     }
 
     public void a(NavigationBar navigationBar) {
-        this.muN.a(navigationBar);
+        this.mNb.a(navigationBar);
     }
 
     public void onChangeSkinType(int i) {
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < this.aQH.length) {
-                if (this.aQH[i3] != null && (this.aQH[i3] instanceof ImageListFragment)) {
-                    ((ImageListFragment) this.aQH[i3]).onChangeSkinType(i);
+            if (i3 < this.aVV.length) {
+                if (this.aVV[i3] != null && (this.aVV[i3] instanceof ImageListFragment)) {
+                    ((ImageListFragment) this.aVV[i3]).onChangeSkinType(i);
                 }
                 i2 = i3 + 1;
             } else {
@@ -70,99 +70,99 @@ public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
         }
     }
 
-    public TbCameraView dux() {
-        if (this.muN == null) {
+    public TbCameraView dFT() {
+        if (this.mNb == null) {
             return null;
         }
-        return this.muN.dux();
+        return this.mNb.dFT();
     }
 
     public void stopCamera() {
-        TbCameraView dux = dux();
-        if (dux != null) {
-            dux.stopCamera();
-            dux.setVisibility(4);
+        TbCameraView dFT = dFT();
+        if (dFT != null) {
+            dFT.stopCamera();
+            dFT.setVisibility(4);
         }
     }
 
-    public void Rd() {
-        TbCameraView dux = dux();
-        if (dux != null) {
-            dux.setVisibility(0);
-            dux.wq(false);
+    public void WZ() {
+        TbCameraView dFT = dFT();
+        if (dFT != null) {
+            dFT.setVisibility(0);
+            dFT.xf(false);
         }
-        if (this.muN != null && this.muN.duI() != null) {
-            this.muN.duI().Jg();
-        }
-    }
-
-    public void duy() {
-        if (this.muN != null) {
-            this.muN.Je();
+        if (this.mNb != null && this.mNb.dGe() != null) {
+            this.mNb.dGe().OY();
         }
     }
 
-    public View IJ() {
-        if (this.muN == null) {
+    public void dFU() {
+        if (this.mNb != null) {
+            this.mNb.OW();
+        }
+    }
+
+    public View OC() {
+        if (this.mNb == null) {
             return null;
         }
-        return this.muN.Jb();
+        return this.mNb.OT();
     }
 
-    public View IK() {
-        if (this.muN == null) {
+    public View OD() {
+        if (this.mNb == null) {
             return null;
         }
-        return this.muN.Jf();
+        return this.mNb.OX();
     }
 
-    public View IL() {
-        if (this.muO == null) {
+    public View OE() {
+        if (this.mNc == null) {
             return null;
         }
-        return this.muO.Jb();
+        return this.mNc.OT();
     }
 
-    public View IM() {
-        if (this.muO == null) {
+    public View OF() {
+        if (this.mNc == null) {
             return null;
         }
-        return this.muO.Jc();
+        return this.mNc.OU();
     }
 
-    public View IN() {
-        if (this.muO == null) {
+    public View OG() {
+        if (this.mNc == null) {
             return null;
         }
-        return this.muO.IN();
+        return this.mNc.OG();
     }
 
-    public View IO() {
-        if (this.muN == null) {
+    public View OH() {
+        if (this.mNb == null) {
             return null;
         }
-        return this.muN.IN();
+        return this.mNb.OG();
     }
 
     public void onDestroy() {
     }
 
-    public ImageListFragment duz() {
-        return this.muN;
+    public ImageListFragment dFV() {
+        return this.mNb;
     }
 
-    public void cp(boolean z) {
-        if (this.muO != null) {
-            this.muO.cp(z);
+    public void cy(boolean z) {
+        if (this.mNc != null) {
+            this.mNc.cy(z);
         }
-        if (this.muN != null) {
-            this.muN.cp(z);
+        if (this.mNb != null) {
+            this.mNb.cy(z);
         }
     }
 
     public void a(j jVar) {
-        if (this.muN != null) {
-            this.muN.a(jVar);
+        if (this.mNb != null) {
+            this.mNb.a(jVar);
         }
     }
 }

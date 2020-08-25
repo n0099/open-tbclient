@@ -1,63 +1,80 @@
 package com.baidu.swan.bdprivate.a;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import com.baidu.swan.apps.api.module.a.b;
-/* loaded from: classes11.dex */
-public class t implements com.baidu.swan.apps.adaptation.a.h {
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.swan.apps.setting.oauth.OAuthException;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes3.dex */
+public class t extends com.baidu.swan.apps.setting.oauth.a.g {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private boolean mIsLogin;
+    private String mStoken;
 
-    @Override // com.baidu.swan.apps.adaptation.a.h
-    public com.baidu.swan.apps.adaptation.a.c Uf() {
-        return new a();
+    public t(Activity activity, String str, String str2, boolean z, boolean z2) {
+        super(activity, str, str2, z);
+        this.mIsLogin = z2;
+        aBY();
     }
 
-    /* loaded from: classes11.dex */
-    private class a implements com.baidu.swan.apps.adaptation.a.c {
+    @Override // com.baidu.swan.apps.setting.oauth.b
+    protected boolean aBv() {
+        a(new a());
+        return true;
+    }
+
+    @Override // com.baidu.swan.apps.setting.oauth.a.g
+    public JSONObject aBU() {
+        JSONObject aBU = super.aBU();
+        if (!TextUtils.isEmpty(this.mStoken)) {
+            try {
+                aBU.put("stoken", this.mStoken);
+            } catch (JSONException e) {
+                if (DEBUG) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return aBU;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes3.dex */
+    public class a extends com.baidu.swan.apps.setting.oauth.d {
         private a() {
         }
 
-        @Override // com.baidu.swan.apps.adaptation.a.c
-        @NonNull
-        public com.baidu.swan.apps.setting.oauth.a.a a(Activity activity, boolean z, String str, String str2) {
-            return new n(activity, z, str, str2);
+        @Override // com.baidu.swan.apps.setting.oauth.d
+        protected boolean aBB() throws Exception {
+            if (!t.this.mIsLogin) {
+                t.this.mStoken = null;
+                if (t.DEBUG) {
+                    Log.w("MaOpenDataRequest", "user not login");
+                    return true;
+                }
+                return true;
+            }
+            com.baidu.swan.bdprivate.a.a.a(t.this.mActivity, new com.baidu.swan.apps.ap.e.b<Bundle>() { // from class: com.baidu.swan.bdprivate.a.t.a.1
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.swan.apps.ap.e.b
+                /* renamed from: B */
+                public void I(Bundle bundle) {
+                    if (bundle == null) {
+                        a.this.w(new OAuthException("null stoken", 10001));
+                        return;
+                    }
+                    String string = bundle.getString("dev", "");
+                    if (!TextUtils.isEmpty(string)) {
+                        t.this.mStoken = string;
+                        a.this.aBD();
+                        return;
+                    }
+                    a.this.w(new OAuthException("empty stoken", 10001));
+                }
+            }, "dev");
+            return false;
         }
-
-        @Override // com.baidu.swan.apps.adaptation.a.c
-        @NonNull
-        public com.baidu.swan.apps.setting.oauth.a.b a(Context context, boolean z, boolean z2, String[] strArr, String str, boolean z3) {
-            return new o(context, z, z2, strArr, str, z3);
-        }
-
-        @Override // com.baidu.swan.apps.adaptation.a.c
-        @NonNull
-        public com.baidu.swan.apps.setting.oauth.a.e a(Activity activity, b.a aVar, Bundle bundle) {
-            return new r(activity, aVar, bundle);
-        }
-
-        @Override // com.baidu.swan.apps.adaptation.a.c
-        @NonNull
-        public com.baidu.swan.apps.setting.oauth.a.c c(Activity activity, String str) {
-            return new p(activity, str);
-        }
-
-        @Override // com.baidu.swan.apps.adaptation.a.c
-        @NonNull
-        public com.baidu.swan.apps.setting.oauth.a.d bc(Context context) {
-            return new q(context);
-        }
-
-        @Override // com.baidu.swan.apps.adaptation.a.c
-        @NonNull
-        public com.baidu.swan.apps.setting.oauth.a.f a(Activity activity, String str, String str2, boolean z, boolean z2) {
-            return new s(activity, str, str2, z, z2);
-        }
-    }
-
-    @Override // com.baidu.swan.apps.adaptation.a.h
-    public com.baidu.swan.apps.adaptation.a.b Ug() {
-        return new m();
     }
 }

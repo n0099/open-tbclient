@@ -8,11 +8,11 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class g implements c {
-    private Message Ji;
+    private Message JL;
     private Set<String> keySet;
 
     public g(Message message) {
-        this.Ji = message;
+        this.JL = message;
         List<Field> findFields = com.baidu.adp.lib.OrmObject.a.a.findFields(message.getClass());
         this.keySet = new HashSet();
         if (findFields != null && findFields.size() > 0) {
@@ -30,12 +30,12 @@ public class g implements c {
     }
 
     public Object getObject(String str) {
-        return com.baidu.adp.lib.OrmObject.a.a.getValueForField(this.Ji, str);
+        return com.baidu.adp.lib.OrmObject.a.a.getValueForField(this.JL, str);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
     public void f(String str, Object obj) {
-        com.baidu.adp.lib.OrmObject.a.a.setValueForField(this.Ji, str, obj);
+        com.baidu.adp.lib.OrmObject.a.a.setValueForField(this.JL, str, obj);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
@@ -43,9 +43,9 @@ public class g implements c {
         Object object = getObject(str);
         if (object != null) {
             com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar = new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(type);
-            com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h u = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.u(object);
-            if (u != null) {
-                return u.g(cVar);
+            com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h v = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.v(object);
+            if (v != null) {
+                return v.g(cVar);
             }
             return object;
         }

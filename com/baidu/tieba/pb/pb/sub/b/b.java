@@ -4,19 +4,19 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.q;
 /* loaded from: classes16.dex */
 public class b implements q {
-    public static final BdUniqueId kEe = BdUniqueId.gen();
-    private int aoJ = 0;
+    public static final BdUniqueId kTL = BdUniqueId.gen();
+    private int atH = 0;
 
     public void setReplyNum(int i) {
-        this.aoJ = i;
+        this.atH = i;
     }
 
     public int getReplyNum() {
-        return this.aoJ;
+        return this.atH;
     }
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return kEe;
+        return kTL;
     }
 }

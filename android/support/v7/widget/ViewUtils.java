@@ -9,7 +9,7 @@ import android.view.View;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class ViewUtils {
     private static final String TAG = "ViewUtils";
     private static Method sComputeFitSystemWindowsMethod;

@@ -1,15 +1,15 @@
 package com.airbnb.lottie.a.b;
 
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes18.dex */
 public class d extends f<com.airbnb.lottie.model.content.c> {
-    private final com.airbnb.lottie.model.content.c CP;
+    private final com.airbnb.lottie.model.content.c Dx;
 
     public d(List<com.airbnb.lottie.e.a<com.airbnb.lottie.model.content.c>> list) {
         super(list);
-        com.airbnb.lottie.model.content.c cVar = list.get(0).Gp;
+        com.airbnb.lottie.model.content.c cVar = list.get(0).GX;
         int size = cVar == null ? 0 : cVar.getSize();
-        this.CP = new com.airbnb.lottie.model.content.c(new float[size], new int[size]);
+        this.Dx = new com.airbnb.lottie.model.content.c(new float[size], new int[size]);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -17,7 +17,7 @@ public class d extends f<com.airbnb.lottie.model.content.c> {
     @Override // com.airbnb.lottie.a.b.a
     /* renamed from: d */
     public com.airbnb.lottie.model.content.c a(com.airbnb.lottie.e.a<com.airbnb.lottie.model.content.c> aVar, float f) {
-        this.CP.a(aVar.Gp, aVar.Gq, f);
-        return this.CP;
+        this.Dx.a(aVar.GX, aVar.GY, f);
+        return this.Dx;
     }
 }

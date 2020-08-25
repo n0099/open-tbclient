@@ -10,7 +10,7 @@ import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class ArBridge {
     private static ArBridge a = null;
     private WeakReference<BaiduArView> b;
@@ -25,17 +25,26 @@ public class ArBridge {
     private boolean l = false;
     private HandlerThread c = new HandlerThread("msg_callback_thread");
 
-    /* loaded from: classes10.dex */
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes20.dex */
+    public static class b {
+        public int a;
+        public int b;
+        public HashMap<String, Object> c;
+        public int d;
+    }
+
+    /* loaded from: classes20.dex */
     public interface c {
         void a(Bitmap bitmap);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public interface d {
         void a(int i, int i2, HashMap<String, Object> hashMap);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public enum e {
         SCREEN_ORIENTATION_PORTRAIT,
         SCREEN_ORIENTATION_LANDSCAPE,
@@ -44,7 +53,7 @@ public class ArBridge {
         SCREEN_ORIENTATION_NOT_DEFINED
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public interface f {
         void a(String str, int i, String str2);
     }
@@ -146,18 +155,18 @@ public class ArBridge {
     }
 
     public void sendMessage(int i, HashMap<String, Object> hashMap) {
-        sendMessageImpl(i, hashMap, -1);
+        a(i, hashMap, -1);
     }
 
     public void sendResponseMessage(int i, HashMap<String, Object> hashMap, int i2) {
-        sendMessageImpl(i, hashMap, i2);
+        a(i, hashMap, i2);
     }
 
-    private void sendMessageImpl(int i, HashMap<String, Object> hashMap, int i2) {
-        sendMessageImpl(i, -1, hashMap, i2);
+    private void a(int i, HashMap<String, Object> hashMap, int i2) {
+        a(i, -1, hashMap, i2);
     }
 
-    private void sendMessageImpl(int i, int i2, HashMap<String, Object> hashMap, int i3) {
+    private void a(int i, int i2, HashMap<String, Object> hashMap, int i3) {
         if (this.b != null && this.b.get() != null) {
             this.b.get().queueEvent(new q(this, i2, i, hashMap, i3));
         }
@@ -198,12 +207,8 @@ public class ArBridge {
         }
     }
 
-    private void receiveMsgFromEngine(int i, int i2, HashMap<String, Object> hashMap, int i3) {
-        this.d.obtainMessage(1, new b(i, i2, hashMap, i3)).sendToTarget();
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
-    public void processIncomingMessage(b bVar) {
+    public void a(b bVar) {
         for (a aVar : this.e) {
             if (aVar.a == 0 || bVar.a == aVar.a) {
                 if (-1 == aVar.b || bVar.d == aVar.b) {
@@ -214,23 +219,7 @@ public class ArBridge {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
-    public static class b {
-        public int a;
-        public int b;
-        public HashMap<String, Object> c;
-        public int d;
-
-        public b(int i, int i2, HashMap<String, Object> hashMap, int i3) {
-            this.a = i;
-            this.b = i2;
-            this.c = hashMap;
-            this.d = i3;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public static class a {
         public int a;
         public int b;

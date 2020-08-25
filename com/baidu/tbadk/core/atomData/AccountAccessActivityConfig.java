@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.data.AccessState;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class AccountAccessActivityConfig extends IntentConfig {
     public static final String KEY_ACCESS_STATE = "access_state";
     public static final String KEY_WRITE_DATA = "write_data";

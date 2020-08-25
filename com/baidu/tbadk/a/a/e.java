@@ -2,50 +2,37 @@ package com.baidu.tbadk.a.a;
 
 import com.baidu.adp.BdUniqueId;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class e extends a {
-    public static final BdUniqueId dIg = BdUniqueId.gen();
-    public final ArrayList<String> dIh = new ArrayList<>();
-    public com.baidu.tbadk.a.e dIi;
+    public static final BdUniqueId dRn = BdUniqueId.gen();
+    public final ArrayList<String> dRo = new ArrayList<>();
+    public com.baidu.tbadk.a.e dRp;
 
     public e() {
-        this.dIh.add("70_2");
-        this.dIh.add("70_3");
-        this.dIh.add("70_4");
-        this.dIh.add("70_5");
-        this.dIh.add("70_6");
-        this.dIh.add("71_2");
+        this.dRo.add("11_7_pb_a");
+        this.dRo.add("11_7_pb_b");
+        this.dRo.add("11_7_pb_c");
+        this.dRo.add("11_7_pb_d");
+        this.dRo.add("11_7_pb_e");
     }
 
     @Override // com.baidu.tbadk.a.a.a
-    public BdUniqueId aRS() {
-        return dIg;
+    public BdUniqueId baj() {
+        return dRn;
     }
 
     @Override // com.baidu.tbadk.a.a.a
-    public ArrayList<String> aRT() {
-        return this.dIh;
+    public ArrayList<String> bak() {
+        return this.dRo;
     }
 
     @Override // com.baidu.tbadk.a.a.a
-    public com.baidu.tbadk.a.e aRU() {
-        return this.dIi;
+    public com.baidu.tbadk.a.e bal() {
+        return this.dRp;
     }
 
     @Override // com.baidu.tbadk.a.a.a
     public void a(com.baidu.tbadk.a.e eVar) {
-        this.dIi = eVar;
-    }
-
-    public static com.baidu.tbadk.a.e aRV() {
-        return com.baidu.tbadk.a.d.j(dIg);
-    }
-
-    public static boolean B(String... strArr) {
-        return b(aRV(), strArr);
-    }
-
-    public static boolean b(com.baidu.tbadk.a.e eVar, String... strArr) {
-        return com.baidu.tbadk.a.d.a(eVar, strArr);
+        this.dRp = eVar;
     }
 }

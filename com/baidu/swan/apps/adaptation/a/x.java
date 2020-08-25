@@ -1,11 +1,12 @@
 package com.baidu.swan.apps.adaptation.a;
 
-import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
-/* loaded from: classes7.dex */
+import android.app.Activity;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import com.baidu.swan.apps.p.c;
+/* loaded from: classes8.dex */
 public interface x {
-    com.baidu.swan.apps.p.f.b.a a(ZeusPluginFactory.Invoker invoker, String str);
+    boolean C(@Nullable Activity activity);
 
-    com.baidu.swan.apps.p.f.b.a b(ZeusPluginFactory.Invoker invoker, String str);
-
-    com.baidu.swan.apps.p.b.a c(ZeusPluginFactory.Invoker invoker, String str);
+    void a(@NonNull Activity activity, String str, String str2, c.a aVar);
 }

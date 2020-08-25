@@ -6,22 +6,22 @@ import java.util.Map;
 /* loaded from: classes11.dex */
 class g {
     public String method;
-    public Charset qg;
-    public h qh;
-    public Map<String, String> qi;
-    public k qj;
-    private StringBuilder qk = new StringBuilder();
+    public Charset qL;
+    public h qM;
+    public Map<String, String> qN;
+    public k qO;
+    private StringBuilder qP = new StringBuilder();
     public URL url;
 
-    public void ai(String str) {
-        this.qk.append(str + "\r\n");
+    public void am(String str) {
+        this.qP.append(str + "\r\n");
     }
 
-    public String dE() {
-        return this.qk.toString();
+    public String eO() {
+        return this.qP.toString();
     }
 
     public boolean hasError() {
-        return this.qk.length() > 0;
+        return this.qP.length() > 0;
     }
 }

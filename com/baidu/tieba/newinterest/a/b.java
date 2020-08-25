@@ -14,38 +14,37 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
-import com.baidu.tbadk.core.view.commonBtn.c;
 import com.baidu.tieba.R;
 import com.baidu.tieba.newinterest.data.d;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes17.dex */
 public class b extends RecyclerView.Adapter<a> {
-    private int kbT;
-    private List<com.baidu.tieba.newinterest.data.a> kcc = new ArrayList();
-    private InterfaceC0703b kcd;
-    private boolean kce;
+    private int kro;
+    private List<com.baidu.tieba.newinterest.data.a> krx = new ArrayList();
+    private InterfaceC0754b kry;
+    private boolean krz;
 
     /* renamed from: com.baidu.tieba.newinterest.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes17.dex */
-    public interface InterfaceC0703b {
-        void Z(int i, boolean z);
+    public interface InterfaceC0754b {
+        void ab(int i, boolean z);
     }
 
     static /* synthetic */ int d(b bVar) {
-        int i = bVar.kbT;
-        bVar.kbT = i - 1;
+        int i = bVar.kro;
+        bVar.kro = i - 1;
         return i;
     }
 
     static /* synthetic */ int e(b bVar) {
-        int i = bVar.kbT;
-        bVar.kbT = i + 1;
+        int i = bVar.kro;
+        bVar.kro = i + 1;
         return i;
     }
 
@@ -59,23 +58,23 @@ public class b extends RecyclerView.Adapter<a> {
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.kcc == null) {
+        if (this.krx == null) {
             return 0;
         }
-        return this.kcc.size();
+        return this.krx.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(@NonNull final a aVar, final int i) {
-        final com.baidu.tieba.newinterest.data.a aVar2 = this.kcc.get(i);
-        aVar.kca.setText(aVar2.class_name);
+        final com.baidu.tieba.newinterest.data.a aVar2 = this.krx.get(i);
+        aVar.krv.setText(aVar2.class_name);
         if (aVar2.class_id.intValue() > 0) {
-            SvgManager.baR().a(aVar.kbZ, com.baidu.tieba.newinterest.c.a.Bn(aVar2.class_id.intValue()), (SvgManager.SvgResourceStateType) null);
+            SvgManager.bjq().a(aVar.kru, com.baidu.tieba.newinterest.c.a.DG(aVar2.class_id.intValue()), (SvgManager.SvgResourceStateType) null);
         }
         if (aVar2.forum_info != null && aVar2.forum_info.size() != 0) {
-            if (aVar2.kcM == 0) {
+            if (aVar2.ksh == 0) {
                 if (aVar2.forum_info.size() >= 1) {
                     a(aVar, aVar2.forum_info.get(0));
                 }
@@ -86,40 +85,40 @@ public class b extends RecyclerView.Adapter<a> {
                     c(aVar, aVar2.forum_info.get(2));
                 }
                 if (aVar2.forum_info.size() > 3) {
-                    aVar2.kcM = 2;
+                    aVar2.ksh = 2;
                 }
             } else {
-                int i2 = aVar2.kcM;
+                int i2 = aVar2.ksh;
                 c(aVar, aVar2.forum_info.get(i2));
                 int size = i2 + (-1) < 0 ? aVar2.forum_info.size() - 1 : i2 - 1;
                 b(aVar, aVar2.forum_info.get(size));
                 a(aVar, aVar2.forum_info.get(size + (-1) < 0 ? aVar2.forum_info.size() - 1 : size - 1));
             }
             if (aVar2.forum_info.size() <= 3) {
-                aVar.kck.setEnabled(false);
+                aVar.krF.setEnabled(false);
             } else {
-                aVar.kck.setEnabled(true);
+                aVar.krF.setEnabled(true);
             }
-            aVar.kck.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.newinterest.a.b.1
+            aVar.krF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.newinterest.a.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     int size2 = aVar2.forum_info.size() - 1;
                     b.this.a(size2, aVar2);
-                    b.this.a(aVar, aVar2.forum_info.get(aVar2.kcM));
+                    b.this.a(aVar, aVar2.forum_info.get(aVar2.ksh));
                     b.this.a(size2, aVar2);
-                    b.this.b(aVar, aVar2.forum_info.get(aVar2.kcM));
+                    b.this.b(aVar, aVar2.forum_info.get(aVar2.ksh));
                     b.this.a(size2, aVar2);
-                    b.this.c(aVar, aVar2.forum_info.get(aVar2.kcM));
-                    b.this.kce = b.this.cIX();
+                    b.this.c(aVar, aVar2.forum_info.get(aVar2.ksh));
+                    b.this.krz = b.this.cTM();
                     b.this.notifyItemChanged(i);
-                    if (b.this.kcd != null) {
-                        b.this.kcd.Z(b.this.kbT, b.this.kce);
+                    if (b.this.kry != null) {
+                        b.this.kry.ab(b.this.kro, b.this.krz);
                     }
-                    ap apVar = new ap("c13682");
-                    apVar.ah("obj_type", 2);
-                    apVar.ah("obj_locate", 4);
-                    apVar.ah("obj_source", aVar2.class_id.intValue());
-                    TiebaStatic.log(apVar);
+                    aq aqVar = new aq("c13682");
+                    aqVar.ai("obj_type", 2);
+                    aqVar.ai("obj_locate", 4);
+                    aqVar.ai("obj_source", aVar2.class_id.intValue());
+                    TiebaStatic.log(aqVar);
                 }
             });
         }
@@ -128,83 +127,83 @@ public class b extends RecyclerView.Adapter<a> {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(a aVar, d dVar) {
         String str;
-        aVar.kcl.setVisibility(0);
-        aVar.kco.setVisibility(0);
-        aVar.kco.startLoad(dVar.kcO.avatar, 10, false);
-        aVar.kcr.setText(dVar.kcO.forum_name);
-        if (TextUtils.isEmpty(dVar.kcO.slogan)) {
-            str = "百度" + dVar.kcO.forum_name + "吧";
+        aVar.krG.setVisibility(0);
+        aVar.krJ.setVisibility(0);
+        aVar.krJ.startLoad(dVar.ksj.avatar, 10, false);
+        aVar.krM.setText(dVar.ksj.forum_name);
+        if (TextUtils.isEmpty(dVar.ksj.slogan)) {
+            str = "百度" + dVar.ksj.forum_name + "吧";
         } else {
-            str = dVar.kcO.slogan;
+            str = dVar.ksj.slogan;
         }
-        aVar.kcu.setText(str);
-        aVar.kcx.setText("关注 " + as.numberUniformFormatExtra(dVar.kcO.member_count.intValue()));
-        aVar.kcA.setText("帖子 " + as.numberUniformFormatExtra(dVar.kcO.thread_count.intValue()));
-        a(aVar.kcD, dVar);
-        a(dVar, aVar.kcD);
+        aVar.krP.setText(str);
+        aVar.krS.setText("关注 " + at.numberUniformFormatExtra(dVar.ksj.member_count.intValue()));
+        aVar.krV.setText("帖子 " + at.numberUniformFormatExtra(dVar.ksj.thread_count.intValue()));
+        a(aVar.krY, dVar);
+        a(dVar, aVar.krY);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(a aVar, d dVar) {
         String str;
-        aVar.kcm.setVisibility(0);
-        aVar.kcp.setVisibility(0);
-        aVar.kcp.startLoad(dVar.kcO.avatar, 10, false);
-        aVar.kcs.setText(dVar.kcO.forum_name);
-        if (TextUtils.isEmpty(dVar.kcO.slogan)) {
-            str = "百度" + dVar.kcO.forum_name + "吧";
+        aVar.krH.setVisibility(0);
+        aVar.krK.setVisibility(0);
+        aVar.krK.startLoad(dVar.ksj.avatar, 10, false);
+        aVar.krN.setText(dVar.ksj.forum_name);
+        if (TextUtils.isEmpty(dVar.ksj.slogan)) {
+            str = "百度" + dVar.ksj.forum_name + "吧";
         } else {
-            str = dVar.kcO.slogan;
+            str = dVar.ksj.slogan;
         }
-        aVar.kcv.setText(str);
-        aVar.kcy.setText("关注 " + as.numberUniformFormatExtra(dVar.kcO.member_count.intValue()));
-        aVar.kcB.setText("帖子 " + as.numberUniformFormatExtra(dVar.kcO.thread_count.intValue()));
-        a(aVar.kcE, dVar);
-        a(dVar, aVar.kcE);
+        aVar.krQ.setText(str);
+        aVar.krT.setText("关注 " + at.numberUniformFormatExtra(dVar.ksj.member_count.intValue()));
+        aVar.krW.setText("帖子 " + at.numberUniformFormatExtra(dVar.ksj.thread_count.intValue()));
+        a(aVar.krZ, dVar);
+        a(dVar, aVar.krZ);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(a aVar, d dVar) {
         String str;
-        aVar.kcn.setVisibility(0);
-        aVar.kcq.setVisibility(0);
-        aVar.kcq.startLoad(dVar.kcO.avatar, 10, false);
-        aVar.kct.setText(dVar.kcO.forum_name);
-        if (TextUtils.isEmpty(dVar.kcO.slogan)) {
-            str = "百度" + dVar.kcO.forum_name + "吧";
+        aVar.krI.setVisibility(0);
+        aVar.krL.setVisibility(0);
+        aVar.krL.startLoad(dVar.ksj.avatar, 10, false);
+        aVar.krO.setText(dVar.ksj.forum_name);
+        if (TextUtils.isEmpty(dVar.ksj.slogan)) {
+            str = "百度" + dVar.ksj.forum_name + "吧";
         } else {
-            str = dVar.kcO.slogan;
+            str = dVar.ksj.slogan;
         }
-        aVar.kcw.setText(str);
-        aVar.kcz.setText("关注 " + as.numberUniformFormatExtra(dVar.kcO.member_count.intValue()));
-        aVar.kcC.setText("帖子 " + as.numberUniformFormatExtra(dVar.kcO.thread_count.intValue()));
-        a(aVar.kcF, dVar);
-        a(dVar, aVar.kcF);
+        aVar.krR.setText(str);
+        aVar.krU.setText("关注 " + at.numberUniformFormatExtra(dVar.ksj.member_count.intValue()));
+        aVar.krX.setText("帖子 " + at.numberUniformFormatExtra(dVar.ksj.thread_count.intValue()));
+        a(aVar.ksa, dVar);
+        a(dVar, aVar.ksa);
     }
 
     private void a(TBSpecificationBtn tBSpecificationBtn, d dVar) {
-        c cVar = new c();
+        com.baidu.tbadk.core.view.commonBtn.b bVar = new com.baidu.tbadk.core.view.commonBtn.b();
         if (!dVar.selected) {
             tBSpecificationBtn.setText("感兴趣");
-            tBSpecificationBtn.setConfig(cVar);
+            tBSpecificationBtn.setConfig(bVar);
             return;
         }
         tBSpecificationBtn.setText("已选择");
-        cVar.mX(R.color.cp_cont_d);
-        tBSpecificationBtn.setConfig(cVar);
+        bVar.pd(R.color.cp_cont_d);
+        tBSpecificationBtn.setConfig(bVar);
     }
 
-    public void bP(List<com.baidu.tieba.newinterest.data.a> list) {
-        this.kcc.addAll(list);
+    public void bQ(List<com.baidu.tieba.newinterest.data.a> list) {
+        this.krx.addAll(list);
         notifyDataSetChanged();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, com.baidu.tieba.newinterest.data.a aVar) {
-        if (aVar.kcM < i) {
-            aVar.kcM++;
+        if (aVar.ksh < i) {
+            aVar.ksh++;
         } else {
-            aVar.kcM = 0;
+            aVar.ksh = 0;
         }
     }
 
@@ -213,65 +212,65 @@ public class b extends RecyclerView.Adapter<a> {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 dVar.selected = !dVar.selected;
-                c cVar = new c();
+                com.baidu.tbadk.core.view.commonBtn.b bVar = new com.baidu.tbadk.core.view.commonBtn.b();
                 if (!dVar.selected) {
                     b.d(b.this);
                     tBSpecificationBtn.setText("感兴趣");
-                    tBSpecificationBtn.setConfig(cVar);
-                    b.this.kce = false;
+                    tBSpecificationBtn.setConfig(bVar);
+                    b.this.krz = false;
                 } else {
                     b.e(b.this);
                     tBSpecificationBtn.setText("已选择");
-                    cVar.mX(R.color.cp_cont_d);
-                    tBSpecificationBtn.setConfig(cVar);
-                    b.this.kce = b.this.cIX();
+                    bVar.pd(R.color.cp_cont_d);
+                    tBSpecificationBtn.setConfig(bVar);
+                    b.this.krz = b.this.cTM();
                 }
-                if (b.this.kcd != null) {
-                    b.this.kcd.Z(b.this.kbT, b.this.kce);
+                if (b.this.kry != null) {
+                    b.this.kry.ab(b.this.kro, b.this.krz);
                 }
-                ap apVar = new ap("c13682");
-                apVar.ah("obj_type", 2);
-                apVar.ah("obj_locate", 4);
-                apVar.t("fid", dVar.kcO.forum_id.longValue());
-                TiebaStatic.log(apVar);
+                aq aqVar = new aq("c13682");
+                aqVar.ai("obj_type", 2);
+                aqVar.ai("obj_locate", 4);
+                aqVar.u("fid", dVar.ksj.forum_id.longValue());
+                TiebaStatic.log(aqVar);
             }
         });
     }
 
-    public List<com.baidu.tieba.newinterest.data.a> cIV() {
-        return this.kcc;
+    public List<com.baidu.tieba.newinterest.data.a> cTK() {
+        return this.krx;
     }
 
-    public void cIW() {
-        if (this.kcc != null && this.kcc.size() != 0) {
-            for (com.baidu.tieba.newinterest.data.a aVar : this.kcc) {
-                int i = aVar.kcM;
-                aVar.forum_info.get(i).selected = !this.kce;
+    public void cTL() {
+        if (this.krx != null && this.krx.size() != 0) {
+            for (com.baidu.tieba.newinterest.data.a aVar : this.krx) {
+                int i = aVar.ksh;
+                aVar.forum_info.get(i).selected = !this.krz;
                 a(aVar, i);
                 int size = i + (-1) < 0 ? aVar.forum_info.size() - 1 : i - 1;
-                aVar.forum_info.get(size).selected = !this.kce;
+                aVar.forum_info.get(size).selected = !this.krz;
                 a(aVar, size);
                 int size2 = size + (-1) < 0 ? aVar.forum_info.size() - 1 : size - 1;
-                aVar.forum_info.get(size2).selected = !this.kce;
+                aVar.forum_info.get(size2).selected = !this.krz;
                 a(aVar, size2);
             }
-            this.kce = this.kce ? false : true;
+            this.krz = this.krz ? false : true;
             notifyDataSetChanged();
-            if (this.kcd != null) {
-                if (this.kce) {
-                    this.kbT = this.kcc.size() * 3;
-                    this.kcd.Z(this.kcc.size() * 3, this.kce);
+            if (this.kry != null) {
+                if (this.krz) {
+                    this.kro = this.krx.size() * 3;
+                    this.kry.ab(this.krx.size() * 3, this.krz);
                     return;
                 }
-                this.kbT = 0;
-                this.kcd.Z(0, this.kce);
+                this.kro = 0;
+                this.kry.ab(0, this.krz);
             }
         }
     }
 
-    public boolean cIX() {
-        for (com.baidu.tieba.newinterest.data.a aVar : this.kcc) {
-            int i = aVar.kcM;
+    public boolean cTM() {
+        for (com.baidu.tieba.newinterest.data.a aVar : this.krx) {
+            int i = aVar.ksh;
             if (!aVar.forum_info.get(i).selected) {
                 return false;
             }
@@ -287,92 +286,92 @@ public class b extends RecyclerView.Adapter<a> {
     }
 
     private void a(com.baidu.tieba.newinterest.data.a aVar, int i) {
-        if (!this.kce) {
-            ap apVar = new ap("c13682");
-            apVar.ah("obj_type", 2);
-            apVar.ah("obj_locate", 3);
-            apVar.t("fid", aVar.forum_info.get(i).kcO.forum_id.longValue());
-            TiebaStatic.log(apVar);
+        if (!this.krz) {
+            aq aqVar = new aq("c13682");
+            aqVar.ai("obj_type", 2);
+            aqVar.ai("obj_locate", 3);
+            aqVar.u("fid", aVar.forum_info.get(i).ksj.forum_id.longValue());
+            TiebaStatic.log(aqVar);
         }
     }
 
     /* loaded from: classes17.dex */
     public static class a extends RecyclerView.ViewHolder {
-        public ImageView kbZ;
-        public TextView kcA;
-        public TextView kcB;
-        public TextView kcC;
-        public TBSpecificationBtn kcD;
-        public TBSpecificationBtn kcE;
-        public TBSpecificationBtn kcF;
-        public TextView kca;
-        public TextView kck;
-        public RelativeLayout kcl;
-        public RelativeLayout kcm;
-        public RelativeLayout kcn;
-        public BarImageView kco;
-        public BarImageView kcp;
-        public BarImageView kcq;
-        public TextView kcr;
-        public TextView kcs;
-        public TextView kct;
-        public TextView kcu;
-        public TextView kcv;
-        public TextView kcw;
-        public TextView kcx;
-        public TextView kcy;
-        public TextView kcz;
+        public TextView krF;
+        public RelativeLayout krG;
+        public RelativeLayout krH;
+        public RelativeLayout krI;
+        public BarImageView krJ;
+        public BarImageView krK;
+        public BarImageView krL;
+        public TextView krM;
+        public TextView krN;
+        public TextView krO;
+        public TextView krP;
+        public TextView krQ;
+        public TextView krR;
+        public TextView krS;
+        public TextView krT;
+        public TextView krU;
+        public TextView krV;
+        public TextView krW;
+        public TextView krX;
+        public TBSpecificationBtn krY;
+        public TBSpecificationBtn krZ;
+        public ImageView kru;
+        public TextView krv;
+        public TBSpecificationBtn ksa;
 
         public a(View view) {
             super(view);
-            this.kbZ = (ImageView) view.findViewById(R.id.interest_icon);
-            this.kca = (TextView) view.findViewById(R.id.interest_text);
-            this.kck = (TextView) view.findViewById(R.id.interest_change);
-            this.kcl = (RelativeLayout) view.findViewById(R.id.top_recommend_layout);
-            this.kcm = (RelativeLayout) view.findViewById(R.id.middle_recommend_layout);
-            this.kcn = (RelativeLayout) view.findViewById(R.id.bottom_recommend_layout);
-            this.kco = (BarImageView) view.findViewById(R.id.top_forum_image);
-            this.kcp = (BarImageView) view.findViewById(R.id.middle_forum_image);
-            this.kcq = (BarImageView) view.findViewById(R.id.bottom_forum_image);
-            this.kcr = (TextView) view.findViewById(R.id.top_forum_name);
-            this.kcs = (TextView) view.findViewById(R.id.middle_forum_name);
-            this.kct = (TextView) view.findViewById(R.id.bottom_forum_name);
-            this.kcu = (TextView) view.findViewById(R.id.top_forum_desc);
-            this.kcv = (TextView) view.findViewById(R.id.middle_forum_desc);
-            this.kcw = (TextView) view.findViewById(R.id.bottom_forum_desc);
-            this.kcx = (TextView) view.findViewById(R.id.top_member_text);
-            this.kcy = (TextView) view.findViewById(R.id.middle_member_text);
-            this.kcz = (TextView) view.findViewById(R.id.bottom_member_text);
-            this.kcA = (TextView) view.findViewById(R.id.top_post_text);
-            this.kcB = (TextView) view.findViewById(R.id.middle_post_text);
-            this.kcC = (TextView) view.findViewById(R.id.bottom_post_text);
-            this.kcD = (TBSpecificationBtn) view.findViewById(R.id.top_select_interest);
-            this.kcE = (TBSpecificationBtn) view.findViewById(R.id.middle_select_interest);
-            this.kcF = (TBSpecificationBtn) view.findViewById(R.id.bottom_select_interest);
-            ao.setViewTextColor(this.kcr, R.color.cp_cont_b);
-            ao.setViewTextColor(this.kcs, R.color.cp_cont_b);
-            ao.setViewTextColor(this.kct, R.color.cp_cont_b);
-            ao.setViewTextColor(this.kcu, R.color.cp_cont_d);
-            ao.setViewTextColor(this.kcv, R.color.cp_cont_d);
-            ao.setViewTextColor(this.kcw, R.color.cp_cont_d);
-            ao.setViewTextColor(this.kcx, R.color.cp_cont_d);
-            ao.setViewTextColor(this.kcy, R.color.cp_cont_d);
-            ao.setViewTextColor(this.kcz, R.color.cp_cont_d);
-            ao.setViewTextColor(this.kcA, R.color.cp_cont_d);
-            ao.setViewTextColor(this.kcB, R.color.cp_cont_d);
-            ao.setViewTextColor(this.kcC, R.color.cp_cont_d);
-            ao.setViewTextColor(this.kca, R.color.cp_cont_b);
-            ao.setViewTextColor(this.kck, R.color.cp_cont_j);
-            this.kca.setTypeface(Typeface.DEFAULT_BOLD);
-            this.kcr.setTypeface(Typeface.DEFAULT_BOLD);
-            this.kcs.setTypeface(Typeface.DEFAULT_BOLD);
-            this.kct.setTypeface(Typeface.DEFAULT_BOLD);
-            this.kcD.setConfig(new c());
-            this.kcE.setConfig(new c());
-            this.kcF.setConfig(new c());
-            f(this.kco);
-            f(this.kcp);
-            f(this.kcq);
+            this.kru = (ImageView) view.findViewById(R.id.interest_icon);
+            this.krv = (TextView) view.findViewById(R.id.interest_text);
+            this.krF = (TextView) view.findViewById(R.id.interest_change);
+            this.krG = (RelativeLayout) view.findViewById(R.id.top_recommend_layout);
+            this.krH = (RelativeLayout) view.findViewById(R.id.middle_recommend_layout);
+            this.krI = (RelativeLayout) view.findViewById(R.id.bottom_recommend_layout);
+            this.krJ = (BarImageView) view.findViewById(R.id.top_forum_image);
+            this.krK = (BarImageView) view.findViewById(R.id.middle_forum_image);
+            this.krL = (BarImageView) view.findViewById(R.id.bottom_forum_image);
+            this.krM = (TextView) view.findViewById(R.id.top_forum_name);
+            this.krN = (TextView) view.findViewById(R.id.middle_forum_name);
+            this.krO = (TextView) view.findViewById(R.id.bottom_forum_name);
+            this.krP = (TextView) view.findViewById(R.id.top_forum_desc);
+            this.krQ = (TextView) view.findViewById(R.id.middle_forum_desc);
+            this.krR = (TextView) view.findViewById(R.id.bottom_forum_desc);
+            this.krS = (TextView) view.findViewById(R.id.top_member_text);
+            this.krT = (TextView) view.findViewById(R.id.middle_member_text);
+            this.krU = (TextView) view.findViewById(R.id.bottom_member_text);
+            this.krV = (TextView) view.findViewById(R.id.top_post_text);
+            this.krW = (TextView) view.findViewById(R.id.middle_post_text);
+            this.krX = (TextView) view.findViewById(R.id.bottom_post_text);
+            this.krY = (TBSpecificationBtn) view.findViewById(R.id.top_select_interest);
+            this.krZ = (TBSpecificationBtn) view.findViewById(R.id.middle_select_interest);
+            this.ksa = (TBSpecificationBtn) view.findViewById(R.id.bottom_select_interest);
+            ap.setViewTextColor(this.krM, R.color.cp_cont_b);
+            ap.setViewTextColor(this.krN, R.color.cp_cont_b);
+            ap.setViewTextColor(this.krO, R.color.cp_cont_b);
+            ap.setViewTextColor(this.krP, R.color.cp_cont_d);
+            ap.setViewTextColor(this.krQ, R.color.cp_cont_d);
+            ap.setViewTextColor(this.krR, R.color.cp_cont_d);
+            ap.setViewTextColor(this.krS, R.color.cp_cont_d);
+            ap.setViewTextColor(this.krT, R.color.cp_cont_d);
+            ap.setViewTextColor(this.krU, R.color.cp_cont_d);
+            ap.setViewTextColor(this.krV, R.color.cp_cont_d);
+            ap.setViewTextColor(this.krW, R.color.cp_cont_d);
+            ap.setViewTextColor(this.krX, R.color.cp_cont_d);
+            ap.setViewTextColor(this.krv, R.color.cp_cont_b);
+            ap.setViewTextColor(this.krF, R.color.cp_cont_j);
+            this.krv.setTypeface(Typeface.DEFAULT_BOLD);
+            this.krM.setTypeface(Typeface.DEFAULT_BOLD);
+            this.krN.setTypeface(Typeface.DEFAULT_BOLD);
+            this.krO.setTypeface(Typeface.DEFAULT_BOLD);
+            this.krY.setConfig(new com.baidu.tbadk.core.view.commonBtn.b());
+            this.krZ.setConfig(new com.baidu.tbadk.core.view.commonBtn.b());
+            this.ksa.setConfig(new com.baidu.tbadk.core.view.commonBtn.b());
+            f(this.krJ);
+            f(this.krK);
+            f(this.krL);
         }
 
         private void f(BarImageView barImageView) {
@@ -384,7 +383,7 @@ public class b extends RecyclerView.Adapter<a> {
         }
     }
 
-    public void a(InterfaceC0703b interfaceC0703b) {
-        this.kcd = interfaceC0703b;
+    public void a(InterfaceC0754b interfaceC0754b) {
+        this.kry = interfaceC0754b;
     }
 }

@@ -8,7 +8,7 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c extends g {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -18,8 +18,8 @@ public class c extends g {
 
     @Override // com.baidu.swan.apps.media.b.a.g
     public boolean a(com.baidu.swan.apps.media.b.a aVar, com.baidu.swan.apps.media.b.c cVar, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        com.baidu.swan.apps.console.c.i("video", "open, video id:" + cVar.cqu + " slave id: " + cVar.bVm);
-        aVar.aiK();
+        com.baidu.swan.apps.console.c.i("video", "open, video id:" + cVar.cyk + " slave id: " + cVar.caU);
+        aVar.aqq();
         a(aVar, cVar, unitedSchemeEntity, callbackHandler);
         return true;
     }
@@ -34,12 +34,12 @@ public class c extends g {
         if (TextUtils.isEmpty(str3)) {
             return null;
         }
-        com.baidu.swan.apps.media.a F = com.baidu.swan.apps.media.b.F(str, str2, str3);
-        if (F == null) {
+        com.baidu.swan.apps.media.a G = com.baidu.swan.apps.media.b.G(str, str2, str3);
+        if (G == null) {
             return new com.baidu.swan.apps.media.b.a(context, com.baidu.swan.apps.media.b.c.a(jSONObject, new com.baidu.swan.apps.media.b.c()));
         }
-        if (F.akE() instanceof com.baidu.swan.apps.media.b.a) {
-            return (com.baidu.swan.apps.media.b.a) F.akE();
+        if (G.ast() instanceof com.baidu.swan.apps.media.b.a) {
+            return (com.baidu.swan.apps.media.b.a) G.ast();
         }
         return null;
     }

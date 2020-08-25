@@ -7,7 +7,7 @@ import com.baidu.searchbox.upload.provider.listener.UploadImageListener;
 import com.baidu.searchbox.upload.provider.listener.UploadVideoListener;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes8.dex */
 public interface IUploadInterface {
     public static final IUploadInterface EMPTY = new IUploadInterface() { // from class: com.baidu.searchbox.upload.provider.IUploadInterface.1
         @Override // com.baidu.searchbox.upload.provider.IUploadInterface
@@ -68,7 +68,7 @@ public interface IUploadInterface {
 
     void uploadVideo(String str, UploadVideoListener uploadVideoListener);
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes8.dex */
     public static final class Impl {
         private static IUploadInterface sUgcProvider = UploadProviderManager.getUploadProvider();
 

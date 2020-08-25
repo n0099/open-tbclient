@@ -1,45 +1,34 @@
 package com.baidu.tbadk.core.util;
 
-import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes.dex */
+import com.baidu.tbadk.core.TbadkCoreApplication;
+/* loaded from: classes2.dex */
 public class ac {
-    private static ArrayList<a> mStatisticsDatas = new ArrayList<>();
-    public static AtomicInteger mErrorNums = new AtomicInteger(0);
+    private static ac ejZ;
+    public static int ekc;
+    private static volatile int eka = 0;
+    private static int INTERVAL_TIME = 300000;
+    private static int ekb = 10;
 
-    /* loaded from: classes.dex */
-    public static class a {
-        public int mMethod;
-        public int mMode;
-        public long mSize;
-        public long mTime;
-        public int mTimesNum;
+    private ac() {
+        ekc = TbadkCoreApplication.getInst().getNetWorkCoreType();
     }
 
-    public static int getErrorNumsAndSet(int i) {
-        return mErrorNums.getAndSet(i);
-    }
-
-    public static int addErrorNumsAndGet(int i) {
-        return mErrorNums.addAndGet(i);
-    }
-
-    public static synchronized void a(a aVar) {
+    public static synchronized ac biU() {
+        ac acVar;
         synchronized (ac.class) {
-            if (aVar != null) {
-                if (mStatisticsDatas.size() <= 20) {
-                    mStatisticsDatas.add(aVar);
-                }
+            if (ejZ == null) {
+                ejZ = new ac();
             }
+            acVar = ejZ;
         }
+        return acVar;
     }
 
-    public static synchronized a baA() {
-        a remove;
-        synchronized (ac.class) {
-            int size = mStatisticsDatas.size();
-            remove = size > 0 ? mStatisticsDatas.remove(size - 1) : null;
-        }
-        return remove;
+    public s a(com.baidu.tbadk.core.util.a.a aVar) {
+        return new ab(aVar);
+    }
+
+    public static void nO(int i) {
+        ekc = i;
     }
 }

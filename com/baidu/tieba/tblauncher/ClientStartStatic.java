@@ -11,8 +11,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.aa;
+import com.baidu.tbadk.core.util.aq;
 /* loaded from: classes16.dex */
 public class ClientStartStatic {
     static {
@@ -33,7 +33,7 @@ public class ClientStartStatic {
                         if (SystemClock.elapsedRealtime() - this.mTimeStamp > 30000) {
                             new a().execute(new Void[0]);
                         }
-                        TiebaStatic.log(new ap(TbadkCoreStatisticKey.HOST_START).ah("obj_param1", 1));
+                        TiebaStatic.log(new aq(TbadkCoreStatisticKey.HOST_START).ai("obj_param1", 1));
                     }
                 }
             });
@@ -51,9 +51,9 @@ public class ClientStartStatic {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
             if (!TbadkCoreApplication.getInst().checkInterrupt()) {
-                z zVar = new z(TbConfig.SERVER_ADDRESS + TbConfig.STAT_CLIENT_START);
-                zVar.addPostData("type", "1");
-                zVar.postNetData();
+                aa aaVar = new aa(TbConfig.SERVER_ADDRESS + TbConfig.STAT_CLIENT_START);
+                aaVar.addPostData("type", "1");
+                aaVar.postNetData();
             }
             return null;
         }

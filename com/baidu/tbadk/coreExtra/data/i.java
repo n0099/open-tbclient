@@ -1,25 +1,25 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import com.baidu.tieba.tbadkCore.util.f;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class i {
     private String authToken;
-    private f.a epQ;
+    private f.a eAc;
     private int type;
 
-    public static i yD(String str) {
+    public static i AS(String str) {
         return new i(0, str);
     }
 
-    public static i bdV() {
+    public static i bmB() {
         return new i(1, null);
     }
 
-    public static i bdW() {
+    public static i bmC() {
         return new i(2, null);
     }
 
-    public static i bdX() {
+    public static i bmD() {
         return new i(3, null);
     }
 
@@ -36,15 +36,15 @@ public class i {
         return this.authToken;
     }
 
-    public f.a bdY() {
-        return this.epQ;
+    public f.a bmE() {
+        return this.eAc;
     }
 
     public void a(f.a aVar) {
-        this.epQ = aVar;
+        this.eAc = aVar;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class c {
         public boolean isSuccess;
 
@@ -53,7 +53,7 @@ public class i {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class a extends c {
         public String authSid;
 
@@ -63,7 +63,7 @@ public class i {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class b extends c {
         public String callbackKey;
 

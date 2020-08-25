@@ -1,6 +1,6 @@
 package com.baidu.platform.comapi.walknavi;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class e implements Runnable {
     final /* synthetic */ String a;
     final /* synthetic */ b b;
@@ -13,7 +13,7 @@ public class e implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.b.F().setInitialState(this.a);
-        this.b.F().runCurrentState();
+        this.b.I().setInitialState(this.a);
+        this.b.I().runCurrentState();
     }
 }

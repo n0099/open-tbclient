@@ -4,10 +4,10 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.down.common.intercepter.IIntercepter;
 import com.baidu.sofire.b;
-import com.baidu.sofire.i.d;
-import com.baidu.sofire.i.h;
+import com.baidu.sofire.i.e;
+import com.baidu.sofire.i.i;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes20.dex */
 public final class a {
     private Context a;
 
@@ -16,23 +16,26 @@ public final class a {
     }
 
     public final boolean a(String str) {
+        String a;
         if (TextUtils.isEmpty(str)) {
             return true;
         }
         new StringBuilder().append(str);
         b.a();
         try {
-            String str2 = d.b() + "p/1/r";
+            String str2 = e.b() + "p/1/r";
             new StringBuilder().append(str2);
             b.a();
-            String a = h.a(this.a, str2, str, false);
-            if (TextUtils.isEmpty(a)) {
-                return false;
-            }
-            return new JSONObject(a).getInt(IIntercepter.TYPE_RESPONSE) == 1;
+            a = i.a(this.a, str2, str, false, false);
         } catch (Throwable th) {
-            d.a();
+            e.a();
+        }
+        if (TextUtils.isEmpty(a)) {
+            return false;
+        }
+        if (new JSONObject(a).getInt(IIntercepter.TYPE_RESPONSE) == 1) {
             return true;
         }
+        return false;
     }
 }

@@ -36,7 +36,7 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.imsdk.IMService;
+import com.baidu.imsdk.a;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -44,7 +44,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class PaManagerImpl {
     private static Context mContext;
     private static volatile PaManagerImpl mInstance;
@@ -270,7 +270,7 @@ public class PaManagerImpl {
                         creatMethodIntent.putExtra(Constants.EXTRA_PA_ID, j);
                         creatMethodIntent.putExtra(Constants.EXTRA_PA_INFO, paInfo);
                         try {
-                            IMService.enqueueWork(PaManagerImpl.mContext, creatMethodIntent);
+                            a.al(PaManagerImpl.mContext).e(PaManagerImpl.mContext, creatMethodIntent);
                             return;
                         } catch (Exception e) {
                             ListenerManager.getInstance().removeListener(addListener);
@@ -294,7 +294,7 @@ public class PaManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             creatMethodIntent.putExtra(Constants.EXTRA_PA_ID, j);
             try {
-                IMService.enqueueWork(mContext, creatMethodIntent);
+                a.al(mContext).e(mContext, creatMethodIntent);
                 return;
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);
@@ -390,7 +390,7 @@ public class PaManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             creatMethodIntent.putExtra(Constants.EXTRA_PA_SEARCH_CONTENT, str);
             try {
-                IMService.enqueueWork(mContext, creatMethodIntent);
+                a.al(mContext).e(mContext, creatMethodIntent);
                 return;
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);
@@ -408,7 +408,7 @@ public class PaManagerImpl {
             Intent creatMethodIntent = Utility.creatMethodIntent(mContext, 104);
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             try {
-                IMService.enqueueWork(mContext, creatMethodIntent);
+                a.al(mContext).e(mContext, creatMethodIntent);
                 return;
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);
@@ -428,7 +428,7 @@ public class PaManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_PA_ID, j);
             creatMethodIntent.putExtra(Constants.EXTRA_PA_ACCEPT_PUSH, z);
             try {
-                IMService.enqueueWork(mContext, creatMethodIntent);
+                a.al(mContext).e(mContext, creatMethodIntent);
                 return;
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);
@@ -447,7 +447,7 @@ public class PaManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             creatMethodIntent.putExtra(Constants.EXTRA_PA_ID, j);
             try {
-                IMService.enqueueWork(mContext, creatMethodIntent);
+                a.al(mContext).e(mContext, creatMethodIntent);
                 return;
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);

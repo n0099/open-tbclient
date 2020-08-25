@@ -24,7 +24,7 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.MsgUtility;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.imsdk.IMService;
+import com.baidu.imsdk.a;
 import com.baidu.sapi2.activity.LoadExternalWebViewActivity;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -33,9 +33,12 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class MessageParser {
+    public static final int LONG_ACK_TYPE = 1;
+    public static final int SHORT_ACK_TYPE = 0;
     private static final String TAG = "MessageParser";
+    public static volatile int sAckType;
 
     /* JADX WARN: Type inference failed for: r6v1, types: [T, java.lang.Long] */
     public static ChatMsg parserMessage(Context context, JSONObject jSONObject, Type<Long> type, boolean z) {
@@ -71,7 +74,7 @@ public class MessageParser {
                         chatMsg = invokeParse.getMsg();
                         z2 = invokeParse.isJsonParseResult();
                     } else {
-                        int i2 = (i == 1 && optInt2 == 80) ? 0 : optInt2;
+                        int i2 = ((i == 1 || i == 4) && optInt2 == 80) ? 0 : optInt2;
                         chatMsg = ChatMsgFactory.getInstance().newChatMsg(context, optInt, i2, -1);
                         if (chatMsg != null) {
                             chatMsg.setMsgType(i2);
@@ -254,7 +257,8 @@ public class MessageParser {
         return arrayList;
     }
 
-    public static synchronized void handleAck(Context context, ArrayList<ChatMsg> arrayList, boolean z) {
+    public static synchronized List<NewAckMessage.Tripule> handleAck(Context context, ArrayList<ChatMsg> arrayList, boolean z) {
+        LinkedList linkedList;
         boolean z2;
         String str;
         String str2;
@@ -262,10 +266,10 @@ public class MessageParser {
         synchronized (MessageParser.class) {
             if (arrayList != null) {
                 if (arrayList.size() != 0) {
-                    LogUtils.d(TAG, "ack> handleAck...number=" + arrayList.size());
+                    LogUtils.d(TAG, "ack type: " + sAckType + ", ack> handleAck...number=" + arrayList.size());
                     ArrayList arrayList2 = new ArrayList();
                     ArrayList arrayList3 = new ArrayList();
-                    LinkedList linkedList = new LinkedList();
+                    LinkedList linkedList2 = new LinkedList();
                     boolean z3 = false;
                     long triggerId = Utility.getTriggerId(context);
                     String str3 = AccountManagerImpl.getInstance(context).getLoginType() == 6 ? "cuid" : "uid";
@@ -357,18 +361,30 @@ public class MessageParser {
                             } else {
                                 z2 = z3;
                             }
-                            linkedList.add(tripule);
+                            linkedList2.add(tripule);
                         } else {
                             z2 = z3;
                         }
                         i++;
                         z3 = z2;
                     }
-                    getAckNeedPainfos(context, z, arrayList2, arrayList3);
-                    sendNewAckToServer(context, triggerId, linkedList, z3);
+                    if (sAckType == 0) {
+                        setAcKType(1);
+                        linkedList = linkedList2;
+                    } else {
+                        getAckNeedPainfos(context, z, arrayList2, arrayList3);
+                        sendNewAckToServer(context, triggerId, linkedList2, z3);
+                        linkedList = linkedList2;
+                    }
                 }
             }
+            linkedList = null;
         }
+        return linkedList;
+    }
+
+    public static void setAcKType(int i) {
+        sAckType = i;
     }
 
     private static void getAckNeedPainfos(final Context context, boolean z, final ArrayList<ChatMsg> arrayList, ArrayList<Long> arrayList2) {
@@ -422,7 +438,7 @@ public class MessageParser {
                 for (List<NewAckMessage.Tripule> list2 : splitList) {
                     NewAckMessage newAckMessage = new NewAckMessage(context, IMSDK.getInstance(context).getUk(), j, z);
                     newAckMessage.addTriples(list2);
-                    if (!IMService.isSmallFlow) {
+                    if (!a.ayn) {
                         IMConnection.getInstance(context).sendMessage(newAckMessage, false);
                     }
                 }
@@ -456,7 +472,7 @@ public class MessageParser {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public static class DuParser {
         private int category;
         private String content;

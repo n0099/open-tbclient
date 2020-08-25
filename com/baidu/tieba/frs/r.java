@@ -1,21 +1,46 @@
 package com.baidu.tieba.frs;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-/* loaded from: classes.dex */
-public class r implements com.baidu.adp.widget.ListView.q {
-    public static final BdUniqueId hIV = BdUniqueId.gen();
-    private int hIW;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.R;
+/* loaded from: classes16.dex */
+public class r extends k<s, t> {
+    private final int fzR;
 
-    public int cdj() {
-        return this.hIW;
+    public r(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext, bdUniqueId);
+        this.fzR = (com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds90);
     }
 
-    public void uW(int i) {
-        this.hIW = i;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: G */
+    public t b(ViewGroup viewGroup) {
+        View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.frs_no_list_item_view, viewGroup, false);
+        ViewGroup.LayoutParams generateLayoutParamsByParent = generateLayoutParamsByParent(viewGroup);
+        generateLayoutParamsByParent.width = -1;
+        generateLayoutParamsByParent.height = this.fzR;
+        inflate.setLayoutParams(generateLayoutParamsByParent);
+        return new t(inflate, viewGroup);
     }
 
-    @Override // com.baidu.adp.widget.ListView.q
-    public BdUniqueId getType() {
-        return hIV;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, s sVar, t tVar) {
+        super.a(i, view, viewGroup, (ViewGroup) sVar, (s) tVar);
+        if (sVar.cnG() == 6) {
+            tVar.hWo.setText(R.string.attention_no_post_tip);
+        } else {
+            tVar.hWo.setText(R.string.no_data_common_txt);
+        }
+        com.baidu.tbadk.core.util.ap.setViewTextColor(tVar.hWo, R.color.cp_cont_j, 1);
+        com.baidu.tbadk.core.util.ap.setImageResource(tVar.hWp, R.drawable.new_pic_emotion_06);
+        return view;
     }
 }

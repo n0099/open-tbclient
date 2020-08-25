@@ -16,6 +16,7 @@ import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.data.ExceptionData;
 import com.baidu.live.tbadk.util.DaemonServiceManager;
+import com.baidu.platform.comapi.map.MapController;
 import com.baidu.webkit.internal.ETAG;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.ByteArrayOutputStream;
@@ -28,7 +29,7 @@ import java.io.PrintStream;
 import java.io.Writer;
 import java.lang.Thread;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class UExceptionHandler implements Thread.UncaughtExceptionHandler {
     private static final String HPROF_FILE_PATH = Environment.getExternalStorageDirectory().getPath() + File.separator + "tblive" + File.separator + "oom" + File.separator;
     private static final String OOM = "java.lang.OutOfMemoryError";
@@ -169,7 +170,7 @@ public class UExceptionHandler implements Thread.UncaughtExceptionHandler {
                             addInfo(fileWriter, "version", TbConfig.getVersion());
                             addInfo(fileWriter, "model", Build.MODEL);
                             addInfo(fileWriter, "android_version", Build.VERSION.RELEASE);
-                            addInfo(fileWriter, "android_sdk", String.valueOf(Build.VERSION.SDK_INT));
+                            addInfo(fileWriter, MapController.ANDROID_SDK_LAYER_TAG, String.valueOf(Build.VERSION.SDK_INT));
                             addInfo(fileWriter, "uid", TbadkCoreApplication.getCurrentAccount());
                             addInfo(fileWriter, "client_id", TbadkCoreApplication.getClientId());
                             if (!TextUtils.isEmpty(TbConfig.getSubappType())) {

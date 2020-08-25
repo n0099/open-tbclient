@@ -16,7 +16,7 @@ import android.view.inputmethod.InputMethodManager;
 import io.flutter.embedding.engine.dart.DartExecutor;
 import io.flutter.embedding.engine.systemchannels.TextInputChannel;
 import io.flutter.plugin.platform.PlatformViewsController;
-/* loaded from: classes18.dex */
+/* loaded from: classes10.dex */
 public class XTextInputPlugin {
     private static XTextInputPlugin xTextInputPlugin;
     @Nullable
@@ -163,7 +163,9 @@ public class XTextInputPlugin {
             if (this.isInputConnectionLocked) {
                 return this.lastInputConnection;
             }
-            this.lastInputConnection = this.platformViewsController.getPlatformViewById(Integer.valueOf(this.inputTarget.id)).onCreateInputConnection(editorInfo);
+            if (this.platformViewsController != null && this.platformViewsController.getPlatformViewById(Integer.valueOf(this.inputTarget.id)) != null) {
+                this.lastInputConnection = this.platformViewsController.getPlatformViewById(Integer.valueOf(this.inputTarget.id)).onCreateInputConnection(editorInfo);
+            }
             return this.lastInputConnection;
         } else {
             editorInfo.inputType = inputTypeFromTextInputType(this.configuration.inputType, this.configuration.obscureText, this.configuration.autocorrect, this.configuration.enableSuggestions, this.configuration.textCapitalization);
@@ -260,14 +262,14 @@ public class XTextInputPlugin {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes18.dex */
+    /* loaded from: classes10.dex */
     public static class InputTarget {
         int id;
         @NonNull
         Type type;
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes18.dex */
+        /* loaded from: classes10.dex */
         public enum Type {
             NO_TARGET,
             FRAMEWORK_CLIENT,

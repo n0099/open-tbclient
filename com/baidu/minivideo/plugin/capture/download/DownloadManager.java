@@ -16,7 +16,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes9.dex */
+/* loaded from: classes19.dex */
 public class DownloadManager implements Downloader.OnDownloaderDestroyedListener {
     public static final String TAG = "DownloadManager";
     private static DownloadManager sDownloadManager;

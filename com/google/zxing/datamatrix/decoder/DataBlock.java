@@ -1,7 +1,7 @@
 package com.google.zxing.datamatrix.decoder;
 
 import com.google.zxing.datamatrix.decoder.Version;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 final class DataBlock {
     private final byte[] codewords;
     private final int numDataCodewords;

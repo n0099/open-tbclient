@@ -1,5 +1,5 @@
 package com.sina.weibo.sdk.network.target;
-/* loaded from: classes7.dex */
+/* loaded from: classes14.dex */
 public abstract class BaseTarget<E> implements Target<E> {
     @Override // com.sina.weibo.sdk.network.target.Target
     public void onRequestDone() {

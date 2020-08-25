@@ -1,8 +1,8 @@
 package com.baidu.media.extractor;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public interface b {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public interface a {
     }
 }

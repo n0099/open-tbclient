@@ -1,52 +1,42 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.User;
-/* loaded from: classes.dex */
-public class bn extends AbsThreadDataSupport {
-    public static final BdUniqueId dOm = BdUniqueId.gen();
-    public int dQB;
-    private boolean dQM;
-    private List<MetaData> dQN = new ArrayList();
-    public String title;
+import com.baidu.adp.lib.util.StringUtils;
+import tbclient.SchoolRecomUserInfo;
+/* loaded from: classes2.dex */
+public class bn {
+    private String uid = "";
+    private String uname = "";
+    private String portrait = "";
+    private String institute = "";
+    private int isLike = -1;
 
-    public void aM(List<User> list) {
-        if (list != null) {
-            int min = Math.min(list.size(), 10);
-            for (int i = 0; i < min; i++) {
-                MetaData metaData = new MetaData();
-                metaData.parserProtobuf(list.get(i));
-                this.dQN.add(metaData);
-            }
+    public void a(SchoolRecomUserInfo schoolRecomUserInfo) {
+        if (schoolRecomUserInfo != null) {
+            this.uid = StringUtils.string(schoolRecomUserInfo.uid);
+            this.uname = schoolRecomUserInfo.uname;
+            this.portrait = schoolRecomUserInfo.portrait;
+            this.institute = schoolRecomUserInfo.institute;
+            this.isLike = schoolRecomUserInfo.is_liked.intValue();
         }
     }
 
-    @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
-    public BdUniqueId getType() {
-        return dOm;
+    public String getUid() {
+        return this.uid;
     }
 
-    @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public bv aTN() {
-        return null;
+    public String bdP() {
+        return this.uname;
     }
 
-    @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public aq aTP() {
-        return new aq();
+    public String getPortrait() {
+        return this.portrait;
     }
 
-    public List<MetaData> aVy() {
-        return this.dQN;
+    public String bdQ() {
+        return this.institute;
     }
 
-    public boolean aVz() {
-        return this.dQM;
-    }
-
-    public void hz(boolean z) {
-        this.dQM = z;
+    public int getIsLike() {
+        return this.isLike;
     }
 }

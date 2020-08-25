@@ -10,23 +10,23 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes20.dex */
 public class ThreadPoolService {
-    private static final int MSG_RUN_IN_CHILD_THREAD = 1;
-    private static final int MSG_RUN_IN_UI_THREAD = 0;
-    private Handler mHandler;
-    private ThreadPoolExecutor poolService;
-    private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
-    private static final ThreadFactory THREAD_FACTORY = new ThreadFactory() { // from class: com.baidu.pass.biometrics.base.utils.thread.ThreadPoolService.1
-        private final AtomicInteger count = new AtomicInteger(1);
+    private static final int a = Runtime.getRuntime().availableProcessors();
+    private static final ThreadFactory b = new ThreadFactory() { // from class: com.baidu.pass.biometrics.base.utils.thread.ThreadPoolService.1
+        private final AtomicInteger a = new AtomicInteger(1);
 
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
-            return new Thread(runnable, "pass_face_thread # " + this.count.getAndIncrement());
+            return new Thread(runnable, "pass_face_thread # " + this.a.getAndIncrement());
         }
     };
+    private static final int c = 0;
+    private static final int d = 1;
+    private ThreadPoolExecutor e;
+    private Handler f;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes20.dex */
     private static class SingletonContainer {
         public static ThreadPoolService mSingleInstance = new ThreadPoolService();
 
@@ -38,33 +38,29 @@ public class ThreadPoolService {
         return SingletonContainer.mSingleInstance;
     }
 
-    private ThreadPoolService() {
-        this.mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.pass.biometrics.base.utils.thread.ThreadPoolService.2
-            @Override // android.os.Handler
-            public void handleMessage(Message message) {
-                switch (message.what) {
-                    case 0:
-                        ((TPRunnable) message.obj).run();
-                        return;
-                    case 1:
-                        ThreadPoolService.this.poolService.submit(((TPRunnable) message.obj).runable);
-                        return;
-                    default:
-                        return;
-                }
-            }
-        };
-        this.poolService = new ThreadPoolExecutor(Math.max(2, Math.min(CPU_COUNT - 1, 4)), (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), THREAD_FACTORY);
-        if (Build.VERSION.SDK_INT >= 9) {
-            this.poolService.allowCoreThreadTimeOut(true);
-        }
-    }
-
     public void run(TPRunnable tPRunnable) {
-        this.poolService.submit(tPRunnable);
+        this.e.submit(tPRunnable);
     }
 
     public void runInUiThread(TPRunnable tPRunnable) {
-        this.mHandler.sendMessage(this.mHandler.obtainMessage(0, tPRunnable));
+        this.f.sendMessage(this.f.obtainMessage(0, tPRunnable));
+    }
+
+    private ThreadPoolService() {
+        this.f = new Handler(Looper.getMainLooper()) { // from class: com.baidu.pass.biometrics.base.utils.thread.ThreadPoolService.2
+            @Override // android.os.Handler
+            public void handleMessage(Message message) {
+                int i = message.what;
+                if (i == 0) {
+                    ((TPRunnable) message.obj).run();
+                } else if (i == 1) {
+                    ThreadPoolService.this.e.submit(((TPRunnable) message.obj).runable);
+                }
+            }
+        };
+        this.e = new ThreadPoolExecutor(Math.max(2, Math.min(a - 1, 4)), (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), b);
+        if (Build.VERSION.SDK_INT >= 9) {
+            this.e.allowCoreThreadTimeOut(true);
+        }
     }
 }

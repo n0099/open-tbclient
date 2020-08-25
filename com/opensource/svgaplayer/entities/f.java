@@ -1,5 +1,6 @@
 package com.opensource.svgaplayer.entities;
 
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import com.opensource.svgaplayer.proto.FrameEntity;
 import com.opensource.svgaplayer.proto.SpriteEntity;
@@ -11,21 +12,21 @@ import kotlin.jvm.internal.q;
 import org.json.JSONArray;
 import org.json.JSONObject;
 @h
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public final class f {
     private final List<g> frames;
     private final String imageKey;
 
-    public final String dPq() {
+    public final String ebs() {
         return this.imageKey;
     }
 
-    public final List<g> dPO() {
+    public final List<g> ebQ() {
         return this.frames;
     }
 
     public f(JSONObject jSONObject) {
-        q.m(jSONObject, "obj");
+        q.m(jSONObject, MapBundleKey.MapObjKey.OBJ_SL_OBJ);
         this.imageKey = jSONObject.optString("imageKey");
         ArrayList arrayList = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("frames");
@@ -35,8 +36,8 @@ public final class f {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     g gVar = new g(optJSONObject);
-                    if ((!gVar.hW().isEmpty()) && ((SVGAVideoShapeEntity) o.fP(gVar.hW())).dPE() && arrayList.size() > 0) {
-                        gVar.fF(((g) o.fQ(arrayList)).hW());
+                    if ((!gVar.jx().isEmpty()) && ((SVGAVideoShapeEntity) o.fZ(gVar.jx())).ebG() && arrayList.size() > 0) {
+                        gVar.fP(((g) o.ga(arrayList)).jx());
                     }
                     arrayList.add(gVar);
                 }
@@ -46,8 +47,8 @@ public final class f {
     }
 
     public f(SpriteEntity spriteEntity) {
-        ArrayList dTP;
-        q.m(spriteEntity, "obj");
+        ArrayList efR;
+        q.m(spriteEntity, MapBundleKey.MapObjKey.OBJ_SL_OBJ);
         this.imageKey = spriteEntity.imageKey;
         g gVar = null;
         List<FrameEntity> list = spriteEntity.frames;
@@ -58,16 +59,16 @@ public final class f {
             for (FrameEntity frameEntity : list2) {
                 q.l((Object) frameEntity, AdvanceSetting.NETWORK_TYPE);
                 g gVar3 = new g(frameEntity);
-                if ((!gVar3.hW().isEmpty()) && ((SVGAVideoShapeEntity) o.fP(gVar3.hW())).dPE() && gVar2 != null) {
-                    gVar3.fF(gVar2.hW());
+                if ((!gVar3.jx().isEmpty()) && ((SVGAVideoShapeEntity) o.fZ(gVar3.jx())).ebG() && gVar2 != null) {
+                    gVar3.fP(gVar2.jx());
                 }
                 arrayList.add(gVar3);
                 gVar2 = gVar3;
             }
-            dTP = arrayList;
+            efR = arrayList;
         } else {
-            dTP = o.dTP();
+            efR = o.efR();
         }
-        this.frames = dTP;
+        this.frames = efR;
     }
 }

@@ -1,40 +1,23 @@
 package com.baidu.swan.apps.core.prefetch;
 
-import android.support.annotation.NonNull;
-import android.text.TextUtils;
-/* loaded from: classes7.dex */
-public final class c {
-    private static final b cfp = new a();
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
-    public interface b {
-        boolean kh(@NonNull String str);
-    }
-
-    public static boolean kh(String str) {
-        return acA().kh(str);
-    }
-
-    private static b acA() {
-        return cfp;
-    }
-
-    /* loaded from: classes7.dex */
-    public static class a implements b {
-        private static final String[] cfq = {"Gz7Grjwr0GhpGSDIhtUk6RB1EiBCRmHK"};
-
-        @Override // com.baidu.swan.apps.core.prefetch.c.b
-        public boolean kh(@NonNull String str) {
-            if (TextUtils.isEmpty(str)) {
-                return true;
+import android.os.Bundle;
+import com.baidu.swan.pms.model.PMSAppInfo;
+/* loaded from: classes8.dex */
+public interface c {
+    public static final c clH = new c() { // from class: com.baidu.swan.apps.core.prefetch.c.1
+        @Override // com.baidu.swan.apps.core.prefetch.c
+        public boolean a(PrefetchEvent prefetchEvent, PMSAppInfo pMSAppInfo, Bundle bundle) {
+            if (!com.baidu.swan.apps.core.prefetch.a.a.isOn()) {
+                return false;
             }
-            for (String str2 : cfq) {
-                if (str.startsWith(str2)) {
-                    return false;
-                }
-            }
+            bundle.putString("swan_app_prefetch_event_name", a(prefetchEvent, pMSAppInfo) ? "prefetch" : "preload");
             return true;
         }
-    }
+
+        private boolean a(PrefetchEvent prefetchEvent, PMSAppInfo pMSAppInfo) {
+            return false;
+        }
+    };
+
+    boolean a(PrefetchEvent prefetchEvent, PMSAppInfo pMSAppInfo, Bundle bundle);
 }

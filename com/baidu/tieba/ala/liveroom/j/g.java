@@ -1,19 +1,19 @@
 package com.baidu.tieba.ala.liveroom.j;
 
 import java.util.HashSet;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class g {
-    private static HashSet<Integer> gmH = new HashSet<>();
+    private static HashSet<Integer> gzw = new HashSet<>();
 
-    public static void rL(int i) {
-        if (gmH != null) {
-            gmH.add(Integer.valueOf(i));
+    public static void ub(int i) {
+        if (gzw != null) {
+            gzw.add(Integer.valueOf(i));
         }
     }
 
-    public static void rM(int i) {
-        if (gmH != null) {
-            gmH.remove(Integer.valueOf(i));
+    public static void uc(int i) {
+        if (gzw != null) {
+            gzw.remove(Integer.valueOf(i));
         }
     }
 
@@ -22,11 +22,11 @@ public class g {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean rN(int i) {
+    public static boolean ud(int i) {
         int i2 = 2913168;
-        if (gmH != null) {
-            if (!gmH.contains(2913168)) {
-                if (gmH.contains(2913128)) {
+        if (gzw != null) {
+            if (!gzw.contains(2913168)) {
+                if (gzw.contains(2913128)) {
                     i2 = 2913128;
                 }
             }
@@ -37,9 +37,9 @@ public class g {
         }
     }
 
-    public static void bHO() {
-        if (gmH != null) {
-            gmH.clear();
+    public static void bRN() {
+        if (gzw != null) {
+            gzw.clear();
         }
     }
 }

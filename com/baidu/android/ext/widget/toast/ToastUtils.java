@@ -17,7 +17,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class ToastUtils {
     private static final String KEY_MIUI_BUILD_VERSION = "ro.build.version.incremental";
     private static final String MEIZU_ROM = "Flyme";
@@ -179,7 +179,7 @@ public class ToastUtils {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public static class TNHandler extends Handler {
         private Runnable mHideRunnable;
         private Handler mOrigHandler;

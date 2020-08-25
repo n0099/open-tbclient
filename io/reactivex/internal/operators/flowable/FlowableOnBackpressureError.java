@@ -7,23 +7,23 @@ import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes7.dex */
 public final class FlowableOnBackpressureError<T> extends a<T, T> {
     @Override // io.reactivex.g
-    protected void a(org.a.c<? super T> cVar) {
-        this.nSG.a((j) new BackpressureErrorSubscriber(cVar));
+    protected void a(org.b.c<? super T> cVar) {
+        this.omB.a((j) new BackpressureErrorSubscriber(cVar));
     }
 
     /* loaded from: classes7.dex */
-    static final class BackpressureErrorSubscriber<T> extends AtomicLong implements j<T>, org.a.d {
+    static final class BackpressureErrorSubscriber<T> extends AtomicLong implements j<T>, org.b.d {
         private static final long serialVersionUID = -3176480756392482682L;
-        final org.a.c<? super T> actual;
+        final org.b.c<? super T> actual;
         boolean done;
-        org.a.d s;
+        org.b.d s;
 
-        BackpressureErrorSubscriber(org.a.c<? super T> cVar) {
+        BackpressureErrorSubscriber(org.b.c<? super T> cVar) {
             this.actual = cVar;
         }
 
-        @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        @Override // io.reactivex.j, org.b.c
+        public void onSubscribe(org.b.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
@@ -31,7 +31,7 @@ public final class FlowableOnBackpressureError<T> extends a<T, T> {
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(T t) {
             if (!this.done) {
                 if (get() != 0) {
@@ -43,7 +43,7 @@ public final class FlowableOnBackpressureError<T> extends a<T, T> {
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
             if (this.done) {
                 io.reactivex.e.a.onError(th);
@@ -53,7 +53,7 @@ public final class FlowableOnBackpressureError<T> extends a<T, T> {
             this.actual.onError(th);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
             if (!this.done) {
                 this.done = true;
@@ -61,14 +61,14 @@ public final class FlowableOnBackpressureError<T> extends a<T, T> {
             }
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 io.reactivex.internal.util.b.a(this, j);
             }
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void cancel() {
             this.s.cancel();
         }

@@ -6,18 +6,18 @@ import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
-import com.baidu.swan.apps.aq.v;
+import com.baidu.swan.apps.ap.v;
 import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public class a extends ActivityDelegation {
 
     /* renamed from: com.baidu.swan.bdprivate.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public interface InterfaceC0421a {
-        void ayl();
+    /* loaded from: classes3.dex */
+    public interface InterfaceC0464a {
+        void aGt();
 
-        void hw(String str);
+        void iT(String str);
     }
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
@@ -27,7 +27,7 @@ public class a extends ActivityDelegation {
                 @Override // com.baidu.swan.apps.a.a
                 public void onResult(int i) {
                     if (i == 0) {
-                        a.this.ayj();
+                        a.this.aGr();
                         return;
                     }
                     a.this.mResult.putString(TiebaInitialize.LogFields.ERROR_MESSAGE, "login failed");
@@ -36,24 +36,24 @@ public class a extends ActivityDelegation {
             });
             return false;
         }
-        ayj();
+        aGr();
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ayj() {
-        com.baidu.swan.bdprivate.a.a.a(getAgent(), new InterfaceC0421a() { // from class: com.baidu.swan.bdprivate.b.a.2
-            @Override // com.baidu.swan.bdprivate.b.a.InterfaceC0421a
-            public void hw(String str) {
+    public void aGr() {
+        com.baidu.swan.bdprivate.a.a.a(getAgent(), new InterfaceC0464a() { // from class: com.baidu.swan.bdprivate.b.a.2
+            @Override // com.baidu.swan.bdprivate.b.a.InterfaceC0464a
+            public void iT(String str) {
                 if (TextUtils.isEmpty(str)) {
                     a.this.mResult.putString(TiebaInitialize.LogFields.ERROR_MESSAGE, "addressId == null");
                     a.this.finish();
                 }
-                a.this.qU(str);
+                a.this.sW(str);
             }
 
-            @Override // com.baidu.swan.bdprivate.b.a.InterfaceC0421a
-            public void ayl() {
+            @Override // com.baidu.swan.bdprivate.b.a.InterfaceC0464a
+            public void aGt() {
                 a.this.mResult.putString(TiebaInitialize.LogFields.ERROR_MESSAGE, "choose addressId failed");
                 a.this.finish();
             }
@@ -61,8 +61,8 @@ public class a extends ActivityDelegation {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void qU(String str) {
-        com.baidu.swan.b.c.a.aKu().getRequest().url(com.baidu.swan.apps.h.c.processCommonParams(ayk())).addUrlParam("addr_id", str).cookieManager(com.baidu.swan.apps.t.a.ahH().Us()).build().executeAsync(new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.bdprivate.b.a.3
+    public void sW(String str) {
+        com.baidu.swan.a.c.a.aSW().getRequest().url(com.baidu.swan.apps.i.c.processCommonParams(aGs())).addUrlParam("addr_id", str).cookieManager(com.baidu.swan.apps.t.a.apj().aau()).build().executeAsync(new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.bdprivate.b.a.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             /* renamed from: a */
@@ -75,7 +75,7 @@ public class a extends ActivityDelegation {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
-            /* renamed from: b */
+            /* renamed from: a */
             public void onSuccess(JSONObject jSONObject, int i) {
                 JSONObject optJSONObject;
                 if (jSONObject != null && jSONObject.optInt(BaseJsonData.TAG_ERRNO, -1) == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
@@ -95,7 +95,7 @@ public class a extends ActivityDelegation {
         });
     }
 
-    public static String ayk() {
+    public static String aGs() {
         return String.format("%s/ma/address/detail", "https://mbd.baidu.com");
     }
 }

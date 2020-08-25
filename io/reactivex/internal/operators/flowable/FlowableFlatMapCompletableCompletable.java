@@ -12,11 +12,11 @@ public final class FlowableFlatMapCompletableCompletable<T> extends io.reactivex
     final boolean delayErrors;
     final h<? super T, ? extends io.reactivex.e> mapper;
     final int maxConcurrency;
-    final io.reactivex.g<T> nSG;
+    final io.reactivex.g<T> omB;
 
     @Override // io.reactivex.a
     protected void b(io.reactivex.c cVar) {
-        this.nSG.a((j) new FlatMapCompletableMainSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
+        this.omB.a((j) new FlatMapCompletableMainSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
     }
 
     /* loaded from: classes7.dex */
@@ -27,7 +27,7 @@ public final class FlowableFlatMapCompletableCompletable<T> extends io.reactivex
         volatile boolean disposed;
         final h<? super T, ? extends io.reactivex.e> mapper;
         final int maxConcurrency;
-        org.a.d s;
+        org.b.d s;
         final AtomicThrowable errors = new AtomicThrowable();
         final io.reactivex.disposables.a set = new io.reactivex.disposables.a();
 
@@ -39,8 +39,8 @@ public final class FlowableFlatMapCompletableCompletable<T> extends io.reactivex
             lazySet(1);
         }
 
-        @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        @Override // io.reactivex.j, org.b.c
+        public void onSubscribe(org.b.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
@@ -53,7 +53,7 @@ public final class FlowableFlatMapCompletableCompletable<T> extends io.reactivex
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(T t) {
             try {
                 io.reactivex.e eVar = (io.reactivex.e) io.reactivex.internal.functions.a.k(this.mapper.apply(t), "The mapper returned a null CompletableSource");
@@ -63,13 +63,13 @@ public final class FlowableFlatMapCompletableCompletable<T> extends io.reactivex
                     eVar.a(innerObserver);
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.K(th);
+                io.reactivex.exceptions.a.J(th);
                 this.s.cancel();
                 onError(th);
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
             if (this.errors.addThrowable(th)) {
                 if (this.delayErrors) {
@@ -93,7 +93,7 @@ public final class FlowableFlatMapCompletableCompletable<T> extends io.reactivex
             io.reactivex.e.a.onError(th);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
             if (decrementAndGet() == 0) {
                 Throwable terminate = this.errors.terminate();

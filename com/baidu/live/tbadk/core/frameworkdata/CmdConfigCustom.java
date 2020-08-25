@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.core.frameworkdata;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class CmdConfigCustom {
     public static final int ACTIVITY_IMBLACK_LIST = 2008001;
     public static final int ACTIVITY_REFRESH = 2003001;
@@ -552,6 +552,8 @@ public class CmdConfigCustom {
     public static final int METHOD_ACCOUNT_CHANGE_FOR_IM = 2005018;
     public static final int METHOD_ACCOUNT_CHANGE_STICKY = 2005019;
     public static final int METHOD_ACCOUNT_START_LOGIN = 2005020;
+    public static final int METHOD_GIFT_PANEL_DISMISS = 2005022;
+    public static final int METHOD_GIFT_PANEL_SHOW = 2005021;
     public static final int METHOD_INVOKE_ACCOUNT_CHANGE = 2005006;
     public static final int METHOD_INVOKE_USER_CHANGE = 2005007;
     public static final int METHOD_NIGHTRES_PLUGIN_CHANGE = 2005017;

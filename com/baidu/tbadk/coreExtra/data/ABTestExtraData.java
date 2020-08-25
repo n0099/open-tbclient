@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ABTestExtraData implements Serializable {
     private String mABTestResult;
 
@@ -28,7 +28,7 @@ public class ABTestExtraData implements Serializable {
 
     public void parserABTestExtraFormSharedPref() {
         try {
-            String string = com.baidu.tbadk.core.sharedPref.b.aZP().getString("abtest_extra_info_json", null);
+            String string = com.baidu.tbadk.core.sharedPref.b.bik().getString("abtest_extra_info_json", null);
             if (!TextUtils.isEmpty(string)) {
                 parseJson(new JSONObject(string));
             }
@@ -38,6 +38,6 @@ public class ABTestExtraData implements Serializable {
     }
 
     private void saveABTestExtraToSharedPref(JSONObject jSONObject) {
-        com.baidu.tbadk.core.sharedPref.b.aZP().putString("abtest_extra_info_json", jSONObject != null ? jSONObject.toString() : "");
+        com.baidu.tbadk.core.sharedPref.b.bik().putString("abtest_extra_info_json", jSONObject != null ? jSONObject.toString() : "");
     }
 }

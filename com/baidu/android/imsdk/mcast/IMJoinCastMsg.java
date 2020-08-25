@@ -11,11 +11,11 @@ import com.baidu.android.imsdk.request.Message;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.imsdk.IMService;
+import com.baidu.imsdk.a;
 import com.baidu.sapi2.SapiContext;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class IMJoinCastMsg extends Message {
     private static final String TAG = "IMJoinCastMsg";
     private Context mContext;
@@ -119,7 +119,7 @@ public class IMJoinCastMsg extends Message {
                     int optInt = jSONObject.optInt("ping_interval", 60000);
                     if (optInt > 0) {
                         Heartbeat.ALARM_TIMEOUT = optInt * 1000;
-                        if (IMService.isSmallFlow) {
+                        if (a.ayn) {
                             ConversationStudioManImpl.mCastHeartBeatTime = optInt;
                         }
                     } else {

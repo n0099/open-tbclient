@@ -11,10 +11,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class t {
     public static com.tb.airbnb.lottie.d g(JsonReader jsonReader) throws IOException {
-        float jA = com.tb.airbnb.lottie.d.f.jA();
+        float kZ = com.tb.airbnb.lottie.d.f.kZ();
         float f = 0.0f;
         float f2 = 0.0f;
         float f3 = 0.0f;
@@ -117,8 +117,8 @@ public class t {
                         break;
                     case 5:
                         String[] split = jsonReader.nextString().split("\\.");
-                        if (!com.tb.airbnb.lottie.d.f.c(Integer.parseInt(split[0]), Integer.parseInt(split[1]), Integer.parseInt(split[2]), 4, 4, 0)) {
-                            dVar.aX("Lottie only supports bodymovin >= 4.4.0");
+                        if (!com.tb.airbnb.lottie.d.f.b(Integer.parseInt(split[0]), Integer.parseInt(split[1]), Integer.parseInt(split[2]), 4, 4, 0)) {
+                            dVar.bc("Lottie only supports bodymovin >= 4.4.0");
                             break;
                         } else {
                             break;
@@ -146,7 +146,7 @@ public class t {
                 f = f6;
             } else {
                 jsonReader.endObject();
-                dVar.a(new Rect(0, 0, (int) (i4 * jA), (int) (i3 * jA)), f6, f5, f4, arrayList, longSparseArray, hashMap, hashMap2, sparseArrayCompat, hashMap3);
+                dVar.a(new Rect(0, 0, (int) (i4 * kZ), (int) (i3 * kZ)), f6, f5, f4, arrayList, longSparseArray, hashMap, hashMap2, sparseArrayCompat, hashMap3);
                 return dVar;
             }
         }
@@ -157,7 +157,7 @@ public class t {
         jsonReader.beginArray();
         while (jsonReader.hasNext()) {
             Layer q = s.q(jsonReader, dVar);
-            if (q.dRO() == Layer.LayerType.Image) {
+            if (q.edQ() == Layer.LayerType.Image) {
                 i++;
             }
             list.add(q);

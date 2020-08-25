@@ -9,13 +9,13 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
 /* loaded from: classes16.dex */
 public class FrsRedpackRunView extends RelativeLayout {
-    private AutoScrollTextView ill;
-    private TBLottieAnimationView ilm;
+    private AutoScrollTextView izo;
+    private TBLottieAnimationView izp;
     private String mContent;
     private Context mContext;
     private View rootView;
@@ -34,39 +34,39 @@ public class FrsRedpackRunView extends RelativeLayout {
 
     private void initUI(Context context) {
         this.rootView = LayoutInflater.from(context).inflate(R.layout.frs_main_redpack_run_view, this);
-        this.ill = (AutoScrollTextView) findViewById(R.id.tv_redpack_live_title);
-        this.ilm = (TBLottieAnimationView) findViewById(R.id.frs_tblottie_anim);
+        this.izo = (AutoScrollTextView) findViewById(R.id.tv_redpack_live_title);
+        this.izp = (TBLottieAnimationView) findViewById(R.id.frs_tblottie_anim);
     }
 
     public void settextTitle(String str) {
-        if (this.ill != null) {
+        if (this.izo != null) {
             this.mContent = str;
-            this.ill.setText(str);
-            this.ill.b(((Activity) this.mContext).getWindowManager());
+            this.izo.setText(str);
+            this.izo.b(((Activity) this.mContext).getWindowManager());
             show();
         }
     }
 
     public void show() {
-        ao.a(this.ilm, R.raw.lottie_redpack_run);
-        this.ilm.setImageAssetsFolder("lottie_redpack_runscoll");
-        this.ilm.addAnimatorUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.view.FrsRedpackRunView.1
+        ap.a(this.izp, R.raw.lottie_redpack_run);
+        this.izp.setImageAssetsFolder("lottie_redpack_runscoll");
+        this.izp.addAnimatorUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.view.FrsRedpackRunView.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 if (valueAnimator.isRunning() && valueAnimator.getAnimatedFraction() > 0.5d) {
-                    FrsRedpackRunView.this.ill.ai(valueAnimator.getAnimatedFraction());
+                    FrsRedpackRunView.this.izo.ao(valueAnimator.getAnimatedFraction());
                 }
             }
         });
-        this.ilm.addAnimatorListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.view.FrsRedpackRunView.2
+        this.izp.addAnimatorListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.view.FrsRedpackRunView.2
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                FrsRedpackRunView.this.ill.b(((Activity) FrsRedpackRunView.this.mContext).getWindowManager());
-                FrsRedpackRunView.this.ill.ceb();
+                FrsRedpackRunView.this.izo.b(((Activity) FrsRedpackRunView.this.mContext).getWindowManager());
+                FrsRedpackRunView.this.izo.coF();
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -77,7 +77,7 @@ public class FrsRedpackRunView extends RelativeLayout {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.ilm.playAnimation();
+        this.izp.playAnimation();
     }
 
     public void hide() {
@@ -87,8 +87,8 @@ public class FrsRedpackRunView extends RelativeLayout {
         if (this.rootView != null) {
             this.rootView.setOnClickListener(onClickListener);
         }
-        if (this.ill != null) {
-            this.ill.setClickliner(onClickListener);
+        if (this.izo != null) {
+            this.izo.setClickliner(onClickListener);
         }
     }
 }

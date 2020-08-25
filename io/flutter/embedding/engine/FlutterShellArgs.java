@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public class FlutterShellArgs {
     public static final String ARG_CACHE_SKSL = "--cache-sksl";
     public static final String ARG_DART_FLAGS = "--dart-flags";

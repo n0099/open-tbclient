@@ -13,15 +13,15 @@ import java.util.LinkedList;
 import java.util.List;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class SampleToGroupBox extends AbstractFullBox {
     public static final String TYPE = "sbgp";
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_5 = null;
     List<Entry> entries;
     private String groupingType;
     private String groupingTypeParameter;
@@ -32,12 +32,12 @@ public class SampleToGroupBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("SampleToGroupBox.java", SampleToGroupBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getGroupingType", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleToGroupBox", "", "", "", FieldUtil.TYPE_STRING), 150);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setGroupingType", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleToGroupBox", FieldUtil.TYPE_STRING, "groupingType", "", "void"), Opcodes.IFNE);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getGroupingTypeParameter", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleToGroupBox", "", "", "", FieldUtil.TYPE_STRING), Opcodes.IFLE);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setGroupingTypeParameter", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleToGroupBox", FieldUtil.TYPE_STRING, "groupingTypeParameter", "", "void"), 162);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getEntries", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleToGroupBox", "", "", "", "java.util.List"), Opcodes.IF_ACMPNE);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "setEntries", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleToGroupBox", "java.util.List", "entries", "", "void"), Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "getGroupingType", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleToGroupBox", "", "", "", FieldUtil.TYPE_STRING), 150);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "setGroupingType", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleToGroupBox", FieldUtil.TYPE_STRING, "groupingType", "", "void"), Opcodes.IFNE);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.d("1", "getGroupingTypeParameter", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleToGroupBox", "", "", "", FieldUtil.TYPE_STRING), Opcodes.IFLE);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.d("1", "setGroupingTypeParameter", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleToGroupBox", FieldUtil.TYPE_STRING, "groupingTypeParameter", "", "void"), 162);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.d("1", "getEntries", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleToGroupBox", "", "", "", "java.util.List"), Opcodes.IF_ACMPNE);
+        ajc$tjp_5 = bVar.a("method-execution", bVar.d("1", "setEntries", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleToGroupBox", "java.util.List", "entries", "", "void"), Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID);
     }
 
     public SampleToGroupBox() {
@@ -83,7 +83,7 @@ public class SampleToGroupBox extends AbstractFullBox {
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes8.dex */
     public static class Entry {
         private int groupDescriptionIndex;
         private long sampleCount;

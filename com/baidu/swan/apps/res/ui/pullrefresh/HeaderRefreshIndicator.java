@@ -3,12 +3,12 @@ package com.baidu.swan.apps.res.ui.pullrefresh;
 import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.aq.ai;
+import com.baidu.swan.apps.ap.ah;
 import com.baidu.swan.apps.res.ui.DrawableCenterTextView;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class HeaderRefreshIndicator extends DrawableCenterTextView {
-    private int cDI;
-    private boolean cDJ;
+    private int cMG;
+    private boolean cMH;
     public boolean isInited;
 
     public HeaderRefreshIndicator(Context context) {
@@ -18,26 +18,26 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
     public HeaderRefreshIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.isInited = false;
-        this.cDI = -1;
-        this.cDJ = false;
+        this.cMG = -1;
+        this.cMH = false;
     }
 
-    public void QC() {
+    public void Wy() {
         if (!this.isInited) {
             this.isInited = true;
-            this.cDJ = com.baidu.swan.apps.t.a.ahF().getNightModeSwitcherState();
-            aqz();
+            this.cMH = com.baidu.swan.apps.t.a.apf().getNightModeSwitcherState();
+            ayL();
             setTextSize(1, 11.0f);
-            setCompoundDrawablePadding(ai.dip2px(getContext(), 5.0f));
+            setCompoundDrawablePadding(ah.dip2px(getContext(), 5.0f));
             initCornerRadius(0);
         }
     }
 
-    public void aqy() {
-        boolean nightModeSwitcherState = com.baidu.swan.apps.t.a.ahF().getNightModeSwitcherState();
-        if (this.cDJ != nightModeSwitcherState) {
-            aqz();
-            this.cDJ = nightModeSwitcherState;
+    public void ayK() {
+        boolean nightModeSwitcherState = com.baidu.swan.apps.t.a.apf().getNightModeSwitcherState();
+        if (this.cMH != nightModeSwitcherState) {
+            ayL();
+            this.cMH = nightModeSwitcherState;
         }
     }
 
@@ -49,12 +49,12 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
     @Override // android.widget.TextView, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        aqy();
+        ayK();
     }
 
-    public void aqz() {
+    public void ayL() {
         setBackground(getResources().getDrawable(a.e.aiapps_pull_refresh_success_tip_bg));
         setTextColor(getResources().getColor(a.c.aiapps_pull_refresh_result_text_color));
-        initDrawable(getResources().getDrawable(a.e.aiapps_pull_refresh_success_tip_icon), 0, ai.dip2px(getContext(), 11.0f), ai.dip2px(getContext(), 11.0f));
+        initDrawable(getResources().getDrawable(a.e.aiapps_pull_refresh_success_tip_icon), 0, ah.dip2px(getContext(), 11.0f), ah.dip2px(getContext(), 11.0f));
     }
 }

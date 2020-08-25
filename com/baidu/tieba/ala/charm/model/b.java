@@ -10,22 +10,22 @@ import com.baidu.live.data.k;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.mobstat.Config;
 import com.baidu.tieba.ala.charm.ALaCharmCardActivity;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class b extends BdBaseModel<ALaCharmCardActivity> {
-    private k fFQ;
-    private a fFR;
-    private NetMessageListener fFS;
+    private k fRh;
+    private a fRi;
+    private NetMessageListener fRj;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a(long j, k kVar, AlaLiveUserInfoData alaLiveUserInfoData, long j2);
 
-        void aB(int i, String str);
+        void az(int i, String str);
     }
 
     public b(TbPageContext<ALaCharmCardActivity> tbPageContext, a aVar) {
         super(tbPageContext);
-        this.fFS = new NetMessageListener(1021008, 602004) { // from class: com.baidu.tieba.ala.charm.model.b.1
+        this.fRj = new NetMessageListener(1021008, 602004) { // from class: com.baidu.tieba.ala.charm.model.b.1
             @Override // com.baidu.live.adp.framework.listener.NetMessageListener
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 k kVar;
@@ -36,29 +36,37 @@ public class b extends BdBaseModel<ALaCharmCardActivity> {
                     int error = responsedMessage.getError();
                     if (responsedMessage instanceof OnlineListHttpResponseMessage) {
                         OnlineListHttpResponseMessage onlineListHttpResponseMessage = (OnlineListHttpResponseMessage) responsedMessage;
-                        j = onlineListHttpResponseMessage.bzr();
-                        k bzs = onlineListHttpResponseMessage.bzs();
-                        alaLiveUserInfoData = onlineListHttpResponseMessage.bzt();
-                        j2 = onlineListHttpResponseMessage.bzu();
-                        kVar = bzs;
+                        j = onlineListHttpResponseMessage.bIu();
+                        k bIv = onlineListHttpResponseMessage.bIv();
+                        alaLiveUserInfoData = onlineListHttpResponseMessage.bIw();
+                        j2 = onlineListHttpResponseMessage.bIx();
+                        kVar = bIv;
                     } else {
                         kVar = null;
                         j = 0;
                     }
                     if (error == 0) {
-                        b.this.fFQ = kVar;
-                        if (b.this.fFR != null) {
-                            b.this.fFR.a(j, b.this.fFQ, alaLiveUserInfoData, j2);
+                        b.this.fRh = kVar;
+                        if (b.this.fRi != null) {
+                            b.this.fRi.a(j, b.this.fRh, alaLiveUserInfoData, j2);
                         }
-                    } else if (b.this.fFR != null) {
-                        b.this.fFR.aB(responsedMessage.getError(), responsedMessage.getErrorString());
+                    } else if (b.this.fRi != null) {
+                        b.this.fRi.az(responsedMessage.getError(), responsedMessage.getErrorString());
                     }
                 }
             }
         };
-        this.fFR = aVar;
-        MessageManager.getInstance().registerListener(this.fFS);
+        this.fRi = aVar;
+        MessageManager.getInstance().registerListener(this.fRj);
         com.baidu.live.tieba.f.a.a.a(1021008, "ala/live/getAudienceInfo", OnlineListHttpResponseMessage.class, false, true, true, true);
+    }
+
+    public void t(String str, int i, int i2) {
+        HttpMessage httpMessage = new HttpMessage(1021008);
+        httpMessage.addParam("live_id", str);
+        httpMessage.addParam(Config.PACKAGE_NAME, i);
+        httpMessage.addParam("ps", i2);
+        MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     public void u(String str, int i, int i2) {
@@ -69,16 +77,8 @@ public class b extends BdBaseModel<ALaCharmCardActivity> {
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public void v(String str, int i, int i2) {
-        HttpMessage httpMessage = new HttpMessage(1021008);
-        httpMessage.addParam("live_id", str);
-        httpMessage.addParam(Config.PACKAGE_NAME, i);
-        httpMessage.addParam("ps", i2);
-        MessageManager.getInstance().sendMessage(httpMessage);
-    }
-
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.fFS);
+        MessageManager.getInstance().unRegisterListener(this.fRj);
         MessageManager.getInstance().unRegisterTask(1021008);
         cancelMessage();
     }

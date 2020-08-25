@@ -8,14 +8,14 @@ import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.videochat.message.LiveVideoChatSendAcceptResponseMessage;
 import com.baidu.live.videochat.message.LiveVideoChatSendBanUserResponseMessage;
 import com.baidu.live.videochat.message.LiveVideoChatSendRefuseResponseMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class d extends b {
-    private e bli;
-    private HttpMessageListener bmr;
+    private e bqO;
+    private HttpMessageListener brW;
 
     public d(Context context, BdUniqueId bdUniqueId) {
         super(context, bdUniqueId);
-        this.bmr = new HttpMessageListener(0) { // from class: com.baidu.live.videochat.c.d.1
+        this.brW = new HttpMessageListener(0) { // from class: com.baidu.live.videochat.c.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -39,64 +39,64 @@ public class d extends b {
     }
 
     private void registerListener() {
-        MessageManager.getInstance().registerListener(1021174, this.bmr);
-        MessageManager.getInstance().registerListener(1021175, this.bmr);
-        MessageManager.getInstance().registerListener(1021178, this.bmr);
+        MessageManager.getInstance().registerListener(1021174, this.brW);
+        MessageManager.getInstance().registerListener(1021175, this.brW);
+        MessageManager.getInstance().registerListener(1021178, this.brW);
     }
 
     public void a(e eVar) {
         a((c) eVar);
-        this.bli = eVar;
+        this.bqO = eVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(LiveVideoChatSendAcceptResponseMessage liveVideoChatSendAcceptResponseMessage) {
-        if (liveVideoChatSendAcceptResponseMessage != null && this.bli != null) {
+        if (liveVideoChatSendAcceptResponseMessage != null && this.bqO != null) {
             if (liveVideoChatSendAcceptResponseMessage.getError() == 0) {
-                this.bli.a(liveVideoChatSendAcceptResponseMessage.Kk());
+                this.bqO.a(liveVideoChatSendAcceptResponseMessage.Qc());
             } else {
-                this.bli.y(liveVideoChatSendAcceptResponseMessage.getError(), liveVideoChatSendAcceptResponseMessage.getErrorString());
+                this.bqO.x(liveVideoChatSendAcceptResponseMessage.getError(), liveVideoChatSendAcceptResponseMessage.getErrorString());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(LiveVideoChatSendRefuseResponseMessage liveVideoChatSendRefuseResponseMessage) {
-        if (liveVideoChatSendRefuseResponseMessage != null && this.bli != null) {
+        if (liveVideoChatSendRefuseResponseMessage != null && this.bqO != null) {
             if (liveVideoChatSendRefuseResponseMessage.getError() == 0) {
-                this.bli.JH();
+                this.bqO.Pz();
             } else {
-                this.bli.z(liveVideoChatSendRefuseResponseMessage.getError(), liveVideoChatSendRefuseResponseMessage.getErrorString());
+                this.bqO.y(liveVideoChatSendRefuseResponseMessage.getError(), liveVideoChatSendRefuseResponseMessage.getErrorString());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(LiveVideoChatSendBanUserResponseMessage liveVideoChatSendBanUserResponseMessage) {
-        if (liveVideoChatSendBanUserResponseMessage != null && this.bli != null && (liveVideoChatSendBanUserResponseMessage.getOrginalMessage() instanceof com.baidu.live.videochat.message.a)) {
+        if (liveVideoChatSendBanUserResponseMessage != null && this.bqO != null && (liveVideoChatSendBanUserResponseMessage.getOrginalMessage() instanceof com.baidu.live.videochat.message.a)) {
             com.baidu.live.videochat.message.a aVar = (com.baidu.live.videochat.message.a) liveVideoChatSendBanUserResponseMessage.getOrginalMessage();
             if (liveVideoChatSendBanUserResponseMessage.getError() == 0) {
-                if (aVar.Kj()) {
-                    if (aVar.Ki()) {
-                        this.bli.JJ();
+                if (aVar.Qb()) {
+                    if (aVar.Qa()) {
+                        this.bqO.PB();
                     } else {
-                        this.bli.JI();
+                        this.bqO.PA();
                     }
-                } else if (aVar.Ki()) {
-                    this.bli.JL();
+                } else if (aVar.Qa()) {
+                    this.bqO.PD();
                 } else {
-                    this.bli.JK();
+                    this.bqO.PC();
                 }
-            } else if (aVar.Kj()) {
-                if (aVar.Ki()) {
-                    this.bli.B(liveVideoChatSendBanUserResponseMessage.getError(), liveVideoChatSendBanUserResponseMessage.getErrorString());
+            } else if (aVar.Qb()) {
+                if (aVar.Qa()) {
+                    this.bqO.A(liveVideoChatSendBanUserResponseMessage.getError(), liveVideoChatSendBanUserResponseMessage.getErrorString());
                 } else {
-                    this.bli.A(liveVideoChatSendBanUserResponseMessage.getError(), liveVideoChatSendBanUserResponseMessage.getErrorString());
+                    this.bqO.z(liveVideoChatSendBanUserResponseMessage.getError(), liveVideoChatSendBanUserResponseMessage.getErrorString());
                 }
-            } else if (aVar.Ki()) {
-                this.bli.D(liveVideoChatSendBanUserResponseMessage.getError(), liveVideoChatSendBanUserResponseMessage.getErrorString());
+            } else if (aVar.Qa()) {
+                this.bqO.C(liveVideoChatSendBanUserResponseMessage.getError(), liveVideoChatSendBanUserResponseMessage.getErrorString());
             } else {
-                this.bli.C(liveVideoChatSendBanUserResponseMessage.getError(), liveVideoChatSendBanUserResponseMessage.getErrorString());
+                this.bqO.B(liveVideoChatSendBanUserResponseMessage.getError(), liveVideoChatSendBanUserResponseMessage.getErrorString());
             }
         }
     }

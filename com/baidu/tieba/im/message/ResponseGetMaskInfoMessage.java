@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import protobuf.GetMaskInfo.GetMaskInfoResIdl;
 import protobuf.GetMaskInfo.UserInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ResponseGetMaskInfoMessage extends SocketResponsedMessage {
     public static final int FALSE = 0;
     private ArrayList<BlackListItemData> blackList;
@@ -34,10 +34,10 @@ public class ResponseGetMaskInfoMessage extends SocketResponsedMessage {
                 int size = list != null ? list.size() : 0;
                 for (int i2 = 0; i2 < size; i2++) {
                     BlackListItemData blackListItemData = new BlackListItemData();
-                    blackListItemData.ge(list.get(i2).portrait);
+                    blackListItemData.hz(list.get(i2).portrait);
                     blackListItemData.setUserId(list.get(i2).uid.longValue());
                     blackListItemData.setUserName(list.get(i2).name);
-                    blackListItemData.yT(list.get(i2).nameShow);
+                    blackListItemData.Bj(list.get(i2).nameShow);
                     this.blackList.add(blackListItemData);
                 }
             }

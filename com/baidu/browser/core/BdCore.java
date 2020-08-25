@@ -2,14 +2,14 @@ package com.baidu.browser.core;
 
 import android.content.Context;
 import com.baidu.browser.core.util.BdLog;
-/* loaded from: classes10.dex */
+/* loaded from: classes19.dex */
 public final class BdCore {
-    private static BdCore acb;
+    private static BdCore adJ;
     private Context mContext;
-    private EditTextType acc = EditTextType.DEFAULT;
+    private EditTextType adK = EditTextType.DEFAULT;
     private boolean mHasInit = false;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes19.dex */
     public enum EditTextType {
         DEFAULT,
         WEB_EDIT,
@@ -21,13 +21,13 @@ public final class BdCore {
     private BdCore() {
     }
 
-    public static synchronized BdCore rp() {
+    public static synchronized BdCore tb() {
         BdCore bdCore;
         synchronized (BdCore.class) {
-            if (acb == null) {
-                acb = new BdCore();
+            if (adJ == null) {
+                adJ = new BdCore();
             }
-            bdCore = acb;
+            bdCore = adJ;
         }
         return bdCore;
     }

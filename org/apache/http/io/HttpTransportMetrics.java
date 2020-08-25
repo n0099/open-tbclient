@@ -1,6 +1,6 @@
 package org.apache.http.io;
 @Deprecated
-/* loaded from: classes20.dex */
+/* loaded from: classes9.dex */
 public interface HttpTransportMetrics {
     long getBytesTransferred();
 

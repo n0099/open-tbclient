@@ -1,7 +1,15 @@
 package com.baidu.live.liveroom.e;
 
-import android.content.Context;
-/* loaded from: classes4.dex */
+import android.view.View;
+/* loaded from: classes7.dex */
 public interface b {
-    a ar(Context context);
+    void Ln();
+
+    boolean Lo();
+
+    boolean Lp();
+
+    void a(d dVar, View view, String str, a aVar);
+
+    void cc(boolean z);
 }

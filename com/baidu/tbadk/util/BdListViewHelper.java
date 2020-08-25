@@ -8,11 +8,11 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class BdListViewHelper {
-    public static final int eKp = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds320);
+    public static final int eUU = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds320);
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public enum HeadType {
         DEFAULT,
         HASTAB,

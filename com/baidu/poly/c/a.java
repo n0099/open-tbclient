@@ -6,24 +6,24 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class a {
-    private static volatile Executor bAW;
-    private static final int bAX = Runtime.getRuntime().availableProcessors();
-    private static final int bAY = (bAX * 2) + 1;
-    private static final ThreadFactory bAZ = new ThreadFactoryC0252a();
+    private static volatile Executor bGA;
+    private static final int bGB = Runtime.getRuntime().availableProcessors();
+    private static final int bGC = (bGB * 2) + 1;
+    private static final ThreadFactory bGD = new ThreadFactoryC0273a();
 
     /* renamed from: com.baidu.poly.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    static class ThreadFactoryC0252a implements ThreadFactory {
-        private final AtomicInteger bBa = new AtomicInteger(1);
+    /* loaded from: classes6.dex */
+    static class ThreadFactoryC0273a implements ThreadFactory {
+        private final AtomicInteger bGE = new AtomicInteger(1);
 
-        ThreadFactoryC0252a() {
+        ThreadFactoryC0273a() {
         }
 
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
-            return new Thread(runnable, "cashier #" + this.bBa.getAndIncrement());
+            return new Thread(runnable, "cashier #" + this.bGE.getAndIncrement());
         }
     }
 
@@ -34,16 +34,16 @@ public class a {
     private static synchronized Executor getExecutor() {
         Executor executor;
         synchronized (a.class) {
-            if (bAW == null) {
+            if (bGA == null) {
                 synchronized (a.class) {
-                    if (bAW == null) {
-                        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(2, bAY, 8L, TimeUnit.SECONDS, new LinkedBlockingQueue(), bAZ);
+                    if (bGA == null) {
+                        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(2, bGC, 8L, TimeUnit.SECONDS, new LinkedBlockingQueue(), bGD);
                         threadPoolExecutor.allowCoreThreadTimeOut(true);
-                        bAW = threadPoolExecutor;
+                        bGA = threadPoolExecutor;
                     }
                 }
             }
-            executor = bAW;
+            executor = bGA;
         }
         return executor;
     }

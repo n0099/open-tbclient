@@ -1,10 +1,14 @@
 package com.baidu.tieba.frs;
-/* loaded from: classes.dex */
-public class bb extends ay {
-    public int errCode;
-    public String errMsg;
-    public boolean isLocal = true;
-    public boolean hasMore = true;
-    public boolean hKo = true;
-    public boolean hKp = true;
+
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.data.GodUserData;
+/* loaded from: classes16.dex */
+public class bb implements com.baidu.tieba.horizonalList.widget.c {
+    public MetaData metaData = new MetaData();
+
+    public bb() {
+        if (this.metaData.getGodUserData() == null) {
+            this.metaData.setGodUserData(new GodUserData());
+        }
+    }
 }

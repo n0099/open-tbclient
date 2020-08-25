@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.ubc;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class UbcStatConstant {
     public static final String DEBUG_EVENT_ID = "1435";
     public static final String DEBUG_VALUE_CONTENT_FROM = "live_perform";
@@ -23,7 +23,7 @@ public class UbcStatConstant {
     public static final String KEY_STATISTIC_FROM = "live_indicators";
     public static final String VALUE_CONTENT_FROM = "live";
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class ContentSource {
         public static final String HAOKAN = "haokan";
         public static final String QUANMIN = "mvapp";
@@ -31,7 +31,7 @@ public class UbcStatConstant {
         public static final String TIEBA = "tieba";
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class ContentType {
         public static final String CLICK = "click";
         public static final String COVER_CLICK = "cover_clk";
@@ -86,14 +86,14 @@ public class UbcStatConstant {
         public static final String UBC_TYPE_STRATEGY = "strategy";
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class DebugContentType {
         public static final String EXCEPTION = "exception";
         public static final String REQUEST = "request";
         public static final String STAT = "stat";
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class DebugContentValue {
         public static final String CREATE_LIVE = "create_live";
         public static final String ENTER_LIVE = "enter_live";
@@ -103,7 +103,7 @@ public class UbcStatConstant {
         public static final String PK = "pk";
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class Page {
         public static final String AUTHOR_LIVE_ROOM = "author_liveroom";
         public static final String LIVE_ACTION = "liveaction";

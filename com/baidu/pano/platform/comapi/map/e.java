@@ -8,12 +8,12 @@ import android.os.Message;
 import android.support.v4.view.ViewCompat;
 import android.text.TextUtils;
 import android.view.MotionEvent;
-import com.baidu.mobstat.Config;
 import com.baidu.pano.platform.comjni.JNIEngine;
 import com.baidu.pano.platform.comjni.JNITool;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class e {
     private float c;
     private float i;
@@ -261,14 +261,14 @@ public class e {
         if (bundle == null) {
             return false;
         }
-        return JNIEngine.addCustomMarkerByURL(bundle.getString("key"), bundle.getDouble(Config.EVENT_HEAT_X), bundle.getDouble("y"), bundle.getFloat("z"), bundle.getString("image_url"), bundle.getFloat("width"), bundle.getFloat("height"));
+        return JNIEngine.addCustomMarkerByURL(bundle.getString("key"), bundle.getDouble("x"), bundle.getDouble("y"), bundle.getFloat(MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z), bundle.getString("image_url"), bundle.getFloat("width"), bundle.getFloat("height"));
     }
 
     public boolean b(Bundle bundle) {
         if (bundle == null) {
             return false;
         }
-        return JNIEngine.addCustomMarkerByText(bundle.getString("key"), bundle.getDouble(Config.EVENT_HEAT_X), bundle.getDouble("y"), bundle.getFloat("z"), bundle.getString("text"), bundle.getInt("fontsize"), bundle.getInt("fontcolor"), bundle.getInt("bgcolor"), com.baidu.pano.platform.c.d.a(bundle.getInt("paddingleft"), bundle.getInt("paddingtop"), bundle.getInt("paddingright"), bundle.getInt("paddingbottom")));
+        return JNIEngine.addCustomMarkerByText(bundle.getString("key"), bundle.getDouble("x"), bundle.getDouble("y"), bundle.getFloat(MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z), bundle.getString("text"), bundle.getInt("fontsize"), bundle.getInt("fontcolor"), bundle.getInt("bgcolor"), com.baidu.pano.platform.c.d.a(bundle.getInt("paddingleft"), bundle.getInt("paddingtop"), bundle.getInt("paddingright"), bundle.getInt("paddingbottom")));
     }
 
     public void c(Bundle bundle) {
@@ -281,7 +281,7 @@ public class e {
         if (bundle == null) {
             return false;
         }
-        return JNIEngine.addCustomMarkerByBitmap(bundle.getString("key"), bundle.getDouble(Config.EVENT_HEAT_X), bundle.getDouble("y"), bundle.getFloat("z"), bitmap);
+        return JNIEngine.addCustomMarkerByBitmap(bundle.getString("key"), bundle.getDouble("x"), bundle.getDouble("y"), bundle.getFloat(MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z), bitmap);
     }
 
     public void a(String str, float f, float f2) {
@@ -301,7 +301,7 @@ public class e {
 
     public void d(Bundle bundle) {
         if (bundle != null) {
-            JNIEngine.addPoiMarker(bundle.getDouble(Config.EVENT_HEAT_X), bundle.getDouble("y"), bundle.getFloat("z"));
+            JNIEngine.addPoiMarker(bundle.getDouble("x"), bundle.getDouble("y"), bundle.getFloat(MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z));
         }
     }
 

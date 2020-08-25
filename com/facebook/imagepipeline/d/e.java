@@ -1,15 +1,15 @@
 package com.facebook.imagepipeline.d;
 
 import java.util.concurrent.Executor;
-/* loaded from: classes3.dex */
+/* loaded from: classes8.dex */
 public interface e {
-    Executor dGA();
+    Executor dSA();
 
-    Executor dGB();
+    Executor dSw();
 
-    Executor dGx();
+    Executor dSx();
 
-    Executor dGy();
+    Executor dSy();
 
-    Executor dGz();
+    Executor dSz();
 }

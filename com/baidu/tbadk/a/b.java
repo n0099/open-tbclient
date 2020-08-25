@@ -3,51 +3,50 @@ package com.baidu.tbadk.a;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.compatible.EditorHelper;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class b {
-    private static b dIa;
+    private static b dRh;
     private final HashMap<String, a> mSwitchs = new HashMap<>();
 
     public b() {
-        HashMap<String, a> aRu = aRu();
+        HashMap<String, a> aZL = aZL();
         this.mSwitchs.clear();
-        this.mSwitchs.putAll(aRu);
+        this.mSwitchs.putAll(aZL);
     }
 
-    public static b aRs() {
-        if (dIa == null) {
+    public static b aZJ() {
+        if (dRh == null) {
             synchronized (b.class) {
-                if (dIa == null) {
-                    dIa = new b();
+                if (dRh == null) {
+                    dRh = new b();
                 }
             }
         }
-        return dIa;
+        return dRh;
     }
 
-    private static String aRt() {
+    private static String aZK() {
         return "pref_name_abtest_" + TbadkCoreApplication.getCurrentAccount();
     }
 
     private static SharedPreferences getSharedPreferences() {
-        return TbadkCoreApplication.getInst().getSharedPreferences(aRt(), 0);
+        return TbadkCoreApplication.getInst().getSharedPreferences(aZK(), 0);
     }
 
-    public synchronized a vM(String str) {
+    public synchronized a xX(String str) {
         return this.mSwitchs.get(str);
     }
 
-    private String da(String str, String str2) {
-        a vM = vM(str);
-        if (vM != null && !TextUtils.isEmpty(vM.dHY)) {
-            return vM.dHY;
+    private String dq(String str, String str2) {
+        a xX = xX(str);
+        if (xX != null && !TextUtils.isEmpty(xX.dRf)) {
+            return xX.dRf;
         }
         return str2;
     }
@@ -69,7 +68,7 @@ public class b {
         }
     }
 
-    public void K(JSONArray jSONArray) {
+    public void M(JSONArray jSONArray) {
         try {
             if (jSONArray == null) {
                 clearAll();
@@ -88,13 +87,13 @@ public class b {
                 this.mSwitchs.putAll(hashMap);
             }
             EditorHelper.putString(getSharedPreferences(), "pref_key_abtest_switchs", jSONArray.toString());
-            com.baidu.tbadk.core.sharedPref.b.aZP().putInt("static_opt_open", vN("static_opt_open_test") ? 1 : 0);
+            com.baidu.tbadk.core.sharedPref.b.bik().putInt("static_opt_open", xY("static_opt_open_test") ? 1 : 0);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private HashMap<String, a> aRu() {
+    private HashMap<String, a> aZL() {
         HashMap<String, a> hashMap = new HashMap<>();
         try {
             JSONArray jSONArray = new JSONArray(getSharedPreferences().getString("pref_key_abtest_switchs", "[]"));
@@ -111,7 +110,7 @@ public class b {
         return hashMap;
     }
 
-    public static boolean vN(String str) {
-        return Config.APP_VERSION_CODE.equalsIgnoreCase(aRs().da(str, ""));
+    public static boolean xY(String str) {
+        return "a".equalsIgnoreCase(aZJ().dq(str, ""));
     }
 }

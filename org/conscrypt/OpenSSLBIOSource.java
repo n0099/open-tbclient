@@ -3,7 +3,7 @@ package org.conscrypt;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 final class OpenSSLBIOSource {
     private OpenSSLBIOInputStream source;
 
@@ -34,7 +34,7 @@ final class OpenSSLBIOSource {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes12.dex */
     private static class ByteBufferInputStream extends InputStream {
         private final ByteBuffer source;
 

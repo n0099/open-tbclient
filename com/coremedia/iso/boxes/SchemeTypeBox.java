@@ -10,30 +10,30 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class SchemeTypeBox extends AbstractFullBox {
     static final /* synthetic */ boolean $assertionsDisabled;
     public static final String TYPE = "schm";
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_6 = null;
     String schemeType;
     String schemeUri;
     long schemeVersion;
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("SchemeTypeBox.java", SchemeTypeBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getSchemeType", "com.coremedia.iso.boxes.SchemeTypeBox", "", "", "", FieldUtil.TYPE_STRING), 44);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "getSchemeVersion", "com.coremedia.iso.boxes.SchemeTypeBox", "", "", "", "long"), 48);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getSchemeUri", "com.coremedia.iso.boxes.SchemeTypeBox", "", "", "", FieldUtil.TYPE_STRING), 52);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setSchemeType", "com.coremedia.iso.boxes.SchemeTypeBox", FieldUtil.TYPE_STRING, "schemeType", "", "void"), 56);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "setSchemeVersion", "com.coremedia.iso.boxes.SchemeTypeBox", "int", "schemeVersion", "", "void"), 61);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "setSchemeUri", "com.coremedia.iso.boxes.SchemeTypeBox", FieldUtil.TYPE_STRING, "schemeUri", "", "void"), 65);
-        ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.SchemeTypeBox", "", "", "", FieldUtil.TYPE_STRING), 93);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "getSchemeType", "com.coremedia.iso.boxes.SchemeTypeBox", "", "", "", FieldUtil.TYPE_STRING), 44);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "getSchemeVersion", "com.coremedia.iso.boxes.SchemeTypeBox", "", "", "", "long"), 48);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.d("1", "getSchemeUri", "com.coremedia.iso.boxes.SchemeTypeBox", "", "", "", FieldUtil.TYPE_STRING), 52);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.d("1", "setSchemeType", "com.coremedia.iso.boxes.SchemeTypeBox", FieldUtil.TYPE_STRING, "schemeType", "", "void"), 56);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.d("1", "setSchemeVersion", "com.coremedia.iso.boxes.SchemeTypeBox", "int", "schemeVersion", "", "void"), 61);
+        ajc$tjp_5 = bVar.a("method-execution", bVar.d("1", "setSchemeUri", "com.coremedia.iso.boxes.SchemeTypeBox", FieldUtil.TYPE_STRING, "schemeUri", "", "void"), 65);
+        ajc$tjp_6 = bVar.a("method-execution", bVar.d("1", "toString", "com.coremedia.iso.boxes.SchemeTypeBox", "", "", "", FieldUtil.TYPE_STRING), 93);
     }
 
     static {
@@ -71,7 +71,7 @@ public class SchemeTypeBox extends AbstractFullBox {
     }
 
     public void setSchemeVersion(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_4, this, this, org.aspectj.a.a.a.LD(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_4, this, this, org.aspectj.a.a.a.Og(i)));
         this.schemeVersion = i;
     }
 

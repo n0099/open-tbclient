@@ -8,51 +8,51 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class i {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile i diw;
-    private ArrayList<h> diu = new ArrayList<>();
-    private g div = new g();
+    private static volatile i dsE;
+    private ArrayList<h> dsC = new ArrayList<>();
+    private g dsD = new g();
 
     private i() {
     }
 
-    public static i aEI() {
-        if (diw == null) {
+    public static i aNw() {
+        if (dsE == null) {
             synchronized (i.class) {
-                if (diw == null) {
-                    diw = new i();
+                if (dsE == null) {
+                    dsE = new i();
                 }
             }
         }
-        return diw;
+        return dsE;
     }
 
     public synchronized void a(@NonNull Runnable runnable, String str, String... strArr) {
         h hVar = new h(this, runnable, str, strArr);
-        ArrayList<h> x = this.div.x(strArr);
-        this.div.a(hVar, strArr);
-        if (x == null || x.size() == 0) {
-            hVar.aED();
+        ArrayList<h> y = this.dsD.y(strArr);
+        this.dsD.a(hVar, strArr);
+        if (y == null || y.size() == 0) {
+            hVar.aNr();
         } else {
-            a(hVar, x);
+            a(hVar, y);
         }
     }
 
     public synchronized void c(h hVar) {
         if (hVar != null) {
-            this.div.b(hVar, hVar.aEE());
-            if (hVar.aEF()) {
+            this.dsD.b(hVar, hVar.aNs());
+            if (hVar.aNt()) {
                 if (DEBUG) {
-                    Log.i("FileSystemTaskManager", "onTaskComplete: " + hVar + Constants.ACCEPT_TIME_SEPARATOR_SP + this.diu.size());
+                    Log.i("FileSystemTaskManager", "onTaskComplete: " + hVar + Constants.ACCEPT_TIME_SEPARATOR_SP + this.dsC.size());
                 }
-                for (int size = this.diu.size() - 1; size >= 0; size--) {
-                    h hVar2 = this.diu.get(size);
+                for (int size = this.dsC.size() - 1; size >= 0; size--) {
+                    h hVar2 = this.dsC.get(size);
                     hVar2.b(hVar);
-                    if (hVar2.aEH()) {
-                        this.diu.remove(size);
-                        hVar2.aED();
+                    if (hVar2.aNv()) {
+                        this.dsC.remove(size);
+                        hVar2.aNr();
                     }
                 }
             }
@@ -60,27 +60,27 @@ public class i {
     }
 
     private synchronized void onDestroy() {
-        this.div.aEB();
-        Iterator<h> it = this.diu.iterator();
+        this.dsD.aoj();
+        Iterator<h> it = this.dsC.iterator();
         while (it.hasNext()) {
             h next = it.next();
             if (d(next)) {
-                next.aEC();
+                next.aNq();
             }
         }
-        this.diu.clear();
+        this.dsC.clear();
     }
 
     public static synchronized void release() {
         synchronized (i.class) {
-            if (diw != null) {
-                diw.onDestroy();
-                diw = null;
+            if (dsE != null) {
+                dsE.onDestroy();
+                dsE = null;
             }
         }
     }
 
-    public void y(String... strArr) {
+    public void z(String... strArr) {
         Semaphore semaphore = new Semaphore(0);
         if (a(semaphore, strArr)) {
             if (DEBUG) {
@@ -92,11 +92,11 @@ public class i {
 
     private synchronized boolean a(Semaphore semaphore, String... strArr) {
         boolean z;
-        ArrayList<h> x = this.div.x(strArr);
-        if (x == null || x.size() == 0) {
+        ArrayList<h> y = this.dsD.y(strArr);
+        if (y == null || y.size() == 0) {
             z = false;
         } else {
-            a(b(semaphore), x);
+            a(b(semaphore), y);
             z = true;
         }
         return z;
@@ -104,15 +104,15 @@ public class i {
 
     private void a(@NonNull h hVar, @NonNull ArrayList<h> arrayList) {
         if (DEBUG) {
-            Log.i("FileSystemTaskManager", "addToWaitList: " + hVar + Constants.ACCEPT_TIME_SEPARATOR_SP + arrayList.size() + Constants.ACCEPT_TIME_SEPARATOR_SP + this.diu.size());
+            Log.i("FileSystemTaskManager", "addToWaitList: " + hVar + Constants.ACCEPT_TIME_SEPARATOR_SP + arrayList.size() + Constants.ACCEPT_TIME_SEPARATOR_SP + this.dsC.size());
         }
         Iterator<h> it = arrayList.iterator();
         while (it.hasNext()) {
             h next = it.next();
-            next.aEG();
+            next.aNu();
             hVar.a(next);
         }
-        this.diu.add(hVar);
+        this.dsC.add(hVar);
     }
 
     private void a(Semaphore semaphore) {

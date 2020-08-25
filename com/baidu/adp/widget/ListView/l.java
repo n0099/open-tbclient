@@ -1,65 +1,67 @@
 package com.baidu.adp.widget.ListView;
-/* loaded from: classes.dex */
+
+import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
+/* loaded from: classes2.dex */
 public class l {
-    private float Vw = 8.0f;
-    private float Vx = 15.0f;
-    private float Vy = 4.0f;
-    private float Vz = 60.0f;
-    private int VA = 150;
-    private int VB = 150;
-    private int VC = 500;
-    private float VD = 0.4f;
-    private float VE = 1.0f;
-    private float VF = 20.0f;
-    private float VG = 10.0f;
-    private int VH = 360;
-    private float VI = 5.0f;
+    private float VZ = 8.0f;
+    private float Wa = 15.0f;
+    private float Wb = 4.0f;
+    private float Wc = 60.0f;
+    private int We = 150;
+    private int Wf = 150;
+    private int Wg = 500;
+    private float Wh = 0.4f;
+    private float Wi = 1.0f;
+    private float Wj = 20.0f;
+    private float Wk = 10.0f;
+    private int Wl = EncoderTextureDrawer.X264_WIDTH;
+    private float Wm = 5.0f;
 
-    public float pr() {
-        return this.Vw;
+    public float qQ() {
+        return this.VZ;
     }
 
-    public float ps() {
-        return this.Vx;
+    public float qR() {
+        return this.Wa;
     }
 
-    public float pt() {
-        return this.Vy;
+    public float qS() {
+        return this.Wb;
     }
 
-    public float pu() {
-        return this.Vz;
+    public float qT() {
+        return this.Wc;
     }
 
-    public int pv() {
-        return this.VA;
+    public int qU() {
+        return this.We;
     }
 
-    public int pw() {
-        return this.VB;
+    public int qV() {
+        return this.Wf;
     }
 
-    public int px() {
-        return this.VC;
+    public int qW() {
+        return this.Wg;
     }
 
-    public float py() {
-        return this.VD;
+    public float qX() {
+        return this.Wh;
     }
 
-    public float pz() {
-        return this.VE;
+    public float qY() {
+        return this.Wi;
     }
 
-    public float pA() {
-        return this.VF;
+    public float qZ() {
+        return this.Wj;
     }
 
-    public float pB() {
-        return this.VG;
+    public float ra() {
+        return this.Wk;
     }
 
-    public int pC() {
-        return this.VH;
+    public int rb() {
+        return this.Wl;
     }
 }

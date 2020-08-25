@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.data;
 import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
 import tbclient.AppCode;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class f {
     private String button_text;
     private String game_icon;

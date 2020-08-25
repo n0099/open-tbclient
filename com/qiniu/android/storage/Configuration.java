@@ -10,30 +10,30 @@ import java.io.File;
 public final class Configuration {
     public final int chunkSize;
     public final int connectTimeout;
-    public final Recorder nMf;
-    public final KeyGenerator nMg;
-    public final ProxyConfiguration nMh;
-    public final int nMi;
-    public final int nMj;
-    public UrlConverter nMk;
-    public Dns nMl;
-    public Zone nMm;
+    public final Recorder ofZ;
+    public final KeyGenerator oga;
+    public final ProxyConfiguration ogb;
+    public final int ogc;
+    public final int ogd;
+    public UrlConverter oge;
+    public Dns ogf;
+    public Zone ogg;
     public final int responseTimeout;
     public boolean useHttps;
 
     private Configuration(Builder builder) {
         this.useHttps = builder.useHttps;
         this.chunkSize = builder.chunkSize;
-        this.nMi = builder.nMi;
+        this.ogc = builder.ogc;
         this.connectTimeout = builder.connectTimeout;
         this.responseTimeout = builder.responseTimeout;
-        this.nMf = builder.nMf;
-        this.nMg = a(builder.nMg);
-        this.nMj = builder.nMj;
-        this.nMh = builder.nMh;
-        this.nMk = builder.nMk;
-        this.nMm = builder.nMm == null ? AutoZone.nLk : builder.nMm;
-        this.nMl = builder.nMl;
+        this.ofZ = builder.ofZ;
+        this.oga = a(builder.oga);
+        this.ogd = builder.ogd;
+        this.ogb = builder.ogb;
+        this.oge = builder.oge;
+        this.ogg = builder.ogg == null ? AutoZone.ofd : builder.ogg;
+        this.ogf = builder.ogf;
     }
 
     private KeyGenerator a(KeyGenerator keyGenerator) {
@@ -50,20 +50,20 @@ public final class Configuration {
 
     /* loaded from: classes6.dex */
     public static class Builder {
-        private Zone nMm = null;
-        private Recorder nMf = null;
-        private KeyGenerator nMg = null;
-        private ProxyConfiguration nMh = null;
+        private Zone ogg = null;
+        private Recorder ofZ = null;
+        private KeyGenerator oga = null;
+        private ProxyConfiguration ogb = null;
         private boolean useHttps = false;
         private int chunkSize = 2097152;
-        private int nMi = 4194304;
+        private int ogc = 4194304;
         private int connectTimeout = 10;
         private int responseTimeout = 60;
-        private int nMj = 3;
-        private UrlConverter nMk = null;
-        private Dns nMl = null;
+        private int ogd = 3;
+        private UrlConverter oge = null;
+        private Dns ogf = null;
 
-        public Configuration dQn() {
+        public Configuration ecp() {
             return new Configuration(this);
         }
     }

@@ -11,7 +11,7 @@ import javax.net.ssl.SSLSessionBindingEvent;
 import javax.net.ssl.SSLSessionBindingListener;
 import javax.net.ssl.SSLSessionContext;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public final class ActiveSession implements ConscryptSession {
     private long creationTime;
     private byte[] id;

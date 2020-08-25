@@ -2,49 +2,49 @@ package com.baidu.tieba.pb.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.bv;
+import com.baidu.tbadk.core.data.bw;
 /* loaded from: classes16.dex */
 public class o implements com.baidu.adp.widget.ListView.q {
-    public static final BdUniqueId kiN = BdUniqueId.gen();
-    private bv aii;
-    private AntiData ein;
-    private boolean kiO = false;
-    public boolean kiP = false;
+    public static final BdUniqueId kyf = BdUniqueId.gen();
+    private bw ajx;
+    private AntiData ese;
+    private boolean kyg = false;
+    public boolean kyh = false;
 
-    public o(bv bvVar, AntiData antiData) {
-        this.aii = bvVar;
-        this.ein = antiData;
+    public o(bw bwVar, AntiData antiData) {
+        this.ajx = bwVar;
+        this.ese = antiData;
     }
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return kiN;
+        return kyf;
     }
 
-    public int aXM() {
-        if (this.aii != null) {
-            return this.aii.aXM();
+    public int bgf() {
+        if (this.ajx != null) {
+            return this.ajx.bgf();
         }
         return 0;
     }
 
-    public boolean cLq() {
-        return this.aii != null && this.aii.aXL() == 1;
+    public boolean cWe() {
+        return this.ajx != null && this.ajx.bge() == 1;
     }
 
     public AntiData getAnti() {
-        return this.ein;
+        return this.ese;
     }
 
-    public bv aTN() {
-        return this.aii;
+    public bw bce() {
+        return this.ajx;
     }
 
-    public void rV(boolean z) {
-        this.kiO = z;
+    public void sC(boolean z) {
+        this.kyg = z;
     }
 
-    public boolean cLr() {
-        return this.kiO;
+    public boolean cWf() {
+        return this.kyg;
     }
 }

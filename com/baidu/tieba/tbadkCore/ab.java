@@ -1,42 +1,21 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bv;
-import com.baidu.tbadk.core.data.bx;
-import com.baidu.tbadk.core.data.ca;
-/* loaded from: classes.dex */
-public class ab extends bv {
-    public static final BdUniqueId lMk = BdUniqueId.gen();
-    private boolean fyT = false;
-    private bx lMl;
-    private ca lMm;
+import tbclient.SmartApp;
+/* loaded from: classes2.dex */
+public class ab {
+    public String avatar;
+    public Integer dPG;
+    public String id;
+    public String link;
+    public String name;
 
-    @Override // com.baidu.tbadk.core.data.bv, com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
-    public BdUniqueId getType() {
-        return lMk;
-    }
-
-    public boolean dkH() {
-        return this.fyT;
-    }
-
-    public void vi(boolean z) {
-        this.fyT = z;
-    }
-
-    public bx dkI() {
-        return this.lMl;
-    }
-
-    public void a(bx bxVar) {
-        this.lMl = bxVar;
-    }
-
-    public ca dkJ() {
-        return this.lMm;
-    }
-
-    public void a(ca caVar) {
-        this.lMm = caVar;
+    public void c(SmartApp smartApp) {
+        if (smartApp != null) {
+            this.avatar = smartApp.avatar;
+            this.name = smartApp.name;
+            this.id = smartApp.id;
+            this.link = smartApp.link;
+            this.dPG = smartApp.is_game;
+        }
     }
 }

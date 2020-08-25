@@ -5,7 +5,7 @@ import android.content.res.Resources;
 import android.os.Build;
 import android.text.TextUtils;
 import com.vivo.push.model.InsideNotificationItem;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public final class i implements BaseNotifyDataAdapter {
     private Resources a;
     private String b;

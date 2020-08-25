@@ -20,13 +20,13 @@ import java.util.Set;
 import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class a {
-    private static final byte[] atm = {77, 73, 78, 71};
+    private static final byte[] ayi = {77, 73, 78, 71};
     private String D;
-    private Context E;
     private int F;
-    private Set<String> atn;
+    private Set<String> ayj;
+    private Context ayk;
     public String o;
     private long t;
     private boolean u;
@@ -49,12 +49,12 @@ public class a {
             }
             byte[] decode = Base64.decode(string.getBytes("utf-8"), 1);
             for (int i = 0; i < decode.length; i++) {
-                decode[i] = (byte) (decode[i] ^ atm[i % atm.length]);
+                decode[i] = (byte) (decode[i] ^ ayi[i % ayi.length]);
             }
             JSONObject jSONObject = new JSONObject(new String(decode));
-            if (a(jSONObject)) {
-                this.atn = new HashSet();
-                if (!a(this.D, this.E, jSONObject, this.atn)) {
+            if (s(jSONObject)) {
+                this.ayj = new HashSet();
+                if (!a(this.D, this.ayk, jSONObject, this.ayj)) {
                     this.F |= 4;
                 } else if (!Arrays.equals(g.b(Base64.decode(string2, 0), aVar), f.sha256(decode))) {
                     this.F |= 8;
@@ -82,45 +82,6 @@ public class a {
         return a(strArr, a);
     }
 
-    private boolean a(JSONObject jSONObject) {
-        e eVar = new e();
-        eVar.R(jSONObject.optLong("flags"));
-        String optString = jSONObject.optString("package", "");
-        long S = eVar.S(7L);
-        if (optString.equals("") && S != 4) {
-            this.F |= 64;
-            return false;
-        }
-        if (S == 0) {
-            if (!optString.equals(this.D)) {
-                this.F |= 32;
-                return false;
-            }
-        } else if (S == 1) {
-            if (this.D == null || !this.D.startsWith(optString)) {
-                this.F |= 32;
-                return false;
-            }
-        } else if (S != 2) {
-            if (S == 4) {
-                return true;
-            }
-            this.F |= 64;
-            return false;
-        } else {
-            try {
-                if (!Pattern.compile(optString).matcher(this.D).matches()) {
-                    this.F |= 32;
-                    return false;
-                }
-            } catch (Exception e) {
-                this.F |= 128;
-                return false;
-            }
-        }
-        return true;
-    }
-
     private static boolean a(String[] strArr, String[] strArr2) {
         if (strArr == null || strArr2 == null || strArr.length != strArr2.length) {
             return false;
@@ -139,16 +100,59 @@ public class a {
     private static String[] a(Signature[] signatureArr) {
         String[] strArr = new String[signatureArr.length];
         for (int i = 0; i < strArr.length; i++) {
-            strArr[i] = f.B(signatureArr[i].toByteArray());
+            strArr[i] = f.C(signatureArr[i].toByteArray());
         }
         return strArr;
+    }
+
+    private boolean s(JSONObject jSONObject) {
+        e eVar = new e();
+        eVar.S(jSONObject.optLong("flags"));
+        String optString = jSONObject.optString("package", "");
+        long T = eVar.T(7L);
+        if (optString.equals("") && T != 4) {
+            this.F |= 64;
+            return false;
+        }
+        if (T == 0) {
+            if (!optString.equals(this.D)) {
+                this.F |= 32;
+                return false;
+            }
+        } else if (T == 1) {
+            if (this.D == null || !this.D.startsWith(optString)) {
+                this.F |= 32;
+                return false;
+            }
+        } else if (T != 2) {
+            if (T == 4) {
+                return true;
+            }
+            this.F |= 64;
+            return false;
+        } else {
+            try {
+                if (!Pattern.compile(optString).matcher(this.D).matches()) {
+                    this.F |= 32;
+                    return false;
+                }
+            } catch (Exception e) {
+                this.F |= 128;
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public Set<String> Az() {
+        return this.ayj;
     }
 
     public void a(com.baidu.helios.common.a.b.a aVar, boolean z) {
         PackageInfo packageInfo;
         ActivityInfo[] activityInfoArr;
         ActivityInfo activityInfo;
-        PackageManager packageManager = this.E.getPackageManager();
+        PackageManager packageManager = this.ayk.getPackageManager();
         try {
             packageInfo = packageManager.getPackageInfo(this.D, 2);
         } catch (PackageManager.NameNotFoundException e) {
@@ -176,7 +180,7 @@ public class a {
 
     public void a(String str, Context context) {
         this.D = str;
-        this.E = context;
+        this.ayk = context;
     }
 
     public boolean a() {
@@ -185,9 +189,5 @@ public class a {
 
     public long b() {
         return this.t;
-    }
-
-    public Set<String> vd() {
-        return this.atn;
     }
 }

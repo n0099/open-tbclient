@@ -4,7 +4,7 @@ import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import io.flutter.embedding.engine.FlutterJNI;
 @Keep
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public final class FlutterCallbackInformation {
     public final String callbackClassName;
     public final String callbackLibraryPath;

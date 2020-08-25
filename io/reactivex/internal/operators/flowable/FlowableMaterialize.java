@@ -6,8 +6,8 @@ import io.reactivex.p;
 /* loaded from: classes7.dex */
 public final class FlowableMaterialize<T> extends a<T, p<T>> {
     @Override // io.reactivex.g
-    protected void a(org.a.c<? super p<T>> cVar) {
-        this.nSG.a((j) new MaterializeSubscriber(cVar));
+    protected void a(org.b.c<? super p<T>> cVar) {
+        this.omB.a((j) new MaterializeSubscriber(cVar));
     }
 
     /* loaded from: classes7.dex */
@@ -19,29 +19,29 @@ public final class FlowableMaterialize<T> extends a<T, p<T>> {
             onDrop((p) ((p) obj));
         }
 
-        MaterializeSubscriber(org.a.c<? super p<T>> cVar) {
+        MaterializeSubscriber(org.b.c<? super p<T>> cVar) {
             super(cVar);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(T t) {
             this.produced++;
-            this.actual.onNext(p.bA(t));
+            this.actual.onNext(p.bC(t));
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
-            complete(p.J(th));
+            complete(p.I(th));
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
-            complete(p.dSR());
+            complete(p.eeT());
         }
 
         protected void onDrop(p<T> pVar) {
-            if (pVar.dSP()) {
-                io.reactivex.e.a.onError(pVar.dSQ());
+            if (pVar.eeR()) {
+                io.reactivex.e.a.onError(pVar.eeS());
             }
         }
     }

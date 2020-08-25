@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class TrackConfigResponseMessage extends JsonHttpResponsedMessage {
     private boolean isOpenTrack;
 
@@ -20,7 +20,7 @@ public class TrackConfigResponseMessage extends JsonHttpResponsedMessage {
         if (jSONObject != null && isSuccess()) {
             try {
                 this.isOpenTrack = jSONObject.getInt("is_open_track") == 1;
-                b.aZP().putBoolean("key_is_open_track", this.isOpenTrack);
+                b.bik().putBoolean("key_is_open_track", this.isOpenTrack);
                 TbSingleton.getInstance().setIsOpenTrack(this.isOpenTrack);
             } catch (JSONException e) {
                 BdLog.e("open track parese exception " + e.toString());

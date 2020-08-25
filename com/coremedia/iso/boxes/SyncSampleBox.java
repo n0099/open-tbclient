@@ -9,12 +9,12 @@ import com.googlecode.mp4parser.util.CastUtils;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class SyncSampleBox extends AbstractFullBox {
     public static final String TYPE = "stss";
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_2 = null;
     private long[] sampleNumber;
 
     static {
@@ -23,9 +23,9 @@ public class SyncSampleBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("SyncSampleBox.java", SyncSampleBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getSampleNumber", "com.coremedia.iso.boxes.SyncSampleBox", "", "", "", "[J"), 46);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.SyncSampleBox", "", "", "", FieldUtil.TYPE_STRING), 77);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "setSampleNumber", "com.coremedia.iso.boxes.SyncSampleBox", "[J", "sampleNumber", "", "void"), 81);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "getSampleNumber", "com.coremedia.iso.boxes.SyncSampleBox", "", "", "", "[J"), 46);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "toString", "com.coremedia.iso.boxes.SyncSampleBox", "", "", "", FieldUtil.TYPE_STRING), 77);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.d("1", "setSampleNumber", "com.coremedia.iso.boxes.SyncSampleBox", "[J", "sampleNumber", "", "void"), 81);
     }
 
     public SyncSampleBox() {

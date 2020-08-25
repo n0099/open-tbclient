@@ -3,12 +3,12 @@ package com.baidu.platform.comapi.walknavi.widget;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.res.Resources;
+import android.graphics.drawable.ColorDrawable;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class a extends Dialog {
     private TextView a;
     private TextView b;
@@ -16,24 +16,19 @@ public class a extends Dialog {
     private TextView d;
     private LinearLayout e;
     private LinearLayout f;
-    private InterfaceC0233a g;
-    private InterfaceC0233a h;
+    private InterfaceC0254a g;
+    private InterfaceC0254a h;
     private boolean i;
     private boolean j;
 
     /* renamed from: com.baidu.platform.comapi.walknavi.widget.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC0233a {
+    /* loaded from: classes20.dex */
+    public interface InterfaceC0254a {
         void a();
     }
 
     public a(Context context, int i) {
         super(context);
-        if (com.baidu.platform.comapi.bikenavi.a.a.a) {
-            Resources.Theme newTheme = com.baidu.platform.comapi.wnplatform.o.a.a.b().newTheme();
-            newTheme.applyStyle(i, true);
-            com.baidu.platform.comapi.wnplatform.o.a.a.a(this, newTheme);
-        }
     }
 
     public a(Context context) {
@@ -42,14 +37,18 @@ public class a extends Dialog {
 
     public a(Activity activity) {
         this(activity, R.dimen.pass_liveness_face_round_width);
-        View a = com.baidu.platform.comapi.wnplatform.o.a.a.a(activity, R.layout.abc_action_mode_bar, null);
+        View a = com.baidu.platform.comapi.wnplatform.p.a.a.a(activity, R.layout.abc_activity_chooser_view, null);
+        requestWindowFeature(1);
+        if (getWindow() != null) {
+            getWindow().setBackgroundDrawable(new ColorDrawable(0));
+        }
         setContentView(a);
-        this.a = (TextView) a.findViewById(R.raw.lottie_tab_my_1);
-        this.b = (TextView) a.findViewById(R.raw.lottie_use_home_refresh_n);
-        this.c = (TextView) a.findViewById(R.raw.lottie_use_jinba_cj_n_2);
-        this.d = (TextView) a.findViewById(R.raw.lottie_use_message_cj_n_1);
-        this.e = (LinearLayout) a.findViewById(R.raw.lottie_use_jinba_cj_n_1);
-        this.f = (LinearLayout) a.findViewById(R.raw.lottie_use_message_cj_n_2);
+        this.a = (TextView) a.findViewById(R.raw.lottie_use_home_refresh_n);
+        this.b = (TextView) a.findViewById(R.raw.lottie_use_jinba_cj_n_1);
+        this.c = (TextView) a.findViewById(R.raw.lottie_use_my_cj_n_1);
+        this.d = (TextView) a.findViewById(R.raw.lottie_use_my_cj_n_2);
+        this.e = (LinearLayout) a.findViewById(R.raw.lottie_use_message_cj_n_2);
+        this.f = (LinearLayout) a.findViewById(R.raw.lottie_use_publish_cj_n_1);
         this.c.setOnClickListener(new b(this));
         this.d.setOnClickListener(new c(this));
         this.i = false;
@@ -119,13 +118,13 @@ public class a extends Dialog {
         return this;
     }
 
-    public a a(InterfaceC0233a interfaceC0233a) {
-        this.g = interfaceC0233a;
+    public a a(InterfaceC0254a interfaceC0254a) {
+        this.g = interfaceC0254a;
         return this;
     }
 
-    public a b(InterfaceC0233a interfaceC0233a) {
-        this.h = interfaceC0233a;
+    public a b(InterfaceC0254a interfaceC0254a) {
+        this.h = interfaceC0254a;
         return this;
     }
 

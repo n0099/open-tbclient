@@ -2,7 +2,7 @@ package com.baidu.tbadk.coreExtra.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class VcodeExtra extends OrmObject implements Serializable {
     public String endPoint;
     public String slideEndPoint;

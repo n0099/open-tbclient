@@ -14,16 +14,16 @@ import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.bd;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.data.d;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.f;
 /* loaded from: classes18.dex */
 public class a implements f {
     protected TbPageContext mPageContext;
-    protected int kWZ = 1;
+    protected int lmR = 1;
     protected int userType = 2;
     protected boolean isHost = false;
 
@@ -35,15 +35,15 @@ public class a implements f {
     public void a(View view, com.baidu.tieba.g.a aVar) {
         if (aVar != null) {
             UserData userData = null;
-            if (aVar.hrx != null && (userData = (UserData) aVar.hrx.getSerializable(UserData.TYPE_USER)) != null) {
-                this.kWZ = TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), userData.getUserId()) ? 1 : 2;
+            if (aVar.hEo != null && (userData = (UserData) aVar.hEo.getSerializable(UserData.TYPE_USER)) != null) {
+                this.lmR = TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), userData.getUserId()) ? 1 : 2;
                 this.userType = userData.isGod() ? 1 : 2;
-                this.isHost = this.kWZ == 1;
+                this.isHost = this.lmR == 1;
             }
-            switch (aVar.hrw) {
+            switch (aVar.hEn) {
                 case 2:
-                    if (bf.checkUpIsLogin(this.mPageContext.getPageActivity())) {
-                        bd.baV().b(this.mPageContext, new String[]{TbConfig.URL_MEMBER_BUY});
+                    if (bg.checkUpIsLogin(this.mPageContext.getPageActivity())) {
+                        be.bju().b(this.mPageContext, new String[]{TbConfig.URL_MEMBER_BUY});
                         return;
                     }
                     return;
@@ -56,32 +56,32 @@ public class a implements f {
                 case 4:
                     if (userData != null) {
                         if (aVar instanceof com.baidu.tieba.personCenter.d.a) {
-                            TiebaStatic.log(new ap("c11586"));
+                            TiebaStatic.log(new aq("c11586"));
                         } else {
-                            TiebaStatic.log(new ap("c11597").ah("obj_locate", 2).ah("obj_type", this.kWZ).ah("obj_source", this.userType));
+                            TiebaStatic.log(new aq("c11597").ai("obj_locate", 2).ai("obj_type", this.lmR).ai("obj_source", this.userType));
                         }
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonListActivityConfig(this.mPageContext.getPageActivity(), true, userData.getUserId(), userData.getSex()).updateFollowNum(userData.getConcernNum(), userData.getPortrait())));
                         return;
                     }
                     return;
                 case 5:
-                    com.baidu.tieba.p.a.ddy().g(2, false, this.isHost);
+                    com.baidu.tieba.p.a.doQ().h(2, false, this.isHost);
                     if (userData != null) {
-                        TiebaStatic.log(new ap("c11597").ah("obj_locate", 3).ah("obj_type", this.kWZ).ah("obj_source", this.userType));
+                        TiebaStatic.log(new aq("c11597").ai("obj_locate", 3).ai("obj_type", this.lmR).ai("obj_source", this.userType));
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonListActivityConfig(this.mPageContext.getPageActivity(), false, userData.getUserId(), userData.getSex())));
                         return;
                     }
                     return;
                 case 6:
                     if (userData != null) {
-                        TiebaStatic.log(new ap("c11597").ah("obj_locate", 1).ah("obj_type", this.kWZ).ah("obj_source", this.userType));
+                        TiebaStatic.log(new aq("c11597").ai("obj_locate", 1).ai("obj_type", this.lmR).ai("obj_source", this.userType));
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPostActivityConfig(this.mPageContext.getPageActivity(), userData.getUserId(), userData.getSex(), userData.getPortrait())));
                         return;
                     }
                     return;
                 case 7:
                     if (userData != null) {
-                        TiebaStatic.log(new ap("c11597").ah("obj_locate", 4).ah("obj_type", this.kWZ).ah("obj_source", this.userType));
+                        TiebaStatic.log(new aq("c11597").ai("obj_locate", 4).ai("obj_type", this.lmR).ai("obj_source", this.userType));
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonBarActivityConfig(this.mPageContext.getPageActivity(), userData.getLike_bars(), userData.getUserId(), userData.getSex())));
                         return;
                     }

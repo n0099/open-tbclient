@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.data.BaijiahaoData;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.Agree;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class AgreeData implements Serializable {
     public int agreeType;
     public BaijiahaoData baijiahaoData;

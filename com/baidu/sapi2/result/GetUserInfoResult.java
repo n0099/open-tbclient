@@ -1,5 +1,5 @@
 package com.baidu.sapi2.result;
-/* loaded from: classes19.dex */
+/* loaded from: classes12.dex */
 public class GetUserInfoResult extends SapiResult {
     public static final String ERROR_MSG_UNKNOWN = "用户信息获取失败";
     public static final int RESULT_CODE_BDUSS_EXPIRED = 400021;

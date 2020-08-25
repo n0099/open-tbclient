@@ -3,19 +3,19 @@ package com.baidu.browser.core;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
-/* loaded from: classes10.dex */
+/* loaded from: classes19.dex */
 public class BdWorkThread extends HandlerThread {
     private static final String LOG_TAG = BdWorkThread.class.getSimpleName();
-    private long acA;
-    private a acx;
-    private Message acy;
-    private volatile Status acz;
+    private a aec;
+    private Message aed;
+    private volatile Status aee;
+    private long aef;
     private long mInterval;
     private final Object mLock;
     private Handler mPrivateHandler;
     private long mTimeout;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes19.dex */
     public enum Status {
         PENDING,
         RUNNING,
@@ -25,16 +25,16 @@ public class BdWorkThread extends HandlerThread {
         Status
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes19.dex */
     public interface a {
         void k(Message message);
 
-        void ry();
+        void tk();
     }
 
     public void i(Message message) {
-        if (System.currentTimeMillis() - this.acA > this.mInterval) {
-            this.acz = Status.WORKING;
+        if (System.currentTimeMillis() - this.aef > this.mInterval) {
+            this.aee = Status.WORKING;
             this.mPrivateHandler.removeMessages(1);
             this.mPrivateHandler.removeMessages(2);
             this.mPrivateHandler.obtainMessage(1, message).sendToTarget();
@@ -53,7 +53,7 @@ public class BdWorkThread extends HandlerThread {
                                 BdWorkThread.this.j((Message) message.obj);
                                 return;
                             case 2:
-                                BdWorkThread.this.rx();
+                                BdWorkThread.this.tj();
                                 return;
                             default:
                                 return;
@@ -61,24 +61,24 @@ public class BdWorkThread extends HandlerThread {
                     }
                 };
             }
-            i(this.acy);
-            this.acy = null;
+            i(this.aed);
+            this.aed = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void j(Message message) {
-        this.acz = Status.PROCESS;
-        this.acA = System.currentTimeMillis();
+        this.aee = Status.PROCESS;
+        this.aef = System.currentTimeMillis();
         try {
-            if (this.acx != null) {
-                this.acx.k(message);
+            if (this.aec != null) {
+                this.aec.k(message);
             }
         } catch (Error e) {
         } catch (Exception e2) {
         }
-        if (this.acz == Status.PROCESS) {
-            this.acz = Status.RUNNING;
+        if (this.aee == Status.PROCESS) {
+            this.aee = Status.RUNNING;
             return;
         }
         synchronized (this.mLock) {
@@ -89,10 +89,10 @@ public class BdWorkThread extends HandlerThread {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void rx() {
+    public void tj() {
         try {
-            if (this.acx != null) {
-                this.acx.ry();
+            if (this.aec != null) {
+                this.aec.tk();
             }
         } catch (Error e) {
         } catch (Exception e2) {

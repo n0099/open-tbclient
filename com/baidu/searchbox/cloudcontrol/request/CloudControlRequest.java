@@ -26,7 +26,7 @@ import okhttp3.Response;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes11.dex */
 public class CloudControlRequest {
     private static final String DEFAULT_TIME = "300";
     private static final String REQUEST_CONTENT_TYPE = "application/json";
@@ -42,7 +42,7 @@ public class CloudControlRequest {
 
     private boolean isContentInterval(String str) {
         if (TextUtils.equals(str, "1")) {
-            String string = this.mSharedPrefsWrapper.getString(CloudControlConstant.SP_KEY_HOTRUNTIME_INTERVAL, DEFAULT_TIME);
+            String string = this.mSharedPrefsWrapper.getString(CloudControlConstant.SP_KEY_HOTRUNTIME_INTERVAL, "300");
             long j = this.mSharedPrefsWrapper.getLong(CloudControlConstant.SP_KEY_LAST_REQUEST_TIME, 0L);
             try {
                 long parseLong = Long.parseLong(string);
@@ -163,7 +163,7 @@ public class CloudControlRequest {
         }
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes11.dex */
     private class CloudControlResponseCallback extends ResponseCallback<CloudControlData> {
         private HashMap<String, Object> mCheckData;
         private HashMap<String, Boolean> mIsForceDispatchs;

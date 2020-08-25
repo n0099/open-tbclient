@@ -8,16 +8,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.HomePageStatic;
 /* loaded from: classes16.dex */
 public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickListener {
-    private ImageView itF;
-    private TextView itG;
-    private TBSpecificationBtn itH;
+    private ImageView iHU;
+    private TextView iHV;
+    private TBSpecificationBtn iHW;
     private Context mContext;
 
     public ConcernNotLoginLayout(Context context) {
@@ -38,30 +38,30 @@ public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickL
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.concern_not_login_layout, (ViewGroup) this, true);
         this.mContext = context;
-        this.itF = (ImageView) inflate.findViewById(R.id.iv_concern_not_login_emotion_pic);
-        this.itG = (TextView) inflate.findViewById(R.id.tv_concern_you_not_login);
-        this.itH = (TBSpecificationBtn) inflate.findViewById(R.id.tv_concern_login_and_see_more);
-        com.baidu.tbadk.core.view.commonBtn.b bVar = new com.baidu.tbadk.core.view.commonBtn.b();
-        this.itH.setText(context.getResources().getString(R.string.concern_login_and_see_more));
-        this.itH.setTextSize(R.dimen.tbds42);
-        this.itH.setTextHorizontalCenter(true);
-        this.itH.setConfig(bVar);
-        this.itH.setOnClickListener(this);
+        this.iHU = (ImageView) inflate.findViewById(R.id.iv_concern_not_login_emotion_pic);
+        this.iHV = (TextView) inflate.findViewById(R.id.tv_concern_you_not_login);
+        this.iHW = (TBSpecificationBtn) inflate.findViewById(R.id.tv_concern_login_and_see_more);
+        com.baidu.tbadk.core.view.commonBtn.a aVar = new com.baidu.tbadk.core.view.commonBtn.a();
+        this.iHW.setText(context.getResources().getString(R.string.concern_login_and_see_more));
+        this.iHW.setTextSize(R.dimen.tbds42);
+        this.iHW.setTextHorizontalCenter(true);
+        this.iHW.setConfig(aVar);
+        this.iHW.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == R.id.tv_concern_login_and_see_more) {
-            bf.checkUpIsLogin(this.mContext);
-            HomePageStatic.irA = true;
+            bg.checkUpIsLogin(this.mContext);
+            HomePageStatic.iFP = true;
         }
     }
 
     public void onChangeSkinType(int i) {
-        ao.setImageResource(this.itF, R.drawable.new_pic_emotion_09);
-        ao.setViewTextColor(this.itG, R.color.cp_cont_j);
-        if (this.itH != null) {
-            this.itH.bci();
+        ap.setImageResource(this.iHU, R.drawable.new_pic_emotion_09);
+        ap.setViewTextColor(this.iHV, R.color.cp_cont_j);
+        if (this.iHW != null) {
+            this.iHW.bkF();
         }
     }
 }

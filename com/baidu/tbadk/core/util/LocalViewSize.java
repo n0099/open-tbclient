@@ -2,22 +2,22 @@ package com.baidu.tbadk.core.util;
 
 import android.content.Context;
 import java.io.Serializable;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class LocalViewSize {
-    private static LocalViewSize eae = null;
+    private static LocalViewSize ejM = null;
     private Context mContext = null;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class ImageSize implements Serializable {
         public int height;
         public int width;
     }
 
-    public static LocalViewSize bas() {
-        if (eae == null) {
-            eae = new LocalViewSize();
+    public static LocalViewSize biN() {
+        if (ejM == null) {
+            ejM = new LocalViewSize();
         }
-        return eae;
+        return ejM;
     }
 
     private LocalViewSize() {
@@ -66,7 +66,7 @@ public class LocalViewSize {
         return (equipmentWidth < 720 || equipmentWidth >= 1080) ? 480 : 720;
     }
 
-    public ImageSize bat() {
+    public ImageSize biO() {
         int i = 240;
         int equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(this.mContext);
         if (equipmentWidth < 240) {
@@ -84,7 +84,7 @@ public class LocalViewSize {
         return imageSize;
     }
 
-    public ImageSize bau() {
+    public ImageSize biP() {
         ImageSize imageSize = new ImageSize();
         imageSize.height = com.baidu.adp.lib.util.l.getEquipmentHeight(this.mContext);
         imageSize.width = com.baidu.adp.lib.util.l.getEquipmentWidth(this.mContext);
@@ -92,7 +92,7 @@ public class LocalViewSize {
     }
 
     public int getMsgSPicMaxSizeInt() {
-        ImageSize bat = bat();
-        return bat.height >= bat.width ? bat.height : bat.width;
+        ImageSize biO = biO();
+        return biO.height >= biO.width ? biO.height : biO.width;
     }
 }

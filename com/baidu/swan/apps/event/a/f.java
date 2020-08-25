@@ -1,17 +1,17 @@
 package com.baidu.swan.apps.event.a;
 
 import android.support.annotation.NonNull;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class f extends a {
-    private final com.baidu.swan.apps.api.c.b cjC;
+    private final com.baidu.swan.apps.api.c.b cqP;
 
     public f(@NonNull String str, @NonNull com.baidu.swan.apps.api.c.b bVar) {
-        this.bSl = str;
-        this.cjC = bVar;
+        this.bXU = str;
+        this.cqP = bVar;
     }
 
     @Override // com.baidu.swan.apps.event.a.a
-    public String kH(String str) {
-        return com.baidu.swan.apps.event.a.d(str, "status", Integer.valueOf(this.cjC.status)) + com.baidu.swan.apps.event.a.c(str, "data", this.cjC.data) + com.baidu.swan.apps.event.a.y(str, "message", this.cjC.message);
+    public String mw(String str) {
+        return com.baidu.swan.apps.event.a.c(str, "status", Integer.valueOf(this.cqP.status)) + com.baidu.swan.apps.event.a.c(str, "data", this.cqP.data) + com.baidu.swan.apps.event.a.A(str, "message", this.cqP.message);
     }
 }

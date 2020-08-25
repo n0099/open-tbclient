@@ -18,6 +18,7 @@ import com.baidu.mobads.interfaces.IXNonLinearAdSlot;
 import com.baidu.mobads.interfaces.event.IXAdEvent;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.mobads.vo.XAdInstanceInfo;
+import com.baidu.platform.comapi.UIMsg;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -155,7 +156,7 @@ public class q implements IXAdContainerEventListener {
                 if (!bool.booleanValue()) {
                     bool2 = false;
                 } else {
-                    commonUtils.sendDownloadAdLog(iXNonLinearAdSlot.getApplicationContext(), 525, "click", iXNonLinearAdSlot.getProdInfo().getProdType(), iXAdInstanceInfo.getAppPackageName(), commonUtils.getAppId(iXNonLinearAdSlot.getApplicationContext()), iXNonLinearAdSlot.getProdInfo().getAdPlacementId(), pVar.getPhoneOSBrand(), Build.MODEL, Build.VERSION.RELEASE, Build.VERSION.SDK_INT);
+                    commonUtils.sendDownloadAdLog(iXNonLinearAdSlot.getApplicationContext(), UIMsg.MsgDefine.MSG_MSG_CENTER, "click", iXNonLinearAdSlot.getProdInfo().getProdType(), iXAdInstanceInfo.getAppPackageName(), commonUtils.getAppId(iXNonLinearAdSlot.getApplicationContext()), iXNonLinearAdSlot.getProdInfo().getAdPlacementId(), pVar.getPhoneOSBrand(), Build.MODEL, Build.VERSION.RELEASE, Build.VERSION.SDK_INT);
                     new com.baidu.mobads.command.a.a(iXNonLinearAdSlot, iXAdInstanceInfo, adResource).a();
                     bool2 = false;
                 }

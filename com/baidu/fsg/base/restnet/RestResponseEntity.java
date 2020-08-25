@@ -3,7 +3,7 @@ package com.baidu.fsg.base.restnet;
 import com.baidu.fsg.base.restnet.http.HttpStatus;
 import com.baidu.fsg.base.restnet.http.a;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class RestResponseEntity<T> {
     private T mBody;
     private a mHeaders;

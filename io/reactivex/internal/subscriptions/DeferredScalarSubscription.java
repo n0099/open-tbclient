@@ -1,6 +1,6 @@
 package io.reactivex.internal.subscriptions;
 
-import org.a.c;
+import org.b.c;
 /* loaded from: classes7.dex */
 public class DeferredScalarSubscription<T> extends BasicIntQueueSubscription<T> {
     static final int CANCELLED = 4;
@@ -19,7 +19,7 @@ public class DeferredScalarSubscription<T> extends BasicIntQueueSubscription<T> 
         this.actual = cVar;
     }
 
-    @Override // org.a.d
+    @Override // org.b.d
     public final void request(long j) {
         T t;
         if (SubscriptionHelper.validate(j)) {

@@ -7,13 +7,13 @@ import com.baidu.adp.widget.refresh.BdSwipeRefreshLayout;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public abstract class d implements BdSwipeRefreshLayout.b {
-    protected a Up;
+    protected a UV;
     private Context mContext;
     private View mView = null;
     private boolean mEnable = true;
     private int mHeadContentHeight = 0;
     private int mHeadContentWidth = 0;
-    private boolean Uq = false;
+    private boolean UW = false;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -61,23 +61,23 @@ public abstract class d implements BdSwipeRefreshLayout.b {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean pm() {
-        return this.Uq;
+    public boolean qL() {
+        return this.UW;
     }
 
     public void pause() {
-        this.Uq = true;
+        this.UW = true;
     }
 
     public void resume() {
-        this.Uq = false;
+        this.UW = false;
     }
 
     public void setPadding(int i, int i2, int i3, int i4) {
-        if (this.mView != null && !this.Uq) {
+        if (this.mView != null && !this.UW) {
             this.mView.setPadding(i, i2, i3, i4);
-            if (this.Up != null) {
-                this.Up.a(this, i, i3, i2 + getHeadContentHeight(), i4);
+            if (this.UV != null) {
+                this.UV.a(this, i, i3, i2 + getHeadContentHeight(), i4);
             }
         }
     }
@@ -112,21 +112,21 @@ public abstract class d implements BdSwipeRefreshLayout.b {
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
     public void onPullToRefresh() {
-        if (!this.Uq) {
+        if (!this.UW) {
             pullToRefresh(false);
         }
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
     public void onReleaseToRefresh() {
-        if (!this.Uq) {
+        if (!this.UW) {
             releaseToRefresh();
         }
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
     public void onRefreshing() {
-        if (!this.Uq) {
+        if (!this.UW) {
             refreshing();
             onRefresh(true);
         }
@@ -134,14 +134,14 @@ public abstract class d implements BdSwipeRefreshLayout.b {
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
     public void onCompleteRefresh() {
-        if (!this.Uq) {
+        if (!this.UW) {
             onCompletePullRefresh();
         }
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
     public void onFinish() {
-        if (!this.Uq) {
+        if (!this.UW) {
             done(true);
         }
     }
@@ -156,6 +156,6 @@ public abstract class d implements BdSwipeRefreshLayout.b {
     }
 
     public void a(a aVar) {
-        this.Up = aVar;
+        this.UV = aVar;
     }
 }

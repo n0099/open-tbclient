@@ -4,7 +4,7 @@ import android.content.Context;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class HeadObject {
     JSONObject A;
     JSONObject B;
@@ -139,7 +139,7 @@ public class HeadObject {
                 jSONObject.put("i", "");
                 jSONObject.put("v", "3.9.5.1");
                 jSONObject.put(Config.STAT_SDK_CHANNEL, 14);
-                jSONObject.put(Config.APP_VERSION_CODE, this.g);
+                jSONObject.put("a", this.g);
                 jSONObject.put("n", this.h == null ? "" : this.h);
                 jSONObject.put("d", "");
                 jSONObject.put(Config.DEVICE_MAC_ID, this.s == null ? "" : this.s);

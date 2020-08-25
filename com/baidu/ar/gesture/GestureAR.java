@@ -2,11 +2,12 @@ package com.baidu.ar.gesture;
 
 import android.graphics.PointF;
 import android.os.Bundle;
-import com.baidu.ar.arrender.j;
+import com.baidu.ar.arrender.k;
 import com.baidu.ar.c;
-import com.baidu.ar.c.e;
-import com.baidu.ar.c.l;
 import com.baidu.ar.constants.HttpConstants;
+import com.baidu.ar.d.b;
+import com.baidu.ar.d.e;
+import com.baidu.ar.d.l;
 import com.baidu.ar.statistic.StatisticApi;
 import com.baidu.ar.statistic.StatisticConstants;
 import com.baidu.tbadk.core.atomData.WriteVoteActivityConfig;
@@ -31,8 +32,8 @@ public class GestureAR extends c {
     public static final String SDK_TO_LUA_GESTURE_RESULT_Y1 = "y1";
     public static final String SDK_TO_LUA_GESTURE_RESULT_Y2 = "y2";
     private static final String TAG = GestureAR.class.getSimpleName();
-    private e ly;
-    private a pn;
+    private e mg;
+    private GestureDetector pZ;
 
     private void a(Bundle bundle, HashMap<String, Object> hashMap) {
         bundle.putString(HttpConstants.FUNCTION_TYPE, com.baidu.ar.arplay.c.c.a(hashMap.get(HttpConstants.FUNCTION_TYPE), "gesture"));
@@ -59,7 +60,7 @@ public class GestureAR extends c {
         HashMap hashMap = new HashMap();
         int length = fArr.length / 13;
         hashMap.put("id", 5002);
-        j r = r();
+        k r = r();
         if (r == null) {
             hashMap.put(SDK_TO_LUA_GESTURE_RESULT_COUNT, 0);
         } else {
@@ -98,9 +99,9 @@ public class GestureAR extends c {
 
     @Override // com.baidu.ar.c
     public void release() {
-        if (this.pn != null) {
-            this.pn.aw();
-            a(this.pn);
+        if (this.pZ != null) {
+            this.pZ.au();
+            a(this.pZ);
         }
         super.release();
     }
@@ -108,26 +109,26 @@ public class GestureAR extends c {
     @Override // com.baidu.ar.c
     public void setup(HashMap<String, Object> hashMap) {
         super.setup(hashMap);
-        this.pn = new a();
-        this.ly = new e() { // from class: com.baidu.ar.gesture.GestureAR.1
-            @Override // com.baidu.ar.c.e
-            public void a(com.baidu.ar.c.b bVar) {
-                GestureAR.this.d(GestureAR.this.g(((b) bVar).dx()));
+        this.pZ = new GestureDetector();
+        this.mg = new e() { // from class: com.baidu.ar.gesture.GestureAR.1
+            @Override // com.baidu.ar.d.e
+            public void a(b bVar) {
+                GestureAR.this.d(GestureAR.this.g(((a) bVar).eH()));
             }
 
-            @Override // com.baidu.ar.c.e
+            @Override // com.baidu.ar.d.e
             public void a(l lVar) {
             }
 
-            @Override // com.baidu.ar.c.e
+            @Override // com.baidu.ar.d.e
             public void b(l lVar) {
             }
         };
-        a(this.pn, this.ly);
-        com.baidu.ar.b.a.aq().a(getContext(), getMdlConfigs());
+        a(this.pZ, this.mg);
+        com.baidu.ar.b.a.ar().a(getContext(), getMdlConfigs());
         Bundle bundle = new Bundle();
         a(bundle, hashMap);
-        this.pn.c(bundle);
+        this.pZ.b(bundle);
         StatisticApi.onEvent(StatisticConstants.MDL_GESTURE_OPEN);
     }
 }

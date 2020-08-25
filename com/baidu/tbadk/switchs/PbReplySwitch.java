@@ -1,5 +1,5 @@
 package com.baidu.tbadk.switchs;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class PbReplySwitch extends BaseNormalSwitch {
     private static PbReplySwitch mInstance = new PbReplySwitch();
 

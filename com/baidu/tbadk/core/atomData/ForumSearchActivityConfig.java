@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ForumSearchActivityConfig extends IntentConfig {
     public ForumSearchActivityConfig(Context context) {
         super(context);

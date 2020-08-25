@@ -40,12 +40,12 @@ public class b extends c {
     */
     public boolean formatData(byte[] bArr) {
         ByteArrayInputStream byteArrayInputStream;
-        if (bArr != null && this.IT.paserFromByte(bArr)) {
-            long j = this.IT.mValidTime;
+        if (bArr != null && this.Jx.paserFromByte(bArr)) {
+            long j = this.Jx.mValidTime;
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             long j2 = j;
             if (i != 0) {
-                long j3 = this.IT.mValidTime;
+                long j3 = this.Jx.mValidTime;
                 int i2 = (j3 > System.currentTimeMillis() ? 1 : (j3 == System.currentTimeMillis() ? 0 : -1));
                 j2 = j3;
                 if (i2 < 0) {

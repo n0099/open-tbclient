@@ -14,7 +14,6 @@ import com.baidu.down.utils.DeviceInfoUtils;
 import com.baidu.down.utils.DownPrefUtils;
 import com.baidu.down.utils.IdentityManager;
 import com.baidu.down.utils.Utils;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.webkit.internal.ETAG;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
@@ -22,7 +21,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class TaskNetRequestMng {
     public static final boolean DEBUG = false;
     public static final String TAG = "TaskNetRequestMng";
@@ -60,7 +59,7 @@ public final class TaskNetRequestMng {
                 jSONObject.put("dyneed", "0");
             }
             if (!TextUtils.isEmpty(str6)) {
-                jSONObject.put(TiebaInitialize.LogFields.SIZE, str6);
+                jSONObject.put("size", str6);
             }
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put("from", "as");

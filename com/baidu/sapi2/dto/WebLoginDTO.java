@@ -8,7 +8,7 @@ import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
-/* loaded from: classes19.dex */
+/* loaded from: classes12.dex */
 public class WebLoginDTO extends SapiWebDTO {
     public static final String EXTRA_JOIN_LOGIN_WITHOUT_THIRD_ACCOUNT = "extra_join_login_without_third_account";
     public static final String EXTRA_JOIN_LOGIN_WITH_THIRD_ACCOUNT = "extra_join_login_with_third_account";
@@ -19,6 +19,7 @@ public class WebLoginDTO extends SapiWebDTO {
     public LinkedHashMap<String, String> agreement;
     public Config config;
     public String encryptedId;
+    public String extraJson;
     public boolean hideSuccessTip;
     public String preSetUname;
     public String statExtra;
@@ -29,7 +30,7 @@ public class WebLoginDTO extends SapiWebDTO {
     public boolean shareV2Disable = false;
     public int businessType = 0;
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes12.dex */
     public static class Config {
         public List<FastLoginFeature> fastLoginFeatureList;
         public boolean supportTouchGuide = true;

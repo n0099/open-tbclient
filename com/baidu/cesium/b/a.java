@@ -8,9 +8,9 @@ import com.baidu.cesium.g;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import java.util.Comparator;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public abstract class a {
-    public static Comparator<a> ajT = new Comparator<a>() { // from class: com.baidu.cesium.b.a.1
+    public static Comparator<a> ali = new Comparator<a>() { // from class: com.baidu.cesium.b.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
@@ -19,27 +19,27 @@ public abstract class a {
             return b2 != 0 ? b2 > 0 ? -1 : 1 : aVar.a().compareTo(aVar2.a());
         }
     };
-    protected C0098a ajR;
-    protected a.C0101a ajS;
+    protected C0097a alg;
+    protected a.C0100a alh;
     private final String e;
     private long f;
 
     /* renamed from: com.baidu.cesium.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C0098a {
+    /* loaded from: classes9.dex */
+    public static class C0097a {
         public Context a;
-        public com.baidu.cesium.e.a ajU;
+        public com.baidu.cesium.e.a alj;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public static abstract class b {
-        private a.C0101a ajV;
+        private a.C0100a alk;
         private String b;
         private String c;
         private boolean d = true;
 
-        public b(a.C0101a c0101a, String str) {
-            this.ajV = c0101a;
+        public b(a.C0100a c0100a, String str) {
+            this.alk = c0100a;
             this.b = str;
             this.c = "target-pkg-" + Base64.encodeToString(str.getBytes(), 3);
         }
@@ -51,7 +51,7 @@ public abstract class a {
         }
 
         public boolean a() {
-            String a = this.ajV.a(this.c, true);
+            String a = this.alk.a(this.c, true);
             if (!TextUtils.isEmpty(a)) {
                 try {
                     a(new JSONObject(a));
@@ -70,7 +70,7 @@ public abstract class a {
                 try {
                     JSONObject jSONObject = new JSONObject();
                     b(jSONObject);
-                    this.ajV.c(this.c, jSONObject.toString(), true);
+                    this.alk.c(this.c, jSONObject.toString(), true);
                     a(false);
                     return true;
                 } catch (Exception e) {
@@ -80,15 +80,15 @@ public abstract class a {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public static class c {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public static class d {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public static class e {
         public Exception e;
         private int f;
@@ -100,37 +100,37 @@ public abstract class a {
             this.e = exc;
         }
 
-        public static e bw(int i) {
+        public static e bB(int i) {
             return new e(-1, i, null);
         }
 
-        public static e sB() {
+        public static e ul() {
             return new e(0, 0, null);
         }
 
-        public static e sC() {
-            return bw(0);
+        public static e um() {
+            return bB(0);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public static class f {
         public boolean a;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public static class g {
         public g.a a;
-        public Exception ajW;
+        public Exception acn;
         public int b;
 
         public g(int i, g.a aVar, Exception exc) {
             this.b = i;
             this.a = aVar;
-            this.ajW = exc;
+            this.acn = exc;
         }
 
-        public static g bx(int i) {
+        public static g bC(int i) {
             return new g(i, null, null);
         }
 
@@ -138,7 +138,7 @@ public abstract class a {
             return new g(0, aVar, null);
         }
 
-        public static g sD() {
+        public static g un() {
             return new g(-1, null, null);
         }
 
@@ -160,9 +160,9 @@ public abstract class a {
         return this.e;
     }
 
-    public final void a(C0098a c0098a) {
-        this.ajR = c0098a;
-        this.ajS = c0098a.ajU.sI().da(IXAdRequestInfo.CS);
+    public final void a(C0097a c0097a) {
+        this.alg = c0097a;
+        this.alh = c0097a.alj.uq().dl(IXAdRequestInfo.CS);
     }
 
     public abstract void a(c cVar);

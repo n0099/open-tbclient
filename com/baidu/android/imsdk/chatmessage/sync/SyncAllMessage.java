@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class SyncAllMessage extends SyncStrategy {
     public static final String FETCHED_MAX_NOTIFY_MSGID = "fetched_max_msgid";
     private static final String TAG = SyncAllMessage.class.getSimpleName();
@@ -52,11 +52,9 @@ public class SyncAllMessage extends SyncStrategy {
 
     @Override // com.baidu.android.imsdk.chatmessage.sync.SyncStrategy
     protected boolean commitDeviceMaxNotifyMsgid() {
-        boolean writeLongData = Utility.writeLongData(this.mContext, FETCHED_MAX_NOTIFY_MSGID + AccountManager.getAppid(this.mContext) + AccountManager.getUid(this.mContext), this.mMaxMsgid);
-        if (writeLongData) {
-            this.mCount.set(0);
-        }
-        return writeLongData;
+        Utility.writeLongData(this.mContext, FETCHED_MAX_NOTIFY_MSGID + AccountManager.getAppid(this.mContext) + AccountManager.getUid(this.mContext), this.mMaxMsgid);
+        this.mCount.set(0);
+        return true;
     }
 
     public void reset() {
@@ -89,14 +87,14 @@ public class SyncAllMessage extends SyncStrategy {
     protected boolean updateJumpToRecent() {
         if (this.mJumpToRecent != 0) {
             this.mJumpToRecent = 0;
-            return Utility.writeIntData(this.mContext, Utility.getJumpToRecentKey(this.mContext), this.mJumpToRecent);
+            Utility.writeIntData(this.mContext, Utility.getJumpToRecentKey(this.mContext), this.mJumpToRecent);
+            return true;
         }
         return true;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.android.imsdk.chatmessage.sync.SyncStrategy
-    public void onComplete(int i) {
+    protected void onComplete(int i) {
         super.onComplete(i);
     }
 }

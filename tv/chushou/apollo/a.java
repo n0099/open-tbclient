@@ -3,66 +3,66 @@ package tv.chushou.apollo;
 public class a {
     public int borderColor;
     public boolean isFullScreen;
-    public int oqL;
-    public int oqM;
-    public boolean oqN;
-    public int oqO;
+    public int oKF;
+    public int oKG;
+    public boolean oKH;
+    public int oKI;
     public int strokeWidth;
 
-    public a(C0945a c0945a) {
-        this.oqL = 20;
-        this.oqM = 20;
-        this.oqN = true;
+    public a(C1003a c1003a) {
+        this.oKF = 20;
+        this.oKG = 20;
+        this.oKH = true;
         this.strokeWidth = 2;
-        this.oqO = 800;
+        this.oKI = 800;
         this.isFullScreen = false;
         this.borderColor = -16711936;
-        this.oqL = c0945a.oqL;
-        this.oqM = c0945a.oqM;
-        this.oqN = c0945a.oqN;
-        this.strokeWidth = c0945a.strokeWidth;
-        this.oqO = c0945a.oqO;
-        this.isFullScreen = c0945a.isFullScreen;
-        this.borderColor = c0945a.borderColor;
+        this.oKF = c1003a.oKF;
+        this.oKG = c1003a.oKG;
+        this.oKH = c1003a.oKH;
+        this.strokeWidth = c1003a.strokeWidth;
+        this.oKI = c1003a.oKI;
+        this.isFullScreen = c1003a.isFullScreen;
+        this.borderColor = c1003a.borderColor;
     }
 
     /* renamed from: tv.chushou.apollo.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0945a {
+    public static class C1003a {
         public int borderColor;
         public boolean isFullScreen;
-        public int oqL;
-        public int oqM;
-        public boolean oqN;
-        public int oqO;
+        public int oKF;
+        public int oKG;
+        public boolean oKH;
+        public int oKI;
         public int strokeWidth;
 
-        public C0945a ym(boolean z) {
-            this.oqN = z;
+        public C1003a ze(boolean z) {
+            this.oKH = z;
             return this;
         }
 
-        public C0945a LP(int i) {
+        public C1003a Os(int i) {
             this.strokeWidth = i;
             return this;
         }
 
-        public C0945a LQ(int i) {
-            this.oqO = i;
+        public C1003a Ot(int i) {
+            this.oKI = i;
             return this;
         }
 
-        public C0945a yn(boolean z) {
+        public C1003a zf(boolean z) {
             this.isFullScreen = z;
             return this;
         }
 
-        public C0945a LR(int i) {
+        public C1003a Ou(int i) {
             this.borderColor = i;
             return this;
         }
 
-        public a dZq() {
+        public a elu() {
             return new a(this);
         }
     }

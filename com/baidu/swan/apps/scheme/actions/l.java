@@ -8,16 +8,16 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class l extends aa {
-    private com.baidu.swan.apps.adaptation.b.c cJA;
+    private com.baidu.swan.apps.adaptation.b.c cSA;
 
     public l(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/getSlaveIdSync");
     }
 
     public void f(com.baidu.swan.apps.adaptation.b.c cVar) {
-        this.cJA = cVar;
+        this.cSA = cVar;
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
@@ -25,13 +25,13 @@ public class l extends aa {
         if (DEBUG) {
             Log.d("GetSlaveIdSyncAction", "handle entity: " + unitedSchemeEntity.toString());
         }
-        if (this.cJA == null) {
+        if (this.cSA == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("slaveId", this.cJA.UR());
+            jSONObject.put("slaveId", this.cSA.aaU());
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
             return true;
         } catch (JSONException e) {

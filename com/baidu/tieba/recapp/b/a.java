@@ -7,7 +7,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tieba.recapp.m;
 /* loaded from: classes20.dex */
-public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.d, b> implements m {
+public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.e, b> implements m {
     private TbPageContext<?> mPageContext;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -18,7 +18,7 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cE */
+    /* renamed from: cA */
     public b b(ViewGroup viewGroup) {
         View view = new View(this.mPageContext.getPageActivity());
         view.setVisibility(8);
@@ -28,10 +28,10 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.d dVar, b bVar) {
-        AdvertAppInfo bSf = dVar.bSf();
-        if (bSf != null) {
-            com.baidu.tbadk.core.data.b.c(bSf.advertAppContext, bSf.dNa, bSf.dNf.dNs == -1001);
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.e eVar, b bVar) {
+        AdvertAppInfo ccr = eVar.ccr();
+        if (ccr != null) {
+            com.baidu.tbadk.core.data.b.c(ccr.advertAppContext, ccr.dWj, ccr.dWo.dWB == -1001);
         }
         return bVar.getView();
     }

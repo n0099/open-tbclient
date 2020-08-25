@@ -1,5 +1,5 @@
 package com.baidu.location;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public abstract class BDAbstractLocationListener {
     public void onConnectHotSpotMessage(String str, int i) {
     }
@@ -8,4 +8,7 @@ public abstract class BDAbstractLocationListener {
     }
 
     public abstract void onReceiveLocation(BDLocation bDLocation);
+
+    public void onReceiveVdrLocation(BDLocation bDLocation) {
+    }
 }

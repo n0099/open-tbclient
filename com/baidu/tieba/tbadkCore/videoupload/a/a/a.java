@@ -4,21 +4,21 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.aa;
 import com.baidu.tieba.tbadkCore.videoupload.a.e;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class a {
-    private final int lQA;
-    private final int lQB;
-    private e lQC;
-    private final long lQy;
-    private final String lQz;
     protected final String mFileName;
+    private final long mii;
+    private final String mij;
+    private final int mik;
+    private final int mil;
+    private e mim;
 
     public abstract void cancel();
 
@@ -28,20 +28,20 @@ public abstract class a {
 
     public a(String str, int i, int i2, long j, String str2) {
         this.mFileName = str;
-        this.lQB = i2;
-        this.lQy = j;
-        this.lQz = str2;
-        this.lQA = i;
+        this.mil = i2;
+        this.mii = j;
+        this.mij = str2;
+        this.mik = i;
     }
 
     public void a(e eVar) {
-        this.lQC = eVar;
+        this.mim = eVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void notifyProgress(int i) {
-        if (this.lQC != null) {
-            this.lQC.ax(i / 100.0f);
+        if (this.mim != null) {
+            this.mim.aD(i / 100.0f);
         }
     }
 
@@ -56,34 +56,34 @@ public abstract class a {
         } else if (isCancelled()) {
             return null;
         } else {
-            z zVar = new z(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_VIDEO);
-            zVar.addPostData("chunk_no", String.valueOf(i));
-            zVar.addPostData("chunk_sum", String.valueOf(this.lQB));
-            zVar.addPostData("chunk_size", String.valueOf(b.length));
-            zVar.addPostData("video_size", String.valueOf(this.lQy));
-            zVar.addPostData("video_md5", this.lQz);
-            zVar.addPostData("video_len", String.valueOf(j));
-            zVar.addPostData("tbs", TbadkCoreApplication.getInst().getTbs());
-            zVar.addPostData("video_chunk", b);
-            zVar.addPostData("upload_id", str);
+            aa aaVar = new aa(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_VIDEO);
+            aaVar.addPostData("chunk_no", String.valueOf(i));
+            aaVar.addPostData("chunk_sum", String.valueOf(this.mil));
+            aaVar.addPostData("chunk_size", String.valueOf(b.length));
+            aaVar.addPostData("video_size", String.valueOf(this.mii));
+            aaVar.addPostData("video_md5", this.mij);
+            aaVar.addPostData("video_len", String.valueOf(j));
+            aaVar.addPostData("tbs", TbadkCoreApplication.getInst().getTbs());
+            aaVar.addPostData("video_chunk", b);
+            aaVar.addPostData("upload_id", str);
             if (isCancelled()) {
                 return null;
             }
-            String postMultiNetData = zVar.postMultiNetData();
+            String postMultiNetData = aaVar.postMultiNetData();
             if (isCancelled()) {
                 return null;
             }
             d dVar2 = new d();
-            if (zVar.bav().baX().isRequestSuccess()) {
-                dVar2.videoUrl = Od(postMultiNetData);
+            if (aaVar.biQ().bjw().isRequestSuccess()) {
+                dVar2.videoUrl = Rb(postMultiNetData);
                 return dVar2;
             }
-            if (zVar.bav().baX().isNetSuccess()) {
-                dVar2.errorNo = zVar.bav().baX().mServerErrorCode;
+            if (aaVar.biQ().bjw().isNetSuccess()) {
+                dVar2.errorNo = aaVar.biQ().bjw().mServerErrorCode;
             } else {
-                dVar2.errorNo = zVar.bav().baX().mNetErrorCode;
+                dVar2.errorNo = aaVar.biQ().bjw().mNetErrorCode;
             }
-            dVar2.errorMessage = zVar.bav().baX().mErrorString;
+            dVar2.errorMessage = aaVar.biQ().bjw().mErrorString;
             return dVar2;
         }
     }
@@ -93,15 +93,15 @@ public abstract class a {
         if (randomAccessFile == null || i < 0) {
             return null;
         }
-        if (i == this.lQB) {
-            i2 = (int) (this.lQy - ((i - 1) * this.lQA));
+        if (i == this.mil) {
+            i2 = (int) (this.mii - ((i - 1) * this.mik));
         } else {
-            i2 = this.lQA;
+            i2 = this.mik;
         }
         byte[] bArr = new byte[i2];
         try {
             synchronized (randomAccessFile) {
-                randomAccessFile.seek((i - 1) * this.lQA);
+                randomAccessFile.seek((i - 1) * this.mik);
                 r3 = randomAccessFile.read(bArr, 0, i2) != -1;
             }
         } catch (IOException e) {
@@ -113,7 +113,7 @@ public abstract class a {
         return null;
     }
 
-    private String Od(String str) {
+    private String Rb(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }

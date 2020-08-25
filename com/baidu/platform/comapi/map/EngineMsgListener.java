@@ -1,0 +1,11 @@
+package com.baidu.platform.comapi.map;
+/* loaded from: classes20.dex */
+public interface EngineMsgListener {
+    void onEnterIndoorMapMode(j jVar);
+
+    void onExitIndoorMapMode();
+
+    void onLongLinkConnect();
+
+    void onLongLinkDisConnect();
+}

@@ -6,55 +6,55 @@ import com.baidu.tbadk.baseEditMark.a;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes18.dex */
 public class b extends com.baidu.tbadk.baseEditMark.a {
-    private MarkModel jVe;
+    private MarkModel kkA;
 
     public b(BaseActivity baseActivity) {
-        this.jVe = null;
-        this.jVe = new MarkModel(baseActivity);
+        this.kkA = null;
+        this.kkA = new MarkModel(baseActivity);
     }
 
     public b(BaseFragmentActivity baseFragmentActivity) {
-        this.jVe = null;
-        this.jVe = new MarkModel(baseFragmentActivity);
+        this.kkA = null;
+        this.kkA = new MarkModel(baseFragmentActivity);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void he(boolean z) {
-        this.jVe.he(z);
+    public void hA(boolean z) {
+        this.kkA.hA(z);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public String aSi() {
-        return this.jVe.aSi();
+    public String baz() {
+        return this.kkA.baz();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void a(a.InterfaceC0489a interfaceC0489a) {
-        this.jVe.a(interfaceC0489a);
+    public void a(a.InterfaceC0535a interfaceC0535a) {
+        this.kkA.a(interfaceC0535a);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void aSk() {
-        this.jVe.aSk();
+    public void baB() {
+        this.kkA.baB();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void aSl() {
-        this.jVe.aSl();
+    public void baC() {
+        this.kkA.baC();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public MarkData aSm() {
-        return this.jVe.aSm();
+    public MarkData baD() {
+        return this.kkA.baD();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
     public void a(MarkData markData) {
-        this.jVe.a(markData);
+        this.kkA.a(markData);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public boolean aSj() {
-        return this.jVe.aSj();
+    public boolean baA() {
+        return this.kkA.baA();
     }
 }

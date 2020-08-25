@@ -3,704 +3,180 @@ package com.baidu.sapi2;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.text.TextUtils;
-import com.baidu.fsg.base.BaiduRimConstants;
 import com.baidu.pass.biometrics.face.liveness.callback.PassFaceRecogCallback;
-import com.baidu.sapi2.activity.AccountCenterActivity;
-import com.baidu.sapi2.activity.AccountRealNameActivity;
-import com.baidu.sapi2.activity.AddressManageActivity;
-import com.baidu.sapi2.activity.AuthWidgetActivity;
-import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.sapi2.activity.BindWidgetActivity;
-import com.baidu.sapi2.activity.InvoiceBuildActivity;
-import com.baidu.sapi2.activity.LoginActivity;
-import com.baidu.sapi2.activity.ModifyPwdActivity;
-import com.baidu.sapi2.activity.NormalizeGuestAccountActivity;
-import com.baidu.sapi2.activity.OperationRecordActivity;
-import com.baidu.sapi2.activity.QrLoginActivity;
-import com.baidu.sapi2.activity.RegisterActivity;
-import com.baidu.sapi2.activity.SwitchAccountActivity;
-import com.baidu.sapi2.bio.BiometricsManager;
 import com.baidu.sapi2.callback.AccountCenterCallback;
 import com.baidu.sapi2.callback.AccountRealNameCallback;
+import com.baidu.sapi2.callback.AccountToolsCallback;
 import com.baidu.sapi2.callback.ActivityResultCallback;
-import com.baidu.sapi2.callback.AddressManageCallback;
 import com.baidu.sapi2.callback.AuthWidgetCallback;
 import com.baidu.sapi2.callback.ExtendSysWebViewMethodCallback;
-import com.baidu.sapi2.callback.FaceIDCallback;
 import com.baidu.sapi2.callback.ImageCropCallback;
-import com.baidu.sapi2.callback.InvoiceBuildCallback;
 import com.baidu.sapi2.callback.LoginStatusChangeCallback;
 import com.baidu.sapi2.callback.NormalizeGuestAccountCallback;
 import com.baidu.sapi2.callback.OneKeyLoginCallback;
 import com.baidu.sapi2.callback.QrLoginCallback;
 import com.baidu.sapi2.callback.RegisterUserFaceIDCallback;
-import com.baidu.sapi2.callback.SapiWebCallback;
 import com.baidu.sapi2.callback.SmsViewLoginCallback;
 import com.baidu.sapi2.callback.VerifyUserFaceIDCallback;
 import com.baidu.sapi2.callback.WebBindWidgetCallback;
-import com.baidu.sapi2.callback.WebModifyPwdCallback;
 import com.baidu.sapi2.dto.AccountCenterDTO;
-import com.baidu.sapi2.dto.AddressManageDTO;
+import com.baidu.sapi2.dto.AccountToolsDTO;
 import com.baidu.sapi2.dto.FaceIDRegDTO;
+import com.baidu.sapi2.dto.FaceIDVerifyCertInfoDTO;
 import com.baidu.sapi2.dto.FaceIDVerifyDTO;
-import com.baidu.sapi2.dto.InvoiceBuildDTO;
 import com.baidu.sapi2.dto.NormalizeGuestAccountDTO;
-import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.dto.RealNameDTO;
 import com.baidu.sapi2.dto.SwitchAccountDTO;
 import com.baidu.sapi2.dto.WebBindWidgetDTO;
 import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.dto.WebRegDTO;
 import com.baidu.sapi2.dto.WebSocialLoginDTO;
-import com.baidu.sapi2.result.ExtendSysWebViewMethodResult;
-import com.baidu.sapi2.result.OneKeyLoginResult;
-import com.baidu.sapi2.result.RealNameFaceIDResult;
-import com.baidu.sapi2.result.UnRealNameFaceIDResult;
-import com.baidu.sapi2.service.AbstractThirdPartyService;
+import com.baidu.sapi2.ecommerce.EcommerceRouter;
+import com.baidu.sapi2.ecommerce.callback.AddressManageCallback;
+import com.baidu.sapi2.ecommerce.callback.InvoiceBuildCallback;
+import com.baidu.sapi2.ecommerce.dto.AddressManageDTO;
+import com.baidu.sapi2.ecommerce.dto.InvoiceBuildDTO;
 import com.baidu.sapi2.share.ShareStorage;
 import com.baidu.sapi2.shell.listener.WebAuthListener;
-import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.enums.SocialType;
-import com.baidu.sapi2.views.SmsLoginView;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes12.dex */
 public final class PassportSDK {
-    private static PassportSDK a;
-    private static LoginStatusChangeCallback b;
-    private AddressManageCallback A;
-    private InvoiceBuildCallback B;
-    private OneKeyLoginCallback C;
-    private String D;
-    private Context E = SapiAccountManager.getInstance().getSapiConfiguration().context;
-    private AbstractThirdPartyService c;
-    private WebAuthListener d;
-    private WebLoginDTO e;
-    private WebRegDTO f;
-    private WebBindWidgetDTO g;
-    private WebSocialLoginDTO h;
-    private AccountCenterDTO i;
-    private NormalizeGuestAccountDTO j;
-    private AddressManageDTO k;
-    private RealNameDTO l;
-    private InvoiceBuildDTO m;
-    private SwitchAccountDTO n;
-    private AccountCenterCallback o;
-    private AccountRealNameCallback p;
-    private WebBindWidgetCallback q;
-    private WebModifyPwdCallback r;
-    private SapiWebCallback s;
-    private ImageCropCallback t;
-    private ActivityResultCallback u;
-    private QrLoginCallback v;
-    private SmsViewLoginCallback w;
-    private NormalizeGuestAccountCallback x;
-    private AuthWidgetCallback y;
-    private ExtendSysWebViewMethodCallback z;
-
     private PassportSDK() {
     }
 
     public static synchronized PassportSDK getInstance() {
         PassportSDK passportSDK;
         synchronized (PassportSDK.class) {
-            if (a == null) {
-                a = new PassportSDK();
-            }
-            passportSDK = a;
+            passportSDK = new PassportSDK();
         }
         return passportSDK;
     }
 
-    public static LoginStatusChangeCallback getLoginStatusChangeCallback() {
-        return b;
-    }
-
     public static void setLoginStatusChangeCallback(LoginStatusChangeCallback loginStatusChangeCallback) {
-        b = loginStatusChangeCallback;
+        CoreViewRouter.setLoginStatusChangeCallback(loginStatusChangeCallback);
     }
 
-    public void extendSysWebViewMethod(Context context, String str, ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback) {
-        ExtendSysWebViewMethodResult extendSysWebViewMethodResult = new ExtendSysWebViewMethodResult();
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            int optInt = jSONObject.optInt("action");
-            JSONObject optJSONObject = jSONObject.optJSONObject("params");
-            String optString = optJSONObject.optString("open_appid");
-            String optString2 = optJSONObject.optString("open_apikey");
-            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                SapiAccountManager.getInstance().getAccountService().extendSysWebViewMethodCheck(new n(this, optInt, extendSysWebViewMethodCallback, optJSONObject, extendSysWebViewMethodResult, context), optString, optString2);
-                return;
-            }
-            extendSysWebViewMethodResult.params.put(BaiduRimConstants.RETCODE_KEY, "-310");
-            extendSysWebViewMethodResult.params.put("retMsg", "因安全原因，操作失败");
-            extendSysWebViewMethodCallback.onFinish(extendSysWebViewMethodResult);
-        } catch (JSONException e) {
-            Log.e(e);
-            extendSysWebViewMethodResult.params.put(BaiduRimConstants.RETCODE_KEY, "-3");
-            extendSysWebViewMethodResult.params.put("retMsg", "params is not json");
-            extendSysWebViewMethodCallback.onFinish(extendSysWebViewMethodResult);
-        }
-    }
-
-    public AccountCenterCallback getAccountCenterCallback() {
-        return this.o;
-    }
-
-    public AccountCenterDTO getAccountCenterDTO() {
-        return this.i;
-    }
-
-    public AccountRealNameCallback getAccountRealNameCallback() {
-        return this.p;
-    }
-
-    public ActivityResultCallback getActivityResultCallback() {
-        return this.u;
-    }
-
-    public AddressManageCallback getAddressManageCallback() {
-        return this.A;
-    }
-
-    public AddressManageDTO getAddressManageDTO() {
-        return this.k;
-    }
-
-    public AuthWidgetCallback getAuthWidgetCallback() {
-        return this.y;
-    }
-
-    public ExtendSysWebViewMethodCallback getExtendSysWebViewMethodCallback() {
-        return this.z;
-    }
-
-    public ImageCropCallback getImageCropCallback() {
-        return this.t;
-    }
-
-    public InvoiceBuildCallback getInvoiceBuildCallback() {
-        return this.B;
-    }
-
-    public InvoiceBuildDTO getInvoiceBuildDTO() {
-        return this.m;
-    }
-
-    public NormalizeGuestAccountCallback getNormalizeGuestAccountCallback() {
-        return this.x;
-    }
-
-    public NormalizeGuestAccountDTO getNormalizeGuestAccountDTO() {
-        return this.j;
-    }
-
-    public OneKeyLoginCallback getOneKeyLoginCallback() {
-        return this.C;
-    }
-
-    public QrLoginCallback getQrLoginCallback() {
-        return this.v;
-    }
-
-    public RealNameDTO getRealNameDTO() {
-        return this.l;
-    }
-
-    public SapiWebCallback getSapiWebCallback() {
-        return this.s;
-    }
-
-    public String getSmsLoginStatExtra() {
-        return WebLoginDTO.getStatExtraDecode(this.D);
-    }
-
-    public SmsViewLoginCallback getSmsViewLoginCallback() {
-        return this.w;
-    }
-
-    public WebSocialLoginDTO getSocialLoginDTO() {
-        return this.h;
-    }
-
-    public SwitchAccountDTO getSwitchAccountDTO() {
-        return this.n;
-    }
-
-    public AbstractThirdPartyService getThirdPartyService() {
-        if (this.c == null) {
-            a();
-        }
-        return this.c;
-    }
-
-    public WebAuthListener getWebAuthListener() {
-        return this.d;
-    }
-
-    public WebBindWidgetCallback getWebBindWidgetCallback() {
-        return this.q;
-    }
-
-    public WebBindWidgetDTO getWebBindWidgetDTO() {
-        return this.g;
-    }
-
-    public WebLoginDTO getWebLoginDTO() {
-        return this.e;
-    }
-
-    public WebModifyPwdCallback getWebModifyPwdCallback() {
-        return this.r;
-    }
-
-    public WebRegDTO getWebRegDTO() {
-        return this.f;
+    public void extendSysWebViewMethod(Activity activity, String str, ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback) {
+        CoreViewRouter.getInstance().extendSysWebViewMethod(activity, str, extendSysWebViewMethodCallback);
     }
 
     public void handleWXLoginResp(Activity activity, String str, String str2, int i) {
-        this.c = getThirdPartyService();
-        AbstractThirdPartyService abstractThirdPartyService = this.c;
-        if (abstractThirdPartyService == null) {
-            return;
-        }
-        abstractThirdPartyService.handleWXLoginResp(activity, str, str2, i);
+        CoreViewRouter.getInstance().handleWXLoginResp(activity, str, str2, i);
     }
 
     public void invokeV2ShareLogin(Activity activity, WebAuthListener webAuthListener, ShareStorage.StorageModel storageModel) {
-        invokeV2ShareLogin(activity, webAuthListener, storageModel, "");
+        CoreViewRouter.getInstance().invokeV2ShareLogin(activity, webAuthListener, storageModel, "");
     }
 
     public void loadAccountCenter(AccountCenterCallback accountCenterCallback, AccountCenterDTO accountCenterDTO) {
-        SapiAccount currentAccount;
-        if (SapiContext.getInstance().getSapiOptions().q().contains(SapiAccountManager.getInstance().getConfignation().tpl) && (currentAccount = SapiContext.getInstance().getCurrentAccount()) != null) {
-            accountCenterDTO.bduss = currentAccount.bduss;
-        }
-        this.o = accountCenterCallback;
-        this.i = accountCenterDTO;
-        Intent intent = new Intent(this.E, AccountCenterActivity.class);
-        intent.setFlags(268435456);
-        this.E.startActivity(intent);
-    }
-
-    public void loadAccountRealName(AccountRealNameCallback accountRealNameCallback, RealNameDTO realNameDTO) {
-        loadAccountRealName(this.E, accountRealNameCallback, realNameDTO);
-    }
-
-    public void loadAddressManage(Context context, AddressManageDTO addressManageDTO, AddressManageCallback addressManageCallback) {
-        this.k = addressManageDTO;
-        this.A = addressManageCallback;
-        if (context == null) {
-            context = this.E;
-        }
-        Intent intent = new Intent(context, AddressManageActivity.class);
-        if (!(context instanceof Activity)) {
-            intent.setFlags(268435456);
-        }
-        context.startActivity(intent);
-    }
-
-    public void loadBindWidget(WebBindWidgetCallback webBindWidgetCallback, WebBindWidgetDTO webBindWidgetDTO) {
-        SapiAccount currentAccount;
-        this.q = webBindWidgetCallback;
-        if (SapiContext.getInstance().getSapiOptions().q().contains(SapiAccountManager.getInstance().getConfignation().tpl) && (currentAccount = SapiContext.getInstance().getCurrentAccount()) != null) {
-            webBindWidgetDTO.bduss = currentAccount.bduss;
-        }
-        this.g = webBindWidgetDTO;
-        Intent intent = new Intent(this.E, BindWidgetActivity.class);
-        intent.putExtra(BindWidgetActivity.EXTRA_BIND_WIDGET_ACTION, webBindWidgetDTO.bindWidgetAction);
-        intent.putExtra("EXTRA_BDUSS", webBindWidgetDTO.bduss);
-        intent.setFlags(268435456);
-        this.E.startActivity(intent);
-    }
-
-    public void loadInvoiceBuild(Context context, InvoiceBuildDTO invoiceBuildDTO, InvoiceBuildCallback invoiceBuildCallback) {
-        this.m = invoiceBuildDTO;
-        this.B = invoiceBuildCallback;
-        if (context == null) {
-            context = this.E;
-        }
-        Intent intent = new Intent(context, InvoiceBuildActivity.class);
-        if (!(context instanceof Activity)) {
-            intent.setFlags(268435456);
-        }
-        context.startActivity(intent);
-    }
-
-    public void loadModifyPwd(WebModifyPwdCallback webModifyPwdCallback, String str) {
-        SapiAccount currentAccount;
-        this.r = webModifyPwdCallback;
-        if (SapiContext.getInstance().getSapiOptions().q().contains(SapiAccountManager.getInstance().getConfignation().tpl) && (currentAccount = SapiContext.getInstance().getCurrentAccount()) != null) {
-            str = currentAccount.bduss;
-        }
-        Intent intent = new Intent(this.E, ModifyPwdActivity.class);
-        intent.putExtra("EXTRA_BDUSS", str);
-        intent.setFlags(268435456);
-        this.E.startActivity(intent);
-    }
-
-    public void loadOneKeyLogin(Context context, String str, OneKeyLoginCallback oneKeyLoginCallback) {
-        loadOneKeyLogin(context, str, true, oneKeyLoginCallback);
-    }
-
-    public void loadOperationRecord(SapiWebCallback sapiWebCallback, String str) {
-        this.s = sapiWebCallback;
-        Intent intent = new Intent(this.E, OperationRecordActivity.class);
-        intent.putExtra("EXTRA_BDUSS", str);
-        intent.setFlags(268435456);
-        this.E.startActivity(intent);
-    }
-
-    public void loadQrLogin(QrLoginCallback qrLoginCallback, String str) {
-        loadQrLogin(qrLoginCallback, str, null, true);
-    }
-
-    public void loadSwitchAccount(SwitchAccountDTO switchAccountDTO, WebAuthListener webAuthListener) {
-        this.n = switchAccountDTO;
-        this.d = webAuthListener;
-        Intent intent = new Intent(this.E, SwitchAccountActivity.class);
-        intent.setFlags(268435456);
-        this.E.startActivity(intent);
-        LinkedHashMap linkedHashMap = new LinkedHashMap(1);
-        linkedHashMap.put("eventType", "switch_account_enter");
-        com.baidu.sapi2.utils.t.a(linkedHashMap);
-    }
-
-    public void loadThirdPartyLogin(WebAuthListener webAuthListener, SocialType socialType) {
-        this.h = new WebSocialLoginDTO();
-        WebSocialLoginDTO webSocialLoginDTO = this.h;
-        webSocialLoginDTO.socialType = socialType;
-        loadThirdPartyLogin(webAuthListener, webSocialLoginDTO);
-    }
-
-    public void onActivityResult(int i, int i2, Intent intent) {
-        onActivityResult(i, i2, intent, "");
-    }
-
-    public void registerUserFaceID(RegisterUserFaceIDCallback registerUserFaceIDCallback, FaceIDRegDTO faceIDRegDTO) {
-        if (TextUtils.isEmpty(faceIDRegDTO.authsid)) {
-            startAuth(new j(this, registerUserFaceIDCallback, faceIDRegDTO), faceIDRegDTO.authWidgetURL);
-        } else {
-            b(registerUserFaceIDCallback, "faceDetect", faceIDRegDTO.authsid, faceIDRegDTO.livingUname, faceIDRegDTO.showGuidePage, faceIDRegDTO.subpro, faceIDRegDTO.businessSence);
-        }
-    }
-
-    public void release() {
-        SapiWebView.statLoadLogin = null;
-        this.d = null;
-        this.e = null;
-        this.g = null;
-        this.h = null;
-        this.j = null;
-        this.o = null;
-        this.q = null;
-        this.r = null;
-        this.s = null;
-        this.t = null;
-        this.u = null;
-        this.i = null;
-        this.p = null;
-        this.v = null;
-        this.w = null;
-        this.D = null;
-        this.x = null;
-        this.y = null;
-        this.z = null;
-        this.k = null;
-        this.A = null;
-        this.C = null;
-        this.n = null;
-        PassportViewManager.getInstance().release();
-    }
-
-    public void setActivityResultCallback(ActivityResultCallback activityResultCallback) {
-        this.u = activityResultCallback;
-    }
-
-    public void setImageCropCallback(ImageCropCallback imageCropCallback) {
-        this.t = imageCropCallback;
-    }
-
-    public void setThirdPartyService(AbstractThirdPartyService abstractThirdPartyService) {
-        this.c = abstractThirdPartyService;
-    }
-
-    public void startAuth(AuthWidgetCallback authWidgetCallback, String str) {
-        this.y = authWidgetCallback;
-        Intent intent = new Intent(this.E, AuthWidgetActivity.class);
-        intent.putExtra(AuthWidgetActivity.EXTRA_PARAM_AUTH_URL, str);
-        intent.setFlags(268435456);
-        this.E.startActivity(intent);
-    }
-
-    public void startLogin(WebAuthListener webAuthListener, WebLoginDTO webLoginDTO) {
-        startLogin(this.E, webAuthListener, webLoginDTO);
-    }
-
-    public void startNormalizeGuestAccount(Context context, NormalizeGuestAccountCallback normalizeGuestAccountCallback, NormalizeGuestAccountDTO normalizeGuestAccountDTO) {
-        this.x = normalizeGuestAccountCallback;
-        this.j = normalizeGuestAccountDTO;
-        Intent intent = new Intent(context, NormalizeGuestAccountActivity.class);
-        intent.putExtra("EXTRA_BDUSS", normalizeGuestAccountDTO.bduss);
-        if (!(context instanceof Activity)) {
-            intent.setFlags(268435456);
-        }
-        context.startActivity(intent);
-    }
-
-    public void startRegister(WebAuthListener webAuthListener, WebRegDTO webRegDTO) {
-        this.d = webAuthListener;
-        this.f = webRegDTO;
-        Intent intent = new Intent(this.E, RegisterActivity.class);
-        intent.setFlags(268435456);
-        this.E.startActivity(intent);
-    }
-
-    public void startSmsViewLogin(SmsViewLoginCallback smsViewLoginCallback, String str) {
-        this.w = smsViewLoginCallback;
-        this.D = str;
-        SmsLoginView.notifyStartLogin();
-    }
-
-    public void verifyUserFaceId(VerifyUserFaceIDCallback verifyUserFaceIDCallback, FaceIDVerifyDTO faceIDVerifyDTO) {
-        verifyUserFaceId(this.E, verifyUserFaceIDCallback, faceIDVerifyDTO);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(FaceIDCallback faceIDCallback, String str, String str2, String str3, boolean z, String str4, String str5) {
-        a(faceIDCallback, str, str2, str3, z, str4, str5);
-    }
-
-    public void invokeV2ShareLogin(Activity activity, WebAuthListener webAuthListener, ShareStorage.StorageModel storageModel, String str) {
-        if (storageModel != null && webAuthListener != null) {
-            this.d = webAuthListener;
-            ArrayList arrayList = new ArrayList();
-            if (!TextUtils.isEmpty(str)) {
-                arrayList.add(new PassNameValuePair("extrajson", str));
-            }
-            new com.baidu.sapi2.share.m().a(activity, storageModel.pkg, storageModel.url, null, null, arrayList);
-            return;
-        }
-        throw new IllegalArgumentException(ShareStorage.StorageModel.class.getSimpleName() + "or" + WebAuthListener.class.getSimpleName() + "can't be null");
+        CoreViewRouter.getInstance().loadAccountCenter(accountCenterCallback, accountCenterDTO);
     }
 
     public void loadAccountRealName(Context context, AccountRealNameCallback accountRealNameCallback, RealNameDTO realNameDTO) {
-        this.p = accountRealNameCallback;
-        this.l = realNameDTO;
-        Intent intent = new Intent(context, AccountRealNameActivity.class);
-        if (realNameDTO != null) {
-            intent.putExtra("EXTRA_BDUSS", realNameDTO.bduss);
-            intent.putExtra(AccountRealNameActivity.EXTRA_SCENE, realNameDTO.scene);
-            intent.putExtra(AccountRealNameActivity.EXTRA_NEED_CB_KEY, realNameDTO.needCbKey);
-        }
-        if (context instanceof Activity) {
-            context.startActivity(intent);
-            return;
-        }
-        intent.setFlags(268435456);
-        this.E.startActivity(intent);
+        CoreViewRouter.getInstance().loadAccountRealName(context, accountRealNameCallback, realNameDTO);
+    }
+
+    public void loadAccountTools(AccountToolsDTO accountToolsDTO, AccountToolsCallback accountToolsCallback) {
+        CoreViewRouter.getInstance().loadAccountTools(accountToolsDTO, accountToolsCallback);
+    }
+
+    public void loadAddressManage(Context context, AddressManageDTO addressManageDTO, AddressManageCallback addressManageCallback) {
+        EcommerceRouter.getInstance().loadAddressManage(context, addressManageDTO, addressManageCallback);
+    }
+
+    public void loadBindWidget(WebBindWidgetCallback webBindWidgetCallback, WebBindWidgetDTO webBindWidgetDTO) {
+        CoreViewRouter.getInstance().loadBindWidget(webBindWidgetCallback, webBindWidgetDTO);
+    }
+
+    public void loadInvoiceBuild(Context context, InvoiceBuildDTO invoiceBuildDTO, InvoiceBuildCallback invoiceBuildCallback) {
+        EcommerceRouter.getInstance().loadInvoiceBuild(context, invoiceBuildDTO, invoiceBuildCallback);
+    }
+
+    public void loadOneKeyLogin(Context context, String str, OneKeyLoginCallback oneKeyLoginCallback) {
+        CoreViewRouter.getInstance().loadOneKeyLogin(context, str, oneKeyLoginCallback);
+    }
+
+    public void loadQrLogin(QrLoginCallback qrLoginCallback, String str) {
+        CoreViewRouter.getInstance().loadQrLogin(qrLoginCallback, str);
+    }
+
+    public void loadSwitchAccount(SwitchAccountDTO switchAccountDTO, WebAuthListener webAuthListener) {
+        CoreViewRouter.getInstance().loadSwitchAccount(switchAccountDTO, webAuthListener);
+    }
+
+    public void loadThirdPartyLogin(WebAuthListener webAuthListener, SocialType socialType) {
+        CoreViewRouter.getInstance().loadThirdPartyLogin(webAuthListener, socialType);
+    }
+
+    public void onActivityResult(int i, int i2, Intent intent) {
+        CoreViewRouter.getInstance().onActivityResult(i, i2, intent);
+    }
+
+    public void registerUserFaceID(Activity activity, RegisterUserFaceIDCallback registerUserFaceIDCallback, FaceIDRegDTO faceIDRegDTO) {
+        CoreViewRouter.getInstance().registerUserFaceID(activity, registerUserFaceIDCallback, faceIDRegDTO);
+    }
+
+    public void setActivityResultCallback(ActivityResultCallback activityResultCallback) {
+        CoreViewRouter.getInstance().setActivityResultCallback(activityResultCallback);
+    }
+
+    public void setImageCropCallback(ImageCropCallback imageCropCallback) {
+        CoreViewRouter.getInstance().setImageCropCallback(imageCropCallback);
+    }
+
+    public void startAuth(AuthWidgetCallback authWidgetCallback, String str) {
+        CoreViewRouter.getInstance().startAuth(authWidgetCallback, str);
+    }
+
+    public void startLogin(WebAuthListener webAuthListener, WebLoginDTO webLoginDTO) {
+        CoreViewRouter.getInstance().startLogin(webAuthListener, webLoginDTO);
+    }
+
+    public void startNormalizeGuestAccount(Context context, NormalizeGuestAccountCallback normalizeGuestAccountCallback, NormalizeGuestAccountDTO normalizeGuestAccountDTO) {
+        CoreViewRouter.getInstance().startNormalizeGuestAccount(context, normalizeGuestAccountCallback, normalizeGuestAccountDTO);
+    }
+
+    public void startRegister(WebAuthListener webAuthListener, WebRegDTO webRegDTO) {
+        CoreViewRouter.getInstance().startRegister(webAuthListener, webRegDTO);
+    }
+
+    public void startSmsViewLogin(SmsViewLoginCallback smsViewLoginCallback, String str) {
+        CoreViewRouter.getInstance().startSmsViewLogin(smsViewLoginCallback, str);
+    }
+
+    public void verifyUserFaceIDWithCertInfo(Activity activity, PassFaceRecogCallback passFaceRecogCallback, FaceIDVerifyCertInfoDTO faceIDVerifyCertInfoDTO) {
+        CoreViewRouter.getInstance().verifyUserFaceIDWithCertInfo(activity, passFaceRecogCallback, faceIDVerifyCertInfoDTO);
+    }
+
+    public void verifyUserFaceId(Activity activity, VerifyUserFaceIDCallback verifyUserFaceIDCallback, FaceIDVerifyDTO faceIDVerifyDTO) {
+        CoreViewRouter.getInstance().verifyUserFaceId(activity, verifyUserFaceIDCallback, faceIDVerifyDTO);
+    }
+
+    public void invokeV2ShareLogin(Activity activity, WebAuthListener webAuthListener, ShareStorage.StorageModel storageModel, String str) {
+        CoreViewRouter.getInstance().invokeV2ShareLogin(activity, webAuthListener, storageModel, str);
     }
 
     public void loadOneKeyLogin(Context context, String str, boolean z, OneKeyLoginCallback oneKeyLoginCallback) {
-        if (oneKeyLoginCallback != null) {
-            if (TextUtils.isEmpty(str)) {
-                Log.d(Log.TAG, "oneKeyLogin sign is empty!");
-                new com.baidu.sapi2.outsdk.c().a(oneKeyLoginCallback, OneKeyLoginResult.ONE_KEY_LOGIN_CODE_CHECK_SIGN_FAIL, (String) null);
-                return;
-            }
-            this.C = oneKeyLoginCallback;
-            new com.baidu.sapi2.outsdk.c().b(SapiAccountManager.getInstance().getSapiConfiguration(), new f(this, oneKeyLoginCallback, str, z, context));
-            return;
-        }
-        Log.e(Log.TAG, "When load oneKeyLogin, oneKeyLoginCallback can't be null!");
+        CoreViewRouter.getInstance().loadOneKeyLogin(context, str, z, oneKeyLoginCallback);
     }
 
     public void loadQrLogin(QrLoginCallback qrLoginCallback, String str, String str2) {
-        loadQrLogin(qrLoginCallback, str, str2, true);
-    }
-
-    public void onActivityResult(int i, int i2, Intent intent, String str) {
-        ArrayList arrayList = new ArrayList();
-        if (!TextUtils.isEmpty(str)) {
-            arrayList.add(new PassNameValuePair("extrajson", str));
-        }
-        new com.baidu.sapi2.share.m().a(new g(this), i, i2, intent, arrayList);
-    }
-
-    public void startLogin(Context context, WebAuthListener webAuthListener, WebLoginDTO webLoginDTO) {
-        SapiWebView.statLoadLogin = new com.baidu.sapi2.utils.q();
-        SapiWebView.statLoadLogin.g = System.currentTimeMillis();
-        this.d = webAuthListener;
-        this.e = webLoginDTO;
-        Intent intent = new Intent(context, LoginActivity.class);
-        intent.putExtra(LoginActivity.EXTRA_LOGIN_TYPE, webLoginDTO.loginType);
-        intent.putExtra(LoginActivity.EXTRA_LOGIN_FINISH_AFTER_SUC, webLoginDTO.finishActivityAfterSuc);
-        if (!TextUtils.isEmpty(webLoginDTO.preSetUname)) {
-            intent.putExtra("username", webLoginDTO.preSetUname);
-        }
-        int i = webLoginDTO.businessType;
-        if (i != 0) {
-            intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, i);
-        }
-        if (context instanceof Activity) {
-            context.startActivity(intent);
-            return;
-        }
-        intent.setFlags(268435456);
-        this.E.startActivity(intent);
-    }
-
-    public void verifyUserFaceId(Context context, VerifyUserFaceIDCallback verifyUserFaceIDCallback, FaceIDVerifyDTO faceIDVerifyDTO) {
-        SapiAccount currentAccount;
-        if (SapiContext.getInstance().getSapiOptions().q().contains(SapiAccountManager.getInstance().getConfignation().tpl) && (currentAccount = SapiContext.getInstance().getCurrentAccount()) != null) {
-            faceIDVerifyDTO.bduss = currentAccount.bduss;
-            faceIDVerifyDTO.uid = currentAccount.uid;
-        }
-        if (TextUtils.isEmpty(faceIDVerifyDTO.livingUname)) {
-            RealNameFaceIDResult realNameFaceIDResult = new RealNameFaceIDResult();
-            ArrayList arrayList = new ArrayList();
-            arrayList.add("pp");
-            SapiAccountManager.getInstance().getAccountService().getTplStoken(new k(this, context, faceIDVerifyDTO, verifyUserFaceIDCallback, realNameFaceIDResult), faceIDVerifyDTO.bduss, arrayList);
-            return;
-        }
-        b(verifyUserFaceIDCallback, "outer", "", faceIDVerifyDTO.livingUname, faceIDVerifyDTO.showGuidePage, faceIDVerifyDTO.subpro, faceIDVerifyDTO.businessSence);
-    }
-
-    public void loadQrLogin(QrLoginCallback qrLoginCallback, String str, String str2, boolean z) {
-        JSONObject jSONObject;
-        ArrayList arrayList = new ArrayList(1);
-        this.v = new h(this, qrLoginCallback, arrayList);
-        if (SapiAccountManager.getInstance().isLogin()) {
-            a(str, z);
-            return;
-        }
-        WebLoginDTO webLoginDTO = new WebLoginDTO();
-        webLoginDTO.finishActivityAfterSuc = false;
-        try {
-            if (TextUtils.isEmpty(str2)) {
-                jSONObject = new JSONObject();
-            } else {
-                jSONObject = new JSONObject(URLDecoder.decode(str2));
-            }
-            jSONObject.put("scenario", "1");
-            webLoginDTO.statExtra = URLEncoder.encode(jSONObject.toString());
-        } catch (JSONException e) {
-        }
-        startLogin(new i(this, arrayList, str, z), webLoginDTO);
+        CoreViewRouter.getInstance().loadQrLogin(qrLoginCallback, str, str2);
     }
 
     public void loadThirdPartyLogin(WebAuthListener webAuthListener, WebSocialLoginDTO webSocialLoginDTO) {
-        this.d = webAuthListener;
-        this.h = webSocialLoginDTO;
-        this.c = getThirdPartyService();
-        AbstractThirdPartyService abstractThirdPartyService = this.c;
-        if (abstractThirdPartyService != null) {
-            Context context = webSocialLoginDTO.context;
-            if (context == null) {
-                context = this.E;
-            }
-            abstractThirdPartyService.loadThirdPartyLogin(context, webSocialLoginDTO.socialType, 2002);
-            webSocialLoginDTO.context = null;
-        }
+        CoreViewRouter.getInstance().loadThirdPartyLogin(webAuthListener, webSocialLoginDTO);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str, boolean z) {
-        Intent intent = new Intent(this.E, QrLoginActivity.class);
-        intent.putExtra(QrLoginActivity.EXTRA_STRING_QR_LOGIN_URL, str);
-        intent.putExtra(QrLoginActivity.EXTRA_BOOLEAN_FINISH_PAGE, z);
-        intent.setFlags(268435456);
-        this.E.startActivity(intent);
+    public void onActivityResult(int i, int i2, Intent intent, String str) {
+        CoreViewRouter.getInstance().onActivityResult(i, i2, intent, str);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(Context context, String str, Map<String, String> map, String str2, String str3, String str4, String str5, VerifyUserFaceIDCallback verifyUserFaceIDCallback, RealNameFaceIDResult realNameFaceIDResult) {
-        BiometricsManager.getInstance().recogWithBduss(context, BiometricsManager.buildSubPro(str, str5), map, str2, str3, str4, new l(this, realNameFaceIDResult, verifyUserFaceIDCallback));
+    public void startLogin(Context context, WebAuthListener webAuthListener, WebLoginDTO webLoginDTO) {
+        CoreViewRouter.getInstance().startLogin(context, webAuthListener, webLoginDTO);
     }
 
-    private void a(FaceIDCallback faceIDCallback, String str, String str2, String str3, boolean z, String str4, String str5) {
-        if (!TextUtils.isEmpty(str5)) {
-            BiometricsManager biometricsManager = BiometricsManager.getInstance();
-            String buildSubPro = BiometricsManager.buildSubPro(str4, str5);
-            HashMap hashMap = new HashMap();
-            m mVar = new m(this, new UnRealNameFaceIDResult(), str, faceIDCallback);
-            if (str.equals("faceDetect")) {
-                biometricsManager.recogWithFaceDetect(this.E, buildSubPro, hashMap, "0", str3, str2, mVar);
-                return;
-            } else if (str.equals("outer")) {
-                biometricsManager.recogWithFaceOuter(this.E, buildSubPro, hashMap, "0", str3, mVar);
-                return;
-            } else {
-                return;
-            }
-        }
-        throw new IllegalArgumentException("scene can't be empty");
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback, JSONObject jSONObject, int i, ExtendSysWebViewMethodResult extendSysWebViewMethodResult) {
-        BiometricsManager biometricsManager = BiometricsManager.getInstance();
-        o oVar = new o(this, extendSysWebViewMethodResult, extendSysWebViewMethodCallback);
-        int optInt = jSONObject.optInt("imageFlag", 0);
-        String optString = TextUtils.isEmpty(jSONObject.optString("subpro")) ? "pp" : jSONObject.optString("subpro");
-        HashMap hashMap = new HashMap();
-        JSONObject optJSONObject = jSONObject.optJSONObject("transParams");
-        if (optJSONObject != null) {
-            Iterator<String> keys = optJSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                String optString2 = optJSONObject.optString(next);
-                if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(optString2)) {
-                    hashMap.put(next, optString2);
-                }
-            }
-        }
-        if (i == 1) {
-            biometricsManager.getClass();
-            a(extendSysWebViewMethodCallback, new BiometricsManager.a(), extendSysWebViewMethodResult, oVar, optString, hashMap, optInt + "");
-        }
-        if (i == 2) {
-            biometricsManager.recogWithCertInfo(this.E, optString, hashMap, optInt + "", jSONObject.optString("realname"), jSONObject.optString("idcardnum"), jSONObject.optString("bankmobile"), oVar);
-        }
-        if (i == 3) {
-            biometricsManager.recogWithAuthToken(this.E, optString, hashMap, optInt + "", jSONObject.optString("authtoken"), oVar);
-        }
-        if (i == 4) {
-            if (jSONObject.optInt("type") == 1) {
-                biometricsManager.recogWithFaceDetect(this.E, optString, hashMap, optInt + "", jSONObject.optString("uid"), "", oVar);
-            } else {
-                biometricsManager.recogWithFaceOuter(this.E, optString, hashMap, optInt + "", jSONObject.optString("uid"), oVar);
-            }
-        }
-    }
-
-    private void a(ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback, BiometricsManager.a aVar, ExtendSysWebViewMethodResult extendSysWebViewMethodResult, PassFaceRecogCallback passFaceRecogCallback, String str, Map<String, String> map, String str2) {
-        SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
-        if (currentAccount == null) {
-            extendSysWebViewMethodResult.params.put(BaiduRimConstants.RETCODE_KEY, "-302");
-            extendSysWebViewMethodResult.params.put("retMsg", "please login first");
-            extendSysWebViewMethodCallback.onFinish(extendSysWebViewMethodResult);
-            return;
-        }
-        aVar.o = currentAccount.bduss;
-        ArrayList arrayList = new ArrayList();
-        arrayList.add("pp");
-        SapiAccountManager.getInstance().getAccountService().getTplStoken(new d(this, str, map, str2, currentAccount, passFaceRecogCallback, extendSysWebViewMethodResult, extendSysWebViewMethodCallback), aVar.o, arrayList);
-    }
-
-    private void a() {
-        try {
-            Class.forName("com.baidu.sapi2.ThirdPartyService").getConstructor(new Class[0]).newInstance(new Object[0]);
-        } catch (Exception e) {
-            Log.e(e);
-        }
+    public void loadQrLogin(QrLoginCallback qrLoginCallback, String str, String str2, boolean z) {
+        CoreViewRouter.getInstance().loadQrLogin(qrLoginCallback, str, str2, z);
     }
 }

@@ -5,9 +5,9 @@ import kotlin.h;
 import kotlin.jvm.a.m;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public final class e implements d {
-    public static final e nYj = new e();
+    public static final e osh = new e();
 
     private e() {
     }

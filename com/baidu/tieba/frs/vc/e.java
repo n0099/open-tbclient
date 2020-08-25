@@ -9,47 +9,47 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.card.o;
+import com.baidu.card.p;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.FrsFragment;
 /* loaded from: classes16.dex */
-public class e implements o {
-    private FrsFragment ifF;
-    private TextView ifG;
-    private NoPressedRelativeLayout ife;
+public class e implements p {
+    private FrsFragment itJ;
+    private TextView itK;
+    private NoPressedRelativeLayout iti;
     private final Runnable mHideRunnable;
-    private int hHG = -1;
-    private int frk = -1;
-    private int ifJ = -1;
-    private final Handler ifE = new Handler(new Handler.Callback() { // from class: com.baidu.tieba.frs.vc.e.1
+    private int hUW = -1;
+    private int fCF = -1;
+    private int itN = -1;
+    private final Handler itI = new Handler(new Handler.Callback() { // from class: com.baidu.tieba.frs.vc.e.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             if (message.what == 111) {
-                e.this.ciF();
+                e.this.ctj();
                 return true;
             }
             return false;
         }
     });
-    private final Animation ifH = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_in);
-    private final Animation ifI = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_out);
+    private final Animation itL = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_in);
+    private final Animation itM = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_out);
 
     public e(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout) {
-        this.ife = noPressedRelativeLayout;
-        this.ifF = frsFragment;
-        this.ifI.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.vc.e.2
+        this.iti = noPressedRelativeLayout;
+        this.itJ = frsFragment;
+        this.itM.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.vc.e.2
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                if (e.this.ifG.getParent() != null) {
-                    ((ViewGroup) e.this.ifG.getParent()).removeView(e.this.ifG);
+                if (e.this.itK.getParent() != null) {
+                    ((ViewGroup) e.this.itK.getParent()).removeView(e.this.itK);
                 }
             }
 
@@ -60,83 +60,83 @@ public class e implements o {
         this.mHideRunnable = new Runnable() { // from class: com.baidu.tieba.frs.vc.e.3
             @Override // java.lang.Runnable
             public void run() {
-                e.this.ciG();
+                e.this.ctk();
             }
         };
         initView();
     }
 
     private void initView() {
-        this.ifG = new TextView(TbadkCoreApplication.getInst());
-        this.ifG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.vc.e.4
+        this.itK = new TextView(TbadkCoreApplication.getInst());
+        this.itK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.vc.e.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                e.this.ciG();
-                if (e.this.ifF != null && !e.this.ifF.cca() && e.this.ifF.cbw() != null) {
-                    e.this.ifF.cbw().startPullRefresh();
+                e.this.ctk();
+                if (e.this.itJ != null && !e.this.itJ.cmx() && e.this.itJ.clS() != null) {
+                    e.this.itJ.clS().startPullRefresh();
                 }
             }
         });
-        this.ifG.setGravity(17);
-        this.ifG.setText(R.string.frs_game_refresh_tip_text);
-        int dimensionPixelSize = this.ifF.getResources().getDimensionPixelSize(R.dimen.ds20);
-        int dimensionPixelSize2 = this.ifF.getResources().getDimensionPixelSize(R.dimen.ds40);
-        this.ifG.setPadding(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize);
-        this.ifG.setTextSize(0, this.ifF.getResources().getDimensionPixelSize(R.dimen.fontsize28));
-        ao.setBackgroundResource(this.ifG, R.drawable.bg_home_float);
-        ao.setViewTextColor(this.ifG, R.color.cp_link_tip_a);
+        this.itK.setGravity(17);
+        this.itK.setText(R.string.frs_game_refresh_tip_text);
+        int dimensionPixelSize = this.itJ.getResources().getDimensionPixelSize(R.dimen.ds20);
+        int dimensionPixelSize2 = this.itJ.getResources().getDimensionPixelSize(R.dimen.ds40);
+        this.itK.setPadding(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize);
+        this.itK.setTextSize(0, this.itJ.getResources().getDimensionPixelSize(R.dimen.fontsize28));
+        ap.setBackgroundResource(this.itK, R.drawable.bg_home_float);
+        ap.setViewTextColor(this.itK, R.color.cp_link_tip_a);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(14);
-        layoutParams.topMargin = this.ifF.bAm().getBottom() + com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds8);
-        this.ifG.setLayoutParams(layoutParams);
+        layoutParams.topMargin = this.itJ.bJH().getBottom() + com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds8);
+        this.itK.setLayoutParams(layoutParams);
     }
 
     public void a(RecyclerView recyclerView, int i, int i2) {
-        this.hHG = i;
-        this.frk = i2;
-        if (this.ifJ < 0) {
-            this.ifJ = this.hHG;
+        this.hUW = i;
+        this.fCF = i2;
+        if (this.itN < 0) {
+            this.itN = this.hUW;
         }
     }
 
     public void onScrollStateChanged(RecyclerView recyclerView, int i) {
         if (i == 0) {
-            if (this.hHG > 0 && this.frk > 0 && this.ifJ >= 0 && this.hHG + this.frk + 1 < this.ifJ) {
-                this.ifE.sendEmptyMessage(111);
+            if (this.hUW > 0 && this.fCF > 0 && this.itN >= 0 && this.hUW + this.fCF + 1 < this.itN) {
+                this.itI.sendEmptyMessage(111);
             }
-            this.ifJ = this.hHG;
+            this.itN = this.hUW;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ciF() {
-        if (this.ifG.getParent() == null) {
-            this.ife.addView(this.ifG);
-            this.ifG.clearAnimation();
-            this.ifG.startAnimation(this.ifH);
-            this.ifE.removeCallbacks(this.mHideRunnable);
-            this.ifE.postDelayed(this.mHideRunnable, 4000L);
+    public void ctj() {
+        if (this.itK.getParent() == null) {
+            this.iti.addView(this.itK);
+            this.itK.clearAnimation();
+            this.itK.startAnimation(this.itL);
+            this.itI.removeCallbacks(this.mHideRunnable);
+            this.itI.postDelayed(this.mHideRunnable, 4000L);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ciG() {
-        if (this.ifG.getParent() != null) {
-            this.hHG = -1;
-            this.ifJ = -1;
-            this.ifE.removeCallbacks(this.mHideRunnable);
-            this.ifG.clearAnimation();
-            this.ifG.startAnimation(this.ifI);
+    public void ctk() {
+        if (this.itK.getParent() != null) {
+            this.hUW = -1;
+            this.itN = -1;
+            this.itI.removeCallbacks(this.mHideRunnable);
+            this.itK.clearAnimation();
+            this.itK.startAnimation(this.itM);
         }
     }
 
     public void onDestory() {
-        this.ifE.removeCallbacksAndMessages(null);
+        this.itI.removeCallbacksAndMessages(null);
     }
 
-    @Override // com.baidu.card.o
+    @Override // com.baidu.card.p
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        ao.setBackgroundResource(this.ifG, R.drawable.bg_home_float);
-        ao.setViewTextColor(this.ifG, R.color.cp_link_tip_a);
+        ap.setBackgroundResource(this.itK, R.drawable.bg_home_float);
+        ap.setViewTextColor(this.itK, R.color.cp_link_tip_a);
     }
 }

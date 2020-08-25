@@ -1,13 +1,12 @@
 package com.baidu.swan.apps.favordata;
 
 import android.net.Uri;
-import android.support.annotation.Keep;
 import android.text.TextUtils;
+import com.baidu.searchbox.NoProGuard;
 import com.baidu.swan.apps.u.c.c;
 import java.io.Serializable;
-@Keep
-/* loaded from: classes7.dex */
-public class SwanFavorItemData implements Serializable {
+/* loaded from: classes8.dex */
+public class SwanFavorItemData implements NoProGuard, Serializable {
     private static final String SCHEME_AUTHORITY_SWAN_APP = "swan";
     private static final String SCHEME_AUTHORITY_SWAN_GAME = "swangame";
     private int mIndex;
@@ -34,7 +33,7 @@ public class SwanFavorItemData implements Serializable {
     }
 
     public String getSchema(String str) {
-        return TextUtils.isEmpty(str) ? "" : c.c(getAppKey(), str, getAppFrameType());
+        return TextUtils.isEmpty(str) ? "" : c.e(getAppKey(), str, getAppFrameType());
     }
 
     public String getAppKey() {

@@ -2,7 +2,7 @@ package kotlin.collections;
 
 import kotlin.jvm.internal.Lambda;
 @kotlin.h
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 final class AbstractCollection$toString$1 extends Lambda implements kotlin.jvm.a.b<E, CharSequence> {
     final /* synthetic */ a this$0;
 

@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.messageCenter.d;
 import com.baidu.tieba.R;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaLivePushRemindDialog {
     private TbPageContext mPageContext;
     private c msgRemindListener = new c(CmdConfigSocket.CMD_UPDATE_MASK_INFO) { // from class: com.baidu.ala.view.AlaLivePushRemindDialog.1
@@ -22,13 +22,13 @@ public class AlaLivePushRemindDialog {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if ((socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) && (socketResponsedMessage.getOrginalMessage() instanceof RequestUpdateMaskInfoMessage) && ((ResponseUpdateMaskInfoMessage) socketResponsedMessage).getError() == 0) {
-                d.bfO().nu(300);
-                d.bfO().is(true);
-                d.bfO().it(true);
-                d.bfO().ir(true);
-                d.bfO().ij(true);
-                d.bfO().ik(true);
-                d.bfO().ii(true);
+                d.boy().pE(300);
+                d.boy().iQ(true);
+                d.boy().iR(true);
+                d.boy().iP(true);
+                d.boy().iH(true);
+                d.boy().iI(true);
+                d.boy().iG(true);
                 AlaLivePushRemindDialog.this.jumpSystemPermissionSetting();
             }
         }
@@ -42,7 +42,7 @@ public class AlaLivePushRemindDialog {
     public void showDialog(final boolean z) {
         a aVar = new a(this.mPageContext.getPageActivity());
         aVar.setAutoNight(false);
-        aVar.lm(R.string.ala_live_push_remind);
+        aVar.ns(R.string.ala_live_push_remind);
         aVar.a(R.string.ala_live_push_remind_open, new a.b() { // from class: com.baidu.ala.view.AlaLivePushRemindDialog.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(a aVar2) {
@@ -64,7 +64,7 @@ public class AlaLivePushRemindDialog {
                 }
             }
         });
-        aVar.b(this.mPageContext).aYL();
+        aVar.b(this.mPageContext).bhg();
         TiebaStatic.log("c12669");
     }
 

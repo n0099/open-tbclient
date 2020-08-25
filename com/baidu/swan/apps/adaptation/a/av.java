@@ -1,21 +1,12 @@
 package com.baidu.swan.apps.adaptation.a;
 
-import android.content.Context;
-/* loaded from: classes7.dex */
+import com.baidu.searchbox.v8engine.JsObject;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
 public interface av {
-    com.baidu.swan.apps.adaptation.b.c bi(Context context);
+    com.baidu.swan.apps.c.b a(JSONObject jSONObject, com.baidu.swan.apps.c.d dVar, com.baidu.swan.apps.c.c cVar);
 
-    com.baidu.swan.apps.adaptation.b.a bj(Context context);
+    com.baidu.swan.games.a.c a(com.baidu.swan.games.f.b bVar, JsObject jsObject);
 
-    com.baidu.swan.apps.adaptation.b.a bk(Context context);
-
-    com.baidu.swan.apps.adaptation.b.f bl(Context context);
-
-    com.baidu.swan.apps.adaptation.b.f bm(Context context);
-
-    com.baidu.swan.apps.adaptation.b.f bn(Context context);
-
-    com.baidu.swan.apps.adaptation.b.g bo(Context context);
-
-    com.baidu.swan.apps.core.g.a h(Context context, int i);
+    com.baidu.swan.games.a.b b(com.baidu.swan.games.f.b bVar, JsObject jsObject);
 }

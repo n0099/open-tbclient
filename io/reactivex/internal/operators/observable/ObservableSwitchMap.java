@@ -74,7 +74,7 @@ public final class ObservableSwitchMap<T, R> extends a<T, R> {
                 } while (!this.active.compareAndSet(switchMapInnerObserver, switchMapInnerObserver3));
                 tVar.subscribe(switchMapInnerObserver3);
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.K(th);
+                io.reactivex.exceptions.a.J(th);
                 this.s.dispose();
                 onError(th);
             }

@@ -5,11 +5,11 @@ import java.io.ObjectStreamClass;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public abstract class j {
     public abstract <T> T newInstance(Class<T> cls) throws Exception;
 
-    public static j dLl() {
+    public static j dXm() {
         try {
             Class<?> cls = Class.forName("sun.misc.Unsafe");
             Field declaredField = cls.getDeclaredField("theUnsafe");

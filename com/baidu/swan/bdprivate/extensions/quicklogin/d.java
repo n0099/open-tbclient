@@ -1,8 +1,8 @@
 package com.baidu.swan.bdprivate.extensions.quicklogin;
 
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
-import com.baidu.swan.apps.aq.u;
-/* loaded from: classes11.dex */
+import com.baidu.swan.apps.ap.u;
+/* loaded from: classes3.dex */
 public class d extends ActivityDelegation {
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     protected boolean onExec() {

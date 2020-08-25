@@ -1,7 +1,7 @@
 package android.net.http;
 
 import org.apache.http.HttpHost;
-/* loaded from: classes20.dex */
+/* loaded from: classes9.dex */
 interface RequestFeeder {
     Request getRequest();
 

@@ -10,14 +10,14 @@ import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileInputStream;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes18.dex */
 public abstract class PlayerProxy implements IPlayer {
     protected OnVideoEndedListener mOnVideoEndedListener;
     protected OnVideoErrorListener mOnVideoErrorListener;
     protected OnVideoStartedListener mOnVideoStartedListener;
     protected PlayerState mPlayerState = PlayerState.NOT_PREPARED;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     public enum PlayerState {
         NOT_PREPARED,
         PREPARING,

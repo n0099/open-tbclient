@@ -1,33 +1,45 @@
 package com.baidu.swan.apps.adaptation.implementation;
 
-import android.content.Context;
-import android.support.annotation.NonNull;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.adaptation.a.ap;
+import com.baidu.webkit.internal.GlobalConstants;
 import java.io.File;
-import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class w implements ap {
-    private w() {
-    }
-
-    public static w Ud() {
-        return a.bNo;
+    @Override // com.baidu.swan.apps.adaptation.a.ap
+    public void ZX() {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ap
-    public com.baidu.swan.d.b e(Context context, String str, boolean z) {
-        return new com.baidu.swan.d.i(str);
+    public void ZY() {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ap
-    public void a(@NonNull String str, Set<String> set, boolean z) {
-        com.baidu.swan.apps.env.d.a(new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/"), str, ".xml", set, z);
+    public long ZZ() {
+        return -1L;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
-    public static class a {
-        private static final w bNo = new w();
+    @Override // com.baidu.swan.apps.adaptation.a.ap
+    public void aK(long j) {
+    }
+
+    @Override // com.baidu.swan.apps.adaptation.a.ap
+    public String aL(long j) {
+        if (!com.baidu.swan.apps.t.a.apx().aaE()) {
+            if (com.baidu.swan.apps.core.k.a.ajv()) {
+                return com.baidu.swan.apps.core.k.a.cmi + File.separator + GlobalConstants.LIB_ZEUS;
+            }
+            return com.baidu.swan.apps.core.k.a.cmk + File.separator + GlobalConstants.LIB_ZEUS;
+        }
+        return null;
+    }
+
+    @Override // com.baidu.swan.apps.adaptation.a.ap
+    public boolean aaa() {
+        return false;
+    }
+
+    @Override // com.baidu.swan.apps.adaptation.a.ap
+    public String[] aab() {
+        return null;
     }
 }

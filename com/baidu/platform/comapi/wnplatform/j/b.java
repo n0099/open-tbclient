@@ -1,5 +1,9 @@
 package com.baidu.platform.comapi.wnplatform.j;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public interface b {
-    void a(com.baidu.platform.comapi.wnplatform.model.datastruct.a aVar);
+    void a();
+
+    void a(int i);
+
+    void b();
 }

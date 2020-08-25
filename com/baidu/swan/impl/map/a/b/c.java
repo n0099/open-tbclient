@@ -20,30 +20,30 @@ public class c {
         if (bVar == null) {
             return null;
         }
-        com.baidu.swan.apps.w.a.a.d dVar = bVar.dqW;
-        if (dVar == null || dVar.cqj == null || dVar.cpG == null) {
+        com.baidu.swan.apps.w.a.a.d dVar = bVar.dAY;
+        if (dVar == null || dVar.cxZ == null || dVar.cxw == null) {
             com.baidu.swan.apps.console.c.e("map", "marker data error");
             return null;
         }
         Paint paint = new Paint();
         paint.setAntiAlias(true);
         paint.setStyle(Paint.Style.FILL_AND_STROKE);
-        paint.setColor(dVar.cqj.color);
-        paint.setTextSize(dVar.cqj.aop);
-        float f = dVar.cqj.cqn;
-        float f2 = dVar.cqj.aoj;
+        paint.setColor(dVar.cxZ.color);
+        paint.setTextSize(dVar.cxZ.atn);
+        float f = dVar.cxZ.cyd;
+        float f2 = dVar.cxZ.ath;
         Paint paint2 = new Paint();
         paint2.setAntiAlias(true);
         paint2.setStyle(Paint.Style.FILL_AND_STROKE);
-        paint2.setColor(dVar.cqj.bgColor);
-        String str = dVar.cqj.content;
+        paint2.setColor(dVar.cxZ.bgColor);
+        String str = dVar.cxZ.content;
         float measureText = paint.measureText(str) + (2.0f * f);
         float f3 = (paint.getFontMetrics().bottom - paint.getFontMetrics().top) + (2.0f * f);
         if (f3 <= 0.0f || measureText <= 0.0f) {
             com.baidu.swan.apps.console.c.e("map", "label heigth or width is 0");
             return null;
         }
-        float f4 = dVar.cqj.cqm;
+        float f4 = dVar.cxZ.cyc;
         Bitmap createBitmap = Bitmap.createBitmap((int) (measureText + f4 + 0.5d), (int) (f3 + f4 + 0.5d), Bitmap.Config.ARGB_8888);
         createBitmap.eraseColor(Color.argb(0, 0, 0, 0));
         Canvas canvas = new Canvas(createBitmap);
@@ -56,16 +56,16 @@ public class c {
         canvas.drawRoundRect(rectF, f2, f2, paint2);
         if (f4 > 0.0f) {
             paint2.setStyle(Paint.Style.STROKE);
-            paint2.setColor(dVar.cqj.borderColor);
+            paint2.setColor(dVar.cxZ.borderColor);
             paint2.setStrokeWidth(f4);
             canvas.drawRoundRect(rectF, f2, f2, paint2);
         }
         canvas.drawText(str, (f4 / 2.0f) + f, f + (-paint.getFontMetrics().top) + (f4 / 2.0f), paint);
         ImageView imageView = new ImageView(AppRuntime.getAppContext());
         imageView.setLayoutParams(new ViewGroup.LayoutParams(createBitmap.getWidth(), createBitmap.getHeight()));
-        imageView.setPadding((int) dVar.cqj.x, (int) dVar.cqj.y, 0, 0);
+        imageView.setPadding((int) dVar.cxZ.x, (int) dVar.cxZ.y, 0, 0);
         imageView.setImageBitmap(createBitmap);
-        MarkerOptions zIndex = new MarkerOptions().position(new LatLng(dVar.cpG.latitude, dVar.cpG.longitude)).icon(BitmapDescriptorFactory.fromView(imageView)).anchor(0.0f, 0.0f).zIndex(66);
+        MarkerOptions zIndex = new MarkerOptions().position(new LatLng(dVar.cxw.latitude, dVar.cxw.longitude)).icon(BitmapDescriptorFactory.fromView(imageView)).anchor(0.0f, 0.0f).zIndex(66);
         com.baidu.swan.apps.console.c.i("map", "createLabel end");
         return zIndex;
     }

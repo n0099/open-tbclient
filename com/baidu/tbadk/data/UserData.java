@@ -7,8 +7,8 @@ import com.baidu.adp.widget.ListView.q;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
-import com.baidu.tbadk.core.data.cb;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.data.cc;
+import com.baidu.tbadk.core.util.at;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +28,7 @@ import tbclient.UserPics;
 import tbclient.UserVipInfo;
 import tbclient.VipCloseAd;
 import tbclient.VipShowInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class UserData extends MetaData {
     private static final int USER_PICS_MAX_COUNT = 9;
     private static final long serialVersionUID = -1871115639893992930L;
@@ -62,7 +62,7 @@ public class UserData extends MetaData {
     private String lng;
     private long loginTime;
     private ActivitySponsorData mActivitySponsorData;
-    private cb mBirthdayInfo;
+    private cc mBirthdayInfo;
     private List<MyGift> mGift;
     private int mGiftNum;
     private List<MyGroup> mGroup;
@@ -112,7 +112,7 @@ public class UserData extends MetaData {
         return this.mGift;
     }
 
-    public cb getBirthdayInfo() {
+    public cc getBirthdayInfo() {
         return this.mBirthdayInfo;
     }
 
@@ -274,17 +274,17 @@ public class UserData extends MetaData {
             }
             this.mPhotoAlbum.clear();
             m mVar = new m();
-            mVar.zp(getPortraitH());
-            mVar.zq(getPortrait());
-            mVar.iC(true);
+            mVar.BF(getPortraitH());
+            mVar.BG(getPortrait());
+            mVar.ja(true);
             this.mPhotoAlbum.add(mVar);
             if (user.user_pics != null && user.user_pics.size() > 0) {
                 for (UserPics userPics : user.user_pics) {
                     if (userPics != null) {
                         m mVar2 = new m();
-                        mVar2.zp(userPics.big);
-                        mVar2.zq(userPics.small);
-                        mVar2.iC(false);
+                        mVar2.BF(userPics.big);
+                        mVar2.BG(userPics.small);
+                        mVar2.ja(false);
                         this.mPhotoAlbum.add(mVar2);
                     }
                 }
@@ -388,7 +388,7 @@ public class UserData extends MetaData {
                 this.alaUserData = new AlaUserInfoData();
                 this.alaUserData.a(user.ala_info);
                 if (StringUtils.isNull(this.alaUserData.sex)) {
-                    this.alaUserData.sex = as.getUserDescByGender(this.sex);
+                    this.alaUserData.sex = at.getUserDescByGender(this.sex);
                 }
             }
             this.isGodInvited = user.is_invited.intValue() == 1;
@@ -396,7 +396,7 @@ public class UserData extends MetaData {
             this.isShowRedPacket = user.is_show_redpacket.intValue() == 1;
             BirthdayInfo birthdayInfo = user.birthday_info;
             if (birthdayInfo != null) {
-                this.mBirthdayInfo = new cb();
+                this.mBirthdayInfo = new cc();
                 this.mBirthdayInfo.a(birthdayInfo);
             }
             this.bawuThrones = user.bawu_thrones;
@@ -486,9 +486,9 @@ public class UserData extends MetaData {
                 }
                 this.mPhotoAlbum.clear();
                 m mVar = new m();
-                mVar.zp(getPortraitH());
-                mVar.zq(getPortrait());
-                mVar.iC(true);
+                mVar.BF(getPortraitH());
+                mVar.BG(getPortrait());
+                mVar.ja(true);
                 this.mPhotoAlbum.add(mVar);
                 JSONArray optJSONArray = jSONObject.optJSONArray("user_pics");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -497,9 +497,9 @@ public class UserData extends MetaData {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
                             m mVar2 = new m();
-                            mVar2.zp(jSONObject2.optString("big"));
-                            mVar2.zq(jSONObject2.optString("small"));
-                            mVar2.iC(false);
+                            mVar2.BF(jSONObject2.optString("big"));
+                            mVar2.BG(jSONObject2.optString("small"));
+                            mVar2.ja(false);
                             this.mPhotoAlbum.add(mVar2);
                         }
                     }
@@ -548,11 +548,11 @@ public class UserData extends MetaData {
                     this.liveId = optJSONObject9.optString("live_id");
                     this.alaUserData = (AlaUserInfoData) OrmObject.objectWithJson(jSONObject.optJSONObject("ala_info"), AlaUserInfoData.class);
                     if (StringUtils.isNull(this.alaUserData.sex)) {
-                        this.alaUserData.sex = as.getUserDescByGender(this.sex);
+                        this.alaUserData.sex = at.getUserDescByGender(this.sex);
                     }
                     JSONObject optJSONObject10 = jSONObject.optJSONObject("birthday_info");
                     if (optJSONObject10 != null) {
-                        this.mBirthdayInfo = new cb();
+                        this.mBirthdayInfo = new cc();
                         this.mBirthdayInfo.parseJson(optJSONObject10);
                     }
                 }
@@ -760,7 +760,7 @@ public class UserData extends MetaData {
         return this.liveId;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class Permission extends OrmObject implements Serializable {
         private static final int TRUE = 1;
         private static final long serialVersionUID = -661968182172681650L;

@@ -2,7 +2,7 @@ package com.baidu.webkit.internal.blink;
 
 import android.os.HandlerThread;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public final class b implements Runnable {
     final /* synthetic */ HandlerThread a;
     final /* synthetic */ a b;

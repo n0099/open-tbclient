@@ -10,48 +10,48 @@ import com.baidu.tieba.ala.data.g;
 import com.baidu.tieba.ala.fragment.AlaChallengeHistoryListFragment;
 import com.baidu.tieba.ala.fragment.AlaRankListFragment;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaRankListPKStatusFragmentAdapter extends FragmentPagerAdapter {
-    private boolean fkj;
-    private ArrayList<g> flW;
-    private ArrayList<Fragment> flY;
-    private BaseFragmentActivity flZ;
+    private boolean fvF;
+    private ArrayList<g> fxs;
+    private ArrayList<Fragment> fxu;
+    private BaseFragmentActivity fxv;
     private String otherParams;
 
     public AlaRankListPKStatusFragmentAdapter(BaseFragmentActivity baseFragmentActivity, int i, long j, boolean z, String str) {
         super(baseFragmentActivity.getSupportFragmentManager());
         this.otherParams = "";
-        this.flZ = baseFragmentActivity;
-        this.fkj = z;
+        this.fxv = baseFragmentActivity;
+        this.fvF = z;
         b(i, j, str);
     }
 
     private void b(int i, long j, String str) {
-        this.flY = new ArrayList<>();
-        this.flW = new ArrayList<>();
-        this.flY.add(AlaRankListFragment.a("guard", i, TbadkCoreApplication.getCurrentAccountId(), TbadkCoreApplication.getCurrentAccountName(), this.fkj, str, this.otherParams, "", -1L, ""));
+        this.fxu = new ArrayList<>();
+        this.fxs = new ArrayList<>();
+        this.fxu.add(AlaRankListFragment.a("guard", i, TbadkCoreApplication.getCurrentAccountId(), TbadkCoreApplication.getCurrentAccountName(), this.fvF, str, this.otherParams, "", -1L, ""));
         g gVar = new g();
-        gVar.fJn = this.flZ.getString(a.i.ala_rank_list_name_defend);
-        gVar.fJo = "guard";
-        this.flW.add(gVar);
-        this.flY.add(AlaChallengeHistoryListFragment.i(i, str, this.fkj));
+        gVar.fUE = this.fxv.getString(a.i.ala_rank_list_name_defend);
+        gVar.fUF = "guard";
+        this.fxs.add(gVar);
+        this.fxu.add(AlaChallengeHistoryListFragment.h(i, str, this.fvF));
         g gVar2 = new g();
-        gVar2.fJn = this.flZ.getString(a.i.ala_rank_list_name_history);
-        gVar2.fJo = "challenge_history";
-        this.flW.add(gVar2);
+        gVar2.fUE = this.fxv.getString(a.i.ala_rank_list_name_history);
+        gVar2.fUF = "challenge_history";
+        this.fxs.add(gVar2);
     }
 
-    public int BH(String str) {
-        if (this.flY == null || StringUtils.isNull(str)) {
+    public int Eb(String str) {
+        if (this.fxu == null || StringUtils.isNull(str)) {
             return -1;
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.flW.size()) {
+            if (i2 >= this.fxs.size()) {
                 return -1;
             }
-            if (!str.equals(this.flW.get(i2).fJo)) {
+            if (!str.equals(this.fxs.get(i2).fUF)) {
                 i = i2 + 1;
             } else {
                 return i2;
@@ -61,23 +61,23 @@ public class AlaRankListPKStatusFragmentAdapter extends FragmentPagerAdapter {
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
-        if (this.flY == null) {
+        if (this.fxu == null) {
             return null;
         }
-        return this.flY.get(i);
+        return this.fxu.get(i);
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        if (this.flY != null) {
-            return this.flY.size();
+        if (this.fxu != null) {
+            return this.fxu.size();
         }
         return 0;
     }
 
-    public String qf(int i) {
-        if (this.flW != null && i >= 0 && i < this.flW.size()) {
-            return this.flW.get(i).fJn;
+    public String sr(int i) {
+        if (this.fxs != null && i >= 0 && i < this.fxs.size()) {
+            return this.fxs.get(i).fUE;
         }
         return null;
     }

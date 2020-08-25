@@ -5,35 +5,35 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 /* loaded from: classes7.dex */
 public abstract class b<T, R> implements d<R>, j<T> {
-    protected final org.a.c<? super R> actual;
+    protected final org.b.c<? super R> actual;
     protected boolean done;
     protected d<T> qs;
-    protected org.a.d s;
+    protected org.b.d s;
     protected int sourceMode;
 
-    public b(org.a.c<? super R> cVar) {
+    public b(org.b.c<? super R> cVar) {
         this.actual = cVar;
     }
 
-    @Override // io.reactivex.j, org.a.c
-    public final void onSubscribe(org.a.d dVar) {
+    @Override // io.reactivex.j, org.b.c
+    public final void onSubscribe(org.b.d dVar) {
         if (SubscriptionHelper.validate(this.s, dVar)) {
             this.s = dVar;
             if (dVar instanceof d) {
                 this.qs = (d) dVar;
             }
-            if (dSY()) {
+            if (efa()) {
                 this.actual.onSubscribe(this);
-                dSZ();
+                efb();
             }
         }
     }
 
-    protected boolean dSY() {
+    protected boolean efa() {
         return true;
     }
 
-    protected void dSZ() {
+    protected void efb() {
     }
 
     public void onError(Throwable th) {
@@ -46,8 +46,8 @@ public abstract class b<T, R> implements d<R>, j<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final void L(Throwable th) {
-        io.reactivex.exceptions.a.K(th);
+    public final void K(Throwable th) {
+        io.reactivex.exceptions.a.J(th);
         this.s.cancel();
         onError(th);
     }
@@ -60,7 +60,7 @@ public abstract class b<T, R> implements d<R>, j<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final int Lj(int i) {
+    public final int NM(int i) {
         d<T> dVar = this.qs;
         if (dVar == null || (i & 4) != 0) {
             return 0;
@@ -73,12 +73,12 @@ public abstract class b<T, R> implements d<R>, j<T> {
         return requestFusion;
     }
 
-    @Override // org.a.d
+    @Override // org.b.d
     public void request(long j) {
         this.s.request(j);
     }
 
-    @Override // org.a.d
+    @Override // org.b.d
     public void cancel() {
         this.s.cancel();
     }

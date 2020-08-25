@@ -1,17 +1,17 @@
 package io.reactivex.internal.subscriptions;
 
 import io.reactivex.internal.a.d;
-import org.a.c;
+import org.b.c;
 /* loaded from: classes7.dex */
 public enum EmptySubscription implements d<Object> {
     INSTANCE;
 
-    @Override // org.a.d
+    @Override // org.b.d
     public void request(long j) {
         SubscriptionHelper.validate(j);
     }
 
-    @Override // org.a.d
+    @Override // org.b.d
     public void cancel() {
     }
 

@@ -1,5 +1,5 @@
 package com.googlecode.mp4parser.boxes.mp4;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class ObjectDescriptorBox extends AbstractDescriptorBox {
     public static final String TYPE = "iods";
 

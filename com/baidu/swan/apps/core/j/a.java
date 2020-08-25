@@ -3,23 +3,23 @@ package com.baidu.swan.apps.core.j;
 import android.content.Context;
 import android.util.Log;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.aq.g;
+import com.baidu.swan.apps.ap.g;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 class a extends b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final String cfH = "swan_preset" + File.separator + "preset_list.json";
+    private static final String clY = "swan_preset" + File.separator + "preset_list.json";
 
     @Override // com.baidu.swan.apps.core.j.b
-    protected String acN() {
-        return g.loadAssetsFile(com.baidu.swan.apps.t.a.ahj(), cfH);
+    protected String ajm() {
+        return g.loadAssetsFile(com.baidu.swan.apps.t.a.aoJ(), clY);
     }
 
     @Override // com.baidu.swan.apps.core.j.b
-    protected String kj(String str) {
-        return g.loadAssetsFile(com.baidu.swan.apps.t.a.ahj(), "swan_preset" + File.separator + str + File.separator + "app_info.json");
+    protected String lN(String str) {
+        return g.loadAssetsFile(com.baidu.swan.apps.t.a.aoJ(), "swan_preset" + File.separator + str + File.separator + "app_info.json");
     }
 
     @Override // com.baidu.swan.apps.core.j.b
@@ -27,15 +27,15 @@ class a extends b {
         boolean z = false;
         if (cVar != null) {
             Context appContext = AppRuntime.getAppContext();
-            String str = "swan_preset" + File.separator + cVar.dvZ + File.separator + cVar.cfL;
+            String str = "swan_preset" + File.separator + cVar.dFj + File.separator + cVar.cmc;
             try {
-                File d = d(cVar.category, cVar.dvZ, cVar.versionCode);
-                if (d == null) {
+                File c = c(cVar.category, cVar.dFj, cVar.versionCode);
+                if (c == null) {
                     if (DEBUG) {
                         Log.e("AssetPresetController", "获取解压路径失败");
                     }
                 } else {
-                    z = a(new BufferedInputStream(appContext.getAssets().open(str)), d);
+                    z = a(new BufferedInputStream(appContext.getAssets().open(str)), c);
                 }
             } catch (IOException e) {
                 if (DEBUG) {

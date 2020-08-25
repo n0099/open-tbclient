@@ -14,13 +14,13 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends d {
     public a(@NonNull b bVar) {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b iu(String str) {
+    public com.baidu.swan.apps.api.c.b jR(String str) {
         if (DEBUG) {
             Log.d("Api-Subscription", "subscribe with json string:  " + str);
         }
@@ -48,11 +48,11 @@ public class a extends d {
         if (b == null) {
             return new Pair<>(null, 202);
         }
-        return new Pair<>(new Request.Builder().url(com.baidu.swan.apps.t.a.ahN().TM()).post(b).build(), 0);
+        return new Pair<>(new Request.Builder().url(com.baidu.swan.apps.t.a.app().ZO()).post(b).build(), 0);
     }
 
     private void a(@NonNull Request request, final String str) {
-        com.baidu.swan.b.b.a aVar = new com.baidu.swan.b.b.a(request.url().toString(), request.body(), new ResponseCallback() { // from class: com.baidu.swan.apps.api.module.j.a.2
+        com.baidu.swan.a.b.a aVar = new com.baidu.swan.a.b.a(request.url().toString(), request.body(), new ResponseCallback() { // from class: com.baidu.swan.apps.api.module.j.a.2
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             public Object parseResponse(Response response, int i) throws Exception {
                 a.this.a(str, a.this.b(response));
@@ -65,14 +65,14 @@ public class a extends d {
 
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             public void onFail(Exception exc) {
-                a.this.aR(str, exc == null ? "" : exc.getMessage());
+                a.this.aV(str, exc == null ? "" : exc.getMessage());
             }
         });
         aVar.tag = request.tag();
-        aVar.dvF = true;
-        aVar.dvG = true;
-        aVar.dvH = true;
-        com.baidu.swan.b.c.a.aKu().b(aVar);
+        aVar.dEO = true;
+        aVar.dEP = true;
+        aVar.dEQ = true;
+        com.baidu.swan.a.c.a.aSW().b(aVar);
     }
 
     private RequestBody b(@NonNull e eVar, @NonNull JSONObject jSONObject) {
@@ -110,7 +110,7 @@ public class a extends d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aR(@NonNull String str, String str2) {
+    public void aV(@NonNull String str, String str2) {
         a(str, new com.baidu.swan.apps.api.c.b(500106, str2));
     }
 }

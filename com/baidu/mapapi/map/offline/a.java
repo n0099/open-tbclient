@@ -1,10 +1,10 @@
 package com.baidu.mapapi.map.offline;
 
+import com.baidu.mapsdkplatform.comapi.map.n;
 import com.baidu.mapsdkplatform.comapi.map.r;
-import com.baidu.mapsdkplatform.comapi.map.v;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
-class a implements v {
+/* loaded from: classes20.dex */
+class a implements r {
     final /* synthetic */ MKOfflineMap a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,13 +12,13 @@ class a implements v {
         this.a = mKOfflineMap;
     }
 
-    @Override // com.baidu.mapsdkplatform.comapi.map.v
+    @Override // com.baidu.mapsdkplatform.comapi.map.r
     public void a(int i, int i2) {
         MKOfflineMapListener mKOfflineMapListener;
         MKOfflineMapListener mKOfflineMapListener2;
         MKOfflineMapListener mKOfflineMapListener3;
         MKOfflineMapListener mKOfflineMapListener4;
-        r rVar;
+        n nVar;
         switch (i) {
             case 4:
                 ArrayList<MKOLUpdateElement> allUpdateInfo = this.a.getAllUpdateInfo();
@@ -51,8 +51,8 @@ class a implements v {
                 mKOfflineMapListener.onGetOfflineMapState(2, i2);
                 return;
             case 12:
-                rVar = this.a.b;
-                rVar.a(true, false);
+                nVar = this.a.b;
+                nVar.a(true, false);
                 return;
         }
     }

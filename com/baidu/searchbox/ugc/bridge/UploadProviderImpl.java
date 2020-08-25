@@ -1,7 +1,6 @@
 package com.baidu.searchbox.ugc.bridge;
 
 import android.widget.Toast;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.pyramid.runtime.service.c;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.publisher.controller.listener.PublishRequestListener;
@@ -23,7 +22,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes8.dex */
 public class UploadProviderImpl implements IUploadInterface {
     public static String STS_FROM = "ugc";
     private static final String TAG = "UploadProviderImpl";
@@ -189,7 +188,7 @@ public class UploadProviderImpl implements IUploadInterface {
                     jSONObject2.put("url", imageData.url);
                     jSONObject2.put("width", imageData.width + "");
                     jSONObject2.put("height", imageData.height + "");
-                    jSONObject2.put(TiebaInitialize.LogFields.SIZE, imageData.size + "");
+                    jSONObject2.put("size", imageData.size + "");
                     jSONArray.put(jSONObject2);
                 }
                 jSONObject.put(TbConfig.IMAGE_CACHE_DIR_NAME, jSONArray);

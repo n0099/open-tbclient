@@ -1,15 +1,15 @@
 package com.baidu.tieba.q;
 /* loaded from: classes14.dex */
 public class b {
-    private static volatile a lDm;
+    private static volatile a lUQ;
 
-    public static synchronized a dhV() {
+    public static synchronized a dtq() {
         a aVar;
         synchronized (b.class) {
-            if (lDm == null) {
-                lDm = new a();
+            if (lUQ == null) {
+                lUQ = new a();
             }
-            aVar = lDm;
+            aVar = lUQ;
         }
         return aVar;
     }

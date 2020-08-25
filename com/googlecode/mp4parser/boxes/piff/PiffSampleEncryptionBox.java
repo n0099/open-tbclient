@@ -5,14 +5,14 @@ import com.googlecode.mp4parser.annotations.DoNotParseDetail;
 import com.googlecode.mp4parser.boxes.AbstractSampleEncryptionBox;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class PiffSampleEncryptionBox extends AbstractSampleEncryptionBox {
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_5 = null;
 
     static {
         ajc$preClinit();
@@ -20,12 +20,12 @@ public class PiffSampleEncryptionBox extends AbstractSampleEncryptionBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("PiffSampleEncryptionBox.java", PiffSampleEncryptionBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getAlgorithmId", "com.googlecode.mp4parser.boxes.piff.PiffSampleEncryptionBox", "", "", "", "int"), 46);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setAlgorithmId", "com.googlecode.mp4parser.boxes.piff.PiffSampleEncryptionBox", "int", "algorithmId", "", "void"), 50);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getIvSize", "com.googlecode.mp4parser.boxes.piff.PiffSampleEncryptionBox", "", "", "", "int"), 54);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setIvSize", "com.googlecode.mp4parser.boxes.piff.PiffSampleEncryptionBox", "int", "ivSize", "", "void"), 58);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getKid", "com.googlecode.mp4parser.boxes.piff.PiffSampleEncryptionBox", "", "", "", "[B"), 62);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "setKid", "com.googlecode.mp4parser.boxes.piff.PiffSampleEncryptionBox", "[B", "kid", "", "void"), 66);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "getAlgorithmId", "com.googlecode.mp4parser.boxes.piff.PiffSampleEncryptionBox", "", "", "", "int"), 46);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "setAlgorithmId", "com.googlecode.mp4parser.boxes.piff.PiffSampleEncryptionBox", "int", "algorithmId", "", "void"), 50);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.d("1", "getIvSize", "com.googlecode.mp4parser.boxes.piff.PiffSampleEncryptionBox", "", "", "", "int"), 54);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.d("1", "setIvSize", "com.googlecode.mp4parser.boxes.piff.PiffSampleEncryptionBox", "int", "ivSize", "", "void"), 58);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.d("1", "getKid", "com.googlecode.mp4parser.boxes.piff.PiffSampleEncryptionBox", "", "", "", "[B"), 62);
+        ajc$tjp_5 = bVar.a("method-execution", bVar.d("1", "setKid", "com.googlecode.mp4parser.boxes.piff.PiffSampleEncryptionBox", "[B", "kid", "", "void"), 66);
     }
 
     public PiffSampleEncryptionBox() {
@@ -43,7 +43,7 @@ public class PiffSampleEncryptionBox extends AbstractSampleEncryptionBox {
     }
 
     public void setAlgorithmId(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.LD(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.Og(i)));
         this.algorithmId = i;
     }
 
@@ -53,7 +53,7 @@ public class PiffSampleEncryptionBox extends AbstractSampleEncryptionBox {
     }
 
     public void setIvSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.LD(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.Og(i)));
         this.ivSize = i;
     }
 

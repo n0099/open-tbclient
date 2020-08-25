@@ -15,26 +15,26 @@ public final class FlowableCombineLatest<T, R> extends io.reactivex.g<R> {
     final int bufferSize;
     final h<? super Object[], ? extends R> combiner;
     final boolean delayErrors;
-    final org.a.b<? extends T>[] nSQ;
-    final Iterable<? extends org.a.b<? extends T>> nSR;
+    final org.b.b<? extends T>[] omL;
+    final Iterable<? extends org.b.b<? extends T>> omM;
 
     @Override // io.reactivex.g
-    public void a(org.a.c<? super R> cVar) {
+    public void a(org.b.c<? super R> cVar) {
         int length;
-        org.a.b<? extends T>[] bVarArr;
-        org.a.b<? extends T>[] bVarArr2;
-        org.a.b<? extends T>[] bVarArr3 = this.nSQ;
+        org.b.b<? extends T>[] bVarArr;
+        org.b.b<? extends T>[] bVarArr2;
+        org.b.b<? extends T>[] bVarArr3 = this.omL;
         if (bVarArr3 == null) {
-            org.a.b<? extends T>[] bVarArr4 = new org.a.b[8];
+            org.b.b<? extends T>[] bVarArr4 = new org.b.b[8];
             try {
-                Iterator it = (Iterator) io.reactivex.internal.functions.a.k(this.nSR.iterator(), "The iterator returned is null");
+                Iterator it = (Iterator) io.reactivex.internal.functions.a.k(this.omM.iterator(), "The iterator returned is null");
                 int i = 0;
                 while (it.hasNext()) {
                     try {
                         try {
-                            org.a.b<? extends T> bVar = (org.a.b) io.reactivex.internal.functions.a.k(it.next(), "The publisher returned by the iterator is null");
+                            org.b.b<? extends T> bVar = (org.b.b) io.reactivex.internal.functions.a.k(it.next(), "The publisher returned by the iterator is null");
                             if (i == bVarArr4.length) {
-                                bVarArr2 = new org.a.b[(i >> 2) + i];
+                                bVarArr2 = new org.b.b[(i >> 2) + i];
                                 System.arraycopy(bVarArr4, 0, bVarArr2, 0, i);
                             } else {
                                 bVarArr2 = bVarArr4;
@@ -43,12 +43,12 @@ public final class FlowableCombineLatest<T, R> extends io.reactivex.g<R> {
                             i++;
                             bVarArr4 = bVarArr2;
                         } catch (Throwable th) {
-                            io.reactivex.exceptions.a.K(th);
+                            io.reactivex.exceptions.a.J(th);
                             EmptySubscription.error(th, cVar);
                             return;
                         }
                     } catch (Throwable th2) {
-                        io.reactivex.exceptions.a.K(th2);
+                        io.reactivex.exceptions.a.J(th2);
                         EmptySubscription.error(th2, cVar);
                         return;
                     }
@@ -56,7 +56,7 @@ public final class FlowableCombineLatest<T, R> extends io.reactivex.g<R> {
                 bVarArr = bVarArr4;
                 length = i;
             } catch (Throwable th3) {
-                io.reactivex.exceptions.a.K(th3);
+                io.reactivex.exceptions.a.J(th3);
                 EmptySubscription.error(th3, cVar);
                 return;
             }
@@ -78,7 +78,7 @@ public final class FlowableCombineLatest<T, R> extends io.reactivex.g<R> {
     /* loaded from: classes7.dex */
     static final class CombineLatestCoordinator<T, R> extends BasicIntQueueSubscription<R> {
         private static final long serialVersionUID = -5082275438355852221L;
-        final org.a.c<? super R> actual;
+        final org.b.c<? super R> actual;
         volatile boolean cancelled;
         final h<? super Object[], ? extends R> combiner;
         int completedSources;
@@ -92,7 +92,7 @@ public final class FlowableCombineLatest<T, R> extends io.reactivex.g<R> {
         final AtomicLong requested;
         final CombineLatestInnerSubscriber<T>[] subscribers;
 
-        CombineLatestCoordinator(org.a.c<? super R> cVar, h<? super Object[], ? extends R> hVar, int i, int i2, boolean z) {
+        CombineLatestCoordinator(org.b.c<? super R> cVar, h<? super Object[], ? extends R> hVar, int i, int i2, boolean z) {
             this.actual = cVar;
             this.combiner = hVar;
             CombineLatestInnerSubscriber<T>[] combineLatestInnerSubscriberArr = new CombineLatestInnerSubscriber[i];
@@ -107,7 +107,7 @@ public final class FlowableCombineLatest<T, R> extends io.reactivex.g<R> {
             this.delayErrors = z;
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 io.reactivex.internal.util.b.a(this.requested, j);
@@ -115,13 +115,13 @@ public final class FlowableCombineLatest<T, R> extends io.reactivex.g<R> {
             }
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void cancel() {
             this.cancelled = true;
             cancelAll();
         }
 
-        void subscribe(org.a.b<? extends T>[] bVarArr, int i) {
+        void subscribe(org.b.b<? extends T>[] bVarArr, int i) {
             CombineLatestInnerSubscriber<T>[] combineLatestInnerSubscriberArr = this.subscribers;
             for (int i2 = 0; i2 < i && !this.done && !this.cancelled; i2++) {
                 bVarArr[i2].subscribe(combineLatestInnerSubscriberArr[i2]);
@@ -185,7 +185,7 @@ public final class FlowableCombineLatest<T, R> extends io.reactivex.g<R> {
         }
 
         void drainOutput() {
-            org.a.c<? super R> cVar = this.actual;
+            org.b.c<? super R> cVar = this.actual;
             io.reactivex.internal.queue.a<Object> aVar = this.queue;
             int i = 1;
             while (true) {
@@ -217,7 +217,7 @@ public final class FlowableCombineLatest<T, R> extends io.reactivex.g<R> {
         }
 
         void drainAsync() {
-            org.a.c<? super R> cVar = this.actual;
+            org.b.c<? super R> cVar = this.actual;
             io.reactivex.internal.queue.a<?> aVar = this.queue;
             int i = 1;
             while (true) {
@@ -236,7 +236,7 @@ public final class FlowableCombineLatest<T, R> extends io.reactivex.g<R> {
                             ((CombineLatestInnerSubscriber) poll).requestOne();
                             j2 = 1 + j2;
                         } catch (Throwable th) {
-                            io.reactivex.exceptions.a.K(th);
+                            io.reactivex.exceptions.a.J(th);
                             cancelAll();
                             ExceptionHelper.addThrowable(this.error, th);
                             cVar.onError(ExceptionHelper.terminate(this.error));
@@ -271,7 +271,7 @@ public final class FlowableCombineLatest<T, R> extends io.reactivex.g<R> {
             }
         }
 
-        boolean checkTerminated(boolean z, boolean z2, org.a.c<?> cVar, io.reactivex.internal.queue.a<?> aVar) {
+        boolean checkTerminated(boolean z, boolean z2, org.b.c<?> cVar, io.reactivex.internal.queue.a<?> aVar) {
             if (this.cancelled) {
                 cancelAll();
                 aVar.clear();
@@ -346,7 +346,7 @@ public final class FlowableCombineLatest<T, R> extends io.reactivex.g<R> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
-    public static final class CombineLatestInnerSubscriber<T> extends AtomicReference<org.a.d> implements j<T> {
+    public static final class CombineLatestInnerSubscriber<T> extends AtomicReference<org.b.d> implements j<T> {
         private static final long serialVersionUID = -8730235182291002949L;
         final int index;
         final int limit;
@@ -361,24 +361,24 @@ public final class FlowableCombineLatest<T, R> extends io.reactivex.g<R> {
             this.limit = i2 - (i2 >> 2);
         }
 
-        @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        @Override // io.reactivex.j, org.b.c
+        public void onSubscribe(org.b.d dVar) {
             if (SubscriptionHelper.setOnce(this, dVar)) {
                 dVar.request(this.prefetch);
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(T t) {
             this.parent.innerValue(this.index, t);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
             this.parent.innerError(this.index, th);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
             this.parent.innerComplete(this.index);
         }

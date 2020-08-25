@@ -3,14 +3,14 @@ package io.reactivex.internal.subscribers;
 import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
-import org.a.d;
+import org.b.d;
 /* loaded from: classes7.dex */
 public abstract class DeferredScalarSubscriber<T, R> extends DeferredScalarSubscription<R> implements j<T> {
     private static final long serialVersionUID = 2984505488220891551L;
     protected boolean hasValue;
     protected d s;
 
-    public DeferredScalarSubscriber(org.a.c<? super R> cVar) {
+    public DeferredScalarSubscriber(org.b.c<? super R> cVar) {
         super(cVar);
     }
 
@@ -35,7 +35,7 @@ public abstract class DeferredScalarSubscriber<T, R> extends DeferredScalarSubsc
         }
     }
 
-    @Override // io.reactivex.internal.subscriptions.DeferredScalarSubscription, org.a.d
+    @Override // io.reactivex.internal.subscriptions.DeferredScalarSubscription, org.b.d
     public void cancel() {
         super.cancel();
         this.s.cancel();

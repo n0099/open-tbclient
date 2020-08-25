@@ -34,7 +34,7 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.security.auth.x500.X500Principal;
 import org.apache.http.cookie.SM;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class BdNetEngine extends HandlerThread implements INoProGuard {
     private static final int ALT_DNS_NAME = 2;
     private static final int ALT_IPA_NAME = 7;
@@ -68,7 +68,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
     private static long mWaitTime = 10000;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public static final class a {
         final String a;
         final int b;
@@ -299,7 +299,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public interface b {
         BdNetTask onNetDownloadComplete(BdNetEngine bdNetEngine, BdNetTask bdNetTask, boolean z);
 
@@ -763,7 +763,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
                 }
                 mFirstWait = true;
             } catch (Exception e) {
-                com.a.a.a.a.a.a.a.a(e);
+                e.printStackTrace();
             }
         }
         if (!WebSettingsGlobalBlink.getChromiunNetInit()) {
@@ -784,7 +784,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
             }
             return null;
         } catch (Exception e2) {
-            com.a.a.a.a.a.a.a.a(e2);
+            e2.printStackTrace();
             return null;
         }
     }
@@ -1094,7 +1094,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
         try {
             super.run();
         } catch (Exception e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         }
     }
 

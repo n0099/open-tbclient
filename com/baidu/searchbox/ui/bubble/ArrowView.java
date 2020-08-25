@@ -9,7 +9,7 @@ import android.graphics.Path;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class ArrowView extends View {
     private static final int ALPHA = 204;
     public static final int DOWN = 4;

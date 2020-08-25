@@ -1,142 +1,52 @@
 package com.baidu.tieba.write.write;
 
-import android.text.Editable;
-import android.text.Spannable;
-import android.text.Spanned;
-import android.text.TextUtils;
-import android.text.style.BackgroundColorSpan;
-import android.text.style.ForegroundColorSpan;
-import android.widget.EditText;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.x;
-import com.baidu.tbadk.core.view.spanGroup.TbLinkForegroundColorSpan;
+import android.view.View;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public class b {
-    private String dwi;
-    private final String mAQ = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
-    private ArrayList<String> mtC;
+    private com.baidu.tieba.c.e kKu;
+    private TbPageContext mPageContext;
 
-    public void a(EditText editText, boolean z) {
-        Editable text;
-        Object[] spans;
-        if (editText != null && (text = editText.getText()) != null) {
-            for (Object obj : text.getSpans(0, text.length(), Object.class)) {
-                if (((obj instanceof ForegroundColorSpan) && !(obj instanceof TbLinkForegroundColorSpan)) || (obj instanceof BackgroundColorSpan)) {
-                    text.removeSpan(obj);
-                }
+    public b(TbPageContext tbPageContext) {
+        this.mPageContext = tbPageContext;
+    }
+
+    public void hideTip() {
+        if (this.kKu != null) {
+            this.kKu.NG();
+        }
+    }
+
+    public void showTip(View view) {
+        if (this.mPageContext != null && view != null) {
+            if (this.kKu == null) {
+                this.kKu = new com.baidu.tieba.c.e(this.mPageContext, view);
+                this.kKu.eL(R.drawable.pic_sign_tip_down);
+                this.kKu.vG(1);
+                this.kKu.eK(32);
+                this.kKu.setAnchor(2);
+                this.kKu.nr(false);
+                this.kKu.c(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.b.1
+                    @Override // android.view.View.OnClickListener
+                    public void onClick(View view2) {
+                        b.this.hideTip();
+                    }
+                });
+                int dimensionPixelSize = this.mPageContext.getResources().getDimensionPixelSize(R.dimen.ds10);
+                int dimensionPixelSize2 = this.mPageContext.getResources().getDimensionPixelSize(R.dimen.ds24);
+                int dimensionPixelSize3 = this.mPageContext.getResources().getDimensionPixelSize(R.dimen.tbds44);
+                int dimensionPixelSize4 = this.mPageContext.getResources().getDimensionPixelSize(R.dimen.tbds50);
+                int dimensionPixelSize5 = this.mPageContext.getResources().getDimensionPixelSize(R.dimen.tbds6);
+                this.kKu.z(dimensionPixelSize3, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize2);
+                this.kKu.vF(-dimensionPixelSize4);
+                this.kKu.setYOffset(-dimensionPixelSize5);
+                this.kKu.eM(3000);
             }
-            com.baidu.tbadk.plugins.b.a(text);
-            if (!z) {
-                c(text);
-            }
-            b((Spannable) text);
+            String string = this.mPageContext.getResources().getString(R.string.write_activity_tip_content);
+            this.kKu.vH(R.drawable.icon_pure_guide_haowu16);
+            this.kKu.nu(true);
+            this.kKu.aG(string, "commodity_tip_show_controller");
         }
-    }
-
-    private void b(Spannable spannable) {
-        if (spannable != null && !x.isEmpty(this.mtC)) {
-            String obj = spannable.toString();
-            if (!TextUtils.isEmpty(obj)) {
-                Iterator<String> it = this.mtC.iterator();
-                while (it.hasNext()) {
-                    a(spannable, obj, it.next());
-                }
-            }
-        }
-    }
-
-    private void a(Spannable spannable, String str, String str2) {
-        if (spannable != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            int indexOf = str.indexOf(str2);
-            int length = str2.length();
-            while (indexOf >= 0) {
-                int i = indexOf + length;
-                int color = ao.getColor(R.color.cp_cont_a);
-                int color2 = ao.getColor(R.color.cp_cont_h_alpha85);
-                ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(color);
-                BackgroundColorSpan backgroundColorSpan = new BackgroundColorSpan(color2);
-                spannable.setSpan(foregroundColorSpan, indexOf, i, 33);
-                spannable.setSpan(backgroundColorSpan, indexOf, i, 33);
-                indexOf = str.indexOf(str2, i);
-            }
-        }
-    }
-
-    public int b(Spanned spanned) {
-        if (spanned == null) {
-            return 0;
-        }
-        BackgroundColorSpan[] backgroundColorSpanArr = (BackgroundColorSpan[]) spanned.getSpans(0, spanned.length(), BackgroundColorSpan.class);
-        return (backgroundColorSpanArr == null || backgroundColorSpanArr.length <= 0) ? spanned.length() : spanned.getSpanEnd(backgroundColorSpanArr[0]);
-    }
-
-    public boolean i(EditText editText) {
-        Editable text;
-        if (editText == null || (text = editText.getText()) == null) {
-            return false;
-        }
-        int b = b((Spanned) text);
-        if (b > 0) {
-            editText.requestFocus();
-            editText.setSelection(b);
-            return true;
-        }
-        editText.setSelection(editText.getSelectionEnd());
-        return false;
-    }
-
-    public boolean a(EditText editText, EditText editText2) {
-        if (x.isEmpty(dtZ())) {
-            return false;
-        }
-        return i(editText) || i(editText2);
-    }
-
-    public void b(EditText editText, EditText editText2) {
-        b(editText, true);
-        b(editText2, false);
-        a(editText, editText2);
-    }
-
-    public void c(EditText editText, EditText editText2) {
-        b(editText, editText2);
-    }
-
-    public void b(EditText editText, boolean z) {
-        if (editText != null) {
-            a(editText, z);
-        }
-    }
-
-    public void aZ(ArrayList<String> arrayList) {
-        this.mtC = arrayList;
-    }
-
-    public ArrayList<String> dtZ() {
-        return this.mtC;
-    }
-
-    public void Py(String str) {
-        this.dwi = str;
-    }
-
-    public String dud() {
-        return this.dwi;
-    }
-
-    private void c(Spannable spannable) {
-        Matcher matcher = Pattern.compile("@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+").matcher(spannable);
-        while (matcher.find()) {
-            spannable.setSpan(new ForegroundColorSpan(ao.getColor(R.color.cp_link_tip_c)), matcher.start(), matcher.end(), 33);
-        }
-    }
-
-    public boolean d(Spannable spannable) {
-        return Pattern.compile("@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+").matcher(spannable).find();
     }
 }

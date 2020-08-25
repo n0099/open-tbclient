@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface c {
     void a(ListView listView, Context context, AttributeSet attributeSet);
 

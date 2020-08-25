@@ -1,19 +1,52 @@
 package com.baidu.tbadk.editortools;
-/* loaded from: classes.dex */
-public interface m extends b {
-    void b(a aVar);
 
-    void display();
+import android.content.Context;
+/* loaded from: classes2.dex */
+public class m {
+    private Context context;
+    public n eKx;
+    public int eLk;
+    public int eLl;
+    public int eLm;
+    public boolean eLn;
+    public boolean eLo;
+    public int eLq;
+    public int eLr;
+    public int[] eLt;
+    public boolean eLu;
+    public int id;
+    public String name;
+    public boolean eLp = true;
+    public boolean eLs = false;
 
-    int getToolId();
+    public m(String str, int i, int i2) {
+        this.name = str;
+        this.id = i;
+        this.eLq = i2;
+    }
 
-    void hide();
+    public m(Context context, String str, int i) {
+        this.name = str;
+        this.id = i;
+        this.context = context;
+    }
 
-    void init();
+    public m(Context context, String str, int i, int i2) {
+        this.name = str;
+        this.id = i;
+        this.context = context;
+        this.eLq = i2;
+    }
 
-    void onChangeSkinType(int i);
+    /* JADX INFO: Access modifiers changed from: protected */
+    public Context getContext() {
+        return this.context;
+    }
 
-    void setEditorTools(EditorTools editorTools);
+    public boolean sz() {
+        return true;
+    }
 
-    void setToolId(int i);
+    public void jk(boolean z) {
+    }
 }

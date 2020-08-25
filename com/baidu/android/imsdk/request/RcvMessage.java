@@ -1,5 +1,5 @@
 package com.baidu.android.imsdk.request;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class RcvMessage extends Message {
     public RcvMessage(String str) {
         this.mBody = str;

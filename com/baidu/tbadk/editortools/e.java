@@ -1,13 +1,13 @@
 package com.baidu.tbadk.editortools;
+/* loaded from: classes2.dex */
+public abstract class e {
+    private EditorTools eKm;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.R;
-/* loaded from: classes.dex */
-public class e extends l {
-    public e() {
-        super((String) null, 1, 0);
-        this.eAM = R.drawable.icon_pure_post_keyboard24_svg;
-        this.eAP = true;
-        this.name = TbadkCoreApplication.getInst().getString(R.string.switch_to_keyboard);
+    public e(EditorTools editorTools) {
+        this.eKm = editorTools;
+    }
+
+    public EditorTools brv() {
+        return this.eKm;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.live.liveroom.middleware.ar;
 
 import android.content.Context;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface a {
-    com.baidu.live.w.a aq(Context context);
+    com.baidu.live.x.a at(Context context);
 }

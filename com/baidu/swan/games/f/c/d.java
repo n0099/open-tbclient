@@ -2,11 +2,11 @@ package com.baidu.swan.games.f.c;
 
 import android.webkit.ValueCallback;
 import com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d implements V8FileSystemDelegatePolicy {
     @Override // com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy
     public void loadFileFromUrl(String str, ValueCallback<String> valueCallback) {
-        b.aEx().a(str, valueCallback);
+        b.aNm().a(str, valueCallback);
     }
 
     @Override // com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy

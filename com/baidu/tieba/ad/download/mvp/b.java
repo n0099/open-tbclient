@@ -8,16 +8,16 @@ public interface b {
 
     /* loaded from: classes15.dex */
     public interface a {
-        void bA(View view);
+        boolean bC(View view);
     }
 
     void a(@NonNull DownloadStatus downloadStatus);
 
     void a(DownloadStatus downloadStatus, int i);
 
-    void bA(View view);
+    boolean bC(View view);
 
-    void dE(int i);
+    void fy(int i);
 
     View getActionBar();
 

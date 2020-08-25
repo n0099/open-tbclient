@@ -10,8 +10,8 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.aq.aj;
-import com.baidu.swan.apps.aq.an;
+import com.baidu.swan.apps.ap.ai;
+import com.baidu.swan.apps.ap.am;
 import com.baidu.swan.apps.setting.oauth.a.b;
 import com.baidu.swan.pms.c.d.e;
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class h extends aa {
     public h(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/downloadPackages");
@@ -44,7 +44,7 @@ public class h extends aa {
         if (TextUtils.isEmpty(optString)) {
             optString = "0";
         }
-        if (!com.baidu.swan.apps.core.a.a.a.jy(optString)) {
+        if (!com.baidu.swan.apps.core.a.a.a.kX(optString)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "Network limitation");
             return false;
         }
@@ -54,7 +54,7 @@ public class h extends aa {
                 c(optJSONArray, a);
             }
             if (optJSONObject != null) {
-                com.baidu.swan.apps.aq.p.postOnComputation(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.h.1
+                com.baidu.swan.apps.ap.p.postOnComputation(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.h.1
                     @Override // java.lang.Runnable
                     public void run() {
                         h.this.x(optJSONObject, a);
@@ -66,11 +66,11 @@ public class h extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
             return false;
         } else {
-            eVar.arH().b(context, "mapp_pre_download", new com.baidu.swan.apps.aq.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.h.2
+            eVar.azU().b(context, "mapp_pre_download", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.h.2
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.swan.apps.aq.e.b
+                @Override // com.baidu.swan.apps.ap.e.b
                 /* renamed from: a */
-                public void H(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
+                public void I(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
                     h.this.a(hVar, unitedSchemeEntity, callbackHandler, optJSONArray, a);
                 }
             });
@@ -107,7 +107,7 @@ public class h extends aa {
                             try {
                                 Uri parse = Uri.parse(optString);
                                 if (parse != null) {
-                                    arrayList2.add(aj.a(next, parse, false));
+                                    arrayList2.add(ai.a(next, parse, false));
                                 }
                             } catch (Exception e) {
                                 if (DEBUG) {
@@ -117,7 +117,7 @@ public class h extends aa {
                         }
                     }
                     if (!arrayList2.isEmpty()) {
-                        bVar.z((String[]) arrayList2.toArray(new String[arrayList2.size()]));
+                        bVar.A((String[]) arrayList2.toArray(new String[arrayList2.size()]));
                     }
                 }
                 arrayList.add(bVar);
@@ -132,15 +132,15 @@ public class h extends aa {
             for (int i = 0; i < jSONArray.length(); i++) {
                 arrayList.add(jSONArray.optString(i));
             }
-            com.baidu.swan.apps.aq.p.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.h.3
+            com.baidu.swan.apps.ap.p.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.h.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    List<String> e = com.baidu.swan.apps.core.pms.d.a.e(arrayList);
-                    if (!e.isEmpty()) {
-                        com.baidu.swan.pms.c.d.b bVar = new com.baidu.swan.pms.c.d.b((Collection<String>) e, (com.baidu.swan.pms.f.a) an.axi());
-                        bVar.uF(str);
-                        bVar.uE("1");
-                        com.baidu.swan.pms.c.a(bVar, new com.baidu.swan.apps.core.pms.d().fn(5));
+                    List<String> g = com.baidu.swan.apps.core.pms.d.a.g(arrayList);
+                    if (!g.isEmpty()) {
+                        com.baidu.swan.pms.c.d.b bVar = new com.baidu.swan.pms.c.d.b((Collection<String>) g, (com.baidu.swan.pms.utils.a) am.aFr());
+                        bVar.wO(str);
+                        bVar.wN("1");
+                        com.baidu.swan.pms.c.a(bVar, new com.baidu.swan.apps.core.pms.d().hj(5));
                     }
                 }
             }, "小程序端能力-批量下载");

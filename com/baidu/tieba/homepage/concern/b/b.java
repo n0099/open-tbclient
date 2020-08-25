@@ -2,27 +2,27 @@ package com.baidu.tieba.homepage.concern.b;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.aq;
-import com.baidu.tbadk.core.data.bn;
-import com.baidu.tbadk.core.data.bv;
+import com.baidu.tbadk.core.data.ar;
+import com.baidu.tbadk.core.data.bo;
+import com.baidu.tbadk.core.data.bw;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.User;
 import tbclient.Userlike.ConcernData;
 /* loaded from: classes16.dex */
-public class b extends bn {
-    public static final Integer its = 6;
-    private boolean dQM;
-    private List<MetaData> dQN = new ArrayList();
+public class b extends bo {
+    public static final Integer iHH = 6;
+    private boolean eaf;
+    private List<MetaData> eag = new ArrayList();
 
-    @Override // com.baidu.tbadk.core.data.bn
+    @Override // com.baidu.tbadk.core.data.bo
     public void aM(List<User> list) {
         if (list != null) {
             int min = Math.min(list.size(), 10);
             for (int i = 0; i < min; i++) {
                 MetaData metaData = new MetaData();
                 metaData.parserProtobuf(list.get(i));
-                this.dQN.add(metaData);
+                this.eag.add(metaData);
             }
         }
     }
@@ -31,36 +31,36 @@ public class b extends bn {
         if (concernData == null) {
             return false;
         }
-        return concernData.recom_type.equals(its);
+        return concernData.recom_type.equals(iHH);
     }
 
-    @Override // com.baidu.tbadk.core.data.bn, com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tbadk.core.data.bo, com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return dOm;
+        return dXF;
     }
 
-    @Override // com.baidu.tbadk.core.data.bn
-    public List<MetaData> aVy() {
-        return this.dQN;
+    @Override // com.baidu.tbadk.core.data.bo
+    public List<MetaData> bdR() {
+        return this.eag;
     }
 
-    @Override // com.baidu.tbadk.core.data.bn, com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public bv aTN() {
+    @Override // com.baidu.tbadk.core.data.bo, com.baidu.tbadk.core.data.AbsThreadDataSupport
+    public bw bce() {
         return null;
     }
 
-    @Override // com.baidu.tbadk.core.data.bn, com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public aq aTP() {
-        return new aq();
+    @Override // com.baidu.tbadk.core.data.bo, com.baidu.tbadk.core.data.AbsThreadDataSupport
+    public ar bcg() {
+        return new ar();
     }
 
-    @Override // com.baidu.tbadk.core.data.bn
-    public boolean aVz() {
-        return this.dQM;
+    @Override // com.baidu.tbadk.core.data.bo
+    public boolean bdS() {
+        return this.eaf;
     }
 
-    @Override // com.baidu.tbadk.core.data.bn
-    public void hz(boolean z) {
-        this.dQM = z;
+    @Override // com.baidu.tbadk.core.data.bo
+    public void hV(boolean z) {
+        this.eaf = z;
     }
 }

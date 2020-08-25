@@ -9,8 +9,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public abstract class a {
-    protected com.baidu.tieba.ala.alasquare.special_forum.data.a fAA;
-    protected int fsv;
+    protected int fDP;
+    protected com.baidu.tieba.ala.alasquare.special_forum.data.a fLS;
     protected View mMaskView;
     protected int mScreenWidth;
     protected TbPageContext mTbPageContext;
@@ -21,7 +21,7 @@ public abstract class a {
 
     public abstract void init();
 
-    public abstract void ka(boolean z);
+    public abstract void ky(boolean z);
 
     public abstract void onChangeSkinType(int i);
 
@@ -34,14 +34,14 @@ public abstract class a {
     public a(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
         this.mScreenWidth = l.getEquipmentWidth(this.mTbPageContext.getPageActivity());
-        this.fsv = (int) ((this.mScreenWidth * 9.0d) / 16.0d);
+        this.fDP = (int) ((this.mScreenWidth * 9.0d) / 16.0d);
     }
 
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.a aVar) {
-        this.fAA = aVar;
+        this.fLS = aVar;
     }
 
-    public void W(ViewGroup viewGroup) {
+    public void X(ViewGroup viewGroup) {
         if (viewGroup != null) {
             viewGroup.removeAllViews();
             viewGroup.addView(getContentView());
@@ -49,9 +49,9 @@ public abstract class a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public View bxV() {
+    public View bGU() {
         this.mMaskView = new View(this.mTbPageContext.getPageActivity());
-        this.mMaskView.setLayoutParams(new FrameLayout.LayoutParams(this.mScreenWidth, this.fsv));
+        this.mMaskView.setLayoutParams(new FrameLayout.LayoutParams(this.mScreenWidth, this.fDP));
         this.mMaskView.setBackgroundDrawable(new ColorDrawable(this.mTbPageContext.getPageActivity().getResources().getColor(R.color.black_alpha30)));
         return this.mMaskView;
     }
@@ -62,13 +62,13 @@ public abstract class a {
     public void resume() {
     }
 
-    public void bxW() {
+    public void bGV() {
         this.mScreenWidth = l.getEquipmentWidth(this.mTbPageContext.getPageActivity());
-        this.fsv = (int) ((this.mScreenWidth * 9.0d) / 16.0d);
+        this.fDP = (int) ((this.mScreenWidth * 9.0d) / 16.0d);
         if (this.mMaskView != null) {
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mMaskView.getLayoutParams();
             layoutParams.width = this.mScreenWidth;
-            layoutParams.height = this.fsv;
+            layoutParams.height = this.fDP;
             this.mMaskView.setLayoutParams(layoutParams);
         }
     }

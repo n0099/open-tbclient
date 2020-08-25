@@ -3,36 +3,37 @@ package com.baidu.tieba.pbextra.emotion.model;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import com.baidu.sapi2.SapiAccountManager;
 import java.io.IOException;
 import java.io.OutputStream;
 /* loaded from: classes16.dex */
 public class a {
     protected int height;
     protected Bitmap image;
-    protected int kLj;
-    protected OutputStream kLl;
-    protected byte[] kLm;
-    protected byte[] kLn;
-    protected int kLo;
-    protected byte[] kLp;
+    protected int laY;
+    protected OutputStream lba;
+    protected byte[] lbb;
+    protected byte[] lbc;
+    protected int lbd;
+    protected byte[] lbe;
     protected int width;
     protected int x = 0;
     protected int y = 0;
     protected int transparent = -1;
-    protected int kLk = -1;
+    protected int laZ = -1;
     protected int delay = 0;
     protected boolean started = false;
-    protected boolean[] kLq = new boolean[256];
-    protected int kLr = 7;
-    protected int kLs = -1;
-    protected boolean kLt = false;
-    protected boolean kLu = true;
-    protected boolean kLv = false;
-    protected int kLw = 10;
+    protected boolean[] lbf = new boolean[256];
+    protected int lbg = 7;
+    protected int lbh = -1;
+    protected boolean lbi = false;
+    protected boolean lbj = true;
+    protected boolean lbk = false;
+    protected int lbl = 10;
 
-    public void CC(int i) {
+    public void EW(int i) {
         if (i >= 0) {
-            this.kLk = i;
+            this.laZ = i;
         }
     }
 
@@ -41,54 +42,54 @@ public class a {
             return false;
         }
         try {
-            if (!this.kLv) {
+            if (!this.lbk) {
                 setSize(bitmap.getWidth(), bitmap.getHeight());
             }
             this.image = bitmap;
-            cUQ();
-            cUP();
-            if (this.kLu) {
-                cUT();
-                cUV();
-                if (this.kLk >= 0) {
-                    cUU();
+            dfN();
+            dfM();
+            if (this.lbj) {
+                dfQ();
+                dfS();
+                if (this.laZ >= 0) {
+                    dfR();
                 }
             }
-            cUR();
-            cUS();
-            if (!this.kLu) {
-                cUV();
+            dfO();
+            dfP();
+            if (!this.lbj) {
+                dfS();
             }
-            cUW();
-            this.kLu = false;
+            dfT();
+            this.lbj = false;
             return true;
         } catch (IOException e) {
             return false;
         }
     }
 
-    public boolean cUO() {
+    public boolean dfL() {
         boolean z;
         if (this.started) {
             this.started = false;
             try {
-                this.kLl.write(59);
-                this.kLl.flush();
-                if (this.kLt) {
-                    this.kLl.close();
+                this.lba.write(59);
+                this.lba.flush();
+                if (this.lbi) {
+                    this.lba.close();
                 }
                 z = true;
             } catch (IOException e) {
                 z = false;
             }
-            this.kLj = 0;
-            this.kLl = null;
+            this.laY = 0;
+            this.lba = null;
             this.image = null;
-            this.kLm = null;
-            this.kLn = null;
-            this.kLp = null;
-            this.kLt = false;
-            this.kLu = true;
+            this.lbb = null;
+            this.lbc = null;
+            this.lbe = null;
+            this.lbi = false;
+            this.lbj = true;
             return z;
         }
         return false;
@@ -103,7 +104,7 @@ public class a {
         if (this.height < 1) {
             this.height = 240;
         }
-        this.kLv = true;
+        this.lbk = true;
     }
 
     public boolean b(OutputStream outputStream) {
@@ -111,8 +112,8 @@ public class a {
             return false;
         }
         boolean z = true;
-        this.kLt = false;
-        this.kLl = outputStream;
+        this.lbi = false;
+        this.lba = outputStream;
         try {
             writeString("GIF89a");
         } catch (IOException e) {
@@ -122,56 +123,56 @@ public class a {
         return z;
     }
 
-    protected void cUP() {
-        int length = this.kLm.length;
+    protected void dfM() {
+        int length = this.lbb.length;
         int i = length / 3;
-        this.kLn = new byte[i];
-        c cVar = new c(this.kLm, length, this.kLw);
-        this.kLp = cVar.cVc();
-        for (int i2 = 0; i2 < this.kLp.length; i2 += 3) {
-            byte b = this.kLp[i2];
-            this.kLp[i2] = this.kLp[i2 + 2];
-            this.kLp[i2 + 2] = b;
-            this.kLq[i2 / 3] = false;
+        this.lbc = new byte[i];
+        c cVar = new c(this.lbb, length, this.lbl);
+        this.lbe = cVar.dfZ();
+        for (int i2 = 0; i2 < this.lbe.length; i2 += 3) {
+            byte b = this.lbe[i2];
+            this.lbe[i2] = this.lbe[i2 + 2];
+            this.lbe[i2 + 2] = b;
+            this.lbf[i2 / 3] = false;
         }
         int i3 = 0;
         for (int i4 = 0; i4 < i; i4++) {
             int i5 = i3 + 1;
             int i6 = i5 + 1;
             i3 = i6 + 1;
-            int U = cVar.U(this.kLm[i3] & 255, this.kLm[i5] & 255, this.kLm[i6] & 255);
-            this.kLq[U] = true;
-            this.kLn[i4] = (byte) U;
+            int T = cVar.T(this.lbb[i3] & 255, this.lbb[i5] & 255, this.lbb[i6] & 255);
+            this.lbf[T] = true;
+            this.lbc[i4] = (byte) T;
         }
-        this.kLm = null;
-        this.kLo = 8;
-        this.kLr = 7;
+        this.lbb = null;
+        this.lbd = 8;
+        this.lbg = 7;
         if (this.transparent != -1) {
-            this.kLj = CD(this.transparent);
+            this.laY = EX(this.transparent);
         }
     }
 
-    protected int CD(int i) {
+    protected int EX(int i) {
         int i2;
         int i3 = 0;
-        if (this.kLp == null) {
+        if (this.lbe == null) {
             return -1;
         }
         int i4 = (i >> 16) & 255;
         int i5 = (i >> 8) & 255;
         int i6 = (i >> 0) & 255;
         int i7 = 16777216;
-        int length = this.kLp.length;
+        int length = this.lbe.length;
         int i8 = 0;
         while (i3 < length) {
             int i9 = i3 + 1;
-            int i10 = i4 - (this.kLp[i3] & 255);
+            int i10 = i4 - (this.lbe[i3] & 255);
             int i11 = i9 + 1;
-            int i12 = i5 - (this.kLp[i9] & 255);
-            int i13 = i6 - (this.kLp[i11] & 255);
+            int i12 = i5 - (this.lbe[i9] & 255);
+            int i13 = i6 - (this.lbe[i11] & 255);
             int i14 = (i10 * i10) + (i12 * i12) + (i13 * i13);
             int i15 = i11 / 3;
-            if (!this.kLq[i15] || i14 >= i7) {
+            if (!this.lbf[i15] || i14 >= i7) {
                 i14 = i7;
                 i2 = i8;
             } else {
@@ -184,7 +185,7 @@ public class a {
         return i8;
     }
 
-    protected void cUQ() {
+    protected void dfN() {
         int width = this.image.getWidth();
         int height = this.image.getHeight();
         if (width != this.width || height != this.height) {
@@ -193,14 +194,14 @@ public class a {
             this.image = createBitmap;
         }
         int[] I = I(this.image);
-        this.kLm = new byte[I.length * 3];
+        this.lbb = new byte[I.length * 3];
         for (int i = 0; i < I.length; i++) {
             int i2 = I[i];
             int i3 = i * 3;
             int i4 = i3 + 1;
-            this.kLm[i3] = (byte) ((i2 >> 0) & 255);
-            this.kLm[i4] = (byte) ((i2 >> 8) & 255);
-            this.kLm[i4 + 1] = (byte) ((i2 >> 16) & 255);
+            this.lbb[i3] = (byte) ((i2 >> 0) & 255);
+            this.lbb[i4] = (byte) ((i2 >> 8) & 255);
+            this.lbb[i4 + 1] = (byte) ((i2 >> 16) & 255);
         }
     }
 
@@ -212,12 +213,12 @@ public class a {
         return iArr;
     }
 
-    protected void cUR() throws IOException {
+    protected void dfO() throws IOException {
         int i;
         int i2;
-        this.kLl.write(33);
-        this.kLl.write(249);
-        this.kLl.write(4);
+        this.lba.write(33);
+        this.lba.write(SapiAccountManager.VERSION_CODE);
+        this.lba.write(4);
         if (this.transparent == -1) {
             i2 = 0;
             i = 0;
@@ -225,67 +226,67 @@ public class a {
             i = 1;
             i2 = 2;
         }
-        if (this.kLs >= 0) {
-            i2 = this.kLs & 7;
+        if (this.lbh >= 0) {
+            i2 = this.lbh & 7;
         }
-        this.kLl.write((i2 << 2) | 0 | 0 | i);
+        this.lba.write((i2 << 2) | 0 | 0 | i);
         writeShort(this.delay);
-        this.kLl.write(this.kLj);
-        this.kLl.write(0);
+        this.lba.write(this.laY);
+        this.lba.write(0);
     }
 
-    protected void cUS() throws IOException {
-        this.kLl.write(44);
+    protected void dfP() throws IOException {
+        this.lba.write(44);
         writeShort(this.x);
         writeShort(this.y);
         writeShort(this.width);
         writeShort(this.height);
-        if (this.kLu) {
-            this.kLl.write(0);
+        if (this.lbj) {
+            this.lba.write(0);
         } else {
-            this.kLl.write(this.kLr | 128);
+            this.lba.write(this.lbg | 128);
         }
     }
 
-    protected void cUT() throws IOException {
+    protected void dfQ() throws IOException {
         writeShort(this.width);
         writeShort(this.height);
-        this.kLl.write(this.kLr | 240);
-        this.kLl.write(0);
-        this.kLl.write(0);
+        this.lba.write(this.lbg | 240);
+        this.lba.write(0);
+        this.lba.write(0);
     }
 
-    protected void cUU() throws IOException {
-        this.kLl.write(33);
-        this.kLl.write(255);
-        this.kLl.write(11);
+    protected void dfR() throws IOException {
+        this.lba.write(33);
+        this.lba.write(255);
+        this.lba.write(11);
         writeString("NETSCAPE2.0");
-        this.kLl.write(3);
-        this.kLl.write(1);
-        writeShort(this.kLk);
-        this.kLl.write(0);
+        this.lba.write(3);
+        this.lba.write(1);
+        writeShort(this.laZ);
+        this.lba.write(0);
     }
 
-    protected void cUV() throws IOException {
-        this.kLl.write(this.kLp, 0, this.kLp.length);
-        int length = 768 - this.kLp.length;
+    protected void dfS() throws IOException {
+        this.lba.write(this.lbe, 0, this.lbe.length);
+        int length = 768 - this.lbe.length;
         for (int i = 0; i < length; i++) {
-            this.kLl.write(0);
+            this.lba.write(0);
         }
     }
 
-    protected void cUW() throws IOException {
-        new b(this.width, this.height, this.kLn, this.kLo).encode(this.kLl);
+    protected void dfT() throws IOException {
+        new b(this.width, this.height, this.lbc, this.lbd).encode(this.lba);
     }
 
     protected void writeShort(int i) throws IOException {
-        this.kLl.write(i & 255);
-        this.kLl.write((i >> 8) & 255);
+        this.lba.write(i & 255);
+        this.lba.write((i >> 8) & 255);
     }
 
     protected void writeString(String str) throws IOException {
         for (int i = 0; i < str.length(); i++) {
-            this.kLl.write((byte) str.charAt(i));
+            this.lba.write((byte) str.charAt(i));
         }
     }
 }

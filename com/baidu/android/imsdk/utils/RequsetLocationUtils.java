@@ -4,7 +4,7 @@ import android.content.Context;
 import android.location.Location;
 import android.location.LocationManager;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class RequsetLocationUtils extends BaseUtils {
     public static Location getLocatioin(Context context) {
         String str;

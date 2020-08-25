@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -14,7 +15,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b {
-    private SparseArray<a> cG = new SparseArray<>();
+    private SparseArray<a> cy = new SparseArray<>();
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v5, resolved type: java.lang.String */
     /* JADX WARN: Multi-variable type inference failed */
@@ -106,27 +107,27 @@ public class b {
                 int length2 = jSONArray2.length();
                 a aVar = new a();
                 aVar.type = i2;
-                aVar.sd = z;
-                aVar.se = new String[length2];
+                aVar.sI = z;
+                aVar.sJ = new String[length2];
                 for (int i3 = 0; i3 < length2; i3++) {
                     JSONObject jSONObject2 = jSONArray2.getJSONObject(i3);
                     int optInt = jSONObject2.optInt(ARPMessageType.ARPMessageParamKeys.MODEL_TYPE_KEY, i3);
-                    File file = new File(str2, jSONObject2.getString("dir"));
+                    File file = new File(str2, jSONObject2.getString(MapBundleKey.MapObjKey.OBJ_DIR));
                     String optString = jSONObject2.optString("design_model", "");
                     String absolutePath = (!TextUtils.isEmpty(optString) ? new File(file, optString) : file).getAbsolutePath();
                     if (z) {
                         absolutePath = absolutePath.substring(1);
                     }
-                    aVar.se[optInt] = absolutePath;
+                    aVar.sJ[optInt] = absolutePath;
                 }
-                this.cG.put(i2, aVar);
+                this.cy.put(i2, aVar);
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
-    private static String c(Context context, String str) {
+    private static String d(Context context, String str) {
         try {
             InputStreamReader inputStreamReader = new InputStreamReader(context.getAssets().open(str), "UTF-8");
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
@@ -158,10 +159,10 @@ public class b {
         if (!substring.endsWith("/")) {
             substring = substring + "/";
         }
-        a(c(context, substring + "dl_config.json"), substring, true);
+        a(d(context, substring + "dl_config.json"), substring, true);
     }
 
-    public SparseArray<a> eb() {
-        return this.cG;
+    public SparseArray<a> fn() {
+        return this.cy;
     }
 }

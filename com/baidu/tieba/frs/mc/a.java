@@ -17,11 +17,11 @@ import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.atomData.SupplementSignActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoEasterEggActivityConfig;
-import com.baidu.tbadk.core.data.bv;
+import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tbadk.data.ShareFromPBMsgData;
 import com.baidu.tieba.R;
@@ -37,22 +37,22 @@ import java.io.Serializable;
 import java.util.ArrayList;
 /* loaded from: classes16.dex */
 public class a extends j {
-    private d hGc;
-    private com.baidu.tieba.c.h hZV;
+    private d hTs;
+    private com.baidu.tieba.c.h iod;
 
     public a(FrsFragment frsFragment) {
         super(frsFragment);
-        this.hGc = this.iae.cbp();
+        this.hTs = this.iom.clL();
     }
 
-    private void chc() {
-        if (this.hGc == null) {
-            this.hGc = this.iae.cbp();
+    private void crH() {
+        if (this.hTs == null) {
+            this.hTs = this.iom.clL();
         }
     }
 
     public void onActivityResult(int i, int i2, Intent intent) {
-        chc();
+        crH();
         if (i2 == -1) {
             c(i, intent);
         } else if (i2 == 0) {
@@ -72,27 +72,28 @@ public class a extends j {
     }
 
     private void c(int i, Intent intent) {
-        bv threadDataById;
+        ShareItem shareItem;
+        bw threadDataById;
         PostWriteCallBackData postWriteCallBackData;
-        FrsViewData cbZ = this.iae.cbZ();
+        FrsViewData cmw = this.iom.cmw();
         switch (i) {
-            case 11001:
-                this.iae.uF(0);
+            case RequestResponseCode.REQUEST_LOGIN_WRITE /* 11001 */:
+                this.iom.wU(0);
                 return;
-            case 11002:
-                this.hFT.oA(true);
+            case RequestResponseCode.REQUEST_LOGIN_LIKE /* 11002 */:
+                this.hTj.pe(true);
                 return;
             case RequestResponseCode.REQUEST_LOGIN_FRS_HOST /* 11011 */:
-                com.baidu.tieba.frs.f.i.a(this.iae, this.iae.getThreadId(), this.iae.aii, this.iae.cby());
+                com.baidu.tieba.frs.f.i.a(this.iom, this.iom.getThreadId(), this.iom.ajx, this.iom.clU());
                 return;
             case RequestResponseCode.REQUEST_LOGIN_FRS_REVERSE /* 11012 */:
-                com.baidu.tieba.frs.f.i.b(this.iae, this.iae.getThreadId(), this.iae.aii, this.iae.cby());
+                com.baidu.tieba.frs.f.i.b(this.iom, this.iom.getThreadId(), this.iom.ajx, this.iom.clU());
                 return;
             case RequestResponseCode.REQUEST_LOGIN_SIGN /* 11014 */:
-                this.hFT.ciN();
+                this.hTj.ctr();
                 return;
             case RequestResponseCode.REQUEST_LOGIN_CAMERA_OR_IMAGE /* 11016 */:
-                this.hFz.ccJ();
+                this.hSP.cng();
                 return;
             case RequestResponseCode.REQUEST_LOGIN_FRS_SHAKE /* 11033 */:
             case RequestResponseCode.REQUEST_CODE_PHOTO_LIVE_LIST /* 23013 */:
@@ -100,14 +101,14 @@ public class a extends j {
             default:
                 return;
             case RequestResponseCode.REQUEST_LOGIN_UNLIKE /* 11036 */:
-                this.hFT.ciJ();
+                this.hTj.ctn();
                 return;
             case RequestResponseCode.REQUEST_WRITE_NEW /* 13003 */:
             case RequestResponseCode.REQUEST_SDK_WEB_VIEW /* 25048 */:
                 if (intent != null) {
                     int intExtra = intent.getIntExtra(PostWriteCallBackData.GENERAL_TAB_ID, -1);
                     if (intExtra >= 0) {
-                        vU(intExtra);
+                        yn(intExtra);
                         return;
                     }
                     try {
@@ -115,8 +116,8 @@ public class a extends j {
                     } catch (Exception e) {
                         postWriteCallBackData = null;
                     }
-                    if (this.hGc != null) {
-                        this.hGc.e(postWriteCallBackData);
+                    if (this.hTs != null) {
+                        this.hTs.e(postWriteCallBackData);
                     }
                     if (!d(postWriteCallBackData)) {
                         b(postWriteCallBackData);
@@ -128,42 +129,42 @@ public class a extends j {
             case RequestResponseCode.REQUEST_RECORDER_VIDEO /* 13010 */:
                 int intExtra2 = intent.getIntExtra(PostWriteCallBackData.GENERAL_TAB_ID, -1);
                 if (intExtra2 >= 0) {
-                    vU(intExtra2);
+                    yn(intExtra2);
                     return;
                 }
                 return;
             case RequestResponseCode.REQUEST_FRS_TO_PB /* 18003 */:
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921462, 0));
-                this.hFz.ccU().notifyDataSetChanged();
-                if (this.hFT != null) {
-                    this.hFT.ceV();
+                this.hSP.cnr().notifyDataSetChanged();
+                if (this.hTj != null) {
+                    this.hTj.cpz();
                 }
                 int intExtra3 = intent.getIntExtra("type", -1);
                 if (intExtra3 == 4) {
-                    this.iae.refresh(6);
+                    this.iom.refresh(6);
                     return;
                 }
                 String stringExtra = intent.getStringExtra("tid");
-                if (stringExtra != null && (threadDataById = cbZ.getThreadDataById(stringExtra)) != null) {
+                if (stringExtra != null && (threadDataById = cmw.getThreadDataById(stringExtra)) != null) {
                     if (intExtra3 == 2) {
-                        threadDataById.ld(intent.getIntExtra("good_data", 0));
-                        threadDataById.aXj();
+                        threadDataById.nj(intent.getIntExtra("good_data", 0));
+                        threadDataById.bfC();
                     }
-                    a(cbZ, intent, stringExtra);
+                    a(cmw, intent, stringExtra);
                     return;
                 }
                 return;
             case RequestResponseCode.REQUEST_FRS_FO_WEBVIEW /* 18004 */:
-                com.baidu.tieba.frs.f.i.c(this.iae.getPageContext(), cbZ);
+                com.baidu.tieba.frs.f.i.c(this.iom.getPageContext(), cmw);
                 return;
             case RequestResponseCode.REQUEST_SELECT_IM_CHAT_GROUP_CODE /* 23003 */:
-                if (intent != null && cbZ != null) {
-                    com.baidu.tieba.frs.f.e.a(this.iae, cbZ, intent.getLongExtra("group_id", 0L), intent.getStringExtra("group_name"), intent.getLongExtra(GroupChatActivityConfig.GROUP_AUTHOR_ID, 0L));
+                if (intent != null && cmw != null) {
+                    com.baidu.tieba.frs.f.e.a(this.iom, cmw, intent.getLongExtra("group_id", 0L), intent.getStringExtra("group_name"), intent.getLongExtra(GroupChatActivityConfig.GROUP_AUTHOR_ID, 0L));
                     return;
                 }
                 return;
             case RequestResponseCode.REQUEST_SHARE_FRIEND_FORUM /* 23007 */:
-                T(intent);
+                V(intent);
                 return;
             case RequestResponseCode.REQUEST_FRS_TO_SUPPLEMENT_RESIGN /* 24002 */:
                 if (intent != null) {
@@ -171,75 +172,83 @@ public class a extends j {
                     int intExtra5 = intent.getIntExtra(SupplementSignActivityConfig.CONTINUOUS_SIGN_ALL_DAYS, 0);
                     int intExtra6 = intent.getIntExtra(SupplementSignActivityConfig.SUPPLEMENT_SIGN_DAYS, 0);
                     int intExtra7 = intent.getIntExtra(SupplementSignActivityConfig.SIGN_BONUS_POINT, 0);
-                    if (intExtra4 == com.baidu.adp.lib.f.b.toInt(this.iae.getForumId(), 0)) {
-                        this.hFT.N(intExtra5, intExtra6, intExtra7);
+                    if (intExtra4 == com.baidu.adp.lib.f.b.toInt(this.iom.getForumId(), 0)) {
+                        this.hTj.M(intExtra5, intExtra6, intExtra7);
                         return;
                     }
                     return;
                 }
                 return;
             case RequestResponseCode.REQUEST_TO_SHARE /* 24007 */:
-                if (intent.getIntExtra("extra_share_status", 2) == 1) {
-                    this.iae.onShareSuccess(intent.getStringExtra("tid"));
+                int intExtra8 = intent.getIntExtra("extra_share_status", 2);
+                if (intExtra8 == 1 && (shareItem = TbadkCoreApplication.getInst().getShareItem()) != null) {
+                    aq aqVar = new aq(TbadkCoreStatisticKey.KEY_SHARE_SUCCESS);
+                    aqVar.ai("obj_locate", 4);
+                    aqVar.dD("tid", shareItem.tid);
+                    aqVar.dD("pid", intent.getStringExtra("pid"));
+                    TiebaStatic.log(aqVar);
+                }
+                if (intExtra8 == 1) {
+                    this.iom.onShareSuccess(intent.getStringExtra("tid"));
                     return;
                 }
                 return;
             case RequestResponseCode.REQUEST_DO_PAY /* 25041 */:
-                this.ibp.wA(intent.getIntExtra(FrsProfessionIntroActivityConfig.KEY_RESULT, -1));
+                this.ipw.yU(intent.getIntExtra(FrsProfessionIntroActivityConfig.KEY_RESULT, -1));
                 return;
             case RequestResponseCode.REQUEST_SDK_RENAME /* 25050 */:
-                this.iae.refresh();
+                this.iom.refresh();
                 return;
         }
     }
 
-    public void vU(int i) {
-        if (this.iae != null && this.iae.cbu() != null) {
+    public void yn(int i) {
+        if (this.iom != null && this.iom.clQ() != null) {
             if (i > 0) {
-                FrsTabViewController.b wz = this.iae.cbu().wz(i);
-                if (wz != null && (wz.fragment instanceof FrsCommonTabFragment)) {
-                    this.ibp.wA(i);
+                FrsTabViewController.b yT = this.iom.clQ().yT(i);
+                if (yT != null && (yT.fragment instanceof FrsCommonTabFragment)) {
+                    this.ipw.yU(i);
                     return;
                 }
                 return;
             }
-            int cjk = this.iae.cbu().cjk();
-            if (this.iae.cbu().wz(cjk) != null) {
-                this.ibp.wA(cjk);
+            int ctO = this.iom.clQ().ctO();
+            if (this.iom.clQ().yT(ctO) != null) {
+                this.ipw.yU(ctO);
             }
         }
     }
 
     private void a(FrsViewData frsViewData, Intent intent, String str) {
         ArrayList<q> dataList;
-        if (frsViewData != null && intent != null && !TextUtils.isEmpty(str) && this.hFS != null) {
+        if (frsViewData != null && intent != null && !TextUtils.isEmpty(str) && this.hTi != null) {
             int intExtra = intent.getIntExtra("KEY_SMART_FRS_POSITION", -1);
-            if (this.hFS.chw()) {
+            if (this.hTi.csb()) {
                 Serializable serializableExtra = intent.getSerializableExtra("guess_like_data");
-                if ((serializableExtra instanceof CardHListViewData) && (dataList = this.ibr.getDataList()) != null) {
+                if ((serializableExtra instanceof CardHListViewData) && (dataList = this.ipy.getDataList()) != null) {
                     CardHListViewData cardHListViewData = (CardHListViewData) serializableExtra;
                     cardHListViewData.threadId = str;
                     if (com.baidu.tieba.frs.smartsort.b.a(dataList, str, cardHListViewData, intExtra)) {
                         frsViewData.setThreadList(dataList);
-                        this.hFz.a(dataList, frsViewData);
-                        em(str, this.iae.getForumId());
+                        this.hSP.a(dataList, frsViewData);
+                        eD(str, this.iom.getForumId());
                     }
                 }
             }
         }
     }
 
-    public static void em(String str, String str2) {
+    public static void eD(String str, String str2) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            ap apVar = new ap("c11959");
-            apVar.dn("tid", str);
-            apVar.dn("fid", str2);
-            apVar.ah("obj_type", 1);
-            TiebaStatic.log(apVar);
+            aq aqVar = new aq("c11959");
+            aqVar.dD("tid", str);
+            aqVar.dD("fid", str2);
+            aqVar.ai("obj_type", 1);
+            TiebaStatic.log(aqVar);
         }
     }
 
-    private ShareFromPBMsgData chd() {
+    private ShareFromPBMsgData crI() {
         ShareItem shareItem = TbadkCoreApplication.getInst().getShareItem();
         if (shareItem == null) {
             return null;
@@ -247,83 +256,83 @@ public class a extends j {
         String uri = shareItem.imageUri == null ? "http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg" : shareItem.imageUri.toString();
         ShareFromPBMsgData shareFromPBMsgData = new ShareFromPBMsgData();
         shareFromPBMsgData.setTitle(shareItem.title);
-        shareFromPBMsgData.setContent(shareItem.etQ);
+        shareFromPBMsgData.setContent(shareItem.eEq);
         shareFromPBMsgData.setImageUrl(uri);
         shareFromPBMsgData.setForumName(shareItem.fName);
         shareFromPBMsgData.setThreadId(shareItem.tid);
         return shareFromPBMsgData;
     }
 
-    private void T(Intent intent) {
+    private void V(Intent intent) {
         long longExtra = intent.getLongExtra(PersonalChatActivityConfig.KEY_USER_ID, -1L);
         String stringExtra = intent.getStringExtra(PersonalChatActivityConfig.KEY_USER_NAME);
         String stringExtra2 = intent.getStringExtra(PersonalChatActivityConfig.KEY_USER_PORTAIT);
-        a(chd(), longExtra, stringExtra, intent.getStringExtra("name_show"), stringExtra2);
+        a(crI(), longExtra, stringExtra, intent.getStringExtra("name_show"), stringExtra2);
     }
 
     private void a(final ShareFromPBMsgData shareFromPBMsgData, final long j, final String str, final String str2, final String str3) {
         if (shareFromPBMsgData != null) {
-            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.iae.getActivity());
-            final Thread2GroupShareView thread2GroupShareView = new Thread2GroupShareView(this.iae.getActivity());
+            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.iom.getActivity());
+            final Thread2GroupShareView thread2GroupShareView = new Thread2GroupShareView(this.iom.getActivity());
             thread2GroupShareView.setData(shareFromPBMsgData);
-            aVar.lq(1);
-            aVar.aV(thread2GroupShareView);
+            aVar.nw(1);
+            aVar.aX(thread2GroupShareView);
             aVar.a(R.string.share, new a.b() { // from class: com.baidu.tieba.frs.mc.a.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    InputMethodManager inputMethodManager = (InputMethodManager) a.this.iae.getActivity().getSystemService("input_method");
-                    com.baidu.adp.lib.util.l.hideSoftKeyPad(a.this.iae.getActivity(), thread2GroupShareView.getChatMsgView());
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(a.this.iae.getActivity(), j, str, str2, str3, 0, thread2GroupShareView.getLeaveMsg(), shareFromPBMsgData.toChatMessageContent())));
+                    InputMethodManager inputMethodManager = (InputMethodManager) a.this.iom.getActivity().getSystemService("input_method");
+                    com.baidu.adp.lib.util.l.hideSoftKeyPad(a.this.iom.getActivity(), thread2GroupShareView.getChatMsgView());
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(a.this.iom.getActivity(), j, str, str2, str3, 0, thread2GroupShareView.getLeaveMsg(), shareFromPBMsgData.toChatMessageContent())));
                     aVar2.dismiss();
                     ShareItem shareItem = TbadkCoreApplication.getInst().getShareItem();
-                    if (shareItem != null && shareItem.bgL() != null) {
-                        Bundle bgL = shareItem.bgL();
-                        TiebaStatic.log(new ap(TbadkCoreStatisticKey.KEY_SHARE_SUCCESS).ah("obj_source", 1).ah("obj_type", bgL.getInt("obj_type")).ah("obj_param1", 3).dn("fid", bgL.getString("fid")).dn("tid", bgL.getString("tid")));
+                    if (shareItem != null && shareItem.bpw() != null) {
+                        Bundle bpw = shareItem.bpw();
+                        TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_SHARE_SUCCESS).ai("obj_source", 1).ai("obj_type", bpw.getInt("obj_type")).ai("obj_param1", 3).dD("fid", bpw.getString("fid")).dD("tid", bpw.getString("tid")));
                     }
                 }
             });
             aVar.b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.frs.mc.a.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    InputMethodManager inputMethodManager = (InputMethodManager) a.this.iae.getActivity().getSystemService("input_method");
-                    com.baidu.adp.lib.util.l.hideSoftKeyPad(a.this.iae.getActivity(), thread2GroupShareView.getChatMsgView());
+                    InputMethodManager inputMethodManager = (InputMethodManager) a.this.iom.getActivity().getSystemService("input_method");
+                    com.baidu.adp.lib.util.l.hideSoftKeyPad(a.this.iom.getActivity(), thread2GroupShareView.getChatMsgView());
                     aVar2.dismiss();
                 }
             });
-            aVar.hK(true);
-            aVar.b(this.iae.getPageContext()).aYL();
+            aVar.ig(true);
+            aVar.b(this.iom.getPageContext()).bhg();
             if (!com.baidu.adp.lib.util.k.isEmpty(shareFromPBMsgData.getImageUrl())) {
-                thread2GroupShareView.aF(shareFromPBMsgData.getImageUrl(), false);
+                thread2GroupShareView.aJ(shareFromPBMsgData.getImageUrl(), false);
             }
         }
     }
 
     private boolean d(PostWriteCallBackData postWriteCallBackData) {
-        if (postWriteCallBackData == null || postWriteCallBackData.getVideoEasterEggData() == null || as.isEmpty(postWriteCallBackData.getVideoEasterEggData().getVideoUrl())) {
+        if (postWriteCallBackData == null || postWriteCallBackData.getVideoEasterEggData() == null || at.isEmpty(postWriteCallBackData.getVideoEasterEggData().getVideoUrl())) {
             return false;
         }
-        if (com.baidu.tbadk.core.sharedPref.b.aZP().getBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(postWriteCallBackData.getVideoEasterEggData().getActivityID()), true)) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VideoEasterEggActivityConfig(this.iae.getActivity()).createNormalConfig("from_frs", postWriteCallBackData.getVideoEasterEggData())));
+        if (com.baidu.tbadk.core.sharedPref.b.bik().getBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(postWriteCallBackData.getVideoEasterEggData().getActivityID()), true)) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VideoEasterEggActivityConfig(this.iom.getActivity()).createNormalConfig("from_frs", postWriteCallBackData.getVideoEasterEggData())));
             return true;
         }
         return false;
     }
 
     private void b(PostWriteCallBackData postWriteCallBackData) {
-        if (this.hZV == null) {
-            this.hZV = new com.baidu.tieba.c.h(this.iae.getPageContext(), (NavigationBarCoverTip) this.iae.getView().findViewById(R.id.navigation_cover_tip));
+        if (this.iod == null) {
+            this.iod = new com.baidu.tieba.c.h(this.iom.getPageContext(), (NavigationBarCoverTip) this.iom.getView().findViewById(R.id.navigation_cover_tip));
         }
-        if (this.iae.cbZ() != null && this.iae.cbZ().getForum() != null && this.iae.cbZ().getForum().isLike() == 1) {
-            this.hZV.mR(true);
+        if (this.iom.cmw() != null && this.iom.cmw().getForum() != null && this.iom.cmw().getForum().isLike() == 1) {
+            this.iod.nv(true);
         } else {
-            this.hZV.mR(false);
+            this.iod.nv(false);
         }
-        this.hZV.b(postWriteCallBackData);
+        this.iod.b(postWriteCallBackData);
     }
 
     public void onDestroy() {
-        if (this.hZV != null) {
-            this.hZV.onDestroy();
+        if (this.iod != null) {
+            this.iod.onDestroy();
         }
     }
 }

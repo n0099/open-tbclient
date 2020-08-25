@@ -1,7 +1,7 @@
 package com.baidu.fsg.base;
 
 import android.content.Context;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class EnvConfig {
     public static final String ENVIRONMENT_PRELINE = "PRELINE";
     public static final String ENVIRONMENT_QA = "QA";

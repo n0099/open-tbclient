@@ -9,12 +9,10 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.swan.apps.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SwanAppBottomTabIconView extends RelativeLayout {
-    private static int cQG = 5;
-    private static int cQH = 0;
-    private TextView cQE;
-    private boolean cQF;
+    private TextView cZG;
+    private boolean cZH;
     private ImageView mIconView;
     private ImageView mRedDot;
     private TextView mTextView;
@@ -25,7 +23,7 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
         this.mIconView = (ImageView) findViewById(a.f.bottom_tab_icon);
         this.mTextView = (TextView) findViewById(a.f.bottom_tab_text);
         this.mRedDot = (ImageView) findViewById(a.f.bottom_tab_red_dot);
-        this.cQE = (TextView) findViewById(a.f.bottom_tab_badge);
+        this.cZG = (TextView) findViewById(a.f.bottom_tab_badge);
     }
 
     public void setIconView(int i) {
@@ -41,9 +39,6 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
     }
 
     public void setTextView(String str) {
-        if (str.length() > cQG) {
-            str = str.substring(cQH, cQG);
-        }
         this.mTextView.setText(str);
     }
 
@@ -51,16 +46,16 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
         this.mTextView.setTextColor(i);
     }
 
-    public boolean avK() {
-        return this.cQF;
+    public boolean aDT() {
+        return this.cZH;
     }
 
     public void setmIsSelect(boolean z) {
-        this.cQF = z;
+        this.cZH = z;
     }
 
     public void setBadgeText(String str) {
-        this.cQE.setText(str);
+        this.cZG.setText(str);
     }
 
     public void setRedDotVisibleState(boolean z) {
@@ -73,9 +68,9 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
 
     public void setBadgeVisibleState(boolean z) {
         if (z) {
-            this.cQE.setVisibility(0);
+            this.cZG.setVisibility(0);
         } else {
-            this.cQE.setVisibility(8);
+            this.cZG.setVisibility(8);
         }
     }
 }

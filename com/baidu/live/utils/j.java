@@ -5,9 +5,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class j {
-    public static String at(long j) {
+    public static String au(long j) {
         long j2 = j / 60000;
         long j3 = (j % 60000) / 1000;
         String str = (j2 < 10 ? "0" : "") + j2 + ":";
@@ -21,7 +21,7 @@ public class j {
         return new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT).format(date);
     }
 
-    public static Date fS(String str) {
+    public static Date hm(String str) {
         try {
             return new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT).parse(str);
         } catch (ParseException e) {

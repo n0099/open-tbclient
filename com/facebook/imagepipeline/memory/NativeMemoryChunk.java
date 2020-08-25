@@ -3,7 +3,7 @@ package com.facebook.imagepipeline.memory;
 import android.util.Log;
 import java.io.Closeable;
 @com.facebook.common.internal.d
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class NativeMemoryChunk implements Closeable {
     private boolean mClosed;
     private final long mNativePtr;
@@ -61,26 +61,26 @@ public class NativeMemoryChunk implements Closeable {
     }
 
     public synchronized int d(int i, byte[] bArr, int i2, int i3) {
-        int dz;
+        int dH;
         com.facebook.common.internal.g.checkNotNull(bArr);
         com.facebook.common.internal.g.checkState(!isClosed());
-        dz = dz(i, i3);
-        I(i, bArr.length, i2, dz);
-        nativeCopyFromByteArray(this.mNativePtr + i, bArr, i2, dz);
-        return dz;
+        dH = dH(i, i3);
+        I(i, bArr.length, i2, dH);
+        nativeCopyFromByteArray(this.mNativePtr + i, bArr, i2, dH);
+        return dH;
     }
 
     public synchronized int c(int i, byte[] bArr, int i2, int i3) {
-        int dz;
+        int dH;
         com.facebook.common.internal.g.checkNotNull(bArr);
         com.facebook.common.internal.g.checkState(!isClosed());
-        dz = dz(i, i3);
-        I(i, bArr.length, i2, dz);
-        nativeCopyToByteArray(this.mNativePtr + i, bArr, i2, dz);
-        return dz;
+        dH = dH(i, i3);
+        I(i, bArr.length, i2, dH);
+        nativeCopyToByteArray(this.mNativePtr + i, bArr, i2, dH);
+        return dH;
     }
 
-    public synchronized byte Iq(int i) {
+    public synchronized byte KU(int i) {
         byte nativeReadByte;
         synchronized (this) {
             com.facebook.common.internal.g.checkState(!isClosed());
@@ -112,7 +112,7 @@ public class NativeMemoryChunk implements Closeable {
         }
     }
 
-    public long dCF() {
+    public long dOF() {
         return this.mNativePtr;
     }
 
@@ -134,7 +134,7 @@ public class NativeMemoryChunk implements Closeable {
         }
     }
 
-    private int dz(int i, int i2) {
+    private int dH(int i, int i2) {
         return Math.min(Math.max(0, this.mSize - i), i2);
     }
 

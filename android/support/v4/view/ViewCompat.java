@@ -37,7 +37,7 @@ import java.lang.reflect.Method;
 import java.util.Collection;
 import java.util.WeakHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes18.dex */
+/* loaded from: classes3.dex */
 public class ViewCompat {
     public static final int ACCESSIBILITY_LIVE_REGION_ASSERTIVE = 2;
     public static final int ACCESSIBILITY_LIVE_REGION_NONE = 0;
@@ -85,79 +85,79 @@ public class ViewCompat {
     public static final int TYPE_TOUCH = 0;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes18.dex */
+    /* loaded from: classes3.dex */
     private @interface AccessibilityLiveRegion {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @TargetApi(26)
-    /* loaded from: classes18.dex */
+    /* loaded from: classes3.dex */
     private @interface AutofillImportance {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes18.dex */
+    /* loaded from: classes3.dex */
     public @interface FocusDirection {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes18.dex */
+    /* loaded from: classes3.dex */
     public @interface FocusRealDirection {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes18.dex */
+    /* loaded from: classes3.dex */
     public @interface FocusRelativeDirection {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes18.dex */
+    /* loaded from: classes3.dex */
     private @interface ImportantForAccessibility {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes18.dex */
+    /* loaded from: classes3.dex */
     private @interface LayerType {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes18.dex */
+    /* loaded from: classes3.dex */
     private @interface LayoutDirectionMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes18.dex */
+    /* loaded from: classes3.dex */
     public @interface NestedScrollType {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes18.dex */
+    /* loaded from: classes3.dex */
     private @interface OverScroll {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes18.dex */
+    /* loaded from: classes3.dex */
     private @interface ResolvedLayoutDirectionMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes18.dex */
+    /* loaded from: classes3.dex */
     public @interface ScrollAxis {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes18.dex */
+    /* loaded from: classes3.dex */
     public @interface ScrollIndicators {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes18.dex */
+    /* loaded from: classes3.dex */
     public static class ViewCompatBaseImpl {
         static Field sAccessibilityDelegateField;
         private static Method sChildrenDrawingOrderMethod;
@@ -714,7 +714,7 @@ public class ViewCompat {
     }
 
     @RequiresApi(15)
-    /* loaded from: classes18.dex */
+    /* loaded from: classes3.dex */
     static class ViewCompatApi15Impl extends ViewCompatBaseImpl {
         ViewCompatApi15Impl() {
         }
@@ -726,7 +726,7 @@ public class ViewCompat {
     }
 
     @RequiresApi(16)
-    /* loaded from: classes18.dex */
+    /* loaded from: classes3.dex */
     static class ViewCompatApi16Impl extends ViewCompatApi15Impl {
         ViewCompatApi16Impl() {
         }
@@ -825,7 +825,7 @@ public class ViewCompat {
     }
 
     @RequiresApi(17)
-    /* loaded from: classes18.dex */
+    /* loaded from: classes3.dex */
     static class ViewCompatApi17Impl extends ViewCompatApi16Impl {
         ViewCompatApi17Impl() {
         }
@@ -892,7 +892,7 @@ public class ViewCompat {
     }
 
     @RequiresApi(18)
-    /* loaded from: classes18.dex */
+    /* loaded from: classes3.dex */
     static class ViewCompatApi18Impl extends ViewCompatApi17Impl {
         ViewCompatApi18Impl() {
         }
@@ -914,7 +914,7 @@ public class ViewCompat {
     }
 
     @RequiresApi(19)
-    /* loaded from: classes18.dex */
+    /* loaded from: classes3.dex */
     static class ViewCompatApi19Impl extends ViewCompatApi18Impl {
         ViewCompatApi19Impl() {
         }
@@ -951,7 +951,7 @@ public class ViewCompat {
     }
 
     @RequiresApi(21)
-    /* loaded from: classes18.dex */
+    /* loaded from: classes3.dex */
     static class ViewCompatApi21Impl extends ViewCompatApi19Impl {
         private static ThreadLocal<Rect> sThreadLocalRect;
 
@@ -1178,7 +1178,7 @@ public class ViewCompat {
     }
 
     @RequiresApi(23)
-    /* loaded from: classes18.dex */
+    /* loaded from: classes3.dex */
     static class ViewCompatApi23Impl extends ViewCompatApi21Impl {
         ViewCompatApi23Impl() {
         }
@@ -1210,7 +1210,7 @@ public class ViewCompat {
     }
 
     @RequiresApi(24)
-    /* loaded from: classes18.dex */
+    /* loaded from: classes3.dex */
     static class ViewCompatApi24Impl extends ViewCompatApi23Impl {
         ViewCompatApi24Impl() {
         }
@@ -1247,7 +1247,7 @@ public class ViewCompat {
     }
 
     @RequiresApi(26)
-    /* loaded from: classes18.dex */
+    /* loaded from: classes3.dex */
     static class ViewCompatApi26Impl extends ViewCompatApi24Impl {
         ViewCompatApi26Impl() {
         }

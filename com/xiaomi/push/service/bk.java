@@ -7,17 +7,17 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public final class bk implements Runnable {
     final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ hq f901a;
+    final /* synthetic */ hq f898a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bk(Context context, hq hqVar) {
         this.a = context;
-        this.f901a = hqVar;
+        this.f898a = hqVar;
     }
 
     @Override // java.lang.Runnable
@@ -31,11 +31,11 @@ public final class bk implements Runnable {
             }
             try {
                 File file = new File(this.a.getFilesDir(), "tiny_data.lock");
-                com.xiaomi.push.y.m585a(file);
+                com.xiaomi.push.y.m590a(file);
                 randomAccessFile = new RandomAccessFile(file, "rw");
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
-                    bj.c(this.a, this.f901a);
+                    bj.c(this.a, this.f898a);
                     if (fileLock != null && fileLock.isValid()) {
                         try {
                             fileLock.release();

@@ -11,13 +11,13 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private static volatile int bHh = 0;
+    private static volatile int bMH = 0;
     private static volatile String sProcessName;
 
-    public static int Qm() {
-        int i = bHh;
+    public static int Wh() {
+        int i = bMH;
         if (i == 0) {
             String processName = getProcessName();
             String packageName = e.getAppContext().getPackageName();
@@ -26,13 +26,13 @@ public class a {
             } else {
                 i |= 4;
             }
-            bHh = i;
+            bMH = i;
         }
         return i;
     }
 
-    public static boolean Qn() {
-        return (Qm() & 2) != 0;
+    public static boolean Wi() {
+        return (Wh() & 2) != 0;
     }
 
     public static String getProcessName() {
@@ -42,7 +42,7 @@ public class a {
                 str = sProcessName;
                 if (str == null) {
                     Context appContext = e.getAppContext();
-                    str = Qp();
+                    str = Wk();
                     if (str == null && (str = getProcessNameFromAm(appContext)) == null) {
                         str = appContext.getPackageName();
                     }
@@ -53,7 +53,7 @@ public class a {
         return str;
     }
 
-    public static int Qo() {
+    public static int Wj() {
         Context appContext = e.getAppContext();
         int myPid = Process.myPid();
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) appContext.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
@@ -87,7 +87,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static String Qp() {
+    private static String Wk() {
         BufferedReader bufferedReader;
         Exception exc;
         String str;

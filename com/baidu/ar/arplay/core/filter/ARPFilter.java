@@ -12,7 +12,8 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Surface;
-import com.baidu.ar.arplay.core.engine.b;
+import com.baidu.ar.arplay.c.b;
+import com.baidu.ar.arplay.core.engine.c;
 import com.baidu.ar.arplay.core.engine.pixel.FramePixels;
 import com.baidu.ar.arplay.core.engine.pixel.PixelReadListener;
 import com.baidu.ar.arplay.core.engine.pixel.PixelReadParams;
@@ -120,7 +121,7 @@ public class ARPFilter {
         if (preFilterID.equals("") || preFilterID.equals(PixelReadParams.DEFAULT_FILTER_ID)) {
             preFilterID = PixelReadParams.DEFAULT_FILTER_ID;
         }
-        return Integer.toString(outputWidth) + Integer.toString(outputHeight) + Integer.toString(pixelType.getValue()) + preFilterID;
+        return Integer.toString(outputWidth) + Integer.toString(outputHeight) + Integer.toString(pixelType.getValue()) + preFilterID + pixelReadParams.getFrameType().getValue();
     }
 
     private void multiplyPointWithMatrix(PointF pointF, float[] fArr) {
@@ -150,11 +151,13 @@ public class ARPFilter {
 
     private native void nativeBindTargetSurface(Surface surface);
 
+    private native void nativeClearCaptureData();
+
     private native void nativeConnectCameraWithTarget();
 
     private native void nativeContextDestroy();
 
-    private native void nativeContextInit(long j);
+    private native boolean nativeContextInit(long j, String str);
 
     private native void nativeContextPurge();
 
@@ -162,7 +165,7 @@ public class ARPFilter {
 
     private native void nativeCreateInputSource(int i, int i2);
 
-    private native void nativeCreatePixelReaderByPreFilterID(int i, int i2, int i3, int i4, float f, float f2, String str);
+    private native void nativeCreatePixelReaderByPreFilterID(int i, int i2, int i3, int i4, float f, float f2, String str, int i5);
 
     private native void nativeCreateSyncInputSource(int i, int i2);
 
@@ -170,7 +173,7 @@ public class ARPFilter {
 
     private native void nativeDestroyInputSource();
 
-    private native void nativeDestroyPixelReaderByPreFilterID(int i, int i2, int i3, int i4, float f, float f2, String str);
+    private native void nativeDestroyPixelReaderByPreFilterID(int i, int i2, int i3, int i4, float f, float f2, String str, int i5);
 
     private native void nativeDisableCaseLutTexture();
 
@@ -184,11 +187,15 @@ public class ARPFilter {
 
     private native void nativeLoadDefaultFilterLuaPath(String str);
 
+    private native void nativePauseRender();
+
     private native void nativeReleasePipeline();
 
     private native void nativeRemoveOutputAllTarget();
 
     private native void nativeRemoveOutputTargetByAddr(String str);
+
+    private native void nativeResumeRender();
 
     private native void nativeReturnTexture(long j);
 
@@ -198,15 +205,19 @@ public class ARPFilter {
 
     private native void nativeSetAuthPic(Bitmap bitmap, float[] fArr);
 
+    private native void nativeSetCaptureData(int i);
+
     private native void nativeSetInputSourceRotation(int i);
 
     private native void nativeSetInputTexture(int i, int i2, int i3, int i4);
 
     private native void nativeSetIsDumpAlgoPixel(boolean z);
 
+    private native void nativeSetIsRender(boolean z);
+
     private native void nativeSetPixelReaderRotation(int i);
 
-    private native void nativeSetPixelReaderRotationByPixelInfo(int i, int i2, int i3, int i4, float f, float f2, String str, int i5);
+    private native void nativeSetPixelReaderRotationByPixelInfo(int i, int i2, int i3, int i4, float f, float f2, String str, int i5, int i6);
 
     private native void nativeSetSnapShotPic(Bitmap bitmap, int i, int i2);
 
@@ -214,9 +225,13 @@ public class ARPFilter {
 
     private native void nativeSwapBuffer();
 
-    private native void nativeUpdateInputTexture();
+    private native void nativeUpdateInputTexture(long j);
+
+    private native void nativeUpdateOutputSurfaceRotation(String str, int i);
 
     private native void nativeUpdateTextureMatrix(float[] fArr);
+
+    private native void nativeUploadPixelToTextureFromPath(long j, String str);
 
     public static boolean needRotate(int i) {
         return i == PixelRotation.RotateLeft.getValue() || i == PixelRotation.RotateRight.getValue() || i == PixelRotation.RotateRightFlipVertical.getValue() || i == PixelRotation.RotateRightFlipHorizontal.getValue();
@@ -231,10 +246,11 @@ public class ARPFilter {
     }
 
     @SuppressLint({"NewApi"})
-    private void prepareGLContext(EGLContext eGLContext) {
+    private boolean prepareGLContext(EGLContext eGLContext) {
         Log.d(TAG, "calling nativeContextInit");
-        nativeContextInit(eGLContext != null ? Build.VERSION.SDK_INT > 20 ? eGLContext.getNativeHandle() : eGLContext.getHandle() : 0L);
+        boolean nativeContextInit = nativeContextInit(eGLContext != null ? Build.VERSION.SDK_INT > 20 ? eGLContext.getNativeHandle() : eGLContext.getHandle() : 0L, "4.9.0");
         Log.d(TAG, "end of prepareGLContext");
+        return nativeContextInit;
     }
 
     public static synchronized void releaseInstance() {
@@ -288,7 +304,7 @@ public class ARPFilter {
     }
 
     public String addOutputTarget(int i, int i2, int i3, int i4, PixelRotation pixelRotation, OutputFillMode outputFillMode) {
-        Log.d(TAG, String.format("addOutputTarget: %d [%dx%d] %s %s", Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), pixelRotation, outputFillMode));
+        Log.d(TAG, String.format("test addOutputTarget: %d [%dx%d] %s %s", Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), pixelRotation, outputFillMode));
         return nativeAddOutputTexture(i, i2, i3, i4, pixelRotation.getValue(), outputFillMode.getValue());
     }
 
@@ -367,13 +383,17 @@ public class ARPFilter {
         }
     }
 
+    public void clearCaptureData() {
+        nativeClearCaptureData();
+    }
+
     public void connectCameraWithTarget() {
         nativeConnectCameraWithTarget();
     }
 
-    public void createInputSource(PixelRotation pixelRotation, b bVar) {
-        Log.d(TAG, "calling nativeCreateInputSource: " + bVar);
-        nativeCreateInputSource(pixelRotation.getValue(), bVar.getValue());
+    public void createInputSource(PixelRotation pixelRotation, c cVar) {
+        Log.d(TAG, "calling nativeCreateInputSource: " + cVar);
+        nativeCreateInputSource(pixelRotation.getValue(), cVar.getValue());
     }
 
     public void createPixelReaderByPreFilterID(PixelReadParams pixelReadParams, PixelReadListener pixelReadListener) {
@@ -384,6 +404,7 @@ public class ARPFilter {
         int outputHeight = pixelReadParams.getOutputHeight();
         PixelRotation pixelRotate = pixelReadParams.getPixelRotate();
         PixelType pixelType = pixelReadParams.getPixelType();
+        int value = pixelReadParams.getFrameType().getValue();
         float inputWidth = outputWidth / getInputWidth(pixelReadParams);
         float inputHeight = outputHeight / getInputHeight(pixelReadParams);
         String pixelReadParamHash = getPixelReadParamHash(pixelReadParams);
@@ -394,14 +415,14 @@ public class ARPFilter {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(pixelReadListener);
                 this.mPixelListenerHash.put(pixelReadParamHash, arrayList);
-                nativeCreatePixelReaderByPreFilterID(outputWidth, outputHeight, pixelRotate.getValue(), pixelType.getValue(), inputWidth, inputHeight, pixelReadParams.getPreFilterID());
+                nativeCreatePixelReaderByPreFilterID(outputWidth, outputHeight, pixelRotate.getValue(), pixelType.getValue(), inputWidth, inputHeight, pixelReadParams.getPreFilterID(), value);
             }
         }
     }
 
-    public void createSyncInputSource(PixelRotation pixelRotation, b bVar) {
-        Log.d(TAG, "calling createSyncInputSource: " + bVar);
-        nativeCreateSyncInputSource(pixelRotation.getValue(), bVar.getValue());
+    public void createSyncInputSource(PixelRotation pixelRotation, c cVar) {
+        Log.d(TAG, "calling createSyncInputSource: " + cVar);
+        nativeCreateSyncInputSource(pixelRotation.getValue(), cVar.getValue());
     }
 
     public long createTexture(int i, int i2, int i3) {
@@ -447,7 +468,7 @@ public class ARPFilter {
                     this.mPixelListenerHash.remove(pixelReadParamHash);
                     int outputWidth = pixelReadParams.getOutputWidth();
                     int outputHeight = pixelReadParams.getOutputHeight();
-                    nativeDestroyPixelReaderByPreFilterID(outputWidth, outputHeight, pixelReadParams.getPixelRotate().getValue(), pixelReadParams.getPixelType().getValue(), outputWidth / getInputWidth(pixelReadParams), outputHeight / getInputHeight(pixelReadParams), pixelReadParams.getPreFilterID());
+                    nativeDestroyPixelReaderByPreFilterID(outputWidth, outputHeight, pixelReadParams.getPixelRotate().getValue(), pixelReadParams.getPixelType().getValue(), outputWidth / getInputWidth(pixelReadParams), outputHeight / getInputHeight(pixelReadParams), pixelReadParams.getPreFilterID(), pixelReadParams.getFrameType().getValue());
                 }
             }
         }
@@ -499,6 +520,10 @@ public class ARPFilter {
         return nativeGetTextureId(j);
     }
 
+    public boolean isFrontCamera() {
+        return this.mFrontCamera;
+    }
+
     public void loadDefaultFilterLuaPath(String str) {
         ARPMessage.getInstance().setUp();
         synchronized (this.mPipelineLock) {
@@ -512,40 +537,46 @@ public class ARPFilter {
 
     public native void nativeRunSyncOnRenderContext(Runnable runnable);
 
-    public void onFrameRenderFinished() {
+    public void onFrameRenderFinished(long j) {
         if (this.mOnRenderFinishedListener != null) {
-            this.mOnRenderFinishedListener.onRenderFinished();
+            this.mOnRenderFinishedListener.onRenderFinished(j);
         }
     }
 
-    public void onFrameRenderStarted() {
+    public void onFrameRenderStarted(long j) {
         if (this.mOnRenderStartedListener != null) {
-            this.mOnRenderStartedListener.onRenderStarted();
+            this.mOnRenderStartedListener.onRenderStarted(j);
         }
         runAllDrawQueue();
     }
 
     public void onSnapShotFinished(Bitmap bitmap, long j) {
-        Bitmap rotateBitmap = SnapShot.rotateBitmap(bitmap, this.mRotation);
+        Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), (android.graphics.Matrix) null, false);
         if (this.mIsCutSnapShot) {
-            Bitmap createBitmap = Bitmap.createBitmap(rotateBitmap, this.mCutSnapStartX, this.mCutSnapStartY, this.mCutSnapWidth, this.mCutSnapHeight, (android.graphics.Matrix) null, false);
-            if (rotateBitmap == null || rotateBitmap.equals(createBitmap) || rotateBitmap.isRecycled()) {
-                rotateBitmap = createBitmap;
+            Bitmap createBitmap2 = Bitmap.createBitmap(createBitmap, this.mCutSnapStartX, this.mCutSnapStartY, this.mCutSnapWidth, this.mCutSnapHeight, (android.graphics.Matrix) null, false);
+            if (createBitmap == null || createBitmap.equals(createBitmap2) || createBitmap.isRecycled()) {
+                createBitmap = createBitmap2;
             } else {
-                rotateBitmap.recycle();
-                rotateBitmap = createBitmap;
+                createBitmap.recycle();
+                createBitmap = createBitmap2;
             }
         }
         if (this.mTakePictureCallback != null) {
-            this.mTakePictureCallback.onPictureTake(true, rotateBitmap, j);
+            this.mTakePictureCallback.onPictureTake(true, createBitmap, j);
         }
     }
 
-    public boolean pixelReadCallback(ByteBuffer byteBuffer, long j, int i, int i2, int i3, int i4, int i5, String str) {
+    public void pause() {
+        Log.d(TAG, "ARPFilter pause: ");
+        nativePauseRender();
+    }
+
+    public boolean pixelReadCallback(ByteBuffer byteBuffer, long j, int i, int i2, int i3, int i4, int i5, String str, int i6, int i7) {
         PixelReadParams pixelReadParams = new PixelReadParams(PixelType.valueOf(i4));
         pixelReadParams.setOutputWidth(i);
         pixelReadParams.setOutputHeight(i2);
         pixelReadParams.setPreFilterID(str);
+        pixelReadParams.setFrameType(PixelReadParams.FrameType.values()[i6]);
         String pixelReadParamHash = getPixelReadParamHash(pixelReadParams);
         Boolean valueOf = (this.mIsNeedCacheFrameListener == null || !this.mNeedSyncRender || j == this.mLastAlgoPTS) ? false : Boolean.valueOf(this.mIsNeedCacheFrameListener.isNeedCacheFrame(j));
         this.mLastAlgoPTS = j;
@@ -556,9 +587,14 @@ public class ARPFilter {
             framePixels.setOrientation(OrientationManager.getGlobalOrientation());
             framePixels.setTimestamp(j);
             framePixels.setPixelLength(i5);
-            for (PixelReadListener pixelReadListener : this.mPixelListenerHash.get(pixelReadParamHash)) {
-                if (pixelReadListener != null) {
-                    pixelReadListener.onPixelRead(framePixels);
+            framePixels.setTextureID(i7);
+            framePixels.setFrameType(PixelReadParams.FrameType.values()[i6]);
+            List<PixelReadListener> list = this.mPixelListenerHash.get(pixelReadParamHash);
+            if (list != null) {
+                for (PixelReadListener pixelReadListener : list) {
+                    if (pixelReadListener != null) {
+                        pixelReadListener.onPixelRead(framePixels);
+                    }
                 }
             }
         }
@@ -577,7 +613,7 @@ public class ARPFilter {
         nativeRemoveOutputTargetByAddr(str);
     }
 
-    public synchronized void render() {
+    public synchronized void render(long j) {
         if (this.mTotalFrameCount > 0) {
             this.mTotalFrameTimeInMS = (System.currentTimeMillis() - this.mLastFramePTS) + this.mTotalFrameTimeInMS;
         }
@@ -589,8 +625,13 @@ public class ARPFilter {
             this.mTotalFrameTimeInMS = 0L;
         }
         if (this.hasSetup) {
-            nativeUpdateInputTexture();
+            nativeUpdateInputTexture(j);
         }
+    }
+
+    public void resume() {
+        Log.d(TAG, "ARPFilter resume: ");
+        nativeResumeRender();
     }
 
     public void runAsyncOnRenderContext(Runnable runnable) {
@@ -617,7 +658,7 @@ public class ARPFilter {
         if (runnable == null) {
             return;
         }
-        com.baidu.ar.arplay.c.b.c(TAG, "runSyncOnRenderContext: " + Thread.currentThread().getId());
+        b.c(TAG, "runSyncOnRenderContext: " + Thread.currentThread().getId());
         synchronized (this.mRunnableLock) {
             nativeRunSyncOnIOContext(runnable);
         }
@@ -627,7 +668,7 @@ public class ARPFilter {
         if (runnable == null) {
             return;
         }
-        com.baidu.ar.arplay.c.b.c(TAG, "runSyncOnRenderContext: " + Thread.currentThread().getId());
+        b.c(TAG, "runSyncOnRenderContext: " + Thread.currentThread().getId());
         synchronized (this.mRunnableLock) {
             nativeRunSyncOnRenderContext(runnable);
         }
@@ -643,6 +684,10 @@ public class ARPFilter {
 
     public void setCameraFace(boolean z) {
         this.mFrontCamera = z;
+    }
+
+    public void setCaptureData(int i) {
+        nativeSetCaptureData(i);
     }
 
     public void setContext(SoftReference<Context> softReference) {
@@ -671,6 +716,10 @@ public class ARPFilter {
         nativeSetIsDumpAlgoPixel(z);
     }
 
+    public void setIsRender(boolean z) {
+        nativeSetIsRender(z);
+    }
+
     public void setOnNeedCacheFrameListener(OnNeedCacheFrameListener onNeedCacheFrameListener) {
         this.mIsNeedCacheFrameListener = onNeedCacheFrameListener;
     }
@@ -692,7 +741,7 @@ public class ARPFilter {
             if (this.mPixelListenerHash.containsKey(pixelReadParamHash)) {
                 int outputWidth = pixelReadParams.getOutputWidth();
                 int outputHeight = pixelReadParams.getOutputHeight();
-                nativeSetPixelReaderRotationByPixelInfo(outputWidth, outputHeight, pixelReadParams.getPixelRotate().getValue(), pixelReadParams.getPixelType().getValue(), outputWidth / getInputWidth(pixelReadParams), outputHeight / getInputHeight(pixelReadParams), pixelReadParams.getPreFilterID(), pixelRotation.getValue());
+                nativeSetPixelReaderRotationByPixelInfo(outputWidth, outputHeight, pixelReadParams.getPixelRotate().getValue(), pixelReadParams.getPixelType().getValue(), outputWidth / getInputWidth(pixelReadParams), outputHeight / getInputHeight(pixelReadParams), pixelReadParams.getPreFilterID(), pixelRotation.getValue(), pixelReadParams.getFrameType().getValue());
             }
         }
     }
@@ -706,18 +755,33 @@ public class ARPFilter {
         nativeSetSourceSyncProperty(z);
     }
 
-    public synchronized void setUpEGLEnv(EGLContext eGLContext) {
-        if (!this.hasSetup) {
-            prepareGLContext(eGLContext);
-            this.hasSetup = true;
-            this.mLastFramePTS = -1L;
-            this.mTotalFrameTimeInMS = 0L;
-            this.mTotalFrameCount = 0;
-            this.hasSetupPipeline = false;
+    public synchronized boolean setUpEGLEnv(EGLContext eGLContext) {
+        boolean z = true;
+        synchronized (this) {
+            if (!this.hasSetup) {
+                if (prepareGLContext(eGLContext)) {
+                    this.hasSetup = true;
+                    this.mLastFramePTS = -1L;
+                    this.mTotalFrameTimeInMS = 0L;
+                    this.mTotalFrameCount = 0;
+                    this.hasSetupPipeline = false;
+                } else {
+                    z = false;
+                }
+            }
         }
+        return z;
     }
 
     public void swapBuffer() {
         nativeSwapBuffer();
+    }
+
+    public void updateOutputSurfaceRotation(String str, PixelRotation pixelRotation) {
+        nativeUpdateOutputSurfaceRotation(str, pixelRotation.getValue());
+    }
+
+    public void uploadPixelToTextureFromPath(long j, String str) {
+        nativeUploadPixelToTextureFromPath(j, str);
     }
 }

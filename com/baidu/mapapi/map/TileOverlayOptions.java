@@ -4,8 +4,8 @@ import android.os.Bundle;
 import android.util.Log;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLngBounds;
-import com.baidu.mapapi.model.inner.GeoPoint;
-/* loaded from: classes10.dex */
+import com.baidu.platform.comapi.basestruct.GeoPoint;
+/* loaded from: classes20.dex */
 public final class TileOverlayOptions {
     private static Bundle c;
     private static final String j = TileOverlayOptions.class.getSimpleName();
@@ -56,7 +56,7 @@ public final class TileOverlayOptions {
 
     public TileOverlayOptions setPositionFromBounds(LatLngBounds latLngBounds) {
         if (latLngBounds == null) {
-            throw new IllegalArgumentException("bound can not be null");
+            throw new IllegalArgumentException("BDMapSDKException: bound can not be null");
         }
         GeoPoint ll2mc = CoordUtil.ll2mc(latLngBounds.northeast);
         GeoPoint ll2mc2 = CoordUtil.ll2mc(latLngBounds.southwest);
@@ -65,7 +65,7 @@ public final class TileOverlayOptions {
         double latitudeE62 = ll2mc2.getLatitudeE6();
         double longitudeE62 = ll2mc.getLongitudeE6();
         if (latitudeE6 <= latitudeE62 || longitudeE62 <= longitudeE6) {
-            Log.e(j, "bounds is illegal, use default bounds");
+            Log.e(j, "BDMapSDKException: bounds is illegal, use default bounds");
         } else {
             c.putInt("rectr", (int) longitudeE62);
             c.putInt("rectb", (int) latitudeE62);

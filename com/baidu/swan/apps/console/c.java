@@ -5,88 +5,85 @@ import android.util.Log;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.aq.j;
+import com.baidu.swan.apps.ap.j;
 import com.baidu.swan.apps.v.f;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c {
-    private static boolean bWG = false;
+    private static boolean cco = false;
 
-    public static void dz(boolean z) {
-        bWG = z;
+    public static void dI(boolean z) {
+        cco = z;
     }
 
-    public static boolean XD() {
-        return bWG;
+    public static boolean adJ() {
+        return cco;
     }
 
-    public static void d(String str, String str2) {
-        if (com.baidu.swan.apps.b.DEBUG) {
-            Log.d(str, str2);
-        }
-    }
-
-    public static void c(String str, String str2, Object obj) {
-        if (com.baidu.swan.apps.b.DEBUG) {
-            if (obj != null) {
-                str2 = str2 + obj;
+    public static void d(String str, Object... objArr) {
+        if (com.baidu.swan.apps.b.DEBUG && objArr != null) {
+            StringBuilder sb = new StringBuilder();
+            for (Object obj : objArr) {
+                if (obj != null) {
+                    sb.append(obj.toString());
+                }
             }
-            Log.d(str, str2);
+            Log.d(str, sb.toString());
         }
     }
 
     public static void i(String str, String str2) {
-        t("info", str, str2);
-        com.baidu.swan.apps.t.a.aij().i(str, str2);
+        u("info", str, str2);
+        com.baidu.swan.apps.t.a.apL().i(str, str2);
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.i(str, str2);
         }
     }
 
     public static void w(String str, String str2) {
-        t("warn", str, str2);
-        com.baidu.swan.apps.t.a.aij().w(str, str2);
+        u("warn", str, str2);
+        com.baidu.swan.apps.t.a.apL().w(str, str2);
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.w(str, str2);
         }
     }
 
     public static void e(String str, String str2) {
-        t(BdStatsConstant.StatsType.ERROR, str, str2);
-        com.baidu.swan.apps.t.a.aij().e(str, str2);
+        u(BdStatsConstant.StatsType.ERROR, str, str2);
+        com.baidu.swan.apps.t.a.apL().e(str, str2);
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.e(str, str2);
         }
     }
 
     public static void e(String str, String str2, Throwable th) {
-        t(BdStatsConstant.StatsType.ERROR, str, th != null ? "Exception:" + th.getMessage() + "\n" + str2 : str2);
-        com.baidu.swan.apps.t.a.aij().e(str, str2, th);
+        u(BdStatsConstant.StatsType.ERROR, str, th != null ? "Exception:" + th.getMessage() + "\n" + str2 : str2);
+        com.baidu.swan.apps.t.a.apL().e(str, str2, th);
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.e(str, str2, th);
         }
     }
 
-    public static void aW(String str, String str2) {
-        com.baidu.swan.apps.t.a.aij().i(str, str2);
+    public static void bb(String str, String str2) {
+        com.baidu.swan.apps.t.a.apL().i(str, str2);
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.i(str, str2);
         }
     }
 
     public static void f(String str, String str2, Throwable th) {
-        com.baidu.swan.apps.t.a.aij().e(str, str2, th);
+        com.baidu.swan.apps.t.a.apL().e(str, str2, th);
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.e(str, str2, th);
         }
     }
 
-    private static void t(String str, String str2, String str3) {
-        if (!TextUtils.isEmpty(str3) && bWG) {
+    private static void u(String str, String str2, String str3) {
+        if (!TextUtils.isEmpty(str3) && cco) {
             StringBuilder sb = new StringBuilder();
-            String a = j.a(j.awy(), "yyyy-MM-dd HH:mm:ss");
+            String a = j.a(j.aEI(), "yyyy-MM-dd HH:mm:ss");
             String fileName = getFileName();
             sb.append(a).append("  ").append(fileName).append("  ").append("line:").append(getLineNumber()).append("\n").append("module:").append(str2).append("\n").append(str3);
-            f.akr().ajU().aQ(str, sb.toString());
+            f.arY().arB().aU(str, sb.toString());
         }
     }
 

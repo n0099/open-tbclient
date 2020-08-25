@@ -1,7 +1,7 @@
 package com.baidu.sapi2.result;
 
 import com.baidu.sapi2.SapiAccount;
-/* loaded from: classes19.dex */
+/* loaded from: classes12.dex */
 public class FillUserProfileResult extends SapiResult {
     public static final int ERROR_CODE_SIM_UNAVAILABLE = -101;
     public static final String ERROR_MSG_SIM_UNAVAILABLE = "SIM卡不可用，请使用其他绑定方式";

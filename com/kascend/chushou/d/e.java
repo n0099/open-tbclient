@@ -46,19 +46,19 @@ public class e {
     }
 
     public static void a() {
-        tv.chushou.basis.c.c.TH("chushou_player_prefs").putBoolean("key_only_play_when_wifi", h.dMp().u());
+        tv.chushou.basis.c.c.WL("chushou_player_prefs").putBoolean("key_only_play_when_wifi", h.dYr().u());
     }
 
     public static boolean b() {
-        return h.dMp().u() && !com.kascend.chushou.b.dMi().a && com.kascend.chushou.b.dMi().b;
+        return h.dYr().u() && !com.kascend.chushou.b.dYj().a && com.kascend.chushou.b.dYj().b;
     }
 
     public static int c() {
-        return tv.chushou.basis.c.c.TH("chushou_player_prefs").getInt("key_user_4g_choice", -1);
+        return tv.chushou.basis.c.c.WL("chushou_player_prefs").getInt("key_user_4g_choice", -1);
     }
 
     public static void a(int i) {
-        tv.chushou.basis.c.c.TH("chushou_player_prefs").putInt("key_user_4g_choice", i);
+        tv.chushou.basis.c.c.WL("chushou_player_prefs").putInt("key_user_4g_choice", i);
     }
 
     public static Uri aB(String str, String str2, String str3) {
@@ -69,7 +69,7 @@ public class e {
     }
 
     public static void a(Context context, boolean z) {
-        tv.chushou.widget.a.a.s(context, z);
+        tv.chushou.widget.a.a.t(context, z);
     }
 
     @Nullable
@@ -86,7 +86,7 @@ public class e {
                     if (generalTabGift != null && !tv.chushou.zues.utils.h.isEmpty(generalTabGift.mGeneralGifts)) {
                         for (GeneralGift generalGift : generalTabGift.mGeneralGifts) {
                             if (generalGift != null && !tv.chushou.zues.utils.h.isEmpty(generalGift.mIcon)) {
-                                tv.chushou.zues.utils.h.TX(generalGift.mIcon);
+                                tv.chushou.zues.utils.h.Xb(generalGift.mIcon);
                             }
                         }
                     }
@@ -213,7 +213,7 @@ public class e {
             }
             switch (c2) {
                 case 0:
-                    if (listItem.fromBaidu ? true : com.kascend.cstvsdk.utils.a.nIJ.a(listItem.mTargetKey)) {
+                    if (listItem.fromBaidu ? true : com.kascend.cstvsdk.utils.a.ocC.a(listItem.mTargetKey)) {
                         JSONObject jSONObject2 = jSONObject == null ? new JSONObject() : jSONObject;
                         try {
                             if ("mic_room".equals(jSONObject2.optString("imfrom"))) {
@@ -261,11 +261,11 @@ public class e {
             fragmentActivity2 = (FragmentActivity) context;
         }
         if (fragmentActivity2 == null) {
-            Activity e = b.e();
-            if (e instanceof FragmentActivity) {
-                fragmentActivity = (FragmentActivity) e;
+            Activity dYn = b.dYn();
+            if (dYn instanceof FragmentActivity) {
+                fragmentActivity = (FragmentActivity) dYn;
                 if (fragmentActivity == null && !fragmentActivity.isFinishing()) {
-                    com.kascend.chushou.player.ui.h5.a.nAu.RX(str).show(fragmentActivity.getSupportFragmentManager(), "fixedDialog");
+                    com.kascend.chushou.player.ui.h5.a.nUi.Vb(str).show(fragmentActivity.getSupportFragmentManager(), "fixedDialog");
                     return;
                 }
             }
@@ -277,7 +277,7 @@ public class e {
 
     public static String a(String str, Map<String, Object> map, RequestTag requestTag) {
         Http http;
-        if (!tv.chushou.zues.utils.h.isEmpty(str) && (http = (Http) tv.chushou.basis.d.b.dZH().S(Http.class)) != null) {
+        if (!tv.chushou.zues.utils.h.isEmpty(str) && (http = (Http) tv.chushou.basis.d.b.elL().S(Http.class)) != null) {
             if (str.contains("chushou.tv") || str.contains("192.168.") || str.contains("183.129.155.244") || str.contains("vchushou.com") || str.contains("playground") || str.contains("kascend-inc.com")) {
                 if (requestTag == null) {
                     requestTag = RequestTag.normal();
@@ -294,7 +294,7 @@ public class e {
     }
 
     public static String a(String str, Map<String, Object> map) {
-        Http http = (Http) tv.chushou.basis.d.b.dZH().S(Http.class);
+        Http http = (Http) tv.chushou.basis.d.b.elL().S(Http.class);
         return http == null ? str : http.packParams(str, map);
     }
 
@@ -320,7 +320,7 @@ public class e {
             str5 = null;
         }
         if (jSONObject != null && (context instanceof VideoPlayer) && "3".equals(str5) && "3".equals(jSONObject.optString("tag_from_view"))) {
-            new tv.chushou.zues.c(context.getMainLooper()).r(new Runnable() { // from class: com.kascend.chushou.d.e.2
+            new tv.chushou.zues.c(context.getMainLooper()).o(new Runnable() { // from class: com.kascend.chushou.d.e.2
                 @Override // java.lang.Runnable
                 public void run() {
                     ListItem listItem = new ListItem();
@@ -331,7 +331,7 @@ public class e {
                     }
                     listItem.mType = str6;
                     o oVar = new o();
-                    oVar.nnt = listItem;
+                    oVar.nHk = listItem;
                     oVar.f = "3";
                     oVar.c = context;
                     oVar.d = z2;
@@ -349,13 +349,13 @@ public class e {
             listItem.mCover = jSONObject.optString("_thumb");
             o oVar = new o();
             oVar.f = "1";
-            oVar.nnt = listItem;
+            oVar.nHk = listItem;
             oVar.c = context;
             oVar.d = z2;
             oVar.g = str3;
             tv.chushou.zues.a.a.post(oVar);
         } else if ((context instanceof VideoPlayer) && str4 != null && (str4.equals(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR) || str4.equals("8") || str4.equals(Constants.VIA_REPORT_TYPE_WPA_STATE))) {
-            new tv.chushou.zues.c(context.getMainLooper()).r(new Runnable() { // from class: com.kascend.chushou.d.e.3
+            new tv.chushou.zues.c(context.getMainLooper()).o(new Runnable() { // from class: com.kascend.chushou.d.e.3
                 @Override // java.lang.Runnable
                 public void run() {
                     ListItem listItem2 = new ListItem();
@@ -366,7 +366,7 @@ public class e {
                     }
                     listItem2.mType = str6;
                     o oVar2 = new o();
-                    oVar2.nnt = listItem2;
+                    oVar2.nHk = listItem2;
                     oVar2.c = context;
                     oVar2.d = z2;
                     oVar2.g = str3;
@@ -393,8 +393,8 @@ public class e {
 
     private static boolean a(Context context, String str, String str2, JSONObject jSONObject, boolean z, String str3) {
         if (!tv.chushou.zues.utils.h.isEmpty(str)) {
-            if (!tv.chushou.zues.utils.a.eae()) {
-                tv.chushou.zues.utils.g.Mc(a.i.s_no_available_network);
+            if (!tv.chushou.zues.utils.a.emh()) {
+                tv.chushou.zues.utils.g.OF(a.i.s_no_available_network);
             } else {
                 a(context, str, str2, jSONObject, z, false, str3);
             }
@@ -405,9 +405,9 @@ public class e {
     }
 
     public static String a(Object... objArr) {
-        JSONObject P = P(objArr);
-        if (P != null) {
-            return P.toString();
+        JSONObject O = O(objArr);
+        if (O != null) {
+            return O.toString();
         }
         return null;
     }
@@ -425,7 +425,7 @@ public class e {
         return jSONObject;
     }
 
-    public static JSONObject P(Object... objArr) {
+    public static JSONObject O(Object... objArr) {
         int length = objArr.length;
         if (length % 2 != 0) {
             return null;
@@ -481,8 +481,8 @@ public class e {
     }
 
     public static boolean c(Context context, String str) {
-        if (!tv.chushou.zues.utils.a.eae()) {
-            tv.chushou.zues.utils.g.Mc(a.i.s_no_available_network);
+        if (!tv.chushou.zues.utils.a.emh()) {
+            tv.chushou.zues.utils.g.OF(a.i.s_no_available_network);
             return false;
         } else if (!LoginManager.Instance().islogined()) {
             a.b(context, str);
@@ -497,7 +497,7 @@ public class e {
     }
 
     public static void a(FragmentActivity fragmentActivity, String str) {
-        com.kascend.chushou.view.b.b.Sc(str).show(fragmentActivity.getSupportFragmentManager(), "RechargeDialog");
+        com.kascend.chushou.view.b.b.Vg(str).show(fragmentActivity.getSupportFragmentManager(), "RechargeDialog");
     }
 
     public static void a(Context context, String str, b.a aVar) {
@@ -506,12 +506,12 @@ public class e {
             public void onClick(tv.chushou.zues.widget.sweetalert.b bVar) {
                 bVar.dismiss();
             }
-        }).b(aVar).Ub(context.getString(a.i.alert_dialog_cancel)).Ud(context.getString(a.i.alert_dialog_ok)).B(context.getString(a.i.manage_follow_confirm, str)).show();
+        }).b(aVar).Xf(context.getString(a.i.alert_dialog_cancel)).Xh(context.getString(a.i.alert_dialog_ok)).B(context.getString(a.i.manage_follow_confirm, str)).show();
     }
 
     public static void d(FragmentManager fragmentManager) {
         if (LoginManager.Instance().islogined()) {
-            com.kascend.chushou.view.b.e.xH(true).show(fragmentManager, "userinfocopy");
+            com.kascend.chushou.view.b.e.yz(true).show(fragmentManager, "userinfocopy");
         }
     }
 
@@ -530,26 +530,26 @@ public class e {
     }
 
     public static void f() {
-        c.nnE.c();
-        c.nnE.dMm();
-        c.nnE.e();
+        c.nHv.c();
+        c.nHv.dYo();
+        c.nHv.e();
     }
 
     public static void g() {
         synchronized (d) {
             if (c) {
-                tv.chushou.basis.d.b.dZG().d(null, "initMainThread, already finished");
+                tv.chushou.basis.d.b.elK().d(null, "initMainThread, already finished");
                 return;
             }
-            tv.chushou.basis.d.b.dZG().d(null, "initMainThread");
-            tv.chushou.basis.d.b.dZH().e(tv.chushou.basis.d.a.b.b.class, com.kascend.chushou.toolkit.c.a.class);
-            tv.chushou.basis.d.b.dZH().e(tv.chushou.basis.d.a.b.d.class, tv.chushou.basis.b.a.a.a.class);
-            tv.chushou.basis.d.b.dZH().e(tv.chushou.basis.d.a.b.e.class, com.kascend.chushou.toolkit.c.e.class);
-            tv.chushou.basis.d.b.dZH().e(tv.chushou.basis.d.a.b.c.class, com.kascend.chushou.toolkit.c.b.class);
-            tv.chushou.basis.d.b.dZH().e(Http.class, HttpImpl.class);
-            tv.chushou.basis.d.b.dZH().e(tv.chushou.basis.d.a.a.c.class, com.kascend.chushou.toolkit.c.a.c.class);
-            tv.chushou.basis.d.b.dZH().e(tv.chushou.basis.d.a.a.b.class, com.kascend.chushou.toolkit.c.d.class);
-            tv.chushou.basis.d.b.dZH().e(tv.chushou.basis.d.a.a.a.class, com.kascend.chushou.toolkit.c.c.class);
+            tv.chushou.basis.d.b.elK().d(null, "initMainThread");
+            tv.chushou.basis.d.b.elL().e(tv.chushou.basis.d.a.b.b.class, com.kascend.chushou.toolkit.c.a.class);
+            tv.chushou.basis.d.b.elL().e(tv.chushou.basis.d.a.b.d.class, tv.chushou.basis.b.a.a.a.class);
+            tv.chushou.basis.d.b.elL().e(tv.chushou.basis.d.a.b.e.class, com.kascend.chushou.toolkit.c.e.class);
+            tv.chushou.basis.d.b.elL().e(tv.chushou.basis.d.a.b.c.class, com.kascend.chushou.toolkit.c.b.class);
+            tv.chushou.basis.d.b.elL().e(Http.class, HttpImpl.class);
+            tv.chushou.basis.d.b.elL().e(tv.chushou.basis.d.a.a.c.class, com.kascend.chushou.toolkit.c.a.c.class);
+            tv.chushou.basis.d.b.elL().e(tv.chushou.basis.d.a.a.b.class, com.kascend.chushou.toolkit.c.d.class);
+            tv.chushou.basis.d.b.elL().e(tv.chushou.basis.d.a.a.a.class, com.kascend.chushou.toolkit.c.c.class);
             h();
             i();
             c = true;
@@ -564,11 +564,11 @@ public class e {
     public static void b(OkHttpClient okHttpClient, String str) {
         HttpExecutor.initialize(okHttpClient);
         UploadManager.a(HttpExecutor.getOkHttpClient());
-        tv.chushou.common.a.TI(str);
+        tv.chushou.common.a.WM(str);
     }
 
     public static void i() {
-        EmptyLoadingView.ao(new View.OnClickListener() { // from class: com.kascend.chushou.d.e.5
+        EmptyLoadingView.ap(new View.OnClickListener() { // from class: com.kascend.chushou.d.e.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 e.c(view.getContext(), null);
@@ -577,7 +577,7 @@ public class e {
     }
 
     public static void j() {
-        com.kascend.chushou.b.dMi().a = tv.chushou.zues.utils.a.gG(tv.chushou.basis.d.b.dZF());
-        com.kascend.chushou.b.dMi().b = tv.chushou.zues.utils.a.gH(tv.chushou.basis.d.b.dZF());
+        com.kascend.chushou.b.dYj().a = tv.chushou.zues.utils.a.gY(tv.chushou.basis.d.b.elJ());
+        com.kascend.chushou.b.dYj().b = tv.chushou.zues.utils.a.gZ(tv.chushou.basis.d.b.elJ());
     }
 }

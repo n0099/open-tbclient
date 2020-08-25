@@ -23,8 +23,8 @@ class d {
         }
         if (jSONObject != null) {
             a aVar = new a();
-            aVar.bN = sharedPreferences.getString("v", "");
-            aVar.bO = jSONObject;
+            aVar.bE = sharedPreferences.getString("v", "");
+            aVar.bF = jSONObject;
             return aVar;
         }
         return null;
@@ -32,9 +32,9 @@ class d {
 
     public static void a(Context context, a aVar) {
         SharedPreferences.Editor edit = context.getSharedPreferences("ar_ability_classification", 0).edit();
-        edit.putString("v", aVar.bN);
-        edit.putString("s", aVar.bO.toString());
-        edit.putInt("sv", com.baidu.ar.f.c.getVersionCode());
+        edit.putString("v", aVar.bE);
+        edit.putString("s", aVar.bF.toString());
+        edit.putInt("sv", com.baidu.ar.g.c.getVersionCode());
         edit.apply();
     }
 }

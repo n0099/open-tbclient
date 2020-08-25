@@ -13,20 +13,20 @@ import java.util.Iterator;
 import java.util.zip.Deflater;
 import java.util.zip.DeflaterOutputStream;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes6.dex */
 public final class c {
-    private static SimpleDateFormat amE;
-    private static PackageManager amF;
+    private static SimpleDateFormat anG;
+    private static PackageManager anH;
 
-    public static String Q(long j) {
+    public static String R(long j) {
         return j / 1000000000 > 0 ? (((float) (j / 100000000)) / 10.0f) + "G" : j / TimeUtils.NANOS_PER_MS > 0 ? (((float) (j / 100000)) / 10.0f) + "M" : j / 1000 > 0 ? (((float) (j / 100)) / 10.0f) + "K" : j + "B";
     }
 
     public static String a(Date date) {
-        if (amE == null) {
-            amE = new SimpleDateFormat("MM-dd HH:mm:ss");
+        if (anG == null) {
+            anG = new SimpleDateFormat("MM-dd HH:mm:ss");
         }
-        return amE.format(date);
+        return anG.format(date);
     }
 
     public static JSONObject a(JSONObject jSONObject, JSONObject jSONObject2) {
@@ -135,25 +135,14 @@ public final class c {
         return new SimpleDateFormat("yyyyMMdd").format(new Date(System.currentTimeMillis()));
     }
 
-    public static byte[] dk(String str) {
+    public static byte[] dv(String str) {
         if (str == null || str.length() == 0) {
             return null;
         }
         return a(str.getBytes());
     }
 
-    public static boolean g(Context context, String str) {
-        if (amF == null) {
-            amF = context.getPackageManager();
-        }
-        try {
-            return amF.checkPermission(str, context.getPackageName()) == 0;
-        } catch (RuntimeException e) {
-            return false;
-        }
-    }
-
-    public static String h(Throwable th) {
+    public static String g(Throwable th) {
         if (th == null) {
             a.w("getErrorLine thr is null.");
             return "";
@@ -162,7 +151,18 @@ public final class c {
         return stackTrace.length > 0 ? stackTrace[0].toString() : "N/A";
     }
 
-    public static String i(Throwable th) {
+    public static boolean g(Context context, String str) {
+        if (anH == null) {
+            anH = context.getPackageManager();
+        }
+        try {
+            return anH.checkPermission(str, context.getPackageName()) == 0;
+        } catch (RuntimeException e) {
+            return false;
+        }
+    }
+
+    public static String h(Throwable th) {
         if (th == null) {
             a.w("getErrorOriginalLine thr is null.");
             return "";
@@ -171,9 +171,9 @@ public final class c {
             th = th.getCause();
         }
         StackTraceElement[] stackTrace = th.getStackTrace();
-        String ti = p.ti();
+        String uR = p.uR();
         for (int i = 0; i < stackTrace.length; i++) {
-            if (stackTrace[i].getClassName().contains(ti)) {
+            if (stackTrace[i].getClassName().contains(uR)) {
                 return stackTrace[i].toString();
             }
         }

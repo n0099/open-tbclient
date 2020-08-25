@@ -14,7 +14,7 @@ import com.baidu.android.ext.widget.dialog.BaseActivityDialog;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class AutoOrientationBtnActDialog {
     private static final int DEFAULT_BREAK_POINT = 2;
     private BaseActivityDialog.Builder mBaseActivityDialogBuilder;
@@ -28,7 +28,7 @@ public class AutoOrientationBtnActDialog {
     private int mBreakPoint = 2;
     private Object mTag = new Object();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public interface OnItemClickListener {
         void onItemClick(View view);
     }
@@ -130,7 +130,7 @@ public class AutoOrientationBtnActDialog {
         return view;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public class ViewHelper {
         LinearLayout button;
         AutoOrientationBtnActDialog mDialog;
@@ -174,7 +174,7 @@ public class AutoOrientationBtnActDialog {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public static class Builder {
         private List<BtnItem> list = new ArrayList();
         private AutoOrientationBtnActDialog mDialog = onCreateDialog();
@@ -216,7 +216,7 @@ public class AutoOrientationBtnActDialog {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public static class BtnItem {
         public OnItemClickListener mOnItemClickListener;
         public CharSequence mSubText;

@@ -2,7 +2,7 @@ package org.apache.http.client.methods;
 
 import java.net.URI;
 @Deprecated
-/* loaded from: classes20.dex */
+/* loaded from: classes9.dex */
 public class HttpDelete extends HttpRequestBase {
     public static final String METHOD_NAME = "DELETE";
 

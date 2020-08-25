@@ -3,66 +3,66 @@ package com.baidu.swan.gamecenter.a;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
-import com.baidu.swan.apps.adaptation.a.ar;
+import com.baidu.swan.apps.adaptation.a.aw;
 import com.baidu.swan.apps.runtime.e;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
-public class b implements ar {
-    private HashMap<String, Boolean> ddv = new HashMap<>();
-    private a ddw = new a();
+/* loaded from: classes3.dex */
+public class b implements aw {
+    private HashMap<String, Boolean> dnD = new HashMap<>();
+    private a dnE = new a();
 
-    @Override // com.baidu.swan.apps.adaptation.a.ar
+    @Override // com.baidu.swan.apps.adaptation.a.aw
     @Nullable
-    public com.baidu.swan.apps.api.c.b a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull com.baidu.swan.apps.n.b bVar) {
-        if (aBP()) {
-            bVar.aj(null);
+    public com.baidu.swan.apps.api.c.b a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull com.baidu.swan.apps.o.b bVar) {
+        if (aKE()) {
+            bVar.al(null);
             return null;
         }
-        return this.ddw.b(jSONObject, a(bVar));
+        return this.dnE.b(jSONObject, a(bVar));
     }
 
-    public boolean sc(String str) {
-        return TextUtils.equals(this.ddw.name, str);
+    public boolean uu(String str) {
+        return TextUtils.equals(this.dnE.name, str);
     }
 
-    public boolean aBP() {
+    public boolean aKE() {
         Boolean bool;
         String appKey = getAppKey();
-        if (!TextUtils.isEmpty(appKey) && (bool = this.ddv.get(appKey)) != null) {
+        if (!TextUtils.isEmpty(appKey) && (bool = this.dnD.get(appKey)) != null) {
             return bool.booleanValue();
         }
         return false;
     }
 
-    private com.baidu.swan.apps.n.b a(@NonNull final com.baidu.swan.apps.n.b bVar) {
-        return new com.baidu.swan.apps.n.b() { // from class: com.baidu.swan.gamecenter.a.b.1
-            @Override // com.baidu.swan.apps.n.b
-            public void aj(@Nullable JSONObject jSONObject) {
-                b.this.gb(true);
-                bVar.aj(jSONObject);
+    private com.baidu.swan.apps.o.b a(@NonNull final com.baidu.swan.apps.o.b bVar) {
+        return new com.baidu.swan.apps.o.b() { // from class: com.baidu.swan.gamecenter.a.b.1
+            @Override // com.baidu.swan.apps.o.b
+            public void al(@Nullable JSONObject jSONObject) {
+                b.this.gx(true);
+                bVar.al(jSONObject);
             }
 
-            @Override // com.baidu.swan.apps.n.b
+            @Override // com.baidu.swan.apps.o.b
             public void onFail(int i, @Nullable String str) {
-                b.this.gb(false);
+                b.this.gx(false);
                 bVar.onFail(i, str);
             }
         };
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gb(boolean z) {
+    public void gx(boolean z) {
         String appKey = getAppKey();
         if (!TextUtils.isEmpty(appKey)) {
-            this.ddv.put(appKey, Boolean.valueOf(z));
+            this.dnD.put(appKey, Boolean.valueOf(z));
         }
     }
 
     private String getAppKey() {
-        e arw = e.arw();
-        if (arw != null) {
-            return arw.getAppKey();
+        e azJ = e.azJ();
+        if (azJ != null) {
+            return azJ.getAppKey();
         }
         return null;
     }

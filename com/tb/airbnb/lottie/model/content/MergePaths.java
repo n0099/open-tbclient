@@ -1,12 +1,12 @@
 package com.tb.airbnb.lottie.model.content;
 
 import android.support.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class MergePaths implements b {
-    private final MergePathsMode nPE;
     private final String name;
+    private final MergePathsMode ojy;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public enum MergePathsMode {
         Merge,
         Add,
@@ -34,21 +34,21 @@ public class MergePaths implements b {
 
     public MergePaths(String str, MergePathsMode mergePathsMode) {
         this.name = str;
-        this.nPE = mergePathsMode;
+        this.ojy = mergePathsMode;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public MergePathsMode dRy() {
-        return this.nPE;
+    public MergePathsMode edA() {
+        return this.ojy;
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b
     @Nullable
     public com.tb.airbnb.lottie.a.a.b a(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar) {
-        if (fVar.hd()) {
+        if (fVar.iE()) {
             return new com.tb.airbnb.lottie.a.a.k(this);
         }
         com.tb.airbnb.lottie.c.warn("Animation contains merge paths but they are disabled.");
@@ -56,6 +56,6 @@ public class MergePaths implements b {
     }
 
     public String toString() {
-        return "MergePaths{mode=" + this.nPE + '}';
+        return "MergePaths{mode=" + this.ojy + '}';
     }
 }

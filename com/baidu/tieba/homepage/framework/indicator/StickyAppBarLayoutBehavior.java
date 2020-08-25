@@ -11,54 +11,54 @@ import com.baidu.tieba.homepage.framework.indicator.StickyAppBarLayout;
 import com.baidu.tieba.homepage.personalize.view.HomeTabBarView;
 /* loaded from: classes16.dex */
 public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
-    private AppBarLayout WP;
-    AppBarLayout.OnOffsetChangedListener WQ;
-    private boolean WR;
-    private boolean WS;
-    private StickyAppBarLayout.a ivr;
-    private NestedScrollHeader ivt;
-    private HomeTabBarView ivu;
-    private float ivv;
+    private AppBarLayout Xv;
+    AppBarLayout.OnOffsetChangedListener Xw;
+    private boolean Xx;
+    private boolean Xy;
+    private StickyAppBarLayout.a iJG;
+    private NestedScrollHeader iJI;
+    private HomeTabBarView iJJ;
+    private float iJK;
 
     public void setOnHeaderStickyListener(StickyAppBarLayout.a aVar) {
-        this.ivr = aVar;
+        this.iJG = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void al(float f) {
-        if (this.ivu != null) {
-            this.ivu.ak(f);
+    public void ar(float f) {
+        if (this.iJJ != null) {
+            this.iJJ.aq(f);
         }
-        if (this.ivt != null) {
-            this.ivt.ak(1.0f - f);
+        if (this.iJI != null) {
+            this.iJI.aq(1.0f - f);
         }
     }
 
     public StickyAppBarLayoutBehavior() {
-        this.WR = false;
-        this.WS = false;
-        this.ivv = -1.0f;
-        this.WQ = new AppBarLayout.OnOffsetChangedListener() { // from class: com.baidu.tieba.homepage.framework.indicator.StickyAppBarLayoutBehavior.1
+        this.Xx = false;
+        this.Xy = false;
+        this.iJK = -1.0f;
+        this.Xw = new AppBarLayout.OnOffsetChangedListener() { // from class: com.baidu.tieba.homepage.framework.indicator.StickyAppBarLayoutBehavior.1
             @Override // android.support.design.widget.AppBarLayout.OnOffsetChangedListener
             public void onOffsetChanged(AppBarLayout appBarLayout, int i) {
                 float f = 0.0f;
                 float totalScrollRange = appBarLayout.getTotalScrollRange();
                 float abs = Math.abs(i);
                 if (abs >= totalScrollRange) {
-                    if (!StickyAppBarLayoutBehavior.this.WR) {
-                        StickyAppBarLayoutBehavior.this.WR = true;
-                        if (StickyAppBarLayoutBehavior.this.ivr != null) {
-                            StickyAppBarLayoutBehavior.this.ivr.oY(StickyAppBarLayoutBehavior.this.WR);
+                    if (!StickyAppBarLayoutBehavior.this.Xx) {
+                        StickyAppBarLayoutBehavior.this.Xx = true;
+                        if (StickyAppBarLayoutBehavior.this.iJG != null) {
+                            StickyAppBarLayoutBehavior.this.iJG.pD(StickyAppBarLayoutBehavior.this.Xx);
                         }
                     }
-                } else if (StickyAppBarLayoutBehavior.this.WR) {
-                    StickyAppBarLayoutBehavior.this.WR = false;
-                    if (StickyAppBarLayoutBehavior.this.ivr != null) {
-                        StickyAppBarLayoutBehavior.this.ivr.oY(StickyAppBarLayoutBehavior.this.WR);
+                } else if (StickyAppBarLayoutBehavior.this.Xx) {
+                    StickyAppBarLayoutBehavior.this.Xx = false;
+                    if (StickyAppBarLayoutBehavior.this.iJG != null) {
+                        StickyAppBarLayoutBehavior.this.iJG.pD(StickyAppBarLayoutBehavior.this.Xx);
                     }
                 }
-                if (StickyAppBarLayoutBehavior.this.ivv != abs) {
-                    StickyAppBarLayoutBehavior.this.ivv = abs;
+                if (StickyAppBarLayoutBehavior.this.iJK != abs) {
+                    StickyAppBarLayoutBehavior.this.iJK = abs;
                     if (totalScrollRange > 0.0f) {
                         if (abs != 0.0f) {
                             if (abs >= totalScrollRange) {
@@ -67,7 +67,7 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
                                 f = abs / totalScrollRange;
                             }
                         }
-                        StickyAppBarLayoutBehavior.this.al(f);
+                        StickyAppBarLayoutBehavior.this.ar(f);
                     }
                 }
             }
@@ -77,30 +77,30 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
 
     public StickyAppBarLayoutBehavior(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.WR = false;
-        this.WS = false;
-        this.ivv = -1.0f;
-        this.WQ = new AppBarLayout.OnOffsetChangedListener() { // from class: com.baidu.tieba.homepage.framework.indicator.StickyAppBarLayoutBehavior.1
+        this.Xx = false;
+        this.Xy = false;
+        this.iJK = -1.0f;
+        this.Xw = new AppBarLayout.OnOffsetChangedListener() { // from class: com.baidu.tieba.homepage.framework.indicator.StickyAppBarLayoutBehavior.1
             @Override // android.support.design.widget.AppBarLayout.OnOffsetChangedListener
             public void onOffsetChanged(AppBarLayout appBarLayout, int i) {
                 float f = 0.0f;
                 float totalScrollRange = appBarLayout.getTotalScrollRange();
                 float abs = Math.abs(i);
                 if (abs >= totalScrollRange) {
-                    if (!StickyAppBarLayoutBehavior.this.WR) {
-                        StickyAppBarLayoutBehavior.this.WR = true;
-                        if (StickyAppBarLayoutBehavior.this.ivr != null) {
-                            StickyAppBarLayoutBehavior.this.ivr.oY(StickyAppBarLayoutBehavior.this.WR);
+                    if (!StickyAppBarLayoutBehavior.this.Xx) {
+                        StickyAppBarLayoutBehavior.this.Xx = true;
+                        if (StickyAppBarLayoutBehavior.this.iJG != null) {
+                            StickyAppBarLayoutBehavior.this.iJG.pD(StickyAppBarLayoutBehavior.this.Xx);
                         }
                     }
-                } else if (StickyAppBarLayoutBehavior.this.WR) {
-                    StickyAppBarLayoutBehavior.this.WR = false;
-                    if (StickyAppBarLayoutBehavior.this.ivr != null) {
-                        StickyAppBarLayoutBehavior.this.ivr.oY(StickyAppBarLayoutBehavior.this.WR);
+                } else if (StickyAppBarLayoutBehavior.this.Xx) {
+                    StickyAppBarLayoutBehavior.this.Xx = false;
+                    if (StickyAppBarLayoutBehavior.this.iJG != null) {
+                        StickyAppBarLayoutBehavior.this.iJG.pD(StickyAppBarLayoutBehavior.this.Xx);
                     }
                 }
-                if (StickyAppBarLayoutBehavior.this.ivv != abs) {
-                    StickyAppBarLayoutBehavior.this.ivv = abs;
+                if (StickyAppBarLayoutBehavior.this.iJK != abs) {
+                    StickyAppBarLayoutBehavior.this.iJK = abs;
                     if (totalScrollRange > 0.0f) {
                         if (abs != 0.0f) {
                             if (abs >= totalScrollRange) {
@@ -109,7 +109,7 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
                                 f = abs / totalScrollRange;
                             }
                         }
-                        StickyAppBarLayoutBehavior.this.al(f);
+                        StickyAppBarLayoutBehavior.this.ar(f);
                     }
                 }
             }
@@ -126,69 +126,69 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
         });
     }
 
-    public void cmk() {
-        if (this.WP != null) {
-            this.WP.setExpanded(true, true);
+    public void cwT() {
+        if (this.Xv != null) {
+            this.Xv.setExpanded(true, true);
         }
     }
 
-    public void cml() {
-        if (this.WP != null) {
-            this.WP.setExpanded(false, true);
+    public void cwU() {
+        if (this.Xv != null) {
+            this.Xv.setExpanded(false, true);
         }
     }
 
     public boolean isSticky() {
-        return this.WR;
+        return this.Xx;
     }
 
-    public NestedScrollHeader cmm() {
-        return this.ivt;
+    public NestedScrollHeader cwV() {
+        return this.iJI;
     }
 
     @Override // android.support.design.widget.CoordinatorLayout.Behavior
     public void onAttachedToLayoutParams(@NonNull CoordinatorLayout.LayoutParams layoutParams) {
         super.onAttachedToLayoutParams(layoutParams);
-        if (this.WP != null && !this.WS) {
-            this.WP.addOnOffsetChangedListener(this.WQ);
-            this.WS = true;
+        if (this.Xv != null && !this.Xy) {
+            this.Xv.addOnOffsetChangedListener(this.Xw);
+            this.Xy = true;
         }
     }
 
     @Override // android.support.design.widget.CoordinatorLayout.Behavior
     public void onDetachedFromLayoutParams() {
         super.onDetachedFromLayoutParams();
-        if (this.WP != null && this.WS) {
-            this.WP.removeOnOffsetChangedListener(this.WQ);
-            this.WS = false;
+        if (this.Xv != null && this.Xy) {
+            this.Xv.removeOnOffsetChangedListener(this.Xw);
+            this.Xy = false;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.design.widget.AppBarLayout.Behavior, android.support.design.widget.ViewOffsetBehavior, android.support.design.widget.CoordinatorLayout.Behavior
     public boolean onLayoutChild(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, int i) {
-        if (this.WP == null) {
-            this.WP = appBarLayout;
-            View findViewById = this.WP.findViewById(R.id.home_nested_header);
+        if (this.Xv == null) {
+            this.Xv = appBarLayout;
+            View findViewById = this.Xv.findViewById(R.id.home_nested_header);
             if (findViewById instanceof NestedScrollHeader) {
-                this.ivt = (NestedScrollHeader) findViewById;
+                this.iJI = (NestedScrollHeader) findViewById;
             }
-            View findViewById2 = this.WP.findViewById(R.id.home_tab_bar_view);
+            View findViewById2 = this.Xv.findViewById(R.id.home_tab_bar_view);
             if (findViewById2 instanceof HomeTabBarView) {
-                this.ivu = (HomeTabBarView) findViewById2;
+                this.iJJ = (HomeTabBarView) findViewById2;
             }
-            cmn();
+            cwW();
         }
-        if (this.WP != null && !this.WS) {
-            this.WP.addOnOffsetChangedListener(this.WQ);
-            this.WS = true;
+        if (this.Xv != null && !this.Xy) {
+            this.Xv.addOnOffsetChangedListener(this.Xw);
+            this.Xy = true;
         }
         return super.onLayoutChild(coordinatorLayout, appBarLayout, i);
     }
 
-    public void cmn() {
+    public void cwW() {
         StickyAppBarLayout.a onHeaderStickyListener;
-        if ((this.WP instanceof StickyAppBarLayout) && (onHeaderStickyListener = ((StickyAppBarLayout) this.WP).getOnHeaderStickyListener()) != null) {
+        if ((this.Xv instanceof StickyAppBarLayout) && (onHeaderStickyListener = ((StickyAppBarLayout) this.Xv).getOnHeaderStickyListener()) != null) {
             setOnHeaderStickyListener(onHeaderStickyListener);
         }
     }
@@ -196,7 +196,7 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.design.widget.AppBarLayout.Behavior, android.support.design.widget.CoordinatorLayout.Behavior
     public boolean onStartNestedScroll(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, View view, View view2, int i, int i2) {
-        if (this.WR) {
+        if (this.Xx) {
             return false;
         }
         return super.onStartNestedScroll(coordinatorLayout, appBarLayout, view, view2, i, i2);
@@ -205,7 +205,7 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.design.widget.CoordinatorLayout.Behavior
     public boolean onStartNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull AppBarLayout appBarLayout, @NonNull View view, @NonNull View view2, int i) {
-        if (this.WR) {
+        if (this.Xx) {
             return false;
         }
         return super.onStartNestedScroll(coordinatorLayout, (CoordinatorLayout) appBarLayout, view, view2, i);
@@ -214,7 +214,7 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.design.widget.AppBarLayout.Behavior, android.support.design.widget.CoordinatorLayout.Behavior
     public void onNestedPreScroll(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, View view, int i, int i2, int[] iArr, int i3) {
-        if (!this.WR) {
+        if (!this.Xx) {
             super.onNestedPreScroll(coordinatorLayout, appBarLayout, view, i, i2, iArr, i3);
         }
     }
@@ -222,7 +222,7 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.design.widget.CoordinatorLayout.Behavior
     public void onNestedPreScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull AppBarLayout appBarLayout, @NonNull View view, int i, int i2, @NonNull int[] iArr) {
-        if (!this.WR) {
+        if (!this.Xx) {
             super.onNestedPreScroll(coordinatorLayout, (CoordinatorLayout) appBarLayout, view, i, i2, iArr);
         }
     }
@@ -230,7 +230,7 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.design.widget.AppBarLayout.Behavior, android.support.design.widget.CoordinatorLayout.Behavior
     public void onNestedScroll(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, View view, int i, int i2, int i3, int i4, int i5) {
-        if (!this.WR) {
+        if (!this.Xx) {
             super.onNestedScroll(coordinatorLayout, appBarLayout, view, i, i2, i3, i4, i5);
         }
     }
@@ -238,7 +238,7 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.design.widget.CoordinatorLayout.Behavior
     public void onNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull AppBarLayout appBarLayout, @NonNull View view, int i, int i2, int i3, int i4) {
-        if (!this.WR) {
+        if (!this.Xx) {
             super.onNestedScroll(coordinatorLayout, (CoordinatorLayout) appBarLayout, view, i, i2, i3, i4);
         }
     }
@@ -246,7 +246,7 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.design.widget.CoordinatorLayout.Behavior
     public boolean onNestedPreFling(@NonNull CoordinatorLayout coordinatorLayout, @NonNull AppBarLayout appBarLayout, @NonNull View view, float f, float f2) {
-        if (this.WR) {
+        if (this.Xx) {
             return false;
         }
         return super.onNestedPreFling(coordinatorLayout, (CoordinatorLayout) appBarLayout, view, f, f2);
@@ -255,7 +255,7 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.design.widget.CoordinatorLayout.Behavior
     public boolean onNestedFling(@NonNull CoordinatorLayout coordinatorLayout, @NonNull AppBarLayout appBarLayout, @NonNull View view, float f, float f2, boolean z) {
-        if (this.WR) {
+        if (this.Xx) {
             return false;
         }
         return super.onNestedFling(coordinatorLayout, (CoordinatorLayout) appBarLayout, view, f, f2, z);

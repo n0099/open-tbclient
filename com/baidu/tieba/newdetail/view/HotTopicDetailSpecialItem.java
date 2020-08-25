@@ -15,9 +15,9 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.util.e.a;
 import com.baidu.tbadk.h.f;
 import com.baidu.tbadk.widget.TbImageView;
@@ -25,112 +25,112 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.newdetail.a.b;
 /* loaded from: classes15.dex */
 public class HotTopicDetailSpecialItem extends RelativeLayout implements View.OnClickListener {
-    private f<b> agN;
-    private TextView iLL;
-    private int iwV;
-    private TextView ixi;
-    private TbImageView ixo;
-    private View ixp;
-    private View ixq;
-    private ImageView ixr;
-    private TextView ixs;
-    private ViewGroup jXx;
-    private b jXy;
+    private f<b> ahW;
+    private TextView aix;
+    private int iLR;
+    private TbImageView iLZ;
+    private View iMa;
+    private View iMb;
+    private ImageView iMc;
+    private TextView iMd;
+    private TextView jaJ;
+    private ViewGroup kmT;
+    private b kmU;
 
     public HotTopicDetailSpecialItem(Context context) {
         super(context);
-        this.iwV = 3;
+        this.iLR = 3;
         initView();
     }
 
     public HotTopicDetailSpecialItem(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.iwV = 3;
+        this.iLR = 3;
         initView();
     }
 
     public HotTopicDetailSpecialItem(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.iwV = 3;
+        this.iLR = 3;
         initView();
     }
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(R.layout.hot_topic_detail_special_item, (ViewGroup) this, true);
-        this.jXx = (ViewGroup) findViewById(R.id.rootLayout);
-        this.jXx.setOnClickListener(this);
-        this.ixo = (TbImageView) findViewById(R.id.coverView);
-        this.ixp = findViewById(R.id.coverGradientMask);
-        this.ixq = findViewById(R.id.videoTimeContainer);
-        this.ixr = (ImageView) findViewById(R.id.videoPlayIcon);
-        this.ixs = (TextView) findViewById(R.id.videoPlayTime);
-        this.iLL = (TextView) findViewById(R.id.descView);
-        this.ixi = (TextView) findViewById(R.id.tagView);
-        this.ixo.setPlaceHolder(2);
-        this.ixo.setRadius(l.getDimens(getContext(), R.dimen.tbds10));
-        this.ixo.setConrers(15);
+        this.kmT = (ViewGroup) findViewById(R.id.rootLayout);
+        this.kmT.setOnClickListener(this);
+        this.iLZ = (TbImageView) findViewById(R.id.coverView);
+        this.iMa = findViewById(R.id.coverGradientMask);
+        this.iMb = findViewById(R.id.videoTimeContainer);
+        this.iMc = (ImageView) findViewById(R.id.videoPlayIcon);
+        this.iMd = (TextView) findViewById(R.id.videoPlayTime);
+        this.jaJ = (TextView) findViewById(R.id.descView);
+        this.aix = (TextView) findViewById(R.id.tagView);
+        this.iLZ.setPlaceHolder(2);
+        this.iLZ.setRadius(l.getDimens(getContext(), R.dimen.tbds10));
+        this.iLZ.setConrers(15);
     }
 
     public void setOnItemCoverListener(f<b> fVar) {
-        this.agN = fVar;
+        this.ahW = fVar;
     }
 
     public void a(b bVar) {
         if (bVar != null) {
-            this.jXy = bVar;
+            this.kmU = bVar;
             if (TextUtils.isEmpty(bVar.cover)) {
-                this.ixo.setVisibility(8);
-                this.ixp.setVisibility(8);
-                this.ixq.setVisibility(8);
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.ixi.getLayoutParams();
+                this.iLZ.setVisibility(8);
+                this.iMa.setVisibility(8);
+                this.iMb.setVisibility(8);
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.aix.getLayoutParams();
                 layoutParams.addRule(8, 0);
                 layoutParams.addRule(3, R.id.descView);
-                this.ixi.setLayoutParams(layoutParams);
+                this.aix.setLayoutParams(layoutParams);
             } else {
-                this.ixo.startLoad(bVar.cover, 10, false);
-                this.ixo.setVisibility(0);
-                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.ixi.getLayoutParams();
+                this.iLZ.startLoad(bVar.cover, 10, false);
+                this.iLZ.setVisibility(0);
+                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.aix.getLayoutParams();
                 layoutParams2.addRule(8, R.id.coverView);
                 layoutParams2.addRule(3, 0);
-                this.ixi.setLayoutParams(layoutParams2);
+                this.aix.setLayoutParams(layoutParams2);
                 if (bVar.time > 0) {
-                    this.ixq.setVisibility(0);
-                    this.ixp.setVisibility(0);
-                    this.ixs.setText(StringUtils.translateSecondsToString(bVar.time));
+                    this.iMb.setVisibility(0);
+                    this.iMa.setVisibility(0);
+                    this.iMd.setText(StringUtils.translateSecondsToString(bVar.time));
                 } else {
-                    this.ixq.setVisibility(8);
-                    this.ixp.setVisibility(8);
+                    this.iMb.setVisibility(8);
+                    this.iMa.setVisibility(8);
                 }
             }
-            this.iLL.setText(bVar.desc);
-            String str = "" + this.ixi.getContext().getResources().getString(R.string.hot_topic_special_item_reply, as.numberUniformFormatExtra(bVar.aoJ));
-            String numberUniformFormatExtra = as.numberUniformFormatExtra(bVar.likeNum);
+            this.jaJ.setText(bVar.desc);
+            String str = "" + this.aix.getContext().getResources().getString(R.string.hot_topic_special_item_reply, at.numberUniformFormatExtra(bVar.atH));
+            String numberUniformFormatExtra = at.numberUniformFormatExtra(bVar.likeNum);
             if (str.length() > 0) {
                 str = str + "  ";
             }
-            this.ixi.setText(str + this.ixi.getContext().getResources().getString(R.string.hot_topic_special_item_like, numberUniformFormatExtra));
-            setPadding(0, 0, 0, bVar.isLast ? l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds40) : 0);
+            this.aix.setText(str + this.aix.getContext().getResources().getString(R.string.hot_topic_special_item_like, numberUniformFormatExtra));
+            setPadding(0, 0, 0, bVar.hNV ? l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds40) : 0);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.iwV != i) {
-            a.h(this.jXx, R.color.cp_bg_line_e, R.color.cp_bg_line_c);
-            ao.setViewTextColor(this.iLL, R.color.cp_cont_b);
-            ao.setViewTextColor(this.ixi, R.color.cp_cont_d);
-            ao.setViewTextColor(this.ixs, R.color.cp_cont_a);
-            this.ixr.setImageDrawable(SvgManager.baR().a(R.drawable.ic_icon_pure_video_play12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null));
-            this.iwV = i;
+        if (this.iLR != i) {
+            a.g(this.kmT, R.color.cp_bg_line_e, R.color.cp_bg_line_c);
+            ap.setViewTextColor(this.jaJ, R.color.cp_cont_b);
+            ap.setViewTextColor(this.aix, R.color.cp_cont_d);
+            ap.setViewTextColor(this.iMd, R.color.cp_cont_a);
+            this.iMc.setImageDrawable(SvgManager.bjq().a(R.drawable.ic_icon_pure_video_play12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null));
+            this.iLR = i;
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.jXy != null && this.jXy.dLK != null) {
-            if (this.agN != null) {
-                this.agN.a(view, this.jXy, 0, 0L);
+        if (this.kmU != null && this.kmU.dUS != null) {
+            if (this.ahW != null) {
+                this.ahW.a(view, this.kmU, 0, 0L);
             }
-            ax.a((AbsThreadDataSupport) this.jXy.dLK, view.getContext(), 17, false);
+            ay.a((AbsThreadDataSupport) this.kmU.dUS, view.getContext(), 17, false);
         }
     }
 }

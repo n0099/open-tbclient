@@ -22,7 +22,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class IMSendMsg extends Message {
     private static final String TAG = "IMSendMsg";
     private List<Long> mAtUsers;

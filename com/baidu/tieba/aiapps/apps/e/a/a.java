@@ -13,7 +13,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.f.e;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.swan.apps.adaptation.a.w;
+import com.baidu.swan.apps.adaptation.a.z;
 import com.baidu.swan.apps.media.chooser.c.c;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.img.ImageFileInfo;
@@ -24,10 +24,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes19.dex */
-public class a implements w {
+public class a implements z {
     private static BroadcastReceiver broadcastReceiver = null;
-    c fhL;
-    CustomMessageListener fhM = new CustomMessageListener(2921365) { // from class: com.baidu.tieba.aiapps.apps.e.a.a.1
+    c fti;
+    CustomMessageListener ftj = new CustomMessageListener(2921365) { // from class: com.baidu.tieba.aiapps.apps.e.a.a.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Removed duplicated region for block: B:10:0x0015  */
         /* JADX WARN: Removed duplicated region for block: B:28:0x0081  */
@@ -46,7 +46,7 @@ public class a implements w {
                         WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
                         writeImagesInfo.parseJson(stringExtra);
                         writeImagesInfo.updateQuality();
-                        if (a.this.fhL != null) {
+                        if (a.this.fti != null) {
                             ArrayList arrayList = new ArrayList();
                             LinkedList<ImageFileInfo> chosedFiles = writeImagesInfo.getChosedFiles();
                             if (chosedFiles != null && chosedFiles.size() > 0) {
@@ -55,19 +55,19 @@ public class a implements w {
                                         arrayList.add(imageFileInfo.getFilePath());
                                     }
                                 }
-                                a.this.fhL.ai(arrayList);
+                                a.this.fti.aj(arrayList);
                             } else {
-                                a.this.fhL.ml("cancel");
+                                a.this.fti.oj("cancel");
                             }
                         }
-                    } else if (a.this.fhL != null) {
-                        a.this.fhL.ml(BdStatsConstant.StatsType.ERROR);
+                    } else if (a.this.fti != null) {
+                        a.this.fti.oj(BdStatsConstant.StatsType.ERROR);
                     }
-                    e.lt().post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.e.a.a.1.1
+                    e.mS().post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.e.a.a.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            a.this.fhL = null;
-                            MessageManager.getInstance().unRegisterListener(a.this.fhM);
+                            a.this.fti = null;
+                            MessageManager.getInstance().unRegisterListener(a.this.ftj);
                         }
                     });
                 }
@@ -75,17 +75,17 @@ public class a implements w {
             intent = null;
             if (intent == null) {
             }
-            e.lt().post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.e.a.a.1.1
+            e.mS().post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.e.a.a.1.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.fhL = null;
-                    MessageManager.getInstance().unRegisterListener(a.this.fhM);
+                    a.this.fti = null;
+                    MessageManager.getInstance().unRegisterListener(a.this.ftj);
                 }
             });
         }
     };
 
-    @Override // com.baidu.swan.apps.adaptation.a.w
+    @Override // com.baidu.swan.apps.adaptation.a.z
     @TargetApi(19)
     public void a(Context context, String[] strArr, int i) {
         if (Build.VERSION.SDK_INT >= 19) {
@@ -103,7 +103,7 @@ public class a implements w {
         }
     }
 
-    @Override // com.baidu.swan.apps.adaptation.a.w
+    @Override // com.baidu.swan.apps.adaptation.a.z
     public void j(Context context, JSONObject jSONObject) {
         if (jSONObject != null) {
             int optInt = jSONObject.optInt("index");
@@ -139,8 +139,8 @@ public class a implements w {
                 }
             }
             ImageViewerConfig.a aVar = new ImageViewerConfig.a();
-            aVar.s(arrayList).kG(i).hl(true).hm(true).hn(true).wH(arrayList.size() > 0 ? arrayList.get(0) : "").ho(false).hp(false).ht(true);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, aVar.dI(context)));
+            aVar.x(arrayList).mM(i).hH(true).hI(true).hJ(true).yS(arrayList.size() > 0 ? arrayList.get(0) : "").hK(false).hL(false).hP(true);
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, aVar.dP(context)));
         }
     }
 }

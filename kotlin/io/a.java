@@ -2,7 +2,7 @@ package kotlin.io;
 
 import java.io.Closeable;
 @kotlin.h
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public final class a {
     public static final void a(Closeable closeable, Throwable th) {
         if (closeable != null) {

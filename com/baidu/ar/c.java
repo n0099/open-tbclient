@@ -1,6 +1,7 @@
 package com.baidu.ar;
 
 import android.content.Context;
+import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.util.SparseArray;
@@ -8,9 +9,9 @@ import com.baidu.ar.arplay.core.engine.pixel.PixelReadParams;
 import com.baidu.ar.arplay.core.engine.pixel.PixelRotation;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.ar.arrender.c;
-import com.baidu.ar.c.g;
-import com.baidu.ar.c.j;
-import com.baidu.ar.c.k;
+import com.baidu.ar.d.g;
+import com.baidu.ar.d.j;
+import com.baidu.ar.d.k;
 import com.baidu.ar.imu.i;
 import com.baidu.ar.lua.LuaMsgListener;
 import java.util.ArrayList;
@@ -20,23 +21,23 @@ import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
-public abstract class c {
+public abstract class c implements c.a {
     private com.baidu.ar.filter.a A;
     private a B;
     private String K;
     private JSONObject L;
-    private HashMap<String, com.baidu.ar.c.e> M;
-    private c.a Q;
+    private HashMap<String, com.baidu.ar.d.e> M;
+    private c.b Q;
     protected int R;
     protected int S;
     protected int T;
-    private Looper b;
     private com.baidu.ar.mdl.b e;
     private com.baidu.ar.lua.b f;
     private com.baidu.ar.arrender.c g;
     private g h;
     private com.baidu.ar.imu.c i;
     private Context mContext;
+    private Handler mHandler;
     protected int mOutputHeight;
     protected int mOutputWidth;
     private List<k> N = new ArrayList();
@@ -48,16 +49,16 @@ public abstract class c {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes11.dex */
     public interface a {
-        boolean a(String str, com.baidu.ar.c.e eVar);
+        boolean a(String str, com.baidu.ar.d.e eVar);
 
-        boolean a(String str, com.baidu.ar.c.e eVar, HashMap<String, Object> hashMap);
+        boolean a(String str, com.baidu.ar.d.e eVar, HashMap<String, Object> hashMap);
     }
 
     private boolean v() {
-        if (this.g == null || this.g.bo() == null || !(this.g.bo() instanceof DuMixInput2)) {
+        if (this.g == null || this.g.bw() == null) {
             return false;
         }
-        return ((DuMixInput2) this.g.bo()).isSyncInputContent();
+        return this.g.bw().isSyncInputContent();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -67,7 +68,7 @@ public abstract class c {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(Context context, Looper looper) {
         this.mContext = context;
-        this.b = looper;
+        this.mHandler = new Handler(looper);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -80,21 +81,22 @@ public abstract class c {
         this.h = gVar;
         this.g = cVar;
         this.A = aVar;
-        this.R = cVar.bo().getInputWidth();
-        this.S = cVar.bo().getInputHeight();
-        this.mOutputWidth = cVar.bp().getOutputWidth();
-        this.mOutputHeight = cVar.bp().getOutputHeight();
-        this.T = cVar.bo().getInputDegree();
-        this.U = cVar.bo().isCameraInput();
-        this.mIsFrontCamera = cVar.bo().isFrontCamera();
-        this.Q = new c.a() { // from class: com.baidu.ar.c.1
-            @Override // com.baidu.ar.arrender.c.a
+        this.R = cVar.bw().getInputWidth();
+        this.S = cVar.bw().getInputHeight();
+        this.mOutputWidth = cVar.bx().getOutputWidth();
+        this.mOutputHeight = cVar.bx().getOutputHeight();
+        this.T = cVar.bw().getInputDegree();
+        this.U = cVar.bw().isCameraInput();
+        this.mIsFrontCamera = cVar.bw().isFrontCamera();
+        this.Q = new c.b() { // from class: com.baidu.ar.c.1
+            @Override // com.baidu.ar.arrender.c.b
             public void a(int i, int i2) {
                 c.this.mOutputWidth = i;
                 c.this.mOutputHeight = i2;
             }
         };
         cVar.a(this.Q);
+        cVar.a(this);
         if (v()) {
             this.O = true;
         }
@@ -103,12 +105,12 @@ public abstract class c {
     /* JADX INFO: Access modifiers changed from: protected */
     public final void a(k kVar) {
         if (kVar == null) {
-            com.baidu.ar.f.b.b("AbstractAR", "removeDetector error!!! detector is null!!!");
+            com.baidu.ar.g.b.b("AbstractAR", "removeDetector error!!! detector is null!!!");
             return;
         }
         if ((kVar instanceof j) && this.g != null) {
             j jVar = (j) kVar;
-            this.g.a(jVar.cJ(), jVar);
+            this.g.a(jVar.dj(), jVar);
         }
         if (this.h != null) {
             this.h.a(kVar);
@@ -119,40 +121,40 @@ public abstract class c {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final void a(k kVar, com.baidu.ar.c.e eVar) {
+    public final void a(k kVar, com.baidu.ar.d.e eVar) {
         if (kVar == null) {
-            com.baidu.ar.f.b.b("AbstractAR", "addDetector error!!! detector is null!!!");
+            com.baidu.ar.g.b.b("AbstractAR", "addDetector error!!! detector is null!!!");
             return;
         }
         if ((kVar instanceof j) && this.g != null) {
             this.N.add(kVar);
             j jVar = (j) kVar;
-            jVar.a(this.b);
+            jVar.a(this.mHandler);
             jVar.b(this.O);
-            PixelReadParams cJ = jVar.cJ();
-            if (!this.U || !cJ.getIsPortrait()) {
+            PixelReadParams dj = jVar.dj();
+            if (!this.U || !dj.getIsPortrait()) {
                 if (!this.U) {
                     switch (this.T) {
                         case 0:
-                            cJ.setPixelRotate(PixelRotation.FlipVertical);
+                            dj.setPixelRotate(PixelRotation.FlipVertical);
                             break;
                         case 90:
-                            cJ.setPixelRotate(PixelRotation.RotateRightFlipVertical);
+                            dj.setPixelRotate(PixelRotation.RotateRightFlipVertical);
                             break;
                         case 180:
-                            cJ.setPixelRotate(PixelRotation.FlipHorizontal);
+                            dj.setPixelRotate(PixelRotation.FlipHorizontal);
                             break;
                         case 270:
-                            cJ.setPixelRotate(PixelRotation.RotateRightFlipHorizontal);
+                            dj.setPixelRotate(PixelRotation.RotateRightFlipHorizontal);
                             break;
                     }
                 }
             } else if (this.mIsFrontCamera) {
-                cJ.setPixelRotate(PixelRotation.RotateRightFlipHorizontal);
+                dj.setPixelRotate(PixelRotation.RotateRightFlipHorizontal);
             } else {
-                cJ.setPixelRotate(PixelRotation.RotateRight);
+                dj.setPixelRotate(PixelRotation.RotateRight);
             }
-            this.g.createPixelReader(cJ, jVar);
+            this.g.createPixelReader(dj, jVar);
         }
         if (this.h != null) {
             this.h.a(kVar, eVar);
@@ -173,10 +175,10 @@ public abstract class c {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void a(LuaMsgListener luaMsgListener) {
-        if (this.f == null || this.f.dZ() == null) {
+        if (this.f == null || this.f.fl() == null) {
             return;
         }
-        this.f.dZ().addLuaMsgListener(luaMsgListener);
+        this.f.fl().addLuaMsgListener(luaMsgListener);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -201,11 +203,11 @@ public abstract class c {
         this.mIsFrontCamera = z;
         for (k kVar : this.N) {
             if ((kVar instanceof j) && this.g != null) {
-                PixelReadParams cJ = ((j) kVar).cJ();
-                if (this.U && cJ.getIsPortrait()) {
+                PixelReadParams dj = ((j) kVar).dj();
+                if (this.U && dj.getIsPortrait()) {
                     PixelRotation pixelRotation = z ? PixelRotation.RotateRightFlipHorizontal : PixelRotation.RotateRight;
-                    cJ.setPixelRotate(pixelRotation);
-                    this.g.a(cJ, pixelRotation);
+                    dj.setPixelRotate(pixelRotation);
+                    this.g.a(dj, pixelRotation);
                 }
             }
         }
@@ -220,7 +222,7 @@ public abstract class c {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final boolean a(String str, com.baidu.ar.c.e eVar) {
+    public final boolean a(String str, com.baidu.ar.d.e eVar) {
         if (this.B == null || TextUtils.isEmpty(str) || eVar == null) {
             return false;
         }
@@ -231,7 +233,7 @@ public abstract class c {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final boolean a(String str, com.baidu.ar.c.e eVar, HashMap<String, Object> hashMap) {
+    public final boolean a(String str, com.baidu.ar.d.e eVar, HashMap<String, Object> hashMap) {
         if (this.B == null || TextUtils.isEmpty(str) || eVar == null) {
             return false;
         }
@@ -273,10 +275,10 @@ public abstract class c {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void b(LuaMsgListener luaMsgListener) {
-        if (this.f == null || this.f.dZ() == null) {
+        if (this.f == null || this.f.fl() == null) {
             return;
         }
-        this.f.dZ().removeLuaMsgListener(luaMsgListener);
+        this.f.fl().removeLuaMsgListener(luaMsgListener);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -287,13 +289,13 @@ public abstract class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void b(String str, com.baidu.ar.c.e eVar) {
+    public void b(String str, com.baidu.ar.d.e eVar) {
         if (this.N == null || TextUtils.isEmpty(str) || eVar == null) {
             return;
         }
         for (k kVar : this.N) {
-            if (kVar != null && str.equals(kVar.getName()) && (kVar instanceof com.baidu.ar.c.a)) {
-                ((com.baidu.ar.c.a) kVar).b(eVar);
+            if (kVar != null && str.equals(kVar.getName()) && (kVar instanceof com.baidu.ar.d.a)) {
+                ((com.baidu.ar.d.a) kVar).b(eVar);
             }
         }
     }
@@ -332,13 +334,13 @@ public abstract class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void c(String str, com.baidu.ar.c.e eVar) {
+    public void c(String str, com.baidu.ar.d.e eVar) {
         if (this.N == null || TextUtils.isEmpty(str) || eVar == null) {
             return;
         }
         for (k kVar : this.N) {
-            if (kVar != null && str.equals(kVar.getName()) && (kVar instanceof com.baidu.ar.c.a)) {
-                ((com.baidu.ar.c.a) kVar).c(eVar);
+            if (kVar != null && str.equals(kVar.getName()) && (kVar instanceof com.baidu.ar.d.a)) {
+                ((com.baidu.ar.d.a) kVar).c(eVar);
             }
         }
     }
@@ -361,14 +363,22 @@ public abstract class c {
 
     public SparseArray<com.baidu.ar.mdl.a> getMdlConfigs() {
         if (this.e == null) {
-            com.baidu.ar.f.b.b("AbstractAR", "mMdlConfigParams is null.");
+            com.baidu.ar.g.b.b("AbstractAR", "mMdlConfigParams is null.");
             return new SparseArray<>();
         }
-        return this.e.eb();
+        return this.e.fn();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void h(String str) {
+        if (this.P == null || this.P.contains(str)) {
+            return;
+        }
+        this.P.add(str);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void i(String str) {
         if (this.P != null) {
             this.P.remove(str);
         }
@@ -389,11 +399,20 @@ public abstract class c {
     public void onCaseDestroy() {
     }
 
+    @Override // com.baidu.ar.arrender.c.a
+    public void onInputSizeChange(int i, int i2) {
+        if (this.g == null) {
+            return;
+        }
+        this.R = this.g.bw().getInputWidth();
+        this.S = this.g.bw().getInputHeight();
+    }
+
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean p() {
         if (this.P == null || this.P.size() <= 0) {
             for (k kVar : this.N) {
-                if (kVar != null && (kVar instanceof com.baidu.ar.c.a) && ((com.baidu.ar.c.a) kVar).cC()) {
+                if (kVar != null && (kVar instanceof com.baidu.ar.d.a) && ((com.baidu.ar.d.a) kVar).dc()) {
                     return false;
                 }
             }
@@ -411,13 +430,13 @@ public abstract class c {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final com.baidu.ar.arrender.j r() {
+    public final com.baidu.ar.arrender.k r() {
         return this.g;
     }
 
     public void release() {
         if (this.M != null) {
-            for (Map.Entry<String, com.baidu.ar.c.e> entry : this.M.entrySet()) {
+            for (Map.Entry<String, com.baidu.ar.d.e> entry : this.M.entrySet()) {
                 a(entry.getKey(), entry.getValue());
             }
             this.M.clear();
@@ -436,7 +455,7 @@ public abstract class c {
         this.A = null;
         this.f = null;
         this.L = null;
-        this.b = null;
+        this.mHandler = null;
         this.mContext = null;
     }
 
@@ -476,6 +495,6 @@ public abstract class c {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean u() {
-        return (this.g == null || this.g.bo() == null || !(this.g.bo() instanceof DuMixInput2)) ? false : true;
+        return (this.g == null || this.g.bw() == null || this.g.bw().getInputTexture() == null) ? false : true;
     }
 }

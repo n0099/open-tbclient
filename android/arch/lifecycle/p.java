@@ -1,5 +1,5 @@
 package android.arch.lifecycle;
-/* loaded from: classes19.dex */
+/* loaded from: classes5.dex */
 public class p<T> extends n<T> {
     @Override // android.arch.lifecycle.n
     public void postValue(T t) {

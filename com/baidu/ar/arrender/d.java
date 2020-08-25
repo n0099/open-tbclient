@@ -4,111 +4,98 @@ import android.content.Context;
 import android.opengl.EGLContext;
 import android.opengl.GLES20;
 import android.os.Build;
+import android.os.Looper;
 import android.text.TextUtils;
 import android.view.Surface;
 import com.baidu.ar.DuMixInput;
-import com.baidu.ar.DuMixInput2;
 import com.baidu.ar.DuMixOutput;
-import com.baidu.ar.DuMixOutput2;
 import com.baidu.ar.arplay.core.engine.pixel.PixelRotation;
+import com.baidu.ar.bean.MirriorType;
 import com.baidu.ar.bean.Size;
 /* loaded from: classes11.dex */
 public class d extends c implements IGLRenderer {
-    private DuMixOutput2 hA;
-    private String hB;
-    private String hC;
-    private String hD;
-    private String hE;
-    private String hF;
-    private String hy;
-    private DuMixInput2 hz;
+    private String gO;
+    private String gP;
+    private String gQ;
 
-    public d(Context context, com.baidu.ar.lua.b bVar, EGLContext eGLContext) {
-        super(context, bVar, eGLContext);
-        this.hB = "";
-        this.hC = "";
-        this.hD = "qcom";
-        this.hE = "msm8953";
-        this.hF = "sdm632";
-        this.hB = Build.HARDWARE.toLowerCase();
-        this.hC = Build.BOARD.toLowerCase();
+    public d(Context context, Looper looper, com.baidu.ar.lua.b bVar, EGLContext eGLContext) {
+        super(context, looper, bVar, eGLContext);
+        this.gO = "";
+        this.gP = "";
+        this.gO = Build.HARDWARE.toLowerCase();
+        this.gP = Build.BOARD.toLowerCase();
     }
 
     private void a(int i, int i2, int i3, int i4, PixelRotation pixelRotation) {
-        com.baidu.ar.f.b.c("ARRenderer2", "addOutputTarget() textureId = " + i2 + " & width*height = " + i3 + "*" + i4);
-        if (this.hO != null) {
-            this.hy = this.hO.addOutputTarget(i, i2, i3, i4, pixelRotation);
+        com.baidu.ar.g.b.c("ARRenderer2", "addOutputTarget() textureId = " + i2 + " & width*height = " + i3 + "*" + i4);
+        if (this.gZ != null) {
+            this.gQ = this.gZ.addOutputTarget(i, i2, i3, i4, pixelRotation);
         }
     }
 
-    private void bz() {
-        if (this.hO != null) {
-            String str = this.hy;
+    private void bI() {
+        if (this.gZ != null) {
+            String str = this.gQ;
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            this.hO.removeOutputTargetByAddr(str);
+            this.gZ.removeOutputTargetByAddr(str);
         }
     }
 
     @Override // com.baidu.ar.arrender.c, com.baidu.ar.arrender.e
     public void a(DuMixInput duMixInput, DuMixOutput duMixOutput) {
-        com.baidu.ar.f.b.c("ARRenderer2", "setup()");
-        if (!(duMixInput instanceof DuMixInput2) || !(duMixOutput instanceof DuMixOutput2)) {
-            com.baidu.ar.f.b.b("ARRenderer2", "please setup with DuMixInput2 && DuMixOutput2");
+        com.baidu.ar.g.b.c("ARRenderer2", "setup()");
+        if (duMixInput == null || duMixOutput == null || this.gZ == null) {
             return;
         }
-        this.hz = (DuMixInput2) duMixInput;
-        this.hA = (DuMixOutput2) duMixOutput;
         this.W = duMixInput;
         this.aa = duMixOutput;
-        this.hO.setUpEGLEnv(this.ic);
-        this.hO.setCameraFace(duMixInput.isFrontCamera());
-        PixelRotation a = b.a(duMixInput.isCameraInput(), duMixInput.getInputDegree());
-        com.baidu.ar.arplay.core.engine.b bVar = com.baidu.ar.arplay.core.engine.b.INTERNAL_2D_TEX;
-        if (((DuMixInput2) duMixInput).isSyncInputContent()) {
-            this.hO.createSyncInputSource(a, bVar);
+        this.gZ.setUpEGLEnv(this.hp);
+        this.gZ.setCameraFace(duMixInput.isFrontCamera());
+        PixelRotation a = b.a(duMixInput.isCameraInput() && duMixInput.isFitCameraAuto(), duMixInput.getRotationType(), MirriorType.VERTICAL_MIRRIOR);
+        com.baidu.ar.arplay.core.engine.c cVar = com.baidu.ar.arplay.core.engine.c.INTERNAL_2D_TEX;
+        if (duMixInput.isSyncInputContent()) {
+            this.gZ.createSyncInputSource(a, cVar);
         } else {
-            this.hO.createInputSource(a, bVar);
+            this.gZ.createInputSource(a, cVar);
         }
-        if (((DuMixInput2) duMixInput).getInputTexture() != null) {
-            setInputTexture(((DuMixInput2) duMixInput).getInputTexture().getType(), ((DuMixInput2) duMixInput).getInputTexture().getId(), duMixInput.getInputWidth(), duMixInput.getInputHeight());
+        if (duMixInput.getInputTexture() != null) {
+            setInputTexture(duMixInput.getInputTexture().getType(), duMixInput.getInputTexture().getId(), duMixInput.getInputWidth(), duMixInput.getInputHeight());
         }
-        if (((DuMixOutput2) duMixOutput).getOutputTexture() != null) {
-            a(((DuMixOutput2) duMixOutput).getOutputTexture().getType(), ((DuMixOutput2) duMixOutput).getOutputTexture().getId(), duMixOutput.getOutputWidth(), duMixOutput.getOutputHeight(), b.a(duMixOutput.getRotationType(), duMixOutput.getMirriorType()));
+        if (duMixOutput.getOutputTexture() != null) {
+            a(duMixOutput.getOutputTexture().getType(), duMixOutput.getOutputTexture().getId(), duMixOutput.getOutputWidth(), duMixOutput.getOutputHeight(), b.a(duMixOutput.getRotationType(), duMixOutput.getMirriorType()));
         }
-        this.hO.setOnRenderStartedListener(this);
-        this.hO.setOnRenderFinishedListener(this);
-        bA();
+        this.gZ.setOnRenderStartedListener(this);
+        this.gZ.setOnRenderFinishedListener(this);
+        bJ();
     }
 
     @Override // com.baidu.ar.arrender.IGLRenderer
     public void bindTargetSurface(Surface surface) {
-        if (this.hO != null) {
-            this.hO.bindTargetSurface(surface);
+        if (this.gZ != null) {
+            this.gZ.bindTargetSurface(surface);
         }
     }
 
     @Override // com.baidu.ar.arrender.c, com.baidu.ar.arrender.e
     public void changeOutput(DuMixOutput duMixOutput) {
-        if (duMixOutput instanceof DuMixOutput2) {
-            bz();
-            this.hA = (DuMixOutput2) duMixOutput;
-            a(this.hA.getOutputTexture().getType(), this.hA.getOutputTexture().getId(), this.hA.getOutputWidth(), this.hA.getOutputHeight(), b.a(this.hA.getRotationType(), this.hA.getMirriorType()));
-            if (this.hP != null) {
-                Size a = a(a(this.hz));
-                this.hP.setWindowSize(a.getWidth(), a.getHeight());
-            }
+        bI();
+        this.aa = duMixOutput;
+        a(this.aa.getOutputTexture().getType(), this.aa.getOutputTexture().getId(), this.aa.getOutputWidth(), this.aa.getOutputHeight(), b.a(this.aa.getRotationType(), this.aa.getMirriorType()));
+        if (this.ha != null) {
+            Size a = a(a(this.W));
+            this.ha.setWindowSize(a.getWidth(), a.getHeight());
         }
     }
 
     @Override // com.baidu.ar.arrender.IGLRenderer
     public Texture createTexture(int i, int i2, int i3) {
-        if (this.hO != null) {
+        if (this.gZ != null) {
             Texture texture = new Texture();
-            long createTexture = this.hO.createTexture(i, i2, i3);
+            long createTexture = this.gZ.createTexture(i, i2, i3);
             texture.setHandle(createTexture);
-            texture.setId(this.hO.getTextureId(createTexture));
+            texture.setId(this.gZ.getTextureId(createTexture));
             texture.setType(i);
             return texture;
         }
@@ -117,19 +104,19 @@ public class d extends c implements IGLRenderer {
 
     @Override // com.baidu.ar.arrender.IGLRenderer
     public void destroyTexture(Texture texture) {
-        if (texture == null || this.hO == null) {
+        if (texture == null || this.gZ == null) {
             return;
         }
-        this.hO.destroyTexture(texture.getHandle());
+        this.gZ.destroyTexture(texture.getHandle());
     }
 
     @Override // com.baidu.ar.arrender.c, com.baidu.ar.arrender.e, com.baidu.ar.arplay.core.filter.OnRenderFinishedListener
-    public void onRenderFinished() {
-        super.onRenderFinished();
-        if (TextUtils.isEmpty(this.hB) || !this.hB.contains(this.hD) || TextUtils.isEmpty(this.hC)) {
+    public void onRenderFinished(long j) {
+        super.onRenderFinished(j);
+        if (TextUtils.isEmpty(this.gO) || !this.gO.contains("qcom") || TextUtils.isEmpty(this.gP)) {
             return;
         }
-        if (this.hC.contains(this.hE) || this.hC.contains(this.hF)) {
+        if (this.gP.contains("msm8953") || this.gP.contains("sdm632")) {
             GLES20.glFinish();
         }
     }
@@ -137,42 +124,58 @@ public class d extends c implements IGLRenderer {
     @Override // com.baidu.ar.arrender.c, com.baidu.ar.arrender.e
     public void release() {
         super.release();
-        this.hy = null;
+        this.gQ = null;
     }
 
     @Override // com.baidu.ar.arrender.IGLRenderer
     public void render() {
-        if (this.hO != null) {
-            this.hO.render();
+        if (this.W != null && this.W.isSingleFrame()) {
+            if (this.gZ != null) {
+                this.gZ.setIsRender(false);
+            }
+            for (int i = 0; i < 5; i++) {
+                if (this.gZ != null) {
+                    this.gZ.render(System.currentTimeMillis());
+                }
+            }
+            if (this.gZ != null) {
+                this.gZ.setIsRender(true);
+            }
+            if (this.gZ != null) {
+                this.gZ.render(System.currentTimeMillis());
+            }
+        }
+        if (this.gZ != null) {
+            this.gZ.render(System.currentTimeMillis());
         }
     }
 
     @Override // com.baidu.ar.arrender.IGLRenderer
     public void runSyncOnIOContext(Runnable runnable) {
-        if (this.hO == null || runnable == null) {
+        if (this.gZ == null || runnable == null) {
             return;
         }
-        this.hO.runSyncOnIOContext(runnable);
+        this.gZ.runSyncOnIOContext(runnable);
     }
 
     @Override // com.baidu.ar.arrender.IGLRenderer
     public void setInputMatrix(float[] fArr) {
-        if (this.hO != null) {
-            this.hO.setInputMatrix(fArr);
+        if (this.gZ != null) {
+            this.gZ.setInputMatrix(fArr);
         }
     }
 
     @Override // com.baidu.ar.arrender.IGLRenderer
     public void setInputTexture(int i, int i2, int i3, int i4) {
-        if (this.hO != null) {
-            this.hO.setInputTexture(i, i2, i3, i4);
+        if (this.gZ != null) {
+            this.gZ.setInputTexture(i, i2, i3, i4);
         }
     }
 
     @Override // com.baidu.ar.arrender.IGLRenderer
     public void swapBuffer() {
-        if (this.hO != null) {
-            this.hO.swapBuffer();
+        if (this.gZ != null) {
+            this.gZ.swapBuffer();
         }
     }
 }

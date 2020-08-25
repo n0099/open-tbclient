@@ -12,23 +12,23 @@ import java.nio.ByteBuffer;
 /* loaded from: classes11.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private volatile boolean sI = false;
-    private d sV;
-    private HandlerThread tj;
-    private Handler tk;
-    private com.baidu.ar.recorder.b.a tl;
+    private d tA;
+    private HandlerThread tO;
+    private Handler tP;
+    private com.baidu.ar.recorder.b.a tQ;
+    private volatile boolean tn = false;
 
     /* renamed from: com.baidu.ar.recorder.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    private class C0087a {
-        ByteBuffer tm;
-        int tn;
-        long to;
+    private class C0084a {
+        ByteBuffer tR;
+        int tS;
+        long tT;
 
-        public C0087a(ByteBuffer byteBuffer, int i, long j) {
-            this.tm = byteBuffer;
-            this.tn = i;
-            this.to = j;
+        public C0084a(ByteBuffer byteBuffer, int i, long j) {
+            this.tR = byteBuffer;
+            this.tS = i;
+            this.tT = j;
         }
     }
 
@@ -46,20 +46,20 @@ public class a {
                     a.this.a((EncoderParams) message.obj);
                     return;
                 case 1002:
-                    a.this.ex();
+                    a.this.fJ();
                     return;
                 case 1003:
-                    C0087a c0087a = (C0087a) message.obj;
-                    a.this.b(c0087a.tm, c0087a.tn, c0087a.to);
+                    C0084a c0084a = (C0084a) message.obj;
+                    a.this.b(c0084a.tR, c0084a.tS, c0084a.tT);
                     return;
                 case 1004:
-                    a.this.ey();
+                    a.this.fK();
                     return;
                 case 1005:
-                    a.this.ez();
+                    a.this.fL();
                     return;
                 case 1006:
-                    a.this.eA();
+                    a.this.fM();
                     return;
                 default:
                     return;
@@ -70,61 +70,61 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(EncoderParams encoderParams) {
         if (Build.VERSION.SDK_INT >= 18) {
-            this.tl.a(encoderParams, this.sV);
+            this.tQ.a(encoderParams, this.tA);
         }
     }
 
     private void a(d dVar, c cVar) {
-        this.tj = new HandlerThread("AudioRecorderThread");
-        this.tj.start();
-        this.tk = new b(this.tj.getLooper());
-        this.tl = new com.baidu.ar.recorder.b.a();
-        this.sV = dVar;
+        this.tO = new HandlerThread("AudioRecorderThread");
+        this.tO.start();
+        this.tP = new b(this.tO.getLooper());
+        this.tQ = new com.baidu.ar.recorder.b.a();
+        this.tA = dVar;
         if (Build.VERSION.SDK_INT >= 18) {
-            this.tl.a(cVar);
+            this.tQ.a(cVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(ByteBuffer byteBuffer, int i, long j) {
         if (Build.VERSION.SDK_INT >= 18) {
-            this.tl.a(false, byteBuffer, i, j);
+            this.tQ.a(false, byteBuffer, i, j);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eA() {
-        if (this.tk != null) {
-            this.tk.removeCallbacksAndMessages(null);
-            this.tk = null;
-        }
-        if (this.tj != null) {
-            this.tj.quit();
-            this.tj = null;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void ex() {
+    public void fJ() {
         if (Build.VERSION.SDK_INT >= 18) {
-            this.tl.eG();
+            this.tQ.fS();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ey() {
+    public void fK() {
         if (Build.VERSION.SDK_INT >= 18) {
-            this.tl.a(true, (ByteBuffer) null, 0, 0L);
+            this.tQ.a(true, (ByteBuffer) null, 0, 0L);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ez() {
+    public void fL() {
         if (Build.VERSION.SDK_INT >= 18) {
-            this.tl.eF();
-            this.tl.eE();
-            this.tl = null;
-            this.sV = null;
+            this.tQ.fR();
+            this.tQ.fQ();
+            this.tQ = null;
+            this.tA = null;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void fM() {
+        if (this.tP != null) {
+            this.tP.removeCallbacksAndMessages(null);
+            this.tP = null;
+        }
+        if (this.tO != null) {
+            this.tO.quit();
+            this.tO = null;
         }
     }
 
@@ -132,47 +132,47 @@ public class a {
         if (byteBuffer == null || i <= 0) {
             return;
         }
-        C0087a c0087a = new C0087a(byteBuffer, i, j);
-        if (this.tk == null || !this.sI) {
+        C0084a c0084a = new C0084a(byteBuffer, i, j);
+        if (this.tP == null || !this.tn) {
             return;
         }
-        this.tk.sendMessage(this.tk.obtainMessage(1003, c0087a));
+        this.tP.sendMessage(this.tP.obtainMessage(1003, c0084a));
     }
 
     public boolean a(EncoderParams encoderParams, d dVar, c cVar) {
         if (isRunning()) {
-            com.baidu.ar.f.b.b(TAG, "setupRecorder error! As last audio recorder thread is alive!");
+            com.baidu.ar.g.b.b(TAG, "setupRecorder error! As last audio recorder thread is alive!");
             return false;
         }
         a(dVar, cVar);
-        this.tk.sendMessage(this.tk.obtainMessage(1001, encoderParams));
-        this.sI = true;
+        this.tP.sendMessage(this.tP.obtainMessage(1001, encoderParams));
+        this.tn = true;
         return true;
     }
 
-    public void ew() {
-        if (this.tk != null) {
-            this.tk.removeCallbacksAndMessages(null);
-            this.tk.sendMessage(this.tk.obtainMessage(1005));
-            this.tk.sendMessage(this.tk.obtainMessage(1006));
+    public void fI() {
+        if (this.tP != null) {
+            this.tP.removeCallbacksAndMessages(null);
+            this.tP.sendMessage(this.tP.obtainMessage(1005));
+            this.tP.sendMessage(this.tP.obtainMessage(1006));
         }
     }
 
     public boolean isRunning() {
-        return this.tj != null && this.tj.isAlive();
+        return this.tO != null && this.tO.isAlive();
     }
 
     public void startRecording() {
-        if (this.tk != null) {
-            this.tk.sendMessage(this.tk.obtainMessage(1002));
+        if (this.tP != null) {
+            this.tP.sendMessage(this.tP.obtainMessage(1002));
         }
     }
 
     public void stopRecording() {
-        if (this.tk == null || !this.sI) {
+        if (this.tP == null || !this.tn) {
             return;
         }
-        this.sI = false;
-        this.tk.sendMessage(this.tk.obtainMessage(1004));
+        this.tn = false;
+        this.tP.sendMessage(this.tP.obtainMessage(1004));
     }
 }

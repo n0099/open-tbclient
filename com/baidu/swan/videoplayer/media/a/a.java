@@ -6,40 +6,40 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.text.TextUtils;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class a {
-    private BroadcastReceiver dCL;
-    private int dCM;
-    private InterfaceC0483a dCN;
+    private BroadcastReceiver dLV;
+    private int dLW;
+    private InterfaceC0529a dLX;
     private Context mContext;
 
     /* renamed from: com.baidu.swan.videoplayer.media.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC0483a {
-        void aA(int i, int i2);
+    /* loaded from: classes9.dex */
+    public interface InterfaceC0529a {
+        void aH(int i, int i2);
     }
 
     public void register(Context context) {
         this.mContext = context;
-        this.dCM = getNetworkState();
-        this.dCL = new BroadcastReceiver() { // from class: com.baidu.swan.videoplayer.media.a.a.1
+        this.dLW = getNetworkState();
+        this.dLV = new BroadcastReceiver() { // from class: com.baidu.swan.videoplayer.media.a.a.1
             @Override // android.content.BroadcastReceiver
             public void onReceive(Context context2, Intent intent) {
                 int networkState;
-                if (TextUtils.equals(intent.getAction(), "android.net.conn.CONNECTIVITY_CHANGE") && (networkState = a.this.getNetworkState()) != a.this.dCM) {
-                    if (a.this.dCN != null) {
-                        a.this.dCN.aA(a.this.dCM, networkState);
+                if (TextUtils.equals(intent.getAction(), "android.net.conn.CONNECTIVITY_CHANGE") && (networkState = a.this.getNetworkState()) != a.this.dLW) {
+                    if (a.this.dLX != null) {
+                        a.this.dLX.aH(a.this.dLW, networkState);
                     }
-                    a.this.dCM = networkState;
+                    a.this.dLW = networkState;
                 }
             }
         };
-        this.mContext.registerReceiver(this.dCL, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
+        this.mContext.registerReceiver(this.dLV, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
     }
 
     public void unregister() {
         if (this.mContext != null) {
-            this.mContext.unregisterReceiver(this.dCL);
+            this.mContext.unregisterReceiver(this.dLV);
         }
     }
 
@@ -53,7 +53,7 @@ public class a {
         return 0;
     }
 
-    public void a(InterfaceC0483a interfaceC0483a) {
-        this.dCN = interfaceC0483a;
+    public void a(InterfaceC0529a interfaceC0529a) {
+        this.dLX = interfaceC0529a;
     }
 }

@@ -2,7 +2,7 @@ package com.googlecode.mp4parser.boxes.mp4.objectdescriptors;
 
 import android.support.v4.view.InputDeviceCompat;
 import java.nio.ByteBuffer;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class BitWriterBuffer {
     static final /* synthetic */ boolean $assertionsDisabled;
     private ByteBuffer buffer;

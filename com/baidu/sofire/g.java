@@ -2,7 +2,7 @@ package com.baidu.sofire;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-/* loaded from: classes3.dex */
+/* loaded from: classes20.dex */
 public final class g {
     public SharedPreferences a;
     public SharedPreferences.Editor b;
@@ -14,7 +14,7 @@ public final class g {
             this.a = context.getSharedPreferences("leroadcfg", 0);
             this.b = this.a.edit();
         } catch (Throwable th) {
-            com.baidu.sofire.i.d.a();
+            com.baidu.sofire.i.e.a();
         }
     }
 

@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.video.VideoItemData;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class VideoPlayActivityConfig extends IntentConfig {
     public static final String FROM = "from";
     public static final String FROM_DEFAULT = "from_default";
@@ -49,7 +49,7 @@ public class VideoPlayActivityConfig extends IntentConfig {
         super(context);
         getIntent().putExtra(VIDEO_LIST, (Serializable) list);
         getIntent().putExtra(VIDEO_INDEX, i);
-        getIntent().putExtra(PAGE_FROM, str);
+        getIntent().putExtra("page_from", str);
         getIntent().putExtra("st_type", str2);
         getIntent().putExtra("yuelaou_locate", str3);
         getIntent().putExtra("from", str4);
@@ -60,7 +60,7 @@ public class VideoPlayActivityConfig extends IntentConfig {
         super(context);
         getIntent().putExtra(VIDEO_LIST, (Serializable) list);
         getIntent().putExtra(VIDEO_INDEX, i);
-        getIntent().putExtra(PAGE_FROM, str);
+        getIntent().putExtra("page_from", str);
         getIntent().putExtra("st_type", str2);
         getIntent().putExtra("yuelaou_locate", str3);
         getIntent().putExtra("from", str4);

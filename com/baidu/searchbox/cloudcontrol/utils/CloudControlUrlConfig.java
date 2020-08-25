@@ -2,10 +2,10 @@ package com.baidu.searchbox.cloudcontrol.utils;
 
 import android.text.TextUtils;
 import com.baidu.android.common.others.url.UrlUtil;
-import com.baidu.b.b.b;
+import com.baidu.d.b.b;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.config.HostConfig;
-/* loaded from: classes18.dex */
+/* loaded from: classes11.dex */
 public class CloudControlUrlConfig {
     private static final String KEY_RUN_TYPE = "runtype";
     private static final String KEY_TYPE_ID = "type_id";
@@ -28,7 +28,7 @@ public class CloudControlUrlConfig {
         if (AppConfig.isDebug() && !TextUtils.isEmpty(mDebugHost)) {
             searchboxHostForHttps = mDebugHost;
         }
-        String processUrl = b.sQ().processUrl(String.format(mUrl, searchboxHostForHttps));
+        String processUrl = b.uy().processUrl(String.format(mUrl, searchboxHostForHttps));
         if (!TextUtils.isEmpty(str)) {
             processUrl = UrlUtil.addParam(processUrl, KEY_RUN_TYPE, str);
         }

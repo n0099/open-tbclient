@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.t;
 import tbclient.QueryBlockAndAppealInfo.DataReq;
 import tbclient.QueryBlockAndAppealInfo.QueryBlockAndAppealInfoReqIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class UEGCancelRequestMessage extends NetMessage {
     private String uId;
 

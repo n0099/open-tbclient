@@ -7,7 +7,7 @@ import com.airbnb.lottie.g;
 import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import com.baidu.searchbox.ui.animview.base.IResourcePackage;
 import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
-/* loaded from: classes7.dex */
+/* loaded from: classes12.dex */
 public class EruptionAnimElement extends BaseAnimatedElement {
     private static final boolean DEBUG = false;
     private Context mCtx;

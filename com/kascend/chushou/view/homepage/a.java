@@ -35,7 +35,7 @@ public class a extends c<HomePageRecommendFragment> {
     }
 
     private void d() {
-        com.kascend.chushou.c.c.dMl().a(new b() { // from class: com.kascend.chushou.view.homepage.a.1
+        com.kascend.chushou.c.c.dYm().a(new b() { // from class: com.kascend.chushou.view.homepage.a.1
             @Override // com.kascend.chushou.c.b
             public void a() {
                 if (a.this.b()) {
@@ -47,10 +47,10 @@ public class a extends c<HomePageRecommendFragment> {
             public void a(String str, JSONObject jSONObject) {
                 if (a.this.b()) {
                     ((HomePageRecommendFragment) a.this.b).showStatus(2);
-                    ParserRet eb = d.eb(jSONObject);
-                    if (eb.mRc == 0 && eb.mData1 != null) {
-                        List list = (List) eb.mData1;
-                        a.this.c = eb.mBreakpoint;
+                    ParserRet em = d.em(jSONObject);
+                    if (em.mRc == 0 && em.mData1 != null) {
+                        List list = (List) em.mData1;
+                        a.this.c = em.mBreakpoint;
                         if (h.isEmpty(list)) {
                             ((HomePageRecommendFragment) a.this.b).showStatus(6);
                             return;
@@ -60,7 +60,7 @@ public class a extends c<HomePageRecommendFragment> {
                         ((HomePageRecommendFragment) a.this.b).updateUI(a.this.d);
                         return;
                     }
-                    a(eb.mRc, eb.mMessage);
+                    a(em.mRc, em.mMessage);
                 }
             }
 
@@ -75,7 +75,7 @@ public class a extends c<HomePageRecommendFragment> {
     }
 
     private void e() {
-        com.kascend.chushou.c.c.dMl().b(new b() { // from class: com.kascend.chushou.view.homepage.a.2
+        com.kascend.chushou.c.c.dYm().b(new b() { // from class: com.kascend.chushou.view.homepage.a.2
             @Override // com.kascend.chushou.c.b
             public void a() {
                 if (a.this.b()) {
@@ -87,10 +87,10 @@ public class a extends c<HomePageRecommendFragment> {
             public void a(String str, JSONObject jSONObject) {
                 if (a.this.b()) {
                     ((HomePageRecommendFragment) a.this.b).showStatus(2);
-                    ParserRet eb = d.eb(jSONObject);
-                    if (eb.mRc == 0 && eb.mData1 != null) {
-                        List list = (List) eb.mData1;
-                        a.this.c = eb.mBreakpoint;
+                    ParserRet em = d.em(jSONObject);
+                    if (em.mRc == 0 && em.mData1 != null) {
+                        List list = (List) em.mData1;
+                        a.this.c = em.mBreakpoint;
                         if (h.isEmpty(list)) {
                             ((HomePageRecommendFragment) a.this.b).showStatus(6);
                             return;
@@ -100,7 +100,7 @@ public class a extends c<HomePageRecommendFragment> {
                         ((HomePageRecommendFragment) a.this.b).updateUI(a.this.d);
                         return;
                     }
-                    a(eb.mRc, eb.mMessage);
+                    a(em.mRc, em.mMessage);
                 }
             }
 

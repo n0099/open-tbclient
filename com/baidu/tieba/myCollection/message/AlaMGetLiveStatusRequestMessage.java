@@ -2,7 +2,7 @@ package com.baidu.tieba.myCollection.message;
 
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import com.google.gson.JsonArray;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +31,7 @@ public class AlaMGetLiveStatusRequestMessage extends HttpMessage {
     }
 
     public void setOriginData(List<Object> list) {
-        if (!x.isEmpty(list)) {
+        if (!y.isEmpty(list)) {
             this.mOriginDatas.clear();
             this.mOriginDatas.addAll(list);
         }

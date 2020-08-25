@@ -2,7 +2,7 @@ package com.baidu.fsg.base.utils;
 
 import android.os.Build;
 import android.util.Base64;
-import com.baidu.sapi2.utils.h;
+import com.baidu.sapi2.utils.e;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -13,7 +13,7 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class Crypto {
     private static final int a = 16;
     private static final int b = 8;
@@ -38,7 +38,7 @@ public class Crypto {
             str = "";
         }
         try {
-            return new SecretKeySpec(SecretKeyFactory.getInstance(a()).generateSecret(new PBEKeySpec(str.toCharArray(), bArr, 1000, 128)).getEncoded(), h.q);
+            return new SecretKeySpec(SecretKeyFactory.getInstance(a()).generateSecret(new PBEKeySpec(str.toCharArray(), bArr, 1000, 128)).getEncoded(), e.q);
         } catch (Exception e2) {
             e2.printStackTrace();
             return null;

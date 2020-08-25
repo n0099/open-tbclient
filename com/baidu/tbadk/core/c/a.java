@@ -11,12 +11,12 @@ import com.baidu.live.tbadk.core.dbcache.DBKVCacheManager;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a extends CustomMessageListener {
     private static HashMap<String, l<byte[]>> byteCacheMap;
     private static ArrayList<String> noEvictList;
     private static HashMap<String, l<String>> stringCacheMap;
-    public static a dVt = null;
+    public static a eeT = null;
     private static HashMap<String, Integer> cacheCountLimitMap = new HashMap<>();
 
     static {
@@ -77,11 +77,11 @@ public class a extends CustomMessageListener {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_KV_CACHE_SUCC));
     }
 
-    public static a aYG() {
-        if (dVt == null) {
-            dVt = new a();
+    public static a bhb() {
+        if (eeT == null) {
+            eeT = new a();
         }
-        return dVt;
+        return eeT;
     }
 
     private a() {
@@ -89,22 +89,22 @@ public class a extends CustomMessageListener {
         MessageManager.getInstance().registerListenerFromBackground(this);
     }
 
-    public l<byte[]> xi(String str) {
-        return df(str, null);
+    public l<byte[]> zw(String str) {
+        return dv(str, null);
     }
 
-    public l<String> xj(String str) {
-        return dg(str, null);
+    public l<String> zx(String str) {
+        return dw(str, null);
     }
 
-    public l<byte[]> df(String str, String str2) {
+    public l<byte[]> dv(String str, String str2) {
         if (str == null) {
             return null;
         }
         String str3 = str2 != null ? str + str2 : str;
         l<byte[]> lVar = byteCacheMap.get(str3);
         if (lVar == null || !(lVar instanceof l)) {
-            BdCacheService kv = BdCacheService.kv();
+            BdCacheService lU = BdCacheService.lU();
             Integer num = cacheCountLimitMap.get(str);
             num = (num == null || num.intValue() == 0) ? 20 : 20;
             BdCacheService.CacheEvictPolicy cacheEvictPolicy = BdCacheService.CacheEvictPolicy.LRU_ON_INSERT;
@@ -112,7 +112,7 @@ public class a extends CustomMessageListener {
                 cacheEvictPolicy = BdCacheService.CacheEvictPolicy.NO_EVICT;
             }
             try {
-                lVar = kv.b(str3, BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, cacheEvictPolicy, num.intValue());
+                lVar = lU.b(str3, BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, cacheEvictPolicy, num.intValue());
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
@@ -122,13 +122,13 @@ public class a extends CustomMessageListener {
         return lVar;
     }
 
-    public l<String> dg(String str, String str2) {
+    public l<String> dw(String str, String str2) {
         if (str == null) {
             return null;
         }
         String str3 = str2 != null ? str + str2 : str;
         l<String> lVar = stringCacheMap.get(str3);
-        BdCacheService kv = BdCacheService.kv();
+        BdCacheService lU = BdCacheService.lU();
         Integer num = cacheCountLimitMap.get(str);
         num = (num == null || num.intValue() == 0) ? 20 : 20;
         BdCacheService.CacheEvictPolicy cacheEvictPolicy = BdCacheService.CacheEvictPolicy.LRU_ON_INSERT;
@@ -136,7 +136,7 @@ public class a extends CustomMessageListener {
             cacheEvictPolicy = BdCacheService.CacheEvictPolicy.NO_EVICT;
         }
         try {
-            return kv.a(str3, BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, cacheEvictPolicy, num.intValue());
+            return lU.a(str3, BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, cacheEvictPolicy, num.intValue());
         } catch (Exception e) {
             BdLog.detailException(e);
             return lVar;
@@ -151,7 +151,7 @@ public class a extends CustomMessageListener {
             l<String> lVar = stringCacheMap.get(str);
             if (lVar != null) {
                 try {
-                    BdCacheService.kv().a(lVar);
+                    BdCacheService.lU().a(lVar);
                     stringCacheMap.remove(str);
                 } catch (Exception e) {
                     BdLog.detailException(e);

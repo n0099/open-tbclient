@@ -1,19 +1,17 @@
 package com.baidu.swan.videoplayer.a;
 
 import com.baidu.swan.videoplayer.SwanVideoView;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public interface a {
-    void P(int i, int i2);
-
-    void f(int i, int i2, String str);
-
-    void gR(boolean z);
-
     void h(SwanVideoView swanVideoView);
+
+    void hl(boolean z);
 
     void onBufferingUpdate(int i);
 
     void onEnd();
+
+    void onError(int i, int i2, String str);
 
     void onPause();
 
@@ -24,4 +22,6 @@ public interface a {
     void onSeekEnd();
 
     void onStart();
+
+    void onVideoSizeChanged(int i, int i2);
 }

@@ -27,41 +27,41 @@ public final class FlowableIntervalRange extends io.reactivex.g<Long> {
     }
 
     @Override // io.reactivex.g
-    public void a(org.a.c<? super Long> cVar) {
+    public void a(org.b.c<? super Long> cVar) {
         IntervalRangeSubscriber intervalRangeSubscriber = new IntervalRangeSubscriber(cVar, this.start, this.end);
         cVar.onSubscribe(intervalRangeSubscriber);
         v vVar = this.scheduler;
         if (vVar instanceof k) {
-            v.c dSS = vVar.dSS();
-            intervalRangeSubscriber.setResource(dSS);
-            dSS.b(intervalRangeSubscriber, this.initialDelay, this.period, this.unit);
+            v.c eeU = vVar.eeU();
+            intervalRangeSubscriber.setResource(eeU);
+            eeU.b(intervalRangeSubscriber, this.initialDelay, this.period, this.unit);
             return;
         }
         intervalRangeSubscriber.setResource(vVar.a(intervalRangeSubscriber, this.initialDelay, this.period, this.unit));
     }
 
     /* loaded from: classes7.dex */
-    static final class IntervalRangeSubscriber extends AtomicLong implements Runnable, org.a.d {
+    static final class IntervalRangeSubscriber extends AtomicLong implements Runnable, org.b.d {
         private static final long serialVersionUID = -2809475196591179431L;
-        final org.a.c<? super Long> actual;
+        final org.b.c<? super Long> actual;
         long count;
         final long end;
         final AtomicReference<io.reactivex.disposables.b> resource = new AtomicReference<>();
 
-        IntervalRangeSubscriber(org.a.c<? super Long> cVar, long j, long j2) {
+        IntervalRangeSubscriber(org.b.c<? super Long> cVar, long j, long j2) {
             this.actual = cVar;
             this.count = j;
             this.end = j2;
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 io.reactivex.internal.util.b.a(this, j);
             }
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void cancel() {
             DisposableHelper.dispose(this.resource);
         }

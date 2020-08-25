@@ -6,8 +6,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
-import com.baidu.sofire.i.u;
-/* loaded from: classes3.dex */
+import com.baidu.sofire.i.w;
+/* loaded from: classes20.dex */
 public class THProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public boolean onCreate() {
@@ -21,7 +21,7 @@ public class THProvider extends ContentProvider {
         try {
             if ("p".equals(str)) {
                 final Context context = getContext();
-                u.a().a(new Runnable() { // from class: com.baidu.sofire.THProvider.1
+                w.a().a(new Runnable() { // from class: com.baidu.sofire.THProvider.1
                     @Override // java.lang.Runnable
                     public final void run() {
                         try {
@@ -32,7 +32,7 @@ public class THProvider extends ContentProvider {
                             intent.putExtra("c", str2);
                             a.a(context, intent);
                         } catch (Throwable th) {
-                            com.baidu.sofire.i.d.a();
+                            com.baidu.sofire.i.e.a();
                         }
                     }
                 });
@@ -40,7 +40,7 @@ public class THProvider extends ContentProvider {
             }
             return null;
         } catch (Throwable th) {
-            com.baidu.sofire.i.d.a();
+            com.baidu.sofire.i.e.a();
             return null;
         }
     }

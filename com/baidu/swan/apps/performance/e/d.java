@@ -2,52 +2,52 @@ package com.baidu.swan.apps.performance.e;
 
 import android.text.TextUtils;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class d {
-    private static volatile d czw;
-    private HashMap<String, e> czx;
-    private HashMap<String, e> czy;
-    private HashMap<String, e> czz;
+    private static volatile d cHF;
+    private HashMap<String, e> cHG;
+    private HashMap<String, e> cHH;
+    private HashMap<String, e> cHI;
 
     private d() {
-        aoB();
+        awB();
     }
 
-    public static d aoA() {
-        if (czw == null) {
+    public static d awA() {
+        if (cHF == null) {
             synchronized (d.class) {
-                if (czw == null) {
-                    czw = new d();
+                if (cHF == null) {
+                    cHF = new d();
                 }
             }
         }
-        return czw;
+        return cHF;
     }
 
     public static synchronized void releaseInstance() {
         synchronized (d.class) {
-            if (czw != null) {
-                czw.release();
-                czw = null;
+            if (cHF != null) {
+                cHF.release();
+                cHF = null;
             }
         }
     }
 
     private void release() {
-        if (this.czx != null) {
-            this.czx.clear();
+        if (this.cHG != null) {
+            this.cHG.clear();
         }
-        if (this.czy != null) {
-            this.czy.clear();
+        if (this.cHH != null) {
+            this.cHH.clear();
         }
-        if (this.czz != null) {
-            this.czz.clear();
+        if (this.cHI != null) {
+            this.cHI.clear();
         }
     }
 
     public void c(String str, String str2, long j) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && j >= 0) {
-            aoB();
+            awB();
             char c = 65535;
             switch (str2.hashCode()) {
                 case -1880922749:
@@ -104,15 +104,15 @@ public final class d {
         }
     }
 
-    private void aoB() {
-        if (this.czx == null) {
-            this.czx = new HashMap<>();
+    private void awB() {
+        if (this.cHG == null) {
+            this.cHG = new HashMap<>();
         }
-        if (this.czy == null) {
-            this.czy = new HashMap<>();
+        if (this.cHH == null) {
+            this.cHH = new HashMap<>();
         }
-        if (this.czz == null) {
-            this.czz = new HashMap<>();
+        if (this.cHI == null) {
+            this.cHI = new HashMap<>();
         }
     }
 
@@ -142,26 +142,26 @@ public final class d {
             }
             switch (c) {
                 case 0:
-                    eVar = this.czx.get(str);
+                    eVar = this.cHG.get(str);
                     if (eVar == null) {
                         eVar = new b();
-                        this.czx.put(str, eVar);
+                        this.cHG.put(str, eVar);
                         break;
                     }
                     break;
                 case 1:
-                    eVar = this.czy.get(str);
+                    eVar = this.cHH.get(str);
                     if (eVar == null) {
                         eVar = new a();
-                        this.czy.put(str, eVar);
+                        this.cHH.put(str, eVar);
                         break;
                     }
                     break;
                 case 2:
-                    eVar = this.czz.get(str);
+                    eVar = this.cHI.get(str);
                     if (eVar == null) {
                         eVar = new c();
-                        this.czz.put(str, eVar);
+                        this.cHI.put(str, eVar);
                         break;
                     }
                     break;
@@ -198,23 +198,23 @@ public final class d {
             }
             switch (c) {
                 case 0:
-                    eVar = this.czx.remove(str);
+                    eVar = this.cHG.remove(str);
                     break;
                 case 1:
-                    eVar = this.czy.remove(str);
+                    eVar = this.cHH.remove(str);
                     break;
                 case 2:
-                    eVar = this.czz.remove(str);
+                    eVar = this.cHI.remove(str);
                     break;
             }
             if (eVar != null) {
                 eVar.setEnd(j);
-                m(eVar.getType(), eVar.aog());
+                p(eVar.getType(), eVar.aij());
             }
         }
     }
 
-    private void m(String str, long j) {
+    private void p(String str, long j) {
         if (!TextUtils.isEmpty(str)) {
             char c = 65535;
             switch (str.hashCode()) {
@@ -239,13 +239,13 @@ public final class d {
             }
             switch (c) {
                 case 0:
-                    com.baidu.swan.apps.an.e.cRe.T(Long.valueOf(j));
+                    com.baidu.swan.apps.am.e.dae.W(Long.valueOf(j));
                     return;
                 case 1:
-                    com.baidu.swan.apps.an.e.cRf.T(Long.valueOf(j));
+                    com.baidu.swan.apps.am.e.daf.W(Long.valueOf(j));
                     return;
                 case 2:
-                    com.baidu.swan.apps.an.e.cRg.T(Long.valueOf(j));
+                    com.baidu.swan.apps.am.e.dag.W(Long.valueOf(j));
                     return;
                 default:
                     return;

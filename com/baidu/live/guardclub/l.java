@@ -1,5 +1,5 @@
 package com.baidu.live.guardclub;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface l {
-    void CP();
+    void Is();
 }

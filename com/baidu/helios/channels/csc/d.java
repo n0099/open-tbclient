@@ -2,10 +2,10 @@ package com.baidu.helios.channels.csc;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
-/* loaded from: classes8.dex */
+/* loaded from: classes18.dex */
 class d {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes18.dex */
     public static class a extends Exception {
         public a(String str) {
             super(str);
@@ -53,7 +53,7 @@ class d {
     }
 
     public static String a(byte[] bArr) {
-        return new String(new com.baidu.helios.common.a.b().A(bArr));
+        return new String(new com.baidu.helios.common.a.b().B(bArr));
     }
 
     public static Method a(Class<?> cls, String str, Class<?>[] clsArr) {

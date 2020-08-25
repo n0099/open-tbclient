@@ -2,23 +2,23 @@ package com.baidu.swan.apps.component.d;
 
 import android.support.annotation.IntRange;
 import com.baidu.swan.apps.console.c;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static int bWx = 5;
-    private int[] bWy;
+    private static int ccf = 5;
+    private int[] ccg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(@IntRange(from = 1) int i) {
-        r(i, false);
+        u(i, false);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(@IntRange(from = 1) int i, boolean z) {
-        r(i, z);
+        u(i, z);
     }
 
-    private void r(@IntRange(from = 1) int i, boolean z) {
+    private void u(@IntRange(from = 1) int i, boolean z) {
         if (i <= 0) {
             String str = "number <= 0: " + i;
             c.e("Component-DiffBitMap", str);
@@ -27,11 +27,11 @@ public class a {
             }
             i = 500;
         }
-        this.bWy = new int[eK(i - 1) + 1];
-        int length = this.bWy.length;
+        this.ccg = new int[gI(i - 1) + 1];
+        int length = this.ccg.length;
         if (z) {
             for (int i2 = 0; i2 < length; i2++) {
-                this.bWy[i2] = -1;
+                this.ccg[i2] = -1;
             }
         }
     }
@@ -44,7 +44,7 @@ public class a {
             }
             return;
         }
-        int length = (this.bWy.length << bWx) - 1;
+        int length = (this.ccg.length << ccf) - 1;
         if (i > length) {
             String str = "diff > " + length + ": " + i;
             c.e("Component-DiffBitMap", str);
@@ -53,9 +53,9 @@ public class a {
             }
             return;
         }
-        int[] iArr = this.bWy;
-        int eK = eK(i);
-        iArr[eK] = iArr[eK] | (1 << i);
+        int[] iArr = this.ccg;
+        int gI = gI(i);
+        iArr[gI] = iArr[gI] | (1 << i);
     }
 
     public boolean get(@IntRange(from = 0) int i) {
@@ -66,7 +66,7 @@ public class a {
             }
             return false;
         }
-        int length = (this.bWy.length << bWx) - 1;
+        int length = (this.ccg.length << ccf) - 1;
         if (i > length) {
             String str = "diff > " + length + ": " + i;
             c.e("Component-DiffBitMap", str);
@@ -75,10 +75,10 @@ public class a {
             }
             return false;
         }
-        return (this.bWy[eK(i)] & (1 << i)) != 0;
+        return (this.ccg[gI(i)] & (1 << i)) != 0;
     }
 
-    private int eK(int i) {
-        return i >> bWx;
+    private int gI(int i) {
+        return i >> ccf;
     }
 }

@@ -1,19 +1,19 @@
 package com.baidu.swan.apps.adaptation.a;
 
 import android.content.res.Resources;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class a {
-    public abstract void dl(boolean z);
+    public abstract void dt(boolean z);
 
     public void setNightModeSwitcherState(boolean z) {
-        com.baidu.swan.apps.storage.c.h.auW().putBoolean("PREFS_NIGHT_MODE", z);
+        com.baidu.swan.apps.storage.c.h.aDf().putBoolean("PREFS_NIGHT_MODE", z);
     }
 
     public boolean getNightModeSwitcherState() {
-        return com.baidu.swan.apps.storage.c.h.auW().getBoolean("PREFS_NIGHT_MODE", false);
+        return com.baidu.swan.apps.storage.c.h.aDf().getBoolean("PREFS_NIGHT_MODE", false);
     }
 
-    public void a(Object obj, com.baidu.swan.apps.ak.a aVar) {
+    public void a(Object obj, com.baidu.swan.apps.aj.a aVar) {
     }
 
     public void unsubscribeNightModeChangedEvent(Object obj) {
@@ -23,6 +23,6 @@ public abstract class a {
         return null;
     }
 
-    public void dm(boolean z) {
+    public void du(boolean z) {
     }
 }

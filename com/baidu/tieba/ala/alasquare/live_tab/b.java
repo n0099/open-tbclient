@@ -9,42 +9,42 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b {
-    private BdTypeRecyclerView VT;
-    private List<com.baidu.adp.widget.ListView.a> aWf;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.a fsJ;
-    private d fsV;
-    private boolean fsW = false;
+    private BdTypeRecyclerView Wu;
+    private List<com.baidu.adp.widget.ListView.a> bbu;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.a fEd;
+    private d fEp;
+    private boolean fEq = false;
     private Context mContext;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         this.mPageContext = tbPageContext;
         this.mContext = tbPageContext.getPageActivity();
-        this.VT = bdTypeRecyclerView;
-        DS();
+        this.Wu = bdTypeRecyclerView;
+        Jv();
     }
 
-    private void DS() {
-        this.aWf = new ArrayList();
-        this.fsV = new d(this.mPageContext);
-        this.fsV.kc(this.fsW);
-        this.fsJ = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
-        this.aWf.add(this.fsV);
-        this.aWf.add(this.fsJ);
-        this.VT.addAdapters(this.aWf);
+    private void Jv() {
+        this.bbu = new ArrayList();
+        this.fEp = new d(this.mPageContext);
+        this.fEp.kA(this.fEq);
+        this.fEd = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
+        this.bbu.add(this.fEp);
+        this.bbu.add(this.fEd);
+        this.Wu.addAdapters(this.bbu);
     }
 
     public void setData(List<q> list) {
-        this.VT.setData(list);
+        this.Wu.setData(list);
     }
 
     public void notifyDataSetChanged() {
-        if (this.VT != null) {
-            this.VT.getListAdapter().notifyDataSetChanged();
+        if (this.Wu != null) {
+            this.Wu.getListAdapter().notifyDataSetChanged();
         }
     }
 
-    public void kc(boolean z) {
-        this.fsW = z;
+    public void kA(boolean z) {
+        this.fEq = z;
     }
 }

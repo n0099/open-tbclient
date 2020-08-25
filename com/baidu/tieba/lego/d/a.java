@@ -3,7 +3,7 @@ package com.baidu.tieba.lego.d;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.lego.c.e;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface a {
     com.baidu.tieba.lego.c.a a(e eVar);
 

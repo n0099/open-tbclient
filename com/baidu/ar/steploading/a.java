@@ -1,6 +1,6 @@
 package com.baidu.ar.steploading;
 
-import com.baidu.ar.f.g;
+import com.baidu.ar.g.i;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
@@ -9,33 +9,33 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 class a {
-    private String wc;
-    private Map<String, f> wd;
+    private String wF;
+    private Map<String, f> wG;
 
     public a(String str) {
-        this.wc = str;
+        this.wF = str;
     }
 
-    private Map<String, f> fh() {
-        if (this.wd != null) {
-            return this.wd;
+    private Map<String, f> gv() {
+        if (this.wG != null) {
+            return this.wG;
         }
-        this.wd = new HashMap();
-        File file = new File(this.wc.concat(File.separator).concat("res_config.json"));
+        this.wG = new HashMap();
+        File file = new File(this.wF.concat(File.separator).concat("res_config.json"));
         if (file.exists()) {
             try {
-                JSONArray optJSONArray = new JSONObject(g.f(file)).optJSONArray("res");
+                JSONArray optJSONArray = new JSONObject(i.f(file)).optJSONArray("res");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     int length = optJSONArray.length();
                     for (int i = 0; i < length; i++) {
                         JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                         if (optJSONObject != null) {
                             f fVar = new f();
-                            fVar.wt = optJSONObject.getString("resPath");
-                            fVar.wu = optJSONObject.optString("resId");
-                            fVar.wv = optJSONObject.optString("encoding");
-                            fVar.ww = optJSONObject.optString("md5");
-                            this.wd.put(fVar.wt, fVar);
+                            fVar.wW = optJSONObject.getString("resPath");
+                            fVar.wX = optJSONObject.optString("resId");
+                            fVar.wY = optJSONObject.optString("encoding");
+                            fVar.wZ = optJSONObject.optString("md5");
+                            this.wG.put(fVar.wW, fVar);
                         }
                     }
                 }
@@ -43,13 +43,13 @@ class a {
                 e.printStackTrace();
             }
         }
-        return this.wd;
+        return this.wG;
     }
 
-    public f aG(String str) {
-        Map<String, f> fh = fh();
-        if (fh.containsKey(str)) {
-            return fh.get(str);
+    public f aK(String str) {
+        Map<String, f> gv = gv();
+        if (gv.containsKey(str)) {
+            return gv.get(str);
         }
         return null;
     }

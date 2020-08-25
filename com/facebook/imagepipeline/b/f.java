@@ -2,7 +2,7 @@ package com.facebook.imagepipeline.b;
 
 import android.graphics.Bitmap;
 import javax.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes8.dex */
 public abstract class f {
     public abstract com.facebook.common.references.a<Bitmap> c(int i, int i2, Bitmap.Config config);
 

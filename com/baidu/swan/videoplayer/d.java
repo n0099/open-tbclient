@@ -3,9 +3,9 @@ package com.baidu.swan.videoplayer;
 import android.app.Activity;
 import android.view.View;
 import android.view.ViewGroup;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class d {
-    public static boolean aT(View view) {
+    public static boolean aV(View view) {
         if (view != null && view.getParent() != null && (view.getParent() instanceof ViewGroup)) {
             ViewGroup viewGroup = (ViewGroup) view.getParent();
             if (viewGroup.indexOfChild(view) != -1) {
@@ -19,12 +19,12 @@ public class d {
         return false;
     }
 
-    public static boolean d(Activity activity, View view) {
+    public static boolean attachDecor(Activity activity, View view) {
         ViewGroup viewGroup;
         if (activity == null || view == null || (viewGroup = (ViewGroup) activity.getWindow().getDecorView()) == null) {
             return false;
         }
-        aT(view);
+        aV(view);
         viewGroup.removeView(view);
         viewGroup.addView(view);
         return true;

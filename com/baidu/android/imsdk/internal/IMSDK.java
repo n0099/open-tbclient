@@ -24,7 +24,7 @@ import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public final class IMSDK {
     private static final String TAG = "IMSDK";
     public static Handler mHandler;
@@ -51,7 +51,7 @@ public final class IMSDK {
         public void run() {
             synchronized (IMSDK.this.mConnLock) {
                 if (IMSDK.this.mConnection != null) {
-                    IMSDK.this.mConnection.internalConnect(true);
+                    IMSDK.this.mConnection.internalConnect(false);
                 }
             }
         }

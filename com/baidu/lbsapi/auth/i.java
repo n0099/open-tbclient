@@ -5,7 +5,7 @@ import android.os.Looper;
 import android.os.Message;
 import java.util.Hashtable;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class i extends Handler {
     final /* synthetic */ LBSAuthManager a;
 
@@ -19,15 +19,11 @@ public class i extends Handler {
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         Hashtable hashtable;
-        if (a.a) {
-            a.a("handleMessage !!");
-        }
+        a.a("handleMessage !!");
         String string = message.getData().getString("listenerKey");
         hashtable = LBSAuthManager.f;
         LBSAuthManagerListener lBSAuthManagerListener = (LBSAuthManagerListener) hashtable.get(string);
-        if (a.a) {
-            a.a("handleMessage listener = " + lBSAuthManagerListener);
-        }
+        a.a("handleMessage listener = " + lBSAuthManagerListener);
         if (lBSAuthManagerListener != null) {
             lBSAuthManagerListener.onAuthResult(message.what, message.obj.toString());
         }

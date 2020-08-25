@@ -14,50 +14,50 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes16.dex */
 public class d extends i {
-    private final k gZb;
-    private final List<g> gZe;
-    private final k.c gZj;
-    private ViewEventCenter hgq;
-    private com.baidu.tieba.enterForum.data.f hqD;
+    private com.baidu.tieba.enterForum.data.f hDu;
+    private final k hlU;
+    private final List<g> hlX;
+    private final k.c hmc;
+    private ViewEventCenter htj;
     private Context mContext;
     private TbPageContext mPageContext;
 
     public d(TbPageContext tbPageContext, ViewEventCenter viewEventCenter) {
         super(tbPageContext);
-        this.gZj = new k.c() { // from class: com.baidu.tieba.enterForum.view.d.1
+        this.hmc = new k.c() { // from class: com.baidu.tieba.enterForum.view.d.1
             @Override // com.baidu.tbadk.core.dialog.k.c
             public void a(k kVar, int i, View view) {
                 d.this.dismiss();
                 if (!j.isNetWorkAvailable()) {
                     l.showToast(d.this.mContext, R.string.network_not_available);
                 } else if (i == 2) {
-                    d.this.hgq.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(4, d.this.hqD, null, null));
+                    d.this.htj.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(4, d.this.hDu, null, null));
                 } else if (i == 1) {
-                    d.this.hgq.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(13, d.this.hqD, null, null));
+                    d.this.htj.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(13, d.this.hDu, null, null));
                 }
             }
         };
         this.mPageContext = tbPageContext;
         this.mContext = this.mPageContext.getPageActivity();
-        this.hgq = viewEventCenter;
-        this.gZe = new ArrayList();
-        this.gZb = new k(this.mContext);
-        this.gZb.a(this.gZj);
-        a(this.gZb);
+        this.htj = viewEventCenter;
+        this.hlX = new ArrayList();
+        this.hlU = new k(this.mContext);
+        this.hlU.a(this.hmc);
+        a(this.hlU);
     }
 
     public void onChangeSkinType() {
-        if (this.gZb != null) {
-            this.gZb.onChangeSkinType();
+        if (this.hlU != null) {
+            this.hlU.onChangeSkinType();
         }
     }
 
     private void createView() {
-        if (this.hqD != null && this.gZe != null && this.gZb != null) {
-            this.gZe.clear();
-            this.gZe.add(new g(1, getString(this.hqD.bUx() == 1 ? R.string.cancel_top : R.string.top, new Object[0]), this.gZb));
-            this.gZe.add(new g(2, getString(R.string.delete, new Object[0]), this.gZb));
-            this.gZb.aS(this.gZe);
+        if (this.hDu != null && this.hlX != null && this.hlU != null) {
+            this.hlX.clear();
+            this.hlX.add(new g(1, getString(this.hDu.ceI() == 1 ? R.string.cancel_top : R.string.top, new Object[0]), this.hlU));
+            this.hlX.add(new g(2, getString(R.string.delete, new Object[0]), this.hlU));
+            this.hlU.aT(this.hlX);
         }
     }
 
@@ -69,7 +69,7 @@ public class d extends i {
     }
 
     public void c(com.baidu.tieba.enterForum.data.f fVar) {
-        this.hqD = fVar;
+        this.hDu = fVar;
         createView();
     }
 }

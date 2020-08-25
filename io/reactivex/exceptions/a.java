@@ -3,11 +3,11 @@ package io.reactivex.exceptions;
 import io.reactivex.internal.util.ExceptionHelper;
 /* loaded from: classes7.dex */
 public final class a {
-    public static RuntimeException x(Throwable th) {
-        throw ExceptionHelper.M(th);
+    public static RuntimeException v(Throwable th) {
+        throw ExceptionHelper.L(th);
     }
 
-    public static void K(Throwable th) {
+    public static void J(Throwable th) {
         if (th instanceof VirtualMachineError) {
             throw ((VirtualMachineError) th);
         }

@@ -12,49 +12,49 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes18.dex */
 public class g {
-    private TbPageContext<?> dVN;
-    private TableLayout jGC;
-    private TextView jGD;
-    private View jGE;
+    private TbPageContext<?> efn;
+    private TableLayout jVT;
+    private TextView jVU;
+    private View jVV;
     private View mRoot;
 
     public g(TbPageContext<?> tbPageContext) {
-        this.dVN = tbPageContext;
+        this.efn = tbPageContext;
     }
 
     public View createView() {
-        this.mRoot = LayoutInflater.from(this.dVN.getPageActivity()).inflate(R.layout.search_topic, (ViewGroup) null);
-        this.jGE = this.mRoot.findViewById(R.id.titleTopDivider);
-        this.jGE.setVisibility(0);
-        this.jGC = (TableLayout) this.mRoot.findViewById(R.id.search_topic_layout);
-        this.jGD = (TextView) this.mRoot.findViewById(R.id.square_search_fourm_header_text);
-        this.jGD.setText(this.dVN.getResources().getString(R.string.hot_topic_title));
+        this.mRoot = LayoutInflater.from(this.efn.getPageActivity()).inflate(R.layout.search_topic, (ViewGroup) null);
+        this.jVV = this.mRoot.findViewById(R.id.titleTopDivider);
+        this.jVV.setVisibility(0);
+        this.jVT = (TableLayout) this.mRoot.findViewById(R.id.search_topic_layout);
+        this.jVU = (TextView) this.mRoot.findViewById(R.id.square_search_fourm_header_text);
+        this.jVU.setText(this.efn.getResources().getString(R.string.hot_topic_title));
         return this.mRoot;
     }
 
     public void setTitleText(String str) {
-        if (this.jGD != null) {
+        if (this.jVU != null) {
             if (!StringUtils.isNull(str)) {
-                this.jGD.setText(str);
+                this.jVU.setText(str);
             } else {
-                this.jGD.setText(this.dVN.getResources().getString(R.string.hot_topic_title));
+                this.jVU.setText(this.efn.getResources().getString(R.string.hot_topic_title));
             }
         }
     }
 
     public void clear() {
-        this.jGC.removeAllViews();
+        this.jVT.removeAllViews();
         this.mRoot.setVisibility(8);
-        this.jGC.setVisibility(8);
-        this.jGD.setVisibility(8);
+        this.jVT.setVisibility(8);
+        this.jVU.setVisibility(8);
     }
 
     public View a(c cVar, int i) {
-        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.dVN.getPageActivity()).inflate(R.layout.search_topic_item, (ViewGroup) null);
+        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.efn.getPageActivity()).inflate(R.layout.search_topic_item, (ViewGroup) null);
         TextView textView = (TextView) linearLayout.findViewById(R.id.text_search_topic_item_text);
         ImageView imageView = (ImageView) linearLayout.findViewById(R.id.image_search_topic_item);
         if (cVar != null) {
@@ -62,14 +62,14 @@ public class g {
             imageView.setVisibility(0);
             imageView.setTag(Integer.valueOf(tag));
             a(imageView, tag, TbadkCoreApplication.getInst().getSkinType());
-            textView.setText(aP(cVar.getName(), 8));
+            textView.setText(aS(cVar.getName(), 8));
             linearLayout.setTag(cVar);
         } else {
             textView.setText(R.string.hot_forum_title_more);
-            textView.setTextColor(ao.getColor(R.color.cp_link_tip_a));
+            textView.setTextColor(ap.getColor(R.color.cp_link_tip_a));
             imageView.setVisibility(8);
         }
-        a(linearLayout, i, this.jGC, 2);
+        a(linearLayout, i, this.jVT, 2);
         return linearLayout;
     }
 
@@ -78,13 +78,13 @@ public class g {
             imageView.setImageDrawable(null);
             switch (i) {
                 case 1:
-                    ao.setImageResource(imageView, R.drawable.icon_topic_new, i2);
+                    ap.setImageResource(imageView, R.drawable.icon_topic_new, i2);
                     return;
                 case 2:
-                    ao.setImageResource(imageView, R.drawable.icon_topic_hot, i2);
+                    ap.setImageResource(imageView, R.drawable.icon_topic_hot, i2);
                     return;
                 case 3:
-                    ao.setImageResource(imageView, R.drawable.icon_topic_recommend, i2);
+                    ap.setImageResource(imageView, R.drawable.icon_topic_recommend, i2);
                     return;
                 default:
                     imageView.setVisibility(8);
@@ -93,20 +93,20 @@ public class g {
         }
     }
 
-    private String aP(String str, int i) {
+    private String aS(String str, int i) {
         if (StringUtils.isNull(str)) {
             return "";
         }
         if (str.length() > i) {
-            return str.substring(0, i - 1) + this.dVN.getString(R.string.ellipsis);
+            return str.substring(0, i - 1) + this.efn.getString(R.string.ellipsis);
         }
         return str;
     }
 
     private void a(View view, int i, TableLayout tableLayout, int i2) {
-        TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(this.dVN.getResources().getDimensionPixelSize(R.dimen.ds360), -2);
+        TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(this.efn.getResources().getDimensionPixelSize(R.dimen.ds360), -2);
         if (i % i2 == 0) {
-            TableRow tableRow = new TableRow(this.dVN.getPageActivity());
+            TableRow tableRow = new TableRow(this.efn.getPageActivity());
             tableRow.addView(view, layoutParams);
             tableLayout.addView(tableRow);
         } else if (tableLayout.getChildCount() != 0) {
@@ -116,10 +116,10 @@ public class g {
 
     @SuppressLint({"ResourceAsColor"})
     public void onChangeSkinType(int i) {
-        this.dVN.getLayoutMode().onModeChanged(this.mRoot);
-        int childCount = this.jGC.getChildCount();
+        this.efn.getLayoutMode().onModeChanged(this.mRoot);
+        int childCount = this.jVT.getChildCount();
         for (int i2 = 0; i2 < childCount; i2++) {
-            TableRow tableRow = (TableRow) this.jGC.getChildAt(i2);
+            TableRow tableRow = (TableRow) this.jVT.getChildAt(i2);
             int childCount2 = tableRow.getChildCount();
             for (int i3 = 0; i3 < childCount2; i3++) {
                 LinearLayout linearLayout = (LinearLayout) tableRow.getChildAt(i3);
@@ -127,25 +127,25 @@ public class g {
                     TextView textView = (TextView) linearLayout.getChildAt(0);
                     ImageView imageView = (ImageView) linearLayout.getChildAt(1);
                     if (i2 == childCount - 1 && i3 == childCount2 - 1) {
-                        textView.setTextColor(ao.getColor(R.color.cp_link_tip_a));
+                        textView.setTextColor(ap.getColor(R.color.cp_link_tip_a));
                     } else {
                         a(imageView, imageView.getTag() != null ? ((Integer) imageView.getTag()).intValue() : 0, i);
-                        ao.setViewTextColor(textView, R.color.cp_cont_b, 1, i);
+                        ap.setViewTextColor(textView, R.color.cp_cont_b, 1, i);
                     }
-                    ao.setBackgroundResource(textView, R.drawable.square_search_item_bg, i);
+                    ap.setBackgroundResource(textView, R.drawable.square_search_item_bg, i);
                 }
             }
         }
     }
 
-    public void rb(boolean z) {
-        this.jGE.setVisibility(z ? 0 : 8);
+    public void rH(boolean z) {
+        this.jVV.setVisibility(z ? 0 : 8);
     }
 
     public void show() {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         this.mRoot.setVisibility(0);
-        this.jGC.setVisibility(0);
-        this.jGD.setVisibility(0);
+        this.jVT.setVisibility(0);
+        this.jVU.setVisibility(0);
     }
 }

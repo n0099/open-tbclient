@@ -7,33 +7,18 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.util.Log;
-/* loaded from: classes19.dex */
+/* loaded from: classes11.dex */
 public class e {
     public static boolean b;
-    public static volatile e nIO;
+    public static volatile e ocH;
     public Boolean g;
-    public BroadcastReceiver nIT;
-    public a nIP = new a("udid");
-    public a nIQ = new a("oaid");
-    public a nIS = new a("vaid");
-    public a nIR = new a("aaid");
+    public BroadcastReceiver ocM;
+    public a ocI = new a("udid");
+    public a ocJ = new a("oaid");
+    public a ocL = new a("vaid");
+    public a ocK = new a("aaid");
 
-    public static void a(String str) {
-        if (b) {
-            Log.d("OpenIdManager", str);
-        }
-    }
-
-    public static final e dOQ() {
-        if (nIO == null) {
-            synchronized (e.class) {
-                nIO = new e();
-            }
-        }
-        return nIO;
-    }
-
-    public static c y(Cursor cursor) {
+    public static c A(Cursor cursor) {
         c cVar = new c(null, 0);
         if (cursor == null) {
             a("parseValue fail, cursor is null.");
@@ -63,18 +48,33 @@ public class e {
         return cVar;
     }
 
-    public a Sf(String str) {
+    public static void a(String str) {
+        if (b) {
+            Log.d("OpenIdManager", str);
+        }
+    }
+
+    public static final e eaS() {
+        if (ocH == null) {
+            synchronized (e.class) {
+                ocH = new e();
+            }
+        }
+        return ocH;
+    }
+
+    public a Vj(String str) {
         if ("oaid".equals(str)) {
-            return this.nIQ;
+            return this.ocJ;
         }
         if ("vaid".equals(str)) {
-            return this.nIS;
+            return this.ocL;
         }
         if ("aaid".equals(str)) {
-            return this.nIR;
+            return this.ocK;
         }
         if ("udid".equals(str)) {
-            return this.nIP;
+            return this.ocI;
         }
         return null;
     }
@@ -138,14 +138,14 @@ public class e {
             throw th;
         }
         if (parse != 0) {
-            c y = y(parse);
-            str2 = y.a;
+            c A = A(parse);
+            str2 = A.a;
             try {
                 aVar.a(str2);
-                aVar.a(y.c);
-                aVar.a(y.b);
+                aVar.a(A.c);
+                aVar.a(A.b);
                 a(aVar.c + " errorCode : " + aVar.d);
-                if (y.b != 1000) {
+                if (A.b != 1000) {
                     a(context);
                     if (!a(context, false)) {
                         append = new StringBuilder().append("not support, forceQuery isSupported: ").append(a(context, true));
@@ -186,11 +186,11 @@ public class e {
     }
 
     public final synchronized void a(Context context) {
-        if (this.nIT == null) {
+        if (this.ocM == null) {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("com.meizu.flyme.openid.ACTION_OPEN_ID_CHANGE");
-            this.nIT = new d();
-            context.registerReceiver(this.nIT, intentFilter, "com.meizu.flyme.openid.permission.OPEN_ID_CHANGE", null);
+            this.ocM = new d();
+            context.registerReceiver(this.ocM, intentFilter, "com.meizu.flyme.openid.permission.OPEN_ID_CHANGE", null);
         }
     }
 
@@ -251,7 +251,7 @@ public class e {
         }
         if (cursor != null) {
             try {
-                String str2 = y(cursor).a;
+                String str2 = A(cursor).a;
                 cursor.close();
                 str = str2;
             } catch (Exception e3) {

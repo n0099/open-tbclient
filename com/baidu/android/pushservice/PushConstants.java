@@ -1,15 +1,14 @@
 package com.baidu.android.pushservice;
 
 import com.baidu.live.tbadk.core.util.NetWorkErr;
-import com.baidu.mapapi.synchronization.histroytrace.HistoryTraceConstant;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public final class PushConstants {
     public static final int LOGIN_TYPE_API_KEY = 0;
 
     public static String a(int i) {
         switch (i) {
             case 0:
-                return HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_SUCCESS;
+                return "Success";
             case 10001:
                 return "Network Problem";
             case 10002:

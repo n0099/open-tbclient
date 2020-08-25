@@ -3,29 +3,29 @@ package com.baidu.minivideo.arface.utils;
 import java.io.File;
 /* loaded from: classes6.dex */
 public class d extends c {
-    private static d bwG;
+    private static d bCp;
 
     private d() {
     }
 
-    public static d Nr() {
-        if (bwG == null) {
+    public static d Tl() {
+        if (bCp == null) {
             init();
         }
-        return bwG;
+        return bCp;
     }
 
     private static synchronized void init() {
         synchronized (d.class) {
-            if (bwG == null) {
-                bwG = new d();
+            if (bCp == null) {
+                bCp = new d();
             }
         }
     }
 
     @Override // com.baidu.minivideo.arface.utils.f
     public void run() {
-        com.baidu.minivideo.arface.b.Ne();
-        setState(new File(com.baidu.minivideo.arface.c.Nm()).exists() ? 2 : 3);
+        com.baidu.minivideo.arface.b.SY();
+        setState(new File(com.baidu.minivideo.arface.c.Tg()).exists() ? 2 : 3);
     }
 }

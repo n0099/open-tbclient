@@ -1,54 +1,27 @@
 package com.baidu.tbadk.core.data;
 
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.FrsPage.ActivityHead;
-import tbclient.FrsPage.HeadImgs;
-/* loaded from: classes.dex */
-public class u {
-    private String dOo;
-    private int dOp;
-    private ArrayList<x> dOq = new ArrayList<>();
-    private int height;
-    private String obj_id;
-    private int width;
+import com.baidu.adp.BdUniqueId;
+/* loaded from: classes2.dex */
+public class u extends AbsThreadDataSupport implements com.baidu.tbadk.mvc.b.a {
+    public static final BdUniqueId dXF = BdUniqueId.gen();
+    public static final int[] dXG = {0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11};
+    private int mType = 6;
 
-    public ArrayList<x> aUp() {
-        return this.dOq;
+    public void mQ(int i) {
+        this.mType = i;
     }
 
-    public void w(ArrayList<x> arrayList) {
-        this.dOq = arrayList;
+    public int getItemViewType() {
+        return this.mType;
     }
 
-    public String aUq() {
-        return this.obj_id;
+    @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
+    public bw bce() {
+        return null;
     }
 
-    public void a(ActivityHead activityHead) {
-        if (activityHead != null) {
-            this.dOp = activityHead.activity_type.intValue();
-            this.dOo = activityHead.activity_title;
-            this.width = activityHead.top_size == null ? 0 : activityHead.top_size.width.intValue();
-            this.height = activityHead.top_size != null ? activityHead.top_size.height.intValue() : 0;
-            this.obj_id = activityHead.obj_id;
-            aJ(activityHead.head_imgs);
-        }
-    }
-
-    public void aJ(List<HeadImgs> list) {
-        if (!com.baidu.tbadk.core.util.x.isEmpty(list)) {
-            for (HeadImgs headImgs : list) {
-                a(headImgs);
-            }
-        }
-    }
-
-    public void a(HeadImgs headImgs) {
-        if (headImgs != null) {
-            x xVar = new x();
-            xVar.b(headImgs);
-            this.dOq.add(xVar);
-        }
+    @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
+    public ar bcg() {
+        return null;
     }
 }

@@ -14,19 +14,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes14.dex */
 public class e {
-    private static volatile IRemoteUBCService dAk;
-    private static Map<String, Integer> dAl = new HashMap();
-    private static Set<String> dAm = new HashSet();
+    private static volatile IRemoteUBCService dJt;
+    private static Map<String, Integer> dJu = new HashMap();
+    private static Set<String> dJv = new HashSet();
 
     static {
-        dAm.add("606");
-        dAm.add("671");
-        dAl.put("606", -1);
-        dAl.put("671", -1);
+        dJv.add("606");
+        dJv.add("671");
+        dJu.put("606", -1);
+        dJu.put("671", -1);
     }
 
-    public static final l aNf() {
-        return com.baidu.swan.apps.aa.b.anu();
+    public static final l aVF() {
+        return com.baidu.swan.apps.z.b.avp();
     }
 
     public static final void onEvent(String str) {
@@ -46,35 +46,35 @@ public class e {
     }
 
     public static final void onEvent(String str, Map<String, String> map, int i) {
-        if (com.baidu.swan.c.d.aNY()) {
-            p.aNC().onEvent(str, map, i);
+        if (com.baidu.swan.b.d.aWy()) {
+            p.aWc().onEvent(str, map, i);
         }
     }
 
     public static void onEvent(String str, String str2, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.Qn()) {
-            str2 = cV(str, str2);
+        if (com.baidu.pyramid.runtime.multiprocess.a.Wi()) {
+            str2 = dl(str, str2);
         }
-        if (com.baidu.swan.c.d.aNY()) {
-            p.aNC().onEvent(str, str2, i);
+        if (com.baidu.swan.b.d.aWy()) {
+            p.aWc().onEvent(str, str2, i);
         }
     }
 
     public static void onEvent(String str, JSONObject jSONObject, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.Qn()) {
-            l(str, jSONObject);
+        if (com.baidu.pyramid.runtime.multiprocess.a.Wi()) {
+            k(str, jSONObject);
         }
-        if (com.baidu.swan.c.d.aNY()) {
-            p.aNC().onEvent(str, jSONObject, i);
+        if (com.baidu.swan.b.d.aWy()) {
+            p.aWc().onEvent(str, jSONObject, i);
         }
     }
 
-    public static final Flow uW(String str) {
-        return i(str, "", 0);
+    public static final Flow xh(String str) {
+        return j(str, "", 0);
     }
 
-    public static Flow i(String str, String str2, int i) {
-        return p.aNC().i(str, str2, i);
+    public static Flow j(String str, String str2, int i) {
+        return p.aWc().j(str, str2, i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -83,35 +83,35 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static IRemoteUBCService aNg() throws RemoteException {
-        if (dAk == null) {
+    public static IRemoteUBCService aVG() throws RemoteException {
+        if (dJt == null) {
             synchronized (e.class) {
-                if (dAk == null) {
-                    IBinder z = IPCServiceManager.z("open_log", true);
-                    if (z == null) {
+                if (dJt == null) {
+                    IBinder E = IPCServiceManager.E("open_log", true);
+                    if (E == null) {
                         throw new RemoteException("Ceres get remote service empty !");
                     }
-                    if (z != null) {
-                        dAk = IRemoteUBCService.Stub.asInterface(z);
+                    if (E != null) {
+                        dJt = IRemoteUBCService.Stub.asInterface(E);
                     }
                 }
             }
         }
-        return dAk;
+        return dJt;
     }
 
-    private static String cV(String str, String str2) {
-        l aNf;
+    private static String dl(String str, String str2) {
+        l aVF;
         Integer valueOf;
-        if (dAm.contains(str) && (aNf = aNf()) != null && aNf.ant()) {
+        if (dJv.contains(str) && (aVF = aVF()) != null && aVF.avo()) {
             synchronized (e.class) {
-                Integer num = dAl.get(str);
+                Integer num = dJu.get(str);
                 if (num == null) {
                     num = -1;
                 }
                 String str3 = "ubc_counter" + str;
                 if (num.intValue() == -1) {
-                    num = Integer.valueOf(u.aNN().getInt(str3, 0));
+                    num = Integer.valueOf(u.aWn().getInt(str3, 0));
                 }
                 try {
                     if (num.intValue() + 1 >= Integer.MAX_VALUE) {
@@ -122,8 +122,8 @@ public class e {
                     JSONObject jSONObject = new JSONObject(str2);
                     jSONObject.put("counter", valueOf);
                     str2 = jSONObject.toString();
-                    u.aNN().putInt("ubc_counter" + str, valueOf.intValue());
-                    dAl.put(str, valueOf);
+                    u.aWn().putInt("ubc_counter" + str, valueOf.intValue());
+                    dJu.put(str, valueOf);
                 } catch (JSONException e) {
                 }
             }
@@ -131,18 +131,18 @@ public class e {
         return str2;
     }
 
-    private static JSONObject l(String str, JSONObject jSONObject) {
-        l aNf;
+    private static JSONObject k(String str, JSONObject jSONObject) {
+        l aVF;
         Integer valueOf;
-        if (dAm.contains(str) && (aNf = aNf()) != null && aNf.ant()) {
+        if (dJv.contains(str) && (aVF = aVF()) != null && aVF.avo()) {
             synchronized (e.class) {
-                Integer num = dAl.get(str);
+                Integer num = dJu.get(str);
                 if (num == null) {
                     num = -1;
                 }
                 String str2 = "ubc_counter" + str;
                 if (num.intValue() == -1) {
-                    num = Integer.valueOf(u.aNN().getInt(str2, 0));
+                    num = Integer.valueOf(u.aWn().getInt(str2, 0));
                 }
                 try {
                     if (num.intValue() + 1 >= Integer.MAX_VALUE) {
@@ -151,8 +151,8 @@ public class e {
                         valueOf = Integer.valueOf(num.intValue() + 1);
                     }
                     jSONObject.put("counter", valueOf);
-                    u.aNN().putInt("ubc_counter" + str, valueOf.intValue());
-                    dAl.put(str, valueOf);
+                    u.aWn().putInt("ubc_counter" + str, valueOf.intValue());
+                    dJu.put(str, valueOf);
                 } catch (JSONException e) {
                 }
             }

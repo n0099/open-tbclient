@@ -2,11 +2,12 @@ package com.airbnb.lottie.c;
 
 import android.util.JsonReader;
 import com.airbnb.lottie.model.content.ShapeStroke;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import java.io.IOException;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes18.dex */
 public class ah {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -141,7 +142,7 @@ public class ah {
                                 c = 65535;
                                 break;
                             case 103:
-                                if (str2.equals("g")) {
+                                if (str2.equals(IXAdRequestInfo.GPS)) {
                                     c = 2;
                                     break;
                                 }

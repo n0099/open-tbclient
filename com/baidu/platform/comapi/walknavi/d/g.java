@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.ar.npc.BaiduArView;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
     public static boolean a = true;
     private com.baidu.platform.comapi.walknavi.d.b d;
@@ -20,9 +20,9 @@ public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
     private boolean m = true;
     private boolean n = false;
     public b b = new b();
-    private com.baidu.platform.comapi.walknavi.d.a.b f = new com.baidu.platform.comapi.walknavi.d.a.b(com.baidu.platform.comapi.wnplatform.o.b.a.a());
+    private com.baidu.platform.comapi.walknavi.d.a.b f = new com.baidu.platform.comapi.walknavi.d.a.b(com.baidu.platform.comapi.wnplatform.p.b.a.a());
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public interface a {
         void a(b bVar);
     }
@@ -32,7 +32,7 @@ public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
     }
 
     public void a(String str) {
-        com.baidu.platform.comapi.walknavi.b.a().H().b("walknavi_current_npc_token", str);
+        com.baidu.platform.comapi.walknavi.b.a().K().b("walknavi_current_npc_token", str);
         this.c = str;
         this.b.a = str;
         if (this.o != null) {
@@ -75,7 +75,7 @@ public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
     public void a(com.baidu.platform.comapi.walknavi.d.b bVar) {
         long currentTimeMillis = System.currentTimeMillis();
         this.d = bVar;
-        this.e = new com.baidu.platform.comapi.walknavi.d.a.d(com.baidu.platform.comapi.wnplatform.o.b.a.a(), this);
+        this.e = new com.baidu.platform.comapi.walknavi.d.a.d(com.baidu.platform.comapi.wnplatform.p.b.a.a(), this);
         a(currentTimeMillis, "createArManager");
     }
 
@@ -250,7 +250,7 @@ public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
         this.o = aVar;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public class b {
         public String a;
         public String b;

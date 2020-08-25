@@ -7,11 +7,11 @@ import tbclient.TopicList.TopicList;
 import tbclient.TopicList.TopicListModule;
 /* loaded from: classes15.dex */
 public class c implements q {
-    public static final BdUniqueId iJU = BdUniqueId.gen();
-    private long iJQ;
-    private String iJR;
-    private int iJV = -1;
-    private String iJW;
+    public static final BdUniqueId iYS = BdUniqueId.gen();
+    private long iYO;
+    private String iYP;
+    private int iYT = -1;
+    private String iYU;
     private long mId;
     private String mName;
     private int mTag;
@@ -19,7 +19,7 @@ public class c implements q {
     String rule_jump_url;
     String tips;
 
-    public String cpb() {
+    public String czU() {
         return this.module_title;
     }
 
@@ -27,12 +27,12 @@ public class c implements q {
         return this.tips;
     }
 
-    public String cpc() {
+    public String czV() {
         return this.rule_jump_url;
     }
 
-    public long cpd() {
-        return this.iJQ;
+    public long czW() {
+        return this.iYO;
     }
 
     public int getTag() {
@@ -47,12 +47,12 @@ public class c implements q {
         return this.mName;
     }
 
-    public int cpe() {
-        return this.iJV;
+    public int czX() {
+        return this.iYT;
     }
 
-    public void xX(int i) {
-        this.iJV = i;
+    public void Ar(int i) {
+        this.iYT = i;
     }
 
     public void a(TopicList topicList) {
@@ -60,9 +60,9 @@ public class c implements q {
             this.mId = topicList.topic_id.longValue();
             this.mName = topicList.topic_name;
             this.mTag = topicList.tag.intValue();
-            this.iJQ = topicList.discuss_num.longValue();
-            this.iJR = topicList.topic_desc;
-            this.iJW = topicList.topic_pic;
+            this.iYO = topicList.discuss_num.longValue();
+            this.iYP = topicList.topic_desc;
+            this.iYU = topicList.topic_pic;
         }
     }
 
@@ -78,6 +78,6 @@ public class c implements q {
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return iJU;
+        return iYS;
     }
 }

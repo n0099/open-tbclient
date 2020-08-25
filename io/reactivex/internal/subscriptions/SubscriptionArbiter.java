@@ -5,7 +5,7 @@ import io.reactivex.internal.util.b;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.d;
+import org.b.d;
 /* loaded from: classes7.dex */
 public class SubscriptionArbiter extends AtomicInteger implements d {
     private static final long serialVersionUID = -2189523197179400958L;
@@ -46,7 +46,7 @@ public class SubscriptionArbiter extends AtomicInteger implements d {
         drain();
     }
 
-    @Override // org.a.d
+    @Override // org.b.d
     public final void request(long j) {
         if (SubscriptionHelper.validate(j) && !this.unbounded) {
             if (get() == 0 && compareAndSet(0, 1)) {

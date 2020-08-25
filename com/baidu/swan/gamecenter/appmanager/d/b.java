@@ -7,20 +7,20 @@ import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.swan.apps.statistic.a.f;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class b extends f {
     public String packageName;
 
     @Override // com.baidu.swan.apps.statistic.a.f, com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
-        this.cOB = com.baidu.swan.apps.swancore.b.hx(TextUtils.equals(this.mFrom, "swangame") ? 1 : 0);
-        this.cOD = SwanAppNetworkUtils.amW().type;
-        if (this.cOz == null) {
-            this.cOz = new JSONObject();
+        this.cXB = com.baidu.swan.apps.swancore.b.jE(TextUtils.equals(this.mFrom, "swangame") ? 1 : 0);
+        this.cXD = SwanAppNetworkUtils.auT().type;
+        if (this.cXz == null) {
+            this.cXz = new JSONObject();
         }
         try {
-            this.cOz.put("host", com.baidu.swan.apps.t.a.ahU().getHostName());
-            this.cOz.put("package", this.packageName);
+            this.cXz.put("host", com.baidu.swan.apps.t.a.apw().getHostName());
+            this.cXz.put("package", this.packageName);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -38,18 +38,18 @@ public class b extends f {
             this.mFrom = aVar.mFrom;
             this.mAppId = aVar.mAppId;
             this.mSource = aVar.mSource;
-            this.cOE = aVar.cOE;
-            this.cOG = aVar.cOG;
+            this.cXE = aVar.cXE;
+            this.cXG = aVar.cXG;
             this.mScheme = aVar.mScheme;
-            this.cOJ = aVar.cOJ;
-            this.cHF = aVar.cHF;
+            this.cXJ = aVar.cXJ;
+            this.cQE = aVar.cQE;
             this.mAppVersion = aVar.mAppVersion;
-            this.cOC = aVar.cOC;
+            this.cXC = aVar.cXC;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static String sb(String str) {
+    public static String ut(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

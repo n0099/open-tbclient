@@ -1,9 +1,7 @@
 package com.baidu.platform.comapi.walknavi.g;
-
-import com.baidu.platform.comapi.walknavi.widget.a;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
-public class g implements a.InterfaceC0233a {
+/* loaded from: classes20.dex */
+public class g implements Runnable {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,8 +9,14 @@ public class g implements a.InterfaceC0233a {
         this.a = aVar;
     }
 
-    @Override // com.baidu.platform.comapi.walknavi.widget.a.InterfaceC0233a
-    public void a() {
-        this.a.R();
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.platform.comapi.walknavi.g.c.c cVar;
+        com.baidu.platform.comapi.walknavi.g.c.c cVar2;
+        cVar = this.a.i;
+        if (cVar != null) {
+            cVar2 = this.a.i;
+            cVar2.f();
+        }
     }
 }

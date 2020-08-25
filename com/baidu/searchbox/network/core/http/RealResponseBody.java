@@ -4,7 +4,7 @@ import android.support.annotation.Nullable;
 import com.baidu.searchbox.network.core.MediaType;
 import com.baidu.searchbox.network.core.ResponseBody;
 import okio.BufferedSource;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public final class RealResponseBody extends ResponseBody {
     private final long contentLength;
     @Nullable

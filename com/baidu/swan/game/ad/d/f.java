@@ -1,41 +1,41 @@
 package com.baidu.swan.game.ad.d;
 
 import android.text.TextUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes19.dex */
 public class f {
-    public static boolean aAH() {
-        return (TextUtils.isEmpty(aAK()) || TextUtils.isEmpty(aAL()) || System.currentTimeMillis() - com.baidu.swan.games.utils.c.aGP().aHd().longValue() >= 604800000) ? false : true;
+    public static boolean aJq() {
+        return (TextUtils.isEmpty(aJt()) || TextUtils.isEmpty(aJu()) || System.currentTimeMillis() - com.baidu.swan.games.utils.c.aPG().aPU().longValue() >= 604800000) ? false : true;
     }
 
-    public static boolean aAI() {
-        return (TextUtils.isEmpty(aAM()) || TextUtils.isEmpty(aAN()) || System.currentTimeMillis() - com.baidu.swan.games.utils.c.aGP().aHd().longValue() >= 604800000) ? false : true;
+    public static boolean aJr() {
+        return (TextUtils.isEmpty(aJv()) || TextUtils.isEmpty(aJw()) || System.currentTimeMillis() - com.baidu.swan.games.utils.c.aPG().aPU().longValue() >= 604800000) ? false : true;
     }
 
-    public static boolean aAJ() {
-        return com.baidu.swan.games.utils.c.aGP().aHg() && aAI();
+    public static boolean aJs() {
+        return com.baidu.swan.games.utils.c.aPG().aPX() && aJr();
     }
 
-    public static String aAK() {
-        return com.baidu.swan.games.utils.c.aGP().aAK();
+    public static String aJt() {
+        return com.baidu.swan.games.utils.c.aPG().aJt();
     }
 
-    public static String aAL() {
-        return com.baidu.swan.games.utils.c.aGP().aHb();
+    public static String aJu() {
+        return com.baidu.swan.games.utils.c.aPG().aPS();
     }
 
-    public static String aAM() {
-        return com.baidu.swan.games.utils.c.aGP().aAM();
+    public static String aJv() {
+        return com.baidu.swan.games.utils.c.aPG().aJv();
     }
 
-    public static String aAN() {
-        return com.baidu.swan.games.utils.c.aGP().aHc();
+    public static String aJw() {
+        return com.baidu.swan.games.utils.c.aPG().aPT();
     }
 
-    public static boolean aAO() {
-        return com.baidu.swan.games.utils.c.aGP().aHe();
+    public static boolean aJx() {
+        return com.baidu.swan.games.utils.c.aPG().aPV();
     }
 
-    public static boolean aAP() {
-        return aAI() && com.baidu.swan.games.utils.c.aGP().aHf();
+    public static boolean aJy() {
+        return aJr() && com.baidu.swan.games.utils.c.aPG().aPW();
     }
 }

@@ -2,9 +2,9 @@ package com.facebook.imagepipeline.memory;
 
 import android.util.SparseIntArray;
 import com.baidu.tbadk.TbConfig;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class h {
-    public static r dIO() {
+    public static r dUN() {
         SparseIntArray sparseIntArray = new SparseIntArray();
         sparseIntArray.put(1024, 5);
         sparseIntArray.put(2048, 5);
@@ -17,10 +17,10 @@ public class h {
         sparseIntArray.put(262144, 2);
         sparseIntArray.put(524288, 2);
         sparseIntArray.put(1048576, 2);
-        return new r(dIP(), dII(), sparseIntArray);
+        return new r(dUO(), dUH(), sparseIntArray);
     }
 
-    private static int dIP() {
+    private static int dUO() {
         int min = (int) Math.min(Runtime.getRuntime().maxMemory(), 2147483647L);
         if (min < 16777216) {
             return 3145728;
@@ -31,7 +31,7 @@ public class h {
         return 12582912;
     }
 
-    private static int dII() {
+    private static int dUH() {
         int min = (int) Math.min(Runtime.getRuntime().maxMemory(), 2147483647L);
         return min < 16777216 ? min / 2 : (min / 4) * 3;
     }

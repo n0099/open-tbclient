@@ -2,13 +2,13 @@ package com.baidu.tieba.video;
 /* loaded from: classes17.dex */
 public class a {
     public int level;
-    public float mbH;
-    public float mbI;
-    public float mbJ;
-    public float mbK;
-    public float mbL;
+    public float mts;
+    public float mtt;
+    public float mtu;
+    public float mtv;
+    public float mtw;
 
-    public static a Gm(int i) {
+    public static a II(int i) {
         switch (i) {
             case 0:
                 return a(i, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
@@ -30,11 +30,11 @@ public class a {
     private static a a(int i, float f, float f2, float f3, float f4, float f5) {
         a aVar = new a();
         aVar.level = i;
-        aVar.mbH = f;
-        aVar.mbI = f2;
-        aVar.mbJ = f3;
-        aVar.mbK = f4;
-        aVar.mbL = f5;
+        aVar.mts = f;
+        aVar.mtt = f2;
+        aVar.mtu = f3;
+        aVar.mtv = f4;
+        aVar.mtw = f5;
         return aVar;
     }
 }

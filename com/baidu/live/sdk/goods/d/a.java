@@ -2,7 +2,7 @@ package com.baidu.live.sdk.goods.d;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.live.data.bc;
+import com.baidu.live.data.be;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.browser.BrowserHelper;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
@@ -12,44 +12,16 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static void m(Context context, String str, String str2) {
-        bc bcVar = com.baidu.live.v.a.Hs().beo;
-        if (bcVar != null && bcVar.aEs != null) {
-            String str3 = bcVar.aEs.aGp;
+        be beVar = com.baidu.live.w.a.Nk().bka;
+        if (beVar != null && beVar.aJC != null) {
+            String str3 = beVar.aJC.aLz;
             if (!TextUtils.isEmpty(str3)) {
                 BrowserHelper.startInternalWebActivity(context, str3 + (str3.contains("?") ? ETAG.ITEM_SEPARATOR : "?") + "feed_id=" + str + "&live_id=" + str2 + "&subapp_type=" + TbConfig.getSubappType());
             }
         }
-    }
-
-    public static String a(String str, String str2, long j, boolean z, int i, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11) {
-        bc bcVar = com.baidu.live.v.a.Hs().beo;
-        if (bcVar == null || bcVar.aEs == null) {
-            return "";
-        }
-        String str12 = bcVar.aEs.aGo;
-        if (TextUtils.isEmpty(str12)) {
-            return "";
-        }
-        String str13 = bcVar.aEs.appKey;
-        String str14 = bcVar.aEs.aGq;
-        if (str14 == null) {
-            str14 = "";
-        }
-        StringBuilder sb = new StringBuilder(str12);
-        sb.append(str12.contains("?") ? ETAG.ITEM_SEPARATOR : "?");
-        sb.append("from=");
-        if (z) {
-            sb.append("self");
-        } else {
-            sb.append("guest");
-        }
-        sb.append("&feed_id=").append(str).append("&live_id=").append(str2).append("&user_id=").append(str8).append("&user_name=").append(str9).append("&anchor_id=").append(str11).append("&group_id=").append(str10).append("&sdk_version=").append(TbConfig.SDK_VERSION).append("&_client_type=2").append("&subapp_type=").append(TbConfig.getSubappType()).append("&app_key=").append(str13);
-        sb.append(a(str2, j, z, str5, str6, str7));
-        sb.append("&keplerID=").append(str14);
-        return sb.toString();
     }
 
     public static String a(String str, long j, boolean z, String str2, String str3, String str4) {

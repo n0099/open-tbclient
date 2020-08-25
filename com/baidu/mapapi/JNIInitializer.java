@@ -2,7 +2,8 @@ package com.baidu.mapapi;
 
 import android.app.Application;
 import android.content.Context;
-/* loaded from: classes10.dex */
+import com.baidu.vi.VIContext;
+/* loaded from: classes20.dex */
 public class JNIInitializer {
     private static Context a;
 
@@ -17,5 +18,6 @@ public class JNIInitializer {
         if (a == null) {
             a = application;
         }
+        VIContext.init(application);
     }
 }

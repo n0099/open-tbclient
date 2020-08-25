@@ -6,12 +6,11 @@ import android.os.Parcelable;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.LatLngBounds;
-import com.baidu.mapapi.model.inner.GeoPoint;
-import com.baidu.mapsdkplatform.comapi.map.ab;
-/* loaded from: classes10.dex */
+import com.baidu.platform.comapi.basestruct.GeoPoint;
+/* loaded from: classes20.dex */
 public final class MapStatus implements Parcelable {
-    public static final Parcelable.Creator<MapStatus> CREATOR = new j();
-    ab a;
+    public static final Parcelable.Creator<MapStatus> CREATOR = new o();
+    com.baidu.mapsdkplatform.comapi.map.w a;
     private double b;
     public final LatLngBounds bound;
     private double c;
@@ -22,7 +21,7 @@ public final class MapStatus implements Parcelable {
     public WinRound winRound;
     public final float zoom;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public static final class Builder {
         private float a;
         private LatLng b;
@@ -128,13 +127,13 @@ public final class MapStatus implements Parcelable {
         this.bound = latLngBounds;
     }
 
-    MapStatus(float f, LatLng latLng, float f2, float f3, Point point, ab abVar, double d, double d2, LatLngBounds latLngBounds, WinRound winRound) {
+    MapStatus(float f, LatLng latLng, float f2, float f3, Point point, com.baidu.mapsdkplatform.comapi.map.w wVar, double d, double d2, LatLngBounds latLngBounds, WinRound winRound) {
         this.rotate = f;
         this.target = latLng;
         this.overlook = f2;
         this.zoom = f3;
         this.targetScreen = point;
-        this.a = abVar;
+        this.a = wVar;
         this.b = d;
         this.c = d2;
         this.bound = latLngBounds;
@@ -154,27 +153,27 @@ public final class MapStatus implements Parcelable {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static MapStatus a(ab abVar) {
-        if (abVar == null) {
+    public static MapStatus a(com.baidu.mapsdkplatform.comapi.map.w wVar) {
+        if (wVar == null) {
             return null;
         }
-        float f = abVar.b;
-        double d = abVar.e;
-        double d2 = abVar.d;
+        float f = wVar.b;
+        double d = wVar.e;
+        double d2 = wVar.d;
         LatLng mc2ll = CoordUtil.mc2ll(new GeoPoint(d, d2));
-        float f2 = abVar.c;
-        float f3 = abVar.a;
-        Point point = new Point(abVar.f, abVar.g);
-        LatLng mc2ll2 = CoordUtil.mc2ll(new GeoPoint(abVar.k.e.y, abVar.k.e.x));
-        LatLng mc2ll3 = CoordUtil.mc2ll(new GeoPoint(abVar.k.f.y, abVar.k.f.x));
-        LatLng mc2ll4 = CoordUtil.mc2ll(new GeoPoint(abVar.k.h.y, abVar.k.h.x));
-        LatLng mc2ll5 = CoordUtil.mc2ll(new GeoPoint(abVar.k.g.y, abVar.k.g.x));
+        float f2 = wVar.c;
+        float f3 = wVar.a;
+        Point point = new Point(wVar.f, wVar.g);
+        LatLng mc2ll2 = CoordUtil.mc2ll(new GeoPoint(wVar.k.e.getDoubleY(), wVar.k.e.getDoubleX()));
+        LatLng mc2ll3 = CoordUtil.mc2ll(new GeoPoint(wVar.k.f.getDoubleY(), wVar.k.f.getDoubleX()));
+        LatLng mc2ll4 = CoordUtil.mc2ll(new GeoPoint(wVar.k.h.getDoubleY(), wVar.k.h.getDoubleX()));
+        LatLng mc2ll5 = CoordUtil.mc2ll(new GeoPoint(wVar.k.g.getDoubleY(), wVar.k.g.getDoubleX()));
         LatLngBounds.Builder builder = new LatLngBounds.Builder();
         builder.include(mc2ll2);
         builder.include(mc2ll3);
         builder.include(mc2ll4);
         builder.include(mc2ll5);
-        return new MapStatus(f, mc2ll, f2, f3, point, abVar, d2, d, builder.build(), abVar.j);
+        return new MapStatus(f, mc2ll, f2, f3, point, wVar, d2, d, builder.build(), wVar.j);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -188,35 +187,34 @@ public final class MapStatus implements Parcelable {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab b(ab abVar) {
-        if (abVar == null) {
+    public com.baidu.mapsdkplatform.comapi.map.w b(com.baidu.mapsdkplatform.comapi.map.w wVar) {
+        if (wVar == null) {
             return null;
         }
         if (this.rotate != -2.1474836E9f) {
-            abVar.b = (int) this.rotate;
+            wVar.b = (int) this.rotate;
         }
         if (this.zoom != -2.1474836E9f) {
-            abVar.a = this.zoom;
+            wVar.a = this.zoom;
         }
         if (this.overlook != -2.1474836E9f) {
-            abVar.c = (int) this.overlook;
+            wVar.c = (int) this.overlook;
         }
         if (this.target != null) {
-            CoordUtil.ll2mc(this.target);
-            abVar.d = this.b;
-            abVar.e = this.c;
+            wVar.d = this.b;
+            wVar.e = this.c;
         }
         if (this.targetScreen != null) {
-            abVar.f = this.targetScreen.x;
-            abVar.g = this.targetScreen.y;
-            return abVar;
+            wVar.f = this.targetScreen.x;
+            wVar.g = this.targetScreen.y;
+            return wVar;
         }
-        return abVar;
+        return wVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab c() {
-        return b(new ab());
+    public com.baidu.mapsdkplatform.comapi.map.w c() {
+        return b(new com.baidu.mapsdkplatform.comapi.map.w());
     }
 
     @Override // android.os.Parcelable

@@ -1,5 +1,7 @@
 package com.baidu.rtc.camera.filter.glfilter.utils;
-/* loaded from: classes7.dex */
+
+import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
+/* loaded from: classes11.dex */
 public enum Rotation {
     NORMAL,
     ROTATION_90,
@@ -31,7 +33,7 @@ public enum Rotation {
                 return ROTATION_180;
             case 270:
                 return ROTATION_270;
-            case 360:
+            case EncoderTextureDrawer.X264_WIDTH /* 360 */:
                 return NORMAL;
             default:
                 throw new IllegalStateException(i + " is an unknown rotation. Needs to be either 0, 90, 180 or 270!");

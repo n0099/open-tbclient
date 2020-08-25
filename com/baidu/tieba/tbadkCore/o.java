@@ -1,22 +1,17 @@
 package com.baidu.tieba.tbadkCore;
 
 import com.baidu.adp.BdUniqueId;
-import tbclient.ActBtn;
-/* loaded from: classes.dex */
+import com.baidu.tbadk.core.data.ForumData;
+/* loaded from: classes2.dex */
 public class o implements com.baidu.adp.widget.ListView.q {
-    public static final BdUniqueId lLQ = BdUniqueId.gen();
-    public String text;
-    public String url;
+    private ForumData iAy;
 
-    public void a(ActBtn actBtn) {
-        if (actBtn != null) {
-            this.text = actBtn.text;
-            this.url = actBtn.url;
-        }
+    public o(ForumData forumData) {
+        this.iAy = forumData;
     }
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return lLQ;
+        return null;
     }
 }

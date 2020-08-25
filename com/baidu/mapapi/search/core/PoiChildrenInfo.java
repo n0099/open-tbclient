@@ -3,27 +3,27 @@ package com.baidu.mapapi.search.core;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class PoiChildrenInfo implements Parcelable {
     public static final Parcelable.Creator<PoiChildrenInfo> CREATOR = new e();
-    private String address;
-    private LatLng location;
-    private String name;
-    private String showName;
-    private String tag;
-    private String uid;
+    private String a;
+    private String b;
+    private String c;
+    private String d;
+    private LatLng e;
+    private String f;
 
     public PoiChildrenInfo() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public PoiChildrenInfo(Parcel parcel) {
-        this.uid = parcel.readString();
-        this.name = parcel.readString();
-        this.showName = parcel.readString();
-        this.tag = parcel.readString();
-        this.location = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
-        this.address = parcel.readString();
+        this.a = parcel.readString();
+        this.b = parcel.readString();
+        this.c = parcel.readString();
+        this.d = parcel.readString();
+        this.e = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
+        this.f = parcel.readString();
     }
 
     @Override // android.os.Parcelable
@@ -32,76 +32,76 @@ public class PoiChildrenInfo implements Parcelable {
     }
 
     public String getAddress() {
-        return this.address;
+        return this.f;
     }
 
     public LatLng getLocation() {
-        return this.location;
+        return this.e;
     }
 
     public String getName() {
-        return this.name;
+        return this.b;
     }
 
     public String getShowName() {
-        return this.showName;
+        return this.c;
     }
 
     public String getTag() {
-        return this.tag;
+        return this.d;
     }
 
     public String getUid() {
-        return this.uid;
+        return this.a;
     }
 
     public void setAddress(String str) {
-        this.address = str;
+        this.f = str;
     }
 
     public void setLocation(LatLng latLng) {
-        this.location = latLng;
+        this.e = latLng;
     }
 
     public void setName(String str) {
-        this.name = str;
+        this.b = str;
     }
 
     public void setShowName(String str) {
-        this.showName = str;
+        this.c = str;
     }
 
     public void setTag(String str) {
-        this.tag = str;
+        this.d = str;
     }
 
     public void setUid(String str) {
-        this.uid = str;
+        this.a = str;
     }
 
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer("PoiChildrenInfo: ");
-        stringBuffer.append("uid = ").append(this.uid);
-        stringBuffer.append("; name = ").append(this.name);
-        stringBuffer.append("; showName = ").append(this.showName);
-        stringBuffer.append("; tag = ").append(this.tag);
+        stringBuffer.append("uid = ").append(this.a);
+        stringBuffer.append("; name = ").append(this.b);
+        stringBuffer.append("; showName = ").append(this.c);
+        stringBuffer.append("; tag = ").append(this.d);
         stringBuffer.append("; location = ");
-        if (this.location != null) {
-            stringBuffer.append(this.location.toString());
+        if (this.e != null) {
+            stringBuffer.append(this.e.toString());
         } else {
             stringBuffer.append("null");
         }
-        stringBuffer.append("; address = ").append(this.address);
+        stringBuffer.append("; address = ").append(this.f);
         return stringBuffer.toString();
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.uid);
-        parcel.writeString(this.name);
-        parcel.writeString(this.showName);
-        parcel.writeString(this.tag);
-        parcel.writeParcelable(this.location, i);
-        parcel.writeString(this.address);
+        parcel.writeString(this.a);
+        parcel.writeString(this.b);
+        parcel.writeString(this.c);
+        parcel.writeString(this.d);
+        parcel.writeParcelable(this.e, i);
+        parcel.writeString(this.f);
     }
 }

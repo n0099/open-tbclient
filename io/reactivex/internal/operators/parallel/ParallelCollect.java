@@ -6,13 +6,13 @@ import io.reactivex.internal.subscriptions.EmptySubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.parallel.a;
 import java.util.concurrent.Callable;
-import org.a.c;
-import org.a.d;
+import org.b.c;
+import org.b.d;
 /* loaded from: classes7.dex */
 public final class ParallelCollect<T, C> extends a<C> {
     final b<? super C, ? super T> collector;
-    final a<? extends T> nUL;
-    final Callable<? extends C> nUM;
+    final a<? extends T> ooH;
+    final Callable<? extends C> ooI;
 
     @Override // io.reactivex.parallel.a
     public void a(c<? super C>[] cVarArr) {
@@ -21,14 +21,14 @@ public final class ParallelCollect<T, C> extends a<C> {
             c<? super Object>[] cVarArr2 = new c[length];
             for (int i = 0; i < length; i++) {
                 try {
-                    cVarArr2[i] = new ParallelCollectSubscriber(cVarArr[i], io.reactivex.internal.functions.a.k(this.nUM.call(), "The initialSupplier returned a null value"), this.collector);
+                    cVarArr2[i] = new ParallelCollectSubscriber(cVarArr[i], io.reactivex.internal.functions.a.k(this.ooI.call(), "The initialSupplier returned a null value"), this.collector);
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.K(th);
+                    io.reactivex.exceptions.a.J(th);
                     a(cVarArr, th);
                     return;
                 }
             }
-            this.nUL.a(cVarArr2);
+            this.ooH.a(cVarArr2);
         }
     }
 
@@ -39,8 +39,8 @@ public final class ParallelCollect<T, C> extends a<C> {
     }
 
     @Override // io.reactivex.parallel.a
-    public int dTd() {
-        return this.nUL.dTd();
+    public int eff() {
+        return this.ooH.eff();
     }
 
     /* loaded from: classes7.dex */
@@ -56,7 +56,7 @@ public final class ParallelCollect<T, C> extends a<C> {
             this.collector = bVar;
         }
 
-        @Override // io.reactivex.internal.subscribers.DeferredScalarSubscriber, io.reactivex.j, org.a.c
+        @Override // io.reactivex.internal.subscribers.DeferredScalarSubscriber, io.reactivex.j, org.b.c
         public void onSubscribe(d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
@@ -66,20 +66,20 @@ public final class ParallelCollect<T, C> extends a<C> {
         }
 
         /* JADX DEBUG: Type inference failed for r1v0. Raw type applied. Possible types: C, ? super C */
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(T t) {
             if (!this.done) {
                 try {
                     this.collector.i((C) this.collection, t);
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.K(th);
+                    io.reactivex.exceptions.a.J(th);
                     cancel();
                     onError(th);
                 }
             }
         }
 
-        @Override // io.reactivex.internal.subscribers.DeferredScalarSubscriber, org.a.c
+        @Override // io.reactivex.internal.subscribers.DeferredScalarSubscriber, org.b.c
         public void onError(Throwable th) {
             if (this.done) {
                 io.reactivex.e.a.onError(th);
@@ -90,7 +90,7 @@ public final class ParallelCollect<T, C> extends a<C> {
             this.actual.onError(th);
         }
 
-        @Override // io.reactivex.internal.subscribers.DeferredScalarSubscriber, org.a.c
+        @Override // io.reactivex.internal.subscribers.DeferredScalarSubscriber, org.b.c
         public void onComplete() {
             if (!this.done) {
                 this.done = true;
@@ -100,7 +100,7 @@ public final class ParallelCollect<T, C> extends a<C> {
             }
         }
 
-        @Override // io.reactivex.internal.subscribers.DeferredScalarSubscriber, io.reactivex.internal.subscriptions.DeferredScalarSubscription, org.a.d
+        @Override // io.reactivex.internal.subscribers.DeferredScalarSubscriber, io.reactivex.internal.subscriptions.DeferredScalarSubscription, org.b.d
         public void cancel() {
             super.cancel();
             this.s.cancel();

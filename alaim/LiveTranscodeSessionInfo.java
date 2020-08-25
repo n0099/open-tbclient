@@ -2,7 +2,7 @@ package alaim;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class LiveTranscodeSessionInfo extends Message {
     public static final String DEFAULT_FLVURL = "";
     public static final String DEFAULT_HLSURL = "";
@@ -40,7 +40,7 @@ public final class LiveTranscodeSessionInfo extends Message {
         this.flvUrl = builder.flvUrl;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<LiveTranscodeSessionInfo> {
         public String flvUrl;
         public String hlsUrl;

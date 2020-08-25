@@ -1,7 +1,7 @@
 package com.baidu.live.p;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface d {
-    boolean Gt();
+    boolean Mh();
 
     void a(c cVar);
 

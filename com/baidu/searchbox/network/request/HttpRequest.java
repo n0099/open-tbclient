@@ -25,7 +25,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public abstract class HttpRequest<T extends HttpRequestBuilder> {
     public static final int REQUESTFROM_FEED = 1;
     public static final int REQUESTFROM_FRESCO = 2;

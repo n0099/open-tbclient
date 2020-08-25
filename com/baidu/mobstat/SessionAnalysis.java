@@ -2,11 +2,12 @@ package com.baidu.mobstat;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.mobstat.Session;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class SessionAnalysis {
     private boolean a = false;
     private Map<String, a> b = new HashMap();
@@ -22,7 +23,7 @@ public class SessionAnalysis {
     private LaunchInfo l;
     public Callback mCallback;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes11.dex */
     public interface Callback {
         void onCallback(JSONObject jSONObject);
     }
@@ -96,7 +97,7 @@ public class SessionAnalysis {
         if (!this.a) {
             DataCore.instance().init(context);
             try {
-                Thread.sleep(3000L);
+                Thread.sleep(IMConnection.RETRY_DELAY_TIMES);
             } catch (Exception e) {
             }
             int i = 0;
@@ -290,7 +291,7 @@ public class SessionAnalysis {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes11.dex */
     public static class a {
         String a;
         long b;

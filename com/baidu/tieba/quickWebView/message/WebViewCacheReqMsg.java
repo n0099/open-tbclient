@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.t;
 import tbclient.GetWebviewCacheInfo.DataReq;
 import tbclient.GetWebviewCacheInfo.GetWebviewCacheInfoReqIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class WebViewCacheReqMsg extends NetMessage {
     private String mWebViewVersion;
 

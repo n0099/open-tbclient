@@ -19,9 +19,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.tbadk.core.data.bv;
+import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tbadk.core.view.f;
@@ -34,15 +34,15 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private BdTypeListView frv;
-    private NoNetworkView fsB;
-    private PbListView fsC;
-    private b fsD;
-    private i fsE = new i() { // from class: com.baidu.tieba.ala.alasquare.live.d.a.1
+    private BdTypeListView fCP;
+    private NoNetworkView fDV;
+    private PbListView fDW;
+    private b fDX;
+    private i fDY = new i() { // from class: com.baidu.tieba.ala.alasquare.live.d.a.1
         @Override // com.baidu.tieba.ala.alasquare.subtablist.c.i
-        public void a(int i, String str, bv bvVar) {
-            TiebaStatic.log(com.baidu.tieba.ala.alasquare.c.a.bxy().a(a.this.isSmallFollow, "c12118", i, str, bvVar));
-            a.this.a(a.this.mPageContext, bvVar, str);
+        public void a(int i, String str, bw bwVar) {
+            TiebaStatic.log(com.baidu.tieba.ala.alasquare.c.a.bGx().a(a.this.isSmallFollow, "c12118", i, str, bwVar));
+            a.this.a(a.this.mPageContext, bwVar, str);
         }
 
         @Override // com.baidu.tieba.ala.alasquare.subtablist.c.i
@@ -59,39 +59,39 @@ public class a {
         this.mPageContext = tbPageContext;
         this.mRootView = new LinearLayout(tbPageContext.getPageActivity());
         this.mRootView.setOrientation(1);
-        this.fsB = new NoNetworkView(tbPageContext.getPageActivity());
+        this.fDV = new NoNetworkView(tbPageContext.getPageActivity());
         if (j.isNetWorkAvailable()) {
-            this.fsB.setVisibility(8);
+            this.fDV.setVisibility(8);
         }
-        this.mRootView.addView(this.fsB);
+        this.mRootView.addView(this.fDV);
         this.mContentView = new FrameLayout(tbPageContext.getPageActivity());
         this.mRootView.addView(this.mContentView, new RelativeLayout.LayoutParams(-1, -1));
         this.mRootView.setPadding(0, 0, 0, 0);
-        this.frv = new BdTypeListView(this.mPageContext.getPageActivity());
-        this.frv.setDivider(null);
-        this.mContentView.addView(this.frv, new FrameLayout.LayoutParams(-1, -1));
+        this.fCP = new BdTypeListView(this.mPageContext.getPageActivity());
+        this.fCP.setDivider(null);
+        this.mContentView.addView(this.fCP, new FrameLayout.LayoutParams(-1, -1));
         this.mPullView = new g(this.mPageContext);
         this.mPullView.setTag(bdUniqueId);
-        this.frv.setPullRefresh(this.mPullView);
-        this.fsC = new PbListView(tbPageContext.getPageActivity());
-        this.fsC.createView();
-        this.fsD = new b(tbPageContext, this.frv);
-        this.fsD.a(this.fsE);
+        this.fCP.setPullRefresh(this.mPullView);
+        this.fDW = new PbListView(tbPageContext.getPageActivity());
+        this.fDW.createView();
+        this.fDX = new b(tbPageContext, this.fCP);
+        this.fDX.a(this.fDY);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(TbPageContext<?> tbPageContext, bv bvVar, String str) {
-        if (tbPageContext != null && bvVar != null && bvVar.aWl() != null && bvVar.aWF() != null) {
+    public void a(TbPageContext<?> tbPageContext, bw bwVar, String str) {
+        if (tbPageContext != null && bwVar != null && bwVar.beE() != null && bwVar.beY() != null) {
             boolean z = false;
             String str2 = "";
             if (TbadkCoreApplication.getCurrentAccount() != null) {
-                String userId = bvVar.aWl().getUserId();
+                String userId = bwVar.beE().getUserId();
                 str2 = TbadkCoreApplication.getCurrentAccount();
                 z = TextUtils.equals(userId, str2);
             }
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            alaLiveInfoCoreData.fillWithInfoData(bvVar.aWF());
-            alaLiveInfoCoreData.userName = bvVar.aWl().getUserName();
+            alaLiveInfoCoreData.fillWithInfoData(bwVar.beY());
+            alaLiveInfoCoreData.userName = bwVar.beE().getUserName();
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, null, "square_live", str2, z, "颜值".equals(str) ? str : null, null)));
         }
     }
@@ -100,7 +100,7 @@ public class a {
         return this.mRootView;
     }
 
-    public FrameLayout bwR() {
+    public FrameLayout bFQ() {
         return this.mContentView;
     }
 
@@ -109,69 +109,69 @@ public class a {
             list = new LinkedList<>();
         }
         this.isSmallFollow = i;
-        this.fsD.setDatas(list);
-        this.fsD.qn(i);
+        this.fDX.setDatas(list);
+        this.fDX.sz(i);
         if (z) {
-            bwT();
+            bFS();
         } else {
-            bwS();
+            bFR();
         }
     }
 
     public void completePullRefresh() {
-        this.frv.completePullRefresh();
+        this.fCP.completePullRefresh();
     }
 
     public void setListPullRefreshListener(f.c cVar) {
         this.mPullView.setListPullRefreshListener(cVar);
     }
 
-    public void bwS() {
-        if (this.fsC != null) {
-            if (this.fsC.getView().getParent() == null) {
-                this.frv.setNextPage(this.fsC);
+    public void bFR() {
+        if (this.fDW != null) {
+            if (this.fDW.getView().getParent() == null) {
+                this.fCP.setNextPage(this.fDW);
             }
-            this.fsC.setText(this.mPageContext.getResources().getString(R.string.list_no_more));
-            this.fsC.endLoadData();
+            this.fDW.setText(this.mPageContext.getResources().getString(R.string.list_no_more));
+            this.fDW.endLoadData();
         }
     }
 
-    public void bwT() {
-        if (this.fsC != null) {
-            if (this.fsC.getView().getParent() == null) {
-                this.frv.setNextPage(this.fsC);
+    public void bFS() {
+        if (this.fDW != null) {
+            if (this.fDW.getView().getParent() == null) {
+                this.fCP.setNextPage(this.fDW);
             }
-            this.fsC.showLoadingViewWithoutEmptyView();
-            this.fsC.startLoadData();
+            this.fDW.showLoadingViewWithoutEmptyView();
+            this.fDW.startLoadData();
         }
     }
 
     public void setOnSrollToBottomListener(BdListView.e eVar) {
-        this.frv.setOnSrollToBottomListener(eVar);
+        this.fCP.setOnSrollToBottomListener(eVar);
     }
 
     public void a(BdListView.d dVar, int i) {
-        this.frv.setOnScrollStopDelayedListener(dVar, i);
+        this.fCP.setOnScrollStopDelayedListener(dVar, i);
     }
 
     public void setOnScrollListener(AbsListView.OnScrollListener onScrollListener) {
-        this.frv.setOnScrollListener(onScrollListener);
+        this.fCP.setOnScrollListener(onScrollListener);
     }
 
     public void onChangeSkinType(int i) {
-        this.fsC.setContainerBackgroundColorResId(R.color.cp_bg_line_c);
-        this.fsC.changeSkin(i);
+        this.fDW.setContainerBackgroundColorResId(R.color.cp_bg_line_c);
+        this.fDW.changeSkin(i);
         this.mPullView.changeSkin(i);
-        this.fsD.notifyDataSetChanged();
-        ao.setBackgroundColor(this.mRootView, R.color.cp_bg_line_d);
-        this.fsB.onChangeSkinType(this.mPageContext, i);
+        this.fDX.notifyDataSetChanged();
+        ap.setBackgroundColor(this.mRootView, R.color.cp_bg_line_d);
+        this.fDV.onChangeSkinType(this.mPageContext, i);
     }
 
-    public BdTypeListView bwU() {
-        return this.frv;
+    public BdTypeListView bFT() {
+        return this.fCP;
     }
 
     public void a(IAlaSquareTabController iAlaSquareTabController) {
-        this.fsD.a(iAlaSquareTabController);
+        this.fDX.a(iAlaSquareTabController);
     }
 }

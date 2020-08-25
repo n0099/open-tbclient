@@ -25,55 +25,55 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.topic.topictab.b.b;
 import com.baidu.tieba.message.RequestBlessMessage;
 /* loaded from: classes16.dex */
 public class TopicPkView extends RelativeLayout implements View.OnClickListener {
-    private int iGA;
-    private int iGB;
-    private int iGC;
-    private int iGD;
-    private int iGE;
-    private int iGF;
-    private int iGG;
-    private int iGH;
-    private int iGI;
-    private int iGJ;
-    private int iGK;
-    private ValueAnimator iGL;
-    private View iGM;
-    private a iGN;
-    private ValueAnimator iGO;
-    private double iGP;
-    private double iGQ;
-    private float iGR;
-    private float iGS;
-    private RelativeLayout.LayoutParams iGT;
-    private RelativeLayout.LayoutParams iGU;
-    private b iGV;
-    private ValueAnimator.AnimatorUpdateListener iGW;
-    private com.baidu.tieba.homepage.topic.topictab.b.b iGj;
-    private TextView iGk;
-    private TextView iGl;
-    private FrameLayout iGm;
-    private FrameLayout iGn;
-    private TbImageView iGo;
-    private TbImageView iGp;
-    private TbImageView iGq;
-    private TbImageView iGr;
-    private TextView iGs;
-    private TextView iGt;
-    private ImageView iGu;
-    private TextView iGv;
-    private TextView iGw;
-    private ImageView iGx;
-    private ImageView iGy;
-    private int iGz;
+    private int iVA;
+    private int iVB;
+    private int iVC;
+    private int iVD;
+    private int iVE;
+    private int iVF;
+    private int iVG;
+    private int iVH;
+    private int iVI;
+    private ValueAnimator iVJ;
+    private View iVK;
+    private a iVL;
+    private ValueAnimator iVM;
+    private double iVN;
+    private double iVO;
+    private float iVP;
+    private float iVQ;
+    private RelativeLayout.LayoutParams iVR;
+    private RelativeLayout.LayoutParams iVS;
+    private b iVT;
+    private ValueAnimator.AnimatorUpdateListener iVU;
+    private com.baidu.tieba.homepage.topic.topictab.b.b iVh;
+    private TextView iVi;
+    private TextView iVj;
+    private FrameLayout iVk;
+    private FrameLayout iVl;
+    private TbImageView iVm;
+    private TbImageView iVn;
+    private TbImageView iVo;
+    private TbImageView iVp;
+    private TextView iVq;
+    private TextView iVr;
+    private ImageView iVs;
+    private TextView iVt;
+    private TextView iVu;
+    private ImageView iVv;
+    private ImageView iVw;
+    private int iVx;
+    private int iVy;
+    private int iVz;
     private int mBtnHeight;
     private int mCursorHeight;
     private int mCursorWidth;
@@ -85,35 +85,35 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
 
     /* loaded from: classes16.dex */
     public interface b {
-        void xL(int i);
+        void Af(int i);
     }
 
     public TopicPkView(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.iGK = R.color.cp_cont_a;
+        this.iVI = R.color.cp_cont_a;
         this.mRunnable = new Runnable() { // from class: com.baidu.tieba.homepage.topic.topictab.view.TopicPkView.1
             @Override // java.lang.Runnable
             public void run() {
                 TopicPkView.this.requestLayout();
             }
         };
-        this.iGW = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.homepage.topic.topictab.view.TopicPkView.3
+        this.iVU = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.homepage.topic.topictab.view.TopicPkView.3
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
                 if (floatValue < 1.0f) {
-                    TopicPkView.this.iGx.setX((float) ((Math.pow(1.0f - floatValue, 2.0d) * TopicPkView.this.iGP) + (2.0f * floatValue * (1.0f - floatValue) * (TopicPkView.this.iGz - 45)) + (Math.pow(floatValue, 2.0d) * (TopicPkView.this.iGm.getX() + (TopicPkView.this.iGz / 2)))));
-                    TopicPkView.this.iGx.setY((float) ((Math.pow(1.0f - floatValue, 2.0d) * TopicPkView.this.iGQ) + (2.0f * floatValue * (1.0f - floatValue) * 70.0f) + (Math.pow(floatValue, 2.0d) * 60.0d)));
+                    TopicPkView.this.iVv.setX((float) ((Math.pow(1.0f - floatValue, 2.0d) * TopicPkView.this.iVN) + (2.0f * floatValue * (1.0f - floatValue) * (TopicPkView.this.iVx - 45)) + (Math.pow(floatValue, 2.0d) * (TopicPkView.this.iVk.getX() + (TopicPkView.this.iVx / 2)))));
+                    TopicPkView.this.iVv.setY((float) ((Math.pow(1.0f - floatValue, 2.0d) * TopicPkView.this.iVO) + (2.0f * floatValue * (1.0f - floatValue) * 70.0f) + (Math.pow(floatValue, 2.0d) * 60.0d)));
                 } else {
                     floatValue -= 1.0f;
-                    TopicPkView.this.iGx.setX((float) ((Math.pow(1.0f - floatValue, 2.0d) * (TopicPkView.this.iGm.getX() + (TopicPkView.this.iGz / 2))) + (2.0f * floatValue * (1.0f - floatValue) * 45.0f) + (Math.pow(floatValue, 2.0d) * (TopicPkView.this.iGm.getX() + (TopicPkView.this.iGz / 2)))));
-                    TopicPkView.this.iGx.setY((float) ((Math.pow(1.0f - floatValue, 2.0d) * 60.0d) + (2.0f * floatValue * (1.0f - floatValue) * 50.0f) + (Math.pow(floatValue, 2.0d) * 40.0d)));
+                    TopicPkView.this.iVv.setX((float) ((Math.pow(1.0f - floatValue, 2.0d) * (TopicPkView.this.iVk.getX() + (TopicPkView.this.iVx / 2))) + (2.0f * floatValue * (1.0f - floatValue) * 45.0f) + (Math.pow(floatValue, 2.0d) * (TopicPkView.this.iVk.getX() + (TopicPkView.this.iVx / 2)))));
+                    TopicPkView.this.iVv.setY((float) ((Math.pow(1.0f - floatValue, 2.0d) * 60.0d) + (2.0f * floatValue * (1.0f - floatValue) * 50.0f) + (Math.pow(floatValue, 2.0d) * 40.0d)));
                 }
                 if (floatValue == 1.0f) {
-                    TopicPkView.this.iGx.setVisibility(4);
-                    TopicPkView.this.iGx.setX(TopicPkView.this.iGR);
-                    TopicPkView.this.iGx.setY(TopicPkView.this.iGS);
+                    TopicPkView.this.iVv.setVisibility(4);
+                    TopicPkView.this.iVv.setX(TopicPkView.this.iVP);
+                    TopicPkView.this.iVv.setY(TopicPkView.this.iVQ);
                 }
             }
         };
@@ -123,29 +123,29 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
     public TopicPkView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSkinType = 3;
-        this.iGK = R.color.cp_cont_a;
+        this.iVI = R.color.cp_cont_a;
         this.mRunnable = new Runnable() { // from class: com.baidu.tieba.homepage.topic.topictab.view.TopicPkView.1
             @Override // java.lang.Runnable
             public void run() {
                 TopicPkView.this.requestLayout();
             }
         };
-        this.iGW = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.homepage.topic.topictab.view.TopicPkView.3
+        this.iVU = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.homepage.topic.topictab.view.TopicPkView.3
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
                 if (floatValue < 1.0f) {
-                    TopicPkView.this.iGx.setX((float) ((Math.pow(1.0f - floatValue, 2.0d) * TopicPkView.this.iGP) + (2.0f * floatValue * (1.0f - floatValue) * (TopicPkView.this.iGz - 45)) + (Math.pow(floatValue, 2.0d) * (TopicPkView.this.iGm.getX() + (TopicPkView.this.iGz / 2)))));
-                    TopicPkView.this.iGx.setY((float) ((Math.pow(1.0f - floatValue, 2.0d) * TopicPkView.this.iGQ) + (2.0f * floatValue * (1.0f - floatValue) * 70.0f) + (Math.pow(floatValue, 2.0d) * 60.0d)));
+                    TopicPkView.this.iVv.setX((float) ((Math.pow(1.0f - floatValue, 2.0d) * TopicPkView.this.iVN) + (2.0f * floatValue * (1.0f - floatValue) * (TopicPkView.this.iVx - 45)) + (Math.pow(floatValue, 2.0d) * (TopicPkView.this.iVk.getX() + (TopicPkView.this.iVx / 2)))));
+                    TopicPkView.this.iVv.setY((float) ((Math.pow(1.0f - floatValue, 2.0d) * TopicPkView.this.iVO) + (2.0f * floatValue * (1.0f - floatValue) * 70.0f) + (Math.pow(floatValue, 2.0d) * 60.0d)));
                 } else {
                     floatValue -= 1.0f;
-                    TopicPkView.this.iGx.setX((float) ((Math.pow(1.0f - floatValue, 2.0d) * (TopicPkView.this.iGm.getX() + (TopicPkView.this.iGz / 2))) + (2.0f * floatValue * (1.0f - floatValue) * 45.0f) + (Math.pow(floatValue, 2.0d) * (TopicPkView.this.iGm.getX() + (TopicPkView.this.iGz / 2)))));
-                    TopicPkView.this.iGx.setY((float) ((Math.pow(1.0f - floatValue, 2.0d) * 60.0d) + (2.0f * floatValue * (1.0f - floatValue) * 50.0f) + (Math.pow(floatValue, 2.0d) * 40.0d)));
+                    TopicPkView.this.iVv.setX((float) ((Math.pow(1.0f - floatValue, 2.0d) * (TopicPkView.this.iVk.getX() + (TopicPkView.this.iVx / 2))) + (2.0f * floatValue * (1.0f - floatValue) * 45.0f) + (Math.pow(floatValue, 2.0d) * (TopicPkView.this.iVk.getX() + (TopicPkView.this.iVx / 2)))));
+                    TopicPkView.this.iVv.setY((float) ((Math.pow(1.0f - floatValue, 2.0d) * 60.0d) + (2.0f * floatValue * (1.0f - floatValue) * 50.0f) + (Math.pow(floatValue, 2.0d) * 40.0d)));
                 }
                 if (floatValue == 1.0f) {
-                    TopicPkView.this.iGx.setVisibility(4);
-                    TopicPkView.this.iGx.setX(TopicPkView.this.iGR);
-                    TopicPkView.this.iGx.setY(TopicPkView.this.iGS);
+                    TopicPkView.this.iVv.setVisibility(4);
+                    TopicPkView.this.iVv.setX(TopicPkView.this.iVP);
+                    TopicPkView.this.iVv.setY(TopicPkView.this.iVQ);
                 }
             }
         };
@@ -155,29 +155,29 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
     public TopicPkView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mSkinType = 3;
-        this.iGK = R.color.cp_cont_a;
+        this.iVI = R.color.cp_cont_a;
         this.mRunnable = new Runnable() { // from class: com.baidu.tieba.homepage.topic.topictab.view.TopicPkView.1
             @Override // java.lang.Runnable
             public void run() {
                 TopicPkView.this.requestLayout();
             }
         };
-        this.iGW = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.homepage.topic.topictab.view.TopicPkView.3
+        this.iVU = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.homepage.topic.topictab.view.TopicPkView.3
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
                 if (floatValue < 1.0f) {
-                    TopicPkView.this.iGx.setX((float) ((Math.pow(1.0f - floatValue, 2.0d) * TopicPkView.this.iGP) + (2.0f * floatValue * (1.0f - floatValue) * (TopicPkView.this.iGz - 45)) + (Math.pow(floatValue, 2.0d) * (TopicPkView.this.iGm.getX() + (TopicPkView.this.iGz / 2)))));
-                    TopicPkView.this.iGx.setY((float) ((Math.pow(1.0f - floatValue, 2.0d) * TopicPkView.this.iGQ) + (2.0f * floatValue * (1.0f - floatValue) * 70.0f) + (Math.pow(floatValue, 2.0d) * 60.0d)));
+                    TopicPkView.this.iVv.setX((float) ((Math.pow(1.0f - floatValue, 2.0d) * TopicPkView.this.iVN) + (2.0f * floatValue * (1.0f - floatValue) * (TopicPkView.this.iVx - 45)) + (Math.pow(floatValue, 2.0d) * (TopicPkView.this.iVk.getX() + (TopicPkView.this.iVx / 2)))));
+                    TopicPkView.this.iVv.setY((float) ((Math.pow(1.0f - floatValue, 2.0d) * TopicPkView.this.iVO) + (2.0f * floatValue * (1.0f - floatValue) * 70.0f) + (Math.pow(floatValue, 2.0d) * 60.0d)));
                 } else {
                     floatValue -= 1.0f;
-                    TopicPkView.this.iGx.setX((float) ((Math.pow(1.0f - floatValue, 2.0d) * (TopicPkView.this.iGm.getX() + (TopicPkView.this.iGz / 2))) + (2.0f * floatValue * (1.0f - floatValue) * 45.0f) + (Math.pow(floatValue, 2.0d) * (TopicPkView.this.iGm.getX() + (TopicPkView.this.iGz / 2)))));
-                    TopicPkView.this.iGx.setY((float) ((Math.pow(1.0f - floatValue, 2.0d) * 60.0d) + (2.0f * floatValue * (1.0f - floatValue) * 50.0f) + (Math.pow(floatValue, 2.0d) * 40.0d)));
+                    TopicPkView.this.iVv.setX((float) ((Math.pow(1.0f - floatValue, 2.0d) * (TopicPkView.this.iVk.getX() + (TopicPkView.this.iVx / 2))) + (2.0f * floatValue * (1.0f - floatValue) * 45.0f) + (Math.pow(floatValue, 2.0d) * (TopicPkView.this.iVk.getX() + (TopicPkView.this.iVx / 2)))));
+                    TopicPkView.this.iVv.setY((float) ((Math.pow(1.0f - floatValue, 2.0d) * 60.0d) + (2.0f * floatValue * (1.0f - floatValue) * 50.0f) + (Math.pow(floatValue, 2.0d) * 40.0d)));
                 }
                 if (floatValue == 1.0f) {
-                    TopicPkView.this.iGx.setVisibility(4);
-                    TopicPkView.this.iGx.setX(TopicPkView.this.iGR);
-                    TopicPkView.this.iGx.setY(TopicPkView.this.iGS);
+                    TopicPkView.this.iVv.setVisibility(4);
+                    TopicPkView.this.iVv.setX(TopicPkView.this.iVP);
+                    TopicPkView.this.iVv.setY(TopicPkView.this.iVQ);
                 }
             }
         };
@@ -186,29 +186,29 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.topic_pk_view_layout, (ViewGroup) this, true);
-        this.iGk = (TextView) findViewById(R.id.topic_pk_view_agree_user);
-        this.iGl = (TextView) findViewById(R.id.topic_pk_view_disagree_user);
-        this.iGm = (FrameLayout) findViewById(R.id.topic_pk_view_agree_btn);
-        this.iGn = (FrameLayout) findViewById(R.id.topic_pk_view_disagree_btn);
-        this.iGo = (TbImageView) findViewById(R.id.topic_pk_view_agree_img);
-        this.iGp = (TbImageView) findViewById(R.id.topic_pk_view_disagree_img);
-        this.iGq = (TbImageView) findViewById(R.id.topic_pk_view_agree_select_img);
-        this.iGr = (TbImageView) findViewById(R.id.topic_pk_view_disagree_select_img);
-        this.iGs = (TextView) findViewById(R.id.topic_pk_view_agree_num);
-        this.iGt = (TextView) findViewById(R.id.topic_pk_view_disagree_num);
-        this.iGu = (ImageView) findViewById(R.id.topic_pk_view_cursor);
-        this.iGv = (TextView) findViewById(R.id.topic_pk_view_agree_des);
-        this.iGw = (TextView) findViewById(R.id.topic_pk_view_disagree_des);
-        this.iGx = (ImageView) findViewById(R.id.topic_pk_view_agree_add);
-        this.iGy = (ImageView) findViewById(R.id.topic_pk_view_disagree_add);
-        this.iGo.setDefaultBgResource(R.drawable.btn_topic_agree_white_n);
-        this.iGp.setDefaultBgResource(R.drawable.btn_topic_disagree_white_n);
-        this.iGq.setDefaultBgResource(R.drawable.btn_topic_agree_white_h);
-        this.iGr.setDefaultBgResource(R.drawable.btn_topic_disagree_white_h);
-        this.iGm.setOnClickListener(this);
-        this.iGn.setOnClickListener(this);
+        this.iVi = (TextView) findViewById(R.id.topic_pk_view_agree_user);
+        this.iVj = (TextView) findViewById(R.id.topic_pk_view_disagree_user);
+        this.iVk = (FrameLayout) findViewById(R.id.topic_pk_view_agree_btn);
+        this.iVl = (FrameLayout) findViewById(R.id.topic_pk_view_disagree_btn);
+        this.iVm = (TbImageView) findViewById(R.id.topic_pk_view_agree_img);
+        this.iVn = (TbImageView) findViewById(R.id.topic_pk_view_disagree_img);
+        this.iVo = (TbImageView) findViewById(R.id.topic_pk_view_agree_select_img);
+        this.iVp = (TbImageView) findViewById(R.id.topic_pk_view_disagree_select_img);
+        this.iVq = (TextView) findViewById(R.id.topic_pk_view_agree_num);
+        this.iVr = (TextView) findViewById(R.id.topic_pk_view_disagree_num);
+        this.iVs = (ImageView) findViewById(R.id.topic_pk_view_cursor);
+        this.iVt = (TextView) findViewById(R.id.topic_pk_view_agree_des);
+        this.iVu = (TextView) findViewById(R.id.topic_pk_view_disagree_des);
+        this.iVv = (ImageView) findViewById(R.id.topic_pk_view_agree_add);
+        this.iVw = (ImageView) findViewById(R.id.topic_pk_view_disagree_add);
+        this.iVm.setDefaultBgResource(R.drawable.btn_topic_agree_white_n);
+        this.iVn.setDefaultBgResource(R.drawable.btn_topic_disagree_white_n);
+        this.iVo.setDefaultBgResource(R.drawable.btn_topic_agree_white_h);
+        this.iVp.setDefaultBgResource(R.drawable.btn_topic_disagree_white_h);
+        this.iVk.setOnClickListener(this);
+        this.iVl.setOnClickListener(this);
         this.mHeight = l.getDimens(context, R.dimen.tbds340);
-        this.iGH = l.getDimens(context, R.dimen.tbds62);
+        this.iVF = l.getDimens(context, R.dimen.tbds62);
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
         this.mPaint.setDither(true);
@@ -230,60 +230,60 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        if (this.iGj != null) {
-            this.iGz = this.iGm.getWidth();
-            this.mBtnHeight = this.iGm.getHeight();
-            this.iGA = this.iGo.getWidth();
-            this.iGB = this.iGs.getWidth();
-            this.iGC = this.iGt.getWidth();
-            this.iGF = this.iGs.getHeight();
-            this.iGD = this.iGv.getWidth();
-            this.iGE = this.iGw.getWidth();
-            this.mCursorWidth = this.iGu.getWidth();
-            this.mCursorHeight = this.iGu.getHeight();
-            this.iGG = ((this.mWidth - (this.iGz * 2)) - this.iGB) - this.iGC;
-            this.iGJ = this.iGx.getWidth();
-            if (this.iGj.iFJ.iFL == 0 && this.iGj.iFK.iFL == 0) {
-                this.iGI = (int) ((0.5d * this.iGG) + this.iGB + this.iGz);
+        if (this.iVh != null) {
+            this.iVx = this.iVk.getWidth();
+            this.mBtnHeight = this.iVk.getHeight();
+            this.iVy = this.iVm.getWidth();
+            this.iVz = this.iVq.getWidth();
+            this.iVA = this.iVr.getWidth();
+            this.iVD = this.iVq.getHeight();
+            this.iVB = this.iVt.getWidth();
+            this.iVC = this.iVu.getWidth();
+            this.mCursorWidth = this.iVs.getWidth();
+            this.mCursorHeight = this.iVs.getHeight();
+            this.iVE = ((this.mWidth - (this.iVx * 2)) - this.iVz) - this.iVA;
+            this.iVH = this.iVv.getWidth();
+            if (this.iVh.iUH.iUJ == 0 && this.iVh.iUI.iUJ == 0) {
+                this.iVG = (int) ((0.5d * this.iVE) + this.iVz + this.iVx);
             } else {
-                this.iGI = (int) (((((float) this.iGj.iFJ.iFL) / ((float) (this.iGj.iFJ.iFL + this.iGj.iFK.iFL))) * this.iGG) + this.iGB + this.iGz);
+                this.iVG = (int) (((((float) this.iVh.iUH.iUJ) / ((float) (this.iVh.iUH.iUJ + this.iVh.iUI.iUJ))) * this.iVE) + this.iVz + this.iVx);
             }
-            float y = this.iGm.getY() - ((this.mCursorHeight - this.mBtnHeight) / 2);
-            if (this.iGI + (this.mCursorWidth / 2) >= this.iGt.getLeft()) {
-                this.iGI = (this.iGt.getLeft() - 10) - (this.mCursorWidth / 2);
-                this.iGu.layout((this.iGt.getLeft() - 10) - this.mCursorWidth, (int) y, this.iGt.getLeft() - 10, ((int) y) + this.mCursorHeight);
-            } else if (this.iGI - (this.mCursorWidth / 2) <= this.iGs.getRight()) {
-                this.iGI = this.iGs.getRight() + 10 + (this.mCursorWidth / 2);
-                this.iGu.layout(this.iGs.getRight() + 10, (int) y, this.iGs.getRight() + 10 + this.mCursorWidth, ((int) y) + this.mCursorHeight);
+            float y = this.iVk.getY() - ((this.mCursorHeight - this.mBtnHeight) / 2);
+            if (this.iVG + (this.mCursorWidth / 2) >= this.iVr.getLeft()) {
+                this.iVG = (this.iVr.getLeft() - 10) - (this.mCursorWidth / 2);
+                this.iVs.layout((this.iVr.getLeft() - 10) - this.mCursorWidth, (int) y, this.iVr.getLeft() - 10, ((int) y) + this.mCursorHeight);
+            } else if (this.iVG - (this.mCursorWidth / 2) <= this.iVq.getRight()) {
+                this.iVG = this.iVq.getRight() + 10 + (this.mCursorWidth / 2);
+                this.iVs.layout(this.iVq.getRight() + 10, (int) y, this.iVq.getRight() + 10 + this.mCursorWidth, ((int) y) + this.mCursorHeight);
             } else {
-                this.iGu.layout(this.iGI - (this.mCursorWidth / 2), (int) y, this.iGI + (this.mCursorWidth / 2), ((int) y) + this.mCursorHeight);
+                this.iVs.layout(this.iVG - (this.mCursorWidth / 2), (int) y, this.iVG + (this.mCursorWidth / 2), ((int) y) + this.mCursorHeight);
             }
-            int x = (this.mWidth / 2) - ((int) this.iGo.getX());
-            if (this.iGD < this.iGA) {
-                int i5 = (this.iGz - this.iGD) / 2;
-                this.iGv.layout(i5, (int) this.iGv.getY(), this.iGD + i5, ((int) this.iGv.getY()) + this.iGF);
-            } else if (this.iGD <= x) {
-                this.iGv.layout((int) this.iGo.getX(), (int) this.iGv.getY(), ((int) this.iGo.getX()) + this.iGD, ((int) this.iGv.getY()) + this.iGF);
+            int x = (this.mWidth / 2) - ((int) this.iVm.getX());
+            if (this.iVB < this.iVy) {
+                int i5 = (this.iVx - this.iVB) / 2;
+                this.iVt.layout(i5, (int) this.iVt.getY(), this.iVB + i5, ((int) this.iVt.getY()) + this.iVD);
+            } else if (this.iVB <= x) {
+                this.iVt.layout((int) this.iVm.getX(), (int) this.iVt.getY(), ((int) this.iVm.getX()) + this.iVB, ((int) this.iVt.getY()) + this.iVD);
             } else {
-                ViewGroup.LayoutParams layoutParams = this.iGv.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams = this.iVt.getLayoutParams();
                 layoutParams.width = x;
-                this.iGv.setLayoutParams(layoutParams);
+                this.iVt.setLayoutParams(layoutParams);
                 postDelayed(this.mRunnable, 300L);
             }
-            if (this.iGE < this.iGA) {
-                int x2 = ((int) this.iGn.getX()) + ((this.iGz - this.iGE) / 2);
-                this.iGw.layout(x2, (int) this.iGw.getY(), this.iGE + x2, ((int) this.iGw.getY()) + this.iGF);
-            } else if (this.iGE <= x) {
-                this.iGw.layout((this.mWidth - ((int) this.iGp.getX())) - this.iGE, (int) this.iGw.getY(), this.mWidth - ((int) this.iGp.getX()), ((int) this.iGw.getY()) + this.iGF);
+            if (this.iVC < this.iVy) {
+                int x2 = ((int) this.iVl.getX()) + ((this.iVx - this.iVC) / 2);
+                this.iVu.layout(x2, (int) this.iVu.getY(), this.iVC + x2, ((int) this.iVu.getY()) + this.iVD);
+            } else if (this.iVC <= x) {
+                this.iVu.layout((this.mWidth - ((int) this.iVn.getX())) - this.iVC, (int) this.iVu.getY(), this.mWidth - ((int) this.iVn.getX()), ((int) this.iVu.getY()) + this.iVD);
             } else {
-                ViewGroup.LayoutParams layoutParams2 = this.iGw.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams2 = this.iVu.getLayoutParams();
                 layoutParams2.width = x;
-                this.iGw.setLayoutParams(layoutParams2);
+                this.iVu.setLayoutParams(layoutParams2);
                 postDelayed(this.mRunnable, 300L);
             }
-            int i6 = (this.iGz - this.iGJ) / 2;
-            this.iGx.layout(((int) this.iGm.getX()) + i6, ((int) this.iGm.getY()) + i6, ((int) this.iGm.getX()) + i6 + this.iGJ, ((int) this.iGm.getY()) + i6 + this.iGJ);
-            this.iGy.layout(((int) this.iGn.getX()) + i6, ((int) this.iGn.getY()) + i6, ((int) this.iGn.getX()) + i6 + this.iGJ, i6 + ((int) this.iGn.getY()) + this.iGJ);
+            int i6 = (this.iVx - this.iVH) / 2;
+            this.iVv.layout(((int) this.iVk.getX()) + i6, ((int) this.iVk.getY()) + i6, ((int) this.iVk.getX()) + i6 + this.iVH, ((int) this.iVk.getY()) + i6 + this.iVH);
+            this.iVw.layout(((int) this.iVl.getX()) + i6, ((int) this.iVl.getY()) + i6, ((int) this.iVl.getX()) + i6 + this.iVH, i6 + ((int) this.iVl.getY()) + this.iVH);
         }
     }
 
@@ -293,55 +293,55 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
         int i2 = 2;
         if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
             LoginActivityConfig loginActivityConfig = new LoginActivityConfig(getContext());
-            loginActivityConfig.getIntent().putExtra("locate_type", this.iGj.from != 3 ? 16 : 0);
+            loginActivityConfig.getIntent().putExtra("locate_type", this.iVh.from != 3 ? 16 : 0);
             TbadkCoreApplication.getInst().login(null, new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, loginActivityConfig));
-        } else if (this.iGL == null || !this.iGL.isRunning()) {
-            if (this.iGO == null || !this.iGO.isRunning()) {
-                if (this.iGO == null) {
-                    this.iGO = ValueAnimator.ofFloat(0.0f, 2.0f);
-                    this.iGO.setDuration(800L);
-                    this.iGO.setInterpolator(new AccelerateInterpolator());
+        } else if (this.iVJ == null || !this.iVJ.isRunning()) {
+            if (this.iVM == null || !this.iVM.isRunning()) {
+                if (this.iVM == null) {
+                    this.iVM = ValueAnimator.ofFloat(0.0f, 2.0f);
+                    this.iVM.setDuration(800L);
+                    this.iVM.setInterpolator(new AccelerateInterpolator());
                 }
-                if (this.iGL == null) {
-                    this.iGL = ValueAnimator.ofFloat(0.0f, 1.0f);
-                    this.iGL.setDuration(800L);
-                    this.iGL.setInterpolator(new AccelerateInterpolator());
-                    this.iGN = new a();
-                    this.iGL.addListener(this.iGN);
-                    this.iGL.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.homepage.topic.topictab.view.TopicPkView.2
+                if (this.iVJ == null) {
+                    this.iVJ = ValueAnimator.ofFloat(0.0f, 1.0f);
+                    this.iVJ.setDuration(800L);
+                    this.iVJ.setInterpolator(new AccelerateInterpolator());
+                    this.iVL = new a();
+                    this.iVJ.addListener(this.iVL);
+                    this.iVJ.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.homepage.topic.topictab.view.TopicPkView.2
                         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                         public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                            TopicPkView.this.iGM.setScaleX(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                            TopicPkView.this.iGM.setScaleY(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                            TopicPkView.this.iVK.setScaleX(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                            TopicPkView.this.iVK.setScaleY(((Float) valueAnimator.getAnimatedValue()).floatValue());
                         }
                     });
                 }
-                if (cor()) {
+                if (czk()) {
                     i = 1;
                 } else {
-                    i = cos() ? 2 : 0;
+                    i = czl() ? 2 : 0;
                 }
-                if (view == this.iGm) {
-                    pl(1 != i);
-                    pm(false);
+                if (view == this.iVk) {
+                    pR(1 != i);
+                    pS(false);
                     i2 = 1;
-                } else if (view == this.iGn) {
-                    pm(2 != i);
-                    pl(false);
+                } else if (view == this.iVl) {
+                    pS(2 != i);
+                    pR(false);
                 } else {
                     i2 = 0;
                 }
-                TiebaStatic.log(new ap("c13352").ah("obj_type", i2).t("topic_id", this.iGj.topicId).ah("obj_source", this.iGj.from));
-                if (this.iGV != null) {
-                    this.iGV.xL(i2 == i ? 0 : i2);
+                TiebaStatic.log(new aq("c13352").ai("obj_type", i2).u("topic_id", this.iVh.topicId).ai("obj_source", this.iVh.from));
+                if (this.iVT != null) {
+                    this.iVT.Af(i2 == i ? 0 : i2);
                 }
                 RequestBlessMessage requestBlessMessage = new RequestBlessMessage();
-                requestBlessMessage.setPkId(Long.valueOf(this.iGj.pkId));
-                requestBlessMessage.setTopicId(Long.valueOf(this.iGj.topicId));
+                requestBlessMessage.setPkId(Long.valueOf(this.iVh.pkId));
+                requestBlessMessage.setTopicId(Long.valueOf(this.iVh.topicId));
                 requestBlessMessage.setPkIndex(i2);
                 requestBlessMessage.setClickType(i == 0 ? 0 : 1);
                 requestBlessMessage.setPkType(0);
-                requestBlessMessage.setUserPkId(this.iGj.userPkId);
+                requestBlessMessage.setUserPkId(this.iVh.userPkId);
                 MessageManager.getInstance().sendMessage(requestBlessMessage);
             }
         }
@@ -349,221 +349,221 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
-        if (this.iGj != null) {
-            O(canvas);
+        if (this.iVh != null) {
+            V(canvas);
             super.dispatchDraw(canvas);
         }
     }
 
-    private void O(Canvas canvas) {
-        float y = this.iGm.getY() + ((this.mBtnHeight - this.iGH) / 2);
-        this.mPaint.setShader(new LinearGradient(this.iGz / 2, y, this.iGI, y, ao.getColor(R.color.topic_pk_agree_bar_start_color), ao.getColor(R.color.topic_pk_agree_bar_end_color), Shader.TileMode.REPEAT));
-        canvas.drawRect(this.iGz / 2, y, this.iGI, y + this.iGH, this.mPaint);
-        this.mPaint.setShader(new LinearGradient(this.iGI, y, this.mWidth - (this.iGz / 2), y, ao.getColor(R.color.topic_pk_disagree_bar_start_color), ao.getColor(R.color.topic_pk_disagree_bar_end_color), Shader.TileMode.REPEAT));
-        canvas.drawRect(this.iGI, y, this.mWidth - (this.iGz / 2), y + this.iGH, this.mPaint);
+    private void V(Canvas canvas) {
+        float y = this.iVk.getY() + ((this.mBtnHeight - this.iVF) / 2);
+        this.mPaint.setShader(new LinearGradient(this.iVx / 2, y, this.iVG, y, ap.getColor(R.color.topic_pk_agree_bar_start_color), ap.getColor(R.color.topic_pk_agree_bar_end_color), Shader.TileMode.REPEAT));
+        canvas.drawRect(this.iVx / 2, y, this.iVG, y + this.iVF, this.mPaint);
+        this.mPaint.setShader(new LinearGradient(this.iVG, y, this.mWidth - (this.iVx / 2), y, ap.getColor(R.color.topic_pk_disagree_bar_start_color), ap.getColor(R.color.topic_pk_disagree_bar_end_color), Shader.TileMode.REPEAT));
+        canvas.drawRect(this.iVG, y, this.mWidth - (this.iVx / 2), y + this.iVF, this.mPaint);
     }
 
     public void setUserColor(int i) {
-        this.iGK = i;
+        this.iVI = i;
     }
 
     public void setData(com.baidu.tieba.homepage.topic.topictab.b.b bVar) {
-        if (bVar == null || bVar.iFJ == null || bVar.iFK == null) {
+        if (bVar == null || bVar.iUH == null || bVar.iUI == null) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        this.iGj = bVar;
-        this.iGs.setText(String.valueOf(bVar.iFJ.iFL));
-        this.iGt.setText(String.valueOf(bVar.iFK.iFL));
-        this.iGT = new RelativeLayout.LayoutParams(-2, -2);
-        this.iGT.addRule(12);
-        this.iGU = new RelativeLayout.LayoutParams(-2, -2);
-        this.iGU.addRule(12);
-        this.iGU.addRule(11);
-        this.iGv.setLayoutParams(this.iGT);
-        this.iGw.setLayoutParams(this.iGU);
+        this.iVh = bVar;
+        this.iVq.setText(String.valueOf(bVar.iUH.iUJ));
+        this.iVr.setText(String.valueOf(bVar.iUI.iUJ));
+        this.iVR = new RelativeLayout.LayoutParams(-2, -2);
+        this.iVR.addRule(12);
+        this.iVS = new RelativeLayout.LayoutParams(-2, -2);
+        this.iVS.addRule(12);
+        this.iVS.addRule(11);
+        this.iVt.setLayoutParams(this.iVR);
+        this.iVu.setLayoutParams(this.iVS);
         if (bVar.from == 3) {
-            this.iGv.setText(StringUtils.isNull(bVar.iFJ.iFM) ? getResources().getString(R.string.topic_pk_desc_agree_default) : bVar.iFJ.iFM);
-            this.iGw.setText(StringUtils.isNull(bVar.iFK.iFM) ? getResources().getString(R.string.topic_pk_desc_disagree_default) : bVar.iFK.iFM);
-            if (StringUtils.isNull(bVar.iFJ.iFN)) {
-                this.iGk.setVisibility(4);
+            this.iVt.setText(StringUtils.isNull(bVar.iUH.iUK) ? getResources().getString(R.string.topic_pk_desc_agree_default) : bVar.iUH.iUK);
+            this.iVu.setText(StringUtils.isNull(bVar.iUI.iUK) ? getResources().getString(R.string.topic_pk_desc_disagree_default) : bVar.iUI.iUK);
+            if (StringUtils.isNull(bVar.iUH.iUL)) {
+                this.iVi.setVisibility(4);
             } else {
-                this.iGk.setText(String.format(getContext().getString(R.string.topic_pk_user), bVar.iFJ.iFN));
+                this.iVi.setText(String.format(getContext().getString(R.string.topic_pk_user), bVar.iUH.iUL));
             }
-            if (StringUtils.isNull(bVar.iFK.iFN)) {
-                this.iGl.setVisibility(4);
+            if (StringUtils.isNull(bVar.iUI.iUL)) {
+                this.iVj.setVisibility(4);
             } else {
-                this.iGl.setText(String.format(getContext().getString(R.string.topic_pk_user), bVar.iFK.iFN));
+                this.iVj.setText(String.format(getContext().getString(R.string.topic_pk_user), bVar.iUI.iUL));
             }
         } else {
-            this.iGv.setText(bVar.iFJ.iFM);
-            this.iGw.setText(bVar.iFK.iFM);
-            this.iGk.setText(String.format(getContext().getString(R.string.topic_pk_user), bVar.iFJ.iFN));
-            this.iGl.setText(String.format(getContext().getString(R.string.topic_pk_user), bVar.iFK.iFN));
+            this.iVt.setText(bVar.iUH.iUK);
+            this.iVu.setText(bVar.iUI.iUK);
+            this.iVi.setText(String.format(getContext().getString(R.string.topic_pk_user), bVar.iUH.iUL));
+            this.iVj.setText(String.format(getContext().getString(R.string.topic_pk_user), bVar.iUI.iUL));
         }
-        this.iGo.startLoad(bVar.iFJ.iFO, 10, false);
-        this.iGp.startLoad(bVar.iFK.iFO, 10, false);
-        this.iGq.startLoad(bVar.iFJ.iFR, 10, false);
-        this.iGr.startLoad(bVar.iFK.iFR, 10, false);
-        if (bVar.iFJ.iFP) {
-            this.iGo.setVisibility(4);
-            this.iGq.setVisibility(0);
+        this.iVm.startLoad(bVar.iUH.iUM, 10, false);
+        this.iVn.startLoad(bVar.iUI.iUM, 10, false);
+        this.iVo.startLoad(bVar.iUH.iUP, 10, false);
+        this.iVp.startLoad(bVar.iUI.iUP, 10, false);
+        if (bVar.iUH.iUN) {
+            this.iVm.setVisibility(4);
+            this.iVo.setVisibility(0);
         } else {
-            this.iGo.setVisibility(0);
-            this.iGq.setVisibility(4);
+            this.iVm.setVisibility(0);
+            this.iVo.setVisibility(4);
         }
-        if (bVar.iFK.iFP) {
-            this.iGp.setVisibility(4);
-            this.iGr.setVisibility(0);
+        if (bVar.iUI.iUN) {
+            this.iVn.setVisibility(4);
+            this.iVp.setVisibility(0);
         } else {
-            this.iGp.setVisibility(0);
-            this.iGr.setVisibility(4);
+            this.iVn.setVisibility(0);
+            this.iVp.setVisibility(4);
         }
         invalidate();
     }
 
     public void onChangeSkinType() {
-        ao.setViewTextColor(this.iGk, this.iGK);
-        ao.setViewTextColor(this.iGl, this.iGK);
+        ap.setViewTextColor(this.iVi, this.iVI);
+        ap.setViewTextColor(this.iVj, this.iVI);
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
-            this.iGo.setIsNight(this.mSkinType == 1);
-            this.iGp.setIsNight(this.mSkinType == 1);
-            this.iGq.setIsNight(this.mSkinType == 1);
-            this.iGr.setIsNight(this.mSkinType == 1);
-            ao.setBackgroundResource(this.iGm, R.drawable.btn_topic_agree_bg_red);
-            ao.setBackgroundResource(this.iGn, R.drawable.btn_topic_disagree_bg_blue);
-            ao.setImageResource(this.iGx, R.drawable.pic_topic_addone);
-            ao.setImageResource(this.iGy, R.drawable.pic_topic_addone);
-            ao.setImageResource(this.iGu, R.drawable.pic_topic_vs_bginone);
-            ao.setViewTextColor(this.iGs, R.color.cp_cont_a);
-            ao.setViewTextColor(this.iGt, R.color.cp_cont_a);
-            ao.setViewTextColor(this.iGv, R.color.topic_agree_des_color);
-            ao.setViewTextColor(this.iGw, R.color.topic_disagree_des_color);
+            this.iVm.setIsNight(this.mSkinType == 1);
+            this.iVn.setIsNight(this.mSkinType == 1);
+            this.iVo.setIsNight(this.mSkinType == 1);
+            this.iVp.setIsNight(this.mSkinType == 1);
+            ap.setBackgroundResource(this.iVk, R.drawable.btn_topic_agree_bg_red);
+            ap.setBackgroundResource(this.iVl, R.drawable.btn_topic_disagree_bg_blue);
+            ap.setImageResource(this.iVv, R.drawable.pic_topic_addone);
+            ap.setImageResource(this.iVw, R.drawable.pic_topic_addone);
+            ap.setImageResource(this.iVs, R.drawable.pic_topic_vs_bginone);
+            ap.setViewTextColor(this.iVq, R.color.cp_cont_a);
+            ap.setViewTextColor(this.iVr, R.color.cp_cont_a);
+            ap.setViewTextColor(this.iVt, R.color.topic_agree_des_color);
+            ap.setViewTextColor(this.iVu, R.color.topic_disagree_des_color);
         }
     }
 
-    private void pl(boolean z) {
+    private void pR(boolean z) {
         if (z) {
-            this.iGk.setVisibility(0);
-            this.iGk.setText(String.format(getContext().getString(R.string.topic_pk_user), TbadkCoreApplication.getCurrentAccountNameShow()));
-            this.iGj.iFJ.iFN = TbadkCoreApplication.getCurrentAccountNameShow();
-            this.iGj.iFJ.iFP = true;
-            TextView textView = this.iGs;
-            b.a aVar = this.iGj.iFJ;
-            long j = aVar.iFL + 1;
-            aVar.iFL = j;
+            this.iVi.setVisibility(0);
+            this.iVi.setText(String.format(getContext().getString(R.string.topic_pk_user), TbadkCoreApplication.getCurrentAccountNameShow()));
+            this.iVh.iUH.iUL = TbadkCoreApplication.getCurrentAccountNameShow();
+            this.iVh.iUH.iUN = true;
+            TextView textView = this.iVq;
+            b.a aVar = this.iVh.iUH;
+            long j = aVar.iUJ + 1;
+            aVar.iUJ = j;
             textView.setText(String.valueOf(j));
-            this.iGx.setVisibility(0);
-            this.iGM = this.iGq;
-            this.iGN.iGY = this.iGq;
-            this.iGN.iGZ = this.iGo;
-            this.iGx.setVisibility(0);
-            this.iGL.start();
-            this.iGP = this.iGx.getX();
-            this.iGQ = this.iGx.getY();
-            this.iGR = this.iGx.getX();
-            this.iGS = this.iGx.getY();
-            this.iGO.removeAllUpdateListeners();
-            this.iGO.addUpdateListener(this.iGW);
-            this.iGO.setFloatValues(0.0f, 2.0f);
-            this.iGO.start();
+            this.iVv.setVisibility(0);
+            this.iVK = this.iVo;
+            this.iVL.iVW = this.iVo;
+            this.iVL.iVX = this.iVm;
+            this.iVv.setVisibility(0);
+            this.iVJ.start();
+            this.iVN = this.iVv.getX();
+            this.iVO = this.iVv.getY();
+            this.iVP = this.iVv.getX();
+            this.iVQ = this.iVv.getY();
+            this.iVM.removeAllUpdateListeners();
+            this.iVM.addUpdateListener(this.iVU);
+            this.iVM.setFloatValues(0.0f, 2.0f);
+            this.iVM.start();
             return;
         }
-        if (as.equals(this.iGj.iFJ.iFN, TbadkCoreApplication.getCurrentAccountNameShow())) {
-            this.iGk.setVisibility(4);
+        if (at.equals(this.iVh.iUH.iUL, TbadkCoreApplication.getCurrentAccountNameShow())) {
+            this.iVi.setVisibility(4);
         }
-        if (this.iGj.iFJ.iFP) {
-            this.iGj.iFJ.iFP = false;
-            TextView textView2 = this.iGs;
-            b.a aVar2 = this.iGj.iFJ;
-            long j2 = aVar2.iFL - 1;
-            aVar2.iFL = j2;
+        if (this.iVh.iUH.iUN) {
+            this.iVh.iUH.iUN = false;
+            TextView textView2 = this.iVq;
+            b.a aVar2 = this.iVh.iUH;
+            long j2 = aVar2.iUJ - 1;
+            aVar2.iUJ = j2;
             textView2.setText(String.valueOf(j2));
         }
-        this.iGo.setVisibility(0);
-        this.iGq.setVisibility(4);
+        this.iVm.setVisibility(0);
+        this.iVo.setVisibility(4);
     }
 
-    private void pm(boolean z) {
+    private void pS(boolean z) {
         if (z) {
-            this.iGl.setText(String.format(getContext().getString(R.string.topic_pk_user), TbadkCoreApplication.getCurrentAccountNameShow()));
-            this.iGl.setVisibility(0);
-            this.iGj.iFK.iFN = TbadkCoreApplication.getCurrentAccountNameShow();
-            this.iGy.setVisibility(0);
-            this.iGj.iFK.iFP = true;
-            TextView textView = this.iGt;
-            b.a aVar = this.iGj.iFK;
-            long j = aVar.iFL + 1;
-            aVar.iFL = j;
+            this.iVj.setText(String.format(getContext().getString(R.string.topic_pk_user), TbadkCoreApplication.getCurrentAccountNameShow()));
+            this.iVj.setVisibility(0);
+            this.iVh.iUI.iUL = TbadkCoreApplication.getCurrentAccountNameShow();
+            this.iVw.setVisibility(0);
+            this.iVh.iUI.iUN = true;
+            TextView textView = this.iVr;
+            b.a aVar = this.iVh.iUI;
+            long j = aVar.iUJ + 1;
+            aVar.iUJ = j;
             textView.setText(String.valueOf(j));
-            this.iGP = this.iGy.getX() - (this.iGJ / 2.0f);
-            this.iGM = this.iGr;
-            this.iGN.iGY = this.iGr;
-            this.iGN.iGZ = this.iGp;
-            this.iGx.setVisibility(0);
-            this.iGL.start();
-            this.iGP = this.iGy.getX() - (this.iGJ / 2);
-            this.iGQ = this.iGy.getY();
-            this.iGR = this.iGy.getX();
-            this.iGS = this.iGy.getY();
-            this.iGO.removeAllUpdateListeners();
-            this.iGO.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.homepage.topic.topictab.view.TopicPkView.4
+            this.iVN = this.iVw.getX() - (this.iVH / 2.0f);
+            this.iVK = this.iVp;
+            this.iVL.iVW = this.iVp;
+            this.iVL.iVX = this.iVn;
+            this.iVv.setVisibility(0);
+            this.iVJ.start();
+            this.iVN = this.iVw.getX() - (this.iVH / 2);
+            this.iVO = this.iVw.getY();
+            this.iVP = this.iVw.getX();
+            this.iVQ = this.iVw.getY();
+            this.iVM.removeAllUpdateListeners();
+            this.iVM.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.homepage.topic.topictab.view.TopicPkView.4
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
                     float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
                     if (floatValue < 1.0f) {
-                        TopicPkView.this.iGy.setX((float) ((Math.pow(1.0f - floatValue, 2.0d) * TopicPkView.this.iGP) + (2.0f * floatValue * (1.0f - floatValue) * ((TopicPkView.this.mWidth - TopicPkView.this.iGz) + 45)) + (Math.pow(floatValue, 2.0d) * (TopicPkView.this.mWidth - (TopicPkView.this.iGz / 2)))));
-                        TopicPkView.this.iGy.setY((float) ((Math.pow(1.0f - floatValue, 2.0d) * TopicPkView.this.iGQ) + (2.0f * floatValue * (1.0f - floatValue) * 70.0f) + (Math.pow(floatValue, 2.0d) * 60.0d)));
+                        TopicPkView.this.iVw.setX((float) ((Math.pow(1.0f - floatValue, 2.0d) * TopicPkView.this.iVN) + (2.0f * floatValue * (1.0f - floatValue) * ((TopicPkView.this.mWidth - TopicPkView.this.iVx) + 45)) + (Math.pow(floatValue, 2.0d) * (TopicPkView.this.mWidth - (TopicPkView.this.iVx / 2)))));
+                        TopicPkView.this.iVw.setY((float) ((Math.pow(1.0f - floatValue, 2.0d) * TopicPkView.this.iVO) + (2.0f * floatValue * (1.0f - floatValue) * 70.0f) + (Math.pow(floatValue, 2.0d) * 60.0d)));
                     } else {
                         floatValue -= 1.0f;
-                        TopicPkView.this.iGy.setX((float) ((Math.pow(1.0f - floatValue, 2.0d) * (TopicPkView.this.mWidth - (TopicPkView.this.iGz / 2))) + (2.0f * floatValue * (1.0f - floatValue) * (TopicPkView.this.mWidth - 45)) + (Math.pow(floatValue, 2.0d) * (TopicPkView.this.mWidth - 120))));
-                        TopicPkView.this.iGy.setY((float) ((Math.pow(1.0f - floatValue, 2.0d) * 60.0d) + (2.0f * floatValue * (1.0f - floatValue) * 50.0f) + (Math.pow(floatValue, 2.0d) * 40.0d)));
+                        TopicPkView.this.iVw.setX((float) ((Math.pow(1.0f - floatValue, 2.0d) * (TopicPkView.this.mWidth - (TopicPkView.this.iVx / 2))) + (2.0f * floatValue * (1.0f - floatValue) * (TopicPkView.this.mWidth - 45)) + (Math.pow(floatValue, 2.0d) * (TopicPkView.this.mWidth - 120))));
+                        TopicPkView.this.iVw.setY((float) ((Math.pow(1.0f - floatValue, 2.0d) * 60.0d) + (2.0f * floatValue * (1.0f - floatValue) * 50.0f) + (Math.pow(floatValue, 2.0d) * 40.0d)));
                     }
                     if (floatValue == 1.0f) {
-                        TopicPkView.this.iGy.setVisibility(4);
-                        TopicPkView.this.iGy.setX(TopicPkView.this.iGR);
-                        TopicPkView.this.iGy.setY(TopicPkView.this.iGS);
+                        TopicPkView.this.iVw.setVisibility(4);
+                        TopicPkView.this.iVw.setX(TopicPkView.this.iVP);
+                        TopicPkView.this.iVw.setY(TopicPkView.this.iVQ);
                     }
                 }
             });
-            this.iGO.setFloatValues(0.0f, 2.0f);
-            this.iGO.start();
+            this.iVM.setFloatValues(0.0f, 2.0f);
+            this.iVM.start();
             return;
         }
-        if (as.equals(this.iGj.iFK.iFN, TbadkCoreApplication.getCurrentAccountNameShow())) {
-            this.iGl.setVisibility(4);
+        if (at.equals(this.iVh.iUI.iUL, TbadkCoreApplication.getCurrentAccountNameShow())) {
+            this.iVj.setVisibility(4);
         }
-        if (this.iGj.iFK.iFP) {
-            this.iGj.iFK.iFP = false;
-            TextView textView2 = this.iGt;
-            b.a aVar2 = this.iGj.iFK;
-            long j2 = aVar2.iFL - 1;
-            aVar2.iFL = j2;
+        if (this.iVh.iUI.iUN) {
+            this.iVh.iUI.iUN = false;
+            TextView textView2 = this.iVr;
+            b.a aVar2 = this.iVh.iUI;
+            long j2 = aVar2.iUJ - 1;
+            aVar2.iUJ = j2;
             textView2.setText(String.valueOf(j2));
         }
-        this.iGy.setVisibility(4);
-        this.iGp.setVisibility(0);
-        this.iGr.setVisibility(4);
+        this.iVw.setVisibility(4);
+        this.iVn.setVisibility(0);
+        this.iVp.setVisibility(4);
     }
 
-    private boolean cor() {
-        return (this.iGj == null || this.iGj.iFJ == null || !this.iGj.iFJ.iFP) ? false : true;
+    private boolean czk() {
+        return (this.iVh == null || this.iVh.iUH == null || !this.iVh.iUH.iUN) ? false : true;
     }
 
-    private boolean cos() {
-        return (this.iGj == null || this.iGj.iFK == null || !this.iGj.iFK.iFP) ? false : true;
+    private boolean czl() {
+        return (this.iVh == null || this.iVh.iUI == null || !this.iVh.iUI.iUN) ? false : true;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
-        if (this.iGL != null) {
-            this.iGL.cancel();
+        if (this.iVJ != null) {
+            this.iVJ.cancel();
         }
-        if (this.iGO != null) {
-            this.iGO.cancel();
+        if (this.iVM != null) {
+            this.iVM.cancel();
         }
         removeCallbacks(this.mRunnable);
         super.onDetachedFromWindow();
@@ -571,30 +571,30 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
 
     public void setPkClickListener(b bVar) {
         if (bVar != null) {
-            this.iGV = bVar;
+            this.iVT = bVar;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes16.dex */
     public static class a implements Animator.AnimatorListener {
-        private View iGY;
-        private View iGZ;
+        private View iVW;
+        private View iVX;
 
         private a() {
         }
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationStart(Animator animator) {
-            if (this.iGY != null) {
-                this.iGY.setVisibility(0);
+            if (this.iVW != null) {
+                this.iVW.setVisibility(0);
             }
         }
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            if (this.iGZ != null) {
-                this.iGZ.setVisibility(8);
+            if (this.iVX != null) {
+                this.iVX.setVisibility(8);
             }
         }
 

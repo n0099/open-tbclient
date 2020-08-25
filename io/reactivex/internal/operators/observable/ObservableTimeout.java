@@ -79,7 +79,7 @@ public final class ObservableTimeout<T, U, V> extends io.reactivex.internal.oper
                     tVar.subscribe(bVar2);
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.K(th);
+                io.reactivex.exceptions.a.J(th);
                 dispose();
                 this.actual.onError(th);
             }
@@ -128,10 +128,10 @@ public final class ObservableTimeout<T, U, V> extends io.reactivex.internal.oper
     static final class b<T, U, V> extends io.reactivex.observers.a<Object> {
         boolean done;
         final long index;
-        final a nUB;
+        final a oox;
 
         b(a aVar, long j) {
-            this.nUB = aVar;
+            this.oox = aVar;
             this.index = j;
         }
 
@@ -140,7 +140,7 @@ public final class ObservableTimeout<T, U, V> extends io.reactivex.internal.oper
             if (!this.done) {
                 this.done = true;
                 dispose();
-                this.nUB.timeout(this.index);
+                this.oox.timeout(this.index);
             }
         }
 
@@ -151,14 +151,14 @@ public final class ObservableTimeout<T, U, V> extends io.reactivex.internal.oper
                 return;
             }
             this.done = true;
-            this.nUB.innerError(th);
+            this.oox.innerError(th);
         }
 
         @Override // io.reactivex.u
         public void onComplete() {
             if (!this.done) {
                 this.done = true;
-                this.nUB.timeout(this.index);
+                this.oox.timeout(this.index);
             }
         }
     }
@@ -220,7 +220,7 @@ public final class ObservableTimeout<T, U, V> extends io.reactivex.internal.oper
                             tVar.subscribe(bVar2);
                         }
                     } catch (Throwable th) {
-                        io.reactivex.exceptions.a.K(th);
+                        io.reactivex.exceptions.a.J(th);
                         this.actual.onError(th);
                     }
                 }

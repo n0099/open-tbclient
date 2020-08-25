@@ -3,9 +3,9 @@ package kotlin.collections;
 import java.util.ListIterator;
 import java.util.NoSuchElementException;
 @kotlin.h
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public final class aa implements ListIterator {
-    public static final aa nYa = new aa();
+    public static final aa orY = new aa();
 
     @Override // java.util.ListIterator
     public /* synthetic */ void add(Object obj) {
@@ -47,14 +47,14 @@ public final class aa implements ListIterator {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.ListIterator, java.util.Iterator
-    /* renamed from: dTR */
+    /* renamed from: efT */
     public Void next() {
         throw new NoSuchElementException();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.ListIterator
-    /* renamed from: dTS */
+    /* renamed from: efU */
     public Void previous() {
         throw new NoSuchElementException();
     }

@@ -3,7 +3,7 @@ package com.baidu.tbadk.h;
 import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class g implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityCreated(Activity activity, Bundle bundle) {

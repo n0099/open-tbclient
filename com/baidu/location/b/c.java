@@ -1,20 +1,31 @@
 package com.baidu.location.b;
 
-import com.baidu.location.b.b;
-/* loaded from: classes10.dex */
-class c implements Runnable {
-    final /* synthetic */ b.a a;
+import android.os.Bundle;
+/* loaded from: classes20.dex */
+public class c {
+    private static Object a = new Object();
+    private static c b = null;
+    private int c = -1;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public c(b.a aVar) {
-        this.a = aVar;
+    public static c a() {
+        c cVar;
+        synchronized (a) {
+            if (b == null) {
+                b = new c();
+            }
+            cVar = b;
+        }
+        return cVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        try {
-            b.this.k();
-        } catch (Exception e) {
+    public void a(int i, int i2, String str) {
+        if (i2 != this.c) {
+            this.c = i2;
+            Bundle bundle = new Bundle();
+            bundle.putInt("loctype", i);
+            bundle.putInt("diagtype", i2);
+            bundle.putByteArray("diagmessage", str.getBytes());
+            b.a().a(bundle, 303);
         }
     }
 }

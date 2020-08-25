@@ -3,9 +3,10 @@ package com.baidu.ar.npc;
 import android.content.Context;
 import android.util.Log;
 import android.view.OrientationEventListener;
+import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.baidu.ar.npc.ArBridge;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class k extends OrientationEventListener {
     final /* synthetic */ ArBridge a;
 
@@ -28,7 +29,7 @@ public class k extends OrientationEventListener {
         i3 = this.a.i;
         if (i3 >= 0) {
             i4 = this.a.i;
-            int i5 = (i4 + 360) % 360;
+            int i5 = (i4 + EncoderTextureDrawer.X264_WIDTH) % EncoderTextureDrawer.X264_WIDTH;
             if (i5 <= 45 || i5 > 315) {
                 this.a.j = ArBridge.e.SCREEN_ORIENTATION_PORTRAIT;
                 return;

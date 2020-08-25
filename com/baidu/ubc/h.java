@@ -6,7 +6,7 @@ import com.baidu.searchbox.http.request.PostByteRequest;
 import java.io.IOException;
 import java.util.Map;
 import okhttp3.Response;
-/* loaded from: classes11.dex */
+/* loaded from: classes18.dex */
 public class h extends a {
     @Override // com.baidu.ubc.a
     public ab a(String str, byte[] bArr, Map<String, String> map) throws IOException {

@@ -35,7 +35,7 @@ import com.facebook.drawee.a.a.c;
 import com.facebook.drawee.generic.RoundingParams;
 import com.facebook.drawee.view.SimpleDraweeView;
 import java.lang.ref.WeakReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 class ViewToast {
     private static Runnable mCancelRunnable;
     private static WeakReference<View> mToastViewRef;
@@ -250,7 +250,7 @@ class ViewToast {
         if (contentView != null) {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(contentView.getContext()).inflate(R.layout.left_icon_clickable_toast_view, (ViewGroup) null);
             linearLayout.setBackground(resources.getDrawable(R.drawable.clickable_toast_view_bg));
-            ((SimpleDraweeView) linearLayout.findViewById(R.id.gif_toast_left_icon)).setController(c.dDn().xd(true).Q(uri).dEe());
+            ((SimpleDraweeView) linearLayout.findViewById(R.id.gif_toast_left_icon)).setController(c.dPn().xU(true).Q(uri).dQe());
             if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.gif_toast_info_view)) != null) {
                 textView.setTextColor(resources.getColor(R.color.white_text));
                 textView.setText(charSequence);
@@ -437,7 +437,7 @@ class ViewToast {
         if (uri != null) {
             simpleDraweeView.setImageURI(uri);
             if (i != 1) {
-                simpleDraweeView.getHierarchy().a(new RoundingParams().xi(false));
+                simpleDraweeView.getHierarchy().a(new RoundingParams().xZ(false));
             }
         } else {
             simpleDraweeView.setVisibility(8);
@@ -677,7 +677,7 @@ class ViewToast {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.android.ext.widget.toast.ViewToast$14  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public static class AnonymousClass14 implements Runnable {
         final /* synthetic */ View val$maskView;
         final /* synthetic */ View val$toastView;

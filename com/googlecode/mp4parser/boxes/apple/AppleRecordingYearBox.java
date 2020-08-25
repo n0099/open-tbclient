@@ -12,10 +12,10 @@ import java.util.Date;
 import java.util.TimeZone;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class AppleRecordingYearBox extends AppleDataBox {
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_1 = null;
     Date date;
     DateFormat df;
 
@@ -25,8 +25,8 @@ public class AppleRecordingYearBox extends AppleDataBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("AppleRecordingYearBox.java", AppleRecordingYearBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getDate", "com.googlecode.mp4parser.boxes.apple.AppleRecordingYearBox", "", "", "", FieldUtil.TYPE_DATE), 27);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setDate", "com.googlecode.mp4parser.boxes.apple.AppleRecordingYearBox", FieldUtil.TYPE_DATE, "date", "", "void"), 31);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "getDate", "com.googlecode.mp4parser.boxes.apple.AppleRecordingYearBox", "", "", "", FieldUtil.TYPE_DATE), 27);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "setDate", "com.googlecode.mp4parser.boxes.apple.AppleRecordingYearBox", FieldUtil.TYPE_DATE, "date", "", "void"), 31);
     }
 
     public AppleRecordingYearBox() {

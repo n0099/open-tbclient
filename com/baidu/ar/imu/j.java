@@ -12,24 +12,24 @@ import java.util.Observable;
 /* loaded from: classes11.dex */
 public abstract class j extends Observable implements SensorEventListener {
     private static final String TAG = j.class.getSimpleName();
-    private SensorManager rH;
-    protected float[] ri;
-    protected Object rB = new Object();
-    protected Boolean rC = true;
-    protected final Object rD = new Object();
-    protected List<Sensor> rE = new ArrayList();
-    boolean rI = false;
-    protected final Matrixf4x4 rF = new Matrixf4x4();
-    protected final Quaternion rG = new Quaternion();
-    protected final Matrixf4x4 rJ = new Matrixf4x4();
-    protected final Matrixf4x4 rK = new Matrixf4x4();
-    protected final Matrixf4x4 rL = new Matrixf4x4();
+    protected float[] rN;
+    private SensorManager sl;
+    protected Object sf = new Object();
+    protected Boolean sg = true;
+    protected final Object sh = new Object();
+    protected List<Sensor> si = new ArrayList();
+    boolean sm = false;
+    protected final Matrixf4x4 sj = new Matrixf4x4();
+    protected final Quaternion sk = new Quaternion();
+    protected final Matrixf4x4 sn = new Matrixf4x4();
+    protected final Matrixf4x4 so = new Matrixf4x4();
+    protected final Matrixf4x4 sp = new Matrixf4x4();
 
     public j(SensorManager sensorManager) {
-        this.rH = sensorManager;
-        com.baidu.ar.f.b.c(TAG, "sensorList size " + String.valueOf(this.rE.size()));
-        if (this.rE.size() > 120) {
-            this.rE.clear();
+        this.sl = sensorManager;
+        com.baidu.ar.g.b.c(TAG, "sensorList size " + String.valueOf(this.si.size()));
+        if (this.si.size() > 120) {
+            this.si.clear();
         }
     }
 
@@ -56,7 +56,7 @@ public abstract class j extends Observable implements SensorEventListener {
         } else {
             f = Float.compare(fArr3[1], 1.0f) == 0 ? 0.0f : Float.compare(fArr3[1], -1.0f) == 0 ? 180.0f : 0.0f;
         }
-        com.baidu.ar.f.b.c(TAG, "orientation: outputV[0] = " + fArr3[0] + ", outputV[1] = " + fArr3[1] + ", angleZ = " + f);
+        com.baidu.ar.g.b.c(TAG, "orientation: outputV[0] = " + fArr3[0] + ", outputV[1] = " + fArr3[1] + ", angleZ = " + f);
         Matrix.setIdentityM(fArr, 0);
         Matrix.rotateM(fArr, 0, f, 0.0f, 0.0f, 1.0f);
         return true;
@@ -66,8 +66,8 @@ public abstract class j extends Observable implements SensorEventListener {
         System.arraycopy(fArr2, 0, fArr, 0, fArr2.length);
     }
 
-    public boolean dT() {
-        for (Sensor sensor : this.rE) {
+    public boolean fd() {
+        for (Sensor sensor : this.si) {
             if (sensor == null) {
                 return false;
             }
@@ -75,12 +75,12 @@ public abstract class j extends Observable implements SensorEventListener {
         return true;
     }
 
-    public Matrixf4x4 dU() {
-        return this.rL;
+    public Matrixf4x4 fe() {
+        return this.sp;
     }
 
-    public float[] dV() {
-        return this.ri;
+    public float[] ff() {
+        return this.rN;
     }
 
     @Override // android.hardware.SensorEventListener
@@ -89,15 +89,15 @@ public abstract class j extends Observable implements SensorEventListener {
 
     public void release() {
         deleteObservers();
-        for (Sensor sensor : this.rE) {
-            this.rH.unregisterListener(this, sensor);
+        for (Sensor sensor : this.si) {
+            this.sl.unregisterListener(this, sensor);
         }
-        this.rE.clear();
+        this.si.clear();
     }
 
     public void start() {
-        for (Sensor sensor : this.rE) {
-            this.rH.registerListener(this, sensor, 1);
+        for (Sensor sensor : this.si) {
+            this.sl.registerListener(this, sensor, 1);
         }
     }
 }

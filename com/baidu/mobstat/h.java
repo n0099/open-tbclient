@@ -7,7 +7,7 @@ import com.baidu.swan.games.utils.so.SoUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class h {
     public static JSONObject a(Context context) {
         JSONObject jSONObject = new JSONObject();
@@ -22,7 +22,7 @@ public class h {
             try {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
                 jSONObject.put(Config.PACKAGE_NAME, bw.h(2, context));
-                jSONObject.put(Config.APP_VERSION_CODE, packageInfo.versionCode);
+                jSONObject.put("a", packageInfo.versionCode);
                 jSONObject.put("n", packageInfo.versionName);
             } catch (Exception e) {
                 bb.c().a(e);

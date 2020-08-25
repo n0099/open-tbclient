@@ -18,33 +18,33 @@ import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.ala.live.personcenter.exp.d;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaPersonCenterExpActivity extends BaseActivity<AlaPersonCenterExpActivity> {
-    private BdListView fUO;
-    private a fUP;
-    private d fUQ;
-    private c fUR;
-    private int fUV;
-    private int fUW;
+    private BdListView ggN;
+    private a ggO;
+    private d ggP;
+    private c ggQ;
+    private int ggU;
+    private int ggV;
     private ImageView mBackImageView;
     private NavigationBar mNavigationBar;
     private View mRootView;
     private TextView mTitleView;
-    private long fUS = -1;
-    private int fUT = -1;
+    private long ggR = -1;
+    private int ggS = -1;
     private boolean isHost = true;
-    private boolean fUU = true;
-    private d.a fUX = new d.a() { // from class: com.baidu.tieba.ala.live.personcenter.exp.AlaPersonCenterExpActivity.1
+    private boolean ggT = true;
+    private d.a ggW = new d.a() { // from class: com.baidu.tieba.ala.live.personcenter.exp.AlaPersonCenterExpActivity.1
         @Override // com.baidu.tieba.ala.live.personcenter.exp.d.a
         public void b(AlaLivePersonData alaLivePersonData) {
             AlaPersonCenterExpActivity.this.mRootView.setVisibility(0);
             AlaLiveUserInfoData alaLiveUserInfoData = alaLivePersonData.mUserData;
             if (alaLiveUserInfoData == null) {
-                AlaPersonCenterExpActivity.this.fUS = 0L;
-                AlaPersonCenterExpActivity.this.fUT = 1;
+                AlaPersonCenterExpActivity.this.ggR = 0L;
+                AlaPersonCenterExpActivity.this.ggS = 1;
             } else {
-                AlaPersonCenterExpActivity.this.fUS = alaLiveUserInfoData.levelExp;
-                AlaPersonCenterExpActivity.this.fUT = alaLiveUserInfoData.levelId;
+                AlaPersonCenterExpActivity.this.ggR = alaLiveUserInfoData.levelExp;
+                AlaPersonCenterExpActivity.this.ggS = alaLiveUserInfoData.levelId;
             }
             AlaPersonCenterExpActivity.this.bindDataToView();
         }
@@ -52,8 +52,8 @@ public class AlaPersonCenterExpActivity extends BaseActivity<AlaPersonCenterExpA
         @Override // com.baidu.tieba.ala.live.personcenter.exp.d.a
         public void onFail(int i, String str) {
             AlaPersonCenterExpActivity.this.mRootView.setVisibility(0);
-            AlaPersonCenterExpActivity.this.fUS = 0L;
-            AlaPersonCenterExpActivity.this.fUT = 1;
+            AlaPersonCenterExpActivity.this.ggR = 0L;
+            AlaPersonCenterExpActivity.this.ggS = 1;
             AlaPersonCenterExpActivity.this.bindDataToView();
         }
     };
@@ -70,8 +70,8 @@ public class AlaPersonCenterExpActivity extends BaseActivity<AlaPersonCenterExpA
 
     private void initData() {
         if (getIntent().getExtras() != null) {
-            this.fUS = getIntent().getExtras().getLong(AlaPersonCenterExpActivityConfig.CURRENT_EXP, -1L);
-            this.fUT = getIntent().getExtras().getInt("current_level", -1);
+            this.ggR = getIntent().getExtras().getLong(AlaPersonCenterExpActivityConfig.CURRENT_EXP, -1L);
+            this.ggS = getIntent().getExtras().getInt("current_level", -1);
             this.isHost = getIntent().getExtras().getBoolean(AlaPersonCenterExpActivityConfig.IS_HOST);
         }
     }
@@ -81,14 +81,14 @@ public class AlaPersonCenterExpActivity extends BaseActivity<AlaPersonCenterExpA
         this.mNavigationBar = (NavigationBar) findViewById(a.g.ala_person_center_exp_navigation_bar);
         this.mBackImageView = (ImageView) this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).findViewById(a.g.widget_navi_back_button);
         this.mTitleView = this.mNavigationBar.setTitleText(a.i.sdk_prc_xp);
-        this.fUO = (BdListView) findViewById(a.g.ala_person_center_exp_list);
-        this.fUR = new c(getPageContext().getPageActivity());
-        this.fUP = new a(this);
-        this.fUO.setAdapter((ListAdapter) this.fUP);
-        if (this.fUS == -1 || this.fUT == -1) {
+        this.ggN = (BdListView) findViewById(a.g.ala_person_center_exp_list);
+        this.ggQ = new c(getPageContext().getPageActivity());
+        this.ggO = new a(this);
+        this.ggN.setAdapter((ListAdapter) this.ggO);
+        if (this.ggR == -1 || this.ggS == -1) {
             this.mRootView.setVisibility(8);
-            this.fUQ = new d(getPageContext(), this.fUX);
-            this.fUQ.Gi();
+            this.ggP = new d(getPageContext(), this.ggW);
+            this.ggP.LW();
             return;
         }
         bindDataToView();
@@ -96,36 +96,36 @@ public class AlaPersonCenterExpActivity extends BaseActivity<AlaPersonCenterExpA
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bindDataToView() {
-        if (this.fUT < 1) {
-            this.fUT = 1;
-        } else if (this.fUT > 40) {
-            this.fUT = 40;
+        if (this.ggS < 1) {
+            this.ggS = 1;
+        } else if (this.ggS > 40) {
+            this.ggS = 40;
         }
-        this.fUV = (int) getResources().getDimension(a.e.sdk_ds364);
-        this.fUW = (int) getResources().getDimension(a.e.sdk_ds168);
-        bCa();
-        this.fUR.j(this.fUS, this.fUT);
+        this.ggU = (int) getResources().getDimension(a.e.sdk_ds364);
+        this.ggV = (int) getResources().getDimension(a.e.sdk_ds168);
+        bLu();
+        this.ggQ.j(this.ggR, this.ggS);
     }
 
-    public void bCa() {
-        bCb();
-        bCc();
+    public void bLu() {
+        bLv();
+        bLw();
     }
 
-    private void bCb() {
+    private void bLv() {
         if (this.isHost) {
-            this.fUO.addHeaderView(this.fUR.bCf());
+            this.ggN.addHeaderView(this.ggQ.bLz());
             this.mNavigationBar.showBottomLine(false);
             setUseStyleImmersiveSticky(true);
-            this.fUO.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.ala.live.personcenter.exp.AlaPersonCenterExpActivity.2
+            this.ggN.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.ala.live.personcenter.exp.AlaPersonCenterExpActivity.2
                 @Override // android.widget.AbsListView.OnScrollListener
                 public void onScrollStateChanged(AbsListView absListView, int i) {
                 }
 
                 @Override // android.widget.AbsListView.OnScrollListener
                 public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-                    AlaPersonCenterExpActivity.this.bCd();
-                    AlaPersonCenterExpActivity.this.bCe();
+                    AlaPersonCenterExpActivity.this.bLx();
+                    AlaPersonCenterExpActivity.this.bLy();
                 }
             });
             return;
@@ -134,36 +134,36 @@ public class AlaPersonCenterExpActivity extends BaseActivity<AlaPersonCenterExpA
         setUseStyleImmersiveSticky(false);
     }
 
-    private void bCc() {
+    private void bLw() {
         ArrayList<b> arrayList = new ArrayList<>();
         for (int i = 0; i < 40; i++) {
             b bVar = new b();
             bVar.level = i + 1;
-            bVar.fVd = com.baidu.tieba.ala.live.personcenter.a.rj(i);
+            bVar.ghc = com.baidu.tieba.ala.live.personcenter.a.tv(i);
             arrayList.add(bVar);
         }
-        this.fUP.X(arrayList);
-        this.fUP.notifyDataSetChanged();
+        this.ggO.ad(arrayList);
+        this.ggO.notifyDataSetChanged();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bCd() {
-        if (Build.VERSION.SDK_INT >= 11 && this.fUR != null) {
-            int i = this.fUV - (-this.fUR.bCf().getTop());
-            if (i < this.fUW) {
+    public void bLx() {
+        if (Build.VERSION.SDK_INT >= 11 && this.ggQ != null) {
+            int i = this.ggU - (-this.ggQ.bLz().getTop());
+            if (i < this.ggV) {
                 if (this.mNavigationBar.getBarBgView().getAlpha() != 1.0f) {
                     this.mNavigationBar.getBarBgView().setAlpha(1.0f);
                     this.mNavigationBar.getTopCoverBgView().setAlpha(0.0f);
                 }
-            } else if (i >= this.fUW && i <= this.fUW * 2) {
-                float f = 1.0f - (((i - this.fUW) * 1.0f) / this.fUW);
+            } else if (i >= this.ggV && i <= this.ggV * 2) {
+                float f = 1.0f - (((i - this.ggV) * 1.0f) / this.ggV);
                 this.mNavigationBar.getBarBgView().setAlpha(f);
                 this.mNavigationBar.getTopCoverBgView().setAlpha(1.0f - f);
-            } else if (i > this.fUW * 2 && this.mNavigationBar.getBarBgView().getAlpha() != 0.0f) {
+            } else if (i > this.ggV * 2 && this.mNavigationBar.getBarBgView().getAlpha() != 0.0f) {
                 this.mNavigationBar.getBarBgView().setAlpha(0.0f);
                 this.mNavigationBar.getTopCoverBgView().setAlpha(1.0f);
             }
-            if (this.fUO.getFirstVisiblePosition() > 0 && this.mNavigationBar.getBarBgView().getAlpha() != 1.0f) {
+            if (this.ggN.getFirstVisiblePosition() > 0 && this.mNavigationBar.getBarBgView().getAlpha() != 1.0f) {
                 this.mNavigationBar.getBarBgView().setAlpha(1.0f);
                 this.mNavigationBar.getTopCoverBgView().setAlpha(0.0f);
             }
@@ -171,17 +171,17 @@ public class AlaPersonCenterExpActivity extends BaseActivity<AlaPersonCenterExpA
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bCe() {
+    public void bLy() {
         float alpha = this.mNavigationBar.getBarBgView().getAlpha();
         if (alpha < 0.5f) {
             alpha = 1.0f - alpha;
-            if (!this.fUU) {
-                this.fUU = true;
+            if (!this.ggT) {
+                this.ggT = true;
             }
-        } else if (this.fUU) {
-            this.fUU = false;
+        } else if (this.ggT) {
+            this.ggT = false;
         }
-        a(alpha, this.fUU ? false : true);
+        a(alpha, this.ggT ? false : true);
     }
 
     protected void a(float f, boolean z) {
@@ -204,12 +204,12 @@ public class AlaPersonCenterExpActivity extends BaseActivity<AlaPersonCenterExpA
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         this.mNavigationBar.getBackground().mutate().setAlpha(0);
         this.mNavigationBar.getBarBgView().setBackgroundDrawable(new BitmapDrawable(getResources(), SkinManager.getBitmapLowQuality(a.f.sdk_s_navbar_bg)));
-        if (this.fUR != null) {
-            this.fUR.b(this, i);
+        if (this.ggQ != null) {
+            this.ggQ.b(this, i);
         }
-        if (this.fUP != null) {
-            this.fUP.notifyDataSetChanged();
-            this.fUP.rk(i);
+        if (this.ggO != null) {
+            this.ggO.notifyDataSetChanged();
+            this.ggO.tw(i);
         }
     }
 
@@ -217,8 +217,8 @@ public class AlaPersonCenterExpActivity extends BaseActivity<AlaPersonCenterExpA
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.fUQ != null) {
-            this.fUQ.onDestroy();
+        if (this.ggP != null) {
+            this.ggP.onDestroy();
         }
     }
 }

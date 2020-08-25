@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import android.widget.GridView;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class BdGridView extends GridView {
     public BdGridView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.SystemClock;
+import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.account.AccountManager;
@@ -15,10 +16,12 @@ import com.baidu.android.imsdk.internal.IMSocketAddrProvider;
 import com.baidu.android.imsdk.request.Message;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
+import com.baidu.android.imsdk.upload.action.IMTrackManager;
+import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.imsdk.IMService;
+import com.baidu.imsdk.a;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -26,13 +29,14 @@ import java.util.Random;
 import java.util.TreeMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public final class IMConnection {
-    public static final int ERROR_LOGIN_FAIL = 7;
+    public static final int ERROR_LOGIN_FAIL = 20;
     private static final int MAX_RETRY_TIMES = 10;
     private static final int MSG_ID_SEND_MSG_TIMEOUT = 1;
     private static final double RECONNECTION_TIME_COEFFICIENT = 0.3d;
     private static final int RECONNECTION_TIME_INTERVAL = 30;
+    public static final long RETRY_DELAY_TIMES = 3000;
     private static final int SOCKET_CONNECTING_TIMOUT = 5000;
     private static final int SOCKET_TIMEOUT = 60000;
     private static final String TAG = "IMConnection";
@@ -53,7 +57,7 @@ public final class IMConnection {
     private Runnable mReconnectRunnable = new Runnable() { // from class: com.baidu.android.imsdk.internal.IMConnection.2
         @Override // java.lang.Runnable
         public void run() {
-            if (!IMService.isSmallFlow) {
+            if (!a.ayn) {
                 IMConnection.this.internalConnect(false);
             }
         }
@@ -114,7 +118,7 @@ public final class IMConnection {
     }
 
     private void connectImpl(final boolean z) {
-        if (!IMService.isSmallFlow) {
+        if (!a.ayn) {
             if (this.mConnected.get() || this.mConnectting.get()) {
                 LogUtils.i(TAG, "Connect return. mConnected:" + this.mConnected.get() + " mConnectting:" + this.mConnectting.get());
             } else if (!AccountManager.isLogin(this.mContext)) {
@@ -125,23 +129,54 @@ public final class IMConnection {
                 Utility.writeLoginFlag(this.mContext, "10Y", "connect begin");
                 LogUtils.i(TAG, "will get socket address .......");
                 IMSocketAddrProvider.getInstance(this.mContext).getSocketAddr(new IMSocketAddrProvider.IGetSocketAddrListener() { // from class: com.baidu.android.imsdk.internal.IMConnection.1
+                    /* JADX WARN: Removed duplicated region for block: B:12:0x00a4  */
+                    /* JADX WARN: Removed duplicated region for block: B:24:? A[RETURN, SYNTHETIC] */
                     @Override // com.baidu.android.imsdk.internal.IMSocketAddrProvider.IGetSocketAddrListener
+                    /*
+                        Code decompiled incorrectly, please refer to instructions dump.
+                    */
                     public void onGetSocketAddrResult(String str) {
+                        Exception e;
+                        int i;
+                        String str2;
+                        int i2;
+                        boolean submitForNetWork;
+                        int lastIndexOf;
                         LogUtils.i(IMConnection.TAG, "get socket address = " + str);
                         Utility.writeLoginFlag(IMConnection.this.mContext, "14N_0", "socketConnect :" + str);
-                        String str2 = Constants.URL_SOCKET_SERVER;
-                        int i = Constants.SOCKET_PORT_SSL;
+                        String str3 = null;
                         try {
-                            int lastIndexOf = str.lastIndexOf(":");
+                            lastIndexOf = str.lastIndexOf(":");
                             i = Integer.valueOf(str.substring(lastIndexOf + 1)).intValue();
-                            str2 = str.substring(0, lastIndexOf);
-                        } catch (Exception e) {
+                        } catch (Exception e2) {
+                            e = e2;
+                            i = -1;
+                        }
+                        try {
+                            str3 = str.substring(0, lastIndexOf);
+                        } catch (Exception e3) {
+                            e = e3;
                             e.printStackTrace();
                             new IMTrack.CrashBuilder(IMConnection.this.mContext).exception(Log.getStackTraceString(e)).build();
+                            if (TextUtils.isEmpty(str3)) {
+                            }
+                            str2 = Constants.URL_SOCKET_SERVER;
+                            i2 = Constants.SOCKET_PORT_SSL;
+                            submitForNetWork = TaskManager.getInstance(IMConnection.this.mContext).submitForNetWork(new ConnectTask(z, str2, i2, Integer.valueOf(IMConnection.this.mConnectId.incrementAndGet())));
+                            LogUtils.i(IMConnection.TAG, "ConnectTask add to ThreadPool = " + submitForNetWork);
+                            if (submitForNetWork) {
+                            }
                         }
-                        boolean submitForNetWork = TaskManager.getInstance(IMConnection.this.mContext).submitForNetWork(new ConnectTask(z, str2, i, Integer.valueOf(IMConnection.this.mConnectId.incrementAndGet())));
+                        if (!TextUtils.isEmpty(str3) || i == -1) {
+                            str2 = Constants.URL_SOCKET_SERVER;
+                            i2 = Constants.SOCKET_PORT_SSL;
+                        } else {
+                            i2 = i;
+                            str2 = str3;
+                        }
+                        submitForNetWork = TaskManager.getInstance(IMConnection.this.mContext).submitForNetWork(new ConnectTask(z, str2, i2, Integer.valueOf(IMConnection.this.mConnectId.incrementAndGet())));
                         LogUtils.i(IMConnection.TAG, "ConnectTask add to ThreadPool = " + submitForNetWork);
-                        if (!submitForNetWork) {
+                        if (submitForNetWork) {
                             IMConnection.this.mConnectting.set(false);
                             TaskManager.getInstance(IMConnection.this.mContext).clearTask();
                             LogUtils.d(IMConnection.TAG, "getUrlAsync..will disconnectedByPeer..." + str);
@@ -153,7 +188,7 @@ public final class IMConnection {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     private final class ConnectTask implements Runnable {
         Integer mConnectTaskId;
         String mIp;
@@ -208,8 +243,8 @@ public final class IMConnection {
                                     IMConnection.this.mMessageHandler.setCurrentSocketState(socketConnect);
                                 }
                             }
-                            IMConnection.this.mFailedNumber.set(0);
                             IMConnection.this.connectTrack(IMTrack.ConnectionBuilder.CONN_TYPE_SOCKET_CONNECTION_OK, "connect ok");
+                            IMConnection.this.mFailedNumber.set(0);
                             LogUtils.i(IMConnection.TAG, "ConnectTask run...create Socket ok, thread=" + Thread.currentThread().getName());
                             Utility.writeLoginFlag(IMConnection.this.mContext, "16Y", "connect ok");
                             IMSocketAddrProvider.getInstance(IMConnection.this.mContext).onSuccessSocketAddr(this.mIp + ":" + this.mPort);
@@ -290,8 +325,12 @@ public final class IMConnection {
             this.mConnectIps = this.mMessageHandler.mSocketIp + ":" + Constants.URL_SOCKET_PORT;
         }
         this.mConnectIps += ":" + RequsetNetworkUtils.getNetInfo(this.mContext);
-        LogUtils.d(TAG, "connectTrack ext:" + this.mConnectIps);
-        new IMTrack.ConnectionBuilder(this.mContext).startTime(this.mStartConnTime).stopTime(System.currentTimeMillis()).aliasId(i).reason(str).ext(this.mConnectIps).retryCount(this.mFailedNumber.get()).build();
+        int i2 = this.mFailedNumber.get();
+        LogUtils.d(TAG, "connectTrack ext:" + this.mConnectIps + "， mFailedNumber ：" + i2 + "， reason ： " + str);
+        new IMTrack.ConnectionBuilder(this.mContext).startTime(this.mStartConnTime).stopTime(System.currentTimeMillis()).aliasId(i).reason(str).ext(this.mConnectIps).retryCount(i2).build();
+        if (this.mFailedNumber.get() >= 5 && i != 401201) {
+            IMTrackManager.uploadIMRealAction(this.mContext, IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.CONNECTION).setConnection(IMPushPb.Connection.newBuilder().setStartTime(this.mStartConnTime).setStopTime(System.currentTimeMillis()).setAliasId(401206L).setReason(str).setExt(this.mConnectIps).setRetryCount(i2).build()).build());
+        }
         this.mConnectIps = "";
     }
 
@@ -338,7 +377,7 @@ public final class IMConnection {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public class ReadThread extends Thread {
         ReadThread() {
             setName("IM-IMConnection-readThread");
@@ -386,7 +425,7 @@ public final class IMConnection {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public class SendThread extends Thread {
         SendThread() {
             setName("IM-IMConnection-SendThread");
@@ -538,22 +577,21 @@ public final class IMConnection {
     }
 
     public boolean shouldRetryLogin() {
-        return !this.mStoped && this.mFailedNumber.get() < 10 && IMUserLoginByTokenMsg.sRetrytimes < 7;
+        return !this.mStoped && this.mFailedNumber.get() < 10 && IMUserLoginByTokenMsg.sRetrytimes < 20;
     }
 
     public void disconnectedByPeer() {
-        if (!IMService.isSmallFlow) {
+        if (!a.ayn) {
             LogUtils.i(TAG, "disconnectedByPeer, mStoped == " + this.mStoped);
-            connectTrack(IMTrack.ConnectionBuilder.CONN_TYPE_SOCKET_CONNECTION_STOP, "connect stop");
             fatalAllMessage();
             if (!this.mStoped) {
                 destroy();
                 this.mFailedNumber.incrementAndGet();
-                if (this.mFailedNumber.get() < 10 && IMUserLoginByTokenMsg.sRetrytimes < 7) {
+                if (this.mFailedNumber.get() < 10 && IMUserLoginByTokenMsg.sRetrytimes < 20) {
                     LogUtils.d(TAG, "now total create times....." + this.mFailedNumber.get());
-                    long computeDelayTime = computeDelayTime(this.mFailedNumber.get() + IMUserLoginByTokenMsg.sRetrytimes);
-                    this.mHandler.postDelayed(this.mReconnectRunnable, computeDelayTime);
-                    LogUtils.i(TAG, "Schedule retry-- retry times: " + this.mFailedNumber + " time delay: " + computeDelayTime);
+                    computeDelayTime(this.mFailedNumber.get() + IMUserLoginByTokenMsg.sRetrytimes);
+                    this.mHandler.postDelayed(this.mReconnectRunnable, RETRY_DELAY_TIMES);
+                    LogUtils.i(TAG, "Schedule retry-- retry times: " + this.mFailedNumber + " time delay: " + RETRY_DELAY_TIMES);
                 }
             }
         }
@@ -567,7 +605,7 @@ public final class IMConnection {
     }
 
     private void destroy() {
-        if (!IMService.isSmallFlow) {
+        if (!a.ayn) {
             LogUtils.i(TAG, "destroy");
             Utility.sendConnectionStateBroadCast(this.mContext, 2);
             this.mHandler.removeCallbacks(this.mSocketTimeoutRunnable);
@@ -590,7 +628,7 @@ public final class IMConnection {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     private class ConnectTimeOutTask implements Runnable {
         Integer mConnectTaskId;
         boolean mTaskStoped = false;
@@ -624,7 +662,7 @@ public final class IMConnection {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     private class MyHandler extends Handler {
         public MyHandler(Looper looper) {
             super(looper);

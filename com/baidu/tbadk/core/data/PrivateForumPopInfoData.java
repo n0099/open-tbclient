@@ -3,52 +3,52 @@ package com.baidu.tbadk.core.data;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import tbclient.PrivatePopInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class PrivateForumPopInfoData extends OrmObject {
-    private String dQr = null;
-    private String dQs = null;
-    private String dQt = null;
-    private Integer dQu = null;
+    private String dZK = null;
+    private String dZL = null;
+    private String dZM = null;
+    private Integer dZN = null;
 
-    public void wO(String str) {
-        this.dQr = str;
+    public void zc(String str) {
+        this.dZK = str;
     }
 
-    public String aVk() {
-        return this.dQr;
+    public String bdD() {
+        return this.dZK;
     }
 
-    public void wP(String str) {
-        this.dQs = str;
+    public void zd(String str) {
+        this.dZL = str;
     }
 
-    public String aVl() {
-        return this.dQs;
+    public String bdE() {
+        return this.dZL;
     }
 
-    public void wQ(String str) {
-        this.dQt = str;
+    public void ze(String str) {
+        this.dZM = str;
     }
 
-    public String aVm() {
-        return this.dQt;
+    public String bdF() {
+        return this.dZM;
     }
 
-    public void h(Integer num) {
-        this.dQu = num;
+    public void i(Integer num) {
+        this.dZN = num;
     }
 
-    public Integer aVn() {
-        return this.dQu;
+    public Integer bdG() {
+        return this.dZN;
     }
 
     public void a(PrivatePopInfo privatePopInfo) {
         if (privatePopInfo != null) {
             try {
-                this.dQr = privatePopInfo.pop_type;
-                this.dQs = privatePopInfo.pop_content;
-                this.dQt = privatePopInfo.pop_url;
-                this.dQu = privatePopInfo.pop_forum_id;
+                this.dZK = privatePopInfo.pop_type;
+                this.dZL = privatePopInfo.pop_content;
+                this.dZM = privatePopInfo.pop_url;
+                this.dZN = privatePopInfo.pop_forum_id;
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

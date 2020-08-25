@@ -7,7 +7,7 @@ import android.os.Build;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes18.dex */
+/* loaded from: classes14.dex */
 public class OrientationUtils {
     private static final boolean DEBUG = false;
     private static final String TAG = "OrientationUtils";

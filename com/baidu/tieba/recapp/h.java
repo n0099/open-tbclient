@@ -1,7 +1,7 @@
 package com.baidu.tieba.recapp;
 
 import android.view.View;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface h {
     void autoPlay(int i);
 

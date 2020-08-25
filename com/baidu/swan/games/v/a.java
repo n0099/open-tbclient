@@ -1,19 +1,18 @@
 package com.baidu.swan.games.v;
 
-import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
-    public com.baidu.swan.games.v.a.d dmP;
-    private int dmQ;
+    public com.baidu.swan.games.v.a.d dwU;
+    private int dwV;
     private long ts;
     public int type;
 
     public a(int i, com.baidu.swan.games.v.a.d dVar) {
         this.type = i;
-        this.dmP = dVar;
-        this.dmQ = d.aGy() ? 20 : 10;
+        this.dwU = dVar;
+        this.dwV = d.aPp() ? 20 : 10;
         this.ts = System.currentTimeMillis();
     }
 
@@ -21,10 +20,10 @@ public class a {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("type", this.type);
-            jSONObject.put("stage", this.dmQ);
-            jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.ts);
-            if (this.dmP != null) {
-                jSONObject.put("msg", this.dmP.toJSON());
+            jSONObject.put("stage", this.dwV);
+            jSONObject.put("ts", this.ts);
+            if (this.dwU != null) {
+                jSONObject.put("msg", this.dwU.toJSON());
             }
         } catch (JSONException e) {
         }

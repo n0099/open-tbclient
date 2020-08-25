@@ -5,20 +5,20 @@ import io.reactivex.internal.util.a;
 import io.reactivex.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes7.dex */
-public final class a<T> extends b<T> implements a.InterfaceC0910a<Object> {
+public final class a<T> extends b<T> implements a.InterfaceC0968a<Object> {
     volatile boolean done;
     boolean emitting;
-    final b<T> nXC;
+    final b<T> orA;
     io.reactivex.internal.util.a<Object> queue;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(b<T> bVar) {
-        this.nXC = bVar;
+        this.orA = bVar;
     }
 
     @Override // io.reactivex.q
     protected void a(u<? super T> uVar) {
-        this.nXC.subscribe(uVar);
+        this.orA.subscribe(uVar);
     }
 
     @Override // io.reactivex.u
@@ -45,7 +45,7 @@ public final class a<T> extends b<T> implements a.InterfaceC0910a<Object> {
             bVar.dispose();
             return;
         }
-        this.nXC.onSubscribe(bVar);
+        this.orA.onSubscribe(bVar);
         emitLoop();
     }
 
@@ -64,7 +64,7 @@ public final class a<T> extends b<T> implements a.InterfaceC0910a<Object> {
                         return;
                     }
                     this.emitting = true;
-                    this.nXC.onNext(t);
+                    this.orA.onNext(t);
                     emitLoop();
                 }
             }
@@ -87,7 +87,7 @@ public final class a<T> extends b<T> implements a.InterfaceC0910a<Object> {
                         aVar = new io.reactivex.internal.util.a<>(4);
                         this.queue = aVar;
                     }
-                    aVar.bD(NotificationLite.error(th));
+                    aVar.bF(NotificationLite.error(th));
                     return;
                 }
                 z = false;
@@ -96,7 +96,7 @@ public final class a<T> extends b<T> implements a.InterfaceC0910a<Object> {
             if (z) {
                 io.reactivex.e.a.onError(th);
             } else {
-                this.nXC.onError(th);
+                this.orA.onError(th);
             }
         }
     }
@@ -117,7 +117,7 @@ public final class a<T> extends b<T> implements a.InterfaceC0910a<Object> {
                         return;
                     }
                     this.emitting = true;
-                    this.nXC.onComplete();
+                    this.orA.onComplete();
                 }
             }
         }
@@ -138,8 +138,8 @@ public final class a<T> extends b<T> implements a.InterfaceC0910a<Object> {
         }
     }
 
-    @Override // io.reactivex.internal.util.a.InterfaceC0910a, io.reactivex.c.j
+    @Override // io.reactivex.internal.util.a.InterfaceC0968a, io.reactivex.c.j
     public boolean test(Object obj) {
-        return NotificationLite.acceptFull(obj, this.nXC);
+        return NotificationLite.acceptFull(obj, this.orA);
     }
 }

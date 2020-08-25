@@ -1,33 +1,29 @@
 package com.baidu.tieba.card.data;
 
-import com.xiaomi.mipush.sdk.Constants;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.bw;
 /* loaded from: classes15.dex */
-public class g implements com.baidu.tieba.horizonalList.widget.c {
-    public String forumAvatar;
-    public long forumId;
-    public String forumName;
-    public boolean isLiked;
-    public int rank;
+public class g extends l {
+    public static final BdUniqueId hmF = BdUniqueId.gen();
 
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj instanceof com.baidu.tbadk.widget.horizonalScrollListView.a) {
-            com.baidu.tbadk.widget.horizonalScrollListView.a aVar = (com.baidu.tbadk.widget.horizonalScrollListView.a) obj;
-            return aVar.forumId == this.forumId && aVar.forumName.equals(this.forumName) && aVar.forumAvatar.equals(this.forumAvatar) && aVar.isLiked == this.isLiked && aVar.rank == this.rank;
-        }
-        return false;
+    public g(bw bwVar) {
+        this.dUS = bwVar;
     }
 
-    public String toString() {
-        StringBuilder sb = new StringBuilder("[HotForumInfoData:");
-        sb.append("rank=").append(this.rank).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-        sb.append("forumAvatar=").append(this.forumAvatar).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-        sb.append("forumName=").append(this.forumName).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-        sb.append("forumId=").append(this.forumId).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-        sb.append("isLiked=").append(this.isLiked).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-        sb.append("]");
-        return sb.toString();
+    @Override // com.baidu.tieba.card.data.l, com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
+    public BdUniqueId getType() {
+        return hmF;
+    }
+
+    @Override // com.baidu.tieba.card.data.l, com.baidu.tieba.card.data.c, com.baidu.tbadk.core.data.AbsThreadDataSupport
+    public bw bce() {
+        return this.dUS;
+    }
+
+    public static boolean ab(bw bwVar) {
+        if (bwVar == null) {
+            return false;
+        }
+        return bwVar.bgz();
     }
 }

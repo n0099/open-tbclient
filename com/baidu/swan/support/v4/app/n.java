@@ -15,7 +15,7 @@ class n {
 
     /* loaded from: classes9.dex */
     public static class a {
-        public View dzc;
+        public View dIl;
     }
 
     /* loaded from: classes9.dex */
@@ -59,16 +59,16 @@ class n {
     }
 
     public static void setEpicenter(Object obj, View view) {
-        final Rect aQ = aQ(view);
+        final Rect aS = aS(view);
         ((Transition) obj).setEpicenterCallback(new Transition.EpicenterCallback() { // from class: com.baidu.swan.support.v4.app.n.1
             @Override // android.transition.Transition.EpicenterCallback
             public Rect onGetEpicenter(Transition transition) {
-                return aQ;
+                return aS;
             }
         });
     }
 
-    public static Object ah(Object obj) {
+    public static Object aj(Object obj) {
         Transition transition;
         if (obj == null || (transition = (Transition) obj) == null) {
             return null;
@@ -210,21 +210,21 @@ class n {
     private static void a(Transition transition, final a aVar) {
         if (transition != null) {
             transition.setEpicenterCallback(new Transition.EpicenterCallback() { // from class: com.baidu.swan.support.v4.app.n.3
-                private Rect dyW;
+                private Rect dIf;
 
                 @Override // android.transition.Transition.EpicenterCallback
                 public Rect onGetEpicenter(Transition transition2) {
-                    if (this.dyW == null && a.this.dzc != null) {
-                        this.dyW = n.aQ(a.this.dzc);
+                    if (this.dIf == null && a.this.dIl != null) {
+                        this.dIf = n.aS(a.this.dIl);
                     }
-                    return this.dyW;
+                    return this.dIf;
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static Rect aQ(View view) {
+    public static Rect aS(View view) {
         Rect rect = new Rect();
         int[] iArr = new int[2];
         view.getLocationOnScreen(iArr);

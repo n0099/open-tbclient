@@ -2,7 +2,7 @@ package com.baidu.tbadk.newFriends;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ResponseNewFriendUpdateUiMsg extends CustomResponsedMessage<Object> {
     public static final int DELETE = 1;
     public static final int NORMAL = -1;

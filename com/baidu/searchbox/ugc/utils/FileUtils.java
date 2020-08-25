@@ -9,6 +9,7 @@ import android.media.MediaMetadataRetriever;
 import android.net.Uri;
 import android.os.Environment;
 import android.text.TextUtils;
+import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.baidu.android.util.io.Closeables;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import java.io.BufferedInputStream;
@@ -21,7 +22,7 @@ import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 import org.apache.commons.codec.digest4util.EncryptUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes20.dex */
 public class FileUtils {
     private static final boolean DEBUG = false;
     private static final String IMAGE_DIR = "imgDir";
@@ -152,7 +153,7 @@ public class FileUtils {
     }
 
     public static Bitmap getRotatedBitmap(Bitmap bitmap, int i) {
-        if (i % 360 != 0) {
+        if (i % EncoderTextureDrawer.X264_WIDTH != 0) {
             Matrix matrix = new Matrix();
             matrix.postRotate(i);
             return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);

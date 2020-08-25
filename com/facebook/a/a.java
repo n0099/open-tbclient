@@ -2,9 +2,9 @@ package com.facebook.a;
 
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes8.dex */
 public interface a {
-    InputStream dBI() throws IOException;
+    InputStream dNI() throws IOException;
 
     long size();
 }

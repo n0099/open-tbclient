@@ -6,7 +6,7 @@ import com.googlecode.mp4parser.h264.write.CAVLCWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class SeqParameterSet extends BitstreamElement {
     public int bit_depth_chroma_minus8;
     public int bit_depth_luma_minus8;

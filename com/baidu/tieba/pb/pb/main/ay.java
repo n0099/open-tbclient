@@ -12,17 +12,17 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bv;
+import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tieba.R;
 import java.util.Random;
 /* loaded from: classes16.dex */
 public class ay {
-    private static TextView eLc;
-    private static final int[] kuV = {R.string.reply_hint_text_1, R.string.reply_hint_text_2, R.string.reply_hint_text_3};
+    private static TextView eVH;
+    private static final int[] kKA = {R.string.reply_hint_text_1, R.string.reply_hint_text_2, R.string.reply_hint_text_3};
 
-    public static Intent aB(Context context, String str) {
+    public static Intent aF(Context context, String str) {
         if (TextUtils.isEmpty(str) || context == null) {
             return null;
         }
@@ -34,22 +34,22 @@ public class ay {
         return intent;
     }
 
-    public static int cPr() {
-        return kuV[new Random().nextInt(kuV.length)];
+    public static int dah() {
+        return kKA[new Random().nextInt(kKA.length)];
     }
 
-    public static String KN(String str) {
+    public static String NG(String str) {
         return TbadkCoreApplication.getInst().getString(R.string.chosen_pb_original_bar, new Object[]{UtilHelper.getFixedBarText(str, 7, false)});
     }
 
-    public static SpannableString aH(bv bvVar) {
-        if (bvVar == null) {
+    public static SpannableString aI(bw bwVar) {
+        if (bwVar == null) {
             return null;
         }
         String str = "";
-        if (bvVar.aYi() == 1) {
+        if (bwVar.bgB() == 1) {
             str = TbadkCoreApplication.getInst().getString(R.string.yuanchuang);
-        } else if (bvVar.aYi() == 2) {
+        } else if (bwVar.bgB() == 2) {
             str = TbadkCoreApplication.getInst().getString(R.string.shoufa);
         }
         if (TextUtils.isEmpty(str)) {
@@ -65,10 +65,10 @@ public class ay {
         int equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(context) - (com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds44) * 2);
         int contentSize = TbConfig.getContentSize();
         try {
-            if (eLc == null) {
-                eLc = new TextView(TbadkCoreApplication.getInst().getContext());
+            if (eVH == null) {
+                eVH = new TextView(TbadkCoreApplication.getInst().getContext());
             }
-            TextView textView = eLc;
+            TextView textView = eVH;
             if (textView.getLayoutParams() == null) {
                 textView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             }
@@ -84,20 +84,20 @@ public class ay {
         }
     }
 
-    public static int cPs() {
+    public static int dai() {
         return UtilHelper.getDimenPixelSize(R.dimen.tbds88);
     }
 
-    public static int cPt() {
+    public static int daj() {
         return UtilHelper.getDimenPixelSize(R.dimen.tbds195);
     }
 
     public static int r(com.baidu.tieba.pb.data.f fVar) {
-        if (fVar == null || fVar.cKx() == null) {
+        if (fVar == null || fVar.cVl() == null) {
             return 0;
         }
-        if (fVar.cKx().aXI()) {
-            return (com.baidu.tbadk.core.util.x.isEmpty(fVar.cKU()) && (fVar.cKw() == null || StringUtils.isNull(fVar.cKw().getForumName()))) ? 0 : 2;
+        if (fVar.cVl().bgb()) {
+            return (com.baidu.tbadk.core.util.y.isEmpty(fVar.cVI()) && (fVar.cVk() == null || StringUtils.isNull(fVar.cVk().getForumName()))) ? 0 : 2;
         }
         return 1;
     }

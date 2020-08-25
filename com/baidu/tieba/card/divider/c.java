@@ -5,26 +5,26 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes15.dex */
 public class c extends com.baidu.tieba.card.b<b> {
     private int dividerHeight;
-    private View fbk;
-    private int hbl;
+    private View fmE;
+    private int hoc;
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.hbl = R.color.cp_bg_line_c;
+        this.hoc = R.color.cp_bg_line_c;
         this.dividerHeight = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
         getView().setOnClickListener(this);
-        this.fbk = getView().findViewById(R.id.card_divider);
+        this.fmE = getView().findViewById(R.id.card_divider);
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ao.setBackgroundColor(this.fbk, this.hbl);
+            ap.setBackgroundColor(this.fmE, this.hoc);
         }
         this.mSkinType = i;
     }
@@ -38,19 +38,19 @@ public class c extends com.baidu.tieba.card.b<b> {
     @Override // com.baidu.tieba.card.b
     public void a(b bVar) {
         if (bVar != null) {
-            this.fbk.setVisibility(0);
-            this.hbl = bVar.hbl;
+            this.fmE.setVisibility(0);
+            this.hoc = bVar.hoc;
             this.dividerHeight = bVar.dividerHeight;
-            bSr();
+            ccD();
             onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void bSr() {
-        ViewGroup.LayoutParams layoutParams = this.fbk.getLayoutParams();
+    private void ccD() {
+        ViewGroup.LayoutParams layoutParams = this.fmE.getLayoutParams();
         if (layoutParams != null && layoutParams.height != this.dividerHeight) {
             layoutParams.height = this.dividerHeight;
-            this.fbk.setLayoutParams(layoutParams);
+            this.fmE.setLayoutParams(layoutParams);
         }
     }
 

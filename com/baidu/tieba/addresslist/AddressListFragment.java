@@ -34,7 +34,7 @@ import com.baidu.tbadk.core.atomData.PersonGroupActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.atomData.SearchFriendActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.view.f;
 import com.baidu.tbadk.core.view.g;
 import com.baidu.tbadk.newFriends.RequestUnreadPointNum;
@@ -51,32 +51,32 @@ import com.baidu.tieba.addresslist.view.AssortView;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes15.dex */
-public class AddressListFragment extends BaseFragment implements f.c, a.InterfaceC0525a, AssortView.a {
-    private final CustomMessageListener dLm = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.addresslist.AddressListFragment.1
+public class AddressListFragment extends BaseFragment implements f.c, a.InterfaceC0571a, AssortView.a {
+    private final CustomMessageListener dUu = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.addresslist.AddressListFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
                 if (!j.isNetWorkAvailable() || !BdSocketLinkService.isAvailable()) {
-                    AddressListFragment.this.fel.completePullRefreshPostDelayed(0L);
+                    AddressListFragment.this.fpE.completePullRefreshPostDelayed(0L);
                 }
             }
         }
     };
-    private AddressListModel fed;
-    private a fee;
-    private b fef;
-    private c feg;
-    private d feh;
-    private long fei;
-    private AssortView fej;
-    private LinearLayout fek;
-    private BdListView fel;
-    private com.baidu.tieba.addresslist.a.a fem;
-    private TextView fen;
-    private ImageView feo;
-    private int fep;
-    private BaseFragmentActivity feq;
+    private d fpA;
+    private long fpB;
+    private AssortView fpC;
+    private LinearLayout fpD;
+    private BdListView fpE;
+    private com.baidu.tieba.addresslist.a.a fpF;
+    private TextView fpG;
+    private ImageView fpH;
+    private int fpI;
+    private BaseFragmentActivity fpJ;
+    private AddressListModel fpw;
+    private a fpx;
+    private b fpy;
+    private c fpz;
     private com.baidu.tbadk.core.c mLayoutMode;
     private View mParent;
     private g mPullView;
@@ -85,47 +85,47 @@ public class AddressListFragment extends BaseFragment implements f.c, a.Interfac
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         registerListener();
-        this.fei = 0L;
-        this.fed = new AddressListModel(getBaseFragmentActivity());
-        this.fed.setUniqueId(getUniqueId());
+        this.fpB = 0L;
+        this.fpw = new AddressListModel(getBaseFragmentActivity());
+        this.fpw.setUniqueId(getUniqueId());
     }
 
     private void registerListener() {
-        this.fee = new a();
-        registerListener(this.fee);
-        this.fef = new b();
-        registerListener(this.fef);
-        this.feg = new c();
-        registerListener(this.feg);
-        this.feh = new d();
-        registerListener(this.feh);
-        registerListener(this.dLm);
+        this.fpx = new a();
+        registerListener(this.fpx);
+        this.fpy = new b();
+        registerListener(this.fpy);
+        this.fpz = new c();
+        registerListener(this.fpz);
+        this.fpA = new d();
+        registerListener(this.fpA);
+        registerListener(this.dUu);
     }
 
     @Override // android.support.v4.app.Fragment
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        this.feq = getBaseFragmentActivity();
+        this.fpJ = getBaseFragmentActivity();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (com.baidu.tbadk.core.sharedPref.b.aZP().getBoolean(SharedPrefConfig.SHOW_NEW_ICON_FOR_NEW_FRIEND + TbadkCoreApplication.getCurrentAccount(), true)) {
-            com.baidu.tbadk.core.sharedPref.b.aZP().putBoolean(SharedPrefConfig.SHOW_NEW_ICON_FOR_NEW_FRIEND + TbadkCoreApplication.getCurrentAccount(), false);
+        if (com.baidu.tbadk.core.sharedPref.b.bik().getBoolean(SharedPrefConfig.SHOW_NEW_ICON_FOR_NEW_FRIEND + TbadkCoreApplication.getCurrentAccount(), true)) {
+            com.baidu.tbadk.core.sharedPref.b.bik().putBoolean(SharedPrefConfig.SHOW_NEW_ICON_FOR_NEW_FRIEND + TbadkCoreApplication.getCurrentAccount(), false);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        bsx();
+        bBu();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        this.fed.b(this);
+        this.fpw.b(this);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -138,53 +138,53 @@ public class AddressListFragment extends BaseFragment implements f.c, a.Interfac
     }
 
     private View a(LayoutInflater layoutInflater) {
-        this.mParent = LayoutInflater.from(this.feq.getPageContext().getPageActivity()).inflate(R.layout.addresslist_fragment, (ViewGroup) null);
-        this.mPullView = new g(this.feq.getPageContext());
-        this.fem = new com.baidu.tieba.addresslist.a.a(TbadkCoreApplication.getInst().getApplicationContext(), this.mLayoutMode);
-        this.fek = (LinearLayout) LayoutInflater.from(this.feq.getPageContext().getPageActivity()).inflate(R.layout.addresslist_search_layout, (ViewGroup) null, false);
-        this.fek.setOnClickListener(this);
-        this.feo = (ImageView) this.fek.findViewById(R.id.addresslist_search_icon);
-        this.fen = (TextView) this.fek.findViewById(R.id.addresslist_search_bar);
-        this.fel = (BdListView) this.mParent.findViewById(R.id.addresslist_contacts_list);
-        this.fel.setPullRefresh(this.mPullView);
-        this.fel.addHeaderView(this.fek);
-        BdListViewHelper.a(this.feq.getActivity(), this.fel, BdListViewHelper.HeadType.DEFAULT);
-        this.fel.setAdapter((ListAdapter) this.fem);
-        this.fel.setOnItemClickListener(this);
+        this.mParent = LayoutInflater.from(this.fpJ.getPageContext().getPageActivity()).inflate(R.layout.addresslist_fragment, (ViewGroup) null);
+        this.mPullView = new g(this.fpJ.getPageContext());
+        this.fpF = new com.baidu.tieba.addresslist.a.a(TbadkCoreApplication.getInst().getApplicationContext(), this.mLayoutMode);
+        this.fpD = (LinearLayout) LayoutInflater.from(this.fpJ.getPageContext().getPageActivity()).inflate(R.layout.addresslist_search_layout, (ViewGroup) null, false);
+        this.fpD.setOnClickListener(this);
+        this.fpH = (ImageView) this.fpD.findViewById(R.id.addresslist_search_icon);
+        this.fpG = (TextView) this.fpD.findViewById(R.id.addresslist_search_bar);
+        this.fpE = (BdListView) this.mParent.findViewById(R.id.addresslist_contacts_list);
+        this.fpE.setPullRefresh(this.mPullView);
+        this.fpE.addHeaderView(this.fpD);
+        BdListViewHelper.a(this.fpJ.getActivity(), this.fpE, BdListViewHelper.HeadType.DEFAULT);
+        this.fpE.setAdapter((ListAdapter) this.fpF);
+        this.fpE.setOnItemClickListener(this);
         this.mPullView.setListPullRefreshListener(this);
-        this.fej = (AssortView) this.mParent.findViewById(R.id.addresslist_assortview);
-        this.fej.setClickable(true);
-        this.fej.setOnTouchListener(this);
+        this.fpC = (AssortView) this.mParent.findViewById(R.id.addresslist_assortview);
+        this.fpC.setClickable(true);
+        this.fpC.setOnTouchListener(this);
         return this.mParent;
     }
 
-    private void bsw() {
-        this.fed.bsV();
+    private void bBt() {
+        this.fpw.bBR();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.fed.a(this);
-        bsw();
+        this.fpw.a(this);
+        bBt();
     }
 
-    private void bsx() {
+    private void bBu() {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new RequestUnreadPointNum());
     }
 
     private void bp(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
-        this.fem.setContacts(list);
-        this.fem.pV(this.fep);
-        this.fem.notifyDataSetChanged();
+        this.fpF.setContacts(list);
+        this.fpF.sh(this.fpI);
+        this.fpF.notifyDataSetChanged();
         if (list == null || list.size() == 0) {
-            this.fej.setVisibility(8);
+            this.fpC.setVisibility(8);
         } else {
-            this.fej.setVisibility(0);
+            this.fpC.setVisibility(0);
         }
     }
 
-    @Override // com.baidu.tieba.addresslist.b.a.InterfaceC0525a
+    @Override // com.baidu.tieba.addresslist.b.a.InterfaceC0571a
     public void bq(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
         bp(list);
     }
@@ -195,26 +195,26 @@ public class AddressListFragment extends BaseFragment implements f.c, a.Interfac
         if (this.mLayoutMode != null) {
             this.mLayoutMode.setNightMode(i == 1);
             this.mLayoutMode.onModeChanged(this.mParent);
-            this.mLayoutMode.onModeChanged(this.fek);
+            this.mLayoutMode.onModeChanged(this.fpD);
         }
-        ao.setBackgroundResource(this.fek, R.color.cp_bg_line_d);
-        ao.setBackgroundResource(this.fen, R.drawable.enter_forum_inputbox_top);
-        ao.setViewTextColor(this.fen, R.color.cp_cont_d, 1);
-        ao.setBackgroundResource(this.feo, R.drawable.icon_head_bar_search);
+        ap.setBackgroundResource(this.fpD, R.color.cp_bg_line_d);
+        ap.setBackgroundResource(this.fpG, R.drawable.enter_forum_inputbox_top);
+        ap.setViewTextColor(this.fpG, R.color.cp_cont_d, 1);
+        ap.setBackgroundResource(this.fpH, R.drawable.icon_head_bar_search);
         this.mPullView.changeSkin(i);
-        this.fem.notifyDataSetChanged();
-        this.fej.invalidate();
+        this.fpF.notifyDataSetChanged();
+        this.fpC.invalidate();
     }
 
     @Override // com.baidu.tbadk.core.view.f.c
     public void onListPullRefresh(boolean z) {
-        if (Math.abs(System.currentTimeMillis() - this.fei) <= 30000) {
-            this.fel.completePullRefreshPostDelayed(0L);
+        if (Math.abs(System.currentTimeMillis() - this.fpB) <= 30000) {
+            this.fpE.completePullRefreshPostDelayed(0L);
         } else if (l.isNetOk()) {
-            this.fei = System.currentTimeMillis();
-            this.fed.bsQ();
+            this.fpB = System.currentTimeMillis();
+            this.fpw.bBN();
         } else {
-            this.fel.completePullRefreshPostDelayed(0L);
+            this.fpE.completePullRefreshPostDelayed(0L);
             showToast(R.string.no_network_guide);
         }
     }
@@ -232,9 +232,9 @@ public class AddressListFragment extends BaseFragment implements f.c, a.Interfac
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         if (i == 0) {
             sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewFriendsActivityConfig(getActivity())));
-            this.fep = 0;
-            this.fem.pV(this.fep);
-            this.fem.notifyDataSetChanged();
+            this.fpI = 0;
+            this.fpF.sh(this.fpI);
+            this.fpF.notifyDataSetChanged();
             TiebaStatic.log("contacts_new");
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CLEAR_ADDRESSLIST_TIP));
         } else if (i == 1) {
@@ -243,10 +243,10 @@ public class AddressListFragment extends BaseFragment implements f.c, a.Interfac
             sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonGroupActivityConfig(getActivity(), 0, 1)));
             TiebaStatic.log("contacts_mygp");
         } else {
-            com.baidu.tbadk.coreExtra.relationship.a item = this.fem.getItem(i);
+            com.baidu.tbadk.coreExtra.relationship.a item = this.fpF.getItem(i);
             if (item != null && item.getUserId() > 0) {
                 if (item.getUserType() == 1) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_OFFICIAL_BAR_CHAT, new OfficalBarChatActivityConfig(getPageContext().getPageActivity(), item.getUserId(), item.getUserName(), item.bgH(), 0, 4)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_OFFICIAL_BAR_CHAT, new OfficalBarChatActivityConfig(getPageContext().getPageActivity(), item.getUserId(), item.getUserName(), item.bps(), 0, 4)));
                     return;
                 }
                 sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(getPageContext().getPageActivity(), String.valueOf(item.getUserId()), item.getUserName())));
@@ -255,16 +255,16 @@ public class AddressListFragment extends BaseFragment implements f.c, a.Interfac
     }
 
     @Override // com.baidu.tieba.addresslist.view.AssortView.a
-    public void Bi(String str) {
-        int Bv;
-        List<com.baidu.tbadk.coreExtra.relationship.a> bsU = this.fed.bsU();
-        if (bsU != null && bsU.size() != 0 && (Bv = this.fed.Bv(str)) >= 0) {
-            this.fel.setSelection(Bv + 5);
+    public void DC(String str) {
+        int DP;
+        List<com.baidu.tbadk.coreExtra.relationship.a> bBQ = this.fpw.bBQ();
+        if (bBQ != null && bBQ.size() != 0 && (DP = this.fpw.DP(str)) >= 0) {
+            this.fpE.setSelection(DP + 5);
         }
     }
 
     @Override // com.baidu.tieba.addresslist.view.AssortView.a
-    public void bsy() {
+    public void bBv() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -278,7 +278,7 @@ public class AddressListFragment extends BaseFragment implements f.c, a.Interfac
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 304001) {
-                AddressListFragment.this.fel.completePullRefreshPostDelayed(0L);
+                AddressListFragment.this.fpE.completePullRefreshPostDelayed(0L);
                 if (socketResponsedMessage.hasError() || !(socketResponsedMessage instanceof ResponseGetAddressListMessage)) {
                     AddressListFragment.this.showToast(StringUtils.isNull(socketResponsedMessage.getErrorString()) ? AddressListFragment.this.getResources().getString(R.string.neterror) : socketResponsedMessage.getErrorString(), false);
                     return;
@@ -290,7 +290,7 @@ public class AddressListFragment extends BaseFragment implements f.c, a.Interfac
                         List<com.baidu.tbadk.coreExtra.relationship.a> contacts = eVar.getContacts();
                         if (contacts.size() > 0) {
                             com.baidu.tbadk.coreExtra.relationship.a aVar = new com.baidu.tbadk.coreExtra.relationship.a();
-                            aVar.yS(eVar.getKey());
+                            aVar.Bi(eVar.getKey());
                             arrayList.add(aVar);
                         }
                         for (com.baidu.tbadk.coreExtra.relationship.a aVar2 : contacts) {
@@ -298,7 +298,7 @@ public class AddressListFragment extends BaseFragment implements f.c, a.Interfac
                         }
                     }
                 }
-                AddressListFragment.this.fed.bv(arrayList);
+                AddressListFragment.this.fpw.bv(arrayList);
             }
         }
     }
@@ -313,11 +313,11 @@ public class AddressListFragment extends BaseFragment implements f.c, a.Interfac
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (!com.baidu.tbadk.core.sharedPref.b.aZP().getBoolean(SharedPrefConfig.GET_ADDRESSLIST_SWITCH + TbadkCoreApplication.getCurrentAccount(), true)) {
-                AddressListFragment.this.fel.completePullRefreshPostDelayed(0L);
+            if (!com.baidu.tbadk.core.sharedPref.b.bik().getBoolean(SharedPrefConfig.GET_ADDRESSLIST_SWITCH + TbadkCoreApplication.getCurrentAccount(), true)) {
+                AddressListFragment.this.fpE.completePullRefreshPostDelayed(0L);
             }
             if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
-                AddressListFragment.this.fed.bv((List) customResponsedMessage.getData());
+                AddressListFragment.this.fpw.bv((List) customResponsedMessage.getData());
             }
         }
     }
@@ -341,15 +341,15 @@ public class AddressListFragment extends BaseFragment implements f.c, a.Interfac
                 if (responseNewFriendUpdateUiMsg.getAction() == 0) {
                     if (!StringUtils.isNull(responseNewFriendUpdateUiMsg.getKey()) && !StringUtils.isNull(responseNewFriendUpdateUiMsg.getName())) {
                         com.baidu.tbadk.coreExtra.relationship.a aVar = new com.baidu.tbadk.coreExtra.relationship.a();
-                        aVar.yS(responseNewFriendUpdateUiMsg.getKey());
+                        aVar.Bi(responseNewFriendUpdateUiMsg.getKey());
                         aVar.setQuanpin(responseNewFriendUpdateUiMsg.getQuanping());
                         aVar.setUserId(responseNewFriendUpdateUiMsg.getFriendId());
                         aVar.setUserName(responseNewFriendUpdateUiMsg.getName());
-                        aVar.es(responseNewFriendUpdateUiMsg.getPortrait());
-                        AddressListFragment.this.fed.a(aVar);
+                        aVar.fK(responseNewFriendUpdateUiMsg.getPortrait());
+                        AddressListFragment.this.fpw.a(aVar);
                     }
                 } else if (responseNewFriendUpdateUiMsg.getAction() == 1) {
-                    AddressListFragment.this.fed.dq(responseNewFriendUpdateUiMsg.getFriendId());
+                    AddressListFragment.this.fpw.dB(responseNewFriendUpdateUiMsg.getFriendId());
                 }
             }
         }
@@ -370,9 +370,9 @@ public class AddressListFragment extends BaseFragment implements f.c, a.Interfac
                     AddressListFragment.this.showToast(customResponsedMessage.getErrorString());
                     return;
                 }
-                AddressListFragment.this.fep = ((ResponseUnreadPointNum) customResponsedMessage).getNum();
-                AddressListFragment.this.fem.pV(AddressListFragment.this.fep);
-                AddressListFragment.this.fem.notifyDataSetChanged();
+                AddressListFragment.this.fpI = ((ResponseUnreadPointNum) customResponsedMessage).getNum();
+                AddressListFragment.this.fpF.sh(AddressListFragment.this.fpI);
+                AddressListFragment.this.fpF.notifyDataSetChanged();
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CLEAR_ADDRESSLIST_TIP));
             }
         }

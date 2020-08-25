@@ -3,7 +3,7 @@ package com.baidu.mobads.vo;
 import android.text.TextUtils;
 import com.baidu.mobads.interfaces.IXAdInstanceInfo;
 import com.baidu.mobads.interfaces.IXAdResponseInfo;
-import com.baidu.mobstat.Config;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -38,7 +38,7 @@ public class c implements IXAdResponseInfo {
         com.baidu.mobads.c.a.c = str;
         JSONObject jSONObject = new JSONObject(str);
         try {
-            JSONArray jSONArray = jSONObject.getJSONArray("ad");
+            JSONArray jSONArray = jSONObject.getJSONArray(MapBundleKey.MapObjKey.OBJ_AD);
             if (jSONArray != null) {
                 for (int i = 0; i < jSONArray.length(); i++) {
                     try {
@@ -51,7 +51,7 @@ public class c implements IXAdResponseInfo {
             this.p = new ArrayList<>();
         }
         this.a = jSONObject.optInt("n", 0);
-        this.d = jSONObject.optInt(Config.EVENT_HEAT_X, 0);
+        this.d = jSONObject.optInt("x", 0);
         this.e = jSONObject.optInt("y", 0);
         this.b = Boolean.valueOf(jSONObject.optInt("m", 0) == 1);
         this.c = jSONObject.optString("u", "");

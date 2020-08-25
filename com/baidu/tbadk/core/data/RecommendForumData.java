@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.db.TableDefine;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.FrsPage.RecommendForum;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class RecommendForumData implements Serializable {
     private static final long serialVersionUID = 1;
     public String mForumImageUrl;

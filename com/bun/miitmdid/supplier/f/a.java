@@ -5,7 +5,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-/* loaded from: classes19.dex */
+/* loaded from: classes11.dex */
 public class a {
     private static Uri a = Uri.parse("content://cn.nubia.identity/identity");
 

@@ -1,11 +1,11 @@
 package com.baidu.tieba.write.upload;
 
 import java.io.Serializable;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class VideoUploadData extends BaseUploadData implements Serializable {
     public VideoInfo videos;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class VideoInfo implements Serializable {
         public String authorUK;
         public String bgSound;

@@ -1,5 +1,5 @@
 package com.baidu.cesium.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 abstract class f {
     protected long c;
     protected int d;
@@ -19,5 +19,5 @@ abstract class f {
         return this.g;
     }
 
-    public abstract b i(byte[] bArr, int i, int i2);
+    public abstract b l(byte[] bArr, int i, int i2);
 }

@@ -12,16 +12,16 @@ import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.ala.guardthrone.b.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class b extends BaseAdapter {
     private Context mContext;
-    private List<a.b.C0566b> mList = new ArrayList();
+    private List<a.b.C0613b> mList = new ArrayList();
 
     public b(Context context) {
         this.mContext = context;
     }
 
-    public void setList(List<a.b.C0566b> list) {
+    public void setList(List<a.b.C0613b> list) {
         if (this.mList != null) {
             this.mList.clear();
             this.mList.addAll(list);
@@ -56,21 +56,21 @@ public class b extends BaseAdapter {
         if (view == null || view.getTag() == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.h.ala_guard_throne_rank_item_layout, (ViewGroup) null);
             aVar = new a();
-            aVar.fSr = (TextView) view.findViewById(a.g.tv_rank_label);
-            aVar.fSs = (HeadImageView) view.findViewById(a.g.avatar_rank);
-            aVar.fSt = (TextView) view.findViewById(a.g.tv_rank_name);
-            aVar.fSu = (TextView) view.findViewById(a.g.tv_rank_score);
-            a(aVar.fSs);
+            aVar.geq = (TextView) view.findViewById(a.g.tv_rank_label);
+            aVar.ger = (HeadImageView) view.findViewById(a.g.avatar_rank);
+            aVar.ges = (TextView) view.findViewById(a.g.tv_rank_name);
+            aVar.get = (TextView) view.findViewById(a.g.tv_rank_score);
+            a(aVar.ger);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
-        a.b.C0566b c0566b = (this.mList == null || this.mList.size() <= i) ? null : this.mList.get(i);
-        if (c0566b != null) {
-            aVar.fSr.setText(c0566b.rank);
-            aVar.fSs.startLoad(c0566b.portrait, 12, false);
-            aVar.fSt.setText(c0566b.nickname);
-            aVar.fSu.setText(this.mContext.getResources().getString(a.i.score_value, com.baidu.tieba.ala.guardthrone.e.a.Dg(c0566b.score)));
+        a.b.C0613b c0613b = (this.mList == null || this.mList.size() <= i) ? null : this.mList.get(i);
+        if (c0613b != null) {
+            aVar.geq.setText(c0613b.rank);
+            aVar.ger.startLoad(c0613b.portrait, 12, false);
+            aVar.ges.setText(c0613b.nickname);
+            aVar.get.setText(this.mContext.getResources().getString(a.i.score_value, com.baidu.tieba.ala.guardthrone.e.a.FB(c0613b.score)));
         }
         return view;
     }
@@ -83,12 +83,12 @@ public class b extends BaseAdapter {
         headImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     private class a {
-        public TextView fSr;
-        public HeadImageView fSs;
-        public TextView fSt;
-        public TextView fSu;
+        public TextView geq;
+        public HeadImageView ger;
+        public TextView ges;
+        public TextView get;
 
         private a() {
         }

@@ -6,43 +6,48 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private final InterfaceC0386a cGy;
-    private final ViewGroup cGz;
+    private final InterfaceC0432a cPw;
+    private final ViewGroup cPx;
+    private boolean cPy;
     private int mMarginTop;
 
     /* renamed from: com.baidu.swan.apps.res.widget.floatlayer.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC0386a {
-        a RX();
+    /* loaded from: classes8.dex */
+    public interface InterfaceC0432a {
+        a XS();
     }
 
-    public a(@NonNull InterfaceC0386a interfaceC0386a, @NonNull ViewGroup viewGroup, int i) {
-        this.cGy = interfaceC0386a;
-        this.cGz = viewGroup;
+    public a(@NonNull InterfaceC0432a interfaceC0432a, @NonNull ViewGroup viewGroup, int i) {
+        this.cPw = interfaceC0432a;
+        this.cPx = viewGroup;
         this.mMarginTop = i;
     }
 
     public void setMask(boolean z) {
-        Container arg = arg();
-        if (arg != null) {
-            arg.setClickable(z);
+        Container azt = azt();
+        if (azt != null) {
+            azt.setClickable(z);
         }
     }
 
+    public boolean azs() {
+        return this.cPy;
+    }
+
     private Context getContext() {
-        return this.cGz.getContext();
+        return this.cPx.getContext();
     }
 
     @Nullable
-    private Container arg() {
+    private Container azt() {
         Container container;
-        synchronized (this.cGz) {
+        synchronized (this.cPx) {
             int i = 0;
             while (true) {
-                if (i < this.cGz.getChildCount()) {
-                    View childAt = this.cGz.getChildAt(i);
+                if (i < this.cPx.getChildCount()) {
+                    View childAt = this.cPx.getChildAt(i);
                     if (!(childAt instanceof Container)) {
                         i++;
                     } else {
@@ -59,37 +64,41 @@ public class a {
     }
 
     @NonNull
-    private Container arh() {
-        Container arg;
+    private Container azu() {
+        Container azt;
         int i;
         int i2;
-        int i3 = -1;
-        synchronized (this.cGz) {
-            arg = arg();
-            if (arg == null) {
-                arg = new Container(getContext());
-                int height = this.cGz.getHeight() - this.mMarginTop;
-                if (this.cGz instanceof LinearLayout) {
+        int i3 = 0;
+        synchronized (this.cPx) {
+            azt = azt();
+            if (azt == null) {
+                azt = new Container(getContext());
+                int height = this.cPx.getHeight() - this.mMarginTop;
+                if (this.cPx instanceof LinearLayout) {
                     i = -height;
                 } else {
                     i = this.mMarginTop;
                 }
                 if (height <= 0) {
                     i = 0;
+                    height = -1;
+                }
+                if (!(this.cPx instanceof LinearLayout) && this.mMarginTop == 0) {
+                    height = -1;
+                }
+                if (this.cPy) {
                     i2 = -1;
                 } else {
+                    i3 = i;
                     i2 = height;
                 }
-                if ((this.cGz instanceof LinearLayout) || this.mMarginTop != 0) {
-                    i3 = i2;
-                }
-                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, i3);
-                layoutParams.setMargins(0, i, 0, 0);
-                arg.setLayoutParams(layoutParams);
-                this.cGz.addView(arg);
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, i2);
+                layoutParams.setMargins(0, i3, 0, 0);
+                azt.setLayoutParams(layoutParams);
+                this.cPx.addView(azt);
             }
         }
-        return arg;
+        return azt;
     }
 
     public void reset() {
@@ -97,39 +106,47 @@ public class a {
     }
 
     public void reset(boolean z) {
-        synchronized (this.cGz) {
-            Container arg = arg();
-            if (!z || arg == null || arg.getChildCount() <= 0) {
-                if (arg != null) {
-                    this.cGz.removeView(arg);
+        synchronized (this.cPx) {
+            Container azt = azt();
+            if (!z || azt == null || azt.getChildCount() <= 0) {
+                if (azt != null) {
+                    this.cPx.removeView(azt);
                 }
             }
         }
     }
 
+    @Nullable
     public View getView() {
-        Container arg = arg();
-        if (arg != null && arg.getChildCount() > 0) {
-            return arg.getChildAt(0);
+        Container azt = azt();
+        if (azt != null && azt.getChildCount() > 0) {
+            return azt.getChildAt(0);
         }
         return null;
     }
 
-    public void at(@NonNull View view) {
+    public void au(@NonNull View view) {
         if (view != getView()) {
             reset();
-            arh().addView(view);
+            azu().addView(view);
         }
     }
 
-    public boolean ari() {
-        Container arg = arg();
-        if (arg == null) {
+    public void a(@NonNull View view, ViewGroup.LayoutParams layoutParams) {
+        if (view != getView()) {
+            reset();
+            azu().addView(view, layoutParams);
+        }
+    }
+
+    public boolean azv() {
+        Container azt = azt();
+        if (azt == null) {
             return false;
         }
-        int childCount = arg.getChildCount();
+        int childCount = azt.getChildCount();
         for (int i = 0; i < childCount; i++) {
-            View childAt = arg.getChildAt(i);
+            View childAt = azt.getChildAt(i);
             if (childAt != null && childAt.getVisibility() == 0) {
                 return true;
             }

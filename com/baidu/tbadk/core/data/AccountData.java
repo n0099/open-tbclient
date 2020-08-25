@@ -7,7 +7,7 @@ import com.baidu.tbadk.data.UserVipInfoData;
 import com.baidu.tieba.R;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class AccountData implements Serializable {
     private static final long serialVersionUID = 4126203103788833116L;
     private String bjhAvatar;
@@ -27,6 +27,7 @@ public class AccountData implements Serializable {
     private String nameShow;
     private String personalBgUrl;
     private String portrait;
+    private String uk;
     private String mID = null;
     private String mAccount = null;
     private String mPassword = null;
@@ -256,5 +257,13 @@ public class AccountData implements Serializable {
 
     public void setNewGodStatus(int i) {
         this.mNewGodStatus = i;
+    }
+
+    public String getUk() {
+        return this.uk;
+    }
+
+    public void setUk(String str) {
+        this.uk = str;
     }
 }

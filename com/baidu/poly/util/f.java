@@ -4,9 +4,14 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.TextUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class f {
-    private static String M(int i, String str) {
+    public static boolean J() {
+        NetworkInfo activeNetworkInfo = getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
+    private static String L(int i, String str) {
         switch (i) {
             case 1:
             case 2:
@@ -35,15 +40,10 @@ public class f {
         }
     }
 
-    public static boolean Oz() {
-        NetworkInfo activeNetworkInfo = getActiveNetworkInfo();
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-    }
-
     private static NetworkInfo getActiveNetworkInfo() {
         ConnectivityManager connectivityManager;
-        Context OA = g.OA();
-        if (OA != null && (connectivityManager = (ConnectivityManager) OA.getSystemService("connectivity")) != null) {
+        Context Us = g.Us();
+        if (Us != null && (connectivityManager = (ConnectivityManager) Us.getSystemService("connectivity")) != null) {
             return connectivityManager.getActiveNetworkInfo();
         }
         return null;
@@ -54,6 +54,6 @@ public class f {
         if (activeNetworkInfo == null || !activeNetworkInfo.isConnected()) {
             return "0";
         }
-        return activeNetworkInfo.getType() == 1 ? "4" : activeNetworkInfo.getType() == 0 ? M(activeNetworkInfo.getSubtype(), activeNetworkInfo.getSubtypeName()) : "unknown";
+        return activeNetworkInfo.getType() == 1 ? "4" : activeNetworkInfo.getType() == 0 ? L(activeNetworkInfo.getSubtype(), activeNetworkInfo.getSubtypeName()) : "unknown";
     }
 }

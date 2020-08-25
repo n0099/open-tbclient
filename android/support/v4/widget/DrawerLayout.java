@@ -38,7 +38,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class DrawerLayout extends ViewGroup {
     private static final boolean ALLOW_EDGE_LOCK = false;
     static final boolean CAN_HIDE_DESCENDANTS;
@@ -97,7 +97,7 @@ public class DrawerLayout extends ViewGroup {
     private static final int[] THEME_ATTRS = {16843828};
     static final int[] LAYOUT_ATTRS = {16842931};
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface DrawerListener {
         void onDrawerClosed(@NonNull View view);
 
@@ -109,17 +109,17 @@ public class DrawerLayout extends ViewGroup {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     private @interface EdgeGravity {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     private @interface LockMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     private @interface State {
     }
 
@@ -128,7 +128,7 @@ public class DrawerLayout extends ViewGroup {
         SET_DRAWER_SHADOW_FROM_ELEVATION = Build.VERSION.SDK_INT >= 21;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static abstract class SimpleDrawerListener implements DrawerListener {
         @Override // android.support.v4.widget.DrawerLayout.DrawerListener
         public void onDrawerSlide(View view, float f) {
@@ -1313,7 +1313,7 @@ public class DrawerLayout extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: android.support.v4.widget.DrawerLayout.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -1368,7 +1368,7 @@ public class DrawerLayout extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class ViewDragCallback extends ViewDragHelper.Callback {
         private final int mAbsGravity;
         private ViewDragHelper mDragger;
@@ -1518,7 +1518,7 @@ public class DrawerLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class LayoutParams extends ViewGroup.MarginLayoutParams {
         private static final int FLAG_IS_CLOSING = 4;
         private static final int FLAG_IS_OPENED = 1;
@@ -1563,7 +1563,7 @@ public class DrawerLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     class AccessibilityDelegate extends AccessibilityDelegateCompat {
         private final Rect mTmpRect = new Rect();
 
@@ -1654,7 +1654,7 @@ public class DrawerLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     static final class ChildAccessibilityDelegate extends AccessibilityDelegateCompat {
         ChildAccessibilityDelegate() {
         }

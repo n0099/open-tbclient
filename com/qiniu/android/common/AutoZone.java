@@ -14,33 +14,33 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public final class AutoZone extends Zone {
-    public static final AutoZone nLk = new AutoZone();
-    private final String nLl;
-    private Map<ZoneIndex, ZoneInfo> nLm;
-    private Client nLn;
+    public static final AutoZone ofd = new AutoZone();
+    private final String ofe;
+    private Map<ZoneIndex, ZoneInfo> ofg;
+    private Client ofh;
 
     public AutoZone() {
         this("https://uc.qbox.me");
     }
 
     AutoZone(String str) {
-        this.nLm = new ConcurrentHashMap();
-        this.nLn = new Client();
-        this.nLl = str;
+        this.ofg = new ConcurrentHashMap();
+        this.ofh = new Client();
+        this.ofe = str;
     }
 
     private void a(ZoneIndex zoneIndex, CompletionHandler completionHandler) {
-        this.nLn.a(this.nLl + "/v2/query?ak=" + zoneIndex.nLr + "&bucket=" + zoneIndex.bucket, null, UpToken.nMO, completionHandler);
+        this.ofh.a(this.ofe + "/v2/query?ak=" + zoneIndex.ofl + "&bucket=" + zoneIndex.bucket, null, UpToken.ogI, completionHandler);
     }
 
-    ZoneInfo fZ(String str, String str2) {
-        return this.nLm.get(new ZoneIndex(str, str2));
+    ZoneInfo gq(String str, String str2) {
+        return this.ofg.get(new ZoneIndex(str, str2));
     }
 
-    ZoneInfo Sm(String str) {
+    ZoneInfo Vq(String str) {
         try {
             String[] split = str.split(":");
-            return fZ(split[0], new JSONObject(new String(UrlSafeBase64.decode(split[2]), "utf-8")).getString("scope").split(":")[0]);
+            return gq(split[0], new JSONObject(new String(UrlSafeBase64.decode(split[2]), "utf-8")).getString("scope").split(":")[0]);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -49,25 +49,25 @@ public final class AutoZone extends Zone {
 
     void a(final ZoneIndex zoneIndex, final Zone.QueryHandler queryHandler) {
         if (zoneIndex == null) {
-            queryHandler.Lb(-5);
-        } else if (this.nLm.get(zoneIndex) != null) {
+            queryHandler.onFailure(-5);
+        } else if (this.ofg.get(zoneIndex) != null) {
             queryHandler.onSuccess();
         } else {
             a(zoneIndex, new CompletionHandler() { // from class: com.qiniu.android.common.AutoZone.1
                 @Override // com.qiniu.android.http.CompletionHandler
                 public void a(ResponseInfo responseInfo, JSONObject jSONObject) {
-                    if (responseInfo.dQd() && jSONObject != null) {
+                    if (responseInfo.ecf() && jSONObject != null) {
                         try {
-                            AutoZone.this.nLm.put(zoneIndex, ZoneInfo.ev(jSONObject));
+                            AutoZone.this.ofg.put(zoneIndex, ZoneInfo.eG(jSONObject));
                             queryHandler.onSuccess();
                             return;
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            queryHandler.Lb(-1);
+                            queryHandler.onFailure(-1);
                             return;
                         }
                     }
-                    queryHandler.Lb(responseInfo.statusCode);
+                    queryHandler.onFailure(responseInfo.statusCode);
                 }
             });
         }
@@ -75,34 +75,34 @@ public final class AutoZone extends Zone {
 
     @Override // com.qiniu.android.common.Zone
     public synchronized String d(String str, boolean z, String str2) {
-        ZoneInfo Sm;
-        Sm = Sm(str);
-        return Sm != null ? super.a(Sm, z, str2) : null;
+        ZoneInfo Vq;
+        Vq = Vq(str);
+        return Vq != null ? super.a(Vq, z, str2) : null;
     }
 
     @Override // com.qiniu.android.common.Zone
     public void a(String str, Zone.QueryHandler queryHandler) {
-        a(ZoneIndex.So(str), queryHandler);
+        a(ZoneIndex.Vs(str), queryHandler);
     }
 
     @Override // com.qiniu.android.common.Zone
-    public synchronized void Sn(String str) {
+    public synchronized void Vr(String str) {
         ZoneInfo zoneInfo;
         if (str != null) {
             String host = URI.create(str).getHost();
-            Iterator<Map.Entry<ZoneIndex, ZoneInfo>> it = this.nLm.entrySet().iterator();
+            Iterator<Map.Entry<ZoneIndex, ZoneInfo>> it = this.ofg.entrySet().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     zoneInfo = null;
                     break;
                 }
                 zoneInfo = it.next().getValue();
-                if (zoneInfo.nLz.contains(host)) {
+                if (zoneInfo.oft.contains(host)) {
                     break;
                 }
             }
             if (zoneInfo != null) {
-                zoneInfo.Sn(host);
+                zoneInfo.Vr(host);
             }
         }
     }
@@ -111,14 +111,14 @@ public final class AutoZone extends Zone {
     /* loaded from: classes6.dex */
     public static class ZoneIndex {
         final String bucket;
-        final String nLr;
+        final String ofl;
 
         ZoneIndex(String str, String str2) {
-            this.nLr = str;
+            this.ofl = str;
             this.bucket = str2;
         }
 
-        static ZoneIndex So(String str) {
+        static ZoneIndex Vs(String str) {
             String[] split = str.split(":");
             try {
                 return new ZoneIndex(split[0], new JSONObject(new String(UrlSafeBase64.decode(split[2]), "utf-8")).getString("scope").split(":")[0]);
@@ -129,11 +129,11 @@ public final class AutoZone extends Zone {
         }
 
         public int hashCode() {
-            return (this.nLr.hashCode() * 37) + this.bucket.hashCode();
+            return (this.ofl.hashCode() * 37) + this.bucket.hashCode();
         }
 
         public boolean equals(Object obj) {
-            return obj == this || (obj != null && (obj instanceof ZoneIndex) && ((ZoneIndex) obj).nLr.equals(this.nLr) && ((ZoneIndex) obj).bucket.equals(this.bucket));
+            return obj == this || (obj != null && (obj instanceof ZoneIndex) && ((ZoneIndex) obj).ofl.equals(this.ofl) && ((ZoneIndex) obj).bucket.equals(this.bucket));
         }
     }
 }

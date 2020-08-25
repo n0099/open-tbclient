@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class c extends com.baidu.swan.gamecenter.c.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -15,7 +15,7 @@ public class c extends com.baidu.swan.gamecenter.c.a {
     }
 
     @Override // com.baidu.swan.gamecenter.c.a
-    public com.baidu.swan.apps.api.c.b b(@NonNull JSONObject jSONObject, @NonNull com.baidu.swan.apps.n.b bVar) {
+    public com.baidu.swan.apps.api.c.b b(@NonNull JSONObject jSONObject, @NonNull com.baidu.swan.apps.o.b bVar) {
         if (DEBUG) {
             Log.d("checkAppInstalled", "handle: " + jSONObject);
         }
@@ -34,7 +34,7 @@ public class c extends com.baidu.swan.gamecenter.c.a {
                     jSONObject3.put("versionName", packageInfo.versionName);
                     jSONObject3.put("versionCode", packageInfo.versionCode);
                     jSONObject2.put("data", jSONObject3);
-                    bVar.aj(jSONObject2);
+                    bVar.al(jSONObject2);
                 } else {
                     bVar.onFail(31016, "no package info");
                 }

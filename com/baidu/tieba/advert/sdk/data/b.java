@@ -1,6 +1,7 @@
 package com.baidu.tieba.advert.sdk.data;
 
 import android.text.TextUtils;
+import com.baidu.ala.helper.AlaConstants;
 import com.tencent.connect.share.QzonePublish;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -39,7 +40,7 @@ public class b {
         return bVar;
     }
 
-    public static b BA(String str) {
+    public static b DU(String str) {
         b bVar = new b();
         try {
             JSONObject jSONObject = new JSONObject(str);
@@ -52,7 +53,7 @@ public class b {
             bVar.videoMd5 = jSONObject.optString("videoMd5");
             bVar.videoDuration = jSONObject.optInt(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION);
             bVar.videoWidth = jSONObject.optInt("videoWidth");
-            bVar.videoHeight = jSONObject.optInt("videoHeight");
+            bVar.videoHeight = jSONObject.optInt(AlaConstants.STAT_VIDEO_HEIGHT);
             bVar.adVideoUrl = jSONObject.optString("adVideoUrl");
         } catch (JSONException e) {
             e.printStackTrace();
@@ -72,7 +73,7 @@ public class b {
             jSONObject.put("videoJumpUrl", this.videoJumpUrl);
             jSONObject.put(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION, this.videoDuration);
             jSONObject.put("videoWidth", this.videoWidth);
-            jSONObject.put("videoHeight", this.videoHeight);
+            jSONObject.put(AlaConstants.STAT_VIDEO_HEIGHT, this.videoHeight);
             jSONObject.put("adVideoUrl", this.adVideoUrl);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -84,7 +85,7 @@ public class b {
         return (System.currentTimeMillis() / 1000 >= this.startShowTime && System.currentTimeMillis() / 1000 <= this.endShowTime) || (this.startShowTime == 0 && this.endShowTime == 0);
     }
 
-    public boolean btf() {
+    public boolean bcy() {
         return !TextUtils.isEmpty(this.videoLocalPath);
     }
 }

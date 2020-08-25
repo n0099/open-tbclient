@@ -7,11 +7,11 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class SoundMediaHeaderBox extends AbstractMediaHeaderBox {
     public static final String TYPE = "smhd";
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_1 = null;
     private float balance;
 
     static {
@@ -20,8 +20,8 @@ public class SoundMediaHeaderBox extends AbstractMediaHeaderBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("SoundMediaHeaderBox.java", SoundMediaHeaderBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getBalance", "com.coremedia.iso.boxes.SoundMediaHeaderBox", "", "", "", "float"), 36);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.SoundMediaHeaderBox", "", "", "", FieldUtil.TYPE_STRING), 58);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "getBalance", "com.coremedia.iso.boxes.SoundMediaHeaderBox", "", "", "", "float"), 36);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "toString", "com.coremedia.iso.boxes.SoundMediaHeaderBox", "", "", "", FieldUtil.TYPE_STRING), 58);
     }
 
     public SoundMediaHeaderBox() {

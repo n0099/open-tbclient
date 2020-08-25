@@ -7,10 +7,10 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.aq.p;
+import com.baidu.swan.apps.ap.p;
 import com.baidu.swan.apps.impl.a.c;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends UnitedSchemeBaseInterceptor {
     @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor
     public String getInterceptorName() {
@@ -33,7 +33,7 @@ public class a extends UnitedSchemeBaseInterceptor {
                 p.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.impl.a.b.a.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        com.baidu.swan.apps.impl.a.a.agw().S(context, m);
+                        com.baidu.swan.apps.impl.a.a.anE().V(context, m);
                     }
                 }, "cloneSwanAppRunnable");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
@@ -46,7 +46,7 @@ public class a extends UnitedSchemeBaseInterceptor {
                 p.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.impl.a.b.a.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        com.baidu.swan.apps.impl.a.a.agw().kX("cloneResult = " + c.agy().kY(m2));
+                        com.baidu.swan.apps.impl.a.a.anE().mL("cloneResult = " + c.anG().mM(m2));
                     }
                 }, "installSwanAppRunnable");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);

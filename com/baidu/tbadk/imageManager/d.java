@@ -5,11 +5,11 @@ import com.baidu.live.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.aq;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class d {
     public static String ADD_USER_COLLECT_EMOTION_ACTION = "add_user_collect_emotoin";
     public static String IMAGE_URL = "image_url";
@@ -18,7 +18,7 @@ public class d {
     public static String SHARP_TEXT_PREFIX = "#(meme,collect_";
     public static String SHARP_TEXT_PREFIX_SHORT = "meme,collect_";
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public String pkgId;
         public String url;
@@ -51,14 +51,14 @@ public class d {
                 }
             }
             if (i2 > 0) {
-                ap apVar = new ap("c12223");
-                apVar.ah("obj_param1", i2);
-                TiebaStatic.log(apVar);
+                aq aqVar = new aq("c12223");
+                aqVar.ai("obj_param1", i2);
+                TiebaStatic.log(aqVar);
             }
             if (i > 0) {
-                ap apVar2 = new ap(TbadkCoreStatisticKey.FACESHOP_USE_EMOTION);
-                apVar2.ah("obj_param1", i);
-                TiebaStatic.log(apVar2);
+                aq aqVar2 = new aq(TbadkCoreStatisticKey.FACESHOP_USE_EMOTION);
+                aqVar2.ai("obj_param1", i);
+                TiebaStatic.log(aqVar2);
             }
         }
     }

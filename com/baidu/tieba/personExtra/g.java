@@ -16,7 +16,7 @@ public class g implements CustomMessageTask.CustomRunnable<String> {
         if (TbadkCoreApplication.getCurrentAccountObj() != null) {
             str = TbadkCoreApplication.getCurrentAccountObj().getID();
         }
-        String str2 = com.baidu.tbadk.core.c.a.aYG().xj("tb.my_pages").get("personal_myfollow_" + str);
+        String str2 = com.baidu.tbadk.core.c.a.bhb().zx("tb.my_pages").get("personal_myfollow_" + str);
         ResponsePersonFriendByUidLocalMessage responsePersonFriendByUidLocalMessage = new ResponsePersonFriendByUidLocalMessage();
         if (str2 != null) {
             try {

@@ -2,7 +2,7 @@ package com.tencent.mm.opensdk.openapi;
 
 import android.content.Context;
 import com.tencent.mm.opensdk.utils.Log;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class WXAPIFactory {
     private static final String TAG = "MicroMsg.PaySdk.WXFactory";
 

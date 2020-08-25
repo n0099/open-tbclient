@@ -8,14 +8,14 @@ import tv.chushou.zues.utils.h;
 public class a {
     public long b;
     private List<FlingObj> c;
-    public FlingObj nwE = new FlingObj();
+    public FlingObj nQu = new FlingObj();
 
     public void a() {
-        if (this.nwE != null && !h.isEmpty(this.nwE.roomId)) {
+        if (this.nQu != null && !h.isEmpty(this.nQu.roomId)) {
             if (this.c == null) {
                 this.c = new ArrayList();
             }
-            this.c.add(this.nwE.copy());
+            this.c.add(this.nQu.copy());
         }
     }
 
@@ -23,7 +23,7 @@ public class a {
         if (!h.isEmpty(this.c)) {
             String json = new Gson().toJson(this.c);
             this.c.clear();
-            com.kascend.chushou.toolkit.a.a.l("type", "7", "value", json);
+            com.kascend.chushou.toolkit.a.a.a("type", "7", "value", json);
         }
     }
 }

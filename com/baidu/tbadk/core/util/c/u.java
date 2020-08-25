@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util.c;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
 import com.baidu.tbadk.core.util.BitmapHelper;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class u extends v {
     public u(boolean z, boolean z2, int i) {
         super(z, z2, i);

@@ -3,7 +3,7 @@ package kotlin.collections;
 import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.h
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public class v extends u {
     public static final <T> boolean a(Iterable<? extends T> iterable, kotlin.jvm.a.b<? super T, Boolean> bVar) {
         kotlin.jvm.internal.q.m(iterable, "receiver$0");

@@ -1,47 +1,16 @@
 package com.baidu.ar.auth;
 
 import android.content.Context;
-import com.baidu.ar.auth.l;
-import com.baidu.ar.f.p;
-import com.xiaomi.mipush.sdk.Constants;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.Set;
 /* loaded from: classes11.dex */
-class m implements l {
-    private final List<String> jW = new ArrayList();
+interface m {
 
-    public m(f fVar) {
-        if (fVar == null || fVar.jF == null) {
-            return;
-        }
-        this.jW.addAll(fVar.jF);
+    /* loaded from: classes11.dex */
+    public interface a {
+        void a(Set<Integer> set);
     }
 
-    @Override // com.baidu.ar.auth.l
-    public void a(l.a aVar) {
-    }
+    void a(a aVar);
 
-    @Override // com.baidu.ar.auth.l
-    public void doAuth(Context context, final j jVar) {
-        final String aM = com.baidu.ar.f.j.aM(context.getPackageName());
-        final boolean contains = this.jW.contains(aM);
-        p.a(new Runnable() { // from class: com.baidu.ar.auth.m.1
-            @Override // java.lang.Runnable
-            public void run() {
-                if (jVar != null) {
-                    if (contains) {
-                        jVar.onSuccess();
-                        return;
-                    }
-                    StringBuilder sb = new StringBuilder();
-                    Iterator it = m.this.jW.iterator();
-                    while (it.hasNext()) {
-                        sb.append(((String) it.next()) + Constants.ACCEPT_TIME_SEPARATOR_SP);
-                    }
-                    jVar.onError(String.format("包名不符，正确值：%s 现为：%s", sb.toString(), aM), 0);
-                }
-            }
-        }, 0L);
-    }
+    void doAuth(Context context, k kVar);
 }

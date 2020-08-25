@@ -7,8 +7,11 @@ import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.atomData.MissonDetailsActivityConfig;
+import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.data.AlaInfoData;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.data.MetaData;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import org.json.JSONArray;
@@ -17,20 +20,26 @@ import tbclient.App;
 import tbclient.GoodsInfo;
 /* loaded from: classes15.dex */
 public class h {
-    private LinkedList<f> jsU;
-    private String jsW;
-    private String jsX;
+    public String eMt;
+    private ForumData iAy;
+    public MetaData jHL;
+    public String jHM;
+    private LinkedList<f> jHW;
+    private String jHY;
+    private String jHZ;
+    public int jIb;
+    private int replyPrivateFlag;
     private String fid = null;
-    private int jsT = 0;
-    private AdvertAppInfo jsV = null;
-    private LinkedList<AlaInfoData> jsY = new LinkedList<>();
+    private int jHV = 0;
+    private AdvertAppInfo jHX = null;
+    private LinkedList<AlaInfoData> jIa = new LinkedList<>();
 
     public h() {
-        this.jsU = null;
-        this.jsU = new LinkedList<>();
+        this.jHW = null;
+        this.jHW = new LinkedList<>();
     }
 
-    public void aI(String str, boolean z) {
+    public void aM(String str, boolean z) {
         try {
             a(new JSONObject(str), Boolean.valueOf(z));
         } catch (Exception e) {
@@ -38,24 +47,32 @@ public class h {
         }
     }
 
-    public LinkedList<f> czM() {
-        return this.jsU;
+    public LinkedList<f> cKA() {
+        return this.jHW;
     }
 
-    public LinkedList<AlaInfoData> czN() {
-        return this.jsY;
+    public LinkedList<AlaInfoData> cKB() {
+        return this.jIa;
     }
 
     public int getImageNum() {
-        return this.jsT;
+        return this.jHV;
     }
 
-    public String aXT() {
-        return this.jsW;
+    public String bgm() {
+        return this.jHY;
     }
 
-    public String aXU() {
-        return this.jsX;
+    public String bgn() {
+        return this.jHZ;
+    }
+
+    public int cKC() {
+        return this.replyPrivateFlag;
+    }
+
+    public ForumData bss() {
+        return this.iAy;
     }
 
     public void a(JSONObject jSONObject, Boolean bool) {
@@ -63,11 +80,30 @@ public class h {
             try {
                 JSONObject optJSONObject = jSONObject.optJSONObject("forum");
                 if (optJSONObject != null) {
+                    this.iAy = new ForumData();
+                    this.iAy.parserJson(optJSONObject);
                     this.fid = optJSONObject.optString("id");
-                    this.jsW = optJSONObject.optString("frist_class");
-                    this.jsX = optJSONObject.optString("second_class");
+                    this.jHY = optJSONObject.optString("frist_class");
+                    this.jHZ = optJSONObject.optString("second_class");
                 }
-                this.jsT = jSONObject.optInt("pic_amount", 0);
+                JSONObject optJSONObject2 = jSONObject.optJSONObject("thread");
+                if (optJSONObject2 != null) {
+                    JSONObject optJSONObject3 = optJSONObject2.optJSONObject("author");
+                    if (optJSONObject3 != null) {
+                        this.jHL = new MetaData();
+                        this.jHL.setUserId(optJSONObject3.optString("user_id"));
+                        this.jHL.setUserName(optJSONObject3.optString("user_name"));
+                        this.jHL.setName_show(optJSONObject3.optString("nickname"));
+                    }
+                    this.jHM = optJSONObject2.optString("first_post_id");
+                    this.jIb = optJSONObject2.optInt("is_multiforum_thread");
+                }
+                JSONObject optJSONObject4 = jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI);
+                if (optJSONObject4 != null) {
+                    this.replyPrivateFlag = optJSONObject4.optInt("reply_private_flag");
+                    this.eMt = optJSONObject4.optString("voice_message");
+                }
+                this.jHV = jSONObject.optInt("pic_amount", 0);
                 JSONArray optJSONArray = jSONObject.optJSONArray("pic_list");
                 if (optJSONArray != null) {
                     if (bool.booleanValue()) {
@@ -75,8 +111,8 @@ public class h {
                             f fVar = new f();
                             fVar.paserJson(optJSONArray.optJSONObject(i));
                             int index = fVar.getIndex();
-                            if (index >= 1 && index <= this.jsT) {
-                                this.jsU.addLast(fVar);
+                            if (index >= 1 && index <= this.jHV) {
+                                this.jHW.addLast(fVar);
                             }
                         }
                     } else {
@@ -84,14 +120,14 @@ public class h {
                             f fVar2 = new f();
                             fVar2.paserJson(optJSONArray.getJSONObject(length));
                             int index2 = fVar2.getIndex();
-                            if (index2 >= 1 && index2 <= this.jsT) {
-                                this.jsU.addFirst(fVar2);
+                            if (index2 >= 1 && index2 <= this.jHV) {
+                                this.jHW.addFirst(fVar2);
                             }
                         }
                     }
                 }
                 f(jSONObject, bool.booleanValue());
-                dz(jSONObject);
+                dK(jSONObject);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
@@ -105,19 +141,19 @@ public class h {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     AlaInfoData alaInfoData = new AlaInfoData();
                     alaInfoData.parserJson(optJSONArray.optJSONObject(i));
-                    this.jsY.addLast(alaInfoData);
+                    this.jIa.addLast(alaInfoData);
                 }
                 return;
             }
             for (int length = optJSONArray.length() - 1; length >= 0; length--) {
                 AlaInfoData alaInfoData2 = new AlaInfoData();
                 alaInfoData2.parserJson(optJSONArray.optJSONObject(length));
-                this.jsY.addFirst(alaInfoData2);
+                this.jIa.addFirst(alaInfoData2);
             }
         }
     }
 
-    private void dz(JSONObject jSONObject) {
+    private void dK(JSONObject jSONObject) {
         JSONObject optJSONObject;
         JSONArray optJSONArray = jSONObject.optJSONArray("app");
         if (optJSONArray != null && (optJSONObject = optJSONArray.optJSONObject(0)) != null) {
@@ -153,21 +189,21 @@ public class h {
             builder.verify = optJSONObject.optString(SmsLoginView.f.j);
             builder.ext_info = optJSONObject.optString(UgcConstant.EXT_INFO);
             builder.pos_name = optJSONObject.optString("pos_name");
-            GoodsInfo dA = dA(optJSONObject);
-            if (dA != null) {
+            GoodsInfo dL = dL(optJSONObject);
+            if (dL != null) {
                 builder.goods_info = new ArrayList();
-                builder.goods_info.add(dA);
+                builder.goods_info.add(dL);
             }
             builder.loc_code = optJSONObject.optString("loc_code");
             App build = builder.build(true);
-            this.jsV = new AdvertAppInfo();
-            this.jsV.a(build);
-            this.jsV.adPosition = "c0111";
-            this.jsV.dNk = this.fid;
+            this.jHX = new AdvertAppInfo();
+            this.jHX.a(build);
+            this.jHX.adPosition = "c0111";
+            this.jHX.dWt = this.fid;
         }
     }
 
-    private GoodsInfo dA(JSONObject jSONObject) {
+    private GoodsInfo dL(JSONObject jSONObject) {
         JSONObject optJSONObject;
         JSONArray optJSONArray = jSONObject.optJSONArray("goods_info");
         if (optJSONArray == null || (optJSONObject = optJSONArray.optJSONObject(0)) == null) {
@@ -196,7 +232,7 @@ public class h {
         return builder.build(true);
     }
 
-    public AdvertAppInfo czO() {
-        return this.jsV;
+    public AdvertAppInfo cKD() {
+        return this.jHX;
     }
 }

@@ -7,16 +7,15 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes16.dex */
 public class q {
-    private BaseFragmentActivity hjZ;
-    private PbModel kkl;
-    private a kmH = null;
-    protected final HttpMessageListener kmI = new HttpMessageListener(1003066) { // from class: com.baidu.tieba.pb.pb.main.q.1
+    private BaseFragmentActivity hwQ;
+    private a kBZ = null;
+    protected final HttpMessageListener kCa = new HttpMessageListener(1003066) { // from class: com.baidu.tieba.pb.pb.main.q.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003066 && (httpResponsedMessage instanceof ApplyCopyThreadResponseMessage)) {
                 if (httpResponsedMessage.getStatusCode() != 200) {
-                    q.this.kmH.n(-1, null, null);
+                    q.this.kBZ.n(-1, null, null);
                     return;
                 }
                 ApplyCopyThreadResponseMessage applyCopyThreadResponseMessage = (ApplyCopyThreadResponseMessage) httpResponsedMessage;
@@ -26,10 +25,11 @@ public class q {
                 if (errorCode == 0) {
                     errorMessage = applyCopyThreadResponseMessage.getRemindMessage();
                 }
-                q.this.kmH.n(errorCode, errorMessage, tid);
+                q.this.kBZ.n(errorCode, errorMessage, tid);
             }
         }
     };
+    private PbModel kzD;
 
     /* loaded from: classes16.dex */
     public interface a {
@@ -37,19 +37,19 @@ public class q {
     }
 
     public q(PbModel pbModel, BaseFragmentActivity baseFragmentActivity) {
-        this.kkl = pbModel;
-        this.hjZ = baseFragmentActivity;
-        this.hjZ.registerListener(this.kmI);
+        this.kzD = pbModel;
+        this.hwQ = baseFragmentActivity;
+        this.hwQ.registerListener(this.kCa);
     }
 
     public void a(a aVar) {
-        this.kmH = aVar;
+        this.kBZ = aVar;
     }
 
-    public void BE(int i) {
-        if (this.kkl != null) {
+    public void DY(int i) {
+        if (this.kzD != null) {
             HttpMessage httpMessage = new HttpMessage(1003066);
-            httpMessage.addParam("thread_id", this.kkl.cNL());
+            httpMessage.addParam("thread_id", this.kzD.cYB());
             httpMessage.addParam("status", String.valueOf(i));
             MessageManager.getInstance().sendMessage(httpMessage);
         }

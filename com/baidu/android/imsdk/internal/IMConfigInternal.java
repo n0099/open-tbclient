@@ -5,7 +5,7 @@ import android.util.Log;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class IMConfigInternal {
     private static final String TAG = IMConfigInternal.class.getSimpleName();
     private static IMConfigInternal sConfig;
@@ -21,7 +21,8 @@ public class IMConfigInternal {
     }
 
     public boolean setProductLine(Context context, int i) {
-        return Utility.writeIntData(context, Constants.KEY_PRODUCT_LINE, i);
+        Utility.writeIntData(context, Constants.KEY_PRODUCT_LINE, i);
+        return true;
     }
 
     public IIMConfig getIMConfig(Context context) {
@@ -84,7 +85,7 @@ public class IMConfigInternal {
 
     public int getSDKVersionValue(Context context) {
         try {
-            return Integer.valueOf("600" + String.format("%03d", Integer.valueOf(getProductLine(context))) + "6").intValue();
+            return Integer.valueOf("625" + String.format("%03d", Integer.valueOf(getProductLine(context))) + "6").intValue();
         } catch (Exception e) {
             new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
             return 0;

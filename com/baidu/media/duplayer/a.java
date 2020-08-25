@@ -2,7 +2,7 @@ package com.baidu.media.duplayer;
 
 import android.content.Context;
 import java.lang.reflect.Method;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class a {
     private static Object a;
     private static Method b;

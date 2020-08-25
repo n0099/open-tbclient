@@ -11,13 +11,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.baidu.pass.biometrics.base.R;
 @SuppressLint({"InlinedApi", "NewApi"})
-/* loaded from: classes4.dex */
+/* loaded from: classes20.dex */
 public final class PassBioGlobalUtils {
     private PassBioGlobalUtils() {
     }
 
-    public static void toastWithText(Context context, CharSequence charSequence, int i) {
-        toast(context, charSequence, -1, i);
+    public static String getZid(Context context) {
+        try {
+            Object invoke = Class.forName("com.baidu.sofire.ac.FH").getDeclaredMethod("gz", Context.class).invoke(null, context);
+            if (invoke != null) {
+                return invoke.toString();
+            }
+            return null;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public static void toast(Context context, CharSequence charSequence, int i, int i2) {
@@ -41,16 +50,7 @@ public final class PassBioGlobalUtils {
         }
     }
 
-    public static String getZid(Context context) {
-        try {
-            Object invoke = Class.forName("com.baidu.sofire.ac.FH").getDeclaredMethod("gz", Context.class).invoke(null, context);
-            if (invoke != null) {
-                return invoke.toString();
-            }
-            return null;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
+    public static void toastWithText(Context context, CharSequence charSequence, int i) {
+        toast(context, charSequence, -1, i);
     }
 }

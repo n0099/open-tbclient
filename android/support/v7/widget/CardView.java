@@ -14,7 +14,7 @@ import android.support.v7.cardview.R;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
-/* loaded from: classes3.dex */
+/* loaded from: classes19.dex */
 public class CardView extends FrameLayout {
     private static final int[] COLOR_BACKGROUND_ATTR = {16842801};
     private static final CardViewImpl IMPL;

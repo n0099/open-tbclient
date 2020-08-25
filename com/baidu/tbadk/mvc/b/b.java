@@ -1,5 +1,5 @@
 package com.baidu.tbadk.mvc.b;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface b extends d {
     boolean initByByteArray(byte[] bArr);
 

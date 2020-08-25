@@ -26,13 +26,13 @@ import java.util.List;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class l {
-    private static String Oc;
+    private static String OG;
     private static float displayMetricsDensity;
     static int displayMetricsHeightPixels;
     static int displayMetricsWidthPixels;
     public static boolean deviceDataInited = false;
     private static Toast mToast = null;
-    private static a Ob = null;
+    private static a OF = null;
     private static Handler mHandler = new Handler(Looper.getMainLooper());
     private static Runnable mRunnable = new Runnable() { // from class: com.baidu.adp.lib.util.l.1
         @Override // java.lang.Runnable
@@ -47,7 +47,7 @@ public class l {
     public interface a {
         View getToastContentView();
 
-        void mJ();
+        void oj();
 
         void setToastString(String str);
     }
@@ -103,10 +103,10 @@ public class l {
                 if (mToast != null) {
                     mToast.cancel();
                 }
-                if (Ob != null) {
-                    Ob.mJ();
+                if (OF != null) {
+                    OF.oj();
                 }
-                if (Ob == null || Ob.getToastContentView() == null) {
+                if (OF == null || OF.getToastContentView() == null) {
                     if (i == 3500) {
                         mToast = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 1);
                         w.b(mToast);
@@ -123,20 +123,20 @@ public class l {
                     } else {
                         mToast.setDuration(0);
                     }
-                    Ob.setToastString(str);
-                    mToast.setView(Ob.getToastContentView());
+                    OF.setToastString(str);
+                    mToast.setView(OF.getToastContentView());
                 }
                 mToast.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
             } else {
-                if (Ob != null) {
-                    Ob.mJ();
+                if (OF != null) {
+                    OF.oj();
                 }
-                if (!str.equals(Oc)) {
-                    if (Ob == null || Ob.getToastContentView() == null) {
+                if (!str.equals(OG)) {
+                    if (OF == null || OF.getToastContentView() == null) {
                         mToast.setText(str);
                     } else {
-                        Ob.setToastString(str);
-                        mToast.setView(Ob.getToastContentView());
+                        OF.setToastString(str);
+                        mToast.setView(OF.getToastContentView());
                     }
                 }
                 int dip2px = dip2px(BdBaseApplication.getInst().getApp(), 100.0f);
@@ -150,7 +150,7 @@ public class l {
                 }
                 mToast.setGravity(17, 0, dip2px);
             }
-            Oc = str;
+            OG = str;
             mHandler.postDelayed(mRunnable, i);
             mToast.show();
         }
@@ -514,11 +514,11 @@ public class l {
         return Pattern.compile("[^0-9]").matcher(str).replaceAll("").trim();
     }
 
-    public static a mI() {
-        return Ob;
+    public static a oi() {
+        return OF;
     }
 
     public static void a(a aVar) {
-        Ob = aVar;
+        OF = aVar;
     }
 }

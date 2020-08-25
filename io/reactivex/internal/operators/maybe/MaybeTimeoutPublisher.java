@@ -7,17 +7,17 @@ import io.reactivex.m;
 import io.reactivex.o;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.d;
+import org.b.d;
 /* loaded from: classes7.dex */
 public final class MaybeTimeoutPublisher<T, U> extends a<T, T> {
     final o<? extends T> fallback;
-    final org.a.b<U> nTg;
+    final org.b.b<U> onb;
 
     @Override // io.reactivex.k
     protected void b(m<? super T> mVar) {
         TimeoutMainMaybeObserver timeoutMainMaybeObserver = new TimeoutMainMaybeObserver(mVar, this.fallback);
         mVar.onSubscribe(timeoutMainMaybeObserver);
-        this.nTg.subscribe(timeoutMainMaybeObserver.other);
+        this.onb.subscribe(timeoutMainMaybeObserver.other);
         this.source.a(timeoutMainMaybeObserver);
     }
 
@@ -109,25 +109,25 @@ public final class MaybeTimeoutPublisher<T, U> extends a<T, T> {
             this.parent = timeoutMainMaybeObserver;
         }
 
-        @Override // io.reactivex.j, org.a.c
+        @Override // io.reactivex.j, org.b.c
         public void onSubscribe(d dVar) {
             if (SubscriptionHelper.setOnce(this, dVar)) {
                 dVar.request(Long.MAX_VALUE);
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(Object obj) {
             get().cancel();
             this.parent.otherComplete();
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
             this.parent.otherError(th);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
             this.parent.otherComplete();
         }

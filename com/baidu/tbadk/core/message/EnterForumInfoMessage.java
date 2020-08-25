@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.message;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class EnterForumInfoMessage extends CustomResponsedMessage<List<String>> {
     private List<String> likeForumData;
 

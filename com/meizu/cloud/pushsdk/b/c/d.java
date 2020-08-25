@@ -3,7 +3,7 @@ package com.meizu.cloud.pushsdk.b.c;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpOptions;
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes5.dex */
+/* loaded from: classes20.dex */
 public class d {
     public static boolean a(String str) {
         return str.equals("POST") || str.equals(HttpPut.METHOD_NAME) || str.equals("PATCH") || str.equals("PROPPATCH") || str.equals("REPORT");

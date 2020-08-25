@@ -1,7 +1,7 @@
 package com.baidu.tbadk.util;
 
 import android.util.SparseArray;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ChatStatusManager {
     public static final int GROUP_CHAT = 2;
     public static final int OFFICIALBAR_CHAT = 1;
@@ -13,7 +13,7 @@ public class ChatStatusManager {
     private static ChatStatusManager instance;
     private SparseArray<a> mStatus = new SparseArray<>();
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public String curId;
         public boolean isOpen;

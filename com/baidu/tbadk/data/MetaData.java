@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.tbadk.core.data.ThemeCardInUserData;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.coreExtra.data.BazhuGradeData;
 import com.baidu.tbadk.coreExtra.data.NewGodData;
 import java.io.Serializable;
@@ -23,7 +23,7 @@ import tbclient.GodInfo;
 import tbclient.Icon;
 import tbclient.TshowInfo;
 import tbclient.User;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.userLike.a, Serializable {
     private static final long serialVersionUID = -2658065756886586092L;
     private AlaInfoData alaInfo;
@@ -491,6 +491,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
                 this.mBazhuGrade.parserProtobuf(user.bazhu_grade);
             }
             this.isDefaultAvatar = user.is_default_avatar.intValue() == 1;
+            this.uk = user.uk;
         }
     }
 
@@ -693,6 +694,6 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
     }
 
     public boolean showBazhuGrade() {
-        return ((this.baijiahaoInfo != null && (this.baijiahaoInfo.auth_id.intValue() != 0 || !as.isEmpty(this.baijiahaoInfo.auth_desc))) || this.mBazhuGrade == null || as.isEmpty(this.mBazhuGrade.getDesc())) ? false : true;
+        return ((this.baijiahaoInfo != null && (this.baijiahaoInfo.auth_id.intValue() != 0 || !at.isEmpty(this.baijiahaoInfo.auth_desc))) || this.mBazhuGrade == null || at.isEmpty(this.mBazhuGrade.getDesc())) ? false : true;
     }
 }

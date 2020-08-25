@@ -9,41 +9,41 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
-    private InterfaceC0513a eJX;
-    private HttpMessageListener eJY = new HttpMessageListener(CmdConfigHttp.CMD_TRACK_CONFIG) { // from class: com.baidu.tbadk.trackConfig.a.1
+    private HttpMessageListener eDd = new HttpMessageListener(CmdConfigHttp.CMD_TRACK_CONFIG) { // from class: com.baidu.tbadk.trackConfig.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof TrackConfigResponseMessage) {
                 TrackConfigResponseMessage trackConfigResponseMessage = (TrackConfigResponseMessage) httpResponsedMessage;
-                if (a.this.eJX != null) {
-                    a.this.eJX.u(trackConfigResponseMessage.isSuccess(), trackConfigResponseMessage.getData());
+                if (a.this.eUD != null) {
+                    a.this.eUD.x(trackConfigResponseMessage.isSuccess(), trackConfigResponseMessage.getData());
                 }
             }
         }
     };
+    private InterfaceC0559a eUD;
 
     /* renamed from: com.baidu.tbadk.trackConfig.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public interface InterfaceC0513a {
-        void u(boolean z, boolean z2);
+    /* loaded from: classes2.dex */
+    public interface InterfaceC0559a {
+        void x(boolean z, boolean z2);
     }
 
     public a() {
-        MessageManager.getInstance().registerListener(this.eJY);
+        MessageManager.getInstance().registerListener(this.eDd);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_TRACK_CONFIG, TbConfig.SERVER_ADDRESS + TbConfig.GET_TRACK_CONFIG);
         tbHttpMessageTask.setResponsedClass(TrackConfigResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        f.ap(TbSingleton.getInstance().isIsOpenTrack());
+        f.aq(TbSingleton.getInstance().isIsOpenTrack());
     }
 
     public void startLoad() {
         MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_TRACK_CONFIG));
     }
 
-    public void a(InterfaceC0513a interfaceC0513a) {
-        this.eJX = interfaceC0513a;
+    public void a(InterfaceC0559a interfaceC0559a) {
+        this.eUD = interfaceC0559a;
     }
 }

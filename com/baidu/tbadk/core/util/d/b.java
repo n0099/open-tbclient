@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util.d;
 
 import android.graphics.drawable.Drawable;
 import com.baidu.tbadk.core.util.SvgManager;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class b extends a {
     public b(int i) {
         super(i);
@@ -10,6 +10,6 @@ public class b extends a {
 
     @Override // com.baidu.tbadk.core.util.d.a
     public Drawable getDrawable() {
-        return SvgManager.baR().a(this.dXg, this.edh);
+        return SvgManager.bjq().a(this.egM, this.emQ);
     }
 }

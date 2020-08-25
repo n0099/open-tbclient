@@ -5,7 +5,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import java.io.File;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class o extends SQLiteOpenHelper {
     private Context mContext;
 
@@ -21,7 +21,7 @@ public class o extends SQLiteOpenHelper {
         sQLiteDatabase.execSQL("CREATE TABLE flow (_id INTEGER PRIMARY KEY AUTOINCREMENT,flowid TEXT,flowhandle INTEGER,state TEXT,begintime LONG,endtime LONG,content TEXT,option INTEGER,reserve1 TEXT,reserve2 TEXT,slot TEXT,extend TEXT );");
         sQLiteDatabase.execSQL("CREATE TABLE config (eventid TEXT PRIMARY KEY,type TEXT,recordrule TEXT,uploadrule TEXT,cycle INTEGER,switch TEXT,sample INTEGER,reserve1 TEXT,reserve2 TEXT,extend TEXT);");
         sQLiteDatabase.execSQL("CREATE TABLE file (filename TEXT PRIMARY KEY,state TEXT,reserve1 TEXT,reserve2 TEXT);");
-        u.aNN().putString("ubc_version_md5", "0");
+        u.aWn().putString("ubc_version_md5", "0");
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
@@ -29,23 +29,23 @@ public class o extends SQLiteOpenHelper {
         while (i < i2) {
             switch (i) {
                 case 1:
-                    F(sQLiteDatabase);
-                    break;
-                case 2:
                     I(sQLiteDatabase);
                     break;
+                case 2:
+                    L(sQLiteDatabase);
+                    break;
                 case 3:
-                    G(sQLiteDatabase);
+                    J(sQLiteDatabase);
                     break;
                 case 4:
-                    H(sQLiteDatabase);
+                    K(sQLiteDatabase);
                     break;
             }
             i++;
         }
     }
 
-    private void F(SQLiteDatabase sQLiteDatabase) {
+    private void I(SQLiteDatabase sQLiteDatabase) {
         try {
             sQLiteDatabase.execSQL("CREATE TABLE file (filename TEXT PRIMARY KEY,state TEXT,reserve1 TEXT,reserve2 TEXT);");
         } catch (SQLException e) {
@@ -53,7 +53,7 @@ public class o extends SQLiteOpenHelper {
         }
     }
 
-    private void G(SQLiteDatabase sQLiteDatabase) {
+    private void J(SQLiteDatabase sQLiteDatabase) {
         try {
             sQLiteDatabase.execSQL("ALTER TABLE event ADD COLUMN extend TEXT");
             sQLiteDatabase.execSQL("ALTER TABLE flow ADD COLUMN extend TEXT");
@@ -62,7 +62,7 @@ public class o extends SQLiteOpenHelper {
         }
     }
 
-    private void H(SQLiteDatabase sQLiteDatabase) {
+    private void K(SQLiteDatabase sQLiteDatabase) {
         try {
             sQLiteDatabase.execSQL("ALTER TABLE config ADD COLUMN extend TEXT");
         } catch (SQLException e) {
@@ -70,7 +70,7 @@ public class o extends SQLiteOpenHelper {
         }
     }
 
-    private void I(SQLiteDatabase sQLiteDatabase) {
+    private void L(SQLiteDatabase sQLiteDatabase) {
         try {
             sQLiteDatabase.execSQL("ALTER TABLE config ADD COLUMN sample TEXT");
             sQLiteDatabase.execSQL("ALTER TABLE flow ADD COLUMN slot TEXT");
@@ -105,12 +105,12 @@ public class o extends SQLiteOpenHelper {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long aMN() {
+    public long aVn() {
         return new File(this.mContext.getDatabasePath("OpenStat.db").getPath()).length();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long aMO() {
+    public long aVo() {
         return new File(this.mContext.getDatabasePath("OpenStat.db").getPath() + "-journal").length();
     }
 }

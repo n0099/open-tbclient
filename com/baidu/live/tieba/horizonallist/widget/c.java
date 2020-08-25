@@ -5,19 +5,19 @@ import android.util.Log;
 import android.view.ViewConfiguration;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class c {
-    private static float bhk = 8.0f;
-    private static float bhl;
-    private final a bhh;
-    private final a bhi;
-    private final boolean bhj;
+    private static float bmS = 8.0f;
+    private static float bmT;
+    private final a bmP;
+    private final a bmQ;
+    private final boolean bmR;
     private Interpolator mInterpolator;
     private int mMode;
 
     static {
-        bhl = 1.0f;
-        bhl = 1.0f / s(1.0f);
+        bmT = 1.0f;
+        bmT = 1.0f / s(1.0f);
     }
 
     public c(Context context) {
@@ -26,13 +26,13 @@ public class c {
 
     public static float s(float f) {
         float exp;
-        float f2 = bhk * f;
+        float f2 = bmS * f;
         if (f2 < 1.0f) {
             exp = f2 - (1.0f - ((float) Math.exp(-f2)));
         } else {
             exp = ((1.0f - ((float) Math.exp(1.0f - f2))) * (1.0f - 0.36787945f)) + 0.36787945f;
         }
-        return exp * bhl;
+        return exp * bmT;
     }
 
     public c(Context context, Interpolator interpolator) {
@@ -41,9 +41,9 @@ public class c {
 
     public c(Context context, Interpolator interpolator, boolean z) {
         this.mInterpolator = interpolator;
-        this.bhj = z;
-        this.bhh = new a(context);
-        this.bhi = new a(context);
+        this.bmR = z;
+        this.bmP = new a(context);
+        this.bmQ = new a(context);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -52,20 +52,20 @@ public class c {
     }
 
     public final void setFriction(float f) {
-        this.bhh.setFriction(f);
-        this.bhi.setFriction(f);
+        this.bmP.setFriction(f);
+        this.bmQ.setFriction(f);
     }
 
     public final boolean isFinished() {
-        return this.bhh.mFinished && this.bhi.mFinished;
+        return this.bmP.mFinished && this.bmQ.mFinished;
     }
 
     public final int getCurrX() {
-        return this.bhh.mCurrentPosition;
+        return this.bmP.mCurrentPosition;
     }
 
     public float getCurrVelocity() {
-        return (float) Math.sqrt((this.bhh.bho * this.bhh.bho) + (this.bhi.bho * this.bhi.bho));
+        return (float) Math.sqrt((this.bmP.bmW * this.bmP.bmW) + (this.bmQ.bmW * this.bmQ.bmW));
     }
 
     public boolean computeScrollOffset() {
@@ -75,8 +75,8 @@ public class c {
         }
         switch (this.mMode) {
             case 0:
-                long currentAnimationTimeMillis = AnimationUtils.currentAnimationTimeMillis() - this.bhh.mStartTime;
-                int i = this.bhh.mDuration;
+                long currentAnimationTimeMillis = AnimationUtils.currentAnimationTimeMillis() - this.bmP.mStartTime;
+                int i = this.bmP.mDuration;
                 if (currentAnimationTimeMillis < i) {
                     float f = ((float) currentAnimationTimeMillis) / i;
                     if (this.mInterpolator == null) {
@@ -84,19 +84,19 @@ public class c {
                     } else {
                         interpolation = this.mInterpolator.getInterpolation(f);
                     }
-                    this.bhh.t(interpolation);
-                    this.bhi.t(interpolation);
+                    this.bmP.t(interpolation);
+                    this.bmQ.t(interpolation);
                     break;
                 } else {
                     abortAnimation();
                     break;
                 }
             case 1:
-                if (!this.bhh.mFinished && !this.bhh.update() && !this.bhh.Ik()) {
-                    this.bhh.finish();
+                if (!this.bmP.mFinished && !this.bmP.update() && !this.bmP.Od()) {
+                    this.bmP.finish();
                 }
-                if (!this.bhi.mFinished && !this.bhi.update() && !this.bhi.Ik()) {
-                    this.bhi.finish();
+                if (!this.bmQ.mFinished && !this.bmQ.update() && !this.bmQ.Od()) {
+                    this.bmQ.finish();
                     break;
                 }
                 break;
@@ -106,13 +106,13 @@ public class c {
 
     public void startScroll(int i, int i2, int i3, int i4, int i5) {
         this.mMode = 0;
-        this.bhh.o(i, i3, i5);
-        this.bhi.o(i2, i4, i5);
+        this.bmP.o(i, i3, i5);
+        this.bmQ.o(i2, i4, i5);
     }
 
     public boolean springBack(int i, int i2, int i3, int i4, int i5, int i6) {
         this.mMode = 1;
-        return this.bhh.p(i, i3, i4) || this.bhi.p(i2, i5, i6);
+        return this.bmP.p(i, i3, i4) || this.bmQ.p(i2, i5, i6);
     }
 
     public void fling(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
@@ -121,55 +121,55 @@ public class c {
 
     public void fling(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10) {
         int i11;
-        if (this.bhj && !isFinished()) {
-            float f = this.bhh.bho;
-            float f2 = this.bhi.bho;
+        if (this.bmR && !isFinished()) {
+            float f = this.bmP.bmW;
+            float f2 = this.bmQ.bmW;
             if (Math.signum(i3) == Math.signum(f) && Math.signum(i4) == Math.signum(f2)) {
                 i4 = (int) (i4 + f2);
                 i11 = (int) (f + i3);
                 this.mMode = 1;
-                this.bhh.b(i, i11, i5, i6, i9);
-                this.bhi.b(i2, i4, i7, i8, i10);
+                this.bmP.b(i, i11, i5, i6, i9);
+                this.bmQ.b(i2, i4, i7, i8, i10);
             }
         }
         i11 = i3;
         this.mMode = 1;
-        this.bhh.b(i, i11, i5, i6, i9);
-        this.bhi.b(i2, i4, i7, i8, i10);
+        this.bmP.b(i, i11, i5, i6, i9);
+        this.bmQ.b(i2, i4, i7, i8, i10);
     }
 
     public void notifyHorizontalEdgeReached(int i, int i2, int i3) {
-        this.bhh.t(i, i2, i3);
+        this.bmP.t(i, i2, i3);
     }
 
     public void abortAnimation() {
-        this.bhh.finish();
-        this.bhi.finish();
+        this.bmP.finish();
+        this.bmQ.finish();
     }
 
-    public boolean l(float f, float f2) {
-        return !isFinished() && Math.signum(f) == Math.signum((float) (this.bhh.bhm - this.bhh.mStart)) && Math.signum(f2) == Math.signum((float) (this.bhi.bhm - this.bhi.mStart));
+    public boolean k(float f, float f2) {
+        return !isFinished() && Math.signum(f) == Math.signum((float) (this.bmP.bmU - this.bmP.mStart)) && Math.signum(f2) == Math.signum((float) (this.bmQ.bmU - this.bmQ.mStart));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class a {
-        private static float bhv = (float) (Math.log(0.78d) / Math.log(0.9d));
-        private static final float[] bhw = new float[101];
-        private static final float[] bhx = new float[101];
-        private int bhm;
-        private int bhn;
-        private float bho;
-        private float bhp;
-        private int bhq;
-        private int bhr;
-        private int bhs;
-        private float bhu;
+        private static float bnd = (float) (Math.log(0.78d) / Math.log(0.9d));
+        private static final float[] bne = new float[101];
+        private static final float[] bnf = new float[101];
+        private int bmU;
+        private int bmV;
+        private float bmW;
+        private float bmX;
+        private int bmY;
+        private int bmZ;
+        private int bna;
+        private float bnc;
         private int mCurrentPosition;
         private int mDuration;
         private int mStart;
         private long mStartTime;
-        private float bht = ViewConfiguration.getScrollFriction();
+        private float bnb = ViewConfiguration.getScrollFriction();
         private int mState = 0;
         private boolean mFinished = true;
 
@@ -197,7 +197,7 @@ public class c {
                         f9 = f;
                     }
                 }
-                bhw[i] = (f * f * f) + (f2 * (((1.0f - f) * 0.5f) + f));
+                bne[i] = (f * f * f) + (f2 * (((1.0f - f) * 0.5f) + f));
                 float f11 = 1.0f;
                 while (true) {
                     f3 = ((f11 - f5) / 2.0f) + f5;
@@ -211,28 +211,28 @@ public class c {
                         f5 = f3;
                     }
                 }
-                bhx[i] = (f3 * f3 * f3) + ((((1.0f - f3) * 0.175f) + (0.35000002f * f3)) * f4);
+                bnf[i] = (f3 * f3 * f3) + ((((1.0f - f3) * 0.175f) + (0.35000002f * f3)) * f4);
                 i++;
                 f6 = f9;
             }
-            float[] fArr = bhw;
-            bhx[100] = 1.0f;
+            float[] fArr = bne;
+            bnf[100] = 1.0f;
             fArr[100] = 1.0f;
         }
 
         void setFriction(float f) {
-            this.bht = f;
+            this.bnb = f;
         }
 
         a(Context context) {
-            this.bhu = context.getResources().getDisplayMetrics().density * 160.0f * 386.0878f * 0.84f;
+            this.bnc = context.getResources().getDisplayMetrics().density * 160.0f * 386.0878f * 0.84f;
         }
 
         void t(float f) {
-            this.mCurrentPosition = this.mStart + Math.round((this.bhm - this.mStart) * f);
+            this.mCurrentPosition = this.mStart + Math.round((this.bmU - this.mStart) * f);
         }
 
-        private static float dn(int i) {
+        private static float fg(int i) {
             return i > 0 ? -2000.0f : 2000.0f;
         }
 
@@ -241,31 +241,31 @@ public class c {
             int i4 = (int) (100.0f * abs);
             if (i4 < 100) {
                 float f = i4 / 100.0f;
-                float f2 = bhx[i4];
-                this.mDuration = (int) (((((abs - f) / (((i4 + 1) / 100.0f) - f)) * (bhx[i4 + 1] - f2)) + f2) * this.mDuration);
+                float f2 = bnf[i4];
+                this.mDuration = (int) (((((abs - f) / (((i4 + 1) / 100.0f) - f)) * (bnf[i4 + 1] - f2)) + f2) * this.mDuration);
             }
         }
 
         void o(int i, int i2, int i3) {
             this.mFinished = false;
             this.mStart = i;
-            this.bhm = i + i2;
+            this.bmU = i + i2;
             this.mStartTime = AnimationUtils.currentAnimationTimeMillis();
             this.mDuration = i3;
-            this.bhp = 0.0f;
-            this.bhn = 0;
+            this.bmX = 0.0f;
+            this.bmV = 0;
         }
 
         void finish() {
-            this.mCurrentPosition = this.bhm;
+            this.mCurrentPosition = this.bmU;
             this.mFinished = true;
         }
 
         boolean p(int i, int i2, int i3) {
             this.mFinished = true;
-            this.bhm = i;
+            this.bmU = i;
             this.mStart = i;
-            this.bhn = 0;
+            this.bmV = 0;
             this.mStartTime = AnimationUtils.currentAnimationTimeMillis();
             this.mDuration = 0;
             if (i < i2) {
@@ -280,20 +280,20 @@ public class c {
             this.mFinished = false;
             this.mState = 1;
             this.mStart = i;
-            this.bhm = i2;
+            this.bmU = i2;
             int i4 = i - i2;
-            this.bhp = dn(i4);
-            this.bhn = -i4;
-            this.bhs = Math.abs(i4);
-            this.mDuration = (int) (Math.sqrt((i4 * (-2.0d)) / this.bhp) * 1000.0d);
+            this.bmX = fg(i4);
+            this.bmV = -i4;
+            this.bna = Math.abs(i4);
+            this.mDuration = (int) (Math.sqrt((i4 * (-2.0d)) / this.bmX) * 1000.0d);
         }
 
         void b(int i, int i2, int i3, int i4, int i5) {
-            this.bhs = i5;
+            this.bna = i5;
             this.mFinished = false;
-            this.bhn = i2;
-            this.bho = i2;
-            this.bhq = 0;
+            this.bmV = i2;
+            this.bmW = i2;
+            this.bmY = 0;
             this.mDuration = 0;
             this.mStartTime = AnimationUtils.currentAnimationTimeMillis();
             this.mStart = i;
@@ -305,48 +305,47 @@ public class c {
             this.mState = 0;
             double d = 0.0d;
             if (i2 != 0) {
-                int dq = dq(i2);
-                this.bhq = dq;
-                this.mDuration = dq;
-                d = dp(i2);
+                int fj = fj(i2);
+                this.bmY = fj;
+                this.mDuration = fj;
+                d = fi(i2);
             }
-            this.bhr = (int) (d * Math.signum(i2));
-            this.bhm = this.bhr + i;
-            if (this.bhm < i3) {
-                n(this.mStart, this.bhm, i3);
-                this.bhm = i3;
+            this.bmZ = (int) (d * Math.signum(i2));
+            this.bmU = this.bmZ + i;
+            if (this.bmU < i3) {
+                n(this.mStart, this.bmU, i3);
+                this.bmU = i3;
             }
-            if (this.bhm > i4) {
-                n(this.mStart, this.bhm, i4);
-                this.bhm = i4;
+            if (this.bmU > i4) {
+                n(this.mStart, this.bmU, i4);
+                this.bmU = i4;
             }
         }
 
-        /* renamed from: do  reason: not valid java name */
-        private double m21do(int i) {
-            return Math.log((0.35f * Math.abs(i)) / (this.bht * this.bhu));
+        private double fh(int i) {
+            return Math.log((0.35f * Math.abs(i)) / (this.bnb * this.bnc));
         }
 
-        private double dp(int i) {
-            return Math.exp(m21do(i) * (bhv / (bhv - 1.0d))) * this.bht * this.bhu;
+        private double fi(int i) {
+            return Math.exp(fh(i) * (bnd / (bnd - 1.0d))) * this.bnb * this.bnc;
         }
 
-        private int dq(int i) {
-            return (int) (Math.exp(m21do(i) / (bhv - 1.0d)) * 1000.0d);
+        private int fj(int i) {
+            return (int) (Math.exp(fh(i) / (bnd - 1.0d)) * 1000.0d);
         }
 
         private void r(int i, int i2, int i3) {
-            float f = (-i3) / this.bhp;
-            float sqrt = (float) Math.sqrt((((((i3 * i3) / 2.0f) / Math.abs(this.bhp)) + Math.abs(i2 - i)) * 2.0d) / Math.abs(this.bhp));
+            float f = (-i3) / this.bmX;
+            float sqrt = (float) Math.sqrt((((((i3 * i3) / 2.0f) / Math.abs(this.bmX)) + Math.abs(i2 - i)) * 2.0d) / Math.abs(this.bmX));
             this.mStartTime -= (int) ((sqrt - f) * 1000.0f);
             this.mStart = i2;
-            this.bhn = (int) ((-this.bhp) * sqrt);
+            this.bmV = (int) ((-this.bmX) * sqrt);
         }
 
         private void s(int i, int i2, int i3) {
-            this.bhp = dn(i3 == 0 ? i - i2 : i3);
+            this.bmX = fg(i3 == 0 ? i - i2 : i3);
             r(i, i2, i3);
-            Ij();
+            Oc();
         }
 
         private void h(int i, int i2, int i3, int i4) {
@@ -360,8 +359,8 @@ public class c {
             int i6 = i - i5;
             if (i6 * i4 >= 0) {
                 s(i, i5, i4);
-            } else if (dp(i4) > Math.abs(i6)) {
-                b(i, i4, z ? i2 : i, z ? i : i3, this.bhs);
+            } else if (fi(i4) > Math.abs(i6)) {
+                b(i, i4, z ? i2 : i, z ? i : i3, this.bna);
             } else {
                 q(i, i5, i4);
             }
@@ -369,38 +368,38 @@ public class c {
 
         void t(int i, int i2, int i3) {
             if (this.mState == 0) {
-                this.bhs = i3;
+                this.bna = i3;
                 this.mStartTime = AnimationUtils.currentAnimationTimeMillis();
-                h(i, i2, i2, (int) this.bho);
+                h(i, i2, i2, (int) this.bmW);
             }
         }
 
-        private void Ij() {
-            float abs = (this.bhn * this.bhn) / (Math.abs(this.bhp) * 2.0f);
-            float signum = Math.signum(this.bhn);
-            if (abs > this.bhs) {
-                this.bhp = (((-signum) * this.bhn) * this.bhn) / (this.bhs * 2.0f);
-                abs = this.bhs;
+        private void Oc() {
+            float abs = (this.bmV * this.bmV) / (Math.abs(this.bmX) * 2.0f);
+            float signum = Math.signum(this.bmV);
+            if (abs > this.bna) {
+                this.bmX = (((-signum) * this.bmV) * this.bmV) / (this.bna * 2.0f);
+                abs = this.bna;
             }
-            this.bhs = (int) abs;
+            this.bna = (int) abs;
             this.mState = 2;
             int i = this.mStart;
-            if (this.bhn <= 0) {
+            if (this.bmV <= 0) {
                 abs = -abs;
             }
-            this.bhm = ((int) abs) + i;
-            this.mDuration = -((int) ((1000.0f * this.bhn) / this.bhp));
+            this.bmU = ((int) abs) + i;
+            this.mDuration = -((int) ((1000.0f * this.bmV) / this.bmX));
         }
 
-        boolean Ik() {
+        boolean Od() {
             switch (this.mState) {
                 case 0:
-                    if (this.mDuration < this.bhq) {
-                        this.mStart = this.bhm;
-                        this.bhn = (int) this.bho;
-                        this.bhp = dn(this.bhn);
+                    if (this.mDuration < this.bmY) {
+                        this.mStart = this.bmU;
+                        this.bmV = (int) this.bmW;
+                        this.bmX = fg(this.bmV);
                         this.mStartTime += this.mDuration;
-                        Ij();
+                        Oc();
                         break;
                     } else {
                         return false;
@@ -409,7 +408,7 @@ public class c {
                     return false;
                 case 2:
                     this.mStartTime += this.mDuration;
-                    q(this.bhm, this.mStart, 0);
+                    q(this.bmU, this.mStart, 0);
                     break;
             }
             update();
@@ -424,30 +423,30 @@ public class c {
             double d = 0.0d;
             switch (this.mState) {
                 case 0:
-                    float f = ((float) currentAnimationTimeMillis) / this.bhq;
+                    float f = ((float) currentAnimationTimeMillis) / this.bmY;
                     int i = (int) (100.0f * f);
                     float f2 = 1.0f;
                     float f3 = 0.0f;
                     if (i < 100) {
                         float f4 = i / 100.0f;
-                        float f5 = bhw[i];
-                        f3 = (bhw[i + 1] - f5) / (((i + 1) / 100.0f) - f4);
+                        float f5 = bne[i];
+                        f3 = (bne[i + 1] - f5) / (((i + 1) / 100.0f) - f4);
                         f2 = ((f - f4) * f3) + f5;
                     }
-                    this.bho = ((f3 * this.bhr) / this.bhq) * 1000.0f;
-                    d = f2 * this.bhr;
+                    this.bmW = ((f3 * this.bmZ) / this.bmY) * 1000.0f;
+                    d = f2 * this.bmZ;
                     break;
                 case 1:
                     float f6 = ((float) currentAnimationTimeMillis) / this.mDuration;
                     float f7 = f6 * f6;
-                    float signum = Math.signum(this.bhn);
-                    d = this.bhs * signum * ((3.0f * f7) - ((2.0f * f6) * f7));
-                    this.bho = ((-f6) + f7) * signum * this.bhs * 6.0f;
+                    float signum = Math.signum(this.bmV);
+                    d = this.bna * signum * ((3.0f * f7) - ((2.0f * f6) * f7));
+                    this.bmW = ((-f6) + f7) * signum * this.bna * 6.0f;
                     break;
                 case 2:
                     float f8 = ((float) currentAnimationTimeMillis) / 1000.0f;
-                    this.bho = this.bhn + (this.bhp * f8);
-                    d = ((f8 * (this.bhp * f8)) / 2.0f) + (this.bhn * f8);
+                    this.bmW = this.bmV + (this.bmX * f8);
+                    d = ((f8 * (this.bmX * f8)) / 2.0f) + (this.bmV * f8);
                     break;
             }
             this.mCurrentPosition = ((int) Math.round(d)) + this.mStart;

@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
 @kotlin.h
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public final class EmptySet implements Serializable, Set {
     public static final EmptySet INSTANCE = new EmptySet();
     private static final long serialVersionUID = 3406603774387020532L;
@@ -46,7 +46,7 @@ public final class EmptySet implements Serializable, Set {
 
     @Override // java.util.Set, java.util.Collection
     public Object[] toArray() {
-        return kotlin.jvm.internal.n.p(this);
+        return kotlin.jvm.internal.n.r(this);
     }
 
     @Override // java.util.Set, java.util.Collection
@@ -106,7 +106,7 @@ public final class EmptySet implements Serializable, Set {
 
     @Override // java.util.Set, java.util.Collection, java.lang.Iterable
     public Iterator iterator() {
-        return aa.nYa;
+        return aa.orY;
     }
 
     private final Object readResolve() {

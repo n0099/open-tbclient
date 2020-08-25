@@ -1,9 +1,18 @@
 package com.baidu.adp.widget.ListView;
 
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-/* loaded from: classes.dex */
-public interface aa {
-    boolean b(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j);
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.af;
+import com.baidu.tieba.R;
+/* loaded from: classes2.dex */
+public class aa extends af.a {
+    public ImageView mImageView;
+    public TextView mTextView;
+
+    public aa(View view) {
+        super(view);
+        this.mTextView = (TextView) view.findViewById(R.id.no_data_text);
+        this.mImageView = (ImageView) view.findViewById(R.id.no_data_image);
+    }
 }

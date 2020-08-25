@@ -1,30 +1,30 @@
 package com.baidu.tbadk.core.data;
 
 import tbclient.BannerImage;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class j implements com.baidu.tbadk.core.flow.a.a {
-    private String bnr;
-    private String dNT;
+    private String bsW;
+    private String dXc;
     private String mTitle;
 
     public void a(BannerImage bannerImage) {
         if (bannerImage != null) {
-            this.bnr = bannerImage.img_url;
-            this.dNT = bannerImage.ahead_url;
+            this.bsW = bannerImage.img_url;
+            this.dXc = bannerImage.ahead_url;
             this.mTitle = bannerImage.title;
         }
     }
 
-    public String aUh() {
-        return this.bnr;
+    public String bcA() {
+        return this.bsW;
     }
 
-    public String aUi() {
-        return this.dNT;
+    public String bcB() {
+        return this.dXc;
     }
 
-    public void wL(String str) {
-        this.dNT = str;
+    public void yZ(String str) {
+        this.dXc = str;
     }
 
     public String getTitle() {
@@ -33,11 +33,11 @@ public class j implements com.baidu.tbadk.core.flow.a.a {
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        return this.bnr;
+        return this.bsW;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String aUj() {
-        return this.dNT;
+    public String bcC() {
+        return this.dXc;
     }
 }

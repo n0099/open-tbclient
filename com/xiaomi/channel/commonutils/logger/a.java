@@ -2,7 +2,7 @@ package com.xiaomi.channel.commonutils.logger;
 
 import android.util.Log;
 import com.baidu.android.util.devices.RomUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class a implements LoggerInterface {
     private String a = RomUtils.MANUFACTURER_XIAOMI;
 

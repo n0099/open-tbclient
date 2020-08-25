@@ -4,9 +4,8 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.hottopic.data.j;
 import com.baidu.tieba.hottopic.message.RequestHotRanklistMessage;
 import com.baidu.tieba.hottopic.message.ResponseHttpHotRanklistMessage;
@@ -14,17 +13,17 @@ import com.baidu.tieba.hottopic.message.ResponseSocketHotRanklistMessage;
 import java.util.LinkedList;
 /* loaded from: classes15.dex */
 public class HotTopicListModel extends BdBaseModel {
-    private b kdo;
+    private b ksK;
     private boolean mIsLoading;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public HotTopicListModel(TbPageContext<?> tbPageContext, b bVar) {
         super(tbPageContext);
-        cmP();
-        this.kdo = bVar;
+        cxB();
+        this.ksK = bVar;
     }
 
-    private void cmP() {
+    private void cxB() {
         registerListener(new com.baidu.adp.framework.listener.a(1003078, CmdConfigSocket.CMD_HOT_TOPIC_RANKLIST) { // from class: com.baidu.tieba.newlist.HotTopicListModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
@@ -37,22 +36,22 @@ public class HotTopicListModel extends BdBaseModel {
                             hotRanklistData = ((ResponseSocketHotRanklistMessage) responsedMessage).getHotRanklistData();
                         }
                         if (hotRanklistData != null) {
-                            if (x.isEmpty(hotRanklistData.iKP)) {
+                            if (y.isEmpty(hotRanklistData.iZN)) {
                                 z = false;
                             } else {
                                 LinkedList linkedList = new LinkedList();
-                                int size = hotRanklistData.iKP.size();
+                                int size = hotRanklistData.iZN.size();
                                 for (int i = 0; i < size; i++) {
-                                    linkedList.add(new com.baidu.tieba.newlist.b.b(hotRanklistData.iKP.get(i), i));
+                                    linkedList.add(new com.baidu.tieba.newlist.b.b(hotRanklistData.iZN.get(i), i));
                                 }
-                                HotTopicListModel.this.kdo.n(responsedMessage.getError(), linkedList);
+                                HotTopicListModel.this.ksK.o(responsedMessage.getError(), linkedList);
                                 z = true;
                             }
                             if (z) {
                                 return;
                             }
                         }
-                        HotTopicListModel.this.kdo.n(-1, null);
+                        HotTopicListModel.this.ksK.o(-1, null);
                     }
                 }
             }
@@ -69,7 +68,7 @@ public class HotTopicListModel extends BdBaseModel {
         RequestHotRanklistMessage requestHotRanklistMessage = new RequestHotRanklistMessage();
         requestHotRanklistMessage.setTag(this.unique_id);
         requestHotRanklistMessage.setCallFrom("newbang");
-        requestHotRanklistMessage.setListType(SchemeCollecter.CLASSIFY_ALL);
+        requestHotRanklistMessage.setListType("all");
         requestHotRanklistMessage.setNeedTabList("0");
         requestHotRanklistMessage.setFid(0L);
         this.mIsLoading = MessageManager.getInstance().sendMessage(requestHotRanklistMessage);

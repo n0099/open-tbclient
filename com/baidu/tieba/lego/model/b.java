@@ -1,7 +1,7 @@
 package com.baidu.tieba.lego.model;
 
 import com.squareup.wire.Message;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface b {
     void a(long j, String str, Message message, boolean z);
 

@@ -5,7 +5,7 @@ import android.os.Build;
 import android.view.View;
 /* loaded from: classes9.dex */
 public class f {
-    static final k dzx;
+    static final k dIG;
 
     /* loaded from: classes9.dex */
     interface k {
@@ -84,7 +84,7 @@ public class f {
 
     /* loaded from: classes9.dex */
     static class e extends d {
-        static boolean dzy = false;
+        static boolean dIH = false;
 
         e() {
         }
@@ -97,8 +97,8 @@ public class f {
 
     /* renamed from: com.baidu.swan.support.v4.c.f$f  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    static class C0478f extends e {
-        C0478f() {
+    static class C0524f extends e {
+        C0524f() {
         }
 
         @Override // com.baidu.swan.support.v4.c.f.a, com.baidu.swan.support.v4.c.f.k
@@ -108,7 +108,7 @@ public class f {
     }
 
     /* loaded from: classes9.dex */
-    static class g extends C0478f {
+    static class g extends C0524f {
         g() {
         }
     }
@@ -133,29 +133,29 @@ public class f {
 
     static {
         if (Build.VERSION.SDK_INT >= 21) {
-            dzx = new j();
+            dIG = new j();
         } else {
-            dzx = new i();
+            dIG = new i();
         }
     }
 
     public static boolean canScrollVertically(View view, int i2) {
-        return dzx.canScrollVertically(view, i2);
+        return dIG.canScrollVertically(view, i2);
     }
 
     public static void setLayerType(View view, int i2, Paint paint) {
-        dzx.setLayerType(view, i2, paint);
+        dIG.setLayerType(view, i2, paint);
     }
 
     public static int getLayerType(View view) {
-        return dzx.getLayerType(view);
+        return dIG.getLayerType(view);
     }
 
     public static void setSaveFromParentEnabled(View view, boolean z) {
-        dzx.setSaveFromParentEnabled(view, z);
+        dIG.setSaveFromParentEnabled(view, z);
     }
 
     public static boolean hasOverlappingRendering(View view) {
-        return dzx.hasOverlappingRendering(view);
+        return dIG.hasOverlappingRendering(view);
     }
 }

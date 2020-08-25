@@ -4,17 +4,17 @@ import android.graphics.Canvas;
 import android.graphics.Path;
 import android.graphics.RectF;
 import org.json.JSONArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class s extends a {
-    private RectF awY;
+    private RectF aCa;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
         try {
             if (jSONArray.length() == 4) {
-                int D = com.baidu.swan.apps.aq.ai.D((float) jSONArray.optDouble(0));
-                int D2 = com.baidu.swan.apps.aq.ai.D((float) jSONArray.optDouble(1));
-                this.awY = new RectF(D, D2, D + com.baidu.swan.apps.aq.ai.D((float) jSONArray.optDouble(2)), D2 + com.baidu.swan.apps.aq.ai.D((float) jSONArray.optDouble(3)));
+                int H = com.baidu.swan.apps.ap.ah.H((float) jSONArray.optDouble(0));
+                int H2 = com.baidu.swan.apps.ap.ah.H((float) jSONArray.optDouble(1));
+                this.aCa = new RectF(H, H2, H + com.baidu.swan.apps.ap.ah.H((float) jSONArray.optDouble(2)), H2 + com.baidu.swan.apps.ap.ah.H((float) jSONArray.optDouble(3)));
             }
         } catch (Exception e) {
             if (com.baidu.swan.apps.b.DEBUG) {
@@ -25,8 +25,8 @@ public class s extends a {
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        if (this.awY != null) {
-            bVar.mPath.addRect(this.awY, Path.Direction.CW);
+        if (this.aCa != null) {
+            bVar.mPath.addRect(this.aCa, Path.Direction.CW);
         }
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.mapapi.search.sug;
 
 import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.search.core.l;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class SuggestionSearch extends l {
     private boolean b = false;
     com.baidu.platform.core.f.a a = new com.baidu.platform.core.f.b();
@@ -26,20 +26,20 @@ public class SuggestionSearch extends l {
 
     public boolean requestSuggestion(SuggestionSearchOption suggestionSearchOption) {
         if (this.a == null) {
-            throw new IllegalStateException("suggestionsearch is null, please call newInstance() first.");
+            throw new IllegalStateException("BDMapSDKException: suggestionsearch is null, please call newInstance() first.");
         }
         if (suggestionSearchOption == null || suggestionSearchOption.mKeyword == null || suggestionSearchOption.mCity == null) {
-            throw new IllegalArgumentException("option or keyword or city can not be null");
+            throw new IllegalArgumentException("BDMapSDKException: option or keyword or city can not be null");
         }
         return this.a.a(suggestionSearchOption);
     }
 
     public void setOnGetSuggestionResultListener(OnGetSuggestionResultListener onGetSuggestionResultListener) {
         if (this.a == null) {
-            throw new IllegalStateException("suggestionsearch is null, please call newInstance() first.");
+            throw new IllegalStateException("BDMapSDKException: suggestionsearch is null, please call newInstance() first.");
         }
         if (onGetSuggestionResultListener == null) {
-            throw new IllegalArgumentException("listener can not be null");
+            throw new IllegalArgumentException("BDMapSDKException: listener can not be null");
         }
         this.a.a(onGetSuggestionResultListener);
     }

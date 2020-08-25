@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.write.upload.ForwardUploadData;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class TransmitPostEditActivityConfig extends IntentConfig {
     public static final String ADDITION_DATA = "addition_data";
     public static final String BAIJIAHAO_DATA = "baijiahao_data";

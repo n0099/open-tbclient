@@ -9,10 +9,10 @@ import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.frs.SerializableItemInfo;
 /* loaded from: classes16.dex */
 public class UniversityEvaluationActivity extends BaseFragmentActivity {
-    private ForumWriteData hRH;
-    private SerializableItemInfo hRJ;
-    private a hRU;
-    private boolean hRV;
+    private ForumWriteData ifP;
+    private SerializableItemInfo ifR;
+    private a igc;
+    private boolean igd;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
@@ -20,44 +20,44 @@ public class UniversityEvaluationActivity extends BaseFragmentActivity {
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
         if (getIntent() != null) {
-            this.hRH = (ForumWriteData) getIntent().getSerializableExtra("forum_write_data");
-            this.hRJ = (SerializableItemInfo) getIntent().getSerializableExtra(UniversityEvaluationConfig.ITEM_INFO);
-            this.hRV = getIntent().getBooleanExtra(UniversityEvaluationConfig.ITEM_IS_SCHOOL, false);
+            this.ifP = (ForumWriteData) getIntent().getSerializableExtra("forum_write_data");
+            this.ifR = (SerializableItemInfo) getIntent().getSerializableExtra(UniversityEvaluationConfig.ITEM_INFO);
+            this.igd = getIntent().getBooleanExtra(UniversityEvaluationConfig.ITEM_IS_SCHOOL, false);
         }
-        if (this.hRV) {
-            this.hRU = new d(this, this.hRH, this.hRJ);
+        if (this.igd) {
+            this.igc = new d(this, this.ifP, this.ifR);
         } else {
-            this.hRU = new b(this, this.hRH, this.hRJ);
+            this.igc = new b(this, this.ifP, this.ifR);
         }
-        this.hRU.cfw();
-        setContentView(this.hRU.getView());
+        this.igc.cqb();
+        setContentView(this.igc.getView());
         addGlobalLayoutListener();
         adjustResizeForSoftInput();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        this.hRU.onChangeSkinType();
+        this.igc.onChangeSkinType();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        this.hRU.onActivityResult(i, i2, intent);
+        this.igc.onActivityResult(i, i2, intent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        this.hRU.onDestroy();
+        this.igc.onDestroy();
         super.onDestroy();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            this.hRU.cfv();
+            this.igc.cqa();
             return true;
         }
         return super.onKeyDown(i, keyEvent);

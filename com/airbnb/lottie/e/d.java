@@ -1,7 +1,5 @@
 package com.airbnb.lottie.e;
-
-import com.baidu.mobstat.Config;
-/* loaded from: classes20.dex */
+/* loaded from: classes18.dex */
 public class d {
     private final float scaleX;
     private final float scaleY;
@@ -24,6 +22,6 @@ public class d {
     }
 
     public String toString() {
-        return getScaleX() + Config.EVENT_HEAT_X + getScaleY();
+        return getScaleX() + "x" + getScaleY();
     }
 }

@@ -15,20 +15,20 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.location.BDLocation;
 import com.baidu.location.LocationClient;
-import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
+import com.baidu.platform.comapi.location.CoordinateType;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tbadk.editortools.l;
+import com.baidu.tbadk.editortools.m;
 /* loaded from: classes17.dex */
 public class LocationProvidersStatic {
     static {
-        com.baidu.adp.lib.c.a.kG().a(b.cDj());
+        com.baidu.adp.lib.c.a.mf().a(b.cOa());
         boolean loadBoolean = TbadkSettings.getInst().loadBoolean(SharedPrefConfig.PREFS_BD_LOC_SWITCHER, true);
         if (Build.VERSION.SDK_INT <= 4) {
             loadBoolean = false;
         }
         if (loadBoolean) {
-            com.baidu.adp.lib.c.a.kG().a(a.cDi());
+            com.baidu.adp.lib.c.a.mf().a(a.cNZ());
         }
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.EDITOR_COLLECT_TOOL) { // from class: com.baidu.tieba.location.LocationProvidersStatic.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -40,7 +40,7 @@ public class LocationProvidersStatic {
                     editorTools.b(new com.baidu.tieba.location.editortool.b(editorTools.getContext(), indexOf + 1));
                 }
                 if (editorTools.getCollectTools().indexOf(8) != -1) {
-                    if (editorTools.biP()) {
+                    if (editorTools.brB()) {
                         editorTools.b(new com.baidu.tieba.location.editortool.a(editorTools.getContext(), true));
                     } else {
                         editorTools.b(new com.baidu.tieba.location.editortool.a(editorTools.getContext()));
@@ -50,7 +50,7 @@ public class LocationProvidersStatic {
         });
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_LOCATION_TOOL_CRTL, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.location.LocationProvidersStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<l> run(CustomMessage<Context> customMessage) {
+            public CustomResponsedMessage<m> run(CustomMessage<Context> customMessage) {
                 return new CustomResponsedMessage<>(CmdConfigCustom.CMD_LOCATION_TOOL_CRTL, new com.baidu.tieba.location.editortool.b(customMessage.getData(), 0));
             }
         });

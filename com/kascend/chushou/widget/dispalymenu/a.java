@@ -33,7 +33,7 @@ public class a extends b {
     }
 
     @Override // com.kascend.chushou.widget.dispalymenu.b
-    public int dM(int i, int i2) {
+    public int dU(int i, int i2) {
         return i2;
     }
 

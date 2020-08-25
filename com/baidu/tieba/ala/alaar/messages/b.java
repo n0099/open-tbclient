@@ -2,20 +2,20 @@ package com.baidu.tieba.ala.alaar.messages;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.utils.p;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class b extends HttpMessage {
-    private int aSE;
+    private int aXS;
     private String mRequestType;
 
     public b(String str) {
         super(1021155);
-        this.aSE = 2;
+        this.aXS = 2;
         this.mRequestType = str;
     }
 
     public void setParams() {
-        addParam("scene_from", p.zw());
-        addParam("client_id", this.aSE);
+        addParam("scene_from", p.EZ());
+        addParam("client_id", this.aXS);
         addParam("request_type", this.mRequestType);
         addParam("ar_sdk_version", com.baidu.minivideo.arface.a.getVersion());
     }

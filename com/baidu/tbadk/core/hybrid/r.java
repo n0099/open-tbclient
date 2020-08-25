@@ -8,7 +8,7 @@ import java.io.OutputStream;
 import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class r {
     public static boolean unZipFiles(String str, String str2) {
         return unZipFiles(new File(str), str2);

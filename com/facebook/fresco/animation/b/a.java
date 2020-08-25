@@ -11,29 +11,29 @@ import com.facebook.fresco.animation.a.c;
 import com.facebook.fresco.animation.a.d;
 import com.facebook.imagepipeline.b.f;
 import javax.annotation.Nullable;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class a implements com.facebook.fresco.animation.a.a, c.a {
-    private static final Class<?> mPz = a.class;
+    private static final Class<?> nju = a.class;
     private int mBitmapHeight;
     private int mBitmapWidth;
     @Nullable
     private Rect mBounds;
-    private final f mXb;
-    private final b mXc;
-    private final d mXd;
-    private final c mXe;
+    private final f nqQ;
+    private final b nqR;
+    private final d nqS;
+    private final c nqT;
     @Nullable
-    private final com.facebook.fresco.animation.b.b.a mXf;
+    private final com.facebook.fresco.animation.b.b.a nqU;
     @Nullable
-    private final com.facebook.fresco.animation.b.b.b mXg;
+    private final com.facebook.fresco.animation.b.b.b nqV;
     @Nullable
-    private InterfaceC0812a mXh;
+    private InterfaceC0870a nqW;
     private Bitmap.Config mBitmapConfig = Bitmap.Config.ARGB_8888;
     private final Paint mPaint = new Paint(6);
 
     /* renamed from: com.facebook.fresco.animation.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes18.dex */
-    public interface InterfaceC0812a {
+    /* loaded from: classes6.dex */
+    public interface InterfaceC0870a {
         void a(a aVar, int i);
 
         void a(a aVar, int i, int i2);
@@ -42,41 +42,41 @@ public class a implements com.facebook.fresco.animation.a.a, c.a {
     }
 
     public a(f fVar, b bVar, d dVar, c cVar, @Nullable com.facebook.fresco.animation.b.b.a aVar, @Nullable com.facebook.fresco.animation.b.b.b bVar2) {
-        this.mXb = fVar;
-        this.mXc = bVar;
-        this.mXd = dVar;
-        this.mXe = cVar;
-        this.mXf = aVar;
-        this.mXg = bVar2;
-        dFj();
+        this.nqQ = fVar;
+        this.nqR = bVar;
+        this.nqS = dVar;
+        this.nqT = cVar;
+        this.nqU = aVar;
+        this.nqV = bVar2;
+        dRi();
     }
 
     @Override // com.facebook.fresco.animation.a.d
     public int getFrameCount() {
-        return this.mXd.getFrameCount();
+        return this.nqS.getFrameCount();
     }
 
     @Override // com.facebook.fresco.animation.a.d
-    public int IQ(int i) {
-        return this.mXd.IQ(i);
+    public int Lu(int i) {
+        return this.nqS.Lu(i);
     }
 
     @Override // com.facebook.fresco.animation.a.d
     public int getLoopCount() {
-        return this.mXd.getLoopCount();
+        return this.nqS.getLoopCount();
     }
 
     @Override // com.facebook.fresco.animation.a.a
     public boolean a(Drawable drawable, Canvas canvas, int i) {
-        if (this.mXh != null) {
-            this.mXh.a(this, i);
+        if (this.nqW != null) {
+            this.nqW.a(this, i);
         }
         boolean a = a(canvas, i, 0);
-        if (!a && this.mXh != null) {
-            this.mXh.b(this, i);
+        if (!a && this.nqW != null) {
+            this.nqW.b(this, i);
         }
-        if (this.mXf != null && this.mXg != null) {
-            this.mXf.a(this.mXg, this.mXc, this, i);
+        if (this.nqU != null && this.nqV != null) {
+            this.nqU.a(this.nqV, this.nqR, this, i);
         }
         return a;
     }
@@ -106,12 +106,12 @@ public class a implements com.facebook.fresco.animation.a.a, c.a {
             try {
                 switch (i2) {
                     case 0:
-                        b = this.mXc.IR(i);
+                        b = this.nqR.Lv(i);
                         z = a(i, b, canvas, 0);
                         com.facebook.common.references.a.c(b);
                         return (z || i3 == -1) ? z : a(canvas, i, i3);
                     case 1:
-                        com.facebook.common.references.a<Bitmap> ab = this.mXc.ab(i, this.mBitmapWidth, this.mBitmapHeight);
+                        com.facebook.common.references.a<Bitmap> ab = this.nqR.ab(i, this.mBitmapWidth, this.mBitmapHeight);
                         try {
                             if (a(i, ab)) {
                                 break;
@@ -132,7 +132,7 @@ public class a implements com.facebook.fresco.animation.a.a, c.a {
                         }
                     case 2:
                         try {
-                            b = this.mXb.b(this.mBitmapWidth, this.mBitmapHeight, this.mBitmapConfig);
+                            b = this.nqQ.b(this.mBitmapWidth, this.mBitmapHeight, this.mBitmapConfig);
                             if (!a(i, b) || !a(i, b, canvas, 2)) {
                                 i3 = 0;
                             }
@@ -142,23 +142,23 @@ public class a implements com.facebook.fresco.animation.a.a, c.a {
                             if (z) {
                             }
                         } catch (RuntimeException e) {
-                            com.facebook.common.c.a.a(mPz, "Failed to create frame bitmap", (Throwable) e);
+                            com.facebook.common.c.a.a(nju, "Failed to create frame bitmap", (Throwable) e);
                             com.facebook.common.references.a.c(null);
                             return false;
                         }
                         break;
                     case 3:
-                        com.facebook.common.references.a<Bitmap> IS = this.mXc.IS(i);
+                        com.facebook.common.references.a<Bitmap> Lw = this.nqR.Lw(i);
                         try {
-                            b = IS;
-                            z = a(i, IS, canvas, 3);
+                            b = Lw;
+                            z = a(i, Lw, canvas, 3);
                             i3 = -1;
                             com.facebook.common.references.a.c(b);
                             if (z) {
                             }
                         } catch (Throwable th2) {
                             th = th2;
-                            aVar = IS;
+                            aVar = Lw;
                             com.facebook.common.references.a.c(aVar);
                             throw th;
                         }
@@ -191,8 +191,8 @@ public class a implements com.facebook.fresco.animation.a.a, c.a {
     @Override // com.facebook.fresco.animation.a.a
     public void setBounds(@Nullable Rect rect) {
         this.mBounds = rect;
-        this.mXe.setBounds(rect);
-        dFj();
+        this.nqT.setBounds(rect);
+        dRi();
     }
 
     @Override // com.facebook.fresco.animation.a.a
@@ -207,7 +207,7 @@ public class a implements com.facebook.fresco.animation.a.a, c.a {
 
     @Override // com.facebook.fresco.animation.a.a
     public void clear() {
-        this.mXc.clear();
+        this.nqR.clear();
     }
 
     @Override // com.facebook.fresco.animation.a.c.a
@@ -215,12 +215,12 @@ public class a implements com.facebook.fresco.animation.a.a, c.a {
         clear();
     }
 
-    private void dFj() {
-        this.mBitmapWidth = this.mXe.getIntrinsicWidth();
+    private void dRi() {
+        this.mBitmapWidth = this.nqT.getIntrinsicWidth();
         if (this.mBitmapWidth == -1) {
             this.mBitmapWidth = this.mBounds == null ? -1 : this.mBounds.width();
         }
-        this.mBitmapHeight = this.mXe.getIntrinsicHeight();
+        this.mBitmapHeight = this.nqT.getIntrinsicHeight();
         if (this.mBitmapHeight == -1) {
             this.mBitmapHeight = this.mBounds != null ? this.mBounds.height() : -1;
         }
@@ -230,7 +230,7 @@ public class a implements com.facebook.fresco.animation.a.a, c.a {
         if (!com.facebook.common.references.a.a(aVar)) {
             return false;
         }
-        boolean a = this.mXe.a(i, aVar.get());
+        boolean a = this.nqT.a(i, aVar.get());
         if (!a) {
             com.facebook.common.references.a.c(aVar);
             return a;
@@ -248,10 +248,10 @@ public class a implements com.facebook.fresco.animation.a.a, c.a {
             canvas.drawBitmap(aVar.get(), (Rect) null, this.mBounds, this.mPaint);
         }
         if (i2 != 3) {
-            this.mXc.a(i, aVar, i2);
+            this.nqR.a(i, aVar, i2);
         }
-        if (this.mXh != null) {
-            this.mXh.a(this, i, i2);
+        if (this.nqW != null) {
+            this.nqW.a(this, i, i2);
         }
         return true;
     }

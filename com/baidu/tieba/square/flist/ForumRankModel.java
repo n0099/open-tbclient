@@ -9,17 +9,17 @@ import com.baidu.adp.lib.cache.l;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.data.Config;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.aa;
 /* loaded from: classes17.dex */
 public class ForumRankModel extends BdBaseModel {
     private String id;
-    private a lIh;
+    private a lZN;
     private String stType;
 
     public ForumRankModel(Bundle bundle) {
         super(null);
         this.id = null;
-        this.lIh = null;
+        this.lZN = null;
         this.stType = null;
         this.id = bundle.getString("id");
         this.stType = bundle.getString("st_type");
@@ -28,13 +28,13 @@ public class ForumRankModel extends BdBaseModel {
     public ForumRankModel(Intent intent) {
         super(null);
         this.id = null;
-        this.lIh = null;
+        this.lZN = null;
         this.stType = null;
         this.id = intent.getStringExtra("id");
         this.stType = intent.getStringExtra("st_type");
     }
 
-    public void aD(Bundle bundle) {
+    public void aC(Bundle bundle) {
         bundle.putString("id", this.id);
         bundle.putString("st_type", this.stType);
     }
@@ -45,17 +45,17 @@ public class ForumRankModel extends BdBaseModel {
         if (this.id == null) {
             return false;
         }
-        if (this.lIh == null) {
-            this.lIh = new a();
-            this.lIh.execute(new Void[0]);
+        if (this.lZN == null) {
+            this.lZN = new a();
+            this.lZN.execute(new Void[0]);
         }
         return true;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.lIh != null) {
-            this.lIh.cancel();
+        if (this.lZN != null) {
+            this.lZN.cancel();
             return false;
         }
         return false;
@@ -72,20 +72,20 @@ public class ForumRankModel extends BdBaseModel {
         /* renamed from: m */
         public ForumRankData doInBackground(Void... voidArr) {
             ForumRankData forumRankData;
-            l<String> xj = com.baidu.tbadk.core.c.a.aYG().xj("tb.forum_rank");
-            String str = xj != null ? xj.get("forum_rank_cache_key_" + ForumRankModel.this.id) : null;
+            l<String> zx = com.baidu.tbadk.core.c.a.bhb().zx("tb.forum_rank");
+            String str = zx != null ? zx.get("forum_rank_cache_key_" + ForumRankModel.this.id) : null;
             if (!StringUtils.isNull(str) && (forumRankData = (ForumRankData) OrmObject.objectWithJsonStr(str, ForumRankData.class)) != null) {
                 publishProgress(forumRankData);
             }
-            z zVar = new z(TbConfig.SERVER_ADDRESS + Config.FORUM_SQUARE_LIST);
-            zVar.addPostData("list_id", ForumRankModel.this.id);
-            zVar.addPostData("st_type", ForumRankModel.this.stType);
-            String postNetData = zVar.postNetData();
+            aa aaVar = new aa(TbConfig.SERVER_ADDRESS + Config.FORUM_SQUARE_LIST);
+            aaVar.addPostData("list_id", ForumRankModel.this.id);
+            aaVar.addPostData("st_type", ForumRankModel.this.stType);
+            String postNetData = aaVar.postNetData();
             if (StringUtils.isNull(postNetData)) {
                 return null;
             }
-            if (xj != null) {
-                xj.set("forum_rank_cache_key_" + ForumRankModel.this.id, postNetData, 86400000L);
+            if (zx != null) {
+                zx.set("forum_rank_cache_key_" + ForumRankModel.this.id, postNetData, 86400000L);
             }
             return (ForumRankData) OrmObject.objectWithJsonStr(postNetData, ForumRankData.class);
         }
@@ -93,7 +93,7 @@ public class ForumRankModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            ForumRankModel.this.lIh = null;
+            ForumRankModel.this.lZN = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -112,7 +112,7 @@ public class ForumRankModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
         public void onPostExecute(ForumRankData forumRankData) {
-            ForumRankModel.this.lIh = null;
+            ForumRankModel.this.lZN = null;
             if (ForumRankModel.this.mLoadDataCallBack != null) {
                 ForumRankModel.this.mLoadDataCallBack.callback(forumRankData);
             }

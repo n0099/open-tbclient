@@ -1,5 +1,11 @@
 package com.baidu.live.data;
-/* loaded from: classes4.dex */
+
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
 public class bu {
-    public int aGs;
+    public String webUrl;
+
+    public bu(JSONObject jSONObject) {
+        this.webUrl = jSONObject.optString("rotary_table_h5_url");
+    }
 }

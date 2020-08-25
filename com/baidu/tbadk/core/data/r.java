@@ -4,7 +4,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
 import org.json.JSONObject;
 import tbclient.CartoonThread;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class r {
     private long cartoonId;
     private int chapterId;

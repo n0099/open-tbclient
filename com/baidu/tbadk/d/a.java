@@ -1,5 +1,5 @@
 package com.baidu.tbadk.d;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
     private String key;
     private int value;

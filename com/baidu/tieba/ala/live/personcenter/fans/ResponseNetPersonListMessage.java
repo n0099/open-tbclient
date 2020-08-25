@@ -2,9 +2,9 @@ package com.baidu.tieba.ala.live.personcenter.fans;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
-    private e fVN;
+    private e ghM;
     private int mErrCode;
     private String mErrMsg;
 
@@ -14,8 +14,8 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
         this.mErrMsg = "";
     }
 
-    public e bCm() {
-        return this.fVN;
+    public e bLG() {
+        return this.ghM;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -25,8 +25,8 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
         if (statusCode == 200 && error == 0) {
             this.mErrCode = jSONObject.optInt("error_code");
             this.mErrMsg = jSONObject.optString("error_msg");
-            this.fVN = new e();
-            this.fVN.parserJson(jSONObject);
+            this.ghM = new e();
+            this.ghM.parserJson(jSONObject);
         }
     }
 }

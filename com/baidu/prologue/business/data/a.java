@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.util.io.BaseJsonData;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.prologue.a.c.k;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,11 +12,11 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     protected static final boolean DEBUG = com.baidu.prologue.a.a.a.GLOBAL_DEBUG;
 
-    public static List<e> aI(String str, String str2) throws ParseError {
+    public static List<e> aM(String str, String str2) throws ParseError {
         if (TextUtils.isEmpty(str)) {
             throw new ParseError(1, "afd/entry retun null");
         }
@@ -29,7 +30,7 @@ public class a {
 
     public static List<e> o(JSONObject jSONObject, String str) throws ParseError {
         List<e> list;
-        List<e> PB;
+        List<e> Vx;
         if (DEBUG) {
             Log.d("AfdResponseParser", "AFD response : " + jSONObject.toString());
         }
@@ -42,10 +43,10 @@ public class a {
             return null;
         }
         JSONObject optJSONObject2 = optJSONObject.optJSONObject("splash");
-        JSONArray optJSONArray = optJSONObject.optJSONArray("ad");
+        JSONArray optJSONArray = optJSONObject.optJSONArray(MapBundleKey.MapObjKey.OBJ_AD);
         if (optJSONObject2 != null) {
             String optString = optJSONObject2.optString("cmd");
-            SplashStyleRecorder.af(optJSONObject2.optJSONObject("style_desc"));
+            SplashStyleRecorder.ah(optJSONObject2.optJSONObject("style_desc"));
             if (TextUtils.equals(IMTrack.DbBuilder.ACTION_UPDATE, optString)) {
                 list = a(optJSONArray, str, false);
                 String optString2 = optJSONObject2.optString("empty_ext_info");
@@ -59,9 +60,9 @@ public class a {
                     list = a(optJSONArray, str, true);
                 } else {
                     String optString3 = optJSONObject2.optString("ukey");
-                    if (!TextUtils.isEmpty(optString3) && (PB = d.PB()) != null) {
-                        for (e eVar : PB) {
-                            if (TextUtils.equals(eVar.bFi, optString3)) {
+                    if (!TextUtils.isEmpty(optString3) && (Vx = d.Vx()) != null) {
+                        for (e eVar : Vx) {
+                            if (TextUtils.equals(eVar.bKI, optString3)) {
                                 arrayList.add(eVar);
                                 list = arrayList;
                                 break;
@@ -85,18 +86,18 @@ public class a {
         List<e> p = e.p(jSONArray);
         if (z) {
             for (e eVar : p) {
-                eVar.bFs = true;
+                eVar.bKS = true;
             }
         } else {
             new ArrayList();
-            HashMap<String, e> PC = d.PC();
-            if (PC == null || PC.size() == 0) {
-                d.V(p);
+            HashMap<String, e> Vy = d.Vy();
+            if (Vy == null || Vy.size() == 0) {
+                d.W(p);
             } else {
-                d.PA();
-                d.V(p);
+                d.Vw();
+                d.W(p);
             }
-            d.W(p);
+            d.X(p);
         }
         return p;
     }

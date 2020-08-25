@@ -10,21 +10,21 @@ import com.squareup.wire2.internal.a;
 import java.io.IOException;
 import java.util.List;
 import okio.ByteString;
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public final class FrameEntity extends Message<FrameEntity, Builder> {
     public static final ProtoAdapter<FrameEntity> ADAPTER = new ProtoAdapter_FrameEntity();
     public static final Float DEFAULT_ALPHA = Float.valueOf(0.0f);
     public static final String DEFAULT_CLIPPATH = "";
     private static final long serialVersionUID = 0;
-    @WireField(dQK = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
+    @WireField(ecM = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
     public final Float alpha;
-    @WireField(dQK = "com.squareup.wire.ProtoAdapter#STRING", tag = 4)
+    @WireField(ecM = "com.squareup.wire.ProtoAdapter#STRING", tag = 4)
     public final String clipPath;
-    @WireField(dQK = "com.opensource.svgaplayer.proto.Layout#ADAPTER", tag = 2)
+    @WireField(ecM = "com.opensource.svgaplayer.proto.Layout#ADAPTER", tag = 2)
     public final Layout layout;
-    @WireField(dQK = "com.opensource.svgaplayer.proto.ShapeEntity#ADAPTER", dQL = WireField.Label.REPEATED, tag = 5)
+    @WireField(ecM = "com.opensource.svgaplayer.proto.ShapeEntity#ADAPTER", ecN = WireField.Label.REPEATED, tag = 5)
     public final List<ShapeEntity> shapes;
-    @WireField(dQK = "com.opensource.svgaplayer.proto.Transform#ADAPTER", tag = 3)
+    @WireField(ecM = "com.opensource.svgaplayer.proto.Transform#ADAPTER", tag = 3)
     public final Transform transform;
 
     public FrameEntity(Float f, Layout layout, Transform transform, String str, List<ShapeEntity> list) {
@@ -37,7 +37,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         this.layout = layout;
         this.transform = transform;
         this.clipPath = str;
-        this.shapes = a.v("shapes", list);
+        this.shapes = a.u("shapes", list);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -50,7 +50,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         builder.layout = this.layout;
         builder.transform = this.transform;
         builder.clipPath = this.clipPath;
-        builder.shapes = a.u("shapes", this.shapes);
+        builder.shapes = a.t("shapes", this.shapes);
         builder.addUnknownFields(unknownFields());
         return builder;
     }
@@ -97,12 +97,12 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         return sb.replace(0, 2, "FrameEntity{").append('}').toString();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes11.dex */
     public static final class Builder extends Message.a<FrameEntity, Builder> {
         public Float alpha;
         public String clipPath;
         public Layout layout;
-        public List<ShapeEntity> shapes = a.dQN();
+        public List<ShapeEntity> shapes = a.ecP();
         public Transform transform;
 
         public Builder alpha(Float f) {
@@ -126,7 +126,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         }
 
         public Builder shapes(List<ShapeEntity> list) {
-            a.fI(list);
+            a.fS(list);
             this.shapes = list;
             return this;
         }
@@ -139,7 +139,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes11.dex */
     private static final class ProtoAdapter_FrameEntity extends ProtoAdapter<FrameEntity> {
         ProtoAdapter_FrameEntity() {
             super(FieldEncoding.LENGTH_DELIMITED, FrameEntity.class);
@@ -175,11 +175,11 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         @Override // com.squareup.wire2.ProtoAdapter
         public FrameEntity decode(c cVar) throws IOException {
             Builder builder = new Builder();
-            long dQC = cVar.dQC();
+            long ecE = cVar.ecE();
             while (true) {
-                int dQD = cVar.dQD();
-                if (dQD != -1) {
-                    switch (dQD) {
+                int ecF = cVar.ecF();
+                if (ecF != -1) {
+                    switch (ecF) {
                         case 1:
                             builder.alpha(ProtoAdapter.FLOAT.decode(cVar));
                             break;
@@ -196,12 +196,12 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
                             builder.shapes.add(ShapeEntity.ADAPTER.decode(cVar));
                             break;
                         default:
-                            FieldEncoding dQE = cVar.dQE();
-                            builder.addUnknownField(dQD, dQE, dQE.rawProtoAdapter().decode(cVar));
+                            FieldEncoding ecG = cVar.ecG();
+                            builder.addUnknownField(ecF, ecG, ecG.rawProtoAdapter().decode(cVar));
                             break;
                     }
                 } else {
-                    cVar.gu(dQC);
+                    cVar.gH(ecE);
                     return builder.build();
                 }
             }

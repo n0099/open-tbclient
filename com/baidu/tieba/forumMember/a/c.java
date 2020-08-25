@@ -2,10 +2,10 @@ package com.baidu.tieba.forumMember.a;
 
 import android.view.View;
 import android.widget.TextView;
-import com.baidu.adp.widget.ListView.ad;
+import com.baidu.adp.widget.ListView.af;
 import com.baidu.tieba.R;
 /* loaded from: classes17.dex */
-public class c extends ad.a {
+public class c extends af.a {
     public int mSkinType;
     public TextView title;
 

@@ -5,7 +5,7 @@ import com.baidu.searchbox.network.core.MediaType;
 import com.baidu.searchbox.network.core.Request;
 import com.baidu.searchbox.network.core.RequestBody;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public class PostFileRequest extends HttpRequest<PostFileRequestBuilder> {
     private static final MediaType MEDIA_TYPE_STREAM = MediaType.parse("application/octet-stream");
     private File file;
@@ -51,7 +51,7 @@ public class PostFileRequest extends HttpRequest<PostFileRequestBuilder> {
         return this.okRequestBuilder.post(requestBody).build();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     public static class PostFileRequestBuilder extends HttpRequestBuilder<PostFileRequestBuilder> {
         private File file;
         private MediaType mediaType;

@@ -1,7 +1,7 @@
 package com.baidu.tieba.tbadkCore.data;
 
 import java.io.Serializable;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class PaymentConfirmRequestData implements Serializable {
     public static final String TERMINAL_ANDROID = "320";
     private static final long serialVersionUID = 5867821330520807722L;

@@ -5,7 +5,7 @@ import android.net.compatibility.WebAddress;
 import java.io.InputStream;
 import java.util.Map;
 import org.apache.http.HttpHost;
-/* loaded from: classes20.dex */
+/* loaded from: classes9.dex */
 public class RequestQueue implements RequestFeeder {
     public RequestQueue(Context context) {
         throw new RuntimeException("Stub!");

@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PermissionActivity extends Activity {
     private static final int REQUEST_CODE = 101;
     private static List<PermissionListener> mPermissionListenerList;

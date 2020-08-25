@@ -8,7 +8,7 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.searchbox.v8engine.util.TimeUtils;
 import com.baidu.tieba.live.tbean.data.SettingData;
 import com.baidu.tieba.live.tbean.data.UserInfoData;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class TBeanUtil {
     public static String formatTBeanNum(int i) {
         float f;

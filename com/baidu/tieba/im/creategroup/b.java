@@ -7,36 +7,36 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes17.dex */
 public class b implements o {
-    CreateGroupStepActivity iVb;
-    TbImageView iVc;
-    private ImageView iVd;
-    private int iVf;
+    CreateGroupStepActivity jka;
+    TbImageView jkb;
+    private ImageView jkc;
+    private int jke;
     private int mIndex;
     private int mStep;
     TextView mTipView;
     View mView;
-    private int iVa = 3;
-    private boolean iVe = false;
+    private int jjZ = 3;
+    private boolean jkd = false;
 
     public b(CreateGroupStepActivity createGroupStepActivity, int i, int i2, int i3) {
-        this.iVb = null;
+        this.jka = null;
         this.mView = null;
-        this.iVc = null;
+        this.jkb = null;
         this.mTipView = null;
-        this.iVd = null;
-        this.iVb = createGroupStepActivity;
+        this.jkc = null;
+        this.jka = createGroupStepActivity;
         this.mView = LayoutInflater.from(createGroupStepActivity.getPageContext().getPageActivity()).inflate(R.layout.create_group_step4_view, (ViewGroup) null);
-        this.iVc = (TbImageView) this.mView.findViewById(R.id.step4_img_bg);
+        this.jkb = (TbImageView) this.mView.findViewById(R.id.step4_img_bg);
         this.mTipView = (TextView) this.mView.findViewById(R.id.txt_tip_view);
-        this.iVd = (ImageView) this.mView.findViewById(R.id.create_group_address_rightarrwow);
+        this.jkc = (ImageView) this.mView.findViewById(R.id.create_group_address_rightarrwow);
         this.mIndex = i;
         this.mStep = i2;
-        this.iVf = i3;
+        this.jke = i3;
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
@@ -45,101 +45,101 @@ public class b implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public int crG() {
+    public int cCy() {
         return this.mIndex;
     }
 
-    public View crH() {
+    public View cCz() {
         return this.mTipView;
     }
 
-    public int crI() {
-        return this.iVa;
+    public int cCA() {
+        return this.jjZ;
     }
 
-    public void crJ() {
-        this.iVd.setVisibility(0);
-        this.iVe = false;
-        crO();
+    public void cCB() {
+        this.jkc.setVisibility(0);
+        this.jkd = false;
+        cCG();
         this.mTipView.setText(R.string.location_loading);
-        this.iVa = 3;
+        this.jjZ = 3;
     }
 
     public void setBusiness(String str) {
-        this.iVd.setVisibility(0);
-        this.iVe = true;
-        crO();
+        this.jkc.setVisibility(0);
+        this.jkd = true;
+        cCG();
         this.mTipView.setText(str);
-        this.iVa = 0;
+        this.jjZ = 0;
     }
 
     public void setAddress(String str) {
-        this.iVd.setVisibility(8);
-        this.iVe = true;
-        crO();
+        this.jkc.setVisibility(8);
+        this.jkd = true;
+        cCG();
         this.mTipView.setText(str);
-        this.iVa = 4;
+        this.jjZ = 4;
     }
 
-    public void crK() {
-        this.iVd.setVisibility(0);
-        this.iVe = false;
-        crO();
+    public void cCC() {
+        this.jkc.setVisibility(0);
+        this.jkd = false;
+        cCG();
         this.mTipView.setText(R.string.address_locate_failed_opengps);
-        this.iVa = 1;
+        this.jjZ = 1;
     }
 
-    public void crL() {
-        this.iVe = false;
-        crO();
+    public void cCD() {
+        this.jkd = false;
+        cCG();
         this.mTipView.setText(R.string.address_locate_failed_tryagain);
-        this.iVd.setVisibility(8);
-        this.iVa = 2;
+        this.jkc.setVisibility(8);
+        this.jjZ = 2;
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void crM() {
-        this.iVc.setBackgroundDrawable(null);
+    public void cCE() {
+        this.jkb.setBackgroundDrawable(null);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void crN() {
+    public void cCF() {
         boolean z = TbadkApplication.getInst().getSkinType() == 1;
-        this.iVb.getLayoutMode().setNightMode(z);
-        this.iVb.getLayoutMode().onModeChanged(this.mView);
-        this.iVc.startLoad(c.a(this.iVb.getActivity(), c.iVg, z), 29, false);
-        crO();
+        this.jka.getLayoutMode().setNightMode(z);
+        this.jka.getLayoutMode().onModeChanged(this.mView);
+        this.jkb.startLoad(c.a(this.jka.getActivity(), c.jkf, z), 29, false);
+        cCG();
     }
 
-    private void crO() {
-        if (this.iVe) {
-            Drawable drawable = ao.getDrawable(R.drawable.icon_jq_lbs_s);
+    private void cCG() {
+        if (this.jkd) {
+            Drawable drawable = ap.getDrawable(R.drawable.icon_jq_lbs_s);
             drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
             this.mTipView.setCompoundDrawables(drawable, null, null, null);
-            ao.setViewTextColor(this.mTipView, R.color.cp_cont_b, 1);
+            ap.setViewTextColor(this.mTipView, R.color.cp_cont_b, 1);
             return;
         }
-        Drawable drawable2 = ao.getDrawable(R.drawable.icon_jq_lbs_n);
+        Drawable drawable2 = ap.getDrawable(R.drawable.icon_jq_lbs_n);
         drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
         this.mTipView.setCompoundDrawables(drawable2, null, null, null);
-        ao.setViewTextColor(this.mTipView, R.color.common_color_10077, 1);
+        ap.setViewTextColor(this.mTipView, R.color.common_color_10077, 1);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
     public String getTitle() {
-        return String.format(this.iVb.getPageContext().getString(R.string.group_create_step_address), Integer.valueOf(this.mStep));
+        return String.format(this.jka.getPageContext().getString(R.string.group_create_step_address), Integer.valueOf(this.mStep));
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public String crP() {
-        if (this.mIndex != this.iVf) {
-            return this.iVb.getPageContext().getString(R.string.next_step);
+    public String cCH() {
+        if (this.mIndex != this.jke) {
+            return this.jka.getPageContext().getString(R.string.next_step);
         }
-        return this.iVb.getPageContext().getString(R.string.group_create_step_done_tip);
+        return this.jka.getPageContext().getString(R.string.group_create_step_done_tip);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean crQ() {
+    public boolean cCI() {
         return true;
     }
 
@@ -149,7 +149,7 @@ public class b implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean crR() {
+    public boolean cCJ() {
         return true;
     }
 }

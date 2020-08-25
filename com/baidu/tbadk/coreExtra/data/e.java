@@ -1,16 +1,16 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class e {
-    public int epM;
-    public int epN;
+    public int ezY;
+    public int ezZ;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.epM = jSONObject.optInt("logined");
-                this.epN = jSONObject.optInt("unlogin");
+                this.ezY = jSONObject.optInt("logined");
+                this.ezZ = jSONObject.optInt("unlogin");
             } catch (Exception e) {
                 e.printStackTrace();
             }

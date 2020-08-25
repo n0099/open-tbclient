@@ -1,5 +1,5 @@
 package com.baidu.platform.comapi.pano;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class c {
     String a;
     PanoStateError b;

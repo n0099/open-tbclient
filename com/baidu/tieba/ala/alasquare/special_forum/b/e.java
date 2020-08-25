@@ -4,8 +4,8 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes4.dex */
 public class e {
-    public a fAE;
-    private int fAF = -1;
+    public a fLW;
+    private int fLX = -1;
     private TbPageContext mTbPageContext;
 
     public e(TbPageContext tbPageContext) {
@@ -14,95 +14,95 @@ public class e {
 
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.a aVar, boolean z) {
         if (aVar == null) {
-            this.fAF = -1;
-            this.fAE = new b(this.mTbPageContext);
+            this.fLX = -1;
+            this.fLW = new b(this.mTbPageContext);
         } else if (z) {
-            this.fAF = aVar.fyN;
-            switch (aVar.fyN) {
+            this.fLX = aVar.fKf;
+            switch (aVar.fKf) {
                 case 1:
-                    this.fAE = new d(this.mTbPageContext);
+                    this.fLW = new d(this.mTbPageContext);
                     break;
                 case 2:
-                    this.fAE = new f(this.mTbPageContext);
+                    this.fLW = new f(this.mTbPageContext);
                     break;
                 case 3:
-                    this.fAE = new c(this.mTbPageContext);
+                    this.fLW = new c(this.mTbPageContext);
                     break;
                 default:
-                    this.fAE = new b(this.mTbPageContext);
+                    this.fLW = new b(this.mTbPageContext);
                     break;
             }
         }
-        if (this.fAE.b(aVar)) {
+        if (this.fLW.b(aVar)) {
             if (z) {
-                this.fAE.init();
+                this.fLW.init();
             }
-            this.fAE.a(aVar);
+            this.fLW.a(aVar);
             return;
         }
-        this.fAF = -1;
-        this.fAE = new b(this.mTbPageContext);
+        this.fLX = -1;
+        this.fLW = new b(this.mTbPageContext);
         if (z) {
-            this.fAE.init();
+            this.fLW.init();
         }
-        this.fAE.a(aVar);
+        this.fLW.a(aVar);
     }
 
     public boolean c(com.baidu.tieba.ala.alasquare.special_forum.data.a aVar) {
-        return aVar == null || this.fAF != aVar.fyN;
+        return aVar == null || this.fLX != aVar.fKf;
     }
 
     public void pause() {
-        if (this.fAE != null) {
-            this.fAE.pause();
+        if (this.fLW != null) {
+            this.fLW.pause();
         }
     }
 
     public void resume() {
-        if (this.fAE != null) {
-            this.fAE.resume();
+        if (this.fLW != null) {
+            this.fLW.resume();
         }
     }
 
-    public void ka(boolean z) {
-        if (this.fAE != null) {
-            this.fAE.ka(z);
+    public void ky(boolean z) {
+        if (this.fLW != null) {
+            this.fLW.ky(z);
         }
     }
 
-    public void W(ViewGroup viewGroup) {
-        if (this.fAE != null) {
-            this.fAE.W(viewGroup);
+    public void X(ViewGroup viewGroup) {
+        if (this.fLW != null) {
+            this.fLW.X(viewGroup);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.fAE != null) {
-            this.fAE.onChangeSkinType(i);
+        if (this.fLW != null) {
+            this.fLW.onChangeSkinType(i);
         }
     }
 
     public void startPlay() {
-        if (this.fAE != null) {
-            this.fAE.startPlay();
+        if (this.fLW != null) {
+            this.fLW.startPlay();
         }
     }
 
     public void stopPlay() {
-        if (this.fAE != null) {
-            this.fAE.stopPlay();
+        if (this.fLW != null) {
+            this.fLW.stopPlay();
         }
     }
 
-    public void bxW() {
-        if (this.fAE != null) {
-            this.fAE.bxW();
+    public void bGV() {
+        if (this.fLW != null) {
+            this.fLW.bGV();
         }
     }
 
     public void onDestroy() {
-        if (this.fAE != null) {
-            this.fAE.onDestroy();
+        if (this.fLW != null) {
+            this.fLW.onDestroy();
         }
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.searchbox.ugc.model;
-/* loaded from: classes19.dex */
+/* loaded from: classes11.dex */
 public class TopicItem {
     public String id;
     public String name;

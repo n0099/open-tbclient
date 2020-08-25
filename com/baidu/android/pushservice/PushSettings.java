@@ -2,7 +2,7 @@ package com.baidu.android.pushservice;
 
 import android.content.Context;
 import android.text.TextUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class PushSettings {
     public static int a = -1;
     public static int b = -1;

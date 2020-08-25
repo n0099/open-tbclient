@@ -1,26 +1,50 @@
 package com.baidu.mapsdkplatform.comapi.map;
 
-import android.os.Handler;
 import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
-public class s extends Handler {
-    final /* synthetic */ r a;
+/* loaded from: classes20.dex */
+public class s {
+    private static final String a = s.class.getSimpleName();
+    private r b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(r rVar) {
-        this.a = rVar;
+    public void a(Message message) {
+        if (message.what != 65289) {
+            return;
+        }
+        switch (message.arg1) {
+            case -1:
+            case 0:
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+            case 10:
+            case 12:
+            case 101:
+            case 102:
+                if (this.b != null) {
+                    this.b.a(message.arg1, message.arg2);
+                    return;
+                }
+                return;
+            default:
+                return;
+        }
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        r rVar;
-        w wVar;
-        super.handleMessage(message);
-        rVar = r.c;
-        if (rVar != null) {
-            wVar = this.a.d;
-            wVar.a(message);
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void a(r rVar) {
+        this.b = rVar;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void b(r rVar) {
+        this.b = null;
     }
 }

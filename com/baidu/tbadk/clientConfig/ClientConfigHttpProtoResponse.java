@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
 import tbclient.GetClientConfig.DataRes;
 import tbclient.GetClientConfig.GetClientConfigResIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ClientConfigHttpProtoResponse extends HttpResponsedMessage {
     private DataRes mData;
 

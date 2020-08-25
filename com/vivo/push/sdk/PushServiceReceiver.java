@@ -11,7 +11,7 @@ import com.vivo.push.PushClient;
 import com.vivo.push.cache.ClientConfigManagerImpl;
 import com.vivo.push.util.p;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class PushServiceReceiver extends BroadcastReceiver {
     private static HandlerThread a = null;
     private static Handler b = null;
@@ -34,7 +34,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     static class a implements Runnable {
         private Context a;
         private String b;

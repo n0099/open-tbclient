@@ -1,8 +1,9 @@
 package com.baidu.sapi2.utils;
 
 import android.os.Looper;
-/* loaded from: classes19.dex */
-public class TPRunnable implements com.baidu.sapi2.c, Runnable {
+import com.baidu.sapi2.NoProguard;
+/* loaded from: classes12.dex */
+public class TPRunnable implements NoProguard, Runnable {
     public Runnable runable;
 
     public TPRunnable(Runnable runnable) {

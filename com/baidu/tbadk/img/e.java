@@ -11,33 +11,33 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.n;
 import com.baidu.tbadk.img.effect.ImageOperation;
 import java.util.LinkedList;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class e {
-    public static final String eEt = n.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/dynamicimgtmp";
-    private d eEA;
-    private b eEu;
-    private boolean eEv;
-    private ImageFileInfo eEw;
-    private d eEx;
-    private d eEy;
-    private d eEz;
+    public static final String eOU = n.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/dynamicimgtmp";
+    private b eOV;
+    private boolean eOW;
+    private ImageFileInfo eOX;
+    private d eOY;
+    private d eOZ;
+    private d ePa;
+    private d ePb;
 
     public e() {
-        this.eEv = false;
-        this.eEx = new d() { // from class: com.baidu.tbadk.img.e.1
+        this.eOW = false;
+        this.eOY = new d() { // from class: com.baidu.tbadk.img.e.1
             @Override // com.baidu.tbadk.img.d
             public String a(ImageFileInfo imageFileInfo) {
                 String saveTempUploadFile;
                 if (imageFileInfo == null) {
                     return null;
                 }
-                if (e.this.eEu == null) {
-                    e.this.eEu = new b();
+                if (e.this.eOV == null) {
+                    e.this.eOV = new b();
                 }
                 String filePath = imageFileInfo.getFilePath();
                 LinkedList<ImageOperation> pageActionsList = imageFileInfo.getPageActionsList();
                 imageFileInfo.setPageActionsList(null);
-                com.baidu.adp.widget.ImageView.a a = e.this.eEu.a(imageFileInfo, true);
+                com.baidu.adp.widget.ImageView.a a = e.this.eOV.a(imageFileInfo, true);
                 if (a == null) {
                     Bitmap b = e.this.b(imageFileInfo);
                     if (b == null) {
@@ -55,7 +55,7 @@ public class e {
                 return saveTempUploadFile;
             }
         };
-        this.eEy = new d() { // from class: com.baidu.tbadk.img.e.2
+        this.eOZ = new d() { // from class: com.baidu.tbadk.img.e.2
             @Override // com.baidu.tbadk.img.d
             public String a(ImageFileInfo imageFileInfo) {
                 if (imageFileInfo == null) {
@@ -64,8 +64,8 @@ public class e {
                 return e.this.compressOriginalImageFile(imageFileInfo.getFilePath());
             }
         };
-        this.eEz = this.eEy;
-        this.eEA = new d() { // from class: com.baidu.tbadk.img.e.3
+        this.ePa = this.eOZ;
+        this.ePb = new d() { // from class: com.baidu.tbadk.img.e.3
             @Override // com.baidu.tbadk.img.d
             public String a(ImageFileInfo imageFileInfo) {
                 if (imageFileInfo == null) {
@@ -77,21 +77,21 @@ public class e {
     }
 
     public e(boolean z) {
-        this.eEv = false;
-        this.eEx = new d() { // from class: com.baidu.tbadk.img.e.1
+        this.eOW = false;
+        this.eOY = new d() { // from class: com.baidu.tbadk.img.e.1
             @Override // com.baidu.tbadk.img.d
             public String a(ImageFileInfo imageFileInfo) {
                 String saveTempUploadFile;
                 if (imageFileInfo == null) {
                     return null;
                 }
-                if (e.this.eEu == null) {
-                    e.this.eEu = new b();
+                if (e.this.eOV == null) {
+                    e.this.eOV = new b();
                 }
                 String filePath = imageFileInfo.getFilePath();
                 LinkedList<ImageOperation> pageActionsList = imageFileInfo.getPageActionsList();
                 imageFileInfo.setPageActionsList(null);
-                com.baidu.adp.widget.ImageView.a a = e.this.eEu.a(imageFileInfo, true);
+                com.baidu.adp.widget.ImageView.a a = e.this.eOV.a(imageFileInfo, true);
                 if (a == null) {
                     Bitmap b = e.this.b(imageFileInfo);
                     if (b == null) {
@@ -109,7 +109,7 @@ public class e {
                 return saveTempUploadFile;
             }
         };
-        this.eEy = new d() { // from class: com.baidu.tbadk.img.e.2
+        this.eOZ = new d() { // from class: com.baidu.tbadk.img.e.2
             @Override // com.baidu.tbadk.img.d
             public String a(ImageFileInfo imageFileInfo) {
                 if (imageFileInfo == null) {
@@ -118,8 +118,8 @@ public class e {
                 return e.this.compressOriginalImageFile(imageFileInfo.getFilePath());
             }
         };
-        this.eEz = this.eEy;
-        this.eEA = new d() { // from class: com.baidu.tbadk.img.e.3
+        this.ePa = this.eOZ;
+        this.ePb = new d() { // from class: com.baidu.tbadk.img.e.3
             @Override // com.baidu.tbadk.img.d
             public String a(ImageFileInfo imageFileInfo) {
                 if (imageFileInfo == null) {
@@ -128,7 +128,7 @@ public class e {
                 return e.this.saveTempUploadFile(e.this.getUploadFileBitmap(imageFileInfo.getFilePath()), 85);
             }
         };
-        this.eEv = z;
+        this.eOW = z;
     }
 
     public String c(ImageFileInfo imageFileInfo, boolean z) {
@@ -136,39 +136,39 @@ public class e {
         if (imageFileInfo == null) {
             return null;
         }
-        this.eEw = imageFileInfo;
+        this.eOX = imageFileInfo;
         String filePath = imageFileInfo.getFilePath();
         boolean checkIsLongImage = n.checkIsLongImage(filePath);
-        boolean xB = n.xB(filePath);
-        if (imageFileInfo.isGif() || (z && !imageFileInfo.hasActionsWithoutResize() && !xB)) {
+        boolean zP = n.zP(filePath);
+        if (imageFileInfo.isGif() || (z && !imageFileInfo.hasActionsWithoutResize() && !zP)) {
             if (checkIsLongImage) {
-                dVar = this.eEz;
+                dVar = this.ePa;
             } else {
-                dVar = this.eEy;
+                dVar = this.eOZ;
             }
         } else if (checkIsLongImage) {
-            dVar = this.eEA;
+            dVar = this.ePb;
         } else {
-            dVar = this.eEx;
+            dVar = this.eOY;
         }
         return dVar.a(imageFileInfo);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public Bitmap b(ImageFileInfo imageFileInfo) {
-        com.baidu.adp.lib.e.e ap;
+        com.baidu.adp.lib.e.e ar;
         if (imageFileInfo == null) {
             return null;
         }
-        if (this.eEu == null) {
-            this.eEu = new b();
+        if (this.eOV == null) {
+            this.eOV = new b();
         }
         if (imageFileInfo.getImageType() == 0) {
-            return this.eEu.b(imageFileInfo, true);
+            return this.eOV.b(imageFileInfo, true);
         }
-        if (imageFileInfo.getImageType() == 1 && (ap = com.baidu.adp.lib.e.c.ln().ap(20)) != null) {
+        if (imageFileInfo.getImageType() == 1 && (ar = com.baidu.adp.lib.e.c.mM().ar(20)) != null) {
             try {
-                Object a = ap.a(imageFileInfo.getFilePath(), imageFileInfo.toCachedKey(false), 0, 0, null, null, imageFileInfo.getFilePath(), false, null);
+                Object a = ar.a(imageFileInfo.getFilePath(), imageFileInfo.toCachedKey(false), 0, 0, null, null, imageFileInfo.getFilePath(), false, null);
                 if (a instanceof com.baidu.adp.widget.ImageView.a) {
                     return ((com.baidu.adp.widget.ImageView.a) a).getRawBitmap();
                 }
@@ -247,16 +247,16 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public String saveTempUploadFile(Bitmap bitmap, int i) {
-        if (this.eEv) {
-            if (this.eEw != null && !TextUtils.isEmpty(this.eEw.getFilePath())) {
-                return n.a(eEt, s.toMd5(this.eEw.toCachedKey(false)) + zW(this.eEw.getFilePath()), bitmap, 5242880.0f, i);
+        if (this.eOW) {
+            if (this.eOX != null && !TextUtils.isEmpty(this.eOX.getFilePath())) {
+                return n.a(eOU, s.toMd5(this.eOX.toCachedKey(false)) + Cm(this.eOX.getFilePath()), bitmap, 5242880.0f, i);
             }
             return "";
         }
         return n.compressBitmapToFile("img_upload_temp_file.temp", bitmap, 5242880.0f, i);
     }
 
-    private String zW(String str) {
+    private String Cm(String str) {
         if (TextUtils.isEmpty(str)) {
             return ".jpg";
         }

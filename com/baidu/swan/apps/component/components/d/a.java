@@ -10,19 +10,19 @@ import com.baidu.swan.apps.canvas.b.b;
 import com.baidu.swan.apps.canvas.view.CanvasView;
 import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
 import com.baidu.swan.apps.console.c;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a extends com.baidu.swan.apps.component.b.a<CanvasView, com.baidu.swan.apps.canvas.b.a> {
     @NonNull
-    public CanvasView bVu;
+    public CanvasView cbc;
 
     public a(@NonNull Context context, @NonNull com.baidu.swan.apps.canvas.b.a aVar) {
         super(context, aVar);
-        this.bVu = new CanvasView(context);
-        this.bVu.setInterceptTouchEvent(aVar.bUr);
-        this.bVu.setHide(aVar.hidden);
-        this.bVu.setGesture(aVar.bVo);
-        if (aVar.bVo) {
-            this.bVu.setInterceptTouchEvent(false);
+        this.cbc = new CanvasView(context);
+        this.cbc.setInterceptTouchEvent(aVar.bZZ);
+        this.cbc.setHide(aVar.hidden);
+        this.cbc.setGesture(aVar.caW);
+        if (aVar.caW) {
+            this.cbc.setInterceptTouchEvent(false);
         }
     }
 
@@ -31,18 +31,18 @@ public final class a extends com.baidu.swan.apps.component.b.a<CanvasView, com.b
             c.e("Component-Canvas", "some params is invalid");
             return false;
         }
-        com.baidu.swan.apps.canvas.b.a WW = WW();
-        if (!TextUtils.equals(WW.bVl, aVar.bVl) || !TextUtils.equals(WW.bVm, aVar.bVm)) {
-            com.baidu.swan.apps.component.e.a.aV("Component-Canvas", "drawCanvas with illegal ids!");
+        com.baidu.swan.apps.canvas.b.a adc = adc();
+        if (!TextUtils.equals(adc.caT, aVar.caT) || !TextUtils.equals(adc.caU, aVar.caU)) {
+            com.baidu.swan.apps.component.e.a.ba("Component-Canvas", "drawCanvas with illegal ids!");
         }
         b bVar2 = (b) aVar;
-        this.bVu.g(bVar2.WJ(), bVar2.WK());
-        this.bVu.postInvalidate();
-        this.bVu.post(new Runnable() { // from class: com.baidu.swan.apps.component.components.d.a.1
+        this.cbc.g(bVar2.acP(), bVar2.acQ());
+        this.cbc.postInvalidate();
+        this.cbc.post(new Runnable() { // from class: com.baidu.swan.apps.component.components.d.a.1
             @Override // java.lang.Runnable
             public void run() {
                 if (bVar != null) {
-                    bVar.WD();
+                    bVar.acJ();
                 }
             }
         });
@@ -54,9 +54,9 @@ public final class a extends com.baidu.swan.apps.component.b.a<CanvasView, com.b
     @Override // com.baidu.swan.apps.component.b.a
     @SuppressLint({"ClickableViewAccessibility"})
     public void a(@NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull com.baidu.swan.apps.canvas.b.a aVar) {
-        final boolean z = aVar.bVo;
-        final boolean z2 = aVar.bUr;
-        swanAppComponentContainerView.setOnTouchListener(new com.baidu.swan.apps.view.b.a.b(aVar.bVm, aVar.bVl, aVar.bVk) { // from class: com.baidu.swan.apps.component.components.d.a.2
+        final boolean z = aVar.caW;
+        final boolean z2 = aVar.bZZ;
+        swanAppComponentContainerView.setOnTouchListener(new com.baidu.swan.apps.view.b.a.b(aVar.caU, aVar.caT, aVar.caS) { // from class: com.baidu.swan.apps.component.components.d.a.2
             @Override // com.baidu.swan.apps.view.b.a.b, android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 return z && super.onTouch(view, motionEvent) && z2;
@@ -68,15 +68,15 @@ public final class a extends com.baidu.swan.apps.component.b.a<CanvasView, com.b
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.component.b.a
     @NonNull
-    /* renamed from: bC */
-    public CanvasView ba(@NonNull Context context) {
-        return this.bVu;
+    /* renamed from: bJ */
+    public CanvasView bf(@NonNull Context context) {
+        return this.cbc;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.component.b.a
     public void onRemove() {
         super.onRemove();
-        this.bVu.onRelease();
+        this.cbc.onRelease();
     }
 }

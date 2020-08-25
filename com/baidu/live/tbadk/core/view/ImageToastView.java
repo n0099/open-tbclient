@@ -8,17 +8,18 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ImageToastView {
     private Context mContext;
     private Toast mToast;
     private ImageView tipImage;
     private TextView tipText;
     private View tipView;
-    public long toastTime = 3000;
+    public long toastTime = IMConnection.RETRY_DELAY_TIMES;
     private int imageID = -1;
     private int stringID = -1;
     private Runnable mToastRunnable = new Runnable() { // from class: com.baidu.live.tbadk.core.view.ImageToastView.1

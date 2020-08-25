@@ -5,22 +5,22 @@ import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class x {
-    public static final String bmQ() {
-        com.baidu.m.a dAZ = com.baidu.m.c.fN(TbadkCoreApplication.getInst()).dAZ();
-        if (dAZ == null) {
+    public static final String bvD() {
+        com.baidu.q.a dMN = com.baidu.q.c.ga(TbadkCoreApplication.getInst()).dMN();
+        if (dMN == null) {
             return null;
         }
         try {
             JSONObject jSONObject = new JSONObject();
-            String dAY = dAZ.dAY();
-            if (!TextUtils.isEmpty(dAY)) {
-                jSONObject.put("v", dAY);
+            String dMM = dMN.dMM();
+            if (!TextUtils.isEmpty(dMM)) {
+                jSONObject.put("v", dMM);
             }
-            jSONObject.put(Config.STAT_SDK_CHANNEL, dAZ.getStatusCode());
-            jSONObject.put("sup", dAZ.isSupport() ? 1 : 0);
-            jSONObject.put("tl", dAZ.dAX() ? 1 : 0);
+            jSONObject.put(Config.STAT_SDK_CHANNEL, dMN.getStatusCode());
+            jSONObject.put("sup", dMN.isSupport() ? 1 : 0);
+            jSONObject.put("tl", dMN.dML() ? 1 : 0);
             return jSONObject.toString();
         } catch (JSONException e) {
             if (TbadkCoreApplication.getInst().isDebugMode()) {

@@ -2,9 +2,9 @@ package com.baidu.live.guardclub;
 
 import android.view.View;
 import android.view.ViewGroup;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface j {
-    void CN();
+    void Iq();
 
     void b(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams);
 

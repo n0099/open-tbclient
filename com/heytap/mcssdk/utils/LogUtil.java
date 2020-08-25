@@ -1,7 +1,7 @@
 package com.heytap.mcssdk.utils;
 
 import android.util.Log;
-/* loaded from: classes20.dex */
+/* loaded from: classes9.dex */
 public class LogUtil {
     public static final String TAG = "mcssdk---";
     private static String special = "MCS";

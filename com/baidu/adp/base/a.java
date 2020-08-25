@@ -11,19 +11,19 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class a {
-    private static a GD;
+    private static a Hk;
     private static ArrayList<SoftReference<Activity>> sActivityStack;
-    private InterfaceC0017a GF;
+    private InterfaceC0014a Hl;
     private int mActivityStackMaxSize = 0;
 
     /* renamed from: com.baidu.adp.base.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0017a {
+    public interface InterfaceC0014a {
         void onActivityClosed();
     }
 
-    public void a(InterfaceC0017a interfaceC0017a) {
-        this.GF = interfaceC0017a;
+    public void a(InterfaceC0014a interfaceC0014a) {
+        this.Hl = interfaceC0014a;
     }
 
     private a() {
@@ -32,11 +32,11 @@ public final class a {
         }
     }
 
-    public static a jC() {
-        if (GD == null) {
-            GD = new a();
+    public static a lb() {
+        if (Hk == null) {
+            Hk = new a();
         }
-        return GD;
+        return Hk;
     }
 
     public int getSize() {
@@ -74,7 +74,7 @@ public final class a {
         return remove.get();
     }
 
-    public Activity U(int i) {
+    public Activity W(int i) {
         int size = sActivityStack.size();
         if (size == 0) {
             return null;
@@ -104,7 +104,7 @@ public final class a {
         return -1;
     }
 
-    public void V(int i) {
+    public void X(int i) {
         for (int i2 = 0; i2 < i; i2++) {
             Activity popActivity = popActivity();
             if (popActivity != null) {
@@ -117,8 +117,8 @@ public final class a {
         if (activity != null) {
             int size = sActivityStack.size();
             if (size == 0) {
-                if (this.GF != null) {
-                    this.GF.onActivityClosed();
+                if (this.Hl != null) {
+                    this.Hl.onActivityClosed();
                     return;
                 }
                 return;
@@ -129,13 +129,13 @@ public final class a {
                     sActivityStack.remove(i);
                 } else if (activity.equals(softReference.get())) {
                     sActivityStack.remove(i);
-                    if (sActivityStack.size() == 0 && this.GF != null) {
-                        this.GF.onActivityClosed();
+                    if (sActivityStack.size() == 0 && this.Hl != null) {
+                        this.Hl.onActivityClosed();
                         return;
                     }
                     return;
-                } else if (sActivityStack.size() == 0 && this.GF != null) {
-                    this.GF.onActivityClosed();
+                } else if (sActivityStack.size() == 0 && this.Hl != null) {
+                    this.Hl.onActivityClosed();
                 }
             }
         }
@@ -150,7 +150,7 @@ public final class a {
         return null;
     }
 
-    public boolean bj(String str) {
+    public boolean bo(String str) {
         if (sActivityStack.size() == 0) {
             return false;
         }
@@ -184,8 +184,8 @@ public final class a {
                 }
             }
         }
-        if (this.GF != null) {
-            this.GF.onActivityClosed();
+        if (this.Hl != null) {
+            this.Hl.onActivityClosed();
         }
     }
 
@@ -195,10 +195,10 @@ public final class a {
 
     private void checkAndMaintainActivityStack(int i) {
         if (i != 0) {
-            int size = jC().getSize();
+            int size = lb().getSize();
             while (size > i) {
                 size--;
-                Activity popActivity = jC().popActivity(1);
+                Activity popActivity = lb().popActivity(1);
                 if (popActivity != null) {
                     popActivity.finish();
                 }
@@ -206,7 +206,7 @@ public final class a {
         }
     }
 
-    public String jD() {
+    public String lc() {
         ActivityManager activityManager;
         List<ActivityManager.RunningTaskInfo> runningTasks;
         String str;

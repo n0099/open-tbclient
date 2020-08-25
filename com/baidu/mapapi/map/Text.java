@@ -8,9 +8,9 @@ import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.live.tbadk.img.effect.RotateImageAction;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.mapapi.model.inner.GeoPoint;
-import mapsdkvi.com.gdi.bgl.android.java.EnvDrawText;
-/* loaded from: classes10.dex */
+import com.baidu.platform.comapi.basestruct.GeoPoint;
+import vi.com.gdi.bgl.android.java.EnvDrawText;
+/* loaded from: classes20.dex */
 public final class Text extends Overlay {
     private static final String k = Text.class.getSimpleName();
     String a;
@@ -26,7 +26,7 @@ public final class Text extends Overlay {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Text() {
-        this.type = com.baidu.mapsdkplatform.comapi.map.h.text;
+        this.type = com.baidu.mapsdkplatform.comapi.map.i.text;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -45,7 +45,7 @@ public final class Text extends Overlay {
         float f2 = 0.5f;
         super.a(bundle);
         if (this.b == null) {
-            throw new IllegalStateException("when you add a text overlay, you must provide text and the position info.");
+            throw new IllegalStateException("BDMapSDKException: when you add a text overlay, you must provide text and the position info.");
         }
         bundle.putString("text", this.a);
         GeoPoint ll2mc = CoordUtil.ll2mc(this.b);
@@ -151,7 +151,7 @@ public final class Text extends Overlay {
 
     public void setPosition(LatLng latLng) {
         if (latLng == null) {
-            throw new IllegalArgumentException("position can not be null");
+            throw new IllegalArgumentException("BDMapSDKException: position can not be null");
         }
         this.b = latLng;
         this.j = 1;
@@ -166,7 +166,7 @@ public final class Text extends Overlay {
 
     public void setText(String str) {
         if (str == null || str.equals("")) {
-            throw new IllegalArgumentException("text can not be null or empty");
+            throw new IllegalArgumentException("BDMapSDKException: text can not be null or empty");
         }
         this.a = str;
         this.j = 1;

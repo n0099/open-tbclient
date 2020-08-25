@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.RandomAccess;
 @kotlin.h
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public final class EmptyList implements Serializable, List, RandomAccess {
     public static final EmptyList INSTANCE = new EmptyList();
     private static final long serialVersionUID = -7390468764508069838L;
@@ -81,7 +81,7 @@ public final class EmptyList implements Serializable, List, RandomAccess {
 
     @Override // java.util.List, java.util.Collection
     public Object[] toArray() {
-        return kotlin.jvm.internal.n.p(this);
+        return kotlin.jvm.internal.n.r(this);
     }
 
     @Override // java.util.List, java.util.Collection
@@ -173,12 +173,12 @@ public final class EmptyList implements Serializable, List, RandomAccess {
 
     @Override // java.util.List, java.util.Collection, java.lang.Iterable
     public Iterator iterator() {
-        return aa.nYa;
+        return aa.orY;
     }
 
     @Override // java.util.List
     public ListIterator listIterator() {
-        return aa.nYa;
+        return aa.orY;
     }
 
     @Override // java.util.List
@@ -186,7 +186,7 @@ public final class EmptyList implements Serializable, List, RandomAccess {
         if (i != 0) {
             throw new IndexOutOfBoundsException("Index: " + i);
         }
-        return aa.nYa;
+        return aa.orY;
     }
 
     @Override // java.util.List

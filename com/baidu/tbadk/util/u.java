@@ -1,31 +1,29 @@
 package com.baidu.tbadk.util;
 
-import android.net.wifi.WifiManager;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.live.adp.framework.MessageConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.compatible.CompatibleUtile;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class u {
-    private CustomMessageListener Ny;
+    private CustomMessageListener Oe;
     private static final byte[] mlock = new byte[1];
-    private static u eKM = null;
+    private static u eVr = null;
 
-    public static u bmM() {
-        if (eKM == null) {
+    public static u bvz() {
+        if (eVr == null) {
             synchronized (mlock) {
-                if (eKM == null) {
-                    eKM = new u();
+                if (eVr == null) {
+                    eVr = new u();
                 }
             }
         }
-        return eKM;
+        return eVr;
     }
 
     private u() {
@@ -34,17 +32,17 @@ public class u {
 
     public void registerNetworkChangedListener() {
         try {
-            if (this.Ny == null) {
-                this.Ny = bmN();
-                MessageManager.getInstance().registerListener(this.Ny);
+            if (this.Oe == null) {
+                this.Oe = bvA();
+                MessageManager.getInstance().registerListener(this.Oe);
             }
         } catch (Exception e) {
-            this.Ny = null;
+            this.Oe = null;
             BdLog.e(e.getMessage());
         }
     }
 
-    private CustomMessageListener bmN() {
+    private CustomMessageListener bvA() {
         return new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tbadk.util.u.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -62,10 +60,10 @@ public class u {
             boolean isNetWorkAvailable = com.baidu.adp.lib.util.j.isNetWorkAvailable();
             if (isNetWorkAvailable) {
                 if (com.baidu.adp.lib.util.j.isWifiNet()) {
-                    at.baS().setNetworkIsWifi(true);
-                    com.baidu.tieba.recapp.d.a.dcN().MB(((WifiManager) TbadkCoreApplication.getInst().getSystemService("wifi")).getConnectionInfo().getBSSID());
+                    au.bjr().setNetworkIsWifi(true);
+                    com.baidu.tieba.recapp.d.a.dnW().dnY();
                 } else if (com.baidu.adp.lib.util.j.isMobileNet()) {
-                    at.baS().setNetworkIsWifi(false);
+                    au.bjr().setNetworkIsWifi(false);
                 }
             }
             NoNetworkView.setIsHasNetwork(isNetWorkAvailable);

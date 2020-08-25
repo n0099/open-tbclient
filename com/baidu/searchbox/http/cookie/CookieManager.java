@@ -2,7 +2,7 @@ package com.baidu.searchbox.http.cookie;
 
 import android.webkit.CookieSyncManager;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public interface CookieManager {
     public static final CookieManager WEBKIT_COOKIES = new CookieManager() { // from class: com.baidu.searchbox.http.cookie.CookieManager.1
         @Override // com.baidu.searchbox.http.cookie.CookieManager

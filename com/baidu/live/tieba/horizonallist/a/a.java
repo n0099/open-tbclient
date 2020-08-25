@@ -2,12 +2,12 @@ package com.baidu.live.tieba.horizonallist.a;
 
 import android.os.Build;
 import android.view.View;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a {
 
     /* renamed from: com.baidu.live.tieba.horizonallist.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static abstract class AbstractC0187a {
+    /* loaded from: classes7.dex */
+    public static abstract class AbstractC0194a {
         protected View view;
 
         public abstract boolean isHardwareAccelerated();
@@ -16,34 +16,34 @@ public class a {
 
         public abstract void setScrollX(int i);
 
-        protected AbstractC0187a(View view) {
+        protected AbstractC0194a(View view) {
             this.view = view;
         }
     }
 
-    /* loaded from: classes4.dex */
-    public static class b extends AbstractC0187a {
+    /* loaded from: classes7.dex */
+    public static class b extends AbstractC0194a {
         public b(View view) {
             super(view);
         }
 
-        @Override // com.baidu.live.tieba.horizonallist.a.a.AbstractC0187a
+        @Override // com.baidu.live.tieba.horizonallist.a.a.AbstractC0194a
         public void postOnAnimation(Runnable runnable) {
             this.view.post(runnable);
         }
 
-        @Override // com.baidu.live.tieba.horizonallist.a.a.AbstractC0187a
+        @Override // com.baidu.live.tieba.horizonallist.a.a.AbstractC0194a
         public void setScrollX(int i) {
             this.view.scrollTo(i, this.view.getScrollY());
         }
 
-        @Override // com.baidu.live.tieba.horizonallist.a.a.AbstractC0187a
+        @Override // com.baidu.live.tieba.horizonallist.a.a.AbstractC0194a
         public boolean isHardwareAccelerated() {
             return false;
         }
     }
 
-    public static final AbstractC0187a V(View view) {
+    public static final AbstractC0194a W(View view) {
         return Build.VERSION.SDK_INT >= 14 ? new com.baidu.live.tieba.horizonallist.a.b.a(view) : new b(view);
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.turbonet.base;
 
 import android.util.Log;
 import java.util.Locale;
-/* loaded from: classes19.dex */
+/* loaded from: classes10.dex */
 public class a {
     private a() {
     }
@@ -14,7 +14,7 @@ public class a {
         return str;
     }
 
-    public static String Qf(String str) {
+    public static String Te(String str) {
         if (!str.startsWith("cr_")) {
             int i = 0;
             if (str.startsWith("cr.")) {
@@ -26,44 +26,44 @@ public class a {
     }
 
     private static String k(String str, Object... objArr) {
-        return "[" + dyb() + "] " + j(str, objArr);
+        return "[" + dJO() + "] " + j(str, objArr);
     }
 
-    private static void f(String str, String str2, Object... objArr) {
+    private static void debug(String str, String str2, Object... objArr) {
         String k = k(str2, objArr);
-        Throwable M = M(objArr);
-        if (M != null) {
-            Log.d(Qf(str), k, M);
+        Throwable L = L(objArr);
+        if (L != null) {
+            Log.d(Te(str), k, L);
         } else {
-            Log.d(Qf(str), k);
+            Log.d(Te(str), k);
         }
     }
 
     public static void d(String str, String str2) {
-        f(str, str2, new Object[0]);
+        debug(str, str2, new Object[0]);
+    }
+
+    public static void f(String str, String str2, Object... objArr) {
+        String j = j(str2, objArr);
+        Throwable L = L(objArr);
+        if (L != null) {
+            Log.i(Te(str), j, L);
+        } else {
+            Log.i(Te(str), j);
+        }
     }
 
     public static void g(String str, String str2, Object... objArr) {
         String j = j(str2, objArr);
-        Throwable M = M(objArr);
-        if (M != null) {
-            Log.i(Qf(str), j, M);
+        Throwable L = L(objArr);
+        if (L != null) {
+            Log.e(Te(str), j, L);
         } else {
-            Log.i(Qf(str), j);
+            Log.e(Te(str), j);
         }
     }
 
-    public static void h(String str, String str2, Object... objArr) {
-        String j = j(str2, objArr);
-        Throwable M = M(objArr);
-        if (M != null) {
-            Log.e(Qf(str), j, M);
-        } else {
-            Log.e(Qf(str), j);
-        }
-    }
-
-    private static Throwable M(Object[] objArr) {
+    private static Throwable L(Object[] objArr) {
         if (objArr == null || objArr.length == 0) {
             return null;
         }
@@ -74,7 +74,7 @@ public class a {
         return null;
     }
 
-    private static String dyb() {
+    private static String dJO() {
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         String name = a.class.getName();
         int i = 0;

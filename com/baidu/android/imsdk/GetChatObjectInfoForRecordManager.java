@@ -10,7 +10,7 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class GetChatObjectInfoForRecordManager {
     public static final int RETRYTIMES = 2;
     public static final int TYPE_BOX_PA = 1;

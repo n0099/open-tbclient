@@ -4,28 +4,28 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import com.baidu.searchbox.aop.annotation.DebugTrace;
-import com.baidu.swan.apps.aq.ai;
-import com.baidu.swan.apps.aq.al;
-import com.baidu.swan.apps.aq.u;
+import com.baidu.swan.apps.ap.ah;
+import com.baidu.swan.apps.ap.ak;
+import com.baidu.swan.apps.ap.u;
 import com.baidu.swan.apps.env.launch.SwanLauncher;
 import com.baidu.swan.apps.runtime.d;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SwanAppLauncherActivity extends Activity {
     private static final boolean DEBUG = b.DEBUG;
 
     @Override // android.app.Activity
     @DebugTrace
     protected void onCreate(Bundle bundle) {
-        int releaseFixedOrientation = al.releaseFixedOrientation(this);
+        int releaseFixedOrientation = ak.releaseFixedOrientation(this);
         super.onCreate(bundle);
-        al.fixedOrientation(this, releaseFixedOrientation);
-        ai.S(this);
+        ak.fixedOrientation(this, releaseFixedOrientation);
+        ah.Q(this);
         if (DEBUG) {
             Log.d("SwanAppLauncherActivity", MissionEvent.MESSAGE_CREATE);
         }
         if (!u.checkActivityRefuseServiceAndFinish(this)) {
-            SwanLauncher.aeL().v(getIntent().getExtras());
+            SwanLauncher.alu().t(getIntent().getExtras());
             d.getMainHandler().post(new Runnable() { // from class: com.baidu.swan.apps.SwanAppLauncherActivity.1
                 @Override // java.lang.Runnable
                 public void run() {

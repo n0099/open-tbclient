@@ -1,7 +1,7 @@
 package com.baidu.platform.comjni.map.cloud;
 
 import com.baidu.mapapi.cloud.CloudListener;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public interface ICloudCenter {
     void a(CloudListener cloudListener);
 

@@ -1,38 +1,63 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import android.text.TextUtils;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import java.util.Hashtable;
+import java.util.Iterator;
 import org.json.JSONArray;
-/* loaded from: classes.dex */
+import org.json.JSONObject;
+/* loaded from: classes2.dex */
 public class s {
-    public List<t> eqj;
+    private Hashtable<String, String> eAA = new Hashtable<>();
+    private Hashtable<String, String> eAB = new Hashtable<>();
 
-    public void T(JSONArray jSONArray) {
-        this.eqj = new ArrayList();
-        try {
-            if (jSONArray == null) {
-                com.baidu.tbadk.core.sharedPref.b.aZP().putString("key_index_tab_info_list", "[]");
-                return;
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                JSONArray optJSONArray = jSONObject.optJSONArray("tdou_cashier_type");
+                JSONArray optJSONArray2 = jSONObject.optJSONArray("pay_cashier_type");
+                BdLog.e("consumepath is:" + jSONObject.toString());
+                a(this.eAA, optJSONArray);
+                a(this.eAB, optJSONArray2);
+                BdLog.e("pay mPayCashierType:" + this.eAA.toString());
+                BdLog.e("pay mPayCashierType:" + this.eAB.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            JSONArray jSONArray2 = new JSONArray(com.baidu.tbadk.core.sharedPref.b.aZP().getString("key_index_tab_info_list", "[]"));
-            for (int i = 0; i < jSONArray.length(); i++) {
-                t tVar = new t();
-                t tVar2 = new t();
-                tVar.parserJson(jSONArray.getJSONObject(i));
-                for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
-                    tVar2.parserJson(jSONArray2.getJSONObject(i2));
-                    if (tVar.tabCode != null && tVar.tabCode.equals(tVar2.tabCode)) {
-                        tVar.isShowRedDot = TextUtils.isEmpty(tVar2.eqk) || !tVar2.eqk.equals(tVar.eqk);
+        }
+    }
+
+    private void a(Hashtable hashtable, JSONArray jSONArray) {
+        int length = jSONArray.length();
+        if (length > 0) {
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                Iterator<String> keys = optJSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    try {
+                        hashtable.put(next, optJSONObject.get(next));
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
-                if (!tVar.isDirtyData()) {
-                    this.eqj.add(tVar);
-                }
             }
-            com.baidu.tbadk.core.sharedPref.b.aZP().putString("key_index_tab_info_list", jSONArray.toString());
-        } catch (Exception e) {
-            e.printStackTrace();
         }
+    }
+
+    public boolean ap(int i, String str) {
+        if (str == null) {
+            return true;
+        }
+        String str2 = null;
+        if (i == 1) {
+            str2 = this.eAB.get(str);
+        } else if (i == 2) {
+            str2 = this.eAA.get(str);
+        }
+        if (StringUtils.isNull(str2)) {
+            return true;
+        }
+        return str2.equals("3");
     }
 }

@@ -11,10 +11,10 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public abstract class dd {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public static class a extends dc {
         public a() {
             super(1);
@@ -87,7 +87,7 @@ public abstract class dd {
             try {
                 ArrayList<String> arrayList = new ArrayList<>();
                 cv cvVar = null;
-                if (z && (cvVar = cz.a().m211a(str)) != null) {
+                if (z && (cvVar = cz.a().m216a(str)) != null) {
                     arrayList = cvVar.a(str);
                 }
                 if (!arrayList.contains(str)) {
@@ -106,7 +106,7 @@ public abstract class dd {
                         }
                         e.printStackTrace();
                     }
-                    if (!dcVar.m220a(context, next, (List<ay>) arrayList2)) {
+                    if (!dcVar.m225a(context, next, (List<ay>) arrayList2)) {
                         return str2;
                     }
                     str2 = dcVar.a(context, next, (List<ay>) arrayList2);

@@ -8,7 +8,7 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes11.dex */
 public class CustomProgressBar extends View {
     private int a;
     private int b;

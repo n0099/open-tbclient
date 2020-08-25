@@ -5,46 +5,46 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class b {
-    private static String buk = com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("advert_hide_list");
-    private Set<String> bul;
+    private static String bzV = com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("advert_hide_list");
+    private Set<String> bzW;
     private SharedPreferences mPreference;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class a {
-        public static b bum = new b();
+        public static b bzX = new b();
     }
 
-    public static b MN() {
-        return a.bum;
+    public static b SM() {
+        return a.bzX;
     }
 
     private b() {
         this.mPreference = TbadkCoreApplication.getInst().getSharedPreferences("mcn_advert_hide_list", 0);
     }
 
-    public void gm(String str) {
+    public void hH(String str) {
         if (!StringUtils.isNull(str)) {
-            this.bul = this.mPreference.getStringSet(buk, null);
-            if (this.bul == null) {
-                this.bul = new HashSet();
+            this.bzW = this.mPreference.getStringSet(bzV, null);
+            if (this.bzW == null) {
+                this.bzW = new HashSet();
             }
-            this.bul.add(str);
-            this.mPreference.edit().putStringSet(buk, this.bul).commit();
+            this.bzW.add(str);
+            this.mPreference.edit().putStringSet(bzV, this.bzW).commit();
         }
     }
 
-    public boolean gn(String str) {
+    public boolean hI(String str) {
         if (StringUtils.isNull(str)) {
             return false;
         }
-        if (this.bul == null) {
-            this.bul = this.mPreference.getStringSet(buk, null);
+        if (this.bzW == null) {
+            this.bzW = this.mPreference.getStringSet(bzV, null);
         }
-        if (this.bul != null) {
-            return this.bul.contains(str);
+        if (this.bzW != null) {
+            return this.bzW.contains(str);
         }
         return false;
     }

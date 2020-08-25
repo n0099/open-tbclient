@@ -6,37 +6,37 @@ import android.support.v4.app.FragmentPagerAdapter;
 import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
 /* loaded from: classes18.dex */
 public class PersonPostAdapter extends FragmentPagerAdapter {
-    private int[] fMQ;
-    private PersonThreadFragment lgf;
-    private PersonReplyFragment lgg;
+    private int[] fYO;
+    private PersonThreadFragment lwy;
+    private PersonReplyFragment lwz;
 
     public PersonPostAdapter(PersonPostActivity personPostActivity) {
         super(personPostActivity.getSupportFragmentManager());
         Bundle bundle = new Bundle();
         bundle.putString("key_uid", personPostActivity.getUid());
         bundle.putString(PersonPostActivityConfig.KEY_PORTRAIT_URL, personPostActivity.getPortraitUrl());
-        bundle.putString("key_empty_view_text", personPostActivity.cZO());
-        this.lgg = new PersonReplyFragment();
-        this.lgg.setArguments(bundle);
-        this.lgg.a(personPostActivity);
-        this.lgf = new PersonThreadFragment();
-        this.lgf.setArguments(bundle);
-        this.lgf.a((d) personPostActivity);
-        this.lgf.a((b) personPostActivity);
-        this.fMQ = new int[]{0, 1};
+        bundle.putString("key_empty_view_text", personPostActivity.dkS());
+        this.lwz = new PersonReplyFragment();
+        this.lwz.setArguments(bundle);
+        this.lwz.a(personPostActivity);
+        this.lwy = new PersonThreadFragment();
+        this.lwy.setArguments(bundle);
+        this.lwy.a((d) personPostActivity);
+        this.lwy.a((b) personPostActivity);
+        this.fYO = new int[]{0, 1};
     }
 
-    public PersonThreadFragment cZP() {
-        return this.lgf;
+    public PersonThreadFragment dkT() {
+        return this.lwy;
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
         switch (i) {
             case 0:
-                return this.lgf;
+                return this.lwy;
             case 1:
-                return this.lgg;
+                return this.lwz;
             default:
                 return null;
         }
@@ -47,7 +47,7 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
         return 2;
     }
 
-    public int zm(int i) {
-        return this.fMQ[i];
+    public int BF(int i) {
+        return this.fYO[i];
     }
 }

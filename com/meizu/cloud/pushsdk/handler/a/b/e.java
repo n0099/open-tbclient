@@ -7,7 +7,7 @@ import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.handler.MzPushMessage;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes20.dex */
 public class e {
     private int a;
     private String b = String.valueOf(-1);
@@ -16,7 +16,7 @@ public class e {
     private int e = -1;
     private String f = "";
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes20.dex */
     public static class a {
         public String a;
         public String b;

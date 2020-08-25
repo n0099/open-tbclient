@@ -7,10 +7,10 @@ import android.view.MotionEvent;
 import com.baidu.tbadk.core.view.BaseViewPager;
 import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.compatible.CompatibleUtile;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class GalleryViewPager extends BaseViewPager {
-    private PointF evs;
-    private DragImageView evt;
+    private PointF eFR;
+    private DragImageView eFS;
 
     public GalleryViewPager(Context context) {
         super(context);
@@ -21,21 +21,21 @@ public class GalleryViewPager extends BaseViewPager {
     }
 
     public void setCurrentView(DragImageView dragImageView) {
-        this.evt = dragImageView;
+        this.eFS = dragImageView;
     }
 
     public DragImageView getCurrentView() {
-        return this.evt;
+        return this.eFS;
     }
 
-    private float[] q(MotionEvent motionEvent) {
+    private float[] F(MotionEvent motionEvent) {
         switch (motionEvent.getAction() & CompatibleUtile.getActionMask()) {
             case 1:
             case 2:
                 PointF pointF = new PointF(motionEvent.getX(), motionEvent.getY());
-                return new float[]{pointF.x - this.evs.x, pointF.y - this.evs.y};
+                return new float[]{pointF.x - this.eFR.x, pointF.y - this.eFR.y};
             case 0:
-                this.evs = new PointF(motionEvent.getX(), motionEvent.getY());
+                this.eFR = new PointF(motionEvent.getX(), motionEvent.getY());
                 break;
         }
         return null;
@@ -45,25 +45,25 @@ public class GalleryViewPager extends BaseViewPager {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
             super.onTouchEvent(motionEvent);
-            if (this.evt != null) {
-                this.evt.actionUp();
+            if (this.eFS != null) {
+                this.eFS.actionUp();
             }
         }
-        if (this.evt == null) {
+        if (this.eFS == null) {
             return super.onTouchEvent(motionEvent);
         }
-        float[] q = q(motionEvent);
-        if (this.evt.pagerCantScroll()) {
+        float[] F = F(motionEvent);
+        if (this.eFS.pagerCantScroll()) {
             return super.onTouchEvent(motionEvent);
         }
-        if (q != null && this.evt.onRightSide() && q[0] < 0.0f) {
+        if (F != null && this.eFS.onRightSide() && F[0] < 0.0f) {
             return super.onTouchEvent(motionEvent);
         }
-        if (q != null && this.evt.onLeftSide() && q[0] > 0.0f) {
+        if (F != null && this.eFS.onLeftSide() && F[0] > 0.0f) {
             return super.onTouchEvent(motionEvent);
         }
-        if (q == null) {
-            if (this.evt.onLeftSide() || this.evt.onRightSide()) {
+        if (F == null) {
+            if (this.eFS.onLeftSide() || this.eFS.onRightSide()) {
                 return super.onTouchEvent(motionEvent);
             }
             return false;
@@ -76,21 +76,21 @@ public class GalleryViewPager extends BaseViewPager {
         if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
             super.onInterceptTouchEvent(motionEvent);
         }
-        float[] q = q(motionEvent);
-        if (this.evt == null) {
+        float[] F = F(motionEvent);
+        if (this.eFS == null) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (this.evt.pagerCantScroll()) {
+        if (this.eFS.pagerCantScroll()) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (q != null && this.evt.onRightSide() && q[0] < 0.0f) {
+        if (F != null && this.eFS.onRightSide() && F[0] < 0.0f) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (q != null && this.evt.onLeftSide() && q[0] > 0.0f) {
+        if (F != null && this.eFS.onLeftSide() && F[0] > 0.0f) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (q == null) {
-            if (this.evt.onLeftSide() || this.evt.onRightSide()) {
+        if (F == null) {
+            if (this.eFS.onLeftSide() || this.eFS.onRightSide()) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
             return false;

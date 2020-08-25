@@ -44,7 +44,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class Toolbar extends ViewGroup {
     private static final String TAG = "Toolbar";
     private MenuPresenter.Callback mActionMenuPresenterCallback;
@@ -89,7 +89,7 @@ public class Toolbar extends ViewGroup {
     private TextView mTitleTextView;
     private ToolbarWidgetWrapper mWrapper;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public interface OnMenuItemClickListener {
         boolean onMenuItemClick(MenuItem menuItem);
     }
@@ -1390,7 +1390,7 @@ public class Toolbar extends ViewGroup {
         return this.mPopupContext;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public static class LayoutParams extends ActionBar.LayoutParams {
         static final int CUSTOM = 0;
         static final int EXPANDED = 2;
@@ -1448,7 +1448,7 @@ public class Toolbar extends ViewGroup {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: android.support.v7.widget.Toolbar.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -1496,7 +1496,7 @@ public class Toolbar extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public class ExpandedActionViewMenuPresenter implements MenuPresenter {
         MenuItemImpl mCurrentExpandedItem;
         MenuBuilder mMenu;

@@ -12,14 +12,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes20.dex */
+/* loaded from: classes18.dex */
 public class m {
-    private static Map<Class, Integer> yL = new HashMap();
-    private static Map<Class, List<Constructor<? extends g>>> yM = new HashMap();
+    private static Map<Class, Integer> zk = new HashMap();
+    private static Map<Class, List<Constructor<? extends g>>> zl = new HashMap();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @NonNull
-    public static h j(Object obj) {
+    public static h k(Object obj) {
         int i = 0;
         if (obj instanceof e) {
             return new f((e) obj);
@@ -29,7 +29,7 @@ public class m {
         }
         Class<?> cls = obj.getClass();
         if (i(cls) == 2) {
-            List<Constructor<? extends g>> list = yM.get(cls);
+            List<Constructor<? extends g>> list = zl.get(cls);
             if (list.size() == 1) {
                 return new v(a(list.get(0), obj));
             }
@@ -69,11 +69,11 @@ public class m {
             if (!name.isEmpty()) {
                 canonicalName = canonicalName.substring(name.length() + 1);
             }
-            String aS = aS(canonicalName);
+            String aW = aW(canonicalName);
             if (!name.isEmpty()) {
-                aS = name + "." + aS;
+                aW = name + "." + aW;
             }
-            Constructor declaredConstructor = Class.forName(aS).getDeclaredConstructor(cls);
+            Constructor declaredConstructor = Class.forName(aW).getDeclaredConstructor(cls);
             if (!declaredConstructor.isAccessible()) {
                 declaredConstructor.setAccessible(true);
                 return declaredConstructor;
@@ -87,11 +87,11 @@ public class m {
     }
 
     private static int i(Class<?> cls) {
-        if (yL.containsKey(cls)) {
-            return yL.get(cls).intValue();
+        if (zk.containsKey(cls)) {
+            return zk.get(cls).intValue();
         }
         int j = j(cls);
-        yL.put(cls, Integer.valueOf(j));
+        zk.put(cls, Integer.valueOf(j));
         return j;
     }
 
@@ -102,18 +102,18 @@ public class m {
         }
         Constructor<? extends g> h = h(cls);
         if (h != null) {
-            yM.put(cls, Collections.singletonList(h));
+            zl.put(cls, Collections.singletonList(h));
             return 2;
-        } else if (b.yk.e(cls)) {
+        } else if (b.yJ.e(cls)) {
             return 1;
         } else {
             Class<? super Object> superclass = cls.getSuperclass();
             ArrayList arrayList = null;
-            if (k(superclass)) {
+            if (k((Class<?>) superclass)) {
                 if (i(superclass) == 1) {
                     return 1;
                 }
-                arrayList = new ArrayList(yM.get(superclass));
+                arrayList = new ArrayList(zl.get(superclass));
             }
             for (Class<?> cls2 : cls.getInterfaces()) {
                 if (k(cls2)) {
@@ -121,12 +121,12 @@ public class m {
                         return 1;
                     }
                     ArrayList arrayList2 = arrayList == null ? new ArrayList() : arrayList;
-                    arrayList2.addAll(yM.get(cls2));
+                    arrayList2.addAll(zl.get(cls2));
                     arrayList = arrayList2;
                 }
             }
             if (arrayList != null) {
-                yM.put(cls, arrayList);
+                zl.put(cls, arrayList);
                 return 2;
             }
             return 1;
@@ -137,7 +137,7 @@ public class m {
         return cls != null && i.class.isAssignableFrom(cls);
     }
 
-    public static String aS(String str) {
+    public static String aW(String str) {
         return str.replace(".", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) + "_LifecycleAdapter";
     }
 }

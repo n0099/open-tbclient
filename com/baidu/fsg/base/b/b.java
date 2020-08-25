@@ -2,7 +2,7 @@ package com.baidu.fsg.base.b;
 
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 class b implements ThreadFactory {
     final /* synthetic */ a a;
     private final AtomicInteger b = new AtomicInteger(1);

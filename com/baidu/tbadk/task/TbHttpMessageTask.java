@@ -1,7 +1,7 @@
 package com.baidu.tbadk.task;
 
 import com.baidu.adp.framework.task.HttpMessageTask;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class TbHttpMessageTask extends HttpMessageTask {
     private boolean mIsBDImage;
     private boolean mIsBaiduServer;

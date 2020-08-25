@@ -2,21 +2,21 @@ package com.baidu.turbonet.net;
 
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes19.dex */
+/* loaded from: classes10.dex */
 public class PipedOutputStreamAndroid25 extends OutputStream {
-    private PipedInputStreamAndroid25 mJR;
+    private PipedInputStreamAndroid25 ncM;
 
     @Override // java.io.OutputStream
     public void write(int i) throws IOException {
-        if (this.mJR == null) {
+        if (this.ncM == null) {
             throw new IOException("Pipe not connected");
         }
-        this.mJR.HR(i);
+        this.ncM.Kr(i);
     }
 
     @Override // java.io.OutputStream
     public void write(byte[] bArr, int i, int i2) throws IOException {
-        if (this.mJR == null) {
+        if (this.ncM == null) {
             throw new IOException("Pipe not connected");
         }
         if (bArr == null) {
@@ -26,23 +26,23 @@ public class PipedOutputStreamAndroid25 extends OutputStream {
             throw new IndexOutOfBoundsException();
         }
         if (i2 != 0) {
-            this.mJR.s(bArr, i, i2);
+            this.ncM.t(bArr, i, i2);
         }
     }
 
     @Override // java.io.OutputStream, java.io.Flushable
     public synchronized void flush() throws IOException {
-        if (this.mJR != null) {
-            synchronized (this.mJR) {
-                this.mJR.notifyAll();
+        if (this.ncM != null) {
+            synchronized (this.ncM) {
+                this.ncM.notifyAll();
             }
         }
     }
 
     @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        if (this.mJR != null) {
-            this.mJR.dza();
+        if (this.ncM != null) {
+            this.ncM.dKN();
         }
     }
 }

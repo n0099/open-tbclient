@@ -7,8 +7,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.data.f;
@@ -16,91 +16,91 @@ import com.baidu.tieba.pb.pb.main.PbFragment;
 import tbclient.SmartApp;
 /* loaded from: classes16.dex */
 public class b {
-    private View.OnClickListener hIl;
-    private PbFragment kkb;
-    private RelativeLayout kyb;
-    private HeadImageView kyc;
-    private TextView kyd;
-    private TextView kye;
-    private ImageView kyf;
+    private View.OnClickListener hVB;
+    private RelativeLayout kNG;
+    private HeadImageView kNH;
+    private TextView kNI;
+    private TextView kNJ;
+    private ImageView kNK;
+    private PbFragment kzt;
 
     public b(PbFragment pbFragment, View.OnClickListener onClickListener) {
-        this.hIl = null;
-        this.kkb = pbFragment;
-        this.hIl = onClickListener;
+        this.hVB = null;
+        this.kzt = pbFragment;
+        this.hVB = onClickListener;
         initView();
     }
 
     public void initView() {
-        if (this.kyb == null) {
-            this.kyb = (RelativeLayout) LayoutInflater.from(this.kkb.getContext()).inflate(R.layout.pb_video_thread_smart_app_layout, (ViewGroup) null);
-            this.kyc = (HeadImageView) this.kyb.findViewById(R.id.iv_pb_video_smart_app_head);
-            this.kyc.setIsRound(true);
-            this.kyc.setPlaceHolder(1);
-            this.kyd = (TextView) this.kyb.findViewById(R.id.tv_pb_video_smart_app_title);
-            this.kye = (TextView) this.kyb.findViewById(R.id.tv_pb_video_smart_app_abstract);
-            this.kyf = (ImageView) this.kyb.findViewById(R.id.iv_pb_video_smart_app_arrow);
-            this.kyb.setOnClickListener(this.hIl);
+        if (this.kNG == null) {
+            this.kNG = (RelativeLayout) LayoutInflater.from(this.kzt.getContext()).inflate(R.layout.pb_video_thread_smart_app_layout, (ViewGroup) null);
+            this.kNH = (HeadImageView) this.kNG.findViewById(R.id.iv_pb_video_smart_app_head);
+            this.kNH.setIsRound(true);
+            this.kNH.setPlaceHolder(1);
+            this.kNI = (TextView) this.kNG.findViewById(R.id.tv_pb_video_smart_app_title);
+            this.kNJ = (TextView) this.kNG.findViewById(R.id.tv_pb_video_smart_app_abstract);
+            this.kNK = (ImageView) this.kNG.findViewById(R.id.iv_pb_video_smart_app_arrow);
+            this.kNG.setOnClickListener(this.hVB);
         }
     }
 
     public void a(f fVar, BdTypeListView bdTypeListView) {
         String charSequence;
         if (fVar != null && bdTypeListView != null) {
-            if (fVar.cKx().aUR() && fVar.cKx().aXa() != null) {
-                SmartApp aXa = fVar.cKx().aXa();
-                this.kyb.setVisibility(0);
+            if (fVar.cVl().bdk() && fVar.cVl().bft() != null) {
+                SmartApp bft = fVar.cVl().bft();
+                this.kNG.setVisibility(0);
                 c(bdTypeListView);
                 a(bdTypeListView, 1);
-                if (!as.isEmpty(aXa.avatar)) {
-                    this.kyc.startLoad(aXa.avatar, 10, false, false);
+                if (!at.isEmpty(bft.avatar)) {
+                    this.kNH.startLoad(bft.avatar, 10, false, false);
                 }
-                if (!as.isEmpty(aXa.name)) {
-                    charSequence = aXa.name + " " + ((Object) this.kkb.getText(R.string.smart_app_suffix));
+                if (!at.isEmpty(bft.name)) {
+                    charSequence = bft.name + " " + ((Object) this.kzt.getText(R.string.smart_app_suffix));
                 } else {
-                    charSequence = this.kkb.getText(R.string.intelligent_smart_app).toString();
+                    charSequence = this.kzt.getText(R.string.intelligent_smart_app).toString();
                 }
-                this.kyd.setText(charSequence);
-                if (!as.isEmpty(aXa._abstract)) {
-                    this.kye.setText(aXa._abstract);
+                this.kNI.setText(charSequence);
+                if (!at.isEmpty(bft._abstract)) {
+                    this.kNJ.setText(bft._abstract);
                 } else {
-                    this.kye.setText(this.kkb.getText(R.string.smart_app_default_abstract));
+                    this.kNJ.setText(this.kzt.getText(R.string.smart_app_default_abstract));
                 }
-                this.kyb.setTag(aXa);
+                this.kNG.setTag(bft);
                 return;
             }
-            this.kyb.setVisibility(8);
+            this.kNG.setVisibility(8);
             c(bdTypeListView);
         }
     }
 
     public void a(BdTypeListView bdTypeListView, int i) {
-        if (bdTypeListView != null && this.kyb != null) {
-            bdTypeListView.addHeaderView(this.kyb, i);
+        if (bdTypeListView != null && this.kNG != null) {
+            bdTypeListView.addHeaderView(this.kNG, i);
         }
     }
 
     public void c(BdTypeListView bdTypeListView) {
-        if (bdTypeListView != null && this.kyb != null) {
-            bdTypeListView.removeHeaderView(this.kyb);
+        if (bdTypeListView != null && this.kNG != null) {
+            bdTypeListView.removeHeaderView(this.kNG);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.kyb != null) {
-            ao.setBackgroundColor(this.kyb, R.color.cp_bg_line_c);
+        if (this.kNG != null) {
+            ap.setBackgroundColor(this.kNG, R.color.cp_bg_line_c);
         }
-        if (this.kyc != null) {
-            this.kyc.setIsNight(i == 1);
+        if (this.kNH != null) {
+            this.kNH.setIsNight(i == 1);
         }
-        if (this.kyd != null) {
-            ao.setViewTextColor(this.kyd, R.color.cp_cont_b);
+        if (this.kNI != null) {
+            ap.setViewTextColor(this.kNI, R.color.cp_cont_b);
         }
-        if (this.kye != null) {
-            ao.setViewTextColor(this.kye, R.color.cp_cont_j);
+        if (this.kNJ != null) {
+            ap.setViewTextColor(this.kNJ, R.color.cp_cont_j);
         }
-        if (this.kyf != null) {
-            ao.setBackgroundResource(this.kyf, R.drawable.icon_common_arrow16_right_n);
+        if (this.kNK != null) {
+            ap.setBackgroundResource(this.kNK, R.drawable.icon_common_arrow16_right_n);
         }
     }
 }

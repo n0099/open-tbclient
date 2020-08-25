@@ -14,7 +14,7 @@ public class b {
         this.url = str;
     }
 
-    public void Am(String str) {
+    public void CC(String str) {
         this.series = str;
     }
 
@@ -22,7 +22,7 @@ public class b {
         this.num = i;
     }
 
-    public void ow(int i) {
+    public void qH(int i) {
         this.myItem = i;
     }
 }

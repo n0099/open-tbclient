@@ -7,7 +7,8 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
-/* loaded from: classes3.dex */
+import com.baidu.sofire.i.h;
+/* loaded from: classes20.dex */
 public class MyProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public boolean onCreate() {
@@ -24,22 +25,42 @@ public class MyProvider extends ContentProvider {
     public Bundle call(String str, String str2, Bundle bundle) {
         String callingPackage;
         try {
-            if (Build.VERSION.SDK_INT < 19 || (callingPackage = getCallingPackage()) == null || callingPackage.equals(getContext().getPackageName())) {
-                if ("getRemoteZid".equals(str)) {
-                    String b = com.baidu.sofire.i.g.b(getContext());
+            if ((Build.VERSION.SDK_INT < 19 || (callingPackage = getCallingPackage()) == null || callingPackage.equals(getContext().getPackageName())) && !TextUtils.isEmpty(str)) {
+                if ("joinActive".equals(str) || "triggerActive".equals(str)) {
+                    a(str, bundle);
                     Bundle bundle2 = new Bundle();
-                    if (!TextUtils.isEmpty(b)) {
-                        bundle2.putString("_zid", b);
-                    }
+                    bundle2.putInt("result_code", 1);
                     return bundle2;
+                } else if (str.startsWith("sub_process_")) {
+                    return com.baidu.sofire.mutiprocess.b.a(str, bundle);
+                } else {
+                    if ("getRemoteZid".equals(str)) {
+                        String b = h.b(getContext());
+                        Bundle bundle3 = new Bundle();
+                        if (!TextUtils.isEmpty(b)) {
+                            bundle3.putString("_zid", b);
+                        }
+                        return bundle3;
+                    }
+                    return com.baidu.sofire.core.d.a(getContext().getApplicationContext(), str, bundle);
                 }
-                return com.baidu.sofire.core.e.a(getContext().getApplicationContext(), str, bundle);
             }
             return null;
         } catch (Throwable th) {
-            com.baidu.sofire.i.d.a();
+            com.baidu.sofire.i.e.a();
             return null;
         }
+    }
+
+    private static boolean a(String str, Bundle bundle) {
+        try {
+            new StringBuilder().append(str);
+            b.a();
+            MyProvider.class.getClassLoader().loadClass("com.baidu.sofire.active.Active").getMethod("touchActive", String.class, Bundle.class).invoke(null, str, bundle);
+        } catch (Throwable th) {
+            com.baidu.sofire.i.e.a();
+        }
+        return false;
     }
 
     @Override // android.content.ContentProvider

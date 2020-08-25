@@ -15,17 +15,19 @@ import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.internal.MessageParser;
 import com.baidu.android.imsdk.pubaccount.PaManagerImpl;
 import com.baidu.android.imsdk.request.Message;
+import com.baidu.android.imsdk.request.MessageExt;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.sapi2.SapiContext;
+import com.baidu.searchbox.ugc.model.UgcConstant;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class IMFetchMsgByIdMsg extends Message {
     private static final String TAG = "IMFetchMsgByIdMsg";
     private long mBeginId;
@@ -36,6 +38,7 @@ public class IMFetchMsgByIdMsg extends Message {
     private long mEndId;
     private int mFetchNum;
     private int mJumpToRecent = -1;
+    private JSONObject mMessageExt;
     private long mTriggerReason;
 
     public IMFetchMsgByIdMsg(Context context, long j, long j2, int i, int i2, long j3, int i3, int i4) {
@@ -51,6 +54,7 @@ public class IMFetchMsgByIdMsg extends Message {
         this.mContext = context;
         setNeedReplay(true);
         setType(93);
+        this.mMessageExt = new JSONObject();
     }
 
     @Override // com.baidu.android.imsdk.request.Message
@@ -82,7 +86,14 @@ public class IMFetchMsgByIdMsg extends Message {
             jSONObject2.put("rpc_retry_time", this.mFetchNum);
             jSONObject.put("rpc", jSONObject2.toString());
             jSONObject.put(SapiContext.KEY_SDK_VERSION, IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
+            if (4 == this.mCategory) {
+                this.mMessageExt = MessageExt.getInstance().toJson();
+                if (this.mMessageExt != null && this.mMessageExt.length() > 0) {
+                    jSONObject.put(UgcConstant.EXT_INFO, this.mMessageExt.toString());
+                }
+            }
             this.mBody = jSONObject.toString();
+            LogUtils.d(TAG, "长连接拉消息的消息body" + this.mBody);
         } catch (JSONException e) {
             LogUtils.e(TAG, "Exception ", e);
             new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
@@ -135,7 +146,7 @@ public class IMFetchMsgByIdMsg extends Message {
         TaskManager.getInstance(this.mContext).submitForNetWork(new FetchTask(context, jSONObject, i, str));
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     private class FetchTask extends TaskManager.Task {
         private Context mContext;
         private int mErrorCode;
@@ -184,6 +195,8 @@ public class IMFetchMsgByIdMsg extends Message {
                             parserMessage = GroupMessageManagerImpl.getInstance(this.mContext).addMsgs(parserMessage, true);
                         } else if (4 == IMFetchMsgByIdMsg.this.mCategory) {
                             LogUtils.d(IMFetchMsgByIdMsg.TAG, " fetch cast message , size " + parserMessage.size());
+                            Long valueOf = Long.valueOf(((TextMsg) parserMessage.get(0)).getCastId());
+                            MessageExt.getInstance().setCastId(valueOf);
                             ArrayList arrayList2 = new ArrayList();
                             ArrayList arrayList3 = new ArrayList();
                             Iterator<ChatMsg> it = parserMessage.iterator();
@@ -199,6 +212,8 @@ public class IMFetchMsgByIdMsg extends Message {
                                 parserMessage = ChatMessageDBManager.getInstance(this.mContext).addCastReliableMsgs(arrayList2);
                                 ConversationStudioManImpl.getInstance(this.mContext).deliverCastReliableMsg(((TextMsg) parserMessage.get(0)).getCastId(), parserMessage);
                             }
+                            MessageExt.getInstance().setdBLatestMsgId(Long.valueOf(ChatMessageDBManager.getInstance(this.mContext).getMaxReliableMsgId(valueOf.longValue())));
+                            MessageExt.getInstance().setLocalTimestamp(Long.valueOf(System.currentTimeMillis()));
                         } else {
                             parserMessage = ChatMessageDBManager.getInstance(this.mContext).addMsgs(this.mContext, parserMessage, true, IMFetchMsgByIdMsg.this.mTriggerReason);
                             PaManagerImpl.getInstance(this.mContext).syncAndQueryAllPaInfo();

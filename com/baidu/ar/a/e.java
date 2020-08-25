@@ -5,8 +5,8 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.ar.callback.ICallbackWith;
 import com.baidu.ar.constants.HttpConstants;
-import com.baidu.ar.f.m;
-import com.baidu.ar.f.q;
+import com.baidu.ar.g.o;
+import com.baidu.ar.g.s;
 import com.baidu.ar.ihttp.HttpException;
 import com.baidu.ar.ihttp.HttpFactory;
 import com.baidu.ar.ihttp.IHttpRequest;
@@ -18,25 +18,25 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class e {
     private static final String TAG = e.class.getSimpleName();
-    private IHttpRequest bX;
-    private ICallbackWith<String> bY;
+    private IHttpRequest bO;
+    private ICallbackWith<String> bP;
 
     private JSONObject a(Context context, String str) {
         JSONObject jSONObject = new JSONObject();
         try {
-            m.g(jSONObject);
-            m.b(context, jSONObject);
-            m.a(context, jSONObject);
+            o.g(jSONObject);
+            o.b(context, jSONObject);
+            o.a(context, jSONObject);
             jSONObject.put("device_platform", "");
             jSONObject.put("os_version", Build.VERSION.SDK_INT);
             jSONObject.put(HttpConstants.DEVICE_TYPE, Build.BRAND);
-            jSONObject.put("device_id", m.w(context));
-            jSONObject.put("app_version", com.baidu.ar.f.c.getVersionCode());
+            jSONObject.put("device_id", o.x(context));
+            jSONObject.put("app_version", com.baidu.ar.g.c.getVersionCode());
             jSONObject.put("manufacture", Build.MANUFACTURER);
             jSONObject.put(HttpConstants.HTTP_HARDWARE, Build.HARDWARE);
             jSONObject.put(HttpConstants.HTTP_BOARD, Build.BOARD);
             jSONObject.put("classification_id", str);
-            com.baidu.ar.f.b.c(TAG, "params: " + jSONObject.toString());
+            com.baidu.ar.g.b.c(TAG, "params: " + jSONObject.toString());
         } catch (JSONException e) {
         }
         return jSONObject;
@@ -58,10 +58,10 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public a q(String str) {
+    public a r(String str) {
         if (TextUtils.isEmpty(str)) {
-            if (this.bY != null) {
-                r("response is empty");
+            if (this.bP != null) {
+                s("response is empty");
                 return null;
             }
             return null;
@@ -71,8 +71,8 @@ public class e {
             if (jSONObject != null) {
                 int optInt = jSONObject.optInt("err_num", -1);
                 if (optInt != 0 || !jSONObject.has("data")) {
-                    if (this.bY != null) {
-                        r("err_num: " + optInt + " " + (jSONObject.has("err_msg") ? jSONObject.getString("err_msg") : ""));
+                    if (this.bP != null) {
+                        s("err_num: " + optInt + " " + (jSONObject.has("err_msg") ? jSONObject.getString("err_msg") : ""));
                         return null;
                     }
                     return null;
@@ -82,26 +82,26 @@ public class e {
                     return null;
                 }
                 a aVar = new a();
-                aVar.bO = optJSONObject.getJSONObject("classification");
-                aVar.bN = optJSONObject.optString("classification_id", "default");
-                if (!d(aVar.bO) && this.bY != null) {
-                    com.baidu.ar.f.b.b(TAG, str);
-                    r("config format is error. see Logcat filter: " + TAG);
+                aVar.bF = optJSONObject.getJSONObject("classification");
+                aVar.bE = optJSONObject.optString("classification_id", "default");
+                if (!d(aVar.bF) && this.bP != null) {
+                    com.baidu.ar.g.b.b(TAG, str);
+                    s("config format is error. see Logcat filter: " + TAG);
                 }
                 return aVar;
             }
             return null;
         } catch (JSONException e) {
-            if (this.bY != null) {
-                r(e.getMessage());
+            if (this.bP != null) {
+                s(e.getMessage());
             }
             e.printStackTrace();
             return null;
         }
     }
 
-    private void r(String str) {
-        this.bY.run("fetch ability scheme config fail. " + str);
+    private void s(String str) {
+        this.bP.run("fetch ability scheme config fail. " + str);
     }
 
     public void a(Context context, String str, final ICallbackWith<a> iCallbackWith) {
@@ -109,11 +109,11 @@ public class e {
         if (newRequest == null) {
             return;
         }
-        newRequest.setMethod("POST").setUrl(q.fF()).setBody(a(context, str));
+        newRequest.setMethod("POST").setUrl(s.gU()).setBody(a(context, str));
         newRequest.enqueue(new com.baidu.ar.ihttp.a() { // from class: com.baidu.ar.a.e.1
             @Override // com.baidu.ar.ihttp.a
             public void a(HttpException httpException) {
-                com.baidu.ar.f.b.c(e.TAG, "" + httpException.getMessage());
+                com.baidu.ar.g.b.c(e.TAG, "" + httpException.getMessage());
             }
 
             @Override // com.baidu.ar.ihttp.a
@@ -123,28 +123,28 @@ public class e {
                 }
                 try {
                     String content = iHttpResponse.getContent();
-                    com.baidu.ar.f.b.c(e.TAG, "response: " + content);
-                    a q = e.this.q(content);
-                    if (q != null) {
-                        iCallbackWith.run(q);
+                    com.baidu.ar.g.b.c(e.TAG, "response: " + content);
+                    a r = e.this.r(content);
+                    if (r != null) {
+                        iCallbackWith.run(r);
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
         });
-        this.bX = newRequest;
+        this.bO = newRequest;
     }
 
     public void c(ICallbackWith<String> iCallbackWith) {
-        this.bY = iCallbackWith;
+        this.bP = iCallbackWith;
     }
 
     public void cancel() {
-        this.bY = null;
-        if (this.bX != null) {
-            this.bX.cancel();
-            this.bX = null;
+        this.bP = null;
+        if (this.bO != null) {
+            this.bO.cancel();
+            this.bO = null;
         }
     }
 }

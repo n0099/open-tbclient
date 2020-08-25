@@ -2,7 +2,7 @@ package io.flutter.plugin.platform;
 
 import android.content.Context;
 import io.flutter.plugin.common.MessageCodec;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public abstract class PlatformViewFactory {
     private final MessageCodec<Object> createArgsCodec;
 

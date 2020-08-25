@@ -12,117 +12,116 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.core.view.f;
 import com.baidu.tbadk.util.aa;
-import com.baidu.tieba.frs.ao;
+import com.baidu.tieba.frs.aq;
 import com.baidu.tieba.homepage.topic.topictab.model.TopicModel;
 import com.baidu.tieba.homepage.topic.topictab.view.TopicListView;
 import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"ValidFragment"})
 /* loaded from: classes16.dex */
-public class TopicFragment extends BaseFragment implements f.c, ao, a {
-    private TopicModel iFD;
-    private TopicListView iFE;
-    private boolean isb = false;
+public class TopicFragment extends BaseFragment implements f.c, aq, a {
+    private boolean iGq = false;
+    private TopicModel iUB;
+    private TopicListView iUC;
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.iFD.setPresenter(this);
-        this.iFD.setUniqueId(getUniqueId());
-        this.iFE.setPresenter(this);
-        this.iFE.setListPullRefreshListener(this);
-        this.iFE.setPageUniqueId(getUniqueId());
+        this.iUB.setPresenter(this);
+        this.iUB.setUniqueId(getUniqueId());
+        this.iUC.setPresenter(this);
+        this.iUC.setListPullRefreshListener(this);
+        this.iUC.setPageUniqueId(getUniqueId());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.iFE.getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.iFE.getParent()).removeView(this.iFE);
+        if (this.iUC.getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.iUC.getParent()).removeView(this.iUC);
         }
-        if (this.isb) {
-            this.iFE.bCM();
-            this.isb = false;
+        if (this.iGq) {
+            this.iUC.bMg();
+            this.iGq = false;
         }
-        return this.iFE;
+        return this.iUC;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            this.iFE.setViewForeground();
-            TiebaStatic.log(new ap("c13349"));
+            this.iUC.setViewForeground();
+            TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c13349"));
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
-        this.iFE.gw(false);
-        this.iFD.cop();
+        this.iUC.gS(false);
+        this.iUB.czi();
     }
 
-    @Override // com.baidu.tieba.frs.ao
-    public void IH() {
-        this.iFE.reload();
+    @Override // com.baidu.tieba.frs.aq
+    public void OA() {
+        this.iUC.reload();
     }
 
-    @Override // com.baidu.tieba.frs.ao
-    public void bwZ() {
+    @Override // com.baidu.tieba.frs.aq
+    public void bFY() {
     }
 
-    @Override // com.baidu.tieba.frs.ao
-    public void bxa() {
+    @Override // com.baidu.tieba.frs.aq
+    public void bFZ() {
     }
 
-    @Override // com.baidu.tieba.frs.ao
+    @Override // com.baidu.tieba.frs.aq
     public void setRecommendFrsNavigationAnimDispatcher(aa aaVar) {
     }
 
-    @Override // com.baidu.tieba.frs.ao
+    @Override // com.baidu.tieba.frs.aq
     public void showFloatingView() {
     }
 
-    @Override // com.baidu.tieba.frs.ao
-    public void bci() {
+    @Override // com.baidu.tieba.frs.aq
+    public void bkF() {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        this.iFE.onChangeSkinType();
+        this.iUC.onChangeSkinType();
     }
 
     @Override // com.baidu.tbadk.core.view.f.c
     public void onListPullRefresh(boolean z) {
-        this.iFD.cop();
+        this.iUB.czi();
     }
 
     @Override // com.baidu.tieba.homepage.topic.topictab.a
     public void loadData() {
         if (j.isNetWorkAvailable()) {
-            this.iFE.bwX();
-            this.iFE.gw(false);
-            this.iFD.cop();
+            this.iUC.bFW();
+            this.iUC.gS(false);
+            this.iUB.czi();
         }
     }
 
     @Override // com.baidu.tieba.homepage.topic.topictab.a
-    public void n(int i, List<q> list) {
-        this.iFE.hideLoadingView();
-        this.iFE.bxe();
-        if (i != 0 || x.isEmpty(list)) {
-            this.iFE.ng(false);
+    public void o(int i, List<q> list) {
+        this.iUC.hideLoadingView();
+        this.iUC.bGd();
+        if (i != 0 || y.isEmpty(list)) {
+            this.iUC.nK(false);
             return;
         }
-        this.iFE.bwX();
-        this.iFE.bBY();
-        this.iFE.setData(list);
-        this.iFE.bxT();
+        this.iUC.bFW();
+        this.iUC.bLs();
+        this.iUC.setData(list);
+        this.iUC.bGS();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.m.a
@@ -133,7 +132,7 @@ public class TopicFragment extends BaseFragment implements f.c, ao, a {
         } else {
             arrayList = new ArrayList();
         }
-        if (!PageStayDurationConstants.PageName.HOMEPAGE.equals(x.getItem(arrayList, arrayList.size() - 1))) {
+        if (!PageStayDurationConstants.PageName.HOMEPAGE.equals(y.getItem(arrayList, arrayList.size() - 1))) {
             arrayList.add(PageStayDurationConstants.PageName.HOMEPAGE);
         }
         return arrayList;
@@ -147,8 +146,8 @@ public class TopicFragment extends BaseFragment implements f.c, ao, a {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroyView() {
         super.onDestroyView();
-        this.iFE.destroy();
-        this.iFD.onDestroy();
-        this.isb = true;
+        this.iUC.destroy();
+        this.iUB.onDestroy();
+        this.iGq = true;
     }
 }

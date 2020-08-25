@@ -5,16 +5,8 @@ import com.baidu.android.common.util.DeviceId;
 import com.baidu.pass.common.SecurityUtil;
 import java.util.List;
 import java.util.Random;
-/* loaded from: classes4.dex */
+/* loaded from: classes20.dex */
 public class PassBioBaseUtil {
-    public static String getVersionName(Context context) {
-        try {
-            return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-        } catch (Throwable th) {
-            return "0";
-        }
-    }
-
     public static String getClientId(Context context) {
         try {
             return DeviceId.getDeviceID(context);
@@ -22,6 +14,14 @@ public class PassBioBaseUtil {
             Random random = new Random();
             random.setSeed(System.currentTimeMillis());
             return "123456789" + SecurityUtil.md5(String.valueOf(random.nextInt(100)).getBytes(), false);
+        }
+    }
+
+    public static String getVersionName(Context context) {
+        try {
+            return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+        } catch (Throwable th) {
+            return "0";
         }
     }
 

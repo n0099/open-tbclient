@@ -11,31 +11,31 @@ import com.facebook.drawee.drawable.p;
 import java.util.Arrays;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class b {
-    public static final p.b mVJ = p.b.mVz;
-    public static final p.b mVK = p.b.mVA;
     private Drawable mBackground;
     private Resources mResources;
-    private RoundingParams mVF;
-    private int mVL;
-    private boolean mVM;
-    private float mVN;
-    private Drawable mVO;
+    private int npB;
+    private boolean npC;
+    private float npD;
+    private Drawable npE;
     @Nullable
-    private p.b mVP;
-    private Drawable mVQ;
-    private p.b mVR;
-    private Drawable mVS;
-    private p.b mVT;
-    private Drawable mVU;
-    private p.b mVV;
-    private p.b mVW;
-    private Matrix mVX;
-    private PointF mVY;
-    private ColorFilter mVZ;
-    private List<Drawable> mWa;
-    private Drawable mWb;
+    private p.b npF;
+    private Drawable npG;
+    private p.b npH;
+    private Drawable npI;
+    private p.b npJ;
+    private Drawable npK;
+    private p.b npL;
+    private p.b npM;
+    private Matrix npN;
+    private PointF npO;
+    private ColorFilter npP;
+    private List<Drawable> npQ;
+    private Drawable npR;
+    private RoundingParams npv;
+    public static final p.b npz = p.b.npp;
+    public static final p.b npA = p.b.npq;
 
     public b(Resources resources) {
         this.mResources = resources;
@@ -43,157 +43,157 @@ public class b {
     }
 
     private void init() {
-        this.mVL = 150;
-        this.mVM = true;
-        this.mVN = 0.0f;
-        this.mVO = null;
-        this.mVP = mVJ;
-        this.mVQ = null;
-        this.mVR = mVJ;
-        this.mVS = null;
-        this.mVT = mVJ;
-        this.mVU = null;
-        this.mVV = mVJ;
-        this.mVW = mVK;
-        this.mVX = null;
-        this.mVY = null;
-        this.mVZ = null;
+        this.npB = 150;
+        this.npC = true;
+        this.npD = 0.0f;
+        this.npE = null;
+        this.npF = npz;
+        this.npG = null;
+        this.npH = npz;
+        this.npI = null;
+        this.npJ = npz;
+        this.npK = null;
+        this.npL = npz;
+        this.npM = npA;
+        this.npN = null;
+        this.npO = null;
+        this.npP = null;
         this.mBackground = null;
-        this.mWa = null;
-        this.mWb = null;
-        this.mVF = null;
+        this.npQ = null;
+        this.npR = null;
+        this.npv = null;
     }
 
     public Resources getResources() {
         return this.mResources;
     }
 
-    public b IK(int i) {
-        this.mVL = i;
+    public b Lo(int i) {
+        this.npB = i;
         return this;
     }
 
-    public int dEy() {
-        return this.mVL;
+    public int dQy() {
+        return this.npB;
     }
 
-    public boolean dEz() {
-        return this.mVM;
+    public boolean dQz() {
+        return this.npC;
     }
 
-    public b aH(float f) {
-        this.mVN = f;
+    public b aN(float f) {
+        this.npD = f;
         return this;
     }
 
-    public float dEA() {
-        return this.mVN;
+    public float dQA() {
+        return this.npD;
     }
 
     public b n(@Nullable Drawable drawable) {
-        this.mVO = drawable;
+        this.npE = drawable;
         return this;
     }
 
-    public b IL(int i) {
-        this.mVO = this.mResources.getDrawable(i);
+    public b Lp(int i) {
+        this.npE = this.mResources.getDrawable(i);
         return this;
     }
 
     @Nullable
-    public Drawable dEB() {
-        return this.mVO;
+    public Drawable dQB() {
+        return this.npE;
     }
 
     public b c(@Nullable p.b bVar) {
-        this.mVP = bVar;
+        this.npF = bVar;
         return this;
     }
 
     @Nullable
-    public p.b dEC() {
-        return this.mVP;
+    public p.b dQC() {
+        return this.npF;
     }
 
     public b o(@Nullable Drawable drawable) {
-        this.mVQ = drawable;
+        this.npG = drawable;
         return this;
     }
 
     @Nullable
-    public Drawable dED() {
-        return this.mVQ;
+    public Drawable dQD() {
+        return this.npG;
     }
 
     public b d(@Nullable p.b bVar) {
-        this.mVR = bVar;
+        this.npH = bVar;
         return this;
     }
 
     @Nullable
-    public p.b dEE() {
-        return this.mVR;
+    public p.b dQE() {
+        return this.npH;
     }
 
     public b p(@Nullable Drawable drawable) {
-        this.mVS = drawable;
+        this.npI = drawable;
         return this;
     }
 
     @Nullable
-    public Drawable dEF() {
-        return this.mVS;
+    public Drawable dQF() {
+        return this.npI;
     }
 
     public b e(@Nullable p.b bVar) {
-        this.mVT = bVar;
+        this.npJ = bVar;
         return this;
     }
 
     @Nullable
-    public p.b dEG() {
-        return this.mVT;
+    public p.b dQG() {
+        return this.npJ;
     }
 
     public b q(@Nullable Drawable drawable) {
-        this.mVU = drawable;
+        this.npK = drawable;
         return this;
     }
 
     @Nullable
-    public Drawable dEH() {
-        return this.mVU;
+    public Drawable dQH() {
+        return this.npK;
     }
 
     public b f(@Nullable p.b bVar) {
-        this.mVV = bVar;
+        this.npL = bVar;
         return this;
     }
 
     @Nullable
-    public p.b dEI() {
-        return this.mVV;
+    public p.b dQI() {
+        return this.npL;
     }
 
     public b g(@Nullable p.b bVar) {
-        this.mVW = bVar;
-        this.mVX = null;
+        this.npM = bVar;
+        this.npN = null;
         return this;
     }
 
     @Nullable
-    public p.b dEJ() {
-        return this.mVW;
+    public p.b dQJ() {
+        return this.npM;
     }
 
     @Nullable
-    public PointF dEK() {
-        return this.mVY;
+    public PointF dQK() {
+        return this.npO;
     }
 
     @Nullable
-    public ColorFilter dEL() {
-        return this.mVZ;
+    public ColorFilter dQL() {
+        return this.npP;
     }
 
     public b r(@Nullable Drawable drawable) {
@@ -208,53 +208,53 @@ public class b {
 
     public b s(@Nullable Drawable drawable) {
         if (drawable == null) {
-            this.mWa = null;
+            this.npQ = null;
         } else {
-            this.mWa = Arrays.asList(drawable);
+            this.npQ = Arrays.asList(drawable);
         }
         return this;
     }
 
     @Nullable
-    public List<Drawable> dEM() {
-        return this.mWa;
+    public List<Drawable> getOverlays() {
+        return this.npQ;
     }
 
     public b t(@Nullable Drawable drawable) {
         if (drawable == null) {
-            this.mWb = null;
+            this.npR = null;
         } else {
             StateListDrawable stateListDrawable = new StateListDrawable();
             stateListDrawable.addState(new int[]{16842919}, drawable);
-            this.mWb = stateListDrawable;
+            this.npR = stateListDrawable;
         }
         return this;
     }
 
     @Nullable
-    public Drawable dEN() {
-        return this.mWb;
+    public Drawable dQM() {
+        return this.npR;
     }
 
     public b b(@Nullable RoundingParams roundingParams) {
-        this.mVF = roundingParams;
+        this.npv = roundingParams;
         return this;
     }
 
     @Nullable
-    public RoundingParams dEx() {
-        return this.mVF;
+    public RoundingParams dQx() {
+        return this.npv;
     }
 
     private void validate() {
-        if (this.mWa != null) {
-            for (Drawable drawable : this.mWa) {
+        if (this.npQ != null) {
+            for (Drawable drawable : this.npQ) {
                 g.checkNotNull(drawable);
             }
         }
     }
 
-    public a dEO() {
+    public a dQN() {
         validate();
         return new a(this);
     }

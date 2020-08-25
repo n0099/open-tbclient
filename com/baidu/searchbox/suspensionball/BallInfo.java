@@ -6,7 +6,7 @@ import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes18.dex */
+/* loaded from: classes3.dex */
 public class BallInfo {
     int mBallCenterXCoordinate;
     int mBallCenterYCoordinate;

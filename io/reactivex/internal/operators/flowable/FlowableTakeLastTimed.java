@@ -16,14 +16,14 @@ public final class FlowableTakeLastTimed<T> extends a<T, T> {
     final TimeUnit unit;
 
     @Override // io.reactivex.g
-    protected void a(org.a.c<? super T> cVar) {
-        this.nSG.a((j) new TakeLastTimedSubscriber(cVar, this.count, this.time, this.unit, this.scheduler, this.bufferSize, this.delayError));
+    protected void a(org.b.c<? super T> cVar) {
+        this.omB.a((j) new TakeLastTimedSubscriber(cVar, this.count, this.time, this.unit, this.scheduler, this.bufferSize, this.delayError));
     }
 
     /* loaded from: classes7.dex */
-    static final class TakeLastTimedSubscriber<T> extends AtomicInteger implements j<T>, org.a.d {
+    static final class TakeLastTimedSubscriber<T> extends AtomicInteger implements j<T>, org.b.d {
         private static final long serialVersionUID = -5677354903406201275L;
-        final org.a.c<? super T> actual;
+        final org.b.c<? super T> actual;
         volatile boolean cancelled;
         final long count;
         final boolean delayError;
@@ -31,12 +31,12 @@ public final class FlowableTakeLastTimed<T> extends a<T, T> {
         Throwable error;
         final io.reactivex.internal.queue.a<Object> queue;
         final AtomicLong requested = new AtomicLong();
-        org.a.d s;
+        org.b.d s;
         final v scheduler;
         final long time;
         final TimeUnit unit;
 
-        TakeLastTimedSubscriber(org.a.c<? super T> cVar, long j, long j2, TimeUnit timeUnit, v vVar, int i, boolean z) {
+        TakeLastTimedSubscriber(org.b.c<? super T> cVar, long j, long j2, TimeUnit timeUnit, v vVar, int i, boolean z) {
             this.actual = cVar;
             this.count = j;
             this.time = j2;
@@ -46,8 +46,8 @@ public final class FlowableTakeLastTimed<T> extends a<T, T> {
             this.delayError = z;
         }
 
-        @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        @Override // io.reactivex.j, org.b.c
+        public void onSubscribe(org.b.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
@@ -55,7 +55,7 @@ public final class FlowableTakeLastTimed<T> extends a<T, T> {
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(T t) {
             io.reactivex.internal.queue.a<Object> aVar = this.queue;
             long a = this.scheduler.a(this.unit);
@@ -63,7 +63,7 @@ public final class FlowableTakeLastTimed<T> extends a<T, T> {
             trim(a, aVar);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
             if (this.delayError) {
                 trim(this.scheduler.a(this.unit), this.queue);
@@ -73,7 +73,7 @@ public final class FlowableTakeLastTimed<T> extends a<T, T> {
             drain();
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
             trim(this.scheduler.a(this.unit), this.queue);
             this.done = true;
@@ -94,7 +94,7 @@ public final class FlowableTakeLastTimed<T> extends a<T, T> {
             }
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 io.reactivex.internal.util.b.a(this.requested, j);
@@ -102,7 +102,7 @@ public final class FlowableTakeLastTimed<T> extends a<T, T> {
             }
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void cancel() {
             if (!this.cancelled) {
                 this.cancelled = true;
@@ -115,7 +115,7 @@ public final class FlowableTakeLastTimed<T> extends a<T, T> {
 
         void drain() {
             if (getAndIncrement() == 0) {
-                org.a.c<? super T> cVar = this.actual;
+                org.b.c<? super T> cVar = this.actual;
                 io.reactivex.internal.queue.a<Object> aVar = this.queue;
                 boolean z = this.delayError;
                 int i = 1;
@@ -146,7 +146,7 @@ public final class FlowableTakeLastTimed<T> extends a<T, T> {
             }
         }
 
-        boolean checkTerminated(boolean z, org.a.c<? super T> cVar, boolean z2) {
+        boolean checkTerminated(boolean z, org.b.c<? super T> cVar, boolean z2) {
             if (this.cancelled) {
                 this.queue.clear();
                 return true;

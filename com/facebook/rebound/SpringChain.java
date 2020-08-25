@@ -2,7 +2,7 @@ package com.facebook.rebound;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public class SpringChain implements SpringListener {
     private static final int DEFAULT_ATTACHMENT_FRICTION = 10;
     private static final int DEFAULT_ATTACHMENT_TENSION = 70;

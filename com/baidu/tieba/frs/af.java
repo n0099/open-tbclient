@@ -1,8 +1,6 @@
 package com.baidu.tieba.frs;
-
-import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class af {
-    public int hJS;
-    public List<ad> hJT;
+    public int hXn;
+    public String name;
 }

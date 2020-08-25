@@ -5,7 +5,7 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.internal.util.i;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.d;
+import org.b.d;
 /* loaded from: classes7.dex */
 public final class InnerQueuedSubscriber<T> extends AtomicReference<d> implements j<T>, d {
     private static final long serialVersionUID = 22876611072430776L;
@@ -23,7 +23,7 @@ public final class InnerQueuedSubscriber<T> extends AtomicReference<d> implement
         this.limit = i - (i >> 2);
     }
 
-    @Override // io.reactivex.j, org.a.c
+    @Override // io.reactivex.j, org.b.c
     public void onSubscribe(d dVar) {
         if (SubscriptionHelper.setOnce(this, dVar)) {
             if (dVar instanceof io.reactivex.internal.a.d) {
@@ -42,12 +42,12 @@ public final class InnerQueuedSubscriber<T> extends AtomicReference<d> implement
                     return;
                 }
             }
-            this.queue = i.Lp(this.prefetch);
+            this.queue = i.NS(this.prefetch);
             i.a(dVar, this.prefetch);
         }
     }
 
-    @Override // org.a.c
+    @Override // org.b.c
     public void onNext(T t) {
         if (this.fusionMode == 0) {
             this.parent.innerNext(this, t);
@@ -56,17 +56,17 @@ public final class InnerQueuedSubscriber<T> extends AtomicReference<d> implement
         }
     }
 
-    @Override // org.a.c
+    @Override // org.b.c
     public void onError(Throwable th) {
         this.parent.innerError(this, th);
     }
 
-    @Override // org.a.c
+    @Override // org.b.c
     public void onComplete() {
         this.parent.innerComplete(this);
     }
 
-    @Override // org.a.d
+    @Override // org.b.d
     public void request(long j) {
         if (this.fusionMode != 1) {
             long j2 = this.produced + j;
@@ -91,7 +91,7 @@ public final class InnerQueuedSubscriber<T> extends AtomicReference<d> implement
         }
     }
 
-    @Override // org.a.d
+    @Override // org.b.d
     public void cancel() {
         SubscriptionHelper.cancel(this);
     }

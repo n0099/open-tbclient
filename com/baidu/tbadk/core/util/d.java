@@ -1,5 +1,5 @@
 package com.baidu.tbadk.core.util;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class d {
     private static String mIp = null;
 

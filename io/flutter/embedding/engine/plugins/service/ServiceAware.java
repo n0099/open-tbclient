@@ -1,10 +1,10 @@
 package io.flutter.embedding.engine.plugins.service;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public interface ServiceAware {
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes19.dex */
     public interface OnModeChangeListener {
         void onMoveToBackground();
 

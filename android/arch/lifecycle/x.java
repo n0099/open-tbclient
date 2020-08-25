@@ -4,19 +4,19 @@ import android.app.Application;
 import android.support.annotation.MainThread;
 import android.support.annotation.NonNull;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class x {
     private final z mViewModelStore;
-    private final b zj;
+    private final b zI;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         @NonNull
         <T extends w> T create(@NonNull Class<T> cls);
     }
 
     public x(@NonNull z zVar, @NonNull b bVar) {
-        this.zj = bVar;
+        this.zI = bVar;
         this.mViewModelStore = zVar;
     }
 
@@ -33,18 +33,18 @@ public class x {
     @NonNull
     @MainThread
     public <T extends w> T b(@NonNull String str, @NonNull Class<T> cls) {
-        T t = (T) this.mViewModelStore.aT(str);
+        T t = (T) this.mViewModelStore.aX(str);
         if (!cls.isInstance(t)) {
             if (t != null) {
             }
-            T t2 = (T) this.zj.create(cls);
+            T t2 = (T) this.zI.create(cls);
             this.mViewModelStore.a(str, t2);
             return t2;
         }
         return t;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class c implements b {
         @Override // android.arch.lifecycle.x.b
         @NonNull
@@ -59,17 +59,17 @@ public class x {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a extends c {
-        private static a zk;
+        private static a zJ;
         private Application mApplication;
 
         @NonNull
         public static a c(@NonNull Application application) {
-            if (zk == null) {
-                zk = new a(application);
+            if (zJ == null) {
+                zJ = new a(application);
             }
-            return zk;
+            return zJ;
         }
 
         public a(@NonNull Application application) {

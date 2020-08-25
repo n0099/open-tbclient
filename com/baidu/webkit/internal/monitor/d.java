@@ -7,7 +7,7 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.IOException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public final class d implements Runnable {
     final /* synthetic */ String a;
     final /* synthetic */ String b;
@@ -51,7 +51,7 @@ public final class d implements Runnable {
                         this.e.sendStatisticsDataToServer(com.baidu.webkit.internal.d.b(com.baidu.webkit.internal.d.c(this.a.getBytes())), this.c, this.d);
                     }
                 } catch (IOException e) {
-                    com.a.a.a.a.a.a.a.a(e);
+                    e.printStackTrace();
                 }
             } else if (WebSettingsGlobalBlink.useLogSdk()) {
                 z2 = SessionMonitorNetWorker.mLogSdkInit;

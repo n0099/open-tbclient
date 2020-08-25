@@ -1,7 +1,7 @@
 package com.baidu.android.pushservice.e;
 
 import java.io.InputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class a {
     private InputStream a;
     private int b;

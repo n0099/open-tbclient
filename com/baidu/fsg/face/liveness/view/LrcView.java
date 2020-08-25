@@ -11,7 +11,7 @@ import android.widget.FrameLayout;
 import com.baidu.sapi2.biometrics.liveness.R;
 import com.baidu.sapi2.result.OneKeyLoginResult;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes11.dex */
 public class LrcView extends FrameLayout {
     private static int A = 12;
     private static int B;
@@ -42,7 +42,7 @@ public class LrcView extends FrameLayout {
     private int y;
     private int z;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void a();
     }

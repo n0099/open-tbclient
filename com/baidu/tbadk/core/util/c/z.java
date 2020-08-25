@@ -1,5 +1,5 @@
 package com.baidu.tbadk.core.util.c;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class z extends a {
     private int procType;
 
@@ -23,17 +23,17 @@ public class z extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean bbj() {
+    public boolean bjI() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean bbk() {
+    public boolean bjJ() {
         return true;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public int bbl() {
+    public int bjK() {
         return this.procType;
     }
 }

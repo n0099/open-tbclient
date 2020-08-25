@@ -1,5 +1,5 @@
 package com.baidu.afd;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface j {
     void setTrigger(i iVar);
 }

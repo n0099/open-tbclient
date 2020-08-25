@@ -28,7 +28,7 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Logger;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class H264TrackImpl extends AbstractTrack {
     private static /* synthetic */ int[] $SWITCH_TABLE$com$googlecode$mp4parser$authoring$tracks$H264TrackImpl$NALActions;
     List<CompositionTimeToSample.Entry> ctts;
@@ -59,7 +59,7 @@ public class H264TrackImpl extends AbstractTrack {
     static int BUFFER = 67107840;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes8.dex */
     public enum NALActions {
         IGNORE,
         BUFFER,
@@ -270,27 +270,27 @@ public class H264TrackImpl extends AbstractTrack {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes8.dex */
     public class a {
         ByteBuffer buffer;
         DataSource dataSource;
-        long nmG = 0;
-        int nmH = 0;
+        long nGx = 0;
+        int nGy = 0;
         long start;
 
-        public void dLY() throws IOException {
-            this.buffer = this.dataSource.map(this.nmG, Math.min(this.dataSource.size() - this.nmG, H264TrackImpl.BUFFER));
+        public void dXZ() throws IOException {
+            this.buffer = this.dataSource.map(this.nGx, Math.min(this.dataSource.size() - this.nGx, H264TrackImpl.BUFFER));
         }
 
         a(DataSource dataSource) throws IOException {
             this.dataSource = dataSource;
-            dLY();
+            dXZ();
         }
 
-        boolean dLZ() throws IOException {
-            if (this.buffer.limit() - this.nmH >= 3) {
-                return this.buffer.get(this.nmH) == 0 && this.buffer.get(this.nmH + 1) == 0 && this.buffer.get(this.nmH + 2) == 1;
-            } else if (this.nmG + this.nmH != this.dataSource.size()) {
+        boolean dYa() throws IOException {
+            if (this.buffer.limit() - this.nGy >= 3) {
+                return this.buffer.get(this.nGy) == 0 && this.buffer.get(this.nGy + 1) == 0 && this.buffer.get(this.nGy + 2) == 1;
+            } else if (this.nGx + this.nGy != this.dataSource.size()) {
                 System.err.println(H264TrackImpl.this.samples.size());
                 throw new RuntimeException("buffer repositioning require");
             } else {
@@ -298,33 +298,33 @@ public class H264TrackImpl extends AbstractTrack {
             }
         }
 
-        boolean dMa() throws IOException {
-            if (this.buffer.limit() - this.nmH >= 3) {
-                return this.buffer.get(this.nmH) == 0 && this.buffer.get(this.nmH + 1) == 0 && (this.buffer.get(this.nmH + 2) == 0 || this.buffer.get(this.nmH + 2) == 1);
-            } else if (this.nmG + this.nmH + 3 > this.dataSource.size()) {
-                return this.nmG + ((long) this.nmH) == this.dataSource.size();
+        boolean dYb() throws IOException {
+            if (this.buffer.limit() - this.nGy >= 3) {
+                return this.buffer.get(this.nGy) == 0 && this.buffer.get(this.nGy + 1) == 0 && (this.buffer.get(this.nGy + 2) == 0 || this.buffer.get(this.nGy + 2) == 1);
+            } else if (this.nGx + this.nGy + 3 > this.dataSource.size()) {
+                return this.nGx + ((long) this.nGy) == this.dataSource.size();
             } else {
-                this.nmG = this.start;
-                this.nmH = 0;
-                dLY();
-                return dMa();
+                this.nGx = this.start;
+                this.nGy = 0;
+                dXZ();
+                return dYb();
             }
         }
 
-        void dMb() {
-            this.nmH++;
+        void dYc() {
+            this.nGy++;
         }
 
-        void dMc() {
-            this.nmH += 3;
-            this.start = this.nmG + this.nmH;
+        void dYd() {
+            this.nGy += 3;
+            this.start = this.nGx + this.nGy;
         }
 
-        public ByteBuffer dMd() {
-            if (this.start >= this.nmG) {
-                this.buffer.position((int) (this.start - this.nmG));
+        public ByteBuffer dYe() {
+            if (this.start >= this.nGx) {
+                this.buffer.position((int) (this.start - this.nGx));
                 ByteBuffer slice = this.buffer.slice();
-                slice.limit((int) (this.nmH - (this.start - this.nmG)));
+                slice.limit((int) (this.nGy - (this.start - this.nGx)));
                 return slice;
             }
             throw new RuntimeException("damn sample crosses buffers");
@@ -332,18 +332,18 @@ public class H264TrackImpl extends AbstractTrack {
     }
 
     private ByteBuffer findNextSample(a aVar) throws IOException {
-        while (!aVar.dLZ()) {
+        while (!aVar.dYa()) {
             try {
-                aVar.dMb();
+                aVar.dYc();
             } catch (EOFException e) {
                 return null;
             }
         }
-        aVar.dMc();
-        while (!aVar.dMa()) {
-            aVar.dMb();
+        aVar.dYd();
+        while (!aVar.dYb()) {
+            aVar.dYc();
         }
-        return aVar.dMd();
+        return aVar.dYe();
     }
 
     protected Sample createSample(List<? extends ByteBuffer> list) {
@@ -427,7 +427,7 @@ public class H264TrackImpl extends AbstractTrack {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes8.dex */
     public class CleanInputStream extends FilterInputStream {
         int prev;
         int prevprev;
@@ -562,7 +562,7 @@ public class H264TrackImpl extends AbstractTrack {
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes8.dex */
     public static class SliceHeader {
         public boolean bottom_field_flag;
         public int colour_plane_id;
@@ -575,7 +575,7 @@ public class H264TrackImpl extends AbstractTrack {
         public int pic_parameter_set_id;
         public SliceType slice_type;
 
-        /* loaded from: classes20.dex */
+        /* loaded from: classes8.dex */
         public enum SliceType {
             P,
             B,
@@ -649,7 +649,7 @@ public class H264TrackImpl extends AbstractTrack {
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes8.dex */
     public class ByteBufferBackedInputStream extends InputStream {
         private final ByteBuffer buf;
 
@@ -676,7 +676,7 @@ public class H264TrackImpl extends AbstractTrack {
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes8.dex */
     public class SEIMessage {
         boolean clock_timestamp_flag;
         int cnt_dropped_flag;

@@ -14,7 +14,7 @@ import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.suspension_ball_anim.R;
 import com.baidu.searchbox.suspensionball.anim.ClipAnimLayout;
 import com.baidu.searchbox.suspensionball.anim.ioc.SuspensionBallAnimationRuntime;
-/* loaded from: classes14.dex */
+/* loaded from: classes11.dex */
 public class ClipAnimationHelper {
     private static final boolean DEBUG = AppConfig.isDebug();
     private boolean canClip;

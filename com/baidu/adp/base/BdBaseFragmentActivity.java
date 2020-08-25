@@ -36,7 +36,7 @@ public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity imple
         if (this.mId == null) {
             this.mId = BdUniqueId.gen();
         }
-        a.jC().pushActivity(getPageContext().getPageActivity());
+        a.lb().pushActivity(getPageContext().getPageActivity());
     }
 
     public void initUniqueId() {
@@ -155,16 +155,16 @@ public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity imple
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().removeMessage(this.mId);
-        com.baidu.adp.lib.e.c.ln().d(this.mId);
+        com.baidu.adp.lib.e.c.mM().d(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
-        a.jC().popActivity(getPageContext().getPageActivity());
+        a.lb().popActivity(getPageContext().getPageActivity());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        com.baidu.adp.lib.e.c.ln().e(this.mId);
+        com.baidu.adp.lib.e.c.mM().e(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -230,7 +230,7 @@ public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity imple
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        Resources resources = g.jE().getResources();
+        Resources resources = g.ld().getResources();
         return (resources == null || !BdBaseApplication.getInst().getIsPluginResourcOpen()) ? super.getResources() : resources;
     }
 }

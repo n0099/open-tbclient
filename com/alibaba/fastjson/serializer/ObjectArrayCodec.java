@@ -11,7 +11,7 @@ import java.lang.reflect.GenericArrayType;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class ObjectArrayCodec implements ObjectDeserializer, ObjectSerializer {
     public static final ObjectArrayCodec instance = new ObjectArrayCodec();
 

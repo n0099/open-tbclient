@@ -2,7 +2,7 @@ package android.support.v4.util;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-/* loaded from: classes18.dex */
+/* loaded from: classes3.dex */
 public class Pair<F, S> {
     @Nullable
     public final F first;

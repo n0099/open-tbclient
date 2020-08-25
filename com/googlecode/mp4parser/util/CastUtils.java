@@ -1,5 +1,5 @@
 package com.googlecode.mp4parser.util;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class CastUtils {
     public static int l2i(long j) {
         if (j > 2147483647L || j < -2147483648L) {

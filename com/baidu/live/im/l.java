@@ -9,31 +9,31 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class l implements ILoginListener {
-    private static volatile l aVY;
-    private boolean aVW = false;
-    private a aVX;
+    private static volatile l bbn;
+    private boolean bbl = false;
+    private a bbm;
     private boolean mIsDestroy;
     private boolean mIsLogin;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface a {
-        void p(int i, String str);
+        void o(int i, String str);
     }
 
     private l() {
     }
 
-    public static l DL() {
-        if (aVY == null) {
+    public static l Jo() {
+        if (bbn == null) {
             synchronized (l.class) {
-                if (aVY == null) {
-                    aVY = new l();
+                if (bbn == null) {
+                    bbn = new l();
                 }
             }
         }
-        return aVY;
+        return bbn;
     }
 
     public void init(Context context) {
@@ -49,12 +49,12 @@ public class l implements ILoginListener {
             BIMManager.init(context, Constants.APPID_TIEBA, 0, cuid);
         }
         LogUtils.d("imlog", "BIMManager init env:" + i);
-        this.aVW = true;
+        this.bbl = true;
     }
 
     public void a(a aVar) {
         this.mIsLogin = true;
-        this.aVX = aVar;
+        this.bbm = aVar;
         String fromHost = TbConfig.getFromHost();
         String currentFromHost = TbConfig.getCurrentFromHost();
         if (TbadkCoreApplication.isLogin()) {
@@ -69,15 +69,15 @@ public class l implements ILoginListener {
         LogUtils.d("imlog", "IMSdkManager 匿名使用cuid登录 loginToIM , cuid = " + cuid + ", from = " + fromHost + ", cfrom = " + currentFromHost);
     }
 
-    public void DM() {
+    public void Jp() {
         AccountManager.disconnect(TbadkCoreApplication.getInst());
     }
 
     @Override // com.baidu.android.imsdk.account.ILoginListener
     public void onLoginResult(int i, String str) {
-        if (this.aVX != null) {
-            this.aVX.p(i, str);
-            this.aVX = null;
+        if (this.bbm != null) {
+            this.bbm.o(i, str);
+            this.bbm = null;
         }
     }
 
@@ -90,6 +90,6 @@ public class l implements ILoginListener {
 
     public void destroy() {
         this.mIsDestroy = true;
-        DM();
+        Jp();
     }
 }

@@ -5,15 +5,15 @@ import java.util.Queue;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes7.dex */
 public final class i {
-    public static <T> io.reactivex.internal.a.g<T> Lp(int i) {
+    public static <T> io.reactivex.internal.a.g<T> NS(int i) {
         return i < 0 ? new io.reactivex.internal.queue.a(-i) : new SpscArrayQueue(i);
     }
 
-    public static void a(org.a.d dVar, int i) {
+    public static void a(org.b.d dVar, int i) {
         dVar.request(i < 0 ? Long.MAX_VALUE : i);
     }
 
-    public static <T> boolean a(long j, org.a.c<? super T> cVar, Queue<T> queue, AtomicLong atomicLong, io.reactivex.c.e eVar) {
+    public static <T> boolean a(long j, org.b.c<? super T> cVar, Queue<T> queue, AtomicLong atomicLong, io.reactivex.c.e eVar) {
         long j2;
         do {
             j2 = atomicLong.get();
@@ -29,12 +29,12 @@ public final class i {
         try {
             return eVar.getAsBoolean();
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.K(th);
+            io.reactivex.exceptions.a.J(th);
             return true;
         }
     }
 
-    static <T> boolean b(long j, org.a.c<? super T> cVar, Queue<T> queue, AtomicLong atomicLong, io.reactivex.c.e eVar) {
+    static <T> boolean b(long j, org.b.c<? super T> cVar, Queue<T> queue, AtomicLong atomicLong, io.reactivex.c.e eVar) {
         long j2 = j & Long.MIN_VALUE;
         while (true) {
             if (j2 != j) {
@@ -69,7 +69,7 @@ public final class i {
         }
     }
 
-    public static <T> void a(org.a.c<? super T> cVar, Queue<T> queue, AtomicLong atomicLong, io.reactivex.c.e eVar) {
+    public static <T> void a(org.b.c<? super T> cVar, Queue<T> queue, AtomicLong atomicLong, io.reactivex.c.e eVar) {
         long j;
         long j2;
         if (queue.isEmpty()) {

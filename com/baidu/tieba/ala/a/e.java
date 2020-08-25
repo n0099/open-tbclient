@@ -7,70 +7,70 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes4.dex */
 public class e {
-    private b fDd = null;
-    private b fDe = null;
-    private Set<j> fDf = new HashSet();
-    private Set<j> fDg = null;
-    private boolean fDh = false;
+    private b fOu = null;
+    private b fOv = null;
+    private Set<j> fOw = new HashSet();
+    private Set<j> fOx = null;
+    private boolean fOy = false;
     private Context mContext;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void byD();
+        void bHG();
 
         void onCancel();
     }
 
     public e(Context context) {
         this.mContext = context;
-        initResource();
+        bHE();
     }
 
-    private void initResource() {
-        this.fDe = new b("so");
-        this.fDf.add(this.fDe);
-        this.fDd = new b("source");
-        this.fDf.add(this.fDd);
+    private void bHE() {
+        this.fOv = new b("so");
+        this.fOw.add(this.fOv);
+        this.fOu = new b("source");
+        this.fOw.add(this.fOu);
     }
 
-    public boolean byC() {
-        if (this.fDg == null) {
-            this.fDg = new HashSet();
-            for (j jVar : this.fDf) {
+    public boolean bHF() {
+        if (this.fOx == null) {
+            this.fOx = new HashSet();
+            for (j jVar : this.fOw) {
                 if (!jVar.isReady()) {
-                    this.fDg.add(jVar);
+                    this.fOx.add(jVar);
                 }
             }
-            if (this.fDg.size() > 0) {
-                this.fDh = true;
+            if (this.fOx.size() > 0) {
+                this.fOy = true;
             } else {
-                this.fDh = false;
+                this.fOy = false;
             }
         }
-        return this.fDh;
+        return this.fOy;
     }
 
     public void a(final a aVar) {
-        if (!byC()) {
-            aVar.byD();
+        if (!bHF()) {
+            aVar.bHG();
             return;
         }
         ArrayList arrayList = new ArrayList();
-        for (j jVar : this.fDg) {
+        for (j jVar : this.fOx) {
             jVar.load();
-            arrayList.add(jVar.byu());
+            arrayList.add(jVar.bHv());
         }
-        f.a(this.mContext, new com.baidu.tieba.ala.a.a((g[]) arrayList.toArray(new g[0]))).s(new Runnable() { // from class: com.baidu.tieba.ala.a.e.3
+        f.a(this.mContext, new com.baidu.tieba.ala.a.a((g[]) arrayList.toArray(new g[0]))).p(new Runnable() { // from class: com.baidu.tieba.ala.a.e.3
             @Override // java.lang.Runnable
             public void run() {
-                aVar.byD();
+                aVar.bHG();
             }
-        }).t(new Runnable() { // from class: com.baidu.tieba.ala.a.e.2
+        }).q(new Runnable() { // from class: com.baidu.tieba.ala.a.e.2
             @Override // java.lang.Runnable
             public void run() {
                 aVar.onCancel();
             }
-        }).c(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.a.e.1
+        }).d(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.a.e.1
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
             }

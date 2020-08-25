@@ -1,22 +1,18 @@
 package com.baidu.swan.a.a;
 
-import com.baidu.swan.pms.c.d.g;
-/* loaded from: classes3.dex */
-public class a extends g {
-    private int mVersionCode;
-    private String mVersionName;
-
-    public a(String str, int i) {
-        super(99);
-        this.mVersionName = str;
-        this.mVersionCode = i;
+import com.baidu.searchbox.http.AbstractHttpManager;
+import com.baidu.swan.a.d.a;
+/* loaded from: classes4.dex */
+public class a extends a.C0330a {
+    public a(AbstractHttpManager abstractHttpManager) {
+        super(abstractHttpManager);
     }
 
-    public String getVersionName() {
-        return this.mVersionName;
-    }
-
-    public int getVersionCode() {
-        return this.mVersionCode;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.swan.a.d.a.C0330a, com.baidu.searchbox.http.request.HttpRequestBuilder
+    /* renamed from: aST */
+    public com.baidu.swan.a.d.a build() {
+        com.baidu.swan.a.b.aSS().a(this.httpUrl.toString(), this);
+        return super.build();
     }
 }

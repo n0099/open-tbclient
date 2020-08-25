@@ -11,7 +11,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.view.KeyEventDealContainerView;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class MorePopupWindow extends PopupWindow {
     private Activity mActivity;
     private KeyEventDealContainerView mContainer;

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.a;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class RepostToDynamicDefaultSwitch extends a {
     public static final String KEY = "repost_to_dynamic_by_default";
     public static final int OFF_TYPE = 0;

@@ -20,9 +20,9 @@ import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes20.dex */
+/* loaded from: classes18.dex */
 public class f {
-    private static final Map<String, m<e>> Au = new HashMap();
+    private static final Map<String, m<e>> Bb = new HashMap();
 
     public static m<e> s(Context context, String str) {
         return com.airbnb.lottie.network.b.v(context, str);
@@ -33,7 +33,7 @@ public class f {
         return a(str, new Callable<l<e>>() { // from class: com.airbnb.lottie.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
-            /* renamed from: hc */
+            /* renamed from: iD */
             public l<e> call() {
                 return f.u(applicationContext, str);
             }
@@ -58,10 +58,10 @@ public class f {
 
     public static m<e> d(Context context, @RawRes final int i) {
         final Context applicationContext = context.getApplicationContext();
-        return a(S(i), new Callable<l<e>>() { // from class: com.airbnb.lottie.f.3
+        return a(U(i), new Callable<l<e>>() { // from class: com.airbnb.lottie.f.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
-            /* renamed from: hc */
+            /* renamed from: iD */
             public l<e> call() {
                 return f.e(applicationContext, i);
             }
@@ -71,13 +71,13 @@ public class f {
     @WorkerThread
     public static l<e> e(Context context, @RawRes int i) {
         try {
-            return c(context.getResources().openRawResource(i), S(i));
+            return c(context.getResources().openRawResource(i), U(i));
         } catch (Resources.NotFoundException e) {
             return new l<>(e);
         }
     }
 
-    private static String S(@RawRes int i) {
+    private static String U(@RawRes int i) {
         return "rawRes_" + i;
     }
 
@@ -85,7 +85,7 @@ public class f {
         return a(str, new Callable<l<e>>() { // from class: com.airbnb.lottie.f.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
-            /* renamed from: hc */
+            /* renamed from: iD */
             public l<e> call() {
                 return f.c(inputStream, str);
             }
@@ -108,19 +108,19 @@ public class f {
         }
     }
 
-    public static m<e> l(final String str, @Nullable final String str2) {
+    public static m<e> n(final String str, @Nullable final String str2) {
         return a(str2, new Callable<l<e>>() { // from class: com.airbnb.lottie.f.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
-            /* renamed from: hc */
+            /* renamed from: iD */
             public l<e> call() {
-                return f.m(str, str2);
+                return f.o(str, str2);
             }
         });
     }
 
     @WorkerThread
-    public static l<e> m(String str, @Nullable String str2) {
+    public static l<e> o(String str, @Nullable String str2) {
         return b(new JsonReader(new StringReader(str)), str2);
     }
 
@@ -128,7 +128,7 @@ public class f {
         return a(str, new Callable<l<e>>() { // from class: com.airbnb.lottie.f.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
-            /* renamed from: hc */
+            /* renamed from: iD */
             public l<e> call() {
                 return f.b(jsonReader, str);
             }
@@ -139,7 +139,7 @@ public class f {
     public static l<e> b(JsonReader jsonReader, @Nullable String str) {
         try {
             e d = t.d(jsonReader);
-            com.airbnb.lottie.model.g.hZ().a(str, d);
+            com.airbnb.lottie.model.g.jA().a(str, d);
             return new l<>(d);
         } catch (Exception e) {
             return new l<>(e);
@@ -188,12 +188,12 @@ public class f {
                     a.setBitmap((Bitmap) entry.getValue());
                 }
             }
-            for (Map.Entry<String, h> entry2 : eVar2.ha().entrySet()) {
+            for (Map.Entry<String, h> entry2 : eVar2.iB().entrySet()) {
                 if (entry2.getValue().getBitmap() == null) {
                     return new l<>(new IllegalStateException("There is no image for " + entry2.getValue().getFileName()));
                 }
             }
-            com.airbnb.lottie.model.g.hZ().a(str, eVar2);
+            com.airbnb.lottie.model.g.jA().a(str, eVar2);
             return new l<>(eVar2);
         } catch (IOException e) {
             return new l<>(e);
@@ -202,7 +202,7 @@ public class f {
 
     @Nullable
     private static h a(e eVar, String str) {
-        for (h hVar : eVar.ha().values()) {
+        for (h hVar : eVar.iB().values()) {
             if (hVar.getFileName().equals(str)) {
                 return hVar;
             }
@@ -211,20 +211,20 @@ public class f {
     }
 
     private static m<e> a(@Nullable final String str, Callable<l<e>> callable) {
-        final e bh = com.airbnb.lottie.model.g.hZ().bh(str);
-        if (bh != null) {
+        final e bm = com.airbnb.lottie.model.g.jA().bm(str);
+        if (bm != null) {
             return new m<>(new Callable<l<e>>() { // from class: com.airbnb.lottie.f.7
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.concurrent.Callable
-                /* renamed from: hc */
+                /* renamed from: iD */
                 public l<e> call() {
                     Log.d("Gabe", "call\treturning from cache");
                     return new l<>(e.this);
                 }
             });
         }
-        if (Au.containsKey(str)) {
-            return Au.get(str);
+        if (Bb.containsKey(str)) {
+            return Bb.get(str);
         }
         m<e> mVar = new m<>(callable);
         mVar.a(new i<e>() { // from class: com.airbnb.lottie.f.8
@@ -232,19 +232,19 @@ public class f {
             @Override // com.airbnb.lottie.i
             public void onResult(e eVar) {
                 if (str != null) {
-                    com.airbnb.lottie.model.g.hZ().a(str, eVar);
+                    com.airbnb.lottie.model.g.jA().a(str, eVar);
                 }
-                f.Au.remove(str);
+                f.Bb.remove(str);
             }
         });
         mVar.c(new i<Throwable>() { // from class: com.airbnb.lottie.f.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.airbnb.lottie.i
             public void onResult(Throwable th) {
-                f.Au.remove(str);
+                f.Bb.remove(str);
             }
         });
-        Au.put(str, mVar);
+        Bb.put(str, mVar);
         return mVar;
     }
 }

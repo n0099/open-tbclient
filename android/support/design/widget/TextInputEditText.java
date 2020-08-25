@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewParent;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
-/* loaded from: classes18.dex */
+/* loaded from: classes10.dex */
 public class TextInputEditText extends AppCompatEditText {
     public TextInputEditText(Context context) {
         super(context);

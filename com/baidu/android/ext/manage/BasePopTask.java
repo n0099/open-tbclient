@@ -2,7 +2,7 @@ package com.baidu.android.ext.manage;
 
 import android.support.annotation.NonNull;
 import android.util.Log;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class BasePopTask implements PopFinalCheck, PopItem, Comparable<BasePopTask> {
     static boolean DEBUG = false;
     public static final int MAX_PRIORITY = 0;

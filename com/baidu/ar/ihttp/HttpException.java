@@ -12,16 +12,16 @@ public class HttpException extends Exception {
     public static final int LIB_ERROR = 2;
     public static final int NET_ERROR = 1;
     public static final int UNKNOWN_ERROR = -1;
-    private int qo;
+    private int qT;
 
     public HttpException(int i, Exception exc) {
         super(exc);
-        this.qo = i;
+        this.qT = i;
     }
 
     public HttpException(int i, String str) {
         super(str);
-        this.qo = i;
+        this.qT = i;
     }
 
     public HttpException(IOException iOException) {
@@ -31,15 +31,15 @@ public class HttpException extends Exception {
 
     private void a(IOException iOException) {
         if ((iOException instanceof ConnectException) || (iOException instanceof SocketTimeoutException) || (iOException instanceof NoRouteToHostException) || (iOException instanceof UnknownHostException)) {
-            this.qo = 1;
+            this.qT = 1;
         } else if (iOException instanceof IOException) {
-            this.qo = -1;
+            this.qT = -1;
         } else {
-            this.qo = 2;
+            this.qT = 2;
         }
     }
 
     public int getCode() {
-        return this.qo;
+        return this.qT;
     }
 }

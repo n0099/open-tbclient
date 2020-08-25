@@ -3,6 +3,7 @@ package com.opensource.svgaplayer.entities;
 import android.graphics.Path;
 import android.support.media.ExifInterface;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.searchbox.ui.animview.praise.element.eruption.strategy.IEruptionStrategyGroup;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.Set;
@@ -11,34 +12,34 @@ import kotlin.h;
 import kotlin.jvm.internal.q;
 import kotlin.text.l;
 @h
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public final class b {
-    private final String nKx;
-    private Path nKy;
+    private final String oeq;
+    private Path oer;
 
     public b(String str) {
         q.m(str, "originValue");
-        this.nKx = l.a((CharSequence) str, (CharSequence) Constants.ACCEPT_TIME_SEPARATOR_SP, false, 2, (Object) null) ? l.a(str, Constants.ACCEPT_TIME_SEPARATOR_SP, " ", false, 4, (Object) null) : str;
+        this.oeq = l.a((CharSequence) str, (CharSequence) Constants.ACCEPT_TIME_SEPARATOR_SP, false, 2, (Object) null) ? l.a(str, Constants.ACCEPT_TIME_SEPARATOR_SP, " ", false, 4, (Object) null) : str;
     }
 
     public final void a(Path path) {
         Set set;
         q.m(path, "toPath");
-        Path path2 = this.nKy;
+        Path path2 = this.oer;
         if (path2 != null) {
             path.set(path2);
             return;
         }
         Path path3 = new Path();
-        StringTokenizer stringTokenizer = new StringTokenizer(this.nKx, "MLHVCSQRAZmlhvcsqraz", true);
+        StringTokenizer stringTokenizer = new StringTokenizer(this.oeq, "MLHVCSQRAZmlhvcsqraz", true);
         String str = "";
         while (stringTokenizer.hasMoreTokens()) {
             String nextToken = stringTokenizer.nextToken();
             q.l((Object) nextToken, "segment");
             if (!(nextToken.length() == 0)) {
-                set = c.nKz;
+                set = c.oes;
                 if (set.contains(nextToken)) {
-                    if (q.l((Object) nextToken, (Object) "Z") || q.l((Object) nextToken, (Object) "z")) {
+                    if (q.l((Object) nextToken, (Object) "Z") || q.l((Object) nextToken, (Object) MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z)) {
                         a(path3, nextToken, new StringTokenizer("", ""));
                     }
                 } else {
@@ -48,7 +49,7 @@ public final class b {
                 str = nextToken;
             }
         }
-        this.nKy = path3;
+        this.oer = path3;
         path.set(path3);
     }
 
@@ -126,7 +127,7 @@ public final class b {
         }
         if (q.l((Object) str, (Object) "Z")) {
             path.close();
-        } else if (q.l((Object) str, (Object) "z")) {
+        } else if (q.l((Object) str, (Object) MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z)) {
             path.close();
         }
     }

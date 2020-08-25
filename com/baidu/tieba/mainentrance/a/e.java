@@ -34,12 +34,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tbadk.util.ac;
 import com.baidu.tbadk.util.ad;
-import com.baidu.tbadk.util.ah;
+import com.baidu.tbadk.util.ai;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alaar.sticker.model.FuFaceItem;
 import com.baidu.tieba.mainentrance.HotSearchInfoData;
@@ -57,27 +57,27 @@ import org.json.JSONObject;
 import tbclient.SearchSug.ForumInfo;
 /* loaded from: classes18.dex */
 public class e implements b {
-    private String hDo;
-    private d jHC;
-    private boolean jHP;
-    private c jHR;
+    private String hQD;
+    private d jWT;
+    private boolean jXg;
+    private c jXi;
     private BaseActivity mActivity;
     private HotSearchInfoData mHotSearchInfo;
     private View mRootView;
-    private boolean jHQ = true;
-    private CustomMessageListener jHS = new CustomMessageListener(2921444) { // from class: com.baidu.tieba.mainentrance.a.e.1
+    private boolean jXh = true;
+    private CustomMessageListener jXj = new CustomMessageListener(2921444) { // from class: com.baidu.tieba.mainentrance.a.e.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-                e.this.jHC.re(!((Boolean) customResponsedMessage.getData()).booleanValue());
+                e.this.jWT.rK(!((Boolean) customResponsedMessage.getData()).booleanValue());
             }
         }
     };
 
     public e(BaseActivity baseActivity, boolean z) {
         this.mActivity = baseActivity;
-        this.jHP = z;
+        this.jXg = z;
         init();
     }
 
@@ -88,17 +88,17 @@ public class e implements b {
             this.mActivity.setContentView(this.mRootView);
         } catch (Exception e) {
             e.printStackTrace();
-            Map<String, String> cDQ = com.baidu.tieba.mainentrance.a.a.cDQ();
-            if (cDQ != null) {
-                int size = cDQ.size();
+            Map<String, String> cOH = com.baidu.tieba.mainentrance.a.a.cOH();
+            if (cOH != null) {
+                int size = cOH.size();
                 int i2 = 0;
-                Iterator<String> it = cDQ.keySet().iterator();
+                Iterator<String> it = cOH.keySet().iterator();
                 while (true) {
                     i = i2;
                     if (!it.hasNext()) {
                         break;
                     }
-                    com.baidu.tieba.mainentrance.a.a.Jb(it.next());
+                    com.baidu.tieba.mainentrance.a.a.LT(it.next());
                     try {
                         this.mRootView = LayoutInflater.from(this.mActivity).inflate(R.layout.new_home_dialog_search, (ViewGroup) null);
                         this.mActivity.setContentView(this.mRootView);
@@ -121,33 +121,33 @@ public class e implements b {
             this.mActivity.finish();
             return;
         }
-        this.jHC = new d(this.mRootView, this.mActivity.getPageContext().getPageActivity());
-        this.jHR = new c(this.mActivity, this, this.jHC);
-        cEf();
-        cEg();
-        cEh();
-        cEi();
-        cDz();
-        cEl();
-        ah.a(this.jHC.cEc(), this.mActivity.getUniqueId());
-        ah.a(this.jHC.cEd(), this.mActivity.getUniqueId());
-        this.mActivity.registerListener(this.jHS);
+        this.jWT = new d(this.mRootView, this.mActivity.getPageContext().getPageActivity());
+        this.jXi = new c(this.mActivity, this, this.jWT);
+        cOW();
+        cOX();
+        cOY();
+        cOZ();
+        cOq();
+        cPc();
+        ai.a(this.jWT.cOT(), this.mActivity.getUniqueId());
+        ai.a(this.jWT.cOU(), this.mActivity.getUniqueId());
+        this.mActivity.registerListener(this.jXj);
     }
 
     public void onResume() {
-        if (this.jHC != null) {
-            this.jHC.onResume();
+        if (this.jWT != null) {
+            this.jWT.onResume();
         }
     }
 
-    public void cEf() {
+    public void cOW() {
         View.OnFocusChangeListener onFocusChangeListener = new View.OnFocusChangeListener() { // from class: com.baidu.tieba.mainentrance.a.e.5
             @Override // android.view.View.OnFocusChangeListener
             public void onFocusChange(View view, boolean z) {
                 if (!z) {
                     l.hideSoftKeyPad(e.this.mActivity.getPageContext().getPageActivity(), view);
                 } else {
-                    e.this.cEk();
+                    e.this.cPb();
                 }
             }
         };
@@ -155,13 +155,13 @@ public class e implements b {
             @Override // android.widget.TextView.OnEditorActionListener
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if (i == 3) {
-                    if (StringUtils.isNull(e.this.hDo)) {
+                    if (StringUtils.isNull(e.this.hQD)) {
                         l.hideSoftKeyPad(e.this.mActivity.getPageContext().getPageActivity(), textView);
-                        e.this.cEj();
+                        e.this.cPa();
                         return true;
                     }
-                    e.this.b(e.this.hDo, false, 1);
-                    TiebaStatic.log(new ap("c12842").dn("obj_name", e.this.hDo).dn("obj_source", "1").dn("obj_type", "1"));
+                    e.this.b(e.this.hQD, false, 1);
+                    TiebaStatic.log(new aq("c12842").dD("obj_name", e.this.hQD).dD("obj_source", "1").dD("obj_type", "1"));
                     return true;
                 }
                 return false;
@@ -179,21 +179,21 @@ public class e implements b {
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 if (editable != null) {
-                    if (e.this.jHQ) {
-                        e.this.hDo = editable.toString();
-                        e.this.cEl();
+                    if (e.this.jXh) {
+                        e.this.hQD = editable.toString();
+                        e.this.cPc();
                     }
-                    e.this.jHC.mu(!StringUtils.isNull(editable.toString()));
+                    e.this.jWT.mX(!StringUtils.isNull(editable.toString()));
                 }
             }
         };
         View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.mainentrance.a.e.8
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view != e.this.jHC.cEa() || e.this.jHC.cEa().getText() == null) {
-                    if (view == e.this.jHC.cEb()) {
-                        l.hideSoftKeyPad(e.this.mActivity.getPageContext().getPageActivity(), e.this.jHC.cEa());
-                        com.baidu.adp.lib.f.e.lt().postDelayed(new Runnable() { // from class: com.baidu.tieba.mainentrance.a.e.8.1
+                if (view != e.this.jWT.cOR() || e.this.jWT.cOR().getText() == null) {
+                    if (view == e.this.jWT.cOS()) {
+                        l.hideSoftKeyPad(e.this.mActivity.getPageContext().getPageActivity(), e.this.jWT.cOR());
+                        com.baidu.adp.lib.f.e.mS().postDelayed(new Runnable() { // from class: com.baidu.tieba.mainentrance.a.e.8.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 e.this.mActivity.finish();
@@ -203,19 +203,19 @@ public class e implements b {
                     }
                     return;
                 }
-                e.this.hDo = e.this.jHC.cEa().getText().toString();
-                if (StringUtils.isNull(e.this.hDo)) {
-                    e.this.cDT();
+                e.this.hQD = e.this.jWT.cOR().getText().toString();
+                if (StringUtils.isNull(e.this.hQD)) {
+                    e.this.cOK();
                 }
             }
         };
-        this.jHC.a(onFocusChangeListener);
-        this.jHC.a(onEditorActionListener);
-        this.jHC.d(textWatcher);
-        this.jHC.setOnClickListener(onClickListener);
+        this.jWT.a(onFocusChangeListener);
+        this.jWT.a(onEditorActionListener);
+        this.jWT.d(textWatcher);
+        this.jWT.setOnClickListener(onClickListener);
     }
 
-    private void cEg() {
+    private void cOX() {
         AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.mainentrance.a.e.9
             /* JADX WARN: Type inference failed for: r0v0, types: [android.widget.Adapter] */
             @Override // android.widget.AdapterView.OnItemClickListener
@@ -227,11 +227,11 @@ public class e implements b {
                         String str = (String) item;
                         e.this.b(str, true, 3);
                         TiebaStatic.eventStat(e.this.mActivity.getPageContext().getPageActivity(), "search_bar_result_click", "click", 1, new Object[0]);
-                        TiebaStatic.log(new ap("c12842").dn("obj_name", str).dn("obj_source", "2").dn("obj_type", "1").ah("obj_locate", i + 1).dn("obj_param1", e.this.hDo));
+                        TiebaStatic.log(new aq("c12842").dD("obj_name", str).dD("obj_source", "2").dD("obj_type", "1").ai("obj_locate", i + 1).dD("obj_param1", e.this.hQD));
                     } else if (item instanceof ForumInfo) {
                         ForumInfo forumInfo = (ForumInfo) item;
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(e.this.mActivity.getPageContext().getPageActivity()).createNormalCfg(forumInfo.forum_name, FrsActivityConfig.FRS_CALL_SEARCH)));
-                        TiebaStatic.log(new ap("c13371").dn("obj_type", forumInfo.has_concerned.intValue() > 0 ? "1" : "2").ah("fid", forumInfo.forum_id.intValue()).t("uid", TbadkApplication.getCurrentAccountId()));
+                        TiebaStatic.log(new aq("c13371").dD("obj_type", forumInfo.has_concerned.intValue() > 0 ? "1" : "2").ai("fid", forumInfo.forum_id.intValue()).u("uid", TbadkApplication.getCurrentAccountId()));
                     }
                 }
             }
@@ -248,15 +248,15 @@ public class e implements b {
             public void onScroll(AbsListView absListView, int i, int i2, int i3) {
             }
         };
-        this.jHC.b(onItemClickListener);
-        this.jHC.a(onScrollListener);
+        this.jWT.b(onItemClickListener);
+        this.jWT.a(onScrollListener);
     }
 
     public void onChangeSkinType(int i) {
-        this.jHC.onChangeSkinType(this.mActivity.getPageContext(), i);
+        this.jWT.onChangeSkinType(this.mActivity.getPageContext(), i);
     }
 
-    private void cEh() {
+    private void cOY() {
         BaseWebView.c cVar = new BaseWebView.c() { // from class: com.baidu.tieba.mainentrance.a.e.11
             @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.c
             public void onPageFinished(WebView webView, String str) {
@@ -281,28 +281,28 @@ public class e implements b {
             @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.b
             public boolean shouldOverrideUrlLoading(WebView webView, String str) {
                 com.baidu.tbadk.core.d.a.a("search", -1L, 0, "OverrideUrl", 0, "", "requesturl", str);
-                if (bd.baV().a(e.this.mActivity.getPageContext(), new String[]{str}) != 3) {
+                if (be.bju().a(e.this.mActivity.getPageContext(), new String[]{str}) != 3) {
                     return true;
                 }
                 if (str == null || !str.contains(UrlSchemaHelper.JUMP_TO_NEW_PAGE)) {
                     return false;
                 }
-                bd.baV().a(e.this.mActivity.getPageContext(), new String[]{str}, true);
+                be.bju().a(e.this.mActivity.getPageContext(), new String[]{str}, true);
                 return true;
             }
         };
-        this.jHC.a(cVar);
-        this.jHC.a(fVar);
-        this.jHC.a(gVar);
-        this.jHC.a(bVar);
+        this.jWT.a(cVar);
+        this.jWT.a(fVar);
+        this.jWT.a(gVar);
+        this.jWT.a(bVar);
     }
 
-    private void cEi() {
-        this.jHC.cEc().addJsPromptInterface(new a());
+    private void cOZ() {
+        this.jWT.cOT().addJsPromptInterface(new a());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cEj() {
+    public void cPa() {
         if (this.mHotSearchInfo == null) {
             this.mActivity.showToast(this.mActivity.getResources().getString(R.string.write_keyword));
             return;
@@ -312,7 +312,7 @@ public class e implements b {
         } else if (this.mHotSearchInfo.getType() == 1 && !com.baidu.tbadk.plugins.b.k(this.mActivity.getPageContext())) {
             this.mActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotTopicActivityConfig(this.mActivity.getPageContext().getPageActivity()).createNormalConfig(String.valueOf(this.mHotSearchInfo.getId()), this.mHotSearchInfo.getName(), "4")));
         }
-        TiebaStatic.log(new ap("c10355").dn("obj_name", this.mHotSearchInfo.getName()).ah("obj_type", this.mHotSearchInfo.getType() == 0 ? 2 : 1));
+        TiebaStatic.log(new aq("c10355").dD("obj_name", this.mHotSearchInfo.getName()).ai("obj_type", this.mHotSearchInfo.getType() == 0 ? 2 : 1));
     }
 
     @Override // com.baidu.tieba.mainentrance.a.b
@@ -321,76 +321,76 @@ public class e implements b {
             this.mActivity.showToast(R.string.neterror);
         } else if (!StringUtils.isNull(str)) {
             if (z) {
-                this.jHQ = false;
-                this.jHC.Jg(str);
-                this.jHQ = true;
+                this.jXh = false;
+                this.jWT.LY(str);
+                this.jXh = true;
             }
-            l.hideSoftKeyPad(this.mActivity.getPageContext().getPageActivity(), this.jHC.cEa());
-            this.jHC.cDZ();
-            String str2 = TbConfig.SQUARE_SEARCH_PAGE + str + ETAG.ITEM_SEPARATOR + FuFaceItem.JK_SUB_TYPE + ETAG.EQUAL + i;
+            l.hideSoftKeyPad(this.mActivity.getPageContext().getPageActivity(), this.jWT.cOR());
+            this.jWT.cOQ();
+            String str2 = "https://tieba.baidu.com/n/apage-runtime/page/205?keyword=" + str + ETAG.ITEM_SEPARATOR + FuFaceItem.JK_SUB_TYPE + ETAG.EQUAL + i;
             try {
-                str2 = TbConfig.SQUARE_SEARCH_PAGE + URLEncoder.encode(str, "utf-8");
+                str2 = "https://tieba.baidu.com/n/apage-runtime/page/205?keyword=" + URLEncoder.encode(str, "utf-8");
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            this.jHC.cEc().loadUrl(str2);
+            this.jWT.cOT().loadUrl(str2);
             ad.a(new ac<Boolean>() { // from class: com.baidu.tieba.mainentrance.a.e.4
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tbadk.util.ac
                 public Boolean doInBackground() {
-                    com.baidu.tieba.tbadkCore.util.a.NT(str);
+                    com.baidu.tieba.tbadkCore.util.a.QR(str);
                     return true;
                 }
             }, null);
-            this.jHR.Jc(str);
+            this.jXi.LU(str);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TURN_TAB_LOC, str));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cEk() {
-        if (!this.jHC.cEe()) {
-            cDF();
+    public void cPb() {
+        if (!this.jWT.cOV()) {
+            cOw();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cDT() {
-        this.jHR.cDT();
+    public void cOK() {
+        this.jXi.cOK();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cEl() {
-        if (!StringUtils.isNull(this.hDo)) {
-            cDF();
+    public void cPc() {
+        if (!StringUtils.isNull(this.hQD)) {
+            cOw();
         } else {
-            cDT();
+            cOK();
         }
     }
 
-    private void cDF() {
-        if (StringUtils.isNull(this.hDo)) {
-            cDT();
+    private void cOw() {
+        if (StringUtils.isNull(this.hQD)) {
+            cOK();
             return;
         }
         SearchListNetMessage searchListNetMessage = new SearchListNetMessage();
-        searchListNetMessage.mKey = this.hDo.trim();
-        searchListNetMessage.isForum = Integer.valueOf(this.jHP ? 1 : 0);
+        searchListNetMessage.mKey = this.hQD.trim();
+        searchListNetMessage.isForum = Integer.valueOf(this.jXg ? 1 : 0);
         this.mActivity.sendMessage(searchListNetMessage);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String cEm() {
+    public String cPd() {
         JSONObject jSONObject = new JSONObject();
         try {
-            MercatorModel.MercatorData mercatorData = MercatorModel.dmf().getMercatorData();
+            MercatorModel.MercatorData mercatorData = MercatorModel.dxA().getMercatorData();
             if (mercatorData != null) {
-                d(jSONObject, "mercator_lat", mercatorData.dmh());
-                d(jSONObject, "mercator_lon", mercatorData.dmg());
-                d(jSONObject, "mercator_city", String.valueOf(mercatorData.dmj()));
-                d(jSONObject, "mercator_radius", mercatorData.dmi());
-                d(jSONObject, "mercator_time", String.valueOf(mercatorData.dmk()));
+                d(jSONObject, "mercator_lat", mercatorData.dxC());
+                d(jSONObject, "mercator_lon", mercatorData.dxB());
+                d(jSONObject, "mercator_city", String.valueOf(mercatorData.dxE()));
+                d(jSONObject, "mercator_radius", mercatorData.dxD());
+                d(jSONObject, "mercator_time", String.valueOf(mercatorData.dxF()));
             }
             d(jSONObject, "mod", Build.MODEL);
             d(jSONObject, "ov", Build.VERSION.RELEASE);
@@ -419,34 +419,34 @@ public class e implements b {
 
     public void b(HotSearchInfoData hotSearchInfoData) {
         this.mHotSearchInfo = hotSearchInfoData;
-        cDz();
+        cOq();
     }
 
-    public BaseWebView cEn() {
-        return this.jHC.cEc();
+    public BaseWebView cPe() {
+        return this.jWT.cOT();
     }
 
-    private void cDz() {
-        if (this.jHC != null) {
+    private void cOq() {
+        if (this.jWT != null) {
             if (this.mHotSearchInfo == null) {
-                this.jHC.Jf(this.mActivity.getResources().getString(R.string.search_bar));
+                this.jWT.LX(this.mActivity.getResources().getString(R.string.search_bar));
             } else {
-                this.jHC.Jf(this.mHotSearchInfo.bUv());
+                this.jWT.LX(this.mHotSearchInfo.ceG());
             }
         }
     }
 
-    public void dV(List<String> list) {
-        this.jHC.j(list, this.hDo);
+    public void ed(List<String> list) {
+        this.jWT.j(list, this.hQD);
     }
 
-    public void dW(List<ForumInfo> list) {
-        this.jHC.k(list, this.hDo);
+    public void ee(List<ForumInfo> list) {
+        this.jWT.k(list, this.hQD);
     }
 
     public void onDestroy() {
-        if (this.jHC != null) {
-            this.jHC.onDestroy();
+        if (this.jWT != null) {
+            this.jWT.onDestroy();
         }
     }
 
@@ -464,7 +464,7 @@ public class e implements b {
                     jsPromptResult.confirm();
                     return true;
                 } else if ("getSearchAdCookie".equals(str2)) {
-                    jsPromptResult.confirm(e.this.cEm());
+                    jsPromptResult.confirm(e.this.cPd());
                     return true;
                 } else {
                     return false;

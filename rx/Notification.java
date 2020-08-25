@@ -1,38 +1,38 @@
 package rx;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class Notification<T> {
-    private static final Notification<Void> ojB = new Notification<>(Kind.OnCompleted, null, null);
-    private final Throwable ojA;
-    private final Kind ojz;
+    private static final Notification<Void> oDx = new Notification<>(Kind.OnCompleted, null, null);
+    private final Kind oDv;
+    private final Throwable oDw;
     private final T value;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public enum Kind {
         OnNext,
         OnError,
         OnCompleted
     }
 
-    public static <T> Notification<T> bR(T t) {
+    public static <T> Notification<T> bV(T t) {
         return new Notification<>(Kind.OnNext, t, null);
     }
 
-    public static <T> Notification<T> T(Throwable th) {
+    public static <T> Notification<T> S(Throwable th) {
         return new Notification<>(Kind.OnError, null, th);
     }
 
-    public static <T> Notification<T> dXz() {
-        return (Notification<T>) ojB;
+    public static <T> Notification<T> ejD() {
+        return (Notification<T>) oDx;
     }
 
     private Notification(Kind kind, T t, Throwable th) {
         this.value = t;
-        this.ojA = th;
-        this.ojz = kind;
+        this.oDw = th;
+        this.oDv = kind;
     }
 
-    public Throwable dXA() {
-        return this.ojA;
+    public Throwable ejE() {
+        return this.oDw;
     }
 
     public T getValue() {
@@ -40,48 +40,48 @@ public final class Notification<T> {
     }
 
     public boolean hasValue() {
-        return dXE() && this.value != null;
+        return ejI() && this.value != null;
     }
 
-    public boolean dXB() {
-        return dSP() && this.ojA != null;
+    public boolean ejF() {
+        return eeR() && this.oDw != null;
     }
 
-    public Kind dXC() {
-        return this.ojz;
+    public Kind ejG() {
+        return this.oDv;
     }
 
-    public boolean dSP() {
-        return dXC() == Kind.OnError;
+    public boolean eeR() {
+        return ejG() == Kind.OnError;
     }
 
-    public boolean dXD() {
-        return dXC() == Kind.OnCompleted;
+    public boolean ejH() {
+        return ejG() == Kind.OnCompleted;
     }
 
-    public boolean dXE() {
-        return dXC() == Kind.OnNext;
+    public boolean ejI() {
+        return ejG() == Kind.OnNext;
     }
 
     public String toString() {
-        StringBuilder append = new StringBuilder(64).append('[').append(super.toString()).append(' ').append(dXC());
+        StringBuilder append = new StringBuilder(64).append('[').append(super.toString()).append(' ').append(ejG());
         if (hasValue()) {
             append.append(' ').append(getValue());
         }
-        if (dXB()) {
-            append.append(' ').append(dXA().getMessage());
+        if (ejF()) {
+            append.append(' ').append(ejE().getMessage());
         }
         append.append(']');
         return append.toString();
     }
 
     public int hashCode() {
-        int hashCode = dXC().hashCode();
+        int hashCode = ejG().hashCode();
         if (hasValue()) {
             hashCode = (hashCode * 31) + getValue().hashCode();
         }
-        if (dXB()) {
-            return (hashCode * 31) + dXA().hashCode();
+        if (ejF()) {
+            return (hashCode * 31) + ejE().hashCode();
         }
         return hashCode;
     }
@@ -96,7 +96,7 @@ public final class Notification<T> {
         }
         if (obj.getClass() == getClass()) {
             Notification notification = (Notification) obj;
-            if (notification.dXC() != dXC() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.ojA != notification.ojA && (this.ojA == null || !this.ojA.equals(notification.ojA))))) {
+            if (notification.ejG() != ejG() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.oDw != notification.oDw && (this.oDw == null || !this.oDw.equals(notification.oDw))))) {
                 z = false;
             }
             return z;

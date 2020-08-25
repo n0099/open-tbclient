@@ -5,7 +5,7 @@ import android.os.Looper;
 import android.os.Message;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes7.dex */
+/* loaded from: classes11.dex */
 public class l implements c {
     private static final String a = "ThreadPoolService";
     private static final int d = 0;
@@ -13,7 +13,7 @@ public class l implements c {
     private ExecutorService c;
     private Handler e;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes11.dex */
     private static class a {
         public static l a = new l();
 

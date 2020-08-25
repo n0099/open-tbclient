@@ -11,7 +11,7 @@ import com.baidu.android.util.connect.ConnectManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class NetWorkUtils {
     private static final boolean DEBUG = false;
     public static final String NETWORK_TYPE_CELL_2G = "2g";
@@ -23,9 +23,9 @@ public class NetWorkUtils {
     public static final String NETWORK_TYPE_WIFI = "wifi";
     private static final String TAG = "NetWorkUtils";
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public enum NetType {
-        NONE(NetWorkUtils.NETWORK_TYPE_CELL_UN_CONNECTED),
+        NONE("no"),
         WIFI("wifi"),
         _2G("2g"),
         _3G("3g"),
@@ -98,7 +98,7 @@ public class NetWorkUtils {
     public static String getNetworkClass() {
         NetworkInfo activeNetworkInfo = getActiveNetworkInfo();
         if (activeNetworkInfo == null || !activeNetworkInfo.isConnected()) {
-            return NETWORK_TYPE_CELL_UN_CONNECTED;
+            return "no";
         }
         if (activeNetworkInfo.getType() == 1) {
             return "wifi";
@@ -175,7 +175,7 @@ public class NetWorkUtils {
                 }
                 break;
             case 3521:
-                if (networkClass.equals(NETWORK_TYPE_CELL_UN_CONNECTED)) {
+                if (networkClass.equals("no")) {
                     c = 4;
                     break;
                 }
@@ -237,12 +237,9 @@ public class NetWorkUtils {
 
     @Deprecated
     public static String getNetworkInfo() {
+        NetworkInfo activeNetworkInfo;
         ConnectivityManager connectivityManager = (ConnectivityManager) AppRuntime.getAppContext().getSystemService("connectivity");
-        if (connectivityManager == null) {
-            return NETWORK_TYPE_CELL_UN_CONNECTED;
-        }
-        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
+        if (connectivityManager != null && (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) != null && activeNetworkInfo.isConnected()) {
             if (activeNetworkInfo.getType() == 1) {
                 return "WiFi";
             }
@@ -272,7 +269,7 @@ public class NetWorkUtils {
             }
             return "unknown";
         }
-        return NETWORK_TYPE_CELL_UN_CONNECTED;
+        return "no";
     }
 
     @Deprecated

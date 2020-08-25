@@ -4,7 +4,7 @@ import com.baidu.tieba.pb.data.ContriInfo;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class SignData implements Serializable {
     private static final long serialVersionUID = -7905612002845096083L;
     public BlockPopInfoData blockPopInfoData;

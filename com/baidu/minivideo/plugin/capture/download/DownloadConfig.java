@@ -1,5 +1,5 @@
 package com.baidu.minivideo.plugin.capture.download;
-/* loaded from: classes9.dex */
+/* loaded from: classes19.dex */
 public class DownloadConfig {
     public static final int DEFAULT_MAX_THREAD_NUMBER = 10;
     public static final int DEFAULT_THREAD_NUMBER = 2;

@@ -1,10 +1,27 @@
 package com.baidu.swan.a;
 
-import com.baidu.swan.pms.a.g;
-import com.baidu.swan.pms.model.e;
-/* loaded from: classes3.dex */
-public abstract class a<T extends com.baidu.swan.pms.model.e> extends g {
-    public com.baidu.swan.pms.a.c<T> ayW() {
-        return null;
-    }
+import android.content.Context;
+import com.baidu.searchbox.http.cookie.CookieManager;
+import com.baidu.searchbox.http.request.HttpRequestBuilder;
+import java.util.List;
+import okhttp3.Interceptor;
+/* loaded from: classes4.dex */
+public interface a {
+    void a(String str, HttpRequestBuilder httpRequestBuilder);
+
+    CookieManager aqb();
+
+    int aqg();
+
+    Context getAppContext();
+
+    int getConnectionTimeout();
+
+    int getReadTimeout();
+
+    String getUserAgent();
+
+    boolean isDebug();
+
+    List<Interceptor> networkInterceptors();
 }

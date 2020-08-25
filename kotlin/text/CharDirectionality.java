@@ -2,7 +2,7 @@ package kotlin.text;
 
 import kotlin.jvm.internal.PropertyReference1Impl;
 @kotlin.h
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public enum CharDirectionality {
     UNDEFINED(-1),
     LEFT_TO_RIGHT(0),
@@ -38,9 +38,9 @@ public enum CharDirectionality {
     }
 
     @kotlin.h
-    /* loaded from: classes7.dex */
+    /* loaded from: classes20.dex */
     public static final class a {
-        static final /* synthetic */ kotlin.reflect.j[] dkx = {kotlin.jvm.internal.t.a(new PropertyReference1Impl(kotlin.jvm.internal.t.M(a.class), "directionalityMap", "getDirectionalityMap()Ljava/util/Map;"))};
+        static final /* synthetic */ kotlin.reflect.j[] $$delegatedProperties = {kotlin.jvm.internal.t.a(new PropertyReference1Impl(kotlin.jvm.internal.t.M(a.class), "directionalityMap", "getDirectionalityMap()Ljava/util/Map;"))};
 
         private a() {
         }

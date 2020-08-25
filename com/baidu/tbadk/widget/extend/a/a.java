@@ -7,9 +7,9 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.h.e;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class a<T> extends b {
-    protected e<T> ahY;
+    protected e<T> ajo;
     protected Context mContext;
     protected List<T> mData;
     protected LayoutInflater mInflater;
@@ -18,7 +18,7 @@ public abstract class a<T> extends b {
     public abstract void a(c cVar, T t, int i);
 
     public void a(e<T> eVar) {
-        this.ahY = eVar;
+        this.ajo = eVar;
     }
 
     public a(Context context, List<T> list, int i) {
@@ -43,25 +43,25 @@ public abstract class a<T> extends b {
         c cVar = new c(inflate);
         T t = this.mData.get(i);
         a(cVar, t, i);
-        cVar.i(new View$OnClickListenerC0516a(t, i));
+        cVar.i(new View$OnClickListenerC0562a(t, i));
         return inflate;
     }
 
     /* renamed from: com.baidu.tbadk.widget.extend.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    private class View$OnClickListenerC0516a implements View.OnClickListener {
-        private T ePC;
+    /* loaded from: classes2.dex */
+    private class View$OnClickListenerC0562a implements View.OnClickListener {
+        private T fai;
         private int position;
 
-        public View$OnClickListenerC0516a(T t, int i) {
-            this.ePC = t;
+        public View$OnClickListenerC0562a(T t, int i) {
+            this.fai = t;
             this.position = i;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.ahY != null) {
-                a.this.ahY.a(view, this.ePC, this.position, this.position);
+            if (a.this.ajo != null) {
+                a.this.ajo.a(view, this.fai, this.position, this.position);
             }
         }
     }

@@ -9,74 +9,74 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import tbclient.FrsTabInfo;
 /* loaded from: classes16.dex */
 public class d {
-    private TextView cdm;
-    private ImageView gUg;
-    private com.baidu.tbadk.core.dialog.a hJl;
-    private TextView hJm;
+    private TextView cjk;
+    private com.baidu.tbadk.core.dialog.a hWF;
+    private TextView hWG;
+    private ImageView hgZ;
     private boolean mIsChecked;
     private TextView mTitleView;
 
     public void a(TbPageContext tbPageContext, final FrsTabInfo frsTabInfo, final FrsTabInfo frsTabInfo2) {
         if (frsTabInfo != null && frsTabInfo2 != null) {
-            if (this.hJl == null || !this.hJl.isShowing()) {
-                this.hJl = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-                this.hJl.lq(1);
-                this.hJl.lp(R.color.cp_cont_b);
+            if (this.hWF == null || !this.hWF.isShowing()) {
+                this.hWF = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
+                this.hWF.nw(1);
+                this.hWF.nv(R.color.cp_cont_b);
                 View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.call_fans_dialog_content, (ViewGroup) null);
                 this.mTitleView = (TextView) inflate.findViewById(R.id.title);
                 this.mTitleView.setText(R.string.frs_move_area_popup_title);
-                this.cdm = (TextView) inflate.findViewById(R.id.call_fans_intro);
+                this.cjk = (TextView) inflate.findViewById(R.id.call_fans_intro);
                 if (frsTabInfo.is_general_tab.intValue() == 0) {
-                    this.cdm.setText(String.format(tbPageContext.getString(R.string.frs_move_area_popup_content_other), frsTabInfo.tab_name, frsTabInfo2.tab_name, frsTabInfo.tab_name, frsTabInfo2.tab_name));
+                    this.cjk.setText(String.format(tbPageContext.getString(R.string.frs_move_area_popup_content_other), frsTabInfo.tab_name, frsTabInfo2.tab_name, frsTabInfo.tab_name, frsTabInfo2.tab_name));
                 } else {
-                    this.cdm.setText(String.format(tbPageContext.getString(R.string.frs_move_area_popup_content), frsTabInfo.tab_name, frsTabInfo2.tab_name, frsTabInfo.tab_name));
+                    this.cjk.setText(String.format(tbPageContext.getString(R.string.frs_move_area_popup_content), frsTabInfo.tab_name, frsTabInfo2.tab_name, frsTabInfo.tab_name));
                 }
-                this.gUg = (ImageView) inflate.findViewById(R.id.checkbox);
-                this.hJm = (TextView) inflate.findViewById(R.id.no_tip_again_text);
+                this.hgZ = (ImageView) inflate.findViewById(R.id.checkbox);
+                this.hWG = (TextView) inflate.findViewById(R.id.no_tip_again_text);
                 inflate.findViewById(R.id.no_tip_again_group).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.d.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         d.this.mIsChecked = !d.this.mIsChecked;
-                        d.this.aYI();
+                        d.this.bhd();
                     }
                 });
                 onChangeSkinType();
-                this.hJl.aV(inflate);
-                this.hJl.a(tbPageContext.getString(R.string.frs_move_area_popup_confirm), new a.b() { // from class: com.baidu.tieba.frs.view.d.2
+                this.hWF.aX(inflate);
+                this.hWF.a(tbPageContext.getString(R.string.frs_move_area_popup_confirm), new a.b() { // from class: com.baidu.tieba.frs.view.d.2
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                        com.baidu.tbadk.core.sharedPref.b.aZP().putBoolean("key_frs_move_area_tip", !d.this.mIsChecked);
-                        com.baidu.tieba.frs.a.cap().bV(frsTabInfo.tab_id.intValue(), frsTabInfo2.tab_id.intValue());
-                        d.this.hJl.dismiss();
-                        d.this.hJl = null;
+                        com.baidu.tbadk.core.sharedPref.b.bik().putBoolean("key_frs_move_area_tip", !d.this.mIsChecked);
+                        com.baidu.tieba.frs.a.ckL().cd(frsTabInfo.tab_id.intValue(), frsTabInfo2.tab_id.intValue());
+                        d.this.hWF.dismiss();
+                        d.this.hWF = null;
                     }
                 });
-                this.hJl.b(tbPageContext.getString(R.string.next_time), new a.b() { // from class: com.baidu.tieba.frs.view.d.3
+                this.hWF.b(tbPageContext.getString(R.string.next_time), new a.b() { // from class: com.baidu.tieba.frs.view.d.3
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                        d.this.hJl.dismiss();
-                        d.this.hJl = null;
+                        d.this.hWF.dismiss();
+                        d.this.hWF = null;
                     }
                 });
-                this.hJl.b(tbPageContext).aYL();
+                this.hWF.b(tbPageContext).bhg();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aYI() {
+    public void bhd() {
         Drawable a;
-        if (this.gUg != null) {
-            ImageView imageView = this.gUg;
+        if (this.hgZ != null) {
+            ImageView imageView = this.hgZ;
             if (this.mIsChecked) {
-                a = SvgManager.baR().a(R.drawable.ic_icon_mask_use_complete16_svg, null);
+                a = SvgManager.bjq().a(R.drawable.ic_icon_mask_use_complete16_svg, null);
             } else {
-                a = SvgManager.baR().a(R.drawable.ic_icon_mask_use_check16_svg, null);
+                a = SvgManager.bjq().a(R.drawable.ic_icon_mask_use_check16_svg, null);
             }
             imageView.setImageDrawable(a);
         }
@@ -84,14 +84,14 @@ public class d {
 
     private void onChangeSkinType() {
         if (this.mTitleView != null) {
-            ao.setViewTextColor(this.mTitleView, R.color.cp_cont_b);
+            ap.setViewTextColor(this.mTitleView, R.color.cp_cont_b);
         }
-        if (this.cdm != null) {
-            ao.setViewTextColor(this.cdm, R.color.cp_cont_j);
+        if (this.cjk != null) {
+            ap.setViewTextColor(this.cjk, R.color.cp_cont_j);
         }
-        aYI();
-        if (this.hJm != null) {
-            ao.setViewTextColor(this.hJm, R.color.cp_cont_j);
+        bhd();
+        if (this.hWG != null) {
+            ap.setViewTextColor(this.hWG, R.color.cp_cont_j);
         }
     }
 }

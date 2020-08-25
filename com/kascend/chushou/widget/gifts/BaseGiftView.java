@@ -16,23 +16,23 @@ public class BaseGiftView extends RelativeLayout {
     protected Object f;
     public boolean g;
     protected boolean h;
-    protected a nHb;
-    protected GeneralGift nHc;
+    protected a oaU;
+    protected GeneralGift oaV;
 
     /* loaded from: classes6.dex */
     public interface a {
         void a(int i);
 
-        void a(View view, Object obj, int i, String str);
-
         void a(Object obj);
 
         void b(int i);
+
+        void b(View view, Object obj, int i, String str);
     }
 
     public BaseGiftView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.nHc = null;
+        this.oaV = null;
         this.e = -1;
         this.f = null;
         this.g = false;
@@ -48,7 +48,7 @@ public class BaseGiftView extends RelativeLayout {
     }
 
     public void setViewListener(a aVar) {
-        this.nHb = aVar;
+        this.oaU = aVar;
     }
 
     public View getCurGiftView() {
@@ -56,7 +56,7 @@ public class BaseGiftView extends RelativeLayout {
     }
 
     public GeneralGift getCurObj() {
-        return this.nHc;
+        return this.oaV;
     }
 
     public int getCurSelectPos() {

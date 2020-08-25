@@ -3,14 +3,14 @@ package com.baidu.tieba.aiapps.apps.k;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
-import com.baidu.swan.apps.aq.p;
+import com.baidu.swan.apps.ap.p;
 import com.baidu.swan.apps.env.launch.SwanLauncher;
 import com.baidu.swan.apps.process.messaging.service.e;
 import com.baidu.swan.veloce.c;
 /* loaded from: classes19.dex */
 public class a implements com.baidu.swan.veloce.a {
     @Override // com.baidu.swan.veloce.a
-    public Bundle h(String str, Bundle bundle) {
+    public Bundle g(String str, Bundle bundle) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -25,35 +25,35 @@ public class a implements com.baidu.swan.veloce.a {
         }
         switch (c) {
             case 0:
-                return aj(bundle);
+                return ai(bundle);
             default:
-                return c.j(str, bundle);
+                return c.i(str, bundle);
         }
     }
 
-    private Bundle aj(Bundle bundle) {
+    private Bundle ai(Bundle bundle) {
         if (bundle == null) {
         }
         return null;
     }
 
     @Override // com.baidu.swan.veloce.a
-    public void aOj() {
-        p.awD();
-        p.awC();
-        p.awE();
+    public void aWH() {
+        p.aEN();
+        p.aEM();
+        p.aEO();
         try {
             new UnitedSchemeMainDispatcher();
-            SwanLauncher.aeL();
-            e.aqf();
+            SwanLauncher.alu();
+            e.ayg();
         } catch (Exception e) {
         }
     }
 
     @Override // com.baidu.swan.veloce.a
-    public void vq(String str) {
+    public void xB(String str) {
         if (!TextUtils.isEmpty(str)) {
-            com.baidu.swan.facade.b.b.rk(str);
+            com.baidu.swan.facade.b.b.ts(str);
         }
     }
 }

@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.accessibility.AccessibilityManager;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 class TooltipCompatHandler implements View.OnAttachStateChangeListener, View.OnHoverListener, View.OnLongClickListener {
     private static final long HOVER_HIDE_TIMEOUT_MS = 15000;
     private static final long HOVER_HIDE_TIMEOUT_SHORT_MS = 3000;
@@ -115,7 +115,7 @@ class TooltipCompatHandler implements View.OnAttachStateChangeListener, View.OnH
             if (this.mFromTouch) {
                 longPressTimeout = LONG_CLICK_HIDE_TIMEOUT_MS;
             } else if ((ViewCompat.getWindowSystemUiVisibility(this.mAnchor) & 1) == 1) {
-                longPressTimeout = HOVER_HIDE_TIMEOUT_SHORT_MS - ViewConfiguration.getLongPressTimeout();
+                longPressTimeout = 3000 - ViewConfiguration.getLongPressTimeout();
             } else {
                 longPressTimeout = HOVER_HIDE_TIMEOUT_MS - ViewConfiguration.getLongPressTimeout();
             }

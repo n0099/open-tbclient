@@ -17,7 +17,7 @@ import com.baidu.android.util.media.MimeType;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class AsyncChatTask implements IGenBosObjectUrlListener, IUploadTransferListener {
     public static final int FORMAT_AAC = 2;
     public static final int FORMAT_AMR = 1;
@@ -160,7 +160,7 @@ public class AsyncChatTask implements IGenBosObjectUrlListener, IUploadTransferL
         if (i == 0) {
             this.mGetUrl = map.get(GET_URL);
             this.mPutUrl = map.get(PUT_URL);
-            this.mThumbUrl = map.get(THUMB_URL);
+            this.mThumbUrl = map.get("thumb_url");
             LogUtils.i(TAG, "get_url:" + this.mGetUrl);
             LogUtils.i(TAG, "put_url:" + this.mPutUrl);
             LogUtils.i(TAG, "authorication:" + str);

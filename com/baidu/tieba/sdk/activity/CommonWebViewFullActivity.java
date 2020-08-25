@@ -9,32 +9,32 @@ import com.baidu.live.view.web.d;
 import com.baidu.live.view.web.e;
 import com.baidu.live.view.web.f;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class CommonWebViewFullActivity extends BaseActivity<CommonWebViewFullActivity> implements f {
-    private boolean lvn = false;
-    private d lvo;
+    private boolean lMA = false;
+    private d lMB;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         k(getIntent());
-        if (this.lvn) {
+        if (this.lMA) {
             setIsAddSwipeBackLayout(false);
         }
         super.onCreate(bundle);
         if (!isFinishing()) {
-            this.lvo = new d(this, this, getIntent());
+            this.lMB = new d(this, this, getIntent());
         }
     }
 
     private void k(Intent intent) {
-        HashMap ga;
+        HashMap hv;
         if (intent != null) {
             String stringExtra = intent.getStringExtra("tag_url");
-            if (!TextUtils.isEmpty(stringExtra) && (ga = e.ga(stringExtra)) != null && ga.size() > 0) {
+            if (!TextUtils.isEmpty(stringExtra) && (hv = e.hv(stringExtra)) != null && hv.size() > 0) {
                 try {
-                    if (ga.containsKey("swiper")) {
-                        this.lvn = Integer.valueOf((String) ga.get("swiper")).intValue() == 0;
+                    if (hv.containsKey("swiper")) {
+                        this.lMA = Integer.valueOf((String) hv.get("swiper")).intValue() == 0;
                     }
                 } catch (Exception e) {
                 }
@@ -44,7 +44,7 @@ public class CommonWebViewFullActivity extends BaseActivity<CommonWebViewFullAct
 
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (this.lvo == null || !this.lvo.onKeyDown(i, keyEvent)) {
+        if (this.lMB == null || !this.lMB.onKeyDown(i, keyEvent)) {
             return super.onKeyDown(i, keyEvent);
         }
         return true;
@@ -54,8 +54,8 @@ public class CommonWebViewFullActivity extends BaseActivity<CommonWebViewFullAct
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.lvo != null) {
-            this.lvo.onDestroy();
+        if (this.lMB != null) {
+            this.lMB.onDestroy();
         }
     }
 
@@ -63,18 +63,18 @@ public class CommonWebViewFullActivity extends BaseActivity<CommonWebViewFullAct
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.lvo != null) {
-            this.lvo.onActivityResult(i, i2, intent);
+        if (this.lMB != null) {
+            this.lMB.onActivityResult(i, i2, intent);
         }
     }
 
-    private void DI(int i) {
+    private void Gd(int i) {
         getActivity().setResult(i, new Intent());
         getActivity().finish();
     }
 
     @Override // com.baidu.live.view.web.f
-    public void cN(int i) {
-        DI(i);
+    public void fA(int i) {
+        Gd(i);
     }
 }

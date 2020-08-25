@@ -5,19 +5,19 @@ import android.os.Parcelable;
 import com.baidu.ar.gesture.GestureAR;
 import com.baidu.live.tbadk.core.util.TbEnum;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class GameShareData implements Parcelable {
     public static final Parcelable.Creator<GameShareData> CREATOR = new Parcelable.Creator<GameShareData>() { // from class: com.baidu.tbadk.core.data.GameShareData.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: L */
+        /* renamed from: M */
         public GameShareData createFromParcel(Parcel parcel) {
             return new GameShareData(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: kL */
+        /* renamed from: mR */
         public GameShareData[] newArray(int i) {
             return new GameShareData[i];
         }

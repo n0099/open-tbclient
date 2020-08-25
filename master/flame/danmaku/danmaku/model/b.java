@@ -5,11 +5,11 @@ public abstract class b<T, F> implements m {
 
     public abstract void a(d dVar, T t, float f, float f2, boolean z);
 
-    public abstract master.flame.danmaku.danmaku.model.android.b dVt();
+    public abstract master.flame.danmaku.danmaku.model.android.b ehv();
 
     public abstract void setExtraData(T t);
 
-    public abstract T sm();
+    public abstract T tX();
 
     @Override // master.flame.danmaku.danmaku.model.m
     public boolean isHardwareAccelerated() {

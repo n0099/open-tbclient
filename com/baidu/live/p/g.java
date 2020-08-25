@@ -2,19 +2,20 @@ package com.baidu.live.p;
 
 import android.content.Context;
 import android.media.AudioManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class g {
-    private AudioManager bbr;
-    private a bbs;
-    private AudioManager.OnAudioFocusChangeListener bbt = new AudioManager.OnAudioFocusChangeListener() { // from class: com.baidu.live.p.g.1
+    private AudioManager bgN;
+    private a bgO;
+    private boolean bgP;
+    private AudioManager.OnAudioFocusChangeListener bgQ = new AudioManager.OnAudioFocusChangeListener() { // from class: com.baidu.live.p.g.1
         @Override // android.media.AudioManager.OnAudioFocusChangeListener
         public void onAudioFocusChange(int i) {
             switch (i) {
                 case -3:
                 case -2:
                 case -1:
-                    if (g.this.bbs != null) {
-                        g.this.bbs.bY(false);
+                    if (g.this.bgO != null) {
+                        g.this.bgO.cg(false);
                         return;
                     }
                     return;
@@ -25,8 +26,8 @@ public class g {
                 case 2:
                 case 3:
                 case 4:
-                    if (g.this.bbs != null) {
-                        g.this.bbs.bY(true);
+                    if (g.this.bgO != null) {
+                        g.this.bgO.cg(true);
                         return;
                     }
                     return;
@@ -39,14 +40,14 @@ public class g {
         this.mContext = context;
     }
 
-    public void Gu() {
+    public void requestAudioFocus() {
         if (this.mContext != null) {
-            if (this.bbr == null) {
-                this.bbr = (AudioManager) this.mContext.getSystemService("audio");
+            if (this.bgN == null) {
+                this.bgN = (AudioManager) this.mContext.getSystemService("audio");
             }
-            if (this.bbr != null) {
+            if (this.bgN != null) {
                 try {
-                    this.bbr.requestAudioFocus(this.bbt, 3, 1);
+                    this.bgP = this.bgN.requestAudioFocus(this.bgQ, 3, 1) == 1;
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -54,18 +55,18 @@ public class g {
         }
     }
 
-    public void Gv() {
+    public void abandonAudioFocus() {
         if (this.mContext != null) {
-            if (this.bbr == null) {
-                this.bbr = (AudioManager) this.mContext.getSystemService("audio");
+            if (this.bgN == null) {
+                this.bgN = (AudioManager) this.mContext.getSystemService("audio");
             }
-            if (this.bbr != null) {
-                this.bbr.abandonAudioFocus(this.bbt);
+            if (this.bgN != null) {
+                this.bgN.abandonAudioFocus(this.bgQ);
             }
         }
     }
 
     public void setIPlayerAudioFocusCallBack(a aVar) {
-        this.bbs = aVar;
+        this.bgO = aVar;
     }
 }

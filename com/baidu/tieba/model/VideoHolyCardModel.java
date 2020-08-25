@@ -11,30 +11,30 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.message.VideoHolyCardResponseMessage;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class VideoHolyCardModel extends BdBaseModel {
-    private long gsI;
-    private a jRG;
+    private long gFH;
+    private a khc;
     private HttpMessageListener mHttpMessageListener = new HttpMessageListener(1003400) { // from class: com.baidu.tieba.model.VideoHolyCardModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if ((httpResponsedMessage instanceof VideoHolyCardResponseMessage) && VideoHolyCardModel.this.jRG != null) {
-                VideoHolyCardModel.this.jRG.onResult(((VideoHolyCardResponseMessage) httpResponsedMessage).isVideoHolyCard);
+            if ((httpResponsedMessage instanceof VideoHolyCardResponseMessage) && VideoHolyCardModel.this.khc != null) {
+                VideoHolyCardModel.this.khc.onResult(((VideoHolyCardResponseMessage) httpResponsedMessage).isVideoHolyCard);
             }
         }
     };
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void onResult(boolean z);
     }
 
     public VideoHolyCardModel() {
-        cGk();
+        cQZ();
     }
 
-    private void cGk() {
+    private void cQZ() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003400, TbConfig.SERVER_ADDRESS + TbConfig.URL_VIDEO_HOLY_CARD);
         tbHttpMessageTask.setResponsedClass(VideoHolyCardResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -52,11 +52,11 @@ public class VideoHolyCardModel extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.jRG = aVar;
+        this.khc = aVar;
     }
 
-    public void cGl() {
-        if (System.currentTimeMillis() - this.gsI > 200) {
+    public void cRa() {
+        if (System.currentTimeMillis() - this.gFH > 200) {
             String clientIP = UtilHelper.getClientIP();
             String str = RomUtils.UNKNOWN;
             int networkOperator = UtilHelper.getNetworkOperator();
@@ -68,14 +68,14 @@ public class VideoHolyCardModel extends BdBaseModel {
                 str = "TELECOM";
             }
             if (TbadkCoreApplication.getInst().checkInterrupt()) {
-                this.jRG.onResult(false);
+                this.khc.onResult(false);
                 return;
             }
             HttpMessage httpMessage = new HttpMessage(1003400);
             httpMessage.addParam("localip", clientIP);
             httpMessage.addParam("network", str);
             MessageManager.getInstance().sendMessage(httpMessage);
-            this.gsI = System.currentTimeMillis();
+            this.gFH = System.currentTimeMillis();
         }
     }
 }

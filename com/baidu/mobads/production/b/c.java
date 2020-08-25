@@ -15,7 +15,6 @@ import com.baidu.mobads.interfaces.utils.IXAdCommonUtils;
 import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.mobstat.Config;
-import com.baidu.searchbox.account.data.UserAccountActionItem;
 import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashSet;
@@ -104,7 +103,7 @@ public class c {
         a("cuid", cuid);
         a(Config.EXCEPTION_CRASH_TYPE, Integer.valueOf(a.a(this.g)));
         a("oi", Integer.valueOf(j()));
-        a(UserAccountActionItem.KEY_SRC, 1);
+        a("src", 1);
         a("h", Integer.valueOf(height));
         a("w", Integer.valueOf(width));
         a("apm", a);

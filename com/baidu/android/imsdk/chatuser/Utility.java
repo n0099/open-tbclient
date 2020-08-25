@@ -3,7 +3,7 @@ package com.baidu.android.imsdk.chatuser;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class Utility {
     private static final String[] ZXS_LIST = {"北京市", "天津市", "上海市", "重庆市"};
 

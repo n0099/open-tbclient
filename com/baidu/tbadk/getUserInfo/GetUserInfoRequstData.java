@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.util.t;
 import tbclient.GetUserInfo.DataReq;
 import tbclient.GetUserInfo.GetUserInfoReqIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class GetUserInfoRequstData extends NetMessage {
     private long mUid;
     private int screenWidth;

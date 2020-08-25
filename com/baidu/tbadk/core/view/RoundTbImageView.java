@@ -7,10 +7,10 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class RoundTbImageView extends TbClipImageView {
-    private float egb;
-    private float egc;
+    private float epI;
+    private float epJ;
     private int height;
     private int mDefaultBgId;
     private int mDefaultId;
@@ -54,8 +54,8 @@ public class RoundTbImageView extends TbClipImageView {
     public void startLogPerf() {
         if (!this.canLogPerf) {
             this.canLogPerf = true;
-        } else if (this.eML != null && this.eML.eHc) {
-            this.eML.blv();
+        } else if (this.eXr != null && this.eXr.eRI) {
+            this.eXr.bui();
         }
     }
 
@@ -64,7 +64,7 @@ public class RoundTbImageView extends TbClipImageView {
         super.dispatchDraw(canvas);
         if (canvas != null && this.mMaskColor != 0) {
             this.mPaint.setColor(this.mMaskColor);
-            canvas.drawCircle(this.egb, this.egc, this.egb, this.mPaint);
+            canvas.drawCircle(this.epI, this.epJ, this.epI, this.mPaint);
         }
     }
 
@@ -78,7 +78,7 @@ public class RoundTbImageView extends TbClipImageView {
         super.onSizeChanged(i, i2, i3, i4);
         this.width = getWidth();
         this.height = getHeight();
-        this.egb = this.width / 2.0f;
-        this.egc = this.height / 2.0f;
+        this.epI = this.width / 2.0f;
+        this.epJ = this.height / 2.0f;
     }
 }

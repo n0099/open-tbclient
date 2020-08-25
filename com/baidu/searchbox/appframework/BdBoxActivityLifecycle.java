@@ -9,7 +9,7 @@ import java.lang.ref.WeakReference;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes18.dex */
 public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCallbacks {
     private static final boolean DEBUG = LibAppFrameworkConfig.GLOBAL_DEBUG;
     private static final String TAG = "BdBoxActivityLifecycle";
@@ -18,7 +18,7 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
     private boolean mIsForeground = false;
     private CopyOnWriteArrayList<IActivityLifecycle> mCustomActivityLifeCycles = new CopyOnWriteArrayList<>();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes18.dex */
     public interface IActivityLifecycle {
         void onActivityCreated(Activity activity, Bundle bundle);
 
@@ -39,7 +39,7 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
         void onForegroundToBackground(Activity activity);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes18.dex */
     public static class BackForegroundEvent {
         public boolean isForeground;
 

@@ -3,9 +3,9 @@ package kotlin.coroutines.experimental.a;
 import kotlin.h;
 /* JADX INFO: Access modifiers changed from: package-private */
 @h
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public class b {
-    public static final Object dUb() {
-        return kotlin.coroutines.intrinsics.a.dUb();
+    public static final Object egd() {
+        return kotlin.coroutines.intrinsics.a.egd();
     }
 }

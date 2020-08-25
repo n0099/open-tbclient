@@ -5,7 +5,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class LoginActivityConfig extends IntentConfig {
     public static final String ACTIVITY_ID = "activity_id";
     public static final String CUSTOM_LOGIN_CSS_URL = "custom_login_css_url";

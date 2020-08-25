@@ -3,7 +3,7 @@ package com.baidu.tieba.im.message.chat;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import protobuf.CommitPersonalMsg.CommitPersonalMsgReqIdl;
 import protobuf.CommitPersonalMsg.DataReq;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class PersonalChatMessage extends ChatMessage {
     public PersonalChatMessage() {
         super(CmdConfigSocket.CMD_COMMIT_PERSONAL_MSG);

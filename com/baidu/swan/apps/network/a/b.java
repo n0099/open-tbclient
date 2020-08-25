@@ -6,11 +6,11 @@ import java.util.Map;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b implements Interceptor {
     private HashMap<String, String> mHeaders = new HashMap<>();
 
-    public void A(HashMap<String, String> hashMap) {
+    public void y(HashMap<String, String> hashMap) {
         this.mHeaders.clear();
         if (hashMap != null && hashMap.size() >= 1) {
             this.mHeaders = hashMap;

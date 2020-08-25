@@ -4,28 +4,28 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes15.dex */
 public class f extends com.baidu.tieba.card.b<e> {
-    private View hbn;
-    private View hbo;
+    private View hoe;
+    private View hof;
     private TextView mTitle;
 
     public f(TbPageContext tbPageContext) {
         super(tbPageContext);
         getView().setOnClickListener(this);
-        this.hbn = getView().findViewById(R.id.card_divider_top_margin);
+        this.hoe = getView().findViewById(R.id.card_divider_top_margin);
         this.mTitle = (TextView) getView().findViewById(R.id.card_divider_tv);
-        this.hbo = getView().findViewById(R.id.bottom_line);
+        this.hof = getView().findViewById(R.id.bottom_line);
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ao.setViewTextColor(this.mTitle, R.color.cp_cont_d);
-            ao.setBackgroundColor(this.hbo, R.color.cp_bg_line_c);
-            ao.setBackgroundColor(this.hbn, R.color.cp_bg_line_c);
+            ap.setViewTextColor(this.mTitle, R.color.cp_cont_d);
+            ap.setBackgroundColor(this.hof, R.color.cp_bg_line_c);
+            ap.setBackgroundColor(this.hoe, R.color.cp_bg_line_c);
         }
         this.mSkinType = i;
     }
@@ -40,9 +40,9 @@ public class f extends com.baidu.tieba.card.b<e> {
     public void a(e eVar) {
         if (eVar != null) {
             if (eVar.needTopMargin) {
-                this.hbn.setVisibility(0);
+                this.hoe.setVisibility(0);
             } else {
-                this.hbn.setVisibility(8);
+                this.hoe.setVisibility(8);
             }
             this.mTitle.setText(eVar.title);
             onChangeSkinType(null, TbadkCoreApplication.getInst().getSkinType());

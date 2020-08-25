@@ -2,124 +2,124 @@ package com.baidu.tieba.pb.videopb;
 
 import android.arch.lifecycle.p;
 import android.graphics.Rect;
-import com.baidu.tbadk.core.data.bv;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.util.y;
 import java.util.LinkedList;
 /* loaded from: classes16.dex */
 public class d {
-    private boolean aib;
-    private com.baidu.tieba.pb.data.f kGF;
-    private Rect kGH;
-    private boolean kGI;
-    private com.baidu.tieba.pb.data.f kkO;
-    private p<bv> kGG = new p<>();
-    private LinkedList<com.baidu.tieba.pb.data.f> kGJ = new LinkedList<>();
-    private p<bv> kGK = new p<>();
-    private p<bv> kGL = new p<>();
-    private p<Boolean> kGM = new p<>();
-    private p<Boolean> kGN = new p<>();
-    private p<Boolean> kGO = new p<>();
-    private p<Boolean> kGP = new p<>();
-    private p<Integer> kGQ = new p<>();
+    private boolean ajr;
+    private com.baidu.tieba.pb.data.f kAg;
+    private com.baidu.tieba.pb.data.f kWm;
+    private Rect kWo;
+    private boolean kWp;
+    private p<bw> kWn = new p<>();
+    private LinkedList<com.baidu.tieba.pb.data.f> kWq = new LinkedList<>();
+    private p<bw> kWr = new p<>();
+    private p<bw> kWs = new p<>();
+    private p<Boolean> kWt = new p<>();
+    private p<Boolean> kWu = new p<>();
+    private p<Boolean> kWv = new p<>();
+    private p<Boolean> kWw = new p<>();
+    private p<Integer> kWx = new p<>();
 
     public void L(com.baidu.tieba.pb.data.f fVar) {
-        this.kGF = fVar;
+        this.kWm = fVar;
         setData(fVar);
-        this.kGK.setValue(null);
-        this.kGG.setValue(fVar.cKx());
+        this.kWr.setValue(null);
+        this.kWn.setValue(fVar.cVl());
     }
 
-    public com.baidu.tieba.pb.data.f cTx() {
-        return this.kGF;
+    public com.baidu.tieba.pb.data.f dep() {
+        return this.kWm;
     }
 
-    public com.baidu.tieba.pb.data.f cTy() {
-        return this.kkO;
+    public com.baidu.tieba.pb.data.f deq() {
+        return this.kAg;
     }
 
     public void setData(com.baidu.tieba.pb.data.f fVar) {
-        this.kkO = fVar;
+        this.kAg = fVar;
         if (fVar != null) {
-            this.kGG.setValue(fVar.cKx());
-            if (!x.isEmpty(fVar.cKZ())) {
-                aO(fVar.cKZ().get(0));
+            this.kWn.setValue(fVar.cVl());
+            if (!y.isEmpty(fVar.cVN())) {
+                aP(fVar.cVN().get(0));
             }
         }
     }
 
-    public p<bv> cTz() {
-        return this.kGG;
+    public p<bw> der() {
+        return this.kWn;
     }
 
     public boolean isFromCDN() {
-        return this.aib;
+        return this.ajr;
     }
 
     public void setFromCDN(boolean z) {
-        this.aib = z;
+        this.ajr = z;
     }
 
     public void i(Rect rect) {
-        this.kGH = rect;
+        this.kWo = rect;
     }
 
-    public Rect cTA() {
-        return this.kGH;
+    public Rect des() {
+        return this.kWo;
     }
 
-    public void tw(boolean z) {
-        this.kGI = z;
+    public void uf(boolean z) {
+        this.kWp = z;
     }
 
-    public boolean cTB() {
-        return this.kGI;
+    public boolean det() {
+        return this.kWp;
     }
 
-    public LinkedList<com.baidu.tieba.pb.data.f> cTC() {
-        return this.kGJ;
+    public LinkedList<com.baidu.tieba.pb.data.f> deu() {
+        return this.kWq;
     }
 
-    public void aN(bv bvVar) {
-        this.kGK.setValue(bvVar);
+    public void aO(bw bwVar) {
+        this.kWr.setValue(bwVar);
     }
 
-    public void aO(bv bvVar) {
-        this.kGL.setValue(bvVar);
+    public void aP(bw bwVar) {
+        this.kWs.setValue(bwVar);
     }
 
-    public p<bv> cTD() {
-        return this.kGK;
+    public p<bw> dev() {
+        return this.kWr;
     }
 
-    public p<bv> cTE() {
-        return this.kGL;
+    public p<bw> dew() {
+        return this.kWs;
     }
 
-    public p<Boolean> cTF() {
-        return this.kGM;
+    public p<Boolean> dex() {
+        return this.kWt;
     }
 
-    public void tx(boolean z) {
-        this.kGM.setValue(Boolean.valueOf(z));
+    public void ug(boolean z) {
+        this.kWt.setValue(Boolean.valueOf(z));
     }
 
-    public p<Boolean> cTG() {
-        return this.kGN;
+    public p<Boolean> dey() {
+        return this.kWu;
     }
 
-    public void ty(boolean z) {
-        this.kGN.postValue(Boolean.valueOf(z));
+    public void uh(boolean z) {
+        this.kWu.postValue(Boolean.valueOf(z));
     }
 
     public void setIsLoading(boolean z) {
-        this.kGP.setValue(Boolean.valueOf(z));
+        this.kWw.setValue(Boolean.valueOf(z));
     }
 
-    public p<Boolean> cTH() {
-        return this.kGP;
+    public p<Boolean> dez() {
+        return this.kWw;
     }
 
-    public p<Integer> cTI() {
-        return this.kGQ;
+    public p<Integer> deA() {
+        return this.kWx;
     }
 }

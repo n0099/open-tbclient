@@ -1,8 +1,8 @@
 package com.baidu.sapi2.social;
 
 import android.content.Intent;
-import com.baidu.sapi2.c;
-/* loaded from: classes19.dex */
-public abstract class WXInvokeCallback implements c {
+import com.baidu.sapi2.NoProguard;
+/* loaded from: classes12.dex */
+public abstract class WXInvokeCallback implements NoProguard {
     public abstract void onResult(int i, Intent intent);
 }

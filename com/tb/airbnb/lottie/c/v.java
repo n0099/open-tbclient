@@ -3,7 +3,7 @@ package com.tb.airbnb.lottie.c;
 import android.util.JsonReader;
 import com.tb.airbnb.lottie.model.content.MergePaths;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 class v {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static MergePaths h(JsonReader jsonReader) throws IOException {

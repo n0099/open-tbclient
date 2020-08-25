@@ -11,7 +11,7 @@ import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"WrongCall"})
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class TbListTextView extends TextView {
     private boolean checkSelection;
 
@@ -64,7 +64,7 @@ public class TbListTextView extends TextView {
 
     private void fixSpannedWithSpaces(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
         a a2 = a(spannableStringBuilder, i, i2);
-        if (a2.bWl) {
+        if (a2.cbT) {
             a(i, i2, spannableStringBuilder, a2);
         } else {
             fallbackToString(i, i2);
@@ -88,12 +88,12 @@ public class TbListTextView extends TextView {
             }
             try {
                 setTextAndMeasure(spannableStringBuilder, i, i2);
-                return a.h(arrayList, arrayList2);
+                return a.k(arrayList, arrayList2);
             } catch (IndexOutOfBoundsException e) {
                 BdLog.e(e.getMessage());
             }
         }
-        return a.bnF();
+        return a.bwt();
     }
 
     private boolean isNotSpace(CharSequence charSequence, int i) {
@@ -138,22 +138,22 @@ public class TbListTextView extends TextView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class a {
-        public final boolean bWl;
+        public final boolean cbT;
         public final List<Object> spansWithSpacesAfter;
         public final List<Object> spansWithSpacesBefore;
 
-        public static a h(List<Object> list, List<Object> list2) {
+        public static a k(List<Object> list, List<Object> list2) {
             return new a(true, list, list2);
         }
 
-        public static a bnF() {
+        public static a bwt() {
             return new a(false, null, null);
         }
 
         private a(boolean z, List<Object> list, List<Object> list2) {
-            this.bWl = z;
+            this.cbT = z;
             this.spansWithSpacesBefore = list;
             this.spansWithSpacesAfter = list2;
         }

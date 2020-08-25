@@ -4,7 +4,7 @@ import java.io.File;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.q;
 @kotlin.h
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public final class NoSuchFileException extends FileSystemException {
     public /* synthetic */ NoSuchFileException(File file, File file2, String str, int i, o oVar) {
         this(file, (i & 2) != 0 ? null : file2, (i & 4) != 0 ? null : str);

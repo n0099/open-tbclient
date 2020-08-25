@@ -6,7 +6,7 @@ import com.baidu.live.adp.lib.cache.BdKVCache;
 import com.baidu.live.adp.lib.safe.ThreadService;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class BdKVCacheImpl<T> implements BdKVCache.MXSupportedCache<T> {
     protected final String nameSpace;
     protected final BdCacheStorage<T> storage;

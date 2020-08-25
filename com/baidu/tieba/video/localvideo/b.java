@@ -9,17 +9,17 @@ import java.util.List;
 import java.util.TimeZone;
 /* loaded from: classes17.dex */
 public class b extends BdAsyncTask<Void, Void, List<d>> {
-    private static long mgV = BdKVCache.MILLS_1Hour;
+    private static long myF = BdKVCache.MILLS_1Hour;
     private Context context;
     private int maxHeight;
     private int maxWidth;
-    private a mhc;
-    private SimpleDateFormat mgX = new SimpleDateFormat("mm:ss");
-    private SimpleDateFormat mgW = new SimpleDateFormat("HH:mm:ss");
+    private a myM;
+    private SimpleDateFormat myH = new SimpleDateFormat("mm:ss");
+    private SimpleDateFormat myG = new SimpleDateFormat("HH:mm:ss");
 
     /* loaded from: classes17.dex */
     public interface a {
-        void fh(List<d> list);
+        void fp(List<d> list);
     }
 
     public b(Context context) {
@@ -27,12 +27,12 @@ public class b extends BdAsyncTask<Void, Void, List<d>> {
         this.maxHeight = context.getResources().getDimensionPixelSize(R.dimen.ds220);
         this.maxWidth = this.maxHeight;
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
-        this.mgX.setTimeZone(timeZone);
-        this.mgW.setTimeZone(timeZone);
+        this.myH.setTimeZone(timeZone);
+        this.myG.setTimeZone(timeZone);
     }
 
     public void b(a aVar) {
-        this.mhc = aVar;
+        this.myM = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,21 +40,21 @@ public class b extends BdAsyncTask<Void, Void, List<d>> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: c */
     public List<d> doInBackground(Void... voidArr) {
-        List<d> fx = e.fx(this.context);
-        e.c("/sdcard", fx, false);
-        e.c("/sdcard/DCIM", fx, true);
-        e.fj(fx);
-        return fx;
+        List<d> fK = e.fK(this.context);
+        e.d("/sdcard", fK, false);
+        e.d("/sdcard/DCIM", fK, true);
+        e.fr(fK);
+        return fK;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: x */
+    /* renamed from: y */
     public void onPostExecute(List<d> list) {
         super.onPostExecute(list);
-        if (this.mhc != null) {
-            this.mhc.fh(list);
+        if (this.myM != null) {
+            this.myM.fp(list);
         }
     }
 }

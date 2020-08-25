@@ -1,24 +1,24 @@
 package com.baidu.tieba.tbadkCore.writeModel;
 
 import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.bo;
+import com.baidu.tbadk.core.data.bp;
 import com.baidu.tbadk.data.VideoEasterEggData;
 import com.baidu.tieba.pb.data.ContriInfo;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class b {
     final AntiData antiData;
     private String colorMsg;
     final int errorCode;
     private String errorString;
     private int isCopyTWZhibo;
-    private String lRk;
-    private String lRl;
     private CustomDialogData mActDialogData;
     private ContriInfo mContriInfo;
-    private bo mReplyPrivacyTip;
+    private bp mReplyPrivacyTip;
     private VideoEasterEggData mVideoEasterEggData;
+    private String miV;
+    private String miW;
     private String preMsg;
     private String videoId;
     private String threadId = null;
@@ -35,19 +35,19 @@ public class b {
         return this.errorCode != 0;
     }
 
-    public boolean dmB() {
+    public boolean dxW() {
         return this.errorCode == 5 || this.errorCode == 6;
     }
 
-    public boolean dmC() {
+    public boolean dxX() {
         return this.errorCode == 1990055;
     }
 
-    public boolean dmD() {
+    public boolean dxY() {
         return this.errorCode == 3250012;
     }
 
-    public boolean dmE() {
+    public boolean dxZ() {
         return this.errorCode == 227001;
     }
 
@@ -63,7 +63,7 @@ public class b {
         this.errorString = str;
     }
 
-    public AntiData cax() {
+    public AntiData ckT() {
         return this.antiData;
     }
 
@@ -107,20 +107,20 @@ public class b {
         return this.isCopyTWZhibo;
     }
 
-    public String dmF() {
-        return this.lRk;
+    public String dya() {
+        return this.miV;
     }
 
-    public void Oe(String str) {
-        this.lRk = str;
+    public void Rc(String str) {
+        this.miV = str;
     }
 
-    public String dmG() {
-        return this.lRl;
+    public String dyb() {
+        return this.miW;
     }
 
-    public void Of(String str) {
-        this.lRl = str;
+    public void Rd(String str) {
+        this.miW = str;
     }
 
     public CustomDialogData getActivityDialog() {
@@ -159,11 +159,11 @@ public class b {
         this.mContriInfo = contriInfo;
     }
 
-    public void setReplyPrivacyTip(bo boVar) {
-        this.mReplyPrivacyTip = boVar;
+    public void setReplyPrivacyTip(bp bpVar) {
+        this.mReplyPrivacyTip = bpVar;
     }
 
-    public bo getReplyPrivacyTip() {
+    public bp getReplyPrivacyTip() {
         return this.mReplyPrivacyTip;
     }
 

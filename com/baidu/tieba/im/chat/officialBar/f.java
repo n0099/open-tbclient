@@ -13,66 +13,65 @@ import com.baidu.tieba.im.chat.officialBar.ResponseHistoryMessage;
 import java.util.List;
 /* loaded from: classes20.dex */
 public class f extends com.baidu.adp.base.c<OfficialBarHistoryActivity> {
-    private BaseActivity fbZ;
-    private NavigationBar iTw;
-    private e iTx;
-    private View iTy;
-    private BdListView idN;
+    private BaseActivity fnt;
+    private BdListView irR;
+    private NavigationBar jiu;
+    private e jiv;
+    private View jiw;
     private NoDataView mNoDataView;
     private View mRoot;
 
     public f(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.fbZ = baseActivity;
+        this.fnt = baseActivity;
         initView();
     }
 
     private void initView() {
-        this.mRoot = View.inflate(this.fbZ.getPageContext().getContext(), R.layout.official_bar_history_activity, null);
-        this.fbZ.getPageContext().getPageActivity().setContentView(this.mRoot);
-        this.iTw = (NavigationBar) this.mRoot.findViewById(R.id.view_navigation_bar);
-        this.iTw.setTitleText(R.string.officical_bar_info_history);
-        this.iTw.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.idN = (BdListView) this.mRoot.findViewById(R.id.bar_history_list);
-        this.iTx = new e(this.fbZ, this.fbZ.getPageContext().getContext());
-        this.idN.setAdapter((ListAdapter) this.iTx);
-        this.iTy = View.inflate(this.fbZ.getPageContext().getContext(), R.layout.official_bar_history_item_occupy, null);
-        this.idN.addHeaderView(this.iTy);
-        this.idN.addFooterView(this.iTy);
+        this.mRoot = View.inflate(this.fnt.getPageContext().getContext(), R.layout.official_bar_history_activity, null);
+        this.fnt.getPageContext().getPageActivity().setContentView(this.mRoot);
+        this.jiu = (NavigationBar) this.mRoot.findViewById(R.id.view_navigation_bar);
+        this.jiu.setTitleText(R.string.officical_bar_info_history);
+        this.jiu.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.irR = (BdListView) this.mRoot.findViewById(R.id.bar_history_list);
+        this.jiv = new e(this.fnt, this.fnt.getPageContext().getContext());
+        this.irR.setAdapter((ListAdapter) this.jiv);
+        this.jiw = View.inflate(this.fnt.getPageContext().getContext(), R.layout.official_bar_history_item_occupy, null);
+        this.irR.addHeaderView(this.jiw);
+        this.irR.addFooterView(this.jiw);
     }
 
     public void setData(List<ResponseHistoryMessage.a> list) {
-        this.iTx.setData(list);
-        m36do(list);
+        this.jiv.setData(list);
+        dv(list);
     }
 
     public void onChangeSkinType(int i) {
-        this.fbZ.getLayoutMode().setNightMode(i == 1);
-        this.fbZ.getLayoutMode().onModeChanged(this.mRoot);
-        this.iTw.onChangeSkinType(this.fbZ.getPageContext(), i);
+        this.fnt.getLayoutMode().setNightMode(i == 1);
+        this.fnt.getLayoutMode().onModeChanged(this.mRoot);
+        this.jiu.onChangeSkinType(this.fnt.getPageContext(), i);
     }
 
     public void c(BdListView.e eVar) {
-        this.idN.setOnSrollToBottomListener(eVar);
+        this.irR.setOnSrollToBottomListener(eVar);
     }
 
-    public boolean crp() {
-        return this.iTx.getCount() != 0 && this.idN.getLastVisiblePosition() - this.idN.getHeaderViewsCount() < this.iTx.getCount() + (-1);
+    public boolean cCh() {
+        return this.jiv.getCount() != 0 && this.irR.getLastVisiblePosition() - this.irR.getHeaderViewsCount() < this.jiv.getCount() + (-1);
     }
 
-    /* renamed from: do  reason: not valid java name */
-    public void m36do(List<ResponseHistoryMessage.a> list) {
+    public void dv(List<ResponseHistoryMessage.a> list) {
         if (list != null && list.size() > 0 && this.mNoDataView != null) {
             this.mNoDataView.setVisibility(8);
         }
     }
 
-    public void dp(List<ResponseHistoryMessage.a> list) {
+    public void dw(List<ResponseHistoryMessage.a> list) {
         if (list == null || list.size() == 0) {
             if (this.mNoDataView == null) {
-                this.mNoDataView = NoDataViewFactory.a(this.fbZ.getPageContext().getPageActivity(), this.mRoot, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, 400), NoDataViewFactory.d.mF(R.string.no_data_text), null);
+                this.mNoDataView = NoDataViewFactory.a(this.fnt.getPageContext().getPageActivity(), this.mRoot, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, 400), NoDataViewFactory.d.oK(R.string.no_data_text), null);
             }
-            this.mNoDataView.onChangeSkinType(this.fbZ.getPageContext(), TbadkApplication.getInst().getSkinType());
+            this.mNoDataView.onChangeSkinType(this.fnt.getPageContext(), TbadkApplication.getInst().getSkinType());
             this.mNoDataView.setVisibility(0);
         }
     }

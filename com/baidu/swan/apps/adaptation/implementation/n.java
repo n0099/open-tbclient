@@ -1,9 +1,11 @@
 package com.baidu.swan.apps.adaptation.implementation;
 
+import android.os.Message;
 import com.baidu.swan.apps.adaptation.a.ae;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class n implements ae {
     @Override // com.baidu.swan.apps.adaptation.a.ae
-    public void TL() {
+    public boolean l(Message message) {
+        return false;
     }
 }

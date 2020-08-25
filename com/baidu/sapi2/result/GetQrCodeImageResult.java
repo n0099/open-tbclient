@@ -1,8 +1,9 @@
 package com.baidu.sapi2.result;
 
+import com.baidu.sapi2.NoProguard;
 import java.net.URLEncoder;
-/* loaded from: classes5.dex */
-public class GetQrCodeImageResult extends SapiResult {
+/* loaded from: classes12.dex */
+public class GetQrCodeImageResult extends SapiResult implements NoProguard {
     public String channelId;
     public String contentUrl;
     public String imageUrl;

@@ -3,7 +3,7 @@ package com.baidu.browser.core.database;
 import android.content.ContentValues;
 import android.database.Cursor;
 import com.baidu.browser.core.INoProGuard;
-/* loaded from: classes10.dex */
+/* loaded from: classes19.dex */
 public interface BdDbDataModel extends INoProGuard {
     void loadFromCursor(Cursor cursor);
 

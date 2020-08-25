@@ -4,7 +4,11 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.AsyncTask;
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -13,10 +17,13 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import com.alibaba.fastjson.asm.Opcodes;
-import com.baidu.platform.comapi.wnplatform.o.f;
+import com.baidu.mapapi.bikenavi.controllers.BNavigatorWrapper;
+import com.baidu.mapapi.bikenavi.model.a;
+import com.baidu.platform.comapi.wnplatform.p.g;
+import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.tieba.R;
-/* loaded from: classes10.dex */
-public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.OnClickListener {
+/* loaded from: classes20.dex */
+public class a extends com.baidu.platform.comapi.walknavi.g.c.b implements View.OnClickListener {
     private static int F = 135;
     private static int G = 90;
     private TextView A;
@@ -28,14 +35,14 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
     private int e;
     private com.baidu.platform.comapi.bikenavi.c.b g;
     private ImageButton h;
-    private ImageButton i;
-    private LinearLayout j;
-    private TextView k;
-    private RelativeLayout l;
-    private RelativeLayout m;
-    private CustomScrollView n;
-    private TextView o;
-    private View p;
+    private ImageView i;
+    private RelativeLayout j;
+    private RelativeLayout k;
+    private CustomScrollView l;
+    private TextView m;
+    private TextView n;
+    private LinearLayout o;
+    private TextView p;
     private TextView q;
     private View r;
     private View s;
@@ -51,6 +58,11 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
     private final int d = 3;
     private boolean f = false;
     private int H = 0;
+    private boolean I = true;
+    private a.b J = null;
+    private boolean K = false;
+    private a.C0211a L = null;
+    private boolean M = false;
 
     public a(Context context, com.baidu.platform.comapi.bikenavi.c.b bVar, View view) {
         this.a = (Activity) context;
@@ -59,23 +71,151 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
     }
 
     private void a(View view) {
-        this.l = (RelativeLayout) view.findViewById(R.raw.imageviewer_drag);
-        this.h = (ImageButton) view.findViewById(R.raw.lottie_full_screen_refresh_2);
-        this.j = (LinearLayout) view.findViewById(R.raw.lottie_tab_home_1);
-        this.k = (TextView) view.findViewById(R.raw.lottie_tab_live_1);
-        this.i = (ImageButton) view.findViewById(R.raw.lottie_tab_forum);
-        this.o = (TextView) view.findViewById(R.raw.lottie_photo);
-        this.p = view.findViewById(R.raw.lottie_full_screen_refresh_1);
-        this.q = (TextView) view.findViewById(R.raw.lottie_tab_live);
+        this.h = (ImageButton) view.findViewById(R.raw.lottie_refresh_dark);
+        d(view);
         b(view);
+        e(view);
         this.h.setOnClickListener(this);
-        this.j.setOnClickListener(this);
-        this.k.setOnClickListener(this);
-        this.i.setOnClickListener(this);
+        this.p.setOnClickListener(new View$OnClickListenerC0240a());
+        this.i.setOnClickListener(new com.baidu.platform.comapi.bikenavi.widget.b(this));
+        i();
+    }
+
+    private void b(View view) {
+        if (view != null) {
+            this.j = (RelativeLayout) view.findViewById(R.raw.lottie_agree_2);
+            BNavigatorWrapper.getWNavigator();
+            com.baidu.mapapi.bikenavi.model.b p = com.baidu.platform.comapi.walknavi.b.a().p();
+            if (p == null || !p.f()) {
+                c(view);
+            } else if (!a(p)) {
+                c(view);
+            }
+        }
+    }
+
+    private boolean a(com.baidu.mapapi.bikenavi.model.b bVar) {
+        if (bVar == null) {
+            Log.e("CustomWNaviView", "Load BottomSetting layout failed,BikeNaviDisplayOption is null.");
+            return false;
+        }
+        int e = bVar.e();
+        if (e == 0) {
+            Log.e("CustomWNaviView", "BottomSetting layout resource is empty.");
+            return false;
+        } else if (this.j == null) {
+            Log.e("CustomWNaviView", "BottomSetting layout add failed.");
+            return false;
+        } else {
+            View inflate = LayoutInflater.from(this.a).inflate(e, (ViewGroup) this.j, false);
+            if (inflate == null) {
+                Log.e("CustomWNaviView", "Load BottomSetting layout failed,please checking layout.");
+                return false;
+            } else if (!com.baidu.platform.comapi.walknavi.g.d.d.a().a(this.a, 6, e, this)) {
+                Log.e("CustomWNaviView", "Parser BottomSetting layout failed,please checking layout.");
+                return false;
+            } else if (this.L == null) {
+                Log.e("CustomWNaviView", "Parser BottomSetting layout failed,missing other keywords like TAG attribute or ID attribute.");
+                return false;
+            } else if (TextUtils.isEmpty(this.L.a()) || TextUtils.isEmpty(this.L.b()) || TextUtils.isEmpty(this.L.c())) {
+                Log.e("CustomWNaviView", "BottomSetting layout missing other keywords like TAG attribute or ID attribute.");
+                return false;
+            } else {
+                try {
+                    this.i = (ImageView) inflate.findViewById(Integer.parseInt(this.L.a().replace(UgcConstant.AT_RULE_TAG, "")));
+                    this.p = (TextView) inflate.findViewById(Integer.parseInt(this.L.b().replace(UgcConstant.AT_RULE_TAG, "")));
+                    this.q = (TextView) inflate.findViewById(Integer.parseInt(this.L.c().replace(UgcConstant.AT_RULE_TAG, "")));
+                    if (this.i == null || this.p == null || this.q == null) {
+                        Log.e("CustomWNaviView", "BottomSetting layout control initialize failed,Missing other keywords like TAG attribute or ID attribute.");
+                        return false;
+                    }
+                    this.j.removeAllViews();
+                    this.j.addView(inflate);
+                    this.M = true;
+                    this.j.setBackgroundColor(0);
+                    return true;
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                    Log.e("CustomWNaviView", "BottomSetting layout control type error.");
+                    return false;
+                }
+            }
+        }
+    }
+
+    private void c(View view) {
+        if (view != null) {
+            this.i = (ImageView) view.findViewById(R.raw.lottie_tab_home_1);
+            this.p = (TextView) view.findViewById(R.raw.lottie_tab_msg_1);
+            this.q = (TextView) view.findViewById(R.raw.lottie_tab_my);
+        }
+    }
+
+    private void d(View view) {
+        if (view != null) {
+            this.o = (LinearLayout) view.findViewById(R.raw.lottie_redpack_run);
+            BNavigatorWrapper.getWNavigator();
+            com.baidu.mapapi.bikenavi.model.b p = com.baidu.platform.comapi.walknavi.b.a().p();
+            if (p == null || !p.d()) {
+                this.m = (TextView) view.findViewById(R.raw.lottie_refresh_light);
+                this.n = (TextView) view.findViewById(R.raw.lottie_tab_category);
+            } else if (!b(p)) {
+                this.m = (TextView) view.findViewById(R.raw.lottie_refresh_light);
+                this.n = (TextView) view.findViewById(R.raw.lottie_tab_category);
+            }
+        }
+    }
+
+    private boolean b(com.baidu.mapapi.bikenavi.model.b bVar) {
+        if (bVar == null) {
+            Log.e("CustomWNaviView", "Load BikeSpeed layout failed,BikeNaviDisplayOption is null.");
+            return false;
+        }
+        int c = bVar.c();
+        if (c == 0) {
+            Log.e("CustomWNaviView", "BikeSpeed layout resource is empty.");
+            return false;
+        } else if (this.o == null) {
+            Log.e("CustomWNaviView", "BikeSpeed layout add failed.");
+            return false;
+        } else {
+            View inflate = LayoutInflater.from(this.a).inflate(c, (ViewGroup) this.o, false);
+            if (inflate == null) {
+                Log.e("CustomWNaviView", "Load BikeSpeed layout failed,please checking layout.");
+                return false;
+            } else if (!com.baidu.platform.comapi.walknavi.g.d.d.a().a(this.a, 5, c, this)) {
+                Log.e("CustomWNaviView", "Parser BikeSpeed layout failed,please checking layout.");
+                return false;
+            } else if (this.J == null) {
+                Log.e("CustomWNaviView", "Parser BikeSpeed layout failed,missing other keywords like TAG attribute or ID attribute.");
+                return false;
+            } else if (TextUtils.isEmpty(this.J.a()) || TextUtils.isEmpty(this.J.b())) {
+                Log.e("CustomWNaviView", "BikeSpeed layout missing other keywords like TAG attribute or ID attribute.");
+                return false;
+            } else {
+                try {
+                    this.m = (TextView) inflate.findViewById(Integer.parseInt(this.J.a().replace(UgcConstant.AT_RULE_TAG, "")));
+                    this.n = (TextView) inflate.findViewById(Integer.parseInt(this.J.b().replace(UgcConstant.AT_RULE_TAG, "")));
+                    if (this.m == null || this.n == null) {
+                        Log.e("CustomWNaviView", "BikeSpeed layout control initialize failed,Missing other keywords like TAG attribute or ID attribute.");
+                        return false;
+                    }
+                    this.o.removeAllViews();
+                    this.o.addView(inflate);
+                    this.K = true;
+                    this.o.setBackgroundColor(0);
+                    return true;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Log.e("CustomWNaviView", "BikeSpeed layout control type error.");
+                    return false;
+                }
+            }
+        }
     }
 
     public void a(double d, double d2, double d3) {
-        this.o.setText(((int) d) + "");
+        this.m.setText(((int) d) + "");
         this.v.setText(d + "");
         this.x.setText(d3 + "");
         this.w.setText(d2 + "");
@@ -83,10 +223,10 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
 
     public void a(double d, long j) {
         StringBuffer stringBuffer = new StringBuffer();
-        com.baidu.platform.comapi.wnplatform.o.f.a((int) d, f.a.ZH, stringBuffer);
+        com.baidu.platform.comapi.wnplatform.p.g.a((int) d, g.b.ZH, stringBuffer);
         StringBuilder sb = new StringBuilder();
         sb.append("已骑行" + stringBuffer.toString() + " ");
-        sb.append(com.baidu.platform.comapi.wnplatform.o.f.a((int) j, 2));
+        sb.append(com.baidu.platform.comapi.wnplatform.p.g.a((int) j, 2));
         this.D.setText(sb.toString());
     }
 
@@ -106,184 +246,229 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
         this.q.setText(sb.toString());
     }
 
-    private void b(View view) {
-        this.n = (CustomScrollView) view.findViewById(R.raw.lottie_refresh_dark);
-        view.post(new b(this));
-        this.s = com.baidu.platform.comapi.wnplatform.o.a.a.a(this.a, R.layout.abc_action_menu_item_layout, null);
-        this.n.addContentView(this.s);
-        this.n.updateStatus(com.baidu.platform.comapi.wnplatform.n.b.BOTTOM, false);
-        this.t = (ImageView) this.s.findViewById(R.raw.lottie_agree_1);
-        this.u = (ImageView) this.s.findViewById(R.raw.lottie_agree_2);
-        this.v = (TextView) this.s.findViewById(R.raw.lottie_candle);
-        this.w = (TextView) this.s.findViewById(R.raw.lottie_candle_1);
-        this.x = (TextView) this.s.findViewById(R.raw.lottie_common_pull_refresh);
-        this.y = (TextView) this.s.findViewById(R.raw.lottie_agree_imageviewer);
-        this.z = (TextView) this.s.findViewById(R.raw.lottie_bless);
-        this.A = (TextView) this.s.findViewById(R.raw.lottie_common_pull_refresh_1);
-        this.B = (TextView) this.s.findViewById(R.raw.lottie_common_pull_refresh_2);
-        this.C = (TextView) this.s.findViewById(R.raw.lottie_disagree);
-        this.D = (TextView) this.s.findViewById(R.raw.lottie_bless_1);
-        this.r = this.s.findViewById(R.raw.lotti_video_loading);
-        this.r.setOnClickListener(new c(this));
-        this.n.setOnScrollChangeListener(new d(this));
+    private void e(View view) {
+        this.l = (CustomScrollView) view.findViewById(R.raw.lottie_tab_home);
+        view.post(new c(this));
+        this.s = com.baidu.platform.comapi.wnplatform.p.a.a.a(this.a, R.layout.abc_action_mode_bar, null);
+        this.l.addContentView(this.s);
+        this.l.updateStatus(com.baidu.platform.comapi.wnplatform.o.b.BOTTOM, false);
+        this.t = (ImageView) this.s.findViewById(R.raw.lottie_bless_1);
+        this.u = (ImageView) this.s.findViewById(R.raw.lottie_candle);
+        this.v = (TextView) this.s.findViewById(R.raw.lottie_common_pull_refresh_2);
+        this.w = (TextView) this.s.findViewById(R.raw.lottie_disagree);
+        this.x = (TextView) this.s.findViewById(R.raw.lottie_disagree_1);
+        this.y = (TextView) this.s.findViewById(R.raw.lottie_candle_1);
+        this.z = (TextView) this.s.findViewById(R.raw.lottie_common_pull_refresh);
+        this.A = (TextView) this.s.findViewById(R.raw.lottie_disagree_2);
+        this.B = (TextView) this.s.findViewById(R.raw.lottie_disagree_imageviewer);
+        this.C = (TextView) this.s.findViewById(R.raw.lottie_full_screen_refresh);
+        this.D = (TextView) this.s.findViewById(R.raw.lottie_common_pull_refresh_1);
+        this.r = this.s.findViewById(R.raw.lottie_agree_imageviewer);
+        this.r.setOnClickListener(new d(this));
+        this.l.setOnScrollChangeListener(new e(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z) {
         if (z) {
-            new AsyncTaskC0224a(this.n, true).execute(new Integer[0]);
+            new b(this.l, true).execute(new Integer[0]);
         } else if (this.H != 0) {
-            new AsyncTaskC0224a(this.n, false).execute(new Integer[0]);
+            new b(this.l, false).execute(new Integer[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(boolean z) {
-        this.n.updateStatus(com.baidu.platform.comapi.wnplatform.n.b.TOP, z);
+        this.l.updateStatus(com.baidu.platform.comapi.wnplatform.o.b.TOP, z);
         this.t.setVisibility(8);
         this.u.setVisibility(0);
-        com.baidu.platform.comapi.wnplatform.k.a.a().a("BikeNaviPG.bigDrawer");
+        com.baidu.platform.comapi.wnplatform.l.a.a().a("BikeNaviPG.bigDrawer");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(boolean z) {
-        this.n.updateStatus(com.baidu.platform.comapi.wnplatform.n.b.BOTTOM, z);
+        this.l.updateStatus(com.baidu.platform.comapi.wnplatform.o.b.BOTTOM, z);
         this.t.setVisibility(0);
         this.u.setVisibility(8);
-        com.baidu.platform.comapi.wnplatform.k.a.a().a("BikeNaviPG.smallDrawer");
+        com.baidu.platform.comapi.wnplatform.l.a.a().a("BikeNaviPG.smallDrawer");
     }
 
-    private void g() {
-        this.n.setVisibility(8);
-        this.p.setVisibility(0);
+    /* JADX INFO: Access modifiers changed from: private */
+    public void g() {
+        this.l.setVisibility(8);
+        this.o.setVisibility(0);
     }
 
-    private void h() {
-        this.n.setBackgroundColor(Color.parseColor("#00000000"));
+    /* JADX INFO: Access modifiers changed from: private */
+    public void h() {
+        this.l.setBackgroundColor(Color.parseColor("#00000000"));
         this.H = 0;
         d(false);
-        this.n.setVisibility(0);
-        this.p.setVisibility(8);
+        this.l.setVisibility(0);
+        this.o.setVisibility(8);
     }
 
     public void a(int i) {
-        if (i == R.drawable.aiapps_clickable_toast_icon) {
-            this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.a, (int) R.drawable.aiapps_clickable_toast_icon));
+        if (i == R.drawable.aiapps_keyboard_number_item_selector) {
+            this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.p.a.a.a(this.a, (int) R.drawable.aiapps_keyboard_number_item_selector));
             this.e = 1;
-        } else if (i == R.drawable.aiapps_context_menu_bottom_corner_selector) {
-            this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.a, (int) R.drawable.aiapps_context_menu_bottom_corner_selector));
+        } else if (i == R.drawable.aiapps_loading_dark_image_view) {
+            this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.p.a.a.a(this.a, (int) R.drawable.aiapps_loading_dark_image_view));
             this.e = 2;
-        } else if (i == R.drawable.aiapps_clickable_toast_view_bg) {
-            this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.a, (int) R.drawable.aiapps_clickable_toast_view_bg));
+        } else if (i == R.drawable.aiapps_loading) {
+            this.h.setImageDrawable(com.baidu.platform.comapi.wnplatform.p.a.a.a(this.a, (int) R.drawable.aiapps_loading));
             this.e = 3;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.platform.comapi.walknavi.g.b.b
+    @Override // com.baidu.platform.comapi.walknavi.g.c.b
     public void a() {
         super.a();
-        Animation c = com.baidu.platform.comapi.wnplatform.o.a.a.c(this.a, R.anim.abc_popup_enter);
-        if (!this.l.isShown()) {
-            this.l.setAnimation(c);
+        Animation c = com.baidu.platform.comapi.wnplatform.p.a.a.c(this.a, R.anim.abc_popup_enter);
+        if (!this.j.isShown()) {
+            this.j.setAnimation(c);
         }
-        this.l.setVisibility(0);
-        if (this.m != null) {
-            if (!this.m.isShown()) {
-                this.m.setAnimation(c);
+        this.j.setVisibility(0);
+        if (this.k != null) {
+            if (!this.k.isShown()) {
+                this.k.setAnimation(c);
             }
-            this.m.setVisibility(0);
+            this.k.setVisibility(0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.platform.comapi.walknavi.g.b.b
+    @Override // com.baidu.platform.comapi.walknavi.g.c.b
     public void b() {
         super.b();
-        Animation c = com.baidu.platform.comapi.wnplatform.o.a.a.c(this.a, R.anim.abc_popup_exit);
-        if (this.l.isShown()) {
-            this.l.setAnimation(c);
+        Animation c = com.baidu.platform.comapi.wnplatform.p.a.a.c(this.a, R.anim.abc_popup_exit);
+        if (this.j.isShown()) {
+            this.j.setAnimation(c);
         }
-        this.l.setVisibility(8);
-        if (this.m != null) {
-            if (this.m.isShown()) {
-                this.m.setAnimation(c);
+        this.j.setVisibility(8);
+        if (this.k != null) {
+            if (this.k.isShown()) {
+                this.k.setAnimation(c);
             }
-            this.m.setVisibility(8);
+            this.k.setVisibility(8);
         }
     }
 
     public void a(boolean z) {
         this.f = z;
         if (this.f) {
-            this.j.setVisibility(0);
-            this.k.setVisibility(8);
+            if (this.p != null) {
+                this.p.setText("查看全览");
+            }
+            this.q.setVisibility(0);
             return;
         }
-        this.j.setVisibility(8);
-        this.k.setVisibility(0);
+        if (this.p != null) {
+            this.p.setText("继续导航");
+        }
+        this.q.setVisibility(8);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        int id = view.getId();
-        if (id == R.raw.lottie_full_screen_refresh_2) {
+        if (view.getId() == R.raw.lottie_refresh_dark) {
             if (!this.f) {
-                com.baidu.platform.comapi.wnplatform.k.a.a().a("status", "overview");
+                com.baidu.platform.comapi.wnplatform.l.a.a().a("status", "overview");
             }
-            com.baidu.platform.comapi.wnplatform.k.a.a().a("BikeNaviPG.turnDire");
+            com.baidu.platform.comapi.wnplatform.l.a.a().a("BikeNaviPG.turnDire");
             switch (this.e) {
                 case 1:
-                    com.baidu.platform.comapi.walknavi.b.a().F().run("[3D车头向上]按钮点击");
+                    com.baidu.platform.comapi.walknavi.b.a().I().run("[3D车头向上]按钮点击");
                     return;
                 case 2:
-                    com.baidu.platform.comapi.walknavi.b.a().F().run("[2D正北]按钮点击");
+                    com.baidu.platform.comapi.walknavi.b.a().I().run("[2D正北]按钮点击");
                     return;
                 case 3:
-                    com.baidu.platform.comapi.walknavi.b.a().F().run("[回车位]按钮点击");
+                    com.baidu.platform.comapi.walknavi.b.a().I().run("[回车位]按钮点击");
                     return;
                 default:
                     return;
             }
-        } else if (id == R.raw.lottie_tab_home_1) {
-            this.f = this.f ? false : true;
-            com.baidu.platform.comapi.wnplatform.k.a.a().a("BikeNaviPG.overview");
-            com.baidu.platform.comapi.walknavi.b.a().F().run("[查看全览]按钮点击");
-            this.j.setVisibility(8);
-            this.k.setVisibility(0);
-            this.g.k();
-            h();
-            this.g.a(this.a, com.baidu.platform.comapi.walknavi.b.a().G().a(), 10, 0, 0, F + 10);
-            if (com.baidu.platform.comapi.walknavi.b.a().G().a() != null) {
-                com.baidu.platform.comapi.walknavi.b.a().G().a().requestLayout();
+        }
+    }
+
+    public void a(a.b bVar) {
+        this.J = bVar;
+    }
+
+    public void a(a.C0211a c0211a) {
+        this.L = c0211a;
+    }
+
+    private void i() {
+        BNavigatorWrapper.getWNavigator();
+        com.baidu.mapapi.bikenavi.model.b p = com.baidu.platform.comapi.walknavi.b.a().p();
+        if (p != null && p.g() != null) {
+            if (this.m != null) {
+                this.m.setTypeface(p.g());
             }
-        } else if (id == R.raw.lottie_tab_live_1) {
-            this.f = this.f ? false : true;
-            com.baidu.platform.comapi.wnplatform.k.a.a().a("BikeNaviPG.continue");
-            com.baidu.platform.comapi.walknavi.b.a().F().run("[3D车头向上]按钮点击");
-            this.j.setVisibility(0);
-            this.k.setVisibility(8);
-            com.baidu.platform.comapi.walknavi.segmentbrowse.c.a(com.baidu.platform.comapi.walknavi.segmentbrowse.b.REFRESH_GUIDANCE);
-            com.baidu.platform.comapi.walknavi.b.a().D().j();
-            g();
-            this.g.a(this.a, com.baidu.platform.comapi.walknavi.b.a().G().a(), 70, 0, 0, 60);
-            if (com.baidu.platform.comapi.walknavi.b.a().G().a() != null) {
-                com.baidu.platform.comapi.walknavi.b.a().G().a().requestLayout();
+            if (this.n != null) {
+                this.n.setTypeface(p.g());
             }
-        } else if (id == R.raw.lottie_tab_forum) {
-            this.g.a(false, R.string.abc_action_bar_up_description);
+            if (this.p != null) {
+                this.p.setTypeface(p.g());
+            }
+            if (this.q != null) {
+                this.q.setTypeface(p.g());
+            }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.platform.comapi.bikenavi.widget.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public class AsyncTaskC0224a extends AsyncTask<Integer, Integer, String> {
+    /* loaded from: classes20.dex */
+    public class View$OnClickListenerC0240a implements View.OnClickListener {
+        View$OnClickListenerC0240a() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            if (view == a.this.p) {
+                if (a.this.f) {
+                    if (a.this.p != null) {
+                        a.this.p.setText("继续导航");
+                    }
+                    a.this.f = a.this.f ? false : true;
+                    com.baidu.platform.comapi.wnplatform.l.a.a().a("BikeNaviPG.overview");
+                    com.baidu.platform.comapi.walknavi.b.a().I().run("[查看全览]按钮点击");
+                    a.this.q.setVisibility(8);
+                    a.this.g.k();
+                    a.this.h();
+                    a.this.g.a(a.this.a, com.baidu.platform.comapi.walknavi.b.a().J().a(), 10, 0, 0, a.F + 10);
+                } else {
+                    if (a.this.p != null) {
+                        a.this.p.setText("查看全览");
+                    }
+                    a.this.f = a.this.f ? false : true;
+                    com.baidu.platform.comapi.wnplatform.l.a.a().a("BikeNaviPG.continue");
+                    com.baidu.platform.comapi.walknavi.b.a().I().run("[3D车头向上]按钮点击");
+                    a.this.q.setVisibility(0);
+                    com.baidu.platform.comapi.walknavi.segmentbrowse.c.a(com.baidu.platform.comapi.walknavi.segmentbrowse.b.REFRESH_GUIDANCE);
+                    com.baidu.platform.comapi.walknavi.b.a().G().j();
+                    a.this.g();
+                    a.this.g.a(a.this.a, com.baidu.platform.comapi.walknavi.b.a().J().a(), 70, 0, 0, 60);
+                }
+                if (com.baidu.platform.comapi.walknavi.b.a().J().a() != null) {
+                    com.baidu.platform.comapi.walknavi.b.a().J().a().requestLayout();
+                }
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes20.dex */
+    public class b extends AsyncTask<Integer, Integer, String> {
         private ScrollView b;
         private boolean c;
         private int d = 15;
 
-        public AsyncTaskC0224a(ScrollView scrollView, boolean z) {
+        public b(ScrollView scrollView, boolean z) {
             this.b = scrollView;
             this.c = z;
         }

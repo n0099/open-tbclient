@@ -3,7 +3,7 @@ package com.baidu.pano.platform.a;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 class h {
     private static final char[] a = "0123456789ABCDEF".toCharArray();
 

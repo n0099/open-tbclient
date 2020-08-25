@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes14.dex */
 public class c {
     private static HashMap<String, Integer> platformImageNameMap = new HashMap<>();
 
@@ -38,7 +38,7 @@ public class c {
         platformImageNameMap.put(TbConfig.SERVER_ADDRESS + Config.FORUM_LIKE_ADDRESS, 1002002);
     }
 
-    public static int gx(String str) {
+    public static int hR(String str) {
         if (platformImageNameMap.containsKey(str)) {
             return platformImageNameMap.get(str).intValue();
         }
@@ -72,9 +72,9 @@ public class c {
         }
     }
 
-    public static FlutterNetModelAuto F(String str, int i) {
+    public static FlutterNetModelAuto G(String str, int i) {
         FlutterNetModelAuto flutterNetModelAuto = new FlutterNetModelAuto(str, FlutterNetModelAuto.NetModelType.TYPE_SOCKET);
-        flutterNetModelAuto.dP(i);
+        flutterNetModelAuto.fL(i);
         return flutterNetModelAuto;
     }
 
@@ -82,7 +82,7 @@ public class c {
         if (i == 104102) {
             FlutterNetModelAuto flutterNetModelAuto = new FlutterNetModelAuto(str, FlutterNetModelAuto.NetModelType.TYPE_SOCKET);
             flutterNetModelAuto.a(e(i, hashMap));
-            flutterNetModelAuto.dQ(i);
+            flutterNetModelAuto.fM(i);
             flutterNetModelAuto.p(RequestUpdateMaskInfoMessage.class);
             flutterNetModelAuto.setResponseDataClass(ResponseUpdateMaskInfoMessage.class);
             return flutterNetModelAuto;
@@ -90,8 +90,8 @@ public class c {
             FlutterNetModelAuto flutterNetModelAuto2 = new FlutterNetModelAuto(str, FlutterNetModelAuto.NetModelType.TYPE_SOCKET);
             flutterNetModelAuto2.a(e(i, hashMap));
             flutterNetModelAuto2.setNeedCompress(false);
-            flutterNetModelAuto2.cX(true);
-            flutterNetModelAuto2.dQ(i);
+            flutterNetModelAuto2.df(true);
+            flutterNetModelAuto2.fM(i);
             flutterNetModelAuto2.p(RequestGetLivableForumList.class);
             flutterNetModelAuto2.setResponseDataClass(ResponseGetLivableForumList.class);
             return flutterNetModelAuto2;
@@ -99,8 +99,8 @@ public class c {
             FlutterNetModelAuto flutterNetModelAuto3 = new FlutterNetModelAuto(str, FlutterNetModelAuto.NetModelType.TYPE_SOCKET);
             flutterNetModelAuto3.a(e(i, hashMap));
             flutterNetModelAuto3.setNeedCompress(false);
-            flutterNetModelAuto3.cX(true);
-            flutterNetModelAuto3.dQ(i);
+            flutterNetModelAuto3.df(true);
+            flutterNetModelAuto3.fM(i);
             flutterNetModelAuto3.p(RequestDeleteFriendMessage.class);
             flutterNetModelAuto3.setResponseDataClass(ResponseDeleteFriendMessage.class);
             return flutterNetModelAuto3;

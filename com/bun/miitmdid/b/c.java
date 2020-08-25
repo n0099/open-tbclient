@@ -7,16 +7,16 @@ import com.bun.miitmdid.utils.d;
 import com.bun.miitmdid.utils.sysParamters;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes19.dex */
+/* loaded from: classes11.dex */
 public class c {
     private Map<String, String> a = new HashMap();
 
     private Map<String, String> a() {
         if (this.a.isEmpty()) {
-            this.a.put("av", sysParamters.dBp().b());
-            this.a.put("sv", sysParamters.dBp().c());
-            this.a.put(IXAdRequestInfo.TEST_MODE, sysParamters.dBp().d());
-            this.a.put("mf", sysParamters.dBp().e());
+            this.a.put("av", sysParamters.dNd().b());
+            this.a.put("sv", sysParamters.dNd().c());
+            this.a.put(IXAdRequestInfo.TEST_MODE, sysParamters.dNd().d());
+            this.a.put("mf", sysParamters.dNd().e());
             this.a.put(Config.PACKAGE_NAME, sysParamters.g());
         }
         this.a.put(IXAdRequestInfo.MAX_TITLE_LENGTH, String.valueOf(System.currentTimeMillis()));
@@ -26,16 +26,16 @@ public class c {
     public boolean a(boolean z, String str, String str2, String str3, String str4) {
         try {
             String a = d.a(String.format("UDID=%s&OAID=%s&VAID=%s&AAID=%s", str, str2, str3, str4));
-            b fU = b.fU(com.bun.miitmdid.utils.b.a());
-            fU.w(a());
-            fU.fS("support", String.valueOf(z ? 1 : 0));
-            fU.aL(a);
-            fU.Rd("http://sdk.api.bjshcw.com/stat");
-            fU.a(new b.a() { // from class: com.bun.miitmdid.b.c.1
+            b gi = b.gi(com.bun.miitmdid.utils.b.a());
+            gi.w(a());
+            gi.gj("support", String.valueOf(z ? 1 : 0));
+            gi.aN(a);
+            gi.Ud("http://sdk.api.bjshcw.com/stat");
+            gi.a(new b.a() { // from class: com.bun.miitmdid.b.c.1
                 @Override // com.bun.miitmdid.b.b.a
                 public void a(Exception exc, int i, String str5) {
                 }
-            }).dBj();
+            }).dMX();
             return true;
         } catch (Exception e) {
             e.printStackTrace();

@@ -9,31 +9,31 @@ public final class a {
 
     /* renamed from: com.tencent.mm.sdk.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0880a {
+    public static class C0938a {
         public String j;
         public Bundle k;
         public String l;
         public String m;
     }
 
-    public static boolean a(Context context, C0880a c0880a) {
-        if (context == null || c0880a == null) {
+    public static boolean a(Context context, C0938a c0938a) {
+        if (context == null || c0938a == null) {
             com.tencent.mm.sdk.b.a.a("MicroMsg.SDK.MMessage", "send fail, invalid argument");
             return false;
-        } else if (c.a(c0880a.m)) {
+        } else if (c.a(c0938a.m)) {
             com.tencent.mm.sdk.b.a.a("MicroMsg.SDK.MMessage", "send fail, action is null");
             return false;
         } else {
-            String str = c.a(c0880a.l) ? null : c0880a.l + ".permission.MM_MESSAGE";
-            Intent intent = new Intent(c0880a.m);
-            if (c0880a.k != null) {
-                intent.putExtras(c0880a.k);
+            String str = c.a(c0938a.l) ? null : c0938a.l + ".permission.MM_MESSAGE";
+            Intent intent = new Intent(c0938a.m);
+            if (c0938a.k != null) {
+                intent.putExtras(c0938a.k);
             }
             String packageName = context.getPackageName();
             intent.putExtra("_mmessage_sdkVersion", 570490883);
             intent.putExtra("_mmessage_appPackage", packageName);
-            intent.putExtra("_mmessage_content", c0880a.j);
-            intent.putExtra("_mmessage_checksum", b.a(c0880a.j, 570490883, packageName));
+            intent.putExtra("_mmessage_content", c0938a.j);
+            intent.putExtra("_mmessage_checksum", b.a(c0938a.j, 570490883, packageName));
             context.sendBroadcast(intent, str);
             com.tencent.mm.sdk.b.a.c("MicroMsg.SDK.MMessage", "send mm message, intent=" + intent + ", perm=" + str);
             return true;

@@ -8,7 +8,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.AlaLiveInfo;
 import tbclient.AlaStageDislikeInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class AlaInfoData implements Serializable {
     public static final int FRS_STAGE_TYPE_AD = 0;
     public static final int FRS_STAGE_TYPE_COMMON = 1;

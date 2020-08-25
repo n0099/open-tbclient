@@ -3,22 +3,22 @@ package org.brotli.dec;
 import com.baidu.ala.helper.AlaLiveRtcConfig;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 final class a {
     int bitOffset;
     private InputStream input;
-    private boolean ogK;
-    long ogL;
-    private int ogM;
-    private final byte[] ogH = new byte[4160];
-    private final int[] ogI = new int[AlaLiveRtcConfig.NativeErroCode.ERROR_PROTOCAL_SESSION_ID];
-    private final h ogJ = new h();
-    private int ogN = 0;
+    private boolean oAG;
+    long oAH;
+    private int oAI;
+    private final byte[] oAD = new byte[4160];
+    private final int[] oAE = new int[AlaLiveRtcConfig.NativeErroCode.ERROR_PROTOCAL_SESSION_ID];
+    private final h oAF = new h();
+    private int oAJ = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Code restructure failed: missing block: B:16:0x003b, code lost:
-        r5.ogK = true;
-        r5.ogN = r0;
+        r5.oAG = true;
+        r5.oAJ = r0;
      */
     /* JADX WARN: Code restructure failed: missing block: B:17:0x0040, code lost:
         r0 = r0 + 3;
@@ -27,23 +27,23 @@ final class a {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static void a(a aVar) {
-        if (aVar.ogM > 1015) {
-            if (aVar.ogK) {
+        if (aVar.oAI > 1015) {
+            if (aVar.oAG) {
                 if (g(aVar) < -2) {
                     throw new BrotliRuntimeException("No more input");
                 }
                 return;
             }
-            int i = aVar.ogM << 2;
+            int i = aVar.oAI << 2;
             int i2 = 4096 - i;
-            System.arraycopy(aVar.ogH, i, aVar.ogH, 0, i2);
-            aVar.ogM = 0;
+            System.arraycopy(aVar.oAD, i, aVar.oAD, 0, i2);
+            aVar.oAI = 0;
             while (true) {
                 if (i2 >= 4096) {
                     break;
                 }
                 try {
-                    int read = aVar.input.read(aVar.ogH, i2, 4096 - i2);
+                    int read = aVar.input.read(aVar.oAD, i2, 4096 - i2);
                     if (read <= 0) {
                         break;
                     }
@@ -52,18 +52,18 @@ final class a {
                     throw new BrotliRuntimeException("Failed to read input", e);
                 }
             }
-            h.a(aVar.ogJ, i2 >> 2);
+            h.a(aVar.oAF, i2 >> 2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(a aVar, boolean z) {
-        if (aVar.ogK) {
-            int i = ((aVar.ogM << 2) + ((aVar.bitOffset + 7) >> 3)) - 8;
-            if (i > aVar.ogN) {
+        if (aVar.oAG) {
+            int i = ((aVar.oAI << 2) + ((aVar.bitOffset + 7) >> 3)) - 8;
+            if (i > aVar.oAJ) {
                 throw new BrotliRuntimeException("Read after end");
             }
-            if (z && i != aVar.ogN) {
+            if (z && i != aVar.oAJ) {
                 throw new BrotliRuntimeException("Unused bytes after end");
             }
         }
@@ -73,9 +73,9 @@ final class a {
     public static void b(a aVar) {
         int i;
         if (aVar.bitOffset >= 32) {
-            int[] iArr = aVar.ogI;
-            aVar.ogM = aVar.ogM + 1;
-            aVar.ogL = (iArr[i] << 32) | (aVar.ogL >>> 32);
+            int[] iArr = aVar.oAE;
+            aVar.oAI = aVar.oAI + 1;
+            aVar.oAH = (iArr[i] << 32) | (aVar.oAH >>> 32);
             aVar.bitOffset -= 32;
         }
     }
@@ -83,7 +83,7 @@ final class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static int a(a aVar, int i) {
         b(aVar);
-        int i2 = ((int) (aVar.ogL >>> aVar.bitOffset)) & ((1 << i) - 1);
+        int i2 = ((int) (aVar.oAH >>> aVar.bitOffset)) & ((1 << i) - 1);
         aVar.bitOffset += i;
         return i2;
     }
@@ -93,12 +93,12 @@ final class a {
         if (aVar.input != null) {
             throw new IllegalStateException("Bit reader already has associated input stream");
         }
-        h.a(aVar.ogJ, aVar.ogH, aVar.ogI);
+        h.a(aVar.oAF, aVar.oAD, aVar.oAE);
         aVar.input = inputStream;
-        aVar.ogL = 0L;
+        aVar.oAH = 0L;
         aVar.bitOffset = 64;
-        aVar.ogM = 1024;
-        aVar.ogK = false;
+        aVar.oAI = 1024;
+        aVar.oAG = false;
         c(aVar);
     }
 
@@ -135,10 +135,10 @@ final class a {
 
     static int g(a aVar) {
         int i = 1024;
-        if (aVar.ogK) {
-            i = (aVar.ogN + 3) >> 2;
+        if (aVar.oAG) {
+            i = (aVar.oAJ + 3) >> 2;
         }
-        return i - aVar.ogM;
+        return i - aVar.oAI;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -149,7 +149,7 @@ final class a {
             throw new BrotliRuntimeException("Unaligned copyBytes");
         }
         while (aVar.bitOffset != 64 && i2 != 0) {
-            bArr[i] = (byte) (aVar.ogL >>> aVar.bitOffset);
+            bArr[i] = (byte) (aVar.oAH >>> aVar.bitOffset);
             aVar.bitOffset += 8;
             i2--;
             i++;
@@ -157,10 +157,10 @@ final class a {
         if (i2 != 0) {
             int min = Math.min(g(aVar), i2 >> 2);
             if (min > 0) {
-                System.arraycopy(aVar.ogH, aVar.ogM << 2, bArr, i, min << 2);
+                System.arraycopy(aVar.oAD, aVar.oAI << 2, bArr, i, min << 2);
                 i4 = i + (min << 2);
                 i3 = i2 - (min << 2);
-                aVar.ogM = min + aVar.ogM;
+                aVar.oAI = min + aVar.oAI;
             } else {
                 i3 = i2;
                 i4 = i;
@@ -169,7 +169,7 @@ final class a {
                 if (g(aVar) > 0) {
                     b(aVar);
                     while (i3 != 0) {
-                        bArr[i4] = (byte) (aVar.ogL >>> aVar.bitOffset);
+                        bArr[i4] = (byte) (aVar.oAH >>> aVar.bitOffset);
                         aVar.bitOffset += 8;
                         i3--;
                         i4++;

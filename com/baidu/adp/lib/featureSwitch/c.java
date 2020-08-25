@@ -6,91 +6,91 @@ import com.baidu.adp.base.BdBaseApplication;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class c {
-    public static String JX = "_crashtime";
-    public static String JY = "_crashtype";
-    private int JZ;
-    private int Ka;
-    private b Kb;
+    public static String KA = "_crashtime";
+    public static String KC = "_crashtype";
+    private int KD;
+    private int KE;
+    private b KF;
 
     public c(b bVar) {
-        this.JZ = 0;
-        this.Ka = 0;
-        this.Kb = null;
+        this.KD = 0;
+        this.KE = 0;
+        this.KF = null;
         if (bVar == null) {
             throw new InvalidParameterException("SwitchHolder data is null");
         }
-        this.Kb = bVar;
-        if (this.Kb.getMaxCrashTimes() > 0 && this.Kb.kA() != null) {
-            this.JZ = kD();
-            if (this.JZ == -1) {
+        this.KF = bVar;
+        if (this.KF.getMaxCrashTimes() > 0 && this.KF.lZ() != null) {
+            this.KD = mc();
+            if (this.KD == -1) {
                 reset();
             }
         }
-        if (!bVar.kz()) {
-            this.Ka = kC();
+        if (!bVar.lY()) {
+            this.KE = mb();
         }
-        this.Kb.j(this.Ka, true);
+        this.KF.k(this.KE, true);
     }
 
-    public b kB() {
-        return this.Kb;
+    public b ma() {
+        return this.KF;
     }
 
     public String getName() {
-        return this.Kb.getName();
+        return this.KF.getName();
     }
 
     public int getDefaultType() {
-        return this.Kb.getDefaultType();
+        return this.KF.getDefaultType();
     }
 
     public int getType() {
-        return this.Ka;
+        return this.KE;
     }
 
-    public boolean ac(int i) {
-        if (this.Kb.getMaxCrashTimes() >= 0 && this.JZ >= this.Kb.getMaxCrashTimes() + 2) {
-            i = this.Kb.getOffType();
+    public boolean ae(int i) {
+        if (this.KF.getMaxCrashTimes() >= 0 && this.KD >= this.KF.getMaxCrashTimes() + 2) {
+            i = this.KF.getOffType();
         }
-        if (i == this.Ka) {
+        if (i == this.KE) {
             return false;
         }
-        this.Ka = i;
-        this.Kb.j(this.Ka, false);
-        ad(i);
+        this.KE = i;
+        this.KF.k(this.KE, false);
+        af(i);
         return true;
     }
 
-    public boolean bA(String str) {
+    public boolean bF(String str) {
         String[] switchLibs;
-        String[] kA;
-        if (str == null || this.Kb.getMaxCrashTimes() <= 0) {
+        String[] lZ;
+        if (str == null || this.KF.getMaxCrashTimes() <= 0) {
             return false;
         }
-        if (this.Kb.kA() != null) {
-            for (String str2 : this.Kb.kA()) {
+        if (this.KF.lZ() != null) {
+            for (String str2 : this.KF.lZ()) {
                 if (!TextUtils.isEmpty(str2) && str.indexOf(str2) != -1) {
-                    this.JZ++;
-                    ae(this.JZ);
-                    if (this.JZ >= this.Kb.getMaxCrashTimes()) {
-                        ad(this.Kb.getOffType());
-                        this.Ka = this.Kb.getOffType();
-                        this.Kb.j(this.Kb.getOffType(), false);
+                    this.KD++;
+                    ag(this.KD);
+                    if (this.KD >= this.KF.getMaxCrashTimes()) {
+                        af(this.KF.getOffType());
+                        this.KE = this.KF.getOffType();
+                        this.KF.k(this.KF.getOffType(), false);
                         return true;
                     }
                     return true;
                 }
             }
         }
-        if (this.Kb.getSwitchLibs() != null) {
-            for (String str3 : this.Kb.getSwitchLibs()) {
+        if (this.KF.getSwitchLibs() != null) {
+            for (String str3 : this.KF.getSwitchLibs()) {
                 if (!TextUtils.isEmpty(str3) && str.equals(str3)) {
-                    this.JZ++;
-                    ae(this.JZ);
-                    if (this.JZ >= this.Kb.getMaxCrashTimes()) {
-                        ad(this.Kb.getOffType());
-                        this.Ka = this.Kb.getOffType();
-                        this.Kb.j(this.Kb.getOffType(), false);
+                    this.KD++;
+                    ag(this.KD);
+                    if (this.KD >= this.KF.getMaxCrashTimes()) {
+                        af(this.KF.getOffType());
+                        this.KE = this.KF.getOffType();
+                        this.KF.k(this.KF.getOffType(), false);
                         return true;
                     }
                     return true;
@@ -100,31 +100,31 @@ public class c {
         return false;
     }
 
-    private void ad(int i) {
+    private void af(int i) {
         SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-        edit.putInt(this.Kb.getName() + JY, i);
+        edit.putInt(this.KF.getName() + KC, i);
         edit.commit();
     }
 
-    private int kC() {
-        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.Kb.getName() + JY, this.Kb.getDefaultType());
+    private int mb() {
+        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.KF.getName() + KC, this.KF.getDefaultType());
     }
 
-    private int kD() {
-        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.Kb.getName() + JX, -1);
+    private int mc() {
+        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.KF.getName() + KA, -1);
     }
 
-    private void ae(int i) {
+    private void ag(int i) {
         SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-        edit.putInt(this.Kb.getName() + JX, i);
+        edit.putInt(this.KF.getName() + KA, i);
         edit.commit();
     }
 
     public void reset() {
-        this.JZ = 0;
+        this.KD = 0;
     }
 
-    public void af(int i) {
-        this.JZ = i;
+    public void ah(int i) {
+        this.KD = i;
     }
 }

@@ -1,14 +1,14 @@
 package com.baidu.swan.games.u.b;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d {
-    public long dmH;
-    public long dmI;
-    public String dmJ;
-    public String dmK;
-    public String dmL;
-    public String dmM;
-    public String dmN;
-    public String dmO;
+    public long dwM;
+    public long dwN;
+    public String dwO;
+    public String dwP;
+    public String dwQ;
+    public String dwR;
+    public String dwS;
+    public String dwT;
     public String publishType;
     public int showToast;
     public String sourceFrom;
@@ -17,6 +17,6 @@ public class d {
     public String target;
 
     public String toString() {
-        return "{ clipMaxDuration=" + this.dmH + " , clipMinDuration=" + this.dmI + " , topicSource=" + this.dmJ + " , publishURL=" + this.dmL + " , publishType=" + this.publishType + " , publishTitle=" + this.dmK + " , atURL=" + this.dmN + " , topicURL=" + this.dmO + " , musicURL=" + this.dmM + " , sourceFrom=" + this.sourceFrom + " , sourceType=" + this.sourceType + ",target=" + this.target + ",showToast=" + this.showToast + " }";
+        return "{ clipMaxDuration=" + this.dwM + " , clipMinDuration=" + this.dwN + " , topicSource=" + this.dwO + " , publishURL=" + this.dwQ + " , publishType=" + this.publishType + " , publishTitle=" + this.dwP + " , atURL=" + this.dwS + " , topicURL=" + this.dwT + " , musicURL=" + this.dwR + " , sourceFrom=" + this.sourceFrom + " , sourceType=" + this.sourceType + ",target=" + this.target + ",showToast=" + this.showToast + " }";
     }
 }

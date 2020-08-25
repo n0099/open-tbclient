@@ -3,11 +3,11 @@ package com.baidu.tbadk.widget.richText;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import org.json.JSONObject;
 import tbclient.PbContent;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class TbRichTextVoiceInfo extends OrmObject {
     private int duration;
-    private int eVG;
-    private Object eVH;
+    private int fgo;
+    private Object fgp;
     private String md5;
 
     public TbRichTextVoiceInfo() {
@@ -17,7 +17,7 @@ public class TbRichTextVoiceInfo extends OrmObject {
         if (pbContent != null) {
             this.md5 = pbContent.voice_md5;
             this.duration = pbContent.during_time.intValue() / 1000;
-            this.eVG = pbContent.is_sub.intValue();
+            this.fgo = pbContent.is_sub.intValue();
         }
     }
 
@@ -25,7 +25,7 @@ public class TbRichTextVoiceInfo extends OrmObject {
         if (jSONObject != null) {
             this.md5 = jSONObject.optString("voice_md5");
             this.duration = jSONObject.optInt("during_time") / 1000;
-            this.eVG = jSONObject.optInt("is_sub");
+            this.fgo = jSONObject.optInt("is_sub");
         }
     }
 
@@ -37,15 +37,15 @@ public class TbRichTextVoiceInfo extends OrmObject {
         return this.duration;
     }
 
-    public int bpJ() {
-        return this.eVG;
+    public int byx() {
+        return this.fgo;
     }
 
-    public Object bpK() {
-        return this.eVH;
+    public Object byy() {
+        return this.fgp;
     }
 
-    public void ar(Object obj) {
-        this.eVH = obj;
+    public void at(Object obj) {
+        this.fgp = obj;
     }
 }

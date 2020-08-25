@@ -1,17 +1,15 @@
 package com.vivo.push.b;
-
-import com.baidu.mapapi.UIMsg;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public final class ac extends com.vivo.push.y {
     private String a;
 
     public ac(String str) {
-        super(UIMsg.m_AppUI.MSG_APP_VERSION_FORCE_NAV_MODULE);
+        super(2008);
         this.a = str;
     }
 
     public ac() {
-        super(UIMsg.m_AppUI.MSG_APP_VERSION_FORCE_NAV_MODULE);
+        super(2008);
     }
 
     @Override // com.vivo.push.y

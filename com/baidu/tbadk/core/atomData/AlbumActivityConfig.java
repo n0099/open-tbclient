@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.frs.FrsTabInfoData;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class AlbumActivityConfig extends IntentConfig {
     public static final String ACTION_SELECT_IMAGE_RESULT = "com.baidu.tieba.AlbumActivity.SelectImageResult";
     public static final String ALBUM_RESULT = "album_result";

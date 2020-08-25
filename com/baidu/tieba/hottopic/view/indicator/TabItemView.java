@@ -5,11 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes15.dex */
 public class TabItemView extends RelativeLayout {
-    private TextView iON;
+    private TextView jdK;
     private View mRootView;
     private TextView mTextView;
 
@@ -17,7 +17,7 @@ public class TabItemView extends RelativeLayout {
         super(context);
         this.mRootView = LayoutInflater.from(context).inflate(R.layout.topic_tab_item_view, this);
         this.mTextView = (TextView) this.mRootView.findViewById(R.id.topic_tab_item_textview);
-        this.iON = (TextView) this.mRootView.findViewById(R.id.topic_tab_item_red_tip);
+        this.jdK = (TextView) this.mRootView.findViewById(R.id.topic_tab_item_red_tip);
     }
 
     public TextView getTextView() {
@@ -25,10 +25,10 @@ public class TabItemView extends RelativeLayout {
     }
 
     public TextView getRedTipView() {
-        return this.iON;
+        return this.jdK;
     }
 
     public void onChangeSkinType() {
-        ao.setBackgroundResource(this.iON, R.drawable.icon_news_down_bar_one);
+        ap.setBackgroundResource(this.jdK, R.drawable.icon_news_down_bar_one);
     }
 }

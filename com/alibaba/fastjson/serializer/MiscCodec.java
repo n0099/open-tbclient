@@ -36,7 +36,7 @@ import java.util.TimeZone;
 import java.util.UUID;
 import java.util.regex.Pattern;
 import org.apache.http.cookie.ClientCookie;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class MiscCodec implements ObjectDeserializer, ObjectSerializer {
     private static boolean FILE_RELATIVE_PATH_SUPPORT;
     private static Method method_paths_get;
@@ -60,7 +60,7 @@ public class MiscCodec implements ObjectDeserializer, ObjectSerializer {
         if (cls == SimpleDateFormat.class) {
             currencyCode = ((SimpleDateFormat) obj).toPattern();
             if (serializeWriter.isEnabled(SerializerFeature.WriteClassName) && obj.getClass() != type) {
-                serializeWriter.write(123);
+                serializeWriter.write(Constants.METHOD_IM_FRIEND_GROUP_QUERY);
                 serializeWriter.writeFieldName(JSON.DEFAULT_TYPE_KEY);
                 jSONSerializer.write(obj.getClass().getName());
                 serializeWriter.writeFieldValue(',', "val", currencyCode);
@@ -72,7 +72,7 @@ public class MiscCodec implements ObjectDeserializer, ObjectSerializer {
         } else if (cls == InetSocketAddress.class) {
             InetSocketAddress inetSocketAddress = (InetSocketAddress) obj;
             InetAddress address = inetSocketAddress.getAddress();
-            serializeWriter.write(123);
+            serializeWriter.write(Constants.METHOD_IM_FRIEND_GROUP_QUERY);
             if (address != null) {
                 serializeWriter.writeFieldName("address");
                 jSONSerializer.write(address);
@@ -108,12 +108,12 @@ public class MiscCodec implements ObjectDeserializer, ObjectSerializer {
                 if (value instanceof String) {
                     serializeWriter.writeFieldValueStringWithDoubleQuoteCheck('{', str, (String) value);
                 } else {
-                    serializeWriter.write(123);
+                    serializeWriter.write(Constants.METHOD_IM_FRIEND_GROUP_QUERY);
                     serializeWriter.writeFieldName(str);
                     jSONSerializer.write(value);
                 }
             } else {
-                serializeWriter.write(123);
+                serializeWriter.write(Constants.METHOD_IM_FRIEND_GROUP_QUERY);
                 jSONSerializer.write(key);
                 serializeWriter.write(58);
                 jSONSerializer.write(value);

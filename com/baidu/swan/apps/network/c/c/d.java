@@ -5,43 +5,43 @@ import android.support.media.ExifInterface;
 import android.util.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final String cxH;
-    private long cxI;
-    private long cxJ;
+    private final String cFB;
+    private long cFC;
+    private long cFD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(String str) {
-        this.cxH = str;
+        this.cFB = str;
         if (DEBUG) {
             Log.d(ExifInterface.TAG_MODEL, "new model, scope id - " + str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bk(long j) {
-        this.cxI = j;
+    public void bp(long j) {
+        this.cFC = j;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bl(long j) {
-        this.cxJ = j;
+    public void bq(long j) {
+        this.cFD = j;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long anp() {
-        return this.cxI;
+    public long avk() {
+        return this.cFC;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("scope_id", this.cxH);
-            jSONObject.put("begin_ts", this.cxI);
-            jSONObject.put("end_ts", this.cxJ);
+            jSONObject.put("scope_id", this.cFB);
+            jSONObject.put("begin_ts", this.cFC);
+            jSONObject.put("end_ts", this.cFD);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();

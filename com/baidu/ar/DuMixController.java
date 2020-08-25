@@ -2,6 +2,7 @@ package com.baidu.ar;
 
 import android.content.Context;
 import android.graphics.Point;
+import android.graphics.SurfaceTexture;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
@@ -10,20 +11,22 @@ import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.ar.ability.AbilityType;
 import com.baidu.ar.arplay.core.engine.pixel.PixelReadParams;
 import com.baidu.ar.arplay.core.engine.rotate.OrientationManager;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.ar.arrender.IGLRenderer;
+import com.baidu.ar.auth.IAuthenticator;
 import com.baidu.ar.auth.IDuMixAuthCallback;
+import com.baidu.ar.auth.IOfflineAuthenticator;
 import com.baidu.ar.bean.CaseModel;
 import com.baidu.ar.callback.ICallbackWith;
 import com.baidu.ar.content.IContentPlatform;
-import com.baidu.ar.f.l;
-import com.baidu.ar.f.n;
 import com.baidu.ar.filter.FilterParam;
 import com.baidu.ar.filter.FilterStateListener;
 import com.baidu.ar.filter.IFilter;
+import com.baidu.ar.g.n;
 import com.baidu.ar.libloader.ILibLoaderPlugin;
 import com.baidu.ar.lua.LuaMsgListener;
 import com.baidu.ar.photo.IPhoto;
@@ -40,20 +43,20 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class DuMixController implements IDuMix, IFilter, IPhoto, IRecord {
-    private static volatile DuMixController aI = null;
-    private static volatile int aS = 0;
+    private static volatile DuMixController aJ = null;
+    private static volatile int aT = 0;
     private static volatile Object sLock = new Object();
     private com.baidu.ar.filter.a A;
     private DuMixInput W;
-    private HandlerThread aJ;
-    private Handler aK;
+    private HandlerThread aK;
     private Handler aL;
-    private DuMixCallback aM;
-    private e aN;
-    private com.baidu.ar.lua.e aO;
-    private OrientationManager aP;
-    private com.baidu.ar.record.a aQ;
-    private IContentPlatform aR;
+    private Handler aM;
+    private DuMixCallback aN;
+    private e aO;
+    private com.baidu.ar.lua.e aP;
+    private OrientationManager aQ;
+    private com.baidu.ar.record.a aR;
+    private IContentPlatform aS;
     private DuMixOutput aa;
     protected DuMixCallback ab;
     private b ae;
@@ -115,6 +118,12 @@ public class DuMixController implements IDuMix, IFilter, IPhoto, IRecord {
                         return;
                     }
                     return;
+                case 3010:
+                    if (DuMixController.this.g != null) {
+                        DuMixController.this.g.changeInputSize((SurfaceTexture) message.obj, message.arg1, message.arg2);
+                        return;
+                    }
+                    return;
                 default:
                     return;
             }
@@ -128,37 +137,38 @@ public class DuMixController implements IDuMix, IFilter, IPhoto, IRecord {
         } else {
             this.d = new DefaultParams();
         }
-        com.baidu.ar.f.b.c("DuMixController", "create DuMixController sState = " + aS);
-        if (aS == 3) {
+        com.baidu.ar.g.b.c("DuMixController", "create DuMixController sState = " + aT);
+        if (aT == 3) {
             synchronized (sLock) {
                 try {
-                    com.baidu.ar.f.b.c("DuMixController", "create DuMixController wait for release!");
-                    sLock.wait(1000L);
+                    com.baidu.ar.g.b.c("DuMixController", "create DuMixController wait for release!");
+                    sLock.wait(IMConnection.RETRY_DELAY_TIMES);
                 } catch (Exception e) {
-                    com.baidu.ar.f.b.b("DuMixController", "create DuMixController wait error!!!");
+                    com.baidu.ar.g.b.b("DuMixController", "create DuMixController wait error!!!");
                 }
             }
         }
-        this.aJ = new HandlerThread("DuMixController");
-        this.aJ.start();
-        this.aK = new a(this.aJ.getLooper());
+        this.aK = new HandlerThread("DuMixController");
+        this.aK.start();
+        this.aL = new a(this.aK.getLooper());
+        com.baidu.ar.c.c.ce().a(this.aK.getLooper());
         a(this.mContext, this.d);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void P() {
-        com.baidu.ar.f.b.c("DuMixController", "handleSetup() sState = " + aS);
-        if (aS != 0 || this.aN == null || this.g == null || this.A == null || this.ae == null || this.v == null) {
+        com.baidu.ar.g.b.c("DuMixController", "handleSetup() sState = " + aT);
+        if (aT != 0 || this.aO == null || this.g == null || this.A == null || this.ae == null || this.v == null) {
             return;
         }
-        aS = 1;
-        this.aM = Q();
-        this.aN.a(this.g, this.ae, this.A, this.f);
-        this.aN.setup(this.W, this.aa, this.aM);
+        aT = 1;
+        this.aN = Q();
+        this.aO.a(this.g, this.ae, this.A, this.f);
+        this.aO.setup(this.W, this.aa, this.aN);
         StatisticApi.setPubParam(StatisticConstants.FRAME_DATA_FROM, this.W.isCameraInput() ? PixelReadParams.DEFAULT_FILTER_ID : "video");
         StatisticApi.onEventStart(StatisticConstants.EVENT_SDK_START);
-        this.aP.addOrientationListener(this.g);
-        this.aP.enable();
+        this.aQ.addOrientationListener(this.g);
+        this.aQ.enable();
         this.A.a(this.g);
         if (this.v != null) {
             JSONObject ad = this.v.ad();
@@ -170,16 +180,16 @@ public class DuMixController implements IDuMix, IFilter, IPhoto, IRecord {
         }
         this.ae.a(this.f, this.g);
         this.g.a(this.W, this.aa);
-        this.aN.a(this.v);
-        this.aN.E();
+        this.aO.a(this.v);
+        this.aO.E();
     }
 
     private DuMixCallback Q() {
         return new DuMixCallback() { // from class: com.baidu.ar.DuMixController.1
             @Override // com.baidu.ar.DuMixCallback
             public void onCaseCreate(final boolean z, final String str, final String str2) {
-                if (DuMixController.this.aL != null) {
-                    DuMixController.this.aL.post(new Runnable() { // from class: com.baidu.ar.DuMixController.1.2
+                if (DuMixController.this.aM != null) {
+                    DuMixController.this.aM.post(new Runnable() { // from class: com.baidu.ar.DuMixController.1.2
                         @Override // java.lang.Runnable
                         public void run() {
                             if (DuMixController.this.ab != null) {
@@ -192,8 +202,8 @@ public class DuMixController implements IDuMix, IFilter, IPhoto, IRecord {
 
             @Override // com.baidu.ar.DuMixCallback
             public void onCaseDestroy() {
-                if (DuMixController.this.aL != null) {
-                    DuMixController.this.aL.post(new Runnable() { // from class: com.baidu.ar.DuMixController.1.3
+                if (DuMixController.this.aM != null) {
+                    DuMixController.this.aM.post(new Runnable() { // from class: com.baidu.ar.DuMixController.1.3
                         @Override // java.lang.Runnable
                         public void run() {
                             if (DuMixController.this.ab != null) {
@@ -206,8 +216,8 @@ public class DuMixController implements IDuMix, IFilter, IPhoto, IRecord {
 
             @Override // com.baidu.ar.DuMixCallback
             public void onError(final DuMixErrorType duMixErrorType, final String str, final String str2) {
-                if (DuMixController.this.aL != null) {
-                    DuMixController.this.aL.post(new Runnable() { // from class: com.baidu.ar.DuMixController.1.5
+                if (DuMixController.this.aM != null) {
+                    DuMixController.this.aM.post(new Runnable() { // from class: com.baidu.ar.DuMixController.1.5
                         @Override // java.lang.Runnable
                         public void run() {
                             if (DuMixController.this.ab != null) {
@@ -220,46 +230,52 @@ public class DuMixController implements IDuMix, IFilter, IPhoto, IRecord {
 
             @Override // com.baidu.ar.DuMixCallback
             public void onRelease() {
-                com.baidu.ar.f.b.c("DuMixController", "getDuMixCallbackProxy onRelease sState = " + DuMixController.aS);
-                int unused = DuMixController.aS = 0;
-                if (DuMixController.this.aL != null) {
-                    DuMixController.this.aL.post(new Runnable() { // from class: com.baidu.ar.DuMixController.1.4
+                com.baidu.ar.g.b.c("DuMixController", "getDuMixCallbackProxy onRelease sState = " + DuMixController.aT);
+                int unused = DuMixController.aT = 0;
+                synchronized (DuMixController.sLock) {
+                    try {
+                        DuMixController.sLock.notifyAll();
+                    } catch (Exception e) {
+                        com.baidu.ar.g.b.c("DuMixController", "onRelease normal!!!");
+                    }
+                }
+                if (DuMixController.this.aM != null) {
+                    DuMixController.this.aM.post(new Runnable() { // from class: com.baidu.ar.DuMixController.1.4
                         @Override // java.lang.Runnable
                         public void run() {
                             if (DuMixController.this.ab != null) {
-                                com.baidu.ar.f.b.c("DuMixController", "mDuMixCallback.onRelease()");
                                 DuMixController.this.ab.onRelease();
                                 DuMixController.this.ab = null;
-                                DuMixController.this.aL = null;
-                                synchronized (DuMixController.sLock) {
-                                    try {
-                                        DuMixController.sLock.notifyAll();
-                                    } catch (Exception e) {
-                                        com.baidu.ar.f.b.c("DuMixController", "onRelease normal!!!");
-                                    }
-                                }
                             }
                         }
                     });
+                    DuMixController.this.aM = null;
                 }
             }
 
             @Override // com.baidu.ar.DuMixCallback
             public void onSetup(final boolean z, final DuMixInput duMixInput, final DuMixOutput duMixOutput) {
-                com.baidu.ar.f.b.c("DuMixController", "getDuMixCallbackProxy onSetup sState = " + DuMixController.aS);
+                com.baidu.ar.g.b.c("DuMixController", "getDuMixCallbackProxy onSetup sState = " + DuMixController.aT);
                 if (z) {
-                    int unused = DuMixController.aS = 2;
+                    int unused = DuMixController.aT = 2;
                 }
-                if (DuMixController.this.aL != null) {
-                    DuMixController.this.aL.post(new Runnable() { // from class: com.baidu.ar.DuMixController.1.1
+                if (DuMixController.this.aM != null) {
+                    DuMixController.this.aM.post(new Runnable() { // from class: com.baidu.ar.DuMixController.1.1
                         @Override // java.lang.Runnable
                         public void run() {
                             if (DuMixController.this.ab != null) {
-                                com.baidu.ar.f.b.c("DuMixController", "mDuMixCallback.onSetup()");
+                                com.baidu.ar.g.b.c("DuMixController", "mDuMixCallback.onSetup()");
                                 DuMixController.this.ab.onSetup(z, duMixInput, duMixOutput);
                             }
                         }
                     });
+                }
+                synchronized (DuMixController.sLock) {
+                    try {
+                        DuMixController.sLock.notifyAll();
+                    } catch (Exception e) {
+                        com.baidu.ar.g.b.c("DuMixController", "onSetup normal!!!");
+                    }
                 }
             }
         };
@@ -267,7 +283,7 @@ public class DuMixController implements IDuMix, IFilter, IPhoto, IRecord {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void R() {
-        if (aS != 2) {
+        if (aT != 2) {
             return;
         }
         if (this.ae != null) {
@@ -276,26 +292,26 @@ public class DuMixController implements IDuMix, IFilter, IPhoto, IRecord {
         if (this.g != null) {
             this.g.pause();
         }
-        if (this.aP != null) {
-            this.aP.disable();
+        if (this.aQ != null) {
+            this.aQ.disable();
         }
         StatisticApi.pause();
-        if (this.aN != null) {
-            this.aN.j("pause");
+        if (this.aO != null) {
+            this.aO.k("pause");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void S() {
-        if (aS != 2) {
+        if (aT != 2) {
             return;
         }
-        if (this.aN != null) {
-            this.aN.j("resume");
+        if (this.aO != null) {
+            this.aO.k("resume");
         }
         StatisticApi.resume();
-        if (this.aP != null) {
-            this.aP.enable();
+        if (this.aQ != null) {
+            this.aQ.enable();
         }
         if (this.g != null) {
             this.g.resume();
@@ -307,18 +323,18 @@ public class DuMixController implements IDuMix, IFilter, IPhoto, IRecord {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void T() {
-        com.baidu.ar.f.b.c("DuMixController", "handleRelease() sState = " + aS);
-        if (this.aK != null) {
-            this.aK.removeCallbacksAndMessages(null);
-            this.aK = null;
+        com.baidu.ar.g.b.c("DuMixController", "handleRelease() sState = " + aT);
+        if (this.aL != null) {
+            this.aL.removeCallbacksAndMessages(null);
+            this.aL = null;
         }
-        this.aR = null;
-        if (this.aN != null) {
-            this.aN.A();
-        }
+        this.aS = null;
         if (this.aO != null) {
-            this.aO.release();
-            this.aO = null;
+            this.aO.A();
+        }
+        if (this.aP != null) {
+            this.aP.release();
+            this.aP = null;
         }
         if (this.A != null) {
             this.A.clearAllFilter();
@@ -333,9 +349,9 @@ public class DuMixController implements IDuMix, IFilter, IPhoto, IRecord {
             this.g.release();
             this.g = null;
         }
-        if (this.aP != null) {
-            this.aP.destroy();
-            this.aP = null;
+        if (this.aQ != null) {
+            this.aQ.destroy();
+            this.aQ = null;
         }
         if (this.v != null) {
             this.v.release();
@@ -350,46 +366,45 @@ public class DuMixController implements IDuMix, IFilter, IPhoto, IRecord {
             this.f.destroy();
             this.f = null;
         }
-        if (this.aN != null) {
-            this.aN.release();
-            this.aN = null;
+        if (this.aO != null) {
+            this.aO.release();
+            this.aO = null;
         }
         this.W = null;
         this.aa = null;
         this.d = null;
-        this.aM = null;
+        this.aN = null;
         this.mContext = null;
-        com.baidu.ar.f.b.c("DuMixController", "handleRelease() end");
-        if (this.aJ != null) {
-            this.aJ.quitSafely();
-            this.aJ = null;
+        com.baidu.ar.g.b.c("DuMixController", "handleRelease() end");
+        if (this.aK != null) {
+            this.aK.quitSafely();
+            this.aK = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void U() {
-        if (this.aN == null || aS != 2) {
-            com.baidu.ar.f.b.b("DuMixController", "handleClearCase DuMix has not setup!!!!!!");
+        if (this.aO == null || aT != 2) {
+            com.baidu.ar.g.b.b("DuMixController", "handleClearCase DuMix has not setup!!!!!!");
         } else {
-            this.aN.clearCase();
+            this.aO.clearCase();
         }
     }
 
     private void a(Context context, DefaultParams defaultParams) {
-        com.baidu.ar.f.b.c("DuMixController", "createManagers start!!!");
-        if (this.aL == null) {
-            this.aL = new Handler(context.getMainLooper());
+        com.baidu.ar.g.b.c("DuMixController", "createManagers start!!!");
+        if (this.aM == null) {
+            this.aM = new Handler(context.getMainLooper());
         }
-        com.baidu.ar.f.b.V(defaultParams.isLogEnable());
-        com.baidu.ar.f.a.setPackageName(context.getPackageName());
-        if (this.aP == null) {
-            this.aP = new OrientationManager(context);
-            this.aP.setScreenOrientationLandscape(n.y(context));
+        com.baidu.ar.g.b.V(defaultParams.isLogEnable());
+        com.baidu.ar.g.a.setPackageName(context.getPackageName());
+        if (this.aQ == null) {
+            this.aQ = new OrientationManager(context);
         }
         StatisticApi.init(context);
-        if (this.aN == null) {
-            this.aN = new e(context, defaultParams, this.aJ);
-            this.aN.a(this);
+        if (this.aO == null) {
+            this.aO = new e(context, defaultParams, this.aK);
+            this.aO.a(this);
         }
         if (this.v == null) {
             this.v = new com.baidu.ar.a.b(context);
@@ -397,7 +412,7 @@ public class DuMixController implements IDuMix, IFilter, IPhoto, IRecord {
         }
         if (this.A == null) {
             this.A = new com.baidu.ar.filter.a(defaultParams);
-            this.ae = new b(context, this.aJ.getLooper(), defaultParams, this.v, this.A);
+            this.ae = new b(context, this.aK.getLooper(), defaultParams, this.v, this.A);
         }
         if (this.f == null) {
             this.f = new com.baidu.ar.lua.b(context);
@@ -405,39 +420,54 @@ public class DuMixController implements IDuMix, IFilter, IPhoto, IRecord {
         }
         if (this.g == null) {
             if (defaultParams.isUseTextureIO()) {
-                this.g = new com.baidu.ar.arrender.d(context, this.f, defaultParams.getShareContext());
+                this.g = new com.baidu.ar.arrender.d(context, this.aK.getLooper(), this.f, defaultParams.getShareContext());
             } else {
-                this.g = new com.baidu.ar.arrender.c(context, this.f);
+                this.g = new com.baidu.ar.arrender.c(context, this.aK.getLooper(), this.f);
+            }
+            if (!TextUtils.isEmpty(defaultParams.getRenderPipeline())) {
+                this.g.setDefaultPipeLine(defaultParams.getRenderPipeline());
             }
         }
-        com.baidu.ar.f.b.c("DuMixController", "createManagers end!!!");
+        com.baidu.ar.g.b.c("DuMixController", "createManagers end!!!");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(CaseModel caseModel) {
-        if (this.aN != null && aS == 2) {
-            this.aN.loadCase(caseModel.mCaseType, caseModel.mCasePath, caseModel.mCaseId);
+        if (this.aO != null && aT == 2) {
+            this.aO.loadCase(caseModel.mCaseType, caseModel.mCasePath, caseModel.mCaseId);
             return;
         }
-        com.baidu.ar.f.b.b("DuMixController", "handleLoadCase DuMix has not setup!!!!!!");
-        if (this.aM != null) {
-            this.aM.onCaseCreate(false, caseModel.mCasePath, caseModel.mCaseId);
+        com.baidu.ar.g.b.b("DuMixController", "handleLoadCase DuMix has not setup!!!!!!");
+        if (this.aN != null) {
+            this.aN.onCaseCreate(false, caseModel.mCasePath, caseModel.mCaseId);
         }
+    }
+
+    public static IAuthenticator getAsyncAuthenticator(String str, String str2, String str3) {
+        return com.baidu.ar.auth.b.getAsyncAuthenticator(str, str2, str3);
+    }
+
+    public static IAuthenticator getAuthenticator() {
+        return com.baidu.ar.auth.b.getAuthenticator();
     }
 
     public static DuMixController getInstance(Context context, DefaultParams defaultParams) {
         if (context == null) {
-            com.baidu.ar.f.b.b("DuMixController", "getInstance() context must be set!!!");
+            com.baidu.ar.g.b.b("DuMixController", "getInstance() context must be set!!!");
             return null;
         }
-        if (aI == null) {
+        if (aJ == null) {
             synchronized (DuMixController.class) {
-                if (aI == null) {
-                    aI = new DuMixController(context, defaultParams);
+                if (aJ == null) {
+                    aJ = new DuMixController(context, defaultParams);
                 }
             }
         }
-        return aI;
+        return aJ;
+    }
+
+    public static IOfflineAuthenticator getOfflineAuthenticator() {
+        return com.baidu.ar.auth.b.getOfflineAuthenticator();
     }
 
     public static String getSoDownLoadDir(Context context) {
@@ -445,11 +475,11 @@ public class DuMixController implements IDuMix, IFilter, IPhoto, IRecord {
     }
 
     public static int getVersionCode() {
-        return com.baidu.ar.f.c.getVersionCode();
+        return com.baidu.ar.g.c.getVersionCode();
     }
 
     public static String getVersionName() {
-        return com.baidu.ar.f.c.getVersionName();
+        return com.baidu.ar.g.c.getVersionName();
     }
 
     public boolean addAbility(String str, String str2) {
@@ -471,52 +501,71 @@ public class DuMixController implements IDuMix, IFilter, IPhoto, IRecord {
     }
 
     public boolean addLuaMsgListener(LuaMsgListener luaMsgListener) {
-        if (this.f == null || this.f.dZ() == null) {
+        if (this.f == null || this.f.fl() == null) {
             return false;
         }
-        return this.f.dZ().addLuaMsgListener(luaMsgListener);
+        return this.f.fl().addLuaMsgListener(luaMsgListener);
     }
 
     public boolean adjustAbility(AbilityType abilityType, HashMap<String, Object> hashMap) {
-        if (this.ae == null || abilityType == null || aS != 2) {
+        if (this.ae == null || abilityType == null || aT != 2) {
             return false;
         }
         return this.ae.adjustAbility(abilityType.getTypeValue(), hashMap);
     }
 
     public boolean adjustAbility(String str, HashMap<String, Object> hashMap) {
-        if (this.ae == null || TextUtils.isEmpty(str) || aS != 2) {
+        if (this.ae == null || TextUtils.isEmpty(str) || aT != 2) {
             return false;
         }
         return this.ae.adjustAbility(str, hashMap);
     }
 
     @Override // com.baidu.ar.IDuMix
+    public void changeInputSize(int i, int i2) {
+        com.baidu.ar.g.b.c("DuMixController", "changeInputSize width * height = " + i + " * " + i2);
+        if (this.aL != null) {
+            this.aL.sendMessage(this.aL.obtainMessage(3010, i, i2, null));
+        }
+    }
+
+    @Override // com.baidu.ar.IDuMix
+    public void changeInputSize(SurfaceTexture surfaceTexture, int i, int i2) {
+        com.baidu.ar.g.b.c("DuMixController", "changeInputSize width * height = " + i + " * " + i2 + " && texture = " + surfaceTexture);
+        if (this.aL != null) {
+            this.aL.sendMessage(this.aL.obtainMessage(3010, i, i2, surfaceTexture));
+        }
+    }
+
+    @Override // com.baidu.ar.IDuMix
     public void changeOutput(DuMixOutput duMixOutput) {
-        if (duMixOutput == null || this.aK == null) {
+        if (duMixOutput == null || this.aL == null) {
             return;
         }
-        this.aK.sendMessage(this.aK.obtainMessage(3007, duMixOutput));
+        this.aL.sendMessage(this.aL.obtainMessage(3007, duMixOutput));
     }
 
     @Override // com.baidu.ar.IDuMix
     public void changeOutputSize(int i, int i2) {
-        if (this.aK != null) {
-            this.aK.sendMessage(this.aK.obtainMessage(3006, i, i2));
+        com.baidu.ar.g.b.c("DuMixController", "changeOutputSize width * height = " + i + " * " + i2);
+        if (this.aL != null) {
+            this.aL.sendMessage(this.aL.obtainMessage(3006, i, i2));
         }
     }
 
+    @Deprecated
     public List<Integer> checkAuth(byte[] bArr, IDuMixAuthCallback iDuMixAuthCallback) {
         return com.baidu.ar.auth.a.checkAuth(this.mContext, bArr, iDuMixAuthCallback);
     }
 
+    @Deprecated
     public List<Integer> checkAuth(byte[] bArr, ICallbackWith<List<Integer>> iCallbackWith, ICallbackWith<Integer> iCallbackWith2) {
         return com.baidu.ar.auth.a.checkAuth(this.mContext, bArr, iCallbackWith, iCallbackWith2);
     }
 
     @Override // com.baidu.ar.filter.IFilter
     public void clearAllFilter() {
-        if (this.A == null || aS != 2) {
+        if (this.A == null || aT != 2) {
             return;
         }
         this.A.clearAllFilter();
@@ -524,8 +573,8 @@ public class DuMixController implements IDuMix, IFilter, IPhoto, IRecord {
 
     @Override // com.baidu.ar.IDuMix
     public void clearCase() {
-        if (this.aK != null) {
-            this.aK.sendMessage(this.aK.obtainMessage(3005));
+        if (this.aL != null) {
+            this.aL.sendMessage(this.aL.obtainMessage(3005));
         }
     }
 
@@ -537,17 +586,17 @@ public class DuMixController implements IDuMix, IFilter, IPhoto, IRecord {
     }
 
     public List<String> getActiveAbilities() {
-        if (this.ae == null || aS != 2) {
+        if (this.ae == null || aT != 2) {
             return null;
         }
         return this.ae.getActiveAbilities();
     }
 
     public IContentPlatform getContentPlatform() {
-        if (this.aR == null) {
-            this.aR = (IContentPlatform) l.a("com.baidu.ar.content.ContentCloud", new Class[]{Context.class}, new Object[]{this.mContext});
+        if (this.aS == null) {
+            this.aS = (IContentPlatform) n.a("com.baidu.ar.content.ContentCloud", new Class[]{Context.class}, new Object[]{this.mContext});
         }
-        return this.aR;
+        return this.aS;
     }
 
     public IGLRenderer getGLRenderer() {
@@ -559,34 +608,34 @@ public class DuMixController implements IDuMix, IFilter, IPhoto, IRecord {
 
     public IStepLoading getStepLoading() {
         if (this.g != null) {
-            return this.g.by();
+            return this.g.bH();
         }
         return null;
     }
 
     public List<String> getSupportedAbilities() {
-        if (this.ae == null || aS != 2) {
+        if (this.ae == null || aT != 2) {
             return null;
         }
         return this.ae.getSupportedAbilities();
     }
 
     public boolean isAbilityActive(AbilityType abilityType) {
-        if (this.ae == null || abilityType == null || aS != 2) {
+        if (this.ae == null || abilityType == null || aT != 2) {
             return false;
         }
         return this.ae.isAbilityActive(abilityType.getTypeValue());
     }
 
     public boolean isAbilityActive(String str) {
-        if (this.ae == null || TextUtils.isEmpty(str) || aS != 2) {
+        if (this.ae == null || TextUtils.isEmpty(str) || aT != 2) {
             return false;
         }
         return this.ae.isAbilityActive(str);
     }
 
     public boolean isAbilitySupported(String str) {
-        if (this.ae == null || aS != 2) {
+        if (this.ae == null || aT != 2) {
             return false;
         }
         return this.ae.isAbilitySupported(str);
@@ -594,8 +643,8 @@ public class DuMixController implements IDuMix, IFilter, IPhoto, IRecord {
 
     @Override // com.baidu.ar.IDuMix
     public void loadCase(ARType aRType, String str, String str2) {
-        if (this.aK != null) {
-            this.aK.sendMessage(this.aK.obtainMessage(CyberPlayerManager.MEDIA_INFO_RTMP_IO_FAIL, new CaseModel(aRType, str, str2)));
+        if (this.aL != null) {
+            this.aL.sendMessage(this.aL.obtainMessage(CyberPlayerManager.MEDIA_INFO_RTMP_IO_FAIL, new CaseModel(aRType, str, str2)));
         }
     }
 
@@ -606,7 +655,7 @@ public class DuMixController implements IDuMix, IFilter, IPhoto, IRecord {
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (this.g == null || aS != 2) {
+        if (this.g == null || aT != 2) {
             return false;
         }
         return this.g.onTouch(view, motionEvent);
@@ -614,50 +663,71 @@ public class DuMixController implements IDuMix, IFilter, IPhoto, IRecord {
 
     @Override // com.baidu.ar.IDuMix
     public void pause() {
-        if (this.aK != null) {
-            this.aK.sendMessage(this.aK.obtainMessage(3001));
+        if (this.aL != null) {
+            this.aL.sendMessage(this.aL.obtainMessage(3001));
         }
     }
 
     @Override // com.baidu.ar.record.IRecord
     public void pauseRecord() {
-        if (this.aQ == null || aS != 2) {
+        if (this.aR == null || aT != 2) {
             return;
         }
-        this.aQ.pauseRecord();
+        this.aR.pauseRecord();
     }
 
     @Override // com.baidu.ar.IDuMix
     public void pauseScene() {
-        if (this.aK != null) {
-            this.aK.sendMessage(this.aK.obtainMessage(3008));
+        if (this.aL != null) {
+            this.aL.sendMessage(this.aL.obtainMessage(3008));
         }
     }
 
     @Override // com.baidu.ar.IDuMix
     public void release() {
-        com.baidu.ar.f.b.c("DuMixController", "release() sState = " + aS);
-        if (aS != 2) {
-            com.baidu.ar.f.b.b("DuMixController", "release error!!!");
-            return;
+        com.baidu.ar.g.b.c("DuMixController", "release() sState = " + aT);
+        if (aT == 1) {
+            if (this.g == null || !this.g.bG()) {
+                synchronized (sLock) {
+                    try {
+                        com.baidu.ar.g.b.c("DuMixController", "release DuMixController wait for setup!");
+                        sLock.wait(IMConnection.RETRY_DELAY_TIMES);
+                    } catch (Exception e) {
+                        com.baidu.ar.g.b.b("DuMixController", "release DuMixController wait error!!!");
+                    }
+                }
+            } else {
+                this.g.s(true);
+                aT = 0;
+                aJ = null;
+            }
         }
-        aS = 3;
-        if (this.aK != null) {
-            this.aK.sendMessage(this.aK.obtainMessage(CyberPlayerManager.MEDIA_INFO_RTMP_HANDSHAKE_FAIL));
+        if (aT == 0) {
+            aJ = null;
+        } else if (aT != 3) {
+            if (aT != 2) {
+                com.baidu.ar.g.b.b("DuMixController", "release error!!!");
+                return;
+            }
+            aT = 3;
+            if (this.aL != null) {
+                this.aL.removeCallbacksAndMessages(null);
+                this.aL.sendMessage(this.aL.obtainMessage(CyberPlayerManager.MEDIA_INFO_RTMP_HANDSHAKE_FAIL));
+            }
+            aJ = null;
         }
-        aI = null;
     }
 
     public boolean removeLuaMsgListener(LuaMsgListener luaMsgListener) {
-        if (this.f == null || this.f.dZ() == null) {
+        if (this.f == null || this.f.fl() == null) {
             return false;
         }
-        return this.f.dZ().removeLuaMsgListener(luaMsgListener);
+        return this.f.fl().removeLuaMsgListener(luaMsgListener);
     }
 
     @Override // com.baidu.ar.filter.IFilter
     public void resetAllFilter() {
-        if (this.A == null || aS != 2) {
+        if (this.A == null || aT != 2) {
             return;
         }
         this.A.resetAllFilter();
@@ -665,28 +735,28 @@ public class DuMixController implements IDuMix, IFilter, IPhoto, IRecord {
 
     @Override // com.baidu.ar.IDuMix
     public void resume() {
-        if (this.aK != null) {
-            this.aK.sendMessage(this.aK.obtainMessage(3002));
+        if (this.aL != null) {
+            this.aL.sendMessage(this.aL.obtainMessage(3002));
         }
     }
 
     @Override // com.baidu.ar.record.IRecord
     public void resumeRecord() {
-        if (this.aQ == null || aS != 2) {
+        if (this.aR == null || aT != 2) {
             return;
         }
-        this.aQ.resumeRecord();
+        this.aR.resumeRecord();
     }
 
     @Override // com.baidu.ar.IDuMix
     public void resumeScene() {
-        if (this.aK != null) {
-            this.aK.sendMessage(this.aK.obtainMessage(3009));
+        if (this.aL != null) {
+            this.aL.sendMessage(this.aL.obtainMessage(3009));
         }
     }
 
     public boolean sendMsg2Lua(HashMap<String, Object> hashMap) {
-        if (this.f == null || aS != 2) {
+        if (this.f == null || aT != 2) {
             return false;
         }
         this.f.b(ARPMessageType.MSG_TYPE_SDK_LUA_BRIDGE, hashMap);
@@ -698,10 +768,10 @@ public class DuMixController implements IDuMix, IFilter, IPhoto, IRecord {
     }
 
     public void setDefinedLuaListener(DefinedLuaListener definedLuaListener) {
-        if (this.aO == null) {
-            this.aO = new com.baidu.ar.lua.e(this.f);
+        if (this.aP == null) {
+            this.aP = new com.baidu.ar.lua.e(this.f);
         }
-        this.aO.setDefinedLuaListener(definedLuaListener);
+        this.aP.setDefinedLuaListener(definedLuaListener);
     }
 
     @Override // com.baidu.ar.filter.IFilter
@@ -742,9 +812,9 @@ public class DuMixController implements IDuMix, IFilter, IPhoto, IRecord {
 
     @Override // com.baidu.ar.IDuMix
     public void setup(DuMixInput duMixInput, DuMixOutput duMixOutput, DuMixCallback duMixCallback) {
-        com.baidu.ar.f.b.c("DuMixController", "setup() sState = " + aS);
+        com.baidu.ar.g.b.c("DuMixController", "setup() sState = " + aT);
         if (duMixInput == null || duMixOutput == null) {
-            com.baidu.ar.f.b.b("DuMixController", "setup error!!! params maybe null!!!");
+            com.baidu.ar.g.b.b("DuMixController", "setup error!!! params maybe null!!!");
             if (duMixCallback != null) {
                 duMixCallback.onSetup(false, duMixInput, duMixOutput);
                 return;
@@ -754,20 +824,20 @@ public class DuMixController implements IDuMix, IFilter, IPhoto, IRecord {
         this.W = duMixInput;
         this.aa = duMixOutput;
         this.ab = duMixCallback;
-        if (this.aK != null) {
-            this.aK.sendMessage(this.aK.obtainMessage(3000));
+        if (this.aL != null) {
+            this.aL.sendMessage(this.aL.obtainMessage(3000));
         }
     }
 
     public boolean startAbility(AbilityType abilityType, HashMap<String, Object> hashMap) {
-        if (this.ae == null || abilityType == null || aS != 2) {
+        if (this.ae == null || abilityType == null || aT != 2) {
             return false;
         }
         return this.ae.startAbility(abilityType.getTypeValue(), hashMap);
     }
 
     public boolean startAbility(String str, HashMap<String, Object> hashMap) {
-        if (this.ae == null || TextUtils.isEmpty(str) || aS != 2) {
+        if (this.ae == null || TextUtils.isEmpty(str) || aT != 2) {
             return false;
         }
         return this.ae.startAbility(str, hashMap);
@@ -775,28 +845,28 @@ public class DuMixController implements IDuMix, IFilter, IPhoto, IRecord {
 
     @Override // com.baidu.ar.record.IRecord
     public void startRecord(String str, long j, RecordCallback recordCallback) {
-        if (aS == 2) {
-            if (this.aQ == null && this.g != null) {
-                this.aQ = new com.baidu.ar.record.a(this.mContext, this.g);
+        if (aT == 2) {
+            if (this.aR == null && this.g != null) {
+                this.aR = new com.baidu.ar.record.a(this.mContext, this.g);
             }
-            if (this.aN != null) {
-                this.aN.i("start");
+            if (this.aO != null) {
+                this.aO.j("start");
             }
-            if (this.aQ != null) {
-                this.aQ.startRecord(str, j, recordCallback);
+            if (this.aR != null) {
+                this.aR.startRecord(str, j, recordCallback);
             }
         }
     }
 
     public boolean stopAbility(AbilityType abilityType) {
-        if (this.ae == null || abilityType == null || aS != 2) {
+        if (this.ae == null || abilityType == null || aT != 2) {
             return false;
         }
         return this.ae.stopAbility(abilityType.getTypeValue());
     }
 
     public boolean stopAbility(String str) {
-        if (this.ae == null || TextUtils.isEmpty(str) || aS != 2) {
+        if (this.ae == null || TextUtils.isEmpty(str) || aT != 2) {
             return false;
         }
         return this.ae.stopAbility(str);
@@ -804,20 +874,20 @@ public class DuMixController implements IDuMix, IFilter, IPhoto, IRecord {
 
     @Override // com.baidu.ar.record.IRecord
     public void stopRecord() {
-        if (aS == 2) {
-            if (this.aQ != null) {
-                this.aQ.stopRecord();
-                this.aQ = null;
+        if (aT == 2) {
+            if (this.aR != null) {
+                this.aR.stopRecord();
+                this.aR = null;
             }
-            if (this.aN != null) {
-                this.aN.i("stop");
+            if (this.aO != null) {
+                this.aO.j("stop");
             }
         }
     }
 
     @Override // com.baidu.ar.photo.IPhoto
     public void takePicture(String str, PhotoCallback photoCallback) {
-        if (this.g == null || aS != 2) {
+        if (this.g == null || aT != 2) {
             return;
         }
         new com.baidu.ar.photo.a().a(this.g, str, photoCallback);
@@ -825,7 +895,7 @@ public class DuMixController implements IDuMix, IFilter, IPhoto, IRecord {
 
     @Override // com.baidu.ar.filter.IFilter
     public void updateFilter(FilterParam filterParam, float f) {
-        if (this.A == null || aS != 2) {
+        if (this.A == null || aT != 2) {
             return;
         }
         this.A.a(filterParam, Float.valueOf(f));
@@ -833,7 +903,7 @@ public class DuMixController implements IDuMix, IFilter, IPhoto, IRecord {
 
     @Override // com.baidu.ar.filter.IFilter
     public void updateFilter(FilterParam filterParam, int i) {
-        if (this.A == null || aS != 2) {
+        if (this.A == null || aT != 2) {
             return;
         }
         this.A.a(filterParam, Integer.valueOf(i));
@@ -841,7 +911,7 @@ public class DuMixController implements IDuMix, IFilter, IPhoto, IRecord {
 
     @Override // com.baidu.ar.filter.IFilter
     public void updateFilter(FilterParam filterParam, String str) {
-        if (this.A == null || aS != 2) {
+        if (this.A == null || aT != 2) {
             return;
         }
         this.A.a(filterParam, str);
@@ -849,7 +919,7 @@ public class DuMixController implements IDuMix, IFilter, IPhoto, IRecord {
 
     @Override // com.baidu.ar.filter.IFilter
     public void updateFilter(FilterParam filterParam, List<Point> list) {
-        if (list == null || aS != 2) {
+        if (list == null || aT != 2) {
             return;
         }
         float[] fArr = new float[list.size() * 2];
@@ -865,7 +935,7 @@ public class DuMixController implements IDuMix, IFilter, IPhoto, IRecord {
 
     @Override // com.baidu.ar.filter.IFilter
     public void updateFilter(FilterParam filterParam, float[] fArr) {
-        if (this.A == null || aS != 2) {
+        if (this.A == null || aT != 2) {
             return;
         }
         this.A.a(filterParam, fArr);
@@ -873,7 +943,7 @@ public class DuMixController implements IDuMix, IFilter, IPhoto, IRecord {
 
     @Override // com.baidu.ar.filter.IFilter
     public String updateFilterCase(String str) {
-        if (this.A == null || aS != 2) {
+        if (this.A == null || aT != 2) {
             return null;
         }
         return this.A.updateFilterCase(str);

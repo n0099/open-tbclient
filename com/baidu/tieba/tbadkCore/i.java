@@ -3,13 +3,13 @@ package com.baidu.tieba.tbadkCore;
 import java.util.LinkedList;
 import java.util.List;
 import tbclient.FrsPage.BusinessPromot;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class i {
     private long id;
     private String img;
     private String img_popup;
-    private int lKX;
-    private List<j> lKY;
+    private int mcG;
+    private List<j> mcH;
     private String thread_id;
     private int thread_type;
     private String title;
@@ -24,10 +24,10 @@ public class i {
             this.type = businessPromot.type.intValue();
             this.thread_id = businessPromot.thread_id;
             this.url = businessPromot.url;
-            this.lKX = businessPromot.join_num.intValue();
+            this.mcG = businessPromot.join_num.intValue();
             this.id = businessPromot.id.longValue();
             if (businessPromot.comment_list != null) {
-                this.lKY = new LinkedList();
+                this.mcH = new LinkedList();
                 int i = 0;
                 while (true) {
                     int i2 = i;
@@ -37,7 +37,7 @@ public class i {
                     if (businessPromot.comment_list.get(i2) != null) {
                         j jVar = new j();
                         jVar.a(businessPromot.comment_list.get(i2));
-                        this.lKY.add(jVar);
+                        this.mcH.add(jVar);
                     }
                     i = i2 + 1;
                 }
@@ -54,7 +54,7 @@ public class i {
         return this.img;
     }
 
-    public String dkk() {
+    public String dvH() {
         return this.img_popup;
     }
 
@@ -70,16 +70,16 @@ public class i {
         return this.url;
     }
 
-    public int dkl() {
-        return this.lKX;
+    public int dvI() {
+        return this.mcG;
     }
 
     public long getId() {
         return this.id;
     }
 
-    public List<j> dkm() {
-        return this.lKY;
+    public List<j> dvJ() {
+        return this.mcH;
     }
 
     public int getThreadType() {

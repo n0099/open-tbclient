@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import io.flutter.embedding.engine.systemchannels.KeyEventChannel;
 import io.flutter.plugin.editing.TextInputPlugin;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public class AndroidKeyProcessor {
     private int combiningCharacter;
     @NonNull

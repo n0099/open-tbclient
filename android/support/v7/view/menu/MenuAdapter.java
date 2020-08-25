@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import java.util.ArrayList;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class MenuAdapter extends BaseAdapter {
     static final int ITEM_LAYOUT = R.layout.abc_popup_menu_item_layout;
     MenuBuilder mAdapterMenu;

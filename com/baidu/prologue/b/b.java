@@ -1,9 +1,7 @@
 package com.baidu.prologue.b;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface b {
-    void P(int i, int i2);
-
-    boolean Q(int i, int i2);
+    boolean T(int i, int i2);
 
     void onBufferingUpdate(int i);
 
@@ -14,4 +12,6 @@ public interface b {
     void onPrepared();
 
     void onSeekComplete();
+
+    void onVideoSizeChanged(int i, int i2);
 }

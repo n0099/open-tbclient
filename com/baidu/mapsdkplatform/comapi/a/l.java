@@ -9,7 +9,7 @@ import android.view.animation.Interpolator;
 import com.baidu.mapapi.animation.Animation;
 import com.baidu.mapapi.map.Marker;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class l extends c {
     private Animator a = null;
     private long b = 0;
@@ -20,7 +20,7 @@ public class l extends c {
     private Object[] g;
 
     @TargetApi(11)
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public class a implements TypeEvaluator {
         public a() {
         }
@@ -34,7 +34,7 @@ public class l extends c {
     }
 
     @TargetApi(11)
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public class b implements TypeEvaluator {
         public b() {
         }
@@ -61,11 +61,11 @@ public class l extends c {
         ObjectAnimator ofObject;
         if (marker.isFixed()) {
             if (!(this.g[0] instanceof Point)) {
-                throw new ClassCastException("if the marker is fixed on screen, the parameters of Transformation must be android.graphics.Point");
+                throw new ClassCastException("BDMapSDKException: if the marker is fixed on screen, the parameters of Transformation must be android.graphics.Point");
             }
             ofObject = ObjectAnimator.ofObject(marker, "fixedScreenPosition", new b(), this.g);
         } else if (!(this.g[0] instanceof LatLng)) {
-            throw new ClassCastException("if the marker isn't fixed on screen, the parameters of Transformation must be Latlng");
+            throw new ClassCastException("BDMapSDKException: if the marker isn't fixed on screen, the parameters of Transformation must be Latlng");
         } else {
             ofObject = ObjectAnimator.ofObject(marker, "position", new a(), this.g);
         }
@@ -139,7 +139,7 @@ public class l extends c {
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     public void b(int i) {
-        if (i > 0) {
+        if (i > 0 || i == -1) {
             this.f = i;
         }
     }

@@ -1,9 +1,9 @@
 package com.baidu.tieba.InjectPlugin.a;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface b {
     void a(int i, a aVar);
 
     void a(com.baidu.tieba.InjectPlugin.b bVar);
 
-    a pE(int i);
+    a rQ(int i);
 }

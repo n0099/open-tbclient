@@ -5,17 +5,16 @@ import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.search.sug.SuggestionSearchOption;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.platform.base.e;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class d extends e {
     public d(SuggestionSearchOption suggestionSearchOption) {
         a(suggestionSearchOption);
     }
 
     private void a(SuggestionSearchOption suggestionSearchOption) {
-        this.a.a(IXAdRequestInfo.COST_NAME, suggestionSearchOption.mKeyword);
+        this.a.a("query", suggestionSearchOption.mKeyword);
         this.a.a("region", suggestionSearchOption.mCity);
         if (suggestionSearchOption.mLocation != null) {
             LatLng latLng = new LatLng(suggestionSearchOption.mLocation.latitude, suggestionSearchOption.mLocation.longitude);

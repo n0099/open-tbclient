@@ -1,7 +1,7 @@
 package com.baidu.minivideo.plugin.capture.download.core;
 
 import java.io.File;
-/* loaded from: classes9.dex */
+/* loaded from: classes19.dex */
 public class DownloadInfo {
     private boolean acceptRanges;
     private File dir;

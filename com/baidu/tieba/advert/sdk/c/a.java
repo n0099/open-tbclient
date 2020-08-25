@@ -25,26 +25,26 @@ public class a {
 
     public static void a(b bVar) {
         if (bVar == null) {
-            btk();
+            bCf();
         } else {
             TbadkCoreApplication.getInst().getContext().getSharedPreferences("bc_splash_info_new", 0).edit().putString("bc_splash_info_new", bVar.toString()).apply();
         }
     }
 
-    public static void btk() {
+    public static void bCf() {
         TbadkCoreApplication.getInst().getContext().getSharedPreferences("bc_splash_info_new", 0).edit().putString("bc_splash_info_new", "").apply();
     }
 
-    public static void btl() {
-        File file = new File(com.baidu.tieba.advert.sdk.b.a.fgx);
+    public static void bCg() {
+        File file = new File(com.baidu.tieba.advert.sdk.b.a.frS);
         if (file.exists()) {
             n.deleteFileOrDir(file);
         }
     }
 
-    public static void S(File file) {
+    public static void T(File file) {
         File[] listFiles;
-        File file2 = new File(com.baidu.tieba.advert.sdk.b.a.fgx);
+        File file2 = new File(com.baidu.tieba.advert.sdk.b.a.frS);
         if (file2.exists() && (listFiles = file2.listFiles()) != null) {
             for (File file3 : listFiles) {
                 if (file3 != null && !file3.equals(file)) {
@@ -54,7 +54,7 @@ public class a {
         }
     }
 
-    public static String btm() {
+    public static String bCh() {
         return TbadkCoreApplication.getInst().getContext().getSharedPreferences("bc_splash_info_new", 0).getString("bc_splash_info_new", "");
     }
 }

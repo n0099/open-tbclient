@@ -4,26 +4,26 @@ import android.graphics.Bitmap;
 import com.facebook.common.internal.g;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes12.dex */
+/* loaded from: classes3.dex */
 public class d {
-    private final b mYB;
-    private final int mYC;
+    private final b nsq;
+    private final int nsr;
     @Nullable
-    private com.facebook.common.references.a<Bitmap> mYD;
+    private com.facebook.common.references.a<Bitmap> nss;
     @Nullable
-    private List<com.facebook.common.references.a<Bitmap>> mYE;
+    private List<com.facebook.common.references.a<Bitmap>> nst;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(e eVar) {
-        this.mYB = (b) g.checkNotNull(eVar.dFz());
-        this.mYC = eVar.dFB();
-        this.mYD = eVar.dFA();
-        this.mYE = eVar.dFC();
+        this.nsq = (b) g.checkNotNull(eVar.dRy());
+        this.nsr = eVar.dRA();
+        this.nss = eVar.dRz();
+        this.nst = eVar.dRB();
     }
 
     private d(b bVar) {
-        this.mYB = (b) g.checkNotNull(bVar);
-        this.mYC = 0;
+        this.nsq = (b) g.checkNotNull(bVar);
+        this.nsr = 0;
     }
 
     public static d a(b bVar) {
@@ -34,14 +34,14 @@ public class d {
         return new e(bVar);
     }
 
-    public b dFz() {
-        return this.mYB;
+    public b dRy() {
+        return this.nsq;
     }
 
     public synchronized void dispose() {
-        com.facebook.common.references.a.c(this.mYD);
-        this.mYD = null;
-        com.facebook.common.references.a.b(this.mYE);
-        this.mYE = null;
+        com.facebook.common.references.a.c(this.nss);
+        this.nss = null;
+        com.facebook.common.references.a.b(this.nst);
+        this.nst = null;
     }
 }

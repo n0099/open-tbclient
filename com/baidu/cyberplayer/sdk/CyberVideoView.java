@@ -17,12 +17,13 @@ import com.baidu.cyberplayer.sdk.ICyberVideoView;
 import com.baidu.cyberplayer.sdk.a;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.cyberplayer.sdk.i;
+import com.baidu.sapi2.ecommerce.callback.AddressManageCallback;
 import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class CyberVideoView extends FrameLayout implements CyberPlayerManager.OnBufferingUpdateListener, CyberPlayerManager.OnCompletionListener, CyberPlayerManager.OnErrorListener, CyberPlayerManager.OnInfoListener, CyberPlayerManager.OnPreparedListener, CyberPlayerManager.OnSeekCompleteListener, CyberPlayerManager.OnVideoSizeChangedListener, ICyberVideoView {
     private float A;
     private long B;
@@ -352,15 +353,15 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
     }
 
     private void c() {
-        ArrayList<a.C0104a> b;
+        ArrayList<a.C0103a> b;
         if (this.b == null || (b = this.u.b()) == null) {
             return;
         }
         int size = b.size();
         for (int i = 0; i < size; i++) {
-            a.C0104a c0104a = b.get(i);
-            if (c0104a != null && c0104a.a() != null) {
-                this.b.setExternalInfo(c0104a.a(), c0104a.b());
+            a.C0103a c0103a = b.get(i);
+            if (c0103a != null && c0103a.a() != null) {
+                this.b.setExternalInfo(c0103a.a(), c0103a.b());
             }
         }
     }
@@ -439,7 +440,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
             } else {
                 this.b.changeProxyDynamic(str, true);
             }
-            this.b.seekTo(getCurrentPosition() - 500);
+            this.b.seekTo(getCurrentPosition() + AddressManageCallback.VoiceRecognitionResult.ERROR_CODE_VOICE_RECOGNITION_CANCEL);
             if (this.j != null) {
                 this.j.put(CyberPlayerManager.OPT_HTTP_PROXY, str);
             }

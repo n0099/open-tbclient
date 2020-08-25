@@ -4,13 +4,13 @@ import com.baidu.tbadk.mvc.b.j;
 import com.squareup.wire.Message;
 import org.json.JSONObject;
 import tbclient.ZoneRight.ZoneRightResIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class b implements j {
     public int errorCode;
     public String errorString;
-    public boolean ibB;
-    public int ibC;
-    public String ibD;
+    public boolean ipI;
+    public int ipJ;
+    public String ipK;
 
     @Override // com.baidu.tbadk.mvc.b.j
     public void initByJson(JSONObject jSONObject) {
@@ -25,10 +25,10 @@ public class b implements j {
                 this.errorString = zoneRightResIdl.error.usermsg;
             }
             if (zoneRightResIdl.data != null) {
-                this.ibB = zoneRightResIdl.data.has_right.intValue() == 1;
+                this.ipI = zoneRightResIdl.data.has_right.intValue() == 1;
                 if (zoneRightResIdl.data.toast != null) {
-                    this.ibC = zoneRightResIdl.data.toast.type.intValue();
-                    this.ibD = zoneRightResIdl.data.toast.content;
+                    this.ipJ = zoneRightResIdl.data.toast.type.intValue();
+                    this.ipK = zoneRightResIdl.data.toast.content;
                 }
             }
         }

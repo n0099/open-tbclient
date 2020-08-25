@@ -1,73 +1,73 @@
 package com.baidu.tieba.ala.liveroom.master.a;
 
-import com.baidu.live.data.ae;
+import com.baidu.live.data.ag;
 import com.baidu.tieba.ala.liveroom.data.f;
 import com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class a {
-    protected int bGB;
-    protected f gdS;
-    protected com.baidu.tieba.ala.liveroom.data.e gqi;
-    protected AlaMasterLiveRoomOpearator grF;
-    protected b grG;
+    protected int bMb;
+    protected com.baidu.tieba.ala.liveroom.data.e gDb;
+    protected b gEA;
+    protected AlaMasterLiveRoomOpearator gEz;
+    protected f gqb;
 
-    public abstract void aW(int i, String str);
+    public abstract void aU(int i, String str);
 
-    public abstract void bKK();
+    public abstract void bUN();
 
     public a(f fVar) {
-        this.gdS = fVar;
+        this.gqb = fVar;
     }
 
-    public void ag(AlaMasterLiveRoomOpearator alaMasterLiveRoomOpearator) {
-        this.grF = alaMasterLiveRoomOpearator;
+    public void ai(AlaMasterLiveRoomOpearator alaMasterLiveRoomOpearator) {
+        this.gEz = alaMasterLiveRoomOpearator;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(short s, Object obj) {
-        this.bGB = s;
+        this.bMb = s;
         switch (s) {
             case 2:
-                if (this.grF != null) {
-                    this.grF.bJA();
+                if (this.gEz != null) {
+                    this.gEz.bTB();
                     return;
                 }
                 return;
             case 3:
-                if (this.grF != null) {
-                    this.grF.bJB();
+                if (this.gEz != null) {
+                    this.gEz.bTC();
                     return;
                 }
                 return;
             case 4:
-                if (this.grF != null) {
+                if (this.gEz != null) {
                     com.baidu.tieba.ala.liveroom.data.e eVar = obj instanceof com.baidu.tieba.ala.liveroom.data.e ? (com.baidu.tieba.ala.liveroom.data.e) obj : null;
-                    this.grF.d(eVar);
-                    if (this.grG != null) {
-                        this.grG.b(eVar);
+                    this.gEz.d(eVar);
+                    if (this.gEA != null) {
+                        this.gEA.b(eVar);
                     }
-                    if (eVar != null && eVar.glu) {
-                        this.gdS.glD.a((short) 5, null);
+                    if (eVar != null && eVar.gxy) {
+                        this.gqb.gxH.a((short) 5, null);
                         return;
                     }
                     return;
                 }
                 return;
             case 5:
-                if (this.grF != null) {
-                    this.grF.b(obj instanceof ae ? (ae) obj : null);
+                if (this.gEz != null) {
+                    this.gEz.b(obj instanceof ag ? (ag) obj : null);
                     return;
                 }
                 return;
             case 6:
-                if (this.grF != null) {
-                    this.grF.bJG();
+                if (this.gEz != null) {
+                    this.gEz.bTH();
                     return;
                 }
                 return;
             case 7:
-                if (this.grF != null) {
-                    this.grF.bJH();
+                if (this.gEz != null) {
+                    this.gEz.bTI();
                     return;
                 }
                 return;
@@ -76,8 +76,8 @@ public abstract class a {
                 if (obj instanceof Short) {
                     s2 = ((Short) obj).shortValue();
                 }
-                if (this.grF != null) {
-                    this.grF.g(s2);
+                if (this.gEz != null) {
+                    this.gEz.g(s2);
                     return;
                 }
                 return;
@@ -87,64 +87,64 @@ public abstract class a {
     }
 
     public void c(com.baidu.tieba.ala.liveroom.data.e eVar) {
-        this.gqi = eVar;
-        bKK();
+        this.gDb = eVar;
+        bUN();
     }
 
-    public void c(ae aeVar) {
-        if (this.gdS != null && this.gdS.glD != null) {
-            this.gdS.glD.a((short) 5, aeVar);
+    public void c(ag agVar) {
+        if (this.gqb != null && this.gqb.gxH != null) {
+            this.gqb.gxH.a((short) 5, agVar);
         }
     }
 
-    public void aX(int i, String str) {
-        if (this.grF != null) {
-            this.grF.onError(i, str);
+    public void aV(int i, String str) {
+        if (this.gEz != null) {
+            this.gEz.onError(i, str);
         }
     }
 
     public void i(short s) {
-        if (this.gdS != null && this.gdS.glD != null) {
-            this.gdS.glD.a((short) 8, Short.valueOf(s));
+        if (this.gqb != null && this.gqb.gxH != null) {
+            this.gqb.gxH.a((short) 8, Short.valueOf(s));
         }
     }
 
-    public void bKL() {
-        if (this.grF != null) {
-            this.grF.bJK();
+    public void bUO() {
+        if (this.gEz != null) {
+            this.gEz.bTL();
         }
     }
 
-    public void bKM() {
-        if (this.grF != null) {
-            this.grF.bJL();
+    public void bUP() {
+        if (this.gEz != null) {
+            this.gEz.bTM();
         }
     }
 
     public void onPause() {
-        if (this.grF != null) {
-            this.grF.onPause();
+        if (this.gEz != null) {
+            this.gEz.onPause();
         }
     }
 
-    public boolean bKN() {
-        if (this.grF != null) {
-            return this.grF.bJI();
+    public boolean bUQ() {
+        if (this.gEz != null) {
+            return this.gEz.bTJ();
         }
         return false;
     }
 
-    public void bKO() {
-        if (this.grF != null) {
-            this.grF.bJJ();
+    public void bUR() {
+        if (this.gEz != null) {
+            this.gEz.bTK();
         }
     }
 
-    public boolean bKP() {
-        return this.bGB == 5;
+    public boolean bUS() {
+        return this.bMb == 5;
     }
 
     public void a(b bVar) {
-        this.grG = bVar;
+        this.gEA = bVar;
     }
 }

@@ -2,8 +2,8 @@ package com.baidu.live.im.b;
 
 import android.support.annotation.NonNull;
 import android.view.View;
-import com.baidu.live.data.bp;
-/* loaded from: classes4.dex */
+import com.baidu.live.data.br;
+/* loaded from: classes7.dex */
 public interface b {
     @NonNull
     View getView();
@@ -12,5 +12,5 @@ public interface b {
 
     void setPreview();
 
-    void setUIInfo(bp bpVar, boolean z);
+    void setUIInfo(br brVar, boolean z);
 }

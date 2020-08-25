@@ -12,14 +12,14 @@ public class SpecialLiveTabInfo implements Parcelable {
     public static final Parcelable.Creator<SpecialLiveTabInfo> CREATOR = new Parcelable.Creator<SpecialLiveTabInfo>() { // from class: com.baidu.tieba.ala.alasquare.special_forum.data.SpecialLiveTabInfo.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: U */
+        /* renamed from: V */
         public SpecialLiveTabInfo createFromParcel(Parcel parcel) {
             return new SpecialLiveTabInfo(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: qx */
+        /* renamed from: sJ */
         public SpecialLiveTabInfo[] newArray(int i) {
             return new SpecialLiveTabInfo[i];
         }

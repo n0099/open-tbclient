@@ -29,7 +29,7 @@ import com.baidu.searchbox.ui.animview.praise.view.ComboPraiseView;
 import com.baidu.searchbox.ui.animview.praise.view.IPraiseStatusListener;
 import com.baidu.searchbox.ui.animview.util.DebugUtil;
 import java.util.ArrayDeque;
-/* loaded from: classes7.dex */
+/* loaded from: classes12.dex */
 public class ComboPraiseManager {
     private static final boolean DEBUG = DebugUtil.isApkInDebug();
     private static final int INTERCEPT_MODE_DEFAULT = 0;
@@ -67,7 +67,7 @@ public class ComboPraiseManager {
     private TouchListener mTouchListener = new TouchListener();
     private Handler mMainHandler = new Handler(Looper.getMainLooper());
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes12.dex */
     public interface NotifyPraiseAnimCallBack {
         void notifyPraiseAnimStatus(boolean z);
     }
@@ -436,7 +436,7 @@ public class ComboPraiseManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes12.dex */
     public class TouchListener implements View.OnTouchListener {
         private static final int CANCEL_PRAISE_MS = 1000;
         private static final int MOCK_CLICK_INTERVAL_TIME_MS = 100;

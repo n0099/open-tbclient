@@ -1,5 +1,5 @@
 package com.baidu.minivideo.plugin.capture.download.core;
-/* loaded from: classes9.dex */
+/* loaded from: classes19.dex */
 public class ThreadRecord {
     private long end;
     private long finished;

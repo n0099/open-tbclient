@@ -1,30 +1,30 @@
 package rx.internal.util;
 
 import rx.j;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class b<T> extends j<T> {
-    final rx.functions.b<Throwable> onv;
-    final rx.functions.b<? super T> ooH;
-    final rx.functions.a ooI;
+    final rx.functions.b<Throwable> oHq;
+    final rx.functions.b<? super T> oIC;
+    final rx.functions.a oID;
 
     public b(rx.functions.b<? super T> bVar, rx.functions.b<Throwable> bVar2, rx.functions.a aVar) {
-        this.ooH = bVar;
-        this.onv = bVar2;
-        this.ooI = aVar;
+        this.oIC = bVar;
+        this.oHq = bVar2;
+        this.oID = aVar;
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        this.ooH.call(t);
+        this.oIC.call(t);
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        this.onv.call(th);
+        this.oHq.call(th);
     }
 
     @Override // rx.e
     public void onCompleted() {
-        this.ooI.call();
+        this.oID.call();
     }
 }

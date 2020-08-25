@@ -4,7 +4,7 @@ import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebViewFactory;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public final class b {
     private static boolean a;
     private static int b = -1;
@@ -14,7 +14,7 @@ public final class b {
             try {
                 new File(WebViewFactory.getContext().getFilesDir(), WebKitFactory.getProcessTypeString() + "zeus_init_model_opt").createNewFile();
             } catch (IOException e) {
-                com.a.a.a.a.a.a.a.a(e);
+                e.printStackTrace();
             }
         }
     }

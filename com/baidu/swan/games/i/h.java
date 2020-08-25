@@ -1,21 +1,21 @@
 package com.baidu.swan.games.i;
 
-import com.baidu.swan.apps.aq.p;
+import com.baidu.swan.apps.ap.p;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class h implements Runnable {
-    private final i dht;
-    private AtomicBoolean diq = new AtomicBoolean(false);
-    private List<h> dit = Collections.synchronizedList(new ArrayList());
+    private final i drD;
+    private AtomicBoolean dsA = new AtomicBoolean(false);
+    private List<h> dsB = Collections.synchronizedList(new ArrayList());
     private String[] mPaths;
     private final Runnable mRunnable;
     private String mTag;
 
     public h(i iVar, Runnable runnable, String str, String[] strArr) {
-        this.dht = iVar;
+        this.drD = iVar;
         this.mRunnable = runnable;
         this.mTag = str;
         this.mPaths = strArr;
@@ -24,17 +24,17 @@ public class h implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         try {
-            aEC();
+            aNq();
         } finally {
-            this.dht.c(this);
+            this.drD.c(this);
         }
     }
 
-    public void aEC() {
+    public void aNq() {
         this.mRunnable.run();
     }
 
-    public void aED() {
+    public void aNr() {
         p.postOnIO(this, this.mTag);
     }
 
@@ -42,29 +42,29 @@ public class h implements Runnable {
         return this.mTag;
     }
 
-    public String[] aEE() {
+    public String[] aNs() {
         return this.mPaths;
     }
 
-    public boolean aEF() {
-        return this.diq.get();
+    public boolean aNt() {
+        return this.dsA.get();
     }
 
-    public void aEG() {
-        this.diq.set(true);
+    public void aNu() {
+        this.dsA.set(true);
     }
 
     public void a(h hVar) {
-        if (!this.dit.contains(hVar)) {
-            this.dit.add(hVar);
+        if (!this.dsB.contains(hVar)) {
+            this.dsB.add(hVar);
         }
     }
 
     public void b(h hVar) {
-        this.dit.remove(hVar);
+        this.dsB.remove(hVar);
     }
 
-    public boolean aEH() {
-        return this.dit.isEmpty();
+    public boolean aNv() {
+        return this.dsB.isEmpty();
     }
 }

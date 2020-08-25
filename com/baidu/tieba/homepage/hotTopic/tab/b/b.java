@@ -1,23 +1,22 @@
 package com.baidu.tieba.homepage.hotTopic.tab.b;
 
-import android.support.annotation.NonNull;
-import tbclient.RecomTopicList;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.q;
+import com.baidu.tieba.frs.FrsTabInfoData;
 /* loaded from: classes16.dex */
-public class b {
-    public String dQI;
-    public int index;
-    public boolean ixd;
-    public int tag;
-    public long topicId;
+public class b implements q {
+    private FrsTabInfoData iLN;
 
-    public b() {
-        this.ixd = true;
+    public b(FrsTabInfoData frsTabInfoData) {
+        this.iLN = frsTabInfoData;
     }
 
-    public b(@NonNull RecomTopicList recomTopicList) {
-        this.topicId = recomTopicList.topic_id.longValue();
-        this.dQI = recomTopicList.topic_name;
-        this.tag = recomTopicList.tag.intValue();
-        this.index = -1;
+    public FrsTabInfoData cmB() {
+        return this.iLN;
+    }
+
+    @Override // com.baidu.adp.widget.ListView.q
+    public BdUniqueId getType() {
+        return a.iLM;
     }
 }

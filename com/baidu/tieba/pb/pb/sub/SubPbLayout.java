@@ -12,8 +12,8 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.sub.b;
 import com.baidu.tieba.tbadkCore.data.PostData;
@@ -23,17 +23,17 @@ import java.util.List;
 import java.util.Queue;
 /* loaded from: classes16.dex */
 public class SubPbLayout extends ViewGroup {
-    private PostData ekJ;
-    private TextView ggp;
-    private View.OnClickListener kDr;
-    private View.OnLongClickListener kDs;
-    private View.OnTouchListener kDt;
-    private int kDu;
-    private final Queue<a> kDv;
-    private RelativeLayout kDw;
-    private ViewGroup.MarginLayoutParams kDx;
-    private b klF;
-    private boolean klH;
+    private PostData euE;
+    private TextView gsx;
+    private b kAX;
+    private boolean kAZ;
+    private View.OnClickListener kSX;
+    private View.OnLongClickListener kSY;
+    private View.OnTouchListener kSZ;
+    private int kTa;
+    private final Queue<a> kTb;
+    private RelativeLayout kTc;
+    private ViewGroup.MarginLayoutParams kTd;
     private View mRootView;
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -54,100 +54,100 @@ public class SubPbLayout extends ViewGroup {
 
     public SubPbLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.kDu = 0;
+        this.kTa = 0;
         this.mRootView = null;
-        this.kDv = new LinkedList();
-        this.klH = false;
-        this.kDx = new ViewGroup.MarginLayoutParams(-1, -2);
-        this.kDw = new RelativeLayout(context);
-        this.kDw.setId(R.id.pb_floor_reply_more);
-        this.ggp = new TextView(context);
-        this.ggp.setPadding(0, l.getDimens(context, R.dimen.tbds_3), 0, l.getDimens(context, R.dimen.tbds12));
-        this.ggp.setTextSize(0, TbConfig.getContentSizeOfLzl());
-        if (this.klH) {
-            ao.setViewTextColor(this.ggp, R.color.cp_link_tip_c);
-            this.ggp.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+        this.kTb = new LinkedList();
+        this.kAZ = false;
+        this.kTd = new ViewGroup.MarginLayoutParams(-1, -2);
+        this.kTc = new RelativeLayout(context);
+        this.kTc.setId(R.id.pb_floor_reply_more);
+        this.gsx = new TextView(context);
+        this.gsx.setPadding(0, l.getDimens(context, R.dimen.tbds_3), 0, l.getDimens(context, R.dimen.tbds12));
+        this.gsx.setTextSize(0, TbConfig.getContentSizeOfLzl());
+        if (this.kAZ) {
+            ap.setViewTextColor(this.gsx, R.color.cp_link_tip_c);
+            this.gsx.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
         } else {
-            ao.setViewTextColor(this.ggp, R.color.cp_cont_c);
-            this.ggp.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ao.getDrawable(R.drawable.icon_pb_comment_more_n), (Drawable) null);
-            this.ggp.setCompoundDrawablePadding((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.tbds4));
+            ap.setViewTextColor(this.gsx, R.color.cp_cont_c);
+            this.gsx.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ap.getDrawable(R.drawable.icon_pb_comment_more_n), (Drawable) null);
+            this.gsx.setCompoundDrawablePadding((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.tbds4));
         }
-        this.kDw.addView(this.ggp);
-        addView(this.kDw, -1, -2);
+        this.kTc.addView(this.gsx);
+        addView(this.kTc, -1, -2);
     }
 
     public void setChildOnClickListener(View.OnClickListener onClickListener) {
-        this.kDr = onClickListener;
+        this.kSX = onClickListener;
     }
 
     public void setChildOnLongClickListener(View.OnLongClickListener onLongClickListener) {
-        this.kDs = onLongClickListener;
+        this.kSY = onLongClickListener;
     }
 
     public void setChildOnTouchListener(View.OnTouchListener onTouchListener) {
-        this.kDt = onTouchListener;
+        this.kSZ = onTouchListener;
     }
 
     public void setSubPbAdapter(b bVar) {
-        this.klF = bVar;
+        this.kAX = bVar;
     }
 
     public void setShowChildComment(boolean z) {
-        this.klH = z;
+        this.kAZ = z;
     }
 
     public void setData(PostData postData, View view) {
-        this.ekJ = postData;
+        this.euE = postData;
         requestLayout();
         this.mRootView = view;
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        ArrayList<PostData> dlf;
-        if (this.klF == null || this.ekJ == null || this.ekJ.dlf() == null) {
+        ArrayList<PostData> dwC;
+        if (this.kAX == null || this.euE == null || this.euE.dwC() == null) {
             setMeasuredDimension(0, 0);
             return;
         }
         int size = View.MeasureSpec.getSize(i);
-        if (this.ekJ.dle()) {
-            dlf = this.ekJ.dlb();
+        if (this.euE.dwB()) {
+            dwC = this.euE.dwy();
         } else {
-            dlf = this.ekJ.dlf();
+            dwC = this.euE.dwC();
         }
-        setMeasuredDimension(size, cO(x.getCount(dlf), size) + n(dlf, size) + 0 + getPaddingBottom() + getPaddingTop());
+        setMeasuredDimension(size, cW(y.getCount(dwC), size) + q(dwC, size) + 0 + getPaddingBottom() + getPaddingTop());
     }
 
-    private int n(List<PostData> list, int i) {
+    private int q(List<PostData> list, int i) {
         SparseArray sparseArray;
-        if (this.ekJ.dlu() == 1 || this.ekJ.dlu() == 3) {
-            this.kDu = 0;
+        if (this.euE.dwR() == 1 || this.euE.dwR() == 3) {
+            this.kTa = 0;
             return 0;
-        } else if (x.getCount(list) != 0) {
-            int count = x.getCount(list);
-            this.kDu = count;
-            if (!this.ekJ.dle()) {
+        } else if (y.getCount(list) != 0) {
+            int count = y.getCount(list);
+            this.kTa = count;
+            if (!this.euE.dwB()) {
                 if (count <= 2) {
-                    this.kDu = count;
+                    this.kTa = count;
                 } else {
-                    this.kDu = 2;
+                    this.kTa = 2;
                 }
             }
             int i2 = 0;
             int i3 = 0;
-            while (i2 < this.kDu) {
+            while (i2 < this.kTa) {
                 View childAt = getChildAt(i2);
-                if (childAt == null || childAt.equals(this.kDw)) {
-                    childAt = this.klF.createView();
+                if (childAt == null || childAt.equals(this.kTc)) {
+                    childAt = this.kAX.createView();
                     childAt.setPadding(0, 0, 0, 0);
-                    this.kDv.offer(new a(i2, childAt));
+                    this.kTb.offer(new a(i2, childAt));
                 }
                 View view = childAt;
-                view.setOnClickListener(this.kDr);
-                if (!this.klH) {
-                    view.setOnLongClickListener(this.kDs);
+                view.setOnClickListener(this.kSX);
+                if (!this.kAZ) {
+                    view.setOnLongClickListener(this.kSY);
                 }
-                view.setOnTouchListener(this.kDt);
+                view.setOnTouchListener(this.kSZ);
                 view.setClickable(true);
                 view.setVisibility(0);
                 SparseArray sparseArray2 = (SparseArray) view.getTag();
@@ -158,20 +158,23 @@ public class SubPbLayout extends ViewGroup {
                 } else {
                     sparseArray = sparseArray2;
                 }
-                if (sparseArray.get(R.id.tag_load_sub_data) != this.ekJ) {
-                    sparseArray.put(R.id.tag_load_sub_data, this.ekJ);
+                if (sparseArray.get(R.id.tag_load_sub_data) != this.euE) {
+                    sparseArray.put(R.id.tag_load_sub_data, this.euE);
                 }
                 sparseArray.put(R.id.tag_load_sub_view, this.mRootView);
                 sparseArray.put(R.id.tag_is_subpb, true);
-                if (list.get(i2) != null && list.get(i2).aWl() != null) {
-                    sparseArray.put(R.id.tag_photo_username, list.get(i2).aWl().getUserName());
-                    sparseArray.put(R.id.tag_photo_userid, list.get(i2).aWl().getUserId());
+                if (list.get(i2) != null && list.get(i2).beE() != null) {
+                    if (sparseArray.get(R.id.tag_load_sub_reply_data) != list.get(i2)) {
+                        sparseArray.put(R.id.tag_load_sub_reply_data, list.get(i2));
+                    }
+                    sparseArray.put(R.id.tag_photo_username, list.get(i2).beE().getUserName());
+                    sparseArray.put(R.id.tag_photo_userid, list.get(i2).beE().getUserId());
                     sparseArray.put(R.id.tag_clip_board, list.get(i2));
                 }
-                b.C0723b c0723b = (b.C0723b) sparseArray.get(R.id.tag_holder);
-                this.klF.a(c0723b, list.get(i2), this.ekJ.dlm() > list.size() || list.size() - i2 > 1, i2 == 0, false);
-                c0723b.knb.setPadding(0, 0, 0, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds7));
-                this.ggp.setTextSize(0, TbConfig.getContentSizeOfLzl());
+                b.C0774b c0774b = (b.C0774b) sparseArray.get(R.id.tag_holder);
+                this.kAX.a(c0774b, list.get(i2), this.euE.dwJ() > list.size() || list.size() - i2 > 1, i2 == 0, false);
+                c0774b.kCs.setPadding(0, 0, 0, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds7));
+                this.gsx.setTextSize(0, TbConfig.getContentSizeOfLzl());
                 view.measure(((i - getPaddingLeft()) - getPaddingRight()) + 1073741824, 0);
                 i2++;
                 i3 += view.getMeasuredHeight();
@@ -182,30 +185,30 @@ public class SubPbLayout extends ViewGroup {
         }
     }
 
-    private int cO(int i, int i2) {
+    private int cW(int i, int i2) {
         String format;
-        if (i > 0 && (this.ekJ.dlu() == 1 || this.ekJ.dlu() == 3 || this.ekJ.dlm() > this.kDu)) {
-            if (this.klH) {
-                format = String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.sub_pb_load_all_more), Integer.valueOf(this.ekJ.dlm()));
+        if (i > 0 && (this.euE.dwR() == 1 || this.euE.dwR() == 3 || this.euE.dwJ() > this.kTa)) {
+            if (this.kAZ) {
+                format = String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.sub_pb_load_all_more), Integer.valueOf(this.euE.dwJ()));
             } else {
-                format = String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.sub_pb_load_more), Integer.valueOf(this.ekJ.dlm()));
+                format = String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.sub_pb_load_more), Integer.valueOf(this.euE.dwJ()));
             }
-            this.ggp.setText(format);
-            this.kDw.setOnClickListener(this.kDr);
-            SparseArray sparseArray = (SparseArray) this.kDw.getTag();
+            this.gsx.setText(format);
+            this.kTc.setOnClickListener(this.kSX);
+            SparseArray sparseArray = (SparseArray) this.kTc.getTag();
             if (sparseArray == null) {
                 sparseArray = new SparseArray();
-                this.kDw.setTag(sparseArray);
+                this.kTc.setTag(sparseArray);
             }
-            sparseArray.put(R.id.tag_load_sub_data, this.ekJ);
+            sparseArray.put(R.id.tag_load_sub_data, this.euE);
             sparseArray.put(R.id.tag_load_sub_view, this.mRootView);
-            this.kDw.setVisibility(0);
-            this.kDw.measure(((i2 - getPaddingLeft()) - getPaddingRight()) + 1073741824, 0);
+            this.kTc.setVisibility(0);
+            this.kTc.measure(((i2 - getPaddingLeft()) - getPaddingRight()) + 1073741824, 0);
         } else {
-            this.kDw.setVisibility(8);
+            this.kTc.setVisibility(8);
         }
-        if (this.kDw.getVisibility() == 0) {
-            return this.kDw.getMeasuredHeight();
+        if (this.kTc.getVisibility() == 0) {
+            return this.kTc.getMeasuredHeight();
         }
         return 0;
     }
@@ -213,17 +216,17 @@ public class SubPbLayout extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int i5;
-        if (this.ekJ != null && this.ekJ.dlf() != null) {
-            int size = this.kDv.size();
+        if (this.euE != null && this.euE.dwC() != null) {
+            int size = this.kTb.size();
             for (int i6 = 0; i6 < size; i6++) {
-                a poll = this.kDv.poll();
+                a poll = this.kTb.poll();
                 if (poll.view.getParent() == null) {
-                    addViewInLayout(poll.view, poll.position, this.kDx, true);
+                    addViewInLayout(poll.view, poll.position, this.kTd, true);
                 }
             }
             int paddingLeft = getPaddingLeft();
             int paddingTop = getPaddingTop();
-            int i7 = this.kDu;
+            int i7 = this.kTa;
             int i8 = 0;
             int i9 = paddingTop;
             while (i8 < i7) {
@@ -244,15 +247,15 @@ public class SubPbLayout extends ViewGroup {
                 i8++;
                 i9 = i5;
             }
-            if (this.kDw.getVisibility() == 0) {
-                ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.kDw.getLayoutParams();
+            if (this.kTc.getVisibility() == 0) {
+                ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.kTc.getLayoutParams();
                 int i11 = i9 + marginLayoutParams2.topMargin;
-                this.kDw.layout(marginLayoutParams2.leftMargin + paddingLeft, i11, marginLayoutParams2.leftMargin + paddingLeft + this.kDw.getMeasuredWidth(), this.kDw.getMeasuredHeight() + i11);
+                this.kTc.layout(marginLayoutParams2.leftMargin + paddingLeft, i11, marginLayoutParams2.leftMargin + paddingLeft + this.kTc.getMeasuredWidth(), this.kTc.getMeasuredHeight() + i11);
             }
             int childCount = getChildCount();
-            for (int i12 = this.kDu; i12 < childCount; i12++) {
+            for (int i12 = this.kTa; i12 < childCount; i12++) {
                 View childAt2 = getChildAt(i12);
-                if (childAt2 != null && childAt2 != this.kDw) {
+                if (childAt2 != null && childAt2 != this.kTc) {
                     childAt2.setVisibility(8);
                 }
             }
@@ -262,15 +265,15 @@ public class SubPbLayout extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         long drawingTime = getDrawingTime();
-        if (this.ekJ != null && this.ekJ.dlf() != null) {
-            int i = this.kDu;
+        if (this.euE != null && this.euE.dwC() != null) {
+            int i = this.kTa;
             for (int i2 = 0; i2 < i; i2++) {
                 if (i < getChildCount()) {
                     drawChild(canvas, getChildAt(i2), drawingTime);
                 }
             }
-            if (this.kDw.getVisibility() == 0) {
-                drawChild(canvas, this.kDw, drawingTime);
+            if (this.kTc.getVisibility() == 0) {
+                drawChild(canvas, this.kTc, drawingTime);
             }
         }
     }
@@ -283,20 +286,20 @@ public class SubPbLayout extends ViewGroup {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
-    /* renamed from: cSg */
+    /* renamed from: dcW */
     public ViewGroup.MarginLayoutParams generateDefaultLayoutParams() {
         return new ViewGroup.MarginLayoutParams(-2, -2);
     }
 
     public void onChangeSkinType() {
-        if (this.ggp != null) {
-            if (this.klH) {
-                ao.setViewTextColor(this.ggp, R.color.cp_link_tip_c);
-                this.ggp.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+        if (this.gsx != null) {
+            if (this.kAZ) {
+                ap.setViewTextColor(this.gsx, R.color.cp_link_tip_c);
+                this.gsx.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
                 return;
             }
-            this.ggp.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ao.getDrawable(R.drawable.icon_pb_comment_more_n), (Drawable) null);
-            ao.setViewTextColor(this.ggp, R.color.cp_cont_c);
+            this.gsx.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ap.getDrawable(R.drawable.icon_pb_comment_more_n), (Drawable) null);
+            ap.setViewTextColor(this.gsx, R.color.cp_cont_c);
         }
     }
 }

@@ -2,7 +2,7 @@ package alaim;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class MaskInfo extends Message {
     public static final String DEFAULT_MASKGIDS = "";
     public static final String DEFAULT_MASKUIDS = "";
@@ -58,7 +58,7 @@ public final class MaskInfo extends Message {
         this.shieldStatus = builder.shieldStatus;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<MaskInfo> {
         public String maskGids;
         public String maskUids;

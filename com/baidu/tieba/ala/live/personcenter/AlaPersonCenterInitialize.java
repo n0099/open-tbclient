@@ -10,7 +10,7 @@ import com.baidu.tieba.ala.live.personcenter.exp.AlaPersonCenterExpActivity;
 import com.baidu.tieba.ala.live.personcenter.fans.PersonListActivity;
 import com.baidu.tieba.ala.live.personcenter.forbidden.AlaForbiddenListActivity;
 import com.baidu.tieba.ala.live.personcenter.guardian.AlaGuardianListActivity;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaPersonCenterInitialize {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(com.baidu.live.c.a.class, AlaAdminListActivity.class);

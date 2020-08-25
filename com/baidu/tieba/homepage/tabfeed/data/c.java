@@ -1,16 +1,16 @@
 package com.baidu.tieba.homepage.tabfeed.data;
 
 import com.baidu.adp.widget.ListView.q;
-import com.baidu.tbadk.core.data.ah;
+import com.baidu.tbadk.core.data.ai;
 import com.baidu.tbadk.core.data.k;
 import java.util.ArrayList;
 /* loaded from: classes16.dex */
 public class c {
-    public ArrayList<q> iDA;
-    public k iDB;
-    public ah iDC;
-    public int iBs = 0;
-    public int iBr = 0;
-    public boolean eZg = true;
+    public ai iSA;
+    public ArrayList<q> iSy;
+    public k iSz;
+    public int iQk = 0;
+    public int iQj = 0;
+    public boolean fky = true;
     public boolean hasMore = true;
 }

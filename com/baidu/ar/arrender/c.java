@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.PointF;
 import android.graphics.SurfaceTexture;
 import android.opengl.EGLContext;
+import android.os.Looper;
 import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.View;
@@ -33,62 +34,68 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
-public class c extends e implements OrientationManager.OrientationListener, j {
-    private static boolean hp = true;
-    private a Q;
-    private Runnable hg;
-    private m hh;
-    protected Runnable hi;
-    protected i hj;
-    private Runnable hk;
-    private k hl;
-    private Runnable hm;
-    private float hn;
-    private int ho;
-    private int hq;
-    private long hr;
-    private long hs;
+public class c extends e implements OrientationManager.OrientationListener, k {
+    private static boolean gF = true;
+    private b Q;
+    private Runnable gA;
+    private l gB;
+    private Runnable gC;
+    private float gD;
+    private int gE;
+    private int gG;
+    private long gH;
+    private long gI;
+    private a gv;
+    private Runnable gw;
+    private n gx;
+    protected Runnable gy;
+    protected i gz;
     private List<String> u;
 
     /* loaded from: classes11.dex */
     public interface a {
+        void onInputSizeChange(int i, int i2);
+    }
+
+    /* loaded from: classes11.dex */
+    public interface b {
         void a(int i, int i2);
     }
 
-    public c(Context context, com.baidu.ar.lua.b bVar) {
-        super(context, bVar);
-        this.ho = 0;
-        this.hq = 0;
+    public c(Context context, Looper looper, com.baidu.ar.lua.b bVar) {
+        super(context, looper, bVar);
+        this.gE = 0;
+        this.gG = 0;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(Context context, com.baidu.ar.lua.b bVar, EGLContext eGLContext) {
-        super(context, bVar, eGLContext);
-        this.ho = 0;
-        this.hq = 0;
+    public c(Context context, Looper looper, com.baidu.ar.lua.b bVar, EGLContext eGLContext) {
+        super(context, looper, bVar, eGLContext);
+        this.gE = 0;
+        this.gG = 0;
     }
 
     private boolean b(com.baidu.ar.ability.c cVar) {
         return this.u == null || !this.u.contains(cVar.Z());
     }
 
-    private void bu() {
-        if (!this.hQ || this.ho < 0) {
+    private void bC() {
+        if (!this.hb || this.gE < 0) {
             return;
         }
-        if (this.ho == 3) {
-            this.hP.setEngineBlendState(0);
-        } else if (this.ho == 0) {
-            this.hP.setEngineBlendState(1);
+        if (this.gE == 3) {
+            this.ha.setEngineBlendState(0);
+        } else if (this.gE == 0) {
+            this.ha.setEngineBlendState(1);
         }
-        this.ho--;
+        this.gE--;
     }
 
     private boolean c(com.baidu.ar.ability.c cVar) {
-        return cVar.aa() && cVar.ab() != this.hY;
+        return cVar.aa() && cVar.ab() != this.hk;
     }
 
-    private void o(boolean z) {
+    private void p(boolean z) {
         if (this.f == null) {
             return;
         }
@@ -103,64 +110,54 @@ public class c extends e implements OrientationManager.OrientationListener, j {
         super.I(str);
     }
 
-    @Override // com.baidu.ar.arrender.j
+    @Override // com.baidu.ar.arrender.k
     public void a(float f) {
-        if (this.hO == null || this.hP == null) {
+        if (this.gZ == null || this.ha == null) {
             return;
         }
-        this.hn = f;
-        if (this.hm == null) {
-            this.hm = new Runnable() { // from class: com.baidu.ar.arrender.c.4
+        this.gD = f;
+        if (this.gC == null) {
+            this.gC = new Runnable() { // from class: com.baidu.ar.arrender.c.4
                 @Override // java.lang.Runnable
                 public void run() {
-                    ARPCamera aY;
-                    ARPScene currentScene = c.this.hP.getCurrentScene();
-                    if (currentScene == null || (aY = currentScene.aY()) == null) {
+                    ARPCamera aV;
+                    ARPScene currentScene = c.this.ha.getCurrentScene();
+                    if (currentScene == null || (aV = currentScene.aV()) == null) {
                         return;
                     }
-                    aY.a(c.this.hn);
+                    aV.a(c.this.gD);
                 }
             };
         }
-        this.hO.cancelAysncRenderTask(this.hm);
-        this.hO.runAsyncOnRenderContext(this.hm);
+        this.gZ.cancelAysncRenderTask(this.gC);
+        this.gZ.runAsyncOnRenderContext(this.gC);
     }
 
-    @Override // com.baidu.ar.arrender.j
-    public void a(int i, boolean z) {
-        if (this.hP == null || !this.hQ || i < 0) {
-            return;
-        }
-        int[] iArr = {i};
-        com.baidu.ar.f.b.c("ARRenderer", "addAlgoCache type = " + i + " && sync = " + z);
-        this.hP.addAlgoType(iArr, z ? 1 : 0);
-    }
-
-    @Override // com.baidu.ar.arrender.j
+    @Override // com.baidu.ar.arrender.k
     public void a(long j, String str) {
-        if (this.hP == null || j <= 0 || TextUtils.isEmpty(str)) {
+        if (this.ha == null || j <= 0 || TextUtils.isEmpty(str)) {
             return;
         }
         com.baidu.ar.ability.c cVar = new com.baidu.ar.ability.c();
-        cVar.o(str);
+        cVar.p(str);
         cVar.setTimestamp(AlgoHandleAdapter.getHandleTimeStamp(j));
         cVar.d(AlgoHandleAdapter.getHandleIsFront(j));
         cVar.c(AlgoHandleAdapter.getHandleEnableSync(j));
         if (a(cVar)) {
             return;
         }
-        this.hP.setAlgoDataHandle(j);
+        this.ha.setAlgoDataHandle(j);
     }
 
     public void a(Bitmap bitmap, float f, float f2, float f3, float f4) {
-        if (this.hO != null) {
-            this.hO.setAuthPic(bitmap, new float[]{f, f2, f3, f4});
+        if (this.gZ != null) {
+            this.gZ.setAuthPic(bitmap, new float[]{f, f2, f3, f4});
         }
     }
 
-    @Override // com.baidu.ar.arrender.j
+    @Override // com.baidu.ar.arrender.k
     public void a(PointF pointF, boolean z) {
-        b.a(pointF, z, this.W, this.aa);
+        com.baidu.ar.arrender.b.a(pointF, z, this.W, this.aa, this.hx);
     }
 
     @Override // com.baidu.ar.arrender.e
@@ -168,10 +165,10 @@ public class c extends e implements OrientationManager.OrientationListener, j {
         super.a(duMixInput, duMixOutput);
     }
 
-    @Override // com.baidu.ar.arrender.j
-    public void a(ARPEngine.e eVar) {
-        if (this.hP != null) {
-            this.hP.setInteraction(eVar);
+    @Override // com.baidu.ar.arrender.k
+    public void a(ARPEngine.d dVar) {
+        if (this.ha != null) {
+            this.ha.setInteraction(dVar);
         }
     }
 
@@ -186,122 +183,126 @@ public class c extends e implements OrientationManager.OrientationListener, j {
     }
 
     public void a(OnNeedCacheFrameListener onNeedCacheFrameListener) {
-        if (this.hO != null) {
-            this.hO.setOnNeedCacheFrameListener(onNeedCacheFrameListener);
+        if (this.gZ != null) {
+            this.gZ.setOnNeedCacheFrameListener(onNeedCacheFrameListener);
         }
     }
 
-    @Override // com.baidu.ar.arrender.j
+    @Override // com.baidu.ar.arrender.k
     public void a(TakePictureCallback takePictureCallback) {
-        if (this.hO != null) {
-            this.hO.getSnapShot(takePictureCallback, this.aa.getOutputWidth(), this.aa.getOutputHeight(), OrientationManager.getGlobalOrientation().getDegree());
+        if (this.gZ != null) {
+            this.gZ.getSnapShot(takePictureCallback, this.aa.getOutputWidth(), this.aa.getOutputHeight(), OrientationManager.getGlobalOrientation().getDegree());
         }
     }
 
     public void a(a aVar) {
-        this.Q = aVar;
+        this.gv = aVar;
     }
 
-    @Override // com.baidu.ar.arrender.j
+    public void a(b bVar) {
+        this.Q = bVar;
+    }
+
+    @Override // com.baidu.ar.arrender.k
     public void a(h hVar) {
-        if (this.hO == null || hVar == null || a((com.baidu.ar.ability.c) hVar)) {
-            com.baidu.ar.f.b.b("ARRenderer", "updateFilterData error!!!");
+        if (this.gZ == null || hVar == null || a((com.baidu.ar.ability.c) hVar) || this.hs) {
+            com.baidu.ar.g.b.b("ARRenderer", "updateFilterData error!!!");
             return;
         }
-        switch (hVar.bI()) {
+        switch (hVar.bT()) {
             case INT:
-                this.hO.adjustFilterWithIntParam(hVar.getFilterName(), hVar.bG(), ((Integer) hVar.bH()).intValue(), hVar.getTimestamp());
+                this.gZ.adjustFilterWithIntParam(hVar.getFilterName(), hVar.bR(), ((Integer) hVar.bS()).intValue(), hVar.getTimestamp());
                 return;
             case FLOAT:
-                this.hO.adjustFilterWithFloatParam(hVar.getFilterName(), hVar.bG(), ((Float) hVar.bH()).floatValue(), hVar.getTimestamp());
+                this.gZ.adjustFilterWithFloatParam(hVar.getFilterName(), hVar.bR(), ((Float) hVar.bS()).floatValue(), hVar.getTimestamp());
                 return;
             case FLOAT_ARRAY:
-                this.hO.adjustFilterWithFloatArrayParam(hVar.getFilterName(), hVar.bG(), (float[]) hVar.bH(), hVar.getTimestamp());
+                this.gZ.adjustFilterWithFloatArrayParam(hVar.getFilterName(), hVar.bR(), (float[]) hVar.bS(), hVar.getTimestamp());
                 return;
             case STRING:
-                this.hO.adjustFilterWithStringParam(hVar.getFilterName(), hVar.bG(), (String) hVar.bH(), hVar.getTimestamp());
+                this.gZ.adjustFilterWithStringParam(hVar.getFilterName(), hVar.bR(), (String) hVar.bS(), hVar.getTimestamp());
                 return;
             default:
-                com.baidu.ar.f.b.b("ARRenderer", "updateFilterData filterData.getAdjustValueType() error!!!");
+                com.baidu.ar.g.b.b("ARRenderer", "updateFilterData filterData.getAdjustValueType() error!!!");
                 return;
         }
     }
 
-    @Override // com.baidu.ar.arrender.j
+    @Override // com.baidu.ar.arrender.k
     public void a(final i iVar) {
-        if (this.hO == null || iVar == null) {
-            com.baidu.ar.f.b.b("ARRenderer", "updateFilterNodeData error!!!");
+        if (this.gZ == null || iVar == null) {
+            com.baidu.ar.g.b.b("ARRenderer", "updateFilterNodeData error!!!");
             return;
         }
-        this.hj = iVar;
-        if (this.hi == null) {
-            this.hi = new Runnable() { // from class: com.baidu.ar.arrender.c.2
+        this.gz = iVar;
+        if (this.gy == null) {
+            this.gy = new Runnable() { // from class: com.baidu.ar.arrender.c.2
                 @Override // java.lang.Runnable
                 public void run() {
                     ARPScene currentScene;
-                    if (c.this.hj == null || TextUtils.isEmpty(c.this.hj.getNodeName()) || c.this.hj.bJ() == null || c.this.hP == null || c.this.a((com.baidu.ar.ability.c) c.this.hj) || (currentScene = c.this.hP.getCurrentScene()) == null || currentScene.D(iVar.getNodeName()) == null) {
+                    if (c.this.gz == null || TextUtils.isEmpty(c.this.gz.getNodeName()) || c.this.gz.bU() == null || c.this.ha == null || c.this.a((com.baidu.ar.ability.c) c.this.gz) || (currentScene = c.this.ha.getCurrentScene()) == null || currentScene.E(iVar.getNodeName()) == null) {
                         return;
                     }
-                    ARPNode D = currentScene.D(c.this.hj.getNodeName());
-                    for (Map.Entry<String, Object> entry : c.this.hj.bJ().entrySet()) {
-                        D.a(entry.getKey(), entry.getValue());
+                    ARPNode E = currentScene.E(c.this.gz.getNodeName());
+                    for (Map.Entry<String, Object> entry : c.this.gz.bU().entrySet()) {
+                        E.a(entry.getKey(), entry.getValue());
                     }
                 }
             };
         }
-        this.hO.cancelAysncRenderTask(this.hi);
-        this.hO.runAsyncOnRenderContext(this.hi);
+        this.gZ.cancelAysncRenderTask(this.gy);
+        this.gZ.runAsyncOnRenderContext(this.gy);
     }
 
-    @Override // com.baidu.ar.arrender.j
-    public void a(k kVar) {
-        if (this.hO == null || this.hP == null || kVar == null || a((com.baidu.ar.ability.c) kVar)) {
-            com.baidu.ar.f.b.b("ARRenderer", "updateRenderCameraData error!!!");
+    @Override // com.baidu.ar.arrender.k
+    public void a(l lVar) {
+        if (this.gZ == null || this.ha == null || lVar == null || a((com.baidu.ar.ability.c) lVar)) {
+            com.baidu.ar.g.b.b("ARRenderer", "updateRenderCameraData error!!!");
             return;
         }
-        this.hl = kVar;
-        if (this.hk == null) {
-            this.hk = new Runnable() { // from class: com.baidu.ar.arrender.c.3
+        this.gB = lVar;
+        if (this.gA == null) {
+            this.gA = new Runnable() { // from class: com.baidu.ar.arrender.c.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    ARPCamera aY;
-                    ARPScene currentScene = c.this.hP.getCurrentScene();
-                    if (currentScene == null || (aY = currentScene.aY()) == null) {
+                    ARPCamera aV;
+                    ARPScene currentScene = c.this.ha.getCurrentScene();
+                    if (currentScene == null || (aV = currentScene.aV()) == null) {
                         return;
                     }
-                    aY.a(c.this.hl.getMatrix());
+                    aV.a(c.this.gB.getMatrix());
                 }
             };
         }
-        this.hO.cancelAysncRenderTask(this.hk);
-        this.hO.runAsyncOnRenderContext(this.hk);
+        this.gZ.cancelAysncRenderTask(this.gA);
+        this.gZ.runAsyncOnRenderContext(this.gA);
     }
 
-    @Override // com.baidu.ar.arrender.j
-    public void a(m mVar, boolean z) {
-        if (this.hO == null || this.hP == null || mVar == null || a(mVar)) {
-            com.baidu.ar.f.b.b("ARRenderer", "updateRenderNodeData error!!!");
+    @Override // com.baidu.ar.arrender.k
+    public void a(n nVar, boolean z) {
+        if (this.gZ == null || this.ha == null || nVar == null || a(nVar)) {
+            com.baidu.ar.g.b.b("ARRenderer", "updateRenderNodeData error!!!");
         } else if (!z) {
-            this.hP.updateAlgoDataToNode(mVar.getWidth(), mVar.getHeight(), mVar.bM());
+            this.ha.updateAlgoDataToNode(nVar.getWidth(), nVar.getHeight(), nVar.ca());
         } else {
-            this.hh = mVar;
-            if (this.hg == null) {
-                this.hg = new Runnable() { // from class: com.baidu.ar.arrender.c.1
+            this.gx = nVar;
+            if (this.gw == null) {
+                this.gw = new Runnable() { // from class: com.baidu.ar.arrender.c.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        c.this.hP.updateAlgoDataToNode(c.this.hh.getWidth(), c.this.hh.getHeight(), c.this.hh.bM());
+                        c.this.ha.updateAlgoDataToNode(c.this.gx.getWidth(), c.this.gx.getHeight(), c.this.gx.ca());
                     }
                 };
             }
-            this.hO.cancelAysncRenderTask(this.hg);
-            this.hO.runAsyncOnRenderContext(this.hg);
+            this.gZ.cancelAysncRenderTask(this.gw);
+            this.gZ.runAsyncOnRenderContext(this.gw);
         }
     }
 
-    @Override // com.baidu.ar.arrender.j
+    @Override // com.baidu.ar.arrender.k
     public void a(com.baidu.ar.imu.b bVar) {
-        if (this.hP != null) {
-            this.hP.setImuType(bVar.getTypeValue());
+        if (this.ha != null) {
+            this.ha.setImuType(bVar.getTypeValue());
         }
     }
 
@@ -312,41 +313,41 @@ public class c extends e implements OrientationManager.OrientationListener, j {
 
     @Override // com.baidu.ar.arrender.e
     protected void a(boolean z) {
-        com.baidu.ar.f.b.c("ARRenderer", "onCameraSwitch front = " + z);
+        com.baidu.ar.g.b.c("ARRenderer", "onCameraSwitch front = " + z);
         super.a(z);
-        if (this.hO != null) {
-            this.hO.setCameraFace(z);
+        if (this.gZ != null) {
+            this.gZ.setCameraFace(z);
         }
-        if (this.hP != null) {
-            this.hP.setIsFrontCamera(z);
+        if (this.ha != null) {
+            this.ha.setIsFrontCamera(z);
         }
         if (this.W != null && this.W.isCameraInput()) {
             this.W.setFrontCamera(z);
         }
-        o(!z);
-        br();
-        this.ho = 3;
+        p(!z);
+        bz();
+        this.gE = 3;
     }
 
     protected boolean a(com.baidu.ar.ability.c cVar) {
         return !cVar.ac() && (b(cVar) || c(cVar));
     }
 
-    @Override // com.baidu.ar.arrender.j
-    public void aK() {
-        if (this.hU != null) {
-            this.hU.aK();
+    @Override // com.baidu.ar.arrender.k
+    public void aI() {
+        if (this.hf != null) {
+            this.hf.aI();
         }
     }
 
-    @Override // com.baidu.ar.arrender.j
-    public Matrixf4x4 aW() {
+    @Override // com.baidu.ar.arrender.k
+    public Matrixf4x4 aT() {
         ARPScene currentScene;
-        ARPCamera aY;
-        if (this.hP == null || (currentScene = this.hP.getCurrentScene()) == null || (aY = currentScene.aY()) == null) {
+        ARPCamera aV;
+        if (this.ha == null || (currentScene = this.ha.getCurrentScene()) == null || (aV = currentScene.aV()) == null) {
             return null;
         }
-        return aY.aW();
+        return aV.aT();
     }
 
     @Override // com.baidu.ar.arrender.e, com.baidu.ar.arrender.IRenderer
@@ -354,78 +355,101 @@ public class c extends e implements OrientationManager.OrientationListener, j {
         super.addOutputSurface(duMixOutput);
     }
 
-    @Override // com.baidu.ar.arrender.j
-    public void b(final String str, final Object obj) {
-        if (this.hO == null) {
+    @Override // com.baidu.ar.arrender.k
+    public void b(int i, boolean z) {
+        if (this.ha == null || i < 0) {
             return;
         }
-        this.hO.runAsyncOnRenderContext(new Runnable() { // from class: com.baidu.ar.arrender.c.5
+        int[] iArr = {i};
+        com.baidu.ar.g.b.c("ARRenderer", "addAlgoCache type = " + i + " && sync = " + z);
+        this.ha.addAlgoType(iArr, z ? 1 : 0);
+    }
+
+    @Override // com.baidu.ar.arrender.k
+    public void b(final String str, final Object obj) {
+        if (this.gZ == null) {
+            return;
+        }
+        this.gZ.runAsyncOnRenderContext(new Runnable() { // from class: com.baidu.ar.arrender.c.5
             @Override // java.lang.Runnable
             public void run() {
-                if (c.this.hT != null) {
-                    c.this.hT.setDataPipKV(str, obj);
+                if (c.this.he != null) {
+                    c.this.he.setDataPipKV(str, obj);
                 }
             }
         });
     }
 
-    public DuMixInput bo() {
-        return this.W;
-    }
-
-    public DuMixOutput bp() {
-        return this.aa;
-    }
-
-    @Override // com.baidu.ar.arrender.j
-    public void bq() {
-        if (this.hO != null) {
-            this.hO.disableCaseLutTexture();
-        }
-    }
-
-    @Override // com.baidu.ar.arrender.j
-    public void br() {
-        onRotateOrientation(OrientationManager.getGlobalOrientation());
-    }
-
-    @Override // com.baidu.ar.arrender.j
-    public String bs() {
+    @Override // com.baidu.ar.arrender.k
+    public String bA() {
         return this.mCasePath;
     }
 
-    @Override // com.baidu.ar.arrender.j
-    public void bt() {
+    @Override // com.baidu.ar.arrender.k
+    public void bB() {
         ARPScene currentScene;
-        if (this.hP == null || (currentScene = this.hP.getCurrentScene()) == null) {
+        if (this.ha == null || (currentScene = this.ha.getCurrentScene()) == null) {
             return;
         }
-        currentScene.ba();
+        currentScene.aX();
     }
 
     @Override // com.baidu.ar.arrender.e
-    public /* bridge */ /* synthetic */ void bv() {
-        super.bv();
+    public /* bridge */ /* synthetic */ void bD() {
+        super.bD();
     }
 
     @Override // com.baidu.ar.arrender.e
-    public /* bridge */ /* synthetic */ void bw() {
-        super.bw();
+    public /* bridge */ /* synthetic */ void bE() {
+        super.bE();
     }
 
     @Override // com.baidu.ar.arrender.e
-    public /* bridge */ /* synthetic */ void bx() {
-        super.bx();
+    public /* bridge */ /* synthetic */ void bF() {
+        super.bF();
     }
 
     @Override // com.baidu.ar.arrender.e
-    public /* bridge */ /* synthetic */ com.baidu.ar.steploading.d by() {
-        return super.by();
+    public /* bridge */ /* synthetic */ boolean bG() {
+        return super.bG();
+    }
+
+    @Override // com.baidu.ar.arrender.e
+    public /* bridge */ /* synthetic */ com.baidu.ar.steploading.d bH() {
+        return super.bH();
+    }
+
+    public DuMixInput bw() {
+        return this.W;
+    }
+
+    public DuMixOutput bx() {
+        return this.aa;
+    }
+
+    @Override // com.baidu.ar.arrender.k
+    public void by() {
+        if (this.gZ != null) {
+            this.gZ.disableCaseLutTexture();
+        }
+    }
+
+    @Override // com.baidu.ar.arrender.k
+    public void bz() {
+        onRotateOrientation(OrientationManager.getGlobalOrientation());
     }
 
     @Override // com.baidu.ar.arrender.e, com.baidu.ar.arrender.IRenderer
     public /* bridge */ /* synthetic */ void cancelAysncRenderTask(Runnable runnable) {
         super.cancelAysncRenderTask(runnable);
+    }
+
+    @Override // com.baidu.ar.arrender.e
+    public void changeInputSize(SurfaceTexture surfaceTexture, int i, int i2) {
+        super.changeInputSize(surfaceTexture, i, i2);
+        if (this.gv != null) {
+            this.gv.onInputSizeChange(i, i2);
+        }
     }
 
     @Override // com.baidu.ar.arrender.e
@@ -451,54 +475,63 @@ public class c extends e implements OrientationManager.OrientationListener, j {
     }
 
     public void h(long j) {
-        if (this.hO != null) {
-            this.hO.setAlgoPts(j);
+        if (this.gZ != null) {
+            this.gZ.setAlgoPts(j);
         }
     }
 
-    @Override // com.baidu.ar.arrender.j
-    public void h(boolean z) {
+    @Override // com.baidu.ar.arrender.k
+    public void i(boolean z) {
         ARPScene currentScene;
-        if (this.hP == null || (currentScene = this.hP.getCurrentScene()) == null) {
+        if (this.ha == null || (currentScene = this.ha.getCurrentScene()) == null) {
             return;
         }
-        currentScene.h(z);
+        currentScene.i(z);
     }
 
-    @Override // com.baidu.ar.arrender.j
+    @Override // com.baidu.ar.arrender.k
     public boolean isDriverdByARPVersion() {
-        if (this.hP != null) {
-            return this.hP.isDriverdByARPVersion();
+        if (this.ha != null) {
+            return this.ha.isDriverdByARPVersion();
         }
         return false;
     }
 
-    public void k(boolean z) {
-        com.baidu.ar.f.b.i("ARRenderer", "enableSyncRender enable = " + z);
-        if (this.hO != null) {
-            this.hO.setSourceSyncProperty(z);
-        }
-    }
-
-    @Override // com.baidu.ar.arrender.j
     public void l(boolean z) {
-        if (this.hP != null) {
-            this.hP.setFaceLandMarkFrameAcheMode(z ? 1 : 0);
+        com.baidu.ar.g.b.k("ARRenderer", "enableSyncRender enable = " + z);
+        if (this.gZ != null) {
+            this.gZ.setSourceSyncProperty(z);
         }
     }
 
-    @Override // com.baidu.ar.arrender.j
-    public boolean m(boolean z) {
-        if (this.hP == null || this.hP.getCurrentScene() == null) {
+    @Override // com.baidu.ar.arrender.k
+    public void m(boolean z) {
+        if (this.ha != null) {
+            this.ha.setFaceLandMarkFrameAcheMode(z ? 1 : 0);
+        }
+    }
+
+    @Override // com.baidu.ar.arrender.k
+    public boolean n(boolean z) {
+        if (this.ha == null || this.ha.getCurrentScene() == null) {
             return false;
         }
-        return this.hP.getCurrentScene().g(z);
+        return this.ha.getCurrentScene().h(z);
     }
 
-    @Override // com.baidu.ar.arrender.j
-    public void n(boolean z) {
-        if (this.hR != null) {
-            this.hR.j(z);
+    @Override // com.baidu.ar.arrender.k
+    public void o(int i) {
+        if (this.ha == null || i < 0) {
+            return;
+        }
+        com.baidu.ar.g.b.c("ARRenderer", "removeAlgoCache type = " + i);
+        this.ha.removeAlgoType(new int[]{i});
+    }
+
+    @Override // com.baidu.ar.arrender.k
+    public void o(boolean z) {
+        if (this.hc != null) {
+            this.hc.k(z);
         }
     }
 
@@ -508,39 +541,39 @@ public class c extends e implements OrientationManager.OrientationListener, j {
     }
 
     @Override // com.baidu.ar.arrender.e, com.baidu.ar.arplay.core.filter.OnRenderFinishedListener
-    public void onRenderFinished() {
-        super.onRenderFinished();
-        if (hp) {
-            com.baidu.ar.f.b.c("profile_frame_time_cpu", "= " + (System.currentTimeMillis() - this.hr));
+    public void onRenderFinished(long j) {
+        super.onRenderFinished(j);
+        if (gF) {
+            com.baidu.ar.g.b.c("profile_frame_time_cpu", "= " + (System.currentTimeMillis() - this.gH));
         }
     }
 
     @Override // com.baidu.ar.arrender.e, com.baidu.ar.arplay.core.filter.OnRenderStartedListener
-    public void onRenderStarted() {
-        if (hp) {
-            if (this.hr != 0) {
-                com.baidu.ar.f.b.c("profile_frame_interval", "= " + (System.currentTimeMillis() - this.hr));
-                if (this.hq == 50) {
-                    com.baidu.ar.f.b.c("profile_frame_fps_avg", "= " + (50000 / this.hs));
-                    com.baidu.ar.f.b.c("profile_frame_interval_avg", "= " + (this.hs / 50));
-                    this.hq = 0;
-                    this.hs = 0L;
+    public void onRenderStarted(long j) {
+        if (gF) {
+            if (this.gH != 0) {
+                com.baidu.ar.g.b.c("profile_frame_interval", "= " + (System.currentTimeMillis() - this.gH));
+                if (this.gG == 50) {
+                    com.baidu.ar.g.b.c("profile_frame_fps_avg", "= " + (50000 / this.gI));
+                    com.baidu.ar.g.b.c("profile_frame_interval_avg", "= " + (this.gI / 50));
+                    this.gG = 0;
+                    this.gI = 0L;
                 } else {
-                    this.hq++;
-                    this.hs += System.currentTimeMillis() - this.hr;
+                    this.gG++;
+                    this.gI += System.currentTimeMillis() - this.gH;
                 }
             }
-            this.hr = System.currentTimeMillis();
+            this.gH = System.currentTimeMillis();
         }
-        super.onRenderStarted();
-        bu();
+        super.onRenderStarted(j);
+        bC();
     }
 
     @Override // com.baidu.ar.arplay.core.engine.rotate.OrientationManager.OrientationListener
     public void onRotateOrientation(Orientation orientation) {
         if (this.f != null) {
-            com.baidu.ar.f.b.c("ARRenderer", "sendOrientation2Render orientation = " + orientation);
-            this.f.b(4001, b.a(orientation));
+            com.baidu.ar.g.b.c("ARRenderer", "sendOrientation2Render orientation = " + orientation);
+            this.f.b(4001, com.baidu.ar.arrender.b.a(orientation));
         }
     }
 
@@ -550,20 +583,15 @@ public class c extends e implements OrientationManager.OrientationListener, j {
     }
 
     @Override // com.baidu.ar.arrender.e
-    public /* bridge */ /* synthetic */ void p(boolean z) {
-        super.p(z);
-    }
-
-    @Override // com.baidu.ar.arrender.e
     public /* bridge */ /* synthetic */ void pause() {
         super.pause();
     }
 
     public void pauseScene() {
-        com.baidu.ar.f.b.c("ARRenderer", "pauseScene()");
-        if (this.hP != null) {
-            this.hW = true;
-            this.hP.pause();
+        com.baidu.ar.g.b.c("ARRenderer", "pauseScene()");
+        if (this.ha != null) {
+            this.hh = true;
+            this.ha.pause();
         }
     }
 
@@ -572,19 +600,16 @@ public class c extends e implements OrientationManager.OrientationListener, j {
         super.q(z);
     }
 
-    @Override // com.baidu.ar.arrender.j
-    public void r(int i) {
-        if (this.hP == null || !this.hQ || i < 0) {
-            return;
-        }
-        com.baidu.ar.f.b.c("ARRenderer", "removeAlgoCache type = " + i);
-        this.hP.removeAlgoType(new int[]{i});
+    @Override // com.baidu.ar.arrender.e
+    public /* bridge */ /* synthetic */ void r(boolean z) {
+        super.r(z);
     }
 
     @Override // com.baidu.ar.arrender.e
     public void release() {
         this.u = null;
         this.Q = null;
+        this.gv = null;
         super.release();
     }
 
@@ -599,10 +624,10 @@ public class c extends e implements OrientationManager.OrientationListener, j {
     }
 
     public void resumeScene() {
-        com.baidu.ar.f.b.c("ARRenderer", "resumeScene()");
-        if (this.hP != null) {
-            this.hP.resume();
-            this.hW = false;
+        com.baidu.ar.g.b.c("ARRenderer", "resumeScene()");
+        if (this.ha != null) {
+            this.ha.resume();
+            this.hh = false;
         }
     }
 
@@ -616,17 +641,22 @@ public class c extends e implements OrientationManager.OrientationListener, j {
         super.runSyncOnRenderContext(runnable);
     }
 
-    @Override // com.baidu.ar.arrender.j
+    @Override // com.baidu.ar.arrender.e
+    public /* bridge */ /* synthetic */ void s(boolean z) {
+        super.s(z);
+    }
+
+    @Override // com.baidu.ar.arrender.k
     public void sceneRotateToCamera() {
-        if (this.hP != null) {
-            this.hP.sceneRotateToCamera();
+        if (this.ha != null) {
+            this.ha.sceneRotateToCamera();
         }
     }
 
-    @Override // com.baidu.ar.arrender.j
+    @Override // com.baidu.ar.arrender.k
     public void sceneWorldPositionToOrigin() {
-        if (this.hP != null) {
-            this.hP.sceneWorldPositionToOrigin();
+        if (this.ha != null) {
+            this.ha.sceneWorldPositionToOrigin();
         }
     }
 
@@ -635,9 +665,14 @@ public class c extends e implements OrientationManager.OrientationListener, j {
         super.setCameraSwitchListener(fVar);
     }
 
+    @Override // com.baidu.ar.arrender.e, com.baidu.ar.arrender.IRenderer
+    public /* bridge */ /* synthetic */ void setDefaultPipeLine(String str) {
+        super.setDefaultPipeLine(str);
+    }
+
     public void setGLWebViewUseable(Context context, ViewGroup viewGroup) {
-        if (this.hV != null) {
-            this.hV.a(context, viewGroup, this);
+        if (this.hg != null) {
+            this.hg.a(context, viewGroup, this);
         }
     }
 
@@ -647,8 +682,8 @@ public class c extends e implements OrientationManager.OrientationListener, j {
     }
 
     public void setNativeWebViewUseable(Context context, ViewGroup viewGroup) {
-        if (this.hV != null) {
-            this.hV.b(context, viewGroup, null);
+        if (this.hg != null) {
+            this.hg.b(context, viewGroup, null);
         }
     }
 
@@ -667,10 +702,10 @@ public class c extends e implements OrientationManager.OrientationListener, j {
         super.setStateListener(duMixStateListener);
     }
 
-    @Override // com.baidu.ar.arrender.j
+    @Override // com.baidu.ar.arrender.k
     public String updateFilterCase(String str) {
-        if (this.hO != null) {
-            return this.hO.adjustFilterWithCasePathParam(str);
+        if (this.gZ != null) {
+            return this.gZ.adjustFilterWithCasePathParam(str);
         }
         return null;
     }

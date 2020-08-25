@@ -4,31 +4,31 @@ import com.baidu.ar.callback.ICallback;
 import com.baidu.ar.callback.ICallbackWith;
 import com.baidu.ar.callback.IError;
 /* loaded from: classes11.dex */
-class b<T> extends com.baidu.ar.d.a<T, T> {
-    private ICallback we;
-    private IError wf;
+class b<T> extends com.baidu.ar.e.a<T, T> {
+    private ICallback wH;
+    private IError wI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(ICallback iCallback, IError iError) {
-        this.we = iCallback;
-        this.wf = iError;
+        this.wH = iCallback;
+        this.wI = iError;
     }
 
-    @Override // com.baidu.ar.d.a
+    @Override // com.baidu.ar.e.a
     protected void a(int i, String str, IError iError) {
-        if (this.wf != null) {
-            this.wf.onError(i, str, null);
+        if (this.wI != null) {
+            this.wI.onError(i, str, null);
         }
     }
 
-    @Override // com.baidu.ar.d.a
+    @Override // com.baidu.ar.e.a
     protected void a(T t, ICallbackWith<T> iCallbackWith, IError iError) {
-        if (this.we != null) {
-            this.we.run();
+        if (this.wH != null) {
+            this.wH.run();
         }
     }
 
-    @Override // com.baidu.ar.d.a
-    protected void ee() {
+    @Override // com.baidu.ar.e.a
+    protected void fq() {
     }
 }

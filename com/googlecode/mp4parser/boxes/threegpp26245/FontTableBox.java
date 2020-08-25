@@ -11,11 +11,11 @@ import java.util.LinkedList;
 import java.util.List;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class FontTableBox extends AbstractBox {
     public static final String TYPE = "ftab";
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_1 = null;
     List<FontRecord> entries;
 
     static {
@@ -24,8 +24,8 @@ public class FontTableBox extends AbstractBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("FontTableBox.java", FontTableBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getEntries", "com.googlecode.mp4parser.boxes.threegpp26245.FontTableBox", "", "", "", "java.util.List"), 52);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setEntries", "com.googlecode.mp4parser.boxes.threegpp26245.FontTableBox", "java.util.List", "entries", "", "void"), 56);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "getEntries", "com.googlecode.mp4parser.boxes.threegpp26245.FontTableBox", "", "", "", "java.util.List"), 52);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "setEntries", "com.googlecode.mp4parser.boxes.threegpp26245.FontTableBox", "java.util.List", "entries", "", "void"), 56);
     }
 
     public FontTableBox() {
@@ -75,7 +75,7 @@ public class FontTableBox extends AbstractBox {
         this.entries = list;
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes8.dex */
     public static class FontRecord {
         int fontId;
         String fontname;

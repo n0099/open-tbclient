@@ -11,7 +11,7 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebViewFactory;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class EngineManager implements INoProGuard {
     private static final String DIFF_FILE_SUBFIX = ".diff";
     public static final String LOG_TAG = "webkitUpdate";
@@ -106,7 +106,7 @@ public class EngineManager implements INoProGuard {
             boolean z2 = getSp().getBoolean(ZEUS_INSTALL_FINISH, false);
             Log.i(LOG_TAG, "after clear = " + z + " finish = " + z2 + " restart = " + getSp().getBoolean(ZEUS_INSTALL_APP_RESTART, false));
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -120,7 +120,7 @@ public class EngineManager implements INoProGuard {
             }
             Log.i(LOG_TAG, "setInstallFinish apply = " + getSp().getBoolean(ZEUS_INSTALL_FINISH, false));
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -133,7 +133,7 @@ public class EngineManager implements INoProGuard {
                 getEditor().commit();
             }
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -174,7 +174,7 @@ public class EngineManager implements INoProGuard {
             }
             return z;
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
             return false;
         }
     }
@@ -185,7 +185,7 @@ public class EngineManager implements INoProGuard {
             Log.i(LOG_TAG, " isInstalled = " + z);
             return z;
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
             return false;
         }
     }
@@ -199,7 +199,7 @@ public class EngineManager implements INoProGuard {
             }
             return z;
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
             return false;
         }
     }
@@ -254,7 +254,7 @@ public class EngineManager implements INoProGuard {
             }
             resetPref();
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 
@@ -267,7 +267,7 @@ public class EngineManager implements INoProGuard {
             }
             Log.i(LOG_TAG, "setNeedKillProcess after apply = " + getSp().getBoolean(ZEUS_INSTALL_APP_RESTART, false));
         } catch (Throwable th) {
-            com.a.a.a.a.a.a.a.a(th);
+            th.printStackTrace();
         }
     }
 }

@@ -13,9 +13,10 @@ import com.baidu.cyberplayer.sdk.CyberPlayer;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.ICyberVideoView;
 import com.baidu.cyberplayer.sdk.n;
+import com.baidu.sapi2.ecommerce.callback.AddressManageCallback;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class a extends FrameLayout implements ICyberVideoView {
     protected g A;
     protected CyberPlayerManager.OnVideoSizeChangedListener B;
@@ -68,45 +69,45 @@ public class a extends FrameLayout implements ICyberVideoView {
     protected CyberPlayerManager.OnSeekCompleteListener v;
     protected CyberPlayerManager.OnInfoListener w;
     protected b x;
-    protected InterfaceC0106a y;
+    protected InterfaceC0105a y;
     protected e z;
 
     /* renamed from: com.baidu.cyberplayer.sdk.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC0106a {
+    /* loaded from: classes7.dex */
+    public interface InterfaceC0105a {
         void a();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         void a();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface c {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface d {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface e {
         void a();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface f {
         void a();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public interface g {
         void a();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public enum h {
         ERROR,
         IDLE,
@@ -117,7 +118,7 @@ public class a extends FrameLayout implements ICyberVideoView {
         PLAYBACK_COMPLETED
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     protected enum i {
         PAUSED,
         RESUMED
@@ -400,7 +401,7 @@ public class a extends FrameLayout implements ICyberVideoView {
             } else {
                 this.h.changeProxyDynamic(str, true);
             }
-            this.h.seekTo(getCurrentPosition() - 500);
+            this.h.seekTo(getCurrentPosition() + AddressManageCallback.VoiceRecognitionResult.ERROR_CODE_VOICE_RECOGNITION_CANCEL);
             if (this.ad != null) {
                 this.ad.put(CyberPlayerManager.OPT_HTTP_PROXY, str);
             }
@@ -717,8 +718,8 @@ public class a extends FrameLayout implements ICyberVideoView {
         this.J = z;
     }
 
-    public void setOnBufferingEndListener(InterfaceC0106a interfaceC0106a) {
-        this.y = interfaceC0106a;
+    public void setOnBufferingEndListener(InterfaceC0105a interfaceC0105a) {
+        this.y = interfaceC0105a;
     }
 
     public void setOnBufferingStartListener(b bVar) {

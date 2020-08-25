@@ -3,7 +3,7 @@ package com.baidu.live.c;
 import android.content.Context;
 import com.baidu.ala.atomdata.AlaAdminListActivityConfig;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class g extends IntentConfig {
     public g(Context context) {
         super(context);

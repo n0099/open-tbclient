@@ -1,9 +1,10 @@
 package kotlin.text;
 
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
+import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import kotlin.jvm.internal.FunctionReference;
 @kotlin.h
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 final class Regex$findAll$2 extends FunctionReference implements kotlin.jvm.a.b<i, i> {
     public static final Regex$findAll$2 INSTANCE = new Regex$findAll$2();
 
@@ -29,7 +30,7 @@ final class Regex$findAll$2 extends FunctionReference implements kotlin.jvm.a.b<
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.a.b
     public final i invoke(i iVar) {
-        kotlin.jvm.internal.q.m(iVar, "p1");
-        return iVar.dUD();
+        kotlin.jvm.internal.q.m(iVar, ZeusPerformanceTiming.KEY_BROWSER_STARTUP);
+        return iVar.egF();
     }
 }

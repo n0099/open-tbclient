@@ -4,63 +4,64 @@ import android.content.Intent;
 import android.net.Uri;
 import com.baidu.adp.lib.f.e;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
-    private boolean lcT;
-    private boolean lcU;
-    private HashMap<String, Integer> lcV;
+    private boolean ltm;
+    private boolean ltn;
+    private HashMap<String, Integer> lto;
 
-    public void dN(JSONObject jSONObject) {
+    public void dY(JSONObject jSONObject) {
         if (jSONObject != null) {
-            boolean z = this.lcT;
-            this.lcT = jSONObject.optInt("switch", 0) == 1;
-            this.lcU = jSONObject.optInt("p2p_config", 0) == 1;
+            boolean z = this.ltm;
+            this.ltm = jSONObject.optInt("switch", 0) == 1;
+            this.ltn = jSONObject.optInt("p2p_config", 0) == 1;
             JSONArray optJSONArray = jSONObject.optJSONArray("domain_list");
             if (optJSONArray != null) {
-                this.lcV = new HashMap<>();
+                this.lto = new HashMap<>();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     String optString = optJSONArray.optString(i);
                     if (!StringUtils.isNull(optString)) {
-                        this.lcV.put(optString, 0);
+                        this.lto.put(optString, 0);
                     }
                 }
             }
-            if (this.lcT) {
+            if (this.ltm) {
                 c.init();
                 if (!z) {
                     Intent intent = new Intent(TbadkCoreApplication.getInst().getContext(), CyberRemotePlayerService.class);
                     intent.putExtra("pcdn", true);
                     TbadkCoreApplication.getInst().getContext().startService(intent);
-                    e.lt().postDelayed(new Runnable() { // from class: com.baidu.tieba.play.cyberPlayer.a.1
+                    e.mS().postDelayed(new Runnable() { // from class: com.baidu.tieba.play.cyberPlayer.a.1
                         @Override // java.lang.Runnable
                         public void run() {
                             TbadkCoreApplication.getInst().getContext().stopService(new Intent(TbadkCoreApplication.getInst().getContext(), CyberRemotePlayerService.class));
                         }
-                    }, 3000L);
+                    }, IMConnection.RETRY_DELAY_TIMES);
                 }
             }
         }
     }
 
-    public boolean cZc() {
-        if (this.lcT) {
+    public boolean dkf() {
+        if (this.ltm) {
             c.init();
         }
-        return this.lcT;
+        return this.ltm;
     }
 
-    public boolean cZd() {
-        return this.lcU;
+    public boolean dkg() {
+        return this.ltn;
     }
 
     public boolean x(Uri uri) {
-        if (this.lcV == null || uri == null) {
+        if (this.lto == null || uri == null) {
             return false;
         }
-        return this.lcV.containsKey(uri.getHost());
+        return this.lto.containsKey(uri.getHost());
     }
 }

@@ -1,6 +1,8 @@
 package com.baidu.sapi2.utils;
-/* loaded from: classes19.dex */
-public final class Log implements com.baidu.sapi2.c {
+
+import com.baidu.sapi2.NoProguard;
+/* loaded from: classes12.dex */
+public final class Log implements NoProguard {
     public static final String TAG = "SAPI";
     public static boolean enabled;
 
@@ -72,15 +74,15 @@ public final class Log implements com.baidu.sapi2.c {
         e(str, th);
     }
 
-    public static void d(Object... objArr) {
-        d(TAG, objArr);
-    }
-
     public static void e(String str, Object... objArr) {
         if (!enabled) {
             return;
         }
         android.util.Log.e(str, a(str, objArr));
+    }
+
+    public static void d(Object... objArr) {
+        d(TAG, objArr);
     }
 
     public static void i(Object... objArr) {

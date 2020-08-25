@@ -37,7 +37,7 @@ import java.util.zip.ZipInputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes11.dex */
 public class e {
     public static String a = "UpdateSo";
     protected Context b;
@@ -48,7 +48,7 @@ public class e {
     private b.a g;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void a(c.a aVar);
 
@@ -642,7 +642,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes11.dex */
     public class b {
         public static final String a = "dl_so_zip_version";
         private static final String c = "dl_so_modle_name";

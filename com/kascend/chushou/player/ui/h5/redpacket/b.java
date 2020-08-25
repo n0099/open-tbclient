@@ -28,21 +28,21 @@ public class b extends FrameLayout implements View.OnClickListener {
     private Context a;
     private View b;
     private View c;
-    private FrameLayout d;
     private FrameLayout e;
     private TextView f;
     private Animation j;
     private boolean n;
-    private RedpacketItem nAD;
-    private RedpacketItem nAE;
-    private RedpacketItem nAF;
-    private Animation nAG;
-    private Animation nAH;
-    private Animation nAI;
-    private H5Positon nAJ;
-    private d nAM;
-    private a nBj;
-    private e nBk;
+    private FrameLayout nPF;
+    private d nUA;
+    private a nUX;
+    private e nUY;
+    private RedpacketItem nUr;
+    private RedpacketItem nUs;
+    private RedpacketItem nUt;
+    private Animation nUu;
+    private Animation nUv;
+    private Animation nUw;
+    private H5Positon nUx;
     private int o;
     private List<e> r;
     private int t;
@@ -69,10 +69,10 @@ public class b extends FrameLayout implements View.OnClickListener {
 
     private void a(Context context) {
         this.a = context;
-        this.nAH = AnimationUtils.loadAnimation(this.a, a.C0824a.slide_in_right_anim);
-        this.nAI = AnimationUtils.loadAnimation(this.a, a.C0824a.slide_out_right_anim);
-        this.j = AnimationUtils.loadAnimation(this.a, a.C0824a.slide_in_left_anim);
-        this.nAG = AnimationUtils.loadAnimation(this.a, a.C0824a.slide_out_left_anim);
+        this.nUv = AnimationUtils.loadAnimation(this.a, a.C0882a.slide_in_right_anim);
+        this.nUw = AnimationUtils.loadAnimation(this.a, a.C0882a.slide_out_right_anim);
+        this.j = AnimationUtils.loadAnimation(this.a, a.C0882a.slide_in_left_anim);
+        this.nUu = AnimationUtils.loadAnimation(this.a, a.C0882a.slide_out_left_anim);
         setBackgroundColor(ContextCompat.getColor(this.a, a.c.transparent_60_black));
     }
 
@@ -86,15 +86,15 @@ public class b extends FrameLayout implements View.OnClickListener {
         } else if (id == a.f.view_redpacketlist_close) {
             if (!LoginManager.Instance().islogined()) {
                 b();
-            } else if (!h.dMp().r()) {
+            } else if (!h.dYr().r()) {
                 b();
             } else {
-                h.dMp().h(false);
+                h.dYr().h(false);
                 new tv.chushou.zues.widget.sweetalert.b(this.a, 0).a(new b.a() { // from class: com.kascend.chushou.player.ui.h5.redpacket.b.2
                     @Override // tv.chushou.zues.widget.sweetalert.b.a
                     public void onClick(tv.chushou.zues.widget.sweetalert.b bVar) {
                         bVar.dismiss();
-                        h.dMp().g(false);
+                        h.dYr().g(false);
                         b.this.b();
                     }
                 }).b(new b.a() { // from class: com.kascend.chushou.player.ui.h5.redpacket.b.1
@@ -103,15 +103,15 @@ public class b extends FrameLayout implements View.OnClickListener {
                         bVar.dismiss();
                         b.this.b();
                     }
-                }).be(this.a.getString(a.i.auto_popup_redpacket_title), true).B(this.a.getResources().getString(a.i.auto_popup_redpacket_content)).Ub(this.a.getResources().getString(a.i.auto_popup_redpacket_cancal)).Ud(this.a.getResources().getString(a.i.auto_popup_redpacket_confirm)).show();
+                }).bi(this.a.getString(a.i.auto_popup_redpacket_title), true).B(this.a.getResources().getString(a.i.auto_popup_redpacket_content)).Xf(this.a.getResources().getString(a.i.auto_popup_redpacket_cancal)).Xh(this.a.getResources().getString(a.i.auto_popup_redpacket_confirm)).show();
             }
         }
     }
 
     public void a(int i, H5Positon h5Positon, a aVar) {
         this.o = i;
-        this.nAJ = h5Positon;
-        this.nBj = aVar;
+        this.nUx = h5Positon;
+        this.nUX = aVar;
         this.r = aVar.a();
         if (this.b == null) {
             c();
@@ -122,11 +122,11 @@ public class b extends FrameLayout implements View.OnClickListener {
             h();
         }
         this.t = 0;
-        this.nBk = this.r.get(this.t);
-        this.nAF = this.nAD;
-        this.nAF.setVisibility(0);
+        this.nUY = this.r.get(this.t);
+        this.nUt = this.nUr;
+        this.nUt.setVisibility(0);
         getNext().setVisibility(8);
-        this.nAF.a(this.nBk, this.nBj);
+        this.nUt.a(this.nUY, this.nUX);
         f();
     }
 
@@ -136,8 +136,8 @@ public class b extends FrameLayout implements View.OnClickListener {
             i = a.h.dialog_videoplayer_redpacket_list_landscape;
         }
         this.b = LayoutInflater.from(this.a).inflate(i, (ViewGroup) this, false);
-        this.d = (FrameLayout) this.b.findViewById(a.f.btn_previous);
-        this.d.setOnClickListener(this);
+        this.nPF = (FrameLayout) this.b.findViewById(a.f.btn_previous);
+        this.nPF.setOnClickListener(this);
         this.b.findViewById(a.f.btn_previous_image).setOnClickListener(this);
         this.e = (FrameLayout) this.b.findViewById(a.f.btn_next);
         this.e.setOnClickListener(this);
@@ -146,8 +146,8 @@ public class b extends FrameLayout implements View.OnClickListener {
         this.c = this.b.findViewById(a.f.view_redpacketlist_close);
         this.c.setOnClickListener(this);
         FrameLayout frameLayout = (FrameLayout) this.b.findViewById(a.f.redpacket_viewswitcher);
-        this.nAD = (RedpacketItem) this.b.findViewById(a.f.redpacket_item_first);
-        this.nAE = (RedpacketItem) this.b.findViewById(a.f.redpacket_item_second);
+        this.nUr = (RedpacketItem) this.b.findViewById(a.f.redpacket_item_first);
+        this.nUs = (RedpacketItem) this.b.findViewById(a.f.redpacket_item_second);
         d dVar = new d() { // from class: com.kascend.chushou.player.ui.h5.redpacket.b.3
             @Override // com.kascend.chushou.widget.cswebview.d
             public void a(Object obj) {
@@ -158,8 +158,8 @@ public class b extends FrameLayout implements View.OnClickListener {
             public void a(String str) {
             }
         };
-        this.nAD.setListener(dVar);
-        this.nAE.setListener(dVar);
+        this.nUr.setListener(dVar);
+        this.nUs.setListener(dVar);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
         layoutParams.gravity = 17;
         addView(this.b, layoutParams);
@@ -167,7 +167,7 @@ public class b extends FrameLayout implements View.OnClickListener {
 
     public void a() {
         if (ViewCompat.isAttachedToWindow(this)) {
-            int indexOf = this.r.indexOf(this.nBk);
+            int indexOf = this.r.indexOf(this.nUY);
             if (indexOf != -1) {
                 this.t = indexOf;
             }
@@ -176,22 +176,22 @@ public class b extends FrameLayout implements View.OnClickListener {
     }
 
     public void b() {
-        if (this.nAM != null) {
-            this.nAM.a(this);
+        if (this.nUA != null) {
+            this.nUA.a(this);
         }
     }
 
     public void setCloseH5Listener(d dVar) {
-        this.nAM = dVar;
+        this.nUA = dVar;
     }
 
     private void d() {
         if (this.t == 0) {
-            g.F(this.a, a.i.red_packet_previous);
+            g.H(this.a, a.i.red_packet_previous);
         } else if (!this.n) {
             this.n = true;
-            final RedpacketItem redpacketItem = this.nAF;
-            this.nAI.setAnimationListener(new tv.chushou.zues.toolkit.c.a() { // from class: com.kascend.chushou.player.ui.h5.redpacket.b.4
+            final RedpacketItem redpacketItem = this.nUt;
+            this.nUw.setAnimationListener(new tv.chushou.zues.toolkit.c.a() { // from class: com.kascend.chushou.player.ui.h5.redpacket.b.4
                 @Override // tv.chushou.zues.toolkit.c.a, android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
                     super.onAnimationEnd(animation);
@@ -199,9 +199,9 @@ public class b extends FrameLayout implements View.OnClickListener {
                     redpacketItem.setVisibility(8);
                 }
             });
-            redpacketItem.startAnimation(this.nAI);
-            this.nAF = getNext();
-            this.nAF.setVisibility(0);
+            redpacketItem.startAnimation(this.nUw);
+            this.nUt = getNext();
+            this.nUt.setVisibility(0);
             this.j.setAnimationListener(new tv.chushou.zues.toolkit.c.a() { // from class: com.kascend.chushou.player.ui.h5.redpacket.b.5
                 @Override // tv.chushou.zues.toolkit.c.a, android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
@@ -210,23 +210,23 @@ public class b extends FrameLayout implements View.OnClickListener {
                     if (b.this.t <= 0) {
                         b.this.t = 0;
                     }
-                    b.this.nBk = (e) b.this.r.get(b.this.t);
-                    b.this.nAF.a(b.this.nBk, b.this.nBj);
+                    b.this.nUY = (e) b.this.r.get(b.this.t);
+                    b.this.nUt.a(b.this.nUY, b.this.nUX);
                     b.this.f();
                     b.this.n = false;
                 }
             });
-            this.nAF.startAnimation(this.j);
+            this.nUt.startAnimation(this.j);
         }
     }
 
     private void e() {
         if (this.t >= this.r.size() - 1) {
-            g.F(this.a, a.i.red_packet_next);
+            g.H(this.a, a.i.red_packet_next);
         } else if (!this.n) {
             this.n = true;
-            final RedpacketItem redpacketItem = this.nAF;
-            this.nAG.setAnimationListener(new tv.chushou.zues.toolkit.c.a() { // from class: com.kascend.chushou.player.ui.h5.redpacket.b.6
+            final RedpacketItem redpacketItem = this.nUt;
+            this.nUu.setAnimationListener(new tv.chushou.zues.toolkit.c.a() { // from class: com.kascend.chushou.player.ui.h5.redpacket.b.6
                 @Override // tv.chushou.zues.toolkit.c.a, android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
                     super.onAnimationEnd(animation);
@@ -234,10 +234,10 @@ public class b extends FrameLayout implements View.OnClickListener {
                     redpacketItem.setVisibility(8);
                 }
             });
-            redpacketItem.startAnimation(this.nAG);
-            this.nAF = getNext();
-            this.nAF.setVisibility(0);
-            this.nAH.setAnimationListener(new tv.chushou.zues.toolkit.c.a() { // from class: com.kascend.chushou.player.ui.h5.redpacket.b.7
+            redpacketItem.startAnimation(this.nUu);
+            this.nUt = getNext();
+            this.nUt.setVisibility(0);
+            this.nUv.setAnimationListener(new tv.chushou.zues.toolkit.c.a() { // from class: com.kascend.chushou.player.ui.h5.redpacket.b.7
                 @Override // tv.chushou.zues.toolkit.c.a, android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
                     super.onAnimationEnd(animation);
@@ -245,22 +245,22 @@ public class b extends FrameLayout implements View.OnClickListener {
                     if (b.this.t >= b.this.r.size() - 1) {
                         b.this.t = b.this.r.size() - 1;
                     }
-                    b.this.nBk = (e) b.this.r.get(b.this.t);
-                    b.this.nAF.a(b.this.nBk, b.this.nBj);
+                    b.this.nUY = (e) b.this.r.get(b.this.t);
+                    b.this.nUt.a(b.this.nUY, b.this.nUX);
                     b.this.f();
                     b.this.n = false;
                 }
             });
-            this.nAF.startAnimation(this.nAH);
+            this.nUt.startAnimation(this.nUv);
         }
     }
 
     private RedpacketItem getNext() {
-        return this.nAF == this.nAD ? this.nAE : this.nAD;
+        return this.nUt == this.nUr ? this.nUs : this.nUr;
     }
 
     private int getFragmentContainerId() {
-        return this.nAF == this.nAD ? a.f.redpacket_item_first : a.f.redpacket_item_second;
+        return this.nUt == this.nUr ? a.f.redpacket_item_first : a.f.redpacket_item_second;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -269,18 +269,18 @@ public class b extends FrameLayout implements View.OnClickListener {
         if (size == 0) {
             b();
         } else if (size == 1) {
-            this.d.setVisibility(4);
+            this.nPF.setVisibility(4);
             this.e.setVisibility(4);
             this.f.setVisibility(4);
         } else {
-            this.d.setVisibility(0);
+            this.nPF.setVisibility(0);
             this.e.setVisibility(0);
             this.f.setVisibility(0);
             this.f.setText(this.a.getString(a.i.red_packet_count, Integer.valueOf(this.t + 1), Integer.valueOf(this.r.size())));
             if (this.t == 0) {
-                tv.chushou.zues.utils.a.f(this.d, false);
+                tv.chushou.zues.utils.a.f(this.nPF, false);
             } else {
-                tv.chushou.zues.utils.a.f(this.d, true);
+                tv.chushou.zues.utils.a.f(this.nPF, true);
             }
             if (this.t == size - 1) {
                 tv.chushou.zues.utils.a.f(this.e, false);
@@ -295,13 +295,13 @@ public class b extends FrameLayout implements View.OnClickListener {
         layoutParams.width = -1;
         layoutParams.height = -1;
         this.b.setLayoutParams(layoutParams);
-        Point gE = tv.chushou.zues.utils.a.gE(this.a);
+        Point gW = tv.chushou.zues.utils.a.gW(this.a);
         int statusBarHeight = tv.chushou.zues.utils.systemBar.b.getStatusBarHeight(this.a);
-        int i = gE.x;
-        int i2 = gE.y - statusBarHeight;
+        int i = gW.x;
+        int i2 = gW.y - statusBarHeight;
         View findViewById = this.b.findViewById(a.f.fl_top);
         LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) findViewById.getLayoutParams();
-        int i3 = (int) (((((100 - this.nAJ.mHeight) * 1.0d) / 2.0d) / 100.0d) * i2);
+        int i3 = (int) (((((100 - this.nUx.mHeight) * 1.0d) / 2.0d) / 100.0d) * i2);
         layoutParams2.height = i3;
         findViewById.setLayoutParams(layoutParams2);
         FrameLayout.LayoutParams layoutParams3 = (FrameLayout.LayoutParams) this.f.getLayoutParams();
@@ -309,7 +309,7 @@ public class b extends FrameLayout implements View.OnClickListener {
         this.f.setLayoutParams(layoutParams3);
         LinearLayout linearLayout = (LinearLayout) this.b.findViewById(a.f.view_middle);
         LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) linearLayout.getLayoutParams();
-        layoutParams4.height = (int) (((this.nAJ.mHeight * 1.0d) / 100.0d) * i2);
+        layoutParams4.height = (int) (((this.nUx.mHeight * 1.0d) / 100.0d) * i2);
         linearLayout.setLayoutParams(layoutParams4);
         View findViewById2 = this.b.findViewById(a.f.fl_bottom);
         LinearLayout.LayoutParams layoutParams5 = (LinearLayout.LayoutParams) findViewById2.getLayoutParams();
@@ -319,30 +319,30 @@ public class b extends FrameLayout implements View.OnClickListener {
         layoutParams6.topMargin = (int) (i3 * 0.2d);
         this.c.setLayoutParams(layoutParams6);
         linearLayout.setWeightSum(100.0f);
-        FrameLayout frameLayout = this.d;
+        FrameLayout frameLayout = this.nPF;
         LinearLayout.LayoutParams layoutParams7 = (LinearLayout.LayoutParams) frameLayout.getLayoutParams();
-        layoutParams7.weight = (100 - this.nAJ.mWidth) / 2;
+        layoutParams7.weight = (100 - this.nUx.mWidth) / 2;
         frameLayout.setLayoutParams(layoutParams7);
         View findViewById3 = this.b.findViewById(a.f.redpacket_viewswitcher);
         LinearLayout.LayoutParams layoutParams8 = (LinearLayout.LayoutParams) findViewById3.getLayoutParams();
-        layoutParams8.weight = this.nAJ.mWidth;
+        layoutParams8.weight = this.nUx.mWidth;
         findViewById3.setLayoutParams(layoutParams8);
         FrameLayout frameLayout2 = this.e;
         LinearLayout.LayoutParams layoutParams9 = (LinearLayout.LayoutParams) frameLayout2.getLayoutParams();
-        layoutParams9.weight = (100 - this.nAJ.mWidth) / 2;
+        layoutParams9.weight = (100 - this.nUx.mWidth) / 2;
         frameLayout2.setLayoutParams(layoutParams9);
     }
 
     private void h() {
-        Point gE = tv.chushou.zues.utils.a.gE(this.a);
-        int i = (int) (((this.nAJ.mHeight * 1.0d) / 100.0d) * gE.y);
-        int dip2px = tv.chushou.zues.utils.a.dip2px(this.a, 120.0f) + ((int) (((this.nAJ.mAspectRadio * 1.0d) / 100.0d) * i));
+        Point gW = tv.chushou.zues.utils.a.gW(this.a);
+        int i = (int) (((this.nUx.mHeight * 1.0d) / 100.0d) * gW.y);
+        int dip2px = tv.chushou.zues.utils.a.dip2px(this.a, 120.0f) + ((int) (((this.nUx.mAspectRadio * 1.0d) / 100.0d) * i));
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.b.getLayoutParams();
         layoutParams.width = dip2px;
         layoutParams.height = i;
         this.b.setLayoutParams(layoutParams);
         RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.c.getLayoutParams();
-        layoutParams2.topMargin = (int) (gE.y * 0.05d);
+        layoutParams2.topMargin = (int) (gW.y * 0.05d);
         this.c.setLayoutParams(layoutParams2);
     }
 }

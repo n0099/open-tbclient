@@ -1,5 +1,5 @@
 package android.support.multidex;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "android.support.multidex";
     public static final String BUILD_TYPE = "release";

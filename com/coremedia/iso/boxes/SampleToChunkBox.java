@@ -14,13 +14,13 @@ import java.util.LinkedList;
 import java.util.List;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class SampleToChunkBox extends AbstractFullBox {
     public static final String TYPE = "stsc";
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_3 = null;
     List<Entry> entries;
 
     static {
@@ -29,10 +29,10 @@ public class SampleToChunkBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("SampleToChunkBox.java", SampleToChunkBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getEntries", "com.coremedia.iso.boxes.SampleToChunkBox", "", "", "", "java.util.List"), 47);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setEntries", "com.coremedia.iso.boxes.SampleToChunkBox", "java.util.List", "entries", "", "void"), 51);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.SampleToChunkBox", "", "", "", FieldUtil.TYPE_STRING), 84);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "blowup", "com.coremedia.iso.boxes.SampleToChunkBox", "int", "chunkCount", "", "[J"), 95);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "getEntries", "com.coremedia.iso.boxes.SampleToChunkBox", "", "", "", "java.util.List"), 47);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "setEntries", "com.coremedia.iso.boxes.SampleToChunkBox", "java.util.List", "entries", "", "void"), 51);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.d("1", "toString", "com.coremedia.iso.boxes.SampleToChunkBox", "", "", "", FieldUtil.TYPE_STRING), 84);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.d("1", "blowup", "com.coremedia.iso.boxes.SampleToChunkBox", "int", "chunkCount", "", "[J"), 95);
     }
 
     public SampleToChunkBox() {
@@ -82,7 +82,7 @@ public class SampleToChunkBox extends AbstractFullBox {
     }
 
     public long[] blowup(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.LD(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.Og(i)));
         long[] jArr = new long[i];
         LinkedList linkedList = new LinkedList(this.entries);
         Collections.reverse(linkedList);
@@ -98,7 +98,7 @@ public class SampleToChunkBox extends AbstractFullBox {
         return jArr;
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes8.dex */
     public static class Entry {
         long firstChunk;
         long sampleDescriptionIndex;

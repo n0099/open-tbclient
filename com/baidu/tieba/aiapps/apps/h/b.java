@@ -15,7 +15,7 @@ import com.baidu.searchbox.suspensionball.SuspensionBallEntity;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.aq.v;
+import com.baidu.swan.apps.ap.v;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.setting.oauth.a.b;
@@ -23,6 +23,8 @@ import com.baidu.swan.apps.setting.oauth.h;
 import com.baidu.tbadk.BdToken.f;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.mutiprocess.event.GoodsEvent;
+import com.baidu.tbadk.mutiprocess.g;
 import com.baidu.webkit.internal.ETAG;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -30,7 +32,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes19.dex */
 public class b extends aa {
-    public static String fhY = "com.baidu.tieba://";
+    public static String ftx = "com.baidu.tieba://";
     private String mCallback;
 
     public b(j jVar) {
@@ -67,11 +69,11 @@ public class b extends aa {
             }
         }
         final String jSONObject = optJSONObject.toString();
-        eVar.arH().b((Activity) context, "mapp_i_baiduapp_page_trans", new com.baidu.swan.apps.aq.e.b<h<b.d>>() { // from class: com.baidu.tieba.aiapps.apps.h.b.1
+        eVar.azU().b((Activity) context, "mapp_i_baiduapp_page_trans", new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.tieba.aiapps.apps.h.b.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.swan.apps.aq.e.b
+            @Override // com.baidu.swan.apps.ap.e.b
             /* renamed from: a */
-            public void H(h<b.d> hVar) {
+            public void I(h<b.d> hVar) {
                 if (!com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
                     com.baidu.swan.apps.setting.oauth.c.a(hVar, callbackHandler, b.this.mCallback);
                 } else if (!b.this.h(context, optString, optString2, optString3, optString4, jSONObject)) {
@@ -104,15 +106,15 @@ public class b extends aa {
                     try {
                         String optString = new JSONObject(str5).optString("url");
                         if (!StringUtils.isNull(optString)) {
-                            BF(optString);
+                            DZ(optString);
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }
             } else {
-                str6 = g(str, str2, str3, str4, str5);
-                z = ay(context, str6);
+                str6 = h(str, str2, str3, str4, str5);
+                z = aC(context, str6);
             }
             if (DEBUG) {
                 Log.i("PageTransitionAction", "result = " + z + "\n拼接后的uri is: " + str6);
@@ -121,17 +123,17 @@ public class b extends aa {
         return z;
     }
 
-    private void BF(String str) {
-        com.baidu.swan.apps.process.messaging.client.a arm;
-        com.baidu.swan.apps.runtime.e arv = com.baidu.swan.apps.runtime.e.arv();
-        if (arv != null && (arm = arv.arm()) != null) {
+    private void DZ(String str) {
+        com.baidu.swan.apps.process.messaging.client.a azz;
+        com.baidu.swan.apps.runtime.e azI = com.baidu.swan.apps.runtime.e.azI();
+        if (azI != null && (azz = azI.azz()) != null) {
             Bundle bundle = new Bundle();
             bundle.putString("key_param_url", str);
-            arm.b(bundle, a.class);
+            azz.b(bundle, a.class);
         }
     }
 
-    private static String g(String str, String str2, String str3, String str4, String str5) {
+    private static String h(String str, String str2, String str3, String str4, String str5) {
         JSONObject jSONObject;
         if (TextUtils.isEmpty(str5)) {
             return null;
@@ -153,7 +155,7 @@ public class b extends aa {
             if (TextUtils.isEmpty(str2)) {
                 str2 = str6 + str4;
             }
-            String str7 = fhY;
+            String str7 = ftx;
             if (TextUtils.isEmpty(str2)) {
                 if (!TextUtils.isEmpty(str)) {
                     str7 = str7 + str;
@@ -177,16 +179,16 @@ public class b extends aa {
         }
     }
 
-    private static boolean ay(final Context context, String str) {
+    private static boolean aC(final Context context, String str) {
         if (TextUtils.isEmpty(str) || context == null) {
             return false;
         }
         if (!TextUtils.isEmpty(str) && str.contains("tbwebview")) {
             Uri parse = Uri.parse(str);
             if (f.p(parse)) {
-                f.aQv().d(parse, new f.a() { // from class: com.baidu.tieba.aiapps.apps.h.b.2
+                f.aYL().d(parse, new f.a() { // from class: com.baidu.tieba.aiapps.apps.h.b.2
                     @Override // com.baidu.tbadk.BdToken.f.a
-                    public void B(HashMap<String, Object> hashMap) {
+                    public void z(HashMap<String, Object> hashMap) {
                         if (hashMap != null && (hashMap.get(f.PARAM_URL) instanceof String)) {
                             TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context, null, (String) hashMap.get(f.PARAM_URL), true);
                             tbWebViewActivityConfig.setIsFromSchema(true);
@@ -194,12 +196,19 @@ public class b extends aa {
                         }
                     }
                 });
-            } else {
-                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context);
-                tbWebViewActivityConfig.setUri(parse);
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, tbWebViewActivityConfig));
+                return true;
             }
+            TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context);
+            tbWebViewActivityConfig.setUri(parse);
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, tbWebViewActivityConfig));
             return true;
+        }
+        if (!TextUtils.isEmpty(str) && str.contains("com.baidu.tieba")) {
+            Uri parse2 = Uri.parse(str);
+            if ("miniapp".equals(parse2.getAuthority()) && "/goods".equals(parse2.getPath())) {
+                g.publishEvent(new GoodsEvent(parse2.getQueryParameter("goodsList")));
+                return true;
+            }
         }
         return UtilHelper.dealOneScheme(context, str);
     }

@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class VideoMiddlePageActivityConfig extends IntentConfig {
     public static final String FROM_CONCERN_TAB = "concern_tab";
     public static final String FROM_DAILY_TAB = "daily_tab";

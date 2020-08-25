@@ -83,7 +83,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.regex.Pattern;
 import org.apache.http.conn.util.InetAddressUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class UtilHelper {
     private static final String NATIVE_PAY_FROM = "from_type";
     public static final int PROCESS_LIMIT_NONE = 0;
@@ -92,13 +92,13 @@ public class UtilHelper {
     private static final String[] sNativeAdPrefixes = {"http://m.baidu.com/baidu.php?url=", "https://m.baidu.com/baidu.php?url="};
     private static final String[] sNativeAdEncoded = {"http%3a%2f%2fm.baidu.com%2fbaidu.php%3furl%3d", "https%3a%2f%2fm.baidu.com%2fbaidu.php%3furl%3d"};
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class NativePage {
         public String id;
         public NativePageType type = NativePageType.NONE;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public enum NativePageType {
         NONE,
         FRS,
@@ -660,7 +660,14 @@ public class UtilHelper {
 
     public static String getDeviceId() {
         TelephonyManager telephonyManager;
-        return (!PermissionUtil.checkReadPhoneState(TbadkCoreApplication.getInst()) || (telephonyManager = (TelephonyManager) TbadkCoreApplication.getInst().getSystemService("phone")) == null) ? "" : telephonyManager.getDeviceId();
+        try {
+            if (PermissionUtil.checkReadPhoneState(TbadkCoreApplication.getInst()) && (telephonyManager = (TelephonyManager) TbadkCoreApplication.getInst().getSystemService("phone")) != null) {
+                return telephonyManager.getDeviceId();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "";
     }
 
     public static String getTiebaApkMd5() {
@@ -926,6 +933,10 @@ public class UtilHelper {
         return new DecimalFormat("0.00").format(f);
     }
 
+    public static String formalDecimalForTwo(double d) {
+        return new DecimalFormat("0.00").format(d);
+    }
+
     public static void openGpu(Activity activity) {
         CompatibleUtile.getInstance().openGpu(activity);
     }
@@ -1115,7 +1126,7 @@ public class UtilHelper {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1697=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1714=4] */
     public static String getSystemProperty(String str) {
         BufferedReader bufferedReader;
         BufferedReader bufferedReader2 = null;

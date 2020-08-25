@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
-/* loaded from: classes12.dex */
+/* loaded from: classes6.dex */
 public final class a {
     public static OnAnrCrashListener P;
     public static OnCrashExceedListener Q;

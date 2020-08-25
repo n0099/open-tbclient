@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.apk;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ApkData {
     public static final long APK_OVERTIME_IVERVAL = 604800000;
     public String apkClipBoardScheme;
@@ -13,7 +13,7 @@ public class ApkData {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public ApkData m20clone() {
+    public ApkData m23clone() {
         ApkData apkData = new ApkData();
         apkData.apkUrl = this.apkUrl;
         apkData.apkPackageName = this.apkPackageName;

@@ -1,7 +1,7 @@
 package io.flutter.plugin.common;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public interface MethodCodec {
     Object decodeEnvelope(ByteBuffer byteBuffer);
 

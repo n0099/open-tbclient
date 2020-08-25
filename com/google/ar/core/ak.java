@@ -2,7 +2,7 @@ package com.google.ar.core;
 
 import android.util.Log;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes11.dex */
 final class ak implements Runnable {
     private final /* synthetic */ AtomicBoolean a;
     private final /* synthetic */ aj b;
@@ -17,8 +17,8 @@ final class ak implements Runnable {
     public final void run() {
         if (!this.a.getAndSet(true)) {
             Log.w("ARCore-InstallService", "requestInstall timed out, launching fullscreen.");
-            w wVar = this.b.niI;
-            w.b(this.b.a, this.b.nit);
+            w wVar = this.b.nCz;
+            w.b(this.b.a, this.b.nCk);
         }
     }
 }

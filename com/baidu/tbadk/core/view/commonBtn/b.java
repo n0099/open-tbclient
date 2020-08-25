@@ -2,47 +2,78 @@ package com.baidu.tbadk.core.view.commonBtn;
 
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
-import android.os.Build;
 import android.support.annotation.ColorRes;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
-public class b extends a {
+/* loaded from: classes2.dex */
+public class b extends TBSpecificationButtonConfig {
+    private boolean ewQ;
+
     public b() {
-        this.emy = R.color.cp_cont_a;
-        this.emA = R.color.cp_link_tip_a;
+        this.ewB = R.color.cp_link_tip_a;
+        this.ewQ = true;
     }
 
-    public void mV(@ColorRes int i) {
-        this.emA = i;
-        this.emy = R.color.cp_cont_a;
-        this.emJ = true;
-        if (this.emL != null) {
-            this.emL.bcO();
+    public void pb(@ColorRes int i) {
+        this.ewB = i;
+        this.ewQ = true;
+        this.ewN = true;
+        if (this.ewP != null) {
+            this.ewP.bll();
+        }
+    }
+
+    public void pc(@ColorRes int i) {
+        this.ewB = i;
+        this.ewD = R.color.cp_btn_a;
+        this.ewQ = false;
+        this.ewN = true;
+        if (this.ewP != null) {
+            this.ewP.bll();
+        }
+    }
+
+    public void blo() {
+        this.ewB = R.color.cp_cont_a;
+        this.ewD = R.color.cp_btn_j;
+        this.ewQ = false;
+        this.ewN = true;
+        if (this.ewP != null) {
+            this.ewP.bll();
+        }
+    }
+
+    public void pd(@ColorRes int i) {
+        this.ewB = i;
+        this.ewD = R.color.cp_btn_c;
+        this.ewQ = false;
+        if (this.ewP != null) {
+            this.ewP.bll();
+        }
+    }
+
+    public void bb(@ColorRes int i, @ColorRes int i2) {
+        this.ewD = i;
+        this.ewB = i2;
+        this.ewQ = false;
+        if (this.ewP != null) {
+            this.ewP.bll();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    @Override // com.baidu.tbadk.core.view.commonBtn.a
-    public Drawable V(float f) {
-        return W(f);
+    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
+    public Drawable aa(float f) {
+        return ac(f);
     }
 
-    private Drawable W(float f) {
-        GradientDrawable gradientDrawable;
-        if (!this.emJ) {
-            this.emy = ao.getColor(R.color.cp_cont_a);
-        }
-        int color = this.emJ ? ao.getColor(this.emA) : this.emA;
-        int[] iArr = {com.baidu.tieba.tbadkCore.c.Fi(color), color};
-        if (Build.VERSION.SDK_INT >= 16) {
-            gradientDrawable = new GradientDrawable();
-            gradientDrawable.setOrientation(this.emK);
-            gradientDrawable.setColors(iArr);
+    private Drawable ac(float f) {
+        GradientDrawable gradientDrawable = new GradientDrawable();
+        if (this.ewQ) {
+            gradientDrawable.setColor(com.baidu.tieba.tbadkCore.c.l(this.ewN ? ap.getColor(this.aiB, this.ewB) : this.ewB, 0.08f));
         } else {
-            gradientDrawable = new GradientDrawable(this.emK, iArr);
+            gradientDrawable.setColor(ap.getColor(this.aiB, this.ewD));
         }
-        gradientDrawable.setGradientType(0);
         gradientDrawable.setShape(0);
         gradientDrawable.setCornerRadius(f);
         return gradientDrawable;

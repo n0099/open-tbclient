@@ -1,5 +1,5 @@
 package com.baidu.tbadk.editortools.d;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
     public String addr;
     public boolean isShow;

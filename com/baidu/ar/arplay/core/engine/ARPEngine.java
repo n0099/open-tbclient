@@ -24,14 +24,14 @@ public class ARPEngine {
     private static ARPEngine self = null;
     private int mCurrentCaseId;
     private com.baidu.ar.arplay.a.b mDataStore;
-    private d mHtmlCallback;
+    private c mHtmlCallback;
     public ByteBuffer mMaskBuffer;
     private OrientationEventListener mOrientationEventListener;
-    private g mVideoCallback;
+    private f mVideoCallback;
     private boolean mIsInitNative = false;
-    private e mInteraction = null;
+    private d mInteraction = null;
     private boolean mIsAppBackground = false;
-    private c mCaseState = c.EUninit;
+    private b mCaseState = b.EUninit;
     private volatile boolean mIsEngineCreated = false;
     private volatile boolean mIsTempleteCreating = false;
     private volatile boolean mIsTempleteCreated = false;
@@ -43,9 +43,8 @@ public class ARPEngine {
     private boolean mIsPaused = false;
     private int mPreviewWidth = 0;
     private int mPreviewHeight = 0;
-    private Map<String, a> mAlgoRunnbaleMap = new HashMap();
     private int mDeviceOrientation = -1;
-    private f mTouchOrientation = f.SCREEN_ORIENTATION_NOT_DEFINED;
+    private e mTouchOrientation = e.SCREEN_ORIENTATION_NOT_DEFINED;
     private int mFPS = 0;
     private final int mARTypeUnknow = -1;
     private final int mARTypeTracking = 0;
@@ -57,35 +56,13 @@ public class ARPEngine {
     private long start = 0;
 
     /* loaded from: classes11.dex */
-    public class a implements Runnable {
-        private ARPHandle et;
-        final /* synthetic */ ARPEngine eu;
-
-        public synchronized void release() {
-            if (this.et != null) {
-                this.et.release();
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public synchronized void run() {
-            if (this.eu.isEngineCanAccess() && this.et != null) {
-                com.baidu.ar.arplay.c.b.c("ARPHandle", "use copy handle : " + this.et.getHandle());
-                this.eu.nativeSetAlgoDataHandle(this.et.getHandle());
-                this.et.release();
-                this.et = null;
-            }
-        }
-    }
-
-    /* loaded from: classes11.dex */
-    public interface b {
+    public interface a {
         void a(Bitmap bitmap);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
-    public enum c {
+    public enum b {
         EUninit,
         ECreating,
         ECreated,
@@ -93,17 +70,17 @@ public class ARPEngine {
     }
 
     /* loaded from: classes11.dex */
-    public interface d {
+    public interface c {
         boolean c(int i, int i2);
     }
 
     /* loaded from: classes11.dex */
-    public interface e {
+    public interface d {
         void a(float f, float f2, float f3);
     }
 
     /* loaded from: classes11.dex */
-    public enum f {
+    public enum e {
         SCREEN_ORIENTATION_PORTRAIT,
         SCREEN_ORIENTATION_LANDSCAPE,
         SCREEN_ORIENTATION_REVERSE_PORTRAIT,
@@ -112,17 +89,18 @@ public class ARPEngine {
     }
 
     /* loaded from: classes11.dex */
-    public interface g {
+    public interface f {
         void a(String str, int i, String str2, String str3);
     }
 
     private ARPEngine() {
     }
 
-    private void createApp(int i, int i2, int i3, int i4, float f2) {
-        com.baidu.ar.arplay.c.b.b("ARPEngine", "createApp");
-        nativeCreateApp(i, i2, i3, i4, f2);
+    private boolean createApp(int i, int i2, int i3, int i4, float f2) {
+        com.baidu.ar.arplay.c.b.b("ARPEngine", "createApp [width*height]: [" + i + "*" + i2 + "]");
+        boolean nativeCreateApp = nativeCreateApp(i, i2, i3, i4, f2);
         this.mIsEngineCreated = true;
+        return nativeCreateApp;
     }
 
     private int getARType() {
@@ -166,7 +144,7 @@ public class ARPEngine {
 
     private native void nativeFinalize();
 
-    private native void nativeSetup(Object obj);
+    private native boolean nativeSetup(Object obj, String str);
 
     public static void onInteractionFinish(Object obj, float f2, float f3, float f4) {
         ARPEngine aRPEngine = (ARPEngine) ((WeakReference) obj).get();
@@ -178,9 +156,9 @@ public class ARPEngine {
 
     private void releaseComponents() {
         setImuType(0);
-        com.baidu.ar.arplay.a.a.aB().aC();
-        com.baidu.ar.arplay.a.e.aM().release();
-        com.baidu.ar.arplay.d.b.bh().release();
+        com.baidu.ar.arplay.a.a.az().aA();
+        com.baidu.ar.arplay.a.e.aK().release();
+        com.baidu.ar.arplay.d.b.bp().release();
         ARPScriptEnvironment.getInstance().release();
     }
 
@@ -238,33 +216,25 @@ public class ARPEngine {
         }
     }
 
-    private void setFaceFrame(long j) {
-        if (j > 0) {
-            nativeSetFaceLandMark(j, this.mIsFrontCamera ? 0 : 1);
-        } else {
-            nativeSetFaceLandMark(0L, 0);
-        }
-    }
-
     private void setInteractionConfigAfterSceneCreate() {
         boolean isDriverdByARPVersion = isDriverdByARPVersion();
         ARPScene currentSceneInner = getCurrentSceneInner();
         if (getARType() != 5 || currentSceneInner == null) {
             return;
         }
-        ARPNode aZ = currentSceneInner.aZ();
+        ARPNode aW = currentSceneInner.aW();
         if (isDriverdByARPVersion) {
             Vector3f vector3f = new Vector3f(0.0f, 1.0f, 0.0f);
-            if (aZ != null) {
-                aZ.b(vector3f);
+            if (aW != null) {
+                aW.b(vector3f);
                 return;
             }
             return;
         }
         ARPInteractionConfig.a(new Vector3f(0.0f, 0.0f, 1.0f), 0.0f);
         Vector3f vector3f2 = new Vector3f(0.0f, 0.0f, 1.0f);
-        if (aZ != null) {
-            aZ.b(vector3f2);
+        if (aW != null) {
+            aW.b(vector3f2);
         }
     }
 
@@ -310,39 +280,34 @@ public class ARPEngine {
         nativeClearAlgoCache();
     }
 
-    public void createEngine(int i, int i2, int i3, int i4, float f2) {
+    public boolean createEngine(int i, int i2, int i3, int i4, float f2) {
+        boolean z;
         synchronized (this) {
+            z = false;
             if (!this.mIsInitNative) {
-                nativeSetup(new WeakReference(this));
+                z = nativeSetup(new WeakReference(this), "4.9.0");
                 this.mIsInitNative = true;
             }
             if (!this.mIsEngineCreated) {
-                createApp(i, i2, i3, i4, f2);
+                z = createApp(i, i2, i3, i4, f2);
             }
         }
+        return z;
     }
 
     public synchronized void destroyEngine() {
         com.baidu.ar.arplay.c.b.b("ARPEngine", "destroyEngine");
         this.mIsEngineCreated = false;
-        this.mCaseState = c.EUninit;
-        ARPCamera.aU();
+        this.mCaseState = b.EUninit;
+        ARPCamera.aS();
         nativeSetEngineBlendState(0);
         nativeDestroyEngine();
         releaseComponents();
         nativeReleaseALgoCacheInstance();
     }
 
-    protected void finalize() {
-        super.finalize();
-        synchronized (this) {
-            if (this.mIsInitNative) {
-                try {
-                    nativeFinalize();
-                } catch (Throwable th) {
-                }
-            }
-        }
+    public void destroyMockAlgoHandle(long j) {
+        nativeDestoryMockFaceAlgoHandle(j);
     }
 
     public ARPScene getCurrentScene() {
@@ -397,7 +362,7 @@ public class ARPEngine {
     }
 
     public boolean isEngineCanAccess() {
-        return this.mIsEngineCreated && this.mCaseState == c.ECreated;
+        return this.mIsEngineCreated && this.mCaseState == b.ECreated;
     }
 
     public boolean isPaused() {
@@ -406,21 +371,24 @@ public class ARPEngine {
 
     public synchronized int loadCaseWithResPath(String str) {
         int i;
-        if (!this.mIsEngineCreated || this.mCaseState == c.ECreating) {
-            i = -1;
-        } else {
-            this.mCaseState = c.ECreating;
-            setInteractionConfigBeforeSceneCreate();
-            ARPScriptEnvironment.getInstance().setDataPipKV(ARPScriptEnvironment.KEY_DATA_CAMERA_POSITION, Integer.valueOf(this.mIsFrontCamera ? 1 : 0));
-            com.baidu.ar.arplay.c.b.b("ARPEngine", "loadCase :" + str + " mCurrentCaseId :" + this.mCurrentCaseId);
-            this.start = System.currentTimeMillis();
-            this.mPreviewWidth = this.mPreviewWidth > 0 ? this.mPreviewWidth : ARPFilter.getInstance().getCameraPreviewWidth();
-            this.mPreviewHeight = this.mPreviewHeight > 0 ? this.mPreviewHeight : ARPFilter.getInstance().getCameraPreviewHeight();
-            if (this.mWindowWidth > 0 && this.mWindowHeight > 0) {
-                nativeSetWindowSize(this.mWindowWidth, this.mWindowHeight);
+        synchronized (this) {
+            if (!this.mIsEngineCreated || this.mCaseState == b.ECreating) {
+                i = -1;
+            } else {
+                this.mIsPaused = false;
+                this.mCaseState = b.ECreating;
+                setInteractionConfigBeforeSceneCreate();
+                ARPScriptEnvironment.getInstance().setDataPipKV(ARPScriptEnvironment.KEY_DATA_CAMERA_POSITION, Integer.valueOf(this.mIsFrontCamera ? 1 : 0));
+                com.baidu.ar.arplay.c.b.b("ARPEngine", "loadCase :" + str + " mCurrentCaseId :" + this.mCurrentCaseId);
+                this.start = System.currentTimeMillis();
+                this.mPreviewWidth = this.mPreviewWidth > 0 ? this.mPreviewWidth : ARPFilter.getInstance().getCameraPreviewWidth();
+                this.mPreviewHeight = this.mPreviewHeight > 0 ? this.mPreviewHeight : ARPFilter.getInstance().getCameraPreviewHeight();
+                if (this.mWindowWidth > 0 && this.mWindowHeight > 0) {
+                    nativeSetWindowSize(this.mWindowWidth, this.mWindowHeight);
+                }
+                nativeLoadCase(str, this.mPreviewWidth, this.mPreviewHeight);
+                i = this.mCurrentCaseId;
             }
-            nativeLoadCase(str, this.mPreviewWidth, this.mPreviewHeight);
-            i = this.mCurrentCaseId;
         }
         return i;
     }
@@ -431,6 +399,7 @@ public class ARPEngine {
                 if (!this.mIsTempleteDestoring) {
                     unloadTemplete();
                 }
+                this.mIsPaused = false;
                 this.mIsTempleteCreating = true;
                 this.mIsTempleteDestoring = false;
                 this.mIsTempleteDestoryed = false;
@@ -444,11 +413,17 @@ public class ARPEngine {
         }
     }
 
+    public long mockFaceAlgoHandle(long j, float[] fArr) {
+        return nativeMockFaceAlgoHandle(j, fArr);
+    }
+
     native void nativeAddAlgoType(int[] iArr, int i);
 
     native void nativeClearAlgoCache();
 
-    native void nativeCreateApp(int i, int i2, int i3, int i4, float f2);
+    native boolean nativeCreateApp(int i, int i2, int i3, int i4, float f2);
+
+    native void nativeDestoryMockFaceAlgoHandle(long j);
 
     native void nativeDestroyEngine();
 
@@ -461,6 +436,8 @@ public class ARPEngine {
     native void nativeLoadCase(String str, int i, int i2);
 
     native void nativeLoadTemplete(String str, int i, int i2);
+
+    native long nativeMockFaceAlgoHandle(long j, float[] fArr);
 
     native void nativeOnAppear();
 
@@ -482,8 +459,6 @@ public class ARPEngine {
 
     native void nativeSetEngineBlendState(int i);
 
-    native void nativeSetFaceAlgoParam(int i);
-
     native void nativeSetFaceLandMark(long j, int i);
 
     native void nativeSetFaceLandMarkFrameAcheMode(int i);
@@ -494,16 +469,6 @@ public class ARPEngine {
 
     native void nativeSetWindowSize(int i, int i2);
 
-    native void nativeSmallGameDestroy();
-
-    native int nativeSmallGameGetFPS();
-
-    native void nativeSmallGameOnPause();
-
-    native void nativeSmallGameOnResume();
-
-    native void nativeSmallGameUpdate();
-
     native void nativeUnloadCase();
 
     native void nativeUnloadTemplete();
@@ -512,20 +477,23 @@ public class ARPEngine {
 
     native void nativeUpdateAlgoDataToNode(int i, int i2, ByteBuffer byteBuffer);
 
-    public void onCaseLoadCompleted(Map map) {
-        if (this.mIsEngineCreated && this.mCaseState == c.ECreating && map != null) {
+    public synchronized void onCaseLoadCompleted(Map map) {
+        if (this.mIsEngineCreated && this.mCaseState == b.ECreating && map != null) {
             int a2 = com.baidu.ar.arplay.c.c.a(map.get("case_id"), 0);
             com.baidu.ar.arplay.c.b.b("ARPEngine", "caseId : " + a2);
             com.baidu.ar.arplay.c.b.b("ARPEngine", "caseId : " + a2 + " cost: " + (System.currentTimeMillis() - this.start));
             ARPFilter.getInstance().clearAllAsyncRenderTask();
             setInteractionConfigAfterSceneCreate();
-            this.mCaseState = c.ECreated;
+            this.mCaseState = b.ECreated;
+            if (this.mIsPaused) {
+                nativeOnPause();
+            }
         }
     }
 
     public void onCaseUnloadCompleted() {
-        if (this.mIsEngineCreated && this.mCaseState == c.EDestroying) {
-            this.mCaseState = c.EUninit;
+        if (this.mIsEngineCreated && this.mCaseState == b.EDestroying) {
+            this.mCaseState = b.EUninit;
         }
     }
 
@@ -595,13 +563,13 @@ public class ARPEngine {
         if (currentScene == null) {
             return;
         }
-        ARPCamera aY = currentScene.aY();
+        ARPCamera aV = currentScene.aV();
         Matrixf4x4 matrixf4x4 = new Matrixf4x4();
-        matrixf4x4.setMatrixValues(aY.aT());
+        matrixf4x4.setMatrixValues(aV.aR());
         Matrixf4x4 matrixf4x42 = new Matrixf4x4();
         Matrix.invertM(matrixf4x42.getMatrix(), 0, matrixf4x4.getMatrix(), 0);
-        ARPNode aZ = currentScene.aZ();
-        if (aZ == null) {
+        ARPNode aW = currentScene.aW();
+        if (aW == null) {
             Log.e("sceneRotateToCamera", "current scene root node is null!");
             return;
         }
@@ -610,9 +578,9 @@ public class ARPEngine {
         if (isDriverdByARPVersion) {
             vector3f.setXYZ(0.0f, 0.0f, 1.0f);
         }
-        Vector4f aX = aZ.aX();
+        Vector4f aU = aW.aU();
         Quaternion quaternion = new Quaternion();
-        quaternion.setAxisAngleRad(new Vector3f(aX.x(), aX.y(), aX.z()), aX.getW());
+        quaternion.setAxisAngleRad(new Vector3f(aU.x(), aU.y(), aU.z()), aU.getW());
         Matrixf4x4 matrixf4x43 = new Matrixf4x4();
         matrixf4x43.setMatrixValues(quaternion.getMatrix4x4().getMatrix());
         Vector3f vector3f2 = new Vector3f();
@@ -639,7 +607,7 @@ public class ARPEngine {
         Vector4f vector4f = new Vector4f();
         a2.toAxisAngle(vector4f);
         vector4f.setW((float) Math.toRadians(vector4f.w()));
-        aZ.a(vector4f);
+        aW.a(vector4f);
     }
 
     public void sceneWorldPositionToOrigin() {
@@ -647,10 +615,10 @@ public class ARPEngine {
         if (currentScene == null) {
             return;
         }
-        ARPNode aZ = currentScene.aZ();
+        ARPNode aW = currentScene.aW();
         Vector3f vector3f = new Vector3f(0.0f, 0.0f, 0.0f);
-        if (aZ != null) {
-            aZ.a(vector3f);
+        if (aW != null) {
+            aW.a(vector3f);
         }
     }
 
@@ -675,16 +643,16 @@ public class ARPEngine {
         nativeSetFaceLandMarkFrameAcheMode(i);
     }
 
-    public synchronized void setHtmlUpdateCallback(d dVar) {
-        this.mHtmlCallback = dVar;
+    public synchronized void setHtmlUpdateCallback(c cVar) {
+        this.mHtmlCallback = cVar;
     }
 
     public void setImuType(int i) {
         this.mImuType = i;
     }
 
-    public void setInteraction(e eVar) {
-        this.mInteraction = eVar;
+    public void setInteraction(d dVar) {
+        this.mInteraction = dVar;
     }
 
     public void setIsFrontCamera(boolean z) {
@@ -704,8 +672,8 @@ public class ARPEngine {
         }
     }
 
-    public void setTouchOrientation(f fVar) {
-        this.mTouchOrientation = fVar;
+    public void setTouchOrientation(e eVar) {
+        this.mTouchOrientation = eVar;
     }
 
     public void setValue(int i, String str, String str2) {
@@ -716,8 +684,8 @@ public class ARPEngine {
         }
     }
 
-    public synchronized void setVideoUpdateCallback(g gVar) {
-        this.mVideoCallback = gVar;
+    public synchronized void setVideoUpdateCallback(f fVar) {
+        this.mVideoCallback = fVar;
     }
 
     public void setWindowSize(int i, int i2) {
@@ -728,37 +696,19 @@ public class ARPEngine {
         }
     }
 
-    public void smallGameDestroy() {
-        nativeSmallGameDestroy();
-    }
-
-    public int smallGameGetFPS() {
-        return nativeSmallGameGetFPS();
-    }
-
-    public void smallGameUpdate() {
-        nativeSmallGameUpdate();
-    }
-
     @Deprecated
-    public void surfaceViewCapture(b bVar) {
-        if (bVar != null) {
-            bVar.a(null);
+    public void surfaceViewCapture(a aVar) {
+        if (aVar != null) {
+            aVar.a(null);
         }
     }
 
     public synchronized void unloadCase() {
-        if (this.mIsEngineCreated && this.mCaseState != c.EDestroying && this.mCaseState != c.EUninit) {
+        if (this.mIsEngineCreated && this.mCaseState != b.EDestroying && this.mCaseState != b.EUninit) {
             com.baidu.ar.arplay.c.b.b("ARPEngine", "unloadCase");
-            this.mCaseState = c.EDestroying;
+            this.mCaseState = b.EDestroying;
             this.mPreviewWidth = 0;
             this.mPreviewHeight = 0;
-            for (Map.Entry<String, a> entry : this.mAlgoRunnbaleMap.entrySet()) {
-                if (entry.getValue() != null) {
-                    entry.getValue().release();
-                }
-            }
-            this.mAlgoRunnbaleMap.clear();
             ARPFilter.getInstance().clearAllAsyncRenderTask();
             nativeUnloadCase();
             releaseComponents();
@@ -784,17 +734,15 @@ public class ARPEngine {
         }
     }
 
-    native boolean updateFrameBuffers(int[] iArr);
-
     public void updateVideoFrame(String str, int i, String str2, String str3) {
-        if (this.mVideoCallback == null || this.mCaseState != c.ECreated) {
+        if (this.mVideoCallback == null || this.mCaseState != b.ECreated) {
             return;
         }
         this.mVideoCallback.a(str, i, str2, str3);
     }
 
     public boolean updateWebViewFrame(int i, int i2) {
-        if (this.mHtmlCallback == null || this.mCaseState != c.ECreated) {
+        if (this.mHtmlCallback == null || this.mCaseState != b.ECreated) {
             return false;
         }
         return this.mHtmlCallback.c(i, i2);

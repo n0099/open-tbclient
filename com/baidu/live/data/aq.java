@@ -1,22 +1,22 @@
 package com.baidu.live.data;
 
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
+import com.baidu.live.tbadk.core.atomdata.GuardClubInfoActivityConfig;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class aq {
-    public List<Long> aDt;
+    public long aIA;
+    public String aIy;
+    public String aIz;
+    public String mNickName;
+    public String mPortrait;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aDt = new ArrayList();
-            JSONArray optJSONArray = jSONObject.optJSONArray("id");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.aDt.add(Long.valueOf(optJSONArray.optLong(i)));
-                }
-            }
+            this.mNickName = jSONObject.optString("nickname");
+            this.mPortrait = jSONObject.optString("mvp_user_portrait");
+            this.aIy = jSONObject.optString("anchor_nickname");
+            this.aIz = jSONObject.optString(GuardClubInfoActivityConfig.ANCHOR_PORTRAIT);
+            this.aIA = jSONObject.optLong("win_score");
         }
     }
 }

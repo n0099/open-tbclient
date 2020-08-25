@@ -1,22 +1,45 @@
 package com.baidu.tieba.tbadkCore.location;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ExceptionData;
-/* loaded from: classes.dex */
+import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
+/* loaded from: classes2.dex */
 public class b {
-    public static void init() {
-        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.UEXCEPTION_MESSAGE) { // from class: com.baidu.tieba.tbadkCore.location.b.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData) && ((ExceptionData) customResponsedMessage.getData()).info.contains("com.baidu.location")) {
-                    TbadkCoreApplication.getInst().addBDLocCrashCount();
+    private static b mhh;
+    private LocationData mLocationData;
+    private long mTimeStamp;
+    private boolean mhi = com.baidu.tbadk.core.sharedPref.b.bik().getBoolean(SharedPrefConfig.NO_LONGER_SHOW_ADDRESS, false);
+
+    public static b dxi() {
+        if (mhh == null) {
+            synchronized (b.class) {
+                if (mhh == null) {
+                    mhh = new b();
                 }
             }
-        });
+        }
+        return mhh;
+    }
+
+    public long getTimeStamp() {
+        return this.mTimeStamp;
+    }
+
+    public void setTimeStamp(long j) {
+        this.mTimeStamp = j;
+    }
+
+    public LocationData getLocationData() {
+        return this.mLocationData;
+    }
+
+    public void setLocationData(LocationData locationData) {
+        this.mLocationData = locationData;
+    }
+
+    public boolean dxj() {
+        return this.mhi;
+    }
+
+    public void wd(boolean z) {
+        this.mhi = z;
     }
 }

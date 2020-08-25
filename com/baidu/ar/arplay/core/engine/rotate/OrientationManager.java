@@ -2,6 +2,7 @@ package com.baidu.ar.arplay.core.engine.rotate;
 
 import android.content.Context;
 import android.view.OrientationEventListener;
+import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
@@ -24,7 +25,7 @@ public class OrientationManager extends OrientationEventListener {
 
     public static Orientation calcOrientation(int i, Orientation orientation) {
         if (isScreenOrientationLandscape) {
-            i = (i + 90) % 360;
+            i = (i + 90) % EncoderTextureDrawer.X264_WIDTH;
         }
         Orientation certainOrientation = certainOrientation(i);
         if (certainOrientation != null) {

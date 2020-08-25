@@ -10,7 +10,7 @@ import android.text.TextUtils;
 import com.baidu.webkit.internal.utils.CommonUtils;
 import java.net.URISyntaxException;
 import java.net.URLDecoder;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public final class g extends j {
     /* JADX WARN: Removed duplicated region for block: B:14:0x0040  */
     /* JADX WARN: Removed duplicated region for block: B:26:0x006f  */
@@ -42,7 +42,7 @@ public final class g extends j {
                     intent.setSelector(null);
                 } catch (URISyntaxException e) {
                     e = e;
-                    com.a.a.a.a.a.a.a.a(e);
+                    e.printStackTrace();
                     if (intent != null) {
                     }
                     z = false;
@@ -62,7 +62,7 @@ public final class g extends j {
                     try {
                         packageInfo = context.getPackageManager().getPackageInfo(str2, 0);
                     } catch (PackageManager.NameNotFoundException e3) {
-                        com.a.a.a.a.a.a.a.a(e3);
+                        e3.printStackTrace();
                     }
                     if (packageInfo != null && packageInfo.versionCode < intExtra) {
                         z = false;

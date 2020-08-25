@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class BDLayoutInflateFactory implements LayoutInflater.Factory {
     private BDLayoutMode viewMode;
 

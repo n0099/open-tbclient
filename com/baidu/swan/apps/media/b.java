@@ -4,48 +4,48 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b {
-    private static ArrayList<a> cqt = new ArrayList<>();
+    private static ArrayList<a> cyj = new ArrayList<>();
 
-    public static void et(boolean z) {
-        for (int size = cqt.size() - 1; size >= 0; size--) {
-            a aVar = cqt.get(size);
+    public static void eJ(boolean z) {
+        for (int size = cyj.size() - 1; size >= 0; size--) {
+            a aVar = cyj.get(size);
             if (aVar != null) {
-                aVar.er(z);
+                aVar.eH(z);
             }
         }
     }
 
-    public static void es(boolean z) {
-        for (int size = cqt.size() - 1; size >= 0; size--) {
-            a aVar = cqt.get(size);
+    public static void eI(boolean z) {
+        for (int size = cyj.size() - 1; size >= 0; size--) {
+            a aVar = cyj.get(size);
             if (aVar != null) {
-                aVar.es(z);
+                aVar.eI(z);
             }
         }
     }
 
-    public static a mc(String str) {
+    public static a nZ(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        for (int size = cqt.size() - 1; size >= 0; size--) {
-            a aVar = cqt.get(size);
-            if (aVar != null && TextUtils.equals(str, aVar.agP())) {
+        for (int size = cyj.size() - 1; size >= 0; size--) {
+            a aVar = cyj.get(size);
+            if (aVar != null && TextUtils.equals(str, aVar.aop())) {
                 return aVar;
             }
         }
         return null;
     }
 
-    public static a F(@Nullable String str, @Nullable String str2, @NonNull String str3) {
+    public static a G(@Nullable String str, @Nullable String str2, @NonNull String str3) {
         if (TextUtils.isEmpty(str3)) {
             return null;
         }
-        for (int size = cqt.size() - 1; size >= 0; size--) {
-            a aVar = cqt.get(size);
-            if (aVar != null && ((TextUtils.isEmpty(str) || TextUtils.equals(str, aVar.getSlaveId())) && ((!TextUtils.isEmpty(str2) && TextUtils.equals(str2, aVar.akD())) || TextUtils.equals(str3, aVar.agP())))) {
+        for (int size = cyj.size() - 1; size >= 0; size--) {
+            a aVar = cyj.get(size);
+            if (aVar != null && ((TextUtils.isEmpty(str) || TextUtils.equals(str, aVar.getSlaveId())) && ((!TextUtils.isEmpty(str2) && TextUtils.equals(str2, aVar.ass())) || TextUtils.equals(str3, aVar.aop())))) {
                 return aVar;
             }
         }
@@ -53,27 +53,27 @@ public final class b {
     }
 
     public static void a(a aVar) {
-        if (aVar != null && !cqt.contains(aVar)) {
-            cqt.add(aVar);
+        if (aVar != null && !cyj.contains(aVar)) {
+            cyj.add(aVar);
         }
     }
 
     public static void b(a aVar) {
         if (aVar != null) {
-            cqt.remove(aVar);
+            cyj.remove(aVar);
         }
     }
 
-    public static void akF() {
-        cqt.clear();
+    public static void asu() {
+        cyj.clear();
     }
 
-    public static boolean md(String str) {
+    public static boolean oa(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        for (int size = cqt.size() - 1; size >= 0; size--) {
-            a aVar = cqt.get(size);
+        for (int size = cyj.size() - 1; size >= 0; size--) {
+            a aVar = cyj.get(size);
             if (aVar != null && TextUtils.equals(str, aVar.getSlaveId()) && aVar.onBackPressed()) {
                 return true;
             }
@@ -83,8 +83,8 @@ public final class b {
 
     public static void destroy(String str) {
         if (!TextUtils.isEmpty(str)) {
-            for (int size = cqt.size() - 1; size >= 0; size--) {
-                a aVar = cqt.get(size);
+            for (int size = cyj.size() - 1; size >= 0; size--) {
+                a aVar = cyj.get(size);
                 if (aVar != null && TextUtils.equals(str, aVar.getSlaveId())) {
                     aVar.onDestroy();
                 }
@@ -93,8 +93,8 @@ public final class b {
     }
 
     public static void destroy() {
-        for (int size = cqt.size() - 1; size >= 0; size--) {
-            a aVar = cqt.get(size);
+        for (int size = cyj.size() - 1; size >= 0; size--) {
+            a aVar = cyj.get(size);
             if (aVar != null) {
                 aVar.onDestroy();
             }

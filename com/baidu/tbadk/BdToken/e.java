@@ -6,11 +6,11 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class e {
-    private a dFG;
+    private a dOO;
     private boolean isLoading = false;
-    private com.baidu.adp.framework.listener.a dFJ = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_TOKEN, 309608) { // from class: com.baidu.tbadk.BdToken.e.1
+    private com.baidu.adp.framework.listener.a dOR = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_TOKEN, 309608) { // from class: com.baidu.tbadk.BdToken.e.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             e.this.isLoading = false;
@@ -24,7 +24,7 @@ public class e {
         }
     };
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void a(boolean z, x xVar);
     }
@@ -46,8 +46,8 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z, x xVar) {
-        if (this.dFG != null) {
-            this.dFG.a(z, xVar);
+        if (this.dOO != null) {
+            this.dOO.a(z, xVar);
         }
     }
 
@@ -57,10 +57,10 @@ public class e {
     }
 
     private void registerListener() {
-        MessageManager.getInstance().registerListener(this.dFJ);
+        MessageManager.getInstance().registerListener(this.dOR);
     }
 
     public void a(a aVar) {
-        this.dFG = aVar;
+        this.dOO = aVar;
     }
 }

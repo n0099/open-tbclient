@@ -20,14 +20,14 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private Context b;
     private List<PrivacyItem> c;
     private boolean e = false;
-    private com.kascend.chushou.view.a.a<PrivacyItem> npm;
+    private com.kascend.chushou.view.a.a<PrivacyItem> nJa;
 
     public b(int i, Context context, List<PrivacyItem> list, com.kascend.chushou.view.a.a<PrivacyItem> aVar) {
         this.a = 1;
         this.a = i;
         this.b = context;
         this.c = list;
-        this.npm = aVar;
+        this.nJa = aVar;
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
@@ -40,9 +40,9 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         int i2;
         LayoutInflater from = LayoutInflater.from(this.b);
         if (i == 0) {
-            return new C0828b(from.inflate(this.a == 3 ? a.h.view_privacy_setting_group_header_black : a.h.view_privacy_setting_group_header, viewGroup, false));
+            return new C0886b(from.inflate(this.a == 3 ? a.h.view_privacy_setting_group_header_black : a.h.view_privacy_setting_group_header, viewGroup, false));
         } else if (i == 2) {
-            return new c(from.inflate(this.a == 3 ? a.h.view_privacy_setting_toggle_black : a.h.view_privacy_setting_toggle_black, viewGroup, false), this.npm);
+            return new c(from.inflate(this.a == 3 ? a.h.view_privacy_setting_toggle_black : a.h.view_privacy_setting_toggle_black, viewGroup, false), this.nJa);
         } else if (i == 3) {
             if (this.a == 2) {
                 i2 = a.h.view_privacy_setting_check_room;
@@ -51,7 +51,7 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             } else {
                 i2 = a.h.view_privacy_setting_check;
             }
-            return new a(from.inflate(i2, viewGroup, false), this.npm, this.a);
+            return new a(from.inflate(i2, viewGroup, false), this.nJa, this.a);
         } else {
             return null;
         }
@@ -62,7 +62,7 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         PrivacyItem privacyItem = this.c.get(i);
         int itemViewType = getItemViewType(i);
         if (itemViewType == 0) {
-            ((C0828b) viewHolder).a(privacyItem);
+            ((C0886b) viewHolder).a(privacyItem);
         } else if (itemViewType == 2) {
             ((c) viewHolder).a(privacyItem);
         } else if (itemViewType == 3) {
@@ -80,10 +80,10 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     /* renamed from: com.kascend.chushou.player.adapter.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    private static class C0828b extends RecyclerView.ViewHolder {
+    private static class C0886b extends RecyclerView.ViewHolder {
         private TextView a;
 
-        public C0828b(View view) {
+        public C0886b(View view) {
             super(view);
             this.a = (TextView) view.findViewById(a.f.tv_text);
         }
@@ -100,48 +100,48 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         private View g;
         private View h;
         private int i;
-        private PrivacyItem npn;
-        private com.kascend.chushou.view.a.a npo;
-        private FrescoThumbnailView npp;
-        private OnlineToggleButton npq;
+        private PrivacyItem nJb;
+        private com.kascend.chushou.view.a.a nJc;
+        private FrescoThumbnailView nJd;
+        private OnlineToggleButton nJe;
 
         public c(View view, com.kascend.chushou.view.a.a aVar) {
             super(view);
             this.c = (TextView) view.findViewById(a.f.tv_text);
-            this.npp = (FrescoThumbnailView) view.findViewById(a.f.iv_icon);
-            this.npq = (OnlineToggleButton) view.findViewById(a.f.btn_toggle);
+            this.nJd = (FrescoThumbnailView) view.findViewById(a.f.iv_icon);
+            this.nJe = (OnlineToggleButton) view.findViewById(a.f.btn_toggle);
             this.f = view.findViewById(a.f.sp_top);
             this.g = view.findViewById(a.f.v_top_line);
             this.h = view.findViewById(a.f.v_bottom_line);
-            this.npo = aVar;
+            this.nJc = aVar;
             view.setOnClickListener(this);
             this.i = tv.chushou.zues.utils.a.dip2px(view.getContext(), 10.0f);
         }
 
         public void a(PrivacyItem privacyItem) {
-            this.npn = privacyItem;
+            this.nJb = privacyItem;
             b(privacyItem);
             this.c.setText(privacyItem.mText);
             if (h.isEmpty(privacyItem.mWebIcon)) {
-                this.npp.setVisibility(8);
+                this.nJd.setVisibility(8);
             } else {
-                this.npp.i(privacyItem.mWebIcon, a.e.icon_room_id, 0, 0);
-                this.npp.setVisibility(0);
+                this.nJd.i(privacyItem.mWebIcon, a.e.icon_room_id, 0, 0);
+                this.nJd.setVisibility(0);
             }
-            this.npq.a(privacyItem);
+            this.nJe.a(privacyItem);
             if (privacyItem.mShowing) {
                 this.itemView.setVisibility(0);
             } else {
                 this.itemView.setVisibility(8);
             }
-            if (this.npn.mPopShow) {
+            if (this.nJb.mPopShow) {
                 this.c.setTextSize(14.0f);
             }
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.npo.b(view, this.npn);
+            this.nJc.b(view, this.nJb);
         }
 
         private void b(PrivacyItem privacyItem) {
@@ -199,9 +199,9 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         private View h;
         private int i;
         private int j;
-        private PrivacyItem npn;
-        private com.kascend.chushou.view.a.a npo;
-        private FrescoThumbnailView npp;
+        private PrivacyItem nJb;
+        private com.kascend.chushou.view.a.a nJc;
+        private FrescoThumbnailView nJd;
 
         public a(View view, com.kascend.chushou.view.a.a aVar, int i) {
             super(view);
@@ -210,22 +210,22 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             this.g = view.findViewById(a.f.v_top_line);
             this.h = view.findViewById(a.f.v_bottom_line);
             this.c = (TextView) view.findViewById(a.f.tv_title);
-            this.npp = (FrescoThumbnailView) view.findViewById(a.f.iv_icon);
+            this.nJd = (FrescoThumbnailView) view.findViewById(a.f.iv_icon);
             this.e = (ImageView) view.findViewById(a.f.iv_check);
-            this.npo = aVar;
+            this.nJc = aVar;
             view.setOnClickListener(this);
             this.i = tv.chushou.zues.utils.a.dip2px(view.getContext(), 10.0f);
         }
 
         public void a(PrivacyItem privacyItem) {
-            this.npn = privacyItem;
+            this.nJb = privacyItem;
             b(privacyItem);
             this.c.setText(privacyItem.mText);
             if (h.isEmpty(privacyItem.mWebIcon)) {
-                this.npp.setVisibility(8);
+                this.nJd.setVisibility(8);
             } else {
-                this.npp.i(privacyItem.mWebIcon, a.e.icon_default_badge, 0, 0);
-                this.npp.setVisibility(0);
+                this.nJd.i(privacyItem.mWebIcon, a.e.icon_default_badge, 0, 0);
+                this.nJd.setVisibility(0);
             }
             if (privacyItem.mState == 0) {
                 int i = a.e.icon_setting_item_uncheck;
@@ -249,15 +249,15 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             } else {
                 this.itemView.setVisibility(8);
             }
-            if (this.npn.mPopShow) {
+            if (this.nJb.mPopShow) {
                 this.c.setTextSize(14.0f);
             }
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.npo != null) {
-                this.npo.b(view, this.npn);
+            if (this.nJc != null) {
+                this.nJc.b(view, this.nJb);
             }
         }
 

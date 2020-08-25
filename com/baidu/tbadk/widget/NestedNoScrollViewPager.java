@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class NestedNoScrollViewPager extends ViewPager {
     public NestedNoScrollViewPager(@NonNull Context context) {
         super(context);

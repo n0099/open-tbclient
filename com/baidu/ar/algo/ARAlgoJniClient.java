@@ -8,7 +8,7 @@ public class ARAlgoJniClient {
     private long trackSystemHandler = 0;
 
     static {
-        b.ao("module_basic");
+        b.as("module_basic");
     }
 
     public static native int calModelPosition(float[] fArr, float f, float[] fArr2, float[] fArr3);

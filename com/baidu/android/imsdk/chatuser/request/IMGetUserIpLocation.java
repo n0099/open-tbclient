@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class IMGetUserIpLocation extends Message {
     private static final String TAG = "IMGetUserIpLocation";
     private Context mContext;

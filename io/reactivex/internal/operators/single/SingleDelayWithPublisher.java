@@ -7,15 +7,15 @@ import io.reactivex.j;
 import io.reactivex.w;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.d;
+import org.b.d;
 /* loaded from: classes7.dex */
 public final class SingleDelayWithPublisher<T, U> extends w<T> {
-    final org.a.b<U> nTg;
+    final org.b.b<U> onb;
     final aa<T> source;
 
     @Override // io.reactivex.w
     protected void b(y<? super T> yVar) {
-        this.nTg.subscribe(new OtherSubscriber(yVar, this.source));
+        this.onb.subscribe(new OtherSubscriber(yVar, this.source));
     }
 
     /* loaded from: classes7.dex */
@@ -31,7 +31,7 @@ public final class SingleDelayWithPublisher<T, U> extends w<T> {
             this.source = aaVar;
         }
 
-        @Override // io.reactivex.j, org.a.c
+        @Override // io.reactivex.j, org.b.c
         public void onSubscribe(d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
@@ -40,13 +40,13 @@ public final class SingleDelayWithPublisher<T, U> extends w<T> {
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(U u) {
             this.s.cancel();
             onComplete();
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
             if (this.done) {
                 io.reactivex.e.a.onError(th);
@@ -56,7 +56,7 @@ public final class SingleDelayWithPublisher<T, U> extends w<T> {
             this.actual.onError(th);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
             if (!this.done) {
                 this.done = true;

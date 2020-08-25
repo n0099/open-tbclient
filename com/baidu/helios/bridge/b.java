@@ -1,18 +1,18 @@
 package com.baidu.helios.bridge;
-/* loaded from: classes20.dex */
+/* loaded from: classes11.dex */
 public class b {
-    private a aqn;
+    private a avk;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        com.baidu.helios.bridge.a ul();
+        com.baidu.helios.bridge.a zI();
     }
 
     public b(a aVar) {
-        this.aqn = aVar;
+        this.avk = aVar;
     }
 
-    public com.baidu.helios.bridge.a ul() {
-        return this.aqn.ul();
+    public com.baidu.helios.bridge.a zI() {
+        return this.avk.zI();
     }
 }

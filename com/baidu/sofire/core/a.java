@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes20.dex */
 public final class a implements Serializable {
     public ArrayList<b> a;
 
@@ -57,14 +57,14 @@ public final class a implements Serializable {
                         objectOutputStream.close();
                         byteArrayOutputStream.close();
                     } catch (IOException e) {
-                        com.baidu.sofire.i.d.a();
+                        com.baidu.sofire.i.e.a();
                     }
                 } catch (IOException e2) {
                     if (objectOutputStream != null) {
                         try {
                             objectOutputStream.close();
                         } catch (IOException e3) {
-                            com.baidu.sofire.i.d.a();
+                            com.baidu.sofire.i.e.a();
                         }
                     }
                     if (byteArrayOutputStream != null) {
@@ -77,7 +77,7 @@ public final class a implements Serializable {
                         try {
                             objectOutputStream.close();
                         } catch (IOException e4) {
-                            com.baidu.sofire.i.d.a();
+                            com.baidu.sofire.i.e.a();
                             throw th;
                         }
                     }
@@ -126,7 +126,7 @@ public final class a implements Serializable {
             return r0
         L18:
             r1 = move-exception
-            com.baidu.sofire.i.d.a()
+            com.baidu.sofire.i.e.a()
             goto L17
         L1d:
             r0 = move-exception
@@ -143,7 +143,7 @@ public final class a implements Serializable {
             goto L17
         L2c:
             r0 = move-exception
-            com.baidu.sofire.i.d.a()
+            com.baidu.sofire.i.e.a()
             goto L2a
         L31:
             r0 = move-exception
@@ -158,7 +158,7 @@ public final class a implements Serializable {
             throw r0
         L3e:
             r1 = move-exception
-            com.baidu.sofire.i.d.a()
+            com.baidu.sofire.i.e.a()
             goto L3d
         L43:
             r0 = move-exception

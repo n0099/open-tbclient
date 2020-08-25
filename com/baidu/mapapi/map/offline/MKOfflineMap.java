@@ -1,36 +1,36 @@
 package com.baidu.mapapi.map.offline;
 
-import com.baidu.mapsdkplatform.comapi.map.i;
+import com.baidu.mapsdkplatform.comapi.map.j;
+import com.baidu.mapsdkplatform.comapi.map.m;
+import com.baidu.mapsdkplatform.comapi.map.n;
 import com.baidu.mapsdkplatform.comapi.map.q;
 import com.baidu.mapsdkplatform.comapi.map.r;
-import com.baidu.mapsdkplatform.comapi.map.u;
-import com.baidu.mapsdkplatform.comapi.map.v;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class MKOfflineMap {
     public static final int TYPE_DOWNLOAD_UPDATE = 0;
     public static final int TYPE_NETWORK_ERROR = 2;
     public static final int TYPE_NEW_OFFLINE = 6;
     public static final int TYPE_VER_UPDATE = 4;
     private static final String a = MKOfflineMap.class.getSimpleName();
-    private r b;
+    private n b;
     private MKOfflineMapListener c;
 
     public void destroy() {
         this.b.d(0);
-        this.b.b((v) null);
+        this.b.b((r) null);
         this.b.b();
-        i.b();
+        j.b();
     }
 
     public ArrayList<MKOLUpdateElement> getAllUpdateInfo() {
-        ArrayList<u> e = this.b.e();
+        ArrayList<q> e = this.b.e();
         if (e == null) {
             return null;
         }
         ArrayList<MKOLUpdateElement> arrayList = new ArrayList<>();
-        Iterator<u> it = e.iterator();
+        Iterator<q> it = e.iterator();
         while (it.hasNext()) {
             arrayList.add(OfflineMapUtil.getUpdatElementFromLocalMapElement(it.next().a()));
         }
@@ -38,12 +38,12 @@ public class MKOfflineMap {
     }
 
     public ArrayList<MKOLSearchRecord> getHotCityList() {
-        ArrayList<q> c = this.b.c();
+        ArrayList<m> c = this.b.c();
         if (c == null) {
             return null;
         }
         ArrayList<MKOLSearchRecord> arrayList = new ArrayList<>();
-        Iterator<q> it = c.iterator();
+        Iterator<m> it = c.iterator();
         while (it.hasNext()) {
             arrayList.add(OfflineMapUtil.getSearchRecordFromLocalCityInfo(it.next()));
         }
@@ -51,12 +51,12 @@ public class MKOfflineMap {
     }
 
     public ArrayList<MKOLSearchRecord> getOfflineCityList() {
-        ArrayList<q> d = this.b.d();
+        ArrayList<m> d = this.b.d();
         if (d == null) {
             return null;
         }
         ArrayList<MKOLSearchRecord> arrayList = new ArrayList<>();
-        Iterator<q> it = d.iterator();
+        Iterator<m> it = d.iterator();
         while (it.hasNext()) {
             arrayList.add(OfflineMapUtil.getSearchRecordFromLocalCityInfo(it.next()));
         }
@@ -64,7 +64,7 @@ public class MKOfflineMap {
     }
 
     public MKOLUpdateElement getUpdateInfo(int i) {
-        u g = this.b.g(i);
+        q g = this.b.g(i);
         if (g == null) {
             return null;
         }
@@ -80,7 +80,7 @@ public class MKOfflineMap {
     public int importOfflineData(boolean z) {
         int i;
         int i2 = 0;
-        ArrayList<u> e = this.b.e();
+        ArrayList<q> e = this.b.e();
         if (e != null) {
             i2 = e.size();
             i = i2;
@@ -88,7 +88,7 @@ public class MKOfflineMap {
             i = 0;
         }
         this.b.a(z, true);
-        ArrayList<u> e2 = this.b.e();
+        ArrayList<q> e2 = this.b.e();
         if (e2 != null) {
             i2 = e2.size();
         }
@@ -96,8 +96,8 @@ public class MKOfflineMap {
     }
 
     public boolean init(MKOfflineMapListener mKOfflineMapListener) {
-        i.a();
-        this.b = r.a();
+        j.a();
+        this.b = n.a();
         if (this.b == null) {
             return false;
         }
@@ -115,12 +115,12 @@ public class MKOfflineMap {
     }
 
     public ArrayList<MKOLSearchRecord> searchCity(String str) {
-        ArrayList<q> a2 = this.b.a(str);
+        ArrayList<m> a2 = this.b.a(str);
         if (a2 == null) {
             return null;
         }
         ArrayList<MKOLSearchRecord> arrayList = new ArrayList<>();
-        Iterator<q> it = a2.iterator();
+        Iterator<m> it = a2.iterator();
         while (it.hasNext()) {
             arrayList.add(OfflineMapUtil.getSearchRecordFromLocalCityInfo(it.next()));
         }
@@ -132,9 +132,9 @@ public class MKOfflineMap {
             return false;
         }
         if (this.b.e() != null) {
-            Iterator<u> it = this.b.e().iterator();
+            Iterator<q> it = this.b.e().iterator();
             while (it.hasNext()) {
-                u next = it.next();
+                q next = it.next();
                 if (next.a.a == i) {
                     if (next.a.j || next.a.l == 2 || next.a.l == 3 || next.a.l == 6) {
                         return this.b.b(i);
@@ -151,9 +151,9 @@ public class MKOfflineMap {
             return false;
         }
         if (this.b.e() != null) {
-            Iterator<u> it = this.b.e().iterator();
+            Iterator<q> it = this.b.e().iterator();
             while (it.hasNext()) {
-                u next = it.next();
+                q next = it.next();
                 if (next.a.a == i) {
                     if (next.a.j) {
                         return this.b.f(i);

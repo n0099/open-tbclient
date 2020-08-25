@@ -2,21 +2,18 @@ package com.baidu.tieba.homepage.hotTopic.tab.b;
 
 import android.support.annotation.NonNull;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.q;
+import tbclient.ThreadInfo;
 /* loaded from: classes16.dex */
-public class f implements q {
-    private String title;
+public class f extends e {
+    public String forumName;
 
-    public f(@NonNull String str) {
-        this.title = str;
+    public f(@NonNull ThreadInfo threadInfo, int i) {
+        super(threadInfo, i);
+        this.forumName = threadInfo.fname;
     }
 
-    public String getTitle() {
-        return this.title;
-    }
-
-    @Override // com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.homepage.hotTopic.tab.b.e, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return a.iwZ;
+        return a.iLL;
     }
 }

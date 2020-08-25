@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class MembercenterActivityConfig extends IntentConfig {
     public static final String KEY_URL = "key_url";
 
@@ -11,6 +11,6 @@ public class MembercenterActivityConfig extends IntentConfig {
     }
 
     public void setUrl(String str) {
-        getIntent().putExtra(KEY_URL, str);
+        getIntent().putExtra("key_url", str);
     }
 }

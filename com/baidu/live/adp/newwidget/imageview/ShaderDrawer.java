@@ -7,7 +7,7 @@ import android.graphics.PointF;
 import android.graphics.RectF;
 import android.graphics.Shader;
 import android.widget.ImageView;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ShaderDrawer extends AbsDrawer {
     protected BitmapShader mShader;
     protected Matrix mShaderMatrix = new Matrix();

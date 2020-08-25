@@ -6,27 +6,93 @@ import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.af;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
-public class ad extends BaseAdapter implements u<q> {
-    private SparseArray<com.baidu.adp.widget.ListView.a<q, a>> mDelegateAdapters;
+/* loaded from: classes2.dex */
+public class ad extends RecyclerView.Adapter<af.a> implements u<q> {
+    private SparseArray<a<q, af.a>> mDelegateAdapters;
     @SuppressLint({"UseSparseArrays"})
     private SparseArray<Integer> mViewTypes = new SparseArray<>();
     private List<q> mLists = new ArrayList();
+    private RecyclerView mRecyclerView = null;
+    private int WJ = -1;
 
-    @Override // android.widget.Adapter, com.baidu.adp.widget.ListView.r
-    public int getCount() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.support.v7.widget.RecyclerView.Adapter
+    /* renamed from: a */
+    public af.a onCreateViewHolder(ViewGroup viewGroup, int i) {
+        a<q, af.a> aVar;
+        af.a aVar2 = null;
+        if (this.mRecyclerView == null) {
+            this.mRecyclerView = (RecyclerView) viewGroup;
+        }
+        q item = getItem(this.WJ);
+        if (this.mDelegateAdapters == null || (aVar = this.mDelegateAdapters.get(i)) == null) {
+            return null;
+        }
+        try {
+            aVar2 = aVar.a(viewGroup, item);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (aVar2 == null) {
+            Log.e("RecyclerViewTypeAdapter", aVar.getClass().getName());
+        }
+        return aVar2;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.support.v7.widget.RecyclerView.Adapter
+    /* renamed from: a */
+    public void onBindViewHolder(af.a aVar, int i) {
+        a<q, af.a> aVar2;
+        q item;
+        if (aVar != null && this.mDelegateAdapters != null && this.mLists != null) {
+            int itemCount = getItemCount();
+            if (i >= 0 && i < itemCount && (aVar2 = this.mDelegateAdapters.get(getItemViewType(i))) != null && (item = getItem(i)) != null && (item instanceof q)) {
+                try {
+                    aVar2.a(i, this.mRecyclerView, aVar, item);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @Override // android.support.v7.widget.RecyclerView.Adapter
+    public int getItemViewType(int i) {
+        q item;
+        BdUniqueId type;
+        Integer num;
+        this.WJ = i;
+        if (this.mDelegateAdapters == null || this.mDelegateAdapters.size() == 0 || (item = getItem(i)) == null || (type = item.getType()) == null || (num = this.mViewTypes.get(type.getId())) == null) {
+            return -1;
+        }
+        return num.intValue();
+    }
+
+    @Override // android.support.v7.widget.RecyclerView.Adapter
+    public long getItemId(int i) {
+        return i;
+    }
+
+    @Override // android.support.v7.widget.RecyclerView.Adapter
+    public int getItemCount() {
         if (this.mLists != null) {
             return this.mLists.size();
         }
         return 0;
     }
 
+    @Override // com.baidu.adp.widget.ListView.r
+    public int getCount() {
+        return getItemCount();
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter, com.baidu.adp.widget.ListView.r
+    @Override // com.baidu.adp.widget.ListView.r
     public q getItem(int i) {
         if (this.mLists != null) {
             int size = this.mLists.size();
@@ -37,51 +103,21 @@ public class ad extends BaseAdapter implements u<q> {
         return null;
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return 0L;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        com.baidu.adp.widget.ListView.a<q, a> aVar;
-        View view2 = null;
-        if (this.mDelegateAdapters != null && this.mLists != null) {
-            int count = getCount();
-            if (i >= 0 && i < count && (aVar = this.mDelegateAdapters.get(getItemViewType(i))) != null) {
-                q item = getItem(i);
-                if (item != null && (item instanceof q)) {
-                    view2 = aVar.getView(i, view, viewGroup, item);
-                }
-                if (view2 == null) {
-                    Log.e("BdTypeListView", aVar.getClass().getName());
-                }
-                return view2;
-            }
+    public void q(int i, int i2) {
+        if (i < this.mLists.size()) {
+            this.mLists.remove(i);
+            notifyItemRemoved(i + i2);
         }
-        return null;
     }
 
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        q item;
-        BdUniqueId type;
-        Integer num;
-        if (this.mDelegateAdapters == null || this.mDelegateAdapters.size() == 0 || (item = getItem(i)) == null || (type = item.getType()) == null || (num = this.mViewTypes.get(type.getId())) == null) {
-            return -1;
+    public void k(int i, int i2, int i3) {
+        if (i < this.mLists.size() && i2 < this.mLists.size() && i <= i2) {
+            this.mLists.subList(i, i2 + 1).clear();
+            notifyItemRangeRemoved(i + i3, (i2 - i) + 1);
         }
-        return num.intValue();
     }
 
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        if (this.mDelegateAdapters != null) {
-            return this.mDelegateAdapters.size();
-        }
-        return 0;
-    }
-
-    public void addAdapter(com.baidu.adp.widget.ListView.a<q, a> aVar) {
+    public void addAdapter(a<q, af.a> aVar) {
         if (aVar != null && aVar.getType() != null) {
             if (this.mDelegateAdapters == null) {
                 this.mDelegateAdapters = new SparseArray<>();
@@ -106,12 +142,22 @@ public class ad extends BaseAdapter implements u<q> {
         notifyDataSetChanged();
     }
 
+    public void a(List<? extends q> list, int i, int i2) {
+        if (this.mLists == null) {
+            this.mLists = new ArrayList();
+        } else {
+            this.mLists.clear();
+        }
+        this.mLists.addAll(list);
+        notifyItemRangeChanged(i, i2);
+    }
+
     public List<q> getData() {
         return this.mLists;
     }
 
     public void onItemClick(ViewGroup viewGroup, View view, int i, long j) {
-        com.baidu.adp.widget.ListView.a<q, a> aVar;
+        a<q, af.a> aVar;
         if (this.mDelegateAdapters != null) {
             q item = getItem(i);
             int itemViewType = getItemViewType(i);
@@ -120,14 +166,14 @@ public class ad extends BaseAdapter implements u<q> {
             } else {
                 aVar = this.mDelegateAdapters.valueAt(itemViewType);
             }
-            if (aVar != null && aVar.pj() != null) {
-                aVar.pj().a(view, item, aVar.getType(), viewGroup, i, j);
+            if (aVar != null && aVar.qI() != null) {
+                aVar.qI().a(view, item, aVar.getType(), viewGroup, i, j);
             }
         }
     }
 
     public boolean onItemLongClick(ViewGroup viewGroup, View view, int i, long j) {
-        com.baidu.adp.widget.ListView.a<q, a> aVar;
+        a<q, af.a> aVar;
         if (this.mDelegateAdapters == null) {
             return false;
         }
@@ -138,10 +184,10 @@ public class ad extends BaseAdapter implements u<q> {
         } else {
             aVar = this.mDelegateAdapters.valueAt(itemViewType);
         }
-        if (aVar == null || aVar.pk() == null) {
+        if (aVar == null || aVar.qJ() == null) {
             return false;
         }
-        return aVar.pk().b(view, item, aVar.getType(), viewGroup, i, j);
+        return aVar.qJ().b(view, item, aVar.getType(), viewGroup, i, j);
     }
 
     @Override // com.baidu.adp.widget.ListView.u
@@ -168,17 +214,5 @@ public class ad extends BaseAdapter implements u<q> {
             i5 = i3;
         }
         return -1;
-    }
-
-    /* loaded from: classes.dex */
-    public static class a extends RecyclerView.ViewHolder {
-        public a(View view) {
-            super(view);
-            this.itemView.setTag(this);
-        }
-
-        public View getView() {
-            return this.itemView;
-        }
     }
 }

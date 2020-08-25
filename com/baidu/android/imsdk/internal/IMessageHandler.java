@@ -36,7 +36,7 @@ import javax.net.ssl.SSLHandshakeException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public abstract class IMessageHandler {
     protected static final int MAX_BODY_LENGTH = 1048576;
     public static final int MSG_ID_HERATBEAT = 101;
@@ -69,16 +69,16 @@ public abstract class IMessageHandler {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public Message readMessage(BigEndianDataIutputStream bigEndianDataIutputStream) throws EOFException, IOException {
-        RcvMessage rcvMessage = null;
         bigEndianDataIutputStream.readByte();
         byte readByte = bigEndianDataIutputStream.readByte();
         if (readByte == 101) {
             LogUtils.i(TAG, "read cmdType:" + ((int) readByte));
-            RcvMessage rcvMessage2 = new RcvMessage(null);
-            rcvMessage2.setHeartbeat(true);
+            RcvMessage rcvMessage = new RcvMessage(null);
+            rcvMessage.setHeartbeat(true);
             LogUtils.i(TAG, "readMessage nshead, heartbeat returned");
-            return rcvMessage2;
+            return rcvMessage;
         }
+        RcvMessage rcvMessage2 = new RcvMessage("{err_code:1024}");
         int readInt = bigEndianDataIutputStream.readInt();
         long readLong = bigEndianDataIutputStream.readLong();
         if (readInt > 0 && readInt <= 1048576) {
@@ -87,20 +87,21 @@ public abstract class IMessageHandler {
                 bigEndianDataIutputStream.readFully(bArr);
                 if (readByte == 11) {
                     LogUtils.d(TAG, "gzip receive message.");
-                    rcvMessage = new RcvMessage(ungzip(bArr));
+                    rcvMessage2 = new RcvMessage(ungzip(bArr));
                 } else {
-                    rcvMessage = new RcvMessage(new String(bArr));
+                    rcvMessage2 = new RcvMessage(new String(bArr));
                 }
-                rcvMessage.setMsgId(readLong);
+                rcvMessage2.setMsgId(readLong);
             } catch (OutOfMemoryError e) {
                 LogUtils.e(LogUtils.TAG, "out of Memory while read message msgId = " + readLong + " bodyLen = " + readInt);
             }
         } else {
-            LogUtils.e(LogUtils.TAG, "message body length over 4096 bodyLen = " + readInt + " msgId " + readLong);
+            LogUtils.e(LogUtils.TAG, "message body length over 1024*1024 bodyLen = " + readInt + " msgId " + readLong);
             bigEndianDataIutputStream.skipBytes(readInt);
+            rcvMessage2.setMsgId(readLong);
         }
-        LogUtils.d(TAG, "RTN msg:" + rcvMessage);
-        return rcvMessage;
+        LogUtils.d(TAG, "RTN msg:" + rcvMessage2);
+        return rcvMessage2;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:43:0x007c A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -182,21 +183,22 @@ public abstract class IMessageHandler {
             if (!z) {
                 handleFatalMessage(message);
             } else if (message != null && message2 != null) {
+                String str = "";
+                JSONObject jSONObject = new JSONObject();
                 if (message.getBody().length() > 0) {
-                    String str = "";
-                    JSONObject jSONObject = new JSONObject(message.getBody());
-                    int optInt = jSONObject.optInt("err_code");
-                    if (jSONObject.has("msg")) {
-                        str = jSONObject.getString("msg");
-                    }
-                    message2.handleMessageResult(this.mContext, jSONObject, optInt, str);
-                    if (50 == message2.getType() && optInt == 0) {
-                        onLoginSuccess();
-                    }
-                    if (message2.isNeedReSend()) {
-                        LogUtils.d(TAG, "reSending msg: method=" + message2.getType() + ";uuid=" + message2.getUUID());
-                        sendMessage(message2, false);
-                    }
+                    jSONObject = new JSONObject(message.getBody());
+                }
+                int optInt = jSONObject.optInt("err_code");
+                if (jSONObject.has("msg")) {
+                    str = jSONObject.getString("msg");
+                }
+                message2.handleMessageResult(this.mContext, jSONObject, optInt, str);
+                if (50 == message2.getType() && optInt == 0) {
+                    onLoginSuccess();
+                }
+                if (message2.isNeedReSend()) {
+                    LogUtils.d(TAG, "reSending msg: method=" + message2.getType() + ";uuid=" + message2.getUUID());
+                    sendMessage(message2, false);
                 }
             } else if (message != null && !message.isHeartbeat() && message.getBody().length() > 0) {
                 LogUtils.i(TAG, "handleMessage orginMsg is not null");

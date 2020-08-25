@@ -7,7 +7,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.PollInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class PollData extends m implements Serializable {
     private int endTime;
     private int isMulti;

@@ -11,7 +11,7 @@ import com.baidu.adp.lib.stats.a;
 import com.baidu.ala.AlaCmdConfigCustom;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaRefreshScoreModel extends BdBaseModel {
     private HttpMessageListener mRefreshScoresListener = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GIFT_REFRESH_SCORES) { // from class: com.baidu.ala.gift.AlaRefreshScoreModel.1
         /* JADX DEBUG: Method merged with bridge method */

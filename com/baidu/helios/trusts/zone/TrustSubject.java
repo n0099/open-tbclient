@@ -16,34 +16,34 @@ import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class TrustSubject {
     static Comparator<TrustSubject> a = new Comparator<TrustSubject>() { // from class: com.baidu.helios.trusts.zone.TrustSubject.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(TrustSubject trustSubject, TrustSubject trustSubject2) {
-            long d = trustSubject.asY.d() - trustSubject2.asY.d();
+            long d = trustSubject.axT.d() - trustSubject2.axT.d();
             return d != 0 ? d > 0 ? -1 : 1 : trustSubject.packageName.compareTo(trustSubject2.packageName);
         }
     };
-    static Comparator<TrustSubject> akW = new Comparator<TrustSubject>() { // from class: com.baidu.helios.trusts.zone.TrustSubject.2
+    static Comparator<TrustSubject> axU = new Comparator<TrustSubject>() { // from class: com.baidu.helios.trusts.zone.TrustSubject.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(TrustSubject trustSubject, TrustSubject trustSubject2) {
-            long f = trustSubject.asY.f() - trustSubject2.asY.f();
+            long f = trustSubject.axT.f() - trustSubject2.axT.f();
             return f != 0 ? f > 0 ? -1 : 1 : trustSubject.packageName.compareTo(trustSubject2.packageName);
         }
     };
-    private a.C0141a asX;
+    private a.C0148a axS;
     private Context e;
     public final String packageName;
-    private final com.baidu.helios.trusts.zone.b.a asV = new com.baidu.helios.trusts.zone.b.a();
-    private final com.baidu.helios.trusts.zone.a.a asW = new com.baidu.helios.trusts.zone.a.a();
-    private a asY = new a();
+    private final com.baidu.helios.trusts.zone.b.a axQ = new com.baidu.helios.trusts.zone.b.a();
+    private final com.baidu.helios.trusts.zone.a.a axR = new com.baidu.helios.trusts.zone.a.a();
+    private a axT = new a();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public static class ConfigNotFoundException extends Exception {
         public ConfigNotFoundException(String str) {
             super(str);
@@ -59,21 +59,34 @@ public class TrustSubject {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public class a {
         private int t;
         private long u;
         private long v;
         private long w;
         private long x;
-        private e asZ = new e();
+        private e axV = new e();
         private boolean z = true;
-        private Set<String> ata = new HashSet();
+        private Set<String> axW = new HashSet();
 
         a() {
         }
 
-        public boolean T(long j) {
+        public Set<String> Aw() {
+            return this.axW;
+        }
+
+        public boolean Q(long j) {
+            if (this.v != j) {
+                this.v = j;
+                this.z = true;
+                return true;
+            }
+            return false;
+        }
+
+        public boolean U(long j) {
             if (this.x != j) {
                 this.x = j;
                 this.z = true;
@@ -82,7 +95,7 @@ public class TrustSubject {
             return false;
         }
 
-        public boolean U(long j) {
+        public boolean V(long j) {
             if (this.w != j) {
                 this.w = j;
                 return true;
@@ -92,19 +105,19 @@ public class TrustSubject {
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public long a(long j) {
-            return this.asZ.S(j);
+            return this.axV.T(j);
         }
 
         public void a(Set<String> set) {
             if (set == null || set.size() == 0) {
-                if (this.ata.size() != 0) {
-                    this.ata.clear();
+                if (this.axW.size() != 0) {
+                    this.axW.clear();
                     this.z = true;
                 }
-            } else if (this.ata.equals(set)) {
+            } else if (this.axW.equals(set)) {
             } else {
-                this.ata.clear();
-                this.ata.addAll(set);
+                this.axW.clear();
+                this.axW.addAll(set);
                 this.z = true;
             }
         }
@@ -119,7 +132,7 @@ public class TrustSubject {
         }
 
         boolean a(long j, long j2) {
-            if (this.asZ.d(j, j2)) {
+            if (this.axV.d(j, j2)) {
                 this.z = true;
                 return true;
             }
@@ -147,15 +160,6 @@ public class TrustSubject {
             return this.u;
         }
 
-        public boolean c(long j) {
-            if (this.v != j) {
-                this.v = j;
-                this.z = true;
-                return true;
-            }
-            return false;
-        }
-
         public long d() {
             return this.v;
         }
@@ -177,15 +181,15 @@ public class TrustSubject {
                     jSONObject.put("trust_priority", this.v);
                     jSONObject.put("quick_config_version", this.w);
                     jSONObject.put("config_version", this.x);
-                    jSONObject.put("flags", this.asZ.uH());
-                    if (this.ata.size() > 0) {
+                    jSONObject.put("flags", this.axV.Ae());
+                    if (this.axW.size() > 0) {
                         JSONArray jSONArray = new JSONArray();
-                        for (String str : this.ata) {
+                        for (String str : this.axW) {
                             jSONArray.put(str);
                         }
                         jSONObject.put("pkg_sigs", jSONArray);
                     }
-                    TrustSubject.this.asX.d("ts_info", jSONObject.toString(), true);
+                    TrustSubject.this.axS.d("ts_info", jSONObject.toString(), true);
                     this.z = false;
                     return true;
                 } catch (JSONException e) {
@@ -196,7 +200,7 @@ public class TrustSubject {
         }
 
         public void i() {
-            String q = TrustSubject.this.asX.q("ts_info", true);
+            String q = TrustSubject.this.axS.q("ts_info", true);
             if (TextUtils.isEmpty(q)) {
                 return;
             }
@@ -207,13 +211,13 @@ public class TrustSubject {
                 this.v = jSONObject.getLong("trust_priority");
                 this.w = jSONObject.getLong("quick_config_version");
                 this.x = jSONObject.getLong("config_version");
-                this.asZ.R(jSONObject.getLong("flags"));
-                this.ata.clear();
+                this.axV.S(jSONObject.getLong("flags"));
+                this.axW.clear();
                 JSONArray optJSONArray = jSONObject.optJSONArray("pkg_sigs");
                 if (optJSONArray != null) {
                     int length = optJSONArray.length();
                     for (int i = 0; i < length; i++) {
-                        this.ata.add(optJSONArray.getString(i));
+                        this.axW.add(optJSONArray.getString(i));
                     }
                 }
                 this.z = false;
@@ -221,14 +225,10 @@ public class TrustSubject {
                 e.printStackTrace();
             }
         }
-
-        public Set<String> uZ() {
-            return this.ata;
-        }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public static class b implements FileFilter {
         @Override // java.io.FileFilter
         public boolean accept(File file) {
@@ -236,10 +236,10 @@ public class TrustSubject {
         }
     }
 
-    public TrustSubject(String str, Context context, a.C0141a c0141a) {
+    public TrustSubject(String str, Context context, a.C0148a c0148a) {
         this.e = context;
         this.packageName = str;
-        this.asX = c0141a.ec(a(str));
+        this.axS = c0148a.fv(a(str));
         n();
     }
 
@@ -260,65 +260,91 @@ public class TrustSubject {
     }
 
     private void n() {
-        this.asV.a(this.packageName, this.e);
-        this.asW.a(this.packageName, this.e, this.asX);
+        this.axQ.a(this.packageName, this.e);
+        this.axR.a(this.packageName, this.e, this.axS);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public a Aq() {
+        return this.axT;
+    }
+
+    public boolean Ar() {
+        PackageInfo packageInfo = null;
+        try {
+            packageInfo = this.e.getPackageManager().getPackageInfo(this.packageName, 0);
+        } catch (PackageManager.NameNotFoundException e) {
+        }
+        return packageInfo != null;
+    }
+
+    public long As() {
+        return this.axT.x;
+    }
+
+    public long At() {
+        return this.axT.d();
+    }
+
+    public boolean Au() {
+        return this.axT.a(12L) == 4;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public Set<String> Av() {
+        return new HashSet(this.axT.Aw());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(com.baidu.helios.common.a.b.a aVar) {
-        this.asV.a(aVar, true);
-        this.asY.a(this.asV.a());
-        this.asY.c(this.asV.b());
-        this.asY.a(this.asV.vd());
+        this.axQ.a(aVar, true);
+        this.axT.a(this.axQ.a());
+        this.axT.Q(this.axQ.b());
+        this.axT.a(this.axQ.Az());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b() {
-        long a2 = this.asW.a();
+        long a2 = this.axR.a();
         if (a2 > -1) {
-            this.asY.a(128L, 384L);
+            this.axT.a(128L, 384L);
         } else {
-            this.asY.a(256L, 384L);
+            this.axT.a(256L, 384L);
         }
-        this.asY.U(a2);
+        this.axT.V(a2);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean c() {
-        switch (this.asW.b()) {
+        switch (this.axR.b()) {
             case 0:
-                this.asY.a(16L, 48L);
-                this.asY.a(64L, 64L);
-                this.asY.a(4L, 12L);
+                this.axT.a(16L, 48L);
+                this.axT.a(64L, 64L);
+                this.axT.a(4L, 12L);
                 d();
-                this.asY.T(this.asW.g());
+                this.axT.U(this.axR.g());
                 return true;
             case 1:
             case 2:
             default:
-                this.asY.a(32L, 48L);
-                this.asY.a(0L, 64L);
+                this.axT.a(32L, 48L);
+                this.axT.a(0L, 64L);
                 return false;
             case 3:
-                this.asY.a(32L, 48L);
-                this.asY.a(8L, 12L);
+                this.axT.a(32L, 48L);
+                this.axT.a(8L, 12L);
                 return false;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void d() {
-        this.asW.e();
+        this.axR.e();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void e() {
-        this.asW.f();
-    }
-
-    public String ee(String str) {
-        this.asW.e();
-        return this.asW.a(str);
+        this.axR.f();
     }
 
     public boolean equals(Object obj) {
@@ -333,18 +359,23 @@ public class TrustSubject {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void f() {
-        this.asW.c();
-        this.asY.a(0L, 64L);
+        this.axR.c();
+        this.axT.a(0L, 64L);
+    }
+
+    public String fx(String str) {
+        this.axR.e();
+        return this.axR.a(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void g() {
-        this.asW.d();
+        this.axR.d();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean h() {
-        return this.asY.f() == this.asY.e();
+        return this.axT.f() == this.axT.e();
     }
 
     public int hashCode() {
@@ -357,8 +388,8 @@ public class TrustSubject {
             PackageInfo packageInfo = this.e.getPackageManager().getPackageInfo(this.packageName, 0);
             long j = packageInfo.lastUpdateTime;
             int i = packageInfo.versionCode;
-            this.asY.b(j);
-            this.asY.a(i);
+            this.axT.b(j);
+            this.axT.a(i);
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
@@ -370,8 +401,8 @@ public class TrustSubject {
             PackageInfo packageInfo = this.e.getPackageManager().getPackageInfo(this.packageName, 0);
             long j = packageInfo.lastUpdateTime;
             int i = packageInfo.versionCode;
-            if (this.asY.c() == j) {
-                return this.asY.b() == i;
+            if (this.axT.c() == j) {
+                return this.axT.b() == i;
             }
             return false;
         } catch (PackageManager.NameNotFoundException e) {
@@ -382,42 +413,11 @@ public class TrustSubject {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void l() {
-        this.asY.i();
+        this.axT.i();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean m() {
-        return this.asY.h();
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public a uT() {
-        return this.asY;
-    }
-
-    public boolean uU() {
-        PackageInfo packageInfo = null;
-        try {
-            packageInfo = this.e.getPackageManager().getPackageInfo(this.packageName, 0);
-        } catch (PackageManager.NameNotFoundException e) {
-        }
-        return packageInfo != null;
-    }
-
-    public long uV() {
-        return this.asY.x;
-    }
-
-    public long uW() {
-        return this.asY.d();
-    }
-
-    public boolean uX() {
-        return this.asY.a(12L) == 4;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Set<String> uY() {
-        return new HashSet(this.asY.uZ());
+        return this.axT.h();
     }
 }

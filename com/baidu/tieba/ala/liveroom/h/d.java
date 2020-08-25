@@ -5,9 +5,9 @@ import com.baidu.ala.recorder.AlaLiveRecorder;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.share.single.interfaces.IShareCallback;
 import com.baidu.tieba.ala.liveroom.views.e;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class d {
-    private com.baidu.tieba.ala.liveroom.views.c gkR;
+    private com.baidu.tieba.ala.liveroom.views.c gwV;
     private TbPageContext mPageContext;
     private View mRootView;
 
@@ -17,19 +17,19 @@ public class d {
     }
 
     private void init() {
-        this.gkR = new com.baidu.tieba.ala.liveroom.views.c(this.mPageContext);
-        this.gkR.f(this.mPageContext);
-        this.mRootView = this.gkR.getView();
+        this.gwV = new com.baidu.tieba.ala.liveroom.views.c(this.mPageContext);
+        this.gwV.f(this.mPageContext);
+        this.mRootView = this.gwV.getView();
     }
 
     public void a(IShareCallback iShareCallback) {
-        if (this.gkR != null) {
-            this.gkR.a(iShareCallback);
+        if (this.gwV != null) {
+            this.gwV.a(iShareCallback);
         }
     }
 
-    private void bHl() {
-        this.gkR.bHl();
+    private void bQP() {
+        this.gwV.bQP();
     }
 
     public View getView() {
@@ -37,40 +37,40 @@ public class d {
     }
 
     public void a(AlaLiveRecorder alaLiveRecorder, int i) {
-        this.gkR.a(alaLiveRecorder);
-        bHl();
+        this.gwV.a(alaLiveRecorder);
+        bQP();
     }
 
-    public boolean bHm() {
-        return this.gkR.bHm();
+    public boolean bQQ() {
+        return this.gwV.bQQ();
     }
 
-    public boolean bHn() {
-        return this.gkR.bHn();
+    public boolean bQR() {
+        return this.gwV.bQR();
     }
 
     public String getLiveTitle() {
-        return this.gkR.getLiveTitle();
+        return this.gwV.getLiveTitle();
     }
 
-    public boolean bHo() {
-        return this.gkR.bHo();
+    public boolean bQS() {
+        return this.gwV.bQS();
     }
 
-    public boolean bHp() {
-        return this.gkR.bHp();
+    public boolean bQT() {
+        return this.gwV.bQT();
     }
 
-    public void lx(boolean z) {
-        this.gkR.lx(z);
+    public void lY(boolean z) {
+        this.gwV.lY(z);
     }
 
-    public void bHq() {
-        this.gkR.gyh = false;
+    public void bQU() {
+        this.gwV.gKg = false;
     }
 
-    public String bHr() {
-        return this.gkR.bHr();
+    public String bQV() {
+        return this.gwV.bQV();
     }
 
     public void setVisibility(int i) {
@@ -82,68 +82,68 @@ public class d {
     }
 
     public void a(e.b bVar) {
-        this.gkR.a(bVar);
+        this.gwV.a(bVar);
     }
 
-    public void J(boolean z, boolean z2) {
+    public void M(boolean z, boolean z2) {
         if (z) {
-            this.gkR.onKeyboardVisibilityChanged(false);
+            this.gwV.onKeyboardVisibilityChanged(false);
         } else {
-            this.gkR.onKeyboardVisibilityChanged(z2);
+            this.gwV.onKeyboardVisibilityChanged(z2);
         }
     }
 
     public void a(e.a aVar) {
-        this.gkR.a(aVar);
+        this.gwV.a(aVar);
     }
 
-    public void Dy(String str) {
-        this.gkR.Dy(str);
+    public void FV(String str) {
+        this.gwV.FV(str);
     }
 
     public void onResume() {
-        this.gkR.onResume();
+        this.gwV.onResume();
     }
 
     public void onRefresh() {
-        this.gkR.onRefresh();
+        this.gwV.onRefresh();
     }
 
-    public boolean bHs() {
-        return this.gkR.bHs();
+    public boolean bQW() {
+        return this.gwV.bQW();
     }
 
-    public void bHt() {
-        this.gkR.bHt();
+    public void bQX() {
+        this.gwV.bQX();
     }
 
     public void release() {
-        this.gkR.release();
+        this.gwV.release();
     }
 
     public void destroy() {
-        this.gkR.destroy();
+        this.gwV.destroy();
     }
 
-    public void ly(boolean z) {
-        this.gkR.ly(z);
+    public void lZ(boolean z) {
+        this.gwV.lZ(z);
     }
 
-    public void bHu() {
-        if (this.gkR != null) {
-            this.gkR.bHu();
+    public void bQY() {
+        if (this.gwV != null) {
+            this.gwV.bQY();
         }
     }
 
-    public void lz(boolean z) {
-        if (this.gkR != null) {
-            this.gkR.lz(z);
+    public void ma(boolean z) {
+        if (this.gwV != null) {
+            this.gwV.ma(z);
         }
     }
 
     public void a(com.baidu.live.j.a aVar) {
-        if (this.gkR != null) {
-            this.gkR.a(aVar);
+        if (this.gwV != null) {
+            this.gwV.a(aVar);
         }
     }
 }

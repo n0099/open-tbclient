@@ -10,9 +10,9 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
-    private TbPageContext<?> dVN;
+    private TbPageContext<?> efn;
     private boolean isAutoSetCancelable;
     private Activity mActivity;
     private DialogInterface.OnCancelListener mOnCancelListner;
@@ -21,19 +21,19 @@ public class a {
     private String tipString;
 
     public a(TbPageContext<?> tbPageContext) {
-        this.dVN = null;
+        this.efn = null;
         this.mActivity = null;
         this.tipString = null;
         this.mTipView = null;
         this.isAutoSetCancelable = true;
-        this.dVN = tbPageContext;
-        if (this.dVN != null && this.dVN.getPageActivity() != null) {
-            this.mActivity = this.dVN.getPageActivity();
+        this.efn = tbPageContext;
+        if (this.efn != null && this.efn.getPageActivity() != null) {
+            this.mActivity = this.efn.getPageActivity();
         }
     }
 
     public a(Activity activity) {
-        this.dVN = null;
+        this.efn = null;
         this.mActivity = null;
         this.tipString = null;
         this.mTipView = null;

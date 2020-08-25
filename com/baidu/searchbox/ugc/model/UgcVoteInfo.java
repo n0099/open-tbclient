@@ -5,7 +5,7 @@ import com.google.gson.a.c;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes19.dex */
+/* loaded from: classes11.dex */
 public class UgcVoteInfo implements NoProGuard, Serializable {
     @c("ext")
     public ExtInfo extInfo;
@@ -14,7 +14,7 @@ public class UgcVoteInfo implements NoProGuard, Serializable {
     @c("title")
     public String voteTitle;
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes11.dex */
     public class VoteOption {
         @c("tag_name")
         public String voteTagName;
@@ -27,7 +27,7 @@ public class UgcVoteInfo implements NoProGuard, Serializable {
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes11.dex */
     public class ExtInfo {
         @c("vote_id")
         public String voteId;

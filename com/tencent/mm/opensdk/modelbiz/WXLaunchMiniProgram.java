@@ -5,10 +5,10 @@ import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class WXLaunchMiniProgram {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static final class Req extends BaseReq {
         public static final int MINIPROGRAM_TYPE_PREVIEW = 2;
         public static final int MINIPROGRAM_TYPE_TEST = 1;
@@ -45,7 +45,7 @@ public class WXLaunchMiniProgram {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static final class Resp extends BaseResp {
         public String extMsg;
 

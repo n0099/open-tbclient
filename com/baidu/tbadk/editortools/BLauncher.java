@@ -10,38 +10,41 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
-public class BLauncher extends ImageView implements g {
-    private Drawable WM;
-    private l ezK;
-    private boolean ezL;
+/* loaded from: classes2.dex */
+public class BLauncher extends ImageView implements h {
+    private Drawable Xs;
+    private m eKi;
+    private boolean eKj;
     private int mId;
     private int mSkinType;
     private TextView mTip;
 
-    public BLauncher(Context context, l lVar) {
+    public BLauncher(Context context, m mVar) {
         super(context);
         this.mSkinType = 0;
-        this.ezL = false;
-        if (lVar != null) {
-            this.ezK = lVar;
+        this.eKj = false;
+        if (mVar != null) {
+            this.eKi = mVar;
             setIcon();
-            setToolId(lVar.id);
+            setToolId(mVar.id);
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.g
+    @Override // com.baidu.tbadk.editortools.h
     public void setName(String str) {
     }
 
     public void setIcon() {
-        if (this.ezK != null) {
-            if (this.ezK.eAP) {
-                setImageDrawable(SvgManager.baR().x(this.ezK.eAM, this.ezK.eAN, this.mSkinType));
+        if (this.eKi != null) {
+            if (this.eKi.eLn) {
+                setImageDrawable(SvgManager.bjq().x(this.eKi.eLk, this.eKi.eLl, this.mSkinType));
+            } else if (this.eKi.eLo) {
+                setImageDrawable(WebPManager.a(this.eKi.eLk, ap.getColor(this.mSkinType, R.color.cp_cont_b), WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE));
             } else {
-                ao.setImageResource(this, this.ezK.eAM, this.mSkinType);
+                ap.setImageResource(this, this.eKi.eLk, this.mSkinType);
             }
         }
     }
@@ -50,35 +53,35 @@ public class BLauncher extends ImageView implements g {
         this.mId = i;
     }
 
-    @Override // com.baidu.tbadk.editortools.g
+    @Override // com.baidu.tbadk.editortools.h
     public int getToolId() {
         return this.mId;
     }
 
-    @Override // com.baidu.tbadk.editortools.g
+    @Override // com.baidu.tbadk.editortools.h
     public void display() {
         setVisibility(0);
     }
 
-    @Override // com.baidu.tbadk.editortools.g
+    @Override // com.baidu.tbadk.editortools.h
     public void hide() {
-        biH();
+        brt();
         setVisibility(8);
     }
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
         super.draw(canvas);
-        if (this.ezK.eAV) {
-            this.WM = ao.getDrawable(R.drawable.icon_news_red_dot);
+        if (this.eKi.eLu) {
+            this.Xs = ap.getDrawable(R.drawable.icon_news_red_dot);
             int width = getWidth();
-            int intrinsicHeight = this.WM.getIntrinsicHeight();
-            this.WM.setBounds(getWidth() - this.WM.getIntrinsicWidth(), 0, width, intrinsicHeight);
-            this.WM.draw(canvas);
+            int intrinsicHeight = this.Xs.getIntrinsicHeight();
+            this.Xs.setBounds(getWidth() - this.Xs.getIntrinsicWidth(), 0, width, intrinsicHeight);
+            this.Xs.draw(canvas);
         }
     }
 
-    public void zv(String str) {
+    public void BL(String str) {
         if (getVisibility() != 8 && !TextUtils.isEmpty(str)) {
             if (this.mTip == null) {
                 this.mTip = new TextView(getContext());
@@ -93,23 +96,23 @@ public class BLauncher extends ImageView implements g {
                     ((ViewGroup) parent2).addView(this.mTip);
                 }
             }
-            ao.setViewTextColor(this.mTip, R.color.cp_cont_g, 1, this.mSkinType);
+            ap.setViewTextColor(this.mTip, R.color.cp_cont_g, 1, this.mSkinType);
             this.mTip.setGravity(17);
             if (!str.equals(" ")) {
                 this.mTip.setTextSize(10.0f);
                 this.mTip.setText(str);
-                ao.setBackgroundResource(this.mTip, R.drawable.icon_news_head_prompt_one, this.mSkinType);
+                ap.setBackgroundResource(this.mTip, R.drawable.icon_news_head_prompt_one, this.mSkinType);
             } else {
                 this.mTip.setWidth(0);
                 this.mTip.setHeight(0);
                 this.mTip.setText("");
-                ao.setBackgroundResource(this.mTip, R.drawable.icon_news_down_bar_one, this.mSkinType);
+                ap.setBackgroundResource(this.mTip, R.drawable.icon_news_down_bar_one, this.mSkinType);
             }
             this.mTip.setVisibility(0);
         }
     }
 
-    public void biH() {
+    public void brt() {
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
         }
@@ -120,9 +123,9 @@ public class BLauncher extends ImageView implements g {
         return this.mTip;
     }
 
-    @Override // com.baidu.tbadk.editortools.g
-    public void biI() {
-        this.ezK.eAV = false;
+    @Override // com.baidu.tbadk.editortools.h
+    public void bru() {
+        this.eKi.eLu = false;
         invalidate();
     }
 
@@ -130,33 +133,33 @@ public class BLauncher extends ImageView implements g {
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                biH();
+                brt();
             } else if (aVar.data instanceof String) {
-                zv((String) aVar.data);
+                BL((String) aVar.data);
             }
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.g
+    @Override // com.baidu.tbadk.editortools.h
     public void onChangeSkinType(int i) {
         this.mSkinType = i;
         setIcon();
         if (this.mTip != null) {
-            ao.setViewTextColor(this.mTip, R.color.cp_cont_g, 1, i);
+            ap.setViewTextColor(this.mTip, R.color.cp_cont_g, 1, i);
             if (!TextUtils.isEmpty(this.mTip.getText()) && !TextUtils.isEmpty(this.mTip.getText().toString().trim())) {
-                ao.setBackgroundResource(this.mTip, R.drawable.icon_news_head_prompt_one, i);
+                ap.setBackgroundResource(this.mTip, R.drawable.icon_news_head_prompt_one, i);
             } else {
-                ao.setBackgroundResource(this.mTip, R.drawable.icon_news_down_bar_one, i);
+                ap.setBackgroundResource(this.mTip, R.drawable.icon_news_down_bar_one, i);
             }
         }
     }
 
     public boolean getIsOutSetVisibility() {
-        return this.ezL;
+        return this.eKj;
     }
 
     public void setOutSetVisibilty(boolean z) {
-        this.ezL = z;
+        this.eKj = z;
     }
 
     @Override // android.widget.ImageView, android.view.View

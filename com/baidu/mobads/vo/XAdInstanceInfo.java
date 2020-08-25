@@ -9,7 +9,6 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import com.baidu.mobads.interfaces.IXAdInstanceInfo;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
-import com.baidu.searchbox.account.data.UserAccountActionItem;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -676,7 +675,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
             this.N = jSONObject.optInt("act");
             this.z = jSONObject.optString("html", null);
             this.b = jSONObject.optString("id", "-1");
-            this.c = jSONObject.optString(UserAccountActionItem.KEY_SRC, "");
+            this.c = jSONObject.optString("src", "");
             this.d = jSONObject.optString("tit", "");
             this.e = jSONObject.optString("desc", "");
             this.f = jSONObject.optString("surl", "");

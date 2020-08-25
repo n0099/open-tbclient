@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class PraiseListActivityConfig extends IntentConfig {
     public static final String IS_AUTHOR = "is_author";
     public static final int TYPE_GRAFFITI_PRAISE_LIST = 1;

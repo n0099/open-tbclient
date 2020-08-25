@@ -13,7 +13,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class e {
     static final e a = new e();
 
@@ -83,7 +83,7 @@ public class e {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("n", packageInfo.packageName);
-                jSONObject.put(Config.APP_VERSION_CODE, str);
+                jSONObject.put("a", str);
                 jSONObject.put("v", String.valueOf(packageInfo.versionName));
                 jSONObject.put("f", j);
                 jSONObject.put("l", j2);

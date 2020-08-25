@@ -2,9 +2,9 @@ package com.baidu.live.videochat.message;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class LiveVideoChatSendAcceptResponseMessage extends JsonHttpResponsedMessage {
-    private com.baidu.live.videochat.b.a blX;
+    private com.baidu.live.videochat.b.a brD;
     private int status;
 
     public LiveVideoChatSendAcceptResponseMessage() {
@@ -20,13 +20,13 @@ public class LiveVideoChatSendAcceptResponseMessage extends JsonHttpResponsedMes
             this.status = optJSONObject.optInt("accept_status");
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("match_info");
             if (optJSONObject2 != null) {
-                this.blX = new com.baidu.live.videochat.b.a();
-                this.blX.parserJson(optJSONObject2);
+                this.brD = new com.baidu.live.videochat.b.a();
+                this.brD.parserJson(optJSONObject2);
             }
         }
     }
 
-    public com.baidu.live.videochat.b.a Kk() {
-        return this.blX;
+    public com.baidu.live.videochat.b.a Qc() {
+        return this.brD;
     }
 }

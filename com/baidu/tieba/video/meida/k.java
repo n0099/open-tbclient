@@ -114,15 +114,15 @@ public class k {
         } else if (i > 8) {
             if (i == 32) {
                 a(dArr, 0, dArr2, i3 - 8);
-                c(dArr);
+                d(dArr);
                 return;
             }
             c(dArr, 0, dArr2, 0);
-            e(dArr);
+            f(dArr);
         } else if (i == 8) {
-            g(dArr);
+            h(dArr);
         } else if (i == 4) {
-            i(dArr);
+            j(dArr);
         }
     }
 
@@ -144,15 +144,15 @@ public class k {
         } else if (i > 8) {
             if (i == 32) {
                 a(dArr, 0, dArr2, i3 - 8);
-                d(dArr);
+                e(dArr);
                 return;
             }
             c(dArr, 0, dArr2, 0);
-            f(dArr);
+            g(dArr);
         } else if (i == 8) {
-            h(dArr);
-        } else if (i == 4) {
             i(dArr);
+        } else if (i == 4) {
+            j(dArr);
         }
     }
 
@@ -342,7 +342,7 @@ public class k {
         }
     }
 
-    private void c(double[] dArr) {
+    private void d(double[] dArr) {
         double d = dArr[2];
         double d2 = dArr[3];
         double d3 = dArr[4];
@@ -393,7 +393,7 @@ public class k {
         dArr[29] = d12;
     }
 
-    private void d(double[] dArr) {
+    private void e(double[] dArr) {
         double d = dArr[2];
         double d2 = dArr[3];
         double d3 = dArr[4];
@@ -456,7 +456,7 @@ public class k {
         dArr[31] = d16;
     }
 
-    private void e(double[] dArr) {
+    private void f(double[] dArr) {
         double d = dArr[2];
         double d2 = dArr[3];
         double d3 = dArr[6];
@@ -475,7 +475,7 @@ public class k {
         dArr[13] = d4;
     }
 
-    private void f(double[] dArr) {
+    private void g(double[] dArr) {
         double d = dArr[2];
         double d2 = dArr[3];
         double d3 = dArr[4];
@@ -1685,7 +1685,7 @@ public class k {
         dArr[i + 15] = d45 - d46;
     }
 
-    private void g(double[] dArr) {
+    private void h(double[] dArr) {
         double d = dArr[0] + dArr[4];
         double d2 = dArr[1] + dArr[5];
         double d3 = dArr[0] - dArr[4];
@@ -1704,7 +1704,7 @@ public class k {
         dArr[7] = d4 - d7;
     }
 
-    private void h(double[] dArr) {
+    private void i(double[] dArr) {
         double d = dArr[0] + dArr[4];
         double d2 = dArr[1] + dArr[5];
         double d3 = dArr[0] - dArr[4];
@@ -1723,7 +1723,7 @@ public class k {
         dArr[7] = d4 + d7;
     }
 
-    private void i(double[] dArr) {
+    private void j(double[] dArr) {
         double d = dArr[0] - dArr[2];
         double d2 = dArr[1] - dArr[3];
         dArr[0] = dArr[0] + dArr[2];

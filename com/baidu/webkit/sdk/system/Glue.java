@@ -6,19 +6,18 @@ import android.webkit.WebMessage;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import com.a.a.a.a.a.a.a;
 import com.baidu.webkit.sdk.JsPromptResult;
 import com.baidu.webkit.sdk.JsResult;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebSettings;
 import com.baidu.webkit.sdk.WebView;
 import java.lang.reflect.Field;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 final class Glue {
     private static Field ImmutableField;
 
     /* renamed from: com.baidu.webkit.sdk.system.Glue$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$android$webkit$WebSettings$LayoutAlgorithm;
         static final /* synthetic */ int[] $SwitchMap$android$webkit$WebSettings$PluginState;
@@ -126,7 +125,7 @@ final class Glue {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     private static class ResultReceiverWrapper implements JsResult.ResultReceiver {
         private android.webkit.JsResult mJsResult;
 
@@ -134,7 +133,7 @@ final class Glue {
             try {
                 this.mJsResult = jsResult;
             } catch (Exception e) {
-                a.a(e);
+                e.printStackTrace();
             }
         }
 
@@ -154,7 +153,7 @@ final class Glue {
                     this.mJsResult.confirm();
                 }
             } catch (Exception e) {
-                a.a(e);
+                e.printStackTrace();
                 this.mJsResult.confirm();
             }
         }

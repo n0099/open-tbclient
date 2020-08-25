@@ -2,7 +2,7 @@ package android.support.constraint.solver.widgets;
 
 import android.support.constraint.solver.widgets.ConstraintAnchor;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class Snapshot {
     private ArrayList<Connection> mConnections = new ArrayList<>();
     private int mHeight;
@@ -11,7 +11,7 @@ public class Snapshot {
     private int mY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class Connection {
         private ConstraintAnchor mAnchor;
         private int mCreator;

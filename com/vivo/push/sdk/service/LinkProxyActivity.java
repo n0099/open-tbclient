@@ -10,7 +10,7 @@ import android.view.WindowManager;
 import com.vivo.push.util.p;
 import com.vivo.push.util.z;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class LinkProxyActivity extends Activity {
     /* JADX WARN: Removed duplicated region for block: B:37:0x00e3 A[Catch: Exception -> 0x00e7, TRY_LEAVE, TryCatch #2 {Exception -> 0x00e7, blocks: (B:25:0x00b7, B:27:0x00bd, B:29:0x00cc, B:31:0x00d2, B:33:0x00da, B:42:0x00f5, B:44:0x00fd, B:46:0x0101, B:37:0x00e3, B:50:0x010b), top: B:57:0x00b7 }] */
     /* JADX WARN: Removed duplicated region for block: B:50:0x010b A[Catch: Exception -> 0x00e7, TRY_LEAVE, TryCatch #2 {Exception -> 0x00e7, blocks: (B:25:0x00b7, B:27:0x00bd, B:29:0x00cc, B:31:0x00d2, B:33:0x00da, B:42:0x00f5, B:44:0x00fd, B:46:0x0101, B:37:0x00e3, B:50:0x010b), top: B:57:0x00b7 }] */

@@ -3,7 +3,7 @@ package com.baidu.minivideo.plugin.capture.bean;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes19.dex */
 public class PublishProgressEntity implements Jsonable {
     public int mProgress;
     public String mVideoCover;
@@ -11,13 +11,13 @@ public class PublishProgressEntity implements Jsonable {
     public int showWhere = 2;
     public int type;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes19.dex */
     public interface ShowWhere {
         public static final int SHOW_FOLLOW = 2;
         public static final int SHOW_HOME_INDEX = 1;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes19.dex */
     public interface Type {
         public static final int PUBLISH_FAIL = 2;
         public static final int PUBLISH_PROGRESS = 4;

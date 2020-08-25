@@ -8,25 +8,25 @@ import java.util.List;
 import java.util.NoSuchElementException;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.h
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public class y extends x {
 
     @kotlin.h
-    /* loaded from: classes7.dex */
+    /* loaded from: classes20.dex */
     public static final class a implements kotlin.sequences.c<T> {
-        final /* synthetic */ Iterable nXZ;
+        final /* synthetic */ Iterable orX;
 
         public a(Iterable iterable) {
-            this.nXZ = iterable;
+            this.orX = iterable;
         }
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
-            return this.nXZ.iterator();
+            return this.orX.iterator();
         }
     }
 
-    public static final <T> T fP(List<? extends T> list) {
+    public static final <T> T fZ(List<? extends T> list) {
         kotlin.jvm.internal.q.m(list, "receiver$0");
         if (list.isEmpty()) {
             throw new NoSuchElementException("List is empty.");
@@ -34,18 +34,18 @@ public class y extends x {
         return list.get(0);
     }
 
-    public static final <T> T fQ(List<? extends T> list) {
+    public static final <T> T ga(List<? extends T> list) {
         kotlin.jvm.internal.q.m(list, "receiver$0");
         if (list.isEmpty()) {
             throw new NoSuchElementException("List is empty.");
         }
-        return list.get(o.fM(list));
+        return list.get(o.fW(list));
     }
 
     public static final <T> T d(Iterable<? extends T> iterable) {
         kotlin.jvm.internal.q.m(iterable, "receiver$0");
         if (iterable instanceof List) {
-            return (T) o.fR((List) iterable);
+            return (T) o.gb((List) iterable);
         }
         Iterator<? extends T> it = iterable.iterator();
         if (!it.hasNext()) {
@@ -58,7 +58,7 @@ public class y extends x {
         return next;
     }
 
-    public static final <T> T fR(List<? extends T> list) {
+    public static final <T> T gb(List<? extends T> list) {
         kotlin.jvm.internal.q.m(list, "receiver$0");
         switch (list.size()) {
             case 0:
@@ -74,7 +74,7 @@ public class y extends x {
         kotlin.jvm.internal.q.m(iterable, "receiver$0");
         if (!(iterable instanceof Collection) || ((Collection) iterable).size() > 1) {
             List<T> h = o.h(iterable);
-            o.fO(h);
+            o.fY(h);
             return h;
         }
         return o.g(iterable);
@@ -91,7 +91,7 @@ public class y extends x {
 
     public static final <T> HashSet<T> f(Iterable<? extends T> iterable) {
         kotlin.jvm.internal.q.m(iterable, "receiver$0");
-        return (HashSet) o.a(iterable, new HashSet(af.Ls(o.a(iterable, 12))));
+        return (HashSet) o.a(iterable, new HashSet(af.NV(o.a(iterable, 12))));
     }
 
     public static final <T> List<T> g(Iterable<? extends T> iterable) {
@@ -99,22 +99,22 @@ public class y extends x {
         if (iterable instanceof Collection) {
             switch (((Collection) iterable).size()) {
                 case 0:
-                    return o.dTP();
+                    return o.efR();
                 case 1:
-                    return o.bJ(iterable instanceof List ? ((List) iterable).get(0) : iterable.iterator().next());
+                    return o.bL(iterable instanceof List ? ((List) iterable).get(0) : iterable.iterator().next());
                 default:
-                    return o.o((Collection) iterable);
+                    return o.q((Collection) iterable);
             }
         }
-        return o.fN(o.h(iterable));
+        return o.fX(o.h(iterable));
     }
 
     public static final <T> List<T> h(Iterable<? extends T> iterable) {
         kotlin.jvm.internal.q.m(iterable, "receiver$0");
-        return iterable instanceof Collection ? o.o((Collection) iterable) : (List) o.a(iterable, new ArrayList());
+        return iterable instanceof Collection ? o.q((Collection) iterable) : (List) o.a(iterable, new ArrayList());
     }
 
-    public static final <T> List<T> o(Collection<? extends T> collection) {
+    public static final <T> List<T> q(Collection<? extends T> collection) {
         kotlin.jvm.internal.q.m(collection, "receiver$0");
         return new ArrayList(collection);
     }

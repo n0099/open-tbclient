@@ -5,19 +5,19 @@ import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public final class a {
     public static int a = 12323;
     public static int b = 12324;
-    public b adv;
-    private JSONObject adw;
+    public b aeI;
+    private JSONObject aeJ;
     public JSONObject d;
     public boolean e = false;
 
     public final void a() {
-        if (this.adw != null) {
-            SessionMonitorEngine.getInstance().recordImmediately(ZeusPerformanceTiming.SERVER_TYPE_T7_INIT, this.adw.toString());
-            this.adw = null;
+        if (this.aeJ != null) {
+            SessionMonitorEngine.getInstance().recordImmediately(ZeusPerformanceTiming.SERVER_TYPE_T7_INIT, this.aeJ.toString());
+            this.aeJ = null;
         }
     }
 
@@ -38,14 +38,14 @@ public final class a {
 
     public final void b(String str, String str2) {
         try {
-            if (this.adw == null) {
-                this.adw = new JSONObject();
-                this.adw.put("type", b);
+            if (this.aeJ == null) {
+                this.aeJ = new JSONObject();
+                this.aeJ.put("type", b);
             }
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                 return;
             }
-            this.adw.put(str, str2);
+            this.aeJ.put(str, str2);
         } catch (Exception e) {
             Log.e("mWebkitDownloadStatics JSON error");
         }

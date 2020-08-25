@@ -1,7 +1,7 @@
 package com.baidu.tbadk.mutiprocess;
 
 import com.baidu.adp.BdUniqueId;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface a {
     int getPid();
 

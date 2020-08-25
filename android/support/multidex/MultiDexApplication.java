@@ -2,7 +2,7 @@ package android.support.multidex;
 
 import android.app.Application;
 import android.content.Context;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class MultiDexApplication extends Application {
     @Override // android.content.ContextWrapper
     protected void attachBaseContext(Context context) {

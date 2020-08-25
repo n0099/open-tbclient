@@ -1,5 +1,5 @@
 package com.baidu.ubc;
-/* loaded from: classes9.dex */
+/* loaded from: classes18.dex */
 class j {
     private String mId;
     private String mType;

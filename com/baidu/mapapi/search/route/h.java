@@ -2,7 +2,7 @@ package com.baidu.mapapi.search.route;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 final class h implements Parcelable.Creator<IndoorRouteResult> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator

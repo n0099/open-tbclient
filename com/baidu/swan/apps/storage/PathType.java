@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.storage;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public enum PathType {
     ERROR,
     BD_FILE,

@@ -6,15 +6,15 @@ import android.util.Log;
 import java.util.HashSet;
 import java.util.Set;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class c {
-    private static long[] Aa;
-    private static String[] zZ;
+    private static String[] AF;
+    private static long[] AG;
     public static boolean DBG = false;
-    private static final Set<String> zX = new HashSet();
-    private static boolean zY = false;
-    private static int Ab = 0;
-    private static int Ac = 0;
+    private static final Set<String> AC = new HashSet();
+    private static boolean AE = false;
+    private static int AH = 0;
+    private static int AI = 0;
 
     public static void debug(String str) {
         if (DBG) {
@@ -23,39 +23,39 @@ public class c {
     }
 
     public static void warn(String str) {
-        if (!zX.contains(str)) {
+        if (!AC.contains(str)) {
             Log.w("LOTTIE", str);
-            zX.add(str);
+            AC.add(str);
         }
     }
 
     public static void beginSection(String str) {
-        if (zY) {
-            if (Ab == 20) {
-                Ac++;
+        if (AE) {
+            if (AH == 20) {
+                AI++;
                 return;
             }
-            zZ[Ab] = str;
-            Aa[Ab] = System.nanoTime();
+            AF[AH] = str;
+            AG[AH] = System.nanoTime();
             TraceCompat.beginSection(str);
-            Ab++;
+            AH++;
         }
     }
 
-    public static float aW(String str) {
-        if (Ac > 0) {
-            Ac--;
+    public static float bb(String str) {
+        if (AI > 0) {
+            AI--;
             return 0.0f;
-        } else if (zY) {
-            Ab--;
-            if (Ab == -1) {
+        } else if (AE) {
+            AH--;
+            if (AH == -1) {
                 throw new IllegalStateException("Can't end trace section. There are none.");
             }
-            if (!str.equals(zZ[Ab])) {
-                throw new IllegalStateException("Unbalanced trace call " + str + ". Expected " + zZ[Ab] + ".");
+            if (!str.equals(AF[AH])) {
+                throw new IllegalStateException("Unbalanced trace call " + str + ". Expected " + AF[AH] + ".");
             }
             TraceCompat.endSection();
-            return ((float) (System.nanoTime() - Aa[Ab])) / 1000000.0f;
+            return ((float) (System.nanoTime() - AG[AH])) / 1000000.0f;
         } else {
             return 0.0f;
         }

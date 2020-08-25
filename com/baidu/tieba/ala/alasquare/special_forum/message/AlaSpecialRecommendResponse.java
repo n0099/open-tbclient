@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.alasquare.special_forum.message;
 
 import com.baidu.ala.AlaCmdConfigHttp;
-import com.baidu.tbadk.core.data.bv;
+import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.ala.alasquare.special_forum.data.b;
 import com.baidu.tieba.ala.alasquare.special_forum.data.c;
@@ -12,7 +12,7 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
     public boolean hasMore;
-    public List<bv> livesList;
+    public List<bw> livesList;
     public c mSpecialActivityListData;
 
     public AlaSpecialRecommendResponse() {
@@ -34,9 +34,9 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
                     for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                         JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                         if (optJSONObject2 != null) {
-                            bv bvVar = new bv();
-                            bvVar.parserJson(optJSONObject2);
-                            this.livesList.add(bvVar);
+                            bw bwVar = new bw();
+                            bwVar.parserJson(optJSONObject2);
+                            this.livesList.add(bwVar);
                         }
                     }
                 } else {
@@ -46,8 +46,8 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
                 this.hasMore = false;
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("activity_info_detail");
-            if (this.mSpecialActivityListData != null && this.mSpecialActivityListData.fyP == null) {
-                this.mSpecialActivityListData.fyP = new ArrayList();
+            if (this.mSpecialActivityListData != null && this.mSpecialActivityListData.fKh == null) {
+                this.mSpecialActivityListData.fKh = new ArrayList();
             }
             if (optJSONArray2 != null) {
                 for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
@@ -55,7 +55,7 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
                     if (optJSONObject3 != null) {
                         b bVar = new b();
                         bVar.parseJson(optJSONObject3);
-                        this.mSpecialActivityListData.fyP.add(bVar);
+                        this.mSpecialActivityListData.fKh.add(bVar);
                     }
                 }
             }

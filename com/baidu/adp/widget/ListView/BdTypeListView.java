@@ -6,15 +6,15 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.ad;
+import com.baidu.adp.widget.ListView.af;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class BdTypeListView extends BdListView implements v<BdTypeListView> {
-    private HashMap<BdUniqueId, a> Vh;
-    private HashMap<BdUniqueId, j> Vi;
-    ad mTypeAdapter;
+    private HashMap<BdUniqueId, a> VJ;
+    private HashMap<BdUniqueId, j> VK;
+    af mTypeAdapter;
 
     public BdTypeListView(Context context) {
         super(context);
@@ -36,13 +36,13 @@ public class BdTypeListView extends BdListView implements v<BdTypeListView> {
 
     private void init() {
         if (this.mTypeAdapter == null) {
-            this.mTypeAdapter = new ad();
+            this.mTypeAdapter = new af();
         }
-        if (this.Vh == null) {
-            this.Vh = new HashMap<>();
+        if (this.VJ == null) {
+            this.VJ = new HashMap<>();
         }
-        if (this.Vi == null) {
-            this.Vi = new HashMap<>();
+        if (this.VK == null) {
+            this.VK = new HashMap<>();
         }
         super.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.adp.widget.ListView.BdTypeListView.1
             @Override // android.widget.AdapterView.OnItemClickListener
@@ -83,49 +83,49 @@ public class BdTypeListView extends BdListView implements v<BdTypeListView> {
 
     @Override // com.baidu.adp.widget.ListView.v
     public void addAdapters(List<a> list) {
-        for (a<q, ad.a> aVar : list) {
+        for (a<q, af.a> aVar : list) {
             if (aVar != null) {
                 BdUniqueId bdUniqueId = null;
-                if (aVar.pf() != null) {
-                    bdUniqueId = aVar.pf();
-                    if (!this.Vi.containsKey(bdUniqueId)) {
+                if (aVar.qE() != null) {
+                    bdUniqueId = aVar.qE();
+                    if (!this.VK.containsKey(bdUniqueId)) {
                         j jVar = new j(aVar.mContext, bdUniqueId, aVar.mPageId);
                         jVar.a(aVar);
                         this.mTypeAdapter.addAdapter(jVar);
-                        this.Vi.put(bdUniqueId, jVar);
+                        this.VK.put(bdUniqueId, jVar);
                     }
                 }
-                if (aVar.pg() != null) {
-                    bdUniqueId = aVar.pg();
-                    if (!this.Vi.containsKey(bdUniqueId)) {
+                if (aVar.qF() != null) {
+                    bdUniqueId = aVar.qF();
+                    if (!this.VK.containsKey(bdUniqueId)) {
                         j jVar2 = new j(aVar.mContext, bdUniqueId, aVar.mPageId);
                         jVar2.a(aVar);
                         this.mTypeAdapter.addAdapter(jVar2);
-                        this.Vi.put(bdUniqueId, jVar2);
+                        this.VK.put(bdUniqueId, jVar2);
                     }
                 }
-                if (aVar.ph() != null) {
-                    bdUniqueId = aVar.ph();
-                    if (!this.Vi.containsKey(bdUniqueId)) {
+                if (aVar.qG() != null) {
+                    bdUniqueId = aVar.qG();
+                    if (!this.VK.containsKey(bdUniqueId)) {
                         j jVar3 = new j(aVar.mContext, bdUniqueId, aVar.mPageId);
                         jVar3.a(aVar);
                         this.mTypeAdapter.addAdapter(jVar3);
-                        this.Vi.put(bdUniqueId, jVar3);
+                        this.VK.put(bdUniqueId, jVar3);
                     }
                 }
-                if (aVar.pi() != null) {
-                    bdUniqueId = aVar.pi();
-                    if (!this.Vi.containsKey(bdUniqueId)) {
+                if (aVar.qH() != null) {
+                    bdUniqueId = aVar.qH();
+                    if (!this.VK.containsKey(bdUniqueId)) {
                         j jVar4 = new j(aVar.mContext, bdUniqueId, aVar.mPageId);
                         jVar4.a(aVar);
                         this.mTypeAdapter.addAdapter(jVar4);
-                        this.Vi.put(bdUniqueId, jVar4);
+                        this.VK.put(bdUniqueId, jVar4);
                     }
                 }
                 if (bdUniqueId == null) {
                     this.mTypeAdapter.addAdapter(aVar);
                 } else {
-                    this.Vh.put(aVar.Uh, aVar);
+                    this.VJ.put(aVar.UM, aVar);
                 }
             }
         }
@@ -137,29 +137,29 @@ public class BdTypeListView extends BdListView implements v<BdTypeListView> {
         ArrayList arrayList = new ArrayList();
         for (q qVar : list) {
             if (qVar != null) {
-                if (this.Vh.containsKey(qVar.getType())) {
-                    a aVar = this.Vh.get(qVar.getType());
-                    if (aVar.pf() != null) {
+                if (this.VJ.containsKey(qVar.getType())) {
+                    a aVar = this.VJ.get(qVar.getType());
+                    if (aVar.qE() != null) {
                         i iVar = new i();
-                        iVar.g(aVar.pf());
+                        iVar.g(aVar.qE());
                         iVar.a(qVar);
                         arrayList.add(iVar);
                     }
-                    if (aVar.pg() != null) {
+                    if (aVar.qF() != null) {
                         i iVar2 = new i();
-                        iVar2.g(aVar.pg());
+                        iVar2.g(aVar.qF());
                         iVar2.a(qVar);
                         arrayList.add(iVar2);
                     }
-                    if (aVar.ph() != null) {
+                    if (aVar.qG() != null) {
                         i iVar3 = new i();
-                        iVar3.g(aVar.ph());
+                        iVar3.g(aVar.qG());
                         iVar3.a(qVar);
                         arrayList.add(iVar3);
                     }
-                    if (aVar.pi() != null) {
+                    if (aVar.qH() != null) {
                         i iVar4 = new i();
-                        iVar4.g(aVar.pi());
+                        iVar4.g(aVar.qH());
                         iVar4.a(qVar);
                         arrayList.add(iVar4);
                     }

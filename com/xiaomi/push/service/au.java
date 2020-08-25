@@ -20,15 +20,15 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class au extends be.a implements cz.a {
     private long a;
 
     /* renamed from: a  reason: collision with other field name */
-    private XMPushService f873a;
+    private XMPushService f870a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public static class a implements cz.b {
         a() {
         }
@@ -46,7 +46,7 @@ public class au extends be.a implements cz.a {
             int port = url.getPort() == -1 ? 80 : url.getPort();
             try {
                 long currentTimeMillis = System.currentTimeMillis();
-                String a = com.xiaomi.push.az.a(com.xiaomi.push.t.m578a(), url);
+                String a = com.xiaomi.push.az.a(com.xiaomi.push.t.m583a(), url);
                 hg.a(url.getHost() + ":" + port, (int) (System.currentTimeMillis() - currentTimeMillis), null);
                 return a;
             } catch (IOException e) {
@@ -56,7 +56,7 @@ public class au extends be.a implements cz.a {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     static class b extends cz {
         protected b(Context context, cy cyVar, cz.b bVar, String str) {
             super(context, cyVar, bVar, str);
@@ -66,8 +66,8 @@ public class au extends be.a implements cz.a {
         @Override // com.xiaomi.push.cz
         public String a(ArrayList<String> arrayList, String str, String str2, boolean z) {
             try {
-                if (he.m329a().m334a()) {
-                    str2 = be.m554a();
+                if (he.m334a().m339a()) {
+                    str2 = be.m559a();
                 }
                 return super.a(arrayList, str, str2, z);
             } catch (IOException e) {
@@ -78,7 +78,7 @@ public class au extends be.a implements cz.a {
     }
 
     au(XMPushService xMPushService) {
-        this.f873a = xMPushService;
+        this.f870a = xMPushService;
     }
 
     public static void a(XMPushService xMPushService) {
@@ -104,32 +104,32 @@ public class au extends be.a implements cz.a {
         cv b2;
         boolean z;
         if (bVar.b() && bVar.a() && System.currentTimeMillis() - this.a > BdKVCache.MILLS_1Hour) {
-            com.xiaomi.channel.commonutils.logger.b.m49a("fetch bucket :" + bVar.a());
+            com.xiaomi.channel.commonutils.logger.b.m54a("fetch bucket :" + bVar.a());
             this.a = System.currentTimeMillis();
             cz a2 = cz.a();
-            a2.m213a();
-            a2.m216b();
-            fs m514a = this.f873a.m514a();
-            if (m514a == null || (b2 = a2.b(m514a.m288a().c())) == null) {
+            a2.m218a();
+            a2.m221b();
+            fs m519a = this.f870a.m519a();
+            if (m519a == null || (b2 = a2.b(m519a.m293a().c())) == null) {
                 return;
             }
-            ArrayList<String> m201a = b2.m201a();
-            Iterator<String> it = m201a.iterator();
+            ArrayList<String> m206a = b2.m206a();
+            Iterator<String> it = m206a.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = true;
                     break;
-                } else if (it.next().equals(m514a.m289a())) {
+                } else if (it.next().equals(m519a.m294a())) {
                     z = false;
                     break;
                 }
             }
-            if (!z || m201a.isEmpty()) {
+            if (!z || m206a.isEmpty()) {
                 return;
             }
-            com.xiaomi.channel.commonutils.logger.b.m49a("bucket changed, force reconnect");
-            this.f873a.a(0, (Exception) null);
-            this.f873a.a(false);
+            com.xiaomi.channel.commonutils.logger.b.m54a("bucket changed, force reconnect");
+            this.f870a.a(0, (Exception) null);
+            this.f870a.a(false);
         }
     }
 }

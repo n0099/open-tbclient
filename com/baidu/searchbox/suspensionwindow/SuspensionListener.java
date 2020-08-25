@@ -4,11 +4,11 @@ import android.graphics.Rect;
 import android.support.annotation.Nullable;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface SuspensionListener {
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public @interface SuspensionState {
         public static final int CREATE = 3;
         public static final int DESTROY = 4;
@@ -17,7 +17,7 @@ public interface SuspensionListener {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public @interface TouchState {
         public static final int CLICK = 2;
         public static final int DRAG_END_RELEASE = 4;

@@ -78,6 +78,7 @@ import com.baidu.searchbox.common.runtime.AppRuntimeInit;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.searchbox.v8engine.util.TimeUtils;
+import com.baidu.sofire.ac.FH;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
@@ -90,7 +91,7 @@ import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.data.as;
+import com.baidu.tbadk.core.data.at;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
@@ -99,19 +100,20 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ab;
-import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.ae;
 import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ak;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.bb;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.core.util.n;
 import com.baidu.tbadk.core.util.r;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.coreExtra.data.CombineDownload;
 import com.baidu.tbadk.coreExtra.data.VersionData;
-import com.baidu.tbadk.coreExtra.data.p;
-import com.baidu.tbadk.coreExtra.data.v;
+import com.baidu.tbadk.coreExtra.data.ab;
+import com.baidu.tbadk.coreExtra.data.s;
 import com.baidu.tbadk.coreExtra.data.y;
 import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
@@ -168,6 +170,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Serializable;
 import java.lang.ref.SoftReference;
+import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -181,8 +184,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
-public class TbadkCoreApplication extends BdBaseApplication implements a.InterfaceC0017a, c.a {
+/* loaded from: classes2.dex */
+public class TbadkCoreApplication extends BdBaseApplication implements a.InterfaceC0014a, c.a {
     public static final String ACCOUNT_CHANGE_ACTION = "com.baidu.tieba.action.accountChange";
     public static final String ACCOUNT_DATA = "intent_data_accountData";
     private static final long ACTION_TEST = 1;
@@ -215,7 +218,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
     private boolean isFriendFeedNew;
     protected boolean isRemoteProcess;
     private int keyboardHeight;
-    private v listItemRule;
+    private y listItemRule;
     private a mAccountChangeReceiver;
     private com.baidu.tbadk.coreExtra.data.c mActivitySwitch;
     private com.baidu.tbadk.coreExtra.data.d mAdAdSense;
@@ -223,7 +226,8 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
     private ClientGuard mClientGuard;
     private String mConfigVersion;
     private j mCoreActivityLifecycleCallbacks;
-    private Activity mCurrentActivity;
+    private String mCurAiAppid;
+    private WeakReference<Activity> mCurrentActivityRef;
     private f mCustomizedFilter;
     private String mInstallAppIds;
     private long mInterviewLivePollingInterval;
@@ -231,7 +235,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
     private boolean mIsNeedNewUserLead;
     private long mLastSyncFinishTime;
     private int mOldSkinType;
-    private y mProfileData;
+    private ab mProfileData;
     private ShareItem mShareItem;
     private com.baidu.tieba.m.c mSplash;
     private SparseArray<Integer> mWaitDownloadTheme;
@@ -255,7 +259,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
     private static Intent intent = null;
     public static boolean isChushouInit = false;
     private static boolean isNeedRefreshOnResume = false;
-    private p mConsumePathData = null;
+    private s mConsumePathData = null;
     private int hybridBridgeTimeout = 1000;
     private boolean mThemeWebviewOpened = false;
     private int mSkinType = 0;
@@ -343,7 +347,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
                 if (TbadkCoreApplication.this.isMainProcess(true)) {
                     TbadkCoreApplication.this.fixOppoTimeout();
                     MessageManager.getInstance().dispatchResponsedMessage(new BackgroundSwitchMessage(true));
-                    bb.setCurrentActivity(null);
+                    bc.setCurrentActivity(null);
                     TiebaStatic.save();
                 }
             }
@@ -351,8 +355,8 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
     };
     private boolean isReadMenuDialogTop = false;
     protected AtomicBoolean isInBackground = null;
-    a.InterfaceC0021a locationCallBack = new a.InterfaceC0021a() { // from class: com.baidu.tbadk.core.TbadkCoreApplication.5
-        @Override // com.baidu.adp.lib.c.a.InterfaceC0021a
+    a.InterfaceC0018a locationCallBack = new a.InterfaceC0018a() { // from class: com.baidu.tbadk.core.TbadkCoreApplication.5
+        @Override // com.baidu.adp.lib.c.a.InterfaceC0018a
         public void onLocationGeted(int i, String str, Address address) {
             if (i == 0 && address != null) {
                 try {
@@ -362,9 +366,9 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
                         TbadkCoreApplication.this.setLocationLat(valueOf);
                         TbadkCoreApplication.this.setLocationLng(valueOf2);
                         TbadkCoreApplication.this.setLocationPos(address.getAddressLine(0));
-                        com.baidu.tieba.recapp.d.a.dcN().Hp(valueOf);
-                        com.baidu.tieba.recapp.d.a.dcN().Ho(valueOf2);
-                        com.baidu.tieba.recapp.d.a.dcN().fC(System.currentTimeMillis());
+                        com.baidu.tieba.recapp.d.a.dnW().Kh(valueOf);
+                        com.baidu.tieba.recapp.d.a.dnW().Kg(valueOf2);
+                        com.baidu.tieba.recapp.d.a.dnW().fO(System.currentTimeMillis());
                     }
                 } catch (IllegalStateException e) {
                     BdLog.e(e.getMessage());
@@ -412,12 +416,12 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
     private int homeBarShowType = 1;
     private boolean needCheckUserNameDialog = true;
 
-    public p getConsumePathData() {
+    public s getConsumePathData() {
         return this.mConsumePathData;
     }
 
-    public void setConsumePathData(p pVar) {
-        this.mConsumePathData = pVar;
+    public void setConsumePathData(s sVar) {
+        this.mConsumePathData = sVar;
     }
 
     public SparseArray<FrsNetModel> getFrsModeArray() {
@@ -432,6 +436,14 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         this.mInterviewLivePollingInterval = j;
     }
 
+    public void setCurAiAppid(String str) {
+        this.mCurAiAppid = str;
+    }
+
+    public String getCurAiAppid() {
+        return this.mCurAiAppid;
+    }
+
     public void setVideoAutoPlay(int i) {
         if (this.mVideoAutoPlayConfig != i) {
             this.mVideoAutoPlayConfig = i;
@@ -441,10 +453,10 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
 
     public int getVideoAutoPlay() {
         if (TbConfig.FORCE_UPDATE || this.mVideoAutoPlayConfig == -1) {
-            boolean z = com.baidu.tbadk.core.sharedPref.b.aZP().getInt(SharedPrefConfig.AUTO_PLAY_VIDEO_HOMEPAGE, 0) == 1;
-            boolean z2 = com.baidu.tbadk.core.sharedPref.b.aZP().getInt(SharedPrefConfig.AUTO_PLAY_VIDEO_FRS, 0) == 1;
-            boolean z3 = com.baidu.tbadk.core.sharedPref.b.aZP().getInt("auto_play_video_homepage_have_4g", 0) == 1;
-            boolean z4 = com.baidu.tbadk.core.sharedPref.b.aZP().getInt("auto_play_video_frs_have_4g", 0) == 1;
+            boolean z = com.baidu.tbadk.core.sharedPref.b.bik().getInt(SharedPrefConfig.AUTO_PLAY_VIDEO_HOMEPAGE, 0) == 1;
+            boolean z2 = com.baidu.tbadk.core.sharedPref.b.bik().getInt(SharedPrefConfig.AUTO_PLAY_VIDEO_FRS, 0) == 1;
+            boolean z3 = com.baidu.tbadk.core.sharedPref.b.bik().getInt("auto_play_video_homepage_have_4g", 0) == 1;
+            boolean z4 = com.baidu.tbadk.core.sharedPref.b.bik().getInt("auto_play_video_frs_have_4g", 0) == 1;
             if (z3 || z4) {
                 return 2;
             }
@@ -455,8 +467,8 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
 
     public int getHomePageAutoPlay() {
         if (TbConfig.FORCE_UPDATE || this.mVideoAutoPlayConfig == -1) {
-            boolean z = com.baidu.tbadk.core.sharedPref.b.aZP().getInt(SharedPrefConfig.AUTO_PLAY_VIDEO_HOMEPAGE, 0) == 1;
-            if (com.baidu.tbadk.core.sharedPref.b.aZP().getInt("auto_play_video_homepage_have_4g", 0) == 1) {
+            boolean z = com.baidu.tbadk.core.sharedPref.b.bik().getInt(SharedPrefConfig.AUTO_PLAY_VIDEO_HOMEPAGE, 0) == 1;
+            if (com.baidu.tbadk.core.sharedPref.b.bik().getInt("auto_play_video_homepage_have_4g", 0) == 1) {
                 return 2;
             }
             return !z ? 1 : 0;
@@ -466,8 +478,8 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
 
     public int getFrsAutoPlay() {
         if (TbConfig.FORCE_UPDATE || this.mVideoAutoPlayConfig == -1) {
-            boolean z = com.baidu.tbadk.core.sharedPref.b.aZP().getInt(SharedPrefConfig.AUTO_PLAY_VIDEO_FRS, 0) == 1;
-            if (com.baidu.tbadk.core.sharedPref.b.aZP().getInt("auto_play_video_frs_have_4g", 0) == 1) {
+            boolean z = com.baidu.tbadk.core.sharedPref.b.bik().getInt(SharedPrefConfig.AUTO_PLAY_VIDEO_FRS, 0) == 1;
+            if (com.baidu.tbadk.core.sharedPref.b.bik().getInt("auto_play_video_frs_have_4g", 0) == 1) {
                 return 2;
             }
             return !z ? 1 : 0;
@@ -565,11 +577,20 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
     }
 
     public Activity getCurrentActivity() {
-        return this.mCurrentActivity;
+        if (this.mCurrentActivityRef != null) {
+            return this.mCurrentActivityRef.get();
+        }
+        return null;
     }
 
     public void setCurrentActivity(Activity activity) {
-        this.mCurrentActivity = activity;
+        if (this.mCurrentActivityRef != null) {
+            this.mCurrentActivityRef.clear();
+            this.mCurrentActivityRef = null;
+        }
+        if (activity != null) {
+            this.mCurrentActivityRef = new WeakReference<>(activity);
+        }
     }
 
     public boolean isPageStayOpen() {
@@ -619,7 +640,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
     public void AddResumeNum() {
         this.mResumeNum++;
         processResumeNum();
-        com.baidu.tbadk.core.b.a.aTK().aTM();
+        com.baidu.tbadk.core.b.a.bcb().bcd();
     }
 
     public void DelResumeNum() {
@@ -659,7 +680,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         if (this.mResumeNum == 0 && this.mStartTime > 0) {
             long nanoTime = ((System.nanoTime() - this.mStartTime) / TimeUtils.NANOS_PER_MS) / 1000;
             if (nanoTime >= getUseTimeInterval()) {
-                new ai("use", String.valueOf(nanoTime)).start();
+                new aj("use", String.valueOf(nanoTime)).start();
                 TiebaStatic.eventStat(getInst().getApp(), "use", null, 1, "st_param", String.valueOf(nanoTime));
             }
             this.mStartTime = 0L;
@@ -698,7 +719,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class c implements GuardConfigurations.DaemonListener {
         c() {
         }
@@ -758,19 +779,22 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
     }
 
     public final int getMainTabBottomBarHeight() {
-        return com.baidu.tbadk.core.util.g.aZY() ? l.getDimens(this, R.dimen.ds100) : l.getDimens(this, R.dimen.ds90);
+        return com.baidu.tbadk.core.util.g.bit() ? l.getDimens(this, R.dimen.ds100) : l.getDimens(this, R.dimen.ds90);
     }
 
     public final int getMainTabBottomBarHeightId() {
-        return com.baidu.tbadk.core.util.g.aZY() ? R.dimen.ds100 : R.dimen.ds90;
+        return com.baidu.tbadk.core.util.g.bit() ? R.dimen.ds100 : R.dimen.ds90;
     }
 
     @Override // android.app.Application
     public void onCreate() {
         this.processCreateTime = System.currentTimeMillis();
         sApp = this;
+        initAccountChangeReceiver();
         super.onCreate(this);
-        if (com.baidu.tbadk.core.sharedPref.b.aZP().getInt("static_opt_open", 0) > 0) {
+        com.baidu.tbadk.mutiprocess.g.btm().init(this);
+        ae.biW();
+        if (com.baidu.tbadk.core.sharedPref.b.bik().getInt("static_opt_open", 0) > 0) {
             com.baidu.adp.framework.a.b.init(this);
         }
         setWebViewDataDirectorySuffix();
@@ -778,7 +802,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         initCmdConvertManager();
         InitVersion();
         init(getContext());
-        TbFaceManager.bkj().a(sApp, new com.baidu.tbadk.editortools.emotiontool.b());
+        TbFaceManager.bsV().a(sApp, new com.baidu.tbadk.editortools.emotiontool.b());
         initTasks();
         registerGoActionTask();
         com.baidu.tbadk.core.a.a.init();
@@ -788,19 +812,19 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         initPluginSettings();
         isToLogo();
         initUBC();
-        a.C0126a.ai(getApplicationContext()).uy().uv();
+        a.C0133a.aj(getApplicationContext()).zV().zS();
         Message obtain = Message.obtain();
         obtain.what = 1;
         this.mAppInitHandler.sendMessageAtFrontOfQueue(obtain);
-        n.blF().cR(System.currentTimeMillis());
+        n.bus().dc(System.currentTimeMillis());
         BdLog.e("System.currentTimeMillis2: " + System.currentTimeMillis());
     }
 
     private void initUBC() {
-        com.baidu.b.a.a.sN().setAppName("tieba");
+        com.baidu.d.a.a.uv().setAppName("tieba");
         AppConfig.init(false, false, false, false);
         if (isMainProcess(false)) {
-            z.dAl();
+            z.dLY();
             ad.a(new ac<Object>() { // from class: com.baidu.tbadk.core.TbadkCoreApplication.19
                 @Override // com.baidu.tbadk.util.ac
                 public Object doInBackground() {
@@ -829,31 +853,31 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         }
     }
 
-    private void initSapiTask() {
-        if (isMainProcess(true)) {
+    public void initSapiTask() {
+        if (ae.biY() && isMainProcess(true)) {
             MessageManager.getInstance().runTask(CmdConfigCustom.CMD_SAPI_INIT, null, getContext());
         }
     }
 
     private void initICDN() {
-        com.baidu.adp.lib.network.http.c.Ks = UseHttpdnsSdkSwitch.isOn();
+        com.baidu.adp.lib.network.http.c.KW = UseHttpdnsSdkSwitch.isOn();
         if (UseHttpdnsSdkSwitch.isOn()) {
-            final BDHttpDns L = BDHttpDns.L(getApplicationContext());
-            L.aC(false);
+            final BDHttpDns P = BDHttpDns.P(getApplicationContext());
+            P.aD(false);
             try {
-                L.cQ("119799");
-                L.cR("87JNTZjGacgUzuMBYvid");
+                P.da("119799");
+                P.db("87JNTZjGacgUzuMBYvid");
             } catch (Exception e) {
                 BdLog.e(e);
             }
-            L.aB(true);
-            L.d(true, true);
-            L.a(BDHttpDns.CachePolicy.POLICY_TOLERANT);
+            P.aC(true);
+            P.d(true, true);
+            P.a(BDHttpDns.CachePolicy.POLICY_TOLERANT);
             if (isMainProcess(true)) {
                 this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tbadk.core.TbadkCoreApplication.20
                     @Override // java.lang.Runnable
                     public void run() {
-                        L.cP("prefetch");
+                        P.cZ("prefetch");
                     }
                 }, 1000L);
             }
@@ -864,28 +888,28 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         if (isMainProcess(true) && com.baidu.tbadk.core.util.a.e.getInstance() != null) {
             com.baidu.tbadk.core.util.a.e.getInstance().init();
         }
-        n.blF().dl(System.currentTimeMillis() - currentTimeMillis);
+        n.bus().dw(System.currentTimeMillis() - currentTimeMillis);
     }
 
     private void initJpusbSdk() {
         if (isMainProcess(true)) {
-            com.baidu.tieba.t.b.dnS().initSdk(this);
+            com.baidu.tieba.t.b.dzn().initSdk(this);
         }
     }
 
     private void initStatSdk() {
         if (isMainProcess(true)) {
-            com.baidu.tieba.t.c.dnV().autoTrace(this);
-            com.baidu.tieba.t.c.dnV().setAppChannel(this, getFrom(), true);
+            com.baidu.tieba.t.c.dzq().autoTrace(this);
+            com.baidu.tieba.t.c.dzq().setAppChannel(this, getFrom(), true);
         }
     }
 
     private void initQuickWebViewManager() {
         if (isMainProcess(true)) {
-            com.baidu.tieba.quickWebView.c.dbA().init();
+            com.baidu.tieba.quickWebView.c.dmE().init();
             long currentTimeMillis = System.currentTimeMillis();
-            com.baidu.tbadk.coreExtra.messageCenter.d.bfO().initSetting();
-            n.blF().dm(System.currentTimeMillis() - currentTimeMillis);
+            com.baidu.tbadk.coreExtra.messageCenter.d.boy().initSetting();
+            n.bus().dx(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 
@@ -893,7 +917,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         if (z) {
             this.mReadThreadHistory = new com.baidu.tieba.tbadkCore.util.d(300);
             this.mPhotoLiveReadHistory = new com.baidu.tieba.tbadkCore.util.c(300);
-            com.baidu.adp.base.a.jC().a(this);
+            com.baidu.adp.base.a.lb().a(this);
         }
     }
 
@@ -901,7 +925,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         BdBaseService.setServiceOnCreateCallBack(new com.baidu.adp.framework.client.socket.link.e() { // from class: com.baidu.tbadk.core.TbadkCoreApplication.21
             @Override // com.baidu.adp.framework.client.socket.link.e
             public void onServiceCreate() {
-                com.baidu.tbadk.util.j.bmC().a(new j.a() { // from class: com.baidu.tbadk.core.TbadkCoreApplication.21.1
+                com.baidu.tbadk.util.j.bvp().a(new j.a() { // from class: com.baidu.tbadk.core.TbadkCoreApplication.21.1
                     @Override // com.baidu.tbadk.util.j.a
                     public void onResult(boolean z) {
                         if (z) {
@@ -926,11 +950,10 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
                 this.mAppInitHandler.sendEmptyMessage(2);
                 return;
             case 2:
-                com.baidu.adp.lib.Disk.d.kh().initial(TbConfig.getTempDirName());
-                initAccountChangeReceiver();
-                com.baidu.tieba.o.a.dbG().init();
+                com.baidu.adp.lib.Disk.d.lG().initial(TbConfig.getTempDirName());
+                com.baidu.tieba.o.a.dmM().init();
                 boolean isMainProcess = isMainProcess(false);
-                com.baidu.tbadk.distribute.a.biw().iE(isMainProcess);
+                com.baidu.tbadk.distribute.a.bri().jc(isMainProcess);
                 intReadThreadHistory(isMainProcess);
                 this.mAppInitHandler.sendEmptyMessage(3);
                 return;
@@ -940,12 +963,9 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
                 this.mAppInitHandler.sendEmptyMessage(4);
                 return;
             case 4:
-                com.baidu.tbadk.mutiprocess.g.bkA().init(this);
-                com.baidu.tbadk.util.e.bmw().e(this);
+                com.baidu.tbadk.util.e.bvj().f(this);
+                initCyberPlayer();
                 com.baidu.tieba.t.a.getInstance().initSdk(this);
-                if (!CyberPlayerManager.isCoreLoaded(1)) {
-                    CyberPlayerManager.install(getInst().getContext(), getInst().getCuidGalaxy2(), null, 3, CyberRemotePlayerService.class, null, null);
-                }
                 this.mAppInitHandler.sendEmptyMessage(5);
                 return;
             case 5:
@@ -959,7 +979,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
                     com.baidu.tbadk.core.d.a.a("MultiDex", -1L, -1, "installMultidex", -1, this.mMultidexError, new Object[0]);
                 }
                 if ((this.isCdnTachometerProcess != null && this.isCdnTachometerProcess.booleanValue()) || this.isPluginInstallProcess) {
-                    com.baidu.adp.plugin.b.b.D("TbadkApplication_onCreate", "cdn_process");
+                    com.baidu.adp.plugin.b.b.F("TbadkApplication_onCreate", "cdn_process");
                     this.mAppInitHandler.sendEmptyMessage(7);
                     return;
                 }
@@ -1008,7 +1028,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
                 }
                 Class<?> intentClass = TbadkCoreApplication.this.getIntentClass(data.getClass());
                 if (TbadkCoreApplication.this.getIntentClass(AlbumActivityConfig.class) == null) {
-                    TiebaStatic.log(new ap("inter_config_disappear").ah("obj_param1", aj.baF().getConfigSize()));
+                    TiebaStatic.log(new aq("inter_config_disappear").ai("obj_param1", ak.bjd().getConfigSize()));
                 } else if ((data instanceof LoginActivityConfig) && !LoginActivityConfig.canStartActivity()) {
                     return null;
                 }
@@ -1055,7 +1075,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
             } catch (Throwable th) {
             }
         }
-        PluginPackageManager.op().a(TbConfig.getVersion() + "." + TbConfig.BUILD_NUMBER, isMainProcess(false), this.isThirdProcess, this.isRemoteProcess);
+        PluginPackageManager.pO().a(TbConfig.getVersion() + "." + TbConfig.BUILD_NUMBER, isMainProcess(false), this.isThirdProcess, this.isRemoteProcess);
         PluginCenter.getInstance().launch("com.baidu.tieba.pluginFlutter", false);
     }
 
@@ -1066,23 +1086,22 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         }
         if (isMainProcess(false)) {
             if (!UseNewMethodCheckLogoSwitch.isOn()) {
-                this.mIsToLogo = com.baidu.tbadk.util.r.bmL();
+                this.mIsToLogo = com.baidu.tbadk.util.r.bvy();
             } else {
-                boolean eg = com.baidu.tbadk.util.r.eg(getInst());
-                boolean bmL = com.baidu.tbadk.util.r.bmL();
-                this.mIsToLogo = eg || bmL;
-                if (!eg && bmL) {
+                boolean bvy = com.baidu.tbadk.util.r.bvy();
+                this.mIsToLogo = bvy;
+                if (bvy) {
                     TiebaStatic.log("isTologo_not_match");
                 }
             }
         }
         boolean z = isMainProcess(false) && PluginClassChangeSwitch.isOn();
-        if (!this.mIsToLogo && z && !com.baidu.tbadk.util.r.jp(false)) {
+        if (!this.mIsToLogo && z && !com.baidu.tbadk.util.r.jN(false)) {
             this.mPluginIsInited = true;
-            PluginPackageManager.op().a((com.baidu.adp.plugin.packageManager.pluginFileDownload.b) com.baidu.tbadk.o.c.blO(), (com.baidu.adp.plugin.packageManager.pluginServerConfig.b) new com.baidu.tbadk.o.d(), true, this.mPluginNotify);
+            PluginPackageManager.pO().a((com.baidu.adp.plugin.packageManager.pluginFileDownload.b) com.baidu.tbadk.o.c.buB(), (com.baidu.adp.plugin.packageManager.pluginServerConfig.b) new com.baidu.tbadk.o.d(), true, this.mPluginNotify);
             synchronized (this.mPluginNotify) {
                 try {
-                    long j = com.baidu.tbadk.core.sharedPref.b.aZP().getLong("plugin_wait_time", 850L);
+                    long j = com.baidu.tbadk.core.sharedPref.b.bik().getLong("plugin_wait_time", 850L);
                     if (j <= 0) {
                         j = 850;
                     }
@@ -1090,20 +1109,20 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
                     this.mPluginNotify.wait(j);
                     long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
                     if (currentTimeMillis2 >= j) {
-                        TiebaStatic.log(new ap("plugin_load_time_large").t("obj_param1", currentTimeMillis2));
+                        TiebaStatic.log(new aq("plugin_load_time_large").u("obj_param1", currentTimeMillis2));
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
-            com.baidu.tbadk.util.r.jp(true);
+            com.baidu.tbadk.util.r.jN(true);
         }
     }
 
     private void initIM() {
         long currentTimeMillis = System.currentTimeMillis();
         com.baidu.tieba.im.a.init();
-        n.blF().cX(System.currentTimeMillis() - currentTimeMillis);
+        n.bus().di(System.currentTimeMillis() - currentTimeMillis);
     }
 
     private void initCmdConvertManager() {
@@ -1112,7 +1131,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
             arrayList.add(com.baidu.tbadk.core.frameworkData.b.class.getName());
             arrayList.add(com.baidu.tbadk.core.frameworkData.a.class.getName());
             arrayList.add(CmdConfigHttp.class.getName());
-            com.baidu.adp.framework.a.jK().init(arrayList);
+            com.baidu.adp.framework.a.lj().init(arrayList);
         }
     }
 
@@ -1153,7 +1172,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
     protected void initTasks() {
         long currentTimeMillis = System.currentTimeMillis();
         com.baidu.tbadk.core.frameworkData.d.initial();
-        n.blF().cS(System.currentTimeMillis() - currentTimeMillis);
+        n.bus().dd(System.currentTimeMillis() - currentTimeMillis);
     }
 
     private void initLocationSetting() {
@@ -1161,7 +1180,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         if (isMainProcess(true) && mAccount == null) {
             tryLbs();
         }
-        n.blF().dk(System.currentTimeMillis() - currentTimeMillis);
+        n.bus().dv(System.currentTimeMillis() - currentTimeMillis);
     }
 
     private void initChangeSkinReceiver() {
@@ -1174,18 +1193,18 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
     }
 
     protected void initAccount() {
-        AccountData aTz;
+        AccountData bbQ;
         long currentTimeMillis = System.currentTimeMillis();
         if (isMainProcess(true)) {
             try {
-                if (getInst().getDatabasePath("baidu_tieba.db").exists() && (aTz = com.baidu.tbadk.core.a.b.aTz()) != null) {
+                if (getInst().getDatabasePath("baidu_tieba.db").exists() && (bbQ = com.baidu.tbadk.core.a.b.bbQ()) != null) {
                     com.baidu.tbadk.core.d.a.a("account", -1L, 0, "application_init_account", 0, "", new Object[0]);
-                    setCurrentAccount(aTz, getInst());
+                    setCurrentAccount(bbQ, getInst());
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
-            n.blF().cW(System.currentTimeMillis() - currentTimeMillis);
+            n.bus().dh(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 
@@ -1194,19 +1213,19 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
     }
 
     public void RegisterOrUpdateIntent(Class<?> cls, Class<?> cls2) {
-        aj.baF().RegisterOrUpdateIntent(cls, cls2);
+        ak.bjd().RegisterOrUpdateIntent(cls, cls2);
     }
 
     public void RegisterIntent(Class<?> cls, Class<?> cls2) {
-        aj.baF().RegisterIntent(cls, cls2);
+        ak.bjd().RegisterIntent(cls, cls2);
     }
 
     public boolean appResponseToIntentClass(Class<?> cls) {
-        return aj.baF().appResponseToIntentClass(cls);
+        return ak.bjd().appResponseToIntentClass(cls);
     }
 
     public Class<?> getIntentClass(Class<?> cls) {
-        return aj.baF().getIntentClass(cls);
+        return ak.bjd().getIntentClass(cls);
     }
 
     public static String getFrom() {
@@ -1220,7 +1239,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tbadk.util.ac
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(com.baidu.tbadk.core.util.b.dM(context));
+                    return Boolean.valueOf(com.baidu.tbadk.core.util.b.dU(context));
                 }
             }, new com.baidu.tbadk.util.l<Boolean>() { // from class: com.baidu.tbadk.core.TbadkCoreApplication.3
                 /* JADX DEBUG: Method merged with bridge method */
@@ -1244,28 +1263,28 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         this.mFontSize = TbadkSettings.getInst().loadInt(SharedPrefConfig.PREFS_FONT_SIZE, 2);
         this.mVideoAutoPlayConfig = TbadkSettings.getInst().loadInt(SharedPrefConfig.PREFS_VIDEO_AUTO_PLAY, -1);
         try {
-            com.baidu.adp.lib.c.a.kG().initial();
+            com.baidu.adp.lib.c.a.mf().initial();
         } catch (Throwable th) {
             th.printStackTrace();
         }
         try {
-            u.bmM().registerNetworkChangedListener();
+            u.bvz().registerNetworkChangedListener();
             if (isMainProcess(false)) {
-                com.baidu.tbadk.c.a.aSh().registerNetworkChangedListener();
+                com.baidu.tbadk.c.a.bay().registerNetworkChangedListener();
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
         if (isMainProcess(true)) {
-            com.baidu.tbadk.imageManager.c.bkk().initial(TbConfig.getMaxPhotoMemoryCache(), TbConfig.getBigImageMaxUsedMemory());
+            com.baidu.tbadk.imageManager.c.bsW().initial(TbConfig.getMaxPhotoMemoryCache(), TbConfig.getBigImageMaxUsedMemory());
         } else {
-            com.baidu.tbadk.imageManager.c.bkk().initial(TbConfig.getMaxPhotoMemoryCacheForRemoteProcess(), TbConfig.getBigImageMaxUsedMemoryForRemoteProcess());
+            com.baidu.tbadk.imageManager.c.bsW().initial(TbConfig.getMaxPhotoMemoryCacheForRemoteProcess(), TbConfig.getBigImageMaxUsedMemoryForRemoteProcess());
         }
         loadLcsSwitchStratgy();
         initSettings();
         this.mFaces = new HashMap<>();
         initSdcardDatabaseCallback();
-        ReloginManager.aZI().registerTask();
+        ReloginManager.bid().registerTask();
         MessageManager messageManager = MessageManager.getInstance();
         messageManager.addMessageRule(new com.baidu.tbadk.q.f(0));
         messageManager.addMessageRule(new com.baidu.tbadk.q.c(0));
@@ -1276,17 +1295,17 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         messageManager.addResponsedMessageRule(new com.baidu.tbadk.q.a());
         messageManager.addResponsedMessageRule(new com.baidu.tbadk.q.b());
         initAppSettings();
-        bf.initSkinDataOnStartup(getContext());
+        bg.initSkinDataOnStartup(getContext());
         TbConfig.initBigImageWidth(getContext());
         TbConfig.initFriendPhotoConfig(getContext());
         if (IS_SUPPORT_EXCEPTION_HANDLER) {
-            com.baidu.tieba.t.d.dnW();
+            com.baidu.tieba.t.d.dzr();
         }
-        com.baidu.tieba.video.g.dpA();
+        com.baidu.tieba.video.g.dAV();
         boolean isMainProcess = isMainProcess(false);
         long currentTimeMillis = System.currentTimeMillis();
         TiebaStatic.init(getContext(), isMainProcess);
-        n.blF().dj(System.currentTimeMillis() - currentTimeMillis);
+        n.bus().du(System.currentTimeMillis() - currentTimeMillis);
         if (isMainProcess) {
             if (getIsFirstUse()) {
                 SwitchManager.getInstance().clear();
@@ -1300,7 +1319,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         com.baidu.tbadk.task.a aVar = new com.baidu.tbadk.task.a(CmdConfigCustom.DEAL_INTENT, new CustomMessageTask.CustomRunnable<Intent>() { // from class: com.baidu.tbadk.core.TbadkCoreApplication.4
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Intent> customMessage) {
-                UtilHelper.commenDealIntent(com.baidu.adp.base.a.jC().currentActivity() == null ? TbadkCoreApplication.this.getApp() : com.baidu.adp.base.a.jC().currentActivity(), customMessage.getData());
+                UtilHelper.commenDealIntent(com.baidu.adp.base.a.lb().currentActivity() == null ? TbadkCoreApplication.this.getApp() : com.baidu.adp.base.a.lb().currentActivity(), customMessage.getData());
                 return null;
             }
         });
@@ -1318,6 +1337,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         });
         this.mCoreActivityLifecycleCallbacks = new j();
         registerActivityLifecycleCallbacks(this.mCoreActivityLifecycleCallbacks);
+        x.e(this);
         if (isMainProcess) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_KEEPLIVE_START_ACTIVITY));
         }
@@ -1325,7 +1345,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
 
     private int getCrashLimitCount() {
         try {
-            int i = com.baidu.tbadk.core.sharedPref.b.aZP().getInt("crash_limit_count", 100);
+            int i = com.baidu.tbadk.core.sharedPref.b.bik().getInt("crash_limit_count", 100);
             if (i < 10) {
                 return 10;
             }
@@ -1336,17 +1356,19 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
     }
 
     public void tryLbs() {
-        this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tbadk.core.TbadkCoreApplication.6
-            @Override // java.lang.Runnable
-            public void run() {
-                com.baidu.adp.lib.c.a.kG().a(true, TbadkCoreApplication.this.locationCallBack);
-            }
-        }, 5000L);
+        if (ae.biY()) {
+            this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tbadk.core.TbadkCoreApplication.6
+                @Override // java.lang.Runnable
+                public void run() {
+                    com.baidu.adp.lib.c.a.mf().a(true, TbadkCoreApplication.this.locationCallBack);
+                }
+            }, 5000L);
+        }
     }
 
     private static void initSdcardDatabaseCallback() {
-        TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().a(new a.InterfaceC0018a() { // from class: com.baidu.tbadk.core.TbadkCoreApplication.7
-            @Override // com.baidu.adp.base.a.a.InterfaceC0018a
+        TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().a(new a.InterfaceC0015a() { // from class: com.baidu.tbadk.core.TbadkCoreApplication.7
+            @Override // com.baidu.adp.base.a.a.InterfaceC0015a
             public void onDatabaseCreated(SQLiteDatabase sQLiteDatabase) {
                 TbadkCoreApplication.resetTDatabaseCreateTime();
             }
@@ -1358,13 +1380,13 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
     }
 
     private void initAppSettings() {
-        k.aTv().initSetting();
+        k.bbM().initSetting();
     }
 
     private void dealYYNotification() {
-        com.baidu.tbadk.task.a aVar = new com.baidu.tbadk.task.a(CmdConfigCustom.DEAL_YY_NOTIFICATION, new CustomMessageTask.CustomRunnable<as>() { // from class: com.baidu.tbadk.core.TbadkCoreApplication.8
+        com.baidu.tbadk.task.a aVar = new com.baidu.tbadk.task.a(CmdConfigCustom.DEAL_YY_NOTIFICATION, new CustomMessageTask.CustomRunnable<at>() { // from class: com.baidu.tbadk.core.TbadkCoreApplication.8
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<?> run(CustomMessage<as> customMessage) {
+            public CustomResponsedMessage<?> run(CustomMessage<at> customMessage) {
                 UtilHelper.showYYNotification(TbadkCoreApplication.this.getContext(), customMessage.getData(), 13);
                 return null;
             }
@@ -1408,7 +1430,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         TelephonyManager telephonyManager;
         try {
             Context context = getInst().getContext();
-            if (com.baidu.tbadk.core.util.ad.checkReadPhoneState(context) && (telephonyManager = (TelephonyManager) context.getSystemService("phone")) != null) {
+            if (ae.biY() && ae.checkReadPhoneState(context) && (telephonyManager = (TelephonyManager) context.getSystemService("phone")) != null) {
                 return telephonyManager.getSubscriberId();
             }
         } catch (Exception e) {
@@ -1421,20 +1443,20 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         return this.cuid_gid;
     }
 
-    public static void showYYNotification(Context context, as asVar, int i) {
+    public static void showYYNotification(Context context, at atVar, int i) {
         Intent yYNotificationIntent;
         int hours = new Date(System.currentTimeMillis()).getHours();
         if ((hours < 0 || hours > 7) && hours < 23) {
-            String content = asVar.getContent();
-            String link = asVar.getLink();
-            if (link != null && link.length() > 0 && (yYNotificationIntent = getYYNotificationIntent(context, asVar, link)) != null) {
+            String content = atVar.getContent();
+            String link = atVar.getLink();
+            if (link != null && link.length() > 0 && (yYNotificationIntent = getYYNotificationIntent(context, atVar, link)) != null) {
                 NotificationHelper.showNotification(context, i, null, content, content, PendingIntent.getService(context, 0, yYNotificationIntent, 134217728), false);
             }
         }
     }
 
-    public static final Intent getYYNotificationIntent(Context context, as asVar, String str) {
-        if (context == null || asVar == null || TextUtils.isEmpty(str)) {
+    public static final Intent getYYNotificationIntent(Context context, at atVar, String str) {
+        if (context == null || atVar == null || TextUtils.isEmpty(str)) {
             return null;
         }
         Intent intent2 = new Intent(context, DealIntentService.class);
@@ -1495,10 +1517,10 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         }
         intent2.putExtra("is_notify", true);
         intent2.putExtra("link", str);
-        intent2.putExtra("message_id", asVar.getMessageID());
-        intent2.putExtra("task_id", asVar.getTaskId());
-        if (!TextUtils.isEmpty(asVar.getStat())) {
-            intent2.putExtra("stat", asVar.getStat());
+        intent2.putExtra("message_id", atVar.getMessageID());
+        intent2.putExtra("task_id", atVar.getTaskId());
+        if (!TextUtils.isEmpty(atVar.getStat())) {
+            intent2.putExtra("stat", atVar.getStat());
         }
         return intent2;
     }
@@ -1537,28 +1559,28 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void saveString(String str, String str2) {
-        com.baidu.tbadk.core.sharedPref.b.aZP().putString(str, str2);
+        com.baidu.tbadk.core.sharedPref.b.bik().putString(str, str2);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public String loadString(String str, String str2) {
-        return com.baidu.tbadk.core.sharedPref.b.aZP().getString(str, str2);
+        return com.baidu.tbadk.core.sharedPref.b.bik().getString(str, str2);
     }
 
     protected int loadInt(String str, int i) {
-        return com.baidu.tbadk.core.sharedPref.b.aZP().getInt(str, i);
+        return com.baidu.tbadk.core.sharedPref.b.bik().getInt(str, i);
     }
 
     protected void saveInt(String str, int i) {
-        com.baidu.tbadk.core.sharedPref.b.aZP().putInt(str, i);
+        com.baidu.tbadk.core.sharedPref.b.bik().putInt(str, i);
     }
 
     protected long loadLong(String str, long j) {
-        return com.baidu.tbadk.core.sharedPref.b.aZP().getLong(str, j);
+        return com.baidu.tbadk.core.sharedPref.b.bik().getLong(str, j);
     }
 
     protected void saveLong(String str, long j) {
-        com.baidu.tbadk.core.sharedPref.b.aZP().putLong(str, j);
+        com.baidu.tbadk.core.sharedPref.b.bik().putLong(str, j);
     }
 
     public static String getClientId() {
@@ -1566,12 +1588,12 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
     }
 
     public void removeClientId(Context context) {
-        com.baidu.tbadk.core.sharedPref.b.aZP().remove("client_id");
+        com.baidu.tbadk.core.sharedPref.b.bik().remove("client_id");
     }
 
     public static void saveClientId(Context context, String str) {
         if (str != null && str.length() > 0) {
-            com.baidu.tbadk.core.sharedPref.b.aZP().putString("client_id", TbConfig.getVersion() + "\t" + str);
+            com.baidu.tbadk.core.sharedPref.b.bik().putString("client_id", TbConfig.getVersion() + "\t" + str);
         }
     }
 
@@ -1582,7 +1604,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
     protected void initImei() {
         TelephonyManager telephonyManager;
         try {
-            if (com.baidu.tbadk.core.util.ad.checkReadPhoneState(getContext()) && (telephonyManager = (TelephonyManager) getContext().getSystemService("phone")) != null) {
+            if (ae.biY() && ae.checkReadPhoneState(getContext()) && (telephonyManager = (TelephonyManager) getContext().getSystemService("phone")) != null) {
                 this.mImei = telephonyManager.getDeviceId();
             }
         } catch (Throwable th) {
@@ -1598,6 +1620,14 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
             initImei();
         }
         return this.mImei;
+    }
+
+    public String getZid() {
+        return (ae.biY() && ae.checkReadPhoneState(getContext())) ? FH.gz(sApp) : "000";
+    }
+
+    public String getZid(Context context, String str, int i, String str2) {
+        return (ae.biY() && ae.checkReadPhoneState(getContext())) ? FH.gzfi(context, str, i, str2) : "000";
     }
 
     private String getFromByShare() {
@@ -1745,7 +1775,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         String loadString = loadString("cuid", null);
         if (loadString != null && loadString.startsWith("baidutiebaapp")) {
             saveString("new_cuid", loadString);
-            com.baidu.tbadk.core.sharedPref.b.aZP().remove("cuid");
+            com.baidu.tbadk.core.sharedPref.b.bik().remove("cuid");
             this.mCuid = loadString;
             return;
         }
@@ -1753,7 +1783,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
             this.mCuid = loadString("new_cuid", null);
         }
         if (this.mCuid == null || this.mCuid.length() <= 0) {
-            if (com.baidu.tbadk.core.util.ad.checkReadPhoneState(getApplicationContext())) {
+            if (ae.checkReadPhoneState(getApplicationContext())) {
                 this.mCuid = DeviceId.getCUID(getContext());
             }
             if (this.mCuid == null || this.mCuid.length() <= 0) {
@@ -1784,7 +1814,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
     private void initCuidGalaxy3() {
         this.cuid_galaxy3 = loadString("new_cuid_galaxy3", null);
         if (this.cuid_galaxy3 == null || this.cuid_galaxy3.length() <= 0) {
-            this.cuid_galaxy3 = com.baidu.helios.b.af(getContext()).uh();
+            this.cuid_galaxy3 = com.baidu.helios.b.ag(getContext()).zD();
             saveString("new_cuid_galaxy3", this.cuid_galaxy3);
         }
     }
@@ -1801,7 +1831,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         getInst().setIsLocationON(this.mIsLocationOn);
         this.mIsExitAppCloseWebSocket = TbadkSettings.getInst().loadBoolean(SharedPrefConfig.IS_EXIT_APP_NOT_START_WEBSOCKET, false);
         this.mFaceShopVersion = TbadkSettings.getInst().loadInt(SharedPrefConfig.FACESHAOP_VERSION, -1);
-        this.useTimeInterval = com.baidu.tbadk.core.sharedPref.b.aZP().getLong(SharedPrefConfig.USE_TIME_INTERVAL, TbConfig.DEFALT_USE_TIME_INTERVAL);
+        this.useTimeInterval = com.baidu.tbadk.core.sharedPref.b.bik().getLong(SharedPrefConfig.USE_TIME_INTERVAL, TbConfig.DEFALT_USE_TIME_INTERVAL);
     }
 
     public int getWebviewCrashCount() {
@@ -1940,7 +1970,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
             String str3 = packageName + ":remote";
             String str4 = packageName + ":third";
             String str5 = packageName + ":pluginInstaller";
-            String[] strArr = {str3, str, packageName + ":bdservice_v1", packageName + ":live", packageName + ":cdnTachometer", str2, packageName + ":xiaoying", str5};
+            String[] strArr = {str3, str, packageName + ":bdservice_v1", packageName + ":live", packageName + ":cdnTachometer", str2, packageName + ":xiaoying", str5, packageName + ":media"};
             String str6 = packageName + ":guardService";
             String str7 = packageName + ":warkup";
             String str8 = packageName + ":swan";
@@ -2189,7 +2219,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         intent3.putExtra(ACCOUNT_DATA, accountData);
         intent3.setPackage(getInst().getPackageName());
         getInst().sendBroadcast(intent3);
-        com.baidu.tbadk.mutiprocess.f.iV(!TextUtils.isEmpty(str));
+        com.baidu.tbadk.mutiprocess.f.jt(!TextUtils.isEmpty(str));
         if (accountData != null) {
             com.baidu.tbadk.mutiprocess.f.setBduss(accountData.getBDUSS());
             com.baidu.tbadk.mutiprocess.f.setTbs(accountData.getTbs());
@@ -2198,7 +2228,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
     }
 
     private void initAccountChangeReceiver() {
-        if (isRemoteProcess() && this.mAccountChangeReceiver == null) {
+        if (!isMainProcess(false) && isRemoteProcess() && this.mAccountChangeReceiver == null) {
             this.mAccountChangeReceiver = new a();
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("com.baidu.tieba.action.accountChange");
@@ -2207,7 +2237,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class a extends BroadcastReceiver {
         private a() {
         }
@@ -2221,7 +2251,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
                 } else {
                     AccountData unused2 = TbadkCoreApplication.mAccount = null;
                 }
-                com.baidu.tbadk.mutiprocess.f.iV(TbadkCoreApplication.isLogin());
+                com.baidu.tbadk.mutiprocess.f.jt(TbadkCoreApplication.isLogin());
                 if (TbadkCoreApplication.mAccount != null) {
                     com.baidu.tbadk.mutiprocess.f.setBduss(TbadkCoreApplication.mAccount.getBDUSS());
                     com.baidu.tbadk.mutiprocess.f.setTbs(TbadkCoreApplication.mAccount.getTbs());
@@ -2256,7 +2286,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
 
     protected void onAccountChanged(AccountData accountData, Application application) {
         BdLog.e("账号切换");
-        String string = com.baidu.tbadk.core.sharedPref.b.aZP().getString(SharedPrefConfig.CURRENT_USED_THEME + getCurrentAccount(), null);
+        String string = com.baidu.tbadk.core.sharedPref.b.bik().getString(SharedPrefConfig.CURRENT_USED_THEME + getCurrentAccount(), null);
         if (StringUtils.isNull(string)) {
             this.mUsedThemeId = 0;
             this.mUsedThemePermissionType = 0;
@@ -2273,7 +2303,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         this.mSkinType = TbadkSettings.getInst().loadInt(SharedPrefConfig.PREFS_SKIN_TYPE, 0);
         this.isUserChanged = true;
         clearAccountResource();
-        com.baidu.adp.lib.f.e.lt().postDelayed(new Runnable() { // from class: com.baidu.tbadk.core.TbadkCoreApplication.10
+        com.baidu.adp.lib.f.e.mS().postDelayed(new Runnable() { // from class: com.baidu.tbadk.core.TbadkCoreApplication.10
             @Override // java.lang.Runnable
             public void run() {
                 TbadkCoreApplication.this.setThemeSkin();
@@ -2297,7 +2327,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         } else if (this.mSkinType == 1) {
             setSkinType(this.mSkinType);
         } else {
-            ao.z(false, true);
+            ap.C(false, true);
         }
     }
 
@@ -2326,7 +2356,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
                 this.isUserChanged = false;
                 String str = i + ".apk";
                 try {
-                    ao.xN(str);
+                    ap.Ab(str);
                     PackageInfo apkFileMetaData = com.baidu.tbadk.core.util.n.getApkFileMetaData(str);
                     if (apkFileMetaData == null || apkFileMetaData.applicationInfo == null || apkFileMetaData.applicationInfo.metaData == null) {
                         setSkinType(0);
@@ -2336,7 +2366,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
                         this.isThemeIconCover = apkFileMetaData.applicationInfo.metaData.getInt("icon_cover_maintab") != 1;
                         this.mUsedThemeId = i;
                         BitmapHelper.clearThemeCashBitmap();
-                        com.baidu.tbadk.core.sharedPref.b.aZP().putString(SharedPrefConfig.CURRENT_USED_THEME + getCurrentAccount(), i + "/" + this.mUsedThemePermissionType);
+                        com.baidu.tbadk.core.sharedPref.b.bik().putString(SharedPrefConfig.CURRENT_USED_THEME + getCurrentAccount(), i + "/" + this.mUsedThemePermissionType);
                         setSkinType(2);
                     }
                 } catch (Throwable th) {
@@ -2373,11 +2403,11 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
     }
 
     protected void saveBoolean(String str, boolean z) {
-        com.baidu.tbadk.core.sharedPref.b.aZP().putBoolean(str, z);
+        com.baidu.tbadk.core.sharedPref.b.bik().putBoolean(str, z);
     }
 
     protected boolean loadBoolean(String str, boolean z) {
-        return com.baidu.tbadk.core.sharedPref.b.aZP().getBoolean(str, z);
+        return com.baidu.tbadk.core.sharedPref.b.bik().getBoolean(str, z);
     }
 
     public void setDefaultBubble(String str) {
@@ -2556,24 +2586,24 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         });
         int[] imTimeOut = getImTimeOut();
         if (imTimeOut != null && imTimeOut.length == 3) {
-            com.baidu.adp.framework.d.c.kb().setTimeOutData(imTimeOut[0], imTimeOut[1], imTimeOut[2]);
+            com.baidu.adp.framework.d.c.lA().setTimeOutData(imTimeOut[0], imTimeOut[1], imTimeOut[2]);
         }
         int[] socketReconnStratgy = getSocketReconnStratgy();
         if (socketReconnStratgy != null && socketReconnStratgy.length > 0) {
             com.baidu.adp.framework.client.socket.h.setReConnectInterval(socketReconnStratgy);
         }
-        com.baidu.tbadk.coreExtra.d.e.bhP().initial();
-        MessageManager.getInstance().getSocketClient().a(com.baidu.tbadk.coreExtra.d.e.bhP());
+        com.baidu.tbadk.coreExtra.d.e.bqB().initial();
+        MessageManager.getInstance().getSocketClient().a(com.baidu.tbadk.coreExtra.d.e.bqB());
         MessageManager.getInstance().addResponsedMessageRule(new com.baidu.tbadk.coreExtra.d.i());
         try {
-            com.baidu.adp.framework.client.socket.coder.d.jU().initial(TiebaIMConfig.getRSAPublicKey());
+            com.baidu.adp.framework.client.socket.coder.d.lt().initial(TiebaIMConfig.getRSAPublicKey());
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        com.baidu.tbadk.coreExtra.d.h.bhY().init();
-        com.baidu.tbadk.coreExtra.d.g.bhR().init();
+        com.baidu.tbadk.coreExtra.d.h.bqK().init();
+        com.baidu.tbadk.coreExtra.d.g.bqD().init();
         initSocket();
-        n.blF().dg(System.currentTimeMillis() - currentTimeMillis);
+        n.bus().dr(System.currentTimeMillis() - currentTimeMillis);
     }
 
     public com.baidu.adp.widget.ImageView.a getFace(String str) {
@@ -2581,12 +2611,12 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         if (softReference != null && softReference.get() != null) {
             return softReference.get();
         }
-        com.baidu.adp.widget.ImageView.a zR = TbFaceManager.bkj().zR(str);
-        if (zR != null) {
-            this.mFaces.put(str, new SoftReference<>(zR));
-            return zR;
+        com.baidu.adp.widget.ImageView.a Ch = TbFaceManager.bsV().Ch(str);
+        if (Ch != null) {
+            this.mFaces.put(str, new SoftReference<>(Ch));
+            return Ch;
         }
-        return zR;
+        return Ch;
     }
 
     private static void initSocket() {
@@ -2602,11 +2632,11 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         if (UseHttpdnsSdkSwitch.isOn()) {
             com.baidu.adp.framework.client.socket.h.setUrl(TiebaIMConfig.url);
         } else {
-            String bhF = com.baidu.tbadk.coreExtra.d.a.bhD().bhF();
-            if (TextUtils.isEmpty(bhF)) {
+            String bqr = com.baidu.tbadk.coreExtra.d.a.bqp().bqr();
+            if (TextUtils.isEmpty(bqr)) {
                 com.baidu.adp.framework.client.socket.h.setUrl(TiebaIMConfig.url);
             } else {
-                com.baidu.adp.framework.client.socket.h.setUrl(bhF);
+                com.baidu.adp.framework.client.socket.h.setUrl(bqr);
             }
         }
         com.baidu.adp.framework.client.socket.h.setExtensions("im_version=2.3");
@@ -2614,7 +2644,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         BdSocketDaemonService.setLinkServiceDisconnectCallBack(new com.baidu.adp.framework.client.socket.link.c() { // from class: com.baidu.tbadk.core.TbadkCoreApplication.14
             @Override // com.baidu.adp.framework.client.socket.link.c
             public void onLinkServiceDisconnect() {
-                com.baidu.tbadk.util.j.bmC().a(new j.a() { // from class: com.baidu.tbadk.core.TbadkCoreApplication.14.1
+                com.baidu.tbadk.util.j.bvp().a(new j.a() { // from class: com.baidu.tbadk.core.TbadkCoreApplication.14.1
                     @Override // com.baidu.tbadk.util.j.a
                     public void onResult(boolean z) {
                         if (!z) {
@@ -2672,14 +2702,14 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
     public void loadLcsSwitchStratgy() {
         String loadString = TbadkSettings.getInst().loadString(SharedPrefConfig.LCS_SWITCH_STRATEGY, null);
         if (!TextUtils.isEmpty(loadString)) {
-            com.baidu.tbadk.coreExtra.model.c cVar = new com.baidu.tbadk.coreExtra.model.c();
-            cVar.parserJson(loadString);
-            com.baidu.tbadk.coreExtra.d.c bhN = com.baidu.tbadk.coreExtra.d.c.bhN();
-            bhN.setCloseLongConnectionAPI(cVar.getConnConf() == 1);
-            bhN.setMaxErrorCount(cVar.getContinuousFailCount());
-            bhN.setRetryTimeInMills(cVar.getRestartTimeInterval() * 1000);
-            if (cVar.getBlackCmds() != null) {
-                bhN.setUnAvailableAPIS(cVar.getBlackCmds());
+            com.baidu.tbadk.coreExtra.model.d dVar = new com.baidu.tbadk.coreExtra.model.d();
+            dVar.parserJson(loadString);
+            com.baidu.tbadk.coreExtra.d.c bqz = com.baidu.tbadk.coreExtra.d.c.bqz();
+            bqz.setCloseLongConnectionAPI(dVar.getConnConf() == 1);
+            bqz.setMaxErrorCount(dVar.getContinuousFailCount());
+            bqz.setRetryTimeInMills(dVar.getRestartTimeInterval() * 1000);
+            if (dVar.getBlackCmds() != null) {
+                bqz.setUnAvailableAPIS(dVar.getBlackCmds());
             }
         }
     }
@@ -2725,7 +2755,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         } else {
             this.mCapableOfWebp = TbadkSettings.getInst().loadBoolean(SharedPrefConfig.CAPABLE_OF_WEBP_FORMAT, false);
         }
-        n.blF().di(System.currentTimeMillis() - currentTimeMillis);
+        n.bus().dt(System.currentTimeMillis() - currentTimeMillis);
     }
 
     public int[] getImTimeOut() {
@@ -2789,7 +2819,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
     }
 
     public void setNetWorkCoreType(int i) {
-        ab.lI(i);
+        com.baidu.tbadk.core.util.ac.nO(i);
         saveInt(SharedPrefConfig.NETWORKCORE_TYPE, i);
     }
 
@@ -2834,7 +2864,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class b extends PhoneStateListener {
         private b() {
         }
@@ -2854,13 +2884,19 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         }
     }
 
-    private void registerPhoneListener() {
-        if (com.baidu.tbadk.core.util.ad.checkReadPhoneState(getContext())) {
+    public void registerPhoneListener() {
+        if (ae.biY() && ae.checkReadPhoneState(getContext())) {
             try {
                 ((TelephonyManager) getInst().getApp().getSystemService("phone")).listen(new b(), 32);
             } catch (SecurityException e) {
             } catch (Exception e2) {
             }
+        }
+    }
+
+    public void initCyberPlayer() {
+        if (ae.biY() && !CyberPlayerManager.isCoreLoaded(1)) {
+            CyberPlayerManager.install(getInst().getContext(), getInst().getCuidGalaxy2(), null, 3, CyberRemotePlayerService.class, null, null);
         }
     }
 
@@ -2884,9 +2920,9 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(CmdConfigCustom.METHOD_INVOKE_USER_CHANGE));
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921410));
-        com.baidu.tbadk.coreExtra.messageCenter.b.bfl().ih(true);
+        com.baidu.tbadk.coreExtra.messageCenter.b.bnV().iF(true);
         NotificationHelper.cancelAllNotification(this);
-        com.baidu.tieba.tbadkCore.util.a.dme();
+        com.baidu.tieba.tbadkCore.util.a.dxz();
     }
 
     public void onUserChanged(Intent intent2) {
@@ -2905,7 +2941,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
     }
 
     public void setActiveVersion(String str) {
-        if (!com.baidu.tbadk.core.util.as.isEmpty(str) && !"null".equals(str)) {
+        if (!com.baidu.tbadk.core.util.at.isEmpty(str) && !"null".equals(str)) {
             n.a.cleanDirectory(FileHelper.DataDir.PACKAGE_VERSION_LAST_DIR);
             n.a.createFile("/package.last/" + str);
         }
@@ -3012,6 +3048,10 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         }
     }
 
+    public Hashtable<String, Integer> getHasLikeList() {
+        return this.mHasLikeList;
+    }
+
     public void setLikeBarChanged(boolean z) {
         this.mLikeChanged = z;
     }
@@ -3108,13 +3148,13 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
     }
 
     public static void resetCacheData() {
-        com.baidu.adp.lib.f.h.lu().submitTask(new Runnable() { // from class: com.baidu.tbadk.core.TbadkCoreApplication.15
+        com.baidu.adp.lib.f.h.mT().submitTask(new Runnable() { // from class: com.baidu.tbadk.core.TbadkCoreApplication.15
             @Override // java.lang.Runnable
             public void run() {
                 com.baidu.tieba.tbadkCore.util.a.cashNoAccountData("", 7);
             }
         });
-        com.baidu.tbadk.core.sharedPref.b.aZP().putLong(SharedPrefConfig.APP_PULL_TIME, System.currentTimeMillis());
+        com.baidu.tbadk.core.sharedPref.b.bik().putLong(SharedPrefConfig.APP_PULL_TIME, System.currentTimeMillis());
     }
 
     public static String getCurrentPortrait() {
@@ -3352,10 +3392,10 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
     public void startTrackConfigRequest() {
         com.baidu.tbadk.trackConfig.a aVar = new com.baidu.tbadk.trackConfig.a();
         aVar.startLoad();
-        aVar.a(new a.InterfaceC0513a() { // from class: com.baidu.tbadk.core.TbadkCoreApplication.16
-            @Override // com.baidu.tbadk.trackConfig.a.InterfaceC0513a
-            public void u(boolean z, boolean z2) {
-                com.baidu.adp.lib.stats.f.ap(z2);
+        aVar.a(new a.InterfaceC0559a() { // from class: com.baidu.tbadk.core.TbadkCoreApplication.16
+            @Override // com.baidu.tbadk.trackConfig.a.InterfaceC0559a
+            public void x(boolean z, boolean z2) {
+                com.baidu.adp.lib.stats.f.aq(z2);
             }
         });
     }
@@ -3425,7 +3465,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
                 sb.append("|");
             }
             TbadkSettings.getInst().saveString(SharedPrefConfig.SOCKET_TIME_OUT, sb.toString());
-            com.baidu.adp.framework.d.c.kb().setTimeOutData(iArr[0], iArr[1], iArr[2]);
+            com.baidu.adp.framework.d.c.lA().setTimeOutData(iArr[0], iArr[1], iArr[2]);
         }
     }
 
@@ -3490,10 +3530,10 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
 
     public void setAdAdSense(com.baidu.tbadk.coreExtra.data.d dVar) {
         this.mAdAdSense = dVar;
-        if (this.mAdAdSense != null && this.mAdAdSense.bdK() != null) {
-            com.baidu.tbadk.coreExtra.data.g bdK = this.mAdAdSense.bdK();
+        if (this.mAdAdSense != null && this.mAdAdSense.bmq() != null) {
+            com.baidu.tbadk.coreExtra.data.g bmq = this.mAdAdSense.bmq();
             MessageManager.getInstance().registerStickyMode(CmdConfigCustom.CMD_UPDATE_INSTALL_STATUS);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_INSTALL_STATUS, bdK));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_INSTALL_STATUS, bmq));
         }
     }
 
@@ -3509,11 +3549,11 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         this.mActivitySwitch = cVar;
     }
 
-    public void setProfileData(y yVar) {
-        this.mProfileData = yVar;
+    public void setProfileData(ab abVar) {
+        this.mProfileData = abVar;
     }
 
-    public y getProfileData() {
+    public ab getProfileData() {
         return this.mProfileData;
     }
 
@@ -3640,10 +3680,10 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
             BdLog.e("you cannot set CustomizedFilter again");
         }
         if (fVar != null) {
-            if (fVar.kD(2) && !fVar.kD(-1)) {
+            if (fVar.mJ(2) && !fVar.mJ(-1)) {
                 BdLog.e("you should add CustomGroupType.PERSONAL_GROUP in the filter");
             }
-            if (fVar.kD(4) && !fVar.kD(-9)) {
+            if (fVar.mJ(4) && !fVar.mJ(-9)) {
                 BdLog.e("you should add CustomGroupType.OFFICIAL_GROUP in the filter");
             }
         }
@@ -3658,7 +3698,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
 
     public boolean isImmersiveStickyCanUse() {
         if (!this.isImmersiveStickyPrefHasRead) {
-            this.isImmersiveStickyCanUse = com.baidu.tbadk.core.sharedPref.b.aZP().getBoolean(SharedPrefConfig.SWITCH_IMMERSIVE_STICKY_STATUS, true);
+            this.isImmersiveStickyCanUse = com.baidu.tbadk.core.sharedPref.b.bik().getBoolean(SharedPrefConfig.SWITCH_IMMERSIVE_STICKY_STATUS, true);
             this.isImmersiveStickyPrefHasRead = true;
         }
         return this.isImmersiveStickyCanUse;
@@ -3688,20 +3728,20 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
 
     @Override // com.baidu.adp.base.BdBaseApplication
     public void onAppMemoryLow() {
-        int picCacheSize = com.baidu.tbadk.imageManager.c.bkk().getPicCacheSize();
+        int picCacheSize = com.baidu.tbadk.imageManager.c.bsW().getPicCacheSize();
         int max = (int) Math.max(picCacheSize * 0.8d, TbConfig.getBigImageMaxUsedMemory());
         if (max < picCacheSize) {
             if (BdLog.isDebugMode()) {
             }
-            com.baidu.tbadk.imageManager.c.bkk().setPicMaxSize(max);
+            com.baidu.tbadk.imageManager.c.bsW().setPicMaxSize(max);
         }
         BitmapHelper.clearCashBitmap();
-        com.baidu.adp.lib.util.d.mC().clearCashBitmap();
+        com.baidu.adp.lib.util.d.ob().clearCashBitmap();
     }
 
-    public v getListItemRule() {
+    public y getListItemRule() {
         if (this.listItemRule == null) {
-            this.listItemRule = new v();
+            this.listItemRule = new y();
         }
         return this.listItemRule;
     }
@@ -3709,7 +3749,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
     public com.baidu.tbadk.coreExtra.data.b getActivityPrizeData() {
         if (this.activityPrizeData == null) {
             this.activityPrizeData = new com.baidu.tbadk.coreExtra.data.b();
-            String string = com.baidu.tbadk.core.sharedPref.b.aZP().getString(SharedPrefConfig.ACTIVITY_PRIZE_DATA + getCurrentAccount(), "");
+            String string = com.baidu.tbadk.core.sharedPref.b.bik().getString(SharedPrefConfig.ACTIVITY_PRIZE_DATA + getCurrentAccount(), "");
             if (!StringUtils.isNull(string)) {
                 try {
                     this.activityPrizeData.parse(new JSONObject(string));
@@ -3733,7 +3773,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         return runningTasks.get(0).baseActivity.getPackageName().equals(getPackageName());
     }
 
-    @Override // com.baidu.adp.base.a.InterfaceC0017a
+    @Override // com.baidu.adp.base.a.InterfaceC0014a
     public void onActivityClosed() {
         getInst().onLowMemory();
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CLOSE_ALL_ACTIVITY));
@@ -3741,10 +3781,10 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
 
     private void initCustomToastView() {
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.mToast == null && l.mI() == null) {
+        if (this.mToast == null && l.oi() == null) {
             this.mToast = new l.a() { // from class: com.baidu.tbadk.core.TbadkCoreApplication.17
                 @Override // com.baidu.adp.lib.util.l.a
-                public void mJ() {
+                public void oj() {
                     TbadkCoreApplication.this.mCustomToastView = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.custom_toast_textview, (ViewGroup) null);
                 }
 
@@ -3761,7 +3801,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
                 }
             };
             l.a(this.mToast);
-            com.baidu.tbadk.n.n.blF().dh(System.currentTimeMillis() - currentTimeMillis);
+            com.baidu.tbadk.n.n.bus().ds(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 
@@ -3876,13 +3916,13 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
 
     public String getYunpushChannelId() {
         if (TextUtils.isEmpty(this.mChannelId)) {
-            this.mChannelId = com.baidu.tbadk.core.sharedPref.b.aZP().getString(SharedPrefConfig.YUNPUSH_CHANNEL_ID, "");
+            this.mChannelId = com.baidu.tbadk.core.sharedPref.b.bik().getString(SharedPrefConfig.YUNPUSH_CHANNEL_ID, "");
         }
         return this.mChannelId;
     }
 
     public void setYunpushChannelId(String str) {
-        com.baidu.tbadk.core.sharedPref.b.aZP().putString(SharedPrefConfig.YUNPUSH_CHANNEL_ID, str);
+        com.baidu.tbadk.core.sharedPref.b.bik().putString(SharedPrefConfig.YUNPUSH_CHANNEL_ID, str);
     }
 
     public ShareItem getShareItem() {
@@ -3894,7 +3934,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
     }
 
     public void setUseTimeInterval(long j) {
-        com.baidu.tbadk.core.sharedPref.b.aZP().putLong(SharedPrefConfig.USE_TIME_INTERVAL, j);
+        com.baidu.tbadk.core.sharedPref.b.bik().putLong(SharedPrefConfig.USE_TIME_INTERVAL, j);
         this.useTimeInterval = j;
     }
 
@@ -3904,7 +3944,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
 
     public int getCardShowType() {
         if (!this.hasInit) {
-            this.cardShowType = com.baidu.tbadk.core.sharedPref.b.aZP().getInt("key_card_show_type", 0);
+            this.cardShowType = com.baidu.tbadk.core.sharedPref.b.bik().getInt("key_card_show_type", 0);
         }
         return this.cardShowType;
     }

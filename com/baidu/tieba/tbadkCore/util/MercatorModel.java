@@ -14,28 +14,28 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class MercatorModel {
-    private final a.InterfaceC0021a fBG;
-    private boolean lPZ;
+    private final a.InterfaceC0018a fMY;
+    private boolean mhI;
 
     private MercatorModel() {
-        this.lPZ = false;
-        this.fBG = new a.InterfaceC0021a() { // from class: com.baidu.tieba.tbadkCore.util.MercatorModel.1
-            @Override // com.baidu.adp.lib.c.a.InterfaceC0021a
+        this.mhI = false;
+        this.fMY = new a.InterfaceC0018a() { // from class: com.baidu.tieba.tbadkCore.util.MercatorModel.1
+            @Override // com.baidu.adp.lib.c.a.InterfaceC0018a
             public void onLocationGeted(int i, String str, Address address) {
                 TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-                if (i == 0 && address != null && inst != null && !MercatorModel.this.lPZ) {
-                    MercatorModel.this.lPZ = true;
+                if (i == 0 && address != null && inst != null && !MercatorModel.this.mhI) {
+                    MercatorModel.this.mhI = true;
                     String valueOf = String.valueOf(address.getLatitude());
                     String valueOf2 = String.valueOf(address.getLongitude());
                     String locString = BDLocManager.getInstance(inst).getLocString();
                     String version = TbConfig.getVersion();
                     String cuid = TbadkCoreApplication.getInst().getCuid();
                     String clientIP = UtilHelper.getClientIP();
-                    com.baidu.tieba.recapp.d.a.dcN().Hp(valueOf);
-                    com.baidu.tieba.recapp.d.a.dcN().Ho(valueOf2);
-                    com.baidu.tieba.recapp.d.a.dcN().fC(System.currentTimeMillis());
+                    com.baidu.tieba.recapp.d.a.dnW().Kh(valueOf);
+                    com.baidu.tieba.recapp.d.a.dnW().Kg(valueOf2);
+                    com.baidu.tieba.recapp.d.a.dnW().fO(System.currentTimeMillis());
                     HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MERCATOR);
                     httpMessage.addParam("cuid", cuid);
                     httpMessage.addParam("cip", clientIP);
@@ -44,7 +44,7 @@ public class MercatorModel {
                     httpMessage.addParam("longitude", valueOf2);
                     httpMessage.addParam("latitude", valueOf);
                     MessageManager.getInstance().sendMessage(httpMessage);
-                    MercatorModel.this.lPZ = false;
+                    MercatorModel.this.mhI = false;
                 }
             }
         };
@@ -54,34 +54,34 @@ public class MercatorModel {
     }
 
     public void startLoad() {
-        com.baidu.adp.lib.c.a.kG().a(true, this.fBG);
+        com.baidu.adp.lib.c.a.mf().a(true, this.fMY);
     }
 
-    public static MercatorModel dmf() {
-        return a.lQg;
+    public static MercatorModel dxA() {
+        return a.mhP;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class a {
-        private static final MercatorModel lQg = new MercatorModel();
+        private static final MercatorModel mhP = new MercatorModel();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(MercatorData mercatorData) {
         TbSingleton.getInstance().setMercatorData(mercatorData);
-        com.baidu.tbadk.core.sharedPref.b.aZP().putString("key_mercator_location", MercatorData.jsonStrWithObject(mercatorData));
+        com.baidu.tbadk.core.sharedPref.b.bik().putString("key_mercator_location", MercatorData.jsonStrWithObject(mercatorData));
     }
 
     public MercatorData getMercatorData() {
         MercatorData mercatorData = TbSingleton.getInstance().getMercatorData();
         if (mercatorData == null) {
-            return (MercatorData) MercatorData.objectWithJsonStr(com.baidu.tbadk.core.sharedPref.b.aZP().getString("key_mercator_location", null), MercatorData.class);
+            return (MercatorData) MercatorData.objectWithJsonStr(com.baidu.tbadk.core.sharedPref.b.bik().getString("key_mercator_location", null), MercatorData.class);
         }
         return mercatorData;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class MercatorLocationResponseMessage extends JsonHttpResponsedMessage {
         public MercatorLocationResponseMessage(int i) {
             super(i);
@@ -96,43 +96,43 @@ public class MercatorModel {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class MercatorData extends OrmObject {
-        String lQb;
-        String lQc;
-        String lQd;
-        int lQe;
-        long lQf;
+        String mhK;
+        String mhL;
+        String mhM;
+        int mhN;
+        long mhO;
 
         public MercatorData() {
         }
 
         public MercatorData(String str, String str2, String str3, int i, long j) {
-            this.lQb = str;
-            this.lQc = str2;
-            this.lQd = str3;
-            this.lQe = i;
-            this.lQf = j;
+            this.mhK = str;
+            this.mhL = str2;
+            this.mhM = str3;
+            this.mhN = i;
+            this.mhO = j;
         }
 
-        public String dmg() {
-            return this.lQb;
+        public String dxB() {
+            return this.mhK;
         }
 
-        public String dmh() {
-            return this.lQc;
+        public String dxC() {
+            return this.mhL;
         }
 
-        public String dmi() {
-            return this.lQd;
+        public String dxD() {
+            return this.mhM;
         }
 
-        public int dmj() {
-            return this.lQe;
+        public int dxE() {
+            return this.mhN;
         }
 
-        public long dmk() {
-            return this.lQf;
+        public long dxF() {
+            return this.mhO;
         }
     }
 }

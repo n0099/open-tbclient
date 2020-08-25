@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 abstract class a extends aa {
     protected abstract com.baidu.swan.apps.component.b.b c(UnitedSchemeEntity unitedSchemeEntity);
 

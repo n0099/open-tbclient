@@ -13,7 +13,7 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.c;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class MainAPKFragmentActivityPageContext implements TbPageContext<BaseFragmentActivity> {
     BaseFragmentActivity activity;
 

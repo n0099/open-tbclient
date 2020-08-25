@@ -9,12 +9,12 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.TimeUnit;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes19.dex */
+/* loaded from: classes10.dex */
 public class g implements Executor {
     static final /* synthetic */ boolean $assertionsDisabled;
     private final String mUrl;
-    private boolean mLx = false;
-    private boolean mLy = false;
+    private boolean nes = false;
+    private boolean neu = false;
     private long mThreadId = -1;
     private final BlockingQueue<Runnable> mQueue = new LinkedBlockingQueue();
 
@@ -27,7 +27,7 @@ public class g implements Executor {
         this.mUrl = str;
     }
 
-    private boolean dzV() {
+    private boolean dLI() {
         if (this.mThreadId != -1) {
             return this.mThreadId == Thread.currentThread().getId();
         }
@@ -44,7 +44,7 @@ public class g implements Executor {
                 poll = this.mQueue.poll(j, TimeUnit.NANOSECONDS);
             }
             if (poll == null) {
-                com.baidu.turbonet.base.a.h("cr_CronetHttpURLConn", "****** Messageloop timeout exception, url is: %s", this.mUrl);
+                com.baidu.turbonet.base.a.g("cr_CronetHttpURLConn", "****** Messageloop timeout exception, url is: %s", this.mUrl);
                 throw new SocketTimeoutException();
             }
             return poll;
@@ -55,30 +55,30 @@ public class g implements Executor {
         }
     }
 
-    public void dzW() throws IOException {
-        Ia(0);
+    public void dLJ() throws IOException {
+        KA(0);
     }
 
-    public void Ia(int i) throws IOException {
-        if (!$assertionsDisabled && !dzV()) {
+    public void KA(int i) throws IOException {
+        if (!$assertionsDisabled && !dLI()) {
             throw new AssertionError();
         }
         long nanoTime = System.nanoTime();
         long convert = TimeUnit.NANOSECONDS.convert(i, TimeUnit.MILLISECONDS);
-        if (this.mLy) {
+        if (this.neu) {
             throw new IllegalStateException("Cannot run loop as an exception has occurred previously.");
         }
-        if (this.mLx) {
+        if (this.nes) {
             throw new IllegalStateException("Cannot run loop when it is already running.");
         }
-        this.mLx = true;
-        while (this.mLx) {
+        this.nes = true;
+        while (this.nes) {
             if (i == 0) {
                 try {
                     f(false, 0L).run();
                 } catch (InterruptedIOException | RuntimeException e) {
-                    this.mLx = false;
-                    this.mLy = true;
+                    this.nes = false;
+                    this.neu = true;
                     throw e;
                 }
             } else {
@@ -88,10 +88,10 @@ public class g implements Executor {
     }
 
     public void quit() {
-        if (!$assertionsDisabled && !dzV()) {
+        if (!$assertionsDisabled && !dLI()) {
             throw new AssertionError();
         }
-        this.mLx = false;
+        this.nes = false;
     }
 
     @Override // java.util.concurrent.Executor

@@ -5,35 +5,51 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.swan.apps.aq.al;
+import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.swan.apps.ap.ak;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.jsbridge.SwanAppNativeSwanJsBridge;
+import com.baidu.swan.apps.performance.b.c;
 import com.baidu.swan.apps.performance.h;
 import java.util.Locale;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
     private static final boolean DEBUG = b.DEBUG;
 
     public static void a(final com.baidu.swan.apps.core.container.a aVar, com.baidu.swan.apps.event.a.a aVar2) {
         String format;
-        String y;
+        String A;
+        final String format2;
+        String str;
+        String A2;
         if (aVar != null && aVar2 != null) {
-            h.C("postMessage", "dispatchJSEvent start.");
-            if (aVar.isWebView()) {
-                format = String.format(Locale.getDefault(), "var %s = new Event('%s');", NotificationCompat.CATEGORY_EVENT, aVar2.bSl);
-                y = "";
+            h.E("postMessage", "dispatchJSEvent start.");
+            if (c.awp()) {
+                if (aVar.isWebView()) {
+                    str = "var " + NotificationCompat.CATEGORY_EVENT + " = new Event('" + aVar2.bXU + "');";
+                    A2 = "";
+                } else {
+                    str = "var " + NotificationCompat.CATEGORY_EVENT + " = new Object();";
+                    A2 = A(NotificationCompat.CATEGORY_EVENT, "type", aVar2.bXU);
+                }
+                format2 = new StringBuffer().append("javascript:(function(){").append(str).append(" ").append(A2).append(aVar2.mw(NotificationCompat.CATEGORY_EVENT)).append(" ").append(d(aVar)).append(".dispatchEvent(").append(NotificationCompat.CATEGORY_EVENT).append(");").append("})();").toString();
             } else {
-                format = String.format(Locale.getDefault(), "var %s = new Object();", NotificationCompat.CATEGORY_EVENT);
-                y = y(NotificationCompat.CATEGORY_EVENT, "type", aVar2.bSl);
+                if (aVar.isWebView()) {
+                    format = String.format(Locale.getDefault(), "var %s = new Event('%s');", NotificationCompat.CATEGORY_EVENT, aVar2.bXU);
+                    A = "";
+                } else {
+                    format = String.format(Locale.getDefault(), "var %s = new Object();", NotificationCompat.CATEGORY_EVENT);
+                    A = A(NotificationCompat.CATEGORY_EVENT, "type", aVar2.bXU);
+                }
+                format2 = String.format(Locale.getDefault(), "javascript:(function(){%s %s %s})();", format, A + aVar2.mw(NotificationCompat.CATEGORY_EVENT), String.format(Locale.getDefault(), "%s.dispatchEvent(%s);", d(aVar), NotificationCompat.CATEGORY_EVENT));
             }
-            final String format2 = String.format(Locale.getDefault(), "javascript:(function(){%s %s %s})();", format, y + aVar2.kH(NotificationCompat.CATEGORY_EVENT), String.format(Locale.getDefault(), "%s.dispatchEvent(%s);", d(aVar), NotificationCompat.CATEGORY_EVENT));
-            h.C("postMessage", "dispatchJSEvent buildEvent");
+            h.E("postMessage", "dispatchJSEvent buildEvent");
             if (DEBUG) {
                 Log.d("JSEventDispatcher", "dispatchJSEvent action: " + format2);
             }
             if (aVar.isWebView()) {
-                al.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.event.a.1
+                ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.event.a.1
                     @Override // java.lang.Runnable
                     public void run() {
                         a.a(com.baidu.swan.apps.core.container.a.this, format2);
@@ -55,7 +71,7 @@ public final class a {
             return;
         }
         aVar.evaluateJavascript(str, null);
-        h.C("postMessage", "dispatchJSEvent evaluateJavascript");
+        h.E("postMessage", "dispatchJSEvent evaluateJavascript");
     }
 
     private static String d(com.baidu.swan.apps.core.container.a aVar) {
@@ -65,11 +81,12 @@ public final class a {
         return SwanAppNativeSwanJsBridge.JAVASCRIPT_INTERFACE_NAME;
     }
 
-    public static String y(String str, String str2, String str3) {
+    public static String A(String str, String str2, String str3) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
             return "";
         }
-        return String.format(Locale.getDefault(), "%s.%s = %s;", str, str2, JSONObject.quote(str3));
+        String quote = JSONObject.quote(str3);
+        return c.awp() ? str + "." + str2 + " = " + quote + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : String.format(Locale.getDefault(), "%s.%s = %s;", str, str2, quote);
     }
 
     public static String c(String str, String str2, JSONObject jSONObject) {
@@ -77,10 +94,13 @@ public final class a {
     }
 
     @NonNull
-    public static String d(@Nullable String str, @Nullable String str2, @Nullable Object obj) {
+    public static String c(@Nullable String str, @Nullable String str2, @Nullable Object obj) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || obj == null) {
             return "";
         }
-        return ((obj instanceof Integer) || (obj instanceof Float) || (obj instanceof Double) || (obj instanceof Long) || (obj instanceof Boolean)) ? String.format(Locale.getDefault(), "%s.%s = %s;", str, str2, obj) : y(str, str2, String.valueOf(obj));
+        if ((obj instanceof Integer) || (obj instanceof Float) || (obj instanceof Double) || (obj instanceof Long) || (obj instanceof Boolean)) {
+            return c.awp() ? str + "." + str2 + " = " + obj + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : String.format(Locale.getDefault(), "%s.%s = %s;", str, str2, obj);
+        }
+        return A(str, str2, String.valueOf(obj));
     }
 }

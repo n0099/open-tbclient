@@ -1,9 +1,11 @@
 package com.baidu.mapsdkplatform.comapi.map;
-/* loaded from: classes10.dex */
-public class a extends d {
+
+import com.baidu.platform.comapi.map.MapController;
+/* loaded from: classes20.dex */
+public class a extends c {
     public a() {
         this.c = 10;
-        this.b = "heatmap";
+        this.b = MapController.HEATMAP_LAYER_TAG;
         this.d = 180000;
     }
 }

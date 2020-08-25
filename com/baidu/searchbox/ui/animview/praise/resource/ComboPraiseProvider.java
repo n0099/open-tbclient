@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes12.dex */
 public class ComboPraiseProvider implements IResourceProvider {
     private static final boolean DEBUG = DebugUtil.isApkInDebug();
     public static final String DIR_NAME_ERUPTION = "exploding";
@@ -263,7 +263,7 @@ public class ComboPraiseProvider implements IResourceProvider {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes12.dex */
     public static class ResourcePackage implements IResourcePackage {
         public static final int LRU_SIZE = 4;
         private Context mContext;
@@ -321,7 +321,7 @@ public class ComboPraiseProvider implements IResourceProvider {
                     }
                     break;
                 case 102865796:
-                    if (str.equals(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL)) {
+                    if (str.equals("level")) {
                         c = 3;
                         break;
                     }
@@ -384,7 +384,7 @@ public class ComboPraiseProvider implements IResourceProvider {
             File[] findAllTargetFiles;
             if (file != null && (findAllTargetFiles = IResourcePackage.Utils.findAllTargetFiles(file, "l", false)) != null) {
                 for (File file2 : findAllTargetFiles) {
-                    prepareLottieResource(file2, "", makeKey(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, file2.getName().toLowerCase().trim()));
+                    prepareLottieResource(file2, "", makeKey("level", file2.getName().toLowerCase().trim()));
                 }
             }
         }
@@ -439,7 +439,7 @@ public class ComboPraiseProvider implements IResourceProvider {
                     }
                     break;
                 case 102865796:
-                    if (str.equals(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL)) {
+                    if (str.equals("level")) {
                         c = 0;
                         break;
                     }
@@ -489,7 +489,7 @@ public class ComboPraiseProvider implements IResourceProvider {
         }
 
         private IResourcePackage.LottieResource getPraiseLevelLottie(Object... objArr) {
-            return getIndexLottie(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, objArr);
+            return getIndexLottie("level", objArr);
         }
 
         private IResourcePackage.LottieResource getEruptionLottie(Object... objArr) {
@@ -502,7 +502,7 @@ public class ComboPraiseProvider implements IResourceProvider {
                 if (intValue < 0) {
                     return null;
                 }
-                return TextUtils.equals(str, ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL) ? this.mResLottieCache.get(makeKey(str, "l" + intValue)) : this.mResLottieCache.get(makeKey(str, intValue + ""));
+                return TextUtils.equals(str, "level") ? this.mResLottieCache.get(makeKey(str, "l" + intValue)) : this.mResLottieCache.get(makeKey(str, intValue + ""));
             }
             return null;
         }
@@ -510,8 +510,8 @@ public class ComboPraiseProvider implements IResourceProvider {
         private void addResourceCount(String str) {
             String str2;
             if (this.mResCounts != null && !TextUtils.isEmpty(str)) {
-                if (str.contains(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL)) {
-                    str2 = ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL;
+                if (str.contains("level")) {
+                    str2 = "level";
                 } else if (str.contains("number")) {
                     str2 = "number";
                 } else if (str.contains(ComboPraiseProvider.RES_KEY_SUFFIX_ERUPTION)) {
@@ -549,7 +549,7 @@ public class ComboPraiseProvider implements IResourceProvider {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes12.dex */
     public static class Builder {
         private static final String DEFAULT_UNZIP_DIR_NAME = "lottie_unzip";
         Context mContext;

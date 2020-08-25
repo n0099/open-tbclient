@@ -3,7 +3,7 @@ package com.xiaomi.push.service;
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.ap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class aq implements ap.b.a {
     final /* synthetic */ ap.b a;
 
@@ -17,13 +17,13 @@ public class aq implements ap.b.a {
         XMPushService.b bVar;
         XMPushService.b bVar2;
         if (cVar2 == ap.c.binding) {
-            XMPushService xMPushService = this.a.f860a;
-            bVar2 = this.a.f859a;
+            XMPushService xMPushService = this.a.f857a;
+            bVar2 = this.a.f856a;
             xMPushService.a(bVar2, 60000L);
             return;
         }
-        XMPushService xMPushService2 = this.a.f860a;
-        bVar = this.a.f859a;
+        XMPushService xMPushService2 = this.a.f857a;
+        bVar = this.a.f856a;
         xMPushService2.b(bVar);
     }
 }

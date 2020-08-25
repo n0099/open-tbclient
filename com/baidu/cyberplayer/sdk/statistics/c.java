@@ -3,7 +3,7 @@ package com.baidu.cyberplayer.sdk.statistics;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class c {
     private int a;
     private ArrayList<e> b = new ArrayList<>();

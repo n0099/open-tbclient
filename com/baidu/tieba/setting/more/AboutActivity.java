@@ -18,19 +18,19 @@ import com.baidu.tieba.setting.model.AboutModel;
 import java.util.Date;
 /* loaded from: classes20.dex */
 public class AboutActivity extends BaseActivity<AboutActivity> {
-    private com.baidu.tieba.setting.more.a lxi;
-    private AboutModel lxj;
-    private a lxk = null;
-    private String lxl = com.baidu.tbadk.data.d.SERVER_ADDRESS_WEB_VIEW + "mo/q/topic_page/110_1";
-    private i lxm;
+    private i lOA;
+    private com.baidu.tieba.setting.more.a lOw;
+    private AboutModel lOx;
+    private a lOy = null;
+    private String lOz = com.baidu.tbadk.data.d.SERVER_ADDRESS_WEB_VIEW + "mo/q/topic_page/110_1";
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.lxi = new com.baidu.tieba.setting.more.a(this, new d() { // from class: com.baidu.tieba.setting.more.AboutActivity.1
+        this.lOw = new com.baidu.tieba.setting.more.a(this, new d() { // from class: com.baidu.tieba.setting.more.AboutActivity.1
             @Override // com.baidu.tieba.setting.more.d
-            public void Eu(int i) {
+            public void GR(int i) {
                 String str;
                 String fileDireciory;
                 if (i == 0) {
@@ -40,8 +40,8 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                 } else if (i == 2) {
                     AboutActivity.this.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GUILD, new GuildActivityConfig(AboutActivity.this.getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_ABOUT_PAGE, false)));
                 } else if (i == 3) {
-                    com.baidu.tbadk.core.sharedPref.b.aZP().putBoolean(SettingTextFunctionIntroView.lAe, true);
-                    com.baidu.tbadk.browser.a.startWebActivity(AboutActivity.this.getPageContext().getPageActivity(), AboutActivity.this.getPageContext().getString(R.string.function_intro), AboutActivity.this.lxl, true, false, false);
+                    com.baidu.tbadk.core.sharedPref.b.bik().putBoolean(SettingTextFunctionIntroView.lRv, true);
+                    com.baidu.tbadk.browser.a.startWebActivity(AboutActivity.this.getPageContext().getPageActivity(), AboutActivity.this.getPageContext().getString(R.string.function_intro), AboutActivity.this.lOz, true, false, false);
                 } else if (i == 4) {
                     if (TbConfig.getDebugSwitch()) {
                         str = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_DEBUG_FILE;
@@ -56,24 +56,24 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                     n.copyFile(str, fileDireciory);
                     n.CopyDir(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/newStat", n.getCacheDir() + "/newStat", false);
                 } else if (i == 5) {
-                    if (AboutActivity.this.lxm == null) {
-                        AboutActivity.this.lxm = new i(AboutActivity.this.getActivity());
-                        AboutActivity.this.lxm.b(AboutActivity.this.getPageContext());
+                    if (AboutActivity.this.lOA == null) {
+                        AboutActivity.this.lOA = new i(AboutActivity.this.getActivity());
+                        AboutActivity.this.lOA.b(AboutActivity.this.getPageContext());
                     }
-                    AboutActivity.this.lxm.aYL();
+                    AboutActivity.this.lOA.bhg();
                 }
             }
         });
-        this.lxi.deT();
-        cqv();
+        this.lOw.dqm();
+        cBn();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.lxi != null) {
-            this.lxi.deT();
+        if (this.lOw != null) {
+            this.lOw.dqm();
         }
     }
 
@@ -81,15 +81,15 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        cqw();
-        if (this.lxj != null) {
-            this.lxj.cancelLoadData();
+        cBo();
+        if (this.lOx != null) {
+            this.lOx.cancelLoadData();
         }
-        if (this.lxi != null) {
-            this.lxi.chU();
+        if (this.lOw != null) {
+            this.lOw.csy();
         }
-        if (this.lxm != null) {
-            this.lxm.dismiss();
+        if (this.lOA != null) {
+            this.lOA.dismiss();
         }
     }
 
@@ -97,52 +97,52 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.lxi != null) {
-            this.lxi.nI(i);
+        if (this.lOw != null) {
+            this.lOw.pT(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void checkUpdata() {
-        if (this.lxj == null) {
-            this.lxj = new AboutModel(this, new com.baidu.adp.base.d() { // from class: com.baidu.tieba.setting.more.AboutActivity.2
+        if (this.lOx == null) {
+            this.lOx = new AboutModel(this, new com.baidu.adp.base.d() { // from class: com.baidu.tieba.setting.more.AboutActivity.2
                 @Override // com.baidu.adp.base.d
                 public void callback(Object obj) {
-                    AboutActivity.this.aH(obj);
+                    AboutActivity.this.aJ(obj);
                 }
             });
         } else {
-            this.lxj.cancelLoadData();
+            this.lOx.cancelLoadData();
         }
-        this.lxj.deL();
-        if (this.lxi != null) {
-            this.lxi.deS();
+        this.lOx.dqe();
+        if (this.lOw != null) {
+            this.lOw.dql();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aH(Object obj) {
-        if (this.lxi != null) {
-            this.lxi.chU();
+    public void aJ(Object obj) {
+        if (this.lOw != null) {
+            this.lOw.csy();
         }
-        com.baidu.tbadk.coreExtra.model.d dVar = obj != null ? (com.baidu.tbadk.coreExtra.model.d) obj : null;
-        if (dVar != null) {
-            TbadkCoreApplication.getInst().setVersionData(dVar.bgr());
+        com.baidu.tbadk.coreExtra.model.e eVar = obj != null ? (com.baidu.tbadk.coreExtra.model.e) obj : null;
+        if (eVar != null) {
+            TbadkCoreApplication.getInst().setVersionData(eVar.bpc());
             TbadkCoreApplication.getInst().refreshNewVersion(false);
-            if (dVar.bgr().hasNewVer() && TbConfig.COULD_UPDATE) {
-                if (dVar.bgr().forceUpdate()) {
-                    sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), dVar.bgr(), dVar.bgq())));
+            if (eVar.bpc().hasNewVer() && TbConfig.COULD_UPDATE) {
+                if (eVar.bpc().forceUpdate()) {
+                    sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), eVar.bpc(), eVar.bpb())));
                 } else {
                     Long valueOf = Long.valueOf(new Date().getTime());
-                    CustomMessage customMessage = new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), dVar.bgr(), dVar.bgq()));
+                    CustomMessage customMessage = new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), eVar.bpc(), eVar.bpb()));
                     TbadkCoreApplication.getInst().setUpdateNotifyTime(valueOf.longValue());
                     sendMessage(customMessage);
                 }
             } else {
                 showToast(getResources().getString(R.string.neednot_update));
             }
-            if (this.lxi != null) {
-                this.lxi.deT();
+            if (this.lOw != null) {
+                this.lOw.dqm();
                 return;
             }
             return;
@@ -158,22 +158,22 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            if (AboutActivity.this.lxi != null) {
-                AboutActivity.this.lxi.deT();
+            if (AboutActivity.this.lOw != null) {
+                AboutActivity.this.lOw.dqm();
             }
         }
     }
 
-    private void cqv() {
-        this.lxk = new a();
+    private void cBn() {
+        this.lOy = new a();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbConfig.getBroadcastActionNewVersion());
-        registerReceiver(this.lxk, intentFilter);
+        registerReceiver(this.lOy, intentFilter);
     }
 
-    private void cqw() {
-        if (this.lxk != null) {
-            unregisterReceiver(this.lxk);
+    private void cBo() {
+        if (this.lOy != null) {
+            unregisterReceiver(this.lOy);
         }
     }
 }

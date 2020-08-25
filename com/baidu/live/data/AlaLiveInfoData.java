@@ -3,14 +3,13 @@ package com.baidu.live.data;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.live.data.o;
+import com.baidu.live.data.p;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.atomdata.AlaLiveRoomActivityConfig;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.live.tbadk.coreextra.data.AlaLiveSwitchData;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
-import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -20,7 +19,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaLiveInfoData implements Serializable {
     public static boolean DEBUG = false;
     public static final int LIVE_SCREEN_DIRECTION_LANDSCAPE = 2;
@@ -85,6 +84,7 @@ public class AlaLiveInfoData implements Serializable {
     public int newFansCount;
     public int openType;
     public long pkId;
+    public String playUrl;
     public int play_count;
     public String qrcodeDownloadUrl;
     public String qrcodeUrl;
@@ -102,7 +102,7 @@ public class AlaLiveInfoData implements Serializable {
     public String user_name;
     public String user_nickname;
     public int zan_count;
-    public o.a mCastIds = null;
+    public p.a mCastIds = null;
     public int goodsList = 0;
     public int session_default = 0;
     public long broadGiftMsgId = 0;
@@ -212,14 +212,11 @@ public class AlaLiveInfoData implements Serializable {
                 this.session_info = new AlaLiveStreamSessionInfo();
                 this.session_info.parseJson(optJSONObject);
             } else {
-                String optString = jSONObject.optString("rtmp_url");
-                if (!TextUtils.isEmpty(optString)) {
-                    this.session_info = new AlaLiveStreamSessionInfo();
-                    this.session_info.rtmpUrl = optString;
-                    this.session_info.flvUrl = jSONObject.optString("flv_url");
-                    this.session_info.hlsUrl = jSONObject.optString("hls_url");
-                    this.session_info.mSessionId = jSONObject.optString("session_id");
-                }
+                this.session_info = new AlaLiveStreamSessionInfo();
+                this.session_info.rtmpUrl = jSONObject.optString("rtmp_url");
+                this.session_info.flvUrl = jSONObject.optString("flv_url");
+                this.session_info.hlsUrl = jSONObject.optString("hls_url");
+                this.session_info.mSessionId = jSONObject.optString("session_id");
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("session_info_backup");
             if (optJSONObject2 != null) {
@@ -243,7 +240,7 @@ public class AlaLiveInfoData implements Serializable {
             }
             this.session_default = jSONObject.optInt("session_default");
             this.clarity = jSONObject.optInt("clarity");
-            this.goodsList = jSONObject.optInt(UbcStatConstant.ContentType.UBC_TYPE_GOODS_LIST);
+            this.goodsList = jSONObject.optInt("goods_list");
             this.introducegoods = jSONObject.optString("introduce_goods");
             this.game_id = jSONObject.optString("game_id");
             this.game_label = jSONObject.optString("game_label");
@@ -258,17 +255,17 @@ public class AlaLiveInfoData implements Serializable {
             this.broadGiftMsgId = jSONObject.optLong("gift_broad_msg_id", 0L);
             JSONObject optJSONObject3 = jSONObject.optJSONObject("user_privilege");
             if (optJSONObject3 != null) {
-                String optString2 = optJSONObject3.optString("bubble_effect");
-                String optString3 = optJSONObject3.optString("nickname_effect");
+                String optString = optJSONObject3.optString("bubble_effect");
+                String optString2 = optJSONObject3.optString("nickname_effect");
                 this.imEffect = new String[2];
-                if (!TextUtils.isEmpty(optString3) && !TextUtils.isEmpty(optString2)) {
-                    this.imEffect[0] = optString2;
-                    this.imEffect[1] = optString3;
-                } else if (!TextUtils.isEmpty(optString3)) {
-                    this.imEffect[0] = "";
-                    this.imEffect[1] = optString3;
+                if (!TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString)) {
+                    this.imEffect[0] = optString;
+                    this.imEffect[1] = optString2;
                 } else if (!TextUtils.isEmpty(optString2)) {
-                    this.imEffect[0] = optString2;
+                    this.imEffect[0] = "";
+                    this.imEffect[1] = optString2;
+                } else if (!TextUtils.isEmpty(optString)) {
+                    this.imEffect[0] = optString;
                     this.imEffect[1] = "";
                 } else {
                     this.imEffect = null;
@@ -276,7 +273,7 @@ public class AlaLiveInfoData implements Serializable {
             }
             JSONObject optJSONObject4 = jSONObject.optJSONObject(Constants.EXTRA_CAST_IDS);
             if (optJSONObject4 != null) {
-                this.mCastIds = new o.a();
+                this.mCastIds = new p.a();
                 this.mCastIds.parseJson(optJSONObject4);
             }
             JSONObject optJSONObject5 = jSONObject.optJSONObject("switch");
@@ -374,7 +371,7 @@ public class AlaLiveInfoData implements Serializable {
             jSONObject.put("user_nickname", this.user_nickname);
             jSONObject.put("group_id", this.group_id);
             jSONObject.put("introduce_goods", this.introducegoods);
-            jSONObject.put(UbcStatConstant.ContentType.UBC_TYPE_GOODS_LIST, this.goodsList);
+            jSONObject.put("goods_list", this.goodsList);
             jSONObject.put("last_msg_id", this.last_msg_id);
             jSONObject.put("session_id", this.session_id);
             jSONObject.put("description", this.description);

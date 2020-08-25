@@ -1,13 +1,13 @@
 package com.baidu.live.gift;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ac {
-    private static aa aJD;
+    private static aa aOO;
 
-    public static aa zB() {
-        return aJD;
+    public static aa Fe() {
+        return aOO;
     }
 
     public static void a(aa aaVar) {
-        aJD = aaVar;
+        aOO = aaVar;
     }
 }

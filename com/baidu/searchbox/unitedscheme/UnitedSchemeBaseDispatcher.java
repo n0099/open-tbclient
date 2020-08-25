@@ -8,7 +8,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
-/* loaded from: classes19.dex */
+/* loaded from: classes9.dex */
 public abstract class UnitedSchemeBaseDispatcher implements UnitedSchemeAbsDispatcher {
     public static final String ACTION_KEY = "action";
     private static final boolean DEBUG = false;
@@ -16,7 +16,7 @@ public abstract class UnitedSchemeBaseDispatcher implements UnitedSchemeAbsDispa
     private static final String TAG = UnitedSchemeBaseDispatcher.class.getSimpleName();
     protected final Map<String, UnitedSchemeBaseAction> schemeActionMap = new HashMap();
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes9.dex */
     public interface ConfirmDialogCallback {
         void onCancel();
 

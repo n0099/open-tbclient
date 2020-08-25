@@ -5,66 +5,66 @@ import android.widget.FrameLayout;
 import com.baidu.ala.recorder.AlaLiveRecorder;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.tieba.ala.liveroom.views.AlaLiveView;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class f {
-    public AlaLiveRecorder glA;
-    public FrameLayout glB;
-    public ViewGroup glC;
-    public com.baidu.tieba.ala.liveroom.master.a.d glD;
-    public com.baidu.live.ar.h glE;
-    public AlaLiveRecorderPerfData glF;
-    public com.baidu.live.tieba.e.b glG;
-    public com.baidu.live.liveroom.middleware.a glH;
-    public com.baidu.tieba.ala.liveroom.o.c gla;
-    public AlaLiveView glb;
+    public AlaLiveRecorder gxE;
+    public FrameLayout gxF;
+    public ViewGroup gxG;
+    public com.baidu.tieba.ala.liveroom.master.a.d gxH;
+    public com.baidu.live.ar.h gxI;
+    public AlaLiveRecorderPerfData gxJ;
+    public com.baidu.live.tieba.e.b gxK;
+    public com.baidu.live.liveroom.middleware.a gxL;
+    public com.baidu.tieba.ala.liveroom.p.d gxe;
+    public AlaLiveView gxf;
     private int liveType;
     public TbPageContext pageContext;
     public ViewGroup rootView;
 
-    public int bHw() {
+    public int bRa() {
         return this.liveType;
     }
 
-    public void rK(int i) {
+    public void tW(int i) {
         this.liveType = i;
-        if (this.glD != null) {
-            this.glD.si(i);
+        if (this.gxH != null) {
+            this.gxH.uy(i);
         }
     }
 
     public void f(short s) {
-        if (this.glD != null) {
-            this.glD.f(s);
+        if (this.gxH != null) {
+            this.gxH.f(s);
         }
     }
 
-    public void KB() {
-        if (this.glD != null) {
-            this.glD.KB();
+    public void Qt() {
+        if (this.gxH != null) {
+            this.gxH.Qt();
         }
     }
 
-    public void aPt() {
-        if (this.glD != null) {
-            this.glD.aPt();
+    public void aXJ() {
+        if (this.gxH != null) {
+            this.gxH.aXJ();
         }
     }
 
-    public void bHx() {
-        if (this.glD != null) {
-            this.glD.bHx();
+    public void bRb() {
+        if (this.gxH != null) {
+            this.gxH.bRb();
         }
     }
 
-    public void bHy() {
-        if (this.glD != null) {
-            this.glD.bHy();
+    public void bRc() {
+        if (this.gxH != null) {
+            this.gxH.bRc();
         }
     }
 
-    public void bHz() {
-        if (this.glD != null) {
-            this.glD.bHz();
+    public void bRd() {
+        if (this.gxH != null) {
+            this.gxH.bRd();
         }
     }
 }

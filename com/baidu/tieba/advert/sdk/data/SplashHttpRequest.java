@@ -28,18 +28,18 @@ public class SplashHttpRequest extends HttpMessage {
             addParam("cuid", TbadkCoreApplication.getInst().getCuid());
             addParam("mod", d.getPhoneModel());
             addParam("ot", 2);
-            addParam("ov", d.bth());
+            addParam("ov", d.bCc());
             addParam(CommandMessage.SDK_VERSION, "1.1.4");
-            addParam("nt", d.eq(context).intValue());
+            addParam("nt", d.ey(context).intValue());
             addParam(Config.EXCEPTION_CRASH_TYPE, 2);
-            addParam("sw", d.ep(context).intValue());
-            addParam(IXAdRequestInfo.SCREEN_HEIGHT, d.eo(context).intValue());
+            addParam("sw", d.ex(context).intValue());
+            addParam(IXAdRequestInfo.SCREEN_HEIGHT, d.ew(context).intValue());
             addParam("imei", d.getImei(context));
             addParam("fmt", "json");
             addParam("adw", adInfo.adWidth);
             addParam("adh", adInfo.adHeight);
             addParam("ac", 1);
-            addParam("ad_ext_params", AdExtParam.a.bmj().bmk());
+            addParam("ad_ext_params", AdExtParam.a.buW().buX());
         }
     }
 

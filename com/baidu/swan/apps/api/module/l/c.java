@@ -1,193 +1,268 @@
 package com.baidu.swan.apps.api.module.l;
 
-import android.content.Context;
 import android.support.annotation.NonNull;
-import android.util.DisplayMetrics;
+import android.text.TextUtils;
+import android.util.ArrayMap;
 import android.util.Log;
-import android.util.Pair;
-import android.view.WindowManager;
-import com.baidu.live.adp.widget.HorizontalTranslateLayout;
-import com.baidu.live.adp.widget.VerticalTranslateLayout;
-import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.aq.ab;
-import com.baidu.swan.apps.aq.ai;
-import com.baidu.swan.apps.aq.al;
-import com.baidu.swan.apps.aq.x;
-import com.baidu.swan.apps.v.f;
-import com.baidu.webkit.sdk.PermissionRequest;
-import java.util.Iterator;
+import com.baidu.mobstat.Config;
+import com.baidu.swan.apps.adaptation.a.q;
+import com.baidu.swan.apps.ap.ab;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.swan.apps.storage.PathType;
+import com.baidu.tbadk.TbConfig;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c extends com.baidu.swan.apps.api.a.d {
-    private JSONObject bSt;
-
     public c(@NonNull com.baidu.swan.apps.api.a.b bVar) {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b Wo() {
+    public com.baidu.swan.apps.api.c.b kg(String str) {
         if (DEBUG) {
-            Log.d("Api-SystemInfo", "start get system info");
+            Log.d("PreviewImageApi", "params = " + str);
         }
-        JSONObject br = br(getContext());
-        return br == null ? new com.baidu.swan.apps.api.c.b(202, "empty joData") : new com.baidu.swan.apps.api.c.b(0, br);
-    }
-
-    public com.baidu.swan.apps.api.c.b Wp() {
-        if (DEBUG) {
-            Log.d("Api-SystemInfo", "start get system info sync");
-        }
-        JSONObject br = br(getContext());
-        return br == null ? new com.baidu.swan.apps.api.c.b(202, "empty joData") : new com.baidu.swan.apps.api.c.b(0, br);
-    }
-
-    private JSONObject bq(Context context) {
-        JSONObject bv;
-        if (com.baidu.swan.apps.t.a.ahm().ST()) {
-            bv = d.bu(context);
+        if (abL()) {
+            com.baidu.swan.apps.console.c.e("PreviewImageApi", "PreviewImageApi does not supported when app is invisible.");
+            return new com.baidu.swan.apps.api.c.b(1001, "PreviewImageApi does not supported when app is invisible.");
+        } else if (TextUtils.isEmpty(str)) {
+            return new com.baidu.swan.apps.api.c.b(202);
         } else {
-            bv = d.bv(context);
-        }
-        if (bv == null) {
-            return null;
-        }
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
-        Pair<Integer, Integer> akd = f.akr().akd();
-        Pair<Integer, Integer> ake = f.akr().ake();
-        try {
-            bv.put("SDKVersion", bs(context));
-            bv.put("windowWidth", (int) (((Integer) akd.first).intValue() / displayMetrics.density));
-            bv.put("windowHeight", (int) (((Integer) akd.second).intValue() / displayMetrics.density));
-            bv.put("screenWidth", ai.F(((Integer) ake.first).intValue()));
-            bv.put("screenHeight", ai.F(((Integer) ake.second).intValue()));
-            ax(bv);
-            k(context, bv);
-            a(context, bv, ake);
-        } catch (JSONException e) {
-            if (DEBUG) {
-                e.printStackTrace();
-            }
-        }
-        if (DEBUG) {
-            Log.i("Api-SystemInfo-aiapp", "getSystemInfo:  " + bv);
-        }
-        return bv;
-    }
-
-    private JSONObject br(Context context) {
-        if (!com.baidu.swan.apps.performance.b.b.aon()) {
-            return bq(context);
-        }
-        if (!Wq()) {
-            this.bSt = null;
-            return bq(context);
-        }
-        if (this.bSt == null) {
-            this.bSt = bq(context);
-        }
-        if (DEBUG) {
-            Log.d("Api-SystemInfo", "in start process, getSysInfo hit cache");
-        }
-        JSONObject jSONObject = new JSONObject();
-        aw(jSONObject);
-        return jSONObject;
-    }
-
-    private boolean Wq() {
-        return com.baidu.swan.apps.performance.a.f.aoh().aol();
-    }
-
-    private void aw(@NonNull JSONObject jSONObject) {
-        if (this.bSt != null && this.bSt.length() > 0) {
             try {
-                Iterator<String> keys = this.bSt.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    jSONObject.put(next, this.bSt.get(next));
+                JSONObject jSONObject = new JSONObject(str);
+                if (jSONObject.optBoolean("only_support_wifi") && !SwanAppNetworkUtils.isWifiNetworkConnected(getContext())) {
+                    return new com.baidu.swan.apps.api.c.b(403);
                 }
-            } catch (Exception e) {
+                String optString = jSONObject.optString("source", "unitedscheme");
+                String optString2 = jSONObject.optString("type", "0");
+                JSONArray optJSONArray = jSONObject.optJSONArray("urls");
+                if (optJSONArray == null || optJSONArray.length() == 0) {
+                    return new com.baidu.swan.apps.api.c.b(202);
+                }
+                JSONArray optJSONArray2 = jSONObject.optJSONArray(TbConfig.IMAGE_CACHE_DIR_NAME);
+                if (optJSONArray2 != null) {
+                    t(optJSONArray2);
+                    jSONObject.put(TbConfig.IMAGE_CACHE_DIR_NAME, optJSONArray2);
+                } else {
+                    JSONArray jSONArray = new JSONArray();
+                    int length = optJSONArray.length();
+                    for (int i = 0; i < length; i++) {
+                        JSONObject jSONObject2 = new JSONObject();
+                        String optString3 = optJSONArray.optString(i);
+                        jSONObject2.put("url", optString3);
+                        String aEV = ab.aEV();
+                        if (ab.sC(optString3) && !TextUtils.isEmpty(aEV)) {
+                            jSONObject2.put(Config.LAUNCH_REFERER, aEV);
+                        }
+                        String akq = com.baidu.swan.apps.core.turbo.d.ajS().akq();
+                        if (DEBUG) {
+                            Log.d("PreviewImageApi", "userAgent: " + akq);
+                        }
+                        if (!TextUtils.isEmpty(akq)) {
+                            jSONObject2.put("user_agent", akq);
+                        }
+                        jSONArray.put(jSONObject2);
+                    }
+                    jSONObject.put(TbConfig.IMAGE_CACHE_DIR_NAME, jSONArray);
+                }
+                if (TextUtils.equals(optString, "swan")) {
+                    optJSONArray = s(optJSONArray);
+                }
+                jSONObject.put("url", optJSONArray);
+                jSONObject.put("type", optString2);
+                int a = a(jSONObject, optJSONArray);
+                if (a < 0 || a >= optJSONArray.length()) {
+                    return new com.baidu.swan.apps.api.c.b(202);
+                }
+                jSONObject.put("index", String.valueOf(a));
+                ArrayMap<String, String> arrayMap = new ArrayMap<>();
+                JSONArray optJSONArray3 = jSONObject.optJSONArray(TbConfig.IMAGE_CACHE_DIR_NAME);
+                JSONArray optJSONArray4 = jSONObject.optJSONArray("urls");
+                JSONArray optJSONArray5 = jSONObject.optJSONArray("url");
+                a(arrayMap, optJSONArray3, TbConfig.IMAGE_CACHE_DIR_NAME);
+                a(arrayMap, optJSONArray4, "urls");
+                a(arrayMap, optJSONArray5, "url");
+                if (arrayMap.keySet().size() > 0) {
+                    a(jSONObject, arrayMap, optJSONArray3, optJSONArray4, optJSONArray5);
+                } else {
+                    com.baidu.swan.apps.t.a.aoX().j(getContext(), jSONObject);
+                }
+                return new com.baidu.swan.apps.api.c.b(0);
+            } catch (JSONException e) {
+                if (DEBUG) {
+                    e.printStackTrace();
+                }
+                return new com.baidu.swan.apps.api.c.b(202);
             }
         }
     }
 
-    private static String bs(Context context) {
-        int i = 0;
-        if (context instanceof SwanAppActivity) {
-            i = ((SwanAppActivity) context).RU();
-        }
-        if (i == 1) {
-            return com.baidu.swan.apps.swancore.b.a(com.baidu.swan.games.j.a.aEO().adQ(), i);
-        }
-        return com.baidu.swan.apps.swancore.b.a(com.baidu.swan.apps.core.turbo.d.adw().adQ(), i);
-    }
-
-    public static void ax(@NonNull JSONObject jSONObject) throws JSONException {
-        com.baidu.swan.apps.runtime.e arv = com.baidu.swan.apps.runtime.e.arv();
-        if (arv != null && arv.arH().pc("mapp_location")) {
-            com.baidu.swan.apps.t.b.d ahB = com.baidu.swan.apps.t.a.ahB();
-            com.baidu.swan.apps.scheme.actions.f.b aiD = ahB == null ? null : ahB.aiD();
-            if (aiD != null) {
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("city", aiD.city);
-                jSONObject2.put("cityCode", aiD.cityCode);
-                jSONObject2.put("country", aiD.country);
-                jSONObject2.put("district", aiD.district);
-                jSONObject2.put("province", aiD.province);
-                jSONObject2.put("street", aiD.street);
-                jSONObject2.put("streetNumber", aiD.streetNumber);
-                jSONObject2.put("coord_gcj02", a(aiD, "gcj02"));
-                jSONObject2.put("coord_wgs84", a(aiD, CoordinateType.WGS84));
-                jSONObject.put("cacheLocation", jSONObject2);
+    private void a(final JSONObject jSONObject, final ArrayMap<String, String> arrayMap, final JSONArray jSONArray, final JSONArray jSONArray2, final JSONArray jSONArray3) {
+        if (jSONObject != null && arrayMap != null && arrayMap.keySet().size() > 0) {
+            JSONArray jSONArray4 = new JSONArray();
+            for (String str : arrayMap.values()) {
+                jSONArray4.put(str);
+            }
+            q apc = com.baidu.swan.apps.t.a.apc();
+            if (apc != null) {
+                apc.a(getContext(), jSONArray4, new com.baidu.swan.apps.ap.e.b<String>() { // from class: com.baidu.swan.apps.api.module.l.c.1
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // com.baidu.swan.apps.ap.e.b
+                    /* renamed from: onCallback */
+                    public void I(String str2) {
+                        if (!TextUtils.isEmpty(str2)) {
+                            JSONArray jSONArray5 = null;
+                            try {
+                                jSONArray5 = new JSONArray(str2);
+                            } catch (JSONException e) {
+                                if (com.baidu.swan.apps.api.a.d.DEBUG) {
+                                    e.printStackTrace();
+                                }
+                            }
+                            if (jSONArray5 != null && jSONArray5.length() > 0) {
+                                for (int i = 0; i < jSONArray5.length(); i++) {
+                                    JSONObject optJSONObject = jSONArray5.optJSONObject(i);
+                                    String optString = optJSONObject.optString("fileID");
+                                    String optString2 = optJSONObject.optString("tempFileURL");
+                                    if (optJSONObject.optString("status").equals("0") && !TextUtils.isEmpty(optString2)) {
+                                        arrayMap.put(optString, optString2);
+                                    }
+                                }
+                                c.this.b(arrayMap, jSONArray, TbConfig.IMAGE_CACHE_DIR_NAME);
+                                c.this.b(arrayMap, jSONArray2, "urls");
+                                c.this.b(arrayMap, jSONArray3, "url");
+                                try {
+                                    jSONObject.put(TbConfig.IMAGE_CACHE_DIR_NAME, jSONArray);
+                                    jSONObject.put("urls", jSONArray2);
+                                    jSONObject.put("url", jSONArray3);
+                                } catch (JSONException e2) {
+                                    if (com.baidu.swan.apps.api.a.d.DEBUG) {
+                                        e2.printStackTrace();
+                                    }
+                                }
+                                com.baidu.swan.apps.t.a.aoX().j(c.this.getContext(), jSONObject);
+                            }
+                        }
+                    }
+                });
             }
         }
     }
 
-    private static JSONObject a(@NonNull com.baidu.swan.apps.scheme.actions.f.b bVar, @NonNull String str) throws JSONException {
-        JSONObject jSONObject = new JSONObject();
-        double[] b = com.baidu.swan.apps.t.a.ahB().b(bVar, str);
-        if (b != null && b.length >= 2) {
-            jSONObject.put("longitude", b[0]);
-            jSONObject.put("latitude", b[1]);
+    private void a(ArrayMap<String, String> arrayMap, JSONArray jSONArray, String str) {
+        if (jSONArray != null && jSONArray.length() > 0) {
+            for (int i = 0; i < jSONArray.length(); i++) {
+                String a = a(jSONArray, str, i);
+                if (!TextUtils.isEmpty(a) && com.baidu.swan.apps.storage.b.rJ(a) == PathType.CLOUD) {
+                    arrayMap.put(a, a);
+                }
+            }
         }
-        return jSONObject;
     }
 
-    private void k(@NonNull Context context, @NonNull JSONObject jSONObject) throws JSONException {
-        jSONObject.put("cameraAuthorized", x.Z(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE));
-        jSONObject.put("locationAuthorized", x.Z(context, "android.permission.ACCESS_FINE_LOCATION"));
-        jSONObject.put("microphoneAuthorized", x.Z(context, PermissionRequest.RESOURCE_AUDIO_CAPTURE));
-        jSONObject.put("notificationAuthorized", al.cF(context));
-        jSONObject.put("locationEnabled", al.cG(context));
-        jSONObject.put("wifiEnabled", al.cH(context));
-    }
-
-    private void a(@NonNull Context context, @NonNull JSONObject jSONObject, @NonNull Pair<Integer, Integer> pair) throws JSONException {
-        int F = ai.F(ab.cx(context));
-        int F2 = ai.F(((Integer) pair.first).intValue());
-        int F3 = ai.F(((Integer) pair.second).intValue());
-        JSONObject jSONObject2 = new JSONObject();
-        jSONObject2.put("left", 0);
-        jSONObject2.put(HorizontalTranslateLayout.DIRECTION_RIGHT, F2);
-        jSONObject2.put(VerticalTranslateLayout.TOP, F);
-        jSONObject2.put("width", F2);
-        jSONObject2.put(VerticalTranslateLayout.BOTTOM, F3);
-        jSONObject2.put("height", F3 - F);
-        jSONObject.put("safeArea", jSONObject2);
-    }
-
-    public com.baidu.swan.apps.api.c.b Wr() {
-        if (DEBUG) {
-            Log.d("Api-SystemInfo", "start get common sys info sync");
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(ArrayMap<String, String> arrayMap, JSONArray jSONArray, String str) {
+        if (arrayMap != null && jSONArray != null && jSONArray.length() > 0) {
+            for (int i = 0; i < jSONArray.length(); i++) {
+                String str2 = arrayMap.get(a(jSONArray, str, i));
+                if (!TextUtils.isEmpty(str2)) {
+                    try {
+                        if (str.equals(TbConfig.IMAGE_CACHE_DIR_NAME)) {
+                            jSONArray.optJSONObject(i).put("url", str2);
+                        } else {
+                            jSONArray.put(i, str2);
+                        }
+                    } catch (JSONException e) {
+                        if (DEBUG) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
         }
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("imei", al.axd());
-            return new com.baidu.swan.apps.api.c.b(0, jSONObject);
-        } catch (JSONException e) {
-            return new com.baidu.swan.apps.api.c.b(1001, "exec fail");
+    }
+
+    private String a(JSONArray jSONArray, String str, int i) {
+        if (str.equals(TbConfig.IMAGE_CACHE_DIR_NAME)) {
+            return jSONArray.optJSONObject(i).optString("url");
+        }
+        return jSONArray.optString(i);
+    }
+
+    private int a(@NonNull JSONObject jSONObject, @NonNull JSONArray jSONArray) throws JSONException {
+        int optInt = jSONObject.optInt("current", -1);
+        if (optInt < 0) {
+            String optString = jSONObject.optString("current");
+            if (TextUtils.isEmpty(optString)) {
+                return 0;
+            }
+            int length = jSONArray.length();
+            for (int i = 0; i < length; i++) {
+                if (TextUtils.equals(optString, jSONArray.getString(i))) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+        return optInt;
+    }
+
+    private JSONArray s(JSONArray jSONArray) {
+        com.baidu.swan.apps.runtime.e azI;
+        int length = jSONArray.length();
+        if (jSONArray != null && length > 0 && (azI = com.baidu.swan.apps.runtime.e.azI()) != null && !TextUtils.isEmpty(azI.id) && !TextUtils.isEmpty(azI.getVersion())) {
+            for (int i = 0; i < length; i++) {
+                try {
+                    String optString = jSONArray.optString(i);
+                    PathType rJ = com.baidu.swan.apps.storage.b.rJ(optString);
+                    if (rJ == PathType.BD_FILE) {
+                        optString = com.baidu.swan.apps.storage.b.cn(optString, azI.id);
+                    } else if (rJ == PathType.RELATIVE) {
+                        optString = com.baidu.swan.apps.storage.b.a(optString, azI, azI.getVersion());
+                    }
+                    if (!TextUtils.isEmpty(optString)) {
+                        jSONArray.put(i, optString);
+                        if (DEBUG) {
+                            Log.e("PreviewImageApi", "convert swan path success：" + optString);
+                        }
+                    }
+                } catch (JSONException e) {
+                    if (DEBUG) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+        return jSONArray;
+    }
+
+    private void t(JSONArray jSONArray) {
+        int length = jSONArray.length();
+        for (int i = 0; i < length; i++) {
+            try {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    String optString = optJSONObject.optString("url");
+                    String aEV = ab.aEV();
+                    if (ab.sC(optString) && !TextUtils.isEmpty(aEV)) {
+                        optJSONObject.put(Config.LAUNCH_REFERER, aEV);
+                    }
+                    String akq = com.baidu.swan.apps.core.turbo.d.ajS().akq();
+                    if (DEBUG) {
+                        Log.d("PreviewImageApi", "userAgent: " + akq);
+                    }
+                    if (!TextUtils.isEmpty(akq)) {
+                        optJSONObject.put("user_agent", akq);
+                    }
+                }
+            } catch (JSONException e) {
+                if (DEBUG) {
+                    e.printStackTrace();
+                    return;
+                }
+                return;
+            }
         }
     }
 }

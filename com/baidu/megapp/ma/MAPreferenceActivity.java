@@ -3,7 +3,7 @@ package com.baidu.megapp.ma;
 import android.app.Activity;
 import android.content.Context;
 import android.preference.PreferenceActivity;
-/* loaded from: classes9.dex */
+/* loaded from: classes20.dex */
 public abstract class MAPreferenceActivity extends PreferenceActivity {
     public Activity getActivity() {
         return this;

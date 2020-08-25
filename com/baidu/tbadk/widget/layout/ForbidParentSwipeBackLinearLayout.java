@@ -6,7 +6,7 @@ import android.view.MotionEvent;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ForbidParentSwipeBackLinearLayout extends LinearLayout {
     public ForbidParentSwipeBackLinearLayout(Context context) {
         super(context);

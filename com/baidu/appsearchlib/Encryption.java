@@ -1,12 +1,12 @@
 package com.baidu.appsearchlib;
 
 import android.util.Base64;
-import com.baidu.sapi2.utils.h;
+import com.baidu.sapi2.utils.e;
 import java.io.UnsupportedEncodingException;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Encryption {
     private static SecretKeySpec createKey(String str) {
         byte[] bArr = null;
@@ -26,7 +26,7 @@ public class Encryption {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-        return new SecretKeySpec(bArr, h.q);
+        return new SecretKeySpec(bArr, e.q);
     }
 
     public static String desEncrypt(String str) throws Exception {

@@ -1,11 +1,10 @@
 package com.baidu.mapapi.favorite;
 
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.mapapi.model.inner.Point;
 import com.baidu.mapsdkplatform.comapi.favrite.FavSyncPoi;
-import com.baidu.mobstat.Config;
+import com.baidu.platform.comapi.basestruct.Point;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static FavoritePoiInfo a(FavSyncPoi favSyncPoi) {
@@ -31,7 +30,7 @@ class a {
         FavoritePoiInfo favoritePoiInfo = new FavoritePoiInfo();
         JSONObject optJSONObject = jSONObject.optJSONObject("pt");
         if (optJSONObject != null) {
-            favoritePoiInfo.c = new LatLng(optJSONObject.optInt("y") / 1000000.0d, optJSONObject.optInt(Config.EVENT_HEAT_X) / 1000000.0d);
+            favoritePoiInfo.c = new LatLng(optJSONObject.optInt("y") / 1000000.0d, optJSONObject.optInt("x") / 1000000.0d);
         }
         favoritePoiInfo.b = jSONObject.optString("uspoiname");
         favoritePoiInfo.g = Long.parseLong(jSONObject.optString("addtimesec"));

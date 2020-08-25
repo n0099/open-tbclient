@@ -12,27 +12,27 @@ import android.widget.TextView;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class b extends com.baidu.tieba.ala.liveroom.a {
-    private int ags;
-    private TextView eEV;
-    private boolean fCW;
-    private ObjectAnimator grg;
-    private int grh;
+    private int ahA;
+    private TextView ePw;
+    private boolean fOn;
+    private ObjectAnimator gEa;
+    private int gEb;
     private Context mContext;
     private View mRootView;
 
     public b(TbPageContext tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext);
-        this.grh = 4000;
-        this.fCW = true;
+        this.gEb = 4000;
+        this.fOn = true;
         this.mContext = tbPageContext.getPageActivity();
         this.mRootView = LayoutInflater.from(this.mContext).inflate(a.h.ala_liveroom_translate_view, (ViewGroup) null);
-        this.eEV = (TextView) this.mRootView.findViewById(a.g.translate_content);
-        ax(viewGroup);
+        this.ePw = (TextView) this.mRootView.findViewById(a.g.translate_content);
+        ay(viewGroup);
     }
 
-    public void ax(ViewGroup viewGroup) {
+    public void ay(ViewGroup viewGroup) {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, this.mContext.getResources().getDimensionPixelOffset(a.e.sdk_ds56));
         layoutParams.addRule(3, a.g.guard_club_entry_id);
         layoutParams.topMargin = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds20);
@@ -40,36 +40,36 @@ public class b extends com.baidu.tieba.ala.liveroom.a {
         this.mRootView.setVisibility(8);
     }
 
-    public void aC(String str, int i) {
+    public void aF(String str, int i) {
         if (!TextUtils.isEmpty(str)) {
             if (i > 0) {
-                this.grh = i;
+                this.gEb = i;
             }
-            if (this.fCW) {
+            if (this.fOn) {
                 this.mRootView.setVisibility(0);
             }
-            this.eEV.setText(str);
-            bKB();
+            this.ePw.setText(str);
+            bUE();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
     public void onDestroy() {
-        if (this.grg != null) {
-            this.grg.cancel();
-            this.grg = null;
+        if (this.gEa != null) {
+            this.gEa.cancel();
+            this.gEa = null;
         }
     }
 
-    private void bKB() {
-        this.ags = BdUtilHelper.getScreenSize((Activity) this.mContext).widthPixels;
-        this.grg = ObjectAnimator.ofFloat(this.mRootView, "TranslationX", this.ags, -this.ags);
-        this.grg.setDuration(this.grh);
-        this.grg.start();
+    private void bUE() {
+        this.ahA = BdUtilHelper.getScreenSize((Activity) this.mContext).widthPixels;
+        this.gEa = ObjectAnimator.ofFloat(this.mRootView, "TranslationX", this.ahA, -this.ahA);
+        this.gEa.setDuration(this.gEb);
+        this.gEa.start();
     }
 
     public void setCanVisible(boolean z) {
-        this.fCW = z;
+        this.fOn = z;
     }
 
     public void setVisible(int i) {

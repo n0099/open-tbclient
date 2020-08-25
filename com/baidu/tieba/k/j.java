@@ -17,221 +17,221 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes17.dex */
 public class j implements i {
-    private String ajJ;
-    private int bGB;
-    private String jRT;
-    private int jRU;
-    private int jRV;
-    private long jSb;
-    private long jSc;
-    private long jSd;
-    private boolean jSf;
-    private boolean jSj;
-    private String jSk;
-    private List<b> jSl;
-    private int jSm;
-    private long jSn;
-    private long jSo;
-    private long jSp;
+    private String akY;
+    private int bMb;
+    private int dXD;
+    private boolean khA;
+    private boolean khE;
+    private String khF;
+    private List<b> khG;
+    private int khH;
+    private long khI;
+    private long khJ;
+    private long khK;
+    private String khp;
+    private int khq;
+    private long khw;
+    private long khx;
+    private long khy;
     private int mError;
     private String mSource;
     private String mVideoUrl;
-    private boolean jSg = true;
-    private boolean jSh = false;
-    private boolean jSi = false;
-    private boolean jSq = false;
-    private boolean jSr = false;
+    private boolean khB = true;
+    private boolean khC = false;
+    private boolean khD = false;
+    private boolean khL = false;
+    private boolean khM = false;
     private String mUuid = UUID.randomUUID().toString();
-    private Map<String, Long> jRX = new HashMap();
-    private List<com.baidu.tieba.n.b> jRW = new ArrayList();
-    private long jRY = 0;
-    private long jRZ = 0;
-    private long jSa = 0;
-    private ArrayList<Integer> jSe = new ArrayList<>();
+    private Map<String, Long> khs = new HashMap();
+    private List<com.baidu.tieba.n.b> khr = new ArrayList();
+    private long kht = 0;
+    private long khu = 0;
+    private long khv = 0;
+    private ArrayList<Integer> khz = new ArrayList<>();
 
     public j(String str, String str2, String str3) {
-        this.bGB = 0;
-        this.bGB = 0;
-        this.ajJ = str;
+        this.bMb = 0;
+        this.bMb = 0;
+        this.akY = str;
         this.mVideoUrl = str2;
-        this.jRT = str3;
-        cGz();
+        this.khp = str3;
+        cRo();
     }
 
     @Override // com.baidu.tieba.k.i
-    public void cGr() {
-        this.jRY = System.currentTimeMillis();
-        this.jRW.add(new com.baidu.tieba.n.a(3));
-        this.bGB = 0;
+    public void cRg() {
+        this.kht = System.currentTimeMillis();
+        this.khr.add(new com.baidu.tieba.n.a(3));
+        this.bMb = 0;
     }
 
     @Override // com.baidu.tieba.k.i
-    public void ro(boolean z) {
-        this.jSf = z;
-        this.jRW.add(new com.baidu.tieba.n.a(1));
-        this.bGB = 1;
+    public void rU(boolean z) {
+        this.khA = z;
+        this.khr.add(new com.baidu.tieba.n.a(1));
+        this.bMb = 1;
     }
 
     @Override // com.baidu.tieba.k.i
-    public void ae(boolean z, boolean z2) {
-        this.jSq = z;
-        this.jSr = z2;
+    public void ai(boolean z, boolean z2) {
+        this.khL = z;
+        this.khM = z2;
     }
 
     @Override // com.baidu.tieba.k.i
-    public void AL(int i) {
-        if (this.bGB != 4 && this.bGB != 5 && this.bGB != 7 && this.bGB != 8) {
-            this.jRU = i;
-            this.jSg = true;
-            long currentTimeMillis = System.currentTimeMillis() - this.jRY;
+    public void De(int i) {
+        if (this.bMb != 4 && this.bMb != 5 && this.bMb != 7 && this.bMb != 8) {
+            this.khq = i;
+            this.khB = true;
+            long currentTimeMillis = System.currentTimeMillis() - this.kht;
             if (currentTimeMillis > 86400000) {
                 currentTimeMillis = 10000;
             }
-            this.jRX.put("loadingTime", Long.valueOf(currentTimeMillis));
-            this.jRY = 0L;
-            this.jRW.add(new com.baidu.tieba.n.a(102));
-            this.bGB = 3;
+            this.khs.put("loadingTime", Long.valueOf(currentTimeMillis));
+            this.kht = 0L;
+            this.khr.add(new com.baidu.tieba.n.a(102));
+            this.bMb = 3;
         }
     }
 
     @Override // com.baidu.tieba.k.i
-    public void AM(int i) {
-        if (this.bGB != 4 && this.bGB != 5 && this.bGB != 7 && this.bGB != 8) {
-            this.jRU = i;
-            this.jSg = true;
-            this.jSh = true;
-            this.jRX.put("loadingTime", 1L);
-            this.jRY = 0L;
-            this.jRW.add(new com.baidu.tieba.n.a(103));
-            this.bGB = 3;
+    public void Df(int i) {
+        if (this.bMb != 4 && this.bMb != 5 && this.bMb != 7 && this.bMb != 8) {
+            this.khq = i;
+            this.khB = true;
+            this.khC = true;
+            this.khs.put("loadingTime", 1L);
+            this.kht = 0L;
+            this.khr.add(new com.baidu.tieba.n.a(103));
+            this.bMb = 3;
         }
     }
 
     @Override // com.baidu.tieba.k.i
-    public void AN(int i) {
-        if (this.bGB == 5) {
-            cGt();
-        } else if (this.bGB == 3) {
-            this.jRU = i;
-            this.jRZ = System.currentTimeMillis();
-            this.jRW.add(new com.baidu.tieba.n.a(200));
-            this.bGB = 4;
+    public void Dg(int i) {
+        if (this.bMb == 5) {
+            cRi();
+        } else if (this.bMb == 3) {
+            this.khq = i;
+            this.khu = System.currentTimeMillis();
+            this.khr.add(new com.baidu.tieba.n.a(200));
+            this.bMb = 4;
         }
     }
 
     @Override // com.baidu.tieba.k.i
     public void t(long j, int i) {
-        this.jSb++;
-        this.jSc += j;
-        this.jSe.add(Integer.valueOf(i));
+        this.khw++;
+        this.khx += j;
+        this.khz.add(Integer.valueOf(i));
     }
 
     @Override // com.baidu.tieba.k.i
-    public void cGs() {
-        if (this.bGB == 4 || this.bGB == 3) {
-            if (this.jRZ != 0) {
+    public void cRh() {
+        if (this.bMb == 4 || this.bMb == 3) {
+            if (this.khu != 0) {
                 long currentTimeMillis = System.currentTimeMillis();
-                this.jSa = (currentTimeMillis - this.jRZ) + this.jSa;
-                this.jRZ = 0L;
+                this.khv = (currentTimeMillis - this.khu) + this.khv;
+                this.khu = 0L;
             }
-            this.jRW.add(new com.baidu.tieba.n.a(203));
-            this.bGB = 5;
+            this.khr.add(new com.baidu.tieba.n.a(203));
+            this.bMb = 5;
         }
     }
 
-    public void cGt() {
-        if (this.bGB == 5) {
-            this.jRZ = System.currentTimeMillis();
-            this.jRW.add(new com.baidu.tieba.n.a(204));
-            this.bGB = 4;
-        }
-    }
-
-    @Override // com.baidu.tieba.k.i
-    public void JO(String str) {
-        if (this.bGB != 8 && this.bGB != 7 && this.bGB != 6 && this.bGB != -1) {
-            this.mSource = VideoPlatformStatic.AM(str);
-            cGu();
-            this.jRW.add(new com.baidu.tieba.n.a(205));
-            this.bGB = 8;
-            aeU();
+    public void cRi() {
+        if (this.bMb == 5) {
+            this.khu = System.currentTimeMillis();
+            this.khr.add(new com.baidu.tieba.n.a(204));
+            this.bMb = 4;
         }
     }
 
     @Override // com.baidu.tieba.k.i
-    public String JP(String str) {
-        if (this.bGB == 8 || this.bGB == 7 || this.bGB == 6 || this.bGB == -1) {
+    public void MG(String str) {
+        if (this.bMb != 8 && this.bMb != 7 && this.bMb != 6 && this.bMb != -1) {
+            this.mSource = VideoPlatformStatic.Dg(str);
+            cRj();
+            this.khr.add(new com.baidu.tieba.n.a(205));
+            this.bMb = 8;
+            ama();
+        }
+    }
+
+    @Override // com.baidu.tieba.k.i
+    public String MH(String str) {
+        if (this.bMb == 8 || this.bMb == 7 || this.bMb == 6 || this.bMb == -1) {
             return this.mUuid;
         }
-        this.mSource = VideoPlatformStatic.AM(str);
-        cGu();
-        this.jRX.put("stallDuration", Long.valueOf(this.jSc));
-        this.jRW.add(new com.baidu.tieba.n.a(206));
-        this.bGB = 6;
-        aeU();
+        this.mSource = VideoPlatformStatic.Dg(str);
+        cRj();
+        this.khs.put("stallDuration", Long.valueOf(this.khx));
+        this.khr.add(new com.baidu.tieba.n.a(206));
+        this.bMb = 6;
+        ama();
         return this.mUuid;
     }
 
     @Override // com.baidu.tieba.k.i
-    public boolean JQ(String str) {
-        if (this.bGB == 8 || this.bGB == 7 || this.bGB == 6 || this.bGB == -1 || this.bGB == 1) {
+    public boolean MI(String str) {
+        if (this.bMb == 8 || this.bMb == 7 || this.bMb == 6 || this.bMb == -1 || this.bMb == 1) {
             return false;
         }
-        this.mSource = VideoPlatformStatic.AM(str);
-        cGu();
-        this.jRW.add(new com.baidu.tieba.n.a(HttpStatus.SC_MULTI_STATUS));
-        this.bGB = 7;
-        aeU();
+        this.mSource = VideoPlatformStatic.Dg(str);
+        cRj();
+        this.khr.add(new com.baidu.tieba.n.a(HttpStatus.SC_MULTI_STATUS));
+        this.bMb = 7;
+        ama();
         return true;
     }
 
-    private void cGu() {
-        if (this.jRZ != 0) {
-            this.jSa += System.currentTimeMillis() - this.jRZ;
+    private void cRj() {
+        if (this.khu != 0) {
+            this.khv += System.currentTimeMillis() - this.khu;
         }
-        this.jRX.put("playDuration", Long.valueOf(this.jSa));
-        this.jRX.put("stallCount", Long.valueOf(this.jSb));
-        this.jRX.put("stallDuration", Long.valueOf(this.jSc));
-        if (!this.jRX.containsKey("loadingTime")) {
-            this.jRX.put("loadingTime", 0L);
+        this.khs.put("playDuration", Long.valueOf(this.khv));
+        this.khs.put("stallCount", Long.valueOf(this.khw));
+        this.khs.put("stallDuration", Long.valueOf(this.khx));
+        if (!this.khs.containsKey("loadingTime")) {
+            this.khs.put("loadingTime", 0L);
         }
-        this.jRY = 0L;
-        this.jRZ = 0L;
-        this.jSa = 0L;
-        this.jSb = 0L;
-        this.jSc = 0L;
-        this.jSd = 0L;
+        this.kht = 0L;
+        this.khu = 0L;
+        this.khv = 0L;
+        this.khw = 0L;
+        this.khx = 0L;
+        this.khy = 0L;
     }
 
-    public void aeU() {
-        if (!this.jSj) {
-            int reportType = com.baidu.tbadk.coreExtra.model.f.getReportType();
-            if ((com.baidu.tbadk.coreExtra.model.f.bgD() || !this.jSg) && reportType != 3) {
-                this.jSj = true;
+    public void ama() {
+        if (!this.khE) {
+            int reportType = com.baidu.tbadk.coreExtra.model.g.getReportType();
+            if ((com.baidu.tbadk.coreExtra.model.g.bpo() || !this.khB) && reportType != 3) {
+                this.khE = true;
                 new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.k.j.1
                     /* JADX DEBUG: Method merged with bridge method */
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                     public Void doInBackground(Void... voidArr) {
-                        int reportType2 = com.baidu.tbadk.coreExtra.model.f.getReportType();
+                        int reportType2 = com.baidu.tbadk.coreExtra.model.g.getReportType();
                         JSONObject jSONObject = new JSONObject();
                         try {
-                            jSONObject.put("baseInfo", j.this.brz());
-                            jSONObject.put("kpiInfo", j.this.cGv());
-                            if (reportType2 == 0 || (reportType2 == 4 && j.this.jSg)) {
-                                JSONObject cGx = j.this.cGx();
-                                cGx.put("running", j.this.cGy());
-                                jSONObject.put("debugInfo", cGx);
+                            jSONObject.put("baseInfo", j.this.bAw());
+                            jSONObject.put("kpiInfo", j.this.cRk());
+                            if (reportType2 == 0 || (reportType2 == 4 && j.this.khB)) {
+                                JSONObject cRm = j.this.cRm();
+                                cRm.put("running", j.this.cRn());
+                                jSONObject.put("debugInfo", cRm);
                             } else if (reportType2 == 2) {
-                                jSONObject.put("debugInfo", j.this.cGx());
+                                jSONObject.put("debugInfo", j.this.cRm());
                             } else if (reportType2 == 1) {
                             }
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                        com.baidu.tieba.u.e.dpc().g(jSONObject, j.this.jSg ? false : true);
-                        if (j.this.jSl != null) {
-                            j.this.jSl.clear();
+                        com.baidu.tieba.u.e.dAx().g(jSONObject, j.this.khB ? false : true);
+                        if (j.this.khG != null) {
+                            j.this.khG.clear();
                             return null;
                         }
                         return null;
@@ -242,49 +242,49 @@ public class j implements i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONObject brz() {
-        JSONObject brz = VideoPlatformStatic.brz();
-        if (this.jSl != null) {
+    public JSONObject bAw() {
+        JSONObject bAw = VideoPlatformStatic.bAw();
+        if (this.khG != null) {
             try {
-                int size = this.jSl.size();
+                int size = this.khG.size();
                 for (int i = 0; i < size; i++) {
-                    this.jSl.get(i).dI(brz);
+                    this.khG.get(i).dT(bAw);
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
-        return brz;
+        return bAw;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONObject cGv() {
+    public JSONObject cRk() {
         JSONObject jSONObject = new JSONObject();
         try {
-            for (Map.Entry<String, Long> entry : this.jRX.entrySet()) {
+            for (Map.Entry<String, Long> entry : this.khs.entrySet()) {
                 jSONObject.put(entry.getKey(), entry.getValue());
             }
-            if (!this.jRX.containsKey("loadingTime")) {
+            if (!this.khs.containsKey("loadingTime")) {
                 jSONObject.put("loadingTime", 0L);
             }
-            if (!this.jRX.containsKey("playDuration")) {
+            if (!this.khs.containsKey("playDuration")) {
                 jSONObject.put("playDuration", 0L);
             }
-            if (!this.jRX.containsKey("stallCount")) {
+            if (!this.khs.containsKey("stallCount")) {
                 jSONObject.put("stallCount", 0);
             }
-            if (!this.jRX.containsKey("stallDuration")) {
+            if (!this.khs.containsKey("stallDuration")) {
                 jSONObject.put("stallDuration", 0L);
             }
-            jSONObject.put("isCacheHit", this.jSf ? 1 : 0);
-            jSONObject.put("playSuccess", this.jSg ? 1 : 0);
-            jSONObject.put("startPlayTimeInfo", cGw());
-            jSONObject.put("retryError", this.jSi ? 1 : 0);
+            jSONObject.put("isCacheHit", this.khA ? 1 : 0);
+            jSONObject.put("playSuccess", this.khB ? 1 : 0);
+            jSONObject.put("startPlayTimeInfo", cRl());
+            jSONObject.put("retryError", this.khD ? 1 : 0);
             jSONObject.put(BdStatsConstant.StatsType.ERROR, this.mError);
-            if (this.jSl != null) {
-                int size = this.jSl.size();
+            if (this.khG != null) {
+                int size = this.khG.size();
                 for (int i = 0; i < size; i++) {
-                    this.jSl.get(i).dJ(jSONObject);
+                    this.khG.get(i).dU(jSONObject);
                 }
             }
         } catch (Exception e) {
@@ -293,46 +293,46 @@ public class j implements i {
         return jSONObject;
     }
 
-    private JSONObject cGw() {
+    private JSONObject cRl() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("preparedTime", this.jSn);
-            jSONObject.put("startTime", this.jSo);
-            jSONObject.put("totalTime", this.jSp);
+            jSONObject.put("preparedTime", this.khI);
+            jSONObject.put("startTime", this.khJ);
+            jSONObject.put("totalTime", this.khK);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        cGz();
+        cRo();
         return jSONObject;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONObject cGx() {
+    public JSONObject cRm() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("uuid", this.mUuid);
-            if (!StringUtils.isNull(this.jRT)) {
-                jSONObject.put("parentUuid", this.jRT);
+            if (!StringUtils.isNull(this.khp)) {
+                jSONObject.put("parentUuid", this.khp);
             }
-            jSONObject.put("tid", this.ajJ);
+            jSONObject.put("tid", this.akY);
             jSONObject.put("videoUrl", this.mVideoUrl);
             jSONObject.put("source", this.mSource);
-            jSONObject.put("playerType", VideoPlatformStatic.pK(this.jRU));
-            jSONObject.put("urlType", this.jRV);
-            jSONObject.put("sub_error", this.jSm);
+            jSONObject.put("playerType", VideoPlatformStatic.rW(this.khq));
+            jSONObject.put("urlType", this.dXD);
+            jSONObject.put("sub_error", this.khH);
             jSONObject.put("current_pid", Process.myPid());
-            jSONObject.put("directPrepare", this.jSh ? 1 : 0);
+            jSONObject.put("directPrepare", this.khC ? 1 : 0);
             jSONObject.put("testType", TbSingleton.getInstance().getVideoTestType());
-            jSONObject.put("stallTypes", this.jSe);
-            jSONObject.put("pcdn_used", this.jSq ? "1" : "0");
-            jSONObject.put("p2p_used", this.jSr ? "1" : "0");
-            if (!StringUtils.isNull(this.jSk)) {
-                jSONObject.put("error_stack", this.jSk);
+            jSONObject.put("stallTypes", this.khz);
+            jSONObject.put("pcdn_used", this.khL ? "1" : "0");
+            jSONObject.put("p2p_used", this.khM ? "1" : "0");
+            if (!StringUtils.isNull(this.khF)) {
+                jSONObject.put("error_stack", this.khF);
             }
-            if (this.jSl != null) {
-                int size = this.jSl.size();
+            if (this.khG != null) {
+                int size = this.khG.size();
                 for (int i = 0; i < size; i++) {
-                    this.jSl.get(i).dK(jSONObject);
+                    this.khG.get(i).dV(jSONObject);
                 }
             }
         } catch (Exception e) {
@@ -342,28 +342,28 @@ public class j implements i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONArray cGy() {
+    public JSONArray cRn() {
         JSONArray jSONArray = new JSONArray();
-        if (this.jRW == null) {
+        if (this.khr == null) {
             return jSONArray;
         }
-        int size = this.jRW.size();
+        int size = this.khr.size();
         for (int i = 0; i < size; i++) {
-            jSONArray.put(this.jRW.get(i).cZL());
+            jSONArray.put(this.khr.get(i).dkP());
         }
         return jSONArray;
     }
 
     @Override // com.baidu.tieba.k.i
     public void h(long j, long j2, long j3) {
-        this.jSn = j;
-        this.jSo = j2;
-        this.jSp = j3;
+        this.khI = j;
+        this.khJ = j2;
+        this.khK = j3;
     }
 
-    private void cGz() {
-        this.jSn = 0L;
-        this.jSo = 0L;
-        this.jSp = 0L;
+    private void cRo() {
+        this.khI = 0L;
+        this.khJ = 0L;
+        this.khK = 0L;
     }
 }

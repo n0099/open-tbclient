@@ -2,11 +2,13 @@ package com.baidu.live.p;
 
 import android.view.View;
 import com.baidu.live.data.AlaLiveInfoData;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface f {
-    void bZ(boolean z);
-
     void c(AlaLiveInfoData alaLiveInfoData);
 
+    void ch(boolean z);
+
     View getLivePlayer();
+
+    String getVideoPath();
 }

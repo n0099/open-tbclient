@@ -9,14 +9,14 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.special_forum.data.e.fuC);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.special_forum.data.e.fFV);
         this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: Q */
+    /* renamed from: R */
     public c.a b(ViewGroup viewGroup) {
         return new c.a(new com.baidu.tieba.ala.alasquare.special_forum.subtab.a.c(this.mPageContext, viewGroup).getView());
     }

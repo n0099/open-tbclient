@@ -10,24 +10,24 @@ import android.provider.MediaStore;
 import com.baidu.ar.statistic.StatisticConstants;
 import com.baidu.sapi2.shell.listener.IScreenShotListener;
 import com.baidu.sapi2.utils.Log;
-/* loaded from: classes19.dex */
+/* loaded from: classes12.dex */
 public class a {
-    private static final String a = "screen_shot_observer";
-    private static final String[] b = {StatisticConstants.SCREENSHOT, "screen_shot", "screen-shot", "screen shot", "screencapture", "screen_capture", "screen-capture", "screen capture", "screencap", "screen_cap", "screen-cap", "screen cap"};
-    private static final String[] c = {"_data", "datetaken"};
-    private ContentResolver d;
-    private IScreenShotListener e;
-    private HandlerThread f;
-    private Handler g;
-    private C0271a h;
-    private C0271a i;
+    private static final String g = "screen_shot_observer";
+    private static final String[] h = {StatisticConstants.SCREENSHOT, "screen_shot", "screen-shot", "screen shot", "screencapture", "screen_capture", "screen-capture", "screen capture", "screencap", "screen_cap", "screen-cap", "screen cap"};
+    private static final String[] i = {"_data", "datetaken"};
+    private ContentResolver a;
+    private IScreenShotListener b;
+    private HandlerThread c;
+    private Handler d;
+    private C0303a e;
+    private C0303a f;
 
     /* renamed from: com.baidu.sapi2.shell.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes19.dex */
-    private class C0271a extends ContentObserver {
+    /* loaded from: classes12.dex */
+    private class C0303a extends ContentObserver {
         private final Uri a;
 
-        public C0271a(Uri uri, Handler handler) {
+        public C0303a(Uri uri, Handler handler) {
             super(handler);
             this.a = uri;
         }
@@ -40,26 +40,25 @@ public class a {
     }
 
     public void b() {
-        this.d.unregisterContentObserver(this.h);
-        this.d.unregisterContentObserver(this.i);
+        this.a.unregisterContentObserver(this.e);
+        this.a.unregisterContentObserver(this.f);
     }
 
     public void a(ContentResolver contentResolver, IScreenShotListener iScreenShotListener) {
-        this.d = contentResolver;
-        this.e = iScreenShotListener;
-        this.f = new HandlerThread(a);
-        this.f.start();
-        this.g = new Handler(this.f.getLooper());
-        this.h = new C0271a(MediaStore.Images.Media.INTERNAL_CONTENT_URI, this.g);
-        this.i = new C0271a(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, this.g);
+        this.a = contentResolver;
+        this.b = iScreenShotListener;
+        this.c = new HandlerThread(g);
+        this.c.start();
+        this.d = new Handler(this.c.getLooper());
+        this.e = new C0303a(MediaStore.Images.Media.INTERNAL_CONTENT_URI, this.d);
+        this.f = new C0303a(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, this.d);
     }
 
     public void a() {
-        this.d.registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, false, this.h);
-        this.d.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, false, this.i);
+        this.a.registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, false, this.e);
+        this.a.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, false, this.f);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [20=4] */
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Uri uri) {
         Cursor cursor;
@@ -68,7 +67,7 @@ public class a {
         Cursor cursor3;
         try {
             try {
-                cursor2 = this.d.query(uri, c, null, null, "date_added desc limit 1");
+                cursor2 = this.a.query(uri, i, null, null, "date_added desc limit 1");
             } catch (Throwable th) {
                 cursor = cursor3;
                 th = th;
@@ -108,10 +107,9 @@ public class a {
                 return;
             }
         }
-        if (cursor2 == null || cursor2.isClosed()) {
-            return;
+        if (cursor2 != null && !cursor2.isClosed()) {
+            cursor2.close();
         }
-        cursor2.close();
     }
 
     private void a(String str, long j) {
@@ -125,7 +123,7 @@ public class a {
                 Log.e(e);
             }
         }
-        if (!a(str) || (iScreenShotListener = this.e) == null) {
+        if (!a(str) || (iScreenShotListener = this.b) == null) {
             return;
         }
         iScreenShotListener.onScreenShot();
@@ -136,7 +134,7 @@ public class a {
             return false;
         }
         String lowerCase = str.toLowerCase();
-        for (String str2 : b) {
+        for (String str2 : h) {
             if (lowerCase.contains(str2)) {
                 return true;
             }

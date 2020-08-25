@@ -6,7 +6,7 @@ import java.security.KeyFactory;
 import java.security.PrivateKey;
 import java.security.spec.PKCS8EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes12.dex */
+/* loaded from: classes6.dex */
 public final class a {
     public static byte[] decryptByPrivateKey(byte[] bArr, String str) throws Exception {
         byte[] doFinal;

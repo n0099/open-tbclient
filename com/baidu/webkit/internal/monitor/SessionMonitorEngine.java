@@ -24,7 +24,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class SessionMonitorEngine implements INoProGuard {
     private static final boolean DEBUG = false;
     private static final String LOG_TAG = SessionMonitorEngine.class.getSimpleName();
@@ -40,14 +40,14 @@ public class SessionMonitorEngine implements INoProGuard {
     private a sFrameworkBehaviorProvider;
     private WeakReference<IPrototype> sImplement;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public interface IExtraInfoCollector extends INoProGuard {
         JSONObject onPageSessionFinished(WebView webView, String str);
 
         void onPageSessionStarted(WebView webView, String str, boolean z, boolean z2, boolean z3);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public interface IPrototype extends INoProGuard {
         void notifyPageActive(String str, WebView webView, boolean z);
 
@@ -135,7 +135,7 @@ public class SessionMonitorEngine implements INoProGuard {
             }
             return processStaticPublicData.toString();
         } catch (Exception e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
             return PUBLIC_DATA_UNDIFNED;
         }
     }
@@ -287,7 +287,7 @@ public class SessionMonitorEngine implements INoProGuard {
     public void recordFrameworkBehaviorValue(int i, Object obj) {
         a aVar = this.sFrameworkBehaviorProvider;
         if (aVar.a == null) {
-            aVar.a = new a.C0799a(aVar, (byte) 0);
+            aVar.a = new a.C0852a(aVar, (byte) 0);
         }
         if (i == 9) {
             aVar.a.a();
@@ -430,7 +430,7 @@ public class SessionMonitorEngine implements INoProGuard {
     public void startFrameworkBehaviorMonitor() {
         a aVar = this.sFrameworkBehaviorProvider;
         if (aVar.a == null) {
-            aVar.a = new a.C0799a(aVar, (byte) 0);
+            aVar.a = new a.C0852a(aVar, (byte) 0);
         }
         if (aVar.a.c == -1) {
             aVar.a.a();

@@ -1,5 +1,5 @@
 package com.baidu.location;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class Jni {
     private static int a = 0;
     private static int b = 1;
@@ -15,7 +15,7 @@ public class Jni {
     static {
         j = false;
         try {
-            System.loadLibrary("locSDK7b");
+            System.loadLibrary("locSDK8a");
         } catch (UnsatisfiedLinkError e2) {
             e2.printStackTrace();
             j = true;
@@ -165,6 +165,12 @@ public class Jni {
         return str3 + "|tp=4";
     }
 
+    private static native byte[] encrypt(byte[] bArr);
+
+    private static native void f(byte[] bArr, byte[] bArr2);
+
+    private static native String g(byte[] bArr);
+
     public static double getGpsSwiftRadius(float f2, double d2, double d3) {
         if (j) {
             return 0.0d;
@@ -176,7 +182,21 @@ public class Jni {
         }
     }
 
+    public static String getldkaiv() {
+        if (j) {
+            return null;
+        }
+        try {
+            return ldkaiv();
+        } catch (UnsatisfiedLinkError e2) {
+            e2.printStackTrace();
+            return null;
+        }
+    }
+
     private static native double gsr(float f2, double d2, double d3);
+
+    private static native String ldkaiv();
 
     private static native long murmur(String str);
 }

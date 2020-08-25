@@ -2,7 +2,7 @@ package com.meizu.cloud.pushsdk.notification.c;
 
 import android.content.Context;
 import android.content.res.AssetManager;
-/* loaded from: classes5.dex */
+/* loaded from: classes20.dex */
 public class d {
     private static d b;
     private Context a;

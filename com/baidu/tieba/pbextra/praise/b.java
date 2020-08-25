@@ -6,16 +6,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes16.dex */
 public class b {
-    private View kMN;
-    private HeadImageView kMO;
-    private TextView kMP;
-    private TextView kMQ;
-    private ImageView kMR;
+    private View lcD;
+    private HeadImageView lcE;
+    private TextView lcF;
+    private TextView lcG;
+    private ImageView lcH;
 
     public static b b(Context context, View view) {
         if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
@@ -25,28 +25,28 @@ public class b {
     }
 
     private b(Context context) {
-        this.kMN = null;
-        this.kMO = null;
-        this.kMP = null;
-        this.kMQ = null;
-        this.kMR = null;
-        this.kMN = LayoutInflater.from(context).inflate(R.layout.zan_list_item, (ViewGroup) null);
-        this.kMO = (HeadImageView) this.kMN.findViewById(R.id.zan_list_item_head);
-        this.kMP = (TextView) this.kMN.findViewById(R.id.zan_list_item_name);
-        this.kMQ = (TextView) this.kMN.findViewById(R.id.zan_list_item_time);
-        this.kMR = (ImageView) this.kMN.findViewById(R.id.zan_list_item_line_bottom);
-        this.kMR.setVisibility(0);
-        this.kMN.setTag(this);
+        this.lcD = null;
+        this.lcE = null;
+        this.lcF = null;
+        this.lcG = null;
+        this.lcH = null;
+        this.lcD = LayoutInflater.from(context).inflate(R.layout.zan_list_item, (ViewGroup) null);
+        this.lcE = (HeadImageView) this.lcD.findViewById(R.id.zan_list_item_head);
+        this.lcF = (TextView) this.lcD.findViewById(R.id.zan_list_item_name);
+        this.lcG = (TextView) this.lcD.findViewById(R.id.zan_list_item_time);
+        this.lcH = (ImageView) this.lcD.findViewById(R.id.zan_list_item_line_bottom);
+        this.lcH.setVisibility(0);
+        this.lcD.setTag(this);
     }
 
     public View getView() {
-        return this.kMN;
+        return this.lcD;
     }
 
     public void a(String str, String str2, long j, boolean z) {
-        this.kMP.setText(str);
-        this.kMO.setImageDrawable(null);
-        this.kMQ.setText(as.getFormatTime(j));
-        this.kMO.startLoad(str2, 28, false);
+        this.lcF.setText(str);
+        this.lcE.setImageDrawable(null);
+        this.lcG.setText(at.getFormatTime(j));
+        this.lcE.startLoad(str2, 28, false);
     }
 }

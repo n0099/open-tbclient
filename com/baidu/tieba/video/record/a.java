@@ -5,13 +5,14 @@ import android.content.pm.FeatureInfo;
 import android.content.pm.PackageManager;
 import android.hardware.Camera;
 import android.os.Build;
+import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes17.dex */
 public class a {
-    public static boolean vT(boolean z) {
+    public static boolean wI(boolean z) {
         int numberOfCameras = Camera.getNumberOfCameras();
         Camera.CameraInfo[] cameraInfoArr = new Camera.CameraInfo[numberOfCameras];
         for (int i = 0; i < numberOfCameras; i++) {
@@ -33,7 +34,7 @@ public class a {
         return true;
     }
 
-    public static int vU(boolean z) {
+    public static int wJ(boolean z) {
         int numberOfCameras = Camera.getNumberOfCameras();
         Camera.CameraInfo[] cameraInfoArr = new Camera.CameraInfo[numberOfCameras];
         for (int i = 0; i < numberOfCameras; i++) {
@@ -75,9 +76,9 @@ public class a {
         Camera.getCameraInfo(i, cameraInfo);
         int rotationAngle = getRotationAngle(activity);
         if (cameraInfo.facing == 1) {
-            return (360 - ((cameraInfo.orientation + rotationAngle) % 360)) % 360;
+            return (360 - ((cameraInfo.orientation + rotationAngle) % EncoderTextureDrawer.X264_WIDTH)) % EncoderTextureDrawer.X264_WIDTH;
         }
-        return ((cameraInfo.orientation - rotationAngle) + 360) % 360;
+        return ((cameraInfo.orientation - rotationAngle) + EncoderTextureDrawer.X264_WIDTH) % EncoderTextureDrawer.X264_WIDTH;
     }
 
     public static int getRotationAngle(Activity activity) {
@@ -99,7 +100,7 @@ public class a {
         Camera.Size size;
         boolean z;
         List<Camera.Size> supportedPreviewSizes = camera.getParameters().getSupportedPreviewSizes();
-        Collections.sort(supportedPreviewSizes, new C0767a());
+        Collections.sort(supportedPreviewSizes, new C0819a());
         if (supportedPreviewSizes == null || supportedPreviewSizes.size() <= 0) {
             return null;
         }
@@ -137,8 +138,8 @@ public class a {
 
     /* renamed from: com.baidu.tieba.video.record.a$a  reason: collision with other inner class name */
     /* loaded from: classes17.dex */
-    private static class C0767a implements Comparator<Camera.Size> {
-        private C0767a() {
+    private static class C0819a implements Comparator<Camera.Size> {
+        private C0819a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */

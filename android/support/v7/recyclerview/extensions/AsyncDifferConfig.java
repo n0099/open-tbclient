@@ -7,7 +7,7 @@ import android.support.annotation.RestrictTo;
 import android.support.v7.util.DiffUtil;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-/* loaded from: classes4.dex */
+/* loaded from: classes9.dex */
 public final class AsyncDifferConfig<T> {
     @NonNull
     private final Executor mBackgroundThreadExecutor;
@@ -38,7 +38,7 @@ public final class AsyncDifferConfig<T> {
         return this.mDiffCallback;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes9.dex */
     public static final class Builder<T> {
         private Executor mBackgroundThreadExecutor;
         private final DiffUtil.ItemCallback<T> mDiffCallback;
@@ -64,7 +64,7 @@ public final class AsyncDifferConfig<T> {
             return this;
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes9.dex */
         private static class MainThreadExecutor implements Executor {
             final Handler mHandler;
 

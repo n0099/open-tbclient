@@ -16,33 +16,33 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.widget.ListView.ac;
+import com.baidu.adp.widget.ListView.ae;
 import com.baidu.adp.widget.ListView.l;
 import com.baidu.adp.widget.ListView.n;
-import com.baidu.card.o;
+import com.baidu.card.p;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.a.d;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.bn;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.data.bo;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.h.f;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.concern.a.q;
 /* loaded from: classes16.dex */
-public class ConcernRecommendLayout extends LinearLayout implements o {
-    private RecyclerView hqM;
-    private n hqR;
-    private CustomMessageListener hqT;
-    private q itI;
+public class ConcernRecommendLayout extends LinearLayout implements p {
+    private RecyclerView hDD;
+    private n hDI;
+    private CustomMessageListener hDK;
+    private q iHX;
     private final Context mContext;
     private int mSkinType;
     private int mTitleColorId;
     private TextView mTitleView;
 
     public void setOnItemCoverListener(f<MetaData> fVar) {
-        this.itI.setOnItemCoverListener(fVar);
+        this.iHX.setOnItemCoverListener(fVar);
     }
 
     public ConcernRecommendLayout(Context context) {
@@ -53,18 +53,18 @@ public class ConcernRecommendLayout extends LinearLayout implements o {
         super(context, attributeSet);
         this.mSkinType = 3;
         this.mTitleColorId = R.color.cp_cont_c;
-        this.hqT = new CustomMessageListener(2156674) { // from class: com.baidu.tieba.homepage.concern.view.ConcernRecommendLayout.1
+        this.hDK = new CustomMessageListener(2156674) { // from class: com.baidu.tieba.homepage.concern.view.ConcernRecommendLayout.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
                     if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                        if (ConcernRecommendLayout.this.hqR == null) {
-                            ConcernRecommendLayout.this.hqR = new n(new l());
+                        if (ConcernRecommendLayout.this.hDI == null) {
+                            ConcernRecommendLayout.this.hDI = new n(new l());
                         }
-                        ConcernRecommendLayout.this.hqR.a(ConcernRecommendLayout.this.hqM, 1);
-                    } else if (ConcernRecommendLayout.this.hqR != null) {
-                        ConcernRecommendLayout.this.hqR.pD();
+                        ConcernRecommendLayout.this.hDI.a(ConcernRecommendLayout.this.hDD, 1);
+                    } else if (ConcernRecommendLayout.this.hDI != null) {
+                        ConcernRecommendLayout.this.hDI.rc();
                     }
                 }
             }
@@ -78,57 +78,57 @@ public class ConcernRecommendLayout extends LinearLayout implements o {
         setOrientation(1);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         this.mTitleView = (TextView) findViewById(R.id.title);
-        this.hqM = (RecyclerView) findViewById(R.id.thread_card_list);
-        this.itI = new q(this.mContext);
-        this.hqM.setAdapter(this.itI);
-        this.hqM.setClipChildren(false);
+        this.hDD = (RecyclerView) findViewById(R.id.thread_card_list);
+        this.iHX = new q(this.mContext);
+        this.hDD.setAdapter(this.iHX);
+        this.hDD.setClipChildren(false);
         if (TbSingleton.getInstance().isSlideAnimEnable()) {
-            this.hqR = new n(new l());
-            this.hqR.a(this.hqM, 1);
+            this.hDI = new n(new l());
+            this.hDI.a(this.hDD, 1);
         }
         int dimens = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds21);
         int dimens2 = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds44);
-        this.hqM.setLayoutManager(new LinearLayoutManager(this.mContext, 0, false));
-        this.hqM.setItemAnimator(new DefaultItemAnimator());
-        this.hqM.addItemDecoration(new ac(dimens2, dimens, dimens2));
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.hqM.getLayoutParams();
-        if (d.aRL()) {
+        this.hDD.setLayoutManager(new LinearLayoutManager(this.mContext, 0, false));
+        this.hDD.setItemAnimator(new DefaultItemAnimator());
+        this.hDD.addItemDecoration(new ae(dimens2, dimens, dimens2));
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.hDD.getLayoutParams();
+        if (d.bad()) {
             layoutParams.bottomMargin = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds39);
         } else {
             layoutParams.bottomMargin = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds22);
         }
-        this.hqM.setLayoutParams(layoutParams);
+        this.hDD.setLayoutParams(layoutParams);
     }
 
-    @Override // com.baidu.card.o
+    @Override // com.baidu.card.p
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (i != this.mSkinType) {
-            ao.setViewTextColor(this.mTitleView, this.mTitleColorId);
-            this.itI.onChangeSkinType(i);
+            ap.setViewTextColor(this.mTitleView, this.mTitleColorId);
+            this.iHX.onChangeSkinType(i);
         }
         this.mSkinType = i;
     }
 
-    public void setData(bn bnVar) {
-        if (bnVar == null) {
+    public void setData(bo boVar) {
+        if (boVar == null) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        if (!TextUtils.isEmpty(bnVar.title) && bnVar.dQB != 0) {
+        if (!TextUtils.isEmpty(boVar.title) && boVar.dZU != 0) {
             this.mTitleView.setTextSize(0, com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds37));
-            this.mTitleView.setText(bnVar.title);
+            this.mTitleView.setText(boVar.title);
             this.mTitleView.setTypeface(Typeface.DEFAULT_BOLD);
-            this.mTitleColorId = bnVar.dQB;
+            this.mTitleColorId = boVar.dZU;
         } else {
             this.mTitleView.setTextSize(0, com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds37));
             this.mTitleView.setText(R.string.concern_recommend_title);
             this.mTitleView.setTypeface(Typeface.DEFAULT);
             this.mTitleColorId = R.color.cp_cont_b;
         }
-        this.itI.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        this.itI.setData(bnVar.aVy());
-        this.itI.notifyDataSetChanged();
+        this.iHX.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        this.iHX.setData(boVar.bdR());
+        this.iHX.notifyDataSetChanged();
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -137,16 +137,16 @@ public class ConcernRecommendLayout extends LinearLayout implements o {
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.hqT.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.hqT);
-        this.itI.setPageUniqueId(bdUniqueId);
+        this.hDK.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.hDK);
+        this.iHX.setPageUniqueId(bdUniqueId);
     }
 
     public void setPageContext(TbPageContext tbPageContext) {
-        this.itI.setPageContext(tbPageContext);
+        this.iHX.setPageContext(tbPageContext);
     }
 
     public void setHasBorder(boolean z) {
-        this.itI.setHasBorder(z);
+        this.iHX.setHasBorder(z);
     }
 }

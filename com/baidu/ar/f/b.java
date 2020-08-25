@@ -1,74 +1,67 @@
 package com.baidu.ar.f;
 
-import android.util.Log;
+import android.content.Context;
+import com.baidu.ar.f.a;
 /* loaded from: classes11.dex */
-public final class b {
-    private static int wG = 5;
+public class b {
+    private static b vp;
+    private a vq;
+    private boolean vr = false;
 
-    public static void V(boolean z) {
-        if (z) {
-            wG = 2;
-        } else {
-            wG = 6;
+    private b(Context context) {
+        this.vq = new a(context);
+    }
+
+    public static synchronized b p(Context context) {
+        b bVar;
+        synchronized (b.class) {
+            if (vp == null) {
+                vp = new b(context);
+            }
+            bVar = vp;
+        }
+        return bVar;
+    }
+
+    public void U(boolean z) {
+        if (this.vq != null) {
+            this.vq.U(z);
         }
     }
 
-    public static void aJ(String str) {
-        c("ARLOG", fi() + " " + str);
-    }
-
-    public static void aK(String str) {
-        i("ARLOG", fi() + " " + str);
-    }
-
-    public static void aL(String str) {
-        b("ARLOG", fi() + " " + str);
-    }
-
-    public static void b(String str, String str2) {
-        if (wG > 6) {
-            return;
+    public void b(a.InterfaceC0081a interfaceC0081a) {
+        if (this.vq != null) {
+            this.vq.a(interfaceC0081a);
+            if (this.vr) {
+                return;
+            }
+            try {
+                this.vq.start();
+                this.vr = true;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-        Log.e(str, str2);
     }
 
-    public static void c(String str, String str2) {
-        if (wG > 3) {
-            return;
+    public void destroy() {
+        try {
+            stop();
+        } catch (Throwable th) {
         }
-        Log.d(str, str2);
-    }
-
-    public static String fi() {
-        StackTraceElement stackTraceElement = new Exception().getStackTrace()[2];
-        StringBuffer stringBuffer = new StringBuffer("[");
-        stringBuffer.append(stackTraceElement.getFileName());
-        stringBuffer.append(" | ");
-        stringBuffer.append(stackTraceElement.getLineNumber());
-        stringBuffer.append(" | ");
-        stringBuffer.append(stackTraceElement.getMethodName());
-        stringBuffer.append("]");
-        return stringBuffer.toString();
-    }
-
-    public static void h(String str, String str2) {
-        if (wG > 2) {
-            return;
+        if (this.vq != null) {
+            this.vq = null;
         }
-        Log.v(str, str2);
+        if (vp != null) {
+            vp = null;
+        }
+        this.vr = false;
     }
 
-    public static void i(String str, String str2) {
-        if (wG > 4) {
-            return;
+    public void stop() {
+        if (this.vq != null) {
+            this.vq.stop();
+            this.vr = false;
         }
-        Log.i(str, str2);
-    }
-
-    public static void j(String str, String str2) {
-        if (wG > 5) {
-            return;
-        }
-        Log.w(str, str2);
     }
 }

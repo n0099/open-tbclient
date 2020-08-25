@@ -1,5 +1,7 @@
 package com.baidu.swan.apps.adaptation.a;
-/* loaded from: classes7.dex */
+
+import android.content.Context;
+/* loaded from: classes8.dex */
 public interface ah {
-    void TS();
+    void a(com.baidu.swan.apps.model.c cVar, Context context);
 }

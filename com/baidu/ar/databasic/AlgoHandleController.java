@@ -4,34 +4,33 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
-import com.baidu.ar.arrender.j;
-import com.baidu.ar.f.b;
+import com.baidu.ar.arrender.k;
+import com.baidu.ar.g.b;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class AlgoHandleController {
-    private AlgoHandleAdapter ln;
-    private HandlerThread lr;
-    private a ls;
-    private final List<Long> lo = Collections.synchronizedList(new ArrayList());
-    private boolean lp = true;
-    private int iD = 0;
-    private long lq = 0;
+    private HandlerThread lZ;
+    private a ma;
+    private final List<Long> lW = Collections.synchronizedList(new ArrayList());
+    private boolean lX = true;
+    private int ib = 0;
+    private long lY = 0;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public static final class a extends Handler {
-        private boolean cF;
+        private boolean cx;
 
         public a(Looper looper) {
             super(looper);
-            this.cF = false;
+            this.cx = false;
         }
 
         public void a(int i, Runnable runnable) {
-            if (this.cF) {
+            if (this.cx) {
                 return;
             }
             Message obtain = Message.obtain();
@@ -44,7 +43,7 @@ public class AlgoHandleController {
         public void handleMessage(Message message) {
             super.handleMessage(message);
             if (message.what == 1004) {
-                this.cF = true;
+                this.cx = true;
             }
             Runnable runnable = (Runnable) message.obj;
             if (runnable != null) {
@@ -54,110 +53,98 @@ public class AlgoHandleController {
     }
 
     public AlgoHandleController() {
-        this.ln = null;
-        this.ln = new AlgoHandleAdapter();
-        if (this.lr == null) {
-            this.lr = new HandlerThread("HandleHandlerThread");
-            this.lr.start();
+        if (this.lZ == null) {
+            this.lZ = new HandlerThread("HandleHandlerThread");
+            this.lZ.start();
         }
-        if (this.ls == null) {
-            this.ls = new a(this.lr.getLooper());
+        if (this.ma == null) {
+            this.ma = new a(this.lZ.getLooper());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cB() {
-        this.lp = false;
-        if (this.lo.size() > 0 && this.ln != null) {
+    public void db() {
+        this.lX = false;
+        if (this.lW.size() > 0) {
             try {
-                for (Long l : this.lo) {
+                for (Long l : this.lW) {
                     long longValue = l.longValue();
-                    if (longValue <= 0 || longValue != this.lq) {
-                        AlgoHandleAdapter algoHandleAdapter = this.ln;
+                    if (longValue <= 0 || longValue != this.lY) {
                         AlgoHandleAdapter.destroyHandle(longValue);
                     }
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                b.aL("release Exception:" + e.getMessage());
+                b.aP("release Exception:" + e.getMessage());
             }
         }
-        this.ln = null;
-        if (this.ls != null) {
-            this.ls = null;
+        if (this.ma != null) {
+            this.ma = null;
         }
-        if (this.lr != null) {
-            this.lr.quit();
-            this.lr = null;
+        if (this.lZ != null) {
+            this.lZ.quit();
+            this.lZ = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public int n(long j) {
-        if (this.ln != null) {
-            o(j);
-            AlgoHandleAdapter algoHandleAdapter = this.ln;
-            return AlgoHandleAdapter.destroyHandle(j);
-        }
-        return -1;
+        o(j);
+        return AlgoHandleAdapter.destroyHandle(j);
     }
 
     private void o(long j) {
         try {
-            if (this.lo.contains(Long.valueOf(j))) {
-                int indexOf = this.lo.indexOf(Long.valueOf(j));
+            if (this.lW.contains(Long.valueOf(j))) {
+                int indexOf = this.lW.indexOf(Long.valueOf(j));
                 if (indexOf >= 0) {
-                    this.lo.remove(indexOf);
+                    this.lW.remove(indexOf);
                     if (indexOf >= 1) {
-                        z(indexOf);
+                        w(indexOf);
                     }
                 } else {
-                    b.aL("removeHandle cant find:" + j);
+                    b.aP("removeHandle cant find:" + j);
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
-            b.aL("removeHandle Exception:" + e.getMessage());
+            b.aP("removeHandle Exception:" + e.getMessage());
         }
     }
 
-    private void z(int i) {
+    private void w(int i) {
         if (i > 5) {
-            b.aK("type:" + this.iD + " destroyIgnoreHandles current size:" + i);
+            b.aO("type:" + this.ib + " destroyIgnoreHandles current size:" + i);
             for (int i2 = 0; i2 < i; i2++) {
-                long longValue = this.lo.get(0).longValue();
-                this.lo.remove(0);
-                if (this.ln != null) {
-                    AlgoHandleAdapter algoHandleAdapter = this.ln;
-                    AlgoHandleAdapter.destroyHandle(longValue);
-                }
+                long longValue = this.lW.get(0).longValue();
+                this.lW.remove(0);
+                AlgoHandleAdapter.destroyHandle(longValue);
             }
         }
     }
 
     public long createHandle() {
-        if (this.ln == null || !this.lp) {
-            return 0L;
-        }
-        AlgoHandleAdapter algoHandleAdapter = this.ln;
-        final long createHandle = AlgoHandleAdapter.createHandle();
-        if (this.lr == null || !this.lr.isAlive() || this.ls == null) {
+        if (this.lX) {
+            final long createHandle = AlgoHandleAdapter.createHandle();
+            if (this.lZ == null || !this.lZ.isAlive() || this.ma == null) {
+                return createHandle;
+            }
+            this.ma.a(1001, new Runnable() { // from class: com.baidu.ar.databasic.AlgoHandleController.3
+                @Override // java.lang.Runnable
+                public void run() {
+                    AlgoHandleController.this.lW.add(Long.valueOf(createHandle));
+                }
+            });
             return createHandle;
         }
-        this.ls.a(1001, new Runnable() { // from class: com.baidu.ar.databasic.AlgoHandleController.3
-            @Override // java.lang.Runnable
-            public void run() {
-                AlgoHandleController.this.lo.add(Long.valueOf(createHandle));
-            }
-        });
-        return createHandle;
+        return 0L;
     }
 
     public int destroyHandle(final long j) {
-        if (this.ln == null || this.lr == null || !this.lr.isAlive() || this.ls == null) {
+        if (this.lZ == null || !this.lZ.isAlive() || this.ma == null) {
             return -1;
         }
-        this.ls.a(1003, new Runnable() { // from class: com.baidu.ar.databasic.AlgoHandleController.4
+        this.ma.a(1003, new Runnable() { // from class: com.baidu.ar.databasic.AlgoHandleController.4
             @Override // java.lang.Runnable
             public void run() {
                 AlgoHandleController.this.n(j);
@@ -167,90 +154,62 @@ public class AlgoHandleController {
     }
 
     public byte[] getHandleMaskData(long j) {
-        if (this.ln != null) {
-            AlgoHandleAdapter algoHandleAdapter = this.ln;
-            return AlgoHandleAdapter.getHandleMaskData(j);
-        }
-        return new byte[0];
+        return AlgoHandleAdapter.getHandleMaskData(j);
     }
 
     public int getHandleReserveData(long j, ReserveHandleData reserveHandleData) {
-        if (this.ln != null) {
-            AlgoHandleAdapter algoHandleAdapter = this.ln;
-            return AlgoHandleAdapter.getHandleReserveData(j, reserveHandleData);
-        }
-        return -1;
+        return AlgoHandleAdapter.getHandleReserveData(j, reserveHandleData);
     }
 
     public int getHandleType(long j) {
-        if (this.ln != null) {
-            AlgoHandleAdapter algoHandleAdapter = this.ln;
-            return AlgoHandleAdapter.getHandleType(j);
-        }
-        return 0;
+        return AlgoHandleAdapter.getHandleType(j);
     }
 
     public int increaseHandleReference(long j) {
-        if (this.ln != null) {
-            AlgoHandleAdapter algoHandleAdapter = this.ln;
-            return AlgoHandleAdapter.increaseHandleReference(j);
-        }
-        return -1;
+        return AlgoHandleAdapter.increaseHandleReference(j);
     }
 
     public void release() {
-        this.lp = false;
-        if (this.lr == null || !this.lr.isAlive() || this.ls == null) {
+        this.lX = false;
+        if (this.lZ == null || !this.lZ.isAlive() || this.ma == null) {
             return;
         }
-        this.ls.a(1004, new Runnable() { // from class: com.baidu.ar.databasic.AlgoHandleController.2
+        this.ma.a(1004, new Runnable() { // from class: com.baidu.ar.databasic.AlgoHandleController.2
             @Override // java.lang.Runnable
             public void run() {
-                AlgoHandleController.this.cB();
+                AlgoHandleController.this.db();
             }
         });
     }
 
-    public void sendHandleToRenderer(final long j, final j jVar, final String str) {
-        if (this.lr == null || !this.lr.isAlive() || this.ls == null) {
+    public void sendHandleToRenderer(final long j, final k kVar, final String str) {
+        if (this.lZ == null || !this.lZ.isAlive() || this.ma == null) {
             return;
         }
-        this.ls.a(1002, new Runnable() { // from class: com.baidu.ar.databasic.AlgoHandleController.1
+        this.ma.a(1002, new Runnable() { // from class: com.baidu.ar.databasic.AlgoHandleController.1
             @Override // java.lang.Runnable
             public void run() {
-                if (jVar != null) {
-                    jVar.a(j, str);
+                if (kVar != null) {
+                    kVar.a(j, str);
                 }
             }
         });
     }
 
     public int setHandleFaceHandle(long j, long j2) {
-        if (this.ln != null) {
-            AlgoHandleAdapter algoHandleAdapter = this.ln;
-            return AlgoHandleAdapter.setHandleFaceHandle(j, j2);
-        }
-        return -1;
+        return AlgoHandleAdapter.setHandleFaceHandle(j, j2);
     }
 
     public int setHandleInput(long j, int i, long j2, int i2, int i3, int i4, boolean z, int i5, boolean z2, ByteBuffer byteBuffer) {
-        if (this.ln != null) {
-            this.iD = i;
-            AlgoHandleAdapter algoHandleAdapter = this.ln;
-            return AlgoHandleAdapter.setHandleInput(j, i, j2, i2, i3, i4, z, i5, z2, byteBuffer);
-        }
-        return -1;
+        this.ib = i;
+        return AlgoHandleAdapter.setHandleInput(j, i, j2, i2, i3, i4, z, i5, z2, byteBuffer);
     }
 
     public int setHandleMaskThreshold(long j, float f) {
-        if (this.ln != null) {
-            AlgoHandleAdapter algoHandleAdapter = this.ln;
-            return AlgoHandleAdapter.setHandleMaskThreshold(j, f);
-        }
-        return -1;
+        return AlgoHandleAdapter.setHandleMaskThreshold(j, f);
     }
 
     public void setUsingHandle(long j) {
-        this.lq = j;
+        this.lY = j;
     }
 }

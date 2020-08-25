@@ -3,33 +3,33 @@ package com.baidu.ar.photo;
 import android.graphics.Bitmap;
 import android.text.TextUtils;
 import com.baidu.ar.arplay.core.filter.TakePictureCallback;
-import com.baidu.ar.arrender.j;
-import com.baidu.ar.f.g;
+import com.baidu.ar.arrender.k;
+import com.baidu.ar.g.i;
 import java.io.File;
 /* loaded from: classes11.dex */
 public class a implements TakePictureCallback {
-    private String sj;
-    private PhotoCallback sk;
+    private String sO;
+    private PhotoCallback sP;
 
-    public void a(j jVar, String str, PhotoCallback photoCallback) {
-        if (jVar == null || TextUtils.isEmpty(str) || photoCallback == null) {
+    public void a(k kVar, String str, PhotoCallback photoCallback) {
+        if (kVar == null || TextUtils.isEmpty(str) || photoCallback == null) {
             return;
         }
-        this.sj = str;
-        this.sk = photoCallback;
-        jVar.a(this);
+        this.sO = str;
+        this.sP = photoCallback;
+        kVar.a(this);
     }
 
     @Override // com.baidu.ar.arplay.core.filter.TakePictureCallback
     public void onPictureTake(boolean z, Bitmap bitmap, long j) {
-        if (this.sk == null || TextUtils.isEmpty(this.sj)) {
+        if (this.sP == null || TextUtils.isEmpty(this.sO)) {
             return;
         }
-        g.d(new File(this.sj));
-        g.a(this.sj, bitmap, 100);
+        i.d(new File(this.sO));
+        i.a(this.sO, bitmap, 100);
         if (bitmap != null) {
             bitmap.recycle();
         }
-        this.sk.onPictureTake(z, this.sj);
+        this.sP.onPictureTake(z, this.sO);
     }
 }

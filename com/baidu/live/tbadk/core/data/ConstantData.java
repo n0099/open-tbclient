@@ -1,28 +1,28 @@
 package com.baidu.live.tbadk.core.data;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class ConstantData {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class BookType {
         public static final int TYPE_MANGA = 3;
         public static final int TYPE_NOVEL = 2;
         public static final int TYPE_PUBLICATION = 1;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class Mute {
         public static final int MUTE = 1;
         public static final int UN_MUTE = 0;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class MuteFrom {
         public static final int MANAGER = 1;
         public static final int OPERATE = 0;
         public static final int SUBPB = 2;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class Number {
         public static final int ONE = 1;
         public static final int ZERO = 0;
@@ -31,7 +31,7 @@ public final class ConstantData {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class Account {
         public static final int ACCOUNT_IM_NORMAL = 0;
         public static final int ACCOUNT_IM_OFFICIAL = 1;
@@ -44,7 +44,7 @@ public final class ConstantData {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class Logo {
         public static final String LOGO_AD_APK_PACKAGE_NAME = "apk_name";
         public static final String LOGO_AD_APK_SIZE = "apk_size";
@@ -60,7 +60,7 @@ public final class ConstantData {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class User {
         public static final int FORBID_ADMIN = 1;
         public static final int FORBID_BAWU = 3;
@@ -109,7 +109,7 @@ public final class ConstantData {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class Forum {
         public static final int FOLLOWED = 1;
         public static final int FORUM_TYPE_NORMAL = 0;
@@ -125,7 +125,7 @@ public final class ConstantData {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class ThreadPost {
         public static final int FANS_IS_CALLED = 0;
         public static final int MARKED_NOMAL = 1;
@@ -199,7 +199,7 @@ public final class ConstantData {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class PageState {
         public static final int FIRST_PAGE = 1;
         public static final int HAS_MORE_NO = 0;
@@ -211,7 +211,7 @@ public final class ConstantData {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class PluginType {
         public static final int NORMAL = 0;
 
@@ -219,7 +219,7 @@ public final class ConstantData {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class BooleanInt {
         public static final int FALSE = 0;
         public static final int TRUE = 1;
@@ -228,7 +228,7 @@ public final class ConstantData {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class Personalized {
         public static final int TAG_TYPE_ALA_LIVE = 7;
         public static final int TAG_TYPE_ALA_VIDEO = 4;
@@ -241,7 +241,7 @@ public final class ConstantData {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class Lego {
         public static final int LEGO_BUSINESS_CONTAINER = 0;
         public static final int LEGO_BUSINESS_FRS = 1;
@@ -254,7 +254,7 @@ public final class ConstantData {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class PAGE_NAME {
         public static final int FRS = 1;
         public static final int PB = 2;
@@ -263,7 +263,7 @@ public final class ConstantData {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class VideoLocationType {
         public static final String ACTIVE_LIST = "activelist";
         public static final String CONCERN_TAB = "concern_tab";
@@ -292,7 +292,7 @@ public final class ConstantData {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class VideoProductionType {
         public static final String MIS_CONFIG = "2";
         public static final String RECOMMEND = "1";
@@ -301,7 +301,7 @@ public final class ConstantData {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class VideoChannelState {
         public static final int HAS_ORDER = 1;
         public static final int NOT_ORDER = 2;
@@ -310,7 +310,7 @@ public final class ConstantData {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class PbPageFromType {
         public static final int TYPE_FROM_AT_ME = 13;
         public static final int TYPE_FROM_DEFAULT = 0;
@@ -332,7 +332,7 @@ public final class ConstantData {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class PbForumNameShowSize {
         public static final int MAX_FORUM_LENGTH_FIRST_FLOOR_SOURCES = 7;
         public static final int MAX_FORUM_LENGTH_NAVIGATION_BAR = 7;
@@ -342,7 +342,7 @@ public final class ConstantData {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class PbThreadPraise {
         public static final int AGREE_TYPE_BIG_KENG = 4;
         public static final int AGREE_TYPE_BIG_ZAN = 1;
@@ -359,7 +359,7 @@ public final class ConstantData {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class AlaUser {
         public static final int OFFICIAL_TYPE_PATROLLER = 1;
         public static final int OFFICIAL_TYPE_STAGE = 2;
@@ -368,7 +368,7 @@ public final class ConstantData {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class PrivacySetting {
         public static final int DEFAULT = 0;
         public static final int FRIEND = 2;
@@ -382,7 +382,7 @@ public final class ConstantData {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class ThreadCardShowType {
         public static final int TYPE_DEFAULT = 0;
         public static final int TYPE_ONE = 1;
@@ -392,7 +392,7 @@ public final class ConstantData {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class PhotoLiveCommonData {
         public static final int MAX_CHOOSE_STYLE = 3;
         public static final int MAX_THREAD_EXPRESSION_COUNT = 3;

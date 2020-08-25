@@ -10,7 +10,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URLDecoder;
 import java.util.regex.Pattern;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public final class CheckUtils {
     private static final String a = "CheckUtils";
     private static final int b = 3;

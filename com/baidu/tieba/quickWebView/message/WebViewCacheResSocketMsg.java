@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.GetWebviewCacheInfo.GetWebviewCacheInfoResIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class WebViewCacheResSocketMsg extends TbSocketReponsedMessage {
     private String mCacheDownUrl;
     private String mMd5;

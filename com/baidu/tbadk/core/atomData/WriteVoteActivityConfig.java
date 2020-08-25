@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.Serializable;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class WriteVoteActivityConfig extends IntentConfig {
     public static final String EXTRA_DATA_KEY = "extra_data";
     public static final String EXTRA_TITLE_KEY = "title";

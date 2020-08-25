@@ -1,58 +1,84 @@
 package com.baidu.ar.f;
 
 import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.text.TextUtils;
-import com.baidu.live.tbadk.core.util.TbEnum;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
+import com.baidu.ar.arplay.core.message.ARPMessage;
+import com.baidu.ar.arplay.core.message.ARPMessageType;
+import com.baidu.ar.f.a;
+import com.baidu.ar.statistic.StatisticApi;
+import com.baidu.ar.statistic.StatisticConstants;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes11.dex */
-public class c {
-    private static String wH = "pro";
-    private static String wI = TbEnum.SystemMessage.EVENT_ID_GROUP_NAME_MODIFY;
+public class c implements com.baidu.ar.lua.c {
+    private Context mContext;
+    private a.InterfaceC0081a vs;
 
-    public static String fj() {
-        return wH;
+    public c(Context context) {
+        this.mContext = context.getApplicationContext();
     }
 
-    public static String fk() {
-        return wI;
+    public static void c(float f, float f2, float f3, float f4) {
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("id", 10000);
+        hashMap.put("max_acc", Float.valueOf(f4));
+        ARPMessage.getInstance().sendMessage(ARPMessageType.MSG_TYPE_SDK_LUA_BRIDGE, hashMap);
     }
 
-    public static int getVersionCode() {
-        return 460;
-    }
-
-    public static String getVersionName() {
-        return "4.6.0";
-    }
-
-    public static String q(Context context) {
-        String str = null;
-        if (context == null) {
-            return null;
+    @Override // com.baidu.ar.lua.c
+    public void a(int i, int i2, HashMap<String, Object> hashMap) {
+        if (i != 1901 || hashMap == null) {
+            return;
         }
-        try {
-            PackageManager packageManager = context.getPackageManager();
-            StringBuilder sb = new StringBuilder(context.getApplicationContext().getPackageName());
-            try {
-                PackageInfo packageInfo = packageManager.getPackageInfo(context.getApplicationContext().getPackageName(), 0);
-                if (packageInfo != null) {
-                    String str2 = packageInfo.versionName;
-                    if (!TextUtils.isEmpty(str2)) {
-                        sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
-                        sb.append(str2);
-                        b.aJ("appId = " + sb.toString());
-                    }
-                }
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
+        switch (com.baidu.ar.arplay.c.c.a(hashMap.get("id"), -1)) {
+            case 10001:
+                b.p(this.mContext).b(this.vs);
+                return;
+            case 10002:
+                b.p(this.mContext).stop();
+                return;
+            case 10003:
+            default:
+                return;
+            case 10004:
+                b.p(this.mContext).U(true);
+                return;
+        }
+    }
+
+    public void b(com.baidu.ar.lua.b bVar) {
+        this.vs = new a.InterfaceC0081a() { // from class: com.baidu.ar.f.c.1
+            @Override // com.baidu.ar.f.a.InterfaceC0081a
+            public void b(float f, float f2, float f3, float f4) {
+                com.baidu.ar.g.b.aP("acc  x " + f + " , y : " + f2 + " , z " + f3);
+                StatisticApi.onEvent(StatisticConstants.MODEL_PHONE_SHAKE);
+                c.c(f, f2, f3, f4);
             }
-            str = sb.toString();
-            return str;
-        } catch (NullPointerException e2) {
-            e2.printStackTrace();
-            return str;
+
+            @Override // com.baidu.ar.f.a.InterfaceC0081a
+            public void destroy() {
+            }
+        };
+        bVar.c(this);
+    }
+
+    @Override // com.baidu.ar.lua.c
+    public List<Integer> n() {
+        return Arrays.asList(Integer.valueOf((int) ARPMessageType.MSG_TYPE_LUA_SDK_BRIDGE));
+    }
+
+    public void release() {
+        b.p(this.mContext).destroy();
+        this.vs = null;
+        this.mContext = null;
+    }
+
+    public void reset() {
+        if (this.mContext != null) {
+            try {
+                b.p(this.mContext).stop();
+            } catch (Throwable th) {
+            }
         }
     }
 }

@@ -20,53 +20,53 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.concurrent.Callable;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes20.dex */
+/* loaded from: classes18.dex */
 public class b {
-    private final a FP;
+    private final a Gu;
     private final Context appContext;
     private final String url;
 
     public static m<e> v(Context context, String str) {
-        return new b(context, str).jl();
+        return new b(context, str).kK();
     }
 
     private b(Context context, String str) {
         this.appContext = context.getApplicationContext();
         this.url = str;
-        this.FP = new a(this.appContext, str);
+        this.Gu = new a(this.appContext, str);
     }
 
-    private m<e> jl() {
+    private m<e> kK() {
         return new m<>(new Callable<l<e>>() { // from class: com.airbnb.lottie.network.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
-            /* renamed from: hc */
+            /* renamed from: iD */
             public l<e> call() throws Exception {
-                return b.this.jm();
+                return b.this.kL();
             }
         });
     }
 
     @WorkerThread
-    public l<e> jm() {
-        e jn = jn();
-        if (jn != null) {
-            return new l<>(jn);
+    public l<e> kL() {
+        e kM = kM();
+        if (kM != null) {
+            return new l<>(kM);
         }
         d.debug("Animation for " + this.url + " not found in cache. Fetching from network.");
-        return jo();
+        return kN();
     }
 
     @WorkerThread
     @Nullable
-    private e jn() {
+    private e kM() {
         l<e> c;
-        Pair<FileExtension, InputStream> jk = this.FP.jk();
-        if (jk == null) {
+        Pair<FileExtension, InputStream> kJ = this.Gu.kJ();
+        if (kJ == null) {
             return null;
         }
-        FileExtension fileExtension = jk.first;
-        InputStream inputStream = jk.second;
+        FileExtension fileExtension = kJ.first;
+        InputStream inputStream = kJ.second;
         if (fileExtension == FileExtension.Zip) {
             c = f.a(new ZipInputStream(inputStream), this.url);
         } else {
@@ -79,16 +79,16 @@ public class b {
     }
 
     @WorkerThread
-    private l<e> jo() {
+    private l<e> kN() {
         try {
-            return jp();
+            return kO();
         } catch (IOException e) {
             return new l<>(e);
         }
     }
 
     @WorkerThread
-    private l jp() throws IOException {
+    private l kO() throws IOException {
         FileExtension fileExtension;
         l<e> a;
         d.debug("Fetching " + this.url);
@@ -127,16 +127,16 @@ public class b {
                 case 0:
                     d.debug("Handling zip response.");
                     fileExtension = FileExtension.Zip;
-                    a = f.a(new ZipInputStream(new FileInputStream(this.FP.a(httpURLConnection.getInputStream(), fileExtension))), this.url);
+                    a = f.a(new ZipInputStream(new FileInputStream(this.Gu.a(httpURLConnection.getInputStream(), fileExtension))), this.url);
                     break;
                 default:
                     d.debug("Received json response.");
                     fileExtension = FileExtension.Json;
-                    a = f.c(new FileInputStream(new File(this.FP.a(httpURLConnection.getInputStream(), fileExtension).getAbsolutePath())), this.url);
+                    a = f.c(new FileInputStream(new File(this.Gu.a(httpURLConnection.getInputStream(), fileExtension).getAbsolutePath())), this.url);
                     break;
             }
             if (a.getValue() != null) {
-                this.FP.a(fileExtension);
+                this.Gu.a(fileExtension);
             }
             d.debug("Completed fetch from network. Success: " + (a.getValue() != null));
             return a;

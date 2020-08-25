@@ -10,27 +10,27 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.BaseFragment;
 import com.baidu.tieba.ala.f.a;
 import com.baidu.tieba.ala.message.AlaGetChallengeHistoryListResponseMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaChallengeHistoryListFragment extends BaseFragment {
-    private com.baidu.tieba.ala.f.a fKF;
-    private com.baidu.tieba.ala.d.a fKG;
-    private a.InterfaceC0553a fKH = new a.InterfaceC0553a() { // from class: com.baidu.tieba.ala.fragment.AlaChallengeHistoryListFragment.1
-        @Override // com.baidu.tieba.ala.f.a.InterfaceC0553a
+    private com.baidu.tieba.ala.f.a fWD;
+    private com.baidu.tieba.ala.d.a fWE;
+    private a.InterfaceC0599a fWF = new a.InterfaceC0599a() { // from class: com.baidu.tieba.ala.fragment.AlaChallengeHistoryListFragment.1
+        @Override // com.baidu.tieba.ala.f.a.InterfaceC0599a
         public void a(int i, String str, Object obj) {
             if (i != 0 && !StringUtils.isNull(str)) {
-                if (AlaChallengeHistoryListFragment.this.fKG != null) {
-                    AlaChallengeHistoryListFragment.this.fKG.Dh(AlaChallengeHistoryListFragment.this.getString(a.i.ala_rank_list_net_error));
+                if (AlaChallengeHistoryListFragment.this.fWE != null) {
+                    AlaChallengeHistoryListFragment.this.fWE.FC(AlaChallengeHistoryListFragment.this.getString(a.i.ala_rank_list_net_error));
                 }
             } else if (obj != null && (obj instanceof AlaGetChallengeHistoryListResponseMessage)) {
                 AlaGetChallengeHistoryListResponseMessage alaGetChallengeHistoryListResponseMessage = (AlaGetChallengeHistoryListResponseMessage) obj;
-                AlaChallengeHistoryListFragment.this.fKG.a(alaGetChallengeHistoryListResponseMessage.flH, alaGetChallengeHistoryListResponseMessage.gBv);
+                AlaChallengeHistoryListFragment.this.fWE.a(alaGetChallengeHistoryListResponseMessage.fxd, alaGetChallengeHistoryListResponseMessage.gNS);
             }
         }
     };
-    private boolean fkj;
+    private boolean fvF;
     private String portrait;
 
-    public static AlaChallengeHistoryListFragment i(int i, String str, boolean z) {
+    public static AlaChallengeHistoryListFragment h(int i, String str, boolean z) {
         AlaChallengeHistoryListFragment alaChallengeHistoryListFragment = new AlaChallengeHistoryListFragment();
         Bundle bundle = new Bundle();
         bundle.putString("portrait", str);
@@ -44,15 +44,15 @@ public class AlaChallengeHistoryListFragment extends BaseFragment {
         super.onCreate(bundle);
         Bundle arguments = getArguments();
         this.portrait = arguments.getString("portrait");
-        this.fkj = arguments.getBoolean("is_from_host");
+        this.fvF = arguments.getBoolean("is_from_host");
     }
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.fKG = new com.baidu.tieba.ala.d.a(getPageContext());
-        this.fKF = new com.baidu.tieba.ala.f.a(getPageContext(), this.fKH);
+        this.fWE = new com.baidu.tieba.ala.d.a(getPageContext());
+        this.fWD = new com.baidu.tieba.ala.f.a(getPageContext(), this.fWF);
         refreshData();
-        return this.fKG.getView();
+        return this.fWE.getView();
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragment
@@ -64,17 +64,17 @@ public class AlaChallengeHistoryListFragment extends BaseFragment {
 
     private void refreshData() {
         if (BdNetTypeUtil.isNetWorkAvailable()) {
-            this.fKF.Ec(this.portrait);
-        } else if (this.fKG != null) {
-            this.fKG.Dh(getString(a.i.ala_rank_list_no_net));
+            this.fWD.GB(this.portrait);
+        } else if (this.fWE != null) {
+            this.fWE.FC(getString(a.i.ala_rank_list_no_net));
         }
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.fKF != null) {
-            this.fKF.destroy();
+        if (this.fWD != null) {
+            this.fWD.destroy();
         }
     }
 

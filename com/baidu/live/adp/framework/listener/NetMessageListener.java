@@ -5,7 +5,7 @@ import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.adp.framework.message.ResponsedMessage;
 import com.baidu.live.adp.framework.message.SocketResponsedMessage;
 import java.security.InvalidParameterException;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class NetMessageListener {
     private HttpMessageListener mHttpMessageListener = null;
     private SocketMessageListener mSocketMessageListener = null;

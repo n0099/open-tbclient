@@ -3,16 +3,51 @@ package com.baidu.sapi2.views;
 import android.app.Activity;
 import android.app.Dialog;
 import android.os.Build;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import com.baidu.g.a.a;
+import com.baidu.k.a.a;
+import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.utils.Log;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes19.dex */
-public class ViewUtility implements com.baidu.sapi2.c {
+/* loaded from: classes12.dex */
+public class ViewUtility implements NoProguard {
+
+    /* loaded from: classes12.dex */
+    static class a implements View.OnTouchListener {
+        final /* synthetic */ float a;
+
+        a(float f) {
+            this.a = f;
+        }
+
+        @Override // android.view.View.OnTouchListener
+        public boolean onTouch(View view, MotionEvent motionEvent) {
+            int action = motionEvent.getAction();
+            if (action == 0) {
+                if (Build.VERSION.SDK_INT >= 11) {
+                    view.setAlpha(this.a);
+                    return false;
+                }
+                return false;
+            } else if (action != 1) {
+                if (action == 3 && Build.VERSION.SDK_INT >= 11) {
+                    view.setAlpha(1.0f);
+                    return false;
+                }
+                return false;
+            } else if (Build.VERSION.SDK_INT >= 11) {
+                view.setAlpha(1.0f);
+                return false;
+            } else {
+                return false;
+            }
+        }
+    }
+
     private static boolean a(Activity activity, boolean z) {
         try {
             WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
@@ -68,20 +103,16 @@ public class ViewUtility implements com.baidu.sapi2.c {
     }
 
     public static void enableStatusBarTint(Activity activity, int i) {
-        boolean z = true;
+        int i2;
         if (Build.VERSION.SDK_INT >= 21) {
             try {
-                boolean z2 = SapiAccountManager.getInstance().getConfignation().isNightMode;
-                boolean z3 = SapiAccountManager.getInstance().getConfignation().isDarkMode;
-                if (!z2 && !z3) {
-                    z = false;
-                }
-                if (z) {
-                    if (Build.VERSION.SDK_INT < 23) {
-                        i = activity.getResources().getColor(a.b.sapi_sdk_dark_mode_title_color);
-                    } else {
-                        i = activity.getColor(a.b.sapi_sdk_dark_mode_title_color);
-                    }
+                boolean z = SapiAccountManager.getInstance().getConfignation().isNightMode || SapiAccountManager.getInstance().getConfignation().isDarkMode;
+                if (!z) {
+                    i2 = i;
+                } else if (Build.VERSION.SDK_INT < 23) {
+                    i2 = activity.getResources().getColor(a.b.sapi_sdk_dark_mode_title_color);
+                } else {
+                    i2 = activity.getColor(a.b.sapi_sdk_dark_mode_title_color);
                 }
                 if (!b(activity, true)) {
                     a(activity, true);
@@ -89,13 +120,13 @@ public class ViewUtility implements com.baidu.sapi2.c {
                 Window window = activity.getWindow();
                 window.addFlags(Integer.MIN_VALUE);
                 window.clearFlags(67108864);
-                window.setStatusBarColor(i);
+                window.setStatusBarColor(i2);
                 if (Build.VERSION.SDK_INT >= 23) {
                     if (!z) {
                         window.getDecorView().setSystemUiVisibility(9216);
-                        return;
+                    } else {
+                        window.getDecorView().setSystemUiVisibility(window.getDecorView().getSystemUiVisibility() & (-8193));
                     }
-                    window.getDecorView().setSystemUiVisibility(window.getDecorView().getSystemUiVisibility() & (-8193));
                 }
             } catch (Exception e) {
                 Log.e(e);
@@ -103,7 +134,17 @@ public class ViewUtility implements com.baidu.sapi2.c {
         }
     }
 
+    public static void setOnClickListener(View view, View.OnClickListener onClickListener) {
+        if (view == null || onClickListener == null) {
+            return;
+        }
+        view.setOnClickListener(onClickListener);
+    }
+
     public static void setViewClickAlpha(View view, float f) {
-        view.setOnTouchListener(new s(f));
+        if (view == null) {
+            return;
+        }
+        view.setOnTouchListener(new a(f));
     }
 }

@@ -30,7 +30,7 @@ import java.util.zip.GZIPOutputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class FileUtils {
     private static final int BUFFER_SIZE = 1024;
     private static final boolean DEBUG = false;

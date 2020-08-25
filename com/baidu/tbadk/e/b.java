@@ -10,36 +10,36 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes18.dex */
 public abstract class b {
-    protected static WeakReference<TbPageContext<?>> ajF = null;
-    protected static boolean dIU = false;
-    protected String dIR = "183322726";
-    protected boolean dIT = true;
-    protected transient List<String> dIS = new ArrayList(5);
+    protected static WeakReference<TbPageContext<?>> akU = null;
+    protected static boolean dSb = false;
+    protected String dRY = "183322726";
+    protected boolean dSa = true;
+    protected transient List<String> dRZ = new ArrayList(5);
 
     /* loaded from: classes18.dex */
     public interface a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void aSp();
+    public abstract void baG();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void aSt();
+    public abstract void baK();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void aSu();
+    public abstract void baL();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void aSv();
+    public abstract void baM();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void aSw();
+    public abstract void baN();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void c(a aVar);
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void kA(int i);
+    public abstract void mG(int i);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void removeCallBack();
@@ -55,29 +55,29 @@ public abstract class b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(TbPageContext<?> tbPageContext) {
-        if (ajF == null) {
-            ajF = new WeakReference<>(tbPageContext);
+        if (akU == null) {
+            akU = new WeakReference<>(tbPageContext);
             return;
         }
-        ajF.clear();
-        ajF = null;
-        ajF = new WeakReference<>(tbPageContext);
+        akU.clear();
+        akU = null;
+        akU = new WeakReference<>(tbPageContext);
     }
 
-    public boolean aSs() {
-        return dIU;
+    public boolean baJ() {
+        return dSb;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void hf(boolean z) {
-        this.dIT = z;
+    public void hB(boolean z) {
+        this.dSa = z;
     }
 
     public void resetContext() {
-        if (ajF != null) {
-            ajF.get();
-            ajF.clear();
-            ajF = null;
+        if (akU != null) {
+            akU.get();
+            akU.clear();
+            akU = null;
         }
     }
 }

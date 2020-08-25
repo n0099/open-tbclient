@@ -21,7 +21,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes3.dex */
 public class SuspensionBallManager {
     private static final int MULTIPLE = 2;
     private static final int SINGLE = 1;

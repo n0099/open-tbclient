@@ -6,18 +6,18 @@ import android.os.Looper;
 import android.os.Message;
 /* loaded from: classes11.dex */
 class a {
-    private HandlerThread ka;
-    private HandlerC0081a kb;
+    private HandlerThread kJ;
+    private HandlerC0079a kK;
     private String mTag;
 
     /* renamed from: com.baidu.ar.capture.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    private static final class HandlerC0081a extends Handler {
-        public HandlerC0081a(Looper looper) {
+    private static final class HandlerC0079a extends Handler {
+        public HandlerC0079a(Looper looper) {
             super(looper);
         }
 
-        public void c(Runnable runnable) {
+        public void a(Runnable runnable) {
             Message obtain = Message.obtain();
             obtain.obj = runnable;
             sendMessage(obtain);
@@ -42,25 +42,25 @@ class a {
     }
 
     public void execute(Runnable runnable) {
-        if (this.kb != null) {
-            this.kb.c(runnable);
+        if (this.kK != null) {
+            this.kK.a(runnable);
         }
     }
 
     public void start() {
-        this.ka = new HandlerThread(this.mTag);
-        this.ka.start();
-        this.kb = new HandlerC0081a(this.ka.getLooper());
+        this.kJ = new HandlerThread(this.mTag);
+        this.kJ.start();
+        this.kK = new HandlerC0079a(this.kJ.getLooper());
     }
 
     public void stop() {
-        if (this.kb != null) {
-            this.kb.release();
-            this.kb = null;
+        if (this.kK != null) {
+            this.kK.release();
+            this.kK = null;
         }
-        if (this.ka != null) {
-            this.ka.quit();
-            this.ka = null;
+        if (this.kJ != null) {
+            this.kJ.quit();
+            this.kJ = null;
         }
     }
 }

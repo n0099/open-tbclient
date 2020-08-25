@@ -1,7 +1,7 @@
 package kotlin.text;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.h
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public class q extends p {
     public static final <T> void a(Appendable appendable, T t, kotlin.jvm.a.b<? super T, ? extends CharSequence> bVar) {
         kotlin.jvm.internal.q.m(appendable, "receiver$0");

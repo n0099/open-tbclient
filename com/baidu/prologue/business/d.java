@@ -2,20 +2,20 @@ package com.baidu.prologue.business;
 
 import android.support.annotation.NonNull;
 import android.view.ViewGroup;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface d {
-    void Pp();
+    void Vl();
 
     @NonNull
-    ViewGroup Pq();
+    ViewGroup Vm();
 
-    void Pr();
+    void Vn();
 
-    void Ps();
+    void Vo();
 
     void onAdClick();
 
     void onAdShow();
 
-    void pZ();
+    void ry();
 }

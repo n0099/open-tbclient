@@ -7,7 +7,7 @@ import android.os.Build;
 import android.util.DisplayMetrics;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class f {
     private static f j;
     private int a;
@@ -80,7 +80,7 @@ public class f {
     private String f() {
         String str = null;
         try {
-            str = com.baidu.android.bbalbs.common.util.b.b(this.i);
+            str = com.baidu.a.a.a.a.a.c(this.i);
         } catch (Exception e) {
         }
         return str == null ? "" : str;

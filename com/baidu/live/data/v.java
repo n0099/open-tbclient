@@ -1,7 +1,8 @@
 package com.baidu.live.data;
-/* loaded from: classes4.dex */
+
+import com.baidu.live.tbadk.TbPageContext;
+/* loaded from: classes7.dex */
 public class v {
-    public int liveType;
-    public String portrait;
-    public long userId;
+    public TbPageContext pageContext;
+    public String userId;
 }

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class ChangeTimeScaleTrack implements Track {
     private static final Logger LOG = Logger.getLogger(ChangeTimeScaleTrack.class.getName());
     List<CompositionTimeToSample.Entry> ctts;

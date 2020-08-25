@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import java.util.Arrays;
-/* loaded from: classes18.dex */
+/* loaded from: classes3.dex */
 public class SuspensionBallUtils {
     public static String getCurrentVersion() {
         try {

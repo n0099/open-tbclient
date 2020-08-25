@@ -1,22 +1,12 @@
 package com.baidu.tieba.ala.liveroom.s;
-/* loaded from: classes4.dex */
-public class a {
-    public String fcs;
-    public long mUserId;
 
-    public a() {
-    }
-
-    public a(long j, String str) {
-        this.mUserId = j;
-        this.fcs = str;
-    }
-
-    public long getUserId() {
-        return this.mUserId;
-    }
-
-    public String wX() {
-        return this.fcs;
+import android.content.Context;
+import com.baidu.live.liveroom.e.d;
+import com.baidu.live.liveroom.e.e;
+/* loaded from: classes7.dex */
+public class a implements e {
+    @Override // com.baidu.live.liveroom.e.e
+    public d au(Context context) {
+        return new b(context);
     }
 }

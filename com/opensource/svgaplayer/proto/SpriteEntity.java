@@ -10,14 +10,14 @@ import com.squareup.wire2.internal.a;
 import java.io.IOException;
 import java.util.List;
 import okio.ByteString;
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public final class SpriteEntity extends Message<SpriteEntity, Builder> {
     public static final ProtoAdapter<SpriteEntity> ADAPTER = new ProtoAdapter_SpriteEntity();
     public static final String DEFAULT_IMAGEKEY = "";
     private static final long serialVersionUID = 0;
-    @WireField(dQK = "com.opensource.svgaplayer.proto.FrameEntity#ADAPTER", dQL = WireField.Label.REPEATED, tag = 2)
+    @WireField(ecM = "com.opensource.svgaplayer.proto.FrameEntity#ADAPTER", ecN = WireField.Label.REPEATED, tag = 2)
     public final List<FrameEntity> frames;
-    @WireField(dQK = "com.squareup.wire.ProtoAdapter#STRING", tag = 1)
+    @WireField(ecM = "com.squareup.wire.ProtoAdapter#STRING", tag = 1)
     public final String imageKey;
 
     public SpriteEntity(String str, List<FrameEntity> list) {
@@ -27,7 +27,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
     public SpriteEntity(String str, List<FrameEntity> list, ByteString byteString) {
         super(ADAPTER, byteString);
         this.imageKey = str;
-        this.frames = a.v("frames", list);
+        this.frames = a.u("frames", list);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -37,7 +37,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
     public Message.a<SpriteEntity, Builder> newBuilder2() {
         Builder builder = new Builder();
         builder.imageKey = this.imageKey;
-        builder.frames = a.u("frames", this.frames);
+        builder.frames = a.t("frames", this.frames);
         builder.addUnknownFields(unknownFields());
         return builder;
     }
@@ -75,9 +75,9 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
         return sb.replace(0, 2, "SpriteEntity{").append('}').toString();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes11.dex */
     public static final class Builder extends Message.a<SpriteEntity, Builder> {
-        public List<FrameEntity> frames = a.dQN();
+        public List<FrameEntity> frames = a.ecP();
         public String imageKey;
 
         public Builder imageKey(String str) {
@@ -86,7 +86,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
         }
 
         public Builder frames(List<FrameEntity> list) {
-            a.fI(list);
+            a.fS(list);
             this.frames = list;
             return this;
         }
@@ -99,7 +99,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes11.dex */
     private static final class ProtoAdapter_SpriteEntity extends ProtoAdapter<SpriteEntity> {
         ProtoAdapter_SpriteEntity() {
             super(FieldEncoding.LENGTH_DELIMITED, SpriteEntity.class);
@@ -126,11 +126,11 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
         @Override // com.squareup.wire2.ProtoAdapter
         public SpriteEntity decode(c cVar) throws IOException {
             Builder builder = new Builder();
-            long dQC = cVar.dQC();
+            long ecE = cVar.ecE();
             while (true) {
-                int dQD = cVar.dQD();
-                if (dQD != -1) {
-                    switch (dQD) {
+                int ecF = cVar.ecF();
+                if (ecF != -1) {
+                    switch (ecF) {
                         case 1:
                             builder.imageKey(ProtoAdapter.STRING.decode(cVar));
                             break;
@@ -138,12 +138,12 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
                             builder.frames.add(FrameEntity.ADAPTER.decode(cVar));
                             break;
                         default:
-                            FieldEncoding dQE = cVar.dQE();
-                            builder.addUnknownField(dQD, dQE, dQE.rawProtoAdapter().decode(cVar));
+                            FieldEncoding ecG = cVar.ecG();
+                            builder.addUnknownField(ecF, ecG, ecG.rawProtoAdapter().decode(cVar));
                             break;
                     }
                 } else {
-                    cVar.gu(dQC);
+                    cVar.gH(ecE);
                     return builder.build();
                 }
             }

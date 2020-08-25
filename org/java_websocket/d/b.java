@@ -1,21 +1,21 @@
 package org.java_websocket.d;
 
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class b implements a {
-    private final String ojc;
+    private final String oCY;
 
     public b(String str) {
         if (str == null) {
             throw new IllegalArgumentException();
         }
-        this.ojc = str;
+        this.oCY = str;
     }
 
     @Override // org.java_websocket.d.a
-    public boolean Tw(String str) {
+    public boolean WA(String str) {
         for (String str2 : str.replaceAll(" ", "").split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
-            if (this.ojc.equals(str2)) {
+            if (this.oCY.equals(str2)) {
                 return true;
             }
         }
@@ -23,18 +23,18 @@ public class b implements a {
     }
 
     @Override // org.java_websocket.d.a
-    public String dXu() {
-        return this.ojc;
+    public String ejy() {
+        return this.oCY;
     }
 
     @Override // org.java_websocket.d.a
-    public a dXv() {
-        return new b(dXu());
+    public a ejz() {
+        return new b(ejy());
     }
 
     @Override // org.java_websocket.d.a
     public String toString() {
-        return dXu();
+        return ejy();
     }
 
     public boolean equals(Object obj) {
@@ -44,10 +44,10 @@ public class b implements a {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        return this.ojc.equals(((b) obj).ojc);
+        return this.oCY.equals(((b) obj).oCY);
     }
 
     public int hashCode() {
-        return this.ojc.hashCode();
+        return this.oCY.hashCode();
     }
 }

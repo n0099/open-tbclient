@@ -54,7 +54,7 @@ public final class SingleFlatMapMaybe<T, R> extends k<R> {
                     oVar.a(new a(this, this.actual));
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.K(th);
+                io.reactivex.exceptions.a.J(th);
                 onError(th);
             }
         }
@@ -68,16 +68,16 @@ public final class SingleFlatMapMaybe<T, R> extends k<R> {
     /* loaded from: classes7.dex */
     static final class a<R> implements m<R> {
         final m<? super R> actual;
-        final AtomicReference<io.reactivex.disposables.b> nSy;
+        final AtomicReference<io.reactivex.disposables.b> omt;
 
         a(AtomicReference<io.reactivex.disposables.b> atomicReference, m<? super R> mVar) {
-            this.nSy = atomicReference;
+            this.omt = atomicReference;
             this.actual = mVar;
         }
 
         @Override // io.reactivex.m
         public void onSubscribe(io.reactivex.disposables.b bVar) {
-            DisposableHelper.replace(this.nSy, bVar);
+            DisposableHelper.replace(this.omt, bVar);
         }
 
         @Override // io.reactivex.m

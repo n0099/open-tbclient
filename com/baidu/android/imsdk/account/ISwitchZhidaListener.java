@@ -1,7 +1,7 @@
 package com.baidu.android.imsdk.account;
 
 import com.baidu.android.imsdk.IMListener;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public interface ISwitchZhidaListener extends IMListener {
     void onSwitchZhidaResult(int i, String str);
 }

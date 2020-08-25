@@ -7,7 +7,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public final class CyberTaskExcutor {
     private static CyberTaskExcutor a;
     private final int b = 0;
@@ -16,7 +16,7 @@ public final class CyberTaskExcutor {
     private ExecutorService e = new ThreadPoolExecutor(0, 5, 180, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a("cyber-thread", 5));
     private ExecutorService f = new ThreadPoolExecutor(1, 1, 0, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a("cyber-thread-Single", 5));
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public static class a implements ThreadFactory {
         private final AtomicInteger a = new AtomicInteger(1);
         private final String b;

@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import com.baidu.adp.base.e;
 import com.baidu.tbadk.core.c;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface TbPageContext<T> extends e<T> {
     c getLayoutMode();
 

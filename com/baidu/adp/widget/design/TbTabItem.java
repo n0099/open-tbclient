@@ -7,7 +7,7 @@ import android.support.design.R;
 import android.support.v7.widget.TintTypedArray;
 import android.util.AttributeSet;
 import android.view.View;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class TbTabItem extends View {
     final int mCustomLayout;
     final Drawable mIcon;

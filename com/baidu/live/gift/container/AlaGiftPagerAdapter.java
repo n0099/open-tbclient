@@ -7,21 +7,21 @@ import android.widget.GridView;
 import com.baidu.live.gift.container.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaGiftPagerAdapter extends PagerAdapter {
-    private List<View> aLy;
+    private List<View> aQL;
 
     public AlaGiftPagerAdapter(List<View> list) {
-        this.aLy = new ArrayList();
-        this.aLy = list;
+        this.aQL = new ArrayList();
+        this.aQL = list;
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        if (this.aLy == null) {
+        if (this.aQL == null) {
             return 0;
         }
-        return this.aLy.size();
+        return this.aQL.size();
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -32,7 +32,7 @@ public class AlaGiftPagerAdapter extends PagerAdapter {
     @Override // android.support.v4.view.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         if (i >= 0 && i < getCount()) {
-            View view = this.aLy.get(i);
+            View view = this.aQL.get(i);
             P(view);
             viewGroup.removeView(view);
         }
@@ -43,7 +43,7 @@ public class AlaGiftPagerAdapter extends PagerAdapter {
         if (i < 0 || i >= getCount()) {
             return null;
         }
-        View view = this.aLy.get(i);
+        View view = this.aQL.get(i);
         viewGroup.addView(view);
         return view;
     }
@@ -61,8 +61,8 @@ public class AlaGiftPagerAdapter extends PagerAdapter {
                             View childAt = gridView.getChildAt(i3);
                             if (childAt != null) {
                                 Object tag = childAt.getTag();
-                                if (tag instanceof a.C0164a) {
-                                    ((a.C0164a) tag).recycle();
+                                if (tag instanceof a.C0172a) {
+                                    ((a.C0172a) tag).recycle();
                                 }
                             }
                             i = i3 + 1;

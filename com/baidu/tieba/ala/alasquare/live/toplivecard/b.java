@@ -16,10 +16,10 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.tbadk.core.data.bv;
+import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.live.b.c;
 import com.baidu.tieba.play.cyberPlayer.TbCyberVideoView;
@@ -27,81 +27,81 @@ import com.baidu.tieba.play.f;
 import com.baidu.tieba.play.o;
 /* loaded from: classes4.dex */
 public class b {
-    private FrameLayout agl;
-    private int azt;
-    private CyberPlayerManager.OnPreparedListener dCx;
-    private CyberPlayerManager.OnErrorListener dCy;
-    private TbPageContext<?> dVN;
-    private TbCyberVideoView.a eRD;
-    private boolean fsj;
-    private c fsm;
-    private final float fsp;
-    private AlaSquareLiveVideoMask fsq;
-    private TbCyberVideoView fsr;
-    private f fss;
-    private int fst;
-    private int fsu;
-    private int fsv;
-    private int fsw;
-    private String fsx;
-    private a fsy;
-    private int fsz;
+    private int aEE;
+    private FrameLayout aht;
+    private CyberPlayerManager.OnPreparedListener dLH;
+    private CyberPlayerManager.OnErrorListener dLI;
+    private TbPageContext<?> efn;
+    private boolean fDD;
+    private c fDG;
+    private final float fDJ;
+    private AlaSquareLiveVideoMask fDK;
+    private TbCyberVideoView fDL;
+    private f fDM;
+    private int fDN;
+    private int fDO;
+    private int fDP;
+    private int fDQ;
+    private String fDR;
+    private a fDS;
+    private int fDT;
+    private TbCyberVideoView.a fcj;
     private View.OnClickListener mOnClickListener;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void P(bv bvVar);
+        void P(bw bwVar);
 
-        void Q(bv bvVar);
+        void Q(bw bwVar);
     }
 
     public b(TbPageContext<?> tbPageContext) {
-        this.fsp = 0.0f;
-        this.dVN = null;
-        this.fsx = "";
-        this.fsj = false;
-        this.eRD = new TbCyberVideoView.a() { // from class: com.baidu.tieba.ala.alasquare.live.toplivecard.b.1
+        this.fDJ = 0.0f;
+        this.efn = null;
+        this.fDR = "";
+        this.fDD = false;
+        this.fcj = new TbCyberVideoView.a() { // from class: com.baidu.tieba.ala.alasquare.live.toplivecard.b.1
             @Override // com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.a
             public void onSurfaceDestroyed() {
-                b.this.bwN();
+                b.this.bFM();
             }
         };
-        this.dCy = new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.tieba.ala.alasquare.live.toplivecard.b.2
+        this.dLI = new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.tieba.ala.alasquare.live.toplivecard.b.2
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
             public boolean onError(int i, int i2, Object obj) {
-                b.this.kb(false);
+                b.this.kz(false);
                 return true;
             }
         };
-        this.dCx = new CyberPlayerManager.OnPreparedListener() { // from class: com.baidu.tieba.ala.alasquare.live.toplivecard.b.3
+        this.dLH = new CyberPlayerManager.OnPreparedListener() { // from class: com.baidu.tieba.ala.alasquare.live.toplivecard.b.3
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
             public void onPrepared() {
-                if (b.this.fsr != null) {
-                    b.this.fsr.setLooping(false);
-                    b.this.fsr.setVolume(0.0f, 0.0f);
-                    if (b.this.fsm != null && b.this.fsm.aii != null) {
-                        if (b.this.fsj) {
-                            if (b.this.fsy != null) {
-                                b.this.fsy.Q(b.this.fsm.aii);
+                if (b.this.fDL != null) {
+                    b.this.fDL.setLooping(false);
+                    b.this.fDL.setVolume(0.0f, 0.0f);
+                    if (b.this.fDG != null && b.this.fDG.ajx != null) {
+                        if (b.this.fDD) {
+                            if (b.this.fDS != null) {
+                                b.this.fDS.Q(b.this.fDG.ajx);
                             }
                         } else {
-                            ap apVar = new ap("c12646");
-                            if (b.this.fsm.frD != 0) {
-                                if (b.this.fsm.frD == 1) {
-                                    apVar.ah("obj_type", 2);
+                            aq aqVar = new aq("c12646");
+                            if (b.this.fDG.fCX != 0) {
+                                if (b.this.fDG.fCX == 1) {
+                                    aqVar.ai("obj_type", 2);
                                 }
                             } else {
-                                apVar.ah("obj_type", 1);
+                                aqVar.ai("obj_type", 1);
                             }
-                            apVar.dn("tid", b.this.fsm.aii.getTid());
-                            TiebaStatic.log(apVar);
+                            aqVar.dD("tid", b.this.fDG.ajx.getTid());
+                            TiebaStatic.log(aqVar);
                         }
                     }
-                    if (b.this.fsr.getCyberPlayer() != null) {
-                        b.this.bt(b.this.fsr.getCyberPlayer().getVideoHeight(), b.this.fsr.getCyberPlayer().getVideoWidth());
+                    if (b.this.fDL.getCyberPlayer() != null) {
+                        b.this.bC(b.this.fDL.getCyberPlayer().getVideoHeight(), b.this.fDL.getCyberPlayer().getVideoWidth());
                     }
-                    if (b.this.fsq != null) {
-                        b.this.fsq.bwH();
+                    if (b.this.fDK != null) {
+                        b.this.fDK.bFG();
                     }
                 }
             }
@@ -109,295 +109,296 @@ public class b {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.live.toplivecard.b.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.fsm != null && b.this.fsm.aii != null) {
-                    if (b.this.fsy != null) {
-                        b.this.fsy.P(b.this.fsm.aii);
+                if (b.this.fDG != null && b.this.fDG.ajx != null) {
+                    if (b.this.fDS != null) {
+                        b.this.fDS.P(b.this.fDG.ajx);
                     }
-                    b.this.a(b.this.dVN, b.this.fsm.aii);
+                    b.this.a(b.this.efn, b.this.fDG.ajx);
                 }
             }
         };
-        this.dVN = tbPageContext;
+        this.efn = tbPageContext;
         initUI();
     }
 
     public b(TbPageContext<?> tbPageContext, boolean z) {
         this(tbPageContext);
-        this.fsj = z;
-        this.fsq.setFromSpecialForum(z);
+        this.fDD = z;
+        this.fDK.setFromSpecialForum(z);
     }
 
     private void initUI() {
-        if (this.dVN != null) {
-            this.agl = (FrameLayout) LayoutInflater.from(this.dVN.getPageActivity()).inflate(R.layout.new_square_top_live_card, (ViewGroup) null);
-            this.fst = l.getEquipmentWidth(this.dVN.getPageActivity());
-            this.fsu = l.getEquipmentHeight(this.dVN.getPageActivity());
-            this.fsv = (int) ((this.fst / 16.0d) * 9.0d);
-            this.fsw = (int) ((this.fst / 4.0d) * 3.0d);
-            this.fsz = (int) ((this.fsu / 3.0d) - (this.fsw / 2.0d));
-            this.fsq = (AlaSquareLiveVideoMask) this.agl.findViewById(R.id.video_mask);
-            this.agl.setOnClickListener(this.mOnClickListener);
+        if (this.efn != null) {
+            this.aht = (FrameLayout) LayoutInflater.from(this.efn.getPageActivity()).inflate(R.layout.new_square_top_live_card, (ViewGroup) null);
+            this.fDN = l.getEquipmentWidth(this.efn.getPageActivity());
+            this.fDO = l.getEquipmentHeight(this.efn.getPageActivity());
+            this.fDP = (int) ((this.fDN / 16.0d) * 9.0d);
+            this.fDQ = (int) ((this.fDN / 4.0d) * 3.0d);
+            this.fDT = (int) ((this.fDO / 3.0d) - (this.fDQ / 2.0d));
+            this.fDK = (AlaSquareLiveVideoMask) this.aht.findViewById(R.id.video_mask);
+            this.aht.setOnClickListener(this.mOnClickListener);
             onChangeSkinType();
         }
     }
 
     public void a(a aVar) {
-        this.fsy = aVar;
+        this.fDS = aVar;
     }
 
     public void a(c cVar) {
-        if (cVar != null && cVar.aii != null && cVar.aii.aWF() != null) {
-            if (this.fsm == null || (this.fsm.aii != null && !this.fsm.aii.getTid().equals(cVar.aii.getTid()))) {
-                qp(cVar.aii.aWF().screen_direction);
+        if (cVar != null && cVar.ajx != null && cVar.ajx.beY() != null) {
+            if (this.fDG == null || (this.fDG.ajx != null && !this.fDG.ajx.getTid().equals(cVar.ajx.getTid()))) {
+                sB(cVar.ajx.beY().screen_direction);
             }
-            this.fsm = cVar;
-            this.azt = this.fsm.aii.aWF().screen_direction;
-            this.fsq.setData(this.fsm.aii);
+            this.fDG = cVar;
+            this.aEE = this.fDG.ajx.beY().screen_direction;
+            this.fDK.setData(this.fDG.ajx);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bt(int i, int i2) {
+    public void bC(int i, int i2) {
         int i3;
         int i4;
-        if (this.azt == 1 && this.fsr != null && this.fsr.getParent() != null) {
+        if (this.aEE == 1 && this.fDL != null && this.fDL.getParent() != null) {
             float f = i / i2;
-            float f2 = (this.fst * i) / this.fsu;
+            float f2 = (this.fDN * i) / this.fDO;
             if (f2 < i2) {
-                i3 = (int) (this.fsu / f);
-                i4 = this.fsu;
+                i3 = (int) (this.fDO / f);
+                i4 = this.fDO;
             } else if (f2 > i2) {
-                i3 = this.fst;
-                i4 = (int) (f * this.fst);
+                i3 = this.fDN;
+                i4 = (int) (f * this.fDN);
             } else {
-                i3 = this.fst;
-                i4 = this.fsu;
+                i3 = this.fDN;
+                i4 = this.fDO;
             }
-            if (this.fsr.getLayoutParams() instanceof FrameLayout.LayoutParams) {
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.fsr.getLayoutParams();
+            if (this.fDL.getLayoutParams() instanceof FrameLayout.LayoutParams) {
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.fDL.getLayoutParams();
                 layoutParams.width = i3;
                 layoutParams.height = i4;
-                this.fsr.setLayoutParams(layoutParams);
+                this.fDL.setLayoutParams(layoutParams);
                 return;
             }
-            this.fsr.setLayoutParams(new FrameLayout.LayoutParams(i3, i4));
+            this.fDL.setLayoutParams(new FrameLayout.LayoutParams(i3, i4));
         }
     }
 
-    private void qo(int i) {
-        if (this.fsr != null) {
+    private void sA(int i) {
+        if (this.fDL != null) {
             if (i == 1) {
-                if (this.fsr.getLayoutParams() instanceof FrameLayout.LayoutParams) {
-                    FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.fsr.getLayoutParams();
-                    layoutParams.width = this.fst;
-                    layoutParams.height = this.fsu;
-                    layoutParams.topMargin = -this.fsz;
-                    this.fsr.setLayoutParams(layoutParams);
+                if (this.fDL.getLayoutParams() instanceof FrameLayout.LayoutParams) {
+                    FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.fDL.getLayoutParams();
+                    layoutParams.width = this.fDN;
+                    layoutParams.height = this.fDO;
+                    layoutParams.topMargin = -this.fDT;
+                    this.fDL.setLayoutParams(layoutParams);
                     return;
                 }
-                this.fsr.setLayoutParams(new FrameLayout.LayoutParams(this.fst, this.fsu));
-            } else if (this.fsr.getLayoutParams() instanceof FrameLayout.LayoutParams) {
-                FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.fsr.getLayoutParams();
-                layoutParams2.width = this.fst;
-                layoutParams2.height = this.fsv;
-                this.fsr.setLayoutParams(layoutParams2);
+                this.fDL.setLayoutParams(new FrameLayout.LayoutParams(this.fDN, this.fDO));
+            } else if (this.fDL.getLayoutParams() instanceof FrameLayout.LayoutParams) {
+                FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.fDL.getLayoutParams();
+                layoutParams2.width = this.fDN;
+                layoutParams2.height = this.fDP;
+                this.fDL.setLayoutParams(layoutParams2);
             } else {
-                this.fsr.setLayoutParams(new FrameLayout.LayoutParams(this.fst, this.fsv));
+                this.fDL.setLayoutParams(new FrameLayout.LayoutParams(this.fDN, this.fDP));
             }
         }
     }
 
-    private void qp(int i) {
+    private void sB(int i) {
         if (i == 1) {
-            if (this.fsj) {
-                if (this.agl.getLayoutParams() instanceof FrameLayout.LayoutParams) {
-                    FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.agl.getLayoutParams();
-                    layoutParams.width = this.fst;
-                    layoutParams.height = this.fsw;
-                    this.agl.setLayoutParams(layoutParams);
+            if (this.fDD) {
+                if (this.aht.getLayoutParams() instanceof FrameLayout.LayoutParams) {
+                    FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.aht.getLayoutParams();
+                    layoutParams.width = this.fDN;
+                    layoutParams.height = this.fDQ;
+                    this.aht.setLayoutParams(layoutParams);
                     return;
                 }
-                this.agl.setLayoutParams(new FrameLayout.LayoutParams(this.fst, this.fsw));
+                this.aht.setLayoutParams(new FrameLayout.LayoutParams(this.fDN, this.fDQ));
                 return;
-            } else if (this.agl.getLayoutParams() instanceof AbsListView.LayoutParams) {
-                AbsListView.LayoutParams layoutParams2 = (AbsListView.LayoutParams) this.agl.getLayoutParams();
-                layoutParams2.width = this.fst;
-                layoutParams2.height = this.fst;
-                this.agl.setLayoutParams(layoutParams2);
+            } else if (this.aht.getLayoutParams() instanceof AbsListView.LayoutParams) {
+                AbsListView.LayoutParams layoutParams2 = (AbsListView.LayoutParams) this.aht.getLayoutParams();
+                layoutParams2.width = this.fDN;
+                layoutParams2.height = this.fDN;
+                this.aht.setLayoutParams(layoutParams2);
                 return;
             } else {
-                this.agl.setLayoutParams(new AbsListView.LayoutParams(this.fst, this.fst));
+                this.aht.setLayoutParams(new AbsListView.LayoutParams(this.fDN, this.fDN));
                 return;
             }
         }
-        this.azt = 2;
-        if (this.fsj) {
-            if (this.agl.getLayoutParams() instanceof FrameLayout.LayoutParams) {
-                FrameLayout.LayoutParams layoutParams3 = (FrameLayout.LayoutParams) this.agl.getLayoutParams();
-                layoutParams3.width = this.fst;
-                layoutParams3.height = this.fsv;
-                this.agl.setLayoutParams(layoutParams3);
+        this.aEE = 2;
+        if (this.fDD) {
+            if (this.aht.getLayoutParams() instanceof FrameLayout.LayoutParams) {
+                FrameLayout.LayoutParams layoutParams3 = (FrameLayout.LayoutParams) this.aht.getLayoutParams();
+                layoutParams3.width = this.fDN;
+                layoutParams3.height = this.fDP;
+                this.aht.setLayoutParams(layoutParams3);
                 return;
             }
-            this.agl.setLayoutParams(new AbsListView.LayoutParams(this.fst, this.fsv));
-        } else if (this.agl.getLayoutParams() instanceof AbsListView.LayoutParams) {
-            AbsListView.LayoutParams layoutParams4 = (AbsListView.LayoutParams) this.agl.getLayoutParams();
-            layoutParams4.width = this.fst;
-            layoutParams4.height = this.fsv;
-            this.agl.setLayoutParams(layoutParams4);
+            this.aht.setLayoutParams(new AbsListView.LayoutParams(this.fDN, this.fDP));
+        } else if (this.aht.getLayoutParams() instanceof AbsListView.LayoutParams) {
+            AbsListView.LayoutParams layoutParams4 = (AbsListView.LayoutParams) this.aht.getLayoutParams();
+            layoutParams4.width = this.fDN;
+            layoutParams4.height = this.fDP;
+            this.aht.setLayoutParams(layoutParams4);
         } else {
-            this.agl.setLayoutParams(new AbsListView.LayoutParams(this.fst, this.fsv));
+            this.aht.setLayoutParams(new AbsListView.LayoutParams(this.fDN, this.fDP));
         }
     }
 
-    public void bwM() {
-        this.fst = l.getEquipmentWidth(this.dVN.getPageActivity());
-        this.fsu = l.getEquipmentHeight(this.dVN.getPageActivity());
-        this.fsv = (int) ((this.fst / 16.0d) * 9.0d);
-        this.fsw = (int) ((this.fst / 4.0d) * 3.0d);
-        this.fsz = (int) ((this.fsu / 3.0d) - (this.fsw / 2.0d));
-        if (this.fsm != null) {
-            boolean isPlaying = this.fsr == null ? false : this.fsr.isPlaying();
-            qp(this.fsm.aii.aWF().screen_direction);
-            qo(this.fsm.aii.aWF().screen_direction);
-            bwN();
+    public void bFL() {
+        this.fDN = l.getEquipmentWidth(this.efn.getPageActivity());
+        this.fDO = l.getEquipmentHeight(this.efn.getPageActivity());
+        this.fDP = (int) ((this.fDN / 16.0d) * 9.0d);
+        this.fDQ = (int) ((this.fDN / 4.0d) * 3.0d);
+        this.fDT = (int) ((this.fDO / 3.0d) - (this.fDQ / 2.0d));
+        if (this.fDG != null) {
+            boolean isPlaying = this.fDL == null ? false : this.fDL.isPlaying();
+            sB(this.fDG.ajx.beY().screen_direction);
+            sA(this.fDG.ajx.beY().screen_direction);
+            bFM();
             if (isPlaying) {
-                Cg(this.fsx);
+                EA(this.fDR);
             }
         }
     }
 
-    public void bwN() {
-        kb(true);
+    public void bFM() {
+        kz(true);
     }
 
-    public void kb(boolean z) {
+    public void kz(boolean z) {
         if (z) {
-            bwO();
+            bFN();
         }
-        if (this.fsr != null) {
-            this.fsr.stopPlayback();
+        if (this.fDL != null) {
+            this.fDL.stopPlayback();
         }
-        this.fsq.bwI();
-        this.fsq.bwJ();
+        this.fDK.bFH();
+        this.fDK.bFI();
     }
 
-    private void bwO() {
-        if (this.fss != null) {
-            this.fss.setPlayer(null);
-            this.fss.stop();
-            this.fss = null;
+    private void bFN() {
+        if (this.fDM != null) {
+            this.fDM.setPlayer(null);
+            this.fDM.stop();
+            this.fDM = null;
         }
-        if (this.fsr != null) {
-            this.fsr.stopPlayback();
-            this.fsr.cZk();
-            if (this.fsr.getMediaProgressObserver() != null) {
-                this.fsr.getMediaProgressObserver().setPlayer(null);
-                this.fsr.getMediaProgressObserver().stop();
+        if (this.fDL != null) {
+            this.fDL.stopPlayback();
+            this.fDL.dko();
+            if (this.fDL.getMediaProgressObserver() != null) {
+                this.fDL.getMediaProgressObserver().setPlayer(null);
+                this.fDL.getMediaProgressObserver().stop();
             }
-            this.fsr = null;
+            this.fDL = null;
         }
     }
 
-    private void bwP() {
-        if (this.fsm != null && this.fsm.aii != null && this.fsm.aii.aWF() != null) {
-            if (this.fsr != null && this.fsr.getParent() != null) {
-                bwO();
+    private void bFO() {
+        if (this.fDG != null && this.fDG.ajx != null && this.fDG.ajx.beY() != null) {
+            if (this.fDL != null && this.fDL.getParent() != null) {
+                bFN();
             }
-            this.fss = new f();
-            this.fsr = new TbCyberVideoView(this.dVN.getPageActivity());
-            this.fsr.setOnPreparedListener(this.dCx);
-            this.fsr.setOnErrorListener(this.dCy);
-            this.fsr.setOnSurfaceDestroyedListener(this.eRD);
-            this.fsr.setVolume(0.0f, 0.0f);
-            this.fss.setPlayer(this.fsr);
-            this.fss.a(new f.c() { // from class: com.baidu.tieba.ala.alasquare.live.toplivecard.b.4
+            this.fDM = new f();
+            this.fDL = new TbCyberVideoView(this.efn.getPageActivity());
+            this.fDL.setOnPreparedListener(this.dLH);
+            this.fDL.setOnErrorListener(this.dLI);
+            this.fDL.setOnSurfaceDestroyedListener(this.fcj);
+            this.fDL.setVolume(0.0f, 0.0f);
+            this.fDL.setStageType(null);
+            this.fDM.setPlayer(this.fDL);
+            this.fDM.a(new f.c() { // from class: com.baidu.tieba.ala.alasquare.live.toplivecard.b.4
                 @Override // com.baidu.tieba.play.f.c
-                public void bwQ() {
+                public void bFP() {
                 }
             });
-            if (this.fsr.getParent() == null) {
-                this.agl.addView(this.fsr, 0, new FrameLayout.LayoutParams(-1, -1));
+            if (this.fDL.getParent() == null) {
+                this.aht.addView(this.fDL, 0, new FrameLayout.LayoutParams(-1, -1));
             }
-            qo(this.fsm.aii.aWF().screen_direction);
+            sA(this.fDG.ajx.beY().screen_direction);
         }
     }
 
-    public void Cg(String str) {
-        if (!StringUtils.isNull(str) && this.fsm != null && this.fsm.aii != null && this.fsm.aii.aWF() != null) {
-            if (!str.equals(this.fsx) || (this.fsr != null && !this.fsr.isPlaying())) {
-                this.fsx = str;
-                bwN();
+    public void EA(String str) {
+        if (!StringUtils.isNull(str) && this.fDG != null && this.fDG.ajx != null && this.fDG.ajx.beY() != null) {
+            if (!str.equals(this.fDR) || (this.fDL != null && !this.fDL.isPlaying())) {
+                this.fDR = str;
+                bFM();
             }
-            if (this.fsr == null) {
-                bwP();
+            if (this.fDL == null) {
+                bFO();
             }
-            if (this.fsr != null && !this.fsr.isPlaying()) {
+            if (this.fDL != null && !this.fDL.isPlaying()) {
                 o oVar = new o();
                 oVar.mLocate = "9";
-                oVar.eKO = String.valueOf(this.fsm.aii.getFid());
-                oVar.ajJ = this.fsm.aii.getTid();
-                this.fsr.setVideoStatData(oVar);
-                if (this.fsr != null) {
-                    this.fsr.setVideoPath(this.fsm.aii.aWF().hls_url);
+                oVar.eVt = String.valueOf(this.fDG.ajx.getFid());
+                oVar.akY = this.fDG.ajx.getTid();
+                this.fDL.setVideoStatData(oVar);
+                if (this.fDL != null) {
+                    this.fDL.setVideoPath(this.fDG.ajx.beY().hls_url);
                 }
-                if (this.fsr != null) {
-                    this.fsr.start();
+                if (this.fDL != null) {
+                    this.fDL.start();
                 }
-                if (this.fss != null) {
-                    this.fss.start();
+                if (this.fDM != null) {
+                    this.fDM.start();
                 }
             }
         }
     }
 
     public View getView() {
-        return this.agl;
+        return this.aht;
     }
 
     public void onDestroy() {
-        bwO();
-        if (this.fsq != null) {
-            this.fsq.onDestroy();
+        bFN();
+        if (this.fDK != null) {
+            this.fDK.onDestroy();
         }
     }
 
     public void onChangeSkinType() {
-        if (this.fsq != null) {
-            this.fsq.bgV();
+        if (this.fDK != null) {
+            this.fDK.bpH();
         }
-        ao.setBackgroundColor(this.fsr, R.color.black_alpha100);
+        ap.setBackgroundColor(this.fDL, R.color.black_alpha100);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(TbPageContext<?> tbPageContext, bv bvVar) {
+    public void a(TbPageContext<?> tbPageContext, bw bwVar) {
         String str;
-        if (tbPageContext != null && bvVar != null && bvVar.aWl() != null && bvVar.aWF() != null) {
-            if (this.fsm != null && this.fsm.aii != null && !this.fsj) {
-                ap apVar = new ap("c12645");
-                if (this.fsm.frD == 0) {
-                    apVar.ah("obj_type", 1);
-                } else if (this.fsm.frD == 1) {
-                    apVar.ah("obj_type", 2);
+        if (tbPageContext != null && bwVar != null && bwVar.beE() != null && bwVar.beY() != null) {
+            if (this.fDG != null && this.fDG.ajx != null && !this.fDD) {
+                aq aqVar = new aq("c12645");
+                if (this.fDG.fCX == 0) {
+                    aqVar.ai("obj_type", 1);
+                } else if (this.fDG.fCX == 1) {
+                    aqVar.ai("obj_type", 2);
                 }
-                apVar.dn("tid", this.fsm.aii.getTid());
-                TiebaStatic.log(apVar);
+                aqVar.dD("tid", this.fDG.ajx.getTid());
+                TiebaStatic.log(aqVar);
             }
             boolean z = false;
             String str2 = "";
             if (TbadkCoreApplication.getCurrentAccount() != null) {
-                String userId = bvVar.aWl().getUserId();
+                String userId = bwVar.beE().getUserId();
                 str2 = TbadkCoreApplication.getCurrentAccount();
                 z = TextUtils.equals(userId, str2);
             }
-            if (this.fsj) {
+            if (this.fDD) {
                 str = "frs_live_tab_headview";
             } else {
                 str = "square_recommend_top_card";
             }
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            alaLiveInfoCoreData.fillWithInfoData(bvVar.aWF());
-            alaLiveInfoCoreData.userName = bvVar.aWF().user_info.user_name;
+            alaLiveInfoCoreData.fillWithInfoData(bwVar.beY());
+            alaLiveInfoCoreData.userName = bwVar.beY().user_info.user_name;
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, str, str2, z, "")));
         }
     }

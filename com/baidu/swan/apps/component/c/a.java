@@ -3,14 +3,14 @@ package com.baidu.swan.apps.component.c;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import com.baidu.swan.apps.component.container.c;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private c bWw;
+    private c cce;
     private Context mContext;
 
     public a(@NonNull Context context, @NonNull com.baidu.swan.apps.view.b.a aVar) {
         this.mContext = context;
-        this.bWw = new c(aVar);
+        this.cce = new c(aVar);
     }
 
     @NonNull
@@ -19,15 +19,15 @@ public class a {
     }
 
     @NonNull
-    public c Xk() {
-        return this.bWw;
+    public c adq() {
+        return this.cce;
     }
 
     public void onDestroy() {
-        this.bWw.onDestroy();
+        this.cce.onDestroy();
     }
 
-    public void bF(@NonNull Context context) {
+    public void bM(@NonNull Context context) {
         this.mContext = context;
     }
 }

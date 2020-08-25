@@ -4,9 +4,9 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class e {
-    public static d bq(View view) {
+    public static d bs(View view) {
         if (view == null) {
             return null;
         }
@@ -22,7 +22,7 @@ public class e {
         return null;
     }
 
-    public static d g(View view, boolean z) {
+    public static d f(View view, boolean z) {
         if (view == null) {
             return null;
         }

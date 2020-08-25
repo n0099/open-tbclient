@@ -8,14 +8,13 @@ import android.widget.LinearLayout;
 import com.baidu.adp.lib.e.b;
 import com.baidu.adp.lib.e.c;
 import com.baidu.adp.lib.util.l;
-import com.baidu.adp.widget.ImageView.a;
 import com.baidu.tbadk.gif.GifInfo;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class EmotionPreview extends LinearLayout {
-    private ImageView hrM;
+    private ImageView hFc;
     private int mImageWidth;
 
     public EmotionPreview(Context context) {
@@ -44,42 +43,42 @@ public class EmotionPreview extends LinearLayout {
         if (!TextUtils.isEmpty(str)) {
             removeAllViews();
             if (z || i == 20) {
-                this.hrM = new GifView(getContext());
-                ((GifView) this.hrM).setSupportNoImage(false);
+                this.hFc = new GifView(getContext());
+                ((GifView) this.hFc).setSupportNoImage(false);
                 GifInfo gifInfo = new GifInfo();
                 gifInfo.mSharpText = str;
                 gifInfo.mDynamicUrl = str;
                 gifInfo.mStaticUrl = str2;
-                this.hrM.setTag(gifInfo.mSharpText);
-                ((GifView) this.hrM).a(gifInfo);
+                this.hFc.setTag(gifInfo.mSharpText);
+                ((GifView) this.hFc).a(gifInfo);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.mImageWidth, this.mImageWidth);
                 layoutParams.gravity = 17;
-                addView(this.hrM, layoutParams);
+                addView(this.hFc, layoutParams);
                 return;
             }
-            c.ln().a(str, 10, new b<a>() { // from class: com.baidu.tieba.face.view.EmotionPreview.1
+            c.mM().a(str, 10, new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.face.view.EmotionPreview.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.e.b
-                public void onLoaded(a aVar, String str3, int i2) {
+                public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str3, int i2) {
                     if (aVar != null) {
                         if (aVar.isGif()) {
-                            EmotionPreview.this.hrM = new GifView(EmotionPreview.this.getContext());
-                            ((GifView) EmotionPreview.this.hrM).setSupportNoImage(false);
+                            EmotionPreview.this.hFc = new GifView(EmotionPreview.this.getContext());
+                            ((GifView) EmotionPreview.this.hFc).setSupportNoImage(false);
                             GifInfo gifInfo2 = new GifInfo();
                             gifInfo2.mSharpText = str;
                             gifInfo2.mDynamicUrl = str;
                             gifInfo2.mStaticUrl = str2;
-                            EmotionPreview.this.hrM.setTag(gifInfo2.mSharpText);
-                            ((GifView) EmotionPreview.this.hrM).a(gifInfo2);
+                            EmotionPreview.this.hFc.setTag(gifInfo2.mSharpText);
+                            ((GifView) EmotionPreview.this.hFc).a(gifInfo2);
                         } else {
-                            EmotionPreview.this.hrM = new TbImageView(EmotionPreview.this.getContext());
-                            ((TbImageView) EmotionPreview.this.hrM).setGifIconSupport(false);
-                            aVar.drawImageTo(EmotionPreview.this.hrM);
+                            EmotionPreview.this.hFc = new TbImageView(EmotionPreview.this.getContext());
+                            ((TbImageView) EmotionPreview.this.hFc).setGifIconSupport(false);
+                            aVar.drawImageTo(EmotionPreview.this.hFc);
                         }
                         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(EmotionPreview.this.mImageWidth, EmotionPreview.this.mImageWidth);
                         layoutParams2.gravity = 17;
-                        EmotionPreview.this.addView(EmotionPreview.this.hrM, layoutParams2);
+                        EmotionPreview.this.addView(EmotionPreview.this.hFc, layoutParams2);
                     }
                 }
             }, null);

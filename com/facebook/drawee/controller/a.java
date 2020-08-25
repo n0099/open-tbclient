@@ -13,151 +13,151 @@ import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes9.dex */
-public abstract class a<T, INFO> implements a.InterfaceC0807a, a.InterfaceC0808a, com.facebook.drawee.d.a {
-    private static final Class<?> mPz = a.class;
+/* loaded from: classes4.dex */
+public abstract class a<T, INFO> implements a.InterfaceC0865a, a.InterfaceC0866a, com.facebook.drawee.d.a {
+    private static final Class<?> nju = a.class;
     @Nullable
     private Drawable mDrawable;
     private String mId;
     private boolean mIsAttached;
-    private final com.facebook.drawee.components.a mSF;
-    private Object mSL;
+    private Object nmD;
+    private final com.facebook.drawee.components.a nmx;
+    private final Executor nnl;
     @Nullable
-    private d mTA;
+    private com.facebook.drawee.components.b nnm;
     @Nullable
-    private com.facebook.drawee.d.c mTB;
+    private com.facebook.drawee.c.a nnn;
     @Nullable
-    private Drawable mTC;
-    private boolean mTD;
-    private boolean mTE;
-    private boolean mTF;
-    private boolean mTG;
+    private c<INFO> nno;
     @Nullable
-    private String mTH;
+    private d nnp;
     @Nullable
-    private com.facebook.datasource.b<T> mTI;
+    private com.facebook.drawee.d.c nnq;
     @Nullable
-    private T mTJ;
-    private final Executor mTw;
+    private Drawable nnr;
+    private boolean nns;
+    private boolean nnt;
+    private boolean nnu;
+    private boolean nnv;
     @Nullable
-    private com.facebook.drawee.components.b mTx;
+    private String nnw;
     @Nullable
-    private com.facebook.drawee.c.a mTy;
+    private com.facebook.datasource.b<T> nnx;
     @Nullable
-    private c<INFO> mTz;
-    private final DraweeEventTracker mTv = DraweeEventTracker.dDJ();
-    private boolean mTK = true;
+    private T nny;
+    private final DraweeEventTracker nnk = DraweeEventTracker.dPJ();
+    private boolean nnz = true;
 
-    protected abstract void aV(@Nullable T t);
+    protected abstract void aX(@Nullable T t);
 
     @Nullable
-    protected abstract INFO aX(T t);
+    protected abstract INFO aZ(T t);
 
-    protected abstract Drawable aY(T t);
+    protected abstract Drawable ba(T t);
 
-    protected abstract com.facebook.datasource.b<T> dDu();
+    protected abstract com.facebook.datasource.b<T> dPu();
 
     protected abstract void i(@Nullable Drawable drawable);
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.facebook.drawee.controller.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static class C0809a<INFO> extends e<INFO> {
-        private C0809a() {
+    /* loaded from: classes4.dex */
+    public static class C0867a<INFO> extends e<INFO> {
+        private C0867a() {
         }
 
-        public static <INFO> C0809a<INFO> a(c<? super INFO> cVar, c<? super INFO> cVar2) {
-            C0809a<INFO> c0809a = new C0809a<>();
-            c0809a.d(cVar);
-            c0809a.d(cVar2);
-            return c0809a;
+        public static <INFO> C0867a<INFO> a(c<? super INFO> cVar, c<? super INFO> cVar2) {
+            C0867a<INFO> c0867a = new C0867a<>();
+            c0867a.d(cVar);
+            c0867a.d(cVar2);
+            return c0867a;
         }
     }
 
     public a(com.facebook.drawee.components.a aVar, Executor executor, String str, Object obj) {
-        this.mSF = aVar;
-        this.mTw = executor;
-        J(str, obj);
+        this.nmx = aVar;
+        this.nnl = executor;
+        I(str, obj);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void I(String str, Object obj) {
-        J(str, obj);
-        this.mTK = false;
+    public void H(String str, Object obj) {
+        I(str, obj);
+        this.nnz = false;
     }
 
-    private synchronized void J(String str, Object obj) {
-        this.mTv.a(DraweeEventTracker.Event.ON_INIT_CONTROLLER);
-        if (!this.mTK && this.mSF != null) {
-            this.mSF.b(this);
+    private synchronized void I(String str, Object obj) {
+        this.nnk.a(DraweeEventTracker.Event.ON_INIT_CONTROLLER);
+        if (!this.nnz && this.nmx != null) {
+            this.nmx.b(this);
         }
         this.mIsAttached = false;
-        this.mTE = false;
-        dDM();
-        this.mTG = false;
-        if (this.mTx != null) {
-            this.mTx.init();
+        this.nnt = false;
+        dPM();
+        this.nnv = false;
+        if (this.nnm != null) {
+            this.nnm.init();
         }
-        if (this.mTy != null) {
-            this.mTy.init();
-            this.mTy.a(this);
+        if (this.nnn != null) {
+            this.nnn.init();
+            this.nnn.a(this);
         }
-        if (this.mTz instanceof C0809a) {
-            ((C0809a) this.mTz).dEg();
+        if (this.nno instanceof C0867a) {
+            ((C0867a) this.nno).dQg();
         } else {
-            this.mTz = null;
+            this.nno = null;
         }
-        this.mTA = null;
-        if (this.mTB != null) {
-            this.mTB.reset();
-            this.mTB.j(null);
-            this.mTB = null;
+        this.nnp = null;
+        if (this.nnq != null) {
+            this.nnq.reset();
+            this.nnq.j(null);
+            this.nnq = null;
         }
-        this.mTC = null;
+        this.nnr = null;
         if (com.facebook.common.c.a.isLoggable(2)) {
-            com.facebook.common.c.a.a(mPz, "controller %x %s -> %s: initialize", Integer.valueOf(System.identityHashCode(this)), this.mId, str);
+            com.facebook.common.c.a.a(nju, "controller %x %s -> %s: initialize", Integer.valueOf(System.identityHashCode(this)), this.mId, str);
         }
         this.mId = str;
-        this.mSL = obj;
+        this.nmD = obj;
     }
 
-    @Override // com.facebook.drawee.components.a.InterfaceC0808a
+    @Override // com.facebook.drawee.components.a.InterfaceC0866a
     public void release() {
-        this.mTv.a(DraweeEventTracker.Event.ON_RELEASE_CONTROLLER);
-        if (this.mTx != null) {
-            this.mTx.reset();
+        this.nnk.a(DraweeEventTracker.Event.ON_RELEASE_CONTROLLER);
+        if (this.nnm != null) {
+            this.nnm.reset();
         }
-        if (this.mTy != null) {
-            this.mTy.reset();
+        if (this.nnn != null) {
+            this.nnn.reset();
         }
-        if (this.mTB != null) {
-            this.mTB.reset();
+        if (this.nnq != null) {
+            this.nnq.reset();
         }
-        dDM();
+        dPM();
     }
 
-    private void dDM() {
-        boolean z = this.mTD;
-        this.mTD = false;
-        this.mTF = false;
-        if (this.mTI != null) {
-            this.mTI.abo();
-            this.mTI = null;
+    private void dPM() {
+        boolean z = this.nns;
+        this.nns = false;
+        this.nnu = false;
+        if (this.nnx != null) {
+            this.nnx.ahA();
+            this.nnx = null;
         }
         if (this.mDrawable != null) {
             i(this.mDrawable);
         }
-        if (this.mTH != null) {
-            this.mTH = null;
+        if (this.nnw != null) {
+            this.nnw = null;
         }
         this.mDrawable = null;
-        if (this.mTJ != null) {
-            K("release", this.mTJ);
-            aV(this.mTJ);
-            this.mTJ = null;
+        if (this.nny != null) {
+            J("release", this.nny);
+            aX(this.nny);
+            this.nny = null;
         }
         if (z) {
-            dDP().fa(this.mId);
+            dPP().gv(this.mId);
         }
     }
 
@@ -167,116 +167,116 @@ public abstract class a<T, INFO> implements a.InterfaceC0807a, a.InterfaceC0808a
 
     /* JADX INFO: Access modifiers changed from: protected */
     @ReturnsOwnership
-    public com.facebook.drawee.components.b dDN() {
-        if (this.mTx == null) {
-            this.mTx = new com.facebook.drawee.components.b();
+    public com.facebook.drawee.components.b dPN() {
+        if (this.nnm == null) {
+            this.nnm = new com.facebook.drawee.components.b();
         }
-        return this.mTx;
+        return this.nnm;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Nullable
-    public com.facebook.drawee.c.a dDO() {
-        return this.mTy;
+    public com.facebook.drawee.c.a dPO() {
+        return this.nnn;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(@Nullable com.facebook.drawee.c.a aVar) {
-        this.mTy = aVar;
-        if (this.mTy != null) {
-            this.mTy.a(this);
+        this.nnn = aVar;
+        if (this.nnn != null) {
+            this.nnn.a(this);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void xb(boolean z) {
-        this.mTG = z;
+    public void xS(boolean z) {
+        this.nnv = z;
     }
 
-    public void Rx(@Nullable String str) {
-        this.mTH = str;
+    public void UB(@Nullable String str) {
+        this.nnw = str;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.facebook.drawee.controller.c<? super INFO> */
     /* JADX WARN: Multi-variable type inference failed */
     public void a(c<? super INFO> cVar) {
         g.checkNotNull(cVar);
-        if (this.mTz instanceof C0809a) {
-            ((C0809a) this.mTz).d(cVar);
-        } else if (this.mTz != null) {
-            this.mTz = C0809a.a(this.mTz, cVar);
+        if (this.nno instanceof C0867a) {
+            ((C0867a) this.nno).d(cVar);
+        } else if (this.nno != null) {
+            this.nno = C0867a.a(this.nno, cVar);
         } else {
-            this.mTz = cVar;
+            this.nno = cVar;
         }
     }
 
     public void b(c<? super INFO> cVar) {
         g.checkNotNull(cVar);
-        if (this.mTz instanceof C0809a) {
-            ((C0809a) this.mTz).e(cVar);
-        } else if (this.mTz == cVar) {
-            this.mTz = null;
+        if (this.nno instanceof C0867a) {
+            ((C0867a) this.nno).e(cVar);
+        } else if (this.nno == cVar) {
+            this.nno = null;
         }
     }
 
-    protected c<INFO> dDP() {
-        return this.mTz == null ? b.dEf() : this.mTz;
+    protected c<INFO> dPP() {
+        return this.nno == null ? b.dQf() : this.nno;
     }
 
     public void a(@Nullable d dVar) {
-        this.mTA = dVar;
+        this.nnp = dVar;
     }
 
     @Override // com.facebook.drawee.d.a
     @Nullable
     public com.facebook.drawee.d.b getHierarchy() {
-        return this.mTB;
+        return this.nnq;
     }
 
     public void setHierarchy(@Nullable com.facebook.drawee.d.b bVar) {
         if (com.facebook.common.c.a.isLoggable(2)) {
-            com.facebook.common.c.a.a(mPz, "controller %x %s: setHierarchy: %s", Integer.valueOf(System.identityHashCode(this)), this.mId, bVar);
+            com.facebook.common.c.a.a(nju, "controller %x %s: setHierarchy: %s", Integer.valueOf(System.identityHashCode(this)), this.mId, bVar);
         }
-        this.mTv.a(bVar != null ? DraweeEventTracker.Event.ON_SET_HIERARCHY : DraweeEventTracker.Event.ON_CLEAR_HIERARCHY);
-        if (this.mTD) {
-            this.mSF.b(this);
+        this.nnk.a(bVar != null ? DraweeEventTracker.Event.ON_SET_HIERARCHY : DraweeEventTracker.Event.ON_CLEAR_HIERARCHY);
+        if (this.nns) {
+            this.nmx.b(this);
             release();
         }
-        if (this.mTB != null) {
-            this.mTB.j(null);
-            this.mTB = null;
+        if (this.nnq != null) {
+            this.nnq.j(null);
+            this.nnq = null;
         }
         if (bVar != null) {
             g.checkArgument(bVar instanceof com.facebook.drawee.d.c);
-            this.mTB = (com.facebook.drawee.d.c) bVar;
-            this.mTB.j(this.mTC);
+            this.nnq = (com.facebook.drawee.d.c) bVar;
+            this.nnq.j(this.nnr);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void j(@Nullable Drawable drawable) {
-        this.mTC = drawable;
-        if (this.mTB != null) {
-            this.mTB.j(this.mTC);
+        this.nnr = drawable;
+        if (this.nnq != null) {
+            this.nnq.j(this.nnr);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Nullable
-    public Drawable dDQ() {
-        return this.mTC;
+    public Drawable dPQ() {
+        return this.nnr;
     }
 
     @Override // com.facebook.drawee.d.a
     public void onAttach() {
         if (com.facebook.common.c.a.isLoggable(2)) {
-            com.facebook.common.c.a.a(mPz, "controller %x %s: onAttach: %s", Integer.valueOf(System.identityHashCode(this)), this.mId, this.mTD ? "request already submitted" : "request needs submit");
+            com.facebook.common.c.a.a(nju, "controller %x %s: onAttach: %s", Integer.valueOf(System.identityHashCode(this)), this.mId, this.nns ? "request already submitted" : "request needs submit");
         }
-        this.mTv.a(DraweeEventTracker.Event.ON_ATTACH_CONTROLLER);
-        g.checkNotNull(this.mTB);
-        this.mSF.b(this);
+        this.nnk.a(DraweeEventTracker.Event.ON_ATTACH_CONTROLLER);
+        g.checkNotNull(this.nnq);
+        this.nmx.b(this);
         this.mIsAttached = true;
-        if (!this.mTD) {
+        if (!this.nns) {
             submitRequest();
         }
     }
@@ -284,44 +284,44 @@ public abstract class a<T, INFO> implements a.InterfaceC0807a, a.InterfaceC0808a
     @Override // com.facebook.drawee.d.a
     public void onDetach() {
         if (com.facebook.common.c.a.isLoggable(2)) {
-            com.facebook.common.c.a.a(mPz, "controller %x %s: onDetach", Integer.valueOf(System.identityHashCode(this)), this.mId);
+            com.facebook.common.c.a.a(nju, "controller %x %s: onDetach", Integer.valueOf(System.identityHashCode(this)), this.mId);
         }
-        this.mTv.a(DraweeEventTracker.Event.ON_DETACH_CONTROLLER);
+        this.nnk.a(DraweeEventTracker.Event.ON_DETACH_CONTROLLER);
         this.mIsAttached = false;
-        this.mSF.a(this);
+        this.nmx.a(this);
     }
 
     @Override // com.facebook.drawee.d.a
     public boolean onTouchEvent(MotionEvent motionEvent) {
         if (com.facebook.common.c.a.isLoggable(2)) {
-            com.facebook.common.c.a.a(mPz, "controller %x %s: onTouchEvent %s", Integer.valueOf(System.identityHashCode(this)), this.mId, motionEvent);
+            com.facebook.common.c.a.a(nju, "controller %x %s: onTouchEvent %s", Integer.valueOf(System.identityHashCode(this)), this.mId, motionEvent);
         }
-        if (this.mTy == null) {
+        if (this.nnn == null) {
             return false;
         }
-        if (this.mTy.dEW() || dDR()) {
-            this.mTy.onTouchEvent(motionEvent);
+        if (this.nnn.dQV() || dPR()) {
+            this.nnn.onTouchEvent(motionEvent);
             return true;
         }
         return false;
     }
 
-    protected boolean dDR() {
-        return dDK();
+    protected boolean dPR() {
+        return dPK();
     }
 
-    private boolean dDK() {
-        return this.mTF && this.mTx != null && this.mTx.dDK();
+    private boolean dPK() {
+        return this.nnu && this.nnm != null && this.nnm.dPK();
     }
 
-    @Override // com.facebook.drawee.c.a.InterfaceC0807a
-    public boolean dDS() {
+    @Override // com.facebook.drawee.c.a.InterfaceC0865a
+    public boolean dPS() {
         if (com.facebook.common.c.a.isLoggable(2)) {
-            com.facebook.common.c.a.a(mPz, "controller %x %s: onClick", Integer.valueOf(System.identityHashCode(this)), this.mId);
+            com.facebook.common.c.a.a(nju, "controller %x %s: onClick", Integer.valueOf(System.identityHashCode(this)), this.mId);
         }
-        if (dDK()) {
-            this.mTx.dDL();
-            this.mTB.reset();
+        if (dPK()) {
+            this.nnm.dPL();
+            this.nnq.reset();
             submitRequest();
             return true;
         }
@@ -329,36 +329,36 @@ public abstract class a<T, INFO> implements a.InterfaceC0807a, a.InterfaceC0808a
     }
 
     protected void submitRequest() {
-        T dDw = dDw();
-        if (dDw != null) {
-            this.mTI = null;
-            this.mTD = true;
-            this.mTF = false;
-            this.mTv.a(DraweeEventTracker.Event.ON_SUBMIT_CACHE_HIT);
-            dDP().g(this.mId, this.mSL);
-            H(this.mId, dDw);
-            a(this.mId, this.mTI, dDw, 1.0f, true, true);
+        T dPw = dPw();
+        if (dPw != null) {
+            this.nnx = null;
+            this.nns = true;
+            this.nnu = false;
+            this.nnk.a(DraweeEventTracker.Event.ON_SUBMIT_CACHE_HIT);
+            dPP().g(this.mId, this.nmD);
+            G(this.mId, dPw);
+            a(this.mId, this.nnx, dPw, 1.0f, true, true);
             return;
         }
-        this.mTv.a(DraweeEventTracker.Event.ON_DATASOURCE_SUBMIT);
-        dDP().g(this.mId, this.mSL);
-        this.mTB.c(0.0f, true);
-        this.mTD = true;
-        this.mTF = false;
-        this.mTI = dDu();
+        this.nnk.a(DraweeEventTracker.Event.ON_DATASOURCE_SUBMIT);
+        dPP().g(this.mId, this.nmD);
+        this.nnq.c(0.0f, true);
+        this.nns = true;
+        this.nnu = false;
+        this.nnx = dPu();
         if (com.facebook.common.c.a.isLoggable(2)) {
-            com.facebook.common.c.a.a(mPz, "controller %x %s: submitRequest: dataSource: %x", Integer.valueOf(System.identityHashCode(this)), this.mId, Integer.valueOf(System.identityHashCode(this.mTI)));
+            com.facebook.common.c.a.a(nju, "controller %x %s: submitRequest: dataSource: %x", Integer.valueOf(System.identityHashCode(this)), this.mId, Integer.valueOf(System.identityHashCode(this.nnx)));
         }
         final String str = this.mId;
-        final boolean dCW = this.mTI.dCW();
-        this.mTI.a(new com.facebook.datasource.a<T>() { // from class: com.facebook.drawee.controller.a.1
+        final boolean dOW = this.nnx.dOW();
+        this.nnx.a(new com.facebook.datasource.a<T>() { // from class: com.facebook.drawee.controller.a.1
             @Override // com.facebook.datasource.a
             public void g(com.facebook.datasource.b<T> bVar) {
                 boolean isFinished = bVar.isFinished();
                 float progress = bVar.getProgress();
                 T result = bVar.getResult();
                 if (result != null) {
-                    a.this.a(str, bVar, result, progress, isFinished, dCW);
+                    a.this.a(str, bVar, result, progress, isFinished, dOW);
                 } else if (isFinished) {
                     a.this.a(str, (com.facebook.datasource.b) bVar, (Throwable) new NullPointerException(), true);
                 }
@@ -366,7 +366,7 @@ public abstract class a<T, INFO> implements a.InterfaceC0807a, a.InterfaceC0808a
 
             @Override // com.facebook.datasource.a
             public void a(com.facebook.datasource.b<T> bVar) {
-                a.this.a(str, (com.facebook.datasource.b) bVar, bVar.dCY(), true);
+                a.this.a(str, (com.facebook.datasource.b) bVar, bVar.dOY(), true);
             }
 
             @Override // com.facebook.datasource.a, com.facebook.datasource.d
@@ -374,55 +374,55 @@ public abstract class a<T, INFO> implements a.InterfaceC0807a, a.InterfaceC0808a
                 boolean isFinished = bVar.isFinished();
                 a.this.a(str, bVar, bVar.getProgress(), isFinished);
             }
-        }, this.mTw);
+        }, this.nnl);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, com.facebook.datasource.b<T> bVar, @Nullable T t, float f, boolean z, boolean z2) {
         if (!a(str, bVar)) {
-            K("ignore_old_datasource @ onNewResult", t);
-            aV(t);
-            bVar.abo();
+            J("ignore_old_datasource @ onNewResult", t);
+            aX(t);
+            bVar.ahA();
             return;
         }
-        this.mTv.a(z ? DraweeEventTracker.Event.ON_DATASOURCE_RESULT : DraweeEventTracker.Event.ON_DATASOURCE_RESULT_INT);
+        this.nnk.a(z ? DraweeEventTracker.Event.ON_DATASOURCE_RESULT : DraweeEventTracker.Event.ON_DATASOURCE_RESULT_INT);
         try {
-            Drawable aY = aY(t);
-            T t2 = this.mTJ;
+            Drawable ba = ba(t);
+            T t2 = this.nny;
             Drawable drawable = this.mDrawable;
-            this.mTJ = t;
-            this.mDrawable = aY;
+            this.nny = t;
+            this.mDrawable = ba;
             try {
                 if (z) {
-                    K("set_final_result @ onNewResult", t);
-                    this.mTI = null;
-                    this.mTB.a(aY, 1.0f, z2);
-                    dDP().a(str, aX(t), dDT());
+                    J("set_final_result @ onNewResult", t);
+                    this.nnx = null;
+                    this.nnq.a(ba, 1.0f, z2);
+                    dPP().a(str, aZ(t), dPT());
                 } else {
-                    K("set_intermediate_result @ onNewResult", t);
-                    this.mTB.a(aY, f, z2);
-                    dDP().h(str, (String) aX(t));
+                    J("set_intermediate_result @ onNewResult", t);
+                    this.nnq.a(ba, f, z2);
+                    dPP().h(str, (String) aZ(t));
                 }
-                if (drawable != null && drawable != aY) {
+                if (drawable != null && drawable != ba) {
                     i(drawable);
                 }
                 if (t2 != null && t2 != t) {
-                    K("release_previous_result @ onNewResult", t2);
-                    aV(t2);
+                    J("release_previous_result @ onNewResult", t2);
+                    aX(t2);
                 }
             } catch (Throwable th) {
-                if (drawable != null && drawable != aY) {
+                if (drawable != null && drawable != ba) {
                     i(drawable);
                 }
                 if (t2 != null && t2 != t) {
-                    K("release_previous_result @ onNewResult", t2);
-                    aV(t2);
+                    J("release_previous_result @ onNewResult", t2);
+                    aX(t2);
                 }
                 throw th;
             }
         } catch (Exception e) {
-            K("drawable_failed @ onNewResult", t);
-            aV(t);
+            J("drawable_failed @ onNewResult", t);
+            aX(t);
             a(str, bVar, e, z);
         }
     }
@@ -431,83 +431,83 @@ public abstract class a<T, INFO> implements a.InterfaceC0807a, a.InterfaceC0808a
     public void a(String str, com.facebook.datasource.b<T> bVar, Throwable th, boolean z) {
         if (!a(str, bVar)) {
             k("ignore_old_datasource @ onFailure", th);
-            bVar.abo();
+            bVar.ahA();
             return;
         }
-        this.mTv.a(z ? DraweeEventTracker.Event.ON_DATASOURCE_FAILURE : DraweeEventTracker.Event.ON_DATASOURCE_FAILURE_INT);
+        this.nnk.a(z ? DraweeEventTracker.Event.ON_DATASOURCE_FAILURE : DraweeEventTracker.Event.ON_DATASOURCE_FAILURE_INT);
         if (z) {
             k("final_failed @ onFailure", th);
-            this.mTI = null;
-            this.mTF = true;
-            if (this.mTG && this.mDrawable != null) {
-                this.mTB.a(this.mDrawable, 1.0f, true);
-            } else if (dDK()) {
-                this.mTB.D(th);
+            this.nnx = null;
+            this.nnu = true;
+            if (this.nnv && this.mDrawable != null) {
+                this.nnq.a(this.mDrawable, 1.0f, true);
+            } else if (dPK()) {
+                this.nnq.C(th);
             } else {
-                this.mTB.C(th);
+                this.nnq.B(th);
             }
-            dDP().h(this.mId, th);
+            dPP().h(this.mId, th);
             return;
         }
         k("intermediate_failed @ onFailure", th);
-        dDP().g(this.mId, th);
+        dPP().g(this.mId, th);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, com.facebook.datasource.b<T> bVar, float f, boolean z) {
         if (!a(str, bVar)) {
             k("ignore_old_datasource @ onProgress", null);
-            bVar.abo();
+            bVar.ahA();
         } else if (!z) {
-            this.mTB.c(f, false);
+            this.nnq.c(f, false);
         }
     }
 
     private boolean a(String str, com.facebook.datasource.b<T> bVar) {
-        if (bVar == null && this.mTI == null) {
+        if (bVar == null && this.nnx == null) {
             return true;
         }
-        return str.equals(this.mId) && bVar == this.mTI && this.mTD;
+        return str.equals(this.mId) && bVar == this.nnx && this.nns;
     }
 
-    private void K(String str, T t) {
+    private void J(String str, T t) {
         if (com.facebook.common.c.a.isLoggable(2)) {
-            com.facebook.common.c.a.b(mPz, "controller %x %s: %s: image: %s %x", Integer.valueOf(System.identityHashCode(this)), this.mId, str, ba(t), Integer.valueOf(aW(t)));
+            com.facebook.common.c.a.b(nju, "controller %x %s: %s: image: %s %x", Integer.valueOf(System.identityHashCode(this)), this.mId, str, bc(t), Integer.valueOf(aY(t)));
         }
     }
 
     private void k(String str, Throwable th) {
         if (com.facebook.common.c.a.isLoggable(2)) {
-            com.facebook.common.c.a.a(mPz, "controller %x %s: %s: failure: %s", Integer.valueOf(System.identityHashCode(this)), this.mId, str, th);
+            com.facebook.common.c.a.a(nju, "controller %x %s: %s: failure: %s", Integer.valueOf(System.identityHashCode(this)), this.mId, str, th);
         }
     }
 
     @Override // com.facebook.drawee.d.a
     @Nullable
-    public Animatable dDT() {
+    public Animatable dPT() {
         if (this.mDrawable instanceof Animatable) {
             return (Animatable) this.mDrawable;
         }
         return null;
     }
 
-    protected String ba(@Nullable T t) {
+    protected String bc(@Nullable T t) {
         return t != null ? t.getClass().getSimpleName() : "<null>";
     }
 
-    protected int aW(@Nullable T t) {
+    protected int aY(@Nullable T t) {
         return System.identityHashCode(t);
     }
 
     public String toString() {
-        return f.aO(this).aW("isAttached", this.mIsAttached).aW("isRequestSubmitted", this.mTD).aW("hasFetchFailed", this.mTF).bK("fetchedImage", aW(this.mTJ)).F("events", this.mTv.toString()).toString();
+        return f.aQ(this).ba("isAttached", this.mIsAttached).ba("isRequestSubmitted", this.nns).ba("hasFetchFailed", this.nnu).bP("fetchedImage", aY(this.nny)).E("events", this.nnk.toString()).toString();
     }
 
-    protected T dDw() {
+    protected T dPw() {
         return null;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void H(String str, T t) {
+    public void G(String str, T t) {
     }
 }

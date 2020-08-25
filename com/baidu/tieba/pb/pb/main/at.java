@@ -11,36 +11,36 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.view.SortSwitchButton;
 /* loaded from: classes16.dex */
 public class at extends o<com.baidu.tieba.pb.data.n, au> {
-    private View.OnClickListener aMH;
-    private com.baidu.tieba.pb.data.f kkO;
-    private SortSwitchButton.a kpg;
-    private BdUniqueId kuq;
-    private BdUniqueId kur;
-    private boolean kus;
+    private View.OnClickListener aRU;
+    private com.baidu.tieba.pb.data.f kAg;
+    private SortSwitchButton.a kEx;
+    private BdUniqueId kJV;
+    private BdUniqueId kJW;
+    private boolean kJX;
 
     public at(com.baidu.tieba.pb.videopb.b bVar, BdUniqueId bdUniqueId) {
         super(bVar, bdUniqueId);
-        this.kus = false;
-        this.kuq = BdUniqueId.gen();
-        this.kur = BdUniqueId.gen();
+        this.kJX = false;
+        this.kJV = BdUniqueId.gen();
+        this.kJW = BdUniqueId.gen();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: co */
+    /* renamed from: ck */
     public au b(ViewGroup viewGroup) {
-        au auVar = new au(this.kmE.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.pb_reply_title_layout, viewGroup, false));
-        if (this.kkb != null) {
-            auVar.w(this.kkb.koc);
+        au auVar = new au(this.kBW.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.pb_reply_title_layout, viewGroup, false));
+        if (this.kzt != null) {
+            auVar.w(this.kzt.kDu);
         }
-        auVar.WR = false;
-        auVar.T(this.aMH);
-        auVar.setOnSwitchChangeListener(this.kpg);
-        if (getType() == com.baidu.tieba.pb.data.n.kiG) {
-            auVar.m(this.kuq);
-        } else if (getType() == com.baidu.tieba.pb.data.n.kiH) {
-            auVar.v(this.kur);
+        auVar.Xx = false;
+        auVar.U(this.aRU);
+        auVar.setOnSwitchChangeListener(this.kEx);
+        if (getType() == com.baidu.tieba.pb.data.n.kxY) {
+            auVar.m(this.kJV);
+        } else if (getType() == com.baidu.tieba.pb.data.n.kxZ) {
+            auVar.v(this.kJW);
         }
         return auVar;
     }
@@ -51,39 +51,39 @@ public class at extends o<com.baidu.tieba.pb.data.n, au> {
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.n nVar, au auVar) {
         super.a(i, view, viewGroup, (ViewGroup) nVar, (com.baidu.tieba.pb.data.n) auVar);
         if (auVar != null) {
-            cPp();
-            nVar.kiM = this.kkO.kho;
+            daf();
+            nVar.kye = this.kAg.kwH;
             auVar.a(nVar);
         }
         return view;
     }
 
-    private void cPp() {
-        if (this.kkO != null && this.kkO.cKx() != null && this.kkO.cKw() != null && this.kkO.khr && !this.kus) {
-            this.kus = true;
-            boolean isLike = this.kkO.cKw().getIsLike();
-            TiebaStatic.log(new com.baidu.tbadk.core.util.ap("common_exp").dn("page_type", PageStayDurationConstants.PageName.PB).ah("obj_isad", 1).ah("obj_floor", 1).ah("obj_adlocate", 9).dn("obj_id", this.kkO.cKw().getForumId()).ah("thread_type", this.kkO.cKx().getThreadType()).dn("tid", this.kkO.cKx().getId()));
+    private void daf() {
+        if (this.kAg != null && this.kAg.cVl() != null && this.kAg.cVk() != null && this.kAg.kwK && !this.kJX) {
+            this.kJX = true;
+            boolean isLike = this.kAg.cVk().getIsLike();
+            TiebaStatic.log(new com.baidu.tbadk.core.util.aq("common_exp").dD("page_type", PageStayDurationConstants.PageName.PB).ai("obj_isad", 1).ai("obj_floor", 1).ai("obj_adlocate", 9).dD("obj_id", this.kAg.cVk().getForumId()).ai("thread_type", this.kAg.cVl().getThreadType()).dD("tid", this.kAg.cVl().getId()));
             if (!isLike) {
-                TiebaStatic.log(new com.baidu.tbadk.core.util.ap("common_exp").dn("page_type", PageStayDurationConstants.PageName.PB).ah("obj_isad", 1).ah("obj_floor", 1).ah("obj_adlocate", 10).dn("obj_id", this.kkO.cKw().getForumId()).ah("thread_type", this.kkO.cKx().getThreadType()).dn("tid", this.kkO.cKx().getId()));
+                TiebaStatic.log(new com.baidu.tbadk.core.util.aq("common_exp").dD("page_type", PageStayDurationConstants.PageName.PB).ai("obj_isad", 1).ai("obj_floor", 1).ai("obj_adlocate", 10).dD("obj_id", this.kAg.cVk().getForumId()).ai("thread_type", this.kAg.cVl().getThreadType()).dD("tid", this.kAg.cVl().getId()));
             }
         }
     }
 
     public void onDestroy() {
-        this.kus = false;
-        MessageManager.getInstance().unRegisterListener(this.kuq);
-        MessageManager.getInstance().unRegisterListener(this.kur);
+        this.kJX = false;
+        MessageManager.getInstance().unRegisterListener(this.kJV);
+        MessageManager.getInstance().unRegisterListener(this.kJW);
     }
 
-    public void z(View.OnClickListener onClickListener) {
-        this.aMH = onClickListener;
+    public void A(View.OnClickListener onClickListener) {
+        this.aRU = onClickListener;
     }
 
     public void a(SortSwitchButton.a aVar) {
-        this.kpg = aVar;
+        this.kEx = aVar;
     }
 
     public void setData(com.baidu.tieba.pb.data.f fVar) {
-        this.kkO = fVar;
+        this.kAg = fVar;
     }
 }

@@ -1,11 +1,11 @@
 package com.baidu.afd;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
-    public static e K(String str, String str2) {
+    public static e M(String str, String str2) {
         e eVar = new e();
-        eVar.Xz = true;
+        eVar.Yf = true;
         eVar.ext = str;
-        eVar.XA = null;
+        eVar.Yg = null;
         return eVar;
     }
 }

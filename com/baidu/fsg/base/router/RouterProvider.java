@@ -1,7 +1,7 @@
 package com.baidu.fsg.base.router;
 
 import java.util.HashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public abstract class RouterProvider {
     private boolean a = true;
     private HashMap<String, RouterAction> b = new HashMap<>();

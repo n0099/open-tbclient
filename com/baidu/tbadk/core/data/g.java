@@ -1,19 +1,19 @@
 package com.baidu.tbadk.core.data;
 
 import tbclient.AwardInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class g {
-    private long dNN;
-    private long dNO;
-    private String dNP;
-    private String dNQ;
+    private long dWW;
+    private long dWX;
+    private String dWY;
+    private String dWZ;
 
     public void a(AwardInfo awardInfo) {
         if (awardInfo != null) {
-            this.dNN = awardInfo.award_id.longValue();
-            this.dNO = awardInfo.award_act_id.longValue();
-            this.dNP = awardInfo.award_name;
-            this.dNQ = awardInfo.award_imgsrc;
+            this.dWW = awardInfo.award_id.longValue();
+            this.dWX = awardInfo.award_act_id.longValue();
+            this.dWY = awardInfo.award_name;
+            this.dWZ = awardInfo.award_imgsrc;
         }
     }
 }

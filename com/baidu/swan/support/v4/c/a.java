@@ -4,21 +4,21 @@ import android.os.Build;
 import android.view.LayoutInflater;
 /* loaded from: classes9.dex */
 public class a {
-    static final InterfaceC0477a dzv;
+    static final InterfaceC0523a dIE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.swan.support.v4.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public interface InterfaceC0477a {
+    public interface InterfaceC0523a {
         void a(LayoutInflater layoutInflater, e eVar);
     }
 
     /* loaded from: classes9.dex */
-    static class b implements InterfaceC0477a {
+    static class b implements InterfaceC0523a {
         b() {
         }
 
-        @Override // com.baidu.swan.support.v4.c.a.InterfaceC0477a
+        @Override // com.baidu.swan.support.v4.c.a.InterfaceC0523a
         public void a(LayoutInflater layoutInflater, e eVar) {
             com.baidu.swan.support.v4.c.b.a(layoutInflater, eVar);
         }
@@ -29,7 +29,7 @@ public class a {
         c() {
         }
 
-        @Override // com.baidu.swan.support.v4.c.a.b, com.baidu.swan.support.v4.c.a.InterfaceC0477a
+        @Override // com.baidu.swan.support.v4.c.a.b, com.baidu.swan.support.v4.c.a.InterfaceC0523a
         public void a(LayoutInflater layoutInflater, e eVar) {
             com.baidu.swan.support.v4.c.c.a(layoutInflater, eVar);
         }
@@ -40,7 +40,7 @@ public class a {
         d() {
         }
 
-        @Override // com.baidu.swan.support.v4.c.a.c, com.baidu.swan.support.v4.c.a.b, com.baidu.swan.support.v4.c.a.InterfaceC0477a
+        @Override // com.baidu.swan.support.v4.c.a.c, com.baidu.swan.support.v4.c.a.b, com.baidu.swan.support.v4.c.a.InterfaceC0523a
         public void a(LayoutInflater layoutInflater, e eVar) {
             com.baidu.swan.support.v4.c.d.a(layoutInflater, eVar);
         }
@@ -49,15 +49,15 @@ public class a {
     static {
         int i = Build.VERSION.SDK_INT;
         if (i >= 21) {
-            dzv = new d();
+            dIE = new d();
         } else if (i >= 11) {
-            dzv = new c();
+            dIE = new c();
         } else {
-            dzv = new b();
+            dIE = new b();
         }
     }
 
     public static void a(LayoutInflater layoutInflater, e eVar) {
-        dzv.a(layoutInflater, eVar);
+        dIE.a(layoutInflater, eVar);
     }
 }

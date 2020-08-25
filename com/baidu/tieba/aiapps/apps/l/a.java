@@ -3,7 +3,7 @@ package com.baidu.tieba.aiapps.apps.l;
 import android.os.Parcelable;
 import android.util.Log;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
-import com.baidu.swan.apps.aq.p;
+import com.baidu.swan.apps.ap.p;
 import com.baidu.swan.apps.media.chooser.model.MediaModel;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -19,7 +19,7 @@ public class a extends ActivityDelegation {
                     if (com.baidu.swan.apps.media.chooser.b.c.DEBUG) {
                         Iterator<? extends Parcelable> it = arrayList.iterator();
                         while (it.hasNext()) {
-                            Log.d(getClass().getSimpleName(), "tempPath = " + ((MediaModel) it.next()).aly());
+                            Log.d(getClass().getSimpleName(), "tempPath = " + ((MediaModel) it.next()).atm());
                         }
                     }
                     a.this.mResult.putParcelableArrayList("mediaModels", arrayList);

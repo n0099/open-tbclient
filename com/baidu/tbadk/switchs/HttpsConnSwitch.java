@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.a;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class HttpsConnSwitch extends a {
     public static final String KEY = "is_call_test_https";
     public static final int TYPE_CLOSE = 0;

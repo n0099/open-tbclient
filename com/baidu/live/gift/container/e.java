@@ -2,53 +2,53 @@ package com.baidu.live.gift.container;
 
 import com.baidu.live.adp.base.BdPageContext;
 import com.baidu.live.data.g;
-import com.baidu.live.data.s;
+import com.baidu.live.data.t;
 import com.baidu.live.gift.giftList.c;
 import com.baidu.live.gift.i;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class e {
-    private com.baidu.live.gift.giftList.c aLX;
-    private ArrayList<i> aLY;
-    private ArrayList<com.baidu.live.data.f> aLZ;
-    private ArrayList<g> aMa;
-    private a aMb;
-    private c.a aMc = new c.a() { // from class: com.baidu.live.gift.container.e.1
+    private com.baidu.live.gift.giftList.c aRk;
+    private ArrayList<i> aRl;
+    private ArrayList<com.baidu.live.data.f> aRm;
+    private ArrayList<g> aRn;
+    private a aRo;
+    private c.a aRp = new c.a() { // from class: com.baidu.live.gift.container.e.1
         @Override // com.baidu.live.gift.giftList.c.a
-        public void a(int i, String str, boolean z, ArrayList<i> arrayList, ArrayList<com.baidu.live.data.f> arrayList2, ArrayList<g> arrayList3, s sVar) {
+        public void a(int i, String str, boolean z, ArrayList<i> arrayList, ArrayList<com.baidu.live.data.f> arrayList2, ArrayList<g> arrayList3, t tVar) {
             if (i == 0) {
-                e.this.aLY = arrayList;
-                e.this.aLZ = arrayList2;
-                e.this.aMa = arrayList3;
+                e.this.aRl = arrayList;
+                e.this.aRm = arrayList2;
+                e.this.aRn = arrayList3;
             }
-            if (e.this.aMb != null) {
-                e.this.aMb.b(i, str, true, e.this.aLY, e.this.aLZ, e.this.aMa, sVar);
+            if (e.this.aRo != null) {
+                e.this.aRo.b(i, str, true, e.this.aRl, e.this.aRm, e.this.aRn, tVar);
             }
         }
     };
     private BdPageContext mContext;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface a {
-        void b(int i, String str, boolean z, ArrayList<i> arrayList, ArrayList<com.baidu.live.data.f> arrayList2, ArrayList<g> arrayList3, s sVar);
+        void b(int i, String str, boolean z, ArrayList<i> arrayList, ArrayList<com.baidu.live.data.f> arrayList2, ArrayList<g> arrayList3, t tVar);
     }
 
     public e(BdPageContext bdPageContext, boolean z) {
         this.mContext = bdPageContext;
-        this.aLX = new com.baidu.live.gift.giftList.c(this.mContext);
-        this.aLX.a(this.aMc);
+        this.aRk = new com.baidu.live.gift.giftList.c(this.mContext);
+        this.aRk.a(this.aRp);
     }
 
-    public void fc(String str) {
+    public void gx(String str) {
         long currentTimeMillis = System.currentTimeMillis();
-        this.aLX.a(str, com.baidu.live.c.vf().getLong("ala_sdk_get_gift_list_req_time", currentTimeMillis) - currentTimeMillis <= 0, "open", "gift_panel");
+        this.aRk.a(str, com.baidu.live.c.AD().getLong("ala_sdk_get_gift_list_req_time", currentTimeMillis) - currentTimeMillis <= 0, "open", "gift_panel");
     }
 
-    public void fd(String str) {
-        this.aLX.n(str, "open", "gift_panel");
+    public void gy(String str) {
+        this.aRk.o(str, "open", "gift_panel");
     }
 
     public void a(a aVar) {
-        this.aMb = aVar;
+        this.aRo = aVar;
     }
 }

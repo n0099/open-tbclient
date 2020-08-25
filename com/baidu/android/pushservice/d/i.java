@@ -3,7 +3,7 @@ package com.baidu.android.pushservice.d;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.text.TextUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class i {
     public String a;
     public String b;

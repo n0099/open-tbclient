@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.data;
 
 import tbclient.FrsPage.CarrierEnter;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class q {
     private String headline_cover;
     private String obj_id;

@@ -6,17 +6,17 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
-import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.core.util.be;
 /* loaded from: classes17.dex */
 public class RecommendsStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(PbChosenActivityConfig.class, PbChosenActivity.class);
-        coW();
+        czP();
     }
 
-    private static void coW() {
-        bd.baV().a(new bd.a() { // from class: com.baidu.tieba.pb.chosen.RecommendsStatic.1
-            @Override // com.baidu.tbadk.core.util.bd.a
+    private static void czP() {
+        be.bju().a(new be.a() { // from class: com.baidu.tieba.pb.chosen.RecommendsStatic.1
+            @Override // com.baidu.tbadk.core.util.be.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length <= 0) {
                     return 3;

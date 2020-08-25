@@ -27,7 +27,7 @@ public final class LambdaObserver<T> extends AtomicReference<io.reactivex.dispos
             try {
                 this.onSubscribe.accept(this);
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.K(th);
+                io.reactivex.exceptions.a.J(th);
                 bVar.dispose();
                 onError(th);
             }
@@ -40,7 +40,7 @@ public final class LambdaObserver<T> extends AtomicReference<io.reactivex.dispos
             try {
                 this.onNext.accept(t);
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.K(th);
+                io.reactivex.exceptions.a.J(th);
                 get().dispose();
                 onError(th);
             }
@@ -54,7 +54,7 @@ public final class LambdaObserver<T> extends AtomicReference<io.reactivex.dispos
             try {
                 this.onError.accept(th);
             } catch (Throwable th2) {
-                io.reactivex.exceptions.a.K(th2);
+                io.reactivex.exceptions.a.J(th2);
                 io.reactivex.e.a.onError(new CompositeException(th, th2));
             }
         }
@@ -67,7 +67,7 @@ public final class LambdaObserver<T> extends AtomicReference<io.reactivex.dispos
             try {
                 this.onComplete.run();
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.K(th);
+                io.reactivex.exceptions.a.J(th);
                 io.reactivex.e.a.onError(th);
             }
         }
@@ -84,6 +84,6 @@ public final class LambdaObserver<T> extends AtomicReference<io.reactivex.dispos
     }
 
     public boolean hasCustomOnError() {
-        return this.onError != Functions.nSp;
+        return this.onError != Functions.omk;
     }
 }

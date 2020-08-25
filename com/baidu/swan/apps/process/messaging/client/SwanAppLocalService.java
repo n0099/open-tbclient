@@ -4,23 +4,32 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
+import android.os.Looper;
 import android.os.Message;
 import android.os.Messenger;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.baidu.swan.apps.aq.al;
-import com.baidu.swan.apps.aq.p;
+import com.baidu.searchbox.v8engine.JsFunction;
+import com.baidu.searchbox.widget.SlideHelper;
+import com.baidu.searchbox.widget.SlidingPaneLayout;
+import com.baidu.swan.apps.ap.ak;
+import com.baidu.swan.apps.ap.p;
+import com.baidu.swan.apps.core.container.PullToRefreshBaseWebView;
+import com.baidu.swan.apps.core.d.e;
+import com.baidu.swan.apps.core.d.f;
+import com.baidu.swan.apps.core.slave.SwanAppSlaveManager;
 import com.baidu.swan.apps.core.turbo.d;
 import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.swan.apps.performance.i;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.swan.apps.runtime.j;
 import com.baidu.swan.apps.v.f;
 import com.baidu.swan.apps.view.c;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SwanAppLocalService extends Service implements Handler.Callback {
     private static final String AB_SWAN_PRECLASS = "swan_preclass";
     public static final String ACTION_PERLOAD = "com.baidu.swan.action.SWAN_APP_LOCAL_SERVICE_PERLOAD";
@@ -33,13 +42,13 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
     @Override // android.app.Service
     public void onCreate() {
         SwanAppProcessInfo.init(getProcessInfo());
-        com.baidu.swan.apps.t.a.aib().Uu();
+        com.baidu.swan.apps.t.a.apD().aaw();
         super.onCreate();
-        this.mMessenger = new Messenger(a.apG().apJ());
+        this.mMessenger = new Messenger(a.axC().axF());
         if (DEBUG) {
             Log.i(TAG, "onCreate " + getProcessInfo());
         }
-        a.apG().apI();
+        a.axC().axE();
     }
 
     @Override // android.app.Service
@@ -89,58 +98,83 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
             if (TextUtils.isEmpty(stringExtra)) {
                 stringExtra = "0";
             }
-            HybridUbcFlow bH = i.mX("preload").f(new UbcFlowEvent("na_pre_load_launch").bm(longExtra)).f(new UbcFlowEvent("na_pre_load_swan_updated").bm(longExtra2)).f(new UbcFlowEvent("na_pre_load_receive").bm(currentTimeMillis)).bH("with_preload", "1");
+            HybridUbcFlow bW = i.oW("preload").f(new UbcFlowEvent("na_pre_load_launch").br(longExtra)).f(new UbcFlowEvent("na_pre_load_swan_updated").br(longExtra2)).f(new UbcFlowEvent("na_pre_load_receive").br(currentTimeMillis)).bW("with_preload", "1");
             if (!TextUtils.isEmpty(stringExtra)) {
-                bH.bH("preload_scene", stringExtra);
+                bW.bW("preload_scene", stringExtra);
             }
-            if (com.baidu.swan.apps.t.a.ahm() != null && com.baidu.swan.apps.t.a.ahm().SI()) {
+            if (com.baidu.swan.apps.t.a.aoM() != null && com.baidu.swan.apps.t.a.aoM().YD()) {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("time", currentTimeMillis);
                     jSONObject.put("process", intent.getIntExtra("bundle_key_process", -1));
                     jSONObject.put(BdStatsConstant.StatsKey.COST, currentTimeMillis - longExtra2);
-                    jSONObject.put("is_preload_started", d.chs);
-                    jSONObject.put("is_preload_ready", d.adw().adC());
+                    jSONObject.put("is_preload_started", d.cnJ);
+                    jSONObject.put("is_preload_ready", d.ajS().aka());
                 } catch (JSONException e) {
                     if (DEBUG) {
                         e.printStackTrace();
                     }
                 }
-                i.a nk = new i.a("812").ni("swan").nj("receive").nk(intent.getStringExtra("bundle_key_preload_src"));
-                nk.bF(jSONObject);
-                i.onEvent(nk);
+                i.a pi = new i.a("812").pg("swan").ph("receive").pi(intent.getStringExtra("bundle_key_preload_src"));
+                pi.bN(jSONObject);
+                i.onEvent(pi);
             }
-            d.b.q(intent);
-            com.baidu.swan.games.utils.so.d.x(intent);
-            f.akr().u(intent);
-            com.baidu.swan.games.j.a.aEO().p(intent);
+            d.C0396d.s(intent);
+            com.baidu.swan.games.utils.so.d.z(intent);
+            f.arY().w(intent);
+            com.baidu.swan.games.j.a.aNC().r(intent);
             if (!sFlagPreloaded) {
                 sFlagPreloaded = true;
-                al.p(new Runnable() { // from class: com.baidu.swan.apps.process.messaging.client.SwanAppLocalService.1
+                ak.m(new Runnable() { // from class: com.baidu.swan.apps.process.messaging.client.SwanAppLocalService.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        f.akr().TL();
-                        com.baidu.swan.apps.t.a.ahB().aiE();
-                        c.cL(com.baidu.swan.apps.t.a.ahj());
+                        f.arY().ZN();
+                        com.baidu.swan.apps.t.a.apb().aqk();
+                        c.cR(com.baidu.swan.apps.t.a.aoJ());
+                        com.baidu.swan.apps.t.a.aph().ZM();
                         SwanAppLocalService.this.preloadActivityClass();
                     }
                 });
+            }
+            if (com.baidu.swan.apps.performance.b.b.cHe && !com.baidu.swan.apps.performance.b.b.awh()) {
+                p.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.process.messaging.client.SwanAppLocalService.2
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        com.baidu.swan.apps.performance.b.b.init();
+                    }
+                }, "SwanAbSwitchCache");
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void preloadActivityClass() {
-        final int i = com.baidu.swan.apps.t.a.ahm().getSwitch(AB_SWAN_PRECLASS, 0);
+        final int i = com.baidu.swan.apps.t.a.aoM().getSwitch(AB_SWAN_PRECLASS, 0);
         if (i > 0) {
-            p.postOnComputation(new Runnable() { // from class: com.baidu.swan.apps.process.messaging.client.SwanAppLocalService.2
+            p.postOnComputation(new Runnable() { // from class: com.baidu.swan.apps.process.messaging.client.SwanAppLocalService.3
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
-                        com.baidu.swan.apps.aq.c.a.n(SwanAppProcessInfo.current().activity.newInstance()).a(com.baidu.swan.apps.aq.c.a.cTh).ii(i);
+                        ClassLoader classLoader = SwanAppLocalService.this.getClassLoader();
+                        if (com.baidu.swan.apps.performance.b.c.awp()) {
+                            Looper.prepare();
+                            Class.forName(SwanAppProcessInfo.current().activity.getName(), true, classLoader);
+                            Class.forName(com.baidu.swan.support.v4.c.f.class.getName(), true, classLoader);
+                            Class.forName(f.b.class.getName(), true, classLoader);
+                            Class.forName(e.class.getName(), true, classLoader);
+                            Class.forName(SwanAppSlaveManager.class.getName(), true, classLoader);
+                            Class.forName(JsFunction.class.getName(), true, classLoader);
+                            Class.forName(j.class.getName(), true, classLoader);
+                            Class.forName(SlideHelper.class.getName(), true, classLoader);
+                            Class.forName(com.baidu.swan.apps.framework.a.a.class.getName(), true, classLoader);
+                            Class.forName(PullToRefreshBaseWebView.class.getName(), true, classLoader);
+                            Class.forName(SlidingPaneLayout.class.getName(), true, classLoader);
+                            Class.forName(com.baidu.swan.apps.core.h.b.class.getName(), true, classLoader);
+                        }
+                        com.baidu.swan.apps.ap.c.a.a(classLoader, SwanAppProcessInfo.current().activity.newInstance()).a(com.baidu.swan.apps.ap.c.a.dch).kq(i);
                     } catch (Throwable th) {
                         if (SwanAppLocalService.DEBUG) {
-                            th.printStackTrace();
+                            Log.d(SwanAppLocalService.TAG, Log.getStackTraceString(th));
                         }
                     }
                 }

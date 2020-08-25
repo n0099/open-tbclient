@@ -1,5 +1,5 @@
 package com.baidu.webkit.logsdk.b;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public final class a {
     public String a;
     public int b;

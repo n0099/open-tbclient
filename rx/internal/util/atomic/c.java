@@ -3,7 +3,7 @@ package rx.internal.util.atomic;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReferenceArray;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class c<E> extends a<E> {
     private static final Integer MAX_LOOK_AHEAD_STEP = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
     final AtomicLong consumerIndex;
@@ -33,7 +33,7 @@ public final class c<E> extends a<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        AtomicReferenceArray<E> atomicReferenceArray = this.ooZ;
+        AtomicReferenceArray<E> atomicReferenceArray = this.oIU;
         int i = this.mask;
         long j = this.producerIndex.get();
         int calcElementOffset = calcElementOffset(j, i);
@@ -54,7 +54,7 @@ public final class c<E> extends a<E> {
     public E poll() {
         long j = this.consumerIndex.get();
         int calcElementOffset = calcElementOffset(j);
-        AtomicReferenceArray<E> atomicReferenceArray = this.ooZ;
+        AtomicReferenceArray<E> atomicReferenceArray = this.oIU;
         E b = b(atomicReferenceArray, calcElementOffset);
         if (b == null) {
             return null;
@@ -71,20 +71,20 @@ public final class c<E> extends a<E> {
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long dTi = dTi();
+        long efk = efk();
         while (true) {
-            long dTh = dTh();
-            long dTi2 = dTi();
-            if (dTi == dTi2) {
-                return (int) (dTh - dTi2);
+            long efj = efj();
+            long efk2 = efk();
+            if (efk == efk2) {
+                return (int) (efj - efk2);
             }
-            dTi = dTi2;
+            efk = efk2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return dTh() == dTi();
+        return efj() == efk();
     }
 
     private void soProducerIndex(long j) {
@@ -95,11 +95,11 @@ public final class c<E> extends a<E> {
         this.consumerIndex.lazySet(j);
     }
 
-    private long dTi() {
+    private long efk() {
         return this.consumerIndex.get();
     }
 
-    private long dTh() {
+    private long efj() {
         return this.producerIndex.get();
     }
 }

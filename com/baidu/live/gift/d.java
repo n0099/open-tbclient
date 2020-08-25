@@ -1,9 +1,9 @@
 package com.baidu.live.gift;
 
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class d {
-    public boolean aHE;
+    public boolean aMO;
     public int frame_count;
     public int frame_rate;
     public int height;
@@ -30,7 +30,7 @@ public class d {
             this.repeatCount = jSONObject.optInt("repeat_count");
             this.userInfoX = jSONObject.optDouble("user_info_x");
             this.userInfoY = jSONObject.optDouble("user_info_y");
-            this.aHE = jSONObject.optInt("relative", 0) == 0;
+            this.aMO = jSONObject.optInt("relative", 0) == 0;
         }
     }
 

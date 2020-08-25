@@ -5,30 +5,30 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes17.dex */
 public class a {
-    private l<byte[]> hAW;
+    private l<byte[]> hOl;
 
     public a() {
-        aMQ();
+        aVq();
     }
 
-    private void aMQ() {
-        if (this.hAW == null) {
-            this.hAW = com.baidu.tbadk.core.c.a.aYG().xi("tb.tbtiel_level_info");
+    private void aVq() {
+        if (this.hOl == null) {
+            this.hOl = com.baidu.tbadk.core.c.a.bhb().zw("tb.tbtiel_level_info");
         }
     }
 
-    public byte[] FE(String str) {
-        l.b<byte[]> bu = (this.hAW == null || str == null) ? null : this.hAW.bu(str);
-        if (bu == null || bu.value == null) {
+    public byte[] If(String str) {
+        l.b<byte[]> bz = (this.hOl == null || str == null) ? null : this.hOl.bz(str);
+        if (bz == null || bz.value == null) {
             return null;
         }
-        return bu.value;
+        return bz.value;
     }
 
     public void l(String str, byte[] bArr) {
         if (!StringUtils.isNull(str)) {
-            aMQ();
-            this.hAW.set(str, bArr, TbConfig.MILLS_7DAYS);
+            aVq();
+            this.hOl.set(str, bArr, TbConfig.MILLS_7DAYS);
         }
     }
 }

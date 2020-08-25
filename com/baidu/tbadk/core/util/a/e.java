@@ -4,10 +4,10 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import org.apache.http.client.methods.HttpGet;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class e {
-    private static e ebP = null;
-    public boolean ebO = false;
+    private static e ely = null;
+    public boolean elx = false;
 
     public abstract String getAllIPListCanUsed();
 
@@ -32,17 +32,17 @@ public abstract class e {
     public abstract void setIpDisableTime(int i);
 
     public static e getInstance() {
-        if (ebP == null) {
+        if (ely == null) {
             synchronized (e.class) {
-                if (ebP == null) {
+                if (ely == null) {
                     CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_CDN_IP_DIRECT_CONNECT, e.class);
                     if (runTask != null && runTask.getData() != null) {
-                        ebP = (e) runTask.getData();
+                        ely = (e) runTask.getData();
                     }
-                    return ebP;
+                    return ely;
                 }
             }
         }
-        return ebP;
+        return ely;
     }
 }

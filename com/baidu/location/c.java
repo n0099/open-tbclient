@@ -2,7 +2,7 @@ package com.baidu.location;
 
 import android.content.Context;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class c extends Thread {
     final /* synthetic */ LocationClient a;
 
@@ -13,22 +13,29 @@ public class c extends Thread {
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        com.baidu.location.a.c cVar;
-        com.baidu.location.a.c cVar2;
-        com.baidu.location.a.c cVar3;
+        com.baidu.location.b.d dVar;
+        com.baidu.location.b.d dVar2;
+        com.baidu.location.b.d dVar3;
+        com.baidu.location.b.d dVar4;
         Context context;
         LocationClientOption locationClientOption;
-        cVar = this.a.C;
-        if (cVar == null) {
-            LocationClient locationClient = this.a;
-            context = this.a.f;
-            locationClientOption = this.a.d;
-            locationClient.C = new com.baidu.location.a.c(context, locationClientOption, this.a);
-        }
-        cVar2 = this.a.C;
-        if (cVar2 != null) {
-            cVar3 = this.a.C;
-            cVar3.c();
+        try {
+            dVar = this.a.C;
+            if (dVar == null) {
+                LocationClient locationClient = this.a;
+                context = this.a.f;
+                locationClientOption = this.a.d;
+                locationClient.C = new com.baidu.location.b.d(context, locationClientOption, this.a);
+            }
+            dVar2 = this.a.C;
+            if (dVar2 != null) {
+                dVar3 = this.a.C;
+                dVar3.a();
+                dVar4 = this.a.C;
+                dVar4.c();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

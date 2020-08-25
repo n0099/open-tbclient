@@ -13,16 +13,16 @@ import com.baidu.tbadk.util.l;
 import java.util.List;
 /* loaded from: classes15.dex */
 public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
-    private static final String ffD = TbConfig.SERVER_ADDRESS + "c/r/friend/getRecommendList";
-    private static TbHttpMessageTask task = new TbHttpMessageTask(1001900, ffD);
-    private a ffC;
-    private final HttpMessageListener ffE;
+    private static final String fqW = TbConfig.SERVER_ADDRESS + "c/r/friend/getRecommendList";
+    private static TbHttpMessageTask task = new TbHttpMessageTask(1001900, fqW);
+    private a fqV;
+    private final HttpMessageListener fqX;
 
     /* loaded from: classes15.dex */
     public interface a {
-        void Br(String str);
+        void DL(String str);
 
-        void cJ(String str);
+        void cO(String str);
     }
 
     static {
@@ -32,15 +32,15 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
 
     public RecommendFriendModel(NewFriendsActivity newFriendsActivity, a aVar) {
         super(newFriendsActivity.getPageContext());
-        this.ffC = null;
-        this.ffE = new HttpMessageListener(1001900) { // from class: com.baidu.tieba.addresslist.im.newFriend.RecommendFriendModel.1
+        this.fqV = null;
+        this.fqX = new HttpMessageListener(1001900) { // from class: com.baidu.tieba.addresslist.im.newFriend.RecommendFriendModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001900) {
                     if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof RecommendFriendResponseMessage)) {
-                        if (RecommendFriendModel.this.ffC != null) {
-                            RecommendFriendModel.this.ffC.cJ(null);
+                        if (RecommendFriendModel.this.fqV != null) {
+                            RecommendFriendModel.this.fqV.cO(null);
                             return;
                         }
                         return;
@@ -48,8 +48,8 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
                     RecommendFriendResponseMessage recommendFriendResponseMessage = (RecommendFriendResponseMessage) httpResponsedMessage;
                     final String errMsg = recommendFriendResponseMessage.getErrMsg();
                     if (recommendFriendResponseMessage.getError() != 0) {
-                        if (RecommendFriendModel.this.ffC != null) {
-                            RecommendFriendModel.this.ffC.cJ(errMsg);
+                        if (RecommendFriendModel.this.fqV != null) {
+                            RecommendFriendModel.this.fqV.cO(errMsg);
                             return;
                         }
                         return;
@@ -58,10 +58,10 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
                     ad.b(new ac<Void>() { // from class: com.baidu.tieba.addresslist.im.newFriend.RecommendFriendModel.1.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.tbadk.util.ac
-                        /* renamed from: bsE */
+                        /* renamed from: bBB */
                         public Void doInBackground() {
                             if (datas != null && datas.size() > 0) {
-                                b.bsK().bu(datas);
+                                b.bBH().bu(datas);
                                 return null;
                             }
                             return null;
@@ -71,20 +71,20 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
                         @Override // com.baidu.tbadk.util.l
                         /* renamed from: a */
                         public void onReturnDataInUI(Void r3) {
-                            RecommendFriendModel.this.ffC.Br(errMsg);
+                            RecommendFriendModel.this.fqV.DL(errMsg);
                         }
                     });
                 }
             }
         };
-        this.ffC = aVar;
+        this.fqV = aVar;
     }
 
     public void registerListener() {
-        registerListener(this.ffE);
+        registerListener(this.fqX);
     }
 
-    public void bsQ() {
+    public void bBN() {
         sendMessage(new HttpMessage(1001900));
     }
 

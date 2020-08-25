@@ -2,7 +2,7 @@ package com.baidu.tbadk.img;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class GetEmotionPidResponseMessage extends JsonHttpResponsedMessage {
     private c mPid;
 
@@ -15,7 +15,7 @@ public class GetEmotionPidResponseMessage extends JsonHttpResponsedMessage {
         int statusCode = getStatusCode();
         int error = getError();
         if (statusCode == 200 && error == 0 && jSONObject != null) {
-            this.mPid = c.cU(jSONObject);
+            this.mPid = c.db(jSONObject);
         }
     }
 

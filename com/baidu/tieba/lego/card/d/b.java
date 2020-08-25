@@ -1,5 +1,27 @@
 package com.baidu.tieba.lego.card.d;
-/* loaded from: classes.dex */
+
+import android.graphics.Color;
+import android.support.v7.widget.ActivityChooserView;
+/* loaded from: classes2.dex */
 public class b {
-    public static int jzK = 1;
+    public static int fn(String str) {
+        if (str == null || str.length() == 0) {
+            return ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        }
+        try {
+            if (!str.startsWith("#")) {
+                str = "#" + str;
+            }
+            return Color.parseColor(str);
+        } catch (Exception e) {
+            return ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        }
+    }
+
+    public static boolean Cn(int i) {
+        if (i == Integer.MAX_VALUE) {
+            return true;
+        }
+        return false;
+    }
 }

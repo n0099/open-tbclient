@@ -1,7 +1,7 @@
 package com.baidu.mapapi.utils.route;
 
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class RouteParaOption {
     LatLng a;
     LatLng b;
@@ -10,7 +10,7 @@ public class RouteParaOption {
     String e;
     EBusStrategyType f = EBusStrategyType.bus_recommend_way;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public enum EBusStrategyType {
         bus_time_first,
         bus_transfer_little,

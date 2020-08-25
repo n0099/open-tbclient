@@ -3,7 +3,7 @@ package com.baidu.searchbox.account;
 import android.app.Activity;
 import android.content.Context;
 import com.baidu.pyramid.runtime.service.d;
-import com.baidu.sapi2.outsdk.c;
+import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import com.baidu.searchbox.account.data.BoxAccount;
 import com.baidu.searchbox.account.data.UserAccountActionItem;
 import com.baidu.searchbox.account.params.LoginParams;
@@ -16,7 +16,7 @@ public interface BoxAccountManager {
     public static final int BOX_GET_ACCOUNT_FORCE_MODE = 12;
     public static final int BOX_GET_ACCOUNT_LAZY_MODE = 11;
     public static final int NO_SUPPORT_GUEST_LOGIN = 2;
-    public static final d SERVICE_REFERENCE = new d("account", c.k);
+    public static final d SERVICE_REFERENCE = new d("account", OneKeyLoginSdkCall.k);
     public static final String SESSION_BDUSS = "BoxAccount_bduss";
     public static final String SESSION_DISPLAYNAME = "BoxAccount_displayname";
     public static final String SESSION_NICKNAME = "user_login_nickname_key";

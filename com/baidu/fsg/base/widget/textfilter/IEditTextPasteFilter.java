@@ -1,5 +1,5 @@
 package com.baidu.fsg.base.widget.textfilter;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface IEditTextPasteFilter {
     String intercept(String str);
 }

@@ -2,7 +2,7 @@ package com.baidu.platform.comapi.walknavi.g;
 
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class s implements View.OnClickListener {
     final /* synthetic */ a a;
 
@@ -13,6 +13,6 @@ public class s implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.u();
+        this.a.p();
     }
 }

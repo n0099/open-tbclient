@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.data;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
 import tbclient.FrsPage.PostTopic;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class PostTopicData extends OrmObject implements Serializable {
     private String contentTopic;
     private String titleTopic;

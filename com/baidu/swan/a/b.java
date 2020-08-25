@@ -1,17 +1,13 @@
 package com.baidu.swan.a;
 
-import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
-import java.util.HashMap;
-/* loaded from: classes3.dex */
+import com.baidu.swan.apps.t.a.f;
+/* loaded from: classes14.dex */
 public class b {
-    public static HashMap<String, String> a(com.baidu.swan.a.a.a aVar) {
-        if (aVar == null) {
-            return null;
-        }
-        HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put("version_code", String.valueOf(aVar.getVersionCode()));
-        hashMap.put(SharedPrefConfig.VERSION_NAME, aVar.getVersionName());
-        hashMap.put("abi_type", com.baidu.swan.a.b.a.ayZ());
-        return hashMap;
+    public static a aSS() {
+        return f.aqi();
+    }
+
+    public static boolean isDebug() {
+        return aSS().isDebug();
     }
 }

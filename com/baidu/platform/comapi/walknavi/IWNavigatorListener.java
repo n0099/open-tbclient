@@ -1,5 +1,5 @@
 package com.baidu.platform.comapi.walknavi;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public interface IWNavigatorListener {
     void onNaviExit();
 

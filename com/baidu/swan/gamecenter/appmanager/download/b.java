@@ -2,33 +2,33 @@ package com.baidu.swan.gamecenter.appmanager.download;
 
 import android.content.SharedPreferences;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class b {
-    public static String ddd = "wifi_resume_download_flag";
-    private static volatile b dde;
+    public static String dnm = "wifi_resume_download_flag";
+    private static volatile b dnn;
     private SharedPreferences mPreferences = AppRuntime.getAppContext().getSharedPreferences("gamecenter_wifi_resume_download_switch", 0);
 
     private b() {
     }
 
-    public static b aBv() {
-        if (dde == null) {
+    public static b aKl() {
+        if (dnn == null) {
             synchronized (com.baidu.swan.gamecenter.appmanager.a.class) {
-                if (dde == null) {
-                    dde = new b();
+                if (dnn == null) {
+                    dnn = new b();
                 }
             }
         }
-        return dde;
+        return dnn;
     }
 
-    public void fZ(boolean z) {
+    public void gv(boolean z) {
         SharedPreferences.Editor edit = this.mPreferences.edit();
-        edit.putBoolean(ddd, z);
+        edit.putBoolean(dnm, z);
         edit.commit();
     }
 
-    public boolean aBw() {
-        return this.mPreferences.getBoolean(ddd, true);
+    public boolean aKm() {
+        return this.mPreferences.getBoolean(dnm, true);
     }
 }

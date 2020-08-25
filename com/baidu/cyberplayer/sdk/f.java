@@ -1,5 +1,7 @@
 package com.baidu.cyberplayer.sdk;
-/* loaded from: classes10.dex */
+
+import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
+/* loaded from: classes7.dex */
 public class f {
     private int j;
     private int a = 0;
@@ -38,7 +40,7 @@ public class f {
     public boolean a(int i) {
         if (this.f != i) {
             this.f = i;
-            this.g = ((this.e + 360) - i) % 360;
+            this.g = ((this.e + EncoderTextureDrawer.X264_WIDTH) - i) % EncoderTextureDrawer.X264_WIDTH;
             return true;
         }
         return false;
@@ -163,7 +165,7 @@ public class f {
     public boolean b(int i) {
         if (this.e != i) {
             this.e = i;
-            this.g = ((360 - this.f) + i) % 360;
+            this.g = ((360 - this.f) + i) % EncoderTextureDrawer.X264_WIDTH;
             return true;
         }
         return false;

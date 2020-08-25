@@ -15,7 +15,6 @@ import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.common.AppTools;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.mapapi.navi.NaviParaOption;
 import com.baidu.mapapi.utils.poi.DispathcPoiData;
 import com.baidu.mapapi.utils.poi.PoiParaOption;
@@ -23,13 +22,15 @@ import com.baidu.mapapi.utils.route.RouteParaOption;
 import com.baidu.mapframework.open.aidl.IComOpenClient;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.mobstat.Config;
+import com.baidu.platform.comapi.basestruct.GeoPoint;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class b {
     private static com.baidu.mapframework.open.aidl.a d;
     private static IComOpenClient e;
@@ -136,7 +137,7 @@ public class b {
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        if (!com.baidu.platform.comapi.a.a.a(context)) {
+        if (!com.baidu.platform.comapi.f.a.a(context)) {
             Log.d(c, "package sign verify failed");
             return false;
         }
@@ -577,8 +578,8 @@ public class b {
                 try {
                     jSONObject.put("name", j.get(i3).name);
                     GeoPoint ll2mc = CoordUtil.ll2mc(j.get(i3).pt);
-                    jSONObject.put("ptx", ll2mc.getLongitudeE6());
-                    jSONObject.put("pty", ll2mc.getLatitudeE6());
+                    jSONObject.put(MapBundleKey.MapObjKey.OBJ_SL_PTX, ll2mc.getLongitudeE6());
+                    jSONObject.put(MapBundleKey.MapObjKey.OBJ_SL_PTY, ll2mc.getLatitudeE6());
                     jSONObject.put("addr", j.get(i3).addr);
                     jSONObject.put("uid", j.get(i3).uid);
                     i2 = i4 + 1;

@@ -5,7 +5,7 @@ import android.net.Uri;
 import android.support.annotation.RequiresApi;
 import android.support.v4.media.MediaDescriptionCompatApi21;
 @RequiresApi(23)
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 class MediaDescriptionCompatApi23 extends MediaDescriptionCompatApi21 {
     MediaDescriptionCompatApi23() {
     }
@@ -14,7 +14,7 @@ class MediaDescriptionCompatApi23 extends MediaDescriptionCompatApi21 {
         return ((MediaDescription) obj).getMediaUri();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     static class Builder extends MediaDescriptionCompatApi21.Builder {
         Builder() {
         }

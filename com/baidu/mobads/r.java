@@ -6,17 +6,17 @@ import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes20.dex */
 public class r implements IOAdEventListener {
-    final /* synthetic */ SplashAd bxZ;
+    final /* synthetic */ SplashAd bDH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(SplashAd splashAd) {
-        this.bxZ = splashAd;
+        this.bDH = splashAd;
     }
 
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEventListener
     public void run(IOAdEvent iOAdEvent) {
         SplashAdListener splashAdListener;
-        splashAdListener = this.bxZ.bxI;
+        splashAdListener = this.bDH.bDq;
         if (splashAdListener != null) {
             XAdSDKFoundationFacade.getInstance().getCommonUtils().a((Runnable) new s(this, iOAdEvent));
         }

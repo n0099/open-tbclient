@@ -1,7 +1,7 @@
 package com.baidu.tbadk.data;
 
 import com.baidu.tbadk.TbConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class d extends TbConfig {
     public static final Long NEARBY_GUIDE_TIME = 86400000L;
     private static int PB_LIST_ITEM_MAX_NUM = 300;

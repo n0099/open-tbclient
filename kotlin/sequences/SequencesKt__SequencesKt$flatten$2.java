@@ -5,7 +5,7 @@ import java.util.Iterator;
 import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.q;
 @kotlin.h
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 final class SequencesKt__SequencesKt$flatten$2 extends Lambda implements kotlin.jvm.a.b<Iterable<? extends T>, Iterator<? extends T>> {
     public static final SequencesKt__SequencesKt$flatten$2 INSTANCE = new SequencesKt__SequencesKt$flatten$2();
 

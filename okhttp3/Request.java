@@ -16,7 +16,7 @@ import okhttp3.internal.http.HttpMethod;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpHead;
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes14.dex */
+/* loaded from: classes9.dex */
 public final class Request {
     private List<InetAddress> addressList;
     @Nullable
@@ -121,7 +121,7 @@ public final class Request {
         return "Request{method=" + this.method + ", url=" + this.url + ", tags=" + this.tags + '}';
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes9.dex */
     public static class Builder {
         List<InetAddress> addressList;
         RequestBody body;

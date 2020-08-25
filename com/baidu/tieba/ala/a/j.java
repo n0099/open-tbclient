@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.a;
 /* loaded from: classes4.dex */
 public interface j {
-    g byu();
+    g bHv();
 
     boolean isReady();
 

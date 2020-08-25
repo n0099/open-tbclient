@@ -4,29 +4,29 @@ import android.os.Handler;
 import android.os.Looper;
 import io.reactivex.v;
 import java.util.concurrent.Callable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class a {
-    private static final v nSd = io.reactivex.a.a.a.d(new Callable<v>() { // from class: io.reactivex.a.b.a.1
+    private static final v olY = io.reactivex.a.a.a.d(new Callable<v>() { // from class: io.reactivex.a.b.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
-        /* renamed from: dSU */
+        /* renamed from: eeW */
         public v call() throws Exception {
-            return C0901a.nSe;
+            return C0959a.olZ;
         }
     });
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: io.reactivex.a.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static final class C0901a {
-        static final v nSe = new b(new Handler(Looper.getMainLooper()));
+    /* loaded from: classes5.dex */
+    public static final class C0959a {
+        static final v olZ = new b(new Handler(Looper.getMainLooper()));
     }
 
-    public static v dST() {
-        return io.reactivex.a.a.a.e(nSd);
+    public static v eeV() {
+        return io.reactivex.a.a.a.e(olY);
     }
 
-    public static v b(Looper looper) {
+    public static v c(Looper looper) {
         if (looper == null) {
             throw new NullPointerException("looper == null");
         }

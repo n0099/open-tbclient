@@ -5,24 +5,9 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
 import java.lang.reflect.Method;
-/* loaded from: classes4.dex */
+/* loaded from: classes20.dex */
 public class CheckDefaultSoExist {
-    public static void isExist(Context context) {
-        String[] strArr;
-        String findLibrary2;
-        for (String str : LoadSo.SO_NAME_ARRAY) {
-            if (Build.VERSION.SDK_INT > 8) {
-                findLibrary2 = findLibrary1(context, str);
-            } else {
-                findLibrary2 = findLibrary2(context, str);
-            }
-            if (TextUtils.isEmpty(findLibrary2)) {
-                Log.e("CheckDefaultSoExist", str + " so is not exist ,please put the " + str + " so file in the right folder");
-            }
-        }
-    }
-
-    private static String findLibrary1(Context context, String str) {
+    private static String a(Context context, String str) {
         Object invoke;
         ClassLoader classLoader = context.getClassLoader();
         if (classLoader != null) {
@@ -39,7 +24,7 @@ public class CheckDefaultSoExist {
         return null;
     }
 
-    private static String findLibrary2(Context context, String str) {
+    private static String b(Context context, String str) {
         ClassLoader classLoader = context.getClassLoader();
         if (classLoader != null) {
             try {
@@ -59,5 +44,20 @@ public class CheckDefaultSoExist {
             }
         }
         return null;
+    }
+
+    public static void isExist(Context context) {
+        String[] strArr;
+        String b;
+        for (String str : LoadSo.b) {
+            if (Build.VERSION.SDK_INT > 8) {
+                b = a(context, str);
+            } else {
+                b = b(context, str);
+            }
+            if (TextUtils.isEmpty(b)) {
+                Log.e("CheckDefaultSoExist", str + " so is not exist ,please put the " + str + " so file in the right folder");
+            }
+        }
     }
 }

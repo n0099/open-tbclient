@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 public final class Detector {
     private static final int BARCODE_MIN_HEIGHT = 10;
     private static final float MAX_AVG_VARIANCE = 0.42f;
@@ -30,7 +30,7 @@ public final class Detector {
         BitMatrix blackMatrix = binaryBitmap.getBlackMatrix();
         List<ResultPoint[]> detect = detect(z, blackMatrix);
         if (detect.isEmpty()) {
-            blackMatrix = blackMatrix.m43clone();
+            blackMatrix = blackMatrix.m48clone();
             blackMatrix.rotate180();
             detect = detect(z, blackMatrix);
         }

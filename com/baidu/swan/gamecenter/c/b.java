@@ -3,22 +3,22 @@ package com.baidu.swan.gamecenter.c;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.swan.apps.adaptation.a.ar;
+import com.baidu.swan.apps.adaptation.a.aw;
 import com.baidu.swan.gamecenter.appmanager.a.f;
 import java.util.HashMap;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
-public class b implements ar {
+/* loaded from: classes3.dex */
+public class b implements aw {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private HashMap<String, a> ddy = new HashMap<>();
+    private HashMap<String, a> dnG = new HashMap<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b() {
-        asD();
+        aAP();
     }
 
-    private void asD() {
+    private void aAP() {
         a(new com.baidu.swan.gamecenter.b.a());
         a(new com.baidu.swan.gamecenter.b.b());
         a(new com.baidu.swan.gamecenter.appmanager.a.b());
@@ -36,19 +36,19 @@ public class b implements ar {
         if (DEBUG && TextUtils.isEmpty(aVar.name)) {
             throw new IllegalArgumentException("action name is null");
         }
-        if (DEBUG && this.ddy.containsKey(aVar.name)) {
+        if (DEBUG && this.dnG.containsKey(aVar.name)) {
             throw new IllegalArgumentException("duplicate action: " + aVar);
         }
-        this.ddy.put(aVar.name, aVar);
+        this.dnG.put(aVar.name, aVar);
     }
 
-    @Override // com.baidu.swan.apps.adaptation.a.ar
-    public com.baidu.swan.apps.api.c.b a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull com.baidu.swan.apps.n.b bVar) {
+    @Override // com.baidu.swan.apps.adaptation.a.aw
+    public com.baidu.swan.apps.api.c.b a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull com.baidu.swan.apps.o.b bVar) {
         return b(str, jSONObject, bVar);
     }
 
-    private com.baidu.swan.apps.api.c.b b(String str, JSONObject jSONObject, com.baidu.swan.apps.n.b bVar) {
-        a aVar = this.ddy.get(str);
+    private com.baidu.swan.apps.api.c.b b(String str, JSONObject jSONObject, com.baidu.swan.apps.o.b bVar) {
+        a aVar = this.dnG.get(str);
         if (aVar != null) {
             if (DEBUG) {
                 Log.i("GameCenterDispatcher", "action: " + str + " params: " + jSONObject);

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core;
 
 import android.content.Intent;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface g {
-    void z(Intent intent);
+    void B(Intent intent);
 }

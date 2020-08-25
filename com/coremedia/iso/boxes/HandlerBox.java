@@ -14,15 +14,15 @@ import java.util.HashMap;
 import java.util.Map;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class HandlerBox extends AbstractFullBox {
     public static final String TYPE = "hdlr";
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_5 = null;
     public static final Map<String, String> readableTypes;
     private long a;
     private long b;
@@ -34,12 +34,12 @@ public class HandlerBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("HandlerBox.java", HandlerBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getHandlerType", "com.coremedia.iso.boxes.HandlerBox", "", "", "", FieldUtil.TYPE_STRING), 78);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setName", "com.coremedia.iso.boxes.HandlerBox", FieldUtil.TYPE_STRING, "name", "", "void"), 87);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "setHandlerType", "com.coremedia.iso.boxes.HandlerBox", FieldUtil.TYPE_STRING, "handlerType", "", "void"), 91);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "getName", "com.coremedia.iso.boxes.HandlerBox", "", "", "", FieldUtil.TYPE_STRING), 95);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getHumanReadableTrackType", "com.coremedia.iso.boxes.HandlerBox", "", "", "", FieldUtil.TYPE_STRING), 99);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.HandlerBox", "", "", "", FieldUtil.TYPE_STRING), Opcodes.FCMPL);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "getHandlerType", "com.coremedia.iso.boxes.HandlerBox", "", "", "", FieldUtil.TYPE_STRING), 78);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "setName", "com.coremedia.iso.boxes.HandlerBox", FieldUtil.TYPE_STRING, "name", "", "void"), 87);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.d("1", "setHandlerType", "com.coremedia.iso.boxes.HandlerBox", FieldUtil.TYPE_STRING, "handlerType", "", "void"), 91);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.d("1", "getName", "com.coremedia.iso.boxes.HandlerBox", "", "", "", FieldUtil.TYPE_STRING), 95);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.d("1", "getHumanReadableTrackType", "com.coremedia.iso.boxes.HandlerBox", "", "", "", FieldUtil.TYPE_STRING), 99);
+        ajc$tjp_5 = bVar.a("method-execution", bVar.d("1", "toString", "com.coremedia.iso.boxes.HandlerBox", "", "", "", FieldUtil.TYPE_STRING), Opcodes.FCMPL);
     }
 
     static {

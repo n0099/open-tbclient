@@ -2,7 +2,6 @@ package com.baidu.ala.dumixar.utils;
 
 import android.text.TextUtils;
 import com.baidu.live.tbadk.core.util.ListUtils;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import java.io.File;
 import java.util.HashMap;
 /* loaded from: classes7.dex */
@@ -310,7 +309,7 @@ public class LuaMessageHelper {
             hashMap.put("texture_path", str);
             hashMap.put("width", Integer.valueOf(i));
             hashMap.put("height", Integer.valueOf(i2));
-            hashMap.put(TiebaInitialize.LogFields.SIZE, Long.valueOf(j));
+            hashMap.put("size", Long.valueOf(j));
             hashMap.put("orientation", Integer.valueOf(i3));
         } else {
             hashMap.put("is_absolute", 0);

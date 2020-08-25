@@ -5,7 +5,7 @@ import com.baidu.android.pushservice.PushSettings;
 import com.baidu.android.pushservice.b.d;
 import com.baidu.android.pushservice.c.e;
 import com.baidu.android.pushservice.i.g;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class c {
     private static int a = 0;
 

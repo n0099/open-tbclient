@@ -5,13 +5,13 @@ import android.view.View;
 import com.baidu.tbadk.core.flow.a.c;
 import com.baidu.tbadk.core.flow.a.e;
 import com.baidu.tbadk.widget.TbImageView;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface a {
-    TbImageView S(Context context);
+    TbImageView V(Context context);
 
-    View aZh();
+    View bhC();
 
-    e so();
+    e tZ();
 
-    c sp();
+    c ua();
 }

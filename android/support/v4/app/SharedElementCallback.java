@@ -14,7 +14,7 @@ import android.view.View;
 import android.widget.ImageView;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes18.dex */
+/* loaded from: classes3.dex */
 public abstract class SharedElementCallback {
     private static final String BUNDLE_SNAPSHOT_BITMAP = "sharedElement:snapshot:bitmap";
     private static final String BUNDLE_SNAPSHOT_IMAGE_MATRIX = "sharedElement:snapshot:imageMatrix";
@@ -22,7 +22,7 @@ public abstract class SharedElementCallback {
     private static int MAX_IMAGE_SIZE = 1048576;
     private Matrix mTempMatrix;
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes3.dex */
     public interface OnSharedElementsReadyListener {
         void onSharedElementsReady();
     }

@@ -1,7 +1,11 @@
 package com.baidu.tieba.tbadkCore;
-
-import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes.dex */
+/* loaded from: classes15.dex */
 public interface r {
-    boolean b(TbPageContext<?> tbPageContext, int i);
+    void a(int i, boolean z, f fVar);
+
+    void c(m mVar);
+
+    void cmg();
+
+    void wV(int i);
 }

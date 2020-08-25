@@ -1,19 +1,12 @@
 package com.baidu.tieba.frs;
 
-import android.util.SparseArray;
-/* loaded from: classes.dex */
-public class ae {
-    private static ae hJR = new ae();
-    private SparseArray<af> hJQ = new SparseArray<>();
+import com.baidu.adp.BdUniqueId;
+/* loaded from: classes16.dex */
+public class ae implements com.baidu.adp.widget.ListView.q {
+    public static final BdUniqueId WH = BdUniqueId.gen();
 
-    private ae() {
-    }
-
-    public static ae cdv() {
-        return hJR;
-    }
-
-    public af vc(int i) {
-        return this.hJQ.get(i);
+    @Override // com.baidu.adp.widget.ListView.q
+    public BdUniqueId getType() {
+        return WH;
     }
 }

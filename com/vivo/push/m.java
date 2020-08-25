@@ -4,7 +4,7 @@ import com.vivo.push.cache.ISubscribeAppTagManager;
 import java.util.HashSet;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public final class m implements Runnable {
     final /* synthetic */ List a;
     final /* synthetic */ LocalAliasTagsManager b;

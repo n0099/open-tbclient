@@ -9,7 +9,7 @@ import android.system.OsConstants;
 import java.io.File;
 @RequiresApi(21)
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes18.dex */
+/* loaded from: classes3.dex */
 class TypefaceCompatApi21Impl extends TypefaceCompatBaseImpl {
     private static final String TAG = "TypefaceCompatApi21Impl";
 

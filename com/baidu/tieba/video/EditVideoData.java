@@ -1,11 +1,11 @@
 package com.baidu.tieba.video;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.util.n;
 import java.io.File;
 import java.io.Serializable;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class EditVideoData extends OrmObject implements Serializable {
     public String coverPath;
     public String filterName;
@@ -16,11 +16,11 @@ public class EditVideoData extends OrmObject implements Serializable {
     public String originPath;
 
     public boolean isLegal() {
-        return (as.isEmpty(this.originPath) || as.isEmpty(this.coverPath)) ? false : true;
+        return (at.isEmpty(this.originPath) || at.isEmpty(this.coverPath)) ? false : true;
     }
 
     public void delete() {
-        if (!as.equals(this.originPath, this.finalPath) && !as.isEmpty(this.finalPath)) {
+        if (!at.equals(this.originPath, this.finalPath) && !at.isEmpty(this.finalPath)) {
             n.deleteFile(new File(this.finalPath));
         }
     }

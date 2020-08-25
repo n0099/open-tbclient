@@ -1,9 +1,9 @@
 package com.baidu.swan.apps.media.chooser.c;
 
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface c<T> {
-    void ai(List<T> list);
+    void aj(List<T> list);
 
-    void ml(String str);
+    void oj(String str);
 }

@@ -10,7 +10,7 @@ import kotlin.jvm.internal.q;
 import kotlin.l;
 /* JADX INFO: Access modifiers changed from: package-private */
 @h
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public final class SVGAParser$decodeFromURL$2 extends Lambda implements kotlin.jvm.a.b<InputStream, l> {
     final /* synthetic */ d.c $callback;
     final /* synthetic */ URL $url;
@@ -30,7 +30,7 @@ public final class SVGAParser$decodeFromURL$2 extends Lambda implements kotlin.j
     @Override // kotlin.jvm.a.b
     public /* bridge */ /* synthetic */ l invoke(InputStream inputStream) {
         invoke2(inputStream);
-        return l.nXP;
+        return l.orN;
     }
 
     /* renamed from: invoke  reason: avoid collision after fix types in other method */

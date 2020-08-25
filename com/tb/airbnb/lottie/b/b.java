@@ -13,39 +13,39 @@ import com.tb.airbnb.lottie.g;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b {
-    private static final Object Ds = new Object();
-    private String Dt;
-    private final Map<String, g> Dv;
+    private static final Object Ea = new Object();
+    private String Eb;
+    private final Map<String, g> Ed;
     private final Context context;
     @Nullable
-    private com.tb.airbnb.lottie.b nPb;
+    private com.tb.airbnb.lottie.b oiV;
 
     public b(Drawable.Callback callback, String str, com.tb.airbnb.lottie.b bVar, Map<String, g> map) {
-        this.Dt = str;
-        if (!TextUtils.isEmpty(str) && this.Dt.charAt(this.Dt.length() - 1) != '/') {
-            this.Dt += '/';
+        this.Eb = str;
+        if (!TextUtils.isEmpty(str) && this.Eb.charAt(this.Eb.length() - 1) != '/') {
+            this.Eb += '/';
         }
         if (!(callback instanceof View)) {
             Log.w("LOTTIE", "LottieDrawable must be inside of a view for images to work.");
-            this.Dv = new HashMap();
+            this.Ed = new HashMap();
             this.context = null;
             return;
         }
         this.context = ((View) callback).getContext();
-        this.Dv = map;
+        this.Ed = map;
         a(bVar);
     }
 
     public void a(@Nullable com.tb.airbnb.lottie.b bVar) {
-        this.nPb = bVar;
+        this.oiV = bVar;
     }
 
     @Nullable
     public Bitmap updateBitmap(String str, @Nullable Bitmap bitmap) {
         if (bitmap == null) {
-            g gVar = this.Dv.get(str);
+            g gVar = this.Ed.get(str);
             Bitmap bitmap2 = gVar.getBitmap();
             gVar.setBitmap(null);
             return bitmap2;
@@ -54,8 +54,8 @@ public class b {
     }
 
     @Nullable
-    public Bitmap be(String str) {
-        g gVar = this.Dv.get(str);
+    public Bitmap bj(String str) {
+        g gVar = this.Ed.get(str);
         if (gVar == null) {
             return null;
         }
@@ -63,8 +63,8 @@ public class b {
         if (bitmap != null) {
             return bitmap;
         }
-        if (this.nPb != null) {
-            Bitmap fetchBitmap = this.nPb.fetchBitmap(gVar);
+        if (this.oiV != null) {
+            Bitmap fetchBitmap = this.oiV.fetchBitmap(gVar);
             if (fetchBitmap != null) {
                 b(str, fetchBitmap);
                 return fetchBitmap;
@@ -85,10 +85,10 @@ public class b {
             }
         }
         try {
-            if (TextUtils.isEmpty(this.Dt)) {
+            if (TextUtils.isEmpty(this.Eb)) {
                 throw new IllegalStateException("You must set an images folder before loading an image. Set it with LottieComposition#setImagesFolder or LottieDrawable#setImagesFolder");
             }
-            return b(str, BitmapFactory.decodeStream(this.context.getAssets().open(this.Dt + fileName), null, options));
+            return b(str, BitmapFactory.decodeStream(this.context.getAssets().open(this.Eb + fileName), null, options));
         } catch (IOException e2) {
             Log.w("LOTTIE", "Unable to open asset.", e2);
             return null;
@@ -96,8 +96,8 @@ public class b {
     }
 
     public void recycleBitmaps() {
-        synchronized (Ds) {
-            for (Map.Entry<String, g> entry : this.Dv.entrySet()) {
+        synchronized (Ea) {
+            for (Map.Entry<String, g> entry : this.Ed.entrySet()) {
                 g value = entry.getValue();
                 Bitmap bitmap = value.getBitmap();
                 if (bitmap != null) {
@@ -108,13 +108,13 @@ public class b {
         }
     }
 
-    public boolean D(Context context) {
+    public boolean F(Context context) {
         return (context == null && this.context == null) || this.context.equals(context);
     }
 
     private Bitmap b(String str, @Nullable Bitmap bitmap) {
-        synchronized (Ds) {
-            this.Dv.get(str).setBitmap(bitmap);
+        synchronized (Ea) {
+            this.Ed.get(str).setBitmap(bitmap);
         }
         return bitmap;
     }

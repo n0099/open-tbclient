@@ -6,8 +6,8 @@ public class d {
     private long duration;
     private boolean hasLoaded = false;
     private long lastModified;
-    private String mhw;
     private String mimeType;
+    private String mzg;
     private Bitmap thumbnailBitmap;
     private int videoHeight;
     private String videoId;
@@ -58,15 +58,15 @@ public class d {
         this.videoHeight = i;
     }
 
-    public void OV(String str) {
-        this.mhw = str;
+    public void RT(String str) {
+        this.mzg = str;
     }
 
     public long getLastModified() {
         return this.lastModified;
     }
 
-    public void bd(long j) {
+    public void bi(long j) {
         this.lastModified = j;
     }
 
@@ -78,11 +78,11 @@ public class d {
         this.thumbnailBitmap = bitmap;
     }
 
-    public void vS(boolean z) {
+    public void wH(boolean z) {
         this.hasLoaded = z;
     }
 
-    public boolean drg() {
+    public boolean dCB() {
         return this.hasLoaded;
     }
 }

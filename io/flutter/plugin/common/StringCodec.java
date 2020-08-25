@@ -2,7 +2,7 @@ package io.flutter.plugin.common;
 
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public final class StringCodec implements MessageCodec<String> {
     private static final Charset UTF8 = Charset.forName("UTF8");
     public static final StringCodec INSTANCE = new StringCodec();

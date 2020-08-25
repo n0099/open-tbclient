@@ -1,9 +1,13 @@
 package com.baidu.swan.apps.adaptation.a;
-/* loaded from: classes7.dex */
+
+import android.content.Context;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import java.util.Set;
+/* loaded from: classes8.dex */
 public interface au {
-    boolean UC();
+    void a(@NonNull String str, Set<String> set, boolean z);
 
-    boolean UD();
-
-    void a(com.baidu.swan.apps.core.k.c cVar);
+    @NonNull
+    com.baidu.swan.c.b e(@NonNull Context context, @Nullable String str, boolean z);
 }

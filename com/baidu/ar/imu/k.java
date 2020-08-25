@@ -4,17 +4,17 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorManager;
 /* loaded from: classes11.dex */
 public class k extends d {
-    private float[] rM;
-    private float[] rN;
+    private float[] sq;
+    private float[] sr;
 
     public k(SensorManager sensorManager) {
         super(sensorManager);
-        this.rM = new float[3];
-        this.rN = new float[3];
-        this.rE.add(sensorManager.getDefaultSensor(9));
-        this.rE.add(sensorManager.getDefaultSensor(2));
-        this.rE.add(sensorManager.getDefaultSensor(4));
-        this.rE.add(sensorManager.getDefaultSensor(11));
+        this.sq = new float[3];
+        this.sr = new float[3];
+        this.si.add(sensorManager.getDefaultSensor(9));
+        this.si.add(sensorManager.getDefaultSensor(2));
+        this.si.add(sensorManager.getDefaultSensor(4));
+        this.si.add(sensorManager.getDefaultSensor(11));
     }
 
     @Override // com.baidu.ar.imu.d, android.hardware.SensorEventListener
@@ -22,15 +22,15 @@ public class k extends d {
         if (sensorEvent.sensor.getType() == 11 || sensorEvent.sensor.getType() == 4) {
             super.onSensorChanged(sensorEvent);
         } else if (sensorEvent.sensor.getType() == 2) {
-            this.rM = (float[]) sensorEvent.values.clone();
+            this.sq = (float[]) sensorEvent.values.clone();
         } else if (sensorEvent.sensor.getType() == 9) {
-            this.rN = (float[]) sensorEvent.values.clone();
-            this.ri = this.rN;
+            this.sr = (float[]) sensorEvent.values.clone();
+            this.rN = this.sr;
         }
-        if (this.rM == null || this.rN == null) {
+        if (this.sq == null || this.sr == null) {
             return;
         }
-        SensorManager.getRotationMatrix(this.rF.matrix, new float[16], this.rN, this.rM);
-        this.rG.setRowMajor(this.rF.matrix);
+        SensorManager.getRotationMatrix(this.sj.matrix, new float[16], this.sr, this.sq);
+        this.sk.setRowMajor(this.sj.matrix);
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.platform.comapi.wnplatform.walkmap;
 
 import com.baidu.platform.comjni.bikenavi.JNINaviMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class e {
     private JNINaviMap a;
 
@@ -15,15 +15,15 @@ public class e {
     }
 
     public boolean a(int i) {
-        return this.a.ShowLayer(h(), i, true);
+        return this.a.showLayer(h(), i, true);
     }
 
     public boolean b(int i) {
-        return this.a.ShowLayer(h(), i, false);
+        return this.a.showLayer(h(), i, false);
     }
 
     public boolean b() {
-        return this.a.UpdataBaseLayers(h());
+        return this.a.updataBaseLayers(h());
     }
 
     public boolean c() {
@@ -47,10 +47,6 @@ public class e {
     }
 
     public boolean a(int[] iArr, int[] iArr2) {
-        return this.a.convertGeoPoint2ScrPt4Ar(h(), iArr, iArr2);
-    }
-
-    public boolean b(int[] iArr, int[] iArr2) {
         return this.a.convertScrPt2GeoPoint(h(), iArr, iArr2);
     }
 
@@ -59,6 +55,6 @@ public class e {
     }
 
     private long h() {
-        return com.baidu.platform.comapi.walknavi.b.a().B().b();
+        return com.baidu.platform.comapi.walknavi.b.a().E().b();
     }
 }

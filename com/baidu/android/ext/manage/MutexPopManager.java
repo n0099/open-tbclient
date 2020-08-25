@@ -11,7 +11,7 @@ import rx.a.b.a;
 import rx.d;
 import rx.functions.b;
 import rx.schedulers.Schedulers;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class MutexPopManager {
     public static final String TAG = "MutexPopManager";
     private static MutexPopManager sInstance;
@@ -203,7 +203,7 @@ public class MutexPopManager {
     }
 
     public static void doNextTask(long j) {
-        d.b(j, TimeUnit.MILLISECONDS).d(Schedulers.io()).c(a.dXQ()).c(new b<Long>() { // from class: com.baidu.android.ext.manage.MutexPopManager.2
+        d.b(j, TimeUnit.MILLISECONDS).d(Schedulers.io()).c(a.ejU()).c(new b<Long>() { // from class: com.baidu.android.ext.manage.MutexPopManager.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
             public void call(Long l) {
@@ -235,7 +235,7 @@ public class MutexPopManager {
                     if (DEBUG) {
                         Log.i(TAG, "doNextTask()方法中已经没有更多任务，此线程需要在10秒后结束自己!");
                     }
-                    d.b(sCloseThreadDelay, TimeUnit.MILLISECONDS).d(Schedulers.io()).c(a.dXQ()).c(new b<Long>() { // from class: com.baidu.android.ext.manage.MutexPopManager.3
+                    d.b(sCloseThreadDelay, TimeUnit.MILLISECONDS).d(Schedulers.io()).c(a.ejU()).c(new b<Long>() { // from class: com.baidu.android.ext.manage.MutexPopManager.3
                         /* JADX DEBUG: Method merged with bridge method */
                         /* JADX WARN: Removed duplicated region for block: B:23:0x0040 A[EXC_TOP_SPLITTER, SYNTHETIC] */
                         @Override // rx.functions.b

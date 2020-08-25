@@ -1,9 +1,7 @@
 package com.baidu.tieba.frs;
-/* loaded from: classes.dex */
+/* loaded from: classes16.dex */
 public interface aw {
-    void bX(int i, int i2);
+    String getForumId();
 
-    void d(boolean z, boolean z2, int i);
-
-    void uH(int i);
+    String getForumName();
 }

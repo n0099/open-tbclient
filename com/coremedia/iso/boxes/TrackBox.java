@@ -2,7 +2,7 @@ package com.coremedia.iso.boxes;
 
 import com.googlecode.mp4parser.AbstractContainerBox;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class TrackBox extends AbstractContainerBox {
     public static final String TYPE = "trak";
     private SampleTableBox sampleTableBox;

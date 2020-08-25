@@ -3,44 +3,44 @@ package com.baidu.ar.child;
 public class c {
     private int angle;
     private int height;
-    private float kZ;
-    private float[] la;
-    private float[] lb;
-    private boolean lc;
-    private long ld;
-    private byte[] le;
+    private float lI;
+    private float[] lJ;
+    private float[] lK;
+    private boolean lL;
+    private long lM;
+    private byte[] lN;
     private int width;
 
-    public float[] cv() {
-        return this.la;
+    public float[] cV() {
+        return this.lJ;
     }
 
-    public float[] cw() {
-        return this.lb;
+    public float[] cW() {
+        return this.lK;
     }
 
     public void d(float f) {
-        this.kZ = f;
+        this.lI = f;
     }
 
     public void d(float[] fArr) {
-        this.la = fArr;
+        this.lJ = fArr;
     }
 
     public void e(float[] fArr) {
-        this.lb = fArr;
+        this.lK = fArr;
     }
 
     public void f(byte[] bArr) {
-        this.le = bArr;
+        this.lN = bArr;
     }
 
     public long getHandle() {
-        return this.ld;
+        return this.lM;
     }
 
     public void setHandle(long j) {
-        this.ld = j;
+        this.lM = j;
     }
 
     public void setHeight(int i) {
@@ -51,11 +51,11 @@ public class c {
         this.width = i;
     }
 
-    public void v(boolean z) {
-        this.lc = z;
+    public void u(int i) {
+        this.angle = i;
     }
 
-    public void x(int i) {
-        this.angle = i;
+    public void w(boolean z) {
+        this.lL = z;
     }
 }

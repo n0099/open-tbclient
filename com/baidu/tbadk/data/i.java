@@ -1,5 +1,5 @@
 package com.baidu.tbadk.data;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class i {
     private int mFrom;
 

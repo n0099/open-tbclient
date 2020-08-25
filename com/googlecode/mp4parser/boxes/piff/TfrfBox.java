@@ -10,11 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class TfrfBox extends AbstractFullBox {
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_2 = null;
     public List<Entry> entries;
 
     static {
@@ -23,9 +23,9 @@ public class TfrfBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("TfrfBox.java", TfrfBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getFragmentCount", "com.googlecode.mp4parser.boxes.piff.TfrfBox", "", "", "", "long"), 91);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "getEntries", "com.googlecode.mp4parser.boxes.piff.TfrfBox", "", "", "", "java.util.List"), 95);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "toString", "com.googlecode.mp4parser.boxes.piff.TfrfBox", "", "", "", FieldUtil.TYPE_STRING), 100);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "getFragmentCount", "com.googlecode.mp4parser.boxes.piff.TfrfBox", "", "", "", "long"), 91);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "getEntries", "com.googlecode.mp4parser.boxes.piff.TfrfBox", "", "", "", "java.util.List"), 95);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.d("1", "toString", "com.googlecode.mp4parser.boxes.piff.TfrfBox", "", "", "", FieldUtil.TYPE_STRING), 100);
     }
 
     public TfrfBox() {
@@ -94,7 +94,7 @@ public class TfrfBox extends AbstractFullBox {
         return sb.toString();
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes8.dex */
     public class Entry {
         long fragmentAbsoluteDuration;
         long fragmentAbsoluteTime;

@@ -7,12 +7,12 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
 /* loaded from: classes17.dex */
 public class ScanLoadingView extends LinearLayout {
-    private TBLottieAnimationView lek;
+    private TBLottieAnimationView luE;
 
     public ScanLoadingView(Context context) {
         this(context, null);
@@ -29,27 +29,27 @@ public class ScanLoadingView extends LinearLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.layout_scan_loading, (ViewGroup) this, true);
-        this.lek = (TBLottieAnimationView) findViewById(R.id.loading_anim);
-        this.lek.loop(true);
-        this.lek.setFrame(0);
-        ao.a(this.lek, R.raw.scan_refresh);
-        ao.setViewTextColor((TextView) findViewById(R.id.loading_text), R.color.cp_cont_c, 1);
+        this.luE = (TBLottieAnimationView) findViewById(R.id.loading_anim);
+        this.luE.loop(true);
+        this.luE.setFrame(0);
+        ap.a(this.luE, R.raw.scan_refresh);
+        ap.setViewTextColor((TextView) findViewById(R.id.loading_text), R.color.cp_cont_c, 1);
         setVisibility(8);
     }
 
     public void showLoading() {
         setVisibility(0);
-        if (this.lek != null) {
-            if (this.lek.isAnimating()) {
-                this.lek.cancelAnimation();
+        if (this.luE != null) {
+            if (this.luE.isAnimating()) {
+                this.luE.cancelAnimation();
             }
-            this.lek.playAnimation();
+            this.luE.playAnimation();
         }
     }
 
     public void hideLoading() {
-        if (this.lek != null) {
-            this.lek.cancelAnimation();
+        if (this.luE != null) {
+            this.luE.cancelAnimation();
         }
         setVisibility(8);
     }

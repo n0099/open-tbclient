@@ -3,7 +3,7 @@ package com.baidu.tieba.im.message;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class MemoryChangedMessage extends CustomResponsedMessage<ImMessageCenterPojo> {
     public static final int TYPE_DELETE = 2;
     public static final int TYPE_INSERT_OR_UPDATE = 1;

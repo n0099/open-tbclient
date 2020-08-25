@@ -24,10 +24,11 @@ import com.baidu.down.utils.Constants;
 import com.baidu.down.utils.DownPrefUtils;
 import com.baidu.down.utils.URLRegUtils;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidubce.http.Headers;
 import java.io.File;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BinaryReqTask extends AbstractTask {
     private static final boolean DEBUG = false;
     private static final String TAG = "BinaryReqTask";
@@ -310,7 +311,7 @@ public class BinaryReqTask extends AbstractTask {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class BinaryTaskHandler extends BinaryHttpResponseHandler {
         public BinaryTaskHandler() {
         }
@@ -506,7 +507,7 @@ public class BinaryReqTask extends AbstractTask {
                     return j + (Long.parseLong(split[1].substring(0, 1)) * 1024);
                 }
                 return j;
-            } else if (!lowerCase.contains("g")) {
+            } else if (!lowerCase.contains(IXAdRequestInfo.GPS)) {
                 return 0L;
             } else {
                 return 1073741824L;

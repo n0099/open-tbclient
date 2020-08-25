@@ -4,15 +4,15 @@ import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.Disk.ops.d;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
-    private static volatile a epp = null;
-    private boolean epo;
-    private int epq;
+    private static volatile a ezB = null;
+    private boolean ezA;
+    private int ezC;
 
     private a() {
-        this.epo = false;
-        this.epq = 0;
+        this.ezA = false;
+        this.ezC = 0;
         try {
             d dVar = new d("", "apk_ab_test.txt", DiskFileOperate.Action.READ);
             dVar.setSdCard(true);
@@ -20,10 +20,10 @@ public class a {
             if (dVar.call()) {
                 String content = dVar.getContent();
                 if (content != null) {
-                    this.epq = Integer.parseInt(content);
+                    this.ezC = Integer.parseInt(content);
                 }
-                if (this.epq == 1 || this.epq == 2) {
-                    this.epo = true;
+                if (this.ezC == 1 || this.ezC == 2) {
+                    this.ezA = true;
                 }
             }
         } catch (Throwable th) {
@@ -31,26 +31,26 @@ public class a {
         }
     }
 
-    public static a bdE() {
-        if (epp == null) {
+    public static a bmk() {
+        if (ezB == null) {
             synchronized (a.class) {
-                if (epp == null) {
-                    epp = new a();
+                if (ezB == null) {
+                    ezB = new a();
                 }
             }
         }
-        return epp;
+        return ezB;
     }
 
-    public boolean bdF() {
-        return this.epo;
+    public boolean bml() {
+        return this.ezA;
     }
 
-    public int bdG() {
-        return this.epq;
+    public int bmm() {
+        return this.ezC;
     }
 
-    public String bdH() {
-        return this.epo ? "pub_env=" + this.epq + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
+    public String bmn() {
+        return this.ezA ? "pub_env=" + this.ezC + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
     }
 }

@@ -7,7 +7,7 @@ import android.os.HandlerThread;
 import com.baidu.turbonet.base.annotations.CalledByNative;
 import com.baidu.turbonet.base.annotations.JNINamespace;
 @JNINamespace
-/* loaded from: classes19.dex */
+/* loaded from: classes10.dex */
 class JavaHandlerThread {
     final HandlerThread mThread;
 

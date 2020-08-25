@@ -1,14 +1,14 @@
 package com.baidu.live.liveroom.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class b {
-    public d aYx;
+    public d bdO;
 
-    public static b Fm() {
-        return a.aYy;
+    public static b KT() {
+        return a.bdP;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     private static class a {
-        private static final b aYy = new b();
+        private static final b bdP = new b();
     }
 }

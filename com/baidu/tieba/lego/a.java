@@ -1,7 +1,7 @@
 package com.baidu.tieba.lego;
 
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
-    public static int[] jwU = {R.color.cp_other_g, R.color.cp_other_b, R.color.cp_other_h, R.color.cp_bg_line_c};
+    public static int[] jMp = {R.color.cp_other_g, R.color.cp_other_b, R.color.cp_other_h, R.color.cp_bg_line_c};
 }

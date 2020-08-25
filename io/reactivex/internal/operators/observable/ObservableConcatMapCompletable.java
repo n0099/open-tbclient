@@ -134,7 +134,7 @@ public final class ObservableConcatMapCompletable<T> extends io.reactivex.a {
                                     this.active = true;
                                     eVar.a(this.inner);
                                 } catch (Throwable th) {
-                                    io.reactivex.exceptions.a.K(th);
+                                    io.reactivex.exceptions.a.J(th);
                                     dispose();
                                     this.queue.clear();
                                     this.actual.onError(th);
@@ -142,7 +142,7 @@ public final class ObservableConcatMapCompletable<T> extends io.reactivex.a {
                                 }
                             }
                         } catch (Throwable th2) {
-                            io.reactivex.exceptions.a.K(th2);
+                            io.reactivex.exceptions.a.J(th2);
                             dispose();
                             this.queue.clear();
                             this.actual.onError(th2);

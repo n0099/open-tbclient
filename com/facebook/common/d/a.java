@@ -6,30 +6,30 @@ import com.facebook.common.internal.ImmutableMap;
 import java.util.Locale;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes12.dex */
+/* loaded from: classes9.dex */
 public class a {
-    public static final Map<String, String> mQV = ImmutableMap.of("mkv", MimeType.Video.MKV, "glb", "model/gltf-binary", "flv", "flv-application/octet-stream");
+    public static final Map<String, String> nkQ = ImmutableMap.of("mkv", MimeType.Video.MKV, "glb", "model/gltf-binary", "flv", "flv-application/octet-stream");
 
-    public static boolean Ro(@Nullable String str) {
+    public static boolean Us(@Nullable String str) {
         return str != null && str.startsWith("video/");
     }
 
     @Nullable
-    public static String Rp(String str) {
-        String Rq = Rq(str);
-        if (Rq == null) {
+    public static String Ut(String str) {
+        String Uu = Uu(str);
+        if (Uu == null) {
             return null;
         }
-        String lowerCase = Rq.toLowerCase(Locale.US);
+        String lowerCase = Uu.toLowerCase(Locale.US);
         String mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(lowerCase);
         if (mimeTypeFromExtension == null) {
-            return mQV.get(lowerCase);
+            return nkQ.get(lowerCase);
         }
         return mimeTypeFromExtension;
     }
 
     @Nullable
-    private static String Rq(String str) {
+    private static String Uu(String str) {
         int lastIndexOf = str.lastIndexOf(46);
         if (lastIndexOf < 0 || lastIndexOf == str.length() - 1) {
             return null;

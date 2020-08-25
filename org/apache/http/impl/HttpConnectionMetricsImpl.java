@@ -3,7 +3,7 @@ package org.apache.http.impl;
 import org.apache.http.HttpConnectionMetrics;
 import org.apache.http.io.HttpTransportMetrics;
 @Deprecated
-/* loaded from: classes20.dex */
+/* loaded from: classes9.dex */
 public class HttpConnectionMetricsImpl implements HttpConnectionMetrics {
     public static final String RECEIVED_BYTES_COUNT = "http.received-bytes-count";
     public static final String REQUEST_COUNT = "http.request-count";

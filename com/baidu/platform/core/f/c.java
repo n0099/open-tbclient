@@ -14,7 +14,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class c extends com.baidu.platform.base.d {
     private static final String b = c.class.getSimpleName();
 
@@ -114,8 +114,16 @@ public class c extends com.baidu.platform.base.d {
         }
     }
 
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x0079, code lost:
+        if (r3.equals("NETWORK_ERROR") != false) goto L22;
+     */
     @Override // com.baidu.platform.base.d
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public SearchResult a(String str) {
+        boolean z = false;
         SuggestionResult suggestionResult = new SuggestionResult();
         if (str == null || str.isEmpty()) {
             suggestionResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
@@ -130,26 +138,25 @@ public class c extends com.baidu.platform.base.d {
                         if (!optJSONObject.has("PermissionCheckError")) {
                             if (optJSONObject.has("httpStateError")) {
                                 String optString = optJSONObject.optString("httpStateError");
-                                char c = 65535;
                                 switch (optString.hashCode()) {
                                     case -879828873:
-                                        if (optString.equals("NETWORK_ERROR")) {
-                                            c = 0;
-                                            break;
-                                        }
                                         break;
                                     case 1470557208:
                                         if (optString.equals("REQUEST_ERROR")) {
-                                            c = 1;
+                                            z = true;
                                             break;
                                         }
+                                        z = true;
+                                        break;
+                                    default:
+                                        z = true;
                                         break;
                                 }
-                                switch (c) {
-                                    case 0:
+                                switch (z) {
+                                    case false:
                                         suggestionResult.error = SearchResult.ERRORNO.NETWORK_ERROR;
                                         break;
-                                    case 1:
+                                    case true:
                                         suggestionResult.error = SearchResult.ERRORNO.REQUEST_ERROR;
                                         break;
                                     default:
@@ -161,7 +168,7 @@ public class c extends com.baidu.platform.base.d {
                             suggestionResult.error = SearchResult.ERRORNO.PERMISSION_UNFINISHED;
                         }
                     }
-                    if (!a(str, suggestionResult, true)) {
+                    if (!a(str, suggestionResult, false)) {
                         a(str, suggestionResult);
                     }
                 }

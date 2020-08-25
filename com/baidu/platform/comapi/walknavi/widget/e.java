@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.walknavi.widget;
 import android.view.View;
 import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class e implements Animation.AnimationListener {
     final /* synthetic */ d a;
 
@@ -19,7 +19,7 @@ public class e implements Animation.AnimationListener {
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
         View view;
-        view = this.a.e;
+        view = this.a.h;
         view.setVisibility(0);
     }
 

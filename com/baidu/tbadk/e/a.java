@@ -6,134 +6,134 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes18.dex */
 public class a {
-    private static b dIO = null;
-    private static a dIP = null;
-    private static boolean dIQ = false;
-    private static String dIR = "";
-    private static transient List<String> dIS = new ArrayList(5);
+    private static b dRV = null;
+    private static a dRW = null;
+    private static boolean dRX = false;
+    private static String dRY = "";
+    private static transient List<String> dRZ = new ArrayList(5);
 
     private a() {
     }
 
     public static a b(BaseFragmentActivity baseFragmentActivity) {
-        if (dIP == null) {
+        if (dRW == null) {
             synchronized (a.class) {
-                if (dIP == null) {
-                    dIP = new a();
-                    dIO = b.c(baseFragmentActivity);
+                if (dRW == null) {
+                    dRW = new a();
+                    dRV = b.c(baseFragmentActivity);
                 }
             }
-        } else if (dIO != null) {
-            dIO.a(baseFragmentActivity.getPageContext());
+        } else if (dRV != null) {
+            dRV.a(baseFragmentActivity.getPageContext());
         }
-        if (dIQ && dIO != null) {
-            dIO.aSu();
-            dIO.aSv();
-            dIQ = false;
+        if (dRX && dRV != null) {
+            dRV.baL();
+            dRV.baM();
+            dRX = false;
         }
-        return dIP;
+        return dRW;
     }
 
     public void a(boolean z, boolean z2, boolean z3, b.a aVar) {
-        aSr();
+        baI();
         if (z) {
-            aSn();
+            baE();
         }
         if (z2) {
-            aSo();
+            baF();
         }
-        hf(z3);
+        hB(z3);
         a(aVar);
     }
 
-    public void aSn() {
-        aSr();
-        if (dIO != null) {
-            dIO.aSu();
-            dIQ = false;
+    public void baE() {
+        baI();
+        if (dRV != null) {
+            dRV.baL();
+            dRX = false;
         }
     }
 
-    public void aSo() {
-        aSr();
-        if (dIO != null) {
-            dIO.aSv();
-            dIQ = false;
+    public void baF() {
+        baI();
+        if (dRV != null) {
+            dRV.baM();
+            dRX = false;
         }
     }
 
-    public void hf(boolean z) {
-        aSr();
-        if (dIO != null) {
-            dIO.hf(z);
+    public void hB(boolean z) {
+        baI();
+        if (dRV != null) {
+            dRV.hB(z);
         }
     }
 
     public void a(b.a aVar) {
-        aSr();
-        if (dIO != null) {
-            dIO.c(aVar);
+        baI();
+        if (dRV != null) {
+            dRV.c(aVar);
         }
     }
 
     public void b(b.a aVar) {
-        aSr();
-        if (dIO != null) {
-            if (dIO.aSs()) {
-                dIO.c(aVar);
+        baI();
+        if (dRV != null) {
+            if (dRV.baJ()) {
+                dRV.c(aVar);
             }
-            dIO.aSt();
+            dRV.baK();
         }
     }
 
     public void a(int i, b.a aVar) {
-        aSr();
-        if (dIO != null) {
-            if (dIO.aSs()) {
-                dIO.c(aVar);
+        baI();
+        if (dRV != null) {
+            if (dRV.baJ()) {
+                dRV.c(aVar);
             }
-            dIO.kA(i);
+            dRV.mG(i);
         }
     }
 
-    public void aSp() {
-        aSr();
-        if (dIO != null) {
-            dIO.aSp();
-            dIQ = true;
+    public void baG() {
+        baI();
+        if (dRV != null) {
+            dRV.baG();
+            dRX = true;
         }
     }
 
     public void resetContext() {
-        aSr();
-        if (dIO != null) {
-            dIO.resetContext();
+        baI();
+        if (dRV != null) {
+            dRV.resetContext();
         }
     }
 
-    public void aSq() {
-        aSr();
+    public void baH() {
+        baI();
         resetContext();
-        aSp();
+        baG();
     }
 
-    private void aSr() {
-        if (dIO == null) {
+    private void baI() {
+        if (dRV == null) {
         }
     }
 
     public static void resetAll() {
         try {
-            if (dIO != null) {
-                if (dIP != null) {
-                    dIP.aSq();
+            if (dRV != null) {
+                if (dRW != null) {
+                    dRW.baH();
                 }
-                dIO.removeCallBack();
-                dIO.aSw();
-                dIO = null;
+                dRV.removeCallBack();
+                dRV.baN();
+                dRV = null;
             }
-            if (dIP != null) {
-                dIP = null;
+            if (dRW != null) {
+                dRW = null;
             }
         } catch (Throwable th) {
             th.printStackTrace();

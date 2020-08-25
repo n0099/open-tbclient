@@ -11,7 +11,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.n;
 import java.io.File;
 import java.util.Date;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ClearTempService extends BdBaseService {
     private static final int DELETE_FILE_COUNT = 300;
     private static final int MAX_FILE_COUNT = 500;

@@ -6,7 +6,7 @@ import io.reactivex.internal.functions.Functions;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.d;
+import org.b.d;
 /* loaded from: classes7.dex */
 public final class LambdaSubscriber<T> extends AtomicReference<d> implements io.reactivex.disposables.b, j<T>, d {
     private static final long serialVersionUID = -7251123623727029452L;
@@ -22,33 +22,33 @@ public final class LambdaSubscriber<T> extends AtomicReference<d> implements io.
         this.onSubscribe = gVar3;
     }
 
-    @Override // io.reactivex.j, org.a.c
+    @Override // io.reactivex.j, org.b.c
     public void onSubscribe(d dVar) {
         if (SubscriptionHelper.setOnce(this, dVar)) {
             try {
                 this.onSubscribe.accept(this);
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.K(th);
+                io.reactivex.exceptions.a.J(th);
                 dVar.cancel();
                 onError(th);
             }
         }
     }
 
-    @Override // org.a.c
+    @Override // org.b.c
     public void onNext(T t) {
         if (!isDisposed()) {
             try {
                 this.onNext.accept(t);
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.K(th);
+                io.reactivex.exceptions.a.J(th);
                 get().cancel();
                 onError(th);
             }
         }
     }
 
-    @Override // org.a.c
+    @Override // org.b.c
     public void onError(Throwable th) {
         if (get() != SubscriptionHelper.CANCELLED) {
             lazySet(SubscriptionHelper.CANCELLED);
@@ -56,7 +56,7 @@ public final class LambdaSubscriber<T> extends AtomicReference<d> implements io.
                 this.onError.accept(th);
                 return;
             } catch (Throwable th2) {
-                io.reactivex.exceptions.a.K(th2);
+                io.reactivex.exceptions.a.J(th2);
                 io.reactivex.e.a.onError(new CompositeException(th, th2));
                 return;
             }
@@ -64,14 +64,14 @@ public final class LambdaSubscriber<T> extends AtomicReference<d> implements io.
         io.reactivex.e.a.onError(th);
     }
 
-    @Override // org.a.c
+    @Override // org.b.c
     public void onComplete() {
         if (get() != SubscriptionHelper.CANCELLED) {
             lazySet(SubscriptionHelper.CANCELLED);
             try {
                 this.onComplete.run();
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.K(th);
+                io.reactivex.exceptions.a.J(th);
                 io.reactivex.e.a.onError(th);
             }
         }
@@ -87,17 +87,17 @@ public final class LambdaSubscriber<T> extends AtomicReference<d> implements io.
         return get() == SubscriptionHelper.CANCELLED;
     }
 
-    @Override // org.a.d
+    @Override // org.b.d
     public void request(long j) {
         get().request(j);
     }
 
-    @Override // org.a.d
+    @Override // org.b.d
     public void cancel() {
         SubscriptionHelper.cancel(this);
     }
 
     public boolean hasCustomOnError() {
-        return this.onError != Functions.nSp;
+        return this.onError != Functions.omk;
     }
 }

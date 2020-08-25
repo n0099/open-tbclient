@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes20.dex */
+/* loaded from: classes9.dex */
 public class FilePart extends PartBase {
     public static final String DEFAULT_CHARSET = "ISO-8859-1";
     public static final String DEFAULT_CONTENT_TYPE = "application/octet-stream";

@@ -7,9 +7,9 @@ import android.support.v4.view.ViewCompat;
 import java.nio.ByteBuffer;
 /* loaded from: classes17.dex */
 public class GeneratedTexture {
-    private static final int[] GRID = {-16776961, -16711681, -16711936, -65281, -1, 1073742079, 1073807104, -16711681, -65281, MotionEventCompat.ACTION_POINTER_INDEX_MASK, -2147483393, ViewCompat.MEASURED_STATE_MASK, InputDeviceCompat.SOURCE_ANY, -65281, InputDeviceCompat.SOURCE_ANY, SupportMenu.CATEGORY_MASK};
-    private static final ByteBuffer sCoarseImageData = generateCoarseData();
-    private static final ByteBuffer sFineImageData = generateFineData();
+    private static final int[] nAR = {-16776961, -16711681, -16711936, -65281, -1, 1073742079, 1073807104, -16711681, -65281, MotionEventCompat.ACTION_POINTER_INDEX_MASK, -2147483393, ViewCompat.MEASURED_STATE_MASK, InputDeviceCompat.SOURCE_ANY, -65281, InputDeviceCompat.SOURCE_ANY, SupportMenu.CATEGORY_MASK};
+    private static final ByteBuffer nAS = dWw();
+    private static final ByteBuffer nAT = dWx();
 
     /* loaded from: classes17.dex */
     public enum Image {
@@ -17,10 +17,10 @@ public class GeneratedTexture {
         FINE
     }
 
-    private static ByteBuffer generateCoarseData() {
+    private static ByteBuffer dWw() {
         byte[] bArr = new byte[16384];
         for (int i = 0; i < bArr.length; i += 4) {
-            int i2 = GRID[((((i / 4) / 64) / 16) * 4) + (((i / 4) % 64) / 16)];
+            int i2 = nAR[((((i / 4) / 64) / 16) * 4) + (((i / 4) % 64) / 16)];
             if (i == 0) {
                 i2 = -1;
             } else if (i == bArr.length - 4) {
@@ -40,19 +40,19 @@ public class GeneratedTexture {
         return allocateDirect;
     }
 
-    private static ByteBuffer generateFineData() {
+    private static ByteBuffer dWx() {
         byte[] bArr = new byte[16384];
-        checkerPattern(bArr, 0, 0, 32, 32, -16776961, SupportMenu.CATEGORY_MASK, 1);
-        checkerPattern(bArr, 32, 32, 64, 64, -16776961, -16711936, 2);
-        checkerPattern(bArr, 0, 32, 32, 64, SupportMenu.CATEGORY_MASK, -16711936, 4);
-        checkerPattern(bArr, 32, 0, 64, 32, -1, ViewCompat.MEASURED_STATE_MASK, 8);
+        a(bArr, 0, 0, 32, 32, -16776961, SupportMenu.CATEGORY_MASK, 1);
+        a(bArr, 32, 32, 64, 64, -16776961, -16711936, 2);
+        a(bArr, 0, 32, 32, 64, SupportMenu.CATEGORY_MASK, -16711936, 4);
+        a(bArr, 32, 0, 64, 32, -1, ViewCompat.MEASURED_STATE_MASK, 8);
         ByteBuffer allocateDirect = ByteBuffer.allocateDirect(bArr.length);
         allocateDirect.put(bArr);
         allocateDirect.position(0);
         return allocateDirect;
     }
 
-    private static void checkerPattern(byte[] bArr, int i, int i2, int i3, int i4, int i5, int i6, int i7) {
+    private static void a(byte[] bArr, int i, int i2, int i3, int i4, int i5, int i6, int i7) {
         while (i2 < i4) {
             int i8 = i2 * 64 * 4;
             for (int i9 = i; i9 < i3; i9++) {

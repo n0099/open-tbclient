@@ -3,7 +3,7 @@ package com.baidu.searchbox.network;
 import android.content.Context;
 import com.baidu.searchbox.network.core.RequestClient;
 import java.util.concurrent.Executor;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public class HttpManager extends AbstractHttpManager {
     public static final int BAD_NETWORK_QUALITY = 2;
     public static final int GOOD_NETWORK_QUALITY = 1;
@@ -12,7 +12,7 @@ public class HttpManager extends AbstractHttpManager {
     public static volatile HttpManager httpManager;
     private static ExtraInfoDispatcher sExtraInfoDispatcher = new ExtraInfoDispatcher();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     public static abstract class NetworkQualityListener {
         private final Executor mExecutor;
 

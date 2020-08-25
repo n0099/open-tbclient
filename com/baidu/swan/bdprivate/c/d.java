@@ -1,11 +1,11 @@
 package com.baidu.swan.bdprivate.c;
 
-import com.baidu.swan.apps.adaptation.a.r;
+import com.baidu.swan.apps.adaptation.a.s;
 import com.baidu.swan.apps.setting.oauth.g;
-/* loaded from: classes11.dex */
-public class d implements r {
-    @Override // com.baidu.swan.apps.adaptation.a.r
-    public g Us() {
+/* loaded from: classes3.dex */
+public class d implements s {
+    @Override // com.baidu.swan.apps.adaptation.a.s
+    public g aau() {
         return new a();
     }
 }

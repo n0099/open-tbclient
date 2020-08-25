@@ -17,7 +17,7 @@ import com.baidu.searchbox.suspensionwindow.barrierpool.BarrierPool;
 import com.baidu.searchbox.suspensionwindow.cancelwindow.CancelWindowManager;
 import com.baidu.searchbox.suspensionwindow.util.DeviceUtil;
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class IFloatWindowImpl extends IFloatWindow {
     private static final String TAG = "IFloatWindowImpl";
     private static int mScreenHeight;

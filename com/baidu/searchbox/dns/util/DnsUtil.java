@@ -5,7 +5,7 @@ import com.baidu.searchbox.dns.a.a;
 import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class DnsUtil {
     public static final String TAG = "SMART_HTTP_DNS";
     public static String httpDnsDebugAddress;

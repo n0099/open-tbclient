@@ -4,8 +4,8 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mapapi.common.SysOSUtil;
-import com.baidu.mapapi.model.inner.Point;
-import com.baidu.mobstat.Config;
+import com.baidu.platform.comapi.basestruct.Point;
+import com.baidu.platform.comjni.map.favorite.NAFavorite;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -14,10 +14,10 @@ import java.util.Vector;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class a {
     private static a b = null;
-    private com.baidu.mapsdkplatform.comjni.map.favorite.a a = null;
+    private NAFavorite a = null;
     private boolean c = false;
     private boolean d = false;
     private Vector<String> e = null;
@@ -28,9 +28,9 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.mapsdkplatform.comapi.favrite.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public class C0205a implements Comparator<String> {
-        C0205a() {
+    /* loaded from: classes20.dex */
+    public class C0217a implements Comparator<String> {
+        C0217a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -41,7 +41,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     private class b {
         private long b;
         private long c;
@@ -65,7 +65,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     private class c {
         private String b;
         private long c;
@@ -119,7 +119,7 @@ public class a {
 
     private boolean h() {
         if (this.a == null) {
-            this.a = new com.baidu.mapsdkplatform.comjni.map.favorite.a();
+            this.a = new NAFavorite();
             if (this.a.a() == 0) {
                 this.a = null;
                 return false;
@@ -177,8 +177,8 @@ public class a {
                     jSONObject.put("bdetail", favSyncPoi.i);
                     jSONObject.put("uspoiname", favSyncPoi.b);
                     JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put(Config.EVENT_HEAT_X, favSyncPoi.c.getmPtx());
-                    jSONObject2.put("y", favSyncPoi.c.getmPty());
+                    jSONObject2.put("x", favSyncPoi.c.getDoubleX());
+                    jSONObject2.put("y", favSyncPoi.c.getDoubleY());
                     jSONObject.put("pt", jSONObject2);
                     jSONObject.put("ncityid", favSyncPoi.e);
                     jSONObject.put("npoitype", favSyncPoi.g);
@@ -235,7 +235,7 @@ public class a {
                 String optString = jSONObject.optString("Fav_Content");
                 favSyncPoi.b = optJSONObject.optString("uspoiname");
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject("pt");
-                favSyncPoi.c = new Point(optJSONObject2.optInt(Config.EVENT_HEAT_X), optJSONObject2.optInt("y"));
+                favSyncPoi.c = new Point(optJSONObject2.optInt("x"), optJSONObject2.optInt("y"));
                 favSyncPoi.e = optJSONObject.optString("ncityid");
                 favSyncPoi.f = optJSONObject.optString("uspoiuid");
                 favSyncPoi.g = optJSONObject.optInt("npoitype");
@@ -274,8 +274,8 @@ public class a {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("uspoiname", favSyncPoi.b);
                     JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put(Config.EVENT_HEAT_X, favSyncPoi.c.getmPtx());
-                    jSONObject2.put("y", favSyncPoi.c.getmPty());
+                    jSONObject2.put("x", favSyncPoi.c.getDoubleX());
+                    jSONObject2.put("y", favSyncPoi.c.getDoubleY());
                     jSONObject.put("pt", jSONObject2);
                     jSONObject.put("ncityid", favSyncPoi.e);
                     jSONObject.put("npoitype", favSyncPoi.g);
@@ -339,7 +339,7 @@ public class a {
                     }
                     if (this.f.size() > 0) {
                         try {
-                            Collections.sort(this.f, new C0205a());
+                            Collections.sort(this.f, new C0217a());
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -379,7 +379,7 @@ public class a {
                     }
                     if (this.e.size() > 0) {
                         try {
-                            Collections.sort(this.e, new C0205a());
+                            Collections.sort(this.e, new C0217a());
                         } catch (Exception e) {
                             e.printStackTrace();
                         }

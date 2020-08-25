@@ -1,5 +1,5 @@
 package com.baidu.platform.comapi.walknavi.d.a.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class a {
     private String a;
     private String b;

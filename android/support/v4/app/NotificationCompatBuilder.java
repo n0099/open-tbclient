@@ -13,7 +13,7 @@ import java.util.Iterator;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes18.dex */
+/* loaded from: classes3.dex */
 public class NotificationCompatBuilder implements NotificationBuilderWithBuilderAccessor {
     private RemoteViews mBigContentView;
     private final Notification.Builder mBuilder;

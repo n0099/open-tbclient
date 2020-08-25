@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import com.baidu.android.imsdk.internal.IMConnection;
 import com.kascend.chushou.a;
 import com.kascend.chushou.player.ui.h5.b.b;
 import java.util.ArrayList;
@@ -29,10 +30,10 @@ public class InteractNotifier extends RelativeLayout implements Handler.Callback
     private final List<View> e;
     private ViewPager f;
     private int g;
-    private b nxI;
-    private com.kascend.chushou.player.ui.h5.d.a nxJ;
-    private com.kascend.chushou.player.ui.h5.a.a nxK;
-    private final c nxL;
+    private com.kascend.chushou.player.ui.h5.d.a nRA;
+    private com.kascend.chushou.player.ui.h5.a.a nRB;
+    private final c nRC;
+    private b nRz;
 
     public InteractNotifier(Context context) {
         this(context, null);
@@ -48,7 +49,7 @@ public class InteractNotifier extends RelativeLayout implements Handler.Callback
         this.d = new ArrayList();
         this.e = new ArrayList();
         this.g = 0;
-        this.nxL = new c(this);
+        this.nRC = new c(this);
         this.a = context;
         LayoutInflater.from(context).inflate(a.h.widget_interact_notifier, (ViewGroup) this, true);
         this.f = (ViewPager) findViewById(a.f.interact_notifier_viewpager);
@@ -59,9 +60,9 @@ public class InteractNotifier extends RelativeLayout implements Handler.Callback
     }
 
     public void a(b bVar, com.kascend.chushou.player.ui.h5.d.a aVar, com.kascend.chushou.player.ui.h5.a.a aVar2) {
-        this.nxI = bVar;
-        this.nxJ = aVar;
-        this.nxK = aVar2;
+        this.nRz = bVar;
+        this.nRA = aVar;
+        this.nRB = aVar2;
         d();
     }
 
@@ -129,11 +130,11 @@ public class InteractNotifier extends RelativeLayout implements Handler.Callback
     public void b() {
         this.c.clear();
         this.f.setAdapter(new a());
-        this.nxL.ch(null);
+        this.nRC.cl(null);
     }
 
     public void c() {
-        this.nxL.ch(null);
+        this.nRC.cl(null);
     }
 
     @Override // android.os.Handler.Callback
@@ -141,7 +142,7 @@ public class InteractNotifier extends RelativeLayout implements Handler.Callback
         switch (message.what) {
             case 1:
                 this.f.setCurrentItem(this.g + 1);
-                this.nxL.B(1, 3000L);
+                this.nRC.B(1, IMConnection.RETRY_DELAY_TIMES);
                 break;
         }
         return true;
@@ -173,17 +174,17 @@ public class InteractNotifier extends RelativeLayout implements Handler.Callback
 
     private void d() {
         ArrayList arrayList = new ArrayList();
-        if ((this.nxI != null ? this.nxI.dOk() : null) != null) {
+        if ((this.nRz != null ? this.nRz.eam() : null) != null) {
             arrayList.add(1);
         }
-        if ((this.nxJ != null ? this.nxJ.dOk() : null) != null) {
+        if ((this.nRA != null ? this.nRA.eam() : null) != null) {
             arrayList.add(0);
         }
-        List<com.kascend.chushou.player.ui.h5.c.b> c = this.nxK != null ? this.nxK.c() : null;
+        List<com.kascend.chushou.player.ui.h5.c.b> c = this.nRB != null ? this.nRB.c() : null;
         if (!h.isEmpty(c)) {
             arrayList.addAll(c);
         }
-        this.nxL.removeMessages(1);
+        this.nRC.removeMessages(1);
         this.c.clear();
         this.c.addAll(arrayList);
         this.f.setAdapter(new a());
@@ -210,7 +211,7 @@ public class InteractNotifier extends RelativeLayout implements Handler.Callback
         }
         if (this.c.size() > 1) {
             this.b.setVisibility(0);
-            this.nxL.B(1, 3000L);
+            this.nRC.B(1, IMConnection.RETRY_DELAY_TIMES);
             return;
         }
         this.b.setVisibility(8);
@@ -248,12 +249,12 @@ public class InteractNotifier extends RelativeLayout implements Handler.Callback
                 switch (((Integer) obj).intValue()) {
                     case 0:
                         com.kascend.chushou.player.ui.h5.b.c cVar2 = new com.kascend.chushou.player.ui.h5.b.c(InteractNotifier.this.a);
-                        cVar2.a(InteractNotifier.this.nxJ);
+                        cVar2.a(InteractNotifier.this.nRA);
                         cVar = cVar2;
                         break;
                     case 1:
                         com.kascend.chushou.player.ui.h5.b.c cVar3 = new com.kascend.chushou.player.ui.h5.b.c(InteractNotifier.this.a);
-                        cVar3.a(InteractNotifier.this.nxI);
+                        cVar3.a(InteractNotifier.this.nRz);
                         cVar = cVar3;
                         break;
                     default:

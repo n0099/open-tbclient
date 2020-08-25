@@ -1,9 +1,11 @@
 package com.baidu.swan.games.m.b;
 
-import com.baidu.swan.games.screenrecord.a.d;
-/* loaded from: classes7.dex */
+import android.content.Context;
+import android.view.View;
+import com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView;
+/* loaded from: classes8.dex */
 public interface c {
-    void a(d dVar, com.baidu.swan.games.screenrecord.a.c cVar);
+    View a(Context context, GameCloseGuidePopView.a aVar);
 
-    void a(com.baidu.swan.games.u.b.c cVar, com.baidu.swan.games.u.b.b bVar);
+    void release();
 }

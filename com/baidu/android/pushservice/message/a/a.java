@@ -12,7 +12,7 @@ import com.baidu.android.pushservice.i.m;
 import com.baidu.android.pushservice.message.CrossPushMessage;
 import com.baidu.android.pushservice.message.k;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class a extends b {
     public a(Context context) {
         super(context);

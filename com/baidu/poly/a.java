@@ -6,38 +6,38 @@ import com.baidu.poly.util.d;
 import com.baidu.poly.util.g;
 import com.baidu.poly.widget.PolyActivity;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class a {
-    private long byT;
+    private long bEA;
 
     /* renamed from: com.baidu.poly.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static class C0238a {
+    /* loaded from: classes6.dex */
+    public static class C0259a {
         private Context context;
-        private int byU = 1;
+        private int bEB = 1;
         private boolean debug = false;
 
-        public a NY() {
+        public a TS() {
             return new a(this);
         }
 
-        public C0238a aH(Context context) {
+        public C0259a aM(Context context) {
             this.context = context;
             return this;
         }
 
-        public C0238a cY(boolean z) {
+        public C0259a dg(boolean z) {
             this.debug = z;
             return this;
         }
 
-        public C0238a dR(int i) {
-            this.byU = i;
+        public C0259a fN(int i) {
+            this.bEB = i;
             return this;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public static abstract class b {
         public abstract void onResult(int i, String str);
     }
@@ -61,11 +61,11 @@ public class a {
         }
         if (cVar != null) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.byT < 1000) {
+            if (currentTimeMillis - this.bEA < 1000) {
                 d.info("cashier pay time interval less than 1s");
                 return;
             }
-            this.byT = currentTimeMillis;
+            this.bEA = currentTimeMillis;
             d.info("cashier pay");
             com.baidu.poly.a.h.a.a(Long.valueOf(currentTimeMillis));
             com.baidu.poly.a.h.d.a(new com.baidu.poly.a.h.b("0"));
@@ -75,14 +75,14 @@ public class a {
         throw new IllegalArgumentException("channelPay can not be null");
     }
 
-    private a(C0238a c0238a) {
-        this.byT = 0L;
-        if (c0238a != null) {
-            if (c0238a.context != null) {
-                com.baidu.poly.a.b.a.b(c0238a.byU);
-                com.baidu.poly.a.d.b.a(com.baidu.poly.a.d.a.aI(c0238a.context.getApplicationContext()));
-                g.b(c0238a.context.getApplicationContext());
-                d.bBe = c0238a.debug;
+    private a(C0259a c0259a) {
+        this.bEA = 0L;
+        if (c0259a != null) {
+            if (c0259a.context != null) {
+                com.baidu.poly.a.b.a.b(c0259a.bEB);
+                com.baidu.poly.a.d.b.a(com.baidu.poly.a.d.a.aN(c0259a.context.getApplicationContext()));
+                g.b(c0259a.context.getApplicationContext());
+                d.bGI = c0259a.debug;
                 return;
             }
             throw new IllegalArgumentException("context can not be null");

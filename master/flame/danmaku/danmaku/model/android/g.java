@@ -3,8 +3,8 @@ package master.flame.danmaku.danmaku.model.android;
 public class g implements master.flame.danmaku.danmaku.model.a.d<e> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // master.flame.danmaku.danmaku.model.a.d
-    /* renamed from: dWs */
-    public e dWt() {
+    /* renamed from: eiv */
+    public e eiw() {
         return null;
     }
 

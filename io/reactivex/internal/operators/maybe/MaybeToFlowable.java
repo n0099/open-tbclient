@@ -5,7 +5,7 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
 import io.reactivex.m;
 import io.reactivex.o;
-import org.a.c;
+import org.b.c;
 /* loaded from: classes7.dex */
 public final class MaybeToFlowable<T> extends g<T> {
     final o<T> source;
@@ -51,7 +51,7 @@ public final class MaybeToFlowable<T> extends g<T> {
             this.actual.onComplete();
         }
 
-        @Override // io.reactivex.internal.subscriptions.DeferredScalarSubscription, org.a.d
+        @Override // io.reactivex.internal.subscriptions.DeferredScalarSubscription, org.b.d
         public void cancel() {
             super.cancel();
             this.d.dispose();

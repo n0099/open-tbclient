@@ -11,29 +11,29 @@ import android.widget.EditText;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
 import com.baidu.tieba.pb.interactionpopupwindow.g;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class a<V extends g, D extends IBaseDialogData> implements f {
-    protected V kje;
-    protected D kjf;
+    protected V kyw;
+    protected D kyx;
     private DialogInterface.OnCancelListener mCancelListenr;
     protected Context mContext;
     private AlertDialog mDialog;
     private DialogInterface.OnKeyListener mOnKeyListener;
     protected TbPageContext mPageContext;
     private int mDialogGravity = -1;
-    private boolean bhB = true;
-    private boolean bhC = false;
+    private boolean bnj = true;
+    private boolean bnk = false;
 
     public a(TbPageContext tbPageContext, V v, D d) {
         this.mPageContext = tbPageContext;
         this.mContext = tbPageContext.getPageActivity();
-        this.kje = v;
-        this.kjf = d;
+        this.kyw = v;
+        this.kyx = d;
         a(d);
     }
 
@@ -43,13 +43,13 @@ public abstract class a<V extends g, D extends IBaseDialogData> implements f {
             com.baidu.adp.lib.f.g.showDialog(this.mDialog, this.mPageContext.getPageActivity());
             return;
         }
-        if (this.bhC) {
+        if (this.bnk) {
             this.mDialog = new AlertDialog.Builder(this.mContext, R.style.search_dialog).create();
         } else {
             this.mDialog = new AlertDialog.Builder(this.mContext).create();
         }
-        this.mDialog.setCanceledOnTouchOutside(Im());
-        this.mDialog.setCancelable(In());
+        this.mDialog.setCanceledOnTouchOutside(Of());
+        this.mDialog.setCancelable(Og());
         this.mDialog.setOnKeyListener(this.mOnKeyListener);
         if (this.mCancelListenr != null) {
             this.mDialog.setOnCancelListener(this.mCancelListenr);
@@ -76,10 +76,10 @@ public abstract class a<V extends g, D extends IBaseDialogData> implements f {
             }
             attributes.height = -2;
             window.setAttributes(attributes);
-            window.setContentView(this.kje.getViewGroup());
+            window.setContentView(this.kyw.getViewGroup());
             final AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-            bf.a(this.kje.getViewGroup(), false, new bf.a() { // from class: com.baidu.tieba.pb.interactionpopupwindow.a.1
-                @Override // com.baidu.tbadk.core.util.bf.a
+            bg.a(this.kyw.getViewGroup(), false, new bg.a() { // from class: com.baidu.tieba.pb.interactionpopupwindow.a.1
+                @Override // com.baidu.tbadk.core.util.bg.a
                 public boolean onViewFound(View view) {
                     if (view instanceof EditText) {
                         atomicBoolean.set(true);
@@ -102,8 +102,8 @@ public abstract class a<V extends g, D extends IBaseDialogData> implements f {
     }
 
     public void a(D d) {
-        if (this.kje != null) {
-            this.kje.a(d);
+        if (this.kyw != null) {
+            this.kyw.a(d);
         }
     }
 }

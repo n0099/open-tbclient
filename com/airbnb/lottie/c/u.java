@@ -6,7 +6,7 @@ import com.airbnb.lottie.model.content.Mask;
 import com.baidu.mobstat.Config;
 import java.io.IOException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes18.dex */
 public class u {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -50,7 +50,7 @@ public class u {
                     String nextString = jsonReader.nextString();
                     switch (nextString.hashCode()) {
                         case 97:
-                            if (nextString.equals(Config.APP_VERSION_CODE)) {
+                            if (nextString.equals("a")) {
                                 z2 = false;
                                 break;
                             }
@@ -82,7 +82,7 @@ public class u {
                             maskMode = Mask.MaskMode.MaskModeSubtract;
                             continue;
                         case true:
-                            eVar.aX("Animation contains intersect masks. They are not supported but will be treated like add masks.");
+                            eVar.bc("Animation contains intersect masks. They are not supported but will be treated like add masks.");
                             maskMode = Mask.MaskMode.MaskModeIntersect;
                             continue;
                         default:

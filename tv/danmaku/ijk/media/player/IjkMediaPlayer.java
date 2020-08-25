@@ -57,7 +57,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import tv.danmaku.ijk.media.player.misc.IAndroidIO;
 import tv.danmaku.ijk.media.player.misc.IMediaDataSource;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     private static volatile boolean r = false;
     private static volatile boolean s = false;
@@ -93,7 +93,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     private e v;
     private d w;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class a implements d {
         public static final a a = new a();
 
@@ -105,7 +105,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class b extends Handler {
         private final WeakReference<IjkMediaPlayer> a;
 
@@ -259,23 +259,23 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public interface c {
         String a(int i);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public interface d {
         String a(tv.danmaku.ijk.media.player.b bVar, String str, int i, int i2);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public interface e {
         boolean a(int i, Bundle bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class f extends Handler {
         private final WeakReference<IjkMediaPlayer> a;
 

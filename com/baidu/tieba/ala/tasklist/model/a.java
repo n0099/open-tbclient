@@ -6,17 +6,17 @@ import com.baidu.live.adp.framework.listener.HttpMessageListener;
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.data.AlaLiveUserInfoData;
-import com.baidu.live.data.ac;
+import com.baidu.live.data.ae;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.live.tbadk.ubc.UbcStatisticItem;
 import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a extends BdBaseModel {
-    private AlaLiveUserInfoData gMs;
-    private ac gMt;
-    private InterfaceC0610a gMu;
-    private HttpMessageListener gMv = new HttpMessageListener(1021065) { // from class: com.baidu.tieba.ala.tasklist.model.a.1
+    private AlaLiveUserInfoData gZj;
+    private ae gZk;
+    private InterfaceC0660a gZl;
+    private HttpMessageListener gZm = new HttpMessageListener(1021065) { // from class: com.baidu.tieba.ala.tasklist.model.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -25,21 +25,21 @@ public class a extends BdBaseModel {
                 int error = httpResponsedMessage.getError();
                 LiveFlowerTaskListResponsedMessage liveFlowerTaskListResponsedMessage = (LiveFlowerTaskListResponsedMessage) httpResponsedMessage;
                 if (statusCode != 200 || error != 0) {
-                    if (a.this.gMu != null) {
-                        a.this.gMu.ao(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                    if (a.this.gZl != null) {
+                        a.this.gZl.am(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                         return;
                     }
                     return;
                 }
-                a.this.gMs = liveFlowerTaskListResponsedMessage.gMs;
-                a.this.gMt = liveFlowerTaskListResponsedMessage.gMt;
-                if (a.this.gMu != null) {
-                    a.this.gMu.a(liveFlowerTaskListResponsedMessage.gMs, liveFlowerTaskListResponsedMessage.gMt);
+                a.this.gZj = liveFlowerTaskListResponsedMessage.gZj;
+                a.this.gZk = liveFlowerTaskListResponsedMessage.gZk;
+                if (a.this.gZl != null) {
+                    a.this.gZl.a(liveFlowerTaskListResponsedMessage.gZj, liveFlowerTaskListResponsedMessage.gZk);
                 }
             }
         }
     };
-    private HttpMessageListener gMw = new HttpMessageListener(1021066) { // from class: com.baidu.tieba.ala.tasklist.model.a.2
+    private HttpMessageListener gZn = new HttpMessageListener(1021066) { // from class: com.baidu.tieba.ala.tasklist.model.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -48,43 +48,43 @@ public class a extends BdBaseModel {
                 int error = httpResponsedMessage.getError();
                 LiveFlowerTaskRewardResponsedMessage liveFlowerTaskRewardResponsedMessage = (LiveFlowerTaskRewardResponsedMessage) httpResponsedMessage;
                 if (statusCode != 200 || error != 0) {
-                    if (a.this.gMu != null) {
-                        a.this.gMu.ao(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                    if (a.this.gZl != null) {
+                        a.this.gZl.am(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                         return;
                     }
                     return;
                 }
-                a.this.gMs = liveFlowerTaskRewardResponsedMessage.gMs;
-                a.this.gMt = liveFlowerTaskRewardResponsedMessage.gMt;
-                a.this.bPS();
-                if (a.this.gMu != null) {
-                    a.this.gMu.a(liveFlowerTaskRewardResponsedMessage.gMs, liveFlowerTaskRewardResponsedMessage.gMt);
+                a.this.gZj = liveFlowerTaskRewardResponsedMessage.gZj;
+                a.this.gZk = liveFlowerTaskRewardResponsedMessage.gZk;
+                a.this.cad();
+                if (a.this.gZl != null) {
+                    a.this.gZl.a(liveFlowerTaskRewardResponsedMessage.gZj, liveFlowerTaskRewardResponsedMessage.gZk);
                 }
             }
         }
     };
 
     /* renamed from: com.baidu.tieba.ala.tasklist.model.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC0610a {
-        void a(AlaLiveUserInfoData alaLiveUserInfoData, ac acVar);
+    /* loaded from: classes7.dex */
+    public interface InterfaceC0660a {
+        void a(AlaLiveUserInfoData alaLiveUserInfoData, ae aeVar);
 
-        void ao(int i, String str);
+        void am(int i, String str);
     }
 
     public a() {
-        bPP();
-        bPQ();
-        MessageManager.getInstance().registerListener(this.gMv);
-        MessageManager.getInstance().registerListener(this.gMw);
+        caa();
+        cab();
+        MessageManager.getInstance().registerListener(this.gZm);
+        MessageManager.getInstance().registerListener(this.gZn);
     }
 
-    public ac bPO() {
-        return this.gMt;
+    public ae bZZ() {
+        return this.gZk;
     }
 
-    private void bPP() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021065, com.baidu.live.a.atA);
+    private void caa() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021065, com.baidu.live.a.ayC);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -92,8 +92,8 @@ public class a extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void bPQ() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021066, com.baidu.live.a.atB);
+    private void cab() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021066, com.baidu.live.a.ayD);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -101,13 +101,13 @@ public class a extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void bPR() {
+    public void cac() {
         HttpMessage httpMessage = new HttpMessage(1021065);
         httpMessage.setTag(getUniqueId());
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public void sK(int i) {
+    public void uY(int i) {
         HttpMessage httpMessage = new HttpMessage(1021066);
         httpMessage.setTag(getUniqueId());
         httpMessage.addParam("task_id", i);
@@ -115,13 +115,13 @@ public class a extends BdBaseModel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bPS() {
+    public void cad() {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "petal_pickup"));
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.gMv);
-        MessageManager.getInstance().unRegisterListener(this.gMw);
+        MessageManager.getInstance().unRegisterListener(this.gZm);
+        MessageManager.getInstance().unRegisterListener(this.gZn);
         MessageManager.getInstance().unRegisterTask(1021065);
         MessageManager.getInstance().unRegisterTask(1021066);
         cancelMessage();
@@ -138,7 +138,7 @@ public class a extends BdBaseModel {
         return true;
     }
 
-    public void a(InterfaceC0610a interfaceC0610a) {
-        this.gMu = interfaceC0610a;
+    public void a(InterfaceC0660a interfaceC0660a) {
+        this.gZl = interfaceC0660a;
     }
 }

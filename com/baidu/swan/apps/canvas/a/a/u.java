@@ -2,7 +2,7 @@ package com.baidu.swan.apps.canvas.a.a;
 
 import android.graphics.Canvas;
 import org.json.JSONArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class u extends a {
     private float mRotateAngle;
 
@@ -16,8 +16,8 @@ public class u extends a {
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        if (bVar.WF() == 0) {
-            bVar.eF(canvas.save());
+        if (bVar.acL() == 0) {
+            bVar.gD(canvas.save());
         }
         canvas.rotate(this.mRotateAngle);
     }

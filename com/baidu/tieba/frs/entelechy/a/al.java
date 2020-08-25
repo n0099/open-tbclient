@@ -1,36 +1,36 @@
 package com.baidu.tieba.frs.entelechy.a;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bv;
+import com.baidu.tbadk.core.data.bw;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes16.dex */
 public interface al {
-    void a(com.baidu.adp.widget.ListView.z zVar);
+    void a(com.baidu.adp.widget.ListView.ab abVar);
 
     void a(com.baidu.tieba.frs.f fVar);
 
     void b(ArrayList<com.baidu.adp.widget.ListView.q> arrayList, FrsViewData frsViewData);
 
-    HashMap<Integer, bv> cfc();
+    HashMap<Integer, bw> cpH();
 
-    int cfd();
+    int cpI();
 
-    void cfe();
+    void cpJ();
 
-    int cff();
+    int cpK();
 
-    int cfg();
+    int cpL();
 
-    void cfh();
+    void cpM();
 
     List<com.baidu.adp.widget.ListView.q> getDatas();
 
     void notifyDataSetChanged();
 
-    void oj(boolean z);
+    void oN(boolean z);
 
     void onDestory();
 

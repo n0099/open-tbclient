@@ -1,5 +1,5 @@
 package com.baidu.android.common.others.java;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class Pair<F, S> {
     public final F mFirst;
     public final S mSecond;

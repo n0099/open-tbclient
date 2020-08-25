@@ -1,25 +1,53 @@
 package com.baidu.tbadk.core.data;
 
-import tbclient.PbPage.NewsInfo;
-/* loaded from: classes.dex */
+import java.util.ArrayList;
+import tbclient.PbPresent;
+import tbclient.PbPresentList;
+/* loaded from: classes2.dex */
 public class ax {
-    public String buttonText;
-    public String dPW;
-    public String dPX;
-    public int duh;
-    public int position = 0;
-    public String subtitle;
-    public String summary;
+    private ArrayList<a> dZo;
+    private int total;
 
-    public void a(NewsInfo newsInfo) {
-        if (newsInfo != null) {
-            this.dPW = newsInfo.news_link;
-            this.summary = newsInfo.summary;
-            this.position = newsInfo.position.intValue();
-            this.duh = newsInfo.news_type.intValue();
-            this.dPX = newsInfo.news_icon;
-            this.subtitle = newsInfo.subtitle;
-            this.buttonText = newsInfo.button_text;
+    /* loaded from: classes2.dex */
+    public static class a {
+        public int giftId;
+        public String giftName;
+        public int num;
+        public String thumbnailUrl;
+    }
+
+    public void a(PbPresent pbPresent) {
+        if (pbPresent != null) {
+            this.total = pbPresent.total.intValue();
+            if (pbPresent.list != null && pbPresent.list.size() > 0) {
+                this.dZo = new ArrayList<>();
+                for (PbPresentList pbPresentList : pbPresent.list) {
+                    if (pbPresentList != null) {
+                        a aVar = new a();
+                        aVar.giftId = pbPresentList.gift_id.intValue();
+                        aVar.giftName = pbPresentList.gift_name;
+                        aVar.thumbnailUrl = pbPresentList.thumbnail_url;
+                        aVar.num = pbPresentList.num.intValue();
+                        this.dZo.add(aVar);
+                    }
+                }
+            }
         }
+    }
+
+    public int getTotal() {
+        return this.total;
+    }
+
+    public void setTotal(int i) {
+        this.total = i;
+    }
+
+    public ArrayList<a> bdw() {
+        return this.dZo;
+    }
+
+    public void D(ArrayList<a> arrayList) {
+        this.dZo = arrayList;
     }
 }

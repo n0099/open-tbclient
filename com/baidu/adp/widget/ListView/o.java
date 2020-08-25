@@ -8,122 +8,122 @@ import android.util.SparseIntArray;
 import android.view.View;
 import com.baidu.tieba.card.CardLinkageManager;
 import java.util.HashSet;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class o {
-    private BdTypeRecyclerView VT;
-    private LinearLayoutManager VU;
-    private l Vo;
-    private float Vq;
-    private float Vr;
+    private l VR;
+    private float VT;
+    private float VU;
+    private BdTypeRecyclerView Wu;
+    private LinearLayoutManager Wv;
     private int mOrientation;
     private int mScrollState;
-    private boolean Vs = false;
-    private HashSet<Integer> VV = new HashSet<>();
-    private HashSet<Integer> VW = new HashSet<>();
-    private SparseIntArray Vp = new SparseIntArray();
-    private SparseArray<ValueAnimator> Vt = new SparseArray<>();
-    private SparseIntArray Vu = new SparseIntArray();
+    private boolean VV = false;
+    private HashSet<Integer> Ww = new HashSet<>();
+    private HashSet<Integer> Wx = new HashSet<>();
+    private SparseIntArray VS = new SparseIntArray();
+    private SparseArray<ValueAnimator> VW = new SparseArray<>();
+    private SparseIntArray VX = new SparseIntArray();
 
     public o(l lVar) {
-        this.Vo = lVar;
+        this.VR = lVar;
     }
 
     public void a(BdTypeRecyclerView bdTypeRecyclerView, int i) {
-        this.VT = bdTypeRecyclerView;
+        this.Wu = bdTypeRecyclerView;
         this.mOrientation = i;
         if (bdTypeRecyclerView != null && (bdTypeRecyclerView.getLayoutManager() instanceof LinearLayoutManager)) {
-            this.VU = (LinearLayoutManager) bdTypeRecyclerView.getLayoutManager();
+            this.Wv = (LinearLayoutManager) bdTypeRecyclerView.getLayoutManager();
         }
     }
 
     public void a(float f, float f2, int i) {
         float f3;
         int i2 = 1;
-        if (this.VT != null) {
+        if (this.Wu != null) {
             if (this.mOrientation != 2) {
                 f2 = f;
             }
-            if (Math.abs(f2) < this.Vo.pB()) {
-                this.Vs = true;
-                pq();
+            if (Math.abs(f2) < this.VR.ra()) {
+                this.VV = true;
+                qP();
                 return;
             }
-            this.Vs = false;
-            if (Math.abs(f2) > this.Vo.px()) {
-                f3 = f2 > 0.0f ? this.Vo.px() : -this.Vo.px();
+            this.VV = false;
+            if (Math.abs(f2) > this.VR.qW()) {
+                f3 = f2 > 0.0f ? this.VR.qW() : -this.VR.qW();
             } else {
                 f3 = f2;
             }
-            this.Vp.clear();
-            float pt = f3 * this.Vo.pt();
-            int aM = aM(i);
-            if (aM >= 0) {
+            this.VS.clear();
+            float qS = f3 * this.VR.qS();
+            int aO = aO(i);
+            if (aO >= 0) {
                 if (f3 < 0.0f) {
-                    float pu = this.Vo.pu();
+                    float qT = this.VR.qT();
                     int i3 = 1;
                     while (true) {
-                        int i4 = aM - i3;
-                        float f4 = pt + (i3 * pu);
-                        float f5 = pu * 1.2f;
+                        int i4 = aO - i3;
+                        float f4 = qS + (i3 * qT);
+                        float f5 = qT * 1.2f;
                         if (f4 > 0.0f) {
                             break;
                         }
-                        float ps = (f4 / this.Vo.ps()) + this.Vp.get(i4);
-                        if (Math.abs(ps) > this.Vo.pw()) {
-                            ps = -this.Vo.pw();
+                        float qR = (f4 / this.VR.qR()) + this.VS.get(i4);
+                        if (Math.abs(qR) > this.VR.qV()) {
+                            qR = -this.VR.qV();
                         }
-                        this.Vp.append(i4, (int) ps);
+                        this.VS.append(i4, (int) qR);
                         i3++;
-                        pu = f5;
+                        qT = f5;
                     }
-                    float pu2 = this.Vo.pu();
+                    float qT2 = this.VR.qT();
                     while (true) {
-                        int i5 = aM + i2;
-                        float f6 = pt + (i2 * pu2);
-                        float f7 = pu2 * 1.2f;
+                        int i5 = aO + i2;
+                        float f6 = qS + (i2 * qT2);
+                        float f7 = qT2 * 1.2f;
                         if (f6 <= 0.0f) {
-                            float pr = (f6 / this.Vo.pr()) + this.Vp.get(i5);
-                            if (Math.abs(pr) > this.Vo.pv()) {
-                                pr = -this.Vo.pv();
+                            float qQ = (f6 / this.VR.qQ()) + this.VS.get(i5);
+                            if (Math.abs(qQ) > this.VR.qU()) {
+                                qQ = -this.VR.qU();
                             }
-                            this.Vp.append(i5, (int) pr);
+                            this.VS.append(i5, (int) qQ);
                             i2++;
-                            pu2 = f7;
+                            qT2 = f7;
                         } else {
                             return;
                         }
                     }
                 } else {
-                    float pu3 = this.Vo.pu();
+                    float qT3 = this.VR.qT();
                     int i6 = 1;
                     while (true) {
-                        int i7 = aM - i6;
-                        float f8 = pt - (i6 * pu3);
-                        float f9 = pu3 * 1.2f;
+                        int i7 = aO - i6;
+                        float f8 = qS - (i6 * qT3);
+                        float f9 = qT3 * 1.2f;
                         if (f8 < 0.0f) {
                             break;
                         }
-                        float pr2 = (f8 / this.Vo.pr()) + this.Vp.get(i7);
-                        if (Math.abs(pr2) > this.Vo.pv()) {
-                            pr2 = this.Vo.pv();
+                        float qQ2 = (f8 / this.VR.qQ()) + this.VS.get(i7);
+                        if (Math.abs(qQ2) > this.VR.qU()) {
+                            qQ2 = this.VR.qU();
                         }
-                        this.Vp.append(i7, (int) pr2);
+                        this.VS.append(i7, (int) qQ2);
                         i6++;
-                        pu3 = f9;
+                        qT3 = f9;
                     }
-                    float pu4 = this.Vo.pu();
+                    float qT4 = this.VR.qT();
                     while (true) {
-                        int i8 = aM + i2;
-                        float f10 = pt - (i2 * pu4);
-                        float f11 = pu4 * 1.2f;
+                        int i8 = aO + i2;
+                        float f10 = qS - (i2 * qT4);
+                        float f11 = qT4 * 1.2f;
                         if (f10 >= 0.0f) {
-                            float ps2 = (f10 / this.Vo.ps()) + this.Vp.get(i8);
-                            if (Math.abs(ps2) > this.Vo.pw()) {
-                                ps2 = this.Vo.pw();
+                            float qR2 = (f10 / this.VR.qR()) + this.VS.get(i8);
+                            if (Math.abs(qR2) > this.VR.qV()) {
+                                qR2 = this.VR.qV();
                             }
-                            this.Vp.append(i8, (int) ps2);
+                            this.VS.append(i8, (int) qR2);
                             i2++;
-                            pu4 = f11;
+                            qT4 = f11;
                         } else {
                             return;
                         }
@@ -133,9 +133,9 @@ public class o {
         }
     }
 
-    private int aM(int i) {
+    private int aO(int i) {
         if (i > 0) {
-            q item = this.VT.getItem(i - this.VT.getHeaderViewsCount());
+            q item = this.Wu.getItem(i - this.Wu.getHeaderViewsCount());
             if (item instanceof com.baidu.tieba.card.data.b) {
                 return ((com.baidu.tieba.card.data.b) item).position;
             }
@@ -144,32 +144,32 @@ public class o {
     }
 
     public void j(int i, int i2, int i3) {
-        int aM;
-        int aM2;
-        if (this.VT != null && this.VU != null && this.mScrollState == 1 && !this.Vs) {
-            int findFirstVisibleItemPosition = i3 - this.VU.findFirstVisibleItemPosition();
-            int aM3 = aM(i3);
-            if (aM3 >= 0) {
-                this.VV.add(Integer.valueOf(aM3));
+        int aO;
+        int aO2;
+        if (this.Wu != null && this.Wv != null && this.mScrollState == 1 && !this.VV) {
+            int findFirstVisibleItemPosition = i3 - this.Wv.findFirstVisibleItemPosition();
+            int aO3 = aO(i3);
+            if (aO3 >= 0) {
+                this.Ww.add(Integer.valueOf(aO3));
                 int i4 = this.mOrientation == 2 ? i2 : i;
-                int childCount = this.VT.getChildCount();
+                int childCount = this.Wu.getChildCount();
                 for (int i5 = findFirstVisibleItemPosition - 1; i5 >= 0; i5--) {
-                    View childAt = this.VT.getChildAt(i5);
-                    int childAdapterPosition = this.VT.getChildAdapterPosition(childAt);
-                    if (childAdapterPosition != -1 && (aM2 = aM(childAdapterPosition)) >= 0 && !this.VV.contains(Integer.valueOf(aM2))) {
-                        this.VV.add(Integer.valueOf(aM2));
-                        a(childAt, i4, childAdapterPosition, i3, aM2);
+                    View childAt = this.Wu.getChildAt(i5);
+                    int childAdapterPosition = this.Wu.getChildAdapterPosition(childAt);
+                    if (childAdapterPosition != -1 && (aO2 = aO(childAdapterPosition)) >= 0 && !this.Ww.contains(Integer.valueOf(aO2))) {
+                        this.Ww.add(Integer.valueOf(aO2));
+                        a(childAt, i4, childAdapterPosition, i3, aO2);
                     }
                 }
                 int i6 = findFirstVisibleItemPosition + 1;
                 while (true) {
                     int i7 = i6;
                     if (i7 <= childCount - 1) {
-                        View childAt2 = this.VT.getChildAt(i7);
-                        int childAdapterPosition2 = this.VT.getChildAdapterPosition(childAt2);
-                        if (childAdapterPosition2 != -1 && (aM = aM(childAdapterPosition2)) >= 0 && !this.VV.contains(Integer.valueOf(aM))) {
-                            this.VV.add(Integer.valueOf(aM));
-                            a(childAt2, i4, childAdapterPosition2, i3, aM);
+                        View childAt2 = this.Wu.getChildAt(i7);
+                        int childAdapterPosition2 = this.Wu.getChildAdapterPosition(childAt2);
+                        if (childAdapterPosition2 != -1 && (aO = aO(childAdapterPosition2)) >= 0 && !this.Ww.contains(Integer.valueOf(aO))) {
+                            this.Ww.add(Integer.valueOf(aO));
+                            a(childAt2, i4, childAdapterPosition2, i3, aO);
                         }
                         i6 = i7 + 1;
                     } else {
@@ -184,30 +184,30 @@ public class o {
         if (view != null) {
             if (i < 0) {
                 if (i2 < i3) {
-                    float B = B(view) + (i * this.Vo.pz());
-                    if (B > c(i4, i2, true) + (-this.Vp.get(i4))) {
+                    float B = B(view) + (i * this.VR.qY());
+                    if (B > c(i4, i2, true) + (-this.VS.get(i4))) {
                         a(view, i2, B);
                     } else {
                         c(view, i2);
                     }
                 } else if (i2 > i3) {
-                    float B2 = B(view) + (i * this.Vo.py());
-                    if (B2 > c(i4, i2, false) + (-this.Vp.get(i4))) {
+                    float B2 = B(view) + (i * this.VR.qX());
+                    if (B2 > c(i4, i2, false) + (-this.VS.get(i4))) {
                         a(view, i2, B2);
                     } else {
                         c(view, i2);
                     }
                 }
             } else if (i2 > i3) {
-                float B3 = B(view) + (i * this.Vo.pz());
-                if (B3 < c(i4, i2, false) + (-this.Vp.get(i4))) {
+                float B3 = B(view) + (i * this.VR.qY());
+                if (B3 < c(i4, i2, false) + (-this.VS.get(i4))) {
                     a(view, i2, B3);
                 } else {
                     c(view, i2);
                 }
             } else if (i2 < i3) {
-                float B4 = B(view) + (i * this.Vo.py());
-                if (B4 < c(i4, i2, true) + (-this.Vp.get(i4))) {
+                float B4 = B(view) + (i * this.VR.qX());
+                if (B4 < c(i4, i2, true) + (-this.VS.get(i4))) {
                     a(view, i2, B4);
                 } else {
                     c(view, i2);
@@ -217,9 +217,9 @@ public class o {
     }
 
     private void c(final View view, final int i) {
-        final int aM;
-        if (view != null && (aM = aM(i)) >= 0) {
-            ValueAnimator valueAnimator = this.Vt.get(aM);
+        final int aO;
+        if (view != null && (aO = aO(i)) >= 0) {
+            ValueAnimator valueAnimator = this.VW.get(aO);
             if (valueAnimator == null) {
                 if (Math.abs(B(view)) < 0.1f) {
                     a(view, i, 0.0f);
@@ -227,7 +227,7 @@ public class o {
                 }
                 ValueAnimator ofFloat = ValueAnimator.ofFloat(B(view), 0.0f);
                 ofFloat.setInterpolator(new m(1.0f));
-                ofFloat.setDuration(this.Vo.pC());
+                ofFloat.setDuration(this.VR.rb());
                 ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.adp.widget.ListView.o.1
                     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                     public void onAnimationUpdate(ValueAnimator valueAnimator2) {
@@ -241,16 +241,16 @@ public class o {
 
                     @Override // android.animation.Animator.AnimatorListener
                     public void onAnimationEnd(Animator animator) {
-                        o.this.Vt.delete(aM);
-                        o.this.Vu.delete(aM);
-                        o.this.Vp.delete(aM);
+                        o.this.VW.delete(aO);
+                        o.this.VX.delete(aO);
+                        o.this.VS.delete(aO);
                         o.this.a(view, i, 0.0f);
                     }
 
                     @Override // android.animation.Animator.AnimatorListener
                     public void onAnimationCancel(Animator animator) {
-                        o.this.Vt.delete(aM);
-                        o.this.Vu.delete(aM);
+                        o.this.VW.delete(aO);
+                        o.this.VX.delete(aO);
                         o.this.a(view, i, 0.0f);
                     }
 
@@ -258,8 +258,8 @@ public class o {
                     public void onAnimationRepeat(Animator animator) {
                     }
                 });
-                this.Vt.append(aM, ofFloat);
-                this.Vu.append(aM, (int) B(view));
+                this.VW.append(aO, ofFloat);
+                this.VX.append(aO, (int) B(view));
                 ofFloat.start();
                 return;
             }
@@ -267,8 +267,8 @@ public class o {
                 valueAnimator.start();
             }
             float B = B(view);
-            if (Math.abs(B) > Math.abs(this.Vu.get(aM)) + this.Vo.pA()) {
-                this.Vu.append(aM, (int) B);
+            if (Math.abs(B) > Math.abs(this.VX.get(aO)) + this.VR.qZ()) {
+                this.VX.append(aO, (int) B);
                 valueAnimator.setFloatValues(B, 0.0f);
                 valueAnimator.cancel();
                 valueAnimator.start();
@@ -276,40 +276,40 @@ public class o {
         }
     }
 
-    public void aK(int i) {
-        if (this.VT != null) {
+    public void aM(int i) {
+        if (this.Wu != null) {
             this.mScrollState = i;
             if (this.mScrollState == 0) {
-                this.Vp.clear();
-                pq();
+                this.VS.clear();
+                qP();
             } else if (this.mScrollState == 2) {
-                pq();
+                qP();
             } else if (this.mScrollState == 1) {
-                this.Vp.clear();
-                pq();
+                this.VS.clear();
+                qP();
             }
         }
     }
 
     public void C(View view) {
         int childAdapterPosition;
-        int aM;
+        int aO;
         float f;
         float f2;
-        if (this.VT != null && this.VU != null && this.mScrollState != 0 && (aM = aM((childAdapterPosition = this.VT.getChildAdapterPosition(view)))) >= 0) {
-            if (childAdapterPosition <= this.VU.findFirstVisibleItemPosition()) {
-                float B = this.VT.getChildAt(1) != null ? B(this.VT.getChildAt(1)) : 0.0f;
-                int aM2 = aM(childAdapterPosition + 1);
-                if (aM2 >= 0) {
-                    if (aM2 == aM) {
+        if (this.Wu != null && this.Wv != null && this.mScrollState != 0 && (aO = aO((childAdapterPosition = this.Wu.getChildAdapterPosition(view)))) >= 0) {
+            if (childAdapterPosition <= this.Wv.findFirstVisibleItemPosition()) {
+                float B = this.Wu.getChildAt(1) != null ? B(this.Wu.getChildAt(1)) : 0.0f;
+                int aO2 = aO(childAdapterPosition + 1);
+                if (aO2 >= 0) {
+                    if (aO2 == aO) {
                         m(view, B);
                     } else {
-                        float f3 = -this.Vp.get(aM, 0);
+                        float f3 = -this.VS.get(aO, 0);
                         if (f3 != 0.0f) {
-                            this.Vq = f3;
+                            this.VT = f3;
                             f2 = f3;
                         } else {
-                            f2 = this.Vq;
+                            f2 = this.VT;
                         }
                         m(view, B + f2);
                     }
@@ -317,18 +317,18 @@ public class o {
                     return;
                 }
             } else {
-                float B2 = this.VT.getChildAt(this.VT.getChildCount() + (-2)) != null ? B(this.VT.getChildAt(this.VT.getChildCount() - 2)) : 0.0f;
-                int aM3 = aM(childAdapterPosition - 1);
-                if (aM3 >= 0) {
-                    if (aM3 == aM) {
+                float B2 = this.Wu.getChildAt(this.Wu.getChildCount() + (-2)) != null ? B(this.Wu.getChildAt(this.Wu.getChildCount() - 2)) : 0.0f;
+                int aO3 = aO(childAdapterPosition - 1);
+                if (aO3 >= 0) {
+                    if (aO3 == aO) {
                         m(view, B2);
                     } else {
-                        float f4 = -this.Vp.get(aM, 0);
+                        float f4 = -this.VS.get(aO, 0);
                         if (f4 != 0.0f) {
-                            this.Vr = f4;
+                            this.VU = f4;
                             f = f4;
                         } else {
-                            f = this.Vr;
+                            f = this.VU;
                         }
                         m(view, B2 + f);
                     }
@@ -341,29 +341,29 @@ public class o {
     }
 
     public void D(View view) {
-        if (this.VT != null) {
+        if (this.Wu != null) {
             m(view, 0.0f);
-            int aM = aM(this.VT.getChildAdapterPosition(view));
-            if (aM >= 0 && b(aM, 0, true) == -1) {
-                this.Vp.delete(aM);
-                if (this.Vt.get(aM) != null) {
-                    this.Vt.get(aM).cancel();
+            int aO = aO(this.Wu.getChildAdapterPosition(view));
+            if (aO >= 0 && b(aO, 0, true) == -1) {
+                this.VS.delete(aO);
+                if (this.VW.get(aO) != null) {
+                    this.VW.get(aO).cancel();
                 }
-                this.Vt.delete(aM);
-                this.Vu.delete(aM);
+                this.VW.delete(aO);
+                this.VX.delete(aO);
             }
         }
     }
 
-    private void pq() {
-        int childCount = this.VT.getChildCount();
-        this.VW.clear();
+    private void qP() {
+        int childCount = this.Wu.getChildCount();
+        this.Wx.clear();
         for (int i = 0; i < childCount; i++) {
-            View childAt = this.VT.getChildAt(i);
-            int childAdapterPosition = this.VT.getChildAdapterPosition(childAt);
-            int aM = aM(childAdapterPosition);
-            if (aM >= 0 && !this.VW.contains(Integer.valueOf(aM))) {
-                this.VW.add(Integer.valueOf(aM));
+            View childAt = this.Wu.getChildAt(i);
+            int childAdapterPosition = this.Wu.getChildAdapterPosition(childAt);
+            int aO = aO(childAdapterPosition);
+            if (aO >= 0 && !this.Wx.contains(Integer.valueOf(aO))) {
+                this.Wx.add(Integer.valueOf(aO));
                 c(childAt, childAdapterPosition);
             }
         }
@@ -371,17 +371,17 @@ public class o {
 
     private int b(int i, int i2, boolean z) {
         if (z) {
-            int count = this.VT.getCount() - i2;
+            int count = this.Wu.getCount() - i2;
             for (int i3 = 1; i3 < count; i3++) {
                 int i4 = i2 + i3;
-                if (i == aM(i4)) {
+                if (i == aO(i4)) {
                     return i4;
                 }
             }
         } else {
             for (int i5 = 1; i5 < i2; i5++) {
                 int i6 = i2 - i5;
-                if (i == aM(i6)) {
+                if (i == aO(i6)) {
                     return i6;
                 }
             }
@@ -393,7 +393,7 @@ public class o {
     public void a(View view, int i, float f) {
         if (view != null) {
             if (this.mOrientation == 2) {
-                CardLinkageManager.INSTANCE.translationY(this.VT, i, f);
+                CardLinkageManager.INSTANCE.translationY(this.Wu, i, f);
             } else {
                 view.setTranslationX(f);
             }
@@ -419,8 +419,8 @@ public class o {
 
     private float c(int i, int i2, boolean z) {
         if (z) {
-            return B(this.VT.getChildAt(b(i + 1, i2, true)));
+            return B(this.Wu.getChildAt(b(i + 1, i2, true)));
         }
-        return B(this.VT.getChildAt(b(i - 1, i2, false)));
+        return B(this.Wu.getChildAt(b(i - 1, i2, false)));
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.homepage.personalize.data;
 /* loaded from: classes16.dex */
 public class j {
-    private long iBf;
+    private long iPX;
     private long liveId;
     private int liveType;
     private String portrait;
@@ -49,19 +49,19 @@ public class j {
         this.threadId = j;
     }
 
-    public long cnF() {
-        return this.iBf;
+    public long cyy() {
+        return this.iPX;
     }
 
-    public void eE(long j) {
-        this.iBf = j;
+    public void eQ(long j) {
+        this.iPX = j;
     }
 
-    public int bHw() {
+    public int bRa() {
         return this.liveType;
     }
 
-    public void xF(int i) {
+    public void zZ(int i) {
         this.liveType = i;
     }
 }

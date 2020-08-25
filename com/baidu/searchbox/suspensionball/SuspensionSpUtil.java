@@ -3,7 +3,7 @@ package com.baidu.searchbox.suspensionball;
 import com.baidu.android.util.sp.SharedPrefsWrapper;
 import java.util.Map;
 import org.json.JSONArray;
-/* loaded from: classes18.dex */
+/* loaded from: classes3.dex */
 public class SuspensionSpUtil {
     private static final String SUSPENSION_BALL_DATA = "suspension_ball_data";
     public static final String SUSPENSION_BALL_SWITCH = "suspension_ball_switch";

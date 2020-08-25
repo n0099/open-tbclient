@@ -2,7 +2,7 @@ package com.baidu.platform.comapi.walknavi.fsm;
 
 import android.util.Log;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class FSMTable {
     private static final byte[] a = new byte[0];
     public static HashMap<String, HashMap<String, String>> dictFSM;
@@ -15,14 +15,14 @@ public class FSMTable {
     public static HashMap<String, String> dictStateSegEntry;
 
     public static void initTransition() {
-        initTransEntry();
-        initTransSegEntry();
-        initTransNorth2D();
-        initTransCar3D();
-        initTransBrowseMap();
-        initTransOverview();
-        initTransSeg();
-        initDictFSM();
+        a();
+        b();
+        c();
+        d();
+        e();
+        f();
+        g();
+        h();
     }
 
     public static void release() {
@@ -76,7 +76,7 @@ public class FSMTable {
         }
     }
 
-    private static void initTransEntry() {
+    private static void a() {
         dictStateEntry = new HashMap<>();
         dictStateEntry.clear();
         dictStateEntry.put("[查看全览]按钮点击", "Overview");
@@ -88,7 +88,7 @@ public class FSMTable {
         dictStateEntry.put("[2D正北]按钮点击", "North2D");
     }
 
-    private static void initTransSegEntry() {
+    private static void b() {
         dictStateSegEntry = new HashMap<>();
         dictStateSegEntry.clear();
         dictStateSegEntry.put("[查看全览]按钮点击", "Overview");
@@ -100,7 +100,7 @@ public class FSMTable {
         dictStateSegEntry.put("收到偏航算路成功消息", "Car3D");
     }
 
-    private static void initTransNorth2D() {
+    private static void c() {
         dictStateNorth2D = new HashMap<>();
         dictStateNorth2D.clear();
         dictStateNorth2D.put("强诱导转到分段", "Seg");
@@ -113,7 +113,7 @@ public class FSMTable {
         dictStateNorth2D.put("收到偏航算路成功消息", "North2D");
     }
 
-    private static void initTransCar3D() {
+    private static void d() {
         dictStateCar3D = new HashMap<>();
         dictStateCar3D.clear();
         dictStateCar3D.put("强诱导转到分段", "Seg");
@@ -126,7 +126,7 @@ public class FSMTable {
         dictStateCar3D.put("[2D正北]按钮点击", "North2D");
     }
 
-    private static void initTransBrowseMap() {
+    private static void e() {
         dictStateBrowseMap = new HashMap<>();
         dictStateBrowseMap.clear();
         dictStateBrowseMap.put("强诱导转到分段", "Seg");
@@ -140,7 +140,7 @@ public class FSMTable {
         dictStateBrowseMap.put("收到自动回车位消息", "BACK");
     }
 
-    private static void initTransOverview() {
+    private static void f() {
         dictStateOverview = new HashMap<>();
         dictStateOverview.clear();
         dictStateOverview.put("强诱导转到分段", "Seg");
@@ -154,7 +154,7 @@ public class FSMTable {
         dictStateOverview.put("收到自动回车位消息", "Car3D");
     }
 
-    private static void initTransSeg() {
+    private static void g() {
         dictStateSeg = new HashMap<>();
         dictStateSeg.clear();
         dictStateSeg.put("强诱导转到分段", "Seg");
@@ -168,7 +168,7 @@ public class FSMTable {
         dictStateSeg.put("收到自动回车位消息", "Car3D");
     }
 
-    private static void initDictFSM() {
+    private static void h() {
         dictFSM = new HashMap<>();
         dictFSM.clear();
         dictFSM.put("Entry", dictStateEntry);

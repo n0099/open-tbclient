@@ -6,7 +6,7 @@ import com.baidu.android.pushservice.h.a.b;
 import com.baidu.android.pushservice.i.m;
 import java.lang.Thread;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class b implements Thread.UncaughtExceptionHandler {
     private final Context a;
     private final Thread.UncaughtExceptionHandler b;

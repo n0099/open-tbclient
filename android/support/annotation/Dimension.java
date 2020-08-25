@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 @Target({ElementType.METHOD, ElementType.PARAMETER, ElementType.FIELD, ElementType.LOCAL_VARIABLE, ElementType.ANNOTATION_TYPE})
 @Documented
 @Retention(RetentionPolicy.CLASS)
-/* loaded from: classes20.dex */
+/* loaded from: classes11.dex */
 public @interface Dimension {
     public static final int DP = 0;
     public static final int PX = 1;

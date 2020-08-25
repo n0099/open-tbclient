@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes7.dex */
+/* loaded from: classes12.dex */
 public class PressedAlphaImageView extends ImageView {
     private static final int DEFAULT_OPAQUE_ALPHA = 255;
     private static final int DEFAULT_PRESSED_ALPHA = 51;

@@ -6,41 +6,41 @@ import android.text.TextUtils;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class gg implements gk {
     private String a;
 
     /* renamed from: a  reason: collision with other field name */
-    private List<gg> f392a;
+    private List<gg> f389a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String[] f393a;
+    private String[] f390a;
     private String b;
 
     /* renamed from: b  reason: collision with other field name */
-    private String[] f394b;
+    private String[] f391b;
     private String c;
 
     public gg(String str, String str2, String[] strArr, String[] strArr2) {
-        this.f393a = null;
-        this.f394b = null;
-        this.f392a = null;
+        this.f390a = null;
+        this.f391b = null;
+        this.f389a = null;
         this.a = str;
         this.b = str2;
-        this.f393a = strArr;
-        this.f394b = strArr2;
+        this.f390a = strArr;
+        this.f391b = strArr2;
     }
 
     public gg(String str, String str2, String[] strArr, String[] strArr2, String str3, List<gg> list) {
-        this.f393a = null;
-        this.f394b = null;
-        this.f392a = null;
+        this.f390a = null;
+        this.f391b = null;
+        this.f389a = null;
         this.a = str;
         this.b = str2;
-        this.f393a = strArr;
-        this.f394b = strArr2;
+        this.f390a = strArr;
+        this.f391b = strArr2;
         this.c = str3;
-        this.f392a = list;
+        this.f389a = list;
     }
 
     public static gg a(Bundle bundle) {
@@ -80,7 +80,7 @@ public class gg implements gk {
         }
         Parcelable[] parcelableArr = new Parcelable[ggVarArr.length];
         for (int i = 0; i < ggVarArr.length; i++) {
-            parcelableArr[i] = ggVarArr[i].m306a();
+            parcelableArr[i] = ggVarArr[i].m311a();
         }
         return parcelableArr;
     }
@@ -91,25 +91,25 @@ public class gg implements gk {
         bundle.putString("ext_ns", this.b);
         bundle.putString("ext_text", this.c);
         Bundle bundle2 = new Bundle();
-        if (this.f393a != null && this.f393a.length > 0) {
-            for (int i = 0; i < this.f393a.length; i++) {
-                bundle2.putString(this.f393a[i], this.f394b[i]);
+        if (this.f390a != null && this.f390a.length > 0) {
+            for (int i = 0; i < this.f390a.length; i++) {
+                bundle2.putString(this.f390a[i], this.f391b[i]);
             }
         }
         bundle.putBundle("attributes", bundle2);
-        if (this.f392a != null && this.f392a.size() > 0) {
-            bundle.putParcelableArray("children", a(this.f392a));
+        if (this.f389a != null && this.f389a.size() > 0) {
+            bundle.putParcelableArray("children", a(this.f389a));
         }
         return bundle;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Parcelable m306a() {
+    public Parcelable m311a() {
         return a();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m307a() {
+    public String m312a() {
         return this.a;
     }
 
@@ -117,10 +117,10 @@ public class gg implements gk {
         if (str == null) {
             throw new IllegalArgumentException();
         }
-        if (this.f393a != null) {
-            for (int i = 0; i < this.f393a.length; i++) {
-                if (str.equals(this.f393a[i])) {
-                    return this.f394b[i];
+        if (this.f390a != null) {
+            for (int i = 0; i < this.f390a.length; i++) {
+                if (str.equals(this.f390a[i])) {
+                    return this.f391b[i];
                 }
             }
         }
@@ -128,7 +128,7 @@ public class gg implements gk {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m308a(String str) {
+    public void m313a(String str) {
         if (TextUtils.isEmpty(str)) {
             this.c = str;
         } else {
@@ -151,20 +151,20 @@ public class gg implements gk {
         if (!TextUtils.isEmpty(this.b)) {
             sb.append(" ").append("xmlns=").append("\"").append(this.b).append("\"");
         }
-        if (this.f393a != null && this.f393a.length > 0) {
-            for (int i = 0; i < this.f393a.length; i++) {
-                if (!TextUtils.isEmpty(this.f394b[i])) {
-                    sb.append(" ").append(this.f393a[i]).append("=\"").append(gu.a(this.f394b[i])).append("\"");
+        if (this.f390a != null && this.f390a.length > 0) {
+            for (int i = 0; i < this.f390a.length; i++) {
+                if (!TextUtils.isEmpty(this.f391b[i])) {
+                    sb.append(" ").append(this.f390a[i]).append("=\"").append(gu.a(this.f391b[i])).append("\"");
                 }
             }
         }
         if (!TextUtils.isEmpty(this.c)) {
             sb.append(">").append(this.c).append("</").append(this.a).append(">");
-        } else if (this.f392a == null || this.f392a.size() <= 0) {
+        } else if (this.f389a == null || this.f389a.size() <= 0) {
             sb.append("/>");
         } else {
             sb.append(">");
-            for (gg ggVar : this.f392a) {
+            for (gg ggVar : this.f389a) {
                 sb.append(ggVar.d());
             }
             sb.append("</").append(this.a).append(">");

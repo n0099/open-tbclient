@@ -1,11 +1,15 @@
 package com.baidu.swan.apps.adaptation.a;
-/* loaded from: classes7.dex */
+
+import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
+/* loaded from: classes8.dex */
 public interface aa {
-    void e(String str, String str2);
+    com.baidu.swan.apps.inlinewidget.f.c.a a(ZeusPluginFactory.Invoker invoker, String str);
 
-    void e(String str, String str2, Throwable th);
+    com.baidu.swan.apps.inlinewidget.f.c.a b(ZeusPluginFactory.Invoker invoker, String str);
 
-    void i(String str, String str2);
+    com.baidu.swan.apps.inlinewidget.rtcroom.c.b c(ZeusPluginFactory.Invoker invoker, String str);
 
-    void w(String str, String str2);
+    com.baidu.swan.apps.inlinewidget.rtcroom.c.a d(ZeusPluginFactory.Invoker invoker, String str);
+
+    com.baidu.swan.apps.inlinewidget.b.a e(ZeusPluginFactory.Invoker invoker, String str);
 }

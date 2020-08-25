@@ -13,7 +13,6 @@ import com.baidu.live.adp.lib.stats.BdStatisticsManager;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.data.ConstantData;
-import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.searchbox.v8engine.util.TimeUtils;
 /* loaded from: classes7.dex */
 public class HardH264Encoder {
@@ -72,7 +71,7 @@ public class HardH264Encoder {
             this.mMediaFormat.setInteger("i-frame-interval", 2);
             if (!z) {
                 this.mMediaFormat.setInteger(ConstantData.VideoLocationType.PERSON_PROFILE, selectProfile);
-                this.mMediaFormat.setInteger(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, 256);
+                this.mMediaFormat.setInteger("level", 256);
             }
             mediaCodec.configure(this.mMediaFormat, (Surface) null, (MediaCrypto) null, 1);
             return true;

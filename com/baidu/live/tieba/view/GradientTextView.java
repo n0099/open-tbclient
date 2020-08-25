@@ -11,12 +11,12 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class GradientTextView extends TextView {
-    private String biA;
-    private boolean biB;
-    private int biw;
-    private int bix;
+    private int bob;
+    private int boc;
+    private String bof;
+    private boolean bog;
 
     public GradientTextView(Context context) {
         this(context, null);
@@ -29,19 +29,19 @@ public class GradientTextView extends TextView {
     public GradientTextView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.k.sdk_GradientTextView);
-        this.biw = obtainStyledAttributes.getColor(a.k.sdk_GradientTextView_startColor, -1);
-        this.bix = obtainStyledAttributes.getColor(a.k.sdk_GradientTextView_endColor, -1);
+        this.bob = obtainStyledAttributes.getColor(a.k.sdk_GradientTextView_startColor, -1);
+        this.boc = obtainStyledAttributes.getColor(a.k.sdk_GradientTextView_endColor, -1);
         obtainStyledAttributes.recycle();
-        this.biB = true;
+        this.bog = true;
     }
 
     public void setCheckStrEquals(boolean z) {
-        this.biB = z;
+        this.bog = z;
     }
 
     public void setGradientTextColor(int i, int i2) {
-        this.biw = i;
-        this.bix = i2;
+        this.bob = i;
+        this.boc = i2;
         invalidate();
     }
 
@@ -49,11 +49,11 @@ public class GradientTextView extends TextView {
     @SuppressLint({"DrawAllocation"})
     protected void onDraw(Canvas canvas) {
         String charSequence = getText().toString();
-        if (!TextUtils.isEmpty(charSequence) && ((this.biw != 0 || this.bix != 0) && (!this.biB || !charSequence.equals(this.biA)))) {
-            this.biA = charSequence;
+        if (!TextUtils.isEmpty(charSequence) && ((this.bob != 0 || this.boc != 0) && (!this.bog || !charSequence.equals(this.bof)))) {
+            this.bof = charSequence;
             float measureText = getPaint().measureText(charSequence);
             float width = (getWidth() - measureText) / 2.0f;
-            getPaint().setShader(new LinearGradient(width, 0.0f, width + measureText, 0.0f, this.biw, this.bix, Shader.TileMode.CLAMP));
+            getPaint().setShader(new LinearGradient(width, 0.0f, width + measureText, 0.0f, this.bob, this.boc, Shader.TileMode.CLAMP));
         }
         super.onDraw(canvas);
     }

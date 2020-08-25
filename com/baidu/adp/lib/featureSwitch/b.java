@@ -7,10 +7,10 @@ public class b {
     private String mName;
     private a mSwitchListener;
     private int mMaxCrashTimes = 0;
-    private String[] JU = null;
+    private String[] Kx = null;
     private int mOffType = 0;
-    private String[] JV = null;
-    private boolean JW = false;
+    private String[] Ky = null;
+    private boolean Kz = false;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -31,24 +31,24 @@ public class b {
 
     public void a(int i, String[] strArr, int i2) {
         this.mMaxCrashTimes = i;
-        this.JU = strArr;
+        this.Kx = strArr;
         this.mOffType = i2;
     }
 
-    public void ad(boolean z) {
-        this.JW = z;
+    public void ae(boolean z) {
+        this.Kz = z;
     }
 
-    public boolean kz() {
-        return this.JW;
+    public boolean lY() {
+        return this.Kz;
     }
 
     public void g(String[] strArr) {
-        this.JV = strArr;
+        this.Ky = strArr;
     }
 
     public String[] getSwitchLibs() {
-        return this.JV;
+        return this.Ky;
     }
 
     public String getName() {
@@ -59,8 +59,8 @@ public class b {
         return this.mMaxCrashTimes;
     }
 
-    public String[] kA() {
-        return this.JU;
+    public String[] lZ() {
+        return this.Kx;
     }
 
     public int getOffType() {
@@ -71,7 +71,7 @@ public class b {
         return this.mDefaultType;
     }
 
-    public void j(int i, boolean z) {
+    public void k(int i, boolean z) {
         if (this.mSwitchListener != null) {
             this.mSwitchListener.a(this.mName, i, z);
         }

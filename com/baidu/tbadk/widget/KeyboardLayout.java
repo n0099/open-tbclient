@@ -3,14 +3,14 @@ package com.baidu.tbadk.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class KeyboardLayout extends RelativeLayout {
-    private a eLB;
+    private a eWh;
     private boolean mHasInit;
     private boolean mHasKeybord;
     private int mHeight;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void onKeyBoardStateChange(int i);
     }
@@ -31,7 +31,7 @@ public class KeyboardLayout extends RelativeLayout {
     }
 
     public void setOnkbdStateListener(a aVar) {
-        this.eLB = aVar;
+        this.eWh = aVar;
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
@@ -40,22 +40,22 @@ public class KeyboardLayout extends RelativeLayout {
         if (!this.mHasInit) {
             this.mHasInit = true;
             this.mHeight = i4;
-            if (this.eLB != null) {
-                this.eLB.onKeyBoardStateChange(-1);
+            if (this.eWh != null) {
+                this.eWh.onKeyBoardStateChange(-1);
             }
         } else {
             this.mHeight = this.mHeight < i4 ? i4 : this.mHeight;
         }
         if (this.mHasInit && this.mHeight > i4) {
             this.mHasKeybord = true;
-            if (this.eLB != null) {
-                this.eLB.onKeyBoardStateChange(-3);
+            if (this.eWh != null) {
+                this.eWh.onKeyBoardStateChange(-3);
             }
         }
         if (this.mHasInit && this.mHasKeybord && this.mHeight == i4) {
             this.mHasKeybord = false;
-            if (this.eLB != null) {
-                this.eLB.onKeyBoardStateChange(-2);
+            if (this.eWh != null) {
+                this.eWh.onKeyBoardStateChange(-2);
             }
         }
     }

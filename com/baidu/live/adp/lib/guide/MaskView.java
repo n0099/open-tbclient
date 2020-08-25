@@ -11,7 +11,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class MaskView extends ViewGroup {
     private final RectF mChildTmpRect;
     private boolean mCustomFullingRect;
@@ -230,7 +230,7 @@ public class MaskView extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class LayoutParams extends ViewGroup.LayoutParams {
         public static final int ANCHOR_BOTTOM = 4;
         public static final int ANCHOR_LEFT = 1;

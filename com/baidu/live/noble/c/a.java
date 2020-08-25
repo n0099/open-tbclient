@@ -1,7 +1,7 @@
 package com.baidu.live.noble.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface a {
-    void Gi();
+    void LW();
 
     void a(c cVar);
 

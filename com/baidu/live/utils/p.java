@@ -2,11 +2,11 @@ package com.baidu.live.utils;
 
 import android.text.TextUtils;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class p {
-    private static String bkV = "";
+    private static String bqB = "";
 
-    public static String zw() {
+    public static String EZ() {
         if (TbadkCoreApplication.getInst().isMobileBaidu()) {
             return "ala_subapp_shoubai_android_consume";
         }
@@ -22,8 +22,8 @@ public class p {
         return "";
     }
 
-    public static String Jx() {
-        if (TextUtils.isEmpty(bkV)) {
+    public static String Pp() {
+        if (TextUtils.isEmpty(bqB)) {
             if (TbadkCoreApplication.getInst().isMobileBaidu()) {
                 return "ala_subapp_shoubai_android_consume";
             }
@@ -38,14 +38,14 @@ public class p {
             }
             return "";
         }
-        return bkV;
+        return bqB;
     }
 
-    public static void fU(String str) {
-        bkV = str;
+    public static void ho(String str) {
+        bqB = str;
     }
 
-    public static String Jy() {
-        return bkV;
+    public static String Pq() {
+        return bqB;
     }
 }

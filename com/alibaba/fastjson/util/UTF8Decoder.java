@@ -6,7 +6,7 @@ import java.nio.CharBuffer;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetDecoder;
 import java.nio.charset.CoderResult;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class UTF8Decoder extends CharsetDecoder {
     private static final Charset charset = Charset.forName("UTF-8");
 
@@ -161,7 +161,7 @@ public class UTF8Decoder extends CharsetDecoder {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes11.dex */
     public static class Surrogate {
         static final /* synthetic */ boolean $assertionsDisabled;
         public static final int UCS4_MAX = 1114111;

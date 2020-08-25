@@ -1,23 +1,23 @@
 package com.baidu.platform.comapi.wnplatform.model.datastruct;
 
+import com.baidu.platform.comapi.map.MapBundleKey;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class WLocData implements Cloneable {
-    public static final double LOCDEFAULT = -1.0d;
+    private int a;
     public float accuracy;
     public double altitude;
+    private int b;
+    private int c;
     public int coordType;
+    private String d;
     public float direction;
     public int indoorState;
-    public int isIbeacon;
     public boolean isIndoorMode;
     public String networkLocType;
-    public int satellitesNum;
     public float speed;
-    public String tag;
-    public int timeStamp;
     public double latitude = -1.0d;
     public double longitude = -1.0d;
     public String buildingId = "";
@@ -29,21 +29,25 @@ public class WLocData implements Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public WLocData m23clone() {
+    public WLocData m30clone() {
         WLocData wLocData = new WLocData();
         synchronized (this) {
             wLocData.accuracy = this.accuracy;
             wLocData.direction = this.direction;
             wLocData.latitude = this.latitude;
             wLocData.longitude = this.longitude;
-            wLocData.satellitesNum = this.satellitesNum;
+            wLocData.a = this.a;
             wLocData.speed = this.speed;
             wLocData.altitude = this.altitude;
             wLocData.coordType = this.coordType;
             wLocData.buildingId = this.buildingId;
-            wLocData.floorId = this.floorId;
+            if (this.floorId != null && !this.floorId.isEmpty()) {
+                wLocData.floorId = this.floorId.toUpperCase();
+            } else {
+                wLocData.floorId = this.floorId;
+            }
             wLocData.networkLocType = this.networkLocType;
-            wLocData.isIbeacon = this.isIbeacon;
+            wLocData.b = this.b;
             wLocData.isIndoorMode = this.isIndoorMode;
             wLocData.indoorState = this.indoorState;
         }
@@ -56,14 +60,14 @@ public class WLocData implements Cloneable {
             jSONObject.put("lng", new BigDecimal(this.longitude).setScale(5, RoundingMode.UP));
             jSONObject.put("lat", new BigDecimal(this.latitude).setScale(5, RoundingMode.UP));
             jSONObject.put("speed", new BigDecimal(this.speed).setScale(2, RoundingMode.UP));
-            jSONObject.put("dir", new BigDecimal(this.direction).setScale(2, RoundingMode.UP));
+            jSONObject.put(MapBundleKey.MapObjKey.OBJ_DIR, new BigDecimal(this.direction).setScale(2, RoundingMode.UP));
             jSONObject.put("acc", new BigDecimal(this.accuracy).setScale(2, RoundingMode.UP));
             jSONObject.put("alt", new BigDecimal(this.altitude).setScale(1, RoundingMode.UP));
             jSONObject.put("bui", this.buildingId);
             jSONObject.put("floor", this.floorId);
             jSONObject.put("locType", getLocType());
-            jSONObject.put("timestamp", this.timeStamp);
-            jSONObject.put("tag", this.tag);
+            jSONObject.put("timestamp", this.c);
+            jSONObject.put("tag", this.d);
         } catch (Exception e) {
         }
         return jSONObject.toString();

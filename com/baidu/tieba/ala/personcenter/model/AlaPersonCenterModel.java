@@ -13,31 +13,31 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.personcenter.messages.AlaPersonCenterResponseMessage;
 /* loaded from: classes4.dex */
 public class AlaPersonCenterModel extends BdBaseModel {
-    private int aMx;
-    private a gHt;
-    private String gHu;
-    private boolean gHv;
-    private final HttpMessageListener gHw;
+    private int aRK;
+    private a gTW;
+    private String gTX;
+    private boolean gTY;
+    private final HttpMessageListener gTZ;
 
     public AlaPersonCenterModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.gHv = true;
-        this.aMx = 0;
-        this.gHw = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_USER_CENTER) { // from class: com.baidu.tieba.ala.personcenter.model.AlaPersonCenterModel.1
+        this.gTY = true;
+        this.aRK = 0;
+        this.gTZ = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_USER_CENTER) { // from class: com.baidu.tieba.ala.personcenter.model.AlaPersonCenterModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021001 && AlaPersonCenterModel.this.gHt != null) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021001 && AlaPersonCenterModel.this.gTW != null) {
                     int statusCode = httpResponsedMessage.getStatusCode();
                     if (statusCode != 200 || !(httpResponsedMessage instanceof AlaPersonCenterResponseMessage)) {
-                        AlaPersonCenterModel.this.gHt.c(statusCode, null, null);
+                        AlaPersonCenterModel.this.gTW.c(statusCode, null, null);
                         return;
                     }
                     AlaPersonCenterResponseMessage alaPersonCenterResponseMessage = (AlaPersonCenterResponseMessage) httpResponsedMessage;
                     if (alaPersonCenterResponseMessage.getError() == 0) {
-                        AlaPersonCenterModel.this.gHt.c(alaPersonCenterResponseMessage.getPersonCenterData(), 1);
+                        AlaPersonCenterModel.this.gTW.c(alaPersonCenterResponseMessage.getPersonCenterData(), 1);
                     } else {
-                        AlaPersonCenterModel.this.gHt.c(alaPersonCenterResponseMessage.getError(), alaPersonCenterResponseMessage.getErrMsg(), null);
+                        AlaPersonCenterModel.this.gTW.c(alaPersonCenterResponseMessage.getError(), alaPersonCenterResponseMessage.getErrMsg(), null);
                     }
                 }
             }
@@ -45,17 +45,17 @@ public class AlaPersonCenterModel extends BdBaseModel {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_USER_CENTER, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_USER_CENTER_URL);
         tbHttpMessageTask.setResponsedClass(AlaPersonCenterResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        this.gHw.setSelfListener(true);
-        this.gHw.setTag(getUniqueId());
-        registerListener(this.gHw);
+        this.gTZ.setSelfListener(true);
+        this.gTZ.setTag(getUniqueId());
+        registerListener(this.gTZ);
     }
 
     public void setUid(String str) {
-        this.gHu = str;
+        this.gTX = str;
     }
 
     public void a(a aVar) {
-        this.gHt = aVar;
+        this.gTW = aVar;
     }
 
     public boolean loadData() {
@@ -65,7 +65,7 @@ public class AlaPersonCenterModel extends BdBaseModel {
     @Override // com.baidu.adp.base.BdBaseModel
     protected boolean LoadData() {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_USER_CENTER);
-        httpMessage.addParam("user_id", this.gHu);
+        httpMessage.addParam("user_id", this.gTX);
         sendMessage(httpMessage);
         return true;
     }

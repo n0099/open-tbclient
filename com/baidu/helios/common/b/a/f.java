@@ -1,9 +1,9 @@
 package com.baidu.helios.common.b.a;
 
 import java.security.MessageDigest;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class f {
-    public static byte[] Y(String str, String str2) {
+    public static byte[] ac(String str, String str2) {
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("SHA1");
             messageDigest.update(str.getBytes(str2));
@@ -23,7 +23,7 @@ public class f {
         }
     }
 
-    public static String B(byte[] bArr) {
+    public static String C(byte[] bArr) {
         return a.c(sha256(bArr), false);
     }
 }

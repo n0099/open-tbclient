@@ -1,7 +1,7 @@
 package com.baidu.spswitch;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public interface a {
-    void RG();
+    void XB();
 
-    void RH();
+    void XC();
 }

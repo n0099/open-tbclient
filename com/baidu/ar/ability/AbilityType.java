@@ -20,7 +20,8 @@ public enum AbilityType {
     COMMON_FILTER("ability_common_filter"),
     HAND_SKELETON("ability_hand_skeleton"),
     ANIME("ability_anime"),
-    HEAD_SEG("ability_head_segmentation");
+    HEAD_SEG("ability_head_segmentation"),
+    GENDER_TRANS("com.baidu.ar.gendertrans.GenderTransAR");
     
     private String mTypeValue;
 

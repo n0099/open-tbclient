@@ -4,12 +4,12 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.HeadItem;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ItemStarData implements Serializable {
     public List<SingleItemStar> list;
 
     public void parseProto(List<HeadItem> list) {
-        if (com.baidu.tbadk.core.util.x.getCount(list) != 0) {
+        if (com.baidu.tbadk.core.util.y.getCount(list) != 0) {
             this.list = new ArrayList();
             for (HeadItem headItem : list) {
                 if (headItem != null) {
@@ -21,7 +21,7 @@ public class ItemStarData implements Serializable {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class SingleItemStar implements Serializable {
         public String content;
         public String name;

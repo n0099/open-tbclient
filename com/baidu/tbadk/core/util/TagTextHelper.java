@@ -5,10 +5,10 @@ import android.support.annotation.ColorRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class TagTextHelper {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     private enum HotTopicTag {
         NEW(R.string.tag_str_new, R.color.cp_link_tip_d),
         HOT(R.string.tag_str_hot, R.color.cp_cont_h),
@@ -44,19 +44,19 @@ public final class TagTextHelper {
         }
     }
 
-    public static String s(@NonNull Context context, int i) {
+    public static String t(@NonNull Context context, int i) {
         HotTopicTag hotTopicTag = HotTopicTag.getHotTopicTag(i);
         return hotTopicTag != null ? context.getString(hotTopicTag.tagStrRes) : "";
     }
 
     @ColorRes
-    public static int lT(int i) {
+    public static int nZ(int i) {
         HotTopicTag hotTopicTag = HotTopicTag.getHotTopicTag(i);
         return hotTopicTag != null ? hotTopicTag.tagColorRes : R.color.transparent;
     }
 
     @ColorRes
-    public static int lU(int i) {
+    public static int oa(int i) {
         switch (i) {
             case 1:
                 return R.color.cp_cont_h;

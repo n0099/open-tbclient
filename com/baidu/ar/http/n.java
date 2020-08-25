@@ -5,15 +5,15 @@ import java.io.InputStream;
 import java.nio.charset.Charset;
 /* loaded from: classes11.dex */
 class n implements k {
-    private byte[] ke;
+    private byte[] kN;
 
     @Override // com.baidu.ar.http.k
     public void a(Charset charset) {
     }
 
     @Override // com.baidu.ar.http.k
-    public InputStream[] dz() {
-        return (this.ke == null || this.ke.length <= 0) ? new InputStream[0] : new InputStream[]{new ByteArrayInputStream(this.ke)};
+    public InputStream[] eJ() {
+        return (this.kN == null || this.kN.length <= 0) ? new InputStream[0] : new InputStream[]{new ByteArrayInputStream(this.kN)};
     }
 
     @Override // com.baidu.ar.http.k
@@ -23,13 +23,13 @@ class n implements k {
 
     @Override // com.baidu.ar.http.k
     public int getSize() {
-        if (this.ke == null) {
+        if (this.kN == null) {
             return 0;
         }
-        return this.ke.length;
+        return this.kN.length;
     }
 
     public void setData(byte[] bArr) {
-        this.ke = bArr;
+        this.kN = bArr;
     }
 }

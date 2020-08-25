@@ -1,5 +1,5 @@
 package rx.internal.util.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class q<E> extends v<E> {
     public q(int i) {
         super(i);
@@ -10,13 +10,13 @@ public final class q<E> extends v<E> {
         if (e == null) {
             throw new NullPointerException("null elements not allowed");
         }
-        E[] eArr = this.nYb;
+        E[] eArr = this.orZ;
         long j = this.producerIndex;
-        long gO = gO(j);
-        if (b(eArr, gO) != null) {
+        long hb = hb(j);
+        if (b(eArr, hb) != null) {
             return false;
         }
-        b(eArr, gO, e);
+        b(eArr, hb, e);
         soProducerIndex(1 + j);
         return true;
     }
@@ -24,53 +24,53 @@ public final class q<E> extends v<E> {
     @Override // java.util.Queue
     public E poll() {
         long j = this.consumerIndex;
-        long gO = gO(j);
-        E[] eArr = this.nYb;
-        E b = b(eArr, gO);
+        long hb = hb(j);
+        E[] eArr = this.orZ;
+        E b = b(eArr, hb);
         if (b == null) {
             return null;
         }
-        b(eArr, gO, null);
+        b(eArr, hb, null);
         soConsumerIndex(j + 1);
         return b;
     }
 
     @Override // java.util.Queue
     public E peek() {
-        return gP(gO(this.consumerIndex));
+        return hc(hb(this.consumerIndex));
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long dTi = dTi();
+        long efk = efk();
         while (true) {
-            long dTh = dTh();
-            long dTi2 = dTi();
-            if (dTi == dTi2) {
-                return (int) (dTh - dTi2);
+            long efj = efj();
+            long efk2 = efk();
+            if (efk == efk2) {
+                return (int) (efj - efk2);
             }
-            dTi = dTi2;
+            efk = efk2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return dTh() == dTi();
+        return efj() == efk();
     }
 
     private void soProducerIndex(long j) {
-        ae.opn.a(this, oph, j);
+        ae.oJi.a(this, oJc, j);
     }
 
     private void soConsumerIndex(long j) {
-        ae.opn.a(this, opg, j);
+        ae.oJi.a(this, oJb, j);
     }
 
-    private long dTh() {
-        return ae.opn.e(this, oph);
+    private long efj() {
+        return ae.oJi.e(this, oJc);
     }
 
-    private long dTi() {
-        return ae.opn.e(this, opg);
+    private long efk() {
+        return ae.oJi.e(this, oJb);
     }
 }

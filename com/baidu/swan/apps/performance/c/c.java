@@ -1,45 +1,45 @@
 package com.baidu.swan.apps.performance.c;
 
 import android.os.Bundle;
+import com.baidu.swan.apps.inlinewidget.f.b.b;
 import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.swan.apps.performance.a.f;
 import com.baidu.swan.apps.performance.g;
-import com.baidu.swan.apps.performance.i;
-/* loaded from: classes7.dex */
-public class c implements com.baidu.swan.apps.aq.e.b<HybridUbcFlow> {
+/* loaded from: classes8.dex */
+public class c implements com.baidu.swan.apps.ap.e.b<HybridUbcFlow> {
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.swan.apps.aq.e.b
-    /* renamed from: b */
-    public void H(HybridUbcFlow hybridUbcFlow) {
-        hybridUbcFlow.nb("670").bH("preload_scene", "1").r("from", "swan").c("component_reporter", new com.baidu.swan.apps.performance.d()).c("component_reporter", new com.baidu.swan.apps.network.c.c.c()).c("component_reporter", new com.baidu.swan.apps.performance.a()).c("component_reporter", new g()).c("callback_on_submit", new d()).c("callback_on_submit", new com.baidu.swan.apps.aq.e.b<HybridUbcFlow>() { // from class: com.baidu.swan.apps.performance.c.c.1
+    @Override // com.baidu.swan.apps.ap.e.b
+    /* renamed from: a */
+    public void I(HybridUbcFlow hybridUbcFlow) {
+        hybridUbcFlow.pa("670").bW("preload_scene", "1").r("from", "swan").d("component_reporter", new com.baidu.swan.apps.performance.d()).d("component_reporter", new com.baidu.swan.apps.network.c.c.c()).d("component_reporter", new com.baidu.swan.apps.performance.a()).d("component_reporter", new g()).d("callback_on_submit", new b.a()).d("fmp_callback", new e("fmp_callback")).d("callback_on_submit", new e("callback_on_submit")).d("callback_on_submit", new com.baidu.swan.apps.ap.e.b<HybridUbcFlow>() { // from class: com.baidu.swan.apps.performance.c.c.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.swan.apps.aq.e.b
-            /* renamed from: b */
-            public void H(HybridUbcFlow hybridUbcFlow2) {
+            @Override // com.baidu.swan.apps.ap.e.b
+            /* renamed from: a */
+            public void I(HybridUbcFlow hybridUbcFlow2) {
                 if (!c.this.g(hybridUbcFlow2)) {
-                    long r = hybridUbcFlow2.r("na_first_meaningful_paint", "naStart");
-                    if (r <= 0) {
-                        r = hybridUbcFlow2.r("na_first_paint", "naStart");
+                    long s = hybridUbcFlow2.s("na_first_meaningful_paint", "naStart");
+                    if (s <= 0) {
+                        s = hybridUbcFlow2.s("na_first_paint", "naStart");
                     }
-                    if (r <= 0) {
-                        r = hybridUbcFlow2.r("slave_first_rendered", "naStart");
+                    if (s <= 0) {
+                        s = hybridUbcFlow2.s("slave_first_rendered", "naStart");
                     }
-                    if (r <= 0) {
-                        r = hybridUbcFlow2.r("fe_page_show", "naStart");
+                    if (s <= 0) {
+                        s = hybridUbcFlow2.s("fe_page_show", "naStart");
                     }
-                    if (r <= 0) {
-                        r = hybridUbcFlow2.r("na_page_show", "naStart");
+                    if (s <= 0) {
+                        s = hybridUbcFlow2.s("na_page_show", "naStart");
                     }
-                    if (r <= 0) {
-                        r = hybridUbcFlow2.r("na_receive_intent", "naStart");
+                    if (s <= 0) {
+                        s = hybridUbcFlow2.s("na_receive_intent", "naStart");
                     }
-                    if (r <= 0) {
-                        r = System.currentTimeMillis();
+                    if (s <= 0) {
+                        s = System.currentTimeMillis();
                     }
                     Bundle bundle = new Bundle();
-                    bundle.putLong("property_launch_cost", r);
-                    com.baidu.swan.apps.process.messaging.a.apw().a(new com.baidu.swan.apps.process.messaging.c(20, bundle).eW(true));
-                    f.aoh().bl(r);
+                    bundle.putLong("property_launch_cost", s);
+                    com.baidu.swan.apps.process.messaging.a.axs().a(new com.baidu.swan.apps.process.messaging.c(20, bundle).fp(true));
+                    f.awb().bq(s);
                 }
             }
         });
@@ -47,6 +47,6 @@ public class c implements com.baidu.swan.apps.aq.e.b<HybridUbcFlow> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean g(HybridUbcFlow hybridUbcFlow) {
-        return i.cyF && hybridUbcFlow.ne("performanceEnd") && !hybridUbcFlow.ne("na_first_meaningful_paint");
+        return hybridUbcFlow.na("performanceEnd") && !hybridUbcFlow.na("na_first_meaningful_paint");
     }
 }

@@ -14,38 +14,38 @@ public final class FlowableUnsubscribeOn<T> extends a<T, T> {
     }
 
     @Override // io.reactivex.g
-    protected void a(org.a.c<? super T> cVar) {
-        this.nSG.a((j) new UnsubscribeSubscriber(cVar, this.scheduler));
+    protected void a(org.b.c<? super T> cVar) {
+        this.omB.a((j) new UnsubscribeSubscriber(cVar, this.scheduler));
     }
 
     /* loaded from: classes7.dex */
-    static final class UnsubscribeSubscriber<T> extends AtomicBoolean implements j<T>, org.a.d {
+    static final class UnsubscribeSubscriber<T> extends AtomicBoolean implements j<T>, org.b.d {
         private static final long serialVersionUID = 1015244841293359600L;
-        final org.a.c<? super T> actual;
-        org.a.d s;
+        final org.b.c<? super T> actual;
+        org.b.d s;
         final v scheduler;
 
-        UnsubscribeSubscriber(org.a.c<? super T> cVar, v vVar) {
+        UnsubscribeSubscriber(org.b.c<? super T> cVar, v vVar) {
             this.actual = cVar;
             this.scheduler = vVar;
         }
 
-        @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        @Override // io.reactivex.j, org.b.c
+        public void onSubscribe(org.b.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(T t) {
             if (!get()) {
                 this.actual.onNext(t);
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
             if (get()) {
                 io.reactivex.e.a.onError(th);
@@ -54,22 +54,22 @@ public final class FlowableUnsubscribeOn<T> extends a<T, T> {
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
             if (!get()) {
                 this.actual.onComplete();
             }
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void request(long j) {
             this.s.request(j);
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void cancel() {
             if (compareAndSet(false, true)) {
-                this.scheduler.I(new a());
+                this.scheduler.F(new a());
             }
         }
 

@@ -4,128 +4,128 @@ import android.text.SpannableStringBuilder;
 import android.widget.EditText;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-/* loaded from: classes16.dex */
+/* loaded from: classes2.dex */
 public class bb {
-    private EditText iFb;
-    private PostWriteCallBackData kqm;
-    private com.baidu.tieba.write.c kxo = new com.baidu.tieba.write.c();
-    private com.baidu.tieba.write.c kxp;
-    private EditText kxq;
+    private EditText iTZ;
+    private PostWriteCallBackData kFE;
+    private com.baidu.tieba.write.c kMT = new com.baidu.tieba.write.c();
+    private com.baidu.tieba.write.c kMU;
+    private EditText kMV;
 
     public bb() {
-        this.kxo.GV(R.color.cp_cont_a);
-        this.kxo.GW(R.color.cp_cont_h_alpha85);
-        this.kxp = new com.baidu.tieba.write.c();
-        this.kxp.GV(R.color.cp_cont_a);
-        this.kxp.GW(R.color.cp_cont_h_alpha85);
+        this.kMT.Jr(R.color.cp_cont_a);
+        this.kMT.Js(R.color.cp_cont_h_alpha85);
+        this.kMU = new com.baidu.tieba.write.c();
+        this.kMU.Jr(R.color.cp_cont_a);
+        this.kMU.Js(R.color.cp_cont_h_alpha85);
     }
 
-    public void sZ(boolean z) {
-        if (this.kxq != null && this.kxq.getText() != null) {
-            int selectionEnd = this.kxq.getSelectionEnd();
-            SpannableStringBuilder d = this.kxo.d(this.kxq.getText());
-            if (d != null) {
-                this.kxo.wj(true);
-                this.kxq.setText(d);
-                if (z && this.kxo.dua() >= 0) {
-                    this.kxq.requestFocus();
-                    this.kxq.setSelection(this.kxo.dua());
+    public void tI(boolean z) {
+        if (this.kMV != null && this.kMV.getText() != null) {
+            int selectionEnd = this.kMV.getSelectionEnd();
+            SpannableStringBuilder c = this.kMT.c(this.kMV.getText());
+            if (c != null) {
+                this.kMT.wY(true);
+                this.kMV.setText(c);
+                if (z && this.kMT.dFv() >= 0) {
+                    this.kMV.requestFocus();
+                    this.kMV.setSelection(this.kMT.dFv());
                 } else {
-                    this.kxq.setSelection(selectionEnd);
+                    this.kMV.setSelection(selectionEnd);
                 }
-                this.kxo.wi(this.kxo.dua() >= 0);
+                this.kMT.wX(this.kMT.dFv() >= 0);
             }
         }
     }
 
-    public void ta(boolean z) {
-        if (this.iFb != null && this.iFb.getText() != null) {
-            int selectionEnd = this.iFb.getSelectionEnd();
-            SpannableStringBuilder d = this.kxp.d(this.iFb.getText());
-            if (d != null) {
-                this.kxp.wj(true);
-                this.iFb.setText(d);
-                if (z && this.kxp.dua() >= 0) {
-                    this.iFb.requestFocus();
-                    this.iFb.setSelection(this.kxp.dua());
+    public void tJ(boolean z) {
+        if (this.iTZ != null && this.iTZ.getText() != null) {
+            int selectionEnd = this.iTZ.getSelectionEnd();
+            SpannableStringBuilder c = this.kMU.c(this.iTZ.getText());
+            if (c != null) {
+                this.kMU.wY(true);
+                this.iTZ.setText(c);
+                if (z && this.kMU.dFv() >= 0) {
+                    this.iTZ.requestFocus();
+                    this.iTZ.setSelection(this.kMU.dFv());
                 } else {
-                    this.iFb.setSelection(selectionEnd);
+                    this.iTZ.setSelection(selectionEnd);
                 }
-                this.kxp.wi(this.kxp.dua() >= 0);
+                this.kMU.wX(this.kMU.dFv() >= 0);
             }
         }
     }
 
-    public void cQM() {
-        this.kxp.Py(null);
-        this.kxp.aZ(null);
-        this.kxp.wi(false);
+    public void dbC() {
+        this.kMU.Sw(null);
+        this.kMU.bf(null);
+        this.kMU.wX(false);
     }
 
-    public void cQN() {
-        this.kxo.Py(null);
-        this.kxo.aZ(null);
-        this.kxo.wi(false);
-    }
-
-    public void f(PostWriteCallBackData postWriteCallBackData) {
-        if (postWriteCallBackData != null) {
-            this.kxo.aZ(postWriteCallBackData.getSensitiveWords());
-            this.kxo.Py(postWriteCallBackData.getErrorString());
-            if (!com.baidu.tbadk.core.util.x.isEmpty(this.kxo.dtZ())) {
-                sZ(true);
-                this.kqm = postWriteCallBackData;
-            }
-        }
+    public void dbD() {
+        this.kMT.Sw(null);
+        this.kMT.bf(null);
+        this.kMT.wX(false);
     }
 
     public void g(PostWriteCallBackData postWriteCallBackData) {
         if (postWriteCallBackData != null) {
-            this.kxp.aZ(postWriteCallBackData.getSensitiveWords());
-            this.kxp.Py(postWriteCallBackData.getErrorString());
-            if (!com.baidu.tbadk.core.util.x.isEmpty(this.kxp.dtZ())) {
-                ta(true);
+            this.kMT.bf(postWriteCallBackData.getSensitiveWords());
+            this.kMT.Sw(postWriteCallBackData.getErrorString());
+            if (!com.baidu.tbadk.core.util.y.isEmpty(this.kMT.dFu())) {
+                tI(true);
+                this.kFE = postWriteCallBackData;
             }
         }
     }
 
-    public void e(EditText editText) {
-        this.kxq = editText;
+    public void h(PostWriteCallBackData postWriteCallBackData) {
+        if (postWriteCallBackData != null) {
+            this.kMU.bf(postWriteCallBackData.getSensitiveWords());
+            this.kMU.Sw(postWriteCallBackData.getErrorString());
+            if (!com.baidu.tbadk.core.util.y.isEmpty(this.kMU.dFu())) {
+                tJ(true);
+            }
+        }
     }
 
     public void f(EditText editText) {
-        this.iFb = editText;
+        this.kMV = editText;
+    }
+
+    public void g(EditText editText) {
+        this.iTZ = editText;
     }
 
     public void onDestroy() {
-        this.kxq = null;
-        this.iFb = null;
+        this.kMV = null;
+        this.iTZ = null;
     }
 
     public void onChangeSkinType() {
-        this.kxo.onChangeSkinType();
-        this.kxp.onChangeSkinType();
-        if (this.kxo.dub()) {
-            sZ(false);
+        this.kMT.onChangeSkinType();
+        this.kMU.onChangeSkinType();
+        if (this.kMT.dFw()) {
+            tI(false);
         }
-        if (this.kxp.dub()) {
-            ta(false);
+        if (this.kMU.dFw()) {
+            tJ(false);
         }
     }
 
-    public com.baidu.tieba.write.c cQO() {
-        return this.kxo;
+    public com.baidu.tieba.write.c dbE() {
+        return this.kMT;
     }
 
-    public com.baidu.tieba.write.c cQP() {
-        return this.kxp;
+    public com.baidu.tieba.write.c dbF() {
+        return this.kMU;
     }
 
-    public EditText cQQ() {
-        return this.iFb;
+    public EditText dbG() {
+        return this.iTZ;
     }
 
-    public PostWriteCallBackData cQR() {
-        return this.kqm;
+    public PostWriteCallBackData dbH() {
+        return this.kFE;
     }
 }

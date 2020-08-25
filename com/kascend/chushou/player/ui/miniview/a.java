@@ -19,9 +19,9 @@ public class a extends RelativeLayout {
     private int d;
     private boolean g;
     private String h;
-    private MyWebView nBt;
-    private ListItem nBu;
-    private d nBv;
+    private MyWebView nVh;
+    private ListItem nVi;
+    private d nVj;
 
     public a(Context context, ListItem listItem, d dVar) {
         super(context);
@@ -33,19 +33,19 @@ public class a extends RelativeLayout {
 
     private void a(Context context, ListItem listItem, d dVar) {
         this.a = context;
-        this.nBu = listItem;
-        this.nBv = dVar;
+        this.nVi = listItem;
+        this.nVj = dVar;
         inflate(getContext(), a.h.popupwebview, this);
-        setLayoutParams(new RelativeLayout.LayoutParams(tv.chushou.zues.utils.a.gE(this.a).x, tv.chushou.zues.utils.a.dip2px(this.a, 80.0f)));
-        this.nBt = (MyWebView) findViewById(a.f.wv);
-        this.nBt.setBackgroundColor(0);
+        setLayoutParams(new RelativeLayout.LayoutParams(tv.chushou.zues.utils.a.gW(this.a).x, tv.chushou.zues.utils.a.dip2px(this.a, 80.0f)));
+        this.nVh = (MyWebView) findViewById(a.f.wv);
+        this.nVh.setBackgroundColor(0);
         com.kascend.chushou.widget.cswebview.a aVar = new com.kascend.chushou.widget.cswebview.a();
         aVar.a(new JSInterface(this.a));
-        if (this.nBv != null) {
-            aVar.a(this.nBv);
+        if (this.nVj != null) {
+            aVar.a(this.nVj);
         }
-        aVar.bx(this);
-        CSWebView.a(this.nBt, this.a, new c() { // from class: com.kascend.chushou.player.ui.miniview.a.1
+        aVar.bz(this);
+        CSWebView.a(this.nVh, this.a, new c() { // from class: com.kascend.chushou.player.ui.miniview.a.1
             @Override // android.webkit.WebViewClient
             public void onPageFinished(WebView webView, String str) {
                 super.onPageFinished(webView, str);
@@ -64,10 +64,10 @@ public class a extends RelativeLayout {
                 }
             }
         }, aVar);
-        this.nBt.onResume();
-        this.nBt.resumeTimers();
+        this.nVh.onResume();
+        this.nVh.resumeTimers();
         this.g = false;
-        this.nBt.loadUrl(this.nBu.mUrl);
+        this.nVh.loadUrl(this.nVi.mUrl);
         setVisibility(8);
     }
 
@@ -87,7 +87,7 @@ public class a extends RelativeLayout {
             public void onAnimationStart(Animation animation) {
                 super.onAnimationStart(animation);
                 com.kascend.chushou.player.ui.button.a aVar = new com.kascend.chushou.player.ui.button.a(3, 0);
-                aVar.RW(str);
+                aVar.Va(str);
                 tv.chushou.zues.a.a.post(aVar);
             }
 
@@ -104,14 +104,14 @@ public class a extends RelativeLayout {
 
     public boolean a() {
         if (!this.c) {
-            return this.nBu.mPackStyle != 1;
+            return this.nVi.mPackStyle != 1;
         }
         this.c = false;
-        if (this.nBu.mPackStyle != 1) {
+        if (this.nVi.mPackStyle != 1) {
             setVisibility(8);
             b();
             com.kascend.chushou.player.ui.button.a aVar = new com.kascend.chushou.player.ui.button.a(3, 8);
-            aVar.RW(this.h);
+            aVar.Va(this.h);
             tv.chushou.zues.a.a.post(aVar);
             return true;
         }
@@ -121,7 +121,7 @@ public class a extends RelativeLayout {
             public void onAnimationStart(Animation animation) {
                 super.onAnimationStart(animation);
                 com.kascend.chushou.player.ui.button.a aVar2 = new com.kascend.chushou.player.ui.button.a(3, 8);
-                aVar2.RW(a.this.h);
+                aVar2.Va(a.this.h);
                 tv.chushou.zues.a.a.post(aVar2);
             }
 
@@ -138,18 +138,18 @@ public class a extends RelativeLayout {
     }
 
     public void a(String str) {
-        if (this.nBt != null) {
-            this.nBt.loadUrl("javascript:getRefreshData('" + str + "')");
+        if (this.nVh != null) {
+            this.nVh.loadUrl("javascript:getRefreshData('" + str + "')");
         }
     }
 
     public void b() {
         this.a = null;
-        if (this.nBt != null) {
-            this.nBt.loadUrl("");
-            this.nBt.removeAllViews();
-            this.nBt.destroy();
-            this.nBt = null;
+        if (this.nVh != null) {
+            this.nVh.loadUrl("");
+            this.nVh.removeAllViews();
+            this.nVh.destroy();
+            this.nVh = null;
         }
     }
 }

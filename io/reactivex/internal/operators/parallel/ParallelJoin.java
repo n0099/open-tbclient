@@ -12,24 +12,24 @@ import io.reactivex.parallel.a;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.c;
-import org.a.d;
+import org.b.c;
+import org.b.d;
 /* loaded from: classes7.dex */
 public final class ParallelJoin<T> extends g<T> {
     final boolean delayErrors;
-    final a<? extends T> nUL;
+    final a<? extends T> ooH;
     final int prefetch;
 
     @Override // io.reactivex.g
     protected void a(c<? super T> cVar) {
         JoinSubscriptionBase joinSubscription;
         if (this.delayErrors) {
-            joinSubscription = new JoinSubscriptionDelayError(cVar, this.nUL.dTd(), this.prefetch);
+            joinSubscription = new JoinSubscriptionDelayError(cVar, this.ooH.eff(), this.prefetch);
         } else {
-            joinSubscription = new JoinSubscription(cVar, this.nUL.dTd(), this.prefetch);
+            joinSubscription = new JoinSubscription(cVar, this.ooH.eff(), this.prefetch);
         }
         cVar.onSubscribe(joinSubscription);
-        this.nUL.a(joinSubscription.subscribers);
+        this.ooH.a(joinSubscription.subscribers);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -61,7 +61,7 @@ public final class ParallelJoin<T> extends g<T> {
             this.done.lazySet(i);
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 b.a(this.requested, j);
@@ -69,7 +69,7 @@ public final class ParallelJoin<T> extends g<T> {
             }
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void cancel() {
             if (!this.cancelled) {
                 this.cancelled = true;
@@ -444,24 +444,24 @@ public final class ParallelJoin<T> extends g<T> {
             this.limit = i - (i >> 2);
         }
 
-        @Override // io.reactivex.j, org.a.c
+        @Override // io.reactivex.j, org.b.c
         public void onSubscribe(d dVar) {
             if (SubscriptionHelper.setOnce(this, dVar)) {
                 dVar.request(this.prefetch);
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(T t) {
             this.parent.onNext(this, t);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
             this.parent.onError(th);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
             this.parent.onComplete();
         }

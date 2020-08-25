@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.aq;
 /* loaded from: classes16.dex */
 public class f {
     public static void B(Uri uri) {
@@ -19,28 +19,28 @@ public class f {
                 String queryParameter6 = uri.getQueryParameter(TiebaInitialize.Params.OBJ_PARAM3);
                 String queryParameter7 = uri.getQueryParameter("tid");
                 String queryParameter8 = uri.getQueryParameter("kw");
-                String queryParameter9 = uri.getQueryParameter(com.baidu.tbadk.BdToken.f.dFZ);
-                String queryParameter10 = uri.getQueryParameter(com.baidu.tbadk.BdToken.f.dGa);
-                String queryParameter11 = uri.getQueryParameter(com.baidu.tbadk.BdToken.f.dGb);
-                String queryParameter12 = uri.getQueryParameter(com.baidu.tbadk.BdToken.f.dGc);
+                String queryParameter9 = uri.getQueryParameter(com.baidu.tbadk.BdToken.f.dPh);
+                String queryParameter10 = uri.getQueryParameter(com.baidu.tbadk.BdToken.f.dPi);
+                String queryParameter11 = uri.getQueryParameter(com.baidu.tbadk.BdToken.f.dPj);
+                String queryParameter12 = uri.getQueryParameter(com.baidu.tbadk.BdToken.f.dPk);
                 String queryParameter13 = uri.getQueryParameter("obj_name");
                 String queryParameter14 = uri.getQueryParameter("eqid");
-                ap apVar = new ap("c13561");
-                apVar.dn("obj_locate", queryParameter2);
-                apVar.dn("obj_type", queryParameter3);
-                apVar.dn("obj_param1", queryParameter4);
-                apVar.dn(TiebaInitialize.Params.OBJ_PARAM2, queryParameter5);
-                apVar.dn(TiebaInitialize.Params.OBJ_PARAM3, queryParameter6);
-                apVar.dn("tid", queryParameter7);
-                apVar.dn("fname", queryParameter8);
-                apVar.dn(com.baidu.tbadk.BdToken.f.dFZ, queryParameter9);
-                apVar.dn(com.baidu.tbadk.BdToken.f.dGa, queryParameter10);
-                apVar.dn(com.baidu.tbadk.BdToken.f.dGb, queryParameter11);
-                apVar.dn(com.baidu.tbadk.BdToken.f.dGc, queryParameter12);
-                apVar.dn("obj_source", queryParameter);
-                apVar.dn("obj_name", queryParameter13);
-                apVar.dn("query", queryParameter14);
-                TiebaStatic.log(apVar);
+                aq aqVar = new aq("c13561");
+                aqVar.dD("obj_locate", queryParameter2);
+                aqVar.dD("obj_type", queryParameter3);
+                aqVar.dD("obj_param1", queryParameter4);
+                aqVar.dD(TiebaInitialize.Params.OBJ_PARAM2, queryParameter5);
+                aqVar.dD(TiebaInitialize.Params.OBJ_PARAM3, queryParameter6);
+                aqVar.dD("tid", queryParameter7);
+                aqVar.dD("fname", queryParameter8);
+                aqVar.dD(com.baidu.tbadk.BdToken.f.dPh, queryParameter9);
+                aqVar.dD(com.baidu.tbadk.BdToken.f.dPi, queryParameter10);
+                aqVar.dD(com.baidu.tbadk.BdToken.f.dPj, queryParameter11);
+                aqVar.dD(com.baidu.tbadk.BdToken.f.dPk, queryParameter12);
+                aqVar.dD("obj_source", queryParameter);
+                aqVar.dD("obj_name", queryParameter13);
+                aqVar.dD("query", queryParameter14);
+                TiebaStatic.log(aqVar);
             }
         }
     }
@@ -56,16 +56,16 @@ public class f {
                 String queryParameter6 = uri.getQueryParameter("kw");
                 String queryParameter7 = uri.getQueryParameter("obj_name");
                 String queryParameter8 = uri.getQueryParameter("fname");
-                ap apVar = new ap("c13561");
-                apVar.dn("obj_locate", queryParameter2);
-                apVar.dn("obj_type", queryParameter3);
-                apVar.dn("obj_param1", queryParameter4);
-                apVar.dn(TiebaInitialize.Params.OBJ_PARAM2, queryParameter5);
-                apVar.dn("fname", queryParameter6);
-                apVar.dn("obj_source", queryParameter);
-                apVar.dn("obj_name", queryParameter7);
-                apVar.dn("fname", queryParameter8);
-                TiebaStatic.log(apVar);
+                aq aqVar = new aq("c13561");
+                aqVar.dD("obj_locate", queryParameter2);
+                aqVar.dD("obj_type", queryParameter3);
+                aqVar.dD("obj_param1", queryParameter4);
+                aqVar.dD(TiebaInitialize.Params.OBJ_PARAM2, queryParameter5);
+                aqVar.dD("fname", queryParameter6);
+                aqVar.dD("obj_source", queryParameter);
+                aqVar.dD("obj_name", queryParameter7);
+                aqVar.dD("fname", queryParameter8);
+                TiebaStatic.log(aqVar);
             }
         }
     }
@@ -81,16 +81,16 @@ public class f {
                 String queryParameter6 = uri.getQueryParameter("kw");
                 String queryParameter7 = uri.getQueryParameter("obj_name");
                 String queryParameter8 = uri.getQueryParameter("topic_id");
-                ap apVar = new ap("c13561");
-                apVar.dn("obj_locate", queryParameter2);
-                apVar.dn("obj_type", queryParameter3);
-                apVar.dn("obj_param1", queryParameter4);
-                apVar.dn(TiebaInitialize.Params.OBJ_PARAM2, queryParameter5);
-                apVar.dn("fname", queryParameter6);
-                apVar.dn("obj_source", queryParameter);
-                apVar.dn("obj_name", queryParameter7);
-                apVar.dn("topic_id", queryParameter8);
-                TiebaStatic.log(apVar);
+                aq aqVar = new aq("c13561");
+                aqVar.dD("obj_locate", queryParameter2);
+                aqVar.dD("obj_type", queryParameter3);
+                aqVar.dD("obj_param1", queryParameter4);
+                aqVar.dD(TiebaInitialize.Params.OBJ_PARAM2, queryParameter5);
+                aqVar.dD("fname", queryParameter6);
+                aqVar.dD("obj_source", queryParameter);
+                aqVar.dD("obj_name", queryParameter7);
+                aqVar.dD("topic_id", queryParameter8);
+                TiebaStatic.log(aqVar);
             }
         }
     }
@@ -104,14 +104,14 @@ public class f {
                 String queryParameter4 = uri.getQueryParameter("obj_param1");
                 String queryParameter5 = uri.getQueryParameter(TiebaInitialize.Params.OBJ_PARAM2);
                 String queryParameter6 = uri.getQueryParameter("obj_name");
-                ap apVar = new ap("c13561");
-                apVar.dn("obj_locate", queryParameter2);
-                apVar.dn("obj_type", queryParameter3);
-                apVar.dn("obj_param1", queryParameter4);
-                apVar.dn(TiebaInitialize.Params.OBJ_PARAM2, queryParameter5);
-                apVar.dn("obj_source", queryParameter);
-                apVar.dn("obj_name", queryParameter6);
-                TiebaStatic.log(apVar);
+                aq aqVar = new aq("c13561");
+                aqVar.dD("obj_locate", queryParameter2);
+                aqVar.dD("obj_type", queryParameter3);
+                aqVar.dD("obj_param1", queryParameter4);
+                aqVar.dD(TiebaInitialize.Params.OBJ_PARAM2, queryParameter5);
+                aqVar.dD("obj_source", queryParameter);
+                aqVar.dD("obj_name", queryParameter6);
+                TiebaStatic.log(aqVar);
             }
         }
     }
@@ -127,14 +127,14 @@ public class f {
                 uri.getQueryParameter("kw");
                 String queryParameter6 = uri.getQueryParameter("obj_name");
                 uri.getQueryParameter("fname");
-                ap apVar = new ap("c13561");
-                apVar.dn("obj_locate", queryParameter2);
-                apVar.dn("obj_type", queryParameter3);
-                apVar.dn("obj_param1", queryParameter4);
-                apVar.dn(TiebaInitialize.Params.OBJ_PARAM2, queryParameter5);
-                apVar.dn("obj_source", queryParameter);
-                apVar.dn("obj_name", queryParameter6);
-                TiebaStatic.log(apVar);
+                aq aqVar = new aq("c13561");
+                aqVar.dD("obj_locate", queryParameter2);
+                aqVar.dD("obj_type", queryParameter3);
+                aqVar.dD("obj_param1", queryParameter4);
+                aqVar.dD(TiebaInitialize.Params.OBJ_PARAM2, queryParameter5);
+                aqVar.dD("obj_source", queryParameter);
+                aqVar.dD("obj_name", queryParameter6);
+                TiebaStatic.log(aqVar);
             }
         }
     }

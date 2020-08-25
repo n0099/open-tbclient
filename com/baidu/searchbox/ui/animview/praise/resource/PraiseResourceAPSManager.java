@@ -18,7 +18,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes12.dex */
 public class PraiseResourceAPSManager implements NightModeChangeListener {
     private static final boolean DEBUG = DebugUtil.isApkInDebug();
     private static final String PRAISE_DOWNLOAD_DIR_NAME = "download";
@@ -33,13 +33,13 @@ public class PraiseResourceAPSManager implements NightModeChangeListener {
     private final Object mNightModeSubObj;
     private Map<String, PraiseResourceInfo> mResourceMap;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes12.dex */
     public interface PraiseInstallResultCb {
         void onResult(int i, String str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes12.dex */
     public static final class Holder {
         private static final PraiseResourceAPSManager sINSTANCE = new PraiseResourceAPSManager();
 
@@ -115,7 +115,7 @@ public class PraiseResourceAPSManager implements NightModeChangeListener {
                         for (IResourceProvider.PackageInfo packageInfo : packageList) {
                             sb.append("\n<" + packageInfo.mPkgTag + "> shake = " + packageInfo.mResPkg.getResourceCounts("shake"));
                             sb.append("\n<" + packageInfo.mPkgTag + "> wave = " + packageInfo.mResPkg.getResourceCounts("wave"));
-                            sb.append("\n<" + packageInfo.mPkgTag + "> level = " + packageInfo.mResPkg.getResourceCounts(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL));
+                            sb.append("\n<" + packageInfo.mPkgTag + "> level = " + packageInfo.mResPkg.getResourceCounts("level"));
                             sb.append("\n<" + packageInfo.mPkgTag + "> number = " + packageInfo.mResPkg.getResourceCounts("number"));
                             sb.append("\n<" + packageInfo.mPkgTag + "> eruption = " + packageInfo.mResPkg.getResourceCounts(ComboPraiseProvider.RES_KEY_SUFFIX_ERUPTION));
                             sb.append("\n");

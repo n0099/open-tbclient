@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class MediaInstanceManagerImpl extends MediaInstanceManagerProvider {
     private Map<String, WeakReference<MediaInstanceManagerProvider.OnClientInstanceHandler>> a = new ConcurrentHashMap();
     private List<Integer> b = new ArrayList();

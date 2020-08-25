@@ -17,11 +17,11 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.aq;
+import com.baidu.tbadk.core.data.ar;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.NEGFeedBack.b;
 import com.baidu.tieba.R;
@@ -31,18 +31,18 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes15.dex */
 public class e {
-    private TextView bnI;
-    private LinearLayout faG;
-    private a faH;
-    private b faI;
-    private TextView faJ;
-    private TextView faK;
-    private TextView faL;
-    private View faM;
-    private int fao;
-    private PopupWindow fas;
-    private com.baidu.tieba.NEGFeedBack.b fav;
-    private boolean faw;
+    private TextView btl;
+    private int flG;
+    private PopupWindow flK;
+    private com.baidu.tieba.NEGFeedBack.b flN;
+    private boolean flO;
+    private LinearLayout flY;
+    private a flZ;
+    private b fma;
+    private TextView fmb;
+    private TextView fmc;
+    private TextView fmd;
+    private View fme;
     private View mAnchor;
     private ViewGroup mContentView;
     private Context mContext;
@@ -53,37 +53,37 @@ public class e {
     private int mWindowWidth;
     private int mXOffset;
     private PopupWindow mPopupWindow = null;
-    private aq fam = null;
-    private SparseArray<String> eZZ = null;
-    private List<b.a> fan = new ArrayList();
-    private NEGFeedBackView.a far = null;
+    private ar flE = null;
+    private SparseArray<String> flr = null;
+    private List<b.a> flF = new ArrayList();
+    private NEGFeedBackView.a flJ = null;
     private int mSkinType = 3;
-    private com.baidu.tbadk.core.view.a eJP = null;
-    private CompoundButton.OnCheckedChangeListener fad = new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tieba.NEGFeedBack.e.1
+    private com.baidu.tbadk.core.view.a eUv = null;
+    private CompoundButton.OnCheckedChangeListener flv = new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tieba.NEGFeedBack.e.1
         @Override // android.widget.CompoundButton.OnCheckedChangeListener
         public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-            if (e.this.far != null) {
-                e.this.far.a(e.this.fam, compoundButton, z);
+            if (e.this.flJ != null) {
+                e.this.flJ.onCheckedChanged(e.this.flE, compoundButton, z);
             }
             if (compoundButton.getTag() instanceof b.a) {
                 b.a aVar = (b.a) compoundButton.getTag();
                 if (z) {
-                    if (!e.this.fan.contains(aVar)) {
-                        e.this.fan.add(aVar);
+                    if (!e.this.flF.contains(aVar)) {
+                        e.this.flF.add(aVar);
                         return;
                     }
                     return;
                 }
-                e.this.fan.remove(aVar);
+                e.this.flF.remove(aVar);
             }
         }
     };
-    private PopupWindow.OnDismissListener faB = new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.NEGFeedBack.e.2
+    private PopupWindow.OnDismissListener flT = new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.NEGFeedBack.e.2
         @Override // android.widget.PopupWindow.OnDismissListener
         public void onDismiss() {
-            if (e.this.fas != null) {
-                e.this.fas.dismiss();
-                e.this.fas = null;
+            if (e.this.flK != null) {
+                e.this.flK.dismiss();
+                e.this.flK = null;
             }
         }
     };
@@ -95,7 +95,7 @@ public class e {
 
     /* loaded from: classes15.dex */
     public interface b {
-        void U(JSONArray jSONArray);
+        void W(JSONArray jSONArray);
     }
 
     public e(TbPageContext tbPageContext, View view) {
@@ -109,9 +109,9 @@ public class e {
     private void init() {
         this.mXOffset = l.getDimens(this.mContext, R.dimen.tbds32);
         this.mWindowWidth = l.getEquipmentWidth(this.mContext) - (this.mXOffset * 2);
-        this.fav = new com.baidu.tieba.NEGFeedBack.b(this.mPageContext);
-        this.fav.a(this.fad);
-        this.fav.jJ(true);
+        this.flN = new com.baidu.tieba.NEGFeedBack.b(this.mPageContext);
+        this.flN.a(this.flv);
+        this.flN.kh(true);
     }
 
     private int getWindowMeasuredHeight() {
@@ -119,54 +119,54 @@ public class e {
             return 0;
         }
         this.mContentView.measure(0, 0);
-        this.fao = this.mContentView.getMeasuredHeight() + l.getDimens(this.mContext, R.dimen.ds12);
-        return this.fao;
+        this.flG = this.mContentView.getMeasuredHeight() + l.getDimens(this.mContext, R.dimen.ds12);
+        return this.flG;
     }
 
-    public void setData(aq aqVar) {
-        if (aqVar != null) {
-            this.fam = aqVar;
-            this.eZZ = aqVar.getFeedBackReasonMap();
-            if (this.eZZ != null && this.eZZ.size() > 8) {
-                for (int size = this.eZZ.size() - 1; size >= 8; size--) {
-                    this.eZZ.removeAt(size);
+    public void setData(ar arVar) {
+        if (arVar != null) {
+            this.flE = arVar;
+            this.flr = arVar.getFeedBackReasonMap();
+            if (this.flr != null && this.flr.size() > 8) {
+                for (int size = this.flr.size() - 1; size >= 8; size--) {
+                    this.flr.removeAt(size);
                 }
             }
-            this.fav.setData(aqVar);
+            this.flN.setData(arVar);
         }
     }
 
     public void setDefaultReasonArray(String[] strArr) {
-        this.fav.setDefaultReasonArray(strArr);
+        this.flN.setDefaultReasonArray(strArr);
     }
 
-    public void brl() {
+    public void bAi() {
         if (this.mPopupWindow != null) {
             this.mPopupWindow.dismiss();
             this.mPopupWindow = null;
         }
-        if (this.fas != null) {
-            this.fas.dismiss();
-            this.fas = null;
+        if (this.flK != null) {
+            this.flK.dismiss();
+            this.flK = null;
         }
     }
 
     private void resetState() {
-        if (this.faw && this.fan.size() != 0) {
-            this.fan.clear();
+        if (this.flO && this.flF.size() != 0) {
+            this.flF.clear();
         }
     }
 
-    private void bci() {
+    private void bkF() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
-            ao.setBackgroundColor(this.mContentView, R.color.cp_bg_line_f);
-            ao.setViewTextColor(this.bnI, R.color.cp_cont_f, 1);
-            ao.setViewTextColor(this.faJ, R.color.cp_cont_f, 1);
-            ao.setBackgroundColor(this.mTopLine, R.color.cp_bg_line_c);
-            ao.setBackgroundColor(this.faM, R.color.cp_bg_line_c);
-            ao.setViewTextColor(this.faK, R.color.cp_cont_f, 1);
-            ao.setViewTextColor(this.faL, R.color.cp_cont_d, 1);
+            ap.setBackgroundColor(this.mContentView, R.color.cp_bg_line_f);
+            ap.setViewTextColor(this.btl, R.color.cp_cont_f, 1);
+            ap.setViewTextColor(this.fmb, R.color.cp_cont_f, 1);
+            ap.setBackgroundColor(this.mTopLine, R.color.cp_bg_line_c);
+            ap.setBackgroundColor(this.fme, R.color.cp_bg_line_c);
+            ap.setViewTextColor(this.fmc, R.color.cp_cont_f, 1);
+            ap.setViewTextColor(this.fmd, R.color.cp_cont_d, 1);
             this.mSkinType = skinType;
         }
     }
@@ -177,136 +177,136 @@ public class e {
         }
         if (this.mContentView == null) {
             this.mContentView = (ViewGroup) LayoutInflater.from(this.mContext).inflate(R.layout.neg_dt_head_popupwindow, (ViewGroup) null);
-            this.faK = (TextView) this.mContentView.findViewById(R.id.head_text);
-            this.faL = (TextView) this.mContentView.findViewById(R.id.sub_head_text);
+            this.fmc = (TextView) this.mContentView.findViewById(R.id.head_text);
+            this.fmd = (TextView) this.mContentView.findViewById(R.id.sub_head_text);
         }
-        View rootView = this.fav.getRootView();
+        View rootView = this.flN.getRootView();
         if (rootView != null && rootView.getParent() == null) {
             int dimens = l.getDimens(this.mContext, R.dimen.ds40);
             rootView.setPadding(dimens, 0, dimens, 0);
             this.mContentView.addView(rootView);
         }
-        if (this.faG == null) {
-            this.faG = (LinearLayout) LayoutInflater.from(this.mContext).inflate(R.layout.neg_dt_bottom_popupwindow, (ViewGroup) null);
-            this.bnI = (TextView) this.faG.findViewById(R.id.dialog_bottom_cancel_button);
-            this.faJ = (TextView) this.faG.findViewById(R.id.dialog_bottom_certain_button);
-            this.mTopLine = this.faG.findViewById(R.id.top_line);
-            this.faM = this.faG.findViewById(R.id.middle_line);
-            this.mContentView.addView(this.faG);
-            this.bnI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.e.3
+        if (this.flY == null) {
+            this.flY = (LinearLayout) LayoutInflater.from(this.mContext).inflate(R.layout.neg_dt_bottom_popupwindow, (ViewGroup) null);
+            this.btl = (TextView) this.flY.findViewById(R.id.dialog_bottom_cancel_button);
+            this.fmb = (TextView) this.flY.findViewById(R.id.dialog_bottom_certain_button);
+            this.mTopLine = this.flY.findViewById(R.id.top_line);
+            this.fme = this.flY.findViewById(R.id.middle_line);
+            this.mContentView.addView(this.flY);
+            this.btl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.e.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (e.this.fas != null) {
-                        e.this.fas.dismiss();
-                        e.this.fas = null;
+                    if (e.this.flK != null) {
+                        e.this.flK.dismiss();
+                        e.this.flK = null;
                     }
                     if (e.this.mPopupWindow != null) {
                         e.this.mPopupWindow.dismiss();
                         e.this.mPopupWindow = null;
                     }
-                    if (e.this.faH != null) {
-                        e.this.faH.onClick();
+                    if (e.this.flZ != null) {
+                        e.this.flZ.onClick();
                     }
                 }
             });
-            if (this.faJ != null) {
-                this.faJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.e.4
+            if (this.fmb != null) {
+                this.fmb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.e.4
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        JSONObject brp = e.this.brp();
+                        JSONObject bAm = e.this.bAm();
                         if (e.this.mFrom == "3" || e.this.mFrom == "4" || e.this.mFrom == "1") {
-                            e.this.brl();
-                        } else if (brp != null) {
+                            e.this.bAi();
+                        } else if (bAm != null) {
                             e.this.showLoadingView();
                             CustomMessage customMessage = new CustomMessage(2016489, e.this.mPageContext.getUniqueId());
-                            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2016489, brp);
+                            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2016489, bAm);
                             customResponsedMessage.setOrginalMessage(customMessage);
                             MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
                         }
                     }
                 });
             }
-            bci();
+            bkF();
         }
         return this.mContentView;
     }
 
     public void a(b bVar) {
-        this.faI = bVar;
+        this.fma = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showLoadingView() {
-        if (this.eJP == null) {
-            this.eJP = new com.baidu.tbadk.core.view.a(this.mPageContext);
+        if (this.eUv == null) {
+            this.eUv = new com.baidu.tbadk.core.view.a(this.mPageContext);
         }
-        this.eJP.setTipString(R.string.loading);
-        this.eJP.setDialogVisiable(true);
+        this.eUv.setTipString(R.string.loading);
+        this.eUv.setDialogVisiable(true);
     }
 
-    public void bro() {
-        if (this.eJP != null) {
-            this.eJP.setDialogVisiable(false);
+    public void bAl() {
+        if (this.eUv != null) {
+            this.eUv.setDialogVisiable(false);
         }
     }
 
-    public void AK(String str) {
+    public void De(String str) {
         if (this.mContext != null) {
             this.mFrom = str;
             View view = getView();
             if (view != null && view.getParent() != null) {
                 ((ViewGroup) view.getParent()).removeView(view);
             }
-            bci();
+            bkF();
             this.mWindowHeight = getWindowMeasuredHeight() - l.getDimens(this.mContext, R.dimen.ds12);
             this.mPopupWindow = new PopupWindow(view, this.mWindowWidth, this.mWindowHeight);
             this.mPopupWindow.setFocusable(true);
             this.mPopupWindow.setTouchable(true);
-            this.mPopupWindow.setOnDismissListener(this.faB);
+            this.mPopupWindow.setOnDismissListener(this.flT);
             resetState();
-            this.fas = new PopupWindow(LayoutInflater.from(this.mContext).inflate(R.layout.view_negative_feedback_bottom, (ViewGroup) null), -1, -1);
+            this.flK = new PopupWindow(LayoutInflater.from(this.mContext).inflate(R.layout.view_negative_feedback_bottom, (ViewGroup) null), -1, -1);
             if (Build.VERSION.SDK_INT >= 22) {
-                this.fas.setAttachedInDecor(false);
+                this.flK.setAttachedInDecor(false);
             }
-            this.fas.showAtLocation(this.mAnchor, 0, 0, 0);
-            ao.setBackgroundDrawable(this.mPopupWindow, R.drawable.bg_dailog);
+            this.flK.showAtLocation(this.mAnchor, 0, 0, 0);
+            ap.setBackgroundDrawable(this.mPopupWindow, R.drawable.bg_dailog);
             this.mPopupWindow.showAtLocation(this.mAnchor, 17, 0, 0);
-            if (this.far != null) {
-                this.far.b(this.fam);
+            if (this.flJ != null) {
+                this.flJ.onNEGFeedbackWindowShow(this.flE);
             }
-            this.faw = true;
+            this.flO = true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONObject brp() {
+    public JSONObject bAm() {
         int i;
         JSONObject jSONObject = new JSONObject();
-        if (this.fam == null) {
+        if (this.flE == null) {
             return null;
         }
         JSONArray jSONArray = new JSONArray();
-        if (x.isEmpty(this.fan)) {
+        if (y.isEmpty(this.flF)) {
             i = 0;
         } else {
             i = 0;
-            for (int i2 = 0; i2 < this.fan.size(); i2++) {
-                b.a aVar = this.fan.get(i2);
+            for (int i2 = 0; i2 < this.flF.size(); i2++) {
+                b.a aVar = this.flF.get(i2);
                 if (aVar != null) {
                     jSONArray.put(String.valueOf(aVar.id));
                     i = aVar.index + 1;
                 }
             }
         }
-        TiebaStatic.log(new ap("c13123").dn("obj_source", this.mFrom).ah("obj_type", i));
-        if (this.faI != null) {
-            this.faI.U(jSONArray);
+        TiebaStatic.log(new aq("c13123").dD("obj_source", this.mFrom).ai("obj_type", i));
+        if (this.fma != null) {
+            this.fma.W(jSONArray);
         }
         try {
             jSONObject.put(TiebaInitialize.LogFields.REASON, jSONArray);
-            jSONObject.put("thread_ids", this.fam.aUJ());
-            jSONObject.put("type", this.fam.aUI());
-            jSONObject.put("forum_id", this.fam.getFid());
+            jSONObject.put("thread_ids", this.flE.bdc());
+            jSONObject.put("type", this.flE.bdb());
+            jSONObject.put("forum_id", this.flE.getFid());
         } catch (Exception e) {
             e.printStackTrace();
         }

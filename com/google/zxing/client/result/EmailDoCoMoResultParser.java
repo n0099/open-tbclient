@@ -2,7 +2,7 @@ package com.google.zxing.client.result;
 
 import com.google.zxing.Result;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 public final class EmailDoCoMoResultParser extends AbstractDoCoMoResultParser {
     private static final Pattern ATEXT_ALPHANUMERIC = Pattern.compile("[a-zA-Z0-9@.!#$%&'*+\\-/=?^_`{|}~]+");
 

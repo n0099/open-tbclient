@@ -1,5 +1,5 @@
 package com.baidu.tbadk.mutiprocess;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface d {
     void a(c cVar);
 

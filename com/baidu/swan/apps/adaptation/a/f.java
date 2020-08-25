@@ -12,7 +12,7 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface f {
     boolean a(@NonNull Context context, @NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull SwanAppDownloadAction.SwanAppDownloadType swanAppDownloadType, @NonNull JSONObject jSONObject, @NonNull CallbackHandler callbackHandler);
 
@@ -20,10 +20,9 @@ public interface f {
 
     boolean h(Context context, JSONObject jSONObject);
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a implements f {
         private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-        private static final String TAG = a.class.getSimpleName();
 
         @Override // com.baidu.swan.apps.adaptation.a.f
         public boolean h(Context context, JSONObject jSONObject) {
@@ -49,9 +48,9 @@ public interface f {
                 com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), "download url is empty");
                 return false;
             }
-            com.baidu.swan.apps.ac.a.a("android.permission.WRITE_EXTERNAL_STORAGE", new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 3, context, new com.baidu.swan.apps.ac.b() { // from class: com.baidu.swan.apps.adaptation.a.f.a.1
-                @Override // com.baidu.swan.apps.ac.b
-                public void hm(String str) {
+            com.baidu.swan.apps.ab.a.a("android.permission.WRITE_EXTERNAL_STORAGE", new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 3, context, new com.baidu.swan.apps.ab.b() { // from class: com.baidu.swan.apps.adaptation.a.f.a.1
+                @Override // com.baidu.swan.apps.ab.b
+                public void iF(String str) {
                     DownloadManager.Request request = new DownloadManager.Request(Uri.parse(optString));
                     request.setDestinationInExternalPublicDir("", optString.substring(optString.lastIndexOf("/") + 1));
                     if (!TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString3)) {
@@ -66,15 +65,15 @@ public interface f {
                     if (downloadManager != null) {
                         downloadManager.enqueue(request);
                         if (!optBoolean) {
-                            com.baidu.swan.apps.aq.e.startActivitySafely(context, new Intent("android.intent.action.VIEW_DOWNLOADS"));
+                            com.baidu.swan.apps.ap.e.startActivitySafely(context, new Intent("android.intent.action.VIEW_DOWNLOADS"));
                         }
                     }
                 }
 
-                @Override // com.baidu.swan.apps.ac.b
-                public void O(int i, String str) {
+                @Override // com.baidu.swan.apps.ab.b
+                public void N(int i, String str) {
                     if (a.DEBUG) {
-                        Log.d(a.TAG, "onAuthorizedFailed,  errorCode: " + i + " errorMsg: " + str);
+                        Log.d("DownloadImpl", "onAuthorizedFailed,  errorCode: " + i + " errorMsg: " + str);
                     }
                 }
             });

@@ -1,152 +1,97 @@
 package com.baidu.tieba.ala.liveroom.r;
 
-import android.content.Context;
-import android.net.Uri;
-import android.view.View;
-import android.widget.LinearLayout;
-import com.baidu.ala.helper.AlaLiveDebugInfo;
-import com.baidu.ala.player.AlaLivePlayer;
-import com.baidu.ala.player.AlaLivePlayerCallback;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.live.liveroom.e.c;
-import com.baidu.live.tbadk.TbConfig;
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
-import java.util.ArrayList;
-import java.util.Map;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class b implements com.baidu.live.liveroom.e.a {
-    private int guO = 1;
-    private int guP = -1;
-    private AlaLivePlayer guQ;
-    private c guR;
-    private Uri mUri;
-
-    public b(Context context) {
-        if (this.guQ == null) {
-            this.guQ = AlaLivePlayer.createLivePlayer(context);
+import com.baidu.live.data.PersonUserData;
+import com.baidu.live.o.b;
+import com.baidu.live.tbadk.TbPageContext;
+import com.baidu.tieba.ala.liveroom.r.a;
+import java.lang.ref.WeakReference;
+/* loaded from: classes7.dex */
+public class b {
+    private WeakReference<a> gHJ;
+    private a.b gHK = new a.b() { // from class: com.baidu.tieba.ala.liveroom.r.b.1
+        @Override // com.baidu.tieba.ala.liveroom.r.a.b
+        public void Go(String str) {
+            b.this.ggx.p(str, b.this.mGroupId, b.this.mLiveId);
         }
-    }
 
-    @Override // com.baidu.live.liveroom.e.a
-    public void d(Context context, Uri uri) {
-        if (this.guQ == null) {
-            this.guQ = AlaLivePlayer.createLivePlayer(context);
+        @Override // com.baidu.tieba.ala.liveroom.r.a.b
+        public void Gp(String str) {
+            b.this.ggx.q(str, b.this.mGroupId, b.this.mLiveId);
         }
-        this.mUri = uri;
-    }
 
-    @Override // com.baidu.live.liveroom.e.a
-    public void a(c cVar) {
-        this.guR = cVar;
-        if (this.guQ != null) {
-            this.guQ.setPlayerCallback(new AlaLivePlayerCallback() { // from class: com.baidu.tieba.ala.liveroom.r.b.1
-                @Override // com.baidu.ala.player.AlaLivePlayerCallback
-                public void onStreamChanged(int i, int i2) {
+        @Override // com.baidu.tieba.ala.liveroom.r.a.b
+        public void Gq(String str) {
+            b.this.ggx.r(str, b.this.mGroupId, b.this.mLiveId);
+        }
+
+        @Override // com.baidu.tieba.ala.liveroom.r.a.b
+        public void Gr(String str) {
+            b.this.ggx.s(str, b.this.mGroupId, b.this.mLiveId);
+        }
+
+        @Override // com.baidu.tieba.ala.liveroom.r.a.b
+        public void Gs(String str) {
+            b.this.ggx.aA(str, b.this.mLiveId);
+        }
+
+        @Override // com.baidu.tieba.ala.liveroom.r.a.b
+        public void Gt(String str) {
+            b.this.ggx.aB(str, b.this.mLiveId);
+        }
+
+        @Override // com.baidu.tieba.ala.liveroom.r.a.b
+        public void bWg() {
+            b.this.ggx.aC(b.this.mUserId, b.this.mLiveId);
+        }
+
+        @Override // com.baidu.tieba.ala.liveroom.r.a.b
+        public void onCancel() {
+        }
+    };
+    private com.baidu.live.o.b ggx;
+    private String mGroupId;
+    private String mLiveId;
+    private String mUserId;
+
+    public void a(TbPageContext tbPageContext, String str, String str2, String str3, boolean z, Object obj) {
+        if (obj instanceof PersonUserData) {
+            this.ggx = new com.baidu.live.o.b(tbPageContext);
+            this.mGroupId = str;
+            this.mLiveId = str2;
+            this.mUserId = str3;
+            PersonUserData personUserData = (PersonUserData) obj;
+            if (this.gHJ != null && this.gHJ.get() != null) {
+                a aVar = this.gHJ.get();
+                if (aVar != null && aVar.isShowing()) {
+                    aVar.dismiss();
                 }
-
-                @Override // com.baidu.ala.player.AlaLivePlayerCallback
-                public void onDebugInfo(int i, AlaLiveDebugInfo alaLiveDebugInfo) {
-                }
-
-                @Override // com.baidu.ala.player.AlaLivePlayerCallback
-                public void onBufferingEvent(int i, int i2, long j, int i3) {
-                }
-
-                @Override // com.baidu.ala.player.AlaLivePlayerCallback
-                public void onFrameDelay(int i, int i2, int i3) {
-                }
-
-                @Override // com.baidu.ala.player.AlaLivePlayerCallback
-                public void onFirstFrame(int i, int i2, int i3) {
-                    if (b.this.guR != null) {
-                        b.this.guR.a(b.this, CyberPlayerManager.MEDIA_INFO_FIRST_DISP_INTERVAL, 0);
-                    }
-                }
-
-                @Override // com.baidu.ala.player.AlaLivePlayerCallback
-                public void onStreamStuck(int i, int i2, int i3) {
-                }
-
-                @Override // com.baidu.ala.player.AlaLivePlayerCallback
-                public void onFastOpen(int i, int i2) {
-                }
-            });
+                this.gHJ.clear();
+            }
+            a aVar2 = new a(tbPageContext);
+            aVar2.a(this.gHK);
+            aVar2.a(personUserData, z, str3);
+            this.gHJ = new WeakReference<>(aVar2);
         }
     }
 
-    @Override // com.baidu.live.liveroom.e.a
-    public void setDecodeMode(int i) {
+    public void a(b.InterfaceC0183b interfaceC0183b) {
+        this.ggx.a(interfaceC0183b);
     }
 
-    @Override // com.baidu.live.liveroom.e.a
-    public void b(int i, JSONObject jSONObject) {
-        if (this.guP == -1) {
-            this.guP = i;
-        }
-        if (this.guQ != null) {
-            this.guQ.setStartInfo(i, jSONObject.optString("liveId"), jSONObject.optString("sessionId"), jSONObject.optString("clientIp"), jSONObject.optString(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL), jSONObject.optInt("sessionLine"), TbConfig.getSubappType());
+    public void baR() {
+        a aVar;
+        if (this.gHJ != null && this.gHJ.get() != null && (aVar = this.gHJ.get()) != null && aVar.isShowing()) {
+            aVar.resize();
         }
     }
 
-    @Override // com.baidu.live.liveroom.e.a
-    public View getPlayerView() {
-        return this.guQ;
-    }
-
-    @Override // com.baidu.live.liveroom.e.a
-    public void cK(int i) {
-    }
-
-    @Override // com.baidu.live.liveroom.e.a
-    public void c(Uri uri) {
-        this.mUri = uri;
-    }
-
-    @Override // com.baidu.live.liveroom.e.a
-    public void setVideoScalingMode(int i) {
-        if (i == 0) {
-            this.guQ.setRenderVideoModel(this.guP, 1);
-        } else {
-            this.guQ.setRenderVideoModel(this.guP, 2);
+    public void onDestory() {
+        if (this.gHJ != null && this.gHJ.get() != null) {
+            a aVar = this.gHJ.get();
+            if (aVar != null && aVar.isShowing()) {
+                aVar.dismiss();
+            }
+            this.gHJ.clear();
         }
-    }
-
-    @Override // com.baidu.live.liveroom.e.a
-    public void start() {
-        this.guQ.setStatConfigBeforeStart(TbadkCoreApplication.getInst().getApp().getFilesDir().getAbsolutePath() + "/live_sdk_log/", "http://c.tieba.baidu.com/ala/sys/mlog", com.baidu.live.v.a.Hs().aZn.aAH);
-        if (this.guP == -1) {
-            this.guP = 1;
-        }
-        AlaLivePlayer.AlaLivePlayerConf alaLivePlayerConf = new AlaLivePlayer.AlaLivePlayerConf();
-        alaLivePlayerConf.index = this.guP;
-        alaLivePlayerConf.url = this.mUri.toString();
-        alaLivePlayerConf.param = new LinearLayout.LayoutParams(-1, -1);
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(alaLivePlayerConf);
-        this.guQ.start2(arrayList);
-        this.guO = 2;
-    }
-
-    @Override // com.baidu.live.liveroom.e.a
-    public void stop() {
-        if (this.guQ != null) {
-            this.guQ.stop();
-            this.guO = 4;
-        }
-    }
-
-    @Override // com.baidu.live.liveroom.e.a
-    public void release() {
-        if (this.guQ != null) {
-            this.guQ.stop();
-            this.guQ.destroy();
-            this.guO = 4;
-        }
-    }
-
-    @Override // com.baidu.live.liveroom.e.a
-    public void b(int i, Map<String, String> map) {
     }
 }

@@ -4,14 +4,14 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 import android.webkit.JavascriptInterface;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class a {
-    protected h bpa;
+    protected h buN;
     protected Handler mHandler;
 
-    public abstract void fW(String str);
-
     public abstract String getName();
+
+    public abstract void hq(String str);
 
     public void g(String str, String str2, boolean z) {
     }
@@ -25,10 +25,10 @@ public abstract class a {
         this.mHandler.post(new Runnable() { // from class: com.baidu.live.view.web.a.1
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.bpa != null) {
-                    a.this.bpa.gc(str);
+                if (a.this.buN != null) {
+                    a.this.buN.hx(str);
                 } else {
-                    a.this.fW(str);
+                    a.this.hq(str);
                 }
             }
         });
@@ -49,6 +49,6 @@ public abstract class a {
     }
 
     public void a(h hVar) {
-        this.bpa = hVar;
+        this.buN = hVar;
     }
 }

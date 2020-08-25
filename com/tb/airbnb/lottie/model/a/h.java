@@ -2,7 +2,7 @@ package com.tb.airbnb.lottie.model.a;
 
 import android.graphics.Path;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class h extends n<com.tb.airbnb.lottie.model.content.h, Path> {
     @Override // com.tb.airbnb.lottie.model.a.n
     public /* bridge */ /* synthetic */ String toString() {
@@ -14,7 +14,7 @@ public class h extends n<com.tb.airbnb.lottie.model.content.h, Path> {
     }
 
     @Override // com.tb.airbnb.lottie.model.a.m
-    public com.tb.airbnb.lottie.a.b.a<com.tb.airbnb.lottie.model.content.h, Path> dRd() {
-        return new com.tb.airbnb.lottie.a.b.l(this.CL);
+    public com.tb.airbnb.lottie.a.b.a<com.tb.airbnb.lottie.model.content.h, Path> edf() {
+        return new com.tb.airbnb.lottie.a.b.l(this.Du);
     }
 }

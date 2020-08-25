@@ -8,8 +8,8 @@ import android.os.Handler;
 import android.support.v4.app.NotificationCompat;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.imsdk.IMService;
-/* loaded from: classes3.dex */
+import com.baidu.imsdk.a;
+/* loaded from: classes9.dex */
 public class Heartbeat {
     public static int ALARM_TIMEOUT = 60000;
     public static final int HEARTBEAT_TYPE_NORMAL = 0;
@@ -45,7 +45,7 @@ public class Heartbeat {
         this.mOperator.cancelHearbeat();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public class BoxHeartbeat implements HeartbeatOpearation {
         private Runnable startIMServiceTask = new Runnable() { // from class: com.baidu.android.imsdk.internal.Heartbeat.BoxHeartbeat.1
             @Override // java.lang.Runnable
@@ -54,10 +54,10 @@ public class Heartbeat {
                     TaskManager.getInstance(Heartbeat.this.mContext).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.internal.Heartbeat.BoxHeartbeat.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            Intent intent = new Intent(Heartbeat.this.mContext, IMService.class);
+                            Intent intent = new Intent(Heartbeat.this.mContext, a.class);
                             intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
                             intent.setPackage(Heartbeat.this.mContext.getPackageName());
-                            IMService.enqueueWork(Heartbeat.this.mContext, intent);
+                            a.al(Heartbeat.this.mContext).e(Heartbeat.this.mContext, intent);
                             Heartbeat.this.mHandler.postDelayed(BoxHeartbeat.this.startIMServiceTask, Heartbeat.ALARM_TIMEOUT);
                         }
                     });
@@ -92,7 +92,7 @@ public class Heartbeat {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public class NormalHeartbeat implements HeartbeatOpearation {
         public NormalHeartbeat() {
         }
@@ -102,7 +102,7 @@ public class Heartbeat {
             cancelHearbeat();
             Intent intent = new Intent();
             intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
-            intent.setClass(Heartbeat.this.mContext, IMService.class);
+            intent.setClass(Heartbeat.this.mContext, a.class);
             intent.setAction(Constants.ACTION_SERVICE);
             PendingIntent service = PendingIntent.getService(Heartbeat.this.mContext.getApplicationContext(), 0, intent, 268435456);
             ((AlarmManager) Heartbeat.this.mContext.getSystemService(NotificationCompat.CATEGORY_ALARM)).setRepeating(0, System.currentTimeMillis() + Heartbeat.ALARM_TIMEOUT, Heartbeat.ALARM_TIMEOUT, service);
@@ -112,7 +112,7 @@ public class Heartbeat {
         public void cancelHearbeat() {
             Intent intent = new Intent();
             intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
-            intent.setClass(Heartbeat.this.mContext, IMService.class);
+            intent.setClass(Heartbeat.this.mContext, a.class);
             intent.setAction(Constants.ACTION_SERVICE);
             ((AlarmManager) Heartbeat.this.mContext.getSystemService(NotificationCompat.CATEGORY_ALARM)).cancel(PendingIntent.getService(Heartbeat.this.mContext, 0, intent, 268435456));
         }

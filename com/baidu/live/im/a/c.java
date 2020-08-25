@@ -14,25 +14,25 @@ import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.live.view.c;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class c extends b {
     /* JADX INFO: Access modifiers changed from: protected */
     public c(Context context) {
-        super(context, com.baidu.live.im.a.aTe);
+        super(context, com.baidu.live.im.a.aYs);
     }
 
     @Override // com.baidu.live.im.a.b
-    protected void DV() {
-        if (DW()) {
-            DX();
+    protected void Jy() {
+        if (Jz()) {
+            JA();
         } else {
-            DY();
+            JB();
         }
     }
 
     @Override // com.baidu.live.im.a.b
     protected int getColor() {
-        if (DW()) {
+        if (Jz()) {
             return -5864;
         }
         return TbadkCoreApplication.getInst().getResources().getColor(a.d.sdk_cp_other_b);
@@ -41,7 +41,7 @@ public class c extends b {
     @Override // com.baidu.live.im.a.b
     protected SpannableStringBuilder a(com.baidu.live.im.data.a aVar, final com.baidu.live.im.c cVar) {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        a(spannableStringBuilder, aVar.Eh(), cVar, false, false);
+        a(spannableStringBuilder, aVar.JK(), cVar, false, false);
         a s = s(aVar);
         String format = String.format(this.mContext.getString(a.i.ala_rec_gift), (s == null || TextUtils.isEmpty(s.giftName)) ? this.mContext.getString(a.i.sdk_gift) : s.giftName);
         SpannableString valueOf = SpannableString.valueOf(format);
@@ -49,14 +49,14 @@ public class c extends b {
             valueOf.setSpan(new ForegroundColorSpan(getColor()), 0, valueOf.length(), 33);
         }
         spannableStringBuilder.append((CharSequence) valueOf);
-        if (s != null && !TextUtils.isEmpty(s.aIP)) {
+        if (s != null && !TextUtils.isEmpty(s.aOa)) {
             AlaLiveMarkData alaLiveMarkData = new AlaLiveMarkData();
-            alaLiveMarkData.mark_pic = s.aIP;
+            alaLiveMarkData.mark_pic = s.aOa;
             alaLiveMarkData.isWidthAutoFit = true;
             com.baidu.live.view.c cVar2 = new com.baidu.live.view.c(this.mContext, alaLiveMarkData, false, new c.a() { // from class: com.baidu.live.im.a.c.1
                 @Override // com.baidu.live.view.c.a
                 public void d(Bitmap bitmap) {
-                    cVar.aTu.forceLayout();
+                    cVar.aYI.forceLayout();
                 }
 
                 @Override // com.baidu.live.view.c.a
@@ -73,25 +73,25 @@ public class c extends b {
 
     private void a(SpannableStringBuilder spannableStringBuilder, a aVar) {
         if (aVar != null) {
-            String str = aVar.aWD;
-            String str2 = aVar.aWE;
+            String str = aVar.bbS;
+            String str2 = aVar.bbT;
             if (!TextUtils.isEmpty(str)) {
                 SpannableString valueOf = SpannableString.valueOf("×" + str);
                 valueOf.setSpan(new ForegroundColorSpan(getColor()), 0, valueOf.length(), 33);
                 spannableStringBuilder.append((CharSequence) valueOf);
             }
-            if (this.aWt && !aVar.aVK && !TextUtils.isEmpty(str2)) {
+            if (this.bbI && !aVar.baZ && !TextUtils.isEmpty(str2)) {
                 SpannableString valueOf2 = SpannableString.valueOf(String.format(this.mContext.getString(a.i.ala_rec_gift_charm_value), str2));
                 valueOf2.setSpan(new ForegroundColorSpan(getColor()), 0, valueOf2.length(), 33);
                 spannableStringBuilder.append((CharSequence) valueOf2);
             }
-            if (v.eW(aVar.giftId) && !v.eU(aVar.giftId) && v.eV(aVar.giftId)) {
+            if (v.gq(aVar.giftId) && !v.go(aVar.giftId) && v.gp(aVar.giftId)) {
                 SpannableString valueOf3 = SpannableString.valueOf(this.mContext.getString(a.i.ala_dynamic_gift_downloading));
                 valueOf3.setSpan(new ForegroundColorSpan(getColor()), 0, valueOf3.length(), 33);
                 spannableStringBuilder.append((CharSequence) valueOf3);
             }
-            if (!aVar.aVK && aVar.aVJ > 0.0d) {
-                com.baidu.live.im.view.a aVar2 = new com.baidu.live.im.view.a(this.mContext, aVar.aVJ + "倍");
+            if (!aVar.baZ && aVar.baY > 0.0d) {
+                com.baidu.live.im.view.a aVar2 = new com.baidu.live.im.view.a(this.mContext, aVar.baY + "倍");
                 SpannableString spannableString = new SpannableString(" rate");
                 spannableString.setSpan(aVar2, 1, spannableString.length(), 33);
                 spannableStringBuilder.append((CharSequence) spannableString);
@@ -114,28 +114,28 @@ public class c extends b {
             }
             a aVar2 = new a();
             aVar2.giftId = jSONObject.optString(LogConfig.LOG_GIFT_ID);
-            aVar2.aWD = aVar.Ep() + "";
-            if (aVar.Er() > 0) {
-                aVar2.aWE = aVar.Er() + "";
+            aVar2.bbS = aVar.JS() + "";
+            if (aVar.JU() > 0) {
+                aVar2.bbT = aVar.JU() + "";
             } else {
-                aVar2.aWE = "";
+                aVar2.bbT = "";
             }
-            aVar2.aVK = jSONObject.optInt("is_free") == 1;
-            aVar2.aVJ = aVar.Eq();
-            com.baidu.live.gift.g eT = v.eT(aVar2.giftId);
-            if (eT != null) {
-                if (eT.yv()) {
+            aVar2.baZ = jSONObject.optInt("is_free") == 1;
+            aVar2.baY = aVar.JT();
+            com.baidu.live.gift.g gn = v.gn(aVar2.giftId);
+            if (gn != null) {
+                if (gn.DY()) {
                     aVar2.giftName = this.mContext.getString(a.i.sdk_text_gift_graffiti);
                     if (TextUtils.isEmpty(aVar2.giftName)) {
                         aVar2.giftName = jSONObject.optString("gift_name");
                     }
-                    if (z && TextUtils.isEmpty(aVar2.aIP)) {
-                        aVar2.aIP = jSONObject.optString("gift_url");
+                    if (z && TextUtils.isEmpty(aVar2.aOa)) {
+                        aVar2.aOa = jSONObject.optString("gift_url");
                         return aVar2;
                     }
                 }
-                aVar2.giftName = eT.yp();
-                aVar2.aIP = eT.getThumbnail_url();
+                aVar2.giftName = gn.DS();
+                aVar2.aOa = gn.getThumbnail_url();
             }
             z = false;
             if (TextUtils.isEmpty(aVar2.giftName)) {
@@ -147,13 +147,13 @@ public class c extends b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class a {
-        public String aIP;
-        public double aVJ;
-        public boolean aVK;
-        public String aWD;
-        public String aWE;
+        public String aOa;
+        public double baY;
+        public boolean baZ;
+        public String bbS;
+        public String bbT;
         public String giftId;
         public String giftName;
 

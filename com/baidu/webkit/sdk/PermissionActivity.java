@@ -8,7 +8,7 @@ import android.os.Bundle;
 import com.baidu.webkit.internal.a.a;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class PermissionActivity extends Activity {
     private static final int REQUEST_CAMERA_RECORD_CODE = 1003;
 
@@ -29,9 +29,9 @@ public class PermissionActivity extends Activity {
                 declaredField2.setInt(obj, a);
             }
         } catch (IllegalAccessException e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (NoSuchFieldException e2) {
-            com.a.a.a.a.a.a.a.a(e2);
+            e2.printStackTrace();
         }
     }
 

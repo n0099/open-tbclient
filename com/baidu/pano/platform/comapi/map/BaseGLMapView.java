@@ -6,11 +6,11 @@ import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public abstract class BaseGLMapView extends GLSurfaceView implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener {
-    protected static Context b;
     private static final String d = BaseGLMapView.class.getSimpleName();
     protected e a;
+    protected Context b;
     public GLSurfaceView.Renderer c;
     private GestureDetector e;
     private boolean f;
@@ -19,7 +19,7 @@ public abstract class BaseGLMapView extends GLSurfaceView implements GestureDete
         super(context, attributeSet);
         this.f = false;
         this.c = new a(this);
-        b = context;
+        this.b = context;
         a();
         b();
         setZOrderMediaOverlay(true);
@@ -28,12 +28,12 @@ public abstract class BaseGLMapView extends GLSurfaceView implements GestureDete
 
     private void a() {
         if (this.a == null) {
-            this.a = new e(b);
+            this.a = new e(this.b);
         }
     }
 
     private void b() {
-        this.e = new GestureDetector(b, this);
+        this.e = new GestureDetector(this.b, this);
         this.e.setOnDoubleTapListener(this);
         setLongClickable(true);
     }
@@ -60,7 +60,7 @@ public abstract class BaseGLMapView extends GLSurfaceView implements GestureDete
 
     @Override // android.opengl.GLSurfaceView, android.view.SurfaceHolder.Callback
     public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
-        this.a.a(surfaceHolder.getSurface(), i2, i3, com.baidu.pano.platform.c.h.b(b));
+        this.a.a(surfaceHolder.getSurface(), i2, i3, com.baidu.pano.platform.c.h.b(this.b));
     }
 
     @Override // android.view.View

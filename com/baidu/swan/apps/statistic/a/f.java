@@ -9,20 +9,20 @@ import com.baidu.swan.apps.u.c.b;
 import com.baidu.webkit.internal.ETAG;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class f extends e {
-    public String cHF;
-    public SwanCoreVersion cOB;
+    public String cQE;
+    public SwanCoreVersion cXB;
     public String mAppVersion = "";
-    public String cOC = "";
-    public String cOD = "";
-    public String cOE = "";
-    public String cOF = "";
-    public String cOG = "";
+    public String cXC = "";
+    public String cXD = "";
+    public String cXE = "";
+    public String cXF = "";
+    public String cXG = "";
     public String mScheme = "";
-    public String cOH = "";
-    public String cOI = "";
-    public String cOJ = "";
+    public String cXH = "";
+    public String cXI = "";
+    public String cXJ = "";
     public String mErrorCode = "";
 
     public f() {
@@ -48,76 +48,76 @@ public class f extends e {
             return;
         }
         this.mAppId = eVar.getAppId();
-        this.mSource = eVar.ajg();
-        this.cOE = eVar.ajm().getString("aiapp_extra_need_download", "");
-        this.cOG = eVar.ajm().getString("aiapp_extra_preset_pkg", "");
-        this.cOF = eVar.ajm().getString("aiapp_extra_pkg_downloading", "0");
-        this.mScheme = eVar.aji();
-        this.cOJ = eVar.getPage();
-        this.cHF = eVar.ajz();
+        this.mSource = eVar.aqN();
+        this.cXE = eVar.aqT().getString("aiapp_extra_need_download", "");
+        this.cXG = eVar.aqT().getString("aiapp_extra_preset_pkg", "");
+        this.cXF = eVar.aqT().getString("aiapp_extra_pkg_downloading", "0");
+        this.mScheme = eVar.aqP();
+        this.cXJ = eVar.getPage();
+        this.cQE = eVar.arg();
     }
 
-    public void pz(String str) {
-        this.cHF = str;
+    public void rz(String str) {
+        this.cQE = str;
     }
 
-    public String ajz() {
-        return this.cHF;
+    public String arg() {
+        return this.cQE;
     }
 
     @Override // com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
         try {
-            com.baidu.swan.apps.runtime.e aad = com.baidu.swan.apps.v.f.akr().aad();
-            String a = com.baidu.swan.apps.swancore.b.a(this.cOB, this.mFrom == "swangame" ? 1 : 0);
-            if (aad != null && aad.Se() != null) {
-                b.a Se = aad.Se();
+            com.baidu.swan.apps.runtime.e agn = com.baidu.swan.apps.v.f.arY().agn();
+            String a = com.baidu.swan.apps.swancore.b.a(this.cXB, this.mFrom == "swangame" ? 1 : 0);
+            if (agn != null && agn.XZ() != null) {
+                b.a XZ = agn.XZ();
                 if (TextUtils.isEmpty(this.mAppVersion)) {
-                    this.mAppVersion = aad.getVersion();
+                    this.mAppVersion = agn.getVersion();
                 }
-                if (TextUtils.isEmpty(this.cOC)) {
-                    this.cOC = Se.getVersionCode();
+                if (TextUtils.isEmpty(this.cXC)) {
+                    this.cXC = XZ.getVersionCode();
                 }
-                if (Se.ajl() != null) {
-                    this.cOE = Se.ajl().getString("aiapp_extra_need_download", "");
-                    this.cOG = Se.ajm().getString("aiapp_extra_preset_pkg", "0");
-                    this.cOF = Se.ajm().getString("aiapp_extra_pkg_downloading", "0");
+                if (XZ.aqS() != null) {
+                    this.cXE = XZ.aqS().getString("aiapp_extra_need_download", "");
+                    this.cXG = XZ.aqT().getString("aiapp_extra_preset_pkg", "0");
+                    this.cXF = XZ.aqT().getString("aiapp_extra_pkg_downloading", "0");
                 }
                 if (TextUtils.isEmpty(this.mScheme)) {
-                    this.mScheme = Se.aji();
+                    this.mScheme = XZ.aqP();
                 }
-                this.mScheme = com.baidu.swan.apps.statistic.g.pm(this.mScheme);
-                if (TextUtils.isEmpty(this.mPage) && !TextUtils.isEmpty(Se.getPage())) {
-                    this.cOJ = Se.getPage();
+                this.mScheme = com.baidu.swan.apps.statistic.g.rm(this.mScheme);
+                if (TextUtils.isEmpty(this.mPage) && !TextUtils.isEmpty(XZ.getPage())) {
+                    this.cXJ = XZ.getPage();
                 }
-                this.cOJ = com.baidu.swan.apps.statistic.g.pm(this.cOJ);
-                if (TextUtils.isEmpty(this.cHF)) {
-                    this.cHF = Se.ajz();
+                this.cXJ = com.baidu.swan.apps.statistic.g.rm(this.cXJ);
+                if (TextUtils.isEmpty(this.cQE)) {
+                    this.cQE = XZ.arg();
                 }
             }
-            this.cOD = SwanAppNetworkUtils.amW().type;
-            if (this.cOz == null) {
-                this.cOz = new JSONObject();
+            this.cXD = SwanAppNetworkUtils.auT().type;
+            if (this.cXz == null) {
+                this.cXz = new JSONObject();
             }
-            this.cOz.put("swan", a);
-            this.cOz.put(ETAG.KEY_APP_VERSION, this.mAppVersion);
-            this.cOz.put("thirdversion", this.cOC);
-            this.cOz.put("net", this.cOD);
-            this.cOz.put("needdown", this.cOE);
-            this.cOz.put("preset", this.cOG);
-            this.cOz.put("isPreDownloading", this.cOF);
-            this.cOz.put(SuspensionBallEntity.KEY_SCHEME, this.mScheme);
-            this.cOz.put("page", this.cOJ);
-            this.cOz.put("error_code", this.mErrorCode);
-            this.cOz.put("launchid", this.cHF);
-            if (!TextUtils.isEmpty(this.cOH)) {
-                this.cOz.put("canceltime", this.cOH);
+            this.cXz.put("swan", a);
+            this.cXz.put(ETAG.KEY_APP_VERSION, this.mAppVersion);
+            this.cXz.put("thirdversion", this.cXC);
+            this.cXz.put("net", this.cXD);
+            this.cXz.put("needdown", this.cXE);
+            this.cXz.put("preset", this.cXG);
+            this.cXz.put("isPreDownloading", this.cXF);
+            this.cXz.put(SuspensionBallEntity.KEY_SCHEME, this.mScheme);
+            this.cXz.put("page", this.cXJ);
+            this.cXz.put("error_code", this.mErrorCode);
+            this.cXz.put("launchid", this.cQE);
+            if (!TextUtils.isEmpty(this.cXH)) {
+                this.cXz.put("canceltime", this.cXH);
             }
-            if (!TextUtils.isEmpty(this.cOI)) {
-                this.cOz.put("successtime", this.cOI);
+            if (!TextUtils.isEmpty(this.cXI)) {
+                this.cXz.put("successtime", this.cXI);
             }
             if (DEBUG) {
-                Log.d("SwanAppUBCEvent", "SwanAppUBCEvent: mExt=" + this.cOz + "\t " + Thread.currentThread().getId());
+                Log.d("SwanAppUBCEvent", "SwanAppUBCEvent: mExt=" + this.cXz + "\t " + Thread.currentThread().getId());
             }
         } catch (JSONException e) {
             if (DEBUG) {

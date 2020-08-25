@@ -1,10 +1,11 @@
 package com.baidu.webkit.internal.blink;
 
+import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.webkit.internal.daemon.HttpDnsCache;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebViewFactory;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 final class g implements Runnable {
     @Override // java.lang.Runnable
     public final void run() {
@@ -26,9 +27,9 @@ final class g implements Runnable {
                 return;
             }
             try {
-                Thread.sleep(3000L);
+                Thread.sleep(IMConnection.RETRY_DELAY_TIMES);
             } catch (InterruptedException e) {
-                com.a.a.a.a.a.a.a.a(e);
+                e.printStackTrace();
             }
             Log.i("WebSettingsGlobalBlink", "updateHttpDns net change");
             long unused4 = WebSettingsGlobalBlink.mHttpDnsUpdateTime = System.currentTimeMillis();

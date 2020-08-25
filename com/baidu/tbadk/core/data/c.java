@@ -2,12 +2,12 @@ package com.baidu.tbadk.core.data;
 /* loaded from: classes15.dex */
 public class c {
     public int type = 0;
-    public int dNB = 0;
-    public int dNC = 1;
-    public int dND = 1;
-    public int dNE = 0;
-    public int dNF = 0;
-    public int dNG = 1;
-    public int dNH = 0;
-    public int dNI = 0;
+    public int dWK = 0;
+    public int dWL = 1;
+    public int dWM = 1;
+    public int dWN = 0;
+    public int dWO = 0;
+    public int dWP = 1;
+    public int dWQ = 0;
+    public int dWR = 0;
 }

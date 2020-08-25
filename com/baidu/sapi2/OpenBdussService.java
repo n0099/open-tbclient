@@ -21,8 +21,8 @@ import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
-public class OpenBdussService extends AbstractService {
+/* loaded from: classes19.dex */
+public class OpenBdussService extends AbstractService implements NoProguard {
     private Context context;
 
     public OpenBdussService(SapiConfiguration sapiConfiguration, String str) {
@@ -36,11 +36,10 @@ public class OpenBdussService extends AbstractService {
         SapiUtils.notNull(getOpenBdussCallback, "GetOpenBdussCallback can't be null");
         SapiUtils.notNull(getOpenBdussDTO, "GetOpenBdussDTO can't be null");
         SapiUtils.notEmpty(getOpenBdussDTO.clientId, "GetOpenBdussDTO.clientId can't empty");
-        ServiceManager.getInstance().getIsAccountManager();
         final SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
         if (currentAccount == null) {
             OpenBdussResult openBdussResult = new OpenBdussResult();
-            openBdussResult.setResultCode(OpenBdussResult.ERROR_CODE_NOT_LOGIN);
+            openBdussResult.setResultCode(-901);
             getOpenBdussCallback.onFailure(openBdussResult);
             return;
         }
@@ -72,7 +71,7 @@ public class OpenBdussService extends AbstractService {
         httpHashMapWrap.put("client_id", getOpenBdussDTO.clientId);
         httpHashMapWrap.put("bduss", currentAccount.bduss);
         httpHashMapWrap.put("ptoken", currentAccount.ptoken);
-        httpHashMapWrap.put(AppIconSetting.DEFAULT_LARGE_ICON, SapiDeviceInfo.getDeviceInfo(com.baidu.sapi2.utils.h.J));
+        httpHashMapWrap.put(AppIconSetting.DEFAULT_LARGE_ICON, SapiDeviceInfo.getDeviceInfo(com.baidu.sapi2.utils.e.J));
         if (getOpenBdussDTO.targetTplList != null && getOpenBdussDTO.targetTplList.size() > 0) {
             String str = getOpenBdussDTO.targetTplList.get(0);
             while (i < getOpenBdussDTO.targetTplList.size()) {
@@ -82,7 +81,7 @@ public class OpenBdussService extends AbstractService {
             }
             httpHashMapWrap.put("tpl_list", str);
         }
-        new HttpClientWrap().post(com.baidu.sapi2.utils.h.J, httpHashMapWrap, null, getUaInfo(), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.OpenBdussService.1
+        new HttpClientWrap().post(com.baidu.sapi2.utils.e.J, httpHashMapWrap, null, getUaInfo(), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.OpenBdussService.1
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
             public void onStart() {

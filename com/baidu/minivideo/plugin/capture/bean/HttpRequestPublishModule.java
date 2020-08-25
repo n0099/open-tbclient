@@ -4,18 +4,18 @@ import android.text.TextUtils;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes19.dex */
 public class HttpRequestPublishModule {
     private static final int HTTP_NO_ERROR = 0;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes19.dex */
     public static class ImageData {
         public int height;
         public String url;
         public int width;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes19.dex */
     public static class VideoUploadModel {
         public String coverUrl;
         public String duration;
@@ -25,7 +25,7 @@ public class HttpRequestPublishModule {
         public String width;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes19.dex */
     public class PublishResultInfo {
         public String msg;
         public PopInfoDaLiBao popInfoDaLiBao;
@@ -41,7 +41,7 @@ public class HttpRequestPublishModule {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes19.dex */
     public static class PopInfoDaLiBao implements Jsonable {
         public boolean enabled = false;
         public int points;
@@ -89,7 +89,7 @@ public class HttpRequestPublishModule {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes19.dex */
     public class PublishData {
         public String coverImg;
         public String duration;
@@ -106,7 +106,7 @@ public class HttpRequestPublishModule {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes19.dex */
     public class ShareData implements Jsonable {
         public String content;
         public String icon;

@@ -1,59 +1,56 @@
 package com.baidu.sapi2.share;
 
-import android.content.ServiceConnection;
-import android.os.IBinder;
-import android.os.Parcel;
-import com.baidu.sapi2.SapiConfiguration;
+import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.utils.Log;
-import java.util.Collections;
-/* loaded from: classes19.dex */
-class a implements Runnable {
-    final /* synthetic */ IBinder a;
-    final /* synthetic */ ServiceConnection b;
-    final /* synthetic */ b c;
+/* loaded from: classes12.dex */
+public abstract class a {
+    private static a a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public a(b bVar, IBinder iBinder, ServiceConnection serviceConnection) {
-        this.c = bVar;
-        this.a = iBinder;
-        this.b = serviceConnection;
+    public static a a() {
+        a aVar = a;
+        if (aVar == null) {
+            try {
+                Class.forName(SapiAccount.class.getName(), true, SapiAccount.class.getClassLoader());
+            } catch (Exception e) {
+                Log.e(e);
+            }
+            return a;
+        }
+        return aVar;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, INVOKE, IGET, IGET, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    @Override // java.lang.Runnable
-    public void run() {
-        SapiConfiguration sapiConfiguration;
-        SapiConfiguration sapiConfiguration2;
-        try {
-            ShareModel shareModel = new ShareModel(ShareEvent.VALIDATE, this.c.b.c, Collections.singletonList(this.c.b.c));
-            if (this.c.b.d) {
-                shareModel = new ShareModel(ShareEvent.VALIDATE);
-            }
-            this.a.transact(0, SapiShareClient.a(shareModel, this.c.b.d), Parcel.obtain(), 0);
-        } catch (Throwable th) {
-            try {
-                Log.e(th);
-                try {
-                    sapiConfiguration2 = SapiShareClient.i;
-                    sapiConfiguration2.context.unbindService(this.b);
-                } catch (Throwable th2) {
-                    Log.e(th2);
-                }
-            } finally {
-                try {
-                    sapiConfiguration = SapiShareClient.i;
-                    sapiConfiguration.context.unbindService(this.b);
-                } catch (Throwable th3) {
-                    Log.e(th3);
-                }
-            }
-        }
-        this.c.b.a.remove(0);
-        if (!this.c.b.a.isEmpty()) {
-            b bVar = this.c;
-            bVar.b.b.post(bVar.a);
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract String a(SapiAccount sapiAccount);
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void a(SapiAccount sapiAccount, SapiAccount sapiAccount2);
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void a(SapiAccount sapiAccount, String str);
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract String b(SapiAccount sapiAccount);
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void b(SapiAccount sapiAccount, String str);
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract String c(SapiAccount sapiAccount);
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void c(SapiAccount sapiAccount, String str);
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void d(SapiAccount sapiAccount);
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void d(SapiAccount sapiAccount, String str);
+
+    public static void a(a aVar) {
+        if (a == null) {
+            a = aVar;
             return;
         }
-        this.c.b.e.quit();
+        throw new IllegalStateException();
     }
 }

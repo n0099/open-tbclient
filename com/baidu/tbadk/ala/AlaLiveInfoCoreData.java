@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.data.m;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.AlaLiveInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class AlaLiveInfoCoreData extends m implements Serializable {
     private static final long serialVersionUID = 5768965545624138312L;
     public long audienceCount;

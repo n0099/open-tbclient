@@ -1,5 +1,6 @@
 package com.baidu.ar.arplay.core.engine.pixel;
 
+import com.baidu.ar.arplay.core.engine.pixel.PixelReadParams;
 import com.baidu.ar.arplay.core.engine.rotate.Orientation;
 import com.baidu.ar.arplay.core.filter.ARPFilter;
 import java.nio.ByteBuffer;
@@ -15,6 +16,8 @@ public class FramePixels {
     private boolean mFrontCamera = false;
     private int mDegree = 90;
     private int mPixelLength = 0;
+    private int mTextureID = -1;
+    private PixelReadParams.FrameType mFrameType = PixelReadParams.FrameType.STREAM_FRAME;
 
     public FramePixels(PixelType pixelType, ByteBuffer byteBuffer, int i, int i2) {
         this.mPixelType = pixelType;
@@ -25,6 +28,10 @@ public class FramePixels {
 
     public int getDegree() {
         return this.mDegree;
+    }
+
+    public PixelReadParams.FrameType getFrameType() {
+        return this.mFrameType;
     }
 
     public int getHeight() {
@@ -69,6 +76,10 @@ public class FramePixels {
         }
     }
 
+    public int getTextureID() {
+        return this.mTextureID;
+    }
+
     public long getTimestamp() {
         return this.mTimestamp;
     }
@@ -93,6 +104,10 @@ public class FramePixels {
         this.mDegree = i;
     }
 
+    public void setFrameType(PixelReadParams.FrameType frameType) {
+        this.mFrameType = frameType;
+    }
+
     public void setFrontCamera(boolean z) {
         this.mFrontCamera = z;
     }
@@ -115,6 +130,10 @@ public class FramePixels {
 
     public void setPixelsAddress(ByteBuffer byteBuffer) {
         this.mPixelsAddress = byteBuffer;
+    }
+
+    public void setTextureID(int i) {
+        this.mTextureID = i;
     }
 
     public void setTimestamp(long j) {

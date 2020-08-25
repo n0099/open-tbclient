@@ -17,7 +17,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class ExecutorScheduler extends v {
-    static final v nVu = io.reactivex.f.a.dTB();
+    static final v opq = io.reactivex.f.a.efD();
     final Executor executor;
 
     public ExecutorScheduler(Executor executor) {
@@ -25,23 +25,23 @@ public final class ExecutorScheduler extends v {
     }
 
     @Override // io.reactivex.v
-    public v.c dSS() {
+    public v.c eeU() {
         return new ExecutorWorker(this.executor);
     }
 
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r1v1, types: [java.util.concurrent.Callable, io.reactivex.internal.schedulers.ScheduledDirectTask] */
     @Override // io.reactivex.v
-    public io.reactivex.disposables.b I(Runnable runnable) {
+    public io.reactivex.disposables.b F(Runnable runnable) {
         ExecutorWorker.BooleanRunnable booleanRunnable;
-        Runnable L = io.reactivex.e.a.L(runnable);
+        Runnable I = io.reactivex.e.a.I(runnable);
         try {
             if (this.executor instanceof ExecutorService) {
-                ?? scheduledDirectTask = new ScheduledDirectTask(L);
+                ?? scheduledDirectTask = new ScheduledDirectTask(I);
                 scheduledDirectTask.setFuture(((ExecutorService) this.executor).submit((Callable) scheduledDirectTask));
                 booleanRunnable = scheduledDirectTask;
             } else {
-                booleanRunnable = new ExecutorWorker.BooleanRunnable(L);
+                booleanRunnable = new ExecutorWorker.BooleanRunnable(I);
                 this.executor.execute(booleanRunnable);
             }
             return booleanRunnable;
@@ -53,10 +53,10 @@ public final class ExecutorScheduler extends v {
 
     @Override // io.reactivex.v
     public io.reactivex.disposables.b b(Runnable runnable, long j, TimeUnit timeUnit) {
-        Runnable L = io.reactivex.e.a.L(runnable);
+        Runnable I = io.reactivex.e.a.I(runnable);
         if (this.executor instanceof ScheduledExecutorService) {
             try {
-                ScheduledDirectTask scheduledDirectTask = new ScheduledDirectTask(L);
+                ScheduledDirectTask scheduledDirectTask = new ScheduledDirectTask(I);
                 scheduledDirectTask.setFuture(((ScheduledExecutorService) this.executor).schedule(scheduledDirectTask, j, timeUnit));
                 return scheduledDirectTask;
             } catch (RejectedExecutionException e) {
@@ -64,8 +64,8 @@ public final class ExecutorScheduler extends v {
                 return EmptyDisposable.INSTANCE;
             }
         }
-        DelayedRunnable delayedRunnable = new DelayedRunnable(L);
-        delayedRunnable.timed.replace(nVu.b(new a(delayedRunnable), j, timeUnit));
+        DelayedRunnable delayedRunnable = new DelayedRunnable(I);
+        delayedRunnable.timed.replace(opq.b(new a(delayedRunnable), j, timeUnit));
         return delayedRunnable;
     }
 
@@ -73,7 +73,7 @@ public final class ExecutorScheduler extends v {
     public io.reactivex.disposables.b a(Runnable runnable, long j, long j2, TimeUnit timeUnit) {
         if (this.executor instanceof ScheduledExecutorService) {
             try {
-                ScheduledDirectPeriodicTask scheduledDirectPeriodicTask = new ScheduledDirectPeriodicTask(io.reactivex.e.a.L(runnable));
+                ScheduledDirectPeriodicTask scheduledDirectPeriodicTask = new ScheduledDirectPeriodicTask(io.reactivex.e.a.I(runnable));
                 scheduledDirectPeriodicTask.setFuture(((ScheduledExecutorService) this.executor).scheduleAtFixedRate(scheduledDirectPeriodicTask, j, j2, timeUnit));
                 return scheduledDirectPeriodicTask;
             } catch (RejectedExecutionException e) {
@@ -89,27 +89,27 @@ public final class ExecutorScheduler extends v {
         volatile boolean disposed;
         final Executor executor;
         final AtomicInteger wip = new AtomicInteger();
-        final io.reactivex.disposables.a nVy = new io.reactivex.disposables.a();
-        final MpscLinkedQueue<Runnable> nVx = new MpscLinkedQueue<>();
+        final io.reactivex.disposables.a opv = new io.reactivex.disposables.a();
+        final MpscLinkedQueue<Runnable> opu = new MpscLinkedQueue<>();
 
         public ExecutorWorker(Executor executor) {
             this.executor = executor;
         }
 
         @Override // io.reactivex.v.c
-        public io.reactivex.disposables.b J(Runnable runnable) {
+        public io.reactivex.disposables.b G(Runnable runnable) {
             if (this.disposed) {
                 return EmptyDisposable.INSTANCE;
             }
-            BooleanRunnable booleanRunnable = new BooleanRunnable(io.reactivex.e.a.L(runnable));
-            this.nVx.offer(booleanRunnable);
+            BooleanRunnable booleanRunnable = new BooleanRunnable(io.reactivex.e.a.I(runnable));
+            this.opu.offer(booleanRunnable);
             if (this.wip.getAndIncrement() == 0) {
                 try {
                     this.executor.execute(this);
                     return booleanRunnable;
                 } catch (RejectedExecutionException e) {
                     this.disposed = true;
-                    this.nVx.clear();
+                    this.opu.clear();
                     io.reactivex.e.a.onError(e);
                     return EmptyDisposable.INSTANCE;
                 }
@@ -120,15 +120,15 @@ public final class ExecutorScheduler extends v {
         @Override // io.reactivex.v.c
         public io.reactivex.disposables.b c(Runnable runnable, long j, TimeUnit timeUnit) {
             if (j <= 0) {
-                return J(runnable);
+                return G(runnable);
             }
             if (this.disposed) {
                 return EmptyDisposable.INSTANCE;
             }
             SequentialDisposable sequentialDisposable = new SequentialDisposable();
             SequentialDisposable sequentialDisposable2 = new SequentialDisposable(sequentialDisposable);
-            ScheduledRunnable scheduledRunnable = new ScheduledRunnable(new a(sequentialDisposable2, io.reactivex.e.a.L(runnable)), this.nVy);
-            this.nVy.a(scheduledRunnable);
+            ScheduledRunnable scheduledRunnable = new ScheduledRunnable(new a(sequentialDisposable2, io.reactivex.e.a.I(runnable)), this.opv);
+            this.opv.a(scheduledRunnable);
             if (this.executor instanceof ScheduledExecutorService) {
                 try {
                     scheduledRunnable.setFuture(((ScheduledExecutorService) this.executor).schedule((Callable) scheduledRunnable, j, timeUnit));
@@ -138,7 +138,7 @@ public final class ExecutorScheduler extends v {
                     return EmptyDisposable.INSTANCE;
                 }
             } else {
-                scheduledRunnable.setFuture(new b(ExecutorScheduler.nVu.b(scheduledRunnable, j, timeUnit)));
+                scheduledRunnable.setFuture(new b(ExecutorScheduler.opq.b(scheduledRunnable, j, timeUnit)));
             }
             sequentialDisposable.replace(scheduledRunnable);
             return sequentialDisposable2;
@@ -148,9 +148,9 @@ public final class ExecutorScheduler extends v {
         public void dispose() {
             if (!this.disposed) {
                 this.disposed = true;
-                this.nVy.dispose();
+                this.opv.dispose();
                 if (this.wip.getAndIncrement() == 0) {
-                    this.nVx.clear();
+                    this.opu.clear();
                 }
             }
         }
@@ -184,7 +184,7 @@ public final class ExecutorScheduler extends v {
         */
         public void run() {
             int i = 1;
-            MpscLinkedQueue<Runnable> mpscLinkedQueue = this.nVx;
+            MpscLinkedQueue<Runnable> mpscLinkedQueue = this.opu;
             while (true) {
                 int i2 = i;
                 if (this.disposed) {
@@ -240,16 +240,16 @@ public final class ExecutorScheduler extends v {
         /* loaded from: classes7.dex */
         final class a implements Runnable {
             private final Runnable decoratedRun;
-            private final SequentialDisposable nVz;
+            private final SequentialDisposable opw;
 
             a(SequentialDisposable sequentialDisposable, Runnable runnable) {
-                this.nVz = sequentialDisposable;
+                this.opw = sequentialDisposable;
                 this.decoratedRun = runnable;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                this.nVz.replace(ExecutorWorker.this.J(this.decoratedRun));
+                this.opw.replace(ExecutorWorker.this.G(this.decoratedRun));
             }
         }
     }
@@ -295,21 +295,21 @@ public final class ExecutorScheduler extends v {
 
         public Runnable getWrappedRunnable() {
             Runnable runnable = get();
-            return runnable != null ? runnable : Functions.nSl;
+            return runnable != null ? runnable : Functions.omg;
         }
     }
 
     /* loaded from: classes7.dex */
     final class a implements Runnable {
-        private final DelayedRunnable nVv;
+        private final DelayedRunnable opr;
 
         a(DelayedRunnable delayedRunnable) {
-            this.nVv = delayedRunnable;
+            this.opr = delayedRunnable;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.nVv.direct.replace(ExecutorScheduler.this.I(this.nVv));
+            this.opr.direct.replace(ExecutorScheduler.this.F(this.opr));
         }
     }
 }

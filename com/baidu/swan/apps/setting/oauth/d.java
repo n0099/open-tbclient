@@ -2,57 +2,57 @@ package com.baidu.swan.apps.setting.oauth;
 
 import android.os.AsyncTask;
 import android.support.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class d {
-    private Exception Pr;
-    private b cMh;
+    private Exception Qb;
+    private b cVd;
 
-    protected abstract boolean att() throws Exception;
+    protected abstract boolean aBB() throws Exception;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Exception getException() {
-        return this.Pr;
+        return this.Qb;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d a(b bVar) {
-        this.cMh = bVar;
+        this.cVd = bVar;
         return this;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean isOk() {
-        return this.Pr == null;
+        return this.Qb == null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d atu() {
+    public d aBC() {
         AsyncTask.execute(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.d.1
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    if (d.this.att()) {
-                        d.this.atv();
+                    if (d.this.aBB()) {
+                        d.this.aBD();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
-                    d.this.t(e);
+                    d.this.w(e);
                 }
             }
         });
         return this;
     }
 
-    public void atv() {
-        t(null);
+    public void aBD() {
+        w(null);
     }
 
-    public void t(@Nullable Exception exc) {
-        this.Pr = exc;
-        c.k(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.d.2
+    public void w(@Nullable Exception exc) {
+        this.Qb = exc;
+        c.h(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.d.2
             @Override // java.lang.Runnable
             public void run() {
-                d.this.cMh.b(d.this);
+                d.this.cVd.b(d.this);
             }
         });
     }

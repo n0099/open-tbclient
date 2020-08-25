@@ -13,7 +13,7 @@ import android.view.ViewDebug;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.Adapter;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public abstract class BdAdapterView<T extends Adapter> extends ViewGroup {
     public static final int INVALID_POSITION = -1;
     public static final long INVALID_ROW_ID = Long.MIN_VALUE;
@@ -54,22 +54,22 @@ public abstract class BdAdapterView<T extends Adapter> extends ViewGroup {
     int mSyncPosition;
     long mSyncRowId;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public interface OnItemClickListener {
         void onItemClick(BdAdapterView<?> bdAdapterView, View view, int i, long j);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public interface OnItemDoubleClickListener {
         boolean onItemDoubleClick(BdAdapterView<?> bdAdapterView, View view, int i, long j);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public interface OnItemLongClickListener {
         boolean onItemLongClick(BdAdapterView<?> bdAdapterView, View view, int i, long j);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public interface OnItemSelectedListener {
         void onItemSelected(BdAdapterView<?> bdAdapterView, View view, int i, long j);
 
@@ -177,7 +177,7 @@ public abstract class BdAdapterView<T extends Adapter> extends ViewGroup {
         return this.mOnItemSelectedListener;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public static class AdapterContextMenuInfo implements ContextMenu.ContextMenuInfo {
         public long id;
         public int position;
@@ -397,7 +397,7 @@ public abstract class BdAdapterView<T extends Adapter> extends ViewGroup {
         dispatchThawSelfOnly(sparseArray);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     class AdapterDataSetObserver extends DataSetObserver {
         private Parcelable mInstanceState = null;
 
@@ -444,7 +444,7 @@ public abstract class BdAdapterView<T extends Adapter> extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public class SelectionNotifier extends Handler implements Runnable {
         private SelectionNotifier() {
         }

@@ -11,7 +11,7 @@ import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import java.lang.Thread;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public final class d {
     private static d f;
     public a a = new a();
@@ -21,7 +21,7 @@ public final class d {
     public static final Object e = new Object();
     private static final Object g = new Object();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public static class a {
         String a;
         Context b;
@@ -45,7 +45,7 @@ public final class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public class b extends Thread {
         boolean a;
         private Context c;
@@ -74,7 +74,7 @@ public final class d {
                     a();
                     return;
                 }
-                ZeusPerformanceTiming.unzipStart();
+                ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_UNZIP);
                 SevenZipUtils.getInstance().hook(true);
                 SevenZipUtils.getInstance().unzipWithMeta(d.this.a.c, d.this.a.d);
                 Log.i("BlinkUnzipManager", "[perf][startup][unzip] finish.");
@@ -86,7 +86,7 @@ public final class d {
                 Thread thread = new Thread(new f(this));
                 thread.setName("T7@BlinkUnzip");
                 thread.start();
-                ZeusPerformanceTiming.unzipEnd();
+                ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.End, ZeusPerformanceTiming.KEY_UNZIP);
             } catch (Throwable th) {
                 a();
             }

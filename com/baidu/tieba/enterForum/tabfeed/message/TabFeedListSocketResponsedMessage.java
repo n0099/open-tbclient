@@ -32,10 +32,10 @@ public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage i
     }
 
     public ArrayList<q> getThreadList() {
-        return this.enterForumTabFeedData.bWn();
+        return this.enterForumTabFeedData.cgA();
     }
 
     public Object getExtra() {
-        return this.enterForumTabFeedData.bWp();
+        return this.enterForumTabFeedData.cgC();
     }
 }

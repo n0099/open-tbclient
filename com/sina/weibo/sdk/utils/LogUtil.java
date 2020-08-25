@@ -1,7 +1,7 @@
 package com.sina.weibo.sdk.utils;
 
 import android.util.Log;
-/* loaded from: classes7.dex */
+/* loaded from: classes14.dex */
 public class LogUtil {
     public static boolean sIsLogEnable = false;
 

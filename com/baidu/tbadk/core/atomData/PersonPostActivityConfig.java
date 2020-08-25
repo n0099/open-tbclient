@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class PersonPostActivityConfig extends IntentConfig {
     public static final String KEY_PORTRAIT_URL = "key_portrait_url";
     public static final String KEY_SEX = "key_sex";

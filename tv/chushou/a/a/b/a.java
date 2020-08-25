@@ -18,25 +18,25 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 /* loaded from: classes6.dex */
 public final class a {
-    private static volatile a osi;
-    private final ExecutorService executorService = new b(new C0944a(0, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 30, TimeUnit.SECONDS, new SynchronousQueue(), new tv.chushou.a.a.b.b("DefaultTaskExecutor", 0)));
+    private static volatile a oMa;
+    private final ExecutorService executorService = new b(new C1002a(0, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 30, TimeUnit.SECONDS, new SynchronousQueue(), new tv.chushou.a.a.b.b("DefaultTaskExecutor", 0)));
 
-    public static a dZQ() {
-        if (osi != null) {
-            return osi;
+    public static a elT() {
+        if (oMa != null) {
+            return oMa;
         }
         synchronized (a.class) {
-            if (osi == null) {
-                osi = new a();
+            if (oMa == null) {
+                oMa = new a();
             }
         }
-        return osi;
+        return oMa;
     }
 
     private a() {
     }
 
-    public Future<?> N(@NonNull Runnable runnable) {
+    public Future<?> K(@NonNull Runnable runnable) {
         return this.executorService.submit(runnable);
     }
 
@@ -122,8 +122,8 @@ public final class a {
 
     /* renamed from: tv.chushou.a.a.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    private static class C0944a extends ThreadPoolExecutor {
-        C0944a(int i, int i2, long j, TimeUnit timeUnit, BlockingQueue<Runnable> blockingQueue, ThreadFactory threadFactory) {
+    private static class C1002a extends ThreadPoolExecutor {
+        C1002a(int i, int i2, long j, TimeUnit timeUnit, BlockingQueue<Runnable> blockingQueue, ThreadFactory threadFactory) {
             super(i, i2, j, timeUnit, blockingQueue, threadFactory);
         }
 
@@ -142,7 +142,7 @@ public final class a {
                 }
             }
             if (th != null) {
-                tv.chushou.a.a.c.a.dZR().e(null, "DefaultTaskExecutor: Running task appeared exception! Thread [" + Thread.currentThread().getName() + "]", th);
+                tv.chushou.a.a.c.a.elU().e(null, "DefaultTaskExecutor: Running task appeared exception! Thread [" + Thread.currentThread().getName() + "]", th);
             }
         }
     }

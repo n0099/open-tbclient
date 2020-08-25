@@ -8,18 +8,18 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class BottomShadowLinearLayout extends LinearLayout {
+    private Paint mGA;
+    private RectF mGB;
+    private float mGz;
     private int mHeight;
     private Paint mPaint;
     private float mRadius;
     private RectF mRectF;
     private int mWidth;
-    private float moL;
-    private Paint moM;
-    private RectF moN;
 
     public BottomShadowLinearLayout(Context context) {
         this(context, null);
@@ -40,13 +40,13 @@ public class BottomShadowLinearLayout extends LinearLayout {
         this.mPaint.setAntiAlias(true);
         this.mPaint.setStyle(Paint.Style.FILL);
         this.mPaint.setDither(true);
-        this.moM = new Paint();
-        this.moM.reset();
-        this.moM.setAntiAlias(true);
-        this.moM.setStyle(Paint.Style.FILL);
-        this.moM.setDither(true);
+        this.mGA = new Paint();
+        this.mGA.reset();
+        this.mGA.setAntiAlias(true);
+        this.mGA.setStyle(Paint.Style.FILL);
+        this.mGA.setDither(true);
         this.mRadius = l.getDimens(context, R.dimen.ds20);
-        this.moL = l.getDimens(context, R.dimen.ds25);
+        this.mGz = l.getDimens(context, R.dimen.ds25);
         setLayerType(1, this.mPaint);
         onChangeSkinType();
     }
@@ -62,20 +62,20 @@ public class BottomShadowLinearLayout extends LinearLayout {
     protected void dispatchDraw(Canvas canvas) {
         if (this.mWidth > 0 && this.mHeight > 0) {
             if (this.mRectF == null) {
-                this.mRectF = new RectF(0.0f, 0.0f, this.mWidth, this.mHeight - this.moL);
+                this.mRectF = new RectF(0.0f, 0.0f, this.mWidth, this.mHeight - this.mGz);
             }
             canvas.drawRoundRect(this.mRectF, this.mRadius, this.mRadius, this.mPaint);
-            if (this.moN == null) {
-                this.moN = new RectF(0.0f, 0.0f, this.mWidth, this.mHeight / 2);
+            if (this.mGB == null) {
+                this.mGB = new RectF(0.0f, 0.0f, this.mWidth, this.mHeight / 2);
             }
-            canvas.drawRect(this.moN, this.moM);
+            canvas.drawRect(this.mGB, this.mGA);
             super.dispatchDraw(canvas);
         }
     }
 
     public void onChangeSkinType() {
-        this.mPaint.setColor(ao.getColor(R.color.cp_bg_line_h));
-        this.moM.setColor(ao.getColor(R.color.cp_bg_line_h));
-        this.mPaint.setShadowLayer(25.0f, 0.0f, 0.0f, ao.getColor(R.color.cp_shadow_a_alpha25));
+        this.mPaint.setColor(ap.getColor(R.color.cp_bg_line_h));
+        this.mGA.setColor(ap.getColor(R.color.cp_bg_line_h));
+        this.mPaint.setShadowLayer(25.0f, 0.0f, 0.0f, ap.getColor(R.color.cp_shadow_a_alpha25));
     }
 }

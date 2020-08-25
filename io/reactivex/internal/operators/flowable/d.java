@@ -6,39 +6,39 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 /* loaded from: classes7.dex */
 public final class d<T> extends io.reactivex.internal.operators.flowable.a<T, T> {
-    private final i nTa;
-    private final io.reactivex.c.a nTb;
-    private final io.reactivex.c.g<? super org.a.d> onSubscribe;
+    private final i omV;
+    private final io.reactivex.c.a omW;
+    private final io.reactivex.c.g<? super org.b.d> onSubscribe;
 
-    public d(io.reactivex.g<T> gVar, io.reactivex.c.g<? super org.a.d> gVar2, i iVar, io.reactivex.c.a aVar) {
+    public d(io.reactivex.g<T> gVar, io.reactivex.c.g<? super org.b.d> gVar2, i iVar, io.reactivex.c.a aVar) {
         super(gVar);
         this.onSubscribe = gVar2;
-        this.nTa = iVar;
-        this.nTb = aVar;
+        this.omV = iVar;
+        this.omW = aVar;
     }
 
     @Override // io.reactivex.g
-    protected void a(org.a.c<? super T> cVar) {
-        this.nSG.a((j) new a(cVar, this.onSubscribe, this.nTa, this.nTb));
+    protected void a(org.b.c<? super T> cVar) {
+        this.omB.a((j) new a(cVar, this.onSubscribe, this.omV, this.omW));
     }
 
     /* loaded from: classes7.dex */
-    static final class a<T> implements j<T>, org.a.d {
-        final org.a.c<? super T> actual;
-        final i nTa;
-        final io.reactivex.c.a nTb;
-        final io.reactivex.c.g<? super org.a.d> onSubscribe;
-        org.a.d s;
+    static final class a<T> implements j<T>, org.b.d {
+        final org.b.c<? super T> actual;
+        final i omV;
+        final io.reactivex.c.a omW;
+        final io.reactivex.c.g<? super org.b.d> onSubscribe;
+        org.b.d s;
 
-        a(org.a.c<? super T> cVar, io.reactivex.c.g<? super org.a.d> gVar, i iVar, io.reactivex.c.a aVar) {
+        a(org.b.c<? super T> cVar, io.reactivex.c.g<? super org.b.d> gVar, i iVar, io.reactivex.c.a aVar) {
             this.actual = cVar;
             this.onSubscribe = gVar;
-            this.nTb = aVar;
-            this.nTa = iVar;
+            this.omW = aVar;
+            this.omV = iVar;
         }
 
-        @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        @Override // io.reactivex.j, org.b.c
+        public void onSubscribe(org.b.d dVar) {
             try {
                 this.onSubscribe.accept(dVar);
                 if (SubscriptionHelper.validate(this.s, dVar)) {
@@ -46,19 +46,19 @@ public final class d<T> extends io.reactivex.internal.operators.flowable.a<T, T>
                     this.actual.onSubscribe(this);
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.K(th);
+                io.reactivex.exceptions.a.J(th);
                 dVar.cancel();
                 this.s = SubscriptionHelper.CANCELLED;
                 EmptySubscription.error(th, this.actual);
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(T t) {
             this.actual.onNext(t);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
             if (this.s != SubscriptionHelper.CANCELLED) {
                 this.actual.onError(th);
@@ -67,30 +67,30 @@ public final class d<T> extends io.reactivex.internal.operators.flowable.a<T, T>
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
             if (this.s != SubscriptionHelper.CANCELLED) {
                 this.actual.onComplete();
             }
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void request(long j) {
             try {
-                this.nTa.gx(j);
+                this.omV.gK(j);
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.K(th);
+                io.reactivex.exceptions.a.J(th);
                 io.reactivex.e.a.onError(th);
             }
             this.s.request(j);
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void cancel() {
             try {
-                this.nTb.run();
+                this.omW.run();
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.K(th);
+                io.reactivex.exceptions.a.J(th);
                 io.reactivex.e.a.onError(th);
             }
             this.s.cancel();

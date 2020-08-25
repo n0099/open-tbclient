@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes11.dex */
 public class MapSerializer extends SerializeFilterable implements ObjectSerializer {
     public static MapSerializer instance = new MapSerializer();
     private static final int NON_STRINGKEY_AS_STRING = SerializerFeature.of(new SerializerFeature[]{SerializerFeature.BrowserCompatible, SerializerFeature.WriteNonStringKeyAsString, SerializerFeature.BrowserSecure});
@@ -67,7 +67,7 @@ public class MapSerializer extends SerializeFilterable implements ObjectSerializ
                 jSONSerializer.setContext(serialContext, obj, obj2, 0);
                 if (!z) {
                     try {
-                        serializeWriter.write(123);
+                        serializeWriter.write(Constants.METHOD_IM_FRIEND_GROUP_QUERY);
                     } catch (Throwable th) {
                         jSONSerializer.context = serialContext;
                         throw th;

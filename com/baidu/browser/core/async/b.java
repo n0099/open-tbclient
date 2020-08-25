@@ -1,28 +1,28 @@
 package com.baidu.browser.core.async;
 
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes19.dex */
 public final class b {
-    private static HashMap<String, a> acL = new HashMap<>();
+    private static HashMap<String, a> aeq = new HashMap<>();
 
-    public static synchronized a cW(String str) {
-        a r;
+    public static synchronized a dg(String str) {
+        a s;
         synchronized (b.class) {
-            r = r(str, 0);
+            s = s(str, 0);
         }
-        return r;
+        return s;
     }
 
-    static synchronized a r(String str, int i) {
+    static synchronized a s(String str, int i) {
         a aVar;
         synchronized (b.class) {
-            if (!acL.containsKey(str) || (aVar = acL.get(str)) == null) {
+            if (!aeq.containsKey(str) || (aVar = aeq.get(str)) == null) {
                 aVar = new a(str, i);
                 try {
                     aVar.start();
                 } catch (Exception e) {
                 }
-                acL.put(str, aVar);
+                aeq.put(str, aVar);
             }
         }
         return aVar;
@@ -31,8 +31,8 @@ public final class b {
     public static synchronized void a(a aVar) {
         synchronized (b.class) {
             if (aVar != null) {
-                aVar.rA();
-                acL.values().remove(aVar);
+                aVar.tm();
+                aeq.values().remove(aVar);
             }
         }
     }

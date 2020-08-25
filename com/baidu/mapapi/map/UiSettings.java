@@ -1,31 +1,31 @@
 package com.baidu.mapapi.map;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public final class UiSettings {
-    private com.baidu.mapsdkplatform.comapi.map.e a;
+    private com.baidu.mapsdkplatform.comapi.map.d a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public UiSettings(com.baidu.mapsdkplatform.comapi.map.e eVar) {
-        this.a = eVar;
+    public UiSettings(com.baidu.mapsdkplatform.comapi.map.d dVar) {
+        this.a = dVar;
     }
 
     public boolean isCompassEnabled() {
-        return this.a.r();
+        return this.a.q();
     }
 
     public boolean isOverlookingGesturesEnabled() {
-        return this.a.z();
+        return this.a.x();
     }
 
     public boolean isRotateGesturesEnabled() {
-        return this.a.y();
-    }
-
-    public boolean isScrollGesturesEnabled() {
         return this.a.w();
     }
 
+    public boolean isScrollGesturesEnabled() {
+        return this.a.u();
+    }
+
     public boolean isZoomGesturesEnabled() {
-        return this.a.x();
+        return this.a.v();
     }
 
     public void setAllGesturesEnabled(boolean z) {
@@ -33,29 +33,39 @@ public final class UiSettings {
         setScrollGesturesEnabled(z);
         setOverlookingGesturesEnabled(z);
         setZoomGesturesEnabled(z);
+        setDoubleClickZoomEnabled(z);
+        setTwoTouchClickZoomEnabled(z);
     }
 
     public void setCompassEnabled(boolean z) {
-        this.a.j(z);
+        this.a.k(z);
     }
 
-    public void setEnlargeCenterWithDoubleClickEnable(boolean z) {
-        this.a.q(z);
-    }
-
-    public void setOverlookingGesturesEnabled(boolean z) {
+    public void setDoubleClickZoomEnabled(boolean z) {
         this.a.s(z);
     }
 
+    public void setEnlargeCenterWithDoubleClickEnable(boolean z) {
+        this.a.u(z);
+    }
+
+    public void setOverlookingGesturesEnabled(boolean z) {
+        this.a.w(z);
+    }
+
     public void setRotateGesturesEnabled(boolean z) {
-        this.a.r(z);
+        this.a.v(z);
     }
 
     public void setScrollGesturesEnabled(boolean z) {
-        this.a.o(z);
+        this.a.q(z);
+    }
+
+    public void setTwoTouchClickZoomEnabled(boolean z) {
+        this.a.t(z);
     }
 
     public void setZoomGesturesEnabled(boolean z) {
-        this.a.p(z);
+        this.a.r(z);
     }
 }

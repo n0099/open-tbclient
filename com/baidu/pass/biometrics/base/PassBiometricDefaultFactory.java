@@ -4,37 +4,16 @@ import android.content.Context;
 import com.baidu.pass.biometrics.base.callback.PassBiometricCallback;
 import com.baidu.pass.biometrics.base.debug.Log;
 import com.baidu.pass.biometrics.base.dto.PassBiometricDto;
-/* loaded from: classes4.dex */
+/* loaded from: classes20.dex */
 public class PassBiometricDefaultFactory extends PassBiometricFactory {
     public static final int VERSION_CODE = 8;
-    public static final String VERSION_NAME = "1.3.0";
-    private static PassBiometricDefaultFactory defaultFactory;
+    public static final String VERSION_NAME = "1.2.2";
+    private static PassBiometricDefaultFactory a;
 
     private PassBiometricDefaultFactory() {
     }
 
-    public static PassBiometricDefaultFactory getInstance() {
-        if (defaultFactory == null) {
-            synchronized (PassBiometricDefaultFactory.class) {
-                if (defaultFactory == null) {
-                    defaultFactory = new PassBiometricDefaultFactory();
-                }
-            }
-        }
-        return defaultFactory;
-    }
-
-    @Override // com.baidu.pass.biometrics.base.PassBiometricFactory
-    public PassBiometric getBiometric(int i) {
-        try {
-            return (PassBiometric) Class.forName(BiometricType.getClass(i)).getMethod("getInstance", new Class[0]).invoke(null, new Object[0]);
-        } catch (Exception e) {
-            Log.e(e);
-            return defaultBiometric();
-        }
-    }
-
-    private PassBiometric defaultBiometric() {
+    private PassBiometric a() {
         return new PassBiometric() { // from class: com.baidu.pass.biometrics.base.PassBiometricDefaultFactory.1
             @Override // com.baidu.pass.biometrics.base.PassBiometric
             public void config(PassBiometricConfiguration passBiometricConfiguration) {
@@ -46,5 +25,26 @@ public class PassBiometricDefaultFactory extends PassBiometricFactory {
                 Log.e(PassBiometricFactory.class.getSimpleName(), "ERROR with implement Biometric!");
             }
         };
+    }
+
+    public static PassBiometricDefaultFactory getInstance() {
+        if (a == null) {
+            synchronized (PassBiometricDefaultFactory.class) {
+                if (a == null) {
+                    a = new PassBiometricDefaultFactory();
+                }
+            }
+        }
+        return a;
+    }
+
+    @Override // com.baidu.pass.biometrics.base.PassBiometricFactory
+    public PassBiometric getBiometric(int i) {
+        try {
+            return (PassBiometric) Class.forName(BiometricType.a(i)).getMethod("getInstance", new Class[0]).invoke(null, new Object[0]);
+        } catch (Exception e) {
+            Log.e(e);
+            return a();
+        }
     }
 }

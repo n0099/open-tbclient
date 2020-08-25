@@ -54,7 +54,7 @@ public class RecommendFriendResponseMessage extends JsonHttpResponsedMessage {
                     } else {
                         aVar.setStatus(1);
                     }
-                    aVar.yB(1);
+                    aVar.AV(1);
                     this.mDatas.add(aVar);
                 }
             }

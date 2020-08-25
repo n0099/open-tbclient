@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public final class b {
     public String a;
     public ConcurrentHashMap<Long, a> b = new ConcurrentHashMap<>();
@@ -57,7 +57,7 @@ public final class b {
                     com.baidu.webkit.logsdk.d.c.a("BdLogSDK", "short: content", com.baidu.webkit.logsdk.d.c.a(jSONArray.getString(i), aVar.f));
                 }
             } catch (Exception e) {
-                com.a.a.a.a.a.a.a.a(e);
+                e.printStackTrace();
             }
         }
         if (aVar.e.b == 3) {
@@ -75,7 +75,7 @@ public final class b {
                 }
                 com.baidu.webkit.logsdk.d.c.a("BdLogSDK", "long: static", com.baidu.webkit.logsdk.d.c.a(jSONObject.getString("static"), aVar.f));
             } catch (Exception e2) {
-                com.a.a.a.a.a.a.a.a(e2);
+                e2.printStackTrace();
             }
         }
         com.baidu.webkit.logsdk.d.c.a("BdLogSDK", "baseinfo", com.baidu.webkit.logsdk.d.c.a(aVar.i, aVar.f));

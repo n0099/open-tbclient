@@ -2,7 +2,7 @@ package com.baidu.tbadk.mutiprocess;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.mutiprocess.a;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class h<T extends a> extends com.baidu.adp.framework.d implements b<T> {
     private boolean mSelfListener = false;
     private BdUniqueId mTag = null;

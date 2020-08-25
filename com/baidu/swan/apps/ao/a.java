@@ -1,18 +1,27 @@
 package com.baidu.swan.apps.ao;
 
-import android.text.TextUtils;
-/* loaded from: classes7.dex */
-public final class a {
-    private static String cRr;
+import com.baidu.swan.apps.ap.i;
+import com.baidu.swan.apps.b;
+import com.baidu.swan.games.i.k;
+import com.baidu.swan.games.utils.so.e;
+/* loaded from: classes8.dex */
+public class a {
+    private static final boolean DEBUG = b.DEBUG;
+    private static int daD = 0;
 
-    public static String qn(String str) {
-        return String.format("%s %s", str, avZ());
+    public static void at(int i, int i2) {
+        com.baidu.swan.apps.extcore.cores.a.aml().am(i, i2);
+        i.aEH();
+        if (i == 0) {
+            daD = 2;
+        } else if (i2 > i) {
+            daD = 1;
+            k.aNx();
+            e.a.aQh();
+        }
     }
 
-    public static String avZ() {
-        if (TextUtils.isEmpty(cRr)) {
-            cRr = b.avZ();
-        }
-        return cRr;
+    public static int aEl() {
+        return daD;
     }
 }

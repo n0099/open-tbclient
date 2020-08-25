@@ -24,7 +24,7 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.webkit.internal.ETAG;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class BrowserHelper {
     static String parseWebViewUrl(String str, String str2) {
         String str3;
@@ -41,6 +41,10 @@ public class BrowserHelper {
 
     public static void startWebActivity(Context context, String str) {
         startWebActivity(context, true, str);
+    }
+
+    public static void startWebActivity(Context context, String str, boolean z) {
+        startWebActivity(context, z, str);
     }
 
     public static void startWebActivity(Context context, boolean z, String str) {
@@ -98,7 +102,11 @@ public class BrowserHelper {
     }
 
     public static void startInternalWebActivity(Context context, String str) {
-        startWebActivity(context, str);
+        startWebActivity(context, str, true);
+    }
+
+    public static void startInternalWebActivity(Context context, String str, boolean z) {
+        startWebActivity(context, str, z);
     }
 
     public static void startExternWebActivity(Context context, String str) {

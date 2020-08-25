@@ -3,7 +3,7 @@ package com.baidu.searchbox.unitedscheme;
 import android.content.Context;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.security.ISchemeHeadIoc;
-/* loaded from: classes19.dex */
+/* loaded from: classes9.dex */
 public class SchemeConfig {
     public static final boolean DEBUG = false;
     private static final String SCHEME_HEAD;

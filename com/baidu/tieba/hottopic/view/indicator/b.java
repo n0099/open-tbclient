@@ -6,16 +6,16 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.data.p;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes15.dex */
 public class b extends BaseAdapter {
-    private final int iOw;
+    private final int jdt;
     private Context mContext;
     private int padding;
     private List<p> tagList = new ArrayList();
@@ -27,7 +27,7 @@ public class b extends BaseAdapter {
         this.mContext = context;
         this.textSize = context.getResources().getDimensionPixelSize(R.dimen.fontsize28);
         this.padding = context.getResources().getDimensionPixelSize(R.dimen.ds16);
-        this.iOw = i;
+        this.jdt = i;
     }
 
     public void setTagList(List<p> list) {
@@ -45,7 +45,7 @@ public class b extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: yi */
+    /* renamed from: AC */
     public p getItem(int i) {
         if (i < 0 || i >= this.tagList.size()) {
             return null;
@@ -69,14 +69,14 @@ public class b extends BaseAdapter {
             textView.setTextSize(0, this.textSize);
             textView.setPadding(0, this.padding, 0, this.padding);
         }
-        p pVar = (p) x.getItem(this.tagList, i);
+        p pVar = (p) y.getItem(this.tagList, i);
         if (pVar == null) {
             return null;
         }
-        textView.setText(as.cutChineseAndEnglishWithSuffix(pVar.tabName, 8, null));
-        ao.setViewTextColor(textView, R.color.cp_cont_f, 1);
-        if (i == this.iOw) {
-            ao.setBackgroundResource(textView, R.drawable.btn_label_white_s);
+        textView.setText(at.cutChineseAndEnglishWithSuffix(pVar.tabName, 8, null));
+        ap.setViewTextColor(textView, R.color.cp_cont_f, 1);
+        if (i == this.jdt) {
+            ap.setBackgroundResource(textView, R.drawable.btn_label_white_s);
             return textView;
         } else if (1 == TbadkCoreApplication.getInst().getSkinType() || 4 == TbadkCoreApplication.getInst().getSkinType()) {
             textView.setBackgroundResource(R.drawable.topic_btn_more_item_1);

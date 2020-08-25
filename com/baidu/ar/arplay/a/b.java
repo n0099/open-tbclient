@@ -6,30 +6,32 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes11.dex */
 public class b {
-    private static int dC = 1;
-    private static int dD = 2;
-    private static int dE = 3;
-    private Map<String, String> dF = new HashMap();
-    private Map<String, String> dG = new HashMap();
-    private SharedPreferences dH;
+
+    /* renamed from: de  reason: collision with root package name */
+    private static int f959de = 1;
+    private static int df = 2;
+    private static int dg = 3;
+    private Map<String, String> dh = new HashMap();
+    private Map<String, String> di = new HashMap();
+    private SharedPreferences dj;
 
     public void a(SharedPreferences sharedPreferences) {
-        this.dH = sharedPreferences;
+        this.dj = sharedPreferences;
     }
 
     public void clearARMemory() {
-        this.dF.clear();
+        this.dh.clear();
     }
 
     public String getValue(int i, String str) {
         String str2 = null;
-        if (i == dC) {
-            str2 = this.dF.get(str);
-        } else if (i == dD) {
-            str2 = this.dG.get(str);
-        } else if (i == dE) {
-            if (this.dH != null) {
-                str2 = this.dH.getString(str, "");
+        if (i == f959de) {
+            str2 = this.dh.get(str);
+        } else if (i == df) {
+            str2 = this.di.get(str);
+        } else if (i == dg) {
+            if (this.dj != null) {
+                str2 = this.dj.getString(str, "");
             } else {
                 Log.e("TAG", "prefs data store is null");
             }
@@ -38,13 +40,13 @@ public class b {
     }
 
     public void setValue(int i, String str, String str2) {
-        if (i == dC) {
-            this.dF.put(str, str2);
-        } else if (i == dD) {
-            this.dG.put(str, str2);
-        } else if (i == dE) {
-            if (this.dH != null) {
-                this.dH.edit().putString(str, str2).commit();
+        if (i == f959de) {
+            this.dh.put(str, str2);
+        } else if (i == df) {
+            this.di.put(str, str2);
+        } else if (i == dg) {
+            if (this.dj != null) {
+                this.dj.edit().putString(str, str2).commit();
             } else {
                 Log.e("TAG", "prefs data store is null");
             }

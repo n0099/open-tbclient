@@ -1,5 +1,6 @@
 package com.google.zxing.oned;
 
+import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.ChecksumException;
 import com.google.zxing.DecodeHintType;
@@ -14,7 +15,7 @@ import com.google.zxing.common.BitArray;
 import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes20.dex */
 public abstract class OneDReader implements Reader {
     public abstract Result decodeRow(int i, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException, ChecksumException, FormatException;
 
@@ -34,7 +35,7 @@ public abstract class OneDReader implements Reader {
                 Map<ResultMetadataType, Object> resultMetadata = doDecode.getResultMetadata();
                 int i = 270;
                 if (resultMetadata != null && resultMetadata.containsKey(ResultMetadataType.ORIENTATION)) {
-                    i = (((Integer) resultMetadata.get(ResultMetadataType.ORIENTATION)).intValue() + 270) % 360;
+                    i = (((Integer) resultMetadata.get(ResultMetadataType.ORIENTATION)).intValue() + 270) % EncoderTextureDrawer.X264_WIDTH;
                 }
                 doDecode.putMetadata(ResultMetadataType.ORIENTATION, Integer.valueOf(i));
                 ResultPoint[] resultPoints = doDecode.getResultPoints();

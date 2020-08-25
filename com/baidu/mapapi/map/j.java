@@ -1,20 +1,20 @@
 package com.baidu.mapapi.map;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-/* loaded from: classes10.dex */
-final class j implements Parcelable.Creator<MapStatus> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.Parcelable.Creator
-    /* renamed from: a */
-    public MapStatus createFromParcel(Parcel parcel) {
-        return new MapStatus(parcel);
+import android.graphics.Bitmap;
+import com.baidu.mapapi.map.BaiduMap;
+/* loaded from: classes20.dex */
+class j implements com.baidu.platform.comapi.map.c {
+    final /* synthetic */ BaiduMap a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public j(BaiduMap baiduMap) {
+        this.a = baiduMap;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.Parcelable.Creator
-    /* renamed from: a */
-    public MapStatus[] newArray(int i) {
-        return new MapStatus[i];
+    @Override // com.baidu.platform.comapi.map.c
+    public void a(Bitmap bitmap) {
+        BaiduMap.SnapshotReadyCallback snapshotReadyCallback;
+        snapshotReadyCallback = this.a.B;
+        snapshotReadyCallback.onSnapshotReady(bitmap);
     }
 }

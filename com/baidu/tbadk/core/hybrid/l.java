@@ -2,10 +2,10 @@ package com.baidu.tbadk.core.hybrid;
 
 import android.content.Context;
 import android.webkit.WebView;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class l {
-    protected final WebView dXM;
-    protected final b dXN;
+    protected final WebView ehs;
+    protected final b eht;
 
     public abstract void a(m mVar);
 
@@ -13,15 +13,15 @@ public abstract class l {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public l(WebView webView, b bVar) {
-        this.dXM = webView;
-        this.dXN = bVar;
+        this.ehs = webView;
+        this.eht = bVar;
     }
 
     public final Context getContext() {
-        return this.dXM.getContext();
+        return this.ehs.getContext();
     }
 
     public final void a(n nVar) {
-        a(nVar.aSW(), nVar);
+        a(nVar.bbn(), nVar);
     }
 }

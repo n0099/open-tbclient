@@ -3,33 +3,33 @@ package rx.subscriptions;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.k;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class RefCountSubscription implements k {
-    static final a oqH = new a(false, 0);
-    private final k oqG;
-    final AtomicReference<a> oqI = new AtomicReference<>(oqH);
+    static final a oKB = new a(false, 0);
+    private final k oKA;
+    final AtomicReference<a> oKC = new AtomicReference<>(oKB);
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
         final boolean isUnsubscribed;
-        final int oqJ;
+        final int oKD;
 
         a(boolean z, int i) {
             this.isUnsubscribed = z;
-            this.oqJ = i;
+            this.oKD = i;
         }
 
-        a dZl() {
-            return new a(this.isUnsubscribed, this.oqJ + 1);
+        a elp() {
+            return new a(this.isUnsubscribed, this.oKD + 1);
         }
 
-        a dZm() {
-            return new a(this.isUnsubscribed, this.oqJ - 1);
+        a elq() {
+            return new a(this.isUnsubscribed, this.oKD - 1);
         }
 
-        a dZn() {
-            return new a(true, this.oqJ);
+        a elr() {
+            return new a(true, this.oKD);
         }
     }
 
@@ -37,60 +37,60 @@ public final class RefCountSubscription implements k {
         if (kVar == null) {
             throw new IllegalArgumentException("s");
         }
-        this.oqG = kVar;
+        this.oKA = kVar;
     }
 
-    public k dZj() {
+    public k eln() {
         a aVar;
-        AtomicReference<a> atomicReference = this.oqI;
+        AtomicReference<a> atomicReference = this.oKC;
         do {
             aVar = atomicReference.get();
             if (aVar.isUnsubscribed) {
-                return e.dZp();
+                return e.elt();
             }
-        } while (!atomicReference.compareAndSet(aVar, aVar.dZl()));
+        } while (!atomicReference.compareAndSet(aVar, aVar.elp()));
         return new InnerSubscription(this);
     }
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.oqI.get().isUnsubscribed;
+        return this.oKC.get().isUnsubscribed;
     }
 
     @Override // rx.k
     public void unsubscribe() {
         a aVar;
-        a dZn;
-        AtomicReference<a> atomicReference = this.oqI;
+        a elr;
+        AtomicReference<a> atomicReference = this.oKC;
         do {
             aVar = atomicReference.get();
             if (!aVar.isUnsubscribed) {
-                dZn = aVar.dZn();
+                elr = aVar.elr();
             } else {
                 return;
             }
-        } while (!atomicReference.compareAndSet(aVar, dZn));
-        a(dZn);
+        } while (!atomicReference.compareAndSet(aVar, elr));
+        a(elr);
     }
 
     private void a(a aVar) {
-        if (aVar.isUnsubscribed && aVar.oqJ == 0) {
-            this.oqG.unsubscribe();
+        if (aVar.isUnsubscribed && aVar.oKD == 0) {
+            this.oKA.unsubscribe();
         }
     }
 
-    void dZk() {
+    void elo() {
         a aVar;
-        a dZm;
-        AtomicReference<a> atomicReference = this.oqI;
+        a elq;
+        AtomicReference<a> atomicReference = this.oKC;
         do {
             aVar = atomicReference.get();
-            dZm = aVar.dZm();
-        } while (!atomicReference.compareAndSet(aVar, dZm));
-        a(dZm);
+            elq = aVar.elq();
+        } while (!atomicReference.compareAndSet(aVar, elq));
+        a(elq);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     static final class InnerSubscription extends AtomicInteger implements k {
         private static final long serialVersionUID = 7005765588239987643L;
         final RefCountSubscription parent;
@@ -102,7 +102,7 @@ public final class RefCountSubscription implements k {
         @Override // rx.k
         public void unsubscribe() {
             if (compareAndSet(0, 1)) {
-                this.parent.dZk();
+                this.parent.elo();
             }
         }
 

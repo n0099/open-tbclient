@@ -4,30 +4,30 @@ import android.webkit.JavascriptInterface;
 import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.aq.al;
+import com.baidu.swan.apps.ap.ak;
 import com.baidu.swan.apps.v.f;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d {
-    private b dnq;
+    private b dxv;
 
     public d(JsObject jsObject) {
-        this.dnq = b.l(com.baidu.swan.games.binding.model.c.e(jsObject));
-        a.aGL().a(this);
+        this.dxv = b.l(com.baidu.swan.games.binding.model.c.e(jsObject));
+        a.aPC().a(this);
     }
 
     @JavascriptInterface
     public boolean applyUpdate() {
-        final SwanAppActivity akb = f.akr().akb();
-        if (akb == null) {
+        final SwanAppActivity arI = f.arY().arI();
+        if (arI == null) {
             com.baidu.swan.apps.console.c.e("UpdateManagerApi", "applyUpdate activity is null");
             return false;
-        } else if (akb.isDestroyed() || akb.getIntent() == null) {
+        } else if (arI.isDestroyed() || arI.getIntent() == null) {
             return false;
         } else {
-            al.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.aa.d.1
+            ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.aa.d.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    com.baidu.swan.games.utils.a.n(akb);
+                    com.baidu.swan.games.utils.a.n(arI);
                 }
             });
             return true;
@@ -43,7 +43,7 @@ public class d {
     */
     public void c(c cVar) {
         boolean z = false;
-        if (this.dnq != null && JSEvent.isValid(cVar)) {
+        if (this.dxv != null && JSEvent.isValid(cVar)) {
             com.baidu.swan.apps.console.c.i("UpdateManagerApi", String.format("dispatchEvent : eventType = %s; hasUpdate = %s", cVar.type, Boolean.valueOf(cVar.hasUpdate)));
             String str = cVar.type;
             switch (str.hashCode()) {
@@ -69,13 +69,13 @@ public class d {
             }
             switch (z) {
                 case false:
-                    this.dnq.b(cVar);
+                    this.dxv.b(cVar);
                     return;
                 case true:
-                    this.dnq.aGN();
+                    this.dxv.aPE();
                     return;
                 case true:
-                    this.dnq.aGO();
+                    this.dxv.aPF();
                     return;
                 default:
                     return;

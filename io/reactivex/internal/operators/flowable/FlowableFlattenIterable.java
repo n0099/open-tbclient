@@ -18,10 +18,10 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
     final int prefetch;
 
     @Override // io.reactivex.g
-    public void a(org.a.c<? super R> cVar) {
-        if (this.nSG instanceof Callable) {
+    public void a(org.b.c<? super R> cVar) {
+        if (this.omB instanceof Callable) {
             try {
-                Object call = ((Callable) this.nSG).call();
+                Object call = ((Callable) this.omB).call();
                 if (call == null) {
                     EmptySubscription.complete(cVar);
                     return;
@@ -30,23 +30,23 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
                     FlowableFromIterable.a(cVar, this.mapper.apply(call).iterator());
                     return;
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.K(th);
+                    io.reactivex.exceptions.a.J(th);
                     EmptySubscription.error(th, cVar);
                     return;
                 }
             } catch (Throwable th2) {
-                io.reactivex.exceptions.a.K(th2);
+                io.reactivex.exceptions.a.J(th2);
                 EmptySubscription.error(th2, cVar);
                 return;
             }
         }
-        this.nSG.a((j) new FlattenIterableSubscriber(cVar, this.mapper, this.prefetch));
+        this.omB.a((j) new FlattenIterableSubscriber(cVar, this.mapper, this.prefetch));
     }
 
     /* loaded from: classes7.dex */
     static final class FlattenIterableSubscriber<T, R> extends BasicIntQueueSubscription<R> implements j<T> {
         private static final long serialVersionUID = -3096000382929934955L;
-        final org.a.c<? super R> actual;
+        final org.b.c<? super R> actual;
         volatile boolean cancelled;
         int consumed;
         Iterator<? extends R> current;
@@ -56,19 +56,19 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
         final h<? super T, ? extends Iterable<? extends R>> mapper;
         final int prefetch;
         io.reactivex.internal.a.g<T> queue;
-        org.a.d s;
+        org.b.d s;
         final AtomicReference<Throwable> error = new AtomicReference<>();
         final AtomicLong requested = new AtomicLong();
 
-        FlattenIterableSubscriber(org.a.c<? super R> cVar, h<? super T, ? extends Iterable<? extends R>> hVar, int i) {
+        FlattenIterableSubscriber(org.b.c<? super R> cVar, h<? super T, ? extends Iterable<? extends R>> hVar, int i) {
             this.actual = cVar;
             this.mapper = hVar;
             this.prefetch = i;
             this.limit = i - (i >> 2);
         }
 
-        @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        @Override // io.reactivex.j, org.b.c
+        public void onSubscribe(org.b.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 if (dVar instanceof io.reactivex.internal.a.d) {
@@ -94,7 +94,7 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(T t) {
             if (!this.done) {
                 if (this.fusionMode == 0 && !this.queue.offer(t)) {
@@ -105,7 +105,7 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
             if (!this.done && ExceptionHelper.addThrowable(this.error, th)) {
                 this.done = true;
@@ -115,7 +115,7 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
             io.reactivex.e.a.onError(th);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
             if (!this.done) {
                 this.done = true;
@@ -123,7 +123,7 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
             }
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 io.reactivex.internal.util.b.a(this.requested, j);
@@ -131,7 +131,7 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
             }
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void cancel() {
             if (!this.cancelled) {
                 this.cancelled = true;
@@ -154,7 +154,7 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
             int addAndGet;
             long j;
             if (getAndIncrement() == 0) {
-                org.a.c<?> cVar = this.actual;
+                org.b.c<?> cVar = this.actual;
                 io.reactivex.internal.a.g<T> gVar = this.queue;
                 boolean z = this.fusionMode != 1;
                 Iterator<? extends R> it2 = this.current;
@@ -195,7 +195,7 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
                                                                         break;
                                                                     }
                                                                 } catch (Throwable th) {
-                                                                    io.reactivex.exceptions.a.K(th);
+                                                                    io.reactivex.exceptions.a.J(th);
                                                                     this.current = null;
                                                                     this.s.cancel();
                                                                     ExceptionHelper.addThrowable(this.error, th);
@@ -206,7 +206,7 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
                                                                 return;
                                                             }
                                                         } catch (Throwable th2) {
-                                                            io.reactivex.exceptions.a.K(th2);
+                                                            io.reactivex.exceptions.a.J(th2);
                                                             this.current = null;
                                                             this.s.cancel();
                                                             ExceptionHelper.addThrowable(this.error, th2);
@@ -239,7 +239,7 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
                                             it2 = it;
                                         }
                                     } catch (Throwable th3) {
-                                        io.reactivex.exceptions.a.K(th3);
+                                        io.reactivex.exceptions.a.J(th3);
                                         this.s.cancel();
                                         ExceptionHelper.addThrowable(this.error, th3);
                                         cVar.onError(ExceptionHelper.terminate(this.error));
@@ -250,7 +250,7 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
                                 return;
                             }
                         } catch (Throwable th4) {
-                            io.reactivex.exceptions.a.K(th4);
+                            io.reactivex.exceptions.a.J(th4);
                             this.s.cancel();
                             ExceptionHelper.addThrowable(this.error, th4);
                             Throwable terminate = ExceptionHelper.terminate(this.error);
@@ -282,7 +282,7 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
             }
         }
 
-        boolean checkTerminated(boolean z, boolean z2, org.a.c<?> cVar, io.reactivex.internal.a.g<?> gVar) {
+        boolean checkTerminated(boolean z, boolean z2, org.b.c<?> cVar, io.reactivex.internal.a.g<?> gVar) {
             if (this.cancelled) {
                 this.current = null;
                 gVar.clear();

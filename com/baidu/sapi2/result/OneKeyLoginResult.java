@@ -1,9 +1,10 @@
 package com.baidu.sapi2.result;
-/* loaded from: classes19.dex */
+/* loaded from: classes12.dex */
 public class OneKeyLoginResult extends SapiResult {
     public static final int ONE_KEY_LOGIN_CODE_ANDROID_VERSION_BELOW_KITKAT = -109;
     public static final int ONE_KEY_LOGIN_CODE_CHECK_JS_FAIL = -106;
     public static final int ONE_KEY_LOGIN_CODE_CHECK_SIGN_FAIL = -108;
+    public static final int ONE_KEY_LOGIN_CODE_CONNECTION_TIMEOUT = -112;
     public static final int ONE_KEY_LOGIN_CODE_EXECUTE_JS_FAIL = -107;
     public static final int ONE_KEY_LOGIN_CODE_GET_JS_CODE_FAIL = -105;
     public static final int ONE_KEY_LOGIN_CODE_GET_TOKEN_FAIL = -102;
@@ -25,6 +26,7 @@ public class OneKeyLoginResult extends SapiResult {
     private static final String j = "Android版本低于KITKAT";
     private static final String k = "冷启预取号失败，二次取号时已登录";
     private static final String l = "一键登录命中风控，登录失败";
+    private static final String m = "请求超时";
     public static String secondJsCode;
     public boolean enable;
     public String encryptPhoneNum;
@@ -45,5 +47,6 @@ public class OneKeyLoginResult extends SapiResult {
         this.msgMap.put(ONE_KEY_LOGIN_CODE_ANDROID_VERSION_BELOW_KITKAT, j);
         this.msgMap.put(-110, k);
         this.msgMap.put(-111, l);
+        this.msgMap.put(ONE_KEY_LOGIN_CODE_CONNECTION_TIMEOUT, m);
     }
 }

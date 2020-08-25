@@ -9,7 +9,7 @@ import com.baidu.live.tbadk.data.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.aa;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tblauncherInterestGuide.data.InterestFrsData;
 import java.lang.ref.WeakReference;
@@ -17,10 +17,10 @@ import java.lang.ref.WeakReference;
 public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
     public static final int LIMIT = 100;
     public static final int OFFSET = 0;
-    private static final String lVa = TbConfig.SERVER_ADDRESS + Config.INTERESTS_FRS_URL;
-    private boolean lVb;
-    private InterestFrsData lVc;
-    private a lVd;
+    private static final String mmN = TbConfig.SERVER_ADDRESS + Config.INTERESTS_FRS_URL;
+    private boolean mmO;
+    private InterestFrsData mmP;
+    private a mmQ;
 
     /* loaded from: classes16.dex */
     public interface b {
@@ -33,30 +33,30 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
         super(baseFragmentActivity.getPageContext());
     }
 
-    public boolean dnN() {
-        return this.lVb;
+    public boolean dzi() {
+        return this.mmO;
     }
 
-    public void vD(boolean z) {
-        this.lVb = z;
+    public void ws(boolean z) {
+        this.mmO = z;
     }
 
-    public InterestFrsData dnO() {
-        return this.lVc;
+    public InterestFrsData dzj() {
+        return this.mmP;
     }
 
     public void e(InterestFrsData interestFrsData) {
-        this.lVc = interestFrsData;
+        this.mmP = interestFrsData;
     }
 
     public void a(int i, int i2, int i3, b bVar) {
-        this.lVd = new a(i, i2, i3, bVar);
-        this.lVd.execute(new Void[0]);
+        this.mmQ = new a(i, i2, i3, bVar);
+        this.mmQ.execute(new Void[0]);
     }
 
-    public void dnP() {
-        if (this.lVd != null) {
-            this.lVd.cancel();
+    public void dzk() {
+        if (this.mmQ != null) {
+            this.mmQ.cancel();
         }
     }
 
@@ -73,7 +73,7 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes16.dex */
     public static class a extends BdAsyncTask<Void, Void, InterestFrsData> {
-        private WeakReference<b> kfI;
+        private WeakReference<b> kvb;
         private int limit;
         private int offset;
         private int userType;
@@ -82,7 +82,7 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
             this.userType = i;
             this.offset = i2;
             this.limit = i3;
-            this.kfI = new WeakReference<>(bVar);
+            this.kvb = new WeakReference<>(bVar);
             setPriority(3);
         }
 
@@ -91,12 +91,12 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: o */
         public InterestFrsData doInBackground(Void... voidArr) {
-            z zVar = new z(NewUserGuideModel.lVa);
-            zVar.addPostData("user_type", String.valueOf(this.userType));
-            zVar.addPostData("offset", String.valueOf(this.offset));
-            zVar.addPostData(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(this.limit));
-            String postNetData = zVar.postNetData();
-            if (zVar.bav().baX().isRequestSuccess()) {
+            aa aaVar = new aa(NewUserGuideModel.mmN);
+            aaVar.addPostData("user_type", String.valueOf(this.userType));
+            aaVar.addPostData("offset", String.valueOf(this.offset));
+            aaVar.addPostData(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(this.limit));
+            String postNetData = aaVar.postNetData();
+            if (aaVar.biQ().bjw().isRequestSuccess()) {
                 try {
                     return (InterestFrsData) OrmObject.objectWithJsonStr(postNetData, InterestFrsData.class);
                 } catch (Exception e) {
@@ -108,8 +108,8 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
                 }
             }
             InterestFrsData interestFrsData2 = new InterestFrsData();
-            interestFrsData2.setErrno(zVar.getServerErrorCode() == 0 ? -1001 : zVar.getServerErrorCode());
-            interestFrsData2.setErrmsg(zVar.getErrorString());
+            interestFrsData2.setErrno(aaVar.getServerErrorCode() == 0 ? -1001 : aaVar.getServerErrorCode());
+            interestFrsData2.setErrmsg(aaVar.getErrorString());
             return interestFrsData2;
         }
 
@@ -119,7 +119,7 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
         /* renamed from: f */
         public void onPostExecute(InterestFrsData interestFrsData) {
             super.onPostExecute(interestFrsData);
-            b bVar = this.kfI.get();
+            b bVar = this.kvb.get();
             if (bVar != null) {
                 if (interestFrsData.getErrno() == 0) {
                     bVar.a(interestFrsData);

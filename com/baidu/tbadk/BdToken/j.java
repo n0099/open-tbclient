@@ -1,5 +1,5 @@
 package com.baidu.tbadk.BdToken;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class j extends h {
     private long mFid;
 

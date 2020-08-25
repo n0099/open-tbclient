@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.zip.CRC32;
 import java.util.zip.ZipException;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 final class d {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static long getZipCrc(File file) throws IOException {
@@ -62,7 +62,7 @@ final class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         long offset;
         long size;

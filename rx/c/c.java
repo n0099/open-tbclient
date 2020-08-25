@@ -7,170 +7,170 @@ import rx.h;
 import rx.internal.operators.t;
 import rx.internal.operators.w;
 import rx.k;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class c {
-    static volatile rx.functions.b<Throwable> onv;
-    static volatile rx.functions.g<rx.h, h.a, h.a> opA;
-    static volatile rx.functions.g<rx.b, b.a, b.a> opB;
-    static volatile rx.functions.f<rx.g, rx.g> opC;
-    static volatile rx.functions.f<rx.g, rx.g> opD;
-    static volatile rx.functions.f<rx.g, rx.g> opE;
-    static volatile rx.functions.f<rx.functions.a, rx.functions.a> opF;
-    static volatile rx.functions.f<k, k> opG;
-    static volatile rx.functions.f<k, k> opH;
-    static volatile rx.functions.e<? extends ScheduledExecutorService> opI;
-    static volatile rx.functions.f<Throwable, Throwable> opJ;
-    static volatile rx.functions.f<Throwable, Throwable> opK;
-    static volatile rx.functions.f<Throwable, Throwable> opL;
-    static volatile rx.functions.f<d.b, d.b> opM;
-    static volatile rx.functions.f<d.b, d.b> opN;
-    static volatile rx.functions.f<b.InterfaceC0930b, b.InterfaceC0930b> opO;
-    static volatile rx.functions.f<d.a, d.a> opw;
-    static volatile rx.functions.f<h.a, h.a> opx;
-    static volatile rx.functions.f<b.a, b.a> opy;
-    static volatile rx.functions.g<rx.d, d.a, d.a> opz;
+    static volatile rx.functions.b<Throwable> oHq;
+    static volatile rx.functions.f<k, k> oJA;
+    static volatile rx.functions.f<k, k> oJB;
+    static volatile rx.functions.e<? extends ScheduledExecutorService> oJC;
+    static volatile rx.functions.f<Throwable, Throwable> oJD;
+    static volatile rx.functions.f<Throwable, Throwable> oJE;
+    static volatile rx.functions.f<Throwable, Throwable> oJF;
+    static volatile rx.functions.f<d.b, d.b> oJG;
+    static volatile rx.functions.f<d.b, d.b> oJH;
+    static volatile rx.functions.f<b.InterfaceC0988b, b.InterfaceC0988b> oJI;
+    static volatile rx.functions.f<d.a, d.a> oJq;
+    static volatile rx.functions.f<h.a, h.a> oJr;
+    static volatile rx.functions.f<b.a, b.a> oJs;
+    static volatile rx.functions.g<rx.d, d.a, d.a> oJt;
+    static volatile rx.functions.g<rx.h, h.a, h.a> oJu;
+    static volatile rx.functions.g<rx.b, b.a, b.a> oJv;
+    static volatile rx.functions.f<rx.g, rx.g> oJw;
+    static volatile rx.functions.f<rx.g, rx.g> oJx;
+    static volatile rx.functions.f<rx.g, rx.g> oJy;
+    static volatile rx.functions.f<rx.functions.a, rx.functions.a> oJz;
 
     static {
         init();
     }
 
     static void init() {
-        onv = new rx.functions.b<Throwable>() { // from class: rx.c.c.1
+        oHq = new rx.functions.b<Throwable>() { // from class: rx.c.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
             public void call(Throwable th) {
-                f.dYL().dYM().G(th);
+                f.ekP().ekQ().F(th);
             }
         };
-        opz = new rx.functions.g<rx.d, d.a, d.a>() { // from class: rx.c.c.9
+        oJt = new rx.functions.g<rx.d, d.a, d.a>() { // from class: rx.c.c.9
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.g
             /* renamed from: b */
             public d.a o(rx.d dVar, d.a aVar) {
-                return f.dYL().dYN().c(dVar, aVar);
+                return f.ekP().ekR().c(dVar, aVar);
             }
         };
-        opG = new rx.functions.f<k, k>() { // from class: rx.c.c.10
+        oJA = new rx.functions.f<k, k>() { // from class: rx.c.c.10
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.f
             /* renamed from: d */
             public k call(k kVar) {
-                return f.dYL().dYN().e(kVar);
+                return f.ekP().ekR().e(kVar);
             }
         };
-        opA = new rx.functions.g<rx.h, h.a, h.a>() { // from class: rx.c.c.11
+        oJu = new rx.functions.g<rx.h, h.a, h.a>() { // from class: rx.c.c.11
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.g
             /* renamed from: b */
             public h.a o(rx.h hVar, h.a aVar) {
-                h dYO = f.dYL().dYO();
-                return dYO == i.dYY() ? aVar : new t(dYO.a(hVar, new w(aVar)));
+                h ekS = f.ekP().ekS();
+                return ekS == i.elc() ? aVar : new t(ekS.a(hVar, new w(aVar)));
             }
         };
-        opH = new rx.functions.f<k, k>() { // from class: rx.c.c.12
+        oJB = new rx.functions.f<k, k>() { // from class: rx.c.c.12
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.f
             /* renamed from: d */
             public k call(k kVar) {
-                return f.dYL().dYO().e(kVar);
+                return f.ekP().ekS().e(kVar);
             }
         };
-        opB = new rx.functions.g<rx.b, b.a, b.a>() { // from class: rx.c.c.13
+        oJv = new rx.functions.g<rx.b, b.a, b.a>() { // from class: rx.c.c.13
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.g
             /* renamed from: c */
             public b.a o(rx.b bVar, b.a aVar) {
-                return f.dYL().dYP().a(bVar, aVar);
+                return f.ekP().ekT().a(bVar, aVar);
             }
         };
-        opF = new rx.functions.f<rx.functions.a, rx.functions.a>() { // from class: rx.c.c.14
+        oJz = new rx.functions.f<rx.functions.a, rx.functions.a>() { // from class: rx.c.c.14
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.f
             /* renamed from: j */
             public rx.functions.a call(rx.functions.a aVar) {
-                return f.dYL().dYQ().d(aVar);
+                return f.ekP().ekU().d(aVar);
             }
         };
-        opJ = new rx.functions.f<Throwable, Throwable>() { // from class: rx.c.c.15
+        oJD = new rx.functions.f<Throwable, Throwable>() { // from class: rx.c.c.15
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.f
-            /* renamed from: ae */
+            /* renamed from: ad */
             public Throwable call(Throwable th) {
-                return f.dYL().dYN().Z(th);
+                return f.ekP().ekR().Y(th);
             }
         };
-        opM = new rx.functions.f<d.b, d.b>() { // from class: rx.c.c.16
+        oJG = new rx.functions.f<d.b, d.b>() { // from class: rx.c.c.16
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.f
             /* renamed from: d */
             public d.b call(d.b bVar) {
-                return f.dYL().dYN().e(bVar);
+                return f.ekP().ekR().e(bVar);
             }
         };
-        opK = new rx.functions.f<Throwable, Throwable>() { // from class: rx.c.c.2
+        oJE = new rx.functions.f<Throwable, Throwable>() { // from class: rx.c.c.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.f
-            /* renamed from: ae */
+            /* renamed from: ad */
             public Throwable call(Throwable th) {
-                return f.dYL().dYO().Z(th);
+                return f.ekP().ekS().Y(th);
             }
         };
-        opN = new rx.functions.f<d.b, d.b>() { // from class: rx.c.c.3
+        oJH = new rx.functions.f<d.b, d.b>() { // from class: rx.c.c.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.f
             /* renamed from: d */
             public d.b call(d.b bVar) {
-                return f.dYL().dYO().e(bVar);
+                return f.ekP().ekS().e(bVar);
             }
         };
-        opL = new rx.functions.f<Throwable, Throwable>() { // from class: rx.c.c.4
+        oJF = new rx.functions.f<Throwable, Throwable>() { // from class: rx.c.c.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.f
-            /* renamed from: ae */
+            /* renamed from: ad */
             public Throwable call(Throwable th) {
-                return f.dYL().dYP().Z(th);
+                return f.ekP().ekT().Y(th);
             }
         };
-        opO = new rx.functions.f<b.InterfaceC0930b, b.InterfaceC0930b>() { // from class: rx.c.c.5
+        oJI = new rx.functions.f<b.InterfaceC0988b, b.InterfaceC0988b>() { // from class: rx.c.c.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.f
             /* renamed from: b */
-            public b.InterfaceC0930b call(b.InterfaceC0930b interfaceC0930b) {
-                return f.dYL().dYP().a(interfaceC0930b);
+            public b.InterfaceC0988b call(b.InterfaceC0988b interfaceC0988b) {
+                return f.ekP().ekT().a(interfaceC0988b);
             }
         };
-        dYI();
+        ekM();
     }
 
-    static void dYI() {
-        opw = new rx.functions.f<d.a, d.a>() { // from class: rx.c.c.6
+    static void ekM() {
+        oJq = new rx.functions.f<d.a, d.a>() { // from class: rx.c.c.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.f
             /* renamed from: c */
             public d.a call(d.a aVar) {
-                return f.dYL().dYN().b(aVar);
+                return f.ekP().ekR().b(aVar);
             }
         };
-        opx = new rx.functions.f<h.a, h.a>() { // from class: rx.c.c.7
+        oJr = new rx.functions.f<h.a, h.a>() { // from class: rx.c.c.7
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.f
             /* renamed from: c */
             public h.a call(h.a aVar) {
-                return f.dYL().dYO().b(aVar);
+                return f.ekP().ekS().b(aVar);
             }
         };
-        opy = new rx.functions.f<b.a, b.a>() { // from class: rx.c.c.8
+        oJs = new rx.functions.f<b.a, b.a>() { // from class: rx.c.c.8
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.f
             /* renamed from: c */
             public b.a call(b.a aVar) {
-                return f.dYL().dYP().b(aVar);
+                return f.ekP().ekT().b(aVar);
             }
         };
     }
 
     public static void onError(Throwable th) {
-        rx.functions.b<Throwable> bVar = onv;
+        rx.functions.b<Throwable> bVar = oHq;
         if (bVar != null) {
             try {
                 bVar.call(th);
@@ -178,103 +178,103 @@ public final class c {
             } catch (Throwable th2) {
                 System.err.println("The onError handler threw an Exception. It shouldn't. => " + th2.getMessage());
                 th2.printStackTrace();
-                aa(th2);
+                Z(th2);
             }
         }
-        aa(th);
+        Z(th);
     }
 
-    static void aa(Throwable th) {
+    static void Z(Throwable th) {
         Thread currentThread = Thread.currentThread();
         currentThread.getUncaughtExceptionHandler().uncaughtException(currentThread, th);
     }
 
     public static <T> d.a<T> b(d.a<T> aVar) {
-        rx.functions.f<d.a, d.a> fVar = opw;
+        rx.functions.f<d.a, d.a> fVar = oJq;
         return fVar != null ? fVar.call(aVar) : aVar;
     }
 
     public static <T> h.a<T> b(h.a<T> aVar) {
-        rx.functions.f<h.a, h.a> fVar = opx;
+        rx.functions.f<h.a, h.a> fVar = oJr;
         return fVar != null ? fVar.call(aVar) : aVar;
     }
 
     public static b.a b(b.a aVar) {
-        rx.functions.f<b.a, b.a> fVar = opy;
+        rx.functions.f<b.a, b.a> fVar = oJs;
         return fVar != null ? fVar.call(aVar) : aVar;
     }
 
     public static rx.g i(rx.g gVar) {
-        rx.functions.f<rx.g, rx.g> fVar = opC;
+        rx.functions.f<rx.g, rx.g> fVar = oJw;
         return fVar != null ? fVar.call(gVar) : gVar;
     }
 
     public static rx.g j(rx.g gVar) {
-        rx.functions.f<rx.g, rx.g> fVar = opD;
+        rx.functions.f<rx.g, rx.g> fVar = oJx;
         return fVar != null ? fVar.call(gVar) : gVar;
     }
 
     public static rx.g k(rx.g gVar) {
-        rx.functions.f<rx.g, rx.g> fVar = opE;
+        rx.functions.f<rx.g, rx.g> fVar = oJy;
         return fVar != null ? fVar.call(gVar) : gVar;
     }
 
     public static rx.functions.a i(rx.functions.a aVar) {
-        rx.functions.f<rx.functions.a, rx.functions.a> fVar = opF;
+        rx.functions.f<rx.functions.a, rx.functions.a> fVar = oJz;
         return fVar != null ? fVar.call(aVar) : aVar;
     }
 
     public static <T> d.a<T> a(rx.d<T> dVar, d.a<T> aVar) {
-        rx.functions.g<rx.d, d.a, d.a> gVar = opz;
+        rx.functions.g<rx.d, d.a, d.a> gVar = oJt;
         return gVar != null ? gVar.o(dVar, aVar) : aVar;
     }
 
     public static k b(k kVar) {
-        rx.functions.f<k, k> fVar = opG;
+        rx.functions.f<k, k> fVar = oJA;
         return fVar != null ? fVar.call(kVar) : kVar;
     }
 
-    public static Throwable ab(Throwable th) {
-        rx.functions.f<Throwable, Throwable> fVar = opJ;
+    public static Throwable aa(Throwable th) {
+        rx.functions.f<Throwable, Throwable> fVar = oJD;
         return fVar != null ? fVar.call(th) : th;
     }
 
     public static <T, R> d.b<R, T> b(d.b<R, T> bVar) {
-        rx.functions.f<d.b, d.b> fVar = opM;
+        rx.functions.f<d.b, d.b> fVar = oJG;
         return fVar != null ? fVar.call(bVar) : bVar;
     }
 
     public static <T> h.a<T> a(rx.h<T> hVar, h.a<T> aVar) {
-        rx.functions.g<rx.h, h.a, h.a> gVar = opA;
+        rx.functions.g<rx.h, h.a, h.a> gVar = oJu;
         return gVar != null ? gVar.o(hVar, aVar) : aVar;
     }
 
     public static k c(k kVar) {
-        rx.functions.f<k, k> fVar = opH;
+        rx.functions.f<k, k> fVar = oJB;
         return fVar != null ? fVar.call(kVar) : kVar;
     }
 
-    public static Throwable ac(Throwable th) {
-        rx.functions.f<Throwable, Throwable> fVar = opK;
+    public static Throwable ab(Throwable th) {
+        rx.functions.f<Throwable, Throwable> fVar = oJE;
         return fVar != null ? fVar.call(th) : th;
     }
 
     public static <T, R> d.b<R, T> c(d.b<R, T> bVar) {
-        rx.functions.f<d.b, d.b> fVar = opN;
+        rx.functions.f<d.b, d.b> fVar = oJH;
         return fVar != null ? fVar.call(bVar) : bVar;
     }
 
     public static <T> b.a b(rx.b bVar, b.a aVar) {
-        rx.functions.g<rx.b, b.a, b.a> gVar = opB;
+        rx.functions.g<rx.b, b.a, b.a> gVar = oJv;
         return gVar != null ? gVar.o(bVar, aVar) : aVar;
     }
 
-    public static Throwable ad(Throwable th) {
-        rx.functions.f<Throwable, Throwable> fVar = opL;
+    public static Throwable ac(Throwable th) {
+        rx.functions.f<Throwable, Throwable> fVar = oJF;
         return fVar != null ? fVar.call(th) : th;
     }
 
-    public static rx.functions.e<? extends ScheduledExecutorService> dYJ() {
-        return opI;
+    public static rx.functions.e<? extends ScheduledExecutorService> ekN() {
+        return oJC;
     }
 }

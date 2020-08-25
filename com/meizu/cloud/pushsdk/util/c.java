@@ -11,7 +11,7 @@ import java.security.interfaces.RSAPublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes5.dex */
+/* loaded from: classes20.dex */
 public class c {
     public static final Charset a = Charset.forName("UTF-8");
 

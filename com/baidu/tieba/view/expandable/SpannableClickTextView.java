@@ -10,9 +10,9 @@ import android.text.style.ClickableSpan;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.TextView;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class SpannableClickTextView extends TextView {
-    private boolean hXB;
+    private boolean ilI;
 
     public SpannableClickTextView(Context context) {
         super(context);
@@ -28,7 +28,7 @@ public class SpannableClickTextView extends TextView {
 
     @Override // android.view.View
     public boolean performClick() {
-        if (this.hXB) {
+        if (this.ilI) {
             return true;
         }
         return super.performClick();
@@ -36,17 +36,17 @@ public class SpannableClickTextView extends TextView {
 
     @Override // android.widget.TextView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        this.hXB = false;
+        this.ilI = false;
         return super.onTouchEvent(motionEvent);
     }
 
     public void setCustomMovementMethod() {
-        setMovementMethod(a.dtW());
+        setMovementMethod(a.dFr());
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     private static class a extends LinkMovementMethod {
-        private static a msx;
+        private static a mKH;
 
         private a() {
         }
@@ -69,7 +69,7 @@ public class SpannableClickTextView extends TextView {
                         Selection.setSelection(spannable, spannable.getSpanStart(objArr[0]), spannable.getSpanEnd(objArr[0]));
                     }
                     if (textView instanceof SpannableClickTextView) {
-                        ((SpannableClickTextView) textView).hXB = true;
+                        ((SpannableClickTextView) textView).ilI = true;
                     }
                     return true;
                 }
@@ -80,11 +80,11 @@ public class SpannableClickTextView extends TextView {
             return Touch.onTouchEvent(textView, spannable, motionEvent);
         }
 
-        public static a dtW() {
-            if (msx == null) {
-                msx = new a();
+        public static a dFr() {
+            if (mKH == null) {
+                mKH = new a();
             }
-            return msx;
+            return mKH;
         }
     }
 }

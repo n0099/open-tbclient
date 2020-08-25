@@ -3,7 +3,7 @@ package com.baidu.tieba.im.message.chat;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import protobuf.CommitGroupMsg.CommitGroupMsgReqIdl;
 import protobuf.CommitGroupMsg.DataReq;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class NotifyChatMessage extends CommonGroupChatMessage {
     public NotifyChatMessage() {
         super(CmdConfigSocket.CMD_GROUP_CHAT_MSG);

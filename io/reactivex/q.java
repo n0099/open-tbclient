@@ -7,22 +7,22 @@ import io.reactivex.internal.operators.observable.ObservableObserveOn;
 public abstract class q<T> implements t<T> {
     protected abstract void a(u<? super T> uVar);
 
-    public static int dSN() {
-        return g.dSN();
+    public static int eeP() {
+        return g.eeP();
     }
 
     public final q<T> d(v vVar) {
-        return b(vVar, false, dSN());
+        return b(vVar, false, eeP());
     }
 
     public final q<T> b(v vVar, boolean z, int i) {
         io.reactivex.internal.functions.a.k(vVar, "scheduler is null");
-        io.reactivex.internal.functions.a.bL(i, "bufferSize");
+        io.reactivex.internal.functions.a.bJ(i, "bufferSize");
         return io.reactivex.e.a.a(new ObservableObserveOn(this, vVar, z, i));
     }
 
     public final io.reactivex.disposables.b b(io.reactivex.c.g<? super T> gVar) {
-        return a(gVar, Functions.nSp, Functions.nSm, Functions.dSX());
+        return a(gVar, Functions.omk, Functions.omh, Functions.eeZ());
     }
 
     public final io.reactivex.disposables.b a(io.reactivex.c.g<? super T> gVar, io.reactivex.c.g<? super Throwable> gVar2, io.reactivex.c.a aVar, io.reactivex.c.g<? super io.reactivex.disposables.b> gVar3) {
@@ -45,7 +45,7 @@ public abstract class q<T> implements t<T> {
         } catch (NullPointerException e) {
             throw e;
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.K(th);
+            io.reactivex.exceptions.a.J(th);
             io.reactivex.e.a.onError(th);
             NullPointerException nullPointerException = new NullPointerException("Actually not, but can't throw other exceptions due to RS");
             nullPointerException.initCause(th);

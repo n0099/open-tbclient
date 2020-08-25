@@ -1,22 +1,22 @@
 package com.baidu.swan.apps.q;
 
 import android.widget.EditText;
-import com.baidu.swan.apps.aq.ai;
+import com.baidu.swan.apps.ap.ah;
 import com.baidu.swan.apps.component.components.f.a;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static a.InterfaceC0328a cmY;
+    private static a.InterfaceC0370a cuB;
 
-    public static void a(a.InterfaceC0328a interfaceC0328a) {
-        cmY = interfaceC0328a;
+    public static void a(a.InterfaceC0370a interfaceC0370a) {
+        cuB = interfaceC0370a;
     }
 
     public static void a(EditText editText, int i) {
-        if (editText != null && cmY != null) {
+        if (editText != null && cuB != null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("value", editText.getText());
@@ -28,7 +28,7 @@ public class c {
                     e.printStackTrace();
                 }
             }
-            cmY.c(String.valueOf(editText.getTag()), jSONObject);
+            cuB.c(String.valueOf(editText.getTag()), jSONObject);
         }
     }
 
@@ -45,19 +45,19 @@ public class c {
     }
 
     private static void a(EditText editText, String str, int i) {
-        if (editText != null && cmY != null) {
+        if (editText != null && cuB != null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("value", editText.getText());
                 jSONObject.put("eventName", str);
                 jSONObject.put("cursorOffset", editText.getText().length());
-                jSONObject.put("keyboardHeight", ai.F(i));
+                jSONObject.put("keyboardHeight", ah.J(i));
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
                 }
             }
-            cmY.c(String.valueOf(editText.getTag()), jSONObject);
+            cuB.c(String.valueOf(editText.getTag()), jSONObject);
         }
     }
 }

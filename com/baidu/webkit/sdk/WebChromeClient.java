@@ -10,7 +10,6 @@ import android.view.View;
 import android.webkit.ConsoleMessage;
 import android.webkit.JavascriptInterface;
 import android.webkit.ValueCallback;
-import com.a.a.a.a.a.a.a;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.webkit.internal.utils.CommonUtils;
 import com.baidu.webkit.sdk.GeolocationPermissions;
@@ -23,7 +22,7 @@ import java.lang.reflect.Method;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class WebChromeClient {
     public static final String DEFAULT_ERROR_IMAGE_PATH = "file:///android_asset/webkit/errorpage/images/error_page.png";
     protected static final int ERROR_CODE_FUNCTION_CALL_FAILED = 100;
@@ -44,12 +43,12 @@ public class WebChromeClient {
     protected static final String MSG_PROMPT_HEADER = "BdboxApp:";
     protected static final String MSG_PROMPT_HEADER_IMPACT = MSG_PROMPT_HEADER.toLowerCase();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public interface CustomViewCallback {
         void onCustomViewHidden();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public static abstract class FileChooserParams {
         public static final int MODE_OPEN = 0;
         public static final int MODE_OPEN_FOLDER = 2;
@@ -87,7 +86,7 @@ public class WebChromeClient {
         BdJsCheckPolicy bdJsCheckPolicy2 = null;
         try {
         } catch (UnsatisfiedLinkError e) {
-            a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
             Log.e(Log.LOG_TAG, "setDefaultEnableJsPromptSailor error:" + th);
         }
@@ -178,7 +177,7 @@ public class WebChromeClient {
             this.mWebView.execJavaScriptExt(optString2 + "(" + CommonUtils.getVersionName(this.mWebView.getContext()) + ")", new String[0]);
             return true;
         } catch (JSONException e) {
-            a.a(e);
+            e.printStackTrace();
             return false;
         }
     }
@@ -191,7 +190,7 @@ public class WebChromeClient {
     */
     private boolean invokeJSInterfaceMethod(WebView webView, JsPromptResult jsPromptResult, boolean z, String str, String str2, Object[] objArr) {
         Object invoke;
-        Object obj = webView.getSecureProcessor().c().get(str);
+        Object obj = webView.getSecureProcessor().d().get(str);
         if (obj == null) {
             if (DEBUG) {
                 Log.e(LOG_TAG, "not exist js interface:" + str);
@@ -362,7 +361,7 @@ public class WebChromeClient {
         }
         try {
             JSONObject jSONObject = new JSONObject(substring);
-            String string = jSONObject.getString(KEY_INTERFACE_NAME);
+            String string = jSONObject.getString("obj");
             String optString = jSONObject.optString(KEY_FUNCTION_NAME, null);
             JSONArray optJSONArray = jSONObject.optJSONArray(KEY_ARG_ARRAY);
             if (optJSONArray != null) {

@@ -1,11 +1,11 @@
 package com.baidu.tbadk.core.view.commonLike;
 
 import android.view.View;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface b {
-    void aM(boolean z);
+    void aN(boolean z);
 
-    void bi(View view);
+    void bk(View view);
 
     void g(View.OnClickListener onClickListener);
 }

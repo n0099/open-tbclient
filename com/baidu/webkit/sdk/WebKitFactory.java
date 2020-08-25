@@ -5,7 +5,6 @@ import android.os.Build;
 import android.os.Process;
 import android.support.annotation.Keep;
 import android.text.TextUtils;
-import com.a.a.a.a.a.a.a;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.webkit.internal.CpuInfo;
 import com.baidu.webkit.internal.ETAG;
@@ -35,7 +34,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public final class WebKitFactory {
     private static final String ARCH_ARM = "armv";
     private static final int ARCH_ARM_INT = 7;
@@ -83,7 +82,7 @@ public final class WebKitFactory {
     private static boolean sEnableIntegratedCrashpad = true;
     private static SwitchState sEnableMultipleProcess = SwitchState.Invalid;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     private static class DelayedInitTask extends Thread {
         private boolean mResult;
 
@@ -115,11 +114,11 @@ public final class WebKitFactory {
                 }
                 Statistics.init(str + "error.log", str + "phoenix_ad.log", str2);
             } catch (FileNotFoundException e) {
-                a.a(e);
+                e.printStackTrace();
             } catch (IOException e2) {
-                a.a(e2);
+                e2.printStackTrace();
             } catch (Throwable th) {
-                a.a(th);
+                th.printStackTrace();
             }
         }
 
@@ -133,9 +132,9 @@ public final class WebKitFactory {
                 }
             }
             System.currentTimeMillis();
-            ZeusPerformanceTiming.initWebkitStart();
+            ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_INIT_WEBKIT);
             boolean forceInitZeusProvider = WebViewFactory.forceInitZeusProvider();
-            ZeusPerformanceTiming.initWebkitEnd();
+            ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.End, ZeusPerformanceTiming.KEY_INIT_WEBKIT);
             if (WebKitFactory.mListenerLst != null) {
                 for (IForceInitZeusListener iForceInitZeusListener2 : WebKitFactory.mListenerLst) {
                     iForceInitZeusListener2.onForceInitZeusFinish(forceInitZeusProvider);
@@ -164,12 +163,12 @@ public final class WebKitFactory {
                     ZeusWebViewPreloadClass.getInstance().destroy();
                 }
             } catch (Throwable th) {
-                a.a(th);
+                th.printStackTrace();
             }
             try {
                 WebViewFactory.getProvider().initPageCacheCounts(WebViewFactory.getContext());
             } catch (Throwable th2) {
-                a.a(th2);
+                th2.printStackTrace();
             }
             WebViewFactory.isZeusProvider();
         }
@@ -196,7 +195,7 @@ public final class WebKitFactory {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public interface IForceInitZeusListener {
         @Keep
         void onForceInitZeusFinish(boolean z);
@@ -205,14 +204,14 @@ public final class WebKitFactory {
         void onForceInitZeusStart();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public enum SwitchState {
         Invalid,
         On,
         Off
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public interface WebkitInstallListener {
         public static final int RET_CANCELED = 3;
         public static final int RET_FAILED_ALREADY_RUNNING = 8;
@@ -554,10 +553,10 @@ public final class WebKitFactory {
             if (!TextUtils.isEmpty(property) && property.toLowerCase().contains("armv")) {
                 try {
                 } catch (NumberFormatException e) {
-                    a.a(e);
+                    e.printStackTrace();
                     z = false;
                 } catch (Exception e2) {
-                    a.a(e2);
+                    e2.printStackTrace();
                 }
                 if (Integer.valueOf(property.substring(4, 5)).intValue() >= 7) {
                     z = true;

@@ -12,10 +12,10 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 import com.baidu.searchbox.unitedscheme.moniter.SchemeTimeCostMoniter;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.event.a.d;
-import com.baidu.swan.apps.performance.a.f;
 import com.baidu.swan.apps.performance.h;
+import com.baidu.swan.apps.v.f;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SwanAppJsBridge extends a {
     public static final String JAVASCRIPT_INTERFACE_NAME = "Bdbox_aiapps_jsbridge";
     private static final String TAG = "SwanAppJsBridge";
@@ -30,17 +30,15 @@ public class SwanAppJsBridge extends a {
         if (DEBUG) {
             Log.d(TAG, "slave id: " + str + " data: " + str2);
         }
-        f.aoh().iI("setData");
-        h.C("postMessage", "PostMsg setData handle");
+        h.E("postMessage", "PostMsg setData handle");
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             i = 202;
         } else {
             d dVar = new d(str, str2);
-            h.C("postMessage", "PostMsg setData start");
-            com.baidu.swan.apps.v.f.akr().a(dVar, false);
-            h.C("postMessage", "PostMsg setData end");
+            h.E("postMessage", "PostMsg setData start");
+            f.arY().a(dVar, false);
+            h.E("postMessage", "PostMsg setData end");
         }
-        f.aoh().iJ("setData");
         return UnitedSchemeUtility.wrapCallbackParams(i).toString();
     }
 
@@ -56,11 +54,9 @@ public class SwanAppJsBridge extends a {
                 Log.d(TAG, "doSchemeDispatch scheme: " + str + " mCallbackHandler: " + this.mCallbackHandler);
             }
             SchemeTimeCostMoniter.getInstance().schemeStart(str);
-            String path = unitedSchemeEntity.getUri().getPath();
-            f.aoh().iI(path);
+            unitedSchemeEntity.getUri().getPath();
             this.mMainDispatcher.dispatch(getDispatchContext(), unitedSchemeEntity, this.mCallbackHandler);
             SchemeTimeCostMoniter.getInstance().schemeEnd(str);
-            f.aoh().iJ(path);
             if (unitedSchemeEntity.result != null) {
                 return unitedSchemeEntity.result.toString();
             }

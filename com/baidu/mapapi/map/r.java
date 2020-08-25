@@ -1,35 +1,32 @@
 package com.baidu.mapapi.map;
 
 import android.view.View;
-import com.baidu.mapapi.map.SwipeDismissTouchListener;
+import com.baidu.platform.comapi.map.MapSurfaceView;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
-public class r implements SwipeDismissTouchListener.DismissCallbacks {
-    final /* synthetic */ SwipeDismissView a;
+/* loaded from: classes20.dex */
+public class r implements View.OnClickListener {
+    final /* synthetic */ MapView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(SwipeDismissView swipeDismissView) {
-        this.a = swipeDismissView;
+    public r(MapView mapView) {
+        this.a = mapView;
     }
 
-    @Override // com.baidu.mapapi.map.SwipeDismissTouchListener.DismissCallbacks
-    public boolean canDismiss(Object obj) {
-        return true;
-    }
-
-    @Override // com.baidu.mapapi.map.SwipeDismissTouchListener.DismissCallbacks
-    public void onDismiss(View view, Object obj) {
-        if (this.a.a == null) {
-            return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        MapSurfaceView mapSurfaceView;
+        MapSurfaceView mapSurfaceView2;
+        MapSurfaceView mapSurfaceView3;
+        mapSurfaceView = this.a.e;
+        float zoomLevel = mapSurfaceView.getZoomLevel();
+        float f = zoomLevel - 1.0f;
+        if (Math.floor(zoomLevel) != zoomLevel) {
+            f = (float) Math.floor(zoomLevel);
         }
-        this.a.a.onDismiss();
-    }
-
-    @Override // com.baidu.mapapi.map.SwipeDismissTouchListener.DismissCallbacks
-    public void onNotify() {
-        if (this.a.a == null) {
-            return;
-        }
-        this.a.a.onNotify();
+        mapSurfaceView2 = this.a.e;
+        float max = Math.max(f, mapSurfaceView2.getController().mMinZoomLevel);
+        BaiduMap.mapStatusReason |= 16;
+        mapSurfaceView3 = this.a.e;
+        mapSurfaceView3.setZoomLevel(max);
     }
 }

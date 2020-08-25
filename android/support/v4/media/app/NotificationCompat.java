@@ -16,12 +16,12 @@ import android.support.v4.app.NotificationBuilderWithBuilderAccessor;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.media.session.MediaSessionCompat;
 import android.widget.RemoteViews;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class NotificationCompat {
     private NotificationCompat() {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class MediaStyle extends NotificationCompat.Style {
         private static final int MAX_MEDIA_BUTTONS = 5;
         private static final int MAX_MEDIA_BUTTONS_IN_COMPACT = 3;
@@ -187,7 +187,7 @@ public class NotificationCompat {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class DecoratedMediaCustomViewStyle extends MediaStyle {
         @Override // android.support.v4.media.app.NotificationCompat.MediaStyle, android.support.v4.app.NotificationCompat.Style
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})

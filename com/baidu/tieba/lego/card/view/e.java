@@ -4,17 +4,17 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.lego.card.a;
 import com.baidu.tieba.lego.card.c;
 import com.baidu.tieba.lego.card.model.ICardInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface e<T extends ICardInfo> {
-    void aBi();
+    void aG(Object obj);
 
-    void aE(Object obj);
+    void aJY();
 
-    void cBC();
+    void cMu();
 
-    void cBD();
+    void cMv();
 
-    void cov();
+    void czo();
 
     void m(BdUniqueId bdUniqueId);
 

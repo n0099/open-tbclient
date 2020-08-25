@@ -16,7 +16,7 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.Adapter;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     public static final long INVALID_COL_ID = Long.MIN_VALUE;
     public static final int INVALID_POSITION = -1;
@@ -59,17 +59,17 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     protected int mSyncPosition;
     protected long mSyncWidth;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface c {
         void a(AdapterView<?> adapterView, View view, int i, long j);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface d {
         boolean b(AdapterView<?> adapterView, View view, int i, long j);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface e {
         void a(AdapterView<?> adapterView);
 
@@ -172,7 +172,7 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         return this.mOnItemSelectedListener;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class a implements ContextMenu.ContextMenuInfo {
         public long id;
         public int position;
@@ -394,7 +394,7 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         dispatchThawSelfOnly(sparseArray);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     class b extends DataSetObserver {
         private Parcelable mInstanceState = null;
 
@@ -443,7 +443,7 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class f implements Runnable {
         private f() {
         }

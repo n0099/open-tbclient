@@ -3,7 +3,6 @@ package com.baidu.webkit.sdk;
 import android.graphics.Bitmap;
 import android.net.http.SslError;
 import android.os.Message;
-import android.view.InputEvent;
 import android.view.KeyEvent;
 import android.webkit.SslErrorHandler;
 import com.baidu.webkit.internal.GlobalConstants;
@@ -16,7 +15,7 @@ import com.baidu.webkit.internal.b.i;
 import com.baidu.webkit.internal.b.j;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class WebViewClient {
     public static final int ERROR_AUTHENTICATION = -4;
     public static final int ERROR_BAD_URL = -12;
@@ -39,7 +38,7 @@ public class WebViewClient {
     private static final String TAG = "WebViewClient";
     private List<j> mUrlHandlers = new ArrayList();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public enum InteractionType {
         INPUT,
         CONTENT_CHANGE,
@@ -47,7 +46,7 @@ public class WebViewClient {
         OTHERS
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public static class SecurityInfo {
         private WebSiteInfo info;
         private SecurityLevel level = SecurityLevel.UNCERTAIN;
@@ -69,7 +68,7 @@ public class WebViewClient {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public enum SecurityLevel {
         SECURE,
         DANGEROUS,
@@ -81,7 +80,7 @@ public class WebViewClient {
         DEFAULT
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public static class WebSiteInfo {
         private String name;
         private WebSiteType type;
@@ -101,7 +100,7 @@ public class WebViewClient {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public enum WebSiteType {
         BANK,
         PAYMENT,
@@ -113,7 +112,7 @@ public class WebViewClient {
         DEFAULT
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public interface ZeusVideoInfoDelegate {
         void notifyUpdateVideoInfo(String str);
     }
@@ -227,6 +226,9 @@ public class WebViewClient {
     public void onGotNotResponse(WebView webView) {
     }
 
+    public void onHandleBackForwardBeyondHistory(int i) {
+    }
+
     public void onHasVideo(WebView webView) {
     }
 
@@ -294,7 +296,7 @@ public class WebViewClient {
         if (webView == null || !webView.getContext().getPackageName().contains(GlobalConstants.SEARCHBOX_PACKAGE_NAME)) {
             return;
         }
-        webView.getSecureProcessor().b();
+        webView.getSecureProcessor().c();
     }
 
     public void onPageLoadTime(WebView webView, String str, long j) {
@@ -304,7 +306,7 @@ public class WebViewClient {
         if (webView == null || !webView.getContext().getPackageName().contains(GlobalConstants.SEARCHBOX_PACKAGE_NAME)) {
             return;
         }
-        webView.getSecureProcessor().b();
+        webView.getSecureProcessor().c();
     }
 
     public void onPageSwitching(WebView webView) {
@@ -409,10 +411,6 @@ public class WebViewClient {
         message.sendToTarget();
     }
 
-    public void onUnhandledInputEvent(WebView webView, InputEvent inputEvent) {
-    }
-
-    @Deprecated
     public void onUnhandledKeyEvent(WebView webView, KeyEvent keyEvent) {
     }
 
@@ -460,6 +458,11 @@ public class WebViewClient {
         return false;
     }
 
+    public boolean shouldOverrideUrlLoading(WebView webView, WebResourceRequest webResourceRequest) {
+        return shouldOverrideUrlLoading(webView, webResourceRequest.getUrl().toString());
+    }
+
+    @Deprecated
     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
         for (j jVar : this.mUrlHandlers) {
             if (jVar.a(webView.getContext(), str)) {

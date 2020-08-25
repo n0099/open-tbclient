@@ -1,21 +1,21 @@
 package com.baidu.swan.apps.adaptation;
 
 import android.support.annotation.NonNull;
-import com.baidu.swan.apps.adaptation.a.h;
-import com.baidu.swan.bdprivate.a.t;
+import com.baidu.swan.apps.adaptation.a.i;
+import com.baidu.swan.bdprivate.a.u;
 /* loaded from: classes14.dex */
 public class a {
-    private h bMU;
+    private i bSu;
 
     @NonNull
-    public h Sv() {
-        if (this.bMU == null) {
-            this.bMU = Sw();
+    public i Yq() {
+        if (this.bSu == null) {
+            this.bSu = Yr();
         }
-        return this.bMU;
+        return this.bSu;
     }
 
-    public h Sw() {
-        return new t();
+    public i Yr() {
+        return new u();
     }
 }

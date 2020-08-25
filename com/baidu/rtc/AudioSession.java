@@ -16,7 +16,7 @@ import com.baidu.rtc.utils.d;
 import java.util.Arrays;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes7.dex */
+/* loaded from: classes11.dex */
 public class AudioSession {
     private static final int NETWORK_UNAVAILABLE = 0;
     private static final int NETWORK_WWAN = 2;
@@ -90,8 +90,8 @@ public class AudioSession {
         this.mNDKAdapter.setNDKCallback(this.mRecorderCallback);
         this.mNdkPlayer = new AlaNDKPlayerAdapter();
         this.mNdkPlayer.setNDKCallback(this.mPlayerCallback);
-        if (!NetworkManager.Rs().Rt()) {
-            NetworkManager.Rs().init((Application) context.getApplicationContext());
+        if (!NetworkManager.Xn().Xo()) {
+            NetworkManager.Xn().init((Application) context.getApplicationContext());
         }
         this.mPlayerService.submit(new Runnable() { // from class: com.baidu.rtc.AudioSession.4
             @Override // java.lang.Runnable
@@ -128,7 +128,7 @@ public class AudioSession {
             this.mAudioDevices = new a(this.mContext, this.mNDKAdapter.getNativeObject());
             startAudioRecord();
             startAudioPlayer();
-            NetworkManager.Rs().a(this.mNetworkChangeListener);
+            NetworkManager.Xn().a(this.mNetworkChangeListener);
             this.mHasStart = true;
             this.mIsStop = false;
             return 0;
@@ -144,7 +144,7 @@ public class AudioSession {
         if (stopNativeObject() != 0) {
             Log.e(TAG, "stopNativeObject failed");
         }
-        NetworkManager.Rs().b(this.mNetworkChangeListener);
+        NetworkManager.Xn().b(this.mNetworkChangeListener);
         this.mIsStop = true;
         if (this.mHasStart && this.mRtcHandler != null && this.mRtcConfig != null) {
             this.mRtcHandler.onStop(this.mRtcConfig.roomId, this.mRtcConfig.lineId);
@@ -208,7 +208,7 @@ public class AudioSession {
             if (this.mNDKAdapter.startNative(this.mRtcUrl, getNetworkState(), this.mBaseInfo.toJsonString()) != 0) {
                 Log.e(TAG, "startNative failed");
                 return -1;
-            } else if (this.mNDKAdapter.initAudioEncoderNative(d.bJP, 1, 16) != 0) {
+            } else if (this.mNDKAdapter.initAudioEncoderNative(d.bPn, 1, 16) != 0) {
                 Log.e(TAG, "initAudioEncoderNative failed");
                 return -1;
             } else if (this.mNDKAdapter.initPKPlayer(this.mNdkPlayer) != 0) {
@@ -242,7 +242,7 @@ public class AudioSession {
         this.mPlayerService.submit(new Runnable() { // from class: com.baidu.rtc.AudioSession.6
             @Override // java.lang.Runnable
             public void run() {
-                if (!AudioSession.this.mAudioDevices.X(d.OUTPUT_SAMPLE_RATE, 4)) {
+                if (!AudioSession.this.mAudioDevices.Z(d.OUTPUT_SAMPLE_RATE, 4)) {
                     Log.e(AudioSession.TAG, "initAudioPlayer failed");
                     AudioSession.this.mAudioDevices.stopAudioPlayer();
                 } else if (!d.useOpenSLES()) {
@@ -279,16 +279,16 @@ public class AudioSession {
         this.mRecordService.submit(new Runnable() { // from class: com.baidu.rtc.AudioSession.8
             @Override // java.lang.Runnable
             public void run() {
-                if (!AudioSession.this.mAudioDevices.Y(d.bJP, 16)) {
+                if (!AudioSession.this.mAudioDevices.aa(d.bPn, 16)) {
                     Log.e(AudioSession.TAG, "initAudioRecord failed");
                     AudioSession.this.mAudioDevices.stopAudioRecord();
                 } else if (!d.useOpenSLES()) {
                     while (!AudioSession.this.mIsStop && !AudioSession.this.mRecordService.isShutdown()) {
                         if (AudioSession.this.mIsEnablePlaySound) {
                             try {
-                                byte[] Rl = AudioSession.this.mAudioDevices.Rl();
-                                if (Rl != null) {
-                                    AudioSession.this.mNDKAdapter.sendPCMDataNative2(Rl, 2048);
+                                byte[] Xg = AudioSession.this.mAudioDevices.Xg();
+                                if (Xg != null) {
+                                    AudioSession.this.mNDKAdapter.sendPCMDataNative2(Xg, 2048);
                                 }
                             } catch (Exception e) {
                                 e.printStackTrace();
@@ -319,7 +319,7 @@ public class AudioSession {
         c.getAppVersion(this.mContext);
         this.mBaseInfo.mStreamType = AlaLiveBaseInfo.STREAM_TYPE_SEND;
         this.mBaseInfo.mUid = "" + this.mRtcConfig.userId;
-        this.mBaseInfo.mNetWork = NetworkManager.Rs().Ru().toString();
+        this.mBaseInfo.mNetWork = NetworkManager.Xn().Xp().toString();
         this.mBaseInfo.mCuid = this.mRtcConfig.cuid;
     }
 
@@ -361,12 +361,12 @@ public class AudioSession {
 
     /* JADX INFO: Access modifiers changed from: private */
     public int getNetworkState() {
-        int Rv = NetworkManager.Rs().Rv();
-        if (Rv <= 0) {
+        int Xq = NetworkManager.Xn().Xq();
+        if (Xq <= 0) {
             return 0;
         }
-        if (Rv < 2) {
-            return Rv;
+        if (Xq < 2) {
+            return Xq;
         }
         return 2;
     }

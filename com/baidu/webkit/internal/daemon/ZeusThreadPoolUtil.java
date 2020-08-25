@@ -8,7 +8,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class ZeusThreadPoolUtil implements INoProGuard {
     private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
     private static final String LOG_TAG = "ZeusThreadPoolUtil";
@@ -20,7 +20,7 @@ public class ZeusThreadPoolUtil implements INoProGuard {
     private static volatile boolean sIsZeusLoaded;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public static class a implements ThreadFactory {
         private a() {
         }
@@ -94,7 +94,7 @@ public class ZeusThreadPoolUtil implements INoProGuard {
                 }
             }
         } catch (Exception e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         }
     }
 
@@ -108,7 +108,7 @@ public class ZeusThreadPoolUtil implements INoProGuard {
                 }
             }
         } catch (Exception e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         }
     }
 }

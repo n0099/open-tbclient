@@ -33,11 +33,11 @@ public class ADHttpResponseMessage extends TbHttpResponsedMessage {
                     c cVar = new c();
                     cVar.a(getADListResIdl.data.ad_list.get(i2));
                     if (getADListResIdl.data.ad_list.size() - 1 == i2) {
-                        cVar.nX(true);
+                        cVar.oB(true);
                     } else {
-                        cVar.nX(false);
+                        cVar.oB(false);
                     }
-                    if (cVar.cdR() == 0 || cVar.cdR() == 2) {
+                    if (cVar.cov() == 0 || cVar.cov() == 2) {
                         this.list.add(cVar);
                     }
                 }

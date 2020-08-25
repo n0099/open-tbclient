@@ -1,12 +1,8 @@
 package com.baidu.mapsdkplatform.comjni.util;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class a {
     public void a() {
         JNISysOSAPI.create();
-    }
-
-    public void a(Object obj) {
-        JNISysOSAPI.init(obj);
     }
 
     public void b() {

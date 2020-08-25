@@ -1,7 +1,7 @@
 package com.baidu.fsg.base.restnet;
 
 import com.baidu.fsg.base.ApollonConstants;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public final class RestDebugConfig {
     private static RestDebugConfig mInstance;
     private boolean mIsQAEnv = false;

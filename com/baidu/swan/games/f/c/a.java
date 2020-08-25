@@ -1,7 +1,7 @@
 package com.baidu.swan.games.f.c;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface a {
-    void ae(int i, String str);
+    void ac(int i, String str);
 
-    void ch(String str, String str2);
+    void cA(String str, String str2);
 }

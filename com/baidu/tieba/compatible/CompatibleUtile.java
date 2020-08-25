@@ -22,7 +22,7 @@ import com.baidu.tbadk.TbDomainConfig;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.lang.reflect.Method;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class CompatibleUtile {
     private static CompatibleUtile mCompatibleUtile = null;
     private static Object5 mObject5 = null;
@@ -232,7 +232,7 @@ public class CompatibleUtile {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class FullscreenableChromeClient extends WebChromeClient {
         private final FrameLayout.LayoutParams COVER_SCREEN_PARAMS = new FrameLayout.LayoutParams(-1, -1);
         protected Activity mActivity;
@@ -296,7 +296,7 @@ public class CompatibleUtile {
             window.setAttributes(attributes);
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes9.dex */
         private class FullscreenHolder extends FrameLayout {
             public FullscreenHolder(Context context) {
                 super(context);
@@ -311,7 +311,7 @@ public class CompatibleUtile {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class Object5 {
         private Object5() {
         }
@@ -349,7 +349,7 @@ public class CompatibleUtile {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class Object7 {
         private Object7() {
         }
@@ -367,7 +367,7 @@ public class CompatibleUtile {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class Object8 {
         private Object8() {
         }
@@ -409,7 +409,7 @@ public class CompatibleUtile {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class Object9 {
         private Object9() {
         }
@@ -440,7 +440,7 @@ public class CompatibleUtile {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class Object11 {
         private final int[] STATUSBAR_ATTRS;
 
@@ -497,7 +497,7 @@ public class CompatibleUtile {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class Object14 {
         private Object14() {
         }

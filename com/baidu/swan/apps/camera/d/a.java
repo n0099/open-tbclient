@@ -4,10 +4,10 @@ import android.text.TextUtils;
 import com.baidu.ar.arplay.core.engine.pixel.PixelReadParams;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends com.baidu.swan.apps.component.b.b {
-    private String bSZ;
-    public String bTa;
+    private String bYH;
+    public String bYI;
     private String devicePosition;
 
     public a(String str) {
@@ -23,36 +23,36 @@ public class a extends com.baidu.swan.apps.component.b.b {
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         super.parseFromJson(jSONObject);
         this.devicePosition = jSONObject.optString("devicePosition", "back");
-        this.bSZ = jSONObject.optString("flash", "auto");
-        this.bTa = jSONObject.optString("cameraId");
+        this.bYH = jSONObject.optString("flash", "auto");
+        this.bYI = jSONObject.optString("cameraId");
     }
 
     public boolean isFrontCamera() {
         return TextUtils.equals(this.devicePosition, "front");
     }
 
-    public String Wy() {
-        return C0326a.iQ(this.bSZ);
+    public String acE() {
+        return C0368a.kq(this.bYH);
     }
 
     public int getWidth() {
-        if (this.bVp == null) {
+        if (this.caX == null) {
             return 0;
         }
-        return this.bVp.getWidth();
+        return this.caX.getWidth();
     }
 
     public int getHeight() {
-        if (this.bVp == null) {
+        if (this.caX == null) {
             return 0;
         }
-        return this.bVp.getHeight();
+        return this.caX.getHeight();
     }
 
     /* renamed from: com.baidu.swan.apps.camera.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    private static class C0326a {
-        static String iQ(String str) {
+    /* loaded from: classes8.dex */
+    private static class C0368a {
+        static String kq(String str) {
             char c = 65535;
             switch (str.hashCode()) {
                 case 3551:

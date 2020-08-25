@@ -2,49 +2,49 @@ package com.baidu.swan.apps.swancore.d;
 
 import android.support.annotation.Nullable;
 import com.baidu.swan.apps.u.c.c;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
-    public boolean cPA;
-    public boolean cPB;
+    public boolean cYC;
+    public boolean cYD;
     @Nullable
-    public c cPC;
-    public String cPD;
+    public c cYE;
+    public String cYF;
 
     private b() {
-        this.cPA = false;
-        this.cPB = false;
-        this.cPC = null;
-        this.cPD = "";
+        this.cYC = false;
+        this.cYD = false;
+        this.cYE = null;
+        this.cYF = "";
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
-        private boolean cPA = false;
-        private boolean cPB = false;
+        private boolean cYC = false;
+        private boolean cYD = false;
         @Nullable
-        private c cPC = null;
-        private String cPD = "";
+        private c cYE = null;
+        private String cYF = "";
 
-        public static a avl() {
+        public static a aDu() {
             return new a();
         }
 
-        public a fC(boolean z) {
-            this.cPA = z;
+        public a fV(boolean z) {
+            this.cYC = z;
             return this;
         }
 
-        public a qd(String str) {
-            this.cPD = str;
+        public a sd(String str) {
+            this.cYF = str;
             return this;
         }
 
-        public b avm() {
+        public b aDv() {
             b bVar = new b();
-            bVar.cPA = this.cPA;
-            bVar.cPB = this.cPB;
-            bVar.cPC = this.cPC;
-            bVar.cPD = this.cPD;
+            bVar.cYC = this.cYC;
+            bVar.cYD = this.cYD;
+            bVar.cYE = this.cYE;
+            bVar.cYF = this.cYF;
             return bVar;
         }
     }

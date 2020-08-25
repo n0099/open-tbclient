@@ -1,10 +1,6 @@
 package com.baidu.mapsdkplatform.comapi.map;
-/* loaded from: classes10.dex */
-public class x extends ag {
-    public x() {
-        this.c = 0;
-        this.b = "location";
-        this.d = 1000;
-        this.g = 7;
-    }
+/* loaded from: classes20.dex */
+public class x extends c {
+    private static final String f = x.class.getSimpleName();
+    int e;
 }

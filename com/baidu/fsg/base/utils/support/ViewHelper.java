@@ -3,7 +3,7 @@ package com.baidu.fsg.base.utils.support;
 import android.view.View;
 import android.view.ViewGroup;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public final class ViewHelper {
     private ViewHelper() {
     }
@@ -258,7 +258,7 @@ public final class ViewHelper {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static final class Honeycomb {
         private Honeycomb() {
         }

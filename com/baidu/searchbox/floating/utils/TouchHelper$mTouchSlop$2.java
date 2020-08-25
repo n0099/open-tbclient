@@ -1,0 +1,35 @@
+package com.baidu.searchbox.floating.utils;
+
+import android.view.ViewConfiguration;
+import kotlin.h;
+import kotlin.jvm.a.a;
+import kotlin.jvm.internal.Lambda;
+import kotlin.jvm.internal.q;
+@h
+/* loaded from: classes19.dex */
+final class TouchHelper$mTouchSlop$2 extends Lambda implements a<Integer> {
+    final /* synthetic */ TouchHelper this$0;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public TouchHelper$mTouchSlop$2(TouchHelper touchHelper) {
+        super(0);
+        this.this$0 = touchHelper;
+    }
+
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // kotlin.jvm.a.a
+    /* renamed from: invoke  reason: avoid collision after fix types in other method */
+    public /* synthetic */ Integer invoke2() {
+        return Integer.valueOf(invoke());
+    }
+
+    /* JADX DEBUG: Return type fixed from 'int' to match base method */
+    /* JADX WARN: Type inference failed for: r0v3, types: [int, java.lang.Integer] */
+    @Override // kotlin.jvm.a.a
+    public final Integer invoke() {
+        ViewConfiguration viewConfiguration = ViewConfiguration.get(this.this$0.getContext());
+        q.l((Object) viewConfiguration, "ViewConfiguration.get(context)");
+        return viewConfiguration.getScaledTouchSlop();
+    }
+}

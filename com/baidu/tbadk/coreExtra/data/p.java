@@ -1,63 +1,40 @@
 package com.baidu.tbadk.coreExtra.data;
-
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import java.util.Hashtable;
-import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class p {
-    private Hashtable<String, String> eqg = new Hashtable<>();
-    private Hashtable<String, String> eqh = new Hashtable<>();
+    private o eAm;
+    private int mErrorCode;
+    private String mErrorString;
+    private boolean mIsSuccess;
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                JSONArray optJSONArray = jSONObject.optJSONArray("tdou_cashier_type");
-                JSONArray optJSONArray2 = jSONObject.optJSONArray("pay_cashier_type");
-                BdLog.e("consumepath is:" + jSONObject.toString());
-                a(this.eqg, optJSONArray);
-                a(this.eqh, optJSONArray2);
-                BdLog.e("pay mPayCashierType:" + this.eqg.toString());
-                BdLog.e("pay mPayCashierType:" + this.eqh.toString());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+    public o bmL() {
+        return this.eAm;
     }
 
-    private void a(Hashtable hashtable, JSONArray jSONArray) {
-        int length = jSONArray.length();
-        if (length > 0) {
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                Iterator<String> keys = optJSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    try {
-                        hashtable.put(next, optJSONObject.get(next));
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        }
+    public void b(o oVar) {
+        this.eAm = oVar;
     }
 
-    public boolean ar(int i, String str) {
-        if (str == null) {
-            return true;
-        }
-        String str2 = null;
-        if (i == 1) {
-            str2 = this.eqh.get(str);
-        } else if (i == 2) {
-            str2 = this.eqg.get(str);
-        }
-        if (StringUtils.isNull(str2)) {
-            return true;
-        }
-        return str2.equals("3");
+    public boolean isSuccess() {
+        return this.mIsSuccess;
+    }
+
+    public void setIsSuccess(boolean z) {
+        this.mIsSuccess = z;
+    }
+
+    public int getErrorCode() {
+        return this.mErrorCode;
+    }
+
+    public void setErrorCode(int i) {
+        this.mErrorCode = i;
+    }
+
+    public String getErrorString() {
+        return this.mErrorString;
+    }
+
+    public void setErrorString(String str) {
+        this.mErrorString = str;
     }
 }

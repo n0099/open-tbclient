@@ -2,7 +2,7 @@ package com.baidu.tieba.face.data;
 
 import com.baidu.tbadk.img.ImageFileInfo;
 import java.io.Serializable;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class FaceData implements Serializable, Comparable<FaceData> {
     public static final int TYPE_ADD_ICON = 4;
     public static final int TYPE_ALBUM = 3;

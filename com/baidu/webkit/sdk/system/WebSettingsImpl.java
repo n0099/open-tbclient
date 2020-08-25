@@ -9,7 +9,7 @@ import com.baidu.webkit.internal.GlobalConstants;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.sdk.WebSettings;
 import com.baidu.webkit.sdk.WebViewFactoryProvider;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 final class WebSettingsImpl extends WebSettings {
     private boolean mEnableFileSchemaOnPrivate = true;
     private android.webkit.WebSettings mSettings;
@@ -120,6 +120,15 @@ final class WebSettingsImpl extends WebSettings {
     @Override // com.baidu.webkit.sdk.WebSettings
     public final WebSettings.ZoomDensity getDefaultZoom() {
         return Glue.cast(this.mSettings.getDefaultZoom());
+    }
+
+    @Override // com.baidu.webkit.sdk.WebSettings
+    @TargetApi(24)
+    public final int getDisabledActionModeMenuItems() {
+        if (Build.VERSION.SDK_INT >= 24) {
+            return this.mSettings.getDisabledActionModeMenuItems();
+        }
+        return 0;
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings
@@ -419,6 +428,14 @@ final class WebSettingsImpl extends WebSettings {
     @Override // com.baidu.webkit.sdk.WebSettings
     public final void setDefaultZoom(WebSettings.ZoomDensity zoomDensity) {
         this.mSettings.setDefaultZoom(Glue.cast(zoomDensity));
+    }
+
+    @Override // com.baidu.webkit.sdk.WebSettings
+    @TargetApi(24)
+    public final void setDisabledActionModeMenuItems(int i) {
+        if (Build.VERSION.SDK_INT >= 24) {
+            this.mSettings.setDisabledActionModeMenuItems(i);
+        }
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings

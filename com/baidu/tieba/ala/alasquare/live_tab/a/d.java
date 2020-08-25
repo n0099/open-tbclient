@@ -8,39 +8,39 @@ import com.baidu.tieba.ala.alasquare.live_tab.view.h;
 import com.baidu.tieba.ala.alasquare.live_tab.view.i;
 /* loaded from: classes4.dex */
 public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.live_tab.b.e, i> {
-    private boolean fsW;
-    private h fsZ;
+    private boolean fEq;
+    private h fEt;
     private TbPageContext mPageContext;
 
     public d(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.b.e.fte);
-        this.fsW = false;
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.b.e.fEy);
+        this.fEq = false;
         this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: I */
+    /* renamed from: J */
     public i b(ViewGroup viewGroup) {
-        this.fsZ = new h(this.mPageContext, viewGroup);
-        this.fsZ.kc(this.fsW);
-        return new i(this.fsZ);
+        this.fEt = new h(this.mPageContext, viewGroup);
+        this.fEt.kA(this.fEq);
+        return new i(this.fEt);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.live_tab.b.e eVar, i iVar) {
-        if (iVar == null || iVar.fsZ == null) {
+        if (iVar == null || iVar.fEt == null) {
             return null;
         }
-        iVar.fsZ.a(eVar);
-        iVar.fsZ.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        iVar.fEt.a(eVar);
+        iVar.fEt.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return iVar.getView();
     }
 
-    public void kc(boolean z) {
-        this.fsW = z;
+    public void kA(boolean z) {
+        this.fEq = z;
     }
 }

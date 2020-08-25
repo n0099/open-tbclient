@@ -9,7 +9,7 @@ import android.widget.FrameLayout;
 /* loaded from: classes9.dex */
 class q extends FrameLayout {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static ViewGroup aS(View view) {
+    public static ViewGroup aU(View view) {
         q qVar = new q(view.getContext());
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
         if (layoutParams != null) {

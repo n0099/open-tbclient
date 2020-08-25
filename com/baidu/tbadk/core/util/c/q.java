@@ -6,10 +6,10 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import java.io.File;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class q implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a> {
     @Override // com.baidu.adp.lib.e.e
-    public boolean lq() {
+    public boolean mP() {
         return true;
     }
 
@@ -17,7 +17,7 @@ public class q implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
     @Override // com.baidu.adp.lib.e.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(yh(str), com.baidu.tbadk.imageManager.c.bkk().zV(yh(str)), i, i2);
+        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(Av(str), com.baidu.tbadk.imageManager.c.bsW().Cl(Av(str)), i, i2);
         if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.getRawBitmap() == null || checkIsValidPicMemoryCache.getRawBitmap().isRecycled()) {
             return null;
         }
@@ -31,16 +31,16 @@ public class q implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
         if (StringUtils.isNull(str)) {
             return null;
         }
-        return r(str, i, i2);
+        return q(str, i, i2);
     }
 
     @Override // com.baidu.adp.lib.e.e
     public void a(String str, Object obj, int i, int i2, Object... objArr) {
         if (obj != null && (obj instanceof com.baidu.adp.widget.ImageView.a) && ((com.baidu.adp.widget.ImageView.a) obj).isNeedCache()) {
             com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) obj;
-            aVar.aD(i);
-            aVar.aE(i2);
-            com.baidu.tbadk.imageManager.c.bkk().c(yh(str), aVar);
+            aVar.aF(i);
+            aVar.aG(i2);
+            com.baidu.tbadk.imageManager.c.bsW().c(Av(str), aVar);
         }
     }
 
@@ -52,16 +52,16 @@ public class q implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
     }
 
     @Override // com.baidu.adp.lib.e.e
-    public BdAsyncTaskParallel lr() {
+    public BdAsyncTaskParallel mQ() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.e.e
-    public int ls() {
+    public int mR() {
         return 1;
     }
 
-    public com.baidu.adp.widget.ImageView.a r(String str, int i, int i2) {
+    public com.baidu.adp.widget.ImageView.a q(String str, int i, int i2) {
         try {
             File file = new File(str);
             if (file != null && file.exists()) {
@@ -72,7 +72,7 @@ public class q implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
         return null;
     }
 
-    public String yh(String str) {
+    public String Av(String str) {
         return "videoThumb_" + str;
     }
 }

@@ -3,14 +3,14 @@ package com.baidu.live.adp.lib.guide;
 import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class GuideBuilder {
     private boolean mBuilt;
     private List<Component> mComponents = new ArrayList();
     private Configuration mConfiguration = new Configuration();
     private OnVisibilityChangedListener mOnVisibilityChangedListener;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface OnVisibilityChangedListener {
         void onDismiss();
 

@@ -1,15 +1,11 @@
 package com.baidu.tieba.frs;
+
+import tbclient.ItemInfo;
 /* loaded from: classes15.dex */
 public interface ao {
-    void IH();
+    void a(ItemInfo itemInfo);
 
-    void bci();
+    ItemInfo clh();
 
-    void bwZ();
-
-    void bxa();
-
-    void setRecommendFrsNavigationAnimDispatcher(com.baidu.tbadk.util.aa aaVar);
-
-    void showFloatingView();
+    boolean cli();
 }

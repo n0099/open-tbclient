@@ -2,9 +2,9 @@ package com.baidu.tieba.card;
 
 import android.view.View;
 import com.baidu.tieba.card.data.b;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class aa<T extends com.baidu.tieba.card.data.b> {
-    public Object agK;
+    public Object ahT;
 
     public void a(View view, T t) {
     }

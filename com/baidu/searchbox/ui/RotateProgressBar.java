@@ -7,7 +7,7 @@ import android.os.SystemClock;
 import android.util.AttributeSet;
 import android.widget.ProgressBar;
 import java.lang.reflect.Field;
-/* loaded from: classes5.dex */
+/* loaded from: classes19.dex */
 public class RotateProgressBar extends ProgressBar {
     protected static final int ANIMATION_RESOLUTION = 200;
     protected static final int INCREMENT = 30;
@@ -60,7 +60,7 @@ public class RotateProgressBar extends ProgressBar {
             } else {
                 this.mLastDrawTime = SystemClock.uptimeMillis();
                 this.mDegree += 30;
-                if (this.mDegree >= MAX_DEGREE) {
+                if (this.mDegree >= 360) {
                     this.mDegree = 0;
                 }
                 drawable.setLevel((int) ((this.mDegree * 10000) / 360.0f));

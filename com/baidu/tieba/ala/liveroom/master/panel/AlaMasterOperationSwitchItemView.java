@@ -2,48 +2,48 @@ package com.baidu.tieba.ala.liveroom.master.panel;
 
 import android.content.Context;
 import com.baidu.live.sdk.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaMasterOperationSwitchItemView extends AlaMasterOperationBaseItemView {
-    private short grC;
-    private int grD;
-    private int grE;
+    private short gEw;
+    private int gEx;
+    private int gEy;
 
     public AlaMasterOperationSwitchItemView(Context context, int i) {
         super(context, i);
-        this.grC = (short) 1;
+        this.gEw = (short) 1;
     }
 
     public void setTextResIdAndOnIconIdAndOffIconId(int i, int i2, int i3) {
         setTextResId(i);
-        this.grD = i2;
-        this.grE = i3;
-        bKI();
+        this.gEx = i2;
+        this.gEy = i3;
+        bUL();
     }
 
     public void h(short s) {
-        this.grC = s;
-        bKI();
-        bKJ();
+        this.gEw = s;
+        bUL();
+        bUM();
     }
 
-    private void bKI() {
-        if (this.grC == 1) {
-            setIconResId(this.grD);
+    private void bUL() {
+        if (this.gEw == 1) {
+            setIconResId(this.gEx);
             setEnabled(true);
-        } else if (this.grC == 2) {
-            setIconResId(this.grE);
+        } else if (this.gEw == 2) {
+            setIconResId(this.gEy);
             setEnabled(true);
         } else {
-            setIconResId(this.grD);
+            setIconResId(this.gEx);
             setEnabled(false);
         }
     }
 
-    private void bKJ() {
+    private void bUM() {
         if (this.mId == 3) {
-            if (this.grC == 1) {
+            if (this.gEw == 1) {
                 setTextResId(a.i.ala_operation_panel_text_mirror_on);
-            } else if (this.grC == 2) {
+            } else if (this.gEw == 2) {
                 setTextResId(a.i.ala_operation_panel_text_mirror_off);
             }
         }

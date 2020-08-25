@@ -16,78 +16,78 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewCompat;
 import android.view.View;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a extends Drawable {
-    private Paint aYt;
-    private RectF awY;
-    private LinearGradient biK;
+    private RectF aCa;
+    private Paint bdK;
+    private LinearGradient bop;
     private Paint mShadowPaint;
-    private int eer = 4369;
-    private int edU = 1;
-    private int eep = 0;
-    private int eeo = com.baidu.tbadk.core.util.e.c.a.dU("#4d000000");
+    private int enR = 4369;
+    private int enu = 1;
+    private int enP = 0;
+    private int cLU = com.baidu.tbadk.core.util.e.c.a.fn("#4d000000");
     private int mShadowRadius = com.baidu.tbadk.core.util.e.c.a.dip2px(12.0f);
     private int mOffsetX = 0;
     private int mOffsetY = 0;
-    private int[] eeq = new int[1];
+    private int[] enQ = new int[1];
 
     private a() {
-        this.eeq[0] = 0;
+        this.enQ[0] = 0;
         this.mShadowPaint = new Paint();
         this.mShadowPaint.setColor(0);
         this.mShadowPaint.setAntiAlias(true);
-        this.mShadowPaint.setShadowLayer(this.mShadowRadius, this.mOffsetX, this.mOffsetY, this.eeo);
+        this.mShadowPaint.setShadowLayer(this.mShadowRadius, this.mOffsetX, this.mOffsetY, this.cLU);
         this.mShadowPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_ATOP));
-        this.aYt = new Paint();
-        this.aYt.setAntiAlias(true);
+        this.bdK = new Paint();
+        this.bdK.setAntiAlias(true);
     }
 
-    public static a bbE() {
+    public static a bka() {
         return new a();
     }
 
-    public a mj(int i) {
-        this.edU = i;
+    public a on(int i) {
+        this.enu = i;
         return this;
     }
 
-    public a mk(int i) {
-        this.eer = i;
+    public a oo(int i) {
+        this.enR = i;
         return this;
     }
 
-    public a ml(int i) {
-        this.eep = i;
+    public a op(int i) {
+        this.enP = i;
         return this;
     }
 
-    public a mm(@ColorRes int i) {
-        this.eeo = com.baidu.tbadk.core.util.e.c.a.getColor(i);
-        this.mShadowPaint.setShadowLayer(this.mShadowRadius, this.mOffsetX, this.mOffsetY, this.eeo);
+    public a oq(@ColorRes int i) {
+        this.cLU = com.baidu.tbadk.core.util.e.c.a.getColor(i);
+        this.mShadowPaint.setShadowLayer(this.mShadowRadius, this.mOffsetX, this.mOffsetY, this.cLU);
         return this;
     }
 
-    public a mn(int i) {
+    public a or(int i) {
         this.mShadowRadius = i;
-        this.mShadowPaint.setShadowLayer(this.mShadowRadius, this.mOffsetX, this.mOffsetY, this.eeo);
+        this.mShadowPaint.setShadowLayer(this.mShadowRadius, this.mOffsetX, this.mOffsetY, this.cLU);
         return this;
     }
 
-    public a mo(int i) {
+    public a os(int i) {
         this.mOffsetX = i;
-        this.mShadowPaint.setShadowLayer(this.mShadowRadius, this.mOffsetX, this.mOffsetY, this.eeo);
+        this.mShadowPaint.setShadowLayer(this.mShadowRadius, this.mOffsetX, this.mOffsetY, this.cLU);
         return this;
     }
 
-    public a mp(int i) {
+    public a ot(int i) {
         this.mOffsetY = i;
-        this.mShadowPaint.setShadowLayer(this.mShadowRadius, this.mOffsetX, this.mOffsetY, this.eeo);
+        this.mShadowPaint.setShadowLayer(this.mShadowRadius, this.mOffsetX, this.mOffsetY, this.cLU);
         return this;
     }
 
     public a e(int i, float f) {
-        this.eeo = com.baidu.tbadk.core.util.e.c.a.f(i, f);
-        this.mShadowPaint.setShadowLayer(this.mShadowRadius, this.mOffsetX, this.mOffsetY, this.eeo);
+        this.cLU = com.baidu.tbadk.core.util.e.c.a.f(i, f);
+        this.mShadowPaint.setShadowLayer(this.mShadowRadius, this.mOffsetX, this.mOffsetY, this.cLU);
         return this;
     }
 
@@ -99,40 +99,40 @@ public class a extends Drawable {
         return this;
     }
 
-    public a mq(@ColorRes int i) {
-        this.eeq[0] = com.baidu.tbadk.core.util.e.c.a.getColor(i);
+    public a ou(@ColorRes int i) {
+        this.enQ[0] = com.baidu.tbadk.core.util.e.c.a.getColor(i);
         return this;
     }
 
     @Override // android.graphics.drawable.Drawable
     protected void onBoundsChange(Rect rect) {
         super.onBoundsChange(rect);
-        if (this.edU == 1) {
-            this.awY = new RectF(((this.eer & 1) == 1 ? this.mShadowRadius - this.mOffsetX : -this.eep) + rect.left, ((this.eer & 16) == 16 ? this.mShadowRadius - this.mOffsetY : -this.eep) + rect.top, rect.right - ((this.eer & 256) == 256 ? this.mShadowRadius + this.mOffsetX : -this.eep), rect.bottom - ((this.eer & 4096) == 4096 ? this.mShadowRadius + this.mOffsetY : -this.eep));
+        if (this.enu == 1) {
+            this.aCa = new RectF(((this.enR & 1) == 1 ? this.mShadowRadius - this.mOffsetX : -this.enP) + rect.left, ((this.enR & 16) == 16 ? this.mShadowRadius - this.mOffsetY : -this.enP) + rect.top, rect.right - ((this.enR & 256) == 256 ? this.mShadowRadius + this.mOffsetX : -this.enP), rect.bottom - ((this.enR & 4096) == 4096 ? this.mShadowRadius + this.mOffsetY : -this.enP));
         } else {
-            this.awY = new RectF(this.mShadowRadius + rect.left, this.mShadowRadius + rect.top, rect.right - this.mShadowRadius, rect.bottom - this.mShadowRadius);
+            this.aCa = new RectF(this.mShadowRadius + rect.left, this.mShadowRadius + rect.top, rect.right - this.mShadowRadius, rect.bottom - this.mShadowRadius);
         }
-        if (this.eeq != null && this.eeq.length > 1) {
-            this.biK = new LinearGradient(this.awY.left, this.awY.height() / 2.0f, this.awY.right, this.awY.height() / 2.0f, this.eeq, (float[]) null, Shader.TileMode.CLAMP);
+        if (this.enQ != null && this.enQ.length > 1) {
+            this.bop = new LinearGradient(this.aCa.left, this.aCa.height() / 2.0f, this.aCa.right, this.aCa.height() / 2.0f, this.enQ, (float[]) null, Shader.TileMode.CLAMP);
         }
     }
 
     @Override // android.graphics.drawable.Drawable
     public void draw(@NonNull Canvas canvas) {
-        if (this.eeq != null) {
-            if (this.eeq.length == 1 || this.biK == null) {
-                this.aYt.setColor(this.eeq[0]);
-            } else if (this.biK != null) {
-                this.aYt.setShader(this.biK);
+        if (this.enQ != null) {
+            if (this.enQ.length == 1 || this.bop == null) {
+                this.bdK.setColor(this.enQ[0]);
+            } else if (this.bop != null) {
+                this.bdK.setShader(this.bop);
             }
         }
-        if (this.edU == 1) {
-            canvas.drawRoundRect(this.awY, this.eep, this.eep, this.mShadowPaint);
-            canvas.drawRoundRect(this.awY, this.eep, this.eep, this.aYt);
+        if (this.enu == 1) {
+            canvas.drawRoundRect(this.aCa, this.enP, this.enP, this.mShadowPaint);
+            canvas.drawRoundRect(this.aCa, this.enP, this.enP, this.bdK);
             return;
         }
-        canvas.drawCircle(this.awY.centerX(), this.awY.centerY(), Math.min(this.awY.width(), this.awY.height()) / 2.0f, this.mShadowPaint);
-        canvas.drawCircle(this.awY.centerX(), this.awY.centerY(), Math.min(this.awY.width(), this.awY.height()) / 2.0f, this.aYt);
+        canvas.drawCircle(this.aCa.centerX(), this.aCa.centerY(), Math.min(this.aCa.width(), this.aCa.height()) / 2.0f, this.mShadowPaint);
+        canvas.drawCircle(this.aCa.centerX(), this.aCa.centerY(), Math.min(this.aCa.width(), this.aCa.height()) / 2.0f, this.bdK);
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -150,7 +150,7 @@ public class a extends Drawable {
         return -3;
     }
 
-    public void aX(View view) {
+    public void aZ(View view) {
         if (view != null) {
             view.setLayerType(1, null);
             ViewCompat.setBackground(view, this);

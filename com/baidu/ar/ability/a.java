@@ -5,8 +5,8 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes11.dex */
 public class a {
-    private static volatile Map<String, Integer> bB = X();
-    private static volatile Map<String, Integer> bC = Y();
+    private static volatile Map<String, Integer> bs = X();
+    private static volatile Map<String, Integer> bt = Y();
 
     private static Map<String, Integer> X() {
         HashMap hashMap = new HashMap();
@@ -21,7 +21,7 @@ public class a {
         HashMap hashMap = new HashMap();
         hashMap.put("ability_face_model", Integer.valueOf((int) FeatureCodes.FACE));
         hashMap.put("ability_face_filter", 1000);
-        hashMap.put("ability_makeup_filter", 1000);
+        hashMap.put("ability_makeup_filter", Integer.valueOf((int) FeatureCodes.BEAUTY_MAKEUP));
         hashMap.put("ability_vo", Integer.valueOf((int) FeatureCodes.VO));
         hashMap.put("ability_pose", Integer.valueOf((int) FeatureCodes.POSE));
         hashMap.put("ability_body_detect", Integer.valueOf((int) FeatureCodes.POSE));
@@ -33,23 +33,23 @@ public class a {
         return hashMap;
     }
 
-    public static boolean l(String str) {
-        if (bB.containsKey(str)) {
-            return com.baidu.ar.auth.a.checkFeatureAuth(bB.get(str).intValue());
-        }
-        return true;
-    }
-
     public static boolean m(String str) {
-        if (bC.containsKey(str)) {
-            return com.baidu.ar.auth.a.checkFeatureAuth(bC.get(str).intValue());
+        if (bs.containsKey(str)) {
+            return com.baidu.ar.auth.a.checkFeatureAuth(bs.get(str).intValue());
         }
         return true;
     }
 
     public static boolean n(String str) {
-        if (bC.containsKey(str)) {
-            return com.baidu.ar.auth.a.enableFeature(bC.get(str).intValue());
+        if (bt.containsKey(str)) {
+            return com.baidu.ar.auth.a.checkFeatureAuth(bt.get(str).intValue());
+        }
+        return true;
+    }
+
+    public static boolean o(String str) {
+        if (bt.containsKey(str)) {
+            return com.baidu.ar.auth.a.enableFeature(bt.get(str).intValue());
         }
         return true;
     }

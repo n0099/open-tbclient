@@ -12,11 +12,12 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tieba.R;
-import com.baidu.tieba.frs.ap;
-import com.baidu.tieba.frs.at;
-import com.baidu.tieba.frs.ay;
-import com.baidu.tieba.frs.bb;
-import com.baidu.tieba.frs.r;
+import com.baidu.tieba.frs.ar;
+import com.baidu.tieba.frs.av;
+import com.baidu.tieba.frs.ba;
+import com.baidu.tieba.frs.bd;
+import com.baidu.tieba.frs.n;
+import com.baidu.tieba.frs.s;
 import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.data.GroupPermData;
 import java.util.ArrayList;
@@ -24,131 +25,131 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 /* loaded from: classes17.dex */
-public class d implements ap {
-    private BdUniqueId eEU;
+public class d implements ar {
+    private BdUniqueId ePv;
     private String forumId;
     private String forumName;
-    private at hBD;
-    private GroupPermData iZK;
-    private GroupPermData iZL;
-    private GroupPermData iZM;
+    private av hOS;
+    private GroupPermData joK;
+    private GroupPermData joL;
+    private GroupPermData joM;
     private int rn;
-    private List<GroupInfoData> iZN = new ArrayList();
-    private List<GroupInfoData> iZO = new ArrayList();
-    private List<GroupInfoData> iZP = new ArrayList();
-    private int iZQ = 0;
-    private int iZR = 0;
-    private int iZS = 0;
-    private int iZT = 0;
-    private int iZU = 0;
-    private int iZV = 0;
-    private boolean iZW = false;
-    private boolean iZX = false;
-    private boolean iZY = false;
-    private boolean iZZ = true;
-    private boolean jaa = true;
-    private boolean jab = true;
-    private FrsGroupRequestMessage jac = new FrsGroupRequestMessage();
-    private FrsGroupReadCacheRequestMessage jad = new FrsGroupReadCacheRequestMessage();
-    private boolean eZg = true;
-    private int eau = 1;
-    private Set<Long> jae = new HashSet();
-    private com.baidu.adp.framework.listener.c jaf = new com.baidu.adp.framework.listener.c(CmdConfigSocket.CMD_REQUEST_GROUPS_BYFID) { // from class: com.baidu.tieba.im.frsgroup.d.1
+    private List<GroupInfoData> joN = new ArrayList();
+    private List<GroupInfoData> joO = new ArrayList();
+    private List<GroupInfoData> joP = new ArrayList();
+    private int joQ = 0;
+    private int joR = 0;
+    private int joS = 0;
+    private int joT = 0;
+    private int joU = 0;
+    private int joV = 0;
+    private boolean joW = false;
+    private boolean joX = false;
+    private boolean joY = false;
+    private boolean joZ = true;
+    private boolean jpa = true;
+    private boolean jpb = true;
+    private FrsGroupRequestMessage jpc = new FrsGroupRequestMessage();
+    private FrsGroupReadCacheRequestMessage jpd = new FrsGroupReadCacheRequestMessage();
+    private boolean fky = true;
+    private int ekc = 1;
+    private Set<Long> jpe = new HashSet();
+    private com.baidu.adp.framework.listener.c jpf = new com.baidu.adp.framework.listener.c(CmdConfigSocket.CMD_REQUEST_GROUPS_BYFID) { // from class: com.baidu.tieba.im.frsgroup.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if (socketResponsedMessage instanceof FrsGroupSocketResponseMessage) {
                 FrsGroupSocketResponseMessage frsGroupSocketResponseMessage = (FrsGroupSocketResponseMessage) socketResponsedMessage;
-                int type = d.this.jac.getType();
+                int type = d.this.jpc.getType();
                 if (socketResponsedMessage.getError() != 0) {
-                    d.this.yL(type);
+                    d.this.Be(type);
                     if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
                         com.baidu.adp.lib.util.l.showToast(BdBaseApplication.getInst().getApp(), socketResponsedMessage.getErrorString());
                         return;
                     }
                     return;
                 }
-                boolean z = frsGroupSocketResponseMessage.getGroups() != null && frsGroupSocketResponseMessage.getGroups().size() >= d.this.jac.getRn();
+                boolean z = frsGroupSocketResponseMessage.getGroups() != null && frsGroupSocketResponseMessage.getGroups().size() >= d.this.jpc.getRn();
                 GroupPermData groupPerm = frsGroupSocketResponseMessage.getGroupPerm();
                 if (groupPerm != null && groupPerm.getForumId() == null) {
                     groupPerm.setForumId(d.this.forumId);
                 }
-                bb bbVar = new bb();
-                ArrayList<q> a = d.this.a(d.this.eZg, type, frsGroupSocketResponseMessage.getGroupPerm(), frsGroupSocketResponseMessage.getGroups());
+                bd bdVar = new bd();
+                ArrayList<q> a = d.this.a(d.this.fky, type, frsGroupSocketResponseMessage.getGroupPerm(), frsGroupSocketResponseMessage.getGroups());
                 if (a == null || a.size() <= 0) {
-                    bbVar.hasMore = false;
+                    bdVar.hasMore = false;
                     z = false;
                 } else {
-                    bbVar.hasMore = z;
+                    bdVar.hasMore = z;
                 }
-                bbVar.errCode = frsGroupSocketResponseMessage.getError();
-                bbVar.errMsg = frsGroupSocketResponseMessage.getErrorString();
-                bbVar.forumId = d.this.forumId;
-                bbVar.forumName = d.this.forumName;
-                bbVar.hKp = false;
-                bbVar.isLocal = false;
+                bdVar.errCode = frsGroupSocketResponseMessage.getError();
+                bdVar.errMsg = frsGroupSocketResponseMessage.getErrorString();
+                bdVar.forumId = d.this.forumId;
+                bdVar.forumName = d.this.forumName;
+                bdVar.hXO = false;
+                bdVar.isLocal = false;
                 if (type == 3) {
-                    bbVar.pn = d.this.iZS;
-                    d.this.iZY = z;
-                    d.this.iZM = frsGroupSocketResponseMessage.getGroupPerm();
-                    d.this.jab = false;
+                    bdVar.pn = d.this.joS;
+                    d.this.joY = z;
+                    d.this.joM = frsGroupSocketResponseMessage.getGroupPerm();
+                    d.this.jpb = false;
                 } else if (type == 1) {
-                    bbVar.pn = d.this.iZQ;
-                    d.this.iZW = z;
-                    d.this.iZK = frsGroupSocketResponseMessage.getGroupPerm();
-                    d.this.iZZ = false;
+                    bdVar.pn = d.this.joQ;
+                    d.this.joW = z;
+                    d.this.joK = frsGroupSocketResponseMessage.getGroupPerm();
+                    d.this.joZ = false;
                 } else {
-                    bbVar.pn = d.this.iZR;
-                    d.this.iZX = z;
-                    d.this.iZL = frsGroupSocketResponseMessage.getGroupPerm();
-                    d.this.jaa = false;
+                    bdVar.pn = d.this.joR;
+                    d.this.joX = z;
+                    d.this.joL = frsGroupSocketResponseMessage.getGroupPerm();
+                    d.this.jpa = false;
                 }
                 if (a == null || a.size() <= 0) {
                     d.this.c(TbadkCoreApplication.isLogin(), frsGroupSocketResponseMessage.getGroupPerm());
-                } else if (d.this.hBD != null) {
-                    d.this.hBD.a(4, type, bbVar, a);
+                } else if (d.this.hOS != null) {
+                    d.this.hOS.a(4, type, bdVar, a);
                 }
             }
         }
     };
-    private CustomMessageListener hAZ = new CustomMessageListener(CmdConfigCustom.CMD_CACHE_GROUPS_BY_FID) { // from class: com.baidu.tieba.im.frsgroup.d.2
+    private CustomMessageListener hOo = new CustomMessageListener(CmdConfigCustom.CMD_CACHE_GROUPS_BY_FID) { // from class: com.baidu.tieba.im.frsgroup.d.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             ArrayList<q> a;
             if (customResponsedMessage instanceof FrsGroupReadCacheResponseMessage) {
                 FrsGroupReadCacheResponseMessage frsGroupReadCacheResponseMessage = (FrsGroupReadCacheResponseMessage) customResponsedMessage;
-                int type = d.this.jad.getType();
-                bb bbVar = new bb();
-                bbVar.errCode = customResponsedMessage.getError();
-                bbVar.errMsg = customResponsedMessage.getErrorString();
-                bbVar.forumId = d.this.forumId;
-                bbVar.forumName = d.this.forumName;
-                bbVar.isLocal = true;
-                bbVar.hasMore = false;
-                bbVar.pn = -1;
+                int type = d.this.jpd.getType();
+                bd bdVar = new bd();
+                bdVar.errCode = customResponsedMessage.getError();
+                bdVar.errMsg = customResponsedMessage.getErrorString();
+                bdVar.forumId = d.this.forumId;
+                bdVar.forumName = d.this.forumName;
+                bdVar.isLocal = true;
+                bdVar.hasMore = false;
+                bdVar.pn = -1;
                 if (type == 3) {
-                    d.this.iZM = frsGroupReadCacheResponseMessage.getGroupPerm();
-                    d.this.iZP = frsGroupReadCacheResponseMessage.getGroups();
+                    d.this.joM = frsGroupReadCacheResponseMessage.getGroupPerm();
+                    d.this.joP = frsGroupReadCacheResponseMessage.getGroups();
                 } else if (type == 1) {
-                    d.this.iZK = frsGroupReadCacheResponseMessage.getGroupPerm();
-                    d.this.iZN = frsGroupReadCacheResponseMessage.getGroups();
+                    d.this.joK = frsGroupReadCacheResponseMessage.getGroupPerm();
+                    d.this.joN = frsGroupReadCacheResponseMessage.getGroups();
                 } else {
-                    d.this.iZL = frsGroupReadCacheResponseMessage.getGroupPerm();
-                    d.this.iZO = frsGroupReadCacheResponseMessage.getGroups();
+                    d.this.joL = frsGroupReadCacheResponseMessage.getGroupPerm();
+                    d.this.joO = frsGroupReadCacheResponseMessage.getGroups();
                 }
-                if (d.this.hBD != null && (a = d.this.a(frsGroupReadCacheResponseMessage.getGroupPerm(), frsGroupReadCacheResponseMessage.getGroups(), type)) != null && a.size() > 0) {
-                    d.this.hBD.a(4, type, bbVar, a);
+                if (d.this.hOS != null && (a = d.this.a(frsGroupReadCacheResponseMessage.getGroupPerm(), frsGroupReadCacheResponseMessage.getGroups(), type)) != null && a.size() > 0) {
+                    d.this.hOS.a(4, type, bdVar, a);
                 }
-                d.this.cB(type, 0);
+                d.this.cJ(type, 0);
             }
         }
     };
 
-    public void cB(int i, int i2) {
+    public void cJ(int i, int i2) {
         FrsGroupRequestMessage frsGroupRequestMessage = new FrsGroupRequestMessage();
-        if (this.eEU != null) {
-            frsGroupRequestMessage.setTag(this.eEU);
+        if (this.ePv != null) {
+            frsGroupRequestMessage.setTag(this.ePv);
         }
         if (i2 == 0) {
             frsGroupRequestMessage.setForumName(this.forumName);
@@ -157,51 +158,51 @@ public class d implements ap {
         frsGroupRequestMessage.setForumId(this.forumId);
         frsGroupRequestMessage.setType(i);
         frsGroupRequestMessage.setOffset(i2);
-        this.jac = frsGroupRequestMessage;
+        this.jpc = frsGroupRequestMessage;
         MessageManager.getInstance().sendMessage(frsGroupRequestMessage);
     }
 
-    public void xe(int i) {
+    public void zy(int i) {
         FrsGroupReadCacheRequestMessage frsGroupReadCacheRequestMessage = new FrsGroupReadCacheRequestMessage();
-        if (this.eEU != null) {
-            frsGroupReadCacheRequestMessage.setTag(this.eEU);
+        if (this.ePv != null) {
+            frsGroupReadCacheRequestMessage.setTag(this.ePv);
         }
         frsGroupReadCacheRequestMessage.setType(i);
         frsGroupReadCacheRequestMessage.setForumName(this.forumName);
-        this.jad = frsGroupReadCacheRequestMessage;
+        this.jpd = frsGroupReadCacheRequestMessage;
         MessageManager.getInstance().sendMessage(frsGroupReadCacheRequestMessage);
     }
 
-    public void yL(int i) {
+    public void Be(int i) {
         GroupPermData groupPermData;
         List<GroupInfoData> list = null;
-        bb bbVar = new bb();
-        bbVar.forumId = this.forumId;
-        bbVar.forumName = this.forumName;
-        bbVar.hKp = false;
-        bbVar.errCode = 0;
+        bd bdVar = new bd();
+        bdVar.forumId = this.forumId;
+        bdVar.forumName = this.forumName;
+        bdVar.hXO = false;
+        bdVar.errCode = 0;
         if (i == 1) {
-            groupPermData = this.iZK;
-            list = this.iZN;
-            bbVar.pn = this.iZQ;
-            bbVar.hasMore = this.iZW;
+            groupPermData = this.joK;
+            list = this.joN;
+            bdVar.pn = this.joQ;
+            bdVar.hasMore = this.joW;
         } else if (i == 2) {
-            groupPermData = this.iZL;
-            list = this.iZO;
-            bbVar.pn = this.iZR;
-            bbVar.hasMore = this.iZX;
+            groupPermData = this.joL;
+            list = this.joO;
+            bdVar.pn = this.joR;
+            bdVar.hasMore = this.joX;
         } else if (i == 3) {
-            groupPermData = this.iZM;
-            list = this.iZP;
-            bbVar.pn = this.iZS;
-            bbVar.hasMore = this.iZY;
+            groupPermData = this.joM;
+            list = this.joP;
+            bdVar.pn = this.joS;
+            bdVar.hasMore = this.joY;
         } else {
             groupPermData = null;
         }
         ArrayList<q> a = a(groupPermData, list, i);
         if (a != null && a.size() > 0) {
-            if (this.hBD != null) {
-                this.hBD.a(4, i, bbVar, a);
+            if (this.hOS != null) {
+                this.hOS.a(4, i, bdVar, a);
                 return;
             }
             return;
@@ -212,17 +213,17 @@ public class d implements ap {
     /* JADX INFO: Access modifiers changed from: private */
     public ArrayList<q> a(boolean z, int i, GroupPermData groupPermData, List<GroupInfoData> list) {
         if (i == 1) {
-            this.iZN = a(z, this.iZN, list);
-            this.iZK = groupPermData;
-            return a(this.iZK, this.iZN, i);
+            this.joN = a(z, this.joN, list);
+            this.joK = groupPermData;
+            return a(this.joK, this.joN, i);
         } else if (i == 3) {
-            this.iZM = groupPermData;
-            this.iZP = a(z, this.iZP, list);
-            return a(this.iZM, this.iZP, i);
+            this.joM = groupPermData;
+            this.joP = a(z, this.joP, list);
+            return a(this.joM, this.joP, i);
         } else {
-            this.iZL = groupPermData;
-            this.iZO = a(z, this.iZO, list);
-            return a(this.iZL, this.iZO, i);
+            this.joL = groupPermData;
+            this.joO = a(z, this.joO, list);
+            return a(this.joL, this.joO, i);
         }
     }
 
@@ -245,13 +246,13 @@ public class d implements ap {
             return null;
         }
         ArrayList<q> arrayList = new ArrayList<>();
-        this.jae.clear();
+        this.jpe.clear();
         for (GroupInfoData groupInfoData : list) {
-            if (groupInfoData != null && this.jae.add(Long.valueOf(groupInfoData.getGroupId()))) {
+            if (groupInfoData != null && this.jpe.add(Long.valueOf(groupInfoData.getGroupId()))) {
                 if (i == 3) {
                     groupInfoData.setGrade(0);
                 }
-                groupInfoData.setFrom(this.eau + 3);
+                groupInfoData.setFrom(this.ekc + 3);
                 arrayList.add(groupInfoData);
             }
         }
@@ -261,154 +262,154 @@ public class d implements ap {
             arrayList.add(0, groupPermData);
         }
         if (arrayList.size() > 0) {
-            arrayList.add(cC((size * com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds160)) + com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds120), R.color.cp_bg_line_d));
+            arrayList.add(cK((size * com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds160)) + com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds120), R.color.cp_bg_line_d));
         }
         return arrayList;
     }
 
-    private com.baidu.tieba.frs.m cC(int i, int i2) {
-        com.baidu.tieba.frs.m mVar = new com.baidu.tieba.frs.m();
-        mVar.setHeight(com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst().getContext()) - ((com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds100) + com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds90)) + i));
-        mVar.uB(i2);
-        return mVar;
+    private n cK(int i, int i2) {
+        n nVar = new n();
+        nVar.setHeight(com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst().getContext()) - ((com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds100) + com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds90)) + i));
+        nVar.wQ(i2);
+        return nVar;
     }
 
-    private boolean yM(int i) {
+    private boolean Bf(int i) {
         if (i == 1) {
-            return this.iZZ;
+            return this.joZ;
         }
         if (i == 2) {
-            return this.jaa;
+            return this.jpa;
         }
         if (i == 3) {
-            return this.jab;
+            return this.jpb;
         }
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(boolean z, Object obj) {
-        if (this.hBD != null) {
+        if (this.hOS != null) {
             ArrayList<q> arrayList = new ArrayList<>();
             h hVar = new h();
             if (!z) {
-                hVar.HQ(TbadkCoreApplication.getInst().getResources().getString(R.string.login_see_more));
-                hVar.HP(TbadkCoreApplication.getInst().getResources().getString(R.string.not_login));
+                hVar.KI(TbadkCoreApplication.getInst().getResources().getString(R.string.login_see_more));
+                hVar.KH(TbadkCoreApplication.getInst().getResources().getString(R.string.not_login));
                 hVar.c(NoDataViewFactory.ImgType.NODATA);
-                hVar.yO(1);
+                hVar.Bh(1);
                 hVar.setExtraData(obj);
                 arrayList.add(hVar);
             } else if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
-                arrayList.add(new r());
+                arrayList.add(new s());
             } else {
-                hVar.HQ(TbadkCoreApplication.getInst().getResources().getString(R.string.frsgroup_hot_create_group));
-                hVar.HP(TbadkCoreApplication.getInst().getResources().getString(R.string.frsgroup_hot_create_group_tip));
-                hVar.HO(TbadkCoreApplication.getInst().getResources().getString(R.string.frsgroup_no_hot_tip));
+                hVar.KI(TbadkCoreApplication.getInst().getResources().getString(R.string.frsgroup_hot_create_group));
+                hVar.KH(TbadkCoreApplication.getInst().getResources().getString(R.string.frsgroup_hot_create_group_tip));
+                hVar.KG(TbadkCoreApplication.getInst().getResources().getString(R.string.frsgroup_no_hot_tip));
                 hVar.c(NoDataViewFactory.ImgType.CREATE);
-                hVar.yO(0);
+                hVar.Bh(0);
                 hVar.setExtraData(obj);
                 arrayList.add(hVar);
             }
-            arrayList.add(cC(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds600) + com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds80), R.drawable.transparent_bg));
-            bb bbVar = new bb();
-            bbVar.errCode = 0;
-            bbVar.forumId = this.forumId;
-            bbVar.forumName = this.forumName;
-            bbVar.hasMore = false;
-            bbVar.hKp = false;
-            bbVar.pn = -1;
-            this.hBD.a(4, this.eau, bbVar, arrayList);
+            arrayList.add(cK(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds600) + com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds80), R.drawable.transparent_bg));
+            bd bdVar = new bd();
+            bdVar.errCode = 0;
+            bdVar.forumId = this.forumId;
+            bdVar.forumName = this.forumName;
+            bdVar.hasMore = false;
+            bdVar.hXO = false;
+            bdVar.pn = -1;
+            this.hOS.a(4, this.ekc, bdVar, arrayList);
         }
     }
 
-    private boolean yN(int i) {
+    private boolean Bg(int i) {
         if (i == 1) {
-            return this.iZW;
+            return this.joW;
         }
         if (i == 2) {
-            return this.iZX;
+            return this.joX;
         }
         if (i == 3) {
-            return this.iZY;
+            return this.joY;
         }
         return false;
     }
 
-    @Override // com.baidu.tieba.frs.ap
-    public void a(int i, int i2, ay ayVar) {
+    @Override // com.baidu.tieba.frs.ar
+    public void a(int i, int i2, ba baVar) {
         int i3;
-        if (i == 4 && ayVar != null) {
-            this.forumId = ayVar.forumId;
-            this.forumName = ayVar.forumName;
-            this.eau = i2;
+        if (i == 4 && baVar != null) {
+            this.forumId = baVar.forumId;
+            this.forumName = baVar.forumName;
+            this.ekc = i2;
             if (!TbadkCoreApplication.isLogin()) {
                 c(false, (Object) null);
-            } else if (yM(i2)) {
-                xe(i2);
+            } else if (Bf(i2)) {
+                zy(i2);
             } else {
-                if (ayVar.pn == -1) {
+                if (baVar.pn == -1) {
                     this.rn = 50;
                 } else {
                     this.rn = 20;
                 }
                 if (i2 == 1) {
-                    i3 = this.iZQ;
+                    i3 = this.joQ;
                 } else if (i2 == 2) {
-                    i3 = this.iZR;
+                    i3 = this.joR;
                 } else {
-                    i3 = i2 == 3 ? this.iZS : 0;
+                    i3 = i2 == 3 ? this.joS : 0;
                 }
-                int a = a(i2, this.rn, i3, ayVar);
+                int a = a(i2, this.rn, i3, baVar);
                 if (a < 0) {
-                    yL(i2);
+                    Be(i2);
                 } else if (a == 0) {
-                    this.eZg = true;
-                    cB(i2, 0);
-                } else if (yN(i2)) {
-                    this.eZg = false;
-                    cB(i2, a);
+                    this.fky = true;
+                    cJ(i2, 0);
+                } else if (Bg(i2)) {
+                    this.fky = false;
+                    cJ(i2, a);
                 }
             }
         }
     }
 
-    private int a(int i, int i2, int i3, ay ayVar) {
-        if (ayVar == null) {
+    private int a(int i, int i2, int i3, ba baVar) {
+        if (baVar == null) {
             return -1;
         }
-        if (ayVar.pn == -1) {
+        if (baVar.pn == -1) {
             if (i == 1) {
-                this.iZT = 0;
-                this.iZQ = 1;
+                this.joT = 0;
+                this.joQ = 1;
                 return 0;
             } else if (i == 2) {
-                this.iZU = 0;
-                this.iZR = 1;
+                this.joU = 0;
+                this.joR = 1;
                 return 0;
             } else if (i == 3) {
-                this.iZV = 0;
-                this.iZS = 1;
+                this.joV = 0;
+                this.joS = 1;
                 return 0;
             } else {
                 return 0;
             }
-        } else if (ayVar.pn <= i3) {
+        } else if (baVar.pn <= i3) {
             return -1;
         } else {
             if (i == 1) {
-                this.iZT += i2;
-                int i4 = this.iZT;
-                this.iZQ = ayVar.pn;
+                this.joT += i2;
+                int i4 = this.joT;
+                this.joQ = baVar.pn;
                 return i4;
             } else if (i == 2) {
-                this.iZU += i2;
-                int i5 = this.iZU;
-                this.iZR = ayVar.pn;
+                this.joU += i2;
+                int i5 = this.joU;
+                this.joR = baVar.pn;
                 return i5;
             } else if (i == 3) {
-                this.iZV += i2;
-                int i6 = this.iZV;
-                this.iZS = ayVar.pn;
+                this.joV += i2;
+                int i6 = this.joV;
+                this.joS = baVar.pn;
                 return i6;
             } else {
                 return 0;
@@ -416,34 +417,34 @@ public class d implements ap {
         }
     }
 
-    @Override // com.baidu.tieba.frs.ap
-    public void a(at atVar) {
-        this.hBD = atVar;
+    @Override // com.baidu.tieba.frs.ar
+    public void a(av avVar) {
+        this.hOS = avVar;
     }
 
-    @Override // com.baidu.tieba.frs.ap
+    @Override // com.baidu.tieba.frs.ar
     public void init() {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_REQUEST_GROUPS_BYFID, FrsGroupSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.b(CmdConfigCustom.CMD_CACHE_GROUPS_BY_FID, j.class);
-        if (this.eEU != null) {
-            this.jaf.setTag(this.eEU);
-            this.jaf.setSelfListener(true);
-            this.hAZ.setTag(this.eEU);
-            this.hAZ.setSelfListener(true);
+        if (this.ePv != null) {
+            this.jpf.setTag(this.ePv);
+            this.jpf.setSelfListener(true);
+            this.hOo.setTag(this.ePv);
+            this.hOo.setSelfListener(true);
         }
-        MessageManager.getInstance().registerListener(this.jaf);
-        MessageManager.getInstance().registerListener(this.hAZ);
+        MessageManager.getInstance().registerListener(this.jpf);
+        MessageManager.getInstance().registerListener(this.hOo);
     }
 
     public void setTag(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.eEU = bdUniqueId;
+            this.ePv = bdUniqueId;
         }
     }
 
-    @Override // com.baidu.tieba.frs.ap
-    public void bCu() {
-        MessageManager.getInstance().unRegisterListener(this.jaf);
-        MessageManager.getInstance().unRegisterListener(this.hAZ);
+    @Override // com.baidu.tieba.frs.ar
+    public void bLO() {
+        MessageManager.getInstance().unRegisterListener(this.jpf);
+        MessageManager.getInstance().unRegisterListener(this.hOo);
     }
 }

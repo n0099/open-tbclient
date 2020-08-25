@@ -4,75 +4,75 @@ import android.graphics.PointF;
 import android.support.annotation.FloatRange;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes18.dex */
 public class h {
-    private final List<com.airbnb.lottie.model.a> EH = new ArrayList();
-    private PointF EI;
+    private final List<com.airbnb.lottie.model.a> Fm = new ArrayList();
+    private PointF Fn;
     private boolean closed;
 
     public h(PointF pointF, boolean z, List<com.airbnb.lottie.model.a> list) {
-        this.EI = pointF;
+        this.Fn = pointF;
         this.closed = z;
-        this.EH.addAll(list);
+        this.Fm.addAll(list);
     }
 
     public h() {
     }
 
-    private void i(float f, float f2) {
-        if (this.EI == null) {
-            this.EI = new PointF();
+    private void h(float f, float f2) {
+        if (this.Fn == null) {
+            this.Fn = new PointF();
         }
-        this.EI.set(f, f2);
+        this.Fn.set(f, f2);
     }
 
-    public PointF iM() {
-        return this.EI;
+    public PointF kl() {
+        return this.Fn;
     }
 
     public boolean isClosed() {
         return this.closed;
     }
 
-    public List<com.airbnb.lottie.model.a> iN() {
-        return this.EH;
+    public List<com.airbnb.lottie.model.a> km() {
+        return this.Fm;
     }
 
     public void a(h hVar, h hVar2, @FloatRange(from = 0.0d, to = 1.0d) float f) {
-        if (this.EI == null) {
-            this.EI = new PointF();
+        if (this.Fn == null) {
+            this.Fn = new PointF();
         }
         this.closed = hVar.isClosed() || hVar2.isClosed();
-        if (hVar.iN().size() != hVar2.iN().size()) {
-            com.airbnb.lottie.d.warn("Curves must have the same number of control points. Shape 1: " + hVar.iN().size() + "\tShape 2: " + hVar2.iN().size());
+        if (hVar.km().size() != hVar2.km().size()) {
+            com.airbnb.lottie.d.warn("Curves must have the same number of control points. Shape 1: " + hVar.km().size() + "\tShape 2: " + hVar2.km().size());
         }
-        if (this.EH.isEmpty()) {
-            int min = Math.min(hVar.iN().size(), hVar2.iN().size());
+        if (this.Fm.isEmpty()) {
+            int min = Math.min(hVar.km().size(), hVar2.km().size());
             for (int i = 0; i < min; i++) {
-                this.EH.add(new com.airbnb.lottie.model.a());
+                this.Fm.add(new com.airbnb.lottie.model.a());
             }
         }
-        PointF iM = hVar.iM();
-        PointF iM2 = hVar2.iM();
-        i(com.airbnb.lottie.d.e.lerp(iM.x, iM2.x, f), com.airbnb.lottie.d.e.lerp(iM.y, iM2.y, f));
-        if (this.EH.size() <= hVar.iN().size() && this.EH.size() <= hVar2.iN().size()) {
-            for (int size = this.EH.size() - 1; size >= 0; size--) {
-                com.airbnb.lottie.model.a aVar = hVar.iN().get(size);
-                com.airbnb.lottie.model.a aVar2 = hVar2.iN().get(size);
-                PointF hR = aVar.hR();
-                PointF hS = aVar.hS();
-                PointF hT = aVar.hT();
-                PointF hR2 = aVar2.hR();
-                PointF hS2 = aVar2.hS();
-                PointF hT2 = aVar2.hT();
-                this.EH.get(size).f(com.airbnb.lottie.d.e.lerp(hR.x, hR2.x, f), com.airbnb.lottie.d.e.lerp(hR.y, hR2.y, f));
-                this.EH.get(size).g(com.airbnb.lottie.d.e.lerp(hS.x, hS2.x, f), com.airbnb.lottie.d.e.lerp(hS.y, hS2.y, f));
-                this.EH.get(size).h(com.airbnb.lottie.d.e.lerp(hT.x, hT2.x, f), com.airbnb.lottie.d.e.lerp(hT.y, hT2.y, f));
+        PointF kl = hVar.kl();
+        PointF kl2 = hVar2.kl();
+        h(com.airbnb.lottie.d.e.lerp(kl.x, kl2.x, f), com.airbnb.lottie.d.e.lerp(kl.y, kl2.y, f));
+        if (this.Fm.size() <= hVar.km().size() && this.Fm.size() <= hVar2.km().size()) {
+            for (int size = this.Fm.size() - 1; size >= 0; size--) {
+                com.airbnb.lottie.model.a aVar = hVar.km().get(size);
+                com.airbnb.lottie.model.a aVar2 = hVar2.km().get(size);
+                PointF js = aVar.js();
+                PointF jt = aVar.jt();
+                PointF ju = aVar.ju();
+                PointF js2 = aVar2.js();
+                PointF jt2 = aVar2.jt();
+                PointF ju2 = aVar2.ju();
+                this.Fm.get(size).e(com.airbnb.lottie.d.e.lerp(js.x, js2.x, f), com.airbnb.lottie.d.e.lerp(js.y, js2.y, f));
+                this.Fm.get(size).f(com.airbnb.lottie.d.e.lerp(jt.x, jt2.x, f), com.airbnb.lottie.d.e.lerp(jt.y, jt2.y, f));
+                this.Fm.get(size).g(com.airbnb.lottie.d.e.lerp(ju.x, ju2.x, f), com.airbnb.lottie.d.e.lerp(ju.y, ju2.y, f));
             }
         }
     }
 
     public String toString() {
-        return "ShapeData{numCurves=" + this.EH.size() + "closed=" + this.closed + '}';
+        return "ShapeData{numCurves=" + this.Fm.size() + "closed=" + this.closed + '}';
     }
 }

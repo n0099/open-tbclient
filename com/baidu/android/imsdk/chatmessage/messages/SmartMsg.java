@@ -9,7 +9,7 @@ import com.baidu.mobstat.Config;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class SmartMsg extends NormalMsg {
     public static final Parcelable.Creator<SmartMsg> CREATOR = new Parcelable.Creator<SmartMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.SmartMsg.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -264,7 +264,7 @@ public class SmartMsg extends NormalMsg {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public static class Commodity implements Parcelable, NoProGuard {
         public static final Parcelable.Creator<Commodity> CREATOR = new Parcelable.Creator<Commodity>() { // from class: com.baidu.android.imsdk.chatmessage.messages.SmartMsg.Commodity.1
             /* JADX DEBUG: Method merged with bridge method */

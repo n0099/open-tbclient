@@ -8,88 +8,88 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.baseEditMark.MarkData;
 import com.baidu.tbadk.baseEditMark.a;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.aa;
 /* loaded from: classes18.dex */
 public class MarkModel extends BdBaseModel {
-    private boolean jVf;
-    private MarkData jVg;
-    private a jVh;
-    private a.InterfaceC0489a jVi;
+    private boolean kkB;
+    private MarkData kkC;
+    private a kkD;
+    private a.InterfaceC0535a kkE;
 
-    public void a(a.InterfaceC0489a interfaceC0489a) {
-        this.jVi = interfaceC0489a;
+    public void a(a.InterfaceC0535a interfaceC0535a) {
+        this.kkE = interfaceC0535a;
     }
 
     public MarkModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.jVf = false;
-        this.jVg = null;
-        this.jVh = null;
-        this.jVi = null;
-        this.jVg = new MarkData();
+        this.kkB = false;
+        this.kkC = null;
+        this.kkD = null;
+        this.kkE = null;
+        this.kkC = new MarkData();
     }
 
     public MarkModel(BaseFragmentActivity baseFragmentActivity) {
         super(baseFragmentActivity.getPageContext());
-        this.jVf = false;
-        this.jVg = null;
-        this.jVh = null;
-        this.jVi = null;
-        this.jVg = new MarkData();
+        this.kkB = false;
+        this.kkC = null;
+        this.kkD = null;
+        this.kkE = null;
+        this.kkC = new MarkData();
     }
 
-    public boolean aSj() {
-        return this.jVf;
+    public boolean baA() {
+        return this.kkB;
     }
 
-    public MarkData aSm() {
-        return this.jVg;
+    public MarkData baD() {
+        return this.kkC;
     }
 
     public void a(MarkData markData) {
-        this.jVg = markData;
+        this.kkC = markData;
     }
 
-    public void he(boolean z) {
-        this.jVf = z;
+    public void hA(boolean z) {
+        this.kkB = z;
     }
 
-    public String aSi() {
-        if (this.jVg != null) {
-            return this.jVg.getPostId();
+    public String baz() {
+        if (this.kkC != null) {
+            return this.kkC.getPostId();
         }
         return null;
     }
 
-    public void aSl() {
-        if (this.jVh != null) {
-            this.jVh.cancel();
+    public void baC() {
+        if (this.kkD != null) {
+            this.kkD.cancel();
         }
-        this.jVh = new a(true);
-        this.jVh.setPriority(3);
-        this.jVh.execute(new Boolean[0]);
+        this.kkD = new a(true);
+        this.kkD.setPriority(3);
+        this.kkD.execute(new Boolean[0]);
     }
 
-    public void aSk() {
-        if (this.jVh != null) {
-            this.jVh.cancel();
+    public void baB() {
+        if (this.kkD != null) {
+            this.kkD.cancel();
         }
-        this.jVh = new a(false);
-        this.jVh.setPriority(3);
-        this.jVh.execute(new Boolean[0]);
+        this.kkD = new a(false);
+        this.kkD.setPriority(3);
+        this.kkD.execute(new Boolean[0]);
     }
 
     /* loaded from: classes18.dex */
     private class a extends BdAsyncTask<Boolean, Integer, Boolean> {
-        private z byq = null;
-        private boolean hbI;
-        private c jVb;
+        private aa bDY = null;
+        private boolean hoz;
+        private c kkx;
 
         public a(boolean z) {
-            this.hbI = true;
-            this.jVb = null;
-            this.hbI = z;
-            this.jVb = new c();
+            this.hoz = true;
+            this.kkx = null;
+            this.hoz = z;
+            this.kkx = new c();
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
@@ -102,20 +102,20 @@ public class MarkModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
         public Boolean doInBackground(Boolean... boolArr) {
-            if (this.hbI) {
-                this.byq = new z(TbConfig.SERVER_ADDRESS + TbConfig.MARK_ADDSTORE);
+            if (this.hoz) {
+                this.bDY = new aa(TbConfig.SERVER_ADDRESS + TbConfig.MARK_ADDSTORE);
                 com.baidu.tieba.myCollection.baseEditMark.a aVar = new com.baidu.tieba.myCollection.baseEditMark.a();
-                aVar.f(MarkModel.this.jVg);
-                this.byq.addPostData("data", aVar.cH(0, 1));
+                aVar.f(MarkModel.this.kkC);
+                this.bDY.addPostData("data", aVar.cP(0, 1));
             } else {
-                this.byq = new z(TbConfig.SERVER_ADDRESS + TbConfig.MARK_DELSTORE);
-                this.byq.addPostData("user_id", MarkModel.this.jVg.getAccount());
-                this.byq.addPostData("tid", MarkModel.this.jVg.getId());
-                this.byq.addPostData("fid", MarkModel.this.jVg.getForumId());
+                this.bDY = new aa(TbConfig.SERVER_ADDRESS + TbConfig.MARK_DELSTORE);
+                this.bDY.addPostData("user_id", MarkModel.this.kkC.getAccount());
+                this.bDY.addPostData("tid", MarkModel.this.kkC.getId());
+                this.bDY.addPostData("fid", MarkModel.this.kkC.getForumId());
             }
-            this.jVb.parserJson(this.byq.postNetData());
-            boolean z = this.jVb.getErrorCode() == 0;
-            if (this.byq.bav().baX().isRequestSuccess() && z) {
+            this.kkx.parserJson(this.bDY.postNetData());
+            boolean z = this.kkx.getErrorCode() == 0;
+            if (this.bDY.biQ().bjw().isRequestSuccess() && z) {
                 return true;
             }
             return false;
@@ -124,10 +124,10 @@ public class MarkModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            if (this.byq != null) {
-                this.byq.cancelNetConnect();
+            if (this.bDY != null) {
+                this.bDY.cancelNetConnect();
             }
-            MarkModel.this.jVh = null;
+            MarkModel.this.kkD = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -135,21 +135,21 @@ public class MarkModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             try {
-                if (this.jVb != null) {
-                    com.baidu.tbadk.core.d.a.a("collection", 0L, 0, "add_collection_thread", this.jVb.getErrorCode(), this.jVb.getErrorString(), new Object[0]);
+                if (this.kkx != null) {
+                    com.baidu.tbadk.core.d.a.a("collection", 0L, 0, "add_collection_thread", this.kkx.getErrorCode(), this.kkx.getErrorString(), new Object[0]);
                 }
                 if (bool.booleanValue()) {
-                    if (MarkModel.this.jVi != null) {
-                        MarkModel.this.jVi.c(true, this.hbI, null);
+                    if (MarkModel.this.kkE != null) {
+                        MarkModel.this.kkE.c(true, this.hoz, null);
                     }
-                } else if (MarkModel.this.jVi != null) {
-                    if (this.byq == null || this.byq.bav().baX().isRequestSuccess()) {
-                        MarkModel.this.jVi.c(false, this.hbI, this.jVb.getErrorString());
+                } else if (MarkModel.this.kkE != null) {
+                    if (this.bDY == null || this.bDY.biQ().bjw().isRequestSuccess()) {
+                        MarkModel.this.kkE.c(false, this.hoz, this.kkx.getErrorString());
                     } else {
-                        MarkModel.this.jVi.c(false, this.hbI, this.byq.getErrorString());
+                        MarkModel.this.kkE.c(false, this.hoz, this.bDY.getErrorString());
                     }
                 }
-                MarkModel.this.jVh = null;
+                MarkModel.this.kkD = null;
             } catch (Throwable th) {
                 BdLog.e(th.toString());
             }
@@ -163,8 +163,8 @@ public class MarkModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.jVh != null) {
-            this.jVh.cancel();
+        if (this.kkD != null) {
+            this.kkD.cancel();
             return false;
         }
         return false;

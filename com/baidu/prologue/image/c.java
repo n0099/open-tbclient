@@ -7,15 +7,15 @@ import android.os.Build;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.util.Util;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c {
-    public static RequestManager aL(Context context) {
+    public static RequestManager aQ(Context context) {
         if (context == null) {
-            context = com.baidu.prologue.a.b.a.bEI.get().OO();
+            context = com.baidu.prologue.a.b.a.bKi.get().UK();
         } else if (Util.isOnMainThread() && !(context instanceof Application) && (context instanceof Activity)) {
             Activity activity = (Activity) context;
             if (activity.isFinishing() || y(activity)) {
-                context = com.baidu.prologue.a.b.a.bEI.get().OO();
+                context = com.baidu.prologue.a.b.a.bKi.get().UK();
             }
         }
         return Glide.with(context);

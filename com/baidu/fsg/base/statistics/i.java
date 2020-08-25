@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.text.TextUtils;
 import com.baidu.fsg.base.utils.LogUtil;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 class i extends SQLiteOpenHelper {
     private static final String a = "logsender";
     private static final String d = "rim_stat_event";

@@ -9,7 +9,7 @@ import android.media.MediaMuxer;
 import android.util.Log;
 import java.io.FileDescriptor;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes18.dex */
 class Mp4ComposerEngine {
     private static final long PROGRESS_INTERVAL_STEPS = 10;
     private static final float PROGRESS_UNKNOWN = -1.0f;
@@ -19,7 +19,7 @@ class Mp4ComposerEngine {
     private ProgressCallback mProgressCallback;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     public interface ProgressCallback {
         void onProgress(float f);
     }

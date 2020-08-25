@@ -1,6 +1,6 @@
 package com.baidu.swan.bdprivate.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public class z {
-    public String aSW;
-    public String displayName;
+    public String callbackkey;
+    public boolean seniorRealNameSuc;
 }

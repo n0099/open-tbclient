@@ -6,17 +6,17 @@ import java.io.IOException;
 import java.util.zip.CRC32;
 /* loaded from: classes6.dex */
 public final class Crc32 {
-    public static long v(byte[] bArr, int i, int i2) {
+    public static long w(byte[] bArr, int i, int i2) {
         CRC32 crc32 = new CRC32();
         crc32.update(bArr, i, i2);
         return crc32.getValue();
     }
 
-    public static long at(byte[] bArr) {
-        return v(bArr, 0, bArr.length);
+    public static long au(byte[] bArr) {
+        return w(bArr, 0, bArr.length);
     }
 
-    public static long aq(File file) throws IOException {
+    public static long ar(File file) throws IOException {
         FileInputStream fileInputStream = new FileInputStream(file);
         byte[] bArr = new byte[65536];
         CRC32 crc32 = new CRC32();

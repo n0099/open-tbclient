@@ -2,7 +2,7 @@ package com.baidu.tbadk.img.effect;
 
 import android.graphics.Bitmap;
 import com.baidu.tbadk.core.util.BitmapHelper;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class b {
     public abstract String getActionName();
 

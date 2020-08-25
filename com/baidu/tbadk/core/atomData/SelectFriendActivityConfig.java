@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class SelectFriendActivityConfig extends IntentConfig {
     public static final int KEY_FROME_WEB_GAME = 0;
     public static final String KEY_FROME_WHERE = "key_from_where";

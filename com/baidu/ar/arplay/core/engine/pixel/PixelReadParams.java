@@ -18,6 +18,30 @@ public class PixelReadParams {
     private int mCacheSize = 3;
     private boolean mIsPortrait = false;
     private String mPreFilterID = "";
+    private FrameType mFrameType = FrameType.STREAM_FRAME;
+
+    /* loaded from: classes11.dex */
+    public enum FrameType {
+        STREAM_FRAME(0),
+        SINGLE_FRAME(1);
+        
+        private final int value;
+
+        FrameType(int i) {
+            this.value = i;
+        }
+
+        public static FrameType valueOf(int i) {
+            if (i != STREAM_FRAME.getValue() && i == SINGLE_FRAME.getValue()) {
+                return SINGLE_FRAME;
+            }
+            return STREAM_FRAME;
+        }
+
+        public int getValue() {
+            return this.value;
+        }
+    }
 
     /* loaded from: classes11.dex */
     public enum ScaleType {
@@ -62,6 +86,10 @@ public class PixelReadParams {
         return this.mCacheSize;
     }
 
+    public FrameType getFrameType() {
+        return this.mFrameType;
+    }
+
     public boolean getIsPortrait() {
         return this.mIsPortrait;
     }
@@ -96,6 +124,10 @@ public class PixelReadParams {
 
     public void setCacheSize(int i) {
         this.mCacheSize = i;
+    }
+
+    public void setFrameType(FrameType frameType) {
+        this.mFrameType = frameType;
     }
 
     public void setIsPortrait(boolean z) {

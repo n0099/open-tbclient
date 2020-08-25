@@ -5,7 +5,7 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.util.Log;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes19.dex */
+/* loaded from: classes11.dex */
 public final class a implements ServiceConnection {
     public boolean a = false;
     public final LinkedBlockingQueue<IBinder> b = new LinkedBlockingQueue<>(1);

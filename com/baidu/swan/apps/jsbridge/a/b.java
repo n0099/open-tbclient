@@ -9,37 +9,42 @@ import com.baidu.swan.apps.extcore.model.ExtensionCore;
 import com.baidu.swan.apps.storage.c.h;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     @NonNull
-    public static String getEnvVariables() {
+    public static String f(com.baidu.swan.apps.core.container.a aVar) {
         JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put(SuspensionBallEntity.KEY_SCHEME, SchemeConfig.getSchemeHead());
-            jSONObject.put("sdkExtension", b(d.adw().adR()));
-            jSONObject.put("gameSdkExtension", b(com.baidu.swan.games.j.a.aEO().adR()));
-            jSONObject.put("isDebugSdk", DEBUG);
-            String string = h.auW().getString("ctsUrl", "");
-            if (!TextUtils.isEmpty(string) && com.baidu.swan.apps.ae.a.a.ape()) {
-                jSONObject.put("ctsJsAddress", new JSONObject(string));
-            }
-            if (com.baidu.swan.apps.t.a.ahv() != null) {
-                String TF = com.baidu.swan.apps.t.a.ahv().TF();
-                if (!TextUtils.isEmpty(TF)) {
-                    jSONObject.put("hostName", TF);
+        if (aVar != null) {
+            try {
+                jSONObject.put("containerId", aVar.getContainerId());
+            } catch (JSONException e) {
+                if (DEBUG) {
+                    throw new RuntimeException(e);
                 }
+                e.printStackTrace();
             }
-            jSONObject.put("platform", "android");
-            jSONObject.put("abTestSwitch", com.baidu.swan.apps.swancore.a.a.avb());
-            jSONObject.put("userDataPath", com.baidu.swan.games.i.a.USER_DATA_PATH);
-        } catch (JSONException e) {
-            if (DEBUG) {
-                throw new RuntimeException(e);
-            }
-            e.printStackTrace();
         }
+        jSONObject.put(SuspensionBallEntity.KEY_SCHEME, SchemeConfig.getSchemeHead());
+        jSONObject.put("sdkExtension", b(d.ajS().ako()));
+        jSONObject.put("gameSdkExtension", b(com.baidu.swan.games.j.a.aNC().ako()));
+        jSONObject.put("isDebugSdk", DEBUG);
+        String string = h.aDf().getString("ctsUrl", "");
+        if (!TextUtils.isEmpty(string) && com.baidu.swan.apps.ad.a.a.axb()) {
+            jSONObject.put("ctsJsAddress", new JSONObject(string));
+        }
+        String ZF = com.baidu.swan.apps.t.a.aoV().ZF();
+        if (!TextUtils.isEmpty(ZF)) {
+            jSONObject.put("hostName", ZF);
+        }
+        jSONObject.put("platform", "android");
+        JSONObject aDk = com.baidu.swan.apps.swancore.a.a.aDk();
+        aDk.put("swanswitch_common_sys_info_binding", true);
+        aDk.put("swanswitch_ab_sync_auth", true);
+        jSONObject.put("abTestSwitch", aDk);
+        jSONObject.put("userDataPath", com.baidu.swan.games.i.a.USER_DATA_PATH);
+        jSONObject.put("preloadId", d.ajS().akt());
         String jSONObject2 = jSONObject.toString();
         return TextUtils.isEmpty(jSONObject2) ? "" : jSONObject2;
     }

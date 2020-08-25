@@ -12,11 +12,11 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes6.dex */
 public class b extends SpannableStringBuilder {
-    private final Set<com.facebook.drawee.span.a> mWr;
-    private final a mWs;
-    private View mWt;
-    private Drawable mWu;
-    private c mWv;
+    private final Set<com.facebook.drawee.span.a> nqh;
+    private final a nqi;
+    private View nqj;
+    private Drawable nqk;
+    private c nql;
 
     /* loaded from: classes6.dex */
     public interface c {
@@ -25,8 +25,8 @@ public class b extends SpannableStringBuilder {
 
     public b(CharSequence charSequence) {
         super(charSequence);
-        this.mWr = new HashSet();
-        this.mWs = new a();
+        this.nqh = new HashSet();
+        this.nqi = new a();
     }
 
     public void a(com.facebook.drawee.view.b bVar, int i, int i2, int i3, int i4, boolean z, int i5) {
@@ -36,68 +36,67 @@ public class b extends SpannableStringBuilder {
                 if (topLevelDrawable.getBounds().isEmpty()) {
                     topLevelDrawable.setBounds(0, 0, i3, i4);
                 }
-                topLevelDrawable.setCallback(this.mWs);
+                topLevelDrawable.setCallback(this.nqi);
             }
             com.facebook.drawee.span.a aVar = new com.facebook.drawee.span.a(bVar, i5);
             com.facebook.drawee.d.a controller = bVar.getController();
             if (controller instanceof com.facebook.drawee.controller.a) {
-                ((com.facebook.drawee.controller.a) controller).a(new C0810b(aVar, z, i4));
+                ((com.facebook.drawee.controller.a) controller).a(new C0868b(aVar, z, i4));
             }
-            this.mWr.add(aVar);
+            this.nqh.add(aVar);
             setSpan(aVar, i, i2 + 1, 33);
         }
     }
 
     public void a(c cVar) {
-        this.mWv = cVar;
+        this.nql = cVar;
     }
 
-    public void dn(View view) {
-        dp(view);
+    public void dr(View view) {
+        dt(view);
         onAttach();
     }
 
-    /* renamed from: do  reason: not valid java name */
-    public void m40do(View view) {
-        dq(view);
+    public void ds(View view) {
+        du(view);
         onDetach();
     }
 
     void onAttach() {
-        for (com.facebook.drawee.span.a aVar : this.mWr) {
+        for (com.facebook.drawee.span.a aVar : this.nqh) {
             aVar.onAttach();
         }
     }
 
     void onDetach() {
-        for (com.facebook.drawee.span.a aVar : this.mWr) {
+        for (com.facebook.drawee.span.a aVar : this.nqh) {
             aVar.onDetach();
         }
     }
 
-    protected void dp(View view) {
-        dEY();
-        this.mWt = view;
+    protected void dt(View view) {
+        dQX();
+        this.nqj = view;
     }
 
-    protected void dq(View view) {
-        if (view == this.mWt) {
-            this.mWt = null;
+    protected void du(View view) {
+        if (view == this.nqj) {
+            this.nqj = null;
         }
     }
 
     protected void u(Drawable drawable) {
-        if (drawable == this.mWu) {
-            this.mWu = null;
+        if (drawable == this.nqk) {
+            this.nqk = null;
         }
     }
 
-    protected void dEY() {
-        if (this.mWt != null) {
-            dq(this.mWt);
+    protected void dQX() {
+        if (this.nqj != null) {
+            du(this.nqj);
         }
-        if (this.mWu != null) {
-            u(this.mWu);
+        if (this.nqk != null) {
+            u(this.nqk);
         }
     }
 
@@ -108,64 +107,64 @@ public class b extends SpannableStringBuilder {
 
         @Override // android.graphics.drawable.Drawable.Callback
         public void invalidateDrawable(Drawable drawable) {
-            if (b.this.mWt != null) {
-                b.this.mWt.invalidate();
-            } else if (b.this.mWu != null) {
-                b.this.mWu.invalidateSelf();
+            if (b.this.nqj != null) {
+                b.this.nqj.invalidate();
+            } else if (b.this.nqk != null) {
+                b.this.nqk.invalidateSelf();
             }
         }
 
         @Override // android.graphics.drawable.Drawable.Callback
         public void scheduleDrawable(Drawable drawable, Runnable runnable, long j) {
-            if (b.this.mWt != null) {
-                b.this.mWt.postDelayed(runnable, j - SystemClock.uptimeMillis());
-            } else if (b.this.mWu != null) {
-                b.this.mWu.scheduleSelf(runnable, j);
+            if (b.this.nqj != null) {
+                b.this.nqj.postDelayed(runnable, j - SystemClock.uptimeMillis());
+            } else if (b.this.nqk != null) {
+                b.this.nqk.scheduleSelf(runnable, j);
             }
         }
 
         @Override // android.graphics.drawable.Drawable.Callback
         public void unscheduleDrawable(Drawable drawable, Runnable runnable) {
-            if (b.this.mWt != null) {
-                b.this.mWt.removeCallbacks(runnable);
-            } else if (b.this.mWu != null) {
-                b.this.mWu.unscheduleSelf(runnable);
+            if (b.this.nqj != null) {
+                b.this.nqj.removeCallbacks(runnable);
+            } else if (b.this.nqk != null) {
+                b.this.nqk.unscheduleSelf(runnable);
             }
         }
     }
 
     /* renamed from: com.facebook.drawee.span.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    private class C0810b extends com.facebook.drawee.controller.b<f> {
-        private final com.facebook.drawee.span.a mWx;
-        private final boolean mWy;
-        private final int mWz;
+    private class C0868b extends com.facebook.drawee.controller.b<f> {
+        private final com.facebook.drawee.span.a nqn;
+        private final boolean nqo;
+        private final int nqp;
 
-        public C0810b(com.facebook.drawee.span.a aVar, boolean z, int i) {
+        public C0868b(com.facebook.drawee.span.a aVar, boolean z, int i) {
             g.checkNotNull(aVar);
-            this.mWx = aVar;
-            this.mWy = z;
-            this.mWz = i;
+            this.nqn = aVar;
+            this.nqo = z;
+            this.nqp = i;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
         public void a(String str, f fVar, Animatable animatable) {
-            if (this.mWy && fVar != null && this.mWx.dEX().getTopLevelDrawable() != null) {
-                Drawable topLevelDrawable = this.mWx.dEX().getTopLevelDrawable();
+            if (this.nqo && fVar != null && this.nqn.dQW().getTopLevelDrawable() != null) {
+                Drawable topLevelDrawable = this.nqn.dQW().getTopLevelDrawable();
                 Rect bounds = topLevelDrawable.getBounds();
-                if (this.mWz != -1) {
-                    int height = (int) ((this.mWz / fVar.getHeight()) * fVar.getWidth());
-                    if (bounds.width() != height || bounds.height() != this.mWz) {
-                        topLevelDrawable.setBounds(0, 0, height, this.mWz);
-                        if (b.this.mWv != null) {
-                            b.this.mWv.d(b.this);
+                if (this.nqp != -1) {
+                    int height = (int) ((this.nqp / fVar.getHeight()) * fVar.getWidth());
+                    if (bounds.width() != height || bounds.height() != this.nqp) {
+                        topLevelDrawable.setBounds(0, 0, height, this.nqp);
+                        if (b.this.nql != null) {
+                            b.this.nql.d(b.this);
                         }
                     }
                 } else if (bounds.width() != fVar.getWidth() || bounds.height() != fVar.getHeight()) {
                     topLevelDrawable.setBounds(0, 0, fVar.getWidth(), fVar.getHeight());
-                    if (b.this.mWv != null) {
-                        b.this.mWv.d(b.this);
+                    if (b.this.nql != null) {
+                        b.this.nql.d(b.this);
                     }
                 }
             }

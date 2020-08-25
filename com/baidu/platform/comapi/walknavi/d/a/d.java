@@ -7,7 +7,7 @@ import com.baidu.ar.npc.ArBridge;
 import com.baidu.ar.npc.BaiduArView;
 import com.baidu.fsg.face.liveness.activity.LivenessRecogActivity;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class d implements ArBridge.d {
     private Context a;
     private BaiduArView b;

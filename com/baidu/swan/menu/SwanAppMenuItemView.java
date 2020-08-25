@@ -9,27 +9,28 @@ import android.view.MotionEvent;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.swan.menu.g;
-/* loaded from: classes9.dex */
+/* loaded from: classes14.dex */
 public class SwanAppMenuItemView extends RelativeLayout {
-    private int cVE;
-    private int cVF;
-    private boolean cVG;
-    private Runnable cVJ;
-    private TextView duk;
-    private ImageView dul;
-    private i dum;
+    private TextView dEj;
+    private ImageView dEk;
+    private i dEl;
+    private int deK;
+    private int deL;
+    private boolean deM;
+    private Runnable deP;
     private ImageView mIconView;
     private TextView mTitleView;
 
     public SwanAppMenuItemView(Context context) {
         super(context);
-        this.cVG = false;
-        this.cVJ = new Runnable() { // from class: com.baidu.swan.menu.SwanAppMenuItemView.1
+        this.deM = false;
+        this.deP = new Runnable() { // from class: com.baidu.swan.menu.SwanAppMenuItemView.1
             @Override // java.lang.Runnable
             public void run() {
-                if (SwanAppMenuItemView.this.dum != null && SwanAppMenuItemView.this.dum.aJV() != null) {
-                    SwanAppMenuItemView.this.cVG = SwanAppMenuItemView.this.dum.aJV().c(SwanAppMenuItemView.this.dum);
+                if (SwanAppMenuItemView.this.dEl != null && SwanAppMenuItemView.this.dEl.aSJ() != null) {
+                    SwanAppMenuItemView.this.deM = SwanAppMenuItemView.this.dEl.aSJ().c(SwanAppMenuItemView.this.dEl);
                 }
             }
         };
@@ -38,12 +39,12 @@ public class SwanAppMenuItemView extends RelativeLayout {
 
     public SwanAppMenuItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cVG = false;
-        this.cVJ = new Runnable() { // from class: com.baidu.swan.menu.SwanAppMenuItemView.1
+        this.deM = false;
+        this.deP = new Runnable() { // from class: com.baidu.swan.menu.SwanAppMenuItemView.1
             @Override // java.lang.Runnable
             public void run() {
-                if (SwanAppMenuItemView.this.dum != null && SwanAppMenuItemView.this.dum.aJV() != null) {
-                    SwanAppMenuItemView.this.cVG = SwanAppMenuItemView.this.dum.aJV().c(SwanAppMenuItemView.this.dum);
+                if (SwanAppMenuItemView.this.dEl != null && SwanAppMenuItemView.this.dEl.aSJ() != null) {
+                    SwanAppMenuItemView.this.deM = SwanAppMenuItemView.this.dEl.aSJ().c(SwanAppMenuItemView.this.dEl);
                 }
             }
         };
@@ -52,12 +53,12 @@ public class SwanAppMenuItemView extends RelativeLayout {
 
     public SwanAppMenuItemView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cVG = false;
-        this.cVJ = new Runnable() { // from class: com.baidu.swan.menu.SwanAppMenuItemView.1
+        this.deM = false;
+        this.deP = new Runnable() { // from class: com.baidu.swan.menu.SwanAppMenuItemView.1
             @Override // java.lang.Runnable
             public void run() {
-                if (SwanAppMenuItemView.this.dum != null && SwanAppMenuItemView.this.dum.aJV() != null) {
-                    SwanAppMenuItemView.this.cVG = SwanAppMenuItemView.this.dum.aJV().c(SwanAppMenuItemView.this.dum);
+                if (SwanAppMenuItemView.this.dEl != null && SwanAppMenuItemView.this.dEl.aSJ() != null) {
+                    SwanAppMenuItemView.this.deM = SwanAppMenuItemView.this.dEl.aSJ().c(SwanAppMenuItemView.this.dEl);
                 }
             }
         };
@@ -69,8 +70,8 @@ public class SwanAppMenuItemView extends RelativeLayout {
         LayoutInflater.from(getContext()).inflate(g.e.aiapp_menu_item_view_layout, this);
         this.mIconView = (ImageView) findViewById(g.d.aiapp_menu_item_icon);
         this.mTitleView = (TextView) findViewById(g.d.aiapp_menu_item_title);
-        this.duk = (TextView) findViewById(g.d.aiapp_menu_item_new_tips);
-        this.dul = (ImageView) findViewById(g.d.aiapp_menu_item_new_dot);
+        this.dEj = (TextView) findViewById(g.d.aiapp_menu_item_new_tips);
+        this.dEk = (ImageView) findViewById(g.d.aiapp_menu_item_new_dot);
         setBackgroundResource(0);
     }
 
@@ -78,7 +79,7 @@ public class SwanAppMenuItemView extends RelativeLayout {
     public void f(i iVar) {
         if (iVar != null) {
             setItemView(iVar);
-            this.dum = iVar;
+            this.dEl = iVar;
         }
     }
 
@@ -96,11 +97,11 @@ public class SwanAppMenuItemView extends RelativeLayout {
     private void g(i iVar) {
         if (iVar != null) {
             setAlpha(1.0f);
-            this.mTitleView.setText(iVar.dv(getContext()));
+            this.mTitleView.setText(iVar.dB(getContext()));
             Drawable i = i(iVar);
             if (i != null) {
                 this.mIconView.setImageDrawable(i);
-                this.mIconView.setImageLevel(iVar.aJT());
+                this.mIconView.setImageLevel(iVar.aSH());
             }
             this.mTitleView.setTextColor(getResources().getColor(iVar.getTitleColor()));
         }
@@ -108,37 +109,37 @@ public class SwanAppMenuItemView extends RelativeLayout {
 
     private void h(i iVar) {
         if (iVar != null) {
-            switch (iVar.aJR()) {
+            switch (iVar.aSF()) {
                 case 0:
-                    this.duk.setVisibility(8);
-                    this.duk.setVisibility(8);
+                    this.dEj.setVisibility(8);
+                    this.dEj.setVisibility(8);
                     return;
                 case 1:
-                    this.dul.setVisibility(8);
-                    this.duk.setText(bX(iVar.aJS()));
-                    this.duk.setTextColor(getResources().getColor(g.a.swan_app_menu_item_tip_text));
-                    this.duk.setBackground(getResources().getDrawable(g.c.swan_app_menu_new_bg));
-                    this.duk.setVisibility(0);
+                    this.dEk.setVisibility(8);
+                    this.dEj.setText(ce(iVar.aSG()));
+                    this.dEj.setTextColor(getResources().getColor(g.a.swan_app_menu_item_tip_text));
+                    this.dEj.setBackground(getResources().getDrawable(g.c.swan_app_menu_new_bg));
+                    this.dEj.setVisibility(0);
                     return;
                 case 2:
-                    this.duk.setVisibility(8);
-                    this.dul.setImageDrawable(getResources().getDrawable(g.c.swan_app_menu_new_dot));
-                    this.dul.setVisibility(0);
+                    this.dEj.setVisibility(8);
+                    this.dEk.setImageDrawable(getResources().getDrawable(g.c.swan_app_menu_new_dot));
+                    this.dEk.setVisibility(0);
                     return;
                 default:
-                    this.duk.setVisibility(8);
-                    this.dul.setVisibility(8);
+                    this.dEj.setVisibility(8);
+                    this.dEk.setVisibility(8);
                     return;
             }
         }
     }
 
-    private String bX(long j) {
+    private String ce(long j) {
         return j <= 99 ? String.valueOf(j) : "99+";
     }
 
     private Drawable i(i iVar) {
-        return iVar.dw(getContext());
+        return iVar.dC(getContext());
     }
 
     @Override // android.view.View
@@ -147,34 +148,34 @@ public class SwanAppMenuItemView extends RelativeLayout {
         int y = (int) motionEvent.getY();
         switch (motionEvent.getAction()) {
             case 0:
-                if (this.dum == null || this.dum.aJV() == null) {
+                if (this.dEl == null || this.dEl.aSJ() == null) {
                     return super.onTouchEvent(motionEvent);
                 }
-                removeCallbacks(this.cVJ);
-                this.cVG = false;
-                this.cVE = x;
-                this.cVF = y;
-                postDelayed(this.cVJ, 3000L);
+                removeCallbacks(this.deP);
+                this.deM = false;
+                this.deK = x;
+                this.deL = y;
+                postDelayed(this.deP, IMConnection.RETRY_DELAY_TIMES);
                 setPressed(true);
                 return true;
             case 1:
-                removeCallbacks(this.cVJ);
-                if (!this.cVG && this.dum.aJU() != null) {
-                    this.dum.aJU().a(this, this.dum);
+                removeCallbacks(this.deP);
+                if (!this.deM && this.dEl.aSI() != null) {
+                    this.dEl.aSI().a(this, this.dEl);
                 }
-                this.cVG = false;
+                this.deM = false;
                 setPressed(false);
                 return super.onTouchEvent(motionEvent);
             case 2:
-                if (Math.abs(this.cVE - x) > 10 || Math.abs(this.cVF - y) > 10) {
-                    removeCallbacks(this.cVJ);
-                    this.cVG = false;
+                if (Math.abs(this.deK - x) > 10 || Math.abs(this.deL - y) > 10) {
+                    removeCallbacks(this.deP);
+                    this.deM = false;
                     return true;
                 }
                 return true;
             case 3:
-                removeCallbacks(this.cVJ);
-                this.cVG = false;
+                removeCallbacks(this.deP);
+                this.deM = false;
                 setPressed(false);
                 return super.onTouchEvent(motionEvent);
             default:

@@ -4,16 +4,16 @@ import android.content.Context;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes20.dex */
 public final class c {
     private static Map<String, d> a = new HashMap();
 
     public static void a(Context context, int i, File file, File file2) {
         if (file != null) {
             try {
-                if (com.baidu.sofire.i.d.a(file)) {
-                    if (!com.baidu.sofire.i.d.a(file2)) {
-                        com.baidu.sofire.i.d.a(file, file2);
+                if (com.baidu.sofire.i.e.a(file)) {
+                    if (!com.baidu.sofire.i.e.a(file2)) {
+                        com.baidu.sofire.i.e.a(file, file2);
                     }
                     new StringBuilder("f=").append(file).append(", b=").append(file2);
                     b.a();
@@ -24,7 +24,7 @@ public final class c {
                     }
                 }
             } catch (Throwable th) {
-                com.baidu.sofire.i.d.a();
+                com.baidu.sofire.i.e.a();
             }
         }
     }
@@ -41,7 +41,7 @@ public final class c {
                     dVar.a();
                 }
             } catch (Throwable th) {
-                com.baidu.sofire.i.d.a();
+                com.baidu.sofire.i.e.a();
             }
         }
     }

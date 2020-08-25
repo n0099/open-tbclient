@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.flow.a;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface a {
-    String aUj();
+    String bcC();
 
     String getPicUrl();
 }

@@ -2,8 +2,8 @@ package com.baidu.mapapi.bikenavi.controllers.a;
 
 import com.baidu.mapapi.bikenavi.adapter.IBRoutePlanListener;
 import com.baidu.mapapi.bikenavi.model.BikeRoutePlanError;
-/* loaded from: classes10.dex */
-class c implements com.baidu.platform.comapi.wnplatform.i.a {
+/* loaded from: classes20.dex */
+class c implements com.baidu.platform.comapi.wnplatform.j.c {
     final /* synthetic */ IBRoutePlanListener a;
     final /* synthetic */ a b;
 
@@ -13,17 +13,17 @@ class c implements com.baidu.platform.comapi.wnplatform.i.a {
         this.a = iBRoutePlanListener;
     }
 
-    @Override // com.baidu.platform.comapi.wnplatform.i.a
+    @Override // com.baidu.platform.comapi.wnplatform.j.c
     public void a() {
         this.a.onRoutePlanStart();
     }
 
-    @Override // com.baidu.platform.comapi.wnplatform.i.a
+    @Override // com.baidu.platform.comapi.wnplatform.j.c
     public void b() {
         this.a.onRoutePlanSuccess();
     }
 
-    @Override // com.baidu.platform.comapi.wnplatform.i.a
+    @Override // com.baidu.platform.comapi.wnplatform.j.c
     public void a(int i) {
         switch (i) {
             case 16777214:

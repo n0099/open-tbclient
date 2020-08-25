@@ -18,7 +18,7 @@ import android.view.MenuItem;
 import android.widget.ShareActionProvider;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import java.util.ArrayList;
-/* loaded from: classes18.dex */
+/* loaded from: classes3.dex */
 public final class ShareCompat {
     public static final String EXTRA_CALLING_ACTIVITY = "android.support.v4.app.EXTRA_CALLING_ACTIVITY";
     public static final String EXTRA_CALLING_PACKAGE = "android.support.v4.app.EXTRA_CALLING_PACKAGE";
@@ -67,7 +67,7 @@ public final class ShareCompat {
         configureMenuItem(findItem, intentBuilder);
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes3.dex */
     public static class IntentBuilder {
         private Activity mActivity;
         private ArrayList<String> mBccAddresses;
@@ -273,7 +273,7 @@ public final class ShareCompat {
         }
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes3.dex */
     public static class IntentReader {
         private static final String TAG = "IntentReader";
         private Activity mActivity;

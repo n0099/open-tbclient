@@ -11,12 +11,12 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class LiveVideoChatPanelView extends FrameLayout {
-    private FrameLayout bmL;
-    private RelativeLayout bmM;
-    private ImageView bmN;
-    private TextView bmO;
+    private FrameLayout bsq;
+    private RelativeLayout bsr;
+    private ImageView bss;
+    private TextView bst;
     private Context mContext;
 
     public LiveVideoChatPanelView(@NonNull Context context) {
@@ -39,10 +39,10 @@ public class LiveVideoChatPanelView extends FrameLayout {
 
     private void initView() {
         LayoutInflater.from(this.mContext).inflate(a.h.sdk_live_video_chat_panel_view, this);
-        this.bmL = (FrameLayout) findViewById(a.g.live_video_chat_panel);
-        this.bmM = (RelativeLayout) findViewById(a.g.live_video_chat_prepare_layout);
-        this.bmN = (ImageView) findViewById(a.g.live_video_chat_prepare_img);
-        this.bmO = (TextView) findViewById(a.g.live_video_chat_prepare_txt);
+        this.bsq = (FrameLayout) findViewById(a.g.live_video_chat_panel);
+        this.bsr = (RelativeLayout) findViewById(a.g.live_video_chat_prepare_layout);
+        this.bss = (ImageView) findViewById(a.g.live_video_chat_prepare_img);
+        this.bst = (TextView) findViewById(a.g.live_video_chat_prepare_txt);
     }
 
     public View getPanelView() {

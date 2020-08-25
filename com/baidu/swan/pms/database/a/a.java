@@ -7,7 +7,7 @@ import com.baidu.swan.pms.model.PMSAppInfo;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes19.dex */
+/* loaded from: classes14.dex */
 public class a extends b<PMSAppInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
@@ -40,7 +40,7 @@ public class a extends b<PMSAppInfo> {
             contentValues.put("app_id", pMSAppInfo.appId);
             contentValues.put("app_key", pMSAppInfo.appKey);
             contentValues.put("app_sign", Long.valueOf(pMSAppInfo.appSign));
-            contentValues.put("version_code", Integer.valueOf(pMSAppInfo.versionCode));
+            contentValues.put("version_code", Long.valueOf(pMSAppInfo.versionCode));
             contentValues.put(SharedPrefConfig.VERSION_NAME, pMSAppInfo.versionName);
             contentValues.put("description", pMSAppInfo.description);
             contentValues.put("app_status", Integer.valueOf(pMSAppInfo.appStatus));
@@ -69,18 +69,21 @@ public class a extends b<PMSAppInfo> {
             contentValues.put("global_private", Integer.valueOf(pMSAppInfo.globalPrivate));
             contentValues.put("pa_number", pMSAppInfo.paNumber);
             contentValues.put(Constants.PHONE_BRAND, pMSAppInfo.brandsInfo);
+            contentValues.put("quick_app_key", pMSAppInfo.quickAppKey);
             long lastLaunchTime = pMSAppInfo.getLastLaunchTime();
             if (0 < lastLaunchTime) {
                 contentValues.put("last_launch_time", Long.valueOf(lastLaunchTime));
             }
-            int awU = pMSAppInfo.awU();
-            if (awU > 0) {
-                contentValues.put("launch_count", Integer.valueOf(awU));
+            int aFd = pMSAppInfo.aFd();
+            if (aFd > 0) {
+                contentValues.put("launch_count", Integer.valueOf(aFd));
             }
-            int aco = pMSAppInfo.aco();
-            if (aco > 0) {
-                contentValues.put("install_src", Integer.valueOf(aco));
+            int aiN = pMSAppInfo.aiN();
+            if (aiN > 0) {
+                contentValues.put("install_src", Integer.valueOf(aiN));
             }
+            contentValues.put("web_url", pMSAppInfo.webUrl);
+            contentValues.put("cs_protocol_version", Integer.valueOf(pMSAppInfo.csProtocolVersion));
         }
         return contentValues;
     }
@@ -122,6 +125,9 @@ public class a extends b<PMSAppInfo> {
             int columnIndex33 = cursor.getColumnIndex("last_launch_time");
             int columnIndex34 = cursor.getColumnIndex("launch_count");
             int columnIndex35 = cursor.getColumnIndex("install_src");
+            int columnIndex36 = cursor.getColumnIndex("quick_app_key");
+            int columnIndex37 = cursor.getColumnIndex("web_url");
+            int columnIndex38 = cursor.getColumnIndex("cs_protocol_version");
             PMSAppInfo pMSAppInfo = new PMSAppInfo();
             pMSAppInfo.appId = cursor.getString(columnIndex);
             pMSAppInfo.appKey = cursor.getString(columnIndex2);
@@ -155,9 +161,12 @@ public class a extends b<PMSAppInfo> {
             pMSAppInfo.globalPrivate = cursor.getInt(columnIndex30);
             pMSAppInfo.paNumber = cursor.getString(columnIndex31);
             pMSAppInfo.brandsInfo = cursor.getString(columnIndex32);
-            pMSAppInfo.ca(cursor.getLong(columnIndex33));
-            pMSAppInfo.jF(cursor.getInt(columnIndex34));
-            pMSAppInfo.jG(cursor.getInt(columnIndex35));
+            pMSAppInfo.quickAppKey = cursor.getString(columnIndex36);
+            pMSAppInfo.cg(cursor.getLong(columnIndex33));
+            pMSAppInfo.lN(cursor.getInt(columnIndex34));
+            pMSAppInfo.lO(cursor.getInt(columnIndex35));
+            pMSAppInfo.webUrl = cursor.getString(columnIndex37);
+            pMSAppInfo.csProtocolVersion = cursor.getInt(columnIndex38);
             return pMSAppInfo;
         }
         return null;

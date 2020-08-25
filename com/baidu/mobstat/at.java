@@ -25,7 +25,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class at {
     private static final at u = new at();
     private Context a;
@@ -60,7 +60,7 @@ public class at {
     private float z = 0.0f;
     private Object A = new Object();
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void a(ao aoVar);
 

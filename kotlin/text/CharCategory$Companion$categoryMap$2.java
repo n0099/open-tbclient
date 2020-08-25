@@ -5,7 +5,7 @@ import java.util.Map;
 import kotlin.collections.af;
 import kotlin.jvm.internal.Lambda;
 @kotlin.h
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 final class CharCategory$Companion$categoryMap$2 extends Lambda implements kotlin.jvm.a.a<Map<Integer, ? extends CharCategory>> {
     public static final CharCategory$Companion$categoryMap$2 INSTANCE = new CharCategory$Companion$categoryMap$2();
 
@@ -18,7 +18,7 @@ final class CharCategory$Companion$categoryMap$2 extends Lambda implements kotli
     @Override // kotlin.jvm.a.a
     public final Map<Integer, ? extends CharCategory> invoke() {
         CharCategory[] values = CharCategory.values();
-        LinkedHashMap linkedHashMap = new LinkedHashMap(kotlin.b.l.ea(af.Ls(values.length), 16));
+        LinkedHashMap linkedHashMap = new LinkedHashMap(kotlin.b.l.ei(af.NV(values.length), 16));
         for (CharCategory charCategory : values) {
             linkedHashMap.put(Integer.valueOf(charCategory.getValue()), charCategory);
         }

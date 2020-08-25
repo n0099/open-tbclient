@@ -14,27 +14,27 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d implements a.b {
-    private final Map<String, Deque<Message>> cBA = new HashMap();
+    private final Map<String, Deque<Message>> cJL = new HashMap();
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
-    public void apz() {
-        for (String str : this.cBA.keySet()) {
-            nP(str);
+    public void axv() {
+        for (String str : this.cJL.keySet()) {
+            pN(str);
         }
     }
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
-    public void nP(String str) {
-        Deque<Message> deque = this.cBA.get(str);
+    public void pN(String str) {
+        Deque<Message> deque = this.cJL.get(str);
         com.baidu.swan.apps.process.messaging.a.log("flushMsg:: appid=" + str + " msgQueue=" + deque);
         if (deque != null && !deque.isEmpty()) {
-            List<c> nV = e.aqf().nV(str);
-            com.baidu.swan.apps.process.messaging.a.log("flushMsg:: msgQueue.size=" + deque.size() + " clients.size=" + nV.size());
-            if (!nV.isEmpty()) {
-                for (c cVar : nV) {
-                    cVar.g(deque);
+            List<c> pT = e.ayg().pT(str);
+            com.baidu.swan.apps.process.messaging.a.log("flushMsg:: msgQueue.size=" + deque.size() + " clients.size=" + pT.size());
+            if (!pT.isEmpty()) {
+                for (c cVar : pT) {
+                    cVar.i(deque);
                 }
                 deque.clear();
             }
@@ -43,51 +43,51 @@ public class d implements a.b {
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
     public void clear(String str) {
-        this.cBA.remove(str);
+        this.cJL.remove(str);
     }
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
     public void a(@NonNull com.baidu.swan.apps.process.messaging.c cVar) {
-        Message apA = cVar.apA();
-        if (cVar.apE()) {
-            L(apA);
+        Message axw = cVar.axw();
+        if (cVar.axA()) {
+            M(axw);
         }
-        Set<SwanAppProcessInfo> apC = cVar.apC();
-        Set<String> apD = cVar.apD();
+        Set<SwanAppProcessInfo> axy = cVar.axy();
+        Set<String> axz = cVar.axz();
         if (cVar.isSticky()) {
-            Iterator<c> it = e.aqf().aqh().iterator();
+            Iterator<c> it = e.ayg().ayi().iterator();
             while (it.hasNext()) {
                 c next = it.next();
-                boolean a = a(next, apD);
-                if (apC.contains(next.cBq) || a) {
-                    next.K(apA);
+                boolean a = a(next, axz);
+                if (axy.contains(next.cJz) || a) {
+                    next.L(axw);
                     if (a) {
-                        apD.remove(next.getAppId());
+                        axz.remove(next.getAppId());
                     }
                 }
             }
-            a(apD, apA);
+            a(axz, axw);
             return;
         }
-        Iterator<c> it2 = e.aqf().aqh().iterator();
+        Iterator<c> it2 = e.ayg().ayi().iterator();
         while (it2.hasNext()) {
             c next2 = it2.next();
-            if (next2 != null && next2.apW() && (apC.contains(next2.cBq) || a(next2, apD))) {
-                next2.K(apA);
+            if (next2 != null && next2.axT() && (axy.contains(next2.cJz) || a(next2, axz))) {
+                next2.L(axw);
             }
         }
     }
 
-    private void L(Message message) {
+    private void M(Message message) {
         try {
-            e.aqf().mMessenger.send(message);
+            e.ayg().mMessenger.send(message);
         } catch (RemoteException e) {
             com.baidu.swan.apps.process.messaging.a.log(Log.getStackTraceString(e));
         }
     }
 
     boolean a(@NonNull c cVar, @NonNull Set<String> set) {
-        return cVar.apU() && set.contains(cVar.getAppId());
+        return cVar.axR() && set.contains(cVar.getAppId());
     }
 
     private void a(Set<String> set, @NonNull Message message) {
@@ -98,10 +98,10 @@ public class d implements a.b {
 
     private void a(String str, @NonNull Message message) {
         if (!TextUtils.isEmpty(str)) {
-            Deque<Message> deque = this.cBA.get(str);
+            Deque<Message> deque = this.cJL.get(str);
             if (deque == null) {
                 deque = new ArrayDeque<>();
-                this.cBA.put(str, deque);
+                this.cJL.put(str, deque);
             }
             deque.offer(message);
         }

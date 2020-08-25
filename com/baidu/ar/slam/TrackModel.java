@@ -7,7 +7,7 @@ public class TrackModel implements Parcelable {
     public static final Parcelable.Creator<TrackModel> CREATOR = new Parcelable.Creator() { // from class: com.baidu.ar.slam.TrackModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: L */
+        /* renamed from: N */
         public TrackModel[] newArray(int i) {
             return new TrackModel[i];
         }

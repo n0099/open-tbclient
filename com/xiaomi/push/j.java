@@ -11,19 +11,19 @@ import android.os.Parcel;
 import java.io.IOException;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 final class j {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     static final class a {
         private final String a;
 
         /* renamed from: a  reason: collision with other field name */
-        private final boolean f771a;
+        private final boolean f768a;
 
         a(String str, boolean z) {
             this.a = str;
-            this.f771a = z;
+            this.f768a = z;
         }
 
         public String a() {
@@ -31,23 +31,23 @@ final class j {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     private static final class b implements ServiceConnection {
         private final LinkedBlockingQueue<IBinder> a;
 
         /* renamed from: a  reason: collision with other field name */
-        boolean f772a;
+        boolean f769a;
 
         private b() {
-            this.f772a = false;
+            this.f769a = false;
             this.a = new LinkedBlockingQueue<>(1);
         }
 
         public IBinder a() {
-            if (this.f772a) {
+            if (this.f769a) {
                 throw new IllegalStateException();
             }
-            this.f772a = true;
+            this.f769a = true;
             return this.a.poll(30000L, TimeUnit.MILLISECONDS);
         }
 
@@ -64,7 +64,7 @@ final class j {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     private static final class c implements IInterface {
         private IBinder a;
 

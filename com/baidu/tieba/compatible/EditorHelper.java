@@ -2,7 +2,7 @@ package com.baidu.tieba.compatible;
 
 import android.content.SharedPreferences;
 import android.os.Build;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class EditorHelper {
     public static void putBoolean(SharedPreferences sharedPreferences, String str, boolean z) {
         if (sharedPreferences != null) {

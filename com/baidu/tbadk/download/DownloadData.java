@@ -2,7 +2,7 @@ package com.baidu.tbadk.download;
 
 import com.baidu.tieba.recapp.report.DownloadStaticsData;
 import java.io.Serializable;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class DownloadData implements Serializable, Cloneable {
     public static final int FILE_DOWNLOAD_STATUS_CANCEL = 4;
     public static final int FILE_DOWNLOAD_STATUS_DOWNLOADING = 1;

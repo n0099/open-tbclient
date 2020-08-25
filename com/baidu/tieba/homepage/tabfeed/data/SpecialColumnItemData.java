@@ -23,14 +23,14 @@ public class SpecialColumnItemData implements Parcelable, q {
     public static final Parcelable.Creator<SpecialColumnItemData> CREATOR = new Parcelable.Creator<SpecialColumnItemData>() { // from class: com.baidu.tieba.homepage.tabfeed.data.SpecialColumnItemData.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: X */
+        /* renamed from: Y */
         public SpecialColumnItemData createFromParcel(Parcel parcel) {
             return new SpecialColumnItemData(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: xH */
+        /* renamed from: Ab */
         public SpecialColumnItemData[] newArray(int i) {
             return new SpecialColumnItemData[i];
         }

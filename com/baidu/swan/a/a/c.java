@@ -1,11 +1,17 @@
 package com.baidu.swan.a.a;
 
-import android.text.TextUtils;
-import com.baidu.swan.pms.model.e;
-/* loaded from: classes3.dex */
-public class c extends e {
-    @Override // com.baidu.swan.pms.model.e
-    public boolean acP() {
-        return (TextUtils.isEmpty(this.dvZ) || this.versionCode <= 0 || this.size <= 0 || TextUtils.isEmpty(this.md5) || TextUtils.isEmpty(this.downloadUrl)) ? false : true;
+import com.baidu.searchbox.http.AbstractHttpManager;
+import com.baidu.searchbox.http.request.GetRequest;
+/* loaded from: classes4.dex */
+public class c extends GetRequest.GetRequestBuilder {
+    public c(AbstractHttpManager abstractHttpManager) {
+        super(abstractHttpManager);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.request.GetRequest.GetRequestBuilder, com.baidu.searchbox.http.request.HttpRequestBuilder
+    public GetRequest build() {
+        com.baidu.swan.a.b.aSS().a(this.httpUrl.toString(), this);
+        return super.build();
     }
 }

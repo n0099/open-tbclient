@@ -8,28 +8,28 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowableSamplePublisher<T> extends io.reactivex.g<T> {
-    final org.a.b<?> nTg;
-    final boolean nTw;
-    final org.a.b<T> source;
+    final org.b.b<?> onb;
+    final boolean ons;
+    final org.b.b<T> source;
 
     @Override // io.reactivex.g
-    protected void a(org.a.c<? super T> cVar) {
+    protected void a(org.b.c<? super T> cVar) {
         io.reactivex.subscribers.b bVar = new io.reactivex.subscribers.b(cVar);
-        if (this.nTw) {
-            this.source.subscribe(new SampleMainEmitLast(bVar, this.nTg));
+        if (this.ons) {
+            this.source.subscribe(new SampleMainEmitLast(bVar, this.onb));
         } else {
-            this.source.subscribe(new SampleMainNoLast(bVar, this.nTg));
+            this.source.subscribe(new SampleMainNoLast(bVar, this.onb));
         }
     }
 
     /* loaded from: classes7.dex */
-    static abstract class SamplePublisherSubscriber<T> extends AtomicReference<T> implements j<T>, org.a.d {
+    static abstract class SamplePublisherSubscriber<T> extends AtomicReference<T> implements j<T>, org.b.d {
         private static final long serialVersionUID = -3517602651313910099L;
-        final org.a.c<? super T> actual;
-        org.a.d s;
-        final org.a.b<?> sampler;
+        final org.b.c<? super T> actual;
+        org.b.d s;
+        final org.b.b<?> sampler;
         final AtomicLong requested = new AtomicLong();
-        final AtomicReference<org.a.d> other = new AtomicReference<>();
+        final AtomicReference<org.b.d> other = new AtomicReference<>();
 
         abstract void completeMain();
 
@@ -37,13 +37,13 @@ public final class FlowableSamplePublisher<T> extends io.reactivex.g<T> {
 
         abstract void run();
 
-        SamplePublisherSubscriber(org.a.c<? super T> cVar, org.a.b<?> bVar) {
+        SamplePublisherSubscriber(org.b.c<? super T> cVar, org.b.b<?> bVar) {
             this.actual = cVar;
             this.sampler = bVar;
         }
 
-        @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        @Override // io.reactivex.j, org.b.c
+        public void onSubscribe(org.b.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
@@ -54,35 +54,35 @@ public final class FlowableSamplePublisher<T> extends io.reactivex.g<T> {
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(T t) {
             lazySet(t);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
             SubscriptionHelper.cancel(this.other);
             this.actual.onError(th);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
             SubscriptionHelper.cancel(this.other);
             completeMain();
         }
 
-        boolean setOther(org.a.d dVar) {
+        boolean setOther(org.b.d dVar) {
             return SubscriptionHelper.setOnce(this.other, dVar);
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 io.reactivex.internal.util.b.a(this.requested, j);
             }
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void cancel() {
             SubscriptionHelper.cancel(this.other);
             this.s.cancel();
@@ -114,32 +114,32 @@ public final class FlowableSamplePublisher<T> extends io.reactivex.g<T> {
 
     /* loaded from: classes7.dex */
     static final class a<T> implements j<Object> {
-        final SamplePublisherSubscriber<T> nTx;
+        final SamplePublisherSubscriber<T> ont;
 
         a(SamplePublisherSubscriber<T> samplePublisherSubscriber) {
-            this.nTx = samplePublisherSubscriber;
+            this.ont = samplePublisherSubscriber;
         }
 
-        @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
-            if (this.nTx.setOther(dVar)) {
+        @Override // io.reactivex.j, org.b.c
+        public void onSubscribe(org.b.d dVar) {
+            if (this.ont.setOther(dVar)) {
                 dVar.request(Long.MAX_VALUE);
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(Object obj) {
-            this.nTx.run();
+            this.ont.run();
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
-            this.nTx.error(th);
+            this.ont.error(th);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
-            this.nTx.complete();
+            this.ont.complete();
         }
     }
 
@@ -147,7 +147,7 @@ public final class FlowableSamplePublisher<T> extends io.reactivex.g<T> {
     static final class SampleMainNoLast<T> extends SamplePublisherSubscriber<T> {
         private static final long serialVersionUID = -3029755663834015785L;
 
-        SampleMainNoLast(org.a.c<? super T> cVar, org.a.b<?> bVar) {
+        SampleMainNoLast(org.b.c<? super T> cVar, org.b.b<?> bVar) {
             super(cVar, bVar);
         }
 
@@ -173,7 +173,7 @@ public final class FlowableSamplePublisher<T> extends io.reactivex.g<T> {
         volatile boolean done;
         final AtomicInteger wip;
 
-        SampleMainEmitLast(org.a.c<? super T> cVar, org.a.b<?> bVar) {
+        SampleMainEmitLast(org.b.c<? super T> cVar, org.b.b<?> bVar) {
             super(cVar, bVar);
             this.wip = new AtomicInteger();
         }

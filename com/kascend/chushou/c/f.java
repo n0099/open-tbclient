@@ -8,7 +8,6 @@ import com.baidu.live.tbadk.core.util.TbEnum;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.mobstat.Config;
-import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.coremedia.iso.boxes.MetaBox;
 import com.heytap.mcssdk.mode.CommandMessage;
 import com.kascend.chushou.constants.BangListInfo;
@@ -30,7 +29,7 @@ import org.json.JSONObject;
 import tv.chushou.zues.utils.h;
 /* loaded from: classes6.dex */
 public class f {
-    public static ParserRet r(String str, JSONObject jSONObject) {
+    public static ParserRet q(String str, JSONObject jSONObject) {
         return b(str, jSONObject, true);
     }
 
@@ -41,7 +40,7 @@ public class f {
         int i;
         JSONArray jSONArray;
         boolean z2;
-        tv.chushou.zues.utils.e.m("Parser_Room", "%s%sparseRoomInfo:", jSONObject);
+        tv.chushou.zues.utils.e.l("Parser_Room", "%s%sparseRoomInfo:", jSONObject);
         FullRoomInfo fullRoomInfo2 = null;
         int i2 = -1;
         String str3 = "";
@@ -54,7 +53,7 @@ public class f {
                 try {
                     JSONObject jSONObject2 = jSONObject.getJSONObject("data");
                     JSONArray optJSONArray = jSONObject2.optJSONArray("roomTabs");
-                    if (!h.ab(optJSONArray)) {
+                    if (!h.ad(optJSONArray)) {
                         for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
                             JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
                             if (optJSONObject != null) {
@@ -71,7 +70,7 @@ public class f {
                     }
                     JSONObject optJSONObject2 = jSONObject2.optJSONObject("shareInfo");
                     if (optJSONObject2 != null) {
-                        fullRoomInfo.mRoominfo.mShareInfo = a.dX(optJSONObject2);
+                        fullRoomInfo.mRoominfo.mShareInfo = a.ei(optJSONObject2);
                     }
                     JSONObject optJSONObject3 = jSONObject2.optJSONObject("user");
                     if (optJSONObject3 != null) {
@@ -80,7 +79,7 @@ public class f {
                         fullRoomInfo.mRoominfo.mCreatorAvatar = optJSONObject3.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR, "");
                         fullRoomInfo.mRoominfo.mCreatorGender = optJSONObject3.optString("gender", "");
                         fullRoomInfo.mRoominfo.mCreatorSignature = optJSONObject3.optString(SocialOperation.GAME_SIGNATURE);
-                        fullRoomInfo.mRoominfo.mCreatorLevel = optJSONObject3.optInt(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, 0);
+                        fullRoomInfo.mRoominfo.mCreatorLevel = optJSONObject3.optInt("level", 0);
                         fullRoomInfo.mRoominfo.mCreatorLevelMedal = optJSONObject3.optString("levelMedal");
                     }
                     fullRoomInfo.mRoominfo.mIsLive = jSONObject2.optBoolean("isOnline", false);
@@ -174,7 +173,7 @@ public class f {
                             JSONObject optJSONObject6 = jSONArray3.optJSONObject(i9);
                             BangListInfo bangListInfo = new BangListInfo();
                             bangListInfo.icon = optJSONObject6.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
-                            bangListInfo.level = optJSONObject6.optInt(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL);
+                            bangListInfo.level = optJSONObject6.optInt("level");
                             bangListInfo.name = optJSONObject6.optString("name");
                             fullRoomInfo.mBangMap.put(bangListInfo.level, bangListInfo);
                         }
@@ -184,7 +183,7 @@ public class f {
                     }
                     JSONObject optJSONObject7 = jSONObject2.optJSONObject("currentLiveRoom");
                     if (optJSONObject7 != null) {
-                        fullRoomInfo.cycleLiveRoomInfo = e.ee(optJSONObject7);
+                        fullRoomInfo.cycleLiveRoomInfo = e.ep(optJSONObject7);
                     }
                     tv.chushou.zues.utils.e.i("Parser_Room", "parser sucess");
                     fullRoomInfo2 = fullRoomInfo;
@@ -232,9 +231,9 @@ public class f {
                     if (optJSONArray2 != null) {
                         int length2 = optJSONArray2.length();
                         for (int i2 = 0; i2 < length2; i2++) {
-                            GeneralGift en = en(optJSONArray2.optJSONObject(i2));
-                            if (en != null) {
-                                generalTabGift.mGeneralGifts.add(en);
+                            GeneralGift ey = ey(optJSONArray2.optJSONObject(i2));
+                            if (ey != null) {
+                                generalTabGift.mGeneralGifts.add(ey);
                             }
                         }
                     }
@@ -254,18 +253,18 @@ public class f {
             arrayList = new ArrayList();
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
-                GeneralGift en = en(optJSONArray.optJSONObject(i));
-                if (en != null) {
-                    en.mGroupName = str;
-                    en.mGroup = 127;
-                    arrayList.add(en);
+                GeneralGift ey = ey(optJSONArray.optJSONObject(i));
+                if (ey != null) {
+                    ey.mGroupName = str;
+                    ey.mGroup = 127;
+                    arrayList.add(ey);
                 }
             }
         }
         return arrayList;
     }
 
-    public static ParserRet ea(JSONObject jSONObject) {
+    public static ParserRet el(JSONObject jSONObject) {
         ArrayList arrayList = null;
         JSONObject optJSONObject = jSONObject.optJSONObject("data");
         String str = "";
@@ -276,9 +275,9 @@ public class f {
                 arrayList = new ArrayList();
                 int length = optJSONArray.length();
                 for (int i = 0; i < length; i++) {
-                    GeneralGift en = en(optJSONArray.optJSONObject(i));
-                    if (en != null) {
-                        arrayList.add(en);
+                    GeneralGift ey = ey(optJSONArray.optJSONObject(i));
+                    if (ey != null) {
+                        arrayList.add(ey);
                     }
                 }
             }
@@ -289,7 +288,7 @@ public class f {
         return parserRet;
     }
 
-    public static ParserRet eb(JSONObject jSONObject) {
+    public static ParserRet em(JSONObject jSONObject) {
         EmojiGiftDetail emojiGiftDetail = null;
         JSONObject optJSONObject = jSONObject.optJSONObject("data");
         if (optJSONObject != null) {
@@ -301,7 +300,7 @@ public class f {
             emojiGiftDetail.liveType = optJSONObject.optString("liveType");
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("generalGift");
             if (optJSONObject2 != null) {
-                emojiGiftDetail.generalGift = en(optJSONObject2);
+                emojiGiftDetail.generalGift = ey(optJSONObject2);
             }
         }
         ParserRet parserRet = new ParserRet();
@@ -309,7 +308,7 @@ public class f {
         return parserRet;
     }
 
-    public static GeneralGift en(JSONObject jSONObject) {
+    public static GeneralGift ey(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
@@ -320,8 +319,8 @@ public class f {
         generalGift.mDesc = jSONObject.optString("desc");
         generalGift.mIcon = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
         generalGift.mCornerImage = jSONObject.optString("cornerIcon");
-        generalGift.mPoint = h.bR(jSONObject.optString(Config.EVENT_HEAT_POINT), -1);
-        generalGift.mCount = h.bR(jSONObject.optString("count"), -1);
+        generalGift.mPoint = h.bW(jSONObject.optString(Config.EVENT_HEAT_POINT), -1);
+        generalGift.mCount = h.bW(jSONObject.optString("count"), -1);
         generalGift.mActionType = h.parseInt(jSONObject.optString("actionType"));
         generalGift.mExpiredTimeDesc = jSONObject.optString("expiredTimeDesc");
         generalGift.mGroup = jSONObject.optInt(TbEnum.ParamKey.GROUP);
@@ -339,11 +338,11 @@ public class f {
         if (optJSONObject != null) {
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("landscape");
             if (optJSONObject2 != null) {
-                generalGift.mLandscape = eo(optJSONObject2);
+                generalGift.mLandscape = ez(optJSONObject2);
             }
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("portrait");
             if (optJSONObject3 != null) {
-                generalGift.mPortrait = eo(optJSONObject3);
+                generalGift.mPortrait = ez(optJSONObject3);
             }
             generalGift.mUrl = optJSONObject.optString("url", "");
             generalGift.mGiftDetailWidth = optJSONObject.optInt("giftDetailWidth", 0);
@@ -353,7 +352,7 @@ public class f {
         return generalGift;
     }
 
-    private static H5Positon eo(JSONObject jSONObject) {
+    private static H5Positon ez(JSONObject jSONObject) {
         H5Positon h5Positon = new H5Positon();
         h5Positon.mWidth = jSONObject.optInt("width", 0);
         h5Positon.mHeight = jSONObject.optInt("height", 0);
@@ -390,7 +389,7 @@ public class f {
             roomInfo.mCreatorAvatar = optJSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR, "");
             roomInfo.mCreatorGender = optJSONObject.optString("gender", "");
             roomInfo.mCreatorSignature = optJSONObject.optString(SocialOperation.GAME_SIGNATURE);
-            roomInfo.mCreatorLevel = optJSONObject.optInt(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, 0);
+            roomInfo.mCreatorLevel = optJSONObject.optInt("level", 0);
             roomInfo.mCreatorLevelMedal = optJSONObject.optString("levelMedal");
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("liveStatus");

@@ -7,14 +7,14 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.data.d;
 import com.baidu.tieba.barselect.data.f;
 /* loaded from: classes15.dex */
 public class VotedAreaLayout extends CardBasicLayout {
-    private TextView emk;
+    private TextView ewf;
     private Context mContext;
 
     public VotedAreaLayout(Context context) {
@@ -37,33 +37,33 @@ public class VotedAreaLayout extends CardBasicLayout {
         setMinimumWidth(l.getDimens(getContext(), R.dimen.tbds172));
         setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
         LayoutInflater.from(getContext()).inflate(R.layout.voted_area_layout, (ViewGroup) this, true);
-        ss();
+        uf();
     }
 
-    private void ss() {
-        this.emk = (TextView) findViewById(R.id.vote_num);
+    private void uf() {
+        this.ewf = (TextView) findViewById(R.id.vote_num);
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
     public void setData(int i, f fVar) {
         super.setData(i, fVar);
-        if (this.gPf == null || this.gSQ == null || this.status < 0) {
+        if (this.hbV == null || this.hfJ == null || this.status < 0) {
             setVisibility(8);
             return;
         }
-        this.emk.setText(as.numFormatOverWan(this.gSQ.bQw()) + "票");
-        qZ(TbadkCoreApplication.getInst().getSkinType());
+        this.ewf.setText(at.numFormatOverWan(this.hfJ.caH()) + "票");
+        tl(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setMyRecordData(d dVar) {
         if (dVar != null) {
-            this.gSQ = dVar;
-            this.emk.setText(as.numFormatOverWan(this.gSQ.bQw()) + "票");
+            this.hfJ = dVar;
+            this.ewf.setText(at.numFormatOverWan(this.hfJ.caH()) + "票");
         }
     }
 
-    public void qZ(int i) {
-        ao.setViewTextColor(this.emk, R.color.cp_cont_b, 1, i);
-        ao.setBackgroundResource(this, R.drawable.bar_select_bg_voted_area_layout, i);
+    public void tl(int i) {
+        ap.setViewTextColor(this.ewf, R.color.cp_cont_b, 1, i);
+        ap.setBackgroundResource(this, R.drawable.bar_select_bg_voted_area_layout, i);
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.live.utils;
 
 import android.app.Activity;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class q {
     public static void e(Activity activity, boolean z) {
         if (z) {

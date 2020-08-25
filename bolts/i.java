@@ -2,27 +2,27 @@ package bolts;
 
 import bolts.g;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes19.dex */
+/* loaded from: classes12.dex */
 public class i {
-    private g<?> zS;
+    private g<?> AB;
 
     public i(g<?> gVar) {
-        this.zS = gVar;
+        this.AB = gVar;
     }
 
     protected void finalize() throws Throwable {
-        g.a gI;
+        g.a ii;
         try {
-            g<?> gVar = this.zS;
-            if (gVar != null && (gI = g.gI()) != null) {
-                gI.a(gVar, new UnobservedTaskException(gVar.gL()));
+            g<?> gVar = this.AB;
+            if (gVar != null && (ii = g.ii()) != null) {
+                ii.a(gVar, new UnobservedTaskException(gVar.il()));
             }
         } finally {
             super.finalize();
         }
     }
 
-    public void gQ() {
-        this.zS = null;
+    public void ir() {
+        this.AB = null;
     }
 }

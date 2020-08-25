@@ -23,9 +23,9 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 final class b {
-    private static Method jSP;
+    private static Method kil;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static List<File> a(Context context, ApplicationInfo applicationInfo, File file, boolean z) throws IOException {
@@ -39,7 +39,7 @@ final class b {
             } catch (IOException e) {
                 Log.w("MultiDex", "Failed to reload existing extracted secondary dex files, falling back to fresh extraction", e);
                 if (context instanceof c.a) {
-                    ((c.a) context).getSplash().cGF();
+                    ((c.a) context).getSplash().cRu();
                 }
                 performExtractions = performExtractions(file2, file);
                 a(context, getTimeStamp(file2), zipCrc, performExtractions.size() + 1);
@@ -47,7 +47,7 @@ final class b {
         } else {
             Log.i("MultiDex", "Detected that extraction must be performed.");
             if (context instanceof c.a) {
-                ((c.a) context).getSplash().cGF();
+                ((c.a) context).getSplash().cRu();
             }
             performExtractions = performExtractions(file2, file);
             a(context, getTimeStamp(file2), zipCrc, performExtractions.size() + 1);
@@ -67,7 +67,7 @@ final class b {
                 throw new IOException("Missing extracted secondary dex file '" + file3.getPath() + "'");
             }
             arrayList.add(file3);
-            if (!X(file3)) {
+            if (!Y(file3)) {
                 Log.i("MultiDex", "Invalid zip file: " + file3);
                 throw new IOException("Invalid ZIP file.");
             }
@@ -113,17 +113,17 @@ final class b {
                 while (i2 < 3 && !z) {
                     int i3 = i2 + 1;
                     extract(zipFile, entry, file3, str);
-                    boolean X = X(file3);
-                    Log.i("MultiDex", "Extraction " + (X ? "success" : "failed") + " - length " + file3.getAbsolutePath() + ": " + file3.length());
-                    if (!X) {
+                    boolean Y = Y(file3);
+                    Log.i("MultiDex", "Extraction " + (Y ? "success" : "failed") + " - length " + file3.getAbsolutePath() + ": " + file3.length());
+                    if (!Y) {
                         file3.delete();
                         if (file3.exists()) {
                             Log.w("MultiDex", "Failed to delete corrupted secondary dex '" + file3.getPath() + "'");
-                            z = X;
+                            z = Y;
                             i2 = i3;
                         }
                     }
-                    z = X;
+                    z = Y;
                     i2 = i3;
                 }
                 if (!z) {
@@ -217,7 +217,7 @@ final class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean X(File file) {
+    public static boolean Y(File file) {
         try {
             try {
                 new ZipFile(file).close();
@@ -242,9 +242,9 @@ final class b {
     }
 
     private static void apply(SharedPreferences.Editor editor) {
-        if (jSP != null) {
+        if (kil != null) {
             try {
-                jSP.invoke(editor, new Object[0]);
+                kil.invoke(editor, new Object[0]);
                 return;
             } catch (IllegalAccessException e) {
             } catch (InvocationTargetException e2) {
@@ -255,9 +255,9 @@ final class b {
 
     static {
         try {
-            jSP = SharedPreferences.Editor.class.getMethod(AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_APPLY, new Class[0]);
+            kil = SharedPreferences.Editor.class.getMethod(AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_APPLY, new Class[0]);
         } catch (NoSuchMethodException e) {
-            jSP = null;
+            kil = null;
         }
     }
 }

@@ -6,40 +6,40 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes17.dex */
 public class a extends BaseAdapter {
     private Context mContext;
-    private ArrayList<d> mha = new ArrayList<>();
-    private boolean mhb = false;
+    private ArrayList<d> myK = new ArrayList<>();
+    private boolean myL = false;
 
     public a(Context context) {
         this.mContext = context;
     }
 
     public void setData(List<d> list) {
-        this.mhb = true;
-        this.mha.clear();
+        this.myL = true;
+        this.myK.clear();
         if ((list != null ? list.size() : 0) > 0) {
-            this.mha.addAll(list);
+            this.myK.addAll(list);
         }
         notifyDataSetChanged();
     }
 
-    public void OT(String str) {
-        if (this.mha != null && !TextUtils.isEmpty(str)) {
+    public void RR(String str) {
+        if (this.myK != null && !TextUtils.isEmpty(str)) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.mha.size()) {
-                    d dVar = this.mha.get(i2);
+                if (i2 < this.myK.size()) {
+                    d dVar = this.myK.get(i2);
                     if (dVar == null || !str.equals(dVar.getVideoPath())) {
                         i = i2 + 1;
                     } else {
-                        this.mha.remove(i2);
+                        this.myK.remove(i2);
                         notifyDataSetChanged();
                         return;
                     }
@@ -52,20 +52,20 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (x.isEmpty(this.mha)) {
+        if (y.isEmpty(this.myK)) {
             return 0;
         }
-        return this.mha.size();
+        return this.myK.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: Gz */
+    /* renamed from: IV */
     public d getItem(int i) {
-        if (this.mha == null || this.mha.isEmpty() || i < 0 || i >= this.mha.size()) {
+        if (this.myK == null || this.myK.isEmpty() || i < 0 || i >= this.myK.size()) {
             return null;
         }
-        return this.mha.get(i);
+        return this.myK.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -93,12 +93,12 @@ public class a extends BaseAdapter {
         if (localVideoInfoView == null) {
             return null;
         }
-        if (this.mha != null && this.mha.size() > i) {
-            localVideoInfoView.a(this.mha.get(i));
-        } else if (i == 0 && this.mhb) {
-            localVideoInfoView.vR(true);
+        if (this.myK != null && this.myK.size() > i) {
+            localVideoInfoView.a(this.myK.get(i));
+        } else if (i == 0 && this.myL) {
+            localVideoInfoView.wG(true);
         } else {
-            localVideoInfoView.vR(false);
+            localVideoInfoView.wG(false);
         }
         return view2;
     }

@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.AddMsgRecord.AddMsgRecordResIdl;
 import tbclient.AddMsgRecord.DataRes;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class AddMsgRecordSocketResponse extends SocketResponsedMessage {
     private DataRes mData;
 

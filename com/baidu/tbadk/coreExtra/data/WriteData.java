@@ -15,7 +15,7 @@ import java.io.Serializable;
 import java.net.URLEncoder;
 import java.util.LinkedList;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class WriteData extends OrmObject implements Serializable {
     public static final String CALL_FROM_ONE = "1";
     public static final String CALL_FROM_OTHER = "0";
@@ -104,6 +104,7 @@ public class WriteData extends OrmObject implements Serializable {
     private int mShareSummaryImgWidth;
     private String mShareSummaryTitle;
     private transient SpanGroupManager mSpanGroupManager;
+    private String mSpanGroupString;
     private String mSubPbReplyPrefix;
     private int mTabId;
     private String mTabName;
@@ -129,6 +130,7 @@ public class WriteData extends OrmObject implements Serializable {
     private String mVoiceMd5;
     private VoiceData.VoiceModel mVoiceModel;
     WriteVoteData mWriteVoteData;
+    private String mZhongcePrefix;
     private String originalThreadId;
     private String originalVideoCover;
     private String originalVideoTitle;
@@ -289,7 +291,7 @@ public class WriteData extends OrmObject implements Serializable {
         try {
             jSONObject.put("mType", this.mType);
             jSONObject.put("mTitle", this.mTitle);
-            jSONObject.put("mContent", this.mSpanGroupManager == null ? this.mContent : this.mSpanGroupManager.bcX());
+            jSONObject.put("mContent", this.mSpanGroupManager == null ? this.mContent : this.mSpanGroupManager.blw());
             jSONObject.put("mReplyUid", this.mReplyUid);
             jSONObject.put("mThreadId", this.mThreadId);
             jSONObject.put("mIsInterviewLive", this.mIsInterviewLivew);
@@ -1056,6 +1058,14 @@ public class WriteData extends OrmObject implements Serializable {
         this.mSubPbReplyPrefix = str;
     }
 
+    public String getZhongcePrefix() {
+        return this.mZhongcePrefix;
+    }
+
+    public void setZhongcePrefix(String str) {
+        this.mZhongcePrefix = str;
+    }
+
     public BaijiahaoData getBaijiahaoData() {
         return this.mBaijiahaoData;
     }
@@ -1178,5 +1188,13 @@ public class WriteData extends OrmObject implements Serializable {
 
     public String getOtherComment() {
         return this.mOtherComment;
+    }
+
+    public String getSpanGroupString() {
+        return this.mSpanGroupString;
+    }
+
+    public void setSpanGroupString(String str) {
+        this.mSpanGroupString = str;
     }
 }

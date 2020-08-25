@@ -4,7 +4,7 @@ import com.baidu.mapapi.http.HttpClient;
 import com.baidu.webkit.internal.ETAG;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class LocalSearchInfo extends BaseCloudSearchInfo {
     public String region;
 

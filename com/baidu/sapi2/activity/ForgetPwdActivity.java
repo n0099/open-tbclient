@@ -1,26 +1,16 @@
 package com.baidu.sapi2.activity;
 
 import android.os.Bundle;
-import com.baidu.g.a.a;
-import com.baidu.sapi2.PassportSDK;
+import com.baidu.k.a.a;
+import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.dto.SapiWebDTO;
-/* loaded from: classes19.dex */
+/* loaded from: classes12.dex */
 public class ForgetPwdActivity extends BaseActivity {
-    /* JADX INFO: Access modifiers changed from: private */
-    public void e() {
-        SapiWebView sapiWebView = this.sapiWebView;
-        if (sapiWebView != null && sapiWebView.canGoBack()) {
-            this.sapiWebView.goBack();
-        } else {
-            finish();
-        }
-    }
-
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public SapiWebDTO getWebDTO() {
-        return PassportSDK.getInstance().getWebLoginDTO();
+        return CoreViewRouter.getInstance().getWebLoginDTO();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -33,7 +23,7 @@ public class ForgetPwdActivity extends BaseActivity {
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onBottomBackBtnClick() {
         super.onBottomBackBtnClick();
-        e();
+        a();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -64,7 +54,7 @@ public class ForgetPwdActivity extends BaseActivity {
         if (!this.executeSubClassMethod) {
             return;
         }
-        e();
+        a();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -76,7 +66,7 @@ public class ForgetPwdActivity extends BaseActivity {
         this.sapiWebView.setOnBackCallback(new SapiWebView.OnBackCallback() { // from class: com.baidu.sapi2.activity.ForgetPwdActivity.1
             @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
             public void onBack() {
-                ForgetPwdActivity.this.e();
+                ForgetPwdActivity.this.a();
             }
         });
         this.sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback() { // from class: com.baidu.sapi2.activity.ForgetPwdActivity.2
@@ -92,5 +82,15 @@ public class ForgetPwdActivity extends BaseActivity {
             }
         });
         this.sapiWebView.loadForgetPwd();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a() {
+        SapiWebView sapiWebView = this.sapiWebView;
+        if (sapiWebView != null && sapiWebView.canGoBack()) {
+            this.sapiWebView.goBack();
+        } else {
+            finish();
+        }
     }
 }

@@ -11,7 +11,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public class NetworkStatRecord {
     public static final String HEAD_X_BFE_SVBBRERS = "X-Bfe-Svbbrers";
     public List<InetAddress> addressList;

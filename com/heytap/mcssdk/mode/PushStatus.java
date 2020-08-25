@@ -1,5 +1,5 @@
 package com.heytap.mcssdk.mode;
-/* loaded from: classes20.dex */
+/* loaded from: classes9.dex */
 public class PushStatus {
     public static final int PUSH_STATUS_PAUSE = 1;
     public static final int PUSH_STATUS_START = 0;

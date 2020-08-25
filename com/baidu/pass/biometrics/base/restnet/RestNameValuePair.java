@@ -1,38 +1,38 @@
 package com.baidu.pass.biometrics.base.restnet;
 
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes20.dex */
 public class RestNameValuePair implements Serializable {
-    private static final long serialVersionUID = 847806714499261896L;
-    private String name;
-    private String value;
+    private static final long a = 847806714499261896L;
+    private String b;
+    private String c;
 
     public RestNameValuePair() {
         this(null, null);
     }
 
-    public RestNameValuePair(String str, String str2) {
-        this.name = str;
-        this.value = str2;
-    }
-
     public String getName() {
-        return this.name;
-    }
-
-    public void setName(String str) {
-        this.name = str;
+        return this.b;
     }
 
     public String getValue() {
-        return this.value;
+        return this.c;
+    }
+
+    public void setName(String str) {
+        this.b = str;
     }
 
     public void setValue(String str) {
-        this.value = str;
+        this.c = str;
     }
 
     public String toString() {
-        return "name = " + this.name + ", value = " + this.value;
+        return "name = " + this.b + ", value = " + this.c;
+    }
+
+    public RestNameValuePair(String str, String str2) {
+        this.b = str;
+        this.c = str2;
     }
 }

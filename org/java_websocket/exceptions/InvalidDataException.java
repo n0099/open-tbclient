@@ -1,5 +1,5 @@
 package org.java_websocket.exceptions;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class InvalidDataException extends Exception {
     private static final long serialVersionUID = 3731842424390998726L;
     private int closecode;

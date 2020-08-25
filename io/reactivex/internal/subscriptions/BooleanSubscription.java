@@ -1,17 +1,17 @@
 package io.reactivex.internal.subscriptions;
 
 import java.util.concurrent.atomic.AtomicBoolean;
-import org.a.d;
+import org.b.d;
 /* loaded from: classes7.dex */
 public final class BooleanSubscription extends AtomicBoolean implements d {
     private static final long serialVersionUID = -8127758972444290902L;
 
-    @Override // org.a.d
+    @Override // org.b.d
     public void request(long j) {
         SubscriptionHelper.validate(j);
     }
 
-    @Override // org.a.d
+    @Override // org.b.d
     public void cancel() {
         lazySet(true);
     }

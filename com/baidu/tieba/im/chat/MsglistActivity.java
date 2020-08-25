@@ -5,40 +5,40 @@ import android.os.Bundle;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.util.m;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class MsglistActivity<T> extends TalkableActivity<T> implements d {
     protected abstract boolean a(d dVar);
 
-    protected abstract boolean au(Bundle bundle);
+    protected abstract boolean at(Bundle bundle);
 
     protected abstract void initView();
 
     @Override // com.baidu.tieba.im.chat.d
-    public void cqW() {
-        cqx();
+    public void cBO() {
+        cBp();
     }
 
-    public void cqx() {
+    public void cBp() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (!au(bundle)) {
+        if (!at(bundle)) {
             finish();
             return;
         }
         initView();
         adjustResizeForSoftInput(R.color.common_color_10022, false);
-        if (this.iRD != null) {
-            this.iRD.setImageUploadUIProgressCallback(this.iRI);
+        if (this.jgA != null) {
+            this.jgA.setImageUploadUIProgressCallback(this.jgF);
         }
-        bBE();
+        bKY();
         if (a((d) this)) {
             loadDraft();
-            cqv();
-            j.iRB = m.bmD();
+            cBn();
+            j.jgy = m.bvq();
         }
     }
 
@@ -46,17 +46,17 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        if (this.iRD != null) {
-            this.iRD.onDestroy();
+        if (this.jgA != null) {
+            this.jgA.onDestroy();
         }
         setIntent(intent);
-        if (!au(null)) {
+        if (!at(null)) {
             finish();
             return;
         }
         initView();
         adjustResizeForSoftInput(R.color.common_color_10022, false);
-        bBE();
+        bKY();
         if (a((d) this)) {
             loadDraft();
         }
@@ -66,8 +66,8 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.iRC != null) {
-            this.iRC.onChangeSkinType(i);
+        if (this.jgz != null) {
+            this.jgz.onChangeSkinType(i);
         }
     }
 
@@ -75,37 +75,37 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.iRC != null) {
-            this.iRC.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            cqs();
+        if (this.jgz != null) {
+            this.jgz.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            cBk();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cqs() {
+    public void cBk() {
         if (TbadkCoreApplication.getInst().isHeadsetModeOn()) {
-            this.iRC.showReceiver();
+            this.jgz.showReceiver();
         } else {
-            this.iRC.closeReceiver();
+            this.jgz.closeReceiver();
         }
     }
 
     protected boolean loadDraft() {
-        return this.iRD.loadDraft();
+        return this.jgA.loadDraft();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        cqw();
+        cBo();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cqv() {
+    public void cBn() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cqw() {
+    public void cBo() {
     }
 }

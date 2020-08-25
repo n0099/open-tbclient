@@ -6,28 +6,28 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.SkinManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private FrameLayout agl;
-    private TextView cdm;
+    private FrameLayout aht;
+    private TextView cjk;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.agl = (FrameLayout) tbPageContext.getPageActivity().getLayoutInflater().inflate(a.h.sdk_prc_person_forbiddenlist_header, (ViewGroup) null);
-        this.cdm = (TextView) this.agl.findViewById(a.g.text_user_name);
+        this.aht = (FrameLayout) tbPageContext.getPageActivity().getLayoutInflater().inflate(a.h.sdk_prc_person_forbiddenlist_header, (ViewGroup) null);
+        this.cjk = (TextView) this.aht.findViewById(a.g.text_user_name);
     }
 
-    public void rl(int i) {
-        this.cdm.setText(this.mPageContext.getResources().getString(a.i.sdk_prc_person_forbiddenlist_header, Integer.valueOf(i)));
+    public void tx(int i) {
+        this.cjk.setText(this.mPageContext.getResources().getString(a.i.sdk_prc_person_forbiddenlist_header, Integer.valueOf(i)));
     }
 
     public void onChangeSkinType(int i) {
-        SkinManager.setViewTextColor(this.cdm, a.d.sdk_cp_cont_d);
-        SkinManager.setBackgroundColor(this.agl, a.d.sdk_cp_bg_line_e);
+        SkinManager.setViewTextColor(this.cjk, a.d.sdk_cp_cont_d);
+        SkinManager.setBackgroundColor(this.aht, a.d.sdk_cp_bg_line_e);
     }
 
-    public FrameLayout aHv() {
-        return this.agl;
+    public FrameLayout aQn() {
+        return this.aht;
     }
 }

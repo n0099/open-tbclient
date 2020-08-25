@@ -1,5 +1,5 @@
 package com.baidu.searchbox.ugc.model;
-/* loaded from: classes19.dex */
+/* loaded from: classes11.dex */
 public class UgcConstant {
     public static final String AT = "at";
     public static final String AT_PAGEURL = "at_pageurl";

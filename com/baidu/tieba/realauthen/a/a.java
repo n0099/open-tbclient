@@ -8,35 +8,36 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tieba.realauthen.message.RealAuthenCertifyInfoResponseMessage;
 import com.baidu.tieba.realauthen.message.RealAuthenSpResponseMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a extends BdBaseModel {
-    private b lkV;
-    private HttpMessageListener lkZ = new HttpMessageListener(1021148) { // from class: com.baidu.tieba.realauthen.a.a.1
+    private HttpMessageListener lBA = new HttpMessageListener(1021148) { // from class: com.baidu.tieba.realauthen.a.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof RealAuthenSpResponseMessage) && httpResponsedMessage.getOrginalMessage() != null && a.this.lkV != null) {
-                a.this.lkV.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof RealAuthenSpResponseMessage) && httpResponsedMessage.getOrginalMessage() != null && a.this.lBw != null) {
+                a.this.lBw.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
             }
         }
     };
-    private HttpMessageListener lla = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GET_USER_NOTIFY) { // from class: com.baidu.tieba.realauthen.a.a.2
+    private HttpMessageListener lBB = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GET_USER_NOTIFY) { // from class: com.baidu.tieba.realauthen.a.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof RealAuthenCertifyInfoResponseMessage) && httpResponsedMessage.getOrginalMessage() != null && a.this.lkV != null) {
-                a.this.lkV.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof RealAuthenCertifyInfoResponseMessage) && httpResponsedMessage.getOrginalMessage() != null && a.this.lBw != null) {
+                a.this.lBw.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
             }
         }
     };
+    private b lBw;
 
     public a(b bVar) {
-        this.lkV = bVar;
+        this.lBw = bVar;
         registerTask();
-        registerListener(this.lkZ);
-        registerListener(this.lla);
+        registerListener(this.lBA);
+        registerListener(this.lBB);
     }
 
     private void registerTask() {
@@ -54,14 +55,14 @@ public class a extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask2);
     }
 
-    public void dbK() {
+    public void dmR() {
         MessageManager.getInstance().sendMessage(new HttpMessage(1021148));
     }
 
-    public void C(String str, String str2, String str3, String str4) {
+    public void B(String str, String str2, String str3, String str4) {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_USER_NOTIFY);
         httpMessage.addParam("uid", str);
-        httpMessage.addParam("bid", str);
+        httpMessage.addParam(MapBundleKey.MapObjKey.OBJ_BID, str);
         httpMessage.addParam("callbackkey", str2);
         httpMessage.addParam("user_name", str3);
         httpMessage.addParam("user_id_card", str4);

@@ -5,61 +5,77 @@ import com.baidu.ar.ARType;
 import com.baidu.ar.libloader.a;
 /* loaded from: classes11.dex */
 public final class b {
-    private static volatile a rO;
+    private static volatile a ss;
     private static Object sLock = new Object();
-    private static boolean rP = false;
+    private static boolean st = false;
+    private static volatile boolean su = false;
 
     public static void a(Context context, a.b bVar) {
-        dW().a(context, bVar);
+        if (su) {
+            return;
+        }
+        fg().a(context, bVar);
     }
 
-    public static void a(ARType aRType, String str, String str2, a.InterfaceC0086a interfaceC0086a) {
-        dW().a(aRType, str, str2, interfaceC0086a);
+    public static void a(ARType aRType, String str, String str2, a.InterfaceC0083a interfaceC0083a) {
+        if (su) {
+            return;
+        }
+        fg().a(aRType, str, str2, interfaceC0083a);
     }
 
     public static void a(a aVar) {
         synchronized (sLock) {
-            rO = aVar;
-            rP = true;
+            ss = aVar;
+            st = true;
         }
+        su = false;
     }
 
     public static void a(String str, a.c cVar) {
-        dW().a(str, cVar);
+        fg().a(str, cVar);
     }
 
-    public static void ao(String str) {
-        dW().ao(str);
+    public static void as(String str) {
+        if (su) {
+            return;
+        }
+        fg().as(str);
     }
 
-    private static a dW() {
-        if (rO == null) {
+    private static a fg() {
+        if (ss == null) {
             synchronized (sLock) {
-                if (rO == null) {
-                    rO = new c();
+                if (ss == null) {
+                    ss = new c();
                 }
             }
         }
-        return rO;
+        return ss;
+    }
+
+    public static void fh() {
+        su = false;
     }
 
     public static boolean isRegistered() {
         boolean z;
         synchronized (sLock) {
-            z = rP;
+            z = st;
         }
         return z;
     }
 
     public static void release() {
-        rP = false;
-        if (rO != null) {
-            rO.release();
-            rO = null;
+        su = true;
+        st = false;
+        if (ss != null) {
+            ss.release();
+            ss = null;
         }
     }
 
     public static void setLibLoadPlugin(ILibLoaderPlugin iLibLoaderPlugin) {
-        dW().setLibLoadPlugin(iLibLoaderPlugin);
+        fg().setLibLoadPlugin(iLibLoaderPlugin);
     }
 }

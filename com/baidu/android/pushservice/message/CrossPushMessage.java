@@ -1,5 +1,5 @@
 package com.baidu.android.pushservice.message;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class CrossPushMessage extends PublicMsg {
     public String a;
     public String b;

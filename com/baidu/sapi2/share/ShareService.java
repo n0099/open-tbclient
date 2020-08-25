@@ -24,7 +24,7 @@ import com.baidu.sapi2.utils.enums.LoginShareStrategy;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes19.dex */
+/* loaded from: classes12.dex */
 public final class ShareService extends Service {
     private Context a;
     private LoginShareStrategy b;
@@ -32,23 +32,56 @@ public final class ShareService extends Service {
     private boolean d = false;
     private Handler e;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes19.dex */
-    public class a extends Binder {
-        private a() {
+    /* loaded from: classes12.dex */
+    static /* synthetic */ class a {
+        static final /* synthetic */ int[] a = new int[ShareEvent.values().length];
+
+        static {
+            try {
+                a[ShareEvent.VALIDATE.ordinal()] = 1;
+            } catch (NoSuchFieldError e) {
+            }
+            try {
+                a[ShareEvent.INVALIDATE.ordinal()] = 2;
+            } catch (NoSuchFieldError e2) {
+            }
+            try {
+                a[ShareEvent.SYNC_REQ.ordinal()] = 3;
+            } catch (NoSuchFieldError e3) {
+            }
+        }
+    }
+
+    /* loaded from: classes12.dex */
+    private class b extends Binder {
+
+        /* loaded from: classes12.dex */
+        class a implements Runnable {
+            a() {
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                if (SapiAccountManager.getReceiveShareListener() != null) {
+                    SapiAccountManager.getReceiveShareListener().onReceiveShare();
+                }
+            }
         }
 
-        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [36=4] */
+        private b() {
+        }
+
+        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [110=4] */
         @Override // android.os.Binder
         protected boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
             Bundle readBundle;
             ShareModel shareModel;
-            if (x.a(ShareService.this)) {
+            if (e.a(ShareService.this)) {
                 if (SapiAccountManager.getReceiveShareListener() != null) {
                     if (ShareService.this.e == null) {
                         ShareService.this.e = new Handler(Looper.getMainLooper());
                     }
-                    ShareService.this.e.post(new r(this));
+                    ShareService.this.e.post(new a());
                 }
                 if (!ShareService.this.d) {
                     ShareService shareService = ShareService.this;
@@ -80,20 +113,20 @@ public final class ShareService extends Service {
                 }
                 boolean z2 = readBundle.getBoolean("VEHICLE_SYSTEM", false);
                 if (readBundle.getSerializable("RUNTIME_ENVIRONMENT") == null || !(readBundle.getSerializable("RUNTIME_ENVIRONMENT") instanceof Domain) || ((Domain) readBundle.getSerializable("RUNTIME_ENVIRONMENT")) == SapiAccountManager.getInstance().getSapiConfiguration().environment) {
-                    int i3 = readBundle.getInt(m.f);
+                    int i3 = readBundle.getInt(com.baidu.sapi2.share.b.g);
                     String string3 = readBundle.getString("PKG");
                     String loginShareDirection = SapiAccountManager.getInstance().getSapiConfiguration().loginShareDirection();
-                    int i4 = q.a[shareModel.a().ordinal()];
+                    int i4 = a.a[shareModel.a().ordinal()];
                     if (i4 != 1) {
                         if (i4 != 2) {
                             if (i4 == 3 && (!com.baidu.sapi2.utils.enums.a.a.equals(loginShareDirection) || !SapiContext.getInstance().getCurrentAccount().isGuestAccount())) {
                                 ShareService.this.a(parcel2);
                             }
                         } else if (!com.baidu.sapi2.utils.enums.a.b.equals(loginShareDirection)) {
-                            x.a(ShareService.this.a, shareModel);
+                            e.a(ShareService.this.a, shareModel);
                         }
                     } else if (!com.baidu.sapi2.utils.enums.a.b.equals(loginShareDirection)) {
-                        x.a(ShareService.this.a, ShareService.this.b, shareModel, i3, string, z, z2, string3);
+                        e.a(ShareService.this.a, ShareService.this.b, shareModel, i3, string, z, z2, string3);
                     }
                     return true;
                 }
@@ -102,14 +135,14 @@ public final class ShareService extends Service {
             return false;
         }
 
-        /* synthetic */ a(ShareService shareService, q qVar) {
+        /* synthetic */ b(ShareService shareService, a aVar) {
             this();
         }
     }
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
-        return new a(this, null);
+        return new b(this, null);
     }
 
     @Override // android.app.Service
@@ -177,15 +210,15 @@ public final class ShareService extends Service {
         for (SapiAccount sapiAccount2 : shareModel.c()) {
             sapiAccount2.app = SapiUtils.getAppName(this.a);
         }
-        x.a(this.a, this.b, shareModel);
+        e.a(this.a, this.b, shareModel);
         bundle.putParcelable("LOGIN_SHARE_MODEL", shareModel);
         bundle.putSerializable("RUNTIME_ENVIRONMENT", SapiAccountManager.getInstance().getSapiConfiguration().environment);
-        bundle.putInt(m.f, 242);
+        bundle.putInt(com.baidu.sapi2.share.b.g, SapiAccountManager.VERSION_CODE);
         if (SapiContext.getInstance().shareLivingunameEnable()) {
             bundle.putString("V2_FACE_LOGIN_UIDS_TIMES", SapiContext.getInstance().getV2FaceLivingUnames());
         }
         bundle.putString("PKG", getPackageName());
-        if (x.b()) {
+        if (e.b()) {
             bundle.putBoolean("VEHICLE_SYSTEM", true);
         }
         parcel.writeBundle(bundle);

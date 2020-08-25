@@ -1,22 +1,29 @@
 package com.baidu.platform.comapi.wnplatform.f;
-
-import android.os.Bundle;
-import com.baidu.mapapi.bikenavi.model.BikeRouteDetailInfo;
-import java.math.BigDecimal;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class a {
-    public static BikeRouteDetailInfo a(Bundle bundle) {
-        BikeRouteDetailInfo bikeRouteDetailInfo = new BikeRouteDetailInfo();
-        try {
-            bikeRouteDetailInfo.setSpeed(new BigDecimal((bundle.getFloat("curSpeed") * 3600.0f) / 1000.0f).setScale(1, 4).doubleValue());
-            bikeRouteDetailInfo.setMaxSpeed(new BigDecimal((bundle.getFloat("maxSpeed") * 3600.0f) / 1000.0f).setScale(1, 4).doubleValue());
-            bikeRouteDetailInfo.setAvSpeed(new BigDecimal((bundle.getFloat("avgSpeed") * 3600.0f) / 1000.0f).setScale(1, 4).doubleValue());
-            float f = bundle.getFloat("altidiff");
-            float f2 = bundle.getFloat("altitude");
-            bikeRouteDetailInfo.setDiffAltitude(f);
-            bikeRouteDetailInfo.setAltitude(f2);
-        } catch (Exception e) {
+    private static a a;
+    private String b;
+    private String c;
+
+    public static synchronized a a() {
+        a aVar;
+        synchronized (a.class) {
+            if (a == null) {
+                a = new a();
+            }
+            aVar = a;
         }
-        return bikeRouteDetailInfo;
+        return aVar;
+    }
+
+    private a() {
+    }
+
+    public String b() {
+        return this.b;
+    }
+
+    public String c() {
+        return this.c;
     }
 }

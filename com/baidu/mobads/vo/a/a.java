@@ -9,7 +9,6 @@ import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.mobads.utils.e;
 import com.baidu.webkit.internal.ETAG;
-import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import com.xiaomi.mipush.sdk.Constants;
 import java.net.URLEncoder;
 import java.util.HashMap;
@@ -29,20 +28,20 @@ public abstract class a {
     protected Context l;
     protected e m;
     protected IXAdSystemUtils n;
-    private C0217a o;
+    private C0226a o;
 
     protected abstract HashMap<String, String> b();
 
     /* renamed from: com.baidu.mobads.vo.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes20.dex */
-    public static class C0217a {
+    public static class C0226a {
         String a;
         String b;
         String c;
         String d;
         String e;
 
-        public C0217a(IXAdInstanceInfo iXAdInstanceInfo, IXAdProdInfo iXAdProdInfo) {
+        public C0226a(IXAdInstanceInfo iXAdInstanceInfo, IXAdProdInfo iXAdProdInfo) {
             this.a = "";
             this.b = "";
             this.c = "";
@@ -60,9 +59,9 @@ public abstract class a {
         }
     }
 
-    public a(C0217a c0217a) {
-        this(c0217a.a, c0217a.b, c0217a.c);
-        this.o = c0217a;
+    public a(C0226a c0226a) {
+        this(c0226a.a, c0226a.b, c0226a.c);
+        this.o = c0226a;
     }
 
     @Deprecated
@@ -103,7 +102,7 @@ public abstract class a {
         hashMap.put("pack", this.d);
         hashMap.put("qk", this.c);
         hashMap.put(IXAdRequestInfo.SN, this.h);
-        hashMap.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, "" + this.a);
+        hashMap.put("ts", "" + this.a);
         hashMap.put("v", this.g);
         hashMap.put("os", this.i);
         hashMap.put("prod", this.j);

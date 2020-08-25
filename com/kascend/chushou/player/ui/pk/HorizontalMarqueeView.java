@@ -25,8 +25,8 @@ public class HorizontalMarqueeView extends HorizontalScrollView {
     protected int l;
     protected boolean m;
     protected boolean n;
-    protected ArrayList<Integer> nBy;
-    protected ArrayList<Integer> noZ;
+    protected ArrayList<Integer> nIN;
+    protected ArrayList<Integer> nVm;
     protected int o;
     protected int p;
     protected ArrayList<View> q;
@@ -51,8 +51,8 @@ public class HorizontalMarqueeView extends HorizontalScrollView {
         this.n = false;
         this.q = new ArrayList<>();
         this.r = new ArrayList<>();
-        this.noZ = new ArrayList<>();
-        this.nBy = new ArrayList<>();
+        this.nIN = new ArrayList<>();
+        this.nVm = new ArrayList<>();
         this.a = context;
         h();
     }
@@ -71,7 +71,7 @@ public class HorizontalMarqueeView extends HorizontalScrollView {
         return linearLayout;
     }
 
-    public void p(View view, int i, int i2) {
+    public void o(View view, int i, int i2) {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.setMargins(i, 0, i2, 0);
         view.setLayoutParams(layoutParams);
@@ -79,16 +79,16 @@ public class HorizontalMarqueeView extends HorizontalScrollView {
         this.q.add(view);
         view.measure(0, 0);
         this.r.add(Integer.valueOf(view.getMeasuredWidth()));
-        this.noZ.add(Integer.valueOf(i));
-        this.nBy.add(Integer.valueOf(i2));
+        this.nIN.add(Integer.valueOf(i));
+        this.nVm.add(Integer.valueOf(i2));
     }
 
     public void a() {
         this.c.removeAllViews();
         this.q.clear();
         this.r.clear();
-        this.noZ.clear();
-        this.nBy.clear();
+        this.nIN.clear();
+        this.nVm.clear();
     }
 
     public void setScrollDirection(int i) {

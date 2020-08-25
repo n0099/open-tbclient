@@ -12,12 +12,12 @@ import java.util.Iterator;
 import java.util.List;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class SubSampleInformationBox extends AbstractFullBox {
     public static final String TYPE = "subs";
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0924a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_2 = null;
     private List<SampleEntry> entries;
     private long entryCount;
 
@@ -27,9 +27,9 @@ public class SubSampleInformationBox extends AbstractFullBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("SubSampleInformationBox.java", SubSampleInformationBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getEntries", "com.coremedia.iso.boxes.SubSampleInformationBox", "", "", "", "java.util.List"), 51);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setEntries", "com.coremedia.iso.boxes.SubSampleInformationBox", "java.util.List", "entries", "", "void"), 55);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.SubSampleInformationBox", "", "", "", FieldUtil.TYPE_STRING), 115);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "getEntries", "com.coremedia.iso.boxes.SubSampleInformationBox", "", "", "", "java.util.List"), 51);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "setEntries", "com.coremedia.iso.boxes.SubSampleInformationBox", "java.util.List", "entries", "", "void"), 55);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.d("1", "toString", "com.coremedia.iso.boxes.SubSampleInformationBox", "", "", "", FieldUtil.TYPE_STRING), 115);
     }
 
     public SubSampleInformationBox() {
@@ -107,7 +107,7 @@ public class SubSampleInformationBox extends AbstractFullBox {
         return "SubSampleInformationBox{entryCount=" + this.entryCount + ", entries=" + this.entries + '}';
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes8.dex */
     public static class SampleEntry {
         private long sampleDelta;
         private int subsampleCount;
@@ -138,7 +138,7 @@ public class SubSampleInformationBox extends AbstractFullBox {
             this.subsampleCount++;
         }
 
-        /* loaded from: classes20.dex */
+        /* loaded from: classes8.dex */
         public static class SubsampleEntry {
             private int discardable;
             private long reserved;

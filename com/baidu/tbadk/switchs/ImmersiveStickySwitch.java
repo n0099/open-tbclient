@@ -3,7 +3,7 @@ package com.baidu.tbadk.switchs;
 import com.baidu.adp.lib.featureSwitch.a;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.core.sharedPref.b;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ImmersiveStickySwitch extends a {
     public static final String KEY = "android_immersive_switch";
     public static final int OFF_TYPE = 0;
@@ -37,9 +37,9 @@ public class ImmersiveStickySwitch extends a {
     @Override // com.baidu.adp.lib.featureSwitch.a
     protected void changeSettingByType(int i) {
         if (i == 1) {
-            b.aZP().putBoolean(SharedPrefConfig.SWITCH_IMMERSIVE_STICKY_STATUS, true);
+            b.bik().putBoolean(SharedPrefConfig.SWITCH_IMMERSIVE_STICKY_STATUS, true);
         } else {
-            b.aZP().putBoolean(SharedPrefConfig.SWITCH_IMMERSIVE_STICKY_STATUS, false);
+            b.bik().putBoolean(SharedPrefConfig.SWITCH_IMMERSIVE_STICKY_STATUS, false);
         }
     }
 }

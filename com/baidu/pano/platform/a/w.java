@@ -5,7 +5,7 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class w {
     public static String a = "Volley";
     public static boolean b = Log.isLoggable(a, 2);
@@ -52,21 +52,21 @@ public class w {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public static class a {
         public static final boolean a = w.b;
-        private final List<C0221a> b = new ArrayList();
+        private final List<C0231a> b = new ArrayList();
         private boolean c = false;
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.baidu.pano.platform.a.w$a$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
-        public static class C0221a {
+        /* loaded from: classes20.dex */
+        public static class C0231a {
             public final String a;
             public final long b;
             public final long c;
 
-            public C0221a(String str, long j, long j2) {
+            public C0231a(String str, long j, long j2) {
                 this.a = str;
                 this.b = j;
                 this.c = j2;
@@ -77,7 +77,7 @@ public class w {
             if (this.c) {
                 throw new IllegalStateException("Marker added to finished log");
             }
-            this.b.add(new C0221a(str, j, SystemClock.elapsedRealtime()));
+            this.b.add(new C0231a(str, j, SystemClock.elapsedRealtime()));
         }
 
         public synchronized void a(String str) {
@@ -87,9 +87,9 @@ public class w {
                 long j = this.b.get(0).c;
                 w.b("(%-4d ms) %s", Long.valueOf(a2), str);
                 long j2 = j;
-                for (C0221a c0221a : this.b) {
-                    long j3 = c0221a.c;
-                    w.b("(+%-4d) [%2d] %s", Long.valueOf(j3 - j2), Long.valueOf(c0221a.b), c0221a.a);
+                for (C0231a c0231a : this.b) {
+                    long j3 = c0231a.c;
+                    w.b("(+%-4d) [%2d] %s", Long.valueOf(j3 - j2), Long.valueOf(c0231a.b), c0231a.a);
                     j2 = j3;
                 }
             }

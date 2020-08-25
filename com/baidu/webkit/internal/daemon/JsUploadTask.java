@@ -3,7 +3,7 @@ package com.baidu.webkit.internal.daemon;
 import android.content.Context;
 import android.os.Build;
 import android.util.Base64;
-import com.a.a.a.a.a.a.a;
+import com.baidu.sapi2.ecommerce.callback.AddressManageCallback;
 import com.baidu.webkit.internal.ETAG;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
@@ -12,7 +12,7 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class JsUploadTask implements INoProGuard {
     private static final int CONN_TIMEOUT = 5000;
     private static final int READ_TIMEOUT = 10000;
@@ -65,12 +65,12 @@ public class JsUploadTask implements INoProGuard {
     private static boolean mUsingCloudSettings = true;
     private static boolean mIsMobileSite = true;
     private static int mHttpcode = -1;
-    private static int mNetcode = -500;
-    private static int mWiseLandingPageType = -500;
+    private static int mNetcode = AddressManageCallback.VoiceRecognitionResult.ERROR_CODE_VOICE_RECOGNITION_CANCEL;
+    private static int mWiseLandingPageType = AddressManageCallback.VoiceRecognitionResult.ERROR_CODE_VOICE_RECOGNITION_CANCEL;
     private static JumpType mFirstJumpType = JumpType.DefaultJump;
     private static JumpType mLastJumpType = JumpType.DefaultJump;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public enum JumpType {
         DefaultJump,
         JsJump,
@@ -183,7 +183,7 @@ public class JsUploadTask implements INoProGuard {
             addRawLogItem(sb2, ETAG.KEY_SUB_RESOURCE_ENABLE, WebSettingsGlobalBlink.getSubResourceMonitorEnabled());
             mNetError = 0;
             mHttpcode = -1;
-            mNetcode = -500;
+            mNetcode = AddressManageCallback.VoiceRecognitionResult.ERROR_CODE_VOICE_RECOGNITION_CANCEL;
             mFirstJumpType = JumpType.DefaultJump;
             mLastJumpType = JumpType.DefaultJump;
             if (WebKitFactory.getCurEngine() == 1) {
@@ -252,7 +252,7 @@ public class JsUploadTask implements INoProGuard {
                     Log.w(TAG, "[mohao] extension: " + jSONObject2);
                     addRawLogItem(sb2, ETAG.KEY_EXTENSION, jSONObject2);
                 } catch (Exception e) {
-                    a.a(e);
+                    e.printStackTrace();
                 }
             }
             sb = sb2.toString();

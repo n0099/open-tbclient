@@ -6,7 +6,6 @@ import android.content.pm.PackageInfo;
 import android.os.Build;
 import android.os.Process;
 import android.telephony.TelephonyManager;
-import com.a.a.a.a.a.a.a;
 import com.baidu.webkit.internal.CpuInfo;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.sdk.DumperService;
@@ -29,7 +28,7 @@ import java.text.DateFormat;
 import java.util.EnumSet;
 import java.util.Iterator;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
     private static final long APPROXIMATE_START_TIME = System.currentTimeMillis();
     private static final boolean DEBUG = false;
@@ -46,12 +45,12 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
     private CrashFilter mFilter;
     private final Thread.UncaughtExceptionHandler mPreviousHandler;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public interface CrashFilter {
         boolean filt(Thread thread, Throwable th);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public enum ExtraInfo {
         CUID("CUID"),
         EMULATOR("Emulator"),
@@ -80,7 +79,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public static final class ZeusCrashHandlerClient {
         private static final String TAG = "CrashHandlerClientImpl";
         private PackageInfo mAppPackageInfo;
@@ -107,7 +106,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
                     Context context = WebViewFactory.getContext();
                     this.mAppPackageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
                 } catch (Throwable th) {
-                    a.a(th);
+                    th.printStackTrace();
                 }
             }
             return this.mAppPackageInfo;
@@ -183,7 +182,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
                     }
                 }
             } catch (Throwable th) {
-                a.a(th);
+                th.printStackTrace();
             }
             return "0";
         }
@@ -227,7 +226,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
             try {
                 return ZeusCrashHandler.createFileInSpecifiedDir(new File(WebViewFactory.getContext().getFilesDir(), str2), String.format("%s-%s-%s-%s-%s-%s-%s-%s-%d.bdmp", str + getAppVersion(), getAppVersionCode(), getAppName(), getZeusVersion(), getModel(), getCPU(), getAndroidVersion(), getDeviceId(), Long.valueOf(this.mHandler.getCrashTimestamp())));
             } catch (Throwable th) {
-                a.a(th);
+                th.printStackTrace();
                 return null;
             }
         }
@@ -249,7 +248,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
                     context.startService(intent);
                 }
             } catch (Throwable th) {
-                a.a(th);
+                th.printStackTrace();
             }
         }
     }
@@ -270,7 +269,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
                 }
                 file2 = new File(file, str);
             } catch (Throwable th) {
-                a.a(th);
+                th.printStackTrace();
                 return null;
             }
         } else {
@@ -289,7 +288,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
         writer.write("\n");
         writer.write(String.format("Process uptime: %s H\n\n", String.valueOf((this.mCrashTime - APPROXIMATE_START_TIME) / 3600000.0d)));
         writer.write(String.format("Thread %d:%s (crashed)\n", Long.valueOf(this.mCrashThread.getId()), this.mCrashThread.getName()));
-        a.a(this.mCrash, new PrintWriter(writer));
+        this.mCrash.printStackTrace(new PrintWriter(writer));
     }
 
     private void dumpExtraInfo(Writer writer) throws IOException {
@@ -313,7 +312,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
                             continue;
                         case JAVA_EXCEPTION:
                             StringWriter stringWriter = new StringWriter();
-                            a.a(this.mCrash, new PrintWriter(stringWriter));
+                            this.mCrash.printStackTrace(new PrintWriter(stringWriter));
                             str = stringWriter.toString();
                             continue;
                         default:
@@ -352,7 +351,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
             thread2.join();
             Log.d(TAG, "dumpExtraLogcatInfo exitCode=" + waitFor);
         } catch (InterruptedException e) {
-            a.a(e);
+            e.printStackTrace();
         }
     }
 
@@ -423,7 +422,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
         } catch (Throwable th3) {
             th = th3;
             try {
-                a.a(th);
+                th.printStackTrace();
                 return false;
             } finally {
                 if (bufferedWriter != null) {

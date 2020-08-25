@@ -8,7 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.view.View;
 import io.flutter.embedding.android.SplashScreen;
-/* loaded from: classes18.dex */
+/* loaded from: classes10.dex */
 public final class ViewSplashScreen implements SplashScreen {
     private final long crossfadeDurationInMillis = 5;
     private final View splashView;

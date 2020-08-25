@@ -3,63 +3,91 @@ package com.baidu.swan.c;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.android.util.devices.NetWorkUtils;
+import android.util.DisplayMetrics;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes9.dex */
+import com.xiaomi.mipush.sdk.Constants;
+/* loaded from: classes8.dex */
 public class a {
-    public static NetworkInfo getActiveNetworkInfo(Context context) {
-        ConnectivityManager connectivityManager;
-        Context appContext = AppRuntime.getAppContext();
-        if (appContext != null && (connectivityManager = (ConnectivityManager) appContext.getSystemService("connectivity")) != null) {
-            return connectivityManager.getActiveNetworkInfo();
-        }
-        return null;
+    public static String getOS() {
+        return "Android";
     }
 
-    public static String getNetworkClass() {
-        NetworkInfo activeNetworkInfo = getActiveNetworkInfo(AppRuntime.getAppContext());
-        if (activeNetworkInfo == null || !activeNetworkInfo.isConnected()) {
-            return NetWorkUtils.NETWORK_TYPE_CELL_UN_CONNECTED;
+    public static int getDisplayWidth() {
+        DisplayMetrics displayMetrics = getDisplayMetrics();
+        if (displayMetrics != null) {
+            return displayMetrics.widthPixels;
+        }
+        return 0;
+    }
+
+    public static int getDisplayHeight() {
+        DisplayMetrics displayMetrics = getDisplayMetrics();
+        if (displayMetrics != null) {
+            return displayMetrics.heightPixels;
+        }
+        return 0;
+    }
+
+    public static int getDensityDpi() {
+        DisplayMetrics displayMetrics = getDisplayMetrics();
+        if (displayMetrics != null) {
+            return displayMetrics.densityDpi;
+        }
+        return 0;
+    }
+
+    public static String getOsVersion() {
+        String str = Build.VERSION.RELEASE;
+        if (TextUtils.isEmpty(str)) {
+            return "0.0";
+        }
+        return str.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+    }
+
+    private static DisplayMetrics getDisplayMetrics() {
+        Context appContext = AppRuntime.getAppContext();
+        if (appContext == null) {
+            return null;
+        }
+        return appContext.getResources().getDisplayMetrics();
+    }
+
+    public static String getNetworkInfo() {
+        NetworkInfo activeNetworkInfo;
+        ConnectivityManager connectivityManager = (ConnectivityManager) AppRuntime.getAppContext().getSystemService("connectivity");
+        if (connectivityManager == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null || !activeNetworkInfo.isConnected()) {
+            return "no";
         }
         if (activeNetworkInfo.getType() == 1) {
-            return "wifi";
+            return "WiFi";
         }
         if (activeNetworkInfo.getType() == 0) {
-            return getMobileNetworkType(activeNetworkInfo.getSubtype(), activeNetworkInfo.getSubtypeName());
+            switch (activeNetworkInfo.getSubtype()) {
+                case 1:
+                case 2:
+                case 4:
+                case 7:
+                case 11:
+                    return "2G";
+                case 3:
+                case 5:
+                case 6:
+                case 8:
+                case 9:
+                case 10:
+                case 12:
+                case 14:
+                case 15:
+                    return "3G";
+                case 13:
+                    return "4G";
+                default:
+                    return "unknown";
+            }
         }
         return "unknown";
-    }
-
-    public static String getMobileNetworkType(int i, String str) {
-        switch (i) {
-            case 1:
-            case 2:
-            case 4:
-            case 7:
-            case 11:
-            case 16:
-                return "2g";
-            case 3:
-            case 5:
-            case 6:
-            case 8:
-            case 9:
-            case 10:
-            case 12:
-            case 14:
-            case 15:
-            case 17:
-                return "3g";
-            case 13:
-            case 18:
-            case 19:
-                return "4g";
-            default:
-                if (!TextUtils.isEmpty(str) && str.equalsIgnoreCase("LTE_CA")) {
-                    return "4g";
-                }
-                return "unknown";
-        }
     }
 }

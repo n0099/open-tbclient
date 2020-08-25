@@ -4,7 +4,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import com.baidu.ar.npc.BaiduArView;
 import java.util.Calendar;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 class ab implements Runnable {
     final /* synthetic */ MotionEvent a;
     final /* synthetic */ aa b;
@@ -21,7 +21,7 @@ class ab implements Runnable {
         long timeInMillis = Calendar.getInstance().getTimeInMillis();
         Log.d(BaiduArView.b, "touch timeInMils " + timeInMillis);
         if (!this.b.a.x && !this.b.a.z) {
-            ArBridge.getInstance().a(BaiduArView.j.EClick.ordinal(), this.a.getPointerId(0), this.a.getX(), this.a.getY(), -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, timeInMillis);
+            ArBridge.getInstance().a(BaiduArView.i.EClick.ordinal(), this.a.getPointerId(0), this.a.getX(), this.a.getY(), -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, timeInMillis);
         }
     }
 }

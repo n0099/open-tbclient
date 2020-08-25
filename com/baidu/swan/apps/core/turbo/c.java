@@ -3,27 +3,27 @@ package com.baidu.swan.apps.core.turbo;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.LruCache;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static LruCache<String, Object> chc;
+    private static LruCache<String, Object> cns;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     private static class a {
-        static final c chd = new c();
+        static final c cnu = new c();
     }
 
     private c() {
-        chc = new LruCache<>(10);
+        cns = new LruCache<>(10);
     }
 
-    public static c adt() {
-        return a.chd;
+    public static c ajO() {
+        return a.cnu;
     }
 
     public synchronized <CONFIG> CONFIG o(String str, CONFIG config) {
         Object obj;
-        if (!TextUtils.isEmpty(str) && (obj = chc.get(str)) != null) {
+        if (!TextUtils.isEmpty(str) && (obj = cns.get(str)) != null) {
             if (DEBUG) {
                 Log.d("SwanAppConfigCache", "getConfig hit key: " + str);
             }
@@ -37,7 +37,7 @@ public final class c {
             if (DEBUG) {
                 Log.d("SwanAppConfigCache", "putConfig key: " + str);
             }
-            chc.put(str, config);
+            cns.put(str, config);
         }
     }
 }

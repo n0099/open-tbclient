@@ -26,40 +26,40 @@ import java.io.InputStreamReader;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a extends BdBaseModel implements h {
-    private AlaFilterAndBeautyData fmj;
-    private boolean fmk = false;
-    private boolean fml = false;
-    private HttpMessageListener fmm = new HttpMessageListener(1021163) { // from class: com.baidu.tieba.ala.alaar.a.a.1
+    private AlaFilterAndBeautyData fxF;
+    private boolean fxG = false;
+    private boolean fxH = false;
+    private HttpMessageListener fxI = new HttpMessageListener(1021163) { // from class: com.baidu.tieba.ala.alaar.a.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof AlaFilterAndBeautyResponseMessage) {
                 AlaFilterAndBeautyResponseMessage alaFilterAndBeautyResponseMessage = (AlaFilterAndBeautyResponseMessage) httpResponsedMessage;
-                a.this.fmj = alaFilterAndBeautyResponseMessage.bvm();
-                if (a.this.fmj != null) {
-                    a.this.fmj.auE = alaFilterAndBeautyResponseMessage.getOrginalMessage().getTag();
+                a.this.fxF = alaFilterAndBeautyResponseMessage.bEh();
+                if (a.this.fxF != null) {
+                    a.this.fxF.azG = alaFilterAndBeautyResponseMessage.getOrginalMessage().getTag();
                 }
                 a.this.a(alaFilterAndBeautyResponseMessage);
             }
         }
     };
-    private HttpMessageListener fmn = new HttpMessageListener(1021204) { // from class: com.baidu.tieba.ala.alaar.a.a.2
+    private HttpMessageListener fxJ = new HttpMessageListener(1021204) { // from class: com.baidu.tieba.ala.alaar.a.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (!(httpResponsedMessage instanceof AlaArGradingQualityConfigResponseMessage)) {
-                a.this.fml = true;
-                if (a.this.fmk) {
-                    a.this.b(a.this.fmj);
+                a.this.fxH = true;
+                if (a.this.fxG) {
+                    a.this.b(a.this.fxF);
                     return;
                 }
                 return;
             }
-            a.this.fml = true;
-            if (a.this.fmk) {
-                a.this.b(a.this.fmj);
+            a.this.fxH = true;
+            if (a.this.fxG) {
+                a.this.b(a.this.fxF);
             }
         }
     };
@@ -83,11 +83,11 @@ public class a extends BdBaseModel implements h {
     }
 
     private void initTasks() {
-        bvo();
-        bvp();
+        bEj();
+        bEk();
     }
 
-    private void bvo() {
+    private void bEj() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021163, TbConfig.SERVER_ADDRESS + "ala/sys/showConf");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -96,24 +96,24 @@ public class a extends BdBaseModel implements h {
     }
 
     private void registerListener() {
-        registerListener(this.fmm);
-        registerListener(this.fmn);
+        registerListener(this.fxI);
+        registerListener(this.fxJ);
     }
 
     private void unregisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.fmm);
-        MessageManager.getInstance().unRegisterListener(this.fmn);
+        MessageManager.getInstance().unRegisterListener(this.fxI);
+        MessageManager.getInstance().unRegisterListener(this.fxJ);
     }
 
     @Override // com.baidu.live.ar.h
     public void a(BdUniqueId bdUniqueId) {
         HttpMessage httpMessage = new HttpMessage(1021163);
         httpMessage.setTag(bdUniqueId);
-        httpMessage.addParam("ar_token", c.vf().getString("sp_ar_filter_and_beauty_token", ""));
+        httpMessage.addParam("ar_token", c.AD().getString("sp_ar_filter_and_beauty_token", ""));
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    private void bvp() {
+    private void bEk() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021204, TbConfig.SERVER_ADDRESS + "ala/sys/getArConfig");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -123,7 +123,7 @@ public class a extends BdBaseModel implements h {
 
     @Override // com.baidu.live.ar.h
     public void b(BdUniqueId bdUniqueId) {
-        b.bvq().init();
+        b.bEl().init();
     }
 
     @Override // com.baidu.live.ar.h
@@ -132,44 +132,44 @@ public class a extends BdBaseModel implements h {
     }
 
     @Override // com.baidu.live.ar.h
-    public AlaFilterAndBeautyData vv() {
-        return this.fmj;
+    public AlaFilterAndBeautyData AT() {
+        return this.fxF;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AlaFilterAndBeautyResponseMessage alaFilterAndBeautyResponseMessage) {
         if (alaFilterAndBeautyResponseMessage == null) {
             Log.d("ArUpdate", "@.@ onGetFilterAndBeauty msg == null");
-            ez(this.mContext);
+            eH(this.mContext);
             return;
         }
-        AlaFilterAndBeautyData bvm = alaFilterAndBeautyResponseMessage.bvm();
-        if (bvm == null) {
-            bvm = alaFilterAndBeautyResponseMessage.qg(com.baidu.minivideo.arface.a.getVersion());
+        AlaFilterAndBeautyData bEh = alaFilterAndBeautyResponseMessage.bEh();
+        if (bEh == null) {
+            bEh = alaFilterAndBeautyResponseMessage.ss(com.baidu.minivideo.arface.a.getVersion());
         } else {
-            av(bvm.auw, com.baidu.minivideo.arface.a.getVersion());
+            ay(bEh.azy, com.baidu.minivideo.arface.a.getVersion());
         }
-        if (bvm == null) {
+        if (bEh == null) {
             Log.d("ArUpdate", "@.@ onGetFilterAndBeauty data == null");
-            ez(this.mContext);
+            eH(this.mContext);
             return;
         }
-        this.fmj = bvm;
-        this.fmk = true;
-        if (this.fml) {
-            b(this.fmj);
+        this.fxF = bEh;
+        this.fxG = true;
+        if (this.fxH) {
+            b(this.fxF);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(AlaFilterAndBeautyData alaFilterAndBeautyData) {
-        if (d.a(AlaFilterAndBeautyData.auD, alaFilterAndBeautyData, com.baidu.minivideo.arface.b.Ng(), c.vf().getBoolean("ar_grading_quality_config_need_update", false))) {
+        if (d.a(AlaFilterAndBeautyData.azF, alaFilterAndBeautyData, com.baidu.minivideo.arface.b.Ta(), c.AD().getBoolean("ar_grading_quality_config_need_update", false))) {
             MessageManager.getInstance().dispatchResponsedMessage(new AlaFilterBeautyDataMessage(2913150, alaFilterAndBeautyData));
-            List<e> list = alaFilterAndBeautyData.auz;
+            List<e> list = alaFilterAndBeautyData.azB;
             if (list != null && list.size() > 0) {
                 for (e eVar : list) {
-                    if (eVar != null && !com.baidu.tieba.ala.alaar.sticker.a.d.BL(eVar.vr())) {
-                        com.baidu.tieba.ala.alaar.sticker.a.d.a(eVar.vr(), new d.a() { // from class: com.baidu.tieba.ala.alaar.a.a.3
+                    if (eVar != null && !com.baidu.tieba.ala.alaar.sticker.a.d.Ef(eVar.AP())) {
+                        com.baidu.tieba.ala.alaar.sticker.a.d.a(eVar.AP(), new d.a() { // from class: com.baidu.tieba.ala.alaar.a.a.3
                             @Override // com.baidu.tieba.ala.alaar.sticker.a.d.a
                             public void onStarted() {
                                 Log.d("ArUpdate", "onStarted ");
@@ -196,28 +196,28 @@ public class a extends BdBaseModel implements h {
         }
     }
 
-    public void av(String str, int i) {
+    public void ay(String str, int i) {
         if (!StringUtils.isNullObject(str)) {
-            c.vf().putString("sp_ar_filter_and_beauty_token", str);
+            c.AD().putString("sp_ar_filter_and_beauty_token", str);
         }
         if (i > 0) {
-            c.vf().putInt("sp_ar_filter_and_beauty_version", i);
+            c.AD().putInt("sp_ar_filter_and_beauty_version", i);
         }
     }
 
-    public boolean ez(Context context) {
-        AlaFilterAndBeautyData eA = eA(context);
-        eA.auF = true;
-        if (com.baidu.live.ar.d.a(AlaFilterAndBeautyData.auD, eA, com.baidu.minivideo.arface.b.Ng(), c.vf().getBoolean("ar_grading_quality_config_need_update", false))) {
-            MessageManager.getInstance().dispatchResponsedMessage(new AlaFilterBeautyDataMessage(2913150, eA));
+    public boolean eH(Context context) {
+        AlaFilterAndBeautyData eI = eI(context);
+        eI.azH = true;
+        if (com.baidu.live.ar.d.a(AlaFilterAndBeautyData.azF, eI, com.baidu.minivideo.arface.b.Ta(), c.AD().getBoolean("ar_grading_quality_config_need_update", false))) {
+            MessageManager.getInstance().dispatchResponsedMessage(new AlaFilterBeautyDataMessage(2913150, eI));
             return true;
         }
         return false;
     }
 
-    public AlaFilterAndBeautyData eA(Context context) {
+    public AlaFilterAndBeautyData eI(Context context) {
         try {
-            JSONObject optJSONObject = new JSONObject(aA(context, "arLocalBeauty.json")).optJSONObject("data");
+            JSONObject optJSONObject = new JSONObject(aE(context, "arLocalBeauty.json")).optJSONObject("data");
             if (optJSONObject == null) {
                 return null;
             }
@@ -233,7 +233,7 @@ public class a extends BdBaseModel implements h {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [333=4] */
     /* JADX DEBUG: Multi-variable search result rejected for r1v3, resolved type: java.io.BufferedReader */
     /* JADX WARN: Multi-variable type inference failed */
-    public String aA(Context context, String str) {
+    public String aE(Context context, String str) {
         InputStreamReader inputStreamReader;
         InputStreamReader inputStreamReader2;
         InputStreamReader inputStreamReader3 = null;

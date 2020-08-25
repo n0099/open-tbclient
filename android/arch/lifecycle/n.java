@@ -6,7 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes19.dex */
+/* loaded from: classes5.dex */
 public abstract class n<T> {
     private static final Object NOT_SET = new Object();
     static final int START_VERSION = -1;
@@ -35,12 +35,12 @@ public abstract class n<T> {
     /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: android.arch.lifecycle.q<T> */
     /* JADX WARN: Multi-variable type inference failed */
     private void considerNotify(n<T>.c cVar) {
-        if (cVar.yQ) {
-            if (!cVar.gl()) {
+        if (cVar.zp) {
+            if (!cVar.hz()) {
                 cVar.Y(false);
-            } else if (cVar.yR < this.mVersion) {
-                cVar.yR = this.mVersion;
-                cVar.yP.onChanged(this.mData);
+            } else if (cVar.zq < this.mVersion) {
+                cVar.zq = this.mVersion;
+                cVar.zo.onChanged(this.mData);
             }
         }
     }
@@ -58,9 +58,9 @@ public abstract class n<T> {
                 considerNotify(cVar);
                 cVar = null;
             } else {
-                android.arch.a.b.b<q<T>, n<T>.c>.d gd = this.mObservers.gd();
-                while (gd.hasNext()) {
-                    considerNotify((c) gd.next().getValue());
+                android.arch.a.b.b<q<T>, n<T>.c>.d hr = this.mObservers.hr();
+                while (hr.hasNext()) {
+                    considerNotify((c) hr.next().getValue());
                     if (this.mDispatchInvalidated) {
                         break;
                     }
@@ -72,7 +72,7 @@ public abstract class n<T> {
 
     @MainThread
     public void observe(@NonNull j jVar, @NonNull q<T> qVar) {
-        if (jVar.getLifecycle().gh() != Lifecycle.State.DESTROYED) {
+        if (jVar.getLifecycle().hv() != Lifecycle.State.DESTROYED) {
             b bVar = new b(jVar, qVar);
             n<T>.c c2 = this.mObservers.c(qVar, bVar);
             if (c2 != null && !c2.i(jVar)) {
@@ -101,7 +101,7 @@ public abstract class n<T> {
         assertMainThread("removeObserver");
         n<T>.c remove = this.mObservers.remove(qVar);
         if (remove != null) {
-            remove.gm();
+            remove.hA();
             remove.Y(false);
         }
     }
@@ -126,7 +126,7 @@ public abstract class n<T> {
             this.mPendingData = t;
         }
         if (z) {
-            android.arch.a.a.a.gb().f(this.mPostValueRunnable);
+            android.arch.a.a.a.hq().d(this.mPostValueRunnable);
         }
     }
 
@@ -166,94 +166,94 @@ public abstract class n<T> {
         return this.mActiveCount > 0;
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes5.dex */
     class b extends n<T>.c implements h {
         @NonNull
-        final j yO;
+        final j zn;
 
         b(@NonNull j jVar, q<T> qVar) {
             super(qVar);
-            this.yO = jVar;
+            this.zn = jVar;
         }
 
         @Override // android.arch.lifecycle.n.c
-        boolean gl() {
-            return this.yO.getLifecycle().gh().isAtLeast(Lifecycle.State.STARTED);
+        boolean hz() {
+            return this.zn.getLifecycle().hv().isAtLeast(Lifecycle.State.STARTED);
         }
 
         @Override // android.arch.lifecycle.h
         public void a(j jVar, Lifecycle.Event event) {
-            if (this.yO.getLifecycle().gh() == Lifecycle.State.DESTROYED) {
-                n.this.removeObserver(this.yP);
+            if (this.zn.getLifecycle().hv() == Lifecycle.State.DESTROYED) {
+                n.this.removeObserver(this.zo);
             } else {
-                Y(gl());
+                Y(hz());
             }
         }
 
         @Override // android.arch.lifecycle.n.c
         boolean i(j jVar) {
-            return this.yO == jVar;
+            return this.zn == jVar;
         }
 
         @Override // android.arch.lifecycle.n.c
-        void gm() {
-            this.yO.getLifecycle().b(this);
+        void hA() {
+            this.zn.getLifecycle().b(this);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes5.dex */
     public abstract class c {
-        final q<T> yP;
-        boolean yQ;
-        int yR = -1;
+        final q<T> zo;
+        boolean zp;
+        int zq = -1;
 
-        abstract boolean gl();
+        abstract boolean hz();
 
         c(q<T> qVar) {
-            this.yP = qVar;
+            this.zo = qVar;
         }
 
         boolean i(j jVar) {
             return false;
         }
 
-        void gm() {
+        void hA() {
         }
 
         void Y(boolean z) {
-            if (z != this.yQ) {
-                this.yQ = z;
+            if (z != this.zp) {
+                this.zp = z;
                 boolean z2 = n.this.mActiveCount == 0;
                 n nVar = n.this;
-                nVar.mActiveCount = (this.yQ ? 1 : -1) + nVar.mActiveCount;
-                if (z2 && this.yQ) {
+                nVar.mActiveCount = (this.zp ? 1 : -1) + nVar.mActiveCount;
+                if (z2 && this.zp) {
                     n.this.onActive();
                 }
-                if (n.this.mActiveCount == 0 && !this.yQ) {
+                if (n.this.mActiveCount == 0 && !this.zp) {
                     n.this.onInactive();
                 }
-                if (this.yQ) {
+                if (this.zp) {
                     n.this.dispatchingValue(this);
                 }
             }
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes5.dex */
     private class a extends n<T>.c {
         a(q<T> qVar) {
             super(qVar);
         }
 
         @Override // android.arch.lifecycle.n.c
-        boolean gl() {
+        boolean hz() {
             return true;
         }
     }
 
     private static void assertMainThread(String str) {
-        if (!android.arch.a.a.a.gb().isMainThread()) {
+        if (!android.arch.a.a.a.hq().isMainThread()) {
             throw new IllegalStateException("Cannot invoke " + str + " on a background thread");
         }
     }

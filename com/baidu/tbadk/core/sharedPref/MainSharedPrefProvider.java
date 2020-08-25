@@ -9,7 +9,7 @@ import android.net.Uri;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class MainSharedPrefProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public boolean onCreate() {
@@ -41,8 +41,8 @@ public class MainSharedPrefProvider extends ContentProvider {
                 SharedPreferences.Editor edit = sharedPreferences.edit();
                 edit.putString(lastPathSegment, asString);
                 edit.commit();
-                if (xv(lastPathSegment)) {
-                    aP(lastPathSegment, asString);
+                if (zJ(lastPathSegment)) {
+                    aT(lastPathSegment, asString);
                     return null;
                 }
                 return null;
@@ -60,8 +60,8 @@ public class MainSharedPrefProvider extends ContentProvider {
             SharedPreferences.Editor edit = sharedPreferences.edit();
             edit.remove(lastPathSegment);
             edit.commit();
-            if (xv(lastPathSegment)) {
-                aP(lastPathSegment, null);
+            if (zJ(lastPathSegment)) {
+                aT(lastPathSegment, null);
                 return 0;
             }
             return 0;
@@ -74,7 +74,7 @@ public class MainSharedPrefProvider extends ContentProvider {
         return 0;
     }
 
-    private void aP(String str, String str2) {
+    private void aT(String str, String str2) {
         Intent intent = new Intent();
         intent.setAction(TbConfig.getBroadcastActionChangeSharedPref());
         intent.putExtra(SharedPrefConfig.INTENT_KEY, str);
@@ -82,7 +82,7 @@ public class MainSharedPrefProvider extends ContentProvider {
         TbadkCoreApplication.getInst().getApp().sendBroadcast(intent);
     }
 
-    private boolean xv(String str) {
+    private boolean zJ(String str) {
         if (str == null || str.length() == 0) {
             return false;
         }

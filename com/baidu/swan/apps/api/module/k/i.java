@@ -1,65 +1,94 @@
 package com.baidu.swan.apps.api.module.k;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.text.TextUtils;
+import android.util.Pair;
+import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.swan.apps.setting.oauth.a.b;
+import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class i {
-    private final String bRZ;
-    private final String bSl;
-    private final boolean bSm;
+/* loaded from: classes8.dex */
+public class i extends com.baidu.swan.apps.api.a.d {
+    private int bXK;
 
-    public i(@NonNull String str, @NonNull JSONObject jSONObject, String str2) {
-        this.bSl = str;
-        this.bRZ = str2;
-        this.bSm = jSONObject.optBoolean("useEvent");
+    public i(@NonNull com.baidu.swan.apps.api.a.b bVar) {
+        super(bVar);
     }
 
-    public void a(com.baidu.swan.apps.api.a.d dVar) {
-        if (this.bSm) {
-            dVar.a(this.bRZ, new com.baidu.swan.apps.api.c.b(0));
+    public com.baidu.swan.apps.api.c.b ka(String str) {
+        Pair<com.baidu.swan.apps.api.c.b, JSONObject> aX = com.baidu.swan.apps.api.d.b.aX("Api-ShowSMSPanel", str);
+        com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aX.first;
+        if (!bVar.isSuccess()) {
+            com.baidu.swan.apps.console.c.e("Api-ShowSMSPanel", "parse fail");
+            return bVar;
         }
+        JSONObject jSONObject = (JSONObject) aX.second;
+        com.baidu.swan.apps.console.c.d("Api-ShowSMSPanel", "params: ", jSONObject);
+        final String optString = jSONObject.optString("content");
+        JSONArray optJSONArray = jSONObject.optJSONArray("recipients");
+        if (optJSONArray == null) {
+            return new com.baidu.swan.apps.api.c.b(202);
+        }
+        final String r = r(optJSONArray);
+        if (TextUtils.isEmpty(r) || TextUtils.isEmpty(optString)) {
+            return new com.baidu.swan.apps.api.c.b(202);
+        }
+        final String optString2 = jSONObject.optString("cb");
+        if (TextUtils.isEmpty(optString2)) {
+            return new com.baidu.swan.apps.api.c.b(202);
+        }
+        com.baidu.swan.apps.runtime.d.azE().azA().azU().b(getContext(), "scope_show_sms_panel", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.api.module.k.i.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.swan.apps.ap.e.b
+            /* renamed from: a */
+            public void I(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
+                if (!com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
+                    int errorCode = hVar.getErrorCode();
+                    i.this.a(optString2, new com.baidu.swan.apps.api.c.b(errorCode, com.baidu.swan.apps.setting.oauth.c.gC(errorCode)));
+                    return;
+                }
+                i.this.aW(r, optString);
+                i.this.a(optString2, new com.baidu.swan.apps.api.c.b(0));
+            }
+        });
+        return new com.baidu.swan.apps.api.c.b(0);
     }
 
-    public void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        if (this.bSm) {
-            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0).toString(), this.bRZ);
-        }
+    public void aW(@NonNull String str, @NonNull String str2) {
+        Intent intent = new Intent();
+        intent.setAction("android.intent.action.SENDTO");
+        intent.setData(Uri.parse("smsto:" + str));
+        intent.putExtra("sms_body", str2);
+        getContext().startActivity(intent);
+        acn();
     }
 
-    public void a(com.baidu.swan.apps.api.a.d dVar, JSONObject jSONObject) {
-        com.baidu.swan.apps.api.c.b bVar = new com.baidu.swan.apps.api.c.b(0, jSONObject);
-        if (this.bSm) {
-            com.baidu.swan.apps.v.f.akr().a(new com.baidu.swan.apps.event.a.f(this.bSl, bVar));
-        } else {
-            dVar.a(this.bRZ, bVar);
+    private String r(JSONArray jSONArray) {
+        if (jSONArray == null || jSONArray.length() <= 0) {
+            return null;
         }
+        StringBuilder sb = new StringBuilder();
+        this.bXK = jSONArray.length();
+        for (int i = 0; i < this.bXK; i++) {
+            String optString = jSONArray.optString(i);
+            if (TextUtils.isEmpty(optString)) {
+                return null;
+            }
+            sb.append(optString);
+            if (i != this.bXK - 1) {
+                sb.append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+            }
+        }
+        return sb.toString();
     }
 
-    public void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, JSONObject jSONObject) {
-        if (this.bSm) {
-            com.baidu.swan.apps.v.f.akr().a(new com.baidu.swan.apps.event.a.f(this.bSl, new com.baidu.swan.apps.api.c.b(0, jSONObject)));
-            return;
-        }
-        UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.bRZ);
-    }
-
-    public void a(com.baidu.swan.apps.api.a.d dVar, String str) {
-        com.baidu.swan.apps.api.c.b bVar = new com.baidu.swan.apps.api.c.b(1001, str);
-        if (this.bSm) {
-            com.baidu.swan.apps.v.f.akr().a(new com.baidu.swan.apps.event.a.f(this.bSl, bVar));
-        } else {
-            dVar.a(this.bRZ, bVar);
-        }
-    }
-
-    public void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
-        if (this.bSm) {
-            com.baidu.swan.apps.v.f.akr().a(new com.baidu.swan.apps.event.a.f(this.bSl, new com.baidu.swan.apps.api.c.b(1001, str)));
-            return;
-        }
-        UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001, str).toString(), this.bRZ);
+    private void acn() {
+        com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
+        fVar.mType = "sms_panel";
+        fVar.mValue = String.valueOf(this.bXK);
+        fVar.u("appid", com.baidu.swan.apps.runtime.d.azE().getAppId());
+        com.baidu.swan.apps.statistic.h.a("1639", fVar);
     }
 }

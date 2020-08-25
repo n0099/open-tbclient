@@ -6,7 +6,7 @@ import com.idlefish.flutterboost.FlutterBoost;
 import com.idlefish.flutterboost.interfaces.IContainerRecord;
 import io.flutter.embedding.android.FlutterView;
 import java.util.Map;
-/* loaded from: classes18.dex */
+/* loaded from: classes10.dex */
 public abstract class Platform {
     public FlutterBoost.BoostLifecycleListener lifecycleListener;
 

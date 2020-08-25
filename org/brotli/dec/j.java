@@ -3,60 +3,60 @@ package org.brotli.dec;
 import java.io.IOException;
 import java.io.InputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class j {
     int distance;
     int j;
-    int nLO;
-    int ohE;
-    int ohF;
-    byte[] ohG;
-    byte[] ohH;
-    int ohI;
-    int ohJ;
-    int ohK;
-    int ohL;
-    int ohM;
-    int ohN;
-    byte[] ohO;
-    int ohP;
-    int ohQ;
-    int ohR;
-    int ohS;
-    int ohT;
-    int ohU;
-    int ohV;
-    int ohl;
-    byte[] ohn;
-    int ohq;
-    boolean ohr;
-    boolean ohs;
-    boolean oht;
-    int oia;
-    int oib;
-    int oic;
-    int oid;
+    int oBA;
+    int oBB;
+    byte[] oBC;
+    byte[] oBD;
+    int oBE;
+    int oBF;
+    int oBG;
+    int oBH;
+    int oBI;
+    int oBJ;
+    byte[] oBK;
+    int oBL;
+    int oBM;
+    int oBN;
+    int oBO;
+    int oBP;
+    int oBQ;
+    int oBR;
+    int oBW;
+    int oBX;
+    int oBY;
+    int oBZ;
+    int oBh;
+    byte[] oBj;
+    int oBm;
+    boolean oBn;
+    boolean oBo;
+    boolean oBp;
+    int ofI;
     byte[] output;
-    int ohk = 0;
-    final a ohm = new a();
-    final int[] oho = new int[3240];
-    final int[] ohp = new int[3240];
-    final g ohu = new g();
-    final g ohv = new g();
-    final g ohw = new g();
-    final int[] ohx = new int[3];
-    final int[] ohy = new int[3];
-    final int[] ohz = new int[6];
-    final int[] ohA = {16, 15, 11, 4};
+    int oBg = 0;
+    final a oBi = new a();
+    final int[] oBk = new int[3240];
+    final int[] oBl = new int[3240];
+    final g oBq = new g();
+    final g oBr = new g();
+    final g oBs = new g();
+    final int[] oBt = new int[3];
+    final int[] oBu = new int[3];
+    final int[] oBv = new int[6];
+    final int[] oBw = {16, 15, 11, 4};
     int pos = 0;
-    int fUV = 0;
-    int ohB = 0;
-    boolean ohC = false;
-    int ohD = 0;
-    int ohW = 0;
-    long ohX = 0;
-    byte[] ohY = new byte[0];
-    int ohZ = 0;
+    int ggU = 0;
+    int oBx = 0;
+    boolean oBy = false;
+    int oBz = 0;
+    int oBS = 0;
+    long oBT = 0;
+    byte[] oBU = new byte[0];
+    int oBV = 0;
 
     private static int i(a aVar) {
         if (a.a(aVar, 1) == 0) {
@@ -75,27 +75,27 @@ public final class j {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(j jVar, InputStream inputStream) {
-        if (jVar.ohk != 0) {
+        if (jVar.oBg != 0) {
             throw new IllegalStateException("State MUST be uninitialized");
         }
-        a.a(jVar.ohm, inputStream);
-        int i = i(jVar.ohm);
+        a.a(jVar.oBi, inputStream);
+        int i = i(jVar.oBi);
         if (i == 9) {
             throw new BrotliRuntimeException("Invalid 'windowBits' code");
         }
-        jVar.ohV = 1 << i;
-        jVar.ohU = jVar.ohV - 16;
-        jVar.ohk = 1;
+        jVar.oBR = 1 << i;
+        jVar.oBQ = jVar.oBR - 16;
+        jVar.oBg = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void j(j jVar) throws IOException {
-        if (jVar.ohk == 0) {
+        if (jVar.oBg == 0) {
             throw new IllegalStateException("State MUST be initialized");
         }
-        if (jVar.ohk != 11) {
-            jVar.ohk = 11;
-            a.e(jVar.ohm);
+        if (jVar.oBg != 11) {
+            jVar.oBg = 11;
+            a.e(jVar.oBi);
         }
     }
 }

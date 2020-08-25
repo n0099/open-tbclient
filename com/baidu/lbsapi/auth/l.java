@@ -2,7 +2,7 @@ package com.baidu.lbsapi.auth;
 
 import com.baidu.lbsapi.auth.e;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class l implements e.a<String> {
     final /* synthetic */ String a;
     final /* synthetic */ LBSAuthManager b;

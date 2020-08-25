@@ -3,84 +3,84 @@ package com.airbnb.lottie.model.content;
 import android.support.annotation.Nullable;
 import com.airbnb.lottie.model.content.ShapeStroke;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes18.dex */
 public class e implements b {
-    private final com.airbnb.lottie.model.a.d Eb;
-    private final GradientType Eh;
-    private final com.airbnb.lottie.model.a.c Ej;
-    private final com.airbnb.lottie.model.a.f Ek;
-    private final com.airbnb.lottie.model.a.f El;
-    private final com.airbnb.lottie.model.a.b Eo;
-    private final ShapeStroke.LineCapType Ep;
-    private final ShapeStroke.LineJoinType Eq;
-    private final float Er;
-    private final List<com.airbnb.lottie.model.a.b> Es;
+    private final com.airbnb.lottie.model.a.d EG;
+    private final GradientType EM;
+    private final com.airbnb.lottie.model.a.c EO;
+    private final com.airbnb.lottie.model.a.f EP;
+    private final com.airbnb.lottie.model.a.f ER;
+    private final com.airbnb.lottie.model.a.b EU;
+    private final ShapeStroke.LineCapType EV;
+    private final ShapeStroke.LineJoinType EW;
+    private final float EX;
+    private final List<com.airbnb.lottie.model.a.b> EY;
     @Nullable
-    private final com.airbnb.lottie.model.a.b Et;
+    private final com.airbnb.lottie.model.a.b EZ;
     private final String name;
 
     public e(String str, GradientType gradientType, com.airbnb.lottie.model.a.c cVar, com.airbnb.lottie.model.a.d dVar, com.airbnb.lottie.model.a.f fVar, com.airbnb.lottie.model.a.f fVar2, com.airbnb.lottie.model.a.b bVar, ShapeStroke.LineCapType lineCapType, ShapeStroke.LineJoinType lineJoinType, float f, List<com.airbnb.lottie.model.a.b> list, @Nullable com.airbnb.lottie.model.a.b bVar2) {
         this.name = str;
-        this.Eh = gradientType;
-        this.Ej = cVar;
-        this.Eb = dVar;
-        this.Ek = fVar;
-        this.El = fVar2;
-        this.Eo = bVar;
-        this.Ep = lineCapType;
-        this.Eq = lineJoinType;
-        this.Er = f;
-        this.Es = list;
-        this.Et = bVar2;
+        this.EM = gradientType;
+        this.EO = cVar;
+        this.EG = dVar;
+        this.EP = fVar;
+        this.ER = fVar2;
+        this.EU = bVar;
+        this.EV = lineCapType;
+        this.EW = lineJoinType;
+        this.EX = f;
+        this.EY = list;
+        this.EZ = bVar2;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public GradientType in() {
-        return this.Eh;
+    public GradientType jN() {
+        return this.EM;
     }
 
-    public com.airbnb.lottie.model.a.c iq() {
-        return this.Ej;
+    public com.airbnb.lottie.model.a.c jP() {
+        return this.EO;
     }
 
-    public com.airbnb.lottie.model.a.d ih() {
-        return this.Eb;
+    public com.airbnb.lottie.model.a.d jH() {
+        return this.EG;
     }
 
-    public com.airbnb.lottie.model.a.f ir() {
-        return this.Ek;
+    public com.airbnb.lottie.model.a.f jQ() {
+        return this.EP;
     }
 
-    public com.airbnb.lottie.model.a.f is() {
-        return this.El;
+    public com.airbnb.lottie.model.a.f jR() {
+        return this.ER;
     }
 
-    public com.airbnb.lottie.model.a.b it() {
-        return this.Eo;
+    public com.airbnb.lottie.model.a.b jS() {
+        return this.EU;
     }
 
-    public ShapeStroke.LineCapType iu() {
-        return this.Ep;
+    public ShapeStroke.LineCapType jT() {
+        return this.EV;
     }
 
-    public ShapeStroke.LineJoinType iv() {
-        return this.Eq;
+    public ShapeStroke.LineJoinType jU() {
+        return this.EW;
     }
 
-    public List<com.airbnb.lottie.model.a.b> iw() {
-        return this.Es;
+    public List<com.airbnb.lottie.model.a.b> jV() {
+        return this.EY;
     }
 
     @Nullable
-    public com.airbnb.lottie.model.a.b ix() {
-        return this.Et;
+    public com.airbnb.lottie.model.a.b jW() {
+        return this.EZ;
     }
 
-    public float iy() {
-        return this.Er;
+    public float jX() {
+        return this.EX;
     }
 
     @Override // com.airbnb.lottie.model.content.b

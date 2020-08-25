@@ -1,7 +1,7 @@
 package com.baidu.platform.comapi.walknavi.d;
 
 import com.baidu.mapapi.walknavi.model.RouteGuideKind;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public interface d {
     void a();
 

@@ -8,47 +8,47 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tieba.ala.message.AlaGetWishListResponseMessage;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class i extends BdBaseModel {
-    private a fjX;
-    private HttpMessageListener gCl;
+    private a fvt;
+    private HttpMessageListener gOI;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a(ArrayList<com.baidu.tieba.ala.data.d> arrayList, String str, long j);
 
-        void aA(int i, String str);
+        void ay(int i, String str);
     }
 
     public i(BdPageContext<?> bdPageContext, a aVar) {
         super(bdPageContext);
-        this.gCl = new HttpMessageListener(1021165) { // from class: com.baidu.tieba.ala.f.i.1
+        this.gOI = new HttpMessageListener(1021165) { // from class: com.baidu.tieba.ala.f.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021165 && (httpResponsedMessage instanceof AlaGetWishListResponseMessage)) {
                     AlaGetWishListResponseMessage alaGetWishListResponseMessage = (AlaGetWishListResponseMessage) httpResponsedMessage;
-                    if (i.this.fjX != null) {
+                    if (i.this.fvt != null) {
                         if (alaGetWishListResponseMessage.getError() != 0 || !alaGetWishListResponseMessage.isSuccess()) {
-                            i.this.fjX.aA(alaGetWishListResponseMessage.getError(), alaGetWishListResponseMessage.getErrorString());
+                            i.this.fvt.ay(alaGetWishListResponseMessage.getError(), alaGetWishListResponseMessage.getErrorString());
                         } else {
-                            i.this.fjX.a(alaGetWishListResponseMessage.getData(), alaGetWishListResponseMessage.getTips(), alaGetWishListResponseMessage.getSysTime());
+                            i.this.fvt.a(alaGetWishListResponseMessage.getData(), alaGetWishListResponseMessage.getTips(), alaGetWishListResponseMessage.getSysTime());
                         }
                     }
                 }
             }
         };
-        this.fjX = aVar;
-        registerListener(this.gCl);
+        this.fvt = aVar;
+        registerListener(this.gOI);
     }
 
-    public void Ed(String str) {
+    public void GC(String str) {
         HttpMessage httpMessage = new HttpMessage(1021165);
         httpMessage.addParam("anchor_id", str);
         sendMessage(httpMessage);
     }
 
-    public void bNY() {
+    public void bXY() {
         sendMessage(new HttpMessage(1021165));
     }
 
@@ -63,6 +63,6 @@ public class i extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.gCl);
+        MessageManager.getInstance().unRegisterListener(this.gOI);
     }
 }

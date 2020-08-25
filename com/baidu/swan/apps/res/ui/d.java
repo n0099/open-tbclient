@@ -16,10 +16,10 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import java.lang.reflect.Method;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d {
     private static String sNavBarOverride;
-    private final a cDq;
+    private final a cMo;
     private boolean mNavBarAvailable;
     private View mNavBarTintView;
     private boolean mStatusBarAvailable;
@@ -60,8 +60,8 @@ public class d {
                 throw th;
             }
         }
-        this.cDq = new a(activity, this.mStatusBarAvailable, this.mNavBarAvailable);
-        if (!this.cDq.hasNavigtionBar()) {
+        this.cMo = new a(activity, this.mStatusBarAvailable, this.mNavBarAvailable);
+        if (!this.cMo.hasNavigtionBar()) {
             this.mNavBarAvailable = false;
         }
         if (this.mStatusBarAvailable) {
@@ -81,10 +81,10 @@ public class d {
 
     private void setupStatusBarView(Context context, ViewGroup viewGroup) {
         this.mStatusBarTintView = new View(context);
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, this.cDq.getStatusBarHeight());
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, this.cMo.getStatusBarHeight());
         layoutParams.gravity = 48;
-        if (this.mNavBarAvailable && !this.cDq.isNavigationAtBottom()) {
-            layoutParams.rightMargin = this.cDq.getNavigationBarWidth();
+        if (this.mNavBarAvailable && !this.cMo.isNavigationAtBottom()) {
+            layoutParams.rightMargin = this.cMo.getNavigationBarWidth();
         }
         this.mStatusBarTintView.setLayoutParams(layoutParams);
         this.mStatusBarTintView.setBackgroundColor(-1728053248);
@@ -95,11 +95,11 @@ public class d {
     private void setupNavBarView(Context context, ViewGroup viewGroup) {
         FrameLayout.LayoutParams layoutParams;
         this.mNavBarTintView = new View(context);
-        if (this.cDq.isNavigationAtBottom()) {
-            layoutParams = new FrameLayout.LayoutParams(-1, this.cDq.getNavigationBarHeight());
+        if (this.cMo.isNavigationAtBottom()) {
+            layoutParams = new FrameLayout.LayoutParams(-1, this.cMo.getNavigationBarHeight());
             layoutParams.gravity = 80;
         } else {
-            layoutParams = new FrameLayout.LayoutParams(this.cDq.getNavigationBarWidth(), -1);
+            layoutParams = new FrameLayout.LayoutParams(this.cMo.getNavigationBarWidth(), -1);
             layoutParams.gravity = 5;
         }
         this.mNavBarTintView.setLayoutParams(layoutParams);
@@ -108,7 +108,7 @@ public class d {
         viewGroup.addView(this.mNavBarTintView);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         private final int mActionBarHeight;
         private final boolean mHasNavigationBar;

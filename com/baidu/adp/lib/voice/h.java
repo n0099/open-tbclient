@@ -6,23 +6,23 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.util.devices.RomUtils;
 /* loaded from: classes.dex */
 public class h {
-    public static int Ow;
-    public static int Ox = 3;
-    private static final String[] Oy = {RomUtils.MANUFACTURER_MEIZU};
+    public static int Pc;
+    public static int Pd = 3;
+    private static final String[] Pe = {RomUtils.MANUFACTURER_MEIZU};
 
     public static String getString(int i) {
         Application app = BdBaseApplication.getInst().getApp();
         return app == null ? "" : app.getString(i);
     }
 
-    public static boolean mO() {
+    public static boolean oo() {
         String str = Build.BRAND;
         if (str == null) {
             return false;
         }
         String lowerCase = str.toLowerCase();
-        for (int i = 0; i < Oy.length; i++) {
-            if (Oy[i].equals(lowerCase)) {
+        for (int i = 0; i < Pe.length; i++) {
+            if (Pe[i].equals(lowerCase)) {
                 return true;
             }
         }

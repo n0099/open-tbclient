@@ -4,7 +4,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.R;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ public class PostForumData extends com.baidu.tieba.card.data.a implements Serial
     }
 
     public void parserProtobuf(List<RelateForum> list) {
-        if (!x.isEmpty(list)) {
+        if (!y.isEmpty(list)) {
             this.showTopDivider = true;
             this.mGroupTitle = TbadkCoreApplication.getInst().getString(R.string.recommend_relative_forum);
             this.mRelateForumDataList = new ArrayList();
@@ -37,10 +37,10 @@ public class PostForumData extends com.baidu.tieba.card.data.a implements Serial
     }
 
     public int getCount() {
-        return x.getCount(this.mRelateForumDataList);
+        return y.getCount(this.mRelateForumDataList);
     }
 
     public q getForumData(int i) {
-        return (q) x.getItem(this.mRelateForumDataList, i);
+        return (q) y.getItem(this.mRelateForumDataList, i);
     }
 }

@@ -2,7 +2,7 @@ package org.apache.http.auth;
 
 import java.security.Principal;
 @Deprecated
-/* loaded from: classes20.dex */
+/* loaded from: classes9.dex */
 public class NTCredentials implements Credentials {
     public NTCredentials(String str) {
         throw new RuntimeException("Stub!");

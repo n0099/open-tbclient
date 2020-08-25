@@ -1,104 +1,53 @@
 package com.baidu.live.data;
 
-import android.text.TextUtils;
-import com.baidu.android.util.io.BaseJsonData;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.baidu.live.tbadk.log.LogConfig;
-import com.baidu.live.tbadk.ubc.UbcStatConstant;
-import com.baidu.tieba.ala.live.walletconfig.CashierData;
+import com.baidu.live.tbadk.core.util.ListUtils;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ae {
-    public a aCG;
-    public AlaLiveUserInfoData ayC;
-    public String azc;
-    public boolean azg;
-    public AlaLiveInfoData mLiveInfo;
-    public o mLiveSdkInfo;
-    public int mErrorCode = 0;
-    public String mErrorMsg = null;
-    public int aCA = 0;
-    public int aCB = 1;
-    public String aCC = null;
-    public int aCD = 1;
-    public String aCE = null;
-    public int aCF = 0;
-    public long aze = 0;
+    public int aHF;
+    public ArrayList<ad> aHG;
 
-    /* loaded from: classes4.dex */
-    public static class a {
-        public List<String> aCH = new ArrayList();
-        public String notify;
-    }
-
-    public boolean xp() {
-        return this.aCA == 0;
-    }
-
-    public void parseJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.aze = jSONObject.optLong("logid");
-            JSONObject optJSONObject = jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR);
-            if (optJSONObject != null) {
-                this.mErrorCode = optJSONObject.optInt(BaseJsonData.TAG_ERRNO);
-                this.mErrorMsg = optJSONObject.optString("usermsg");
-                if (TextUtils.isEmpty(this.mErrorMsg)) {
-                    this.mErrorMsg = optJSONObject.optString(BaseJsonData.TAG_ERRMSG);
+    public void parserJson(JSONObject jSONObject) {
+        this.aHF = jSONObject.optInt("received");
+        this.aHG = new ArrayList<>();
+        JSONArray optJSONArray = jSONObject.optJSONArray("task_list");
+        if (optJSONArray != null) {
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    ad adVar = new ad();
+                    adVar.parseJson(optJSONObject);
+                    this.aHG.add(adVar);
                 }
-            }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
-            if (optJSONObject2 != null) {
-                this.aCA = optJSONObject2.optInt("user_status");
-                JSONObject optJSONObject3 = optJSONObject2.optJSONObject("user_info");
-                if (optJSONObject3 != null) {
-                    this.ayC = new AlaLiveUserInfoData();
-                    this.ayC.parserJson(optJSONObject3);
-                }
-                JSONObject optJSONObject4 = optJSONObject2.optJSONObject("live_info");
-                if (optJSONObject4 != null) {
-                    this.mLiveInfo = new AlaLiveInfoData();
-                    this.mLiveInfo.parserJson(optJSONObject4);
-                }
-                JSONObject optJSONObject5 = optJSONObject2.optJSONObject(CashierData.SDK);
-                if (optJSONObject5 != null) {
-                    this.mLiveSdkInfo = new o();
-                    this.mLiveSdkInfo.parseJson(optJSONObject5);
-                }
-                if (this.mLiveInfo != null && this.mLiveSdkInfo != null && this.mLiveInfo.room_id == 0 && this.mLiveSdkInfo.mRoomId != 0) {
-                    this.mLiveInfo.room_id = this.mLiveSdkInfo.mRoomId;
-                }
-                this.azc = optJSONObject2.optString("user_watermark");
-                JSONObject optJSONObject6 = optJSONObject2.optJSONObject(UbcStatConstant.ContentType.UBC_TYPE_STRATEGY);
-                if (optJSONObject6 != null) {
-                    JSONObject optJSONObject7 = optJSONObject6.optJSONObject(LogConfig.VALUE_LIVE_HK_RECORD_START);
-                    if (optJSONObject7 != null) {
-                        this.aCC = optJSONObject7.optString("text");
-                        this.aCB = optJSONObject7.optInt("switch");
-                    }
-                    JSONObject optJSONObject8 = optJSONObject6.optJSONObject("user_verify");
-                    if (optJSONObject8 != null) {
-                        this.aCD = optJSONObject8.optInt("switch");
-                        this.aCE = optJSONObject8.optString("text");
-                    }
-                    JSONObject optJSONObject9 = optJSONObject6.optJSONObject("certify");
-                    if (optJSONObject9 != null) {
-                        this.aCF = optJSONObject9.optInt("switch");
-                    }
-                }
-                JSONObject optJSONObject10 = optJSONObject2.optJSONObject("live_authen_info");
-                if (optJSONObject10 != null) {
-                    this.aCG = new a();
-                    this.aCG.notify = optJSONObject10.optString("notify");
-                    JSONArray optJSONArray = optJSONObject10.optJSONArray("questions");
-                    for (int i = 0; optJSONArray != null && i < optJSONArray.length(); i++) {
-                        this.aCG.aCH.add(optJSONArray.optString(i));
-                    }
-                }
-                this.azg = optJSONObject2.optInt("switch_guard_seat") == 1;
             }
         }
+    }
+
+    public boolean CP() {
+        if (!ListUtils.isEmpty(this.aHG)) {
+            Iterator<ad> it = this.aHG.iterator();
+            while (it.hasNext()) {
+                if (it.next().CO()) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public ad CQ() {
+        if (!ListUtils.isEmpty(this.aHG)) {
+            Iterator<ad> it = this.aHG.iterator();
+            while (it.hasNext()) {
+                ad next = it.next();
+                if (next.CM()) {
+                    return next;
+                }
+            }
+        }
+        return null;
     }
 }

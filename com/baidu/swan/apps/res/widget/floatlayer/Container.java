@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 class Container extends FrameLayout {
     public Container(@NonNull Context context) {
         super(context);

@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 @Descriptor(objectTypeIndication = 64, tags = {5})
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public class AudioSpecificConfig extends BaseDescriptor {
     int aacScalefactorDataResilienceFlag;
     int aacSectionDataResilienceFlag;

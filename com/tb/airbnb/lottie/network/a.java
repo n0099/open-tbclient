@@ -11,7 +11,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 class a {
     private final Context appContext;
     private final String url;
@@ -25,21 +25,21 @@ class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     @WorkerThread
     @Nullable
-    public Pair<FileExtension, InputStream> jk() {
+    public Pair<FileExtension, InputStream> kJ() {
         FileExtension fileExtension;
         try {
-            File bi = bi(this.url);
-            if (bi == null) {
+            File bn = bn(this.url);
+            if (bn == null) {
                 return null;
             }
             try {
-                FileInputStream fileInputStream = new FileInputStream(bi);
-                if (bi.getAbsolutePath().endsWith(".zip")) {
+                FileInputStream fileInputStream = new FileInputStream(bn);
+                if (bn.getAbsolutePath().endsWith(".zip")) {
                     fileExtension = FileExtension.Zip;
                 } else {
                     fileExtension = FileExtension.Json;
                 }
-                c.debug("Cache hit for " + this.url + " at " + bi.getAbsolutePath());
+                c.debug("Cache hit for " + this.url + " at " + bn.getAbsolutePath());
                 return new Pair<>(fileExtension, fileInputStream);
             } catch (FileNotFoundException e) {
                 return null;
@@ -82,7 +82,7 @@ class a {
     }
 
     @Nullable
-    private File bi(String str) throws FileNotFoundException {
+    private File bn(String str) throws FileNotFoundException {
         File file = new File(this.appContext.getCacheDir(), a(str, FileExtension.Json, false));
         if (!file.exists()) {
             File file2 = new File(this.appContext.getCacheDir(), a(str, FileExtension.Zip, false));

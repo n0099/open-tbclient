@@ -1,7 +1,7 @@
 package com.baidu.tbadk.clientConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface a {
-    void al(Object obj);
+    void an(Object obj);
 
     void onError(String str);
 }

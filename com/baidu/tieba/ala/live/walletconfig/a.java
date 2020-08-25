@@ -1,34 +1,34 @@
 package com.baidu.tieba.ala.live.walletconfig;
 
 import android.text.TextUtils;
-import com.baidu.live.data.bf;
+import com.baidu.live.data.bh;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a {
-    public static HashMap<String, String> a(bf bfVar) {
+    public static HashMap<String, String> a(bh bhVar) {
         HashMap<String, String> hashMap = new HashMap<>();
-        if (bfVar != null) {
-            hashMap.put(CashierData.CUSTOMER_ID, "" + bfVar.aEN);
-            hashMap.put("service", bfVar.service);
-            hashMap.put(CashierData.ORDERID, bfVar.orderId);
-            hashMap.put(CashierData.ORDER_CREATE_TIME, "" + bfVar.aEO);
-            hashMap.put(CashierData.DEVICE_TYPE, "" + bfVar.aEP);
-            hashMap.put(CashierData.PAY_AMOUNT, "" + bfVar.aEQ);
-            hashMap.put(CashierData.ORIGINALAMOUNT_AMOUNT, "" + bfVar.aER);
-            hashMap.put(CashierData.NOTIFY_URL, bfVar.notifyUrl);
-            hashMap.put(CashierData.PASS_UID, bfVar.passuid);
-            hashMap.put("title", bfVar.title);
-            hashMap.put("mobile", bfVar.mobile);
-            hashMap.put(CashierData.ITEM_INFO, bfVar.itemInfo);
-            hashMap.put(CashierData.SDK, "" + bfVar.aES);
-            hashMap.put(CashierData.SDK_STYLE, "" + bfVar.aET);
-            hashMap.put("sign", bfVar.sign);
-            hashMap.put(CashierData.SIGN_TYPE, "" + bfVar.signType);
-            if (!TextUtils.isEmpty(bfVar.tag)) {
-                hashMap.put("tag", "" + bfVar.tag);
+        if (bhVar != null) {
+            hashMap.put(CashierData.CUSTOMER_ID, "" + bhVar.aJX);
+            hashMap.put("service", bhVar.service);
+            hashMap.put(CashierData.ORDERID, bhVar.orderId);
+            hashMap.put(CashierData.ORDER_CREATE_TIME, "" + bhVar.aJY);
+            hashMap.put(CashierData.DEVICE_TYPE, "" + bhVar.aJZ);
+            hashMap.put(CashierData.PAY_AMOUNT, "" + bhVar.aKa);
+            hashMap.put(CashierData.ORIGINALAMOUNT_AMOUNT, "" + bhVar.aKb);
+            hashMap.put(CashierData.NOTIFY_URL, bhVar.notifyUrl);
+            hashMap.put(CashierData.PASS_UID, bhVar.passuid);
+            hashMap.put("title", bhVar.title);
+            hashMap.put("mobile", bhVar.mobile);
+            hashMap.put(CashierData.ITEM_INFO, bhVar.itemInfo);
+            hashMap.put(CashierData.SDK, "" + bhVar.aKc);
+            hashMap.put(CashierData.SDK_STYLE, "" + bhVar.aKd);
+            hashMap.put("sign", bhVar.sign);
+            hashMap.put(CashierData.SIGN_TYPE, "" + bhVar.signType);
+            if (!TextUtils.isEmpty(bhVar.tag)) {
+                hashMap.put("tag", "" + bhVar.tag);
             }
-            if (!TextUtils.isEmpty(bfVar.aEV)) {
-                hashMap.put("channel", "" + bfVar.aEV);
+            if (!TextUtils.isEmpty(bhVar.aKf)) {
+                hashMap.put("channel", "" + bhVar.aKf);
             }
         }
         return hashMap;

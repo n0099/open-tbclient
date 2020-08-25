@@ -6,13 +6,14 @@ import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.media.duplayer.Keep;
+import com.baidu.platform.comapi.UIMsg;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class DuplayerQualityMonitorManager {
-    private static final int[] b = {480, 540, 720, 1080};
-    private static DuplayerQualityMonitorManager buY;
+    private static final int[] b = {480, UIMsg.MsgDefine.MSG_NETWORK_CHANNEL, 720, 1080};
+    private static DuplayerQualityMonitorManager bAJ;
     private ConcurrentHashMap<String, Integer> c = new ConcurrentHashMap<>();
     private int d = -1;
 
@@ -29,7 +30,7 @@ public class DuplayerQualityMonitorManager {
     private int a(int i, int i2) {
         int min = Math.min(i, i2);
         if (min <= 0) {
-            return 540;
+            return UIMsg.MsgDefine.MSG_NETWORK_CHANNEL;
         }
         for (int length = b.length - 1; length >= 0; length--) {
             if (min >= b[length]) {
@@ -64,10 +65,10 @@ public class DuplayerQualityMonitorManager {
     public static synchronized DuplayerQualityMonitorManager getInstance() {
         DuplayerQualityMonitorManager duplayerQualityMonitorManager;
         synchronized (DuplayerQualityMonitorManager.class) {
-            if (buY == null) {
-                buY = new DuplayerQualityMonitorManager();
+            if (bAJ == null) {
+                bAJ = new DuplayerQualityMonitorManager();
             }
-            duplayerQualityMonitorManager = buY;
+            duplayerQualityMonitorManager = bAJ;
         }
         return duplayerQualityMonitorManager;
     }

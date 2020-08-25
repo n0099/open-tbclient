@@ -9,7 +9,7 @@ import com.baidu.live.tbadk.core.util.ListUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaLiveRoomActivityConfig extends IntentConfig {
     public static final String EXTRA_LIVE_ID = "live_id";
     public static final String EXTRA_ROOM_ID = "room_id";
@@ -73,18 +73,18 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
     public static final String LAST_LIVE_INFO = "last_live_info";
     public static final String LIVE_BROADCAST_GIFT_TOAST_QUEUE = "live_broadcast_gift_toast_queue";
     public static final String LIVE_ENTRY_LIVE_URL = "live_entry_live_url";
-    public static final String LIVE_ENTRY_NAME = "live_entry_name";
-    public static final String LIVE_FORBID_VERTICAL_CHANGE_LIVEROOM = "live_forbid_vertical_change_liveroom";
     public static final String LIVE_FORUM_NAME = "live_forum_name";
-    public static final String LIVE_FROM_FORUM_ID = "live_from_forum_id";
     public static final String LIVE_FROM_TYPE = "live_from_type";
     public static final String LIVE_INFO = "live_info_core";
     public static final String LIVE_IS_HOST = "live_is_host";
     public static final String LIVE_SHOW_GITE_PANEL = "open_giftlist";
+    public static final String SDK_EXTRA_BACK_FLOATING = "back_suspense";
     public static final String SDK_EXTRA_COVER_URL = "cover";
     public static final String SDK_EXTRA_ENTER_FROM_TYPE = "live_enter_type";
     public static final String SDK_EXTRA_EXTRA = "extra";
+    public static final String SDK_EXTRA_FLOATING_ABLE = "suspense_able";
     public static final String SDK_EXTRA_FROM = "from";
+    public static final String SDK_EXTRA_FROM_FLOATING = "from_suspense";
     public static final String SDK_EXTRA_LIVE_ENTER_LIVEID = "enterLiveId";
     public static final String SDK_EXTRA_LIVE_ENTER_ROOMID = "enterRoomId";
     public static final String SDK_EXTRA_LIVE_URL = "live_url";

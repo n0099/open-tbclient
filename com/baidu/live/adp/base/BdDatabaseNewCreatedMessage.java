@@ -3,7 +3,7 @@ package com.baidu.live.adp.base;
 import android.database.sqlite.SQLiteDatabase;
 import com.baidu.live.adp.framework.MessageConfig;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class BdDatabaseNewCreatedMessage extends CustomResponsedMessage<SQLiteDatabase> {
     public BdDatabaseNewCreatedMessage(SQLiteDatabase sQLiteDatabase) {
         super(MessageConfig.DATABASE_CREATED, sQLiteDatabase);

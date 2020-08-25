@@ -7,12 +7,12 @@ import com.baidu.mapapi.search.core.PoiChildrenInfo;
 import com.baidu.mapapi.search.core.SearchResult;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class SuggestionResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<SuggestionResult> CREATOR = new a();
-    private ArrayList<SuggestionInfo> suggestionList;
+    private ArrayList<SuggestionInfo> a;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public static class SuggestionInfo implements Parcelable {
         public static final Parcelable.Creator<SuggestionInfo> CREATOR = new b();
         public String address;
@@ -163,7 +163,7 @@ public class SuggestionResult extends SearchResult implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public SuggestionResult(Parcel parcel) {
-        this.suggestionList = parcel.readArrayList(SuggestionInfo.class.getClassLoader());
+        this.a = parcel.readArrayList(SuggestionInfo.class.getClassLoader());
     }
 
     public SuggestionResult(SearchResult.ERRORNO errorno) {
@@ -176,15 +176,15 @@ public class SuggestionResult extends SearchResult implements Parcelable {
     }
 
     public List<SuggestionInfo> getAllSuggestions() {
-        return this.suggestionList;
+        return this.a;
     }
 
     public void setSuggestionInfo(ArrayList<SuggestionInfo> arrayList) {
-        this.suggestionList = arrayList;
+        this.a = arrayList;
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeList(this.suggestionList);
+        parcel.writeList(this.a);
     }
 }

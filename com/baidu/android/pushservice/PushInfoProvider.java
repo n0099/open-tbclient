@@ -10,7 +10,7 @@ import android.net.Uri;
 import android.util.Log;
 import com.baidu.android.pushservice.h.a.b;
 import com.baidu.android.pushservice.i.m;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class PushInfoProvider extends ContentProvider {
     private Context a;
     private UriMatcher b = new UriMatcher(-1);

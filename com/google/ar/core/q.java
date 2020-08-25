@@ -1,7 +1,7 @@
 package com.google.ar.core;
 
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes11.dex */
 final class q {
     private final Map<Long, AugmentedFace> a;
 

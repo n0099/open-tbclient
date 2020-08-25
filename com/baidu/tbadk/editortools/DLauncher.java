@@ -7,80 +7,86 @@ import android.widget.AbsListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
-public class DLauncher extends RelativeLayout implements g {
-    private l ezK;
-    private TextView ezM;
-    private int ezN;
+/* loaded from: classes2.dex */
+public class DLauncher extends RelativeLayout implements h {
+    private m eKi;
+    private TextView eKk;
+    private int eKl;
     private int mId;
     private int mSkinType;
     private String mText;
     private TextView mTip;
 
-    public DLauncher(Context context, l lVar) {
+    public DLauncher(Context context, m mVar) {
         super(context);
         this.mSkinType = 0;
-        if (lVar != null) {
-            this.ezK = lVar;
+        if (mVar != null) {
+            this.eKi = mVar;
             setLayoutParams(new AbsListView.LayoutParams(-1, getResources().getDimensionPixelSize(R.dimen.ds230)));
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, context.getResources().getDimensionPixelSize(R.dimen.ds144));
-            this.ezM = new TextView(context);
-            setName(lVar.name);
+            this.eKk = new TextView(context);
+            setName(mVar.name);
             setIcon();
-            setToolId(lVar.id);
+            setToolId(mVar.id);
             layoutParams.addRule(13);
-            this.ezM.setGravity(17);
-            this.ezM.setTextSize(0, context.getResources().getDimensionPixelSize(R.dimen.fontsize24));
-            this.ezN = context.getResources().getDimensionPixelSize(R.dimen.ds12);
-            addView(this.ezM, layoutParams);
+            this.eKk.setGravity(17);
+            this.eKk.setTextSize(0, context.getResources().getDimensionPixelSize(R.dimen.fontsize24));
+            this.eKl = context.getResources().getDimensionPixelSize(R.dimen.ds12);
+            addView(this.eKk, layoutParams);
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.g
+    @Override // com.baidu.tbadk.editortools.h
     public void setName(String str) {
-        this.ezM.setText(str);
+        this.eKk.setText(str);
     }
 
     @Override // android.view.View
     public void setEnabled(boolean z) {
         super.setEnabled(z);
-        this.ezM.setEnabled(z);
+        this.eKk.setEnabled(z);
     }
 
     public void setIcon() {
         Drawable drawable;
-        int i = this.ezK.eAO;
+        int i = this.eKi.eLm;
         if (i <= 0) {
-            i = this.ezK.eAM;
+            i = this.eKi.eLk;
         }
-        if (TextUtils.isEmpty(this.ezM.getText())) {
-            if (this.ezK.eAP) {
-                this.ezM.setBackgroundDrawable(SvgManager.baR().x(i, this.ezK.eAN, this.mSkinType));
+        if (TextUtils.isEmpty(this.eKk.getText())) {
+            if (this.eKi.eLn) {
+                this.eKk.setBackgroundDrawable(SvgManager.bjq().x(i, this.eKi.eLl, this.mSkinType));
+                return;
+            } else if (this.eKi.eLo) {
+                this.eKk.setBackgroundDrawable(WebPManager.a(this.eKi.eLk, ap.getColor(this.mSkinType, R.color.cp_cont_b), WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE));
                 return;
             } else {
-                ao.setBackgroundResource(this.ezM, i, this.mSkinType);
+                ap.setBackgroundResource(this.eKk, i, this.mSkinType);
                 return;
             }
         }
-        if (this.ezK.eAP) {
-            drawable = SvgManager.baR().x(i, this.ezK.eAN, this.mSkinType);
+        if (this.eKi.eLn) {
+            drawable = SvgManager.bjq().x(i, this.eKi.eLl, this.mSkinType);
+        } else if (this.eKi.eLo) {
+            drawable = WebPManager.a(this.eKi.eLk, ap.getColor(this.mSkinType, R.color.cp_cont_b), WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
         } else {
-            drawable = ao.getDrawable(this.mSkinType, i);
+            drawable = ap.getDrawable(this.mSkinType, i);
         }
         if (drawable != null) {
             drawable.setBounds(0, 0, getResources().getDimensionPixelSize(R.dimen.ds70), getResources().getDimensionPixelSize(R.dimen.ds72));
-            this.ezM.setCompoundDrawables(null, drawable, null, null);
+            this.eKk.setCompoundDrawables(null, drawable, null, null);
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.g
+    @Override // com.baidu.tbadk.editortools.h
     public void display() {
         setVisibility(0);
     }
 
-    @Override // com.baidu.tbadk.editortools.g
+    @Override // com.baidu.tbadk.editortools.h
     public void hide() {
         setVisibility(8);
     }
@@ -90,8 +96,8 @@ public class DLauncher extends RelativeLayout implements g {
         super.onLayout(z, i, i2, i3, i4);
         if (this.mTip != null) {
             if (getVisibility() == 0) {
-                int right = this.ezM.getRight() - (this.mTip.getMeasuredWidth() / 2);
-                int top = this.ezM.getTop() - (this.mTip.getMeasuredHeight() / 2);
+                int right = this.eKk.getRight() - (this.mTip.getMeasuredWidth() / 2);
+                int top = this.eKk.getTop() - (this.mTip.getMeasuredHeight() / 2);
                 this.mTip.layout(right, top, this.mTip.getMeasuredWidth() + right, this.mTip.getMeasuredHeight() + top);
                 return;
             }
@@ -99,34 +105,34 @@ public class DLauncher extends RelativeLayout implements g {
         }
     }
 
-    public void zv(String str) {
-        zw(str);
+    public void BL(String str) {
+        BM(str);
         this.mTip.setVisibility(0);
     }
 
-    private void zw(String str) {
+    private void BM(String str) {
         if (!TextUtils.isEmpty(str)) {
             this.mText = str;
             if (this.mTip == null) {
                 this.mTip = new TextView(getContext());
                 addView(this.mTip, new RelativeLayout.LayoutParams(-2, -2));
             }
-            ao.setViewTextColor(this.mTip, R.color.common_color_10225, 1, this.mSkinType);
+            ap.setViewTextColor(this.mTip, R.color.common_color_10225, 1, this.mSkinType);
             this.mTip.setGravity(17);
             if (!str.equals(" ")) {
                 this.mTip.setTextSize(1, 10.0f);
                 this.mTip.setText(str);
-                ao.setBackgroundResource(this.mTip, R.drawable.icon_news_head_prompt_one, this.mSkinType);
+                ap.setBackgroundResource(this.mTip, R.drawable.icon_news_head_prompt_one, this.mSkinType);
                 return;
             }
             this.mTip.setWidth(0);
             this.mTip.setHeight(0);
             this.mTip.setText("");
-            ao.setBackgroundResource(this.mTip, R.drawable.icon_news_down_bar_one, this.mSkinType);
+            ap.setBackgroundResource(this.mTip, R.drawable.icon_news_down_bar_one, this.mSkinType);
         }
     }
 
-    public void biH() {
+    public void brt() {
         this.mText = null;
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
@@ -137,9 +143,9 @@ public class DLauncher extends RelativeLayout implements g {
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                biH();
+                brt();
             } else if (aVar.data instanceof String) {
-                zv((String) aVar.data);
+                BL((String) aVar.data);
             }
         }
     }
@@ -148,32 +154,32 @@ public class DLauncher extends RelativeLayout implements g {
         this.mId = i;
     }
 
-    @Override // com.baidu.tbadk.editortools.g
+    @Override // com.baidu.tbadk.editortools.h
     public int getToolId() {
         return this.mId;
     }
 
-    @Override // com.baidu.tbadk.editortools.g
+    @Override // com.baidu.tbadk.editortools.h
     public void onChangeSkinType(int i) {
         this.mSkinType = i;
-        ao.setBackgroundResource(this, R.drawable.btn_editor_selector, i);
-        this.ezM.setTextColor(ao.lO(R.color.cp_cont_f));
-        if (this.ezK != null) {
+        ap.setBackgroundResource(this, R.drawable.btn_editor_selector, i);
+        this.eKk.setTextColor(ap.aP(R.color.cp_cont_f, i));
+        if (this.eKi != null) {
             setIcon();
             if (this.mTip != null) {
-                ao.setViewTextColor(this.mTip, R.color.common_color_10225, 1, i);
+                ap.setViewTextColor(this.mTip, R.color.common_color_10225, 1, i);
                 if (!TextUtils.isEmpty(this.mTip.getText())) {
-                    ao.setBackgroundResource(this.mTip, R.drawable.icon_news_head_prompt_one, i);
+                    ap.setBackgroundResource(this.mTip, R.drawable.icon_news_head_prompt_one, i);
                 } else {
-                    ao.setBackgroundResource(this.mTip, R.drawable.icon_news_down_bar_one, i);
+                    ap.setBackgroundResource(this.mTip, R.drawable.icon_news_down_bar_one, i);
                 }
                 this.mTip.setPadding(0, 0, 0, 0);
             }
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.g
-    public void biI() {
+    @Override // com.baidu.tbadk.editortools.h
+    public void bru() {
     }
 
     public String getText() {

@@ -2,7 +2,7 @@ package com.baidu.fsg.base.utils;
 
 import android.text.TextUtils;
 import java.util.Calendar;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class CalendarUtil {
     public static String getYYYYMMDD(Calendar calendar, String str) {
         if (calendar == null) {

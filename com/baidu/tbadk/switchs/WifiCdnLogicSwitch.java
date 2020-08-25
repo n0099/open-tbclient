@@ -2,7 +2,7 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.featureSwitch.a;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class WifiCdnLogicSwitch extends a {
     public static final int DEFAULT_TYPE_CLOSE = 0;
     public static final String KEY = "wifi_cdn_logic";

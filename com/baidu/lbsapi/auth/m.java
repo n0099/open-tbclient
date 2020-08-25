@@ -3,7 +3,7 @@ package com.baidu.lbsapi.auth;
 import android.os.Handler;
 import android.os.Looper;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class m extends Thread {
     Handler a;
     private Object b;

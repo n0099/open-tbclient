@@ -5,7 +5,7 @@ import android.graphics.Path;
 import android.graphics.PointF;
 import android.os.Build;
 import android.util.Property;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 class ObjectAnimatorUtils {
     private static final ObjectAnimatorUtilsImpl IMPL;
 

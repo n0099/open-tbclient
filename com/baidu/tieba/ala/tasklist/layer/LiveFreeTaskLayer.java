@@ -30,121 +30,121 @@ import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.widget.listview.BdListView;
 import com.baidu.live.core.layer.LayerChildView;
 import com.baidu.live.data.AlaLiveUserInfoData;
-import com.baidu.live.data.ab;
-import com.baidu.live.data.ac;
-import com.baidu.live.data.bc;
-import com.baidu.live.data.bo;
-import com.baidu.live.data.w;
+import com.baidu.live.data.ad;
+import com.baidu.live.data.ae;
+import com.baidu.live.data.be;
+import com.baidu.live.data.bq;
+import com.baidu.live.data.y;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.widget.CommonEmptyView;
 import com.baidu.tieba.ala.tasklist.a.b;
 import com.baidu.tieba.ala.tasklist.model.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class LiveFreeTaskLayer extends LayerChildView {
-    private CommonEmptyView baQ;
-    private View.OnClickListener eve;
-    private View fbk;
-    private a gMa;
-    private b gMb;
-    private TextView gMc;
-    private ImageView gMd;
-    private TextView gMe;
-    private TextView gMf;
-    private LinearLayout gMg;
-    private boolean gMh;
-    private boolean gMi;
-    private int gMj;
-    private boolean gMk;
-    private AlertDialog gMl;
-    private Dialog gMm;
-    private a.InterfaceC0610a gMn;
-    private CustomMessageListener gMo;
-    private View.OnTouchListener gMp;
+    private CommonEmptyView bgl;
+    private View.OnClickListener eFC;
+    private View fmE;
+    private a gYR;
+    private b gYS;
+    private TextView gYT;
+    private ImageView gYU;
+    private TextView gYV;
+    private TextView gYW;
+    private LinearLayout gYX;
+    private boolean gYY;
+    private boolean gYZ;
+    private int gZa;
+    private boolean gZb;
+    private AlertDialog gZc;
+    private Dialog gZd;
+    private a.InterfaceC0660a gZe;
+    private CustomMessageListener gZf;
+    private View.OnTouchListener gZg;
     private Context mContext;
     private BdListView mListView;
     private View mRootView;
 
     public LiveFreeTaskLayer(@NonNull Context context) {
         super(context);
-        this.gMh = false;
-        this.gMn = new a.InterfaceC0610a() { // from class: com.baidu.tieba.ala.tasklist.layer.LiveFreeTaskLayer.5
-            @Override // com.baidu.tieba.ala.tasklist.model.a.InterfaceC0610a
-            public void a(AlaLiveUserInfoData alaLiveUserInfoData, ac acVar) {
+        this.gYY = false;
+        this.gZe = new a.InterfaceC0660a() { // from class: com.baidu.tieba.ala.tasklist.layer.LiveFreeTaskLayer.5
+            @Override // com.baidu.tieba.ala.tasklist.model.a.InterfaceC0660a
+            public void a(AlaLiveUserInfoData alaLiveUserInfoData, ae aeVar) {
                 if (alaLiveUserInfoData != null) {
-                    LiveFreeTaskLayer.this.aw(String.valueOf(alaLiveUserInfoData.petalNum), true);
+                    LiveFreeTaskLayer.this.aA(String.valueOf(alaLiveUserInfoData.petalNum), true);
                     TbadkCoreApplication.getInst().currentAccountFlowerNum = alaLiveUserInfoData.petalNum;
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(AlaCmdConfigCustom.CMD_ALA_UPDATE_GIFT_PANEL_SCORE_DATA));
                 } else {
-                    LiveFreeTaskLayer.this.aw("", false);
+                    LiveFreeTaskLayer.this.aA("", false);
                 }
-                if (acVar != null) {
-                    LiveFreeTaskLayer.this.gMb.setData(acVar.aCw);
+                if (aeVar != null) {
+                    LiveFreeTaskLayer.this.gYS.setData(aeVar.aHG);
                 }
-                LiveFreeTaskLayer.this.bPK();
+                LiveFreeTaskLayer.this.bZV();
             }
 
-            @Override // com.baidu.tieba.ala.tasklist.model.a.InterfaceC0610a
-            public void ao(int i, String str) {
-                LiveFreeTaskLayer.this.baQ.reset();
-                LiveFreeTaskLayer.this.baQ.setTitle(a.i.ala_task_empty_msg);
+            @Override // com.baidu.tieba.ala.tasklist.model.a.InterfaceC0660a
+            public void am(int i, String str) {
+                LiveFreeTaskLayer.this.bgl.reset();
+                LiveFreeTaskLayer.this.bgl.setTitle(a.i.ala_task_empty_msg);
                 if (BdNetTypeUtil.isNetWorkAvailable()) {
-                    LiveFreeTaskLayer.this.baQ.setup(CommonEmptyView.ImgType.SERVER_ERROR, CommonEmptyView.StyleType.LIGHT);
+                    LiveFreeTaskLayer.this.bgl.setup(CommonEmptyView.ImgType.SERVER_ERROR, CommonEmptyView.StyleType.LIGHT);
                 } else {
-                    LiveFreeTaskLayer.this.baQ.setRefreshButton(a.i.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.tasklist.layer.LiveFreeTaskLayer.5.1
+                    LiveFreeTaskLayer.this.bgl.setRefreshButton(a.i.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.tasklist.layer.LiveFreeTaskLayer.5.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
-                            LiveFreeTaskLayer.this.bmd();
+                            LiveFreeTaskLayer.this.buQ();
                         }
                     });
-                    LiveFreeTaskLayer.this.baQ.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.LIGHT);
+                    LiveFreeTaskLayer.this.bgl.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.LIGHT);
                 }
-                LiveFreeTaskLayer.this.baQ.setVisibility(0);
+                LiveFreeTaskLayer.this.bgl.setVisibility(0);
                 if (i != 146021) {
-                    if (LiveFreeTaskLayer.this.gMa.bPO() != null && ListUtils.getCount(LiveFreeTaskLayer.this.gMa.bPO().aCw) > 0) {
+                    if (LiveFreeTaskLayer.this.gYR.bZZ() != null && ListUtils.getCount(LiveFreeTaskLayer.this.gYR.bZZ().aHG) > 0) {
                         BdUtilHelper.showToast(LiveFreeTaskLayer.this.getContext(), str);
                         return;
                     }
                     return;
                 }
-                LiveFreeTaskLayer.this.bPL();
+                LiveFreeTaskLayer.this.bZW();
             }
         };
-        this.gMo = new CustomMessageListener(2913035) { // from class: com.baidu.tieba.ala.tasklist.layer.LiveFreeTaskLayer.9
+        this.gZf = new CustomMessageListener(2913035) { // from class: com.baidu.tieba.ala.tasklist.layer.LiveFreeTaskLayer.9
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
-                    LiveFreeTaskLayer.this.gMb.j((Integer) customResponsedMessage.getData());
+                    LiveFreeTaskLayer.this.gYS.k((Integer) customResponsedMessage.getData());
                 }
             }
         };
-        this.gMp = new View.OnTouchListener() { // from class: com.baidu.tieba.ala.tasklist.layer.LiveFreeTaskLayer.10
+        this.gZg = new View.OnTouchListener() { // from class: com.baidu.tieba.ala.tasklist.layer.LiveFreeTaskLayer.10
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 0) {
-                    if (view == LiveFreeTaskLayer.this.gMg) {
-                        if (LiveFreeTaskLayer.this.gMh) {
+                    if (view == LiveFreeTaskLayer.this.gYX) {
+                        if (LiveFreeTaskLayer.this.gYY) {
                             LiveFreeTaskLayer.this.hideTip();
                             return true;
                         }
                         return true;
                     }
-                    LiveFreeTaskLayer.this.bPM();
+                    LiveFreeTaskLayer.this.bZX();
                     return true;
                 }
                 return true;
             }
         };
-        this.eve = new View.OnClickListener() { // from class: com.baidu.tieba.ala.tasklist.layer.LiveFreeTaskLayer.2
+        this.eFC = new View.OnClickListener() { // from class: com.baidu.tieba.ala.tasklist.layer.LiveFreeTaskLayer.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == LiveFreeTaskLayer.this.gMd) {
-                    if (LiveFreeTaskLayer.this.gMh) {
+                if (view == LiveFreeTaskLayer.this.gYU) {
+                    if (LiveFreeTaskLayer.this.gYY) {
                         LiveFreeTaskLayer.this.hideTip();
                     } else {
-                        LiveFreeTaskLayer.this.bPN();
+                        LiveFreeTaskLayer.this.bZY();
                     }
                 }
             }
@@ -154,83 +154,83 @@ public class LiveFreeTaskLayer extends LayerChildView {
 
     public LiveFreeTaskLayer(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gMh = false;
-        this.gMn = new a.InterfaceC0610a() { // from class: com.baidu.tieba.ala.tasklist.layer.LiveFreeTaskLayer.5
-            @Override // com.baidu.tieba.ala.tasklist.model.a.InterfaceC0610a
-            public void a(AlaLiveUserInfoData alaLiveUserInfoData, ac acVar) {
+        this.gYY = false;
+        this.gZe = new a.InterfaceC0660a() { // from class: com.baidu.tieba.ala.tasklist.layer.LiveFreeTaskLayer.5
+            @Override // com.baidu.tieba.ala.tasklist.model.a.InterfaceC0660a
+            public void a(AlaLiveUserInfoData alaLiveUserInfoData, ae aeVar) {
                 if (alaLiveUserInfoData != null) {
-                    LiveFreeTaskLayer.this.aw(String.valueOf(alaLiveUserInfoData.petalNum), true);
+                    LiveFreeTaskLayer.this.aA(String.valueOf(alaLiveUserInfoData.petalNum), true);
                     TbadkCoreApplication.getInst().currentAccountFlowerNum = alaLiveUserInfoData.petalNum;
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(AlaCmdConfigCustom.CMD_ALA_UPDATE_GIFT_PANEL_SCORE_DATA));
                 } else {
-                    LiveFreeTaskLayer.this.aw("", false);
+                    LiveFreeTaskLayer.this.aA("", false);
                 }
-                if (acVar != null) {
-                    LiveFreeTaskLayer.this.gMb.setData(acVar.aCw);
+                if (aeVar != null) {
+                    LiveFreeTaskLayer.this.gYS.setData(aeVar.aHG);
                 }
-                LiveFreeTaskLayer.this.bPK();
+                LiveFreeTaskLayer.this.bZV();
             }
 
-            @Override // com.baidu.tieba.ala.tasklist.model.a.InterfaceC0610a
-            public void ao(int i, String str) {
-                LiveFreeTaskLayer.this.baQ.reset();
-                LiveFreeTaskLayer.this.baQ.setTitle(a.i.ala_task_empty_msg);
+            @Override // com.baidu.tieba.ala.tasklist.model.a.InterfaceC0660a
+            public void am(int i, String str) {
+                LiveFreeTaskLayer.this.bgl.reset();
+                LiveFreeTaskLayer.this.bgl.setTitle(a.i.ala_task_empty_msg);
                 if (BdNetTypeUtil.isNetWorkAvailable()) {
-                    LiveFreeTaskLayer.this.baQ.setup(CommonEmptyView.ImgType.SERVER_ERROR, CommonEmptyView.StyleType.LIGHT);
+                    LiveFreeTaskLayer.this.bgl.setup(CommonEmptyView.ImgType.SERVER_ERROR, CommonEmptyView.StyleType.LIGHT);
                 } else {
-                    LiveFreeTaskLayer.this.baQ.setRefreshButton(a.i.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.tasklist.layer.LiveFreeTaskLayer.5.1
+                    LiveFreeTaskLayer.this.bgl.setRefreshButton(a.i.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.tasklist.layer.LiveFreeTaskLayer.5.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
-                            LiveFreeTaskLayer.this.bmd();
+                            LiveFreeTaskLayer.this.buQ();
                         }
                     });
-                    LiveFreeTaskLayer.this.baQ.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.LIGHT);
+                    LiveFreeTaskLayer.this.bgl.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.LIGHT);
                 }
-                LiveFreeTaskLayer.this.baQ.setVisibility(0);
+                LiveFreeTaskLayer.this.bgl.setVisibility(0);
                 if (i != 146021) {
-                    if (LiveFreeTaskLayer.this.gMa.bPO() != null && ListUtils.getCount(LiveFreeTaskLayer.this.gMa.bPO().aCw) > 0) {
+                    if (LiveFreeTaskLayer.this.gYR.bZZ() != null && ListUtils.getCount(LiveFreeTaskLayer.this.gYR.bZZ().aHG) > 0) {
                         BdUtilHelper.showToast(LiveFreeTaskLayer.this.getContext(), str);
                         return;
                     }
                     return;
                 }
-                LiveFreeTaskLayer.this.bPL();
+                LiveFreeTaskLayer.this.bZW();
             }
         };
-        this.gMo = new CustomMessageListener(2913035) { // from class: com.baidu.tieba.ala.tasklist.layer.LiveFreeTaskLayer.9
+        this.gZf = new CustomMessageListener(2913035) { // from class: com.baidu.tieba.ala.tasklist.layer.LiveFreeTaskLayer.9
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
-                    LiveFreeTaskLayer.this.gMb.j((Integer) customResponsedMessage.getData());
+                    LiveFreeTaskLayer.this.gYS.k((Integer) customResponsedMessage.getData());
                 }
             }
         };
-        this.gMp = new View.OnTouchListener() { // from class: com.baidu.tieba.ala.tasklist.layer.LiveFreeTaskLayer.10
+        this.gZg = new View.OnTouchListener() { // from class: com.baidu.tieba.ala.tasklist.layer.LiveFreeTaskLayer.10
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 0) {
-                    if (view == LiveFreeTaskLayer.this.gMg) {
-                        if (LiveFreeTaskLayer.this.gMh) {
+                    if (view == LiveFreeTaskLayer.this.gYX) {
+                        if (LiveFreeTaskLayer.this.gYY) {
                             LiveFreeTaskLayer.this.hideTip();
                             return true;
                         }
                         return true;
                     }
-                    LiveFreeTaskLayer.this.bPM();
+                    LiveFreeTaskLayer.this.bZX();
                     return true;
                 }
                 return true;
             }
         };
-        this.eve = new View.OnClickListener() { // from class: com.baidu.tieba.ala.tasklist.layer.LiveFreeTaskLayer.2
+        this.eFC = new View.OnClickListener() { // from class: com.baidu.tieba.ala.tasklist.layer.LiveFreeTaskLayer.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == LiveFreeTaskLayer.this.gMd) {
-                    if (LiveFreeTaskLayer.this.gMh) {
+                if (view == LiveFreeTaskLayer.this.gYU) {
+                    if (LiveFreeTaskLayer.this.gYY) {
                         LiveFreeTaskLayer.this.hideTip();
                     } else {
-                        LiveFreeTaskLayer.this.bPN();
+                        LiveFreeTaskLayer.this.bZY();
                     }
                 }
             }
@@ -240,83 +240,83 @@ public class LiveFreeTaskLayer extends LayerChildView {
 
     public LiveFreeTaskLayer(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.gMh = false;
-        this.gMn = new a.InterfaceC0610a() { // from class: com.baidu.tieba.ala.tasklist.layer.LiveFreeTaskLayer.5
-            @Override // com.baidu.tieba.ala.tasklist.model.a.InterfaceC0610a
-            public void a(AlaLiveUserInfoData alaLiveUserInfoData, ac acVar) {
+        this.gYY = false;
+        this.gZe = new a.InterfaceC0660a() { // from class: com.baidu.tieba.ala.tasklist.layer.LiveFreeTaskLayer.5
+            @Override // com.baidu.tieba.ala.tasklist.model.a.InterfaceC0660a
+            public void a(AlaLiveUserInfoData alaLiveUserInfoData, ae aeVar) {
                 if (alaLiveUserInfoData != null) {
-                    LiveFreeTaskLayer.this.aw(String.valueOf(alaLiveUserInfoData.petalNum), true);
+                    LiveFreeTaskLayer.this.aA(String.valueOf(alaLiveUserInfoData.petalNum), true);
                     TbadkCoreApplication.getInst().currentAccountFlowerNum = alaLiveUserInfoData.petalNum;
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(AlaCmdConfigCustom.CMD_ALA_UPDATE_GIFT_PANEL_SCORE_DATA));
                 } else {
-                    LiveFreeTaskLayer.this.aw("", false);
+                    LiveFreeTaskLayer.this.aA("", false);
                 }
-                if (acVar != null) {
-                    LiveFreeTaskLayer.this.gMb.setData(acVar.aCw);
+                if (aeVar != null) {
+                    LiveFreeTaskLayer.this.gYS.setData(aeVar.aHG);
                 }
-                LiveFreeTaskLayer.this.bPK();
+                LiveFreeTaskLayer.this.bZV();
             }
 
-            @Override // com.baidu.tieba.ala.tasklist.model.a.InterfaceC0610a
-            public void ao(int i2, String str) {
-                LiveFreeTaskLayer.this.baQ.reset();
-                LiveFreeTaskLayer.this.baQ.setTitle(a.i.ala_task_empty_msg);
+            @Override // com.baidu.tieba.ala.tasklist.model.a.InterfaceC0660a
+            public void am(int i2, String str) {
+                LiveFreeTaskLayer.this.bgl.reset();
+                LiveFreeTaskLayer.this.bgl.setTitle(a.i.ala_task_empty_msg);
                 if (BdNetTypeUtil.isNetWorkAvailable()) {
-                    LiveFreeTaskLayer.this.baQ.setup(CommonEmptyView.ImgType.SERVER_ERROR, CommonEmptyView.StyleType.LIGHT);
+                    LiveFreeTaskLayer.this.bgl.setup(CommonEmptyView.ImgType.SERVER_ERROR, CommonEmptyView.StyleType.LIGHT);
                 } else {
-                    LiveFreeTaskLayer.this.baQ.setRefreshButton(a.i.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.tasklist.layer.LiveFreeTaskLayer.5.1
+                    LiveFreeTaskLayer.this.bgl.setRefreshButton(a.i.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.tasklist.layer.LiveFreeTaskLayer.5.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
-                            LiveFreeTaskLayer.this.bmd();
+                            LiveFreeTaskLayer.this.buQ();
                         }
                     });
-                    LiveFreeTaskLayer.this.baQ.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.LIGHT);
+                    LiveFreeTaskLayer.this.bgl.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.LIGHT);
                 }
-                LiveFreeTaskLayer.this.baQ.setVisibility(0);
+                LiveFreeTaskLayer.this.bgl.setVisibility(0);
                 if (i2 != 146021) {
-                    if (LiveFreeTaskLayer.this.gMa.bPO() != null && ListUtils.getCount(LiveFreeTaskLayer.this.gMa.bPO().aCw) > 0) {
+                    if (LiveFreeTaskLayer.this.gYR.bZZ() != null && ListUtils.getCount(LiveFreeTaskLayer.this.gYR.bZZ().aHG) > 0) {
                         BdUtilHelper.showToast(LiveFreeTaskLayer.this.getContext(), str);
                         return;
                     }
                     return;
                 }
-                LiveFreeTaskLayer.this.bPL();
+                LiveFreeTaskLayer.this.bZW();
             }
         };
-        this.gMo = new CustomMessageListener(2913035) { // from class: com.baidu.tieba.ala.tasklist.layer.LiveFreeTaskLayer.9
+        this.gZf = new CustomMessageListener(2913035) { // from class: com.baidu.tieba.ala.tasklist.layer.LiveFreeTaskLayer.9
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
-                    LiveFreeTaskLayer.this.gMb.j((Integer) customResponsedMessage.getData());
+                    LiveFreeTaskLayer.this.gYS.k((Integer) customResponsedMessage.getData());
                 }
             }
         };
-        this.gMp = new View.OnTouchListener() { // from class: com.baidu.tieba.ala.tasklist.layer.LiveFreeTaskLayer.10
+        this.gZg = new View.OnTouchListener() { // from class: com.baidu.tieba.ala.tasklist.layer.LiveFreeTaskLayer.10
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 0) {
-                    if (view == LiveFreeTaskLayer.this.gMg) {
-                        if (LiveFreeTaskLayer.this.gMh) {
+                    if (view == LiveFreeTaskLayer.this.gYX) {
+                        if (LiveFreeTaskLayer.this.gYY) {
                             LiveFreeTaskLayer.this.hideTip();
                             return true;
                         }
                         return true;
                     }
-                    LiveFreeTaskLayer.this.bPM();
+                    LiveFreeTaskLayer.this.bZX();
                     return true;
                 }
                 return true;
             }
         };
-        this.eve = new View.OnClickListener() { // from class: com.baidu.tieba.ala.tasklist.layer.LiveFreeTaskLayer.2
+        this.eFC = new View.OnClickListener() { // from class: com.baidu.tieba.ala.tasklist.layer.LiveFreeTaskLayer.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == LiveFreeTaskLayer.this.gMd) {
-                    if (LiveFreeTaskLayer.this.gMh) {
+                if (view == LiveFreeTaskLayer.this.gYU) {
+                    if (LiveFreeTaskLayer.this.gYY) {
                         LiveFreeTaskLayer.this.hideTip();
                     } else {
-                        LiveFreeTaskLayer.this.bPN();
+                        LiveFreeTaskLayer.this.bZY();
                     }
                 }
             }
@@ -327,143 +327,143 @@ public class LiveFreeTaskLayer extends LayerChildView {
     private void init(Context context) {
         this.mContext = context;
         this.mRootView = View.inflate(getContext(), a.h.ala_task_list_layout, this);
-        this.gMg = (LinearLayout) this.mRootView.findViewById(a.g.layout_content);
-        this.gMc = (TextView) this.mRootView.findViewById(a.g.tv_flower_task_title);
-        this.gMd = (ImageView) this.mRootView.findViewById(a.g.img_flower_help);
-        this.fbk = this.mRootView.findViewById(a.g.divider);
-        this.gMe = (TextView) this.mRootView.findViewById(a.g.tv_flower_count);
-        this.gMf = (TextView) this.mRootView.findViewById(a.g.tv_task_help_tips);
+        this.gYX = (LinearLayout) this.mRootView.findViewById(a.g.layout_content);
+        this.gYT = (TextView) this.mRootView.findViewById(a.g.tv_flower_task_title);
+        this.gYU = (ImageView) this.mRootView.findViewById(a.g.img_flower_help);
+        this.fmE = this.mRootView.findViewById(a.g.divider);
+        this.gYV = (TextView) this.mRootView.findViewById(a.g.tv_flower_count);
+        this.gYW = (TextView) this.mRootView.findViewById(a.g.tv_task_help_tips);
         this.mListView = (BdListView) this.mRootView.findViewById(a.g.detail_list);
-        this.baQ = (CommonEmptyView) this.mRootView.findViewById(a.g.emptyView);
-        this.gMb = new b(getContext(), new com.baidu.tieba.ala.tasklist.a.a() { // from class: com.baidu.tieba.ala.tasklist.layer.LiveFreeTaskLayer.1
+        this.bgl = (CommonEmptyView) this.mRootView.findViewById(a.g.emptyView);
+        this.gYS = new b(getContext(), new com.baidu.tieba.ala.tasklist.a.a() { // from class: com.baidu.tieba.ala.tasklist.layer.LiveFreeTaskLayer.1
             @Override // com.baidu.tieba.ala.tasklist.a.a
-            public void sK(int i) {
-                if (LiveFreeTaskLayer.this.gMa != null) {
-                    LiveFreeTaskLayer.this.gMa.sK(i);
+            public void uY(int i) {
+                if (LiveFreeTaskLayer.this.gYR != null) {
+                    LiveFreeTaskLayer.this.gYR.uY(i);
                 }
             }
         });
-        this.mListView.setAdapter((ListAdapter) this.gMb);
-        this.mListView.setEmptyView(this.baQ);
-        this.mRootView.setOnTouchListener(this.gMp);
-        this.gMg.setOnTouchListener(this.gMp);
-        this.gMd.setOnClickListener(this.eve);
+        this.mListView.setAdapter((ListAdapter) this.gYS);
+        this.mListView.setEmptyView(this.bgl);
+        this.mRootView.setOnTouchListener(this.gZg);
+        this.gYX.setOnTouchListener(this.gZg);
+        this.gYU.setOnClickListener(this.eFC);
         int[] screenDimensions = BdUtilHelper.getScreenDimensions(getContext());
         if (screenDimensions[1] > screenDimensions[0]) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gMg.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gYX.getLayoutParams();
             layoutParams.height = (int) (screenDimensions[1] * 0.618d);
-            this.gMg.setLayoutParams(layoutParams);
+            this.gYX.setLayoutParams(layoutParams);
         }
     }
 
     @Override // com.baidu.live.core.layer.LayerChildView
-    public void wH() {
-        this.gMa = new com.baidu.tieba.ala.tasklist.model.a();
-        this.gMa.a(this.gMn);
-        MessageManager.getInstance().registerListener(this.gMo);
-        bmd();
+    public void Cf() {
+        this.gYR = new com.baidu.tieba.ala.tasklist.model.a();
+        this.gYR.a(this.gZe);
+        MessageManager.getInstance().registerListener(this.gZf);
+        buQ();
     }
 
     @Override // com.baidu.live.core.layer.LayerChildView
-    public void wI() {
-        if (this.gMa != null) {
-            this.gMa.onDestroy();
-            this.gMa = null;
+    public void Cg() {
+        if (this.gYR != null) {
+            this.gYR.onDestroy();
+            this.gYR = null;
         }
-        MessageManager.getInstance().unRegisterListener(this.gMo);
+        MessageManager.getInstance().unRegisterListener(this.gZf);
     }
 
     @Override // com.baidu.live.core.layer.LayerChildView
-    public void wJ() {
+    public void Ch() {
     }
 
     @Override // com.baidu.live.core.layer.LayerChildView
-    public void wK() {
+    public void Ci() {
     }
 
     @Override // com.baidu.live.core.layer.LayerChildView
     public void release() {
         super.release();
-        if (this.gMa != null) {
-            this.gMa.onDestroy();
-            this.gMa = null;
+        if (this.gYR != null) {
+            this.gYR.onDestroy();
+            this.gYR = null;
         }
-        if (this.gMm != null && this.gMm.isShowing()) {
-            this.gMm.dismiss();
-            this.gMm = null;
+        if (this.gZd != null && this.gZd.isShowing()) {
+            this.gZd.dismiss();
+            this.gZd = null;
         }
-        if (this.gMl != null && this.gMl.isShowing()) {
-            this.gMl.dismiss();
-            this.gMl = null;
+        if (this.gZc != null && this.gZc.isShowing()) {
+            this.gZc.dismiss();
+            this.gZc = null;
         }
-        MessageManager.getInstance().unRegisterListener(this.gMo);
+        MessageManager.getInstance().unRegisterListener(this.gZf);
     }
 
     @Override // android.view.View
     protected void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
         if (configuration.orientation == 2) {
-            if (this.gMm != null && this.gMm.isShowing()) {
-                this.gMm.dismiss();
-                this.gMm = null;
+            if (this.gZd != null && this.gZd.isShowing()) {
+                this.gZd.dismiss();
+                this.gZd = null;
             }
-            if (this.gMl != null && this.gMl.isShowing()) {
-                this.gMl.dismiss();
-                this.gMl = null;
+            if (this.gZc != null && this.gZc.isShowing()) {
+                this.gZc.dismiss();
+                this.gZc = null;
             }
-            com.baidu.live.core.layer.b.wN().e(this);
+            com.baidu.live.core.layer.b.Cl().e(this);
         }
     }
 
     public void setIsFromFlowerGuide(boolean z) {
-        this.gMi = z;
+        this.gYZ = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bmd() {
-        this.baQ.setVisibility(8);
-        this.gMa.bPR();
+    public void buQ() {
+        this.bgl.setVisibility(8);
+        this.gYR.cac();
     }
 
-    private void sK(int i) {
-        this.gMa.sK(i);
+    private void uY(int i) {
+        this.gYR.uY(i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bPK() {
-        ab xn;
-        if (this.gMi && this.gMj < 3 && (xn = this.gMb.xn()) != null) {
-            if (xn.status == 2) {
-                sK(xn.aCo);
-                this.gMj++;
-                this.gMk = true;
+    public void bZV() {
+        ad CQ;
+        if (this.gYZ && this.gZa < 3 && (CQ = this.gYS.CQ()) != null) {
+            if (CQ.status == 2) {
+                uY(CQ.aHy);
+                this.gZa++;
+                this.gZb = true;
                 return;
             }
-            this.gMi = false;
-            if (this.gMk) {
-                this.gMk = false;
-                sL(xn.aCt);
+            this.gYZ = false;
+            if (this.gZb) {
+                this.gZb = false;
+                uZ(CQ.aHD);
             }
         }
     }
 
-    private void sL(int i) {
-        if (this.gMm != null && this.gMm.isShowing()) {
-            this.gMm.dismiss();
+    private void uZ(int i) {
+        if (this.gZd != null && this.gZd.isShowing()) {
+            this.gZd.dismiss();
         }
-        this.gMm = null;
+        this.gZd = null;
         View inflate = LayoutInflater.from(this.mContext).inflate(a.h.dialog_flower_guide_result, (ViewGroup) null);
-        this.gMm = new Dialog(this.mContext, a.j.FlowerGuideResultDialogStyle);
-        this.gMm.requestWindowFeature(1);
-        this.gMm.setCancelable(false);
-        this.gMm.setContentView(inflate);
-        this.gMm.setCanceledOnTouchOutside(false);
+        this.gZd = new Dialog(this.mContext, a.j.FlowerGuideResultDialogStyle);
+        this.gZd.requestWindowFeature(1);
+        this.gZd.setCancelable(false);
+        this.gZd.setContentView(inflate);
+        this.gZd.setCanceledOnTouchOutside(false);
         ((TextView) inflate.findViewById(a.g.flowerNum_textView)).setText(String.format("恭喜获得%s鲜花", Integer.valueOf(i)));
         ((ImageView) inflate.findViewById(a.g.close_imageView)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.tasklist.layer.LiveFreeTaskLayer.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 try {
-                    LiveFreeTaskLayer.this.gMm.dismiss();
+                    LiveFreeTaskLayer.this.gZd.dismiss();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -473,36 +473,36 @@ public class LiveFreeTaskLayer extends LayerChildView {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 try {
-                    LiveFreeTaskLayer.this.gMm.dismiss();
-                    LiveFreeTaskLayer.this.bzd();
+                    LiveFreeTaskLayer.this.gZd.dismiss();
+                    LiveFreeTaskLayer.this.bIg();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         });
-        this.gMm.show();
+        this.gZd.show();
     }
 
-    public void bPL() {
+    public void bZW() {
         ColorStateList colorStateList;
-        if (this.gMl != null && this.gMl.isShowing()) {
-            this.gMl.dismiss();
+        if (this.gZc != null && this.gZc.isShowing()) {
+            this.gZc.dismiss();
         }
-        this.gMl = null;
-        this.gMl = new AlertDialog.Builder(this.mContext, a.j.sdk_dialog_window).create();
-        this.gMl.show();
+        this.gZc = null;
+        this.gZc = new AlertDialog.Builder(this.mContext, a.j.sdk_dialog_window).create();
+        this.gZc.show();
         View inflate = LayoutInflater.from(this.mContext).inflate(a.h.ala_flower_over_limit_dialog, (ViewGroup) null);
         ((TextView) inflate.findViewById(a.g.tv_task_failed_content)).setText(getFlowerOverLimitContent());
         inflate.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.tasklist.layer.LiveFreeTaskLayer.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                LiveFreeTaskLayer.this.gMl.dismiss();
+                LiveFreeTaskLayer.this.gZc.dismiss();
             }
         });
         inflate.findViewById(a.g.close_img).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.tasklist.layer.LiveFreeTaskLayer.7
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                LiveFreeTaskLayer.this.gMl.dismiss();
+                LiveFreeTaskLayer.this.gZc.dismiss();
             }
         });
         TextView textView = (TextView) inflate.findViewById(a.g.btn_to_send_gift);
@@ -515,11 +515,11 @@ public class LiveFreeTaskLayer extends LayerChildView {
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.tasklist.layer.LiveFreeTaskLayer.8
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                LiveFreeTaskLayer.this.gMl.dismiss();
-                LiveFreeTaskLayer.this.bzd();
+                LiveFreeTaskLayer.this.gZc.dismiss();
+                LiveFreeTaskLayer.this.bIg();
             }
         });
-        Window window = this.gMl.getWindow();
+        Window window = this.gZc.getWindow();
         window.setGravity(17);
         window.setBackgroundDrawableResource(17170445);
         window.setContentView(inflate);
@@ -536,41 +536,41 @@ public class LiveFreeTaskLayer extends LayerChildView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bzd() {
-        bo boVar;
-        com.baidu.live.core.layer.b.wN().e(this);
+    public void bIg() {
+        bq bqVar;
+        com.baidu.live.core.layer.b.Cl().e(this);
         int i = -1;
-        bc bcVar = com.baidu.live.v.a.Hs().beo;
-        if (bcVar != null && bcVar.aEo != null && (boVar = bcVar.aEo.aFj) != null) {
-            i = boVar.aFu;
+        be beVar = com.baidu.live.w.a.Nk().bka;
+        if (beVar != null && beVar.aJy != null && (bqVar = beVar.aJy.aKt) != null) {
+            i = bqVar.aKE;
         }
-        w wVar = new w();
-        wVar.azo = i;
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913055, wVar));
+        y yVar = new y();
+        yVar.aEz = i;
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913055, yVar));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bPM() {
-        com.baidu.live.core.layer.b.wN().e(this);
+    public void bZX() {
+        com.baidu.live.core.layer.b.Cl().e(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aw(String str, boolean z) {
-        this.gMe.setVisibility(z ? 0 : 8);
-        this.gMe.setText(str);
+    public void aA(String str, boolean z) {
+        this.gYV.setVisibility(z ? 0 : 8);
+        this.gYV.setText(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bPN() {
-        this.gMh = true;
-        this.fbk.setVisibility(8);
-        this.gMf.setVisibility(0);
+    public void bZY() {
+        this.gYY = true;
+        this.fmE.setVisibility(8);
+        this.gYW.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hideTip() {
-        this.gMh = false;
-        this.fbk.setVisibility(0);
-        this.gMf.setVisibility(8);
+        this.gYY = false;
+        this.fmE.setVisibility(0);
+        this.gYW.setVisibility(8);
     }
 }

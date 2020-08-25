@@ -1,10 +1,22 @@
 package com.baidu.swan.apps.adaptation.a;
 
 import android.content.Context;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
+import android.graphics.Bitmap;
+import java.io.File;
+import java.util.HashMap;
+/* loaded from: classes8.dex */
 public interface w {
-    void a(Context context, String[] strArr, int i);
 
-    void j(Context context, JSONObject jSONObject);
+    /* loaded from: classes8.dex */
+    public interface a {
+        void onResult(String str);
+    }
+
+    void a(Bitmap bitmap, HashMap<String, String> hashMap, File[] fileArr, a aVar);
+
+    void a(HashMap<String, String> hashMap, File file, a aVar);
+
+    void a(HashMap<String, String> hashMap, File file, a aVar, String str);
+
+    void d(Context context, String str, String str2, String str3);
 }

@@ -14,60 +14,60 @@ import com.baidu.mobstat.Config;
 import com.baidu.tieba.ala.message.AlaGetHourRankListResponseMessage;
 import com.baidu.tieba.ala.message.AlaGetRankListResponseMessage;
 import com.baidu.tieba.ala.message.AlaGetUserRankInfoResponseMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class e extends BdBaseModel {
-    private k fKT;
-    private HttpMessageListener gBV = new HttpMessageListener(1021068) { // from class: com.baidu.tieba.ala.f.e.1
+    private k fWR;
+    private HttpMessageListener gOs = new HttpMessageListener(1021068) { // from class: com.baidu.tieba.ala.f.e.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetRankListResponseMessage) && httpResponsedMessage.getOrginalMessage() != null && httpResponsedMessage.getOrginalMessage().getTag() == e.this.unique_id) {
-                e.this.fKT.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
+                e.this.fWR.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
             }
         }
     };
-    private HttpMessageListener gBW = new HttpMessageListener(1021070) { // from class: com.baidu.tieba.ala.f.e.2
+    private HttpMessageListener gOt = new HttpMessageListener(1021070) { // from class: com.baidu.tieba.ala.f.e.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetUserRankInfoResponseMessage) && httpResponsedMessage.getOrginalMessage() != null && httpResponsedMessage.getOrginalMessage().getTag() == e.this.unique_id) {
-                e.this.fKT.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
+                e.this.fWR.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
             }
         }
     };
-    private HttpMessageListener gBX = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GET_PRIVILEGE_MARK_LIST) { // from class: com.baidu.tieba.ala.f.e.3
+    private HttpMessageListener gOu = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GET_PRIVILEGE_MARK_LIST) { // from class: com.baidu.tieba.ala.f.e.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetHourRankListResponseMessage) && httpResponsedMessage.getOrginalMessage() != null && e.this.fKT != null) {
-                e.this.fKT.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetHourRankListResponseMessage) && httpResponsedMessage.getOrginalMessage() != null && e.this.fWR != null) {
+                e.this.fWR.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
             }
         }
     };
 
     public e(BdUniqueId bdUniqueId, k kVar) {
         this.unique_id = bdUniqueId;
-        this.fKT = kVar;
+        this.fWR = kVar;
         registerTask();
-        registerListener(this.gBV);
-        registerListener(this.gBW);
-        registerListener(this.gBX);
+        registerListener(this.gOs);
+        registerListener(this.gOt);
+        registerListener(this.gOu);
     }
 
     private void registerTask() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021068, com.baidu.live.a.atD);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021068, com.baidu.live.a.ayF);
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(AlaGetRankListResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(1021070, com.baidu.live.a.atE);
+        TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(1021070, com.baidu.live.a.ayG);
         tbHttpMessageTask2.setIsNeedLogin(false);
         tbHttpMessageTask2.setIsNeedTbs(true);
         tbHttpMessageTask2.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask2.setResponsedClass(AlaGetUserRankInfoResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask2);
-        TbHttpMessageTask tbHttpMessageTask3 = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_GET_PRIVILEGE_MARK_LIST, com.baidu.live.a.atG);
+        TbHttpMessageTask tbHttpMessageTask3 = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_GET_PRIVILEGE_MARK_LIST, com.baidu.live.a.ayI);
         tbHttpMessageTask3.setIsNeedLogin(false);
         tbHttpMessageTask3.setIsNeedTbs(true);
         tbHttpMessageTask3.setIsUseCurrentBDUSS(true);
@@ -76,7 +76,7 @@ public class e extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask3);
     }
 
-    public void f(String str, long j, String str2) {
+    public void e(String str, long j, String str2) {
         if (TextUtils.equals(str, "charm_day")) {
             HttpMessage httpMessage = new HttpMessage(1021068);
             httpMessage.addParam("type", SdkStaticKeys.RANK_TYPE_CHARM);
@@ -108,7 +108,7 @@ public class e extends BdBaseModel {
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public void w(String str, long j) {
+    public void x(String str, long j) {
         HttpMessage httpMessage = new HttpMessage(1021070);
         httpMessage.addParam("type", str);
         httpMessage.addParam("time", "day");

@@ -3,7 +3,7 @@ package com.baidu.android.imsdk.utils;
 import android.content.Context;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.internal.Constants;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class FriendListUtils {
     private static final long DEFAULT_LAST_TIME = 0;
     private static final String LAST_TIMESTAMP_PREFIX = "last_timestamp";

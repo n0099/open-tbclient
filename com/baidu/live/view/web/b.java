@@ -1,23 +1,23 @@
 package com.baidu.live.view.web;
 
 import android.webkit.JsResult;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface b {
-    void Hn();
+    boolean A(String str, boolean z);
+
+    void QS();
 
     boolean a(String str, JsResult jsResult);
 
     void c(String str, int i, String str2);
 
-    void dE(int i);
+    void fy(int i);
 
-    void fH(String str);
+    void hr(String str);
 
-    void fX(String str);
+    void hs(String str);
 
-    void fY(String str);
+    void ht(String str);
 
-    boolean fZ(String str);
-
-    boolean v(String str, boolean z);
+    boolean hu(String str);
 }

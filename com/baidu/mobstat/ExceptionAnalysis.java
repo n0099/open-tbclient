@@ -10,7 +10,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class ExceptionAnalysis {
     private static ExceptionAnalysis a = new ExceptionAnalysis();
     private Context c;
@@ -19,7 +19,7 @@ public class ExceptionAnalysis {
     private boolean b = false;
     private HeadObject d = new HeadObject();
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes11.dex */
     public interface Callback {
         void onCallback(JSONObject jSONObject);
     }
@@ -99,7 +99,7 @@ public class ExceptionAnalysis {
                 jSONObject.put("v", appVersionName);
                 jSONObject.put(Config.EXCEPTION_CRASH_TYPE, i);
                 jSONObject.put("mem", a(context));
-                jSONObject.put(Config.EXCEPTION_CRASH_CHANNEL, i2);
+                jSONObject.put("ty", i2);
                 JSONArray jSONArray = new JSONArray();
                 jSONArray.put(jSONObject);
                 JSONObject jSONObject2 = new JSONObject();

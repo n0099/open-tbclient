@@ -13,44 +13,44 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Open, Close> extends a<T, U> {
-    final h<? super Open, ? extends org.a.b<? extends Close>> bufferClose;
-    final org.a.b<? extends Open> bufferOpen;
+    final h<? super Open, ? extends org.b.b<? extends Close>> bufferClose;
+    final org.b.b<? extends Open> bufferOpen;
     final Callable<U> bufferSupplier;
 
     @Override // io.reactivex.g
-    protected void a(org.a.c<? super U> cVar) {
+    protected void a(org.b.c<? super U> cVar) {
         BufferBoundarySubscriber bufferBoundarySubscriber = new BufferBoundarySubscriber(cVar, this.bufferOpen, this.bufferClose, this.bufferSupplier);
         cVar.onSubscribe(bufferBoundarySubscriber);
-        this.nSG.a((j) bufferBoundarySubscriber);
+        this.omB.a((j) bufferBoundarySubscriber);
     }
 
     /* loaded from: classes7.dex */
-    static final class BufferBoundarySubscriber<T, C extends Collection<? super T>, Open, Close> extends AtomicInteger implements j<T>, org.a.d {
+    static final class BufferBoundarySubscriber<T, C extends Collection<? super T>, Open, Close> extends AtomicInteger implements j<T>, org.b.d {
         private static final long serialVersionUID = -8466418554264089604L;
-        final org.a.c<? super C> actual;
-        final h<? super Open, ? extends org.a.b<? extends Close>> bufferClose;
-        final org.a.b<? extends Open> bufferOpen;
+        final org.b.c<? super C> actual;
+        final h<? super Open, ? extends org.b.b<? extends Close>> bufferClose;
+        final org.b.b<? extends Open> bufferOpen;
         final Callable<C> bufferSupplier;
         volatile boolean cancelled;
         volatile boolean done;
         long emitted;
         long index;
-        final io.reactivex.internal.queue.a<C> queue = new io.reactivex.internal.queue.a<>(io.reactivex.g.dSN());
+        final io.reactivex.internal.queue.a<C> queue = new io.reactivex.internal.queue.a<>(io.reactivex.g.eeP());
         final io.reactivex.disposables.a subscribers = new io.reactivex.disposables.a();
         final AtomicLong requested = new AtomicLong();
-        final AtomicReference<org.a.d> upstream = new AtomicReference<>();
+        final AtomicReference<org.b.d> upstream = new AtomicReference<>();
         Map<Long, C> buffers = new LinkedHashMap();
         final AtomicThrowable errors = new AtomicThrowable();
 
-        BufferBoundarySubscriber(org.a.c<? super C> cVar, org.a.b<? extends Open> bVar, h<? super Open, ? extends org.a.b<? extends Close>> hVar, Callable<C> callable) {
+        BufferBoundarySubscriber(org.b.c<? super C> cVar, org.b.b<? extends Open> bVar, h<? super Open, ? extends org.b.b<? extends Close>> hVar, Callable<C> callable) {
             this.actual = cVar;
             this.bufferSupplier = callable;
             this.bufferOpen = bVar;
             this.bufferClose = hVar;
         }
 
-        @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        @Override // io.reactivex.j, org.b.c
+        public void onSubscribe(org.b.d dVar) {
             if (SubscriptionHelper.setOnce(this.upstream, dVar)) {
                 BufferOpenSubscriber bufferOpenSubscriber = new BufferOpenSubscriber(this);
                 this.subscribers.a(bufferOpenSubscriber);
@@ -59,7 +59,7 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(T t) {
             synchronized (this) {
                 Map<Long, C> map = this.buffers;
@@ -71,7 +71,7 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
             if (this.errors.addThrowable(th)) {
                 this.subscribers.dispose();
@@ -85,7 +85,7 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
             io.reactivex.e.a.onError(th);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
             this.subscribers.dispose();
             synchronized (this) {
@@ -101,13 +101,13 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
             }
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void request(long j) {
             io.reactivex.internal.util.b.a(this.requested, j);
             drain();
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void cancel() {
             if (SubscriptionHelper.cancel(this.upstream)) {
                 this.cancelled = true;
@@ -126,7 +126,7 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
         void open(Open open) {
             try {
                 Collection collection = (Collection) io.reactivex.internal.functions.a.k(this.bufferSupplier.call(), "The bufferSupplier returned a null Collection");
-                org.a.b bVar = (org.a.b) io.reactivex.internal.functions.a.k(this.bufferClose.apply(open), "The bufferClose returned a null Publisher");
+                org.b.b bVar = (org.b.b) io.reactivex.internal.functions.a.k(this.bufferClose.apply(open), "The bufferClose returned a null Publisher");
                 long j = this.index;
                 this.index = 1 + j;
                 synchronized (this) {
@@ -139,7 +139,7 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
                     }
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.K(th);
+                io.reactivex.exceptions.a.J(th);
                 SubscriptionHelper.cancel(this.upstream);
                 onError(th);
             }
@@ -181,7 +181,7 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
         void drain() {
             if (getAndIncrement() == 0) {
                 long j = this.emitted;
-                org.a.c<? super C> cVar = this.actual;
+                org.b.c<? super C> cVar = this.actual;
                 io.reactivex.internal.queue.a<C> aVar = this.queue;
                 int i = 1;
                 while (true) {
@@ -237,7 +237,7 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
         }
 
         /* loaded from: classes7.dex */
-        static final class BufferOpenSubscriber<Open> extends AtomicReference<org.a.d> implements io.reactivex.disposables.b, j<Open> {
+        static final class BufferOpenSubscriber<Open> extends AtomicReference<org.b.d> implements io.reactivex.disposables.b, j<Open> {
             private static final long serialVersionUID = -8498650778633225126L;
             final BufferBoundarySubscriber<?, ?, Open, ?> parent;
 
@@ -245,25 +245,25 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
                 this.parent = bufferBoundarySubscriber;
             }
 
-            @Override // io.reactivex.j, org.a.c
-            public void onSubscribe(org.a.d dVar) {
+            @Override // io.reactivex.j, org.b.c
+            public void onSubscribe(org.b.d dVar) {
                 if (SubscriptionHelper.setOnce(this, dVar)) {
                     dVar.request(Long.MAX_VALUE);
                 }
             }
 
-            @Override // org.a.c
+            @Override // org.b.c
             public void onNext(Open open) {
                 this.parent.open(open);
             }
 
-            @Override // org.a.c
+            @Override // org.b.c
             public void onError(Throwable th) {
                 lazySet(SubscriptionHelper.CANCELLED);
                 this.parent.boundaryError(this, th);
             }
 
-            @Override // org.a.c
+            @Override // org.b.c
             public void onComplete() {
                 lazySet(SubscriptionHelper.CANCELLED);
                 this.parent.openComplete(this);
@@ -283,7 +283,7 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
-    public static final class BufferCloseSubscriber<T, C extends Collection<? super T>> extends AtomicReference<org.a.d> implements io.reactivex.disposables.b, j<Object> {
+    public static final class BufferCloseSubscriber<T, C extends Collection<? super T>> extends AtomicReference<org.b.d> implements io.reactivex.disposables.b, j<Object> {
         private static final long serialVersionUID = -8498650778633225126L;
         final long index;
         final BufferBoundarySubscriber<T, C, ?, ?> parent;
@@ -293,16 +293,16 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
             this.index = j;
         }
 
-        @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        @Override // io.reactivex.j, org.b.c
+        public void onSubscribe(org.b.d dVar) {
             if (SubscriptionHelper.setOnce(this, dVar)) {
                 dVar.request(Long.MAX_VALUE);
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(Object obj) {
-            org.a.d dVar = get();
+            org.b.d dVar = get();
             if (dVar != SubscriptionHelper.CANCELLED) {
                 lazySet(SubscriptionHelper.CANCELLED);
                 dVar.cancel();
@@ -310,7 +310,7 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
             if (get() != SubscriptionHelper.CANCELLED) {
                 lazySet(SubscriptionHelper.CANCELLED);
@@ -320,7 +320,7 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
             io.reactivex.e.a.onError(th);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
             if (get() != SubscriptionHelper.CANCELLED) {
                 lazySet(SubscriptionHelper.CANCELLED);

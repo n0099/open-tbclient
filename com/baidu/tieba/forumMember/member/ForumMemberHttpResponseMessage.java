@@ -1,7 +1,7 @@
 package com.baidu.tieba.forumMember.member;
 
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.tbadkCore.u;
+import com.baidu.tieba.tbadkCore.v;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.GetMemberInfo.GetMemberInfoResIdl;
@@ -18,7 +18,7 @@ public class ForumMemberHttpResponseMessage extends TbHttpResponsedMessage {
     private MemberGodInfo mMemberGodInfo;
     private List<MemberGroupInfo> mMemberGroupInfoList;
     private PriManagerApplyInfo mPrivateMgrApplyInfo;
-    private u mUserInfo;
+    private v mUserInfo;
 
     public ForumMemberHttpResponseMessage(int i) {
         super(i);
@@ -37,11 +37,11 @@ public class ForumMemberHttpResponseMessage extends TbHttpResponsedMessage {
             if (getError() == 0) {
                 if (getMemberInfoResIdl.data != null) {
                     if (getMemberInfoResIdl.data.forum_member_info != null) {
-                        this.mUserInfo = new u();
+                        this.mUserInfo = new v();
                         this.mUserInfo.setLike(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
                         this.mUserInfo.setCurScore(getMemberInfoResIdl.data.forum_member_info.cur_score.intValue());
                         this.mUserInfo.setLevelupScore(getMemberInfoResIdl.data.forum_member_info.levelup_score.intValue());
-                        this.mUserInfo.EY(getMemberInfoResIdl.data.forum_member_info.user_level.intValue());
+                        this.mUserInfo.Hv(getMemberInfoResIdl.data.forum_member_info.user_level.intValue());
                         this.mUserInfo.setLevelName(getMemberInfoResIdl.data.forum_member_info.level_name);
                     }
                     this.mMemberGroupInfoList = getMemberInfoResIdl.data.member_group_info;
@@ -72,7 +72,7 @@ public class ForumMemberHttpResponseMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public u getUserInfo() {
+    public v getUserInfo() {
         return this.mUserInfo;
     }
 

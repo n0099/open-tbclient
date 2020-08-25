@@ -6,59 +6,83 @@ import android.util.Log;
 import com.baidu.mapapi.model.LatLng;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public final class PolylineOptions extends OverlayOptions {
     int a;
-    Bundle d;
-    private List<LatLng> f;
+    Bundle c;
+    private List<LatLng> e;
+    private List<Integer> f;
     private List<Integer> g;
-    private List<Integer> h;
-    private BitmapDescriptor j;
-    private List<BitmapDescriptor> k;
-    private int e = ViewCompat.MEASURED_STATE_MASK;
-    private int i = 5;
-    private boolean l = true;
-    private boolean m = false;
+    private BitmapDescriptor i;
+    private List<BitmapDescriptor> j;
+    private int d = ViewCompat.MEASURED_STATE_MASK;
+    private int h = 5;
+    private boolean k = true;
+    private boolean l = false;
     boolean b = true;
-    boolean c = false;
+    private boolean m = false;
+    private boolean n = true;
+    private int o = 0;
+    private LineJoinType p = LineJoinType.LineJoinRound;
+    private LineCapType q = LineCapType.LineCapButt;
+    private boolean r = true;
+
+    /* loaded from: classes20.dex */
+    public enum LineCapType {
+        LineCapButt,
+        LineCapRound
+    }
+
+    /* loaded from: classes20.dex */
+    public enum LineJoinType {
+        LineJoinBevel,
+        LineJoinMiter,
+        LineJoinRound,
+        LineJoinBerzier
+    }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.mapapi.map.OverlayOptions
     public Overlay a() {
         int i = 0;
         Polyline polyline = new Polyline();
-        polyline.x = this.b;
-        polyline.f = this.c;
-        polyline.w = this.a;
-        polyline.y = this.d;
-        if (this.f == null || this.f.size() < 2) {
-            throw new IllegalStateException("when you add polyline, you must at least supply 2 points");
+        polyline.B = this.b;
+        polyline.f = this.m;
+        polyline.A = this.a;
+        polyline.C = this.c;
+        if (this.e == null || this.e.size() < 2) {
+            throw new IllegalStateException("BDMapSDKException: when you add polyline, you must at least supply 2 points");
         }
-        polyline.b = this.f;
-        polyline.a = this.e;
-        polyline.e = this.i;
-        polyline.i = this.j;
-        polyline.j = this.k;
-        polyline.g = this.l;
-        polyline.h = this.m;
-        if (this.g != null && this.g.size() < this.f.size() - 1) {
-            this.g.addAll(this.g.size(), new ArrayList((this.f.size() - 1) - this.g.size()));
+        polyline.b = this.e;
+        polyline.a = this.d;
+        polyline.e = this.h;
+        polyline.j = this.i;
+        polyline.k = this.j;
+        polyline.g = this.k;
+        polyline.h = this.l;
+        polyline.i = this.n;
+        polyline.m = this.r;
+        polyline.l = this.o;
+        polyline.o = this.p;
+        polyline.n = this.q;
+        if (this.f != null && this.f.size() < this.e.size() - 1) {
+            this.f.addAll(this.f.size(), new ArrayList((this.e.size() - 1) - this.f.size()));
         }
-        if (this.g != null && this.g.size() > 0) {
-            int[] iArr = new int[this.g.size()];
+        if (this.f != null && this.f.size() > 0) {
+            int[] iArr = new int[this.f.size()];
             int i2 = 0;
-            for (Integer num : this.g) {
+            for (Integer num : this.f) {
                 iArr[i2] = num.intValue();
                 i2++;
             }
             polyline.c = iArr;
         }
-        if (this.h != null && this.h.size() < this.f.size() - 1) {
-            this.h.addAll(this.h.size(), new ArrayList((this.f.size() - 1) - this.h.size()));
+        if (this.g != null && this.g.size() < this.e.size() - 1) {
+            this.g.addAll(this.g.size(), new ArrayList((this.e.size() - 1) - this.g.size()));
         }
-        if (this.h != null && this.h.size() > 0) {
-            int[] iArr2 = new int[this.h.size()];
-            for (Integer num2 : this.h) {
+        if (this.g != null && this.g.size() > 0) {
+            int[] iArr2 = new int[this.g.size()];
+            for (Integer num2 : this.g) {
                 iArr2[i] = num2.intValue();
                 i++;
             }
@@ -67,30 +91,35 @@ public final class PolylineOptions extends OverlayOptions {
         return polyline;
     }
 
+    public PolylineOptions clickable(boolean z) {
+        this.n = z;
+        return this;
+    }
+
     public PolylineOptions color(int i) {
-        this.e = i;
+        this.d = i;
         return this;
     }
 
     public PolylineOptions colorsValues(List<Integer> list) {
         if (list == null) {
-            throw new IllegalArgumentException("colors list can not be null");
+            throw new IllegalArgumentException("BDMapSDKException: colors list can not be null");
         }
         if (list.contains(null)) {
-            throw new IllegalArgumentException("colors list can not contains null");
+            throw new IllegalArgumentException("BDMapSDKException: colors list can not contains null");
         }
-        this.h = list;
+        this.g = list;
         return this;
     }
 
     public PolylineOptions customTexture(BitmapDescriptor bitmapDescriptor) {
-        this.j = bitmapDescriptor;
+        this.i = bitmapDescriptor;
         return this;
     }
 
     public PolylineOptions customTextureList(List<BitmapDescriptor> list) {
         if (list == null) {
-            throw new IllegalArgumentException("customTexture list can not be null");
+            throw new IllegalArgumentException("BDMapSDKException: customTexture list can not be null");
         }
         if (list.size() == 0) {
             Log.e("baidumapsdk", "custom texture list is empty,the texture will not work");
@@ -100,51 +129,56 @@ public final class PolylineOptions extends OverlayOptions {
                 Log.e("baidumapsdk", "the custom texture item is null,it will be discard");
             }
         }
-        this.k = list;
+        this.j = list;
         return this;
     }
 
     public PolylineOptions dottedLine(boolean z) {
-        this.c = z;
+        this.m = z;
+        return this;
+    }
+
+    public PolylineOptions dottedLineType(PolylineDottedLineType polylineDottedLineType) {
+        this.o = polylineDottedLineType.ordinal();
         return this;
     }
 
     public PolylineOptions extraInfo(Bundle bundle) {
-        this.d = bundle;
+        this.c = bundle;
         return this;
     }
 
     public PolylineOptions focus(boolean z) {
-        this.l = z;
+        this.k = z;
         return this;
     }
 
     public int getColor() {
-        return this.e;
-    }
-
-    public BitmapDescriptor getCustomTexture() {
-        return this.j;
-    }
-
-    public List<BitmapDescriptor> getCustomTextureList() {
-        return this.k;
-    }
-
-    public Bundle getExtraInfo() {
         return this.d;
     }
 
+    public BitmapDescriptor getCustomTexture() {
+        return this.i;
+    }
+
+    public List<BitmapDescriptor> getCustomTextureList() {
+        return this.j;
+    }
+
+    public Bundle getExtraInfo() {
+        return this.c;
+    }
+
     public List<LatLng> getPoints() {
-        return this.f;
+        return this.e;
     }
 
     public List<Integer> getTextureIndexs() {
-        return this.g;
+        return this.f;
     }
 
     public int getWidth() {
-        return this.i;
+        return this.h;
     }
 
     public int getZIndex() {
@@ -152,11 +186,16 @@ public final class PolylineOptions extends OverlayOptions {
     }
 
     public boolean isDottedLine() {
-        return this.c;
+        return this.m;
     }
 
     public boolean isFocus() {
-        return this.l;
+        return this.k;
+    }
+
+    public PolylineOptions isThined(boolean z) {
+        this.r = z;
+        return this;
     }
 
     public boolean isVisible() {
@@ -164,32 +203,42 @@ public final class PolylineOptions extends OverlayOptions {
     }
 
     public PolylineOptions keepScale(boolean z) {
-        this.m = z;
+        this.l = z;
+        return this;
+    }
+
+    public PolylineOptions lineCapType(LineCapType lineCapType) {
+        this.q = lineCapType;
+        return this;
+    }
+
+    public PolylineOptions lineJoinType(LineJoinType lineJoinType) {
+        this.p = lineJoinType;
         return this;
     }
 
     public PolylineOptions points(List<LatLng> list) {
         if (list == null) {
-            throw new IllegalArgumentException("points list can not be null");
+            throw new IllegalArgumentException("BDMapSDKException: points list can not be null");
         }
         if (list.size() < 2) {
-            throw new IllegalArgumentException("points count can not less than 2");
+            throw new IllegalArgumentException("BDMapSDKException: points count can not less than 2");
         }
         if (list.contains(null)) {
-            throw new IllegalArgumentException("points list can not contains null");
+            throw new IllegalArgumentException("BDMapSDKException: points list can not contains null");
         }
-        this.f = list;
+        this.e = list;
         return this;
     }
 
     public PolylineOptions textureIndex(List<Integer> list) {
         if (list == null) {
-            throw new IllegalArgumentException("indexs list can not be null");
+            throw new IllegalArgumentException("BDMapSDKException: indexs list can not be null");
         }
         if (list.contains(null)) {
-            throw new IllegalArgumentException("index list can not contains null");
+            throw new IllegalArgumentException("BDMapSDKException: index list can not contains null");
         }
-        this.g = list;
+        this.f = list;
         return this;
     }
 
@@ -200,7 +249,7 @@ public final class PolylineOptions extends OverlayOptions {
 
     public PolylineOptions width(int i) {
         if (i > 0) {
-            this.i = i;
+            this.h = i;
         }
         return this;
     }

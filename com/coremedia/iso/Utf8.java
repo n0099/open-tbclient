@@ -1,7 +1,7 @@
 package com.coremedia.iso;
 
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes20.dex */
+/* loaded from: classes8.dex */
 public final class Utf8 {
     public static byte[] convert(String str) {
         if (str != null) {

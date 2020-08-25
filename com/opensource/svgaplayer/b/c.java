@@ -2,7 +2,7 @@ package com.opensource.svgaplayer.b;
 
 import kotlin.h;
 @h
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public final class c {
     private final double height;
     private final double width;

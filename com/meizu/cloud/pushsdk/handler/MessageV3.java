@@ -15,7 +15,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes20.dex */
 public class MessageV3 implements Parcelable {
     public static final Parcelable.Creator<MessageV3> CREATOR = new Parcelable.Creator<MessageV3>() { // from class: com.meizu.cloud.pushsdk.handler.MessageV3.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -128,7 +128,7 @@ public class MessageV3 implements Parcelable {
             if ("is".equals(key)) {
                 messageV3.setmAppIconSetting(AppIconSetting.parse(value));
             }
-            if (TimeDisplaySetting.TIME_DISPLAY_SETTING.equals(key)) {
+            if ("ts".equals(key)) {
                 messageV3.setmTimeDisplaySetting(TimeDisplaySetting.parse(value));
             }
         }
@@ -173,8 +173,8 @@ public class MessageV3 implements Parcelable {
                 if (!jSONObject2.isNull("as")) {
                     messageV3.setmAdvanceSetting(AdvanceSetting.parse(jSONObject2.getJSONObject("as")));
                 }
-                if (!jSONObject2.isNull(TimeDisplaySetting.TIME_DISPLAY_SETTING)) {
-                    messageV3.setmTimeDisplaySetting(TimeDisplaySetting.parse(jSONObject2.getJSONObject(TimeDisplaySetting.TIME_DISPLAY_SETTING)));
+                if (!jSONObject2.isNull("ts")) {
+                    messageV3.setmTimeDisplaySetting(TimeDisplaySetting.parse(jSONObject2.getJSONObject("ts")));
                 }
                 if (!jSONObject2.isNull(PushConstants.INTENT_ACTIVITY_NAME)) {
                     messageV3.setActivity(jSONObject2.getString(PushConstants.INTENT_ACTIVITY_NAME));

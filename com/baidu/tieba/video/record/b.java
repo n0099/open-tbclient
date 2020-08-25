@@ -5,21 +5,21 @@ import android.view.MotionEvent;
 /* loaded from: classes17.dex */
 class b {
     private Camera mCamera;
-    private float mig;
-    private int mih;
-    private i mii;
     private int mode = 0;
+    private float mzP;
+    private int mzQ;
+    private i mzR;
 
     public b(Camera camera) {
         this.mCamera = camera;
     }
 
     public void setRecordController(i iVar) {
-        this.mii = iVar;
+        this.mzR = iVar;
     }
 
     public boolean handleTouchEvent(MotionEvent motionEvent) {
-        if (this.mii == null || !this.mii.bdw()) {
+        if (this.mzR == null || !this.mzR.bmc()) {
             switch (motionEvent.getAction() & 255) {
                 case 0:
                     this.mode = 0;
@@ -27,21 +27,21 @@ class b {
                 case 2:
                     if (this.mode == 1 && motionEvent.getPointerCount() >= 2) {
                         float spacing = spacing(motionEvent);
-                        int i = (int) ((spacing - this.mig) / 10.0f);
+                        int i = (int) ((spacing - this.mzP) / 10.0f);
                         if (i >= 1 || i <= -1) {
-                            int i2 = i + this.mih;
+                            int i2 = i + this.mzQ;
                             if (i2 > getMaxZoom()) {
                                 i2 = getMaxZoom();
                             }
                             setZoom(i2 >= 0 ? i2 : 0);
-                            this.mig = spacing;
+                            this.mzP = spacing;
                             break;
                         }
                     }
                     break;
                 case 5:
                     this.mode = 1;
-                    this.mig = spacing(motionEvent);
+                    this.mzP = spacing(motionEvent);
                     break;
             }
         }
@@ -77,7 +77,7 @@ class b {
             if (parameters.isZoomSupported()) {
                 parameters.setZoom(i);
                 this.mCamera.setParameters(parameters);
-                this.mih = i;
+                this.mzQ = i;
             }
         }
     }

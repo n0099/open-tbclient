@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.android.common.security.RSAUtil;
-import com.baidu.sapi2.utils.h;
+import com.baidu.sapi2.utils.e;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -29,7 +29,7 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes20.dex */
 public class a {
     private static a b;
     private static final Object c = new Object();
@@ -257,7 +257,7 @@ public class a {
 
     private void g() {
         try {
-            KeyGenerator keyGenerator = KeyGenerator.getInstance(h.q);
+            KeyGenerator keyGenerator = KeyGenerator.getInstance(e.q);
             keyGenerator.init(128);
             this.d = keyGenerator.generateKey().getEncoded();
             this.f = Base64.encode(this.d, 2);
@@ -311,8 +311,8 @@ public class a {
             b(">>>>>>>>>> encrypt input >>>>>>>>>>\n" + new String(Base64.encode(bArr, 2)));
             b("<<<<<<<<<< encrypt input <<<<<<<<<<");
             try {
-                Cipher cipher = Cipher.getInstance(h.p);
-                cipher.init(1, new SecretKeySpec(this.d, h.q), new IvParameterSpec(this.d));
+                Cipher cipher = Cipher.getInstance(e.p);
+                cipher.init(1, new SecretKeySpec(this.d, e.q), new IvParameterSpec(this.d));
                 byte[] doFinal = cipher.doFinal(bArr);
                 b(">>>>>>>>>> encrypt output >>>>>>>>>>\n" + new String(Base64.encode(doFinal, 2)));
                 b("<<<<<<<<<< encrypt output <<<<<<<<<<");

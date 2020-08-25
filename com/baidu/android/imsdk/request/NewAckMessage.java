@@ -11,14 +11,14 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class NewAckMessage extends Message {
     private Context mContext;
     private JSONArray mJsonArray;
     private long mTriggerId;
     private List<Tripule> tripules;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public static class Tripule {
         private String accountType;
         private String businessSource;
@@ -173,6 +173,10 @@ public class NewAckMessage extends Message {
 
     public void setJsonArray(JSONArray jSONArray) {
         this.mJsonArray = jSONArray;
+    }
+
+    public JSONArray getJsonArray() {
+        return this.mJsonArray;
     }
 
     public boolean addTriples(List<Tripule> list) {

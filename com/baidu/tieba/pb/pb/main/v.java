@@ -11,128 +11,128 @@ import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 /* loaded from: classes16.dex */
 public class v {
-    private RelativeLayout bjP;
-    private com.baidu.tieba.pb.data.f kli;
-    private String knA;
-    private String knB;
-    private NewWriteModel.d knC;
-    private View.OnClickListener knD;
-    private com.baidu.tbadk.editortools.pb.h kny;
-    private PbFakeFloorModel knz;
+    private RelativeLayout bpu;
+    private com.baidu.tieba.pb.data.f kAA;
+    private com.baidu.tbadk.editortools.pb.h kCP;
+    private PbFakeFloorModel kCQ;
+    private String kCR;
+    private String kCS;
+    private NewWriteModel.d kCT;
+    private View.OnClickListener kCU;
     private TbPageContext mPageContext;
 
     public v(TbPageContext tbPageContext, PbFakeFloorModel pbFakeFloorModel, RelativeLayout relativeLayout) {
         this.mPageContext = tbPageContext;
-        this.bjP = relativeLayout;
-        this.knz = pbFakeFloorModel;
+        this.bpu = relativeLayout;
+        this.kCQ = pbFakeFloorModel;
     }
 
-    public void cMv() {
-        if (this.kny != null) {
-            this.kny.bjM();
-            if (StringUtils.isNull(this.knA)) {
-                this.kny.onDestory();
+    public void cXj() {
+        if (this.kCP != null) {
+            this.kCP.bsy();
+            if (StringUtils.isNull(this.kCR)) {
+                this.kCP.onDestory();
             }
-            this.kny.biJ().biU();
+            this.kCP.brv().brG();
         }
     }
 
     public void setPbData(com.baidu.tieba.pb.data.f fVar) {
-        this.kli = fVar;
+        this.kAA = fVar;
     }
 
-    public void cMw() {
-        if (this.kny != null && this.kny.biJ() != null) {
-            this.kny.biJ().bhl();
+    public void cXk() {
+        if (this.kCP != null && this.kCP.brv() != null) {
+            this.kCP.brv().bpX();
         }
     }
 
-    public boolean cMx() {
-        if (this.kny == null || this.kny.biJ() == null) {
+    public boolean cXl() {
+        if (this.kCP == null || this.kCP.brv() == null) {
             return false;
         }
-        return this.kny.biJ().biL();
+        return this.kCP.brv().brx();
     }
 
-    private void aM(String str, boolean z) {
-        if (this.bjP != null && this.kny == null) {
+    private void aQ(String str, boolean z) {
+        if (this.bpu != null && this.kCP == null) {
             com.baidu.tbadk.editortools.pb.i iVar = new com.baidu.tbadk.editortools.pb.i(z);
             iVar.setHintText(str);
-            this.kny = (com.baidu.tbadk.editortools.pb.h) iVar.dT(this.mPageContext.getPageActivity());
-            this.kny.a(this.mPageContext);
-            this.kny.b(this.knz);
-            if (this.kli != null) {
-                this.kny.setThreadData(this.kli.cKx());
+            this.kCP = (com.baidu.tbadk.editortools.pb.h) iVar.ec(this.mPageContext.getPageActivity());
+            this.kCP.a(this.mPageContext);
+            this.kCP.b(this.kCQ);
+            if (this.kAA != null) {
+                this.kCP.setThreadData(this.kAA.cVl());
             }
-            this.kny.biJ().iJ(true);
-            this.kny.biJ().setOnCancelClickListener(this.knD);
-            this.kny.j(this.mPageContext);
-            cMy();
-            this.kny.b(this.knC);
+            this.kCP.brv().jh(true);
+            this.kCP.brv().setOnCancelClickListener(this.kCU);
+            this.kCP.j(this.mPageContext);
+            cXm();
+            this.kCP.b(this.kCT);
         }
     }
 
     public void g(String str, String str2, String str3, boolean z) {
-        this.knA = str2;
-        if (this.kny == null) {
-            aM(str3, z);
+        this.kCR = str2;
+        if (this.kCP == null) {
+            aQ(str3, z);
         } else {
-            this.kny.b(this.knz);
-            if (StringUtils.isNull(this.knA)) {
-                this.kny.j(this.mPageContext);
+            this.kCP.b(this.kCQ);
+            if (StringUtils.isNull(this.kCR)) {
+                this.kCP.j(this.mPageContext);
             }
         }
-        this.kny.setReplyId(str);
-        this.kny.zP(str2);
-        this.kny.zQ(this.knB);
-        if (this.kny.bjA()) {
-            this.kny.a((PostWriteCallBackData) null);
+        this.kCP.setReplyId(str);
+        this.kCP.Cf(str2);
+        this.kCP.Cg(this.kCS);
+        if (this.kCP.bsm()) {
+            this.kCP.a((PostWriteCallBackData) null);
         }
     }
 
-    private void cMy() {
-        if (this.bjP != null && this.kny != null && this.kny.biJ() != null) {
+    private void cXm() {
+        if (this.bpu != null && this.kCP != null && this.kCP.brv() != null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams.addRule(12);
-            this.bjP.addView(this.kny.biJ(), layoutParams);
+            this.bpu.addView(this.kCP.brv(), layoutParams);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     public void onActivityResult(int i, int i2, Intent intent) {
-        if (this.kny != null) {
-            this.kny.onActivityResult(i, i2, intent);
+        if (this.kCP != null) {
+            this.kCP.onActivityResult(i, i2, intent);
         }
     }
 
     public void onStop() {
-        if (this.kny != null) {
-            this.kny.onStop();
+        if (this.kCP != null) {
+            this.kCP.onStop();
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.kny != null && this.kny.biJ() != null) {
-            this.kny.biJ().onChangeSkinType(i);
+        if (this.kCP != null && this.kCP.brv() != null) {
+            this.kCP.brv().onChangeSkinType(i);
         }
     }
 
     public void a(NewWriteModel.d dVar) {
-        this.knC = dVar;
-        if (this.kny != null) {
-            this.kny.b(dVar);
+        this.kCT = dVar;
+        if (this.kCP != null) {
+            this.kCP.b(dVar);
         }
     }
 
-    public com.baidu.tbadk.editortools.pb.h cMz() {
-        return this.kny;
+    public com.baidu.tbadk.editortools.pb.h cXn() {
+        return this.kCP;
     }
 
-    public void Ky(String str) {
-        this.knB = str;
+    public void Nr(String str) {
+        this.kCS = str;
     }
 
-    public void S(View.OnClickListener onClickListener) {
-        this.knD = onClickListener;
+    public void T(View.OnClickListener onClickListener) {
+        this.kCU = onClickListener;
     }
 }

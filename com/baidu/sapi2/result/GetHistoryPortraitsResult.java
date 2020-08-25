@@ -1,7 +1,8 @@
 package com.baidu.sapi2.result;
 
+import com.baidu.sapi2.NoProguard;
 import java.util.List;
-/* loaded from: classes12.dex */
-public class GetHistoryPortraitsResult extends SapiResult {
+/* loaded from: classes6.dex */
+public class GetHistoryPortraitsResult extends SapiResult implements NoProguard {
     public List<String> historyPortraits;
 }

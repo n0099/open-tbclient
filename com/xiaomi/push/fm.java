@@ -9,70 +9,70 @@ import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.util.zip.Adler32;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class fm {
 
     /* renamed from: a  reason: collision with other field name */
-    private fq f348a;
+    private fq f345a;
 
     /* renamed from: a  reason: collision with other field name */
-    private InputStream f349a;
+    private InputStream f346a;
 
     /* renamed from: a  reason: collision with other field name */
-    private volatile boolean f352a;
+    private volatile boolean f349a;
 
     /* renamed from: a  reason: collision with other field name */
-    private byte[] f353a;
+    private byte[] f350a;
 
     /* renamed from: a  reason: collision with other field name */
-    private ByteBuffer f350a = ByteBuffer.allocate(2048);
+    private ByteBuffer f347a = ByteBuffer.allocate(2048);
     private ByteBuffer b = ByteBuffer.allocate(4);
 
     /* renamed from: a  reason: collision with other field name */
-    private Adler32 f351a = new Adler32();
+    private Adler32 f348a = new Adler32();
     private fo a = new fo();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public fm(InputStream inputStream, fq fqVar) {
-        this.f349a = new BufferedInputStream(inputStream);
-        this.f348a = fqVar;
+        this.f346a = new BufferedInputStream(inputStream);
+        this.f345a = fqVar;
     }
 
     private ByteBuffer a() {
-        this.f350a.clear();
-        a(this.f350a, 8);
-        short s = this.f350a.getShort(0);
-        short s2 = this.f350a.getShort(2);
+        this.f347a.clear();
+        a(this.f347a, 8);
+        short s = this.f347a.getShort(0);
+        short s2 = this.f347a.getShort(2);
         if (s == -15618 && s2 == 5) {
-            int i = this.f350a.getInt(4);
-            int position = this.f350a.position();
+            int i = this.f347a.getInt(4);
+            int position = this.f347a.position();
             if (i > 32768) {
                 throw new IOException("Blob size too large");
             }
-            if (i + 4 > this.f350a.remaining()) {
+            if (i + 4 > this.f347a.remaining()) {
                 ByteBuffer allocate = ByteBuffer.allocate(i + 2048);
-                allocate.put(this.f350a.array(), 0, this.f350a.arrayOffset() + this.f350a.position());
-                this.f350a = allocate;
-            } else if (this.f350a.capacity() > 4096 && i < 2048) {
+                allocate.put(this.f347a.array(), 0, this.f347a.arrayOffset() + this.f347a.position());
+                this.f347a = allocate;
+            } else if (this.f347a.capacity() > 4096 && i < 2048) {
                 ByteBuffer allocate2 = ByteBuffer.allocate(2048);
-                allocate2.put(this.f350a.array(), 0, this.f350a.arrayOffset() + this.f350a.position());
-                this.f350a = allocate2;
+                allocate2.put(this.f347a.array(), 0, this.f347a.arrayOffset() + this.f347a.position());
+                this.f347a = allocate2;
             }
-            a(this.f350a, i);
+            a(this.f347a, i);
             this.b.clear();
             a(this.b, 4);
             this.b.position(0);
             int i2 = this.b.getInt();
-            this.f351a.reset();
-            this.f351a.update(this.f350a.array(), 0, this.f350a.position());
-            if (i2 != ((int) this.f351a.getValue())) {
-                com.xiaomi.channel.commonutils.logger.b.m49a("CRC = " + ((int) this.f351a.getValue()) + " and " + i2);
+            this.f348a.reset();
+            this.f348a.update(this.f347a.array(), 0, this.f347a.position());
+            if (i2 != ((int) this.f348a.getValue())) {
+                com.xiaomi.channel.commonutils.logger.b.m54a("CRC = " + ((int) this.f348a.getValue()) + " and " + i2);
                 throw new IOException("Corrupted Blob bad CRC");
             }
-            if (this.f353a != null) {
-                com.xiaomi.push.service.ay.a(this.f353a, this.f350a.array(), true, position, i);
+            if (this.f350a != null) {
+                com.xiaomi.push.service.ay.a(this.f350a, this.f347a.array(), true, position, i);
             }
-            return this.f350a;
+            return this.f347a;
         }
         throw new IOException("Malformed Input");
     }
@@ -80,7 +80,7 @@ public class fm {
     private void a(ByteBuffer byteBuffer, int i) {
         int position = byteBuffer.position();
         do {
-            int read = this.f349a.read(byteBuffer.array(), position, i);
+            int read = this.f346a.read(byteBuffer.array(), position, i);
             if (read == -1) {
                 throw new EOFException();
             }
@@ -92,12 +92,12 @@ public class fm {
 
     private void c() {
         boolean z = false;
-        this.f352a = false;
-        fl m283a = m283a();
-        if ("CONN".equals(m283a.m275a())) {
-            ek.f a = ek.f.a(m283a.m279a());
+        this.f349a = false;
+        fl m288a = m288a();
+        if ("CONN".equals(m288a.m280a())) {
+            ek.f a = ek.f.a(m288a.m284a());
             if (a.a()) {
-                this.f348a.a(a.a());
+                this.f345a.a(a.a());
                 z = true;
             }
             if (a.c()) {
@@ -105,52 +105,52 @@ public class fm {
                 fl flVar = new fl();
                 flVar.a("SYNC", "CONF");
                 flVar.a(a2.a(), (String) null);
-                this.f348a.a(flVar);
+                this.f345a.a(flVar);
             }
-            com.xiaomi.channel.commonutils.logger.b.m49a("[Slim] CONN: host = " + a.b());
+            com.xiaomi.channel.commonutils.logger.b.m54a("[Slim] CONN: host = " + a.b());
         }
         if (!z) {
-            com.xiaomi.channel.commonutils.logger.b.m49a("[Slim] Invalid CONN");
+            com.xiaomi.channel.commonutils.logger.b.m54a("[Slim] Invalid CONN");
             throw new IOException("Invalid Connection");
         }
-        this.f353a = this.f348a.a();
-        while (!this.f352a) {
-            fl m283a2 = m283a();
-            this.f348a.c();
-            switch (m283a2.m277a()) {
+        this.f350a = this.f345a.a();
+        while (!this.f349a) {
+            fl m288a2 = m288a();
+            this.f345a.c();
+            switch (m288a2.m282a()) {
                 case 1:
-                    this.f348a.a(m283a2);
+                    this.f345a.a(m288a2);
                     break;
                 case 2:
-                    if (!"SECMSG".equals(m283a2.m275a()) || ((m283a2.a() != 2 && m283a2.a() != 3) || !TextUtils.isEmpty(m283a2.m281b()))) {
-                        this.f348a.a(m283a2);
+                    if (!"SECMSG".equals(m288a2.m280a()) || ((m288a2.a() != 2 && m288a2.a() != 3) || !TextUtils.isEmpty(m288a2.m286b()))) {
+                        this.f345a.a(m288a2);
                         break;
                     } else {
                         try {
-                            this.f348a.b(this.a.a(m283a2.m280a(com.xiaomi.push.service.ap.a().a(Integer.valueOf(m283a2.a()).toString(), m283a2.g()).h), this.f348a));
+                            this.f345a.b(this.a.a(m288a2.m285a(com.xiaomi.push.service.ap.a().a(Integer.valueOf(m288a2.a()).toString(), m288a2.g()).h), this.f345a));
                             break;
                         } catch (Exception e) {
-                            com.xiaomi.channel.commonutils.logger.b.m49a("[Slim] Parse packet from Blob chid=" + m283a2.a() + "; Id=" + m283a2.e() + " failure:" + e.getMessage());
+                            com.xiaomi.channel.commonutils.logger.b.m54a("[Slim] Parse packet from Blob chid=" + m288a2.a() + "; Id=" + m288a2.e() + " failure:" + e.getMessage());
                             break;
                         }
                     }
                 case 3:
                     try {
-                        this.f348a.b(this.a.a(m283a2.m279a(), this.f348a));
+                        this.f345a.b(this.a.a(m288a2.m284a(), this.f345a));
                         break;
                     } catch (Exception e2) {
-                        com.xiaomi.channel.commonutils.logger.b.m49a("[Slim] Parse packet from Blob chid=" + m283a2.a() + "; Id=" + m283a2.e() + " failure:" + e2.getMessage());
+                        com.xiaomi.channel.commonutils.logger.b.m54a("[Slim] Parse packet from Blob chid=" + m288a2.a() + "; Id=" + m288a2.e() + " failure:" + e2.getMessage());
                         break;
                     }
                 default:
-                    com.xiaomi.channel.commonutils.logger.b.m49a("[Slim] unknow blob type " + ((int) m283a2.m277a()));
+                    com.xiaomi.channel.commonutils.logger.b.m54a("[Slim] unknow blob type " + ((int) m288a2.m282a()));
                     break;
             }
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    fl m283a() {
+    fl m288a() {
         IOException iOException;
         int i;
         try {
@@ -160,20 +160,20 @@ public class fm {
                 a.flip();
                 a.position(8);
                 fl fpVar = position == 8 ? new fp() : fl.a(a.slice());
-                com.xiaomi.channel.commonutils.logger.b.c("[Slim] Read {cmd=" + fpVar.m275a() + ";chid=" + fpVar.a() + ";len=" + position + "}");
+                com.xiaomi.channel.commonutils.logger.b.c("[Slim] Read {cmd=" + fpVar.m280a() + ";chid=" + fpVar.a() + ";len=" + position + "}");
                 return fpVar;
             } catch (IOException e) {
                 i = position;
                 iOException = e;
                 if (i == 0) {
-                    i = this.f350a.position();
+                    i = this.f347a.position();
                 }
                 StringBuilder append = new StringBuilder().append("[Slim] read Blob [");
-                byte[] array = this.f350a.array();
+                byte[] array = this.f347a.array();
                 if (i > 128) {
                     i = 128;
                 }
-                com.xiaomi.channel.commonutils.logger.b.m49a(append.append(af.a(array, 0, i)).append("] Err:").append(iOException.getMessage()).toString());
+                com.xiaomi.channel.commonutils.logger.b.m54a(append.append(af.a(array, 0, i)).append("] Err:").append(iOException.getMessage()).toString());
                 throw iOException;
             }
         } catch (IOException e2) {
@@ -184,11 +184,11 @@ public class fm {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: a  reason: collision with other method in class */
-    public void m284a() {
+    public void m289a() {
         try {
             c();
         } catch (IOException e) {
-            if (!this.f352a) {
+            if (!this.f349a) {
                 throw e;
             }
         }
@@ -196,6 +196,6 @@ public class fm {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b() {
-        this.f352a = true;
+        this.f349a = true;
     }
 }

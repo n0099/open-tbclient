@@ -1,33 +1,35 @@
 package com.baidu.mapapi.common;
 
-import com.baidu.mapsdkplatform.comapi.util.f;
-/* loaded from: classes10.dex */
+import android.text.TextUtils;
+import com.baidu.mapsdkplatform.comapi.util.h;
+/* loaded from: classes20.dex */
 public class SysOSUtil {
     public static float getDensity() {
-        return f.y;
+        return h.c;
     }
 
     public static int getDensityDpi() {
-        return f.l();
+        return h.m();
     }
 
     public static String getDeviceID() {
-        return f.o();
+        String p = h.p();
+        return TextUtils.isEmpty(p) ? p : p.substring(0, p.indexOf("|"));
     }
 
     public static String getModuleFileName() {
-        return f.n();
+        return h.o();
     }
 
     public static String getPhoneType() {
-        return f.g();
+        return h.h();
     }
 
     public static int getScreenSizeX() {
-        return f.h();
+        return h.i();
     }
 
     public static int getScreenSizeY() {
-        return f.j();
+        return h.k();
     }
 }

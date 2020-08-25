@@ -1,172 +1,180 @@
 package com.baidu.card;
 
-import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.card.a.a;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.af;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
-import com.baidu.tbadk.core.view.ThreadCardBottomOpSegmentLayout;
-import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
-import java.util.List;
+import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
+import com.baidu.tieba.view.FollowUserButton;
 /* loaded from: classes15.dex */
-public class al extends b<AbsThreadDataSupport> {
-    private int agb;
-    private int agc;
-    private ThreadCommentAndPraiseInfoLayout agd;
-    private AbsThreadDataSupport agf;
-    private a.C0096a agg;
-    private Runnable agh;
+public class al<T extends AbsThreadDataSupport> extends af.a {
+    private com.baidu.tieba.card.aa<T> ahd;
+    private aj<T> ahe;
+    private aq ahf;
+    private t ahg;
+    private ai ahh;
+    private ac ahi;
+    private i ahj;
+    private BdUniqueId mId;
+    private aa mNegFeedBackItem;
 
-    public al(Context context) {
-        super(context);
-        this.agb = 11;
-        this.agc = this.agb;
-        this.agg = new a.C0096a(5);
-        this.agh = new Runnable() { // from class: com.baidu.card.al.1
-            @Override // java.lang.Runnable
-            public void run() {
-                al.this.agg.setExtraData(Integer.valueOf(al.this.agd.getCommentContainer().getRight() + al.this.adL.se().afQ));
-                al.this.adL.b(al.this.agg);
-            }
-        };
-        this.agd = new ThreadCardBottomOpSegmentLayout(context);
-        this.agd.setReplyTimeVisible(false);
-        this.agd.setShowPraiseNum(true);
-        this.agd.setNeedAddPraiseIcon(true);
-        this.agd.setNeedAddReplyIcon(true);
-        this.agd.setShareVisible(true);
-        this.agd.setForumAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.al.2
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (al.this.rL() != null) {
-                    al.this.rL().a(view, al.this.agf);
-                }
-            }
-        });
+    public al(aj<T> ajVar) {
+        super(ajVar.getView());
+        this.ahe = ajVar;
     }
 
-    public void setOnCommentClickCallback(ThreadCommentAndPraiseInfoLayout.a aVar) {
-        if (this.agd != null) {
-            this.agd.setOnCommentClickCallback(aVar);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.card.b
-    public void rK() {
-        this.adL.a(4, new a.b() { // from class: com.baidu.card.al.3
-            @Override // com.baidu.card.a.a.b
-            public boolean a(a.C0096a c0096a) {
-                if (c0096a.sm() instanceof Boolean) {
-                    if (((Boolean) c0096a.sm()).booleanValue()) {
-                        al.this.agb = al.this.agc;
-                    } else {
-                        al.this.agb &= -5;
-                        al.this.agb |= 64;
-                    }
-                    al.this.agd.setShowFlag(al.this.agb);
-                }
-                return false;
-            }
-        });
-    }
-
-    @Override // com.baidu.card.b
-    public void bf(int i) {
-        this.agb |= i;
-        this.agd.setShowFlag(this.agb);
-        this.agc = this.agb;
-    }
-
-    @Override // com.baidu.card.b
-    public void bg(int i) {
-        this.agb &= i ^ (-1);
-        this.agd.setShowFlag(this.agb);
-        this.agc = this.agb;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.card.b
+    @Override // com.baidu.adp.widget.ListView.af.a
     public View getView() {
-        return this.agd;
+        return this.ahe.getView();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.card.n
-    /* renamed from: b */
-    public void D(AbsThreadDataSupport absThreadDataSupport) {
-        this.agf = absThreadDataSupport;
-        this.agd.setData(absThreadDataSupport.aTN());
-        if ((this.agb & 4) > 0 || (this.agb & 64) > 0) {
-            this.agd.post(this.agh);
-        }
-        sj();
+    public aj<T> tR() {
+        return this.ahe;
     }
 
-    private void sj() {
-        boolean z;
-        setMarginsTop(this.agd, 0);
-        b rZ = this.adL.rZ();
-        if (rZ != null) {
-            ViewGroup viewGroup = (ViewGroup) rZ.getView();
-            int childCount = viewGroup.getChildCount();
-            int i = 0;
-            while (true) {
-                if (i >= childCount) {
-                    z = true;
-                    break;
-                } else if (!(viewGroup.getChildAt(i) instanceof TextView) && viewGroup.getChildAt(i).getVisibility() == 0) {
-                    z = false;
-                    break;
-                } else {
-                    i++;
-                }
-            }
-            if (z) {
-                List<h> sb = this.adL.sb();
-                if (!com.baidu.tbadk.core.util.x.isEmpty(sb)) {
-                    for (h hVar : sb) {
-                        if (hVar != null && hVar.getView() != null && hVar.getView().getVisibility() == 0) {
-                            return;
-                        }
-                    }
-                }
-            }
+    private TbPageContext getTbPageContext() {
+        return ((TbPageContextSupport) this.ahe.getView().getContext()).getPageContext();
+    }
+
+    private void c(d dVar) {
+        if (dVar != null && dVar.tB() != null) {
+            this.ahe.a(dVar);
         }
     }
 
-    @Override // com.baidu.card.o
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.agd.onChangeSkinType();
+    public void a(boolean z, Align align, NEGFeedBackView.a aVar) {
+        if (!z) {
+            c(this.mNegFeedBackItem);
+            return;
+        }
+        if (this.mNegFeedBackItem == null) {
+            this.mNegFeedBackItem = new aa(getTbPageContext(), align);
+            this.mNegFeedBackItem.aga.setUniqueId(this.mId);
+            this.mNegFeedBackItem.a(aVar);
+        }
+        this.mNegFeedBackItem.a(align);
+        this.ahe.b(this.mNegFeedBackItem);
     }
 
-    public void setFromForPb(int i) {
-        this.agd.ekb = i;
+    public aa aL(boolean z) {
+        if (this.mNegFeedBackItem == null) {
+            this.mNegFeedBackItem = new aa(getTbPageContext(), z);
+            this.mNegFeedBackItem.aga.setUniqueId(this.mId);
+        }
+        this.ahe.b(this.mNegFeedBackItem);
+        return this.mNegFeedBackItem;
     }
 
-    public void setFrom(int i) {
-        this.agd.setFrom(i);
+    public void a(boolean z, Align align) {
+        if (!z) {
+            c(this.ahf);
+            return;
+        }
+        if (this.ahf == null) {
+            this.ahf = new aq(getTbPageContext(), align);
+        }
+        this.ahf.a(align);
+        this.ahe.b(this.ahf);
     }
 
-    public void setStType(String str) {
-        this.agd.setStType(str);
+    public void a(boolean z, FollowUserButton.a aVar) {
+        if (!z) {
+            c(this.ahj);
+            return;
+        }
+        if (this.ahj == null) {
+            this.ahj = new i(getTbPageContext(), com.baidu.tbadk.a.d.bad());
+            this.ahj.setOnClickEvent(aVar);
+        }
+        this.ahj.setPageUniqueId(this.mId);
+        this.ahe.b(this.ahj);
     }
 
-    public void setAgreeStatisticData(com.baidu.tbadk.core.data.c cVar) {
-        this.agd.setAgreeStatisticData(cVar);
+    public t tS() {
+        return aM(true);
     }
 
-    public void setShareReportFrom(int i) {
-        this.agd.setShareReportFrom(i);
+    public t aM(boolean z) {
+        if (this.ahg == null) {
+            this.ahg = new t(this.ahe.getContext());
+        }
+        this.ahg.h(this.mId);
+        this.ahg.aI(z);
+        this.ahe.b(this.ahg);
+        return this.ahg;
     }
 
-    public void setGameId(int i) {
-        this.agd.setGameId(i);
+    public ai tT() {
+        if (this.ahh == null) {
+            this.ahh = new ai(getTbPageContext());
+            this.ahh.setPageId(this.mId);
+        }
+        this.ahe.b(this.ahh);
+        return this.ahh;
     }
 
-    public void setTabName(String str) {
-        this.agd.setTabName(str);
+    public ac by(int i) {
+        if (this.ahi == null) {
+            this.ahi = new ac(this.ahe.getView().getContext(), i);
+            this.ahi.setPageId(this.mId);
+        }
+        this.ahe.b(this.ahi);
+        return this.ahi;
+    }
+
+    public void b(T t) {
+        boolean z = false;
+        if (t == null) {
+            this.ahe.getView().setVisibility(8);
+            return;
+        }
+        if (t.bce() != null) {
+            t.bce().getTid();
+        }
+        if (t.bce() != null && t.bce().beE() != null) {
+            t.bce().beE().getName_show();
+        }
+        this.ahe.getView().setVisibility(0);
+        if (this.mNegFeedBackItem != null && this.mNegFeedBackItem.aga != null) {
+            if (!t.isSelf() && t.bcg() != null) {
+                this.mNegFeedBackItem.f(t);
+                this.mNegFeedBackItem.F(t.bcg());
+                this.mNegFeedBackItem.aga.setVisibility(0);
+                z = true;
+            } else if (this.mNegFeedBackItem != null && this.mNegFeedBackItem.aga != null) {
+                this.mNegFeedBackItem.aga.setVisibility(8);
+            }
+        }
+        if (this.ahf != null) {
+            this.ahf.f(t);
+            this.ahf.F(t.bce());
+        }
+        if (this.ahh != null) {
+            this.ahh.aK(z);
+            this.ahh.F(t.bce());
+        }
+        if (this.ahg != null) {
+            this.ahg.F(t.bce());
+        }
+        if (this.ahi != null) {
+            this.ahi.f(t);
+            this.ahi.F(t.bce());
+        }
+        if (this.ahj != null) {
+            this.ahj.a(t, z);
+            this.ahj.F(t.bce());
+        }
+        this.ahe.g(t);
+    }
+
+    public void setPageId(BdUniqueId bdUniqueId) {
+        this.mId = bdUniqueId;
+    }
+
+    public void b(com.baidu.tieba.card.aa<T> aaVar) {
+        this.ahd = aaVar;
+        this.ahe.a(aaVar);
     }
 }

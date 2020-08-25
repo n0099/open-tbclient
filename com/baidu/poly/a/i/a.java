@@ -4,13 +4,13 @@ import android.text.TextUtils;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.Writer;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class a extends Exception {
     public a(String str) {
         super(str);
     }
 
-    public String T() {
+    public String U() {
         Throwable cause = getCause();
         String str = null;
         if (cause != null) {

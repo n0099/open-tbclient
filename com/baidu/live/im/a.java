@@ -9,58 +9,58 @@ import com.baidu.live.tbadk.core.util.TbEnum;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a extends com.baidu.live.im.data.a {
-    public static final BdUniqueId aTd = BdUniqueId.gen();
-    public static final BdUniqueId aTe = BdUniqueId.gen();
-    public static final BdUniqueId aTf = BdUniqueId.gen();
-    public static final BdUniqueId aTg = BdUniqueId.gen();
-    public static final BdUniqueId aTh = BdUniqueId.gen();
-    private String aTi;
-    public SpannableStringBuilder aTj;
+    public static final BdUniqueId aYr = BdUniqueId.gen();
+    public static final BdUniqueId aYs = BdUniqueId.gen();
+    public static final BdUniqueId aYt = BdUniqueId.gen();
+    public static final BdUniqueId aYu = BdUniqueId.gen();
+    public static final BdUniqueId aYv = BdUniqueId.gen();
+    private String aYw;
+    public SpannableStringBuilder aYx;
 
-    public String CR() {
-        return this.aTi;
+    public String Iu() {
+        return this.aYw;
     }
 
-    public void fq(String str) {
-        this.aTi = str;
+    public void gL(String str) {
+        this.aYw = str;
     }
 
     @Override // com.baidu.live.adp.widget.listview.IAdapterData
     public BdUniqueId getType() {
         if (getMsgType() == 24) {
-            return aTe;
+            return aYs;
         }
         if (getMsgType() == 13) {
-            return aTf;
+            return aYt;
         }
         if (getMsgType() == 26) {
-            return aTf;
+            return aYt;
         }
         if (getMsgType() == 125) {
-            return aTg;
+            return aYu;
         }
         if (getMsgType() == 27) {
-            return aTf;
+            return aYt;
         }
         if (getMsgType() == 12) {
-            return aTf;
+            return aYt;
         }
         if (getMsgType() == 28) {
-            return aTh;
+            return aYv;
         }
-        return aTd;
+        return aYr;
     }
 
-    public boolean F(JSONObject jSONObject) {
+    public boolean H(JSONObject jSONObject) {
         setMsgId(jSONObject.optLong("msgId"));
         setMsgType(jSONObject.optInt("msgType"));
         setUserId(jSONObject.optLong(TbEnum.SystemMessage.KEY_USER_ID));
         l(jSONObject.optJSONArray("toUid"));
         setContent(jSONObject.optString("content"));
-        cG(jSONObject.optInt("barrageType"));
-        fw(jSONObject.optString("barrageId"));
+        ew(jSONObject.optInt("barrageType"));
+        gR(jSONObject.optString("barrageId"));
         String optString = jSONObject.optString("barrageCard");
         if (!TextUtils.isEmpty(optString)) {
             try {
@@ -108,22 +108,22 @@ public class a extends com.baidu.live.im.data.a {
             jSONObject.put("msgType", getMsgType());
             jSONObject.put(TbEnum.SystemMessage.KEY_USER_ID, getUserId());
             jSONObject.put("content", getContent());
-            jSONObject.put("barrageType", El());
-            jSONObject.put("barrageId", Em());
-            com.baidu.live.im.data.b En = En();
-            if (En != null) {
-                jSONObject.put("barrageCard", En.toJsonString());
+            jSONObject.put("barrageType", JO());
+            jSONObject.put("barrageId", JP());
+            com.baidu.live.im.data.b JQ = JQ();
+            if (JQ != null) {
+                jSONObject.put("barrageCard", JQ.toJsonString());
             }
-            if (Eo() != null && Eo().length > 0) {
+            if (JR() != null && JR().length > 0) {
                 JSONArray jSONArray = new JSONArray();
-                for (int i = 0; i < Eo().length; i++) {
-                    jSONArray.put(Eo()[i]);
+                for (int i = 0; i < JR().length; i++) {
+                    jSONArray.put(JR()[i]);
                 }
                 jSONObject.put("imEffect", jSONArray);
             }
             new JSONObject();
-            if (Eh() != null) {
-                jSONObject.put("userInfo", Eh().toJsonObject());
+            if (JK() != null) {
+                jSONObject.put("userInfo", JK().toJsonObject());
             }
             jSONObject.put("createTime", getTime());
         } catch (JSONException e) {
@@ -132,7 +132,7 @@ public class a extends com.baidu.live.im.data.a {
         return jSONObject;
     }
 
-    public String CS() {
+    public String Iv() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("msg_id", getMsgId());
@@ -141,22 +141,22 @@ public class a extends com.baidu.live.im.data.a {
             jSONObject.put("user_id", getUserId());
             jSONObject.put("content", getContent());
             jSONObject.put("live_enter_type", TbConfig.getLiveEnterFrom());
-            jSONObject.put("barrageType", El());
-            jSONObject.put("barrageId", Em());
-            com.baidu.live.im.data.b En = En();
-            if (En != null) {
-                jSONObject.put("barrageCard", En.toJsonString());
+            jSONObject.put("barrageType", JO());
+            jSONObject.put("barrageId", JP());
+            com.baidu.live.im.data.b JQ = JQ();
+            if (JQ != null) {
+                jSONObject.put("barrageCard", JQ.toJsonString());
             }
-            if (Eo() != null && Eo().length > 0) {
+            if (JR() != null && JR().length > 0) {
                 JSONArray jSONArray = new JSONArray();
-                for (int i = 0; i < Eo().length; i++) {
-                    jSONArray.put(Eo()[i]);
+                for (int i = 0; i < JR().length; i++) {
+                    jSONArray.put(JR()[i]);
                 }
                 jSONObject.put("imEffect", jSONArray);
             }
             new JSONObject();
-            if (Eh() != null) {
-                jSONObject.put("user_info", Eh().toJsonObject());
+            if (JK() != null) {
+                jSONObject.put("user_info", JK().toJsonObject());
             }
             JSONArray jSONArray2 = new JSONArray();
             jSONArray2.put(toJsonObject());

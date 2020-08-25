@@ -3,10 +3,10 @@ package com.baidu.swan.games.bdtls.model;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.q;
 @kotlin.h
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class i {
-    private String dfv;
-    private Integer dfw;
+    private String dpE;
+    private Integer dpF;
 
     public i() {
         this(null, null, 3, null);
@@ -16,7 +16,7 @@ public final class i {
         if (this != obj) {
             if (obj instanceof i) {
                 i iVar = (i) obj;
-                if (!q.l((Object) this.dfv, (Object) iVar.dfv) || !q.l(this.dfw, iVar.dfw)) {
+                if (!q.l((Object) this.dpE, (Object) iVar.dpE) || !q.l(this.dpF, iVar.dpF)) {
                 }
             }
             return false;
@@ -25,19 +25,19 @@ public final class i {
     }
 
     public int hashCode() {
-        String str = this.dfv;
+        String str = this.dpE;
         int hashCode = (str != null ? str.hashCode() : 0) * 31;
-        Integer num = this.dfw;
+        Integer num = this.dpF;
         return hashCode + (num != null ? num.hashCode() : 0);
     }
 
     public String toString() {
-        return "ResponseParams(responseMessage=" + this.dfv + ", responseStatusCode=" + this.dfw + ")";
+        return "ResponseParams(responseMessage=" + this.dpE + ", responseStatusCode=" + this.dpF + ")";
     }
 
     public i(String str, Integer num) {
-        this.dfv = str;
-        this.dfw = num;
+        this.dpE = str;
+        this.dpF = num;
     }
 
     public /* synthetic */ i(String str, Integer num, int i, o oVar) {
@@ -45,18 +45,18 @@ public final class i {
     }
 
     public final String getResponseMessage() {
-        return this.dfv;
+        return this.dpE;
     }
 
-    public final void sp(String str) {
-        this.dfv = str;
+    public final void uH(String str) {
+        this.dpE = str;
     }
 
-    public final Integer aDw() {
-        return this.dfw;
+    public final Integer aMl() {
+        return this.dpF;
     }
 
-    public final void c(Integer num) {
-        this.dfw = num;
+    public final void d(Integer num) {
+        this.dpF = num;
     }
 }

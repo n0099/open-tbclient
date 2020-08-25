@@ -6,16 +6,17 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
+import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class CircleView extends View {
-    private static int dVP = 360;
-    private static int dVQ = 100;
-    private int bhZ;
-    private int dVR;
-    private Paint dVS;
-    private Paint dVT;
-    private RectF dVU;
+    private static int efp = EncoderTextureDrawer.X264_WIDTH;
+    private static int efq = 100;
+    private int bnH;
+    private int efr;
+    private Paint efs;
+    private Paint eft;
+    private RectF efu;
     private int mValue;
     private int mWidth;
 
@@ -44,24 +45,24 @@ public class CircleView extends View {
 
     public void init() {
         this.mWidth = getResources().getDimensionPixelSize(R.dimen.ds100);
-        this.bhZ = getResources().getDimensionPixelSize(R.dimen.ds4);
-        this.dVR = getResources().getDimensionPixelSize(R.dimen.ds2);
-        this.dVS = new Paint();
-        this.dVS.setStrokeWidth(this.bhZ);
-        this.dVS.setColor(getResources().getColor(R.color.cp_cont_g));
-        this.dVS.setStyle(Paint.Style.STROKE);
-        this.dVS.setAntiAlias(true);
-        this.dVT = new Paint();
-        this.dVT.setStrokeWidth(this.dVR);
-        this.dVT.setColor(getResources().getColor(R.color.common_color_10042));
-        this.dVT.setStyle(Paint.Style.STROKE);
-        this.dVT.setAntiAlias(true);
-        this.dVU = new RectF(this.bhZ, this.bhZ, this.mWidth + this.bhZ, this.mWidth + this.bhZ);
+        this.bnH = getResources().getDimensionPixelSize(R.dimen.ds4);
+        this.efr = getResources().getDimensionPixelSize(R.dimen.ds2);
+        this.efs = new Paint();
+        this.efs.setStrokeWidth(this.bnH);
+        this.efs.setColor(getResources().getColor(R.color.cp_cont_g));
+        this.efs.setStyle(Paint.Style.STROKE);
+        this.efs.setAntiAlias(true);
+        this.eft = new Paint();
+        this.eft.setStrokeWidth(this.efr);
+        this.eft.setColor(getResources().getColor(R.color.common_color_10042));
+        this.eft.setStyle(Paint.Style.STROKE);
+        this.eft.setAntiAlias(true);
+        this.efu = new RectF(this.bnH, this.bnH, this.mWidth + this.bnH, this.mWidth + this.bnH);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        canvas.drawArc(this.dVU, 0.0f, dVP, false, this.dVT);
-        canvas.drawArc(this.dVU, 270.0f, (dVP * this.mValue) / dVQ, false, this.dVS);
+        canvas.drawArc(this.efu, 0.0f, efp, false, this.eft);
+        canvas.drawArc(this.efu, 270.0f, (efp * this.mValue) / efq, false, this.efs);
     }
 }

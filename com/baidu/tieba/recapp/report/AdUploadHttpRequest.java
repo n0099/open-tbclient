@@ -3,13 +3,13 @@ package com.baidu.tieba.recapp.report;
 import android.os.Build;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.lib.util.j;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class AdUploadHttpRequest extends HttpMessage {
     private static final String KEY_AD = "ad";
     private static final String KEY_BRAND = "brand";
@@ -23,7 +23,7 @@ public class AdUploadHttpRequest extends HttpMessage {
         super(1003062);
         this.dataArray = new ArrayList<>();
         this.dataArray.addAll(arrayList);
-        addParam(KEY_AD, toJSONString(this.dataArray));
+        addParam("ad", toJSONString(this.dataArray));
         addParam("brand", Build.BRAND);
         addParam(KEY_OS_VERSION, Build.VERSION.SDK);
         addParam(KEY_PRODUCT_ID, 2);
@@ -35,7 +35,7 @@ public class AdUploadHttpRequest extends HttpMessage {
         super(1003062);
         this.dataArray = new ArrayList<>();
         this.dataArray.add(cVar);
-        addParam(KEY_AD, toJSONString(this.dataArray));
+        addParam("ad", toJSONString(this.dataArray));
         addParam("brand", Build.BRAND);
         addParam(KEY_OS_VERSION, Build.VERSION.SDK);
     }
@@ -45,7 +45,7 @@ public class AdUploadHttpRequest extends HttpMessage {
     }
 
     private String toJSONString(ArrayList<c> arrayList) {
-        if (x.getCount(arrayList) <= 0) {
+        if (y.getCount(arrayList) <= 0) {
             return null;
         }
         JSONArray jSONArray = new JSONArray();
@@ -53,7 +53,7 @@ public class AdUploadHttpRequest extends HttpMessage {
         while (it.hasNext()) {
             c next = it.next();
             if (next != null) {
-                jSONArray.put(next.dcX());
+                jSONArray.put(next.doh());
             }
         }
         return jSONArray.toString();

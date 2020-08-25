@@ -3,12 +3,12 @@ package com.baidu.swan.pms.c.b;
 import android.text.TextUtils;
 import com.baidu.swan.pms.a.g;
 import com.baidu.swan.pms.c.c.a;
-import com.baidu.swan.pms.f.f;
 import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.swan.pms.utils.f;
 import java.util.ArrayList;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes14.dex */
 public class a extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.a> {
     public a(g gVar, com.baidu.swan.pms.c.d.g gVar2) {
         super(gVar, gVar2);
@@ -17,66 +17,66 @@ public class a extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.a> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.pms.c.d
-    /* renamed from: cn */
-    public com.baidu.swan.pms.c.c.a bL(JSONObject jSONObject) {
-        return com.baidu.swan.pms.f.e.cA(jSONObject);
+    /* renamed from: cs */
+    public com.baidu.swan.pms.c.c.a cr(JSONObject jSONObject) {
+        return com.baidu.swan.pms.utils.e.cF(jSONObject);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: a */
-    public com.baidu.swan.pms.model.a X(com.baidu.swan.pms.c.c.a aVar) {
-        this.dwq.abX();
+    public com.baidu.swan.pms.model.a ag(com.baidu.swan.pms.c.c.a aVar) {
+        this.dFu.aiw();
         f fVar = new f();
-        Map<String, PMSAppInfo> aKU = com.baidu.swan.pms.database.a.aKS().aKU();
+        Map<String, PMSAppInfo> aTv = com.baidu.swan.pms.database.a.aTt().aTv();
         ArrayList arrayList = new ArrayList();
-        for (a.C0474a c0474a : aVar.dwV) {
-            if (c0474a != null) {
-                if (c0474a.errorCode != 0) {
-                    this.dwq.abY().a(c0474a, aKU.get(c0474a.dvZ), new com.baidu.swan.pms.model.a(c0474a.errorCode, c0474a.dvZ + "，Server返回错误"));
+        for (a.C0520a c0520a : aVar.dGa) {
+            if (c0520a != null) {
+                if (c0520a.errorCode != 0) {
+                    this.dFu.aix().a(c0520a, aTv.get(c0520a.dFj), new com.baidu.swan.pms.model.a(c0520a.errorCode, c0520a.dFj + "，Server返回错误"));
                 } else {
-                    if (c0474a.dwX != null) {
-                        for (com.baidu.swan.pms.model.g gVar : c0474a.dwX) {
+                    if (c0520a.dGc != null) {
+                        for (com.baidu.swan.pms.model.g gVar : c0520a.dGc) {
                             if (gVar != null) {
-                                gVar.appId = c0474a.dvZ;
+                                gVar.appId = c0520a.dFj;
                             }
                         }
-                        a(c0474a.dwX, fVar);
-                        arrayList.addAll(c0474a.dwX);
+                        a(c0520a.dGc, fVar);
+                        arrayList.addAll(c0520a.dGc);
                     }
-                    if (c0474a.dwW != null && c0474a.dwY != null) {
-                        c0474a.dwY.appId = c0474a.dvZ;
-                        a(c0474a.dwW, fVar);
+                    if (c0520a.dGb != null && c0520a.dGd != null) {
+                        c0520a.dGd.appId = c0520a.dFj;
+                        a(c0520a.dGb, fVar);
                     } else {
-                        PMSAppInfo pMSAppInfo = aKU.get(c0474a.dvZ);
+                        PMSAppInfo pMSAppInfo = aTv.get(c0520a.dFj);
                         if (pMSAppInfo == null) {
-                            if (c0474a.dwY != null) {
-                                c0474a.dwY.appId = c0474a.dvZ;
-                                if (c0474a.dwX != null && !c0474a.dwX.isEmpty()) {
-                                    c0474a.dwY.m(c0474a.dwX.get(0));
+                            if (c0520a.dGd != null) {
+                                c0520a.dGd.appId = c0520a.dFj;
+                                if (c0520a.dGc != null && !c0520a.dGc.isEmpty()) {
+                                    c0520a.dGd.m(c0520a.dGc.get(0));
                                 }
-                                this.dwq.abY().b(c0474a.dwY, null);
+                                this.dFu.aix().b(c0520a.dGd, null);
                             } else {
-                                this.dwq.abY().a(c0474a, null, new com.baidu.swan.pms.model.a(c0474a.errorCode, c0474a.dvZ + "，本地记录不存在"));
+                                this.dFu.aix().a(c0520a, null, new com.baidu.swan.pms.model.a(c0520a.errorCode, c0520a.dFj + "，本地记录不存在"));
                             }
-                        } else if (c0474a.dwW == null && c0474a.dwY != null) {
-                            c0474a.dwY.appId = c0474a.dvZ;
-                            this.dwq.abY().b(c0474a.dwY, pMSAppInfo);
-                        } else if (c0474a.dwW != null && c0474a.dwY == null) {
-                            c0474a.dwZ = true;
-                            c0474a.dwY = pMSAppInfo;
-                            a(c0474a.dwW, fVar);
+                        } else if (c0520a.dGb == null && c0520a.dGd != null) {
+                            c0520a.dGd.appId = c0520a.dFj;
+                            this.dFu.aix().b(c0520a.dGd, pMSAppInfo);
+                        } else if (c0520a.dGb != null && c0520a.dGd == null) {
+                            c0520a.dGe = true;
+                            c0520a.dGd = pMSAppInfo;
+                            a(c0520a.dGb, fVar);
                         }
                     }
                 }
             }
         }
-        if (fVar.aMl() == 0) {
-            this.dwq.Zs();
+        if (fVar.aUK() == 0) {
+            this.dFu.afB();
         } else {
-            this.dwq.a(fVar);
-            com.baidu.swan.pms.c.a.a.a(aVar, arrayList, this.dwq);
+            this.dFu.a(fVar);
+            com.baidu.swan.pms.c.a.a.a(aVar, arrayList, this.dFu);
         }
         return null;
     }
@@ -85,25 +85,25 @@ public class a extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.a> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: b */
-    public boolean W(com.baidu.swan.pms.c.c.a aVar) {
+    public boolean ah(com.baidu.swan.pms.c.c.a aVar) {
         if (aVar == null) {
             return false;
         }
-        if (aVar.dwV == null || aVar.dwV.isEmpty()) {
+        if (aVar.dGa == null || aVar.dGa.isEmpty()) {
             return false;
         }
-        for (a.C0474a c0474a : aVar.dwV) {
-            if (TextUtils.isEmpty(c0474a.dvZ)) {
+        for (a.C0520a c0520a : aVar.dGa) {
+            if (TextUtils.isEmpty(c0520a.dFj)) {
                 return false;
             }
-            if (c0474a.errorCode == 0) {
-                if (c0474a.dwW == null && c0474a.dwY == null && c0474a.dwX == null) {
+            if (c0520a.errorCode == 0) {
+                if (c0520a.dGb == null && c0520a.dGd == null && c0520a.dGc == null) {
                     return false;
                 }
-                if (c0474a.dwW != null && !c0474a.dwW.acP()) {
+                if (c0520a.dGb != null && !c0520a.dGb.ajo()) {
                     return false;
                 }
-                if (c0474a.dwY != null && !c0474a.dwY.acP()) {
+                if (c0520a.dGd != null && !c0520a.dGd.ajo()) {
                     return false;
                 }
             }
@@ -112,7 +112,7 @@ public class a extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.a> {
     }
 
     @Override // com.baidu.swan.pms.c.d
-    protected String ayY() {
+    protected String aTI() {
         return "getpkglist";
     }
 }

@@ -22,7 +22,7 @@ import com.baidu.tieba.live.tbean.message.GetYinJiRequestMessage;
 import com.baidu.tieba.live.tbean.message.IYinJiResponse;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class BuyTBeanModel extends BdBaseModel {
     public static final String GET_BIG_TBEAN_WALLET_H5 = "tbmall/getPayUrl";
     public static final String GET_ICON_URL = "tbmall/pay/geticonlist";
@@ -37,7 +37,7 @@ public class BuyTBeanModel extends BdBaseModel {
     private UserInfoData userInfo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface CallBack {
         void onFailed(String str);
 

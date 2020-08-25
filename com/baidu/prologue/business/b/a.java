@@ -7,77 +7,77 @@ import com.baidu.prologue.business.d;
 import com.baidu.prologue.business.data.e;
 import com.baidu.prologue.business.data.f;
 import com.baidu.prologue.service.network.Als;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a<T extends com.baidu.prologue.business.c.b> {
-    private T bFH = null;
-    e bFI;
-    private d bFJ;
-    private com.baidu.prologue.business.data.b bFK;
+    private T bLh = null;
+    e bLi;
+    private d bLj;
+    private com.baidu.prologue.business.data.b bLk;
     Context mContext;
 
     public a(Context context, e eVar) {
-        this.bFI = null;
-        this.bFI = eVar;
+        this.bLi = null;
+        this.bLi = eVar;
         this.mContext = context;
-        this.bFK = new com.baidu.prologue.business.data.b(this.bFI);
+        this.bLk = new com.baidu.prologue.business.data.b(this.bLi);
         com.baidu.prologue.business.data.c.b(eVar);
     }
 
     public void a(T t) {
-        this.bFH = t;
-        t.gM(this.bFI.bFk).cZ(this.bFI.isFullScreen()).ef(this.bFI.bFm).gL(String.valueOf(this.bFI.bFl)).da(this.bFI.bFs).gN(this.bFI.bFj);
+        this.bLh = t;
+        t.ig(this.bLi.bKK).dh(this.bLi.isFullScreen()).gb(this.bLi.bKM).m31if(String.valueOf(this.bLi.bKL)).di(this.bLi.bKS).ih(this.bLi.bKJ);
     }
 
-    public T PK() {
-        return this.bFH;
+    public T VF() {
+        return this.bLh;
     }
 
     public void a(d dVar) {
-        this.bFJ = dVar;
+        this.bLj = dVar;
     }
 
-    public void pZ() {
-        this.bFJ.pZ();
-        gK(Als.CloseType.COUNTDOWN_TIME_FINISH.value);
+    public void ry() {
+        this.bLj.ry();
+        ie(Als.CloseType.COUNTDOWN_TIME_FINISH.value);
     }
 
     public void onAdShow() {
-        if (this.bFK != null && this.bFJ != null && this.bFJ.Pq() != null) {
-            this.bFK.Pt();
-            this.bFJ.onAdShow();
-            this.bFJ.Pq().addView(PK().getRootView());
-            com.baidu.prologue.business.data.d.e(this.bFI);
-            f.h(this.bFI);
-            Log.d("SplashAdBasePresenter", "onadshow currate: " + this.bFI.bFr);
+        if (this.bLk != null && this.bLj != null && this.bLj.Vm() != null) {
+            this.bLk.Vp();
+            this.bLj.onAdShow();
+            this.bLj.Vm().addView(VF().getRootView());
+            com.baidu.prologue.business.data.d.e(this.bLi);
+            f.h(this.bLi);
+            Log.d("SplashAdBasePresenter", "onadshow currate: " + this.bLi.bKR);
         }
     }
 
-    public void gJ(String str) {
-        if (this.bFI.PE()) {
-            this.bFK.a(Als.Area.IMAGE, str);
+    public void id(String str) {
+        if (this.bLi.VA()) {
+            this.bLk.a(Als.Area.IMAGE, str);
         } else {
-            this.bFK.a(Als.Area.VIDEO, str);
+            this.bLk.a(Als.Area.VIDEO, str);
         }
-        this.bFJ.onAdClick();
-        com.baidu.prologue.c.d.invoke(this.mContext, this.bFI.action);
-        gK(Als.CloseType.CLICK_AD_AREA.value);
+        this.bLj.onAdClick();
+        com.baidu.prologue.c.d.invoke(this.mContext, this.bLi.action);
+        ie(Als.CloseType.CLICK_AD_AREA.value);
     }
 
-    public void Pr() {
-        this.bFJ.Pr();
-        gK(Als.CloseType.CLICK_SKIP_BUTTON.value);
+    public void Vn() {
+        this.bLj.Vn();
+        ie(Als.CloseType.CLICK_SKIP_BUTTON.value);
     }
 
-    protected void gK(String str) {
+    protected void ie(String str) {
         if (Als.CloseType.COUNTDOWN_TIME_FINISH.value.equals(str)) {
-            this.bFK.h(str, this.bFH.PO());
+            this.bLk.g(str, this.bLh.VJ());
         } else {
-            this.bFK.h(str, this.bFH.PN());
+            this.bLk.g(str, this.bLh.VI());
         }
-        com.baidu.prologue.business.a.a(com.baidu.prologue.a.b.a.bEI.get());
+        com.baidu.prologue.business.a.a(com.baidu.prologue.a.b.a.bKi.get());
     }
 
-    public void PL() {
-        this.bFJ.Ps();
+    public void VG() {
+        this.bLj.Vo();
     }
 }

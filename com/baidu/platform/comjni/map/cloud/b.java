@@ -3,7 +3,7 @@ package com.baidu.platform.comjni.map.cloud;
 import android.os.Handler;
 import com.baidu.mapapi.http.HttpClient;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class b extends HttpClient.ProtoResultCallback {
     final /* synthetic */ a a;
 

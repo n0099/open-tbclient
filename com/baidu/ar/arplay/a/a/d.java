@@ -1,28 +1,28 @@
 package com.baidu.ar.arplay.a.a;
 /* loaded from: classes11.dex */
 public class d {
-    private int ep;
-    private String eq;
+    private int dR;
+    private String dS;
     private int type;
 
     public int getInterval() {
-        return this.ep;
+        return this.dR;
     }
 
     public String getPattern() {
-        return this.eq;
+        return this.dS;
     }
 
     public int getType() {
         return this.type;
     }
 
-    public void k(int i) {
-        this.ep = i;
+    public void h(int i) {
+        this.dR = i;
     }
 
     public void setPattern(String str) {
-        this.eq = str;
+        this.dS = str;
     }
 
     public void setType(int i) {

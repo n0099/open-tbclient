@@ -17,7 +17,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class a extends com.baidu.platform.base.d {
     private LatLng a(JSONObject jSONObject) {
         if (jSONObject == null) {
@@ -65,7 +65,7 @@ public class a extends com.baidu.platform.base.d {
                 bikingStep.setEntrance(RouteNode.location(a(optJSONObject.optJSONObject("stepOriginLocation"))));
                 bikingStep.setExit(RouteNode.location(a(optJSONObject.optJSONObject("stepDestinationLocation"))));
                 String optString = optJSONObject.optString("instructions");
-                if (optString != null || optString.length() >= 4) {
+                if (optString != null && optString.length() >= 4) {
                     optString = optString.replaceAll("</?[a-z]>", "");
                 }
                 bikingStep.setInstructions(optString);

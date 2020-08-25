@@ -2,9 +2,16 @@ package com.baidu.pass.http;
 
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
-public class HttpHashMap {
+/* loaded from: classes4.dex */
+public class HttpHashMap implements com.baidu.pass.a {
     private Map<String, String> a = new HashMap();
+
+    public void doSign(String str) {
+    }
+
+    public String get(String str) {
+        return this.a.get(str);
+    }
 
     public Map getMap() {
         return this.a;
@@ -16,12 +23,5 @@ public class HttpHashMap {
 
     public void putAll(Map<? extends String, ? extends String> map) {
         this.a.putAll(map);
-    }
-
-    public String get(String str) {
-        return this.a.get(str);
-    }
-
-    public void doSign(String str) {
     }
 }

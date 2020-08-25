@@ -8,7 +8,7 @@ import com.baidu.live.adp.lib.image.loader.interfaces.IGenerateImageAddress;
 import com.baidu.live.adp.lib.image.loader.interfaces.IImageLoader;
 import com.baidu.live.adp.lib.image.loader.interfaces.IImageLoaderListener;
 import com.baidu.live.adp.widget.imageview.BdImage;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class BdResourceLoader {
     private static volatile BdResourceLoader sInstance;
     private IImageLoader mImageLoader = ImageLoaderManager.getInstance().buildImageLoader();

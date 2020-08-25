@@ -2,13 +2,13 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class MemoryModifyVisibilityMessage extends CustomResponsedMessage<a> {
     public MemoryModifyVisibilityMessage(a aVar) {
         super(CmdConfigCustom.MEMORY_MODIFY_VISIBILITY, aVar);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public int customGroupType;
         public String id;

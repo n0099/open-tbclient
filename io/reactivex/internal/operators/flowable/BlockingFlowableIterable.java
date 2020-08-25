@@ -14,17 +14,17 @@ import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes7.dex */
 public final class BlockingFlowableIterable<T> implements Iterable<T> {
     final int bufferSize;
-    final io.reactivex.g<T> nSG;
+    final io.reactivex.g<T> omB;
 
     @Override // java.lang.Iterable
     public Iterator<T> iterator() {
         BlockingFlowableIterator blockingFlowableIterator = new BlockingFlowableIterator(this.bufferSize);
-        this.nSG.a((j) blockingFlowableIterator);
+        this.omB.a((j) blockingFlowableIterator);
         return blockingFlowableIterator;
     }
 
     /* loaded from: classes7.dex */
-    static final class BlockingFlowableIterator<T> extends AtomicReference<org.a.d> implements io.reactivex.disposables.b, j<T>, Runnable, Iterator<T> {
+    static final class BlockingFlowableIterator<T> extends AtomicReference<org.b.d> implements io.reactivex.disposables.b, j<T>, Runnable, Iterator<T> {
         private static final long serialVersionUID = 6695226475494099826L;
         final long batchSize;
         volatile boolean done;
@@ -49,14 +49,14 @@ public final class BlockingFlowableIterable<T> implements Iterable<T> {
                 if (z) {
                     Throwable th = this.error;
                     if (th != null) {
-                        throw ExceptionHelper.M(th);
+                        throw ExceptionHelper.L(th);
                     }
                     if (isEmpty) {
                         return false;
                     }
                 }
                 if (isEmpty) {
-                    io.reactivex.internal.util.c.dTq();
+                    io.reactivex.internal.util.c.efs();
                     this.lock.lock();
                     while (!this.done && this.queue.isEmpty()) {
                         try {
@@ -64,7 +64,7 @@ public final class BlockingFlowableIterable<T> implements Iterable<T> {
                                 this.condition.await();
                             } catch (InterruptedException e) {
                                 run();
-                                throw ExceptionHelper.M(e);
+                                throw ExceptionHelper.L(e);
                             }
                         } finally {
                             this.lock.unlock();
@@ -92,14 +92,14 @@ public final class BlockingFlowableIterable<T> implements Iterable<T> {
             throw new NoSuchElementException();
         }
 
-        @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        @Override // io.reactivex.j, org.b.c
+        public void onSubscribe(org.b.d dVar) {
             if (SubscriptionHelper.setOnce(this, dVar)) {
                 dVar.request(this.batchSize);
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(T t) {
             if (!this.queue.offer(t)) {
                 SubscriptionHelper.cancel(this);
@@ -109,14 +109,14 @@ public final class BlockingFlowableIterable<T> implements Iterable<T> {
             signalConsumer();
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
             this.error = th;
             this.done = true;
             signalConsumer();
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
             this.done = true;
             signalConsumer();

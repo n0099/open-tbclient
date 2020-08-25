@@ -22,7 +22,7 @@ import com.baidu.tbadk.core.atomData.EditHeadActivityConfig;
 import com.baidu.tbadk.core.atomData.GroupAddressEditActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonGroupActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.GroupAddressInfoData;
 import com.baidu.tieba.im.message.RequestAddGroupMessage;
@@ -32,12 +32,12 @@ import com.baidu.tieba.im.util.b;
 import java.util.List;
 /* loaded from: classes17.dex */
 public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivity> implements TextWatcher, CompoundButton.OnCheckedChangeListener, b.a {
-    AddGroupModel iVI;
-    j iVH = null;
+    AddGroupModel jkH;
+    j jkG = null;
     private int sourceFrom = 1014;
-    private final GroupAddressInfoData iVJ = new GroupAddressInfoData();
-    private int iVK = 0;
-    private final com.baidu.adp.framework.listener.c iVL = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.creategroup.CreateGroupStepActivity.1
+    private final GroupAddressInfoData jkI = new GroupAddressInfoData();
+    private int jkJ = 0;
+    private final com.baidu.adp.framework.listener.c jkK = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.creategroup.CreateGroupStepActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -49,7 +49,7 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
                 }
                 ResponseAddGroupMessage responseAddGroupMessage = (ResponseAddGroupMessage) socketResponsedMessage;
                 if (responseAddGroupMessage.getError() != 0) {
-                    CreateGroupStepActivity.this.aR(responseAddGroupMessage.getErrorString(), responseAddGroupMessage.getError());
+                    CreateGroupStepActivity.this.aU(responseAddGroupMessage.getErrorString(), responseAddGroupMessage.getError());
                     return;
                 }
                 RequestAddGroupMessage requestAddGroupMessage = (RequestAddGroupMessage) responseAddGroupMessage.getOrginalMessage();
@@ -71,8 +71,8 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
     public void onCreate(Bundle bundle) {
         int i = 3;
         super.onCreate(bundle);
-        this.iVI = new AddGroupModel(this);
-        this.iVI.setUniqueId(getUniqueId());
+        this.jkH = new AddGroupModel(this);
+        this.jkH.setUniqueId(getUniqueId());
         Intent intent = getIntent();
         int intExtra = intent.getIntExtra("group_type", 3);
         int intExtra2 = intent.getIntExtra("forumid", 0);
@@ -82,19 +82,19 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
         } else if (intExtra == 3) {
             i = 2;
         }
-        this.iVH = new j(this, i, intent.getIntExtra("num_create_group_private", 0), intent.getIntExtra("num_create_group_normal", 0), intent.getIntExtra("num_create_group_offical", 0));
-        this.iVH.setData(intExtra, intExtra2);
+        this.jkG = new j(this, i, intent.getIntExtra("num_create_group_private", 0), intent.getIntExtra("num_create_group_normal", 0), intent.getIntExtra("num_create_group_offical", 0));
+        this.jkG.setData(intExtra, intExtra2);
         adjustResizeForSoftInput();
         initListener();
         TiebaStatic.eventStat(getPageContext().getContext(), "create_g_pv", "pv", 1, new Object[0]);
     }
 
     private void initListener() {
-        registerListener(CmdConfigSocket.CMD_ADD_GROUP, this.iVL);
+        registerListener(CmdConfigSocket.CMD_ADD_GROUP, this.jkK);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aR(String str, int i) {
+    public void aU(String str, int i) {
         if (i < 0) {
             showToast(R.string.neterror);
         } else if (!TextUtils.isEmpty(str)) {
@@ -106,7 +106,7 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.iVH.onChangeSkinType(i);
+        this.jkG.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -114,26 +114,26 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i == 22001) {
-            this.iVH.crJ();
-            this.iVH.csz();
+            this.jkG.cCB();
+            this.jkG.cDq();
         } else if (i2 == -1) {
             switch (i) {
-                case 12001:
-                    sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new EditHeadActivityConfig(getPageContext().getPageActivity(), 12001, (int) RequestResponseCode.REQUEST_CAMERA_VIEW, (Uri) null, TbadkApplication.getCurrentAccountObj(), 1, 1.0f)));
+                case RequestResponseCode.REQUEST_CAMERA /* 12001 */:
+                    sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new EditHeadActivityConfig(getPageContext().getPageActivity(), (int) RequestResponseCode.REQUEST_CAMERA, (int) RequestResponseCode.REQUEST_CAMERA_VIEW, (Uri) null, TbadkApplication.getCurrentAccountObj(), 1, 1.0f)));
                     return;
                 case RequestResponseCode.REQUEST_ALBUM_IMAGE /* 12002 */:
-                    this.iVH.Y(intent);
+                    this.jkG.aa(intent);
                     return;
                 case RequestResponseCode.REQUEST_ALBUM_IMAGE_VIEW /* 12009 */:
                 case RequestResponseCode.REQUEST_CAMERA_VIEW /* 12010 */:
-                    this.iVH.setPortrait(intent.getStringExtra(EditHeadActivityConfig.PHOTO_RESOURCE));
-                    this.iVH.csy();
-                    this.iVH.csx();
+                    this.jkG.setPortrait(intent.getStringExtra(EditHeadActivityConfig.PHOTO_RESOURCE));
+                    this.jkG.cDp();
+                    this.jkG.cDo();
                     return;
                 case RequestResponseCode.REQUEST_ADDRESS_VIEW /* 21001 */:
-                    this.iVH.setBusiness(intent.getStringExtra("Selected_Business"));
-                    this.iVH.pK(intent.getBooleanExtra("Hidden_Address_Flag", false));
-                    this.iVK = this.iVJ.getAddressList().indexOf(this.iVH.getBusiness());
+                    this.jkG.setBusiness(intent.getStringExtra("Selected_Business"));
+                    this.jkG.qq(intent.getBooleanExtra("Hidden_Address_Flag", false));
+                    this.jkJ = this.jkI.getAddressList().indexOf(this.jkG.getBusiness());
                     return;
                 default:
                     return;
@@ -141,7 +141,7 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
         } else if (i2 == 0) {
             switch (i) {
                 case RequestResponseCode.REQUEST_CAMERA_VIEW /* 12010 */:
-                    an.g(getPageContext());
+                    ao.g(getPageContext());
                     return;
                 default:
                     return;
@@ -153,7 +153,7 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         super.onRequestPermissionsResult(i, strArr, iArr);
         if (i == 25044) {
-            this.iVH.csz();
+            this.jkG.cDq();
         }
     }
 
@@ -168,73 +168,73 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setIsLoading(boolean z) {
-        this.iVH.csk().setEnabled(!z);
-        this.iVH.setIsLoading(z);
+        this.jkG.cDb().setEnabled(!z);
+        this.jkG.setIsLoading(z);
     }
 
     private void back() {
-        if (this.iVH.csj() == 1) {
+        if (this.jkG.cDa() == 1) {
             finish();
         } else {
-            this.iVH.csD();
+            this.jkG.cDu();
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.iVH.csi()) {
+        if (view == this.jkG.cCZ()) {
             back();
-        } else if (view == this.iVH.csk()) {
+        } else if (view == this.jkG.cDb()) {
             int dip2px = com.baidu.adp.lib.util.l.dip2px(TbadkApplication.getInst().getApp(), 0.0f);
-            if (!this.iVH.csB()) {
-                String errMsg = this.iVH.getErrMsg();
+            if (!this.jkG.cDs()) {
+                String errMsg = this.jkG.getErrMsg();
                 if (!TextUtils.isEmpty(errMsg)) {
                     showToast(errMsg, dip2px);
                 }
-            } else if (this.iVH.csw()) {
-                if (!this.iVH.cso()) {
+            } else if (this.jkG.cDn()) {
+                if (!this.jkG.cDf()) {
                     setIsLoading(true);
-                    this.iVI.setForumId(this.iVH.getForumId());
-                    this.iVI.setName(this.iVH.getName());
-                    this.iVI.setIntro(this.iVH.getIntro());
-                    this.iVI.setGroupType(this.iVH.getGroupType());
-                    this.iVI.setPortrait(this.iVH.getPortrait());
-                    this.iVI.setPosition(this.iVH.YS());
-                    this.iVI.setBusiness(this.iVH.getBusiness());
-                    this.iVI.setLng(this.iVH.csh());
-                    this.iVI.setLat(this.iVH.aWA());
-                    this.iVI.setSourceFrom(this.sourceFrom);
-                    this.iVI.setFlag(this.iVH.csp() ? 1 : 0);
-                    this.iVI.sendMessage();
+                    this.jkH.setForumId(this.jkG.getForumId());
+                    this.jkH.setName(this.jkG.getName());
+                    this.jkH.setIntro(this.jkG.getIntro());
+                    this.jkH.setGroupType(this.jkG.getGroupType());
+                    this.jkH.setPortrait(this.jkG.getPortrait());
+                    this.jkH.setPosition(this.jkG.aeY());
+                    this.jkH.setBusiness(this.jkG.getBusiness());
+                    this.jkH.setLng(this.jkG.cCY());
+                    this.jkH.setLat(this.jkG.beT());
+                    this.jkH.setSourceFrom(this.sourceFrom);
+                    this.jkH.setFlag(this.jkG.cDg() ? 1 : 0);
+                    this.jkH.sendMessage();
                 }
             } else {
-                this.iVH.csE();
+                this.jkG.cDv();
             }
-        } else if (this.iVH.csl() == view) {
-            this.iVH.csE();
-        } else if (view == this.iVH.csm() || view == this.iVH.csn()) {
-            this.iVH.csG();
-        } else if (view == this.iVH.csq()) {
+        } else if (this.jkG.cDc() == view) {
+            this.jkG.cDv();
+        } else if (view == this.jkG.cDd() || view == this.jkG.cDe()) {
+            this.jkG.cDx();
+        } else if (view == this.jkG.cDh()) {
             TiebaStatic.log("edit_place_at_creatgroup");
-            switch (this.iVH.crI()) {
+            switch (this.jkG.cCA()) {
                 case 0:
-                    sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupAddressEditActivityConfig(getPageContext().getPageActivity(), RequestResponseCode.REQUEST_ADDRESS_VIEW, this.iVJ.getAddressList(), this.iVK, this.iVH.csp())));
+                    sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupAddressEditActivityConfig(getPageContext().getPageActivity(), RequestResponseCode.REQUEST_ADDRESS_VIEW, this.jkI.getAddressList(), this.jkJ, this.jkG.cDg())));
                     return;
                 case 1:
                     startActivityForResult(new Intent("android.settings.LOCATION_SOURCE_SETTINGS"), RequestResponseCode.REQUEST_SETTING_LOCATION_SOURCE);
                     return;
                 case 2:
-                    this.iVH.crJ();
-                    this.iVH.csz();
+                    this.jkG.cCB();
+                    this.jkG.cDq();
                     return;
                 case 3:
                 case 4:
                 default:
                     return;
             }
-        } else if (view == this.iVH.csr()) {
-            this.iVH.EV();
+        } else if (view == this.jkG.cDi()) {
+            this.jkG.KA();
         }
     }
 
@@ -244,7 +244,7 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
 
     @Override // android.text.TextWatcher
     public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        this.iVH.csJ();
+        this.jkG.cDA();
     }
 
     @Override // android.text.TextWatcher
@@ -259,32 +259,32 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.iVI.cancelMessage();
-        this.iVH.csA();
+        this.jkH.cancelMessage();
+        this.jkG.cDr();
     }
 
     @Override // com.baidu.tieba.im.util.b.a
     public void a(String str, List<String> list, double d, double d2) {
-        this.iVH.Hp(String.valueOf(d));
-        this.iVH.Ho(String.valueOf(d2));
-        this.iVH.Hq(str);
+        this.jkG.Kh(String.valueOf(d));
+        this.jkG.Kg(String.valueOf(d2));
+        this.jkG.Ki(str);
         if (list != null && list.size() > 0) {
             for (String str2 : list) {
-                this.iVJ.addAddress(str2);
+                this.jkI.addAddress(str2);
             }
-            this.iVH.setBusiness(list.get(0));
+            this.jkG.setBusiness(list.get(0));
             return;
         }
-        this.iVH.Hr(str);
+        this.jkG.Kj(str);
     }
 
     @Override // com.baidu.tieba.im.util.b.a
-    public void csf() {
-        this.iVH.crL();
+    public void cCW() {
+        this.jkG.cCD();
     }
 
     @Override // com.baidu.tieba.im.util.b.a
-    public void csg() {
-        this.iVH.crK();
+    public void cCX() {
+        this.jkG.cCC();
     }
 }

@@ -8,7 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.text.style.ImageSpan;
 import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class CenteredImageSpan extends ImageSpan {
     private WeakReference<Drawable> mDrawableRef;
 

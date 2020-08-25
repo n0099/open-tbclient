@@ -1,5 +1,5 @@
 package com.baidu.fsg.base.utils;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public final class ChannelUtils {
     private static boolean a;
     private static String b;

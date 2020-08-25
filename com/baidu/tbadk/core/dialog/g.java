@@ -4,16 +4,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.core.dialog.k;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class g implements j {
-    private k dVZ;
-    private View dWa;
-    private int dWb;
-    private int dWc;
-    private k.b dWd;
-    private boolean dWe;
+    private View efA;
+    private int efB;
+    private int efC;
+    private k.b efD;
+    private boolean efE;
+    private k efz;
     private int mId;
     private final View.OnClickListener mOnClickListener;
     private String mText;
@@ -31,22 +31,22 @@ public class g implements j {
 
     public g(String str, k kVar) {
         this.mTextColor = R.drawable.person_more_pop_cancel_text_selector;
-        this.dWb = R.color.cp_bg_line_k;
-        this.dWc = 17;
-        this.dWe = false;
+        this.efB = R.color.cp_bg_line_k;
+        this.efC = 17;
+        this.efE = false;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (g.this.dWd != null) {
-                    g.this.dWd.onClick();
+                if (g.this.efD != null) {
+                    g.this.efD.onClick();
                 }
-                if (g.this.dVZ != null && g.this.dVZ.aZa() != null) {
-                    g.this.dVZ.aZa().a(g.this.dVZ, g.this.mId, g.this.mTextView);
+                if (g.this.efz != null && g.this.efz.bhv() != null) {
+                    g.this.efz.bhv().a(g.this.efz, g.this.mId, g.this.mTextView);
                 }
             }
         };
         this.mText = str;
-        this.dVZ = kVar;
+        this.efz = kVar;
         this.mId = hashCode();
         initView();
         initListener();
@@ -54,23 +54,23 @@ public class g implements j {
 
     public g(int i, String str, k kVar) {
         this.mTextColor = R.drawable.person_more_pop_cancel_text_selector;
-        this.dWb = R.color.cp_bg_line_k;
-        this.dWc = 17;
-        this.dWe = false;
+        this.efB = R.color.cp_bg_line_k;
+        this.efC = 17;
+        this.efE = false;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (g.this.dWd != null) {
-                    g.this.dWd.onClick();
+                if (g.this.efD != null) {
+                    g.this.efD.onClick();
                 }
-                if (g.this.dVZ != null && g.this.dVZ.aZa() != null) {
-                    g.this.dVZ.aZa().a(g.this.dVZ, g.this.mId, g.this.mTextView);
+                if (g.this.efz != null && g.this.efz.bhv() != null) {
+                    g.this.efz.bhv().a(g.this.efz, g.this.mId, g.this.mTextView);
                 }
             }
         };
         this.mId = i;
         this.mText = str;
-        this.dVZ = kVar;
+        this.efz = kVar;
         initView();
         initListener();
     }
@@ -86,33 +86,33 @@ public class g implements j {
     }
 
     public void a(k.b bVar) {
-        this.dWd = bVar;
+        this.efD = bVar;
         initListener();
     }
 
     public void setTextColor(int i) {
         this.mTextColor = i;
-        ao.setViewTextColor(this.mTextView, i);
+        ap.setViewTextColor(this.mTextView, i);
     }
 
     @Override // com.baidu.tbadk.core.dialog.j
     public void onChangeSkinType() {
-        ao.setBackgroundResource(this.mTextView, this.dWb);
-        ao.setViewTextColor(this.mTextView, this.mTextColor);
-        ao.setBackgroundColor(this.dWa, R.color.cp_bg_line_c);
+        ap.setBackgroundResource(this.mTextView, this.efB);
+        ap.setViewTextColor(this.mTextView, this.mTextColor);
+        ap.setBackgroundColor(this.efA, R.color.cp_bg_line_c);
     }
 
     private void initView() {
-        if (this.dVZ != null && this.dVZ.getContext() != null) {
-            this.mView = LayoutInflater.from(this.dVZ.getContext()).inflate(R.layout.popup_dialog_view_item, this.dVZ.getView(), false);
+        if (this.efz != null && this.efz.getContext() != null) {
+            this.mView = LayoutInflater.from(this.efz.getContext()).inflate(R.layout.popup_dialog_view_item, this.efz.getView(), false);
             this.mTextView = (TextView) this.mView.findViewById(R.id.item_view);
             this.mTextView.setText(this.mText);
-            this.mTextView.setGravity(this.dWc);
-            this.dWa = this.mView.findViewById(R.id.divider_line);
-            if (this.dWe) {
-                this.dWa.setVisibility(0);
+            this.mTextView.setGravity(this.efC);
+            this.efA = this.mView.findViewById(R.id.divider_line);
+            if (this.efE) {
+                this.efA.setVisibility(0);
             } else {
-                this.dWa.setVisibility(8);
+                this.efA.setVisibility(8);
             }
             onChangeSkinType();
         }

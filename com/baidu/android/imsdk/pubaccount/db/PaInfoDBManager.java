@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class PaInfoDBManager extends DBBase {
     private static final String TAG = PaInfoDBManager.class.getSimpleName();
     private static PaInfoDBManager mInstance = null;
@@ -148,7 +148,7 @@ public class PaInfoDBManager extends DBBase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public class PaInfoParse implements CursorParse {
         PaInfo info = null;
 
@@ -172,7 +172,7 @@ public class PaInfoDBManager extends DBBase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public class PaInfoListParse implements CursorParse {
         List<PaInfo> paList = null;
 
@@ -197,7 +197,7 @@ public class PaInfoDBManager extends DBBase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public class PaidParse implements CursorParse {
         ArrayList<Long> paList = null;
 
@@ -465,19 +465,19 @@ public class PaInfoDBManager extends DBBase {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [476=4] */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x00f3 A[Catch: all -> 0x00f7, TryCatch #3 {, blocks: (B:4:0x0005, B:6:0x0010, B:32:0x00e9, B:33:0x00ec, B:27:0x00b8, B:28:0x00bb, B:37:0x00f3, B:38:0x00f6), top: B:48:0x0005 }] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [475=4] */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x00f3 A[Catch: all -> 0x00ed, TRY_ENTER, TryCatch #4 {, blocks: (B:4:0x000a, B:6:0x0010, B:28:0x00bb, B:32:0x00e9, B:27:0x00b8, B:38:0x00f3, B:39:0x00f6), top: B:47:0x000a }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public List<ChatSession> getShieldUsers(List<Integer> list) {
         Cursor cursor;
         Cursor cursor2 = null;
+        ArrayList arrayList = new ArrayList();
         synchronized (mSyncLock) {
-            ArrayList arrayList = new ArrayList();
             SQLiteDatabase openDatabase = openDatabase();
             if (openDatabase == null) {
-                return null;
+                return arrayList;
             }
             try {
                 String str = "shield = ?";
@@ -503,7 +503,7 @@ public class PaInfoDBManager extends DBBase {
                             if (cursor != null) {
                                 cursor.close();
                             }
-                            return null;
+                            return arrayList;
                         }
                     } catch (Throwable th) {
                         th = th;
@@ -518,7 +518,6 @@ public class PaInfoDBManager extends DBBase {
                 if (cursor != null) {
                     cursor.close();
                 }
-                return arrayList;
             } catch (Exception e2) {
                 e = e2;
                 cursor = null;
@@ -528,10 +527,11 @@ public class PaInfoDBManager extends DBBase {
                 }
                 throw th;
             }
+            return arrayList;
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [547=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [546=4] */
     public void getShieldUserByPaId(@NonNull List<ChatSession> list, boolean z, @NonNull IGetUserShieldListener iGetUserShieldListener) {
         Cursor cursor;
         ChatSession chatSession;

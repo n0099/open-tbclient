@@ -11,7 +11,7 @@ import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public abstract class a {
-    private InterfaceC0026a Qj;
+    private InterfaceC0023a QN;
     private static final Matrix.ScaleToFit[] sS2FArray = {Matrix.ScaleToFit.FILL, Matrix.ScaleToFit.START, Matrix.ScaleToFit.CENTER, Matrix.ScaleToFit.END};
     private static final PorterDuffColorFilter sColorFilterForSkin = new PorterDuffColorFilter(1409286144, PorterDuff.Mode.SRC_ATOP);
     public Paint mPaint = new Paint(6);
@@ -23,14 +23,14 @@ public abstract class a {
     private RectF mTempSrc = new RectF();
     private RectF mTempDst = new RectF();
     private RectF mTempForNinePatch = new RectF();
-    protected e Qk = new e();
+    protected e QO = new e();
     private float[] mValues = new float[9];
     private PointF mPoint = new PointF();
     protected RectF mForegroundRect = new RectF();
 
     /* renamed from: com.baidu.adp.newwidget.ImageView.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0026a {
+    public interface InterfaceC0023a {
         boolean a(Canvas canvas, Drawable drawable);
     }
 
@@ -50,8 +50,8 @@ public abstract class a {
         this.mForegroundPaint.setStyle(Paint.Style.FILL);
     }
 
-    public void a(InterfaceC0026a interfaceC0026a) {
-        this.Qj = interfaceC0026a;
+    public void a(InterfaceC0023a interfaceC0023a) {
+        this.QN = interfaceC0023a;
     }
 
     public void a(d dVar, ImageView imageView, ImageView.ScaleType scaleType) {
@@ -118,15 +118,15 @@ public abstract class a {
         canvas.clipRect(scrollX + paddingLeft, scrollY + paddingTop, ((scrollX + imageView.getRight()) - imageView.getLeft()) - paddingRight, ((scrollY + imageView.getBottom()) - imageView.getTop()) - paddingBottom);
         canvas.translate(paddingLeft, paddingTop);
         int save2 = canvas.save();
-        if (this.Qk.mExtraMatrix != null) {
-            canvas.concat(this.Qk.mExtraMatrix);
+        if (this.QO.mExtraMatrix != null) {
+            canvas.concat(this.QO.mExtraMatrix);
         }
-        if (dVar.Qp != null && dVar.Qp.isNinePatchBitmap()) {
-            if ((dVar.Qp.getRawBitmap().getWidth() + paddingLeft + paddingRight > imageView.getWidth() || dVar.Qp.getRawBitmap().getHeight() + paddingTop + paddingBottom > imageView.getHeight()) && this.mDrawMatrix != null) {
+        if (dVar.QU != null && dVar.QU.isNinePatchBitmap()) {
+            if ((dVar.QU.getRawBitmap().getWidth() + paddingLeft + paddingRight > imageView.getWidth() || dVar.QU.getRawBitmap().getHeight() + paddingTop + paddingBottom > imageView.getHeight()) && this.mDrawMatrix != null) {
                 canvas.concat(this.mDrawMatrix);
             }
             this.mTempForNinePatch.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
-            dVar.Qp.drawNinePatchImage(canvas, this.mTempForNinePatch);
+            dVar.QU.drawNinePatchImage(canvas, this.mTempForNinePatch);
         } else {
             b(canvas, dVar, imageView);
         }
@@ -155,13 +155,13 @@ public abstract class a {
     }
 
     protected void drawBackgroundReal(Canvas canvas, Drawable drawable) {
-        if (this.Qj == null || !this.Qj.a(canvas, drawable)) {
+        if (this.QN == null || !this.QN.a(canvas, drawable)) {
             drawable.draw(canvas);
         }
     }
 
     public void a(e eVar) {
-        this.Qk = eVar;
+        this.QO = eVar;
     }
 
     public Matrix getDrawMatrix() {
@@ -178,14 +178,14 @@ public abstract class a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void updatePaint() {
-        this.mPaint.setAlpha((int) (255.0f * this.Qk.mAlpha));
-        if (this.Qk.mIsNight) {
+        this.mPaint.setAlpha((int) (255.0f * this.QO.mAlpha));
+        if (this.QO.mIsNight) {
             this.mPaint.setColorFilter(sColorFilterForSkin);
         } else {
             this.mPaint.setColorFilter(null);
         }
-        this.mBorderPaint.setColor(this.Qk.mBorderColor);
-        this.mBorderPaint.setStrokeWidth(this.Qk.mBorderWidth);
+        this.mBorderPaint.setColor(this.QO.mBorderColor);
+        this.mBorderPaint.setStrokeWidth(this.QO.mBorderWidth);
     }
 
     private static Matrix.ScaleToFit scaleTypeToScaleToFit(ImageView.ScaleType scaleType) {

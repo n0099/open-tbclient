@@ -29,14 +29,14 @@ import java.io.OutputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.HashMap;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class n {
     public static final File EXTERNAL_STORAGE_DIRECTORY = Environment.getExternalStorageDirectory();
     private static final File CACHE_DIR = TbadkCoreApplication.getInst().getApp().getCacheDir();
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface b {
-        void D(HashMap<String, String> hashMap);
+        void B(HashMap<String, String> hashMap);
     }
 
     public static boolean checkSD() {
@@ -373,11 +373,11 @@ public class n {
         return ((float) imageFileWH[0]) * equipmentDensity >= 100.0f && f >= 3.0f && f <= 50.0f;
     }
 
-    public static boolean xB(String str) {
+    public static boolean zP(String str) {
         return str.endsWith(".heif") || str.endsWith(".heic");
     }
 
-    public static boolean xC(String str) {
+    public static boolean zQ(String str) {
         return str != null && str.endsWith(".css");
     }
 
@@ -770,7 +770,7 @@ public class n {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1188=4, 1189=4, 1191=4, 1192=4, 1193=4, 1197=4, 1198=4, 1200=4, 1201=4, 1202=4] */
-    public static boolean v(java.lang.String r8, java.lang.String r9, boolean r10) {
+    public static boolean u(java.lang.String r8, java.lang.String r9, boolean r10) {
         /*
             r0 = 0
             r3 = 0
@@ -1003,7 +1003,7 @@ public class n {
             r1 = move-exception
             goto La0
         */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tbadk.core.util.n.v(java.lang.String, java.lang.String, boolean):boolean");
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tbadk.core.util.n.u(java.lang.String, java.lang.String, boolean):boolean");
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
@@ -1382,8 +1382,8 @@ public class n {
         }
     }
 
-    public static boolean dm(String str, String str2) {
-        return v(str, str2, false);
+    public static boolean dC(String str, String str2) {
+        return u(str, str2, false);
     }
 
     public static InputStream GetStreamFromFile(String str) {
@@ -1732,7 +1732,7 @@ public class n {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static final String PACKAGE_DATA_DIR = TbadkCoreApplication.getInst().getApp().getFileStreamPath("").getAbsolutePath();
 
@@ -1835,10 +1835,10 @@ public class n {
                 str2 = ".gif";
             }
             if (com.baidu.adp.lib.util.l.isDataWebpFormat(bArr) && (decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length)) != null) {
-                bArr = com.baidu.adp.lib.util.d.mC().Bitmap2Bytes(decodeByteArray, 100);
+                bArr = com.baidu.adp.lib.util.d.ob().Bitmap2Bytes(decodeByteArray, 100);
                 decodeByteArray.recycle();
             }
-            String nameMd5FromUrl = au.getNameMd5FromUrl(str);
+            String nameMd5FromUrl = av.getNameMd5FromUrl(str);
             if (nameMd5FromUrl != null) {
                 String str3 = nameMd5FromUrl + str2;
                 for (int i = 0; CheckFile(str3) && i < 10000; i++) {
@@ -1846,7 +1846,7 @@ public class n {
                 }
                 String i2 = i(str3, bArr);
                 if (i2 != null) {
-                    new y(context).saveImage(i2);
+                    new z(context).saveImage(i2);
                     return 0;
                 }
                 return -2;
@@ -1861,7 +1861,7 @@ public class n {
     public static void a(String[] strArr, final b bVar) {
         if (strArr == null || strArr.length == 0) {
             if (bVar != null) {
-                bVar.D(null);
+                bVar.B(null);
                 return;
             }
             return;
@@ -1869,7 +1869,7 @@ public class n {
         for (String str : strArr) {
             if (TextUtils.isEmpty(str)) {
                 if (bVar != null) {
-                    bVar.D(null);
+                    bVar.B(null);
                     return;
                 } else {
                     return;
@@ -1882,20 +1882,20 @@ public class n {
         }
         final int length = strArr.length;
         MediaScannerConnection.scanFile(TbadkCoreApplication.getInst(), strArr, null, new MediaScannerConnection.OnScanCompletedListener() { // from class: com.baidu.tbadk.core.util.n.1
-            int dZt = 0;
+            int eiZ = 0;
 
             @Override // android.media.MediaScannerConnection.OnScanCompletedListener
             public void onScanCompleted(String str3, Uri uri) {
-                this.dZt++;
+                this.eiZ++;
                 if (uri != null) {
                     hashMap.put(str3, uri.toString());
                 }
-                if (this.dZt == length) {
-                    com.baidu.adp.lib.f.e.lt().post(new Runnable() { // from class: com.baidu.tbadk.core.util.n.1.1
+                if (this.eiZ == length) {
+                    com.baidu.adp.lib.f.e.mS().post(new Runnable() { // from class: com.baidu.tbadk.core.util.n.1.1
                         @Override // java.lang.Runnable
                         public void run() {
                             if (bVar != null) {
-                                bVar.D(hashMap);
+                                bVar.B(hashMap);
                             }
                         }
                     });
@@ -1915,7 +1915,7 @@ public class n {
             } else {
                 str3 = ".gif";
             }
-            String nameMd5FromUrl = au.getNameMd5FromUrl(str2);
+            String nameMd5FromUrl = av.getNameMd5FromUrl(str2);
             if (nameMd5FromUrl != null) {
                 String str4 = nameMd5FromUrl + str3;
                 for (int i = 0; CheckFile(str4) && i < 10000; i++) {
@@ -1923,7 +1923,7 @@ public class n {
                 }
                 String str5 = getCacheDir() + str4;
                 com.baidu.adp.lib.util.f.copyFile(new File(str), new File(str5));
-                new y(context).saveImage(str5);
+                new z(context).saveImage(str5);
                 return 0;
             }
             return -1;
@@ -1994,7 +1994,7 @@ public class n {
         return str.toLowerCase().startsWith("content:") || str.toLowerCase().startsWith("file:");
     }
 
-    public static String xD(String str) {
+    public static String zR(String str) {
         Uri parse = Uri.parse(str);
         if (parse == null) {
             return null;
@@ -2002,7 +2002,7 @@ public class n {
         return parse.getLastPathSegment();
     }
 
-    public static String xE(String str) {
+    public static String zS(String str) {
         Uri parse = Uri.parse(str);
         if (parse == null) {
             return null;
@@ -2010,18 +2010,18 @@ public class n {
         return (TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath() + "/") + parse.getLastPathSegment();
     }
 
-    public static void xF(@NonNull String str) {
+    public static void zT(@NonNull String str) {
         if (str != null) {
-            M(new File(CACHE_DIR + "/" + str));
+            N(new File(CACHE_DIR + "/" + str));
         }
     }
 
-    private static void M(File file) {
+    private static void N(File file) {
         File[] listFiles;
         if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
             for (File file2 : listFiles) {
                 if (file2.isDirectory()) {
-                    M(file2);
+                    N(file2);
                     file2.delete();
                 } else {
                     file2.delete();

@@ -2,7 +2,7 @@ package com.baidu.tbadk.img.effect;
 
 import android.graphics.Bitmap;
 import com.baidu.tbadk.core.util.BitmapHelper;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class f extends b {
     private float roundPx;
 
@@ -24,7 +24,7 @@ public class f extends b {
             return null;
         }
         if (this.roundPx > 0.0f) {
-            com.baidu.tbadk.imageManager.c.bkk().freePicCache(BitmapHelper.getBitmapSize(bitmap) * 2);
+            com.baidu.tbadk.imageManager.c.bsW().freePicCache(BitmapHelper.getBitmapSize(bitmap) * 2);
             return BitmapHelper.getRoundedCornerBitmap(bitmap, this.roundPx, z);
         }
         return bitmap;

@@ -1,44 +1,44 @@
 package com.baidu.mario.gldraw2d.params;
 
 import android.opengl.Matrix;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class b implements Cloneable {
-    private float[] bsx;
-    private boolean bsy;
-    private boolean bsz;
+    private boolean byl;
+    private boolean bym;
     private float[] mMVPMatrix = new float[16];
+    private float[] mTexMatrix;
     private long mTimestamp;
 
     public b() {
         Matrix.setIdentityM(this.mMVPMatrix, 0);
-        this.bsx = new float[16];
-        Matrix.setIdentityM(this.bsx, 0);
-        this.bsy = false;
-        this.bsz = false;
+        this.mTexMatrix = new float[16];
+        Matrix.setIdentityM(this.mTexMatrix, 0);
+        this.byl = false;
+        this.bym = false;
     }
 
-    public float[] LJ() {
+    public float[] RI() {
         return this.mMVPMatrix;
     }
 
-    public void t(float[] fArr) {
+    public void setMVPMatrix(float[] fArr) {
         this.mMVPMatrix = fArr;
     }
 
-    public float[] LK() {
-        return this.bsx;
+    public float[] RJ() {
+        return this.mTexMatrix;
     }
 
     public void u(float[] fArr) {
-        this.bsx = fArr;
+        this.mTexMatrix = fArr;
     }
 
-    public boolean LL() {
-        return this.bsy;
+    public boolean RK() {
+        return this.byl;
     }
 
-    public boolean LM() {
-        return this.bsz;
+    public boolean RL() {
+        return this.bym;
     }
 
     public void setTimestamp(long j) {
@@ -46,7 +46,7 @@ public class b implements Cloneable {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: LN */
+    /* renamed from: RM */
     public b clone() {
         b bVar = null;
         try {
@@ -55,8 +55,8 @@ public class b implements Cloneable {
             e.printStackTrace();
         }
         if (bVar != null) {
-            bVar.t((float[]) this.mMVPMatrix.clone());
-            bVar.u((float[]) this.bsx.clone());
+            bVar.setMVPMatrix((float[]) this.mMVPMatrix.clone());
+            bVar.u((float[]) this.mTexMatrix.clone());
         }
         return bVar;
     }

@@ -13,7 +13,7 @@ import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/debugGameCore");
@@ -34,14 +34,14 @@ public class a extends aa {
             }
             com.baidu.swan.games.l.a.c(optString, new d.b() { // from class: com.baidu.swan.games.k.a.a.1
                 @Override // com.baidu.swan.apps.r.d.b
-                public void dE(int i) {
+                public void fy(int i) {
                 }
 
                 @Override // com.baidu.swan.apps.r.d.b
                 public void onSuccess() {
-                    File afj = b.afj();
-                    File afh = b.afh();
-                    if (afj.exists() && com.baidu.swan.d.d.unzipFile(afj.getPath(), afh.getPath())) {
+                    File amq = b.amq();
+                    File amo = b.amo();
+                    if (amq.exists() && com.baidu.swan.c.d.unzipFile(amq.getPath(), amo.getPath())) {
                         Toast.makeText(AppRuntime.getAppContext(), a.h.debug_game_core_download_success, 1).show();
                     } else {
                         Toast.makeText(AppRuntime.getAppContext(), a.h.debug_game_core_download_failed, 1).show();

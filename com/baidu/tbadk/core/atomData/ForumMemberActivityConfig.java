@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ForumMemberActivityConfig extends IntentConfig {
     public static final String FORUM_ID = "forum_id";
     public static final String FORUM_NAME = "forum_name";

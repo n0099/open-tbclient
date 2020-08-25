@@ -6,7 +6,7 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.ui.animview.base.IAnimatedElement;
 import com.baidu.searchbox.ui.animview.base.IResourceProvider;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes12.dex */
 public abstract class BaseLayoutStrategy implements ILayoutStrategy {
     private static final float ERUPTION_SIZE_DP = 313.0f;
     private static final float PRAISELEVEL_SIZE_DP = 170.0f;
@@ -99,7 +99,7 @@ public abstract class BaseLayoutStrategy implements ILayoutStrategy {
                     iArr[1] = iArr[0];
                     return;
                 case 1:
-                    iArr[0] = DeviceUtil.ScreenInfo.dp2px(AppRuntime.getAppContext(), SHAKE_SIZE_DP);
+                    iArr[0] = DeviceUtil.ScreenInfo.dp2px(AppRuntime.getAppContext(), 21.0f);
                     iArr[1] = iArr[0];
                     return;
                 case 2:

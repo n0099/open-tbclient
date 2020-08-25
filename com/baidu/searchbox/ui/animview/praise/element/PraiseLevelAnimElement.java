@@ -6,9 +6,8 @@ import android.graphics.drawable.Drawable;
 import com.airbnb.lottie.g;
 import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import com.baidu.searchbox.ui.animview.base.IResourcePackage;
-import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.searchbox.ui.animview.util.PraiseLevelUtil;
-/* loaded from: classes7.dex */
+/* loaded from: classes12.dex */
 public class PraiseLevelAnimElement extends BaseAnimatedElement {
     private static final boolean DEBUG = false;
     private static final float FACTOR_SCALE_OUT = 0.82f;
@@ -29,11 +28,11 @@ public class PraiseLevelAnimElement extends BaseAnimatedElement {
 
     @Override // com.baidu.searchbox.ui.animview.base.BaseAnimatedElement
     protected void onInit(Object... objArr) {
-        this.mMaxLevel = this.mResourceProvider.getResourceCounts(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL);
+        this.mMaxLevel = this.mResourceProvider.getResourceCounts("level");
         if (this.mMaxLevel > 0) {
             this.mLottieArray = new g[this.mMaxLevel];
             for (int i = 1; i <= this.mMaxLevel; i++) {
-                IResourcePackage.LottieResource lottie = this.mResourceProvider.getLottie(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, Integer.valueOf(i));
+                IResourcePackage.LottieResource lottie = this.mResourceProvider.getLottie("level", Integer.valueOf(i));
                 if (lottie != null) {
                     g gVar = new g();
                     gVar.setImageAssetDelegate(lottie.mImageAssetDelegate);

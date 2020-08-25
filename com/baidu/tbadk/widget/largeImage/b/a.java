@@ -3,7 +3,7 @@ package com.baidu.tbadk.widget.largeImage.b;
 import android.content.Context;
 import android.graphics.BitmapRegionDecoder;
 import java.io.IOException;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
     private Context mContext;
     private final int[] mWidthAndheight = new int[2];

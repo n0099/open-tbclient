@@ -6,20 +6,20 @@ import android.support.annotation.RestrictTo;
 import java.util.HashMap;
 import java.util.Map;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes3.dex */
+/* loaded from: classes18.dex */
 public class a<K, V> extends b<K, V> {
     private HashMap<K, b.c<K, V>> mHashMap = new HashMap<>();
 
     @Override // android.arch.a.b.b
-    protected b.c<K, V> h(K k) {
+    protected b.c<K, V> i(K k) {
         return this.mHashMap.get(k);
     }
 
     @Override // android.arch.a.b.b
     public V c(@NonNull K k, @NonNull V v) {
-        b.c<K, V> h = h(k);
-        if (h != null) {
-            return h.mValue;
+        b.c<K, V> i = i(k);
+        if (i != null) {
+            return i.mValue;
         }
         this.mHashMap.put(k, d(k, v));
         return null;
@@ -36,9 +36,9 @@ public class a<K, V> extends b<K, V> {
         return this.mHashMap.containsKey(k);
     }
 
-    public Map.Entry<K, V> i(K k) {
+    public Map.Entry<K, V> j(K k) {
         if (contains(k)) {
-            return this.mHashMap.get(k).yf;
+            return this.mHashMap.get(k).yE;
         }
         return null;
     }

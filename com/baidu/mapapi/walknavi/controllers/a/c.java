@@ -2,8 +2,9 @@ package com.baidu.mapapi.walknavi.controllers.a;
 
 import com.baidu.mapapi.walknavi.adapter.IWRoutePlanListener;
 import com.baidu.mapapi.walknavi.model.WalkRoutePlanError;
-/* loaded from: classes10.dex */
-class c implements com.baidu.platform.comapi.wnplatform.i.a {
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes20.dex */
+public class c implements com.baidu.platform.comapi.wnplatform.j.c {
     final /* synthetic */ IWRoutePlanListener a;
     final /* synthetic */ a b;
 
@@ -13,17 +14,17 @@ class c implements com.baidu.platform.comapi.wnplatform.i.a {
         this.a = iWRoutePlanListener;
     }
 
-    @Override // com.baidu.platform.comapi.wnplatform.i.a
+    @Override // com.baidu.platform.comapi.wnplatform.j.c
     public void a() {
         this.a.onRoutePlanStart();
     }
 
-    @Override // com.baidu.platform.comapi.wnplatform.i.a
+    @Override // com.baidu.platform.comapi.wnplatform.j.c
     public void b() {
         this.a.onRoutePlanSuccess();
     }
 
-    @Override // com.baidu.platform.comapi.wnplatform.i.a
+    @Override // com.baidu.platform.comapi.wnplatform.j.c
     public void a(int i) {
         switch (i) {
             case 16777214:

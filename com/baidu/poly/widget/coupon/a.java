@@ -5,35 +5,35 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class a {
-    public boolean bCI;
-    public List<C0256a> bCJ;
+    public boolean bIj;
+    public List<C0277a> bIk;
 
     /* renamed from: com.baidu.poly.widget.coupon.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static class C0256a {
+    /* loaded from: classes6.dex */
+    public static class C0277a {
         public String af;
-        public String bCK;
-        public String bCL;
-        public Long bCM;
-        public int bCN;
-        public String bCO;
+        public String bIl;
+        public String bIm;
+        public Long bIn;
+        public String bIo;
+        public int cf;
         public String icon;
         public int type;
 
-        public C0256a() {
+        public C0277a() {
         }
 
-        C0256a(JSONObject jSONObject) {
+        C0277a(JSONObject jSONObject) {
             if (jSONObject != null) {
-                this.bCK = jSONObject.optString("display_name");
-                this.bCL = jSONObject.optString("pay_text");
+                this.bIl = jSONObject.optString("display_name");
+                this.bIm = jSONObject.optString("pay_text");
                 this.icon = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
                 this.af = jSONObject.optString("valid_info");
-                this.bCO = jSONObject.optString("host_marketing_detail");
-                this.bCM = Long.valueOf(jSONObject.optLong("available_par_money"));
-                this.bCN = jSONObject.optInt("is_selected");
+                this.bIo = jSONObject.optString("host_marketing_detail");
+                this.bIn = Long.valueOf(jSONObject.optLong("available_par_money"));
+                this.cf = jSONObject.optInt("is_selected");
                 this.type = jSONObject.optInt("type");
             }
         }
@@ -41,15 +41,15 @@ public class a {
 
     public a(JSONArray jSONArray) {
         if (jSONArray != null) {
-            this.bCJ = new ArrayList();
+            this.bIk = new ArrayList();
             int length = jSONArray.length();
             for (int i = 0; i < length; i++) {
                 JSONObject jSONObject = (JSONObject) jSONArray.opt(i);
                 if (jSONObject != null) {
-                    this.bCJ.add(new C0256a(jSONObject));
+                    this.bIk.add(new C0277a(jSONObject));
                 }
             }
-            this.bCI = this.bCJ.size() > 1;
+            this.bIj = this.bIk.size() > 1;
         }
     }
 }

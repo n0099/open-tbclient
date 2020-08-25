@@ -1,49 +1,54 @@
 package com.baidu.tbadk.core.data;
 
-import tbclient.FrsPage.ForumBookInfo;
-/* loaded from: classes.dex */
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.FrsPage.ActivityHead;
+import tbclient.FrsPage.HeadImgs;
+/* loaded from: classes2.dex */
 public class v {
-    private String author;
-    private long dOA;
-    private long dOB;
-    private long dOC;
-    private long dOD;
-    private int dOd;
-    private String dOr;
-    private String dOs;
-    private String dOt;
-    private String dOu;
-    private String dOv;
-    private String dOw;
-    private String dOx;
-    private long dOy;
-    private long dOz;
+    private String dXH;
+    private int dXI;
+    private ArrayList<y> dXJ = new ArrayList<>();
+    private int height;
+    private String obj_id;
+    private int width;
 
-    public String aUr() {
-        return this.dOr;
+    public ArrayList<y> bcI() {
+        return this.dXJ;
     }
 
-    public int aUs() {
-        return this.dOd;
+    public void C(ArrayList<y> arrayList) {
+        this.dXJ = arrayList;
     }
 
-    public void a(ForumBookInfo forumBookInfo) {
-        if (forumBookInfo != null) {
-            this.dOr = forumBookInfo.book_id;
-            this.dOd = forumBookInfo.book_type.intValue();
-            this.dOs = forumBookInfo.book_title;
-            this.dOt = forumBookInfo.book_cover;
-            this.author = forumBookInfo.author;
-            this.dOu = forumBookInfo.forum_pic;
-            this.dOv = forumBookInfo.show_chapter_id;
-            this.dOw = forumBookInfo.show_chapter_no;
-            this.dOx = forumBookInfo.show_chapter_title;
-            this.dOy = forumBookInfo.history_page_id.longValue();
-            this.dOz = forumBookInfo.history_paragraph_id.longValue();
-            this.dOA = forumBookInfo.history_word_id.longValue();
-            this.dOB = forumBookInfo.history_percent.longValue();
-            this.dOC = forumBookInfo.show_page_id.longValue();
-            this.dOD = forumBookInfo.show_paragraph_id.longValue();
+    public String bcJ() {
+        return this.obj_id;
+    }
+
+    public void a(ActivityHead activityHead) {
+        if (activityHead != null) {
+            this.dXI = activityHead.activity_type.intValue();
+            this.dXH = activityHead.activity_title;
+            this.width = activityHead.top_size == null ? 0 : activityHead.top_size.width.intValue();
+            this.height = activityHead.top_size != null ? activityHead.top_size.height.intValue() : 0;
+            this.obj_id = activityHead.obj_id;
+            aJ(activityHead.head_imgs);
+        }
+    }
+
+    public void aJ(List<HeadImgs> list) {
+        if (!com.baidu.tbadk.core.util.y.isEmpty(list)) {
+            for (HeadImgs headImgs : list) {
+                a(headImgs);
+            }
+        }
+    }
+
+    public void a(HeadImgs headImgs) {
+        if (headImgs != null) {
+            y yVar = new y();
+            yVar.b(headImgs);
+            this.dXJ.add(yVar);
         }
     }
 }

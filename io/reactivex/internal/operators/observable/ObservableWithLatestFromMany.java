@@ -14,18 +14,18 @@ import java.util.concurrent.atomic.AtomicReferenceArray;
 /* loaded from: classes7.dex */
 public final class ObservableWithLatestFromMany<T, R> extends io.reactivex.internal.operators.observable.a<T, R> {
     final h<? super Object[], R> combiner;
-    final Iterable<? extends t<?>> nTK;
-    final t<?>[] nUI;
+    final Iterable<? extends t<?>> onG;
+    final t<?>[] ooE;
 
     @Override // io.reactivex.q
     protected void a(u<? super R> uVar) {
         int length;
-        t<?>[] tVarArr = this.nUI;
+        t<?>[] tVarArr = this.ooE;
         int i = 0;
         if (tVarArr == null) {
             tVarArr = new t[8];
             try {
-                for (t<?> tVar : this.nTK) {
+                for (t<?> tVar : this.onG) {
                     if (i == tVarArr.length) {
                         tVarArr = (t[]) Arrays.copyOf(tVarArr, (i >> 1) + i);
                     }
@@ -35,7 +35,7 @@ public final class ObservableWithLatestFromMany<T, R> extends io.reactivex.inter
                 }
                 length = i;
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.K(th);
+                io.reactivex.exceptions.a.J(th);
                 EmptyDisposable.error(th, uVar);
                 return;
             }
@@ -107,7 +107,7 @@ public final class ObservableWithLatestFromMany<T, R> extends io.reactivex.inter
                 try {
                     e.a(this.actual, io.reactivex.internal.functions.a.k(this.combiner.apply(objArr), "combiner returned a null value"), this, this.error);
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.K(th);
+                    io.reactivex.exceptions.a.J(th);
                     dispose();
                     onError(th);
                 }

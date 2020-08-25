@@ -23,38 +23,38 @@ public final class FlowableInterval extends io.reactivex.g<Long> {
     }
 
     @Override // io.reactivex.g
-    public void a(org.a.c<? super Long> cVar) {
+    public void a(org.b.c<? super Long> cVar) {
         IntervalSubscriber intervalSubscriber = new IntervalSubscriber(cVar);
         cVar.onSubscribe(intervalSubscriber);
         v vVar = this.scheduler;
         if (vVar instanceof k) {
-            v.c dSS = vVar.dSS();
-            intervalSubscriber.setResource(dSS);
-            dSS.b(intervalSubscriber, this.initialDelay, this.period, this.unit);
+            v.c eeU = vVar.eeU();
+            intervalSubscriber.setResource(eeU);
+            eeU.b(intervalSubscriber, this.initialDelay, this.period, this.unit);
             return;
         }
         intervalSubscriber.setResource(vVar.a(intervalSubscriber, this.initialDelay, this.period, this.unit));
     }
 
     /* loaded from: classes7.dex */
-    static final class IntervalSubscriber extends AtomicLong implements Runnable, org.a.d {
+    static final class IntervalSubscriber extends AtomicLong implements Runnable, org.b.d {
         private static final long serialVersionUID = -2809475196591179431L;
-        final org.a.c<? super Long> actual;
+        final org.b.c<? super Long> actual;
         long count;
         final AtomicReference<io.reactivex.disposables.b> resource = new AtomicReference<>();
 
-        IntervalSubscriber(org.a.c<? super Long> cVar) {
+        IntervalSubscriber(org.b.c<? super Long> cVar) {
             this.actual = cVar;
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 io.reactivex.internal.util.b.a(this, j);
             }
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void cancel() {
             DisposableHelper.dispose(this.resource);
         }
@@ -63,7 +63,7 @@ public final class FlowableInterval extends io.reactivex.g<Long> {
         public void run() {
             if (this.resource.get() != DisposableHelper.DISPOSED) {
                 if (get() != 0) {
-                    org.a.c<? super Long> cVar = this.actual;
+                    org.b.c<? super Long> cVar = this.actual;
                     long j = this.count;
                     this.count = j + 1;
                     cVar.onNext(Long.valueOf(j));

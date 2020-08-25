@@ -8,14 +8,14 @@ import android.graphics.PointF;
 import android.support.annotation.Nullable;
 import com.airbnb.lottie.a.a.r;
 import java.io.Closeable;
-/* loaded from: classes20.dex */
+/* loaded from: classes18.dex */
 public final class f {
-    private static final PathMeasure Da = new PathMeasure();
-    private static final Path Dc = new Path();
-    private static final Path Gm = new Path();
+    private static final PathMeasure DG = new PathMeasure();
+    private static final Path DI = new Path();
+    private static final Path GU = new Path();
     private static final float[] points = new float[4];
-    private static final float Gn = (float) Math.sqrt(2.0d);
-    private static float Go = -1.0f;
+    private static final float GV = (float) Math.sqrt(2.0d);
+    private static float GW = -1.0f;
 
     public static Path a(PointF pointF, PointF pointF2, PointF pointF3, PointF pointF4) {
         Path path = new Path();
@@ -42,26 +42,26 @@ public final class f {
     public static float b(Matrix matrix) {
         points[0] = 0.0f;
         points[1] = 0.0f;
-        points[2] = Gn;
-        points[3] = Gn;
+        points[2] = GV;
+        points[3] = GV;
         matrix.mapPoints(points);
         return ((float) Math.hypot(points[2] - points[0], points[3] - points[1])) / 2.0f;
     }
 
     public static void a(Path path, @Nullable r rVar) {
         if (rVar != null) {
-            a(path, rVar.hB().getValue().floatValue() / 100.0f, rVar.hC().getValue().floatValue() / 100.0f, rVar.hD().getValue().floatValue() / 360.0f);
+            a(path, rVar.jc().getValue().floatValue() / 100.0f, rVar.jd().getValue().floatValue() / 100.0f, rVar.je().getValue().floatValue() / 360.0f);
         }
     }
 
     public static void a(Path path, float f, float f2, float f3) {
         com.airbnb.lottie.d.beginSection("applyTrimPathIfNeeded");
-        Da.setPath(path, false);
-        float length = Da.getLength();
+        DG.setPath(path, false);
+        float length = DG.getLength();
         if (f == 1.0f && f2 == 0.0f) {
-            com.airbnb.lottie.d.aW("applyTrimPathIfNeeded");
+            com.airbnb.lottie.d.bb("applyTrimPathIfNeeded");
         } else if (length < 1.0f || Math.abs((f2 - f) - 1.0f) < 0.01d) {
-            com.airbnb.lottie.d.aW("applyTrimPathIfNeeded");
+            com.airbnb.lottie.d.bb("applyTrimPathIfNeeded");
         } else {
             float f4 = length * f;
             float f5 = length * f2;
@@ -71,40 +71,40 @@ public final class f {
             float f7 = min + f6;
             float f8 = max + f6;
             if (f7 >= length && f8 >= length) {
-                f7 = e.j(f7, length);
-                f8 = e.j(f8, length);
+                f7 = e.i(f7, length);
+                f8 = e.i(f8, length);
             }
             if (f7 < 0.0f) {
-                f7 = e.j(f7, length);
+                f7 = e.i(f7, length);
             }
             if (f8 < 0.0f) {
-                f8 = e.j(f8, length);
+                f8 = e.i(f8, length);
             }
             if (f7 == f8) {
                 path.reset();
-                com.airbnb.lottie.d.aW("applyTrimPathIfNeeded");
+                com.airbnb.lottie.d.bb("applyTrimPathIfNeeded");
                 return;
             }
             if (f7 >= f8) {
                 f7 -= length;
             }
-            Dc.reset();
-            Da.getSegment(f7, f8, Dc, true);
+            DI.reset();
+            DG.getSegment(f7, f8, DI, true);
             if (f8 > length) {
-                Gm.reset();
-                Da.getSegment(0.0f, f8 % length, Gm, true);
-                Dc.addPath(Gm);
+                GU.reset();
+                DG.getSegment(0.0f, f8 % length, GU, true);
+                DI.addPath(GU);
             } else if (f7 < 0.0f) {
-                Gm.reset();
-                Da.getSegment(f7 + length, length, Gm, true);
-                Dc.addPath(Gm);
+                GU.reset();
+                DG.getSegment(f7 + length, length, GU, true);
+                DI.addPath(GU);
             }
-            path.set(Dc);
-            com.airbnb.lottie.d.aW("applyTrimPathIfNeeded");
+            path.set(DI);
+            com.airbnb.lottie.d.bb("applyTrimPathIfNeeded");
         }
     }
 
-    public static boolean c(int i, int i2, int i3, int i4, int i5, int i6) {
+    public static boolean b(int i, int i2, int i3, int i4, int i5, int i6) {
         if (i < i4) {
             return false;
         }
@@ -134,10 +134,10 @@ public final class f {
         return i;
     }
 
-    public static float jA() {
-        if (Go == -1.0f) {
-            Go = Resources.getSystem().getDisplayMetrics().density;
+    public static float kZ() {
+        if (GW == -1.0f) {
+            GW = Resources.getSystem().getDisplayMetrics().density;
         }
-        return Go;
+        return GW;
     }
 }

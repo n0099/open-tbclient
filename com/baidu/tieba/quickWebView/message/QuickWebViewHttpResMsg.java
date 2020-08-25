@@ -1,7 +1,7 @@
 package com.baidu.tieba.quickWebView.message;
 
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class QuickWebViewHttpResMsg extends TbHttpResponsedMessage {
     private String result;
 

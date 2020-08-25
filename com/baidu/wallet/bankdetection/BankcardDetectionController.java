@@ -7,11 +7,11 @@ import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.wallet.core.NoProguard;
 import java.util.Observable;
 import java.util.Observer;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BankcardDetectionController extends Observable implements NoProguard, Observer {
     private IDetectionListener a;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface IDetectionListener extends NoProguard {
         void onFail(int i, String str);
 
@@ -21,9 +21,8 @@ public class BankcardDetectionController extends Observable implements NoProguar
     private BankcardDetectionController() {
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
-    public static class a {
+    /* loaded from: classes10.dex */
+    private static class a {
         private static BankcardDetectionController a = new BankcardDetectionController();
     }
 

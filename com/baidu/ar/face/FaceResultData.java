@@ -23,69 +23,69 @@ public class FaceResultData implements Parcelable, IFaceResultData {
         }
     };
     private boolean mFrontCamera;
-    private int mL;
-    private int mM;
-    private boolean mR;
-    private float[] mS;
-    private List<PointF> mT;
     private long mTimestamp;
-    private List<float[]> mU;
-    private int[] mV;
-    private float[] mW;
-    private float[] mX;
-    private List<PointF> mY;
-    private List<String[]> mt;
+    private float[] nA;
+    private List<PointF> nB;
+    private List<float[]> nC;
+    private int[] nD;
+    private float[] nE;
+    private float[] nF;
+    private List<PointF> nG;
+    private List<String[]> nb;
+    private boolean nx;
+    private int ny;
+    private int nz;
 
     public FaceResultData() {
-        this.mR = false;
-        this.mS = null;
-        this.mT = null;
-        this.mU = null;
-        this.mV = null;
-        this.mW = null;
+        this.nx = false;
+        this.nA = null;
+        this.nB = null;
+        this.nC = null;
+        this.nD = null;
+        this.nE = null;
         this.mFrontCamera = true;
-        this.mt = null;
-        this.mX = null;
-        this.mY = null;
+        this.nb = null;
+        this.nF = null;
+        this.nG = null;
     }
 
     protected FaceResultData(Parcel parcel) {
-        this.mR = false;
-        this.mS = null;
-        this.mT = null;
-        this.mU = null;
-        this.mV = null;
-        this.mW = null;
+        this.nx = false;
+        this.nA = null;
+        this.nB = null;
+        this.nC = null;
+        this.nD = null;
+        this.nE = null;
         this.mFrontCamera = true;
-        this.mt = null;
-        this.mX = null;
-        this.mY = null;
-        this.mR = parcel.readByte() != 0;
-        this.mL = parcel.readInt();
-        this.mM = parcel.readInt();
-        this.mS = parcel.createFloatArray();
-        this.mT = parcel.createTypedArrayList(PointF.CREATOR);
-        this.mV = parcel.createIntArray();
-        this.mW = parcel.createFloatArray();
+        this.nb = null;
+        this.nF = null;
+        this.nG = null;
+        this.nx = parcel.readByte() != 0;
+        this.ny = parcel.readInt();
+        this.nz = parcel.readInt();
+        this.nA = parcel.createFloatArray();
+        this.nB = parcel.createTypedArrayList(PointF.CREATOR);
+        this.nD = parcel.createIntArray();
+        this.nE = parcel.createFloatArray();
         this.mFrontCamera = parcel.readByte() != 0;
         this.mTimestamp = parcel.readLong();
         int readInt = parcel.readInt();
         if (readInt < 0) {
-            this.mU = null;
+            this.nC = null;
         } else {
-            this.mU = new ArrayList();
+            this.nC = new ArrayList();
             for (int i = 0; i < readInt; i++) {
-                this.mU.add(parcel.createFloatArray());
+                this.nC.add(parcel.createFloatArray());
             }
         }
         int readInt2 = parcel.readInt();
         if (readInt2 < 0) {
-            this.mt = null;
+            this.nb = null;
             return;
         }
-        this.mt = new ArrayList();
+        this.nb = new ArrayList();
         for (int i2 = 0; i2 < readInt2; i2++) {
-            this.mt.add(parcel.createStringArray());
+            this.nb.add(parcel.createStringArray());
         }
     }
 
@@ -96,89 +96,89 @@ public class FaceResultData implements Parcelable, IFaceResultData {
 
     @Override // com.baidu.ar.face.IFaceResultData
     public int getAlgoImageHeight() {
-        return this.mM;
+        return this.nz;
     }
 
     @Override // com.baidu.ar.face.IFaceResultData
     public int getAlgoImageWidth() {
-        return this.mL;
+        return this.ny;
     }
 
     @Override // com.baidu.ar.face.IFaceResultData
     public float[] getFaceBoxes() {
-        return this.mS;
+        return this.nA;
     }
 
     @Override // com.baidu.ar.face.IFaceResultData
     public int getFaceCount() {
-        if (this.mS == null) {
+        if (this.nA == null) {
             return 0;
         }
-        return this.mS.length / 4;
+        return this.nA.length / 4;
     }
 
     @Override // com.baidu.ar.face.IFaceResultData
     public int[] getFaceIds() {
-        return this.mV;
+        return this.nD;
     }
 
     @Override // com.baidu.ar.face.IFaceResultData
     public List<PointF> getFacePoints() {
-        return this.mT;
+        return this.nB;
     }
 
     @Override // com.baidu.ar.face.IFaceResultData
     public float[] getGenders() {
-        return this.mW;
+        return this.nE;
     }
 
     @Override // com.baidu.ar.face.IFaceResultData
     public List<float[]> getHeadPoses() {
-        return this.mU;
+        return this.nC;
     }
 
     @Override // com.baidu.ar.face.IFaceResultData
     public float[] getNormalizedFaceBoxes() {
-        if (this.mX == null && this.mS != null && this.mM > 0 && this.mL > 0) {
-            this.mX = new float[this.mS.length];
-            float f = this.mL;
-            float f2 = this.mM;
-            int length = this.mS.length;
+        if (this.nF == null && this.nA != null && this.nz > 0 && this.ny > 0) {
+            this.nF = new float[this.nA.length];
+            float f = this.ny;
+            float f2 = this.nz;
+            int length = this.nA.length;
             for (int i = 0; i < length; i++) {
                 if (i % 2 == 0) {
-                    this.mX[i] = this.mS[i] / f;
+                    this.nF[i] = this.nA[i] / f;
                 } else {
-                    this.mX[i] = this.mS[i] / f2;
+                    this.nF[i] = this.nA[i] / f2;
                 }
             }
         }
-        return this.mX;
+        return this.nF;
     }
 
     @Override // com.baidu.ar.face.IFaceResultData
     public List<PointF> getNormalizedFacePoints() {
-        if (this.mY == null && this.mT != null && this.mM > 0 && this.mL > 0) {
-            this.mY = new ArrayList();
-            float f = this.mL;
-            float f2 = this.mM;
-            int size = this.mT.size();
+        if (this.nG == null && this.nB != null && this.nz > 0 && this.ny > 0) {
+            this.nG = new ArrayList();
+            float f = this.ny;
+            float f2 = this.nz;
+            int size = this.nB.size();
             for (int i = 0; i < size; i++) {
-                PointF pointF = this.mT.get(i);
-                this.mY.add(new PointF(pointF.x / f, pointF.y / f2));
+                PointF pointF = this.nB.get(i);
+                this.nG.add(new PointF(pointF.x / f, pointF.y / f2));
             }
         }
-        return this.mY;
+        return this.nG;
     }
 
     @Override // com.baidu.ar.face.IFaceResultData
     public List<PointF> getSingleFacePoints(int i) {
         int faceCount = getFaceCount();
-        if (i < 0 || i >= faceCount || this.mT == null) {
+        if (i < 0 || i >= faceCount || this.nB == null) {
             return null;
         }
-        int size = this.mT.size() / faceCount;
+        int size = this.nB.size() / faceCount;
         int i2 = i * size;
-        return this.mT.subList(i2, size + i2);
+        return this.nB.subList(i2, size + i2);
     }
 
     @Override // com.baidu.ar.face.IFaceResultData
@@ -200,7 +200,7 @@ public class FaceResultData implements Parcelable, IFaceResultData {
 
     @Override // com.baidu.ar.face.IFaceResultData
     public List<String[]> getTriggers() {
-        return this.mt;
+        return this.nb;
     }
 
     @Override // com.baidu.ar.face.IFaceResultData
@@ -210,33 +210,33 @@ public class FaceResultData implements Parcelable, IFaceResultData {
 
     @Override // com.baidu.ar.face.IFaceResultData
     public boolean isTracked() {
-        return this.mR;
+        return this.nx;
     }
 
     public void setAlgoImageHeight(int i) {
-        this.mM = i;
-        this.mX = null;
-        this.mY = null;
+        this.nz = i;
+        this.nF = null;
+        this.nG = null;
     }
 
     public void setAlgoImageWidth(int i) {
-        this.mL = i;
-        this.mX = null;
-        this.mY = null;
+        this.ny = i;
+        this.nF = null;
+        this.nG = null;
     }
 
     public void setFaceBoxes(float[] fArr) {
-        this.mS = fArr;
-        this.mX = null;
+        this.nA = fArr;
+        this.nF = null;
     }
 
     public void setFaceIds(int[] iArr) {
-        this.mV = iArr;
+        this.nD = iArr;
     }
 
     public void setFacePoints(List<PointF> list) {
-        this.mT = list;
-        this.mY = null;
+        this.nB = list;
+        this.nG = null;
     }
 
     public void setFrontCamera(boolean z) {
@@ -244,11 +244,11 @@ public class FaceResultData implements Parcelable, IFaceResultData {
     }
 
     public void setGenders(float[] fArr) {
-        this.mW = fArr;
+        this.nE = fArr;
     }
 
     public void setHeadPoses(List<float[]> list) {
-        this.mU = list;
+        this.nC = list;
     }
 
     public void setTimestamp(long j) {
@@ -256,38 +256,38 @@ public class FaceResultData implements Parcelable, IFaceResultData {
     }
 
     public void setTracked(boolean z) {
-        this.mR = z;
+        this.nx = z;
     }
 
     public void setTriggers(List<String[]> list) {
-        this.mt = list;
+        this.nb = list;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeByte((byte) (this.mR ? 1 : 0));
-        parcel.writeInt(this.mL);
-        parcel.writeInt(this.mM);
-        parcel.writeFloatArray(this.mS);
-        parcel.writeTypedList(this.mT);
-        parcel.writeIntArray(this.mV);
-        parcel.writeFloatArray(this.mW);
+        parcel.writeByte((byte) (this.nx ? 1 : 0));
+        parcel.writeInt(this.ny);
+        parcel.writeInt(this.nz);
+        parcel.writeFloatArray(this.nA);
+        parcel.writeTypedList(this.nB);
+        parcel.writeIntArray(this.nD);
+        parcel.writeFloatArray(this.nE);
         parcel.writeByte((byte) (this.mFrontCamera ? 1 : 0));
         parcel.writeLong(this.mTimestamp);
-        if (this.mU == null) {
+        if (this.nC == null) {
             parcel.writeInt(-1);
         } else {
-            parcel.writeInt(this.mU.size());
-            for (float[] fArr : this.mU) {
+            parcel.writeInt(this.nC.size());
+            for (float[] fArr : this.nC) {
                 parcel.writeFloatArray(fArr);
             }
         }
-        int size = this.mt == null ? -1 : this.mt.size();
+        int size = this.nb == null ? -1 : this.nb.size();
         parcel.writeInt(size);
-        if (size <= 0 || this.mt == null) {
+        if (size <= 0 || this.nb == null) {
             return;
         }
-        for (String[] strArr : this.mt) {
+        for (String[] strArr : this.nb) {
             parcel.writeStringArray(strArr);
         }
     }

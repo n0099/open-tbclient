@@ -1,19 +1,19 @@
 package com.baidu.ubs.analytics.a;
 
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class m {
-    private k mMU = new k();
+    private k nfQ = new k();
 
     public final void b(l lVar) {
-        this.mMU.a(lVar);
+        this.nfQ.a(lVar);
     }
 
-    public final List<l> dAw() {
-        return this.mMU.dAw();
+    public final List<l> dMj() {
+        return this.nfQ.dMj();
     }
 
     public final void a(int i) {
-        this.mMU.a(i);
+        this.nfQ.a(i);
     }
 }

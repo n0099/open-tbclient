@@ -7,7 +7,7 @@ import java.security.InvalidParameterException;
 public abstract class j extends g<SocketResponsedMessage> {
     public j(int i) {
         super(i);
-        if (i != 0 && FrameHelper.W(i) != FrameHelper.TYPE.SOCKET) {
+        if (i != 0 && FrameHelper.Y(i) != FrameHelper.TYPE.SOCKET) {
             throw new InvalidParameterException("cmd invalid");
         }
     }

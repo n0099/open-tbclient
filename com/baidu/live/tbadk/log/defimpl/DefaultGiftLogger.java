@@ -1,7 +1,7 @@
 package com.baidu.live.tbadk.log.defimpl;
 
 import com.baidu.live.tbadk.log.IGiftLogger;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class DefaultGiftLogger implements IGiftLogger {
     @Override // com.baidu.live.tbadk.log.IGiftLogger
     public void doDisplayGiftTabLog(String str, String str2, String str3) {

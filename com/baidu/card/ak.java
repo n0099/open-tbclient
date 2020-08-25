@@ -1,180 +1,57 @@
 package com.baidu.card;
 
-import android.view.View;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.ad;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.core.data.AbsThreadDataSupport;
-import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
-import com.baidu.tieba.view.FollowUserButton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.R;
 /* loaded from: classes15.dex */
-public class ak<T extends AbsThreadDataSupport> extends ad.a {
-    private com.baidu.tieba.card.aa<T> afT;
-    private ai<T> afU;
-    private z afV;
-    private ap afW;
-    private s afX;
-    private ah afY;
-    private ab afZ;
-    private i aga;
-    private BdUniqueId mId;
+public class ak {
+    public static final int agR = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds42);
+    private static final int agS = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds12);
+    public static final int agT = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds15);
+    int agV;
+    boolean agU = false;
+    int agW = 0;
+    int agX = agT;
+    int agY = agR;
+    int agZ = 0;
+    int aha = agR;
+    int ahb = agR;
+    int ahc = R.color.cp_bg_line_e;
 
-    public ak(ai<T> aiVar) {
-        super(aiVar.getView());
-        this.afU = aiVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ak() {
+        this.agV = agS;
+        this.agV = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), com.baidu.tbadk.a.b.a.aL(R.dimen.tbds5, R.dimen.tbds20));
     }
 
-    @Override // com.baidu.adp.widget.ListView.ad.a
-    public View getView() {
-        return this.afU.getView();
+    public void br(int i) {
+        this.agV = i;
     }
 
-    public ai<T> sg() {
-        return this.afU;
+    public void bs(int i) {
+        this.agW = i;
     }
 
-    private TbPageContext getTbPageContext() {
-        return ((TbPageContextSupport) this.afU.getView().getContext()).getPageContext();
+    public void bt(int i) {
+        this.agX = i;
     }
 
-    private void c(d dVar) {
-        if (dVar != null && dVar.rQ() != null) {
-            this.afU.a(dVar);
-        }
+    public void bu(int i) {
+        this.agY = i;
     }
 
-    public void a(boolean z, Align align, NEGFeedBackView.a aVar) {
-        if (!z) {
-            c(this.afV);
-            return;
-        }
-        if (this.afV == null) {
-            this.afV = new z(getTbPageContext(), align);
-            this.afV.aeR.setUniqueId(this.mId);
-            this.afV.a(aVar);
-        }
-        this.afV.a(align);
-        this.afU.b(this.afV);
+    public void bv(int i) {
+        this.agZ = i;
     }
 
-    public z aK(boolean z) {
-        if (this.afV == null) {
-            this.afV = new z(getTbPageContext(), z);
-            this.afV.aeR.setUniqueId(this.mId);
-        }
-        this.afU.b(this.afV);
-        return this.afV;
+    public void bw(int i) {
+        this.aha = i;
     }
 
-    public void a(boolean z, Align align) {
-        if (!z) {
-            c(this.afW);
-            return;
-        }
-        if (this.afW == null) {
-            this.afW = new ap(getTbPageContext(), align);
-        }
-        this.afW.a(align);
-        this.afU.b(this.afW);
+    public void bx(int i) {
+        this.ahb = i;
     }
 
-    public void a(boolean z, FollowUserButton.a aVar) {
-        if (!z) {
-            c(this.aga);
-            return;
-        }
-        if (this.aga == null) {
-            this.aga = new i(getTbPageContext(), com.baidu.tbadk.a.d.aRL());
-            this.aga.setOnClickEvent(aVar);
-        }
-        this.aga.setPageUniqueId(this.mId);
-        this.afU.b(this.aga);
-    }
-
-    public s sh() {
-        return aL(true);
-    }
-
-    public s aL(boolean z) {
-        if (this.afX == null) {
-            this.afX = new s(this.afU.getContext());
-        }
-        this.afX.h(this.mId);
-        this.afX.aH(z);
-        this.afU.b(this.afX);
-        return this.afX;
-    }
-
-    public ah si() {
-        if (this.afY == null) {
-            this.afY = new ah(getTbPageContext());
-            this.afY.setPageId(this.mId);
-        }
-        this.afU.b(this.afY);
-        return this.afY;
-    }
-
-    public ab bt(int i) {
-        if (this.afZ == null) {
-            this.afZ = new ab(this.afU.getView().getContext(), i);
-            this.afZ.setPageId(this.mId);
-        }
-        this.afU.b(this.afZ);
-        return this.afZ;
-    }
-
-    public void b(T t) {
-        boolean z = false;
-        if (t == null) {
-            this.afU.getView().setVisibility(8);
-            return;
-        }
-        if (t.aTN() != null) {
-            t.aTN().getTid();
-        }
-        if (t.aTN() != null && t.aTN().aWl() != null) {
-            t.aTN().aWl().getName_show();
-        }
-        this.afU.getView().setVisibility(0);
-        if (this.afV != null && this.afV.aeR != null) {
-            if (!t.isSelf() && t.aTP() != null) {
-                this.afV.f(t);
-                this.afV.D(t.aTP());
-                this.afV.aeR.setVisibility(0);
-                z = true;
-            } else if (this.afV != null && this.afV.aeR != null) {
-                this.afV.aeR.setVisibility(8);
-            }
-        }
-        if (this.afW != null) {
-            this.afW.f(t);
-            this.afW.D(t.aTN());
-        }
-        if (this.afY != null) {
-            this.afY.aJ(z);
-            this.afY.D(t.aTN());
-        }
-        if (this.afX != null) {
-            this.afX.D(t.aTN());
-        }
-        if (this.afZ != null) {
-            this.afZ.f(t);
-            this.afZ.D(t.aTN());
-        }
-        if (this.aga != null) {
-            this.aga.a(t, z);
-            this.aga.D(t.aTN());
-        }
-        this.afU.g(t);
-    }
-
-    public void setPageId(BdUniqueId bdUniqueId) {
-        this.mId = bdUniqueId;
-    }
-
-    public void b(com.baidu.tieba.card.aa<T> aaVar) {
-        this.afT = aaVar;
-        this.afU.a(aaVar);
+    public void setBackgroundResource(int i) {
+        this.ahc = i;
     }
 }

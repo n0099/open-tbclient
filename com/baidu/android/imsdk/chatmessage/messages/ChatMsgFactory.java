@@ -3,11 +3,11 @@ package com.baidu.android.imsdk.chatmessage.messages;
 import android.content.Context;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class ChatMsgFactory {
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes9.dex */
     public static class SingletonHolder {
         static final ChatMsgFactory INSTANCE = new ChatMsgFactory();
 
@@ -120,7 +120,7 @@ public class ChatMsgFactory {
                 return new AlertMsg();
             case 2010:
                 return new RedNotifyMsg();
-            case IMConstants.IM_MSG_TYPE_SHIELD_ME /* 2012 */:
+            case 2012:
                 return new ShieldMsg();
             case IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME_SEND_FAIL /* 2014 */:
                 return new UnSubscribeMsg();

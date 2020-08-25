@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class ja extends ByteArrayOutputStream {
     public ja() {
     }
@@ -15,7 +15,7 @@ public class ja extends ByteArrayOutputStream {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m476a() {
+    public byte[] m481a() {
         return this.buf;
     }
 }

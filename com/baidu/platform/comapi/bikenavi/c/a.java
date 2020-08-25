@@ -2,21 +2,21 @@ package com.baidu.platform.comapi.bikenavi.c;
 
 import android.text.TextUtils;
 import com.baidu.tieba.R;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class a {
     private static final int[] a = {R.drawable.a, R.drawable.abc_ab_share_pack_mtrl_alpha, R.drawable.abc_action_bar_item_background_material, R.drawable.abc_btn_borderless_material, R.drawable.abc_btn_check_material, R.drawable.abc_btn_check_to_on_mtrl_000, R.drawable.abc_btn_check_to_on_mtrl_015, R.drawable.abc_btn_colored_material, R.drawable.abc_btn_default_mtrl_shape, R.drawable.abc_btn_radio_material, R.drawable.abc_cab_background_top_material, R.drawable.abc_cab_background_top_mtrl_alpha, R.drawable.abc_control_background_material, R.drawable.abc_dialog_material_background, R.drawable.abc_edit_text_material, R.drawable.abc_ic_menu_cut_mtrl_alpha, R.drawable.abc_ic_menu_copy_mtrl_am_alpha, R.drawable.abc_ic_menu_overflow_material, R.drawable.abc_ic_menu_selectall_mtrl_alpha, R.drawable.abc_ic_menu_paste_mtrl_am_alpha, R.drawable.abc_ic_menu_share_mtrl_alpha, R.drawable.abc_ic_search_api_material, R.drawable.abc_ic_star_black_16dp, R.drawable.abc_ic_star_black_36dp, R.drawable.abc_ic_star_black_48dp, R.drawable.abc_ic_star_half_black_16dp, R.drawable.abc_ic_star_half_black_36dp, R.drawable.abc_ic_star_half_black_48dp, R.drawable.abc_ic_voice_search_api_material, R.drawable.abc_list_pressed_holo_light, R.drawable.abc_list_pressed_holo_dark, R.drawable.abc_list_selector_background_transition_holo_dark, R.drawable.abc_list_selector_background_transition_holo_light, R.drawable.abc_list_selector_disabled_holo_dark, R.drawable.abc_list_selector_holo_dark, R.drawable.abc_list_selector_disabled_holo_light, R.drawable.abc_list_selector_holo_light, R.drawable.abc_menu_hardkey_panel_mtrl_mult, R.drawable.abc_popup_background_mtrl_mult, R.drawable.abc_ratingbar_indicator_material, R.drawable.abc_ratingbar_material, R.drawable.abc_ratingbar_small_material, R.drawable.abc_scrubber_control_off_mtrl_alpha, R.drawable.abc_scrubber_control_to_pressed_mtrl_000, R.drawable.abc_ic_clear_material, R.drawable.abc_ic_commit_search_api_mtrl_alpha, R.drawable.abc_ic_go_search_api_material, R.drawable.abc_ic_ab_back_material, R.drawable.abc_ic_arrow_drop_right_black_24dp, R.drawable.abc_list_divider_mtrl_alpha, R.drawable.abc_list_focused_holo, R.drawable.abc_list_longpressed_holo, R.drawable.abc_item_background_holo_dark, R.drawable.abc_item_background_holo_light, R.drawable.abc_btn_switch_to_on_mtrl_00012, R.drawable.abc_btn_switch_to_on_mtrl_00001, R.drawable.abc_cab_background_internal_bg, R.drawable.abc_btn_radio_to_on_mtrl_000, R.drawable.abc_btn_radio_to_on_mtrl_015};
     private static final String[] b = {"bn_dest.png", "bn_faraway_route", "bn_gps.png", "bn_ladder.png", "bn_overline_bridge.png", "bn_park.png", "bn_reroute.png", "bn_ring.png", "bn_square.png", "bn_start.png", "bn_turn_front.png", "bn_turn_goto_leftroad_front.png", "bn_turn_goto_leftroad_uturn.png", "bn_turn_goto_rightroad_front.png", "bn_turn_goto_rightroad_uturn.png", "bn_turn_left.png", "bn_turn_left_back.png", "bn_turn_left_diagonal_passroad_front.png", "bn_turn_left_diagonal_passroad_left.png", "bn_turn_left_diagonal_passroad_left_back.png", "bn_turn_left_diagonal_passroad_left_front.png", "bn_turn_left_diagonal_passroad_right.png", "bn_turn_left_diagonal_passroad_right_front.png", "bn_turn_left_front.png", "bn_turn_left_front_straight.png", "bn_turn_left_passroad_front.png", "bn_turn_left_passroad_uturn.png", "bn_turn_passroad_left.png", "bn_turn_passroad_right.png", "bn_turn_right.png", "bn_turn_right_back.png", "bn_turn_right_diagonal_passroad_front.png", "bn_turn_right_diagonal_passroad_left.png", "bn_turn_right_diagonal_passroad_left_front.png", "bn_turn_right_diagonal_passroad_right.png", "bn_turn_right_diagonal_passroad_right_back.png", "bn_turn_right_diagonal_passroad_right_front.png", "bn_turn_right_front.png", "bn_turn_right_front_straight.png", "bn_turn_right_passroad_front.png", "bn_turn_right_passroad_uturn.png", "bn_underground_passage.png", "bn_uturn.png", "wn_waypoint.png", "bn_turn_left_3branch_left.png", "bn_turn_left_3branch_mid.png", "bn_turn_left_3branch_right.png", "bn_turn_left_2branch_left.png", "bn_turn_left_2branch_right.png", "bn_turn_right_3branch_left.png", "bn_turn_right_3branch_mid.png", "bn_turn_right_3branch_right.png", "bn_turn_right_2branch_left.png", "bn_turn_right_2branch_right.png", "bn_turn_front_3branch_left.png", "bn_turn_front_3branch_center.png", "bn_turn_front_3branch_right.png", "bn_turn_front_2branch_left.png", "bn_turn_front_2branch_right.png"};
 
     public static int a(String str) {
         if (TextUtils.isEmpty(str)) {
-            return 0;
+            return R.drawable.abc_btn_radio_material;
         }
         int length = b.length;
         for (int i = 0; i < length; i++) {
-            if (b[i].equalsIgnoreCase(str) && i < a.length) {
+            if (b[i].equalsIgnoreCase(str)) {
                 return a[i];
             }
         }
-        return 0;
+        return R.drawable.abc_btn_radio_material;
     }
 }

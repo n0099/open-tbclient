@@ -7,21 +7,21 @@ import okhttp3.RequestBody;
 import okio.BufferedSink;
 import okio.Okio;
 import okio.Source;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c extends RequestBody {
-    private final File cwE;
-    private final com.baidu.swan.apps.network.b.a cwF;
+    private final File cEy;
+    private final com.baidu.swan.apps.network.b.a cEz;
     private final String mContentType;
 
     public c(File file, String str, com.baidu.swan.apps.network.b.a aVar) {
-        this.cwE = file;
+        this.cEy = file;
         this.mContentType = str;
-        this.cwF = aVar;
+        this.cEz = aVar;
     }
 
     @Override // okhttp3.RequestBody
     public long contentLength() {
-        return this.cwE.length();
+        return this.cEy.length();
     }
 
     @Override // okhttp3.RequestBody
@@ -33,20 +33,20 @@ public class c extends RequestBody {
     public void writeTo(BufferedSink bufferedSink) throws IOException {
         Source source = null;
         try {
-            source = Okio.source(this.cwE);
+            source = Okio.source(this.cEy);
             long j = 0;
             while (true) {
                 long read = source.read(bufferedSink.buffer(), 2048L);
                 if (read != -1) {
                     j += read;
                     bufferedSink.flush();
-                    this.cwF.bj(j);
+                    this.cEz.bo(j);
                 } else {
                     return;
                 }
             }
         } finally {
-            com.baidu.swan.d.d.closeSafely(source);
+            com.baidu.swan.c.d.closeSafely(source);
         }
     }
 }

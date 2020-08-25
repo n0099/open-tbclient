@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class TestFrameLayout extends FrameLayout {
     public TestFrameLayout(Context context) {
         super(context);

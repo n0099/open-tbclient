@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.GetClientConfig.DataRes;
 import tbclient.GetClientConfig.GetClientConfigResIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ClientConfigSocketResponse extends SocketResponsedMessage {
     private DataRes mData;
 

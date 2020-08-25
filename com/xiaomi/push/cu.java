@@ -1,18 +1,16 @@
 package com.xiaomi.push;
 
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
-import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class cu {
     private int a;
 
     /* renamed from: a  reason: collision with other field name */
-    private long f184a;
+    private long f181a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f185a;
+    private String f182a;
     private long b;
     private long c;
 
@@ -22,11 +20,11 @@ public class cu {
 
     public cu(int i, long j, long j2, Exception exc) {
         this.a = i;
-        this.f184a = j;
+        this.f181a = j;
         this.c = j2;
         this.b = System.currentTimeMillis();
         if (exc != null) {
-            this.f185a = exc.getClass().getSimpleName();
+            this.f182a = exc.getClass().getSimpleName();
         }
     }
 
@@ -35,22 +33,22 @@ public class cu {
     }
 
     public cu a(JSONObject jSONObject) {
-        this.f184a = jSONObject.getLong(BdStatsConstant.StatsKey.COST);
-        this.c = jSONObject.getLong(TiebaInitialize.LogFields.SIZE);
-        this.b = jSONObject.getLong(TimeDisplaySetting.TIME_DISPLAY_SETTING);
+        this.f181a = jSONObject.getLong(BdStatsConstant.StatsKey.COST);
+        this.c = jSONObject.getLong("size");
+        this.b = jSONObject.getLong("ts");
         this.a = jSONObject.getInt("wt");
-        this.f185a = jSONObject.optString("expt");
+        this.f182a = jSONObject.optString("expt");
         return this;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public JSONObject m200a() {
+    public JSONObject m205a() {
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put(BdStatsConstant.StatsKey.COST, this.f184a);
-        jSONObject.put(TiebaInitialize.LogFields.SIZE, this.c);
-        jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.b);
+        jSONObject.put(BdStatsConstant.StatsKey.COST, this.f181a);
+        jSONObject.put("size", this.c);
+        jSONObject.put("ts", this.b);
         jSONObject.put("wt", this.a);
-        jSONObject.put("expt", this.f185a);
+        jSONObject.put("expt", this.f182a);
         return jSONObject;
     }
 }

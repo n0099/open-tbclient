@@ -7,52 +7,52 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes17.dex */
 public class GodHeadImageView extends FrameLayout {
-    private a hCZ;
-    private ImageView hDa;
-    private int hDb;
-    private int hDc;
-    private int hDd;
-    private int hDe;
-    private int hDg;
+    private a hQo;
+    private ImageView hQp;
+    private int hQq;
+    private int hQr;
+    private int hQs;
+    private int hQt;
+    private int hQv;
     private int mRadius;
-    private static final int aTl = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds6);
-    private static final int hDf = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds1);
+    private static final int aYz = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds6);
+    private static final int hQu = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds1);
     private static int DEFAULT_RADIUS = 7;
 
     public GodHeadImageView(Context context) {
         super(context);
-        this.hDb = 0;
-        this.hDc = this.hDb;
-        this.hDd = 1;
-        this.hDe = this.hDd;
-        this.hDg = aTl;
+        this.hQq = 0;
+        this.hQr = this.hQq;
+        this.hQs = 1;
+        this.hQt = this.hQs;
+        this.hQv = aYz;
         this.mRadius = 7;
         init(null);
     }
 
     public GodHeadImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.hDb = 0;
-        this.hDc = this.hDb;
-        this.hDd = 1;
-        this.hDe = this.hDd;
-        this.hDg = aTl;
+        this.hQq = 0;
+        this.hQr = this.hQq;
+        this.hQs = 1;
+        this.hQt = this.hQs;
+        this.hQv = aYz;
         this.mRadius = 7;
         init(attributeSet);
     }
 
     public GodHeadImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.hDb = 0;
-        this.hDc = this.hDb;
-        this.hDd = 1;
-        this.hDe = this.hDd;
-        this.hDg = aTl;
+        this.hQq = 0;
+        this.hQr = this.hQq;
+        this.hQs = 1;
+        this.hQt = this.hQs;
+        this.hQv = aYz;
         this.mRadius = 7;
         init(attributeSet);
     }
@@ -60,67 +60,67 @@ public class GodHeadImageView extends FrameLayout {
     private void init(AttributeSet attributeSet) {
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.GodHeadImageView);
-            this.hDg = obtainStyledAttributes.getDimensionPixelSize(R.styleable.GodHeadImageView_extra_padding, aTl);
-            this.hDe = obtainStyledAttributes.getInteger(R.styleable.GodHeadImageView_shape_type, this.hDd);
-            this.hDc = obtainStyledAttributes.getInteger(R.styleable.GodHeadImageView_show_type, this.hDb);
+            this.hQv = obtainStyledAttributes.getDimensionPixelSize(R.styleable.GodHeadImageView_extra_padding, aYz);
+            this.hQt = obtainStyledAttributes.getInteger(R.styleable.GodHeadImageView_shape_type, this.hQs);
+            this.hQr = obtainStyledAttributes.getInteger(R.styleable.GodHeadImageView_show_type, this.hQq);
             this.mRadius = obtainStyledAttributes.getInteger(R.styleable.GodHeadImageView_extra_radius, DEFAULT_RADIUS);
             obtainStyledAttributes.recycle();
         }
-        this.hCZ = new a(getContext());
-        this.hDa = new ImageView(getContext());
+        this.hQo = new a(getContext());
+        this.hQp = new ImageView(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-        this.hCZ.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        addView(this.hCZ, layoutParams);
-        addView(this.hDa, new FrameLayout.LayoutParams(-1, -1));
+        this.hQo.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        addView(this.hQo, layoutParams);
+        addView(this.hQp, new FrameLayout.LayoutParams(-1, -1));
         refreshUI();
     }
 
     public void setShowType(int i) {
-        this.hDc = i;
+        this.hQr = i;
         refreshUI();
     }
 
     public void setShapeType(int i) {
-        this.hDe = i;
+        this.hQt = i;
         refreshUI();
     }
 
     public void startLoad(String str, int i, boolean z) {
-        this.hCZ.startLoad(str, i, z);
+        this.hQo.startLoad(str, i, z);
     }
 
     private void refreshUI() {
-        switch (this.hDc) {
+        switch (this.hQr) {
             case 0:
-                this.hCZ.setPadding(0, 0, 0, 0);
+                this.hQo.setPadding(0, 0, 0, 0);
                 break;
             case 1:
-                this.hCZ.setPadding(hDf, hDf, 0, 0);
+                this.hQo.setPadding(hQu, hQu, 0, 0);
                 break;
         }
-        switch (this.hDe) {
+        switch (this.hQt) {
             case 1:
-                this.hCZ.setIsRound(true);
-                if (this.hDc == 0) {
-                    ao.setImageResource(this.hDa, R.drawable.pic_shen_avatar_big);
+                this.hQo.setIsRound(true);
+                if (this.hQr == 0) {
+                    ap.setImageResource(this.hQp, R.drawable.pic_shen_avatar_big);
                     return;
                 } else {
-                    ao.setImageResource(this.hDa, R.drawable.pic_shen_avatar);
+                    ap.setImageResource(this.hQp, R.drawable.pic_shen_avatar);
                     return;
                 }
             case 2:
-                this.hCZ.setIsRound(false);
-                this.hCZ.setRadius(this.mRadius);
-                ao.setImageResource(this.hDa, R.drawable.pic_frs_shen_avatar);
+                this.hQo.setIsRound(false);
+                this.hQo.setRadius(this.mRadius);
+                ap.setImageResource(this.hQp, R.drawable.pic_frs_shen_avatar);
                 return;
             case 3:
-                this.hCZ.setIsRound(true);
-                ao.setImageResource(this.hDa, R.drawable.browser_null_drawable);
+                this.hQo.setIsRound(true);
+                ap.setImageResource(this.hQp, R.drawable.browser_null_drawable);
                 return;
             default:
-                this.hCZ.setIsRound(false);
-                this.hCZ.setRadius(this.mRadius);
-                ao.setImageResource(this.hDa, R.drawable.pic_shen_avatar_square);
+                this.hQo.setIsRound(false);
+                this.hQo.setRadius(this.mRadius);
+                ap.setImageResource(this.hQp, R.drawable.pic_shen_avatar_square);
                 return;
         }
     }
@@ -131,9 +131,9 @@ public class GodHeadImageView extends FrameLayout {
     }
 
     public void setExtraPadding(int i) {
-        if (this.hDg != i) {
-            this.hDg = i;
-            this.hCZ.invalidate();
+        if (this.hQv != i) {
+            this.hQv = i;
+            this.hQo.invalidate();
         }
     }
 
@@ -147,11 +147,11 @@ public class GodHeadImageView extends FrameLayout {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.newwidget.ImageView.BDImageView, android.widget.ImageView, android.view.View
         public void onMeasure(int i, int i2) {
-            if (GodHeadImageView.this.hDc == 1) {
+            if (GodHeadImageView.this.hQr == 1) {
                 int size = View.MeasureSpec.getSize(i);
                 int size2 = View.MeasureSpec.getSize(i2);
-                i = View.MeasureSpec.makeMeasureSpec(size - GodHeadImageView.this.hDg, 1073741824);
-                i2 = View.MeasureSpec.makeMeasureSpec(size2 - GodHeadImageView.this.hDg, 1073741824);
+                i = View.MeasureSpec.makeMeasureSpec(size - GodHeadImageView.this.hQv, 1073741824);
+                i2 = View.MeasureSpec.makeMeasureSpec(size2 - GodHeadImageView.this.hQv, 1073741824);
             }
             super.onMeasure(i, i2);
         }

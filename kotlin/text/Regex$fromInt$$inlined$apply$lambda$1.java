@@ -2,7 +2,7 @@ package kotlin.text;
 
 import kotlin.jvm.internal.Lambda;
 @kotlin.h
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public final class Regex$fromInt$$inlined$apply$lambda$1 extends Lambda implements kotlin.jvm.a.b<T, Boolean> {
     final /* synthetic */ int $value$inlined;
 

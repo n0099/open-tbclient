@@ -7,7 +7,7 @@ import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.SignatureException;
 import java.security.SignatureSpi;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public class OpenSSLSignatureRawECDSA extends SignatureSpi {
     private ByteArrayOutputStream buffer = new ByteArrayOutputStream();
     private OpenSSLKey key;

@@ -18,7 +18,7 @@ public class Texture2dProgram {
     private int muMVPMatrixLoc;
     private int muTexMatrixLoc;
     private int muTexOffsetLoc;
-    private ProgramType nhc;
+    private ProgramType nAU;
 
     /* loaded from: classes17.dex */
     public enum ProgramType {
@@ -29,7 +29,7 @@ public class Texture2dProgram {
     }
 
     public Texture2dProgram(ProgramType programType) {
-        this.nhc = programType;
+        this.nAU = programType;
         switch (programType) {
             case TEXTURE_2D:
                 this.mTextureTarget = 3553;

@@ -5,27 +5,27 @@ import android.content.SharedPreferences;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
 public class b {
-    private static volatile SharedPreferences ovW;
+    private static volatile SharedPreferences oPN;
 
     b() {
     }
 
-    public static boolean G(Context context, int i) {
-        return gP(context).edit().putInt("sp.key.keyboard.height", i).commit();
+    public static boolean I(Context context, int i) {
+        return hh(context).edit().putInt("sp.key.keyboard.height", i).commit();
     }
 
-    private static SharedPreferences gP(Context context) {
-        if (ovW == null) {
+    private static SharedPreferences hh(Context context) {
+        if (oPN == null) {
             synchronized (b.class) {
-                if (ovW == null) {
-                    ovW = context.getSharedPreferences("keyboard.common", 0);
+                if (oPN == null) {
+                    oPN = context.getSharedPreferences("keyboard.common", 0);
                 }
             }
         }
-        return ovW;
+        return oPN;
     }
 
-    public static int H(Context context, int i) {
-        return gP(context).getInt("sp.key.keyboard.height", i);
+    public static int J(Context context, int i) {
+        return hh(context).getInt("sp.key.keyboard.height", i);
     }
 }

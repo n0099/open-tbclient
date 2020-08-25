@@ -14,14 +14,14 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import com.baidu.searchbox.widget.ImmersionHelper;
 import com.baidu.swan.apps.a;
+import com.baidu.swan.apps.ap.aa;
+import com.baidu.swan.apps.ap.ak;
+import com.baidu.swan.apps.ap.e;
 import com.baidu.swan.apps.api.module.e.g;
-import com.baidu.swan.apps.aq.al;
-import com.baidu.swan.apps.aq.e;
-import com.baidu.swan.apps.aq.z;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.core.d.c;
 import com.baidu.swan.apps.core.d.f;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     private static boolean DEBUG = b.DEBUG;
     public static final int DEFAULT_POP_DIALOG_COLOR = Color.parseColor("#80000000");
@@ -37,19 +37,19 @@ public class a {
         }
     }
 
-    public static LinearLayout aqR() {
-        com.baidu.swan.apps.tabbar.b.a VO = g.VO();
-        if (VO == null) {
+    public static LinearLayout azd() {
+        com.baidu.swan.apps.tabbar.b.a abU = g.abU();
+        if (abU == null) {
             return null;
         }
-        return VO.avJ();
+        return abU.aDS();
     }
 
     public static View getActionBar() {
-        f Sc = com.baidu.swan.apps.v.f.akr().Sc();
-        c aaZ = Sc != null ? Sc.aaZ() : null;
-        if (aaZ != null) {
-            return aaZ.aaD();
+        f XX = com.baidu.swan.apps.v.f.arY().XX();
+        c ahm = XX != null ? XX.ahm() : null;
+        if (ahm != null) {
+            return ahm.agN();
         }
         return null;
     }
@@ -57,7 +57,7 @@ public class a {
     private static boolean isSupportImmersion() {
         boolean z = Build.VERSION.SDK_INT >= 21;
         if (DEBUG) {
-            return z & z.getBoolean(ImmersionHelper.SP_KEY_IMMERSION_SWITCH, z);
+            return z & aa.getBoolean(ImmersionHelper.SP_KEY_IMMERSION_SWITCH, z);
         }
         return z;
     }
@@ -80,34 +80,34 @@ public class a {
         return (!SUPPORT_IMMERSION || view == null || view.findViewById(a.f.immersion_custom_statusbar_view) == null) ? false : true;
     }
 
-    public static void aqS() {
-        f Sc = com.baidu.swan.apps.v.f.akr().Sc();
-        if (Sc != null) {
-            final com.baidu.swan.apps.view.a.b aas = Sc.aaZ().aas();
-            al.p(new Runnable() { // from class: com.baidu.swan.apps.res.widget.a.1
+    public static void aze() {
+        f XX = com.baidu.swan.apps.v.f.arY().XX();
+        if (XX != null) {
+            final com.baidu.swan.apps.view.a.b agC = XX.ahm().agC();
+            ak.m(new Runnable() { // from class: com.baidu.swan.apps.res.widget.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    View axG;
-                    if (com.baidu.swan.apps.view.a.b.this != null && (axG = com.baidu.swan.apps.view.a.b.this.axG()) != null) {
-                        axG.setVisibility(0);
+                    View aFO;
+                    if (com.baidu.swan.apps.view.a.b.this != null && (aFO = com.baidu.swan.apps.view.a.b.this.aFO()) != null) {
+                        aFO.setVisibility(0);
                     }
                 }
             });
         }
     }
 
-    public static void aqT() {
-        final c aaZ;
+    public static void azf() {
+        final c ahm;
         final View view;
-        f Sc = com.baidu.swan.apps.v.f.akr().Sc();
-        if (Sc != null && (view = (aaZ = Sc.aaZ()).getView()) != null) {
-            al.p(new Runnable() { // from class: com.baidu.swan.apps.res.widget.a.2
+        f XX = com.baidu.swan.apps.v.f.arY().XX();
+        if (XX != null && (view = (ahm = XX.ahm()).getView()) != null) {
+            ak.m(new Runnable() { // from class: com.baidu.swan.apps.res.widget.a.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    View axG;
-                    com.baidu.swan.apps.view.a.b aas = c.this.aas();
-                    if (aas != null && (axG = aas.axG()) != null) {
-                        axG.setVisibility(8);
+                    View aFO;
+                    com.baidu.swan.apps.view.a.b agC = c.this.agC();
+                    if (agC != null && (aFO = agC.aFO()) != null) {
+                        aFO.setVisibility(8);
                     }
                     LinearLayout linearLayout = (LinearLayout) view.findViewById(a.f.ai_apps_fragment_base_view);
                     FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) linearLayout.getLayoutParams();
@@ -123,7 +123,7 @@ public class a {
     }
 
     public static void setImmersive(boolean z) {
-        a(com.baidu.swan.apps.v.f.akr().akb(), 100L, z);
+        a(com.baidu.swan.apps.v.f.arY().arI(), 100L, z);
     }
 
     private static void a(final Activity activity, long j, final boolean z) {
@@ -131,23 +131,23 @@ public class a {
             @Override // java.lang.Runnable
             public void run() {
                 activity.getWindow().clearFlags(2048);
-                a.b(a.K(activity), z);
+                a.setSystemUiVisibility(a.getDecorView(activity), z);
             }
         }, j);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void b(View view, boolean z) {
+    public static void setSystemUiVisibility(View view, boolean z) {
         if (view != null) {
             if (z) {
-                view.setSystemUiVisibility(e.awp());
+                view.setSystemUiVisibility(e.aEz());
             } else {
                 view.setSystemUiVisibility(0);
             }
         }
     }
 
-    public static ViewGroup K(Activity activity) {
+    public static ViewGroup getDecorView(Activity activity) {
         if (activity != null) {
             return (ViewGroup) activity.getWindow().getDecorView();
         }

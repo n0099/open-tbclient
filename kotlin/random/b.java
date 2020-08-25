@@ -4,12 +4,12 @@ import java.util.Random;
 import kotlin.h;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public final class b extends kotlin.random.a {
-    private final a nYH = new a();
+    private final a osF = new a();
 
     @h
-    /* loaded from: classes7.dex */
+    /* loaded from: classes20.dex */
     public static final class a extends ThreadLocal<Random> {
         a() {
         }
@@ -17,15 +17,15 @@ public final class b extends kotlin.random.a {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // java.lang.ThreadLocal
-        /* renamed from: dUm */
+        /* renamed from: ego */
         public Random initialValue() {
             return new Random();
         }
     }
 
     @Override // kotlin.random.a
-    public Random dUl() {
-        Random random = this.nYH.get();
+    public Random egn() {
+        Random random = this.osF.get();
         q.l((Object) random, "implStorage.get()");
         return random;
     }

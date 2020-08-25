@@ -1,20 +1,21 @@
 package com.baidu.pass.biometrics.base.utils;
 
 import android.content.Context;
-/* loaded from: classes4.dex */
+/* loaded from: classes20.dex */
 public final class ResUtils {
-    private static Context appContext = null;
+    private static Context a;
 
     private ResUtils() {
     }
 
-    public static void setApplicationContext(Context context) {
-        if (context != null) {
-            appContext = context.getApplicationContext();
-        }
+    public static String getString(int i) {
+        Context context = a;
+        return context != null ? context.getString(i) : "";
     }
 
-    public static String getString(int i) {
-        return appContext != null ? appContext.getString(i) : "";
+    public static void setApplicationContext(Context context) {
+        if (context != null) {
+            a = context.getApplicationContext();
+        }
     }
 }

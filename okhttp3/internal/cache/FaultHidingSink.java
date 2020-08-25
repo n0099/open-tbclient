@@ -4,7 +4,7 @@ import java.io.IOException;
 import okio.Buffer;
 import okio.ForwardingSink;
 import okio.Sink;
-/* loaded from: classes14.dex */
+/* loaded from: classes9.dex */
 class FaultHidingSink extends ForwardingSink {
     private boolean hasErrors;
 

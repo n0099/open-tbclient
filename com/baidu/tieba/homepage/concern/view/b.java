@@ -4,52 +4,52 @@ import android.view.View;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.bn;
+import com.baidu.tbadk.core.data.bo;
 import com.baidu.tbadk.h.f;
 /* loaded from: classes16.dex */
-public class b extends com.baidu.card.b<bn> {
-    private ConcernRecommendLayout itK;
+public class b extends com.baidu.card.b<bo> {
+    private ConcernRecommendLayout iHZ;
     private int mSkinType;
 
     public b(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity());
         this.mSkinType = 3;
-        this.itK = new ConcernRecommendLayout(tbPageContext.getPageActivity());
-        this.itK.setPageContext(tbPageContext);
-        this.itK.setPageUniqueId(bdUniqueId);
+        this.iHZ = new ConcernRecommendLayout(tbPageContext.getPageActivity());
+        this.iHZ.setPageContext(tbPageContext);
+        this.iHZ.setPageUniqueId(bdUniqueId);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.itK;
+        return this.iHZ;
     }
 
-    @Override // com.baidu.card.o
+    @Override // com.baidu.card.p
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
-            this.itK.onChangeSkinType(tbPageContext, i);
+            this.iHZ.onChangeSkinType(tbPageContext, i);
         }
         this.mSkinType = i;
     }
 
     @Override // com.baidu.card.b
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.itK.setPageUniqueId(bdUniqueId);
+        this.iHZ.setPageUniqueId(bdUniqueId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.card.n
+    @Override // com.baidu.card.o
     /* renamed from: a */
-    public void D(bn bnVar) {
-        this.itK.setData(bnVar);
+    public void F(bo boVar) {
+        this.iHZ.setData(boVar);
     }
 
     public void setOnItemCoverListener(f<MetaData> fVar) {
-        this.itK.setOnItemCoverListener(fVar);
+        this.iHZ.setOnItemCoverListener(fVar);
     }
 
     public void setHasBorder(boolean z) {
-        this.itK.setHasBorder(z);
+        this.iHZ.setHasBorder(z);
     }
 }

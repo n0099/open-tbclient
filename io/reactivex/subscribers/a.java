@@ -3,12 +3,12 @@ package io.reactivex.subscribers;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.d;
+import org.b.d;
 /* loaded from: classes7.dex */
 public abstract class a<T> implements io.reactivex.disposables.b, j<T> {
     final AtomicReference<d> s = new AtomicReference<>();
 
-    @Override // io.reactivex.j, org.a.c
+    @Override // io.reactivex.j, org.b.c
     public final void onSubscribe(d dVar) {
         if (io.reactivex.internal.util.d.a(this.s, dVar, getClass())) {
             onStart();

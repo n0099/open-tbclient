@@ -6,30 +6,30 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.special_forum.data.e> {
-    private View dWz;
-    private View dpe;
-    private TextView fuX;
-    private ImageView fuY;
+    private View dzg;
+    private View efZ;
+    private TextView fGq;
+    private ImageView fGr;
 
     public b(TbPageContext tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.dpe = getView();
-        this.fuX = (TextView) getView().findViewById(R.id.tv_empty);
-        this.fuY = (ImageView) getView().findViewById(R.id.iv_empty);
-        this.dWz = getView().findViewById(R.id.id_tab_live_sub_empty_divider);
+        this.dzg = getView();
+        this.fGq = (TextView) getView().findViewById(R.id.tv_empty);
+        this.fGr = (ImageView) getView().findViewById(R.id.iv_empty);
+        this.efZ = getView().findViewById(R.id.id_tab_live_sub_empty_divider);
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        ao.setBackgroundResource(this.dpe, R.color.cp_bg_line_d);
-        ao.setViewTextColor(this.fuX, R.color.cp_cont_d);
-        ao.setImageResource(this.fuY, R.drawable.new_pic_emotion_08);
-        ao.setBackgroundResource(this.dWz, R.color.cp_bg_line_c);
+        ap.setBackgroundResource(this.dzg, R.color.cp_bg_line_d);
+        ap.setViewTextColor(this.fGq, (int) R.color.cp_cont_d);
+        ap.setImageResource(this.fGr, R.drawable.new_pic_emotion_08);
+        ap.setBackgroundResource(this.efZ, R.color.cp_bg_line_c);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -41,12 +41,12 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.spec
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.e eVar) {
         if (eVar.followStatus == 1) {
-            this.fuX.setText(this.mTbPageContext.getResources().getString(R.string.live_sub_tab_no_attention_txt));
-            ao.setImageResource(this.fuY, R.drawable.new_pic_emotion_07);
+            this.fGq.setText(this.mTbPageContext.getResources().getString(R.string.live_sub_tab_no_attention_txt));
+            ap.setImageResource(this.fGr, R.drawable.new_pic_emotion_07);
             return;
         }
-        this.fuX.setText(this.mTbPageContext.getResources().getString(R.string.live_sub_tab_empty_txt));
-        ao.setImageResource(this.fuY, R.drawable.new_pic_emotion_06);
+        this.fGq.setText(this.mTbPageContext.getResources().getString(R.string.live_sub_tab_empty_txt));
+        ap.setImageResource(this.fGr, R.drawable.new_pic_emotion_06);
     }
 
     @Override // android.view.View.OnClickListener

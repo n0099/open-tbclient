@@ -1,0 +1,99 @@
+package com.baidu.ar.g;
+
+import android.app.ActivityManager;
+import android.content.Context;
+import android.hardware.SensorManager;
+import android.os.Build;
+import android.text.TextUtils;
+import com.baidu.ar.bean.ARConfig;
+import com.baidu.ar.bean.DuMixARConfig;
+import com.baidu.ar.constants.HttpConstants;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
+import java.util.Arrays;
+import java.util.UUID;
+import org.json.JSONObject;
+/* loaded from: classes11.dex */
+public class o {
+    private static String xr = null;
+
+    public static void a(Context context, JSONObject jSONObject) {
+        if (context == null || jSONObject == null) {
+            b.aP("bdar: addSystemInfo context/httpParams is null!!!");
+            return;
+        }
+        jSONObject.put(HttpConstants.HTTP_OS_TYPE_OLD, "android");
+        jSONObject.put(HttpConstants.HTTP_OS_TYPE, "android");
+        jSONObject.put(HttpConstants.HTTP_ENGINE_VERSION, c.getVersionCode());
+        jSONObject.put("app_id", c.r(context));
+        jSONObject.put("device_id", Build.MODEL);
+        jSONObject.put(HttpConstants.HTTP_SYSTEM_VERSION, Build.VERSION.SDK_INT);
+        jSONObject.put(HttpConstants.OS_BRAND, Build.BRAND.toLowerCase());
+        jSONObject.put(HttpConstants.OS_MODEL, Build.MODEL.toLowerCase());
+        jSONObject.put(HttpConstants.OS_VERSION_SDK, Build.VERSION.SDK_INT);
+        jSONObject.put(HttpConstants.OS_VERSION_RELESE, Build.VERSION.RELEASE);
+        jSONObject.put(HttpConstants.OS_WIDTH_PIXELS, context.getResources().getDisplayMetrics().widthPixels);
+        jSONObject.put(HttpConstants.OS_HEIGHT_PIXELS, context.getResources().getDisplayMetrics().heightPixels);
+        jSONObject.put(HttpConstants.OS_SCALE_PDI, context.getResources().getDisplayMetrics().densityDpi);
+        long[] gC = q.gC();
+        jSONObject.put(HttpConstants.OS_ROM_MEMORY, gC[0]);
+        jSONObject.put(HttpConstants.OS_ROM_AVAIL_MEMORY, gC[1]);
+        jSONObject.put(HttpConstants.OS_SDCARD_MEMORY, q.gD());
+        jSONObject.put(HttpConstants.OS_ROM_SDCARD_AVAIL_MEMORY, q.gE());
+        jSONObject.put(HttpConstants.OS_RAM_MEMEORY, q.A(context));
+        jSONObject.put(HttpConstants.OS_RAM_AVAIL_MEMORY, q.B(context));
+        if (q.C(context)) {
+            jSONObject.put(HttpConstants.OS_HAS_GYROSCOPE, 1);
+        } else {
+            jSONObject.put(HttpConstants.OS_HAS_GYROSCOPE, 0);
+        }
+        jSONObject.put(HttpConstants.OS_CPU_NAME, q.gF());
+        jSONObject.put(HttpConstants.OS_CPU_NUM_CORES, q.gG());
+        jSONObject.put(HttpConstants.OS_CPU_MIN_FREQ, q.gH());
+        jSONObject.put(HttpConstants.OS_CPU_MAX_FREQ, q.gJ());
+        jSONObject.put(HttpConstants.OS_CPU_ABI, Build.CPU_ABI);
+        jSONObject.put(HttpConstants.OS_CPU_CUR_FREQ, q.gK());
+        jSONObject.put(HttpConstants.OS_NATIVE_HEAPSIZE, (int) (Runtime.getRuntime().maxMemory() / 1048576));
+        jSONObject.put(HttpConstants.OS_NATIVE_SENSOR, ((SensorManager) context.getSystemService("sensor")).getDefaultSensor(4) != null);
+        jSONObject.put(HttpConstants.NETWORK_TYPE, m.w(context));
+        if (Build.VERSION.SDK_INT < 21) {
+            jSONObject.put(HttpConstants.OS_CPU_SUPPORTED_ABIS, Build.CPU_ABI);
+        } else {
+            jSONObject.put(HttpConstants.OS_CPU_SUPPORTED_ABIS, Arrays.asList(Build.SUPPORTED_ABIS));
+        }
+        jSONObject.put(HttpConstants.HTTP_GLES_VERSION, ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getDeviceConfigurationInfo().reqGlEsVersion >> 16);
+        jSONObject.put(HttpConstants.HTTP_BOARD, Build.BOARD);
+        jSONObject.put(HttpConstants.HTTP_HARDWARE, Build.HARDWARE);
+        jSONObject.put(HttpConstants.HTTP_MANUFACTURER, Build.MANUFACTURER);
+    }
+
+    private static void a(JSONObject jSONObject, int i, Object[] objArr) {
+        jSONObject.put(HttpConstants.AIP_APP_ID, i);
+        jSONObject.put(HttpConstants.IS_AIP, "3");
+        jSONObject.put("sign", objArr[0]);
+        jSONObject.put("timestamp", objArr[1]);
+    }
+
+    public static void b(Context context, JSONObject jSONObject) {
+        if (context == null || jSONObject == null) {
+            return;
+        }
+        jSONObject.put("user_id", x(context));
+        jSONObject.put("cuid", ARConfig.getCUID());
+    }
+
+    public static void g(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return;
+        }
+        String aipAppId = DuMixARConfig.getAipAppId();
+        a(jSONObject, TextUtils.isEmpty(aipAppId) ? 0 : Integer.parseInt(aipAppId), ARConfig.getSignatureAndTime());
+    }
+
+    public static String x(Context context) {
+        if (xr == null && context != null) {
+            UUID gz = new g(context).gz();
+            xr = gz != null ? gz.toString() : "";
+        }
+        return xr;
+    }
+}

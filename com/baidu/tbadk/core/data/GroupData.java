@@ -1,5 +1,5 @@
 package com.baidu.tbadk.core.data;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class GroupData extends BaseGroupData {
     private static final long serialVersionUID = 5616188082014345808L;
     private String authorPortrait;

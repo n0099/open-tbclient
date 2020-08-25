@@ -1,6 +1,6 @@
 package com.qiniu.android.utils;
 
-import com.xiaomi.mipush.sdk.Constants;
+import com.baidu.android.imsdk.internal.Constants;
 import java.text.DateFormatSymbols;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,10 +9,10 @@ import java.util.TimeZone;
 /* loaded from: classes6.dex */
 public final class FastDatePrinter {
     private final Locale mLocale;
-    private final String nNd;
-    private final TimeZone nNe;
-    private transient Rule[] nNf;
-    private transient int nNg;
+    private final String ogX;
+    private final TimeZone ogY;
+    private transient Rule[] ogZ;
+    private transient int oha;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
@@ -22,33 +22,33 @@ public final class FastDatePrinter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public interface Rule {
-        int dQy();
+        int ecA();
     }
 
     public FastDatePrinter(String str, TimeZone timeZone, Locale locale) {
-        this.nNd = str;
-        this.nNe = timeZone;
+        this.ogX = str;
+        this.ogY = timeZone;
         this.mLocale = locale;
         init();
     }
 
     private void init() {
-        List<Rule> dQx = dQx();
-        this.nNf = (Rule[]) dQx.toArray(new Rule[dQx.size()]);
+        List<Rule> ecz = ecz();
+        this.ogZ = (Rule[]) ecz.toArray(new Rule[ecz.size()]);
         int i = 0;
-        int length = this.nNf.length;
+        int length = this.ogZ.length;
         while (true) {
             length--;
             if (length >= 0) {
-                i += this.nNf[length].dQy();
+                i += this.ogZ[length].ecA();
             } else {
-                this.nNg = i;
+                this.oha = i;
                 return;
             }
         }
     }
 
-    protected List<Rule> dQx() {
+    protected List<Rule> ecz() {
         Rule stringLiteral;
         DateFormatSymbols dateFormatSymbols = new DateFormatSymbols(this.mLocale);
         ArrayList arrayList = new ArrayList();
@@ -58,12 +58,12 @@ public final class FastDatePrinter {
         String[] weekdays = dateFormatSymbols.getWeekdays();
         String[] shortWeekdays = dateFormatSymbols.getShortWeekdays();
         String[] amPmStrings = dateFormatSymbols.getAmPmStrings();
-        int length = this.nNd.length();
+        int length = this.ogX.length();
         int[] iArr = new int[1];
         int i = 0;
         while (i < length) {
             iArr[0] = i;
-            String c = c(this.nNd, iArr);
+            String c = c(this.ogX, iArr);
             int i2 = iArr[0];
             int length2 = c.length();
             if (length2 != 0) {
@@ -78,22 +78,22 @@ public final class FastDatePrinter {
                             break;
                         }
                     case 'D':
-                        stringLiteral = dN(6, length2);
+                        stringLiteral = dV(6, length2);
                         break;
                     case 'E':
                         stringLiteral = new TextField(7, length2 < 4 ? shortWeekdays : weekdays);
                         break;
                     case 'F':
-                        stringLiteral = dN(8, length2);
+                        stringLiteral = dV(8, length2);
                         break;
                     case 'G':
                         stringLiteral = new TextField(0, eras);
                         break;
                     case 'H':
-                        stringLiteral = dN(11, length2);
+                        stringLiteral = dV(11, length2);
                         break;
                     case 'K':
-                        stringLiteral = dN(10, length2);
+                        stringLiteral = dV(10, length2);
                         break;
                     case 'M':
                         if (length2 >= 4) {
@@ -103,67 +103,67 @@ public final class FastDatePrinter {
                             stringLiteral = new TextField(2, shortMonths);
                             break;
                         } else if (length2 == 2) {
-                            stringLiteral = TwoDigitMonthField.nNr;
+                            stringLiteral = TwoDigitMonthField.ohl;
                             break;
                         } else {
-                            stringLiteral = UnpaddedMonthField.nNt;
+                            stringLiteral = UnpaddedMonthField.ohn;
                             break;
                         }
                     case 'S':
-                        stringLiteral = dN(14, length2);
+                        stringLiteral = dV(14, length2);
                         break;
                     case 'W':
-                        stringLiteral = dN(4, length2);
+                        stringLiteral = dV(4, length2);
                         break;
                     case 'X':
-                        stringLiteral = Iso8601_Rule.Ld(length2);
+                        stringLiteral = Iso8601_Rule.NG(length2);
                         break;
                     case 'Y':
-                    case 'y':
+                    case Constants.METHOD_IM_FRIEND_GROUP_DROP /* 121 */:
                         if (length2 == 2) {
-                            stringLiteral = TwoDigitYearField.nNs;
+                            stringLiteral = TwoDigitYearField.ohm;
                             break;
                         } else {
                             if (length2 < 4) {
                                 length2 = 4;
                             }
-                            stringLiteral = dN(1, length2);
+                            stringLiteral = dV(1, length2);
                             break;
                         }
                     case 'Z':
                         if (length2 == 1) {
-                            stringLiteral = TimeZoneNumberRule.nNp;
+                            stringLiteral = TimeZoneNumberRule.ohj;
                             break;
                         } else if (length2 == 2) {
-                            stringLiteral = Iso8601_Rule.nNl;
+                            stringLiteral = Iso8601_Rule.ohf;
                             break;
                         } else {
-                            stringLiteral = TimeZoneNumberRule.nNo;
+                            stringLiteral = TimeZoneNumberRule.ohi;
                             break;
                         }
                     case 'a':
                         stringLiteral = new TextField(9, amPmStrings);
                         break;
                     case 'd':
-                        stringLiteral = dN(5, length2);
+                        stringLiteral = dV(5, length2);
                         break;
                     case 'h':
-                        stringLiteral = new TwelveHourField(dN(10, length2));
+                        stringLiteral = new TwelveHourField(dV(10, length2));
                         break;
                     case 'k':
-                        stringLiteral = new TwentyFourHourField(dN(11, length2));
+                        stringLiteral = new TwentyFourHourField(dV(11, length2));
                         break;
                     case 'm':
-                        stringLiteral = dN(12, length2);
+                        stringLiteral = dV(12, length2);
                         break;
                     case 's':
-                        stringLiteral = dN(13, length2);
+                        stringLiteral = dV(13, length2);
                         break;
                     case 'u':
-                        stringLiteral = new DayInWeekField(dN(7, length2));
+                        stringLiteral = new DayInWeekField(dV(7, length2));
                         break;
                     case 'w':
-                        stringLiteral = dN(3, length2);
+                        stringLiteral = dV(3, length2);
                         break;
                     default:
                         throw new IllegalArgumentException("Illegal pattern component: " + c);
@@ -213,7 +213,7 @@ public final class FastDatePrinter {
         return sb.toString();
     }
 
-    protected NumberRule dN(int i, int i2) {
+    protected NumberRule dV(int i, int i2) {
         switch (i2) {
             case 1:
                 return new UnpaddedNumberField(i);
@@ -227,30 +227,30 @@ public final class FastDatePrinter {
     public boolean equals(Object obj) {
         if (obj instanceof FastDatePrinter) {
             FastDatePrinter fastDatePrinter = (FastDatePrinter) obj;
-            return this.nNd.equals(fastDatePrinter.nNd) && this.nNe.equals(fastDatePrinter.nNe) && this.mLocale.equals(fastDatePrinter.mLocale);
+            return this.ogX.equals(fastDatePrinter.ogX) && this.ogY.equals(fastDatePrinter.ogY) && this.mLocale.equals(fastDatePrinter.mLocale);
         }
         return false;
     }
 
     public int hashCode() {
-        return this.nNd.hashCode() + ((this.nNe.hashCode() + (this.mLocale.hashCode() * 13)) * 13);
+        return this.ogX.hashCode() + ((this.ogY.hashCode() + (this.mLocale.hashCode() * 13)) * 13);
     }
 
     public String toString() {
-        return "FastDatePrinter[" + this.nNd + Constants.ACCEPT_TIME_SEPARATOR_SP + this.mLocale + Constants.ACCEPT_TIME_SEPARATOR_SP + this.nNe.getID() + "]";
+        return "FastDatePrinter[" + this.ogX + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP + this.mLocale + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP + this.ogY.getID() + "]";
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static class CharacterLiteral implements Rule {
-        private final char nNh;
+        private final char ohb;
 
         CharacterLiteral(char c) {
-            this.nNh = c;
+            this.ohb = c;
         }
 
         @Override // com.qiniu.android.utils.FastDatePrinter.Rule
-        public int dQy() {
+        public int ecA() {
             return 1;
         }
     }
@@ -265,7 +265,7 @@ public final class FastDatePrinter {
         }
 
         @Override // com.qiniu.android.utils.FastDatePrinter.Rule
-        public int dQy() {
+        public int ecA() {
             return this.mValue.length();
         }
     }
@@ -273,22 +273,22 @@ public final class FastDatePrinter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static class TextField implements Rule {
-        private final int nNm;
-        private final String[] nNn;
+        private final int ohg;
+        private final String[] ohh;
 
         TextField(int i, String[] strArr) {
-            this.nNm = i;
-            this.nNn = strArr;
+            this.ohg = i;
+            this.ohh = strArr;
         }
 
         @Override // com.qiniu.android.utils.FastDatePrinter.Rule
-        public int dQy() {
+        public int ecA() {
             int i = 0;
-            int length = this.nNn.length;
+            int length = this.ohh.length;
             while (true) {
                 int i2 = length - 1;
                 if (i2 >= 0) {
-                    int length2 = this.nNn[i2].length();
+                    int length2 = this.ohh[i2].length();
                     if (length2 <= i) {
                         length2 = i;
                     }
@@ -304,14 +304,14 @@ public final class FastDatePrinter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static class UnpaddedNumberField implements NumberRule {
-        private final int nNm;
+        private final int ohg;
 
         UnpaddedNumberField(int i) {
-            this.nNm = i;
+            this.ohg = i;
         }
 
         @Override // com.qiniu.android.utils.FastDatePrinter.Rule
-        public int dQy() {
+        public int ecA() {
             return 4;
         }
     }
@@ -319,13 +319,13 @@ public final class FastDatePrinter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static class UnpaddedMonthField implements NumberRule {
-        static final UnpaddedMonthField nNt = new UnpaddedMonthField();
+        static final UnpaddedMonthField ohn = new UnpaddedMonthField();
 
         UnpaddedMonthField() {
         }
 
         @Override // com.qiniu.android.utils.FastDatePrinter.Rule
-        public int dQy() {
+        public int ecA() {
             return 2;
         }
     }
@@ -334,18 +334,18 @@ public final class FastDatePrinter {
     /* loaded from: classes6.dex */
     public static class PaddedNumberField implements NumberRule {
         private final int mSize;
-        private final int nNm;
+        private final int ohg;
 
         PaddedNumberField(int i, int i2) {
             if (i2 < 3) {
                 throw new IllegalArgumentException();
             }
-            this.nNm = i;
+            this.ohg = i;
             this.mSize = i2;
         }
 
         @Override // com.qiniu.android.utils.FastDatePrinter.Rule
-        public int dQy() {
+        public int ecA() {
             return this.mSize;
         }
     }
@@ -353,14 +353,14 @@ public final class FastDatePrinter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static class TwoDigitNumberField implements NumberRule {
-        private final int nNm;
+        private final int ohg;
 
         TwoDigitNumberField(int i) {
-            this.nNm = i;
+            this.ohg = i;
         }
 
         @Override // com.qiniu.android.utils.FastDatePrinter.Rule
-        public int dQy() {
+        public int ecA() {
             return 2;
         }
     }
@@ -368,13 +368,13 @@ public final class FastDatePrinter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static class TwoDigitYearField implements NumberRule {
-        static final TwoDigitYearField nNs = new TwoDigitYearField();
+        static final TwoDigitYearField ohm = new TwoDigitYearField();
 
         TwoDigitYearField() {
         }
 
         @Override // com.qiniu.android.utils.FastDatePrinter.Rule
-        public int dQy() {
+        public int ecA() {
             return 2;
         }
     }
@@ -382,13 +382,13 @@ public final class FastDatePrinter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static class TwoDigitMonthField implements NumberRule {
-        static final TwoDigitMonthField nNr = new TwoDigitMonthField();
+        static final TwoDigitMonthField ohl = new TwoDigitMonthField();
 
         TwoDigitMonthField() {
         }
 
         @Override // com.qiniu.android.utils.FastDatePrinter.Rule
-        public int dQy() {
+        public int ecA() {
             return 2;
         }
     }
@@ -396,61 +396,61 @@ public final class FastDatePrinter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static class TwelveHourField implements NumberRule {
-        private final NumberRule nNi;
+        private final NumberRule ohc;
 
         TwelveHourField(NumberRule numberRule) {
-            this.nNi = numberRule;
+            this.ohc = numberRule;
         }
 
         @Override // com.qiniu.android.utils.FastDatePrinter.Rule
-        public int dQy() {
-            return this.nNi.dQy();
+        public int ecA() {
+            return this.ohc.ecA();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static class TwentyFourHourField implements NumberRule {
-        private final NumberRule nNi;
+        private final NumberRule ohc;
 
         TwentyFourHourField(NumberRule numberRule) {
-            this.nNi = numberRule;
+            this.ohc = numberRule;
         }
 
         @Override // com.qiniu.android.utils.FastDatePrinter.Rule
-        public int dQy() {
-            return this.nNi.dQy();
+        public int ecA() {
+            return this.ohc.ecA();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static class DayInWeekField implements NumberRule {
-        private final NumberRule nNi;
+        private final NumberRule ohc;
 
         DayInWeekField(NumberRule numberRule) {
-            this.nNi = numberRule;
+            this.ohc = numberRule;
         }
 
         @Override // com.qiniu.android.utils.FastDatePrinter.Rule
-        public int dQy() {
-            return this.nNi.dQy();
+        public int ecA() {
+            return this.ohc.ecA();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static class TimeZoneNumberRule implements Rule {
-        static final TimeZoneNumberRule nNo = new TimeZoneNumberRule(true);
-        static final TimeZoneNumberRule nNp = new TimeZoneNumberRule(false);
-        final boolean nNq;
+        static final TimeZoneNumberRule ohi = new TimeZoneNumberRule(true);
+        static final TimeZoneNumberRule ohj = new TimeZoneNumberRule(false);
+        final boolean ohk;
 
         TimeZoneNumberRule(boolean z) {
-            this.nNq = z;
+            this.ohk = z;
         }
 
         @Override // com.qiniu.android.utils.FastDatePrinter.Rule
-        public int dQy() {
+        public int ecA() {
             return 5;
         }
     }
@@ -458,30 +458,30 @@ public final class FastDatePrinter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static class Iso8601_Rule implements Rule {
-        static final Iso8601_Rule nNj = new Iso8601_Rule(3);
-        static final Iso8601_Rule nNk = new Iso8601_Rule(5);
-        static final Iso8601_Rule nNl = new Iso8601_Rule(6);
+        static final Iso8601_Rule ohd = new Iso8601_Rule(3);
+        static final Iso8601_Rule ohe = new Iso8601_Rule(5);
+        static final Iso8601_Rule ohf = new Iso8601_Rule(6);
         final int length;
 
         Iso8601_Rule(int i) {
             this.length = i;
         }
 
-        static Iso8601_Rule Ld(int i) {
+        static Iso8601_Rule NG(int i) {
             switch (i) {
                 case 1:
-                    return nNj;
+                    return ohd;
                 case 2:
-                    return nNk;
+                    return ohe;
                 case 3:
-                    return nNl;
+                    return ohf;
                 default:
                     throw new IllegalArgumentException("invalid number of X");
             }
         }
 
         @Override // com.qiniu.android.utils.FastDatePrinter.Rule
-        public int dQy() {
+        public int ecA() {
             return this.length;
         }
     }

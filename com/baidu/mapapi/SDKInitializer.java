@@ -3,7 +3,7 @@ package com.baidu.mapapi;
 import android.content.Context;
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapsdkplatform.comapi.c;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class SDKInitializer {
     public static final String SDK_BROADCAST_ACTION_STRING_NETWORK_ERROR = "network error";
     public static final String SDK_BROADTCAST_ACTION_STRING_PERMISSION_CHECK_ERROR = "permission check error";
@@ -20,15 +20,15 @@ public class SDKInitializer {
     }
 
     public static void initialize(Context context) {
-        initialize(null, context);
+        c.a(context, false, null, null, null);
     }
 
     public static void initialize(Context context, boolean z, String str, String str2) {
-        c.a(context, z, str, str2);
+        c.a(context, z, str, str2, null);
     }
 
     public static void initialize(String str, Context context) {
-        c.a(context, false, null, str);
+        c.a(context, false, null, str, null);
     }
 
     public static boolean isHttpsEnable() {

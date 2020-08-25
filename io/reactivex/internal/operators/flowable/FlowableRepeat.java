@@ -8,45 +8,45 @@ public final class FlowableRepeat<T> extends a<T, T> {
     final long count;
 
     @Override // io.reactivex.g
-    public void a(org.a.c<? super T> cVar) {
+    public void a(org.b.c<? super T> cVar) {
         SubscriptionArbiter subscriptionArbiter = new SubscriptionArbiter();
         cVar.onSubscribe(subscriptionArbiter);
-        new RepeatSubscriber(cVar, this.count != Long.MAX_VALUE ? this.count - 1 : Long.MAX_VALUE, subscriptionArbiter, this.nSG).subscribeNext();
+        new RepeatSubscriber(cVar, this.count != Long.MAX_VALUE ? this.count - 1 : Long.MAX_VALUE, subscriptionArbiter, this.omB).subscribeNext();
     }
 
     /* loaded from: classes7.dex */
     static final class RepeatSubscriber<T> extends AtomicInteger implements j<T> {
         private static final long serialVersionUID = -7098360935104053232L;
-        final org.a.c<? super T> actual;
+        final org.b.c<? super T> actual;
         long produced;
         long remaining;
         final SubscriptionArbiter sa;
-        final org.a.b<? extends T> source;
+        final org.b.b<? extends T> source;
 
-        RepeatSubscriber(org.a.c<? super T> cVar, long j, SubscriptionArbiter subscriptionArbiter, org.a.b<? extends T> bVar) {
+        RepeatSubscriber(org.b.c<? super T> cVar, long j, SubscriptionArbiter subscriptionArbiter, org.b.b<? extends T> bVar) {
             this.actual = cVar;
             this.sa = subscriptionArbiter;
             this.source = bVar;
             this.remaining = j;
         }
 
-        @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        @Override // io.reactivex.j, org.b.c
+        public void onSubscribe(org.b.d dVar) {
             this.sa.setSubscription(dVar);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(T t) {
             this.produced++;
             this.actual.onNext(t);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
             this.actual.onError(th);
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
             long j = this.remaining;
             if (j != Long.MAX_VALUE) {

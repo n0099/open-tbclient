@@ -8,7 +8,7 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class b implements a {
     @Override // com.yanzhenjie.permission.a.a
     public boolean e(@NonNull Context context, @NonNull String... strArr) {

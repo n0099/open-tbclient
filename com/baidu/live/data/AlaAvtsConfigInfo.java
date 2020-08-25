@@ -3,7 +3,7 @@ package com.baidu.live.data;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaAvtsConfigInfo implements Serializable {
     public int closeTimeout;
     public int handshakeTimeout;

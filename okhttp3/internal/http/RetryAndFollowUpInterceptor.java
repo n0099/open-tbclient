@@ -28,7 +28,7 @@ import okhttp3.internal.connection.RouteException;
 import okhttp3.internal.connection.StreamAllocation;
 import okhttp3.internal.http2.ConnectionShutdownException;
 import org.apache.http.client.methods.HttpHead;
-/* loaded from: classes14.dex */
+/* loaded from: classes9.dex */
 public final class RetryAndFollowUpInterceptor implements Interceptor {
     private static final int MAX_FOLLOW_UPS = 20;
     private Object callStackTrace;

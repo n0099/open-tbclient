@@ -12,26 +12,25 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.HashSet;
 import org.json.JSONException;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public final class e {
     protected static final String a = "BdboxApp:".toLowerCase();
     public HashMap<String, Object> b;
-    public WebView d;
-    public String e;
-    public boolean g;
-    private String i;
+    public WebView c;
+    public String d;
+    private String g;
     @SuppressLint({"SdCardPath"})
-    private String h = "/data/data/";
-    public boolean c = true;
-    public boolean f = true;
-    private boolean j = true;
+    private String e = "/data/data/";
+    private boolean f = true;
+    private boolean h = true;
+    private boolean i = true;
 
     public e(WebView webView) {
-        this.d = webView;
+        this.c = webView;
         try {
-            this.h += webView.getContext().getPackageName();
+            this.e += webView.getContext().getPackageName();
         } catch (Exception e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         }
     }
 
@@ -73,80 +72,106 @@ public final class e {
         sb.append("}");
     }
 
-    private static boolean e() {
+    private static boolean g() {
         return Build.VERSION.SDK_INT >= 17;
     }
 
     public final void a(String str) {
-        if (!this.j || str == null || str.startsWith("javascript")) {
+        if (!this.i || str == null || str.startsWith("javascript")) {
             return;
         }
-        this.i = str;
-        if (this.d == null || this.d.getSettings() == null) {
+        this.g = str;
+        if (this.c == null || this.c.getSettings() == null) {
             return;
         }
-        if (!this.i.startsWith("file://")) {
-            this.d.getSettings().setJavaScriptEnabled(true);
+        if (!this.g.startsWith("file://")) {
+            this.c.getSettings().setJavaScriptEnabled(true);
             return;
         }
         boolean z = false;
         try {
             z = WebViewFactory.hasProvider() ? ((Boolean) WebViewFactory.getProvider().getStaticWebSeting(WebViewFactoryProvider.SETTING_JS_ENABLE_ON_FILE_SCHEMA)).booleanValue() : false;
         } catch (UnsatisfiedLinkError e) {
-            com.a.a.a.a.a.a.a.a(e);
+            e.printStackTrace();
         } catch (Throwable th) {
             Log.e("WebViewSecureProcessor", "getStaticWebSeting error:" + th);
         }
-        this.d.getSettings().setJavaScriptEnabled(z);
+        this.c.getSettings().setJavaScriptEnabled(z);
+    }
+
+    public final void a(boolean z) {
+        if (z == this.f) {
+            return;
+        }
+        if (z) {
+            throw new RuntimeException("can not reverse!!");
+        }
+        this.f = z;
+        for (String str : d().keySet()) {
+            this.c.addJavascriptInterface(d().get(str), str, false);
+        }
+        if (this.b != null) {
+            this.b.clear();
+        }
+        this.d = null;
     }
 
     public final boolean a() {
-        if (this.c) {
-            if (!e()) {
+        if (this.f) {
+            if (!g()) {
                 return true;
             }
         }
         return false;
     }
 
-    public final void b() {
-        if (!this.f || !a()) {
-            if (this.g) {
-                this.d.execJavaScript("var event = document.createEvent('Events');event.initEvent('runtimeready', false, false);document.dispatchEvent(event);");
+    public final void b(boolean z) {
+        this.h = z;
+    }
+
+    public final boolean b() {
+        return this.h;
+    }
+
+    public final void c() {
+        if (this.h && a()) {
+            if (this.d != null) {
+                this.c.execJavaScript(this.d);
+                return;
             }
-        } else if (this.e != null) {
-            this.d.execJavaScript(this.e);
-        } else {
             StringBuilder sb = new StringBuilder();
             sb.append("(function JsAddJavascriptInterface_(){");
-            for (String str : c().keySet()) {
+            for (String str : d().keySet()) {
                 try {
-                    a(sb, c().get(str), str);
+                    a(sb, d().get(str), str);
                 } catch (JSONException e) {
                 }
             }
-            if (this.g) {
-                sb.append("var event = document.createEvent('Events');event.initEvent('runtimeready', false, false);document.dispatchEvent(event);");
-            }
             sb.append("}");
             sb.append(")()");
-            this.e = sb.toString();
-            this.d.execJavaScript(this.e);
+            this.d = sb.toString();
+            this.c.execJavaScript(this.d);
         }
     }
 
-    public final HashMap<String, Object> c() {
+    public final HashMap<String, Object> d() {
         if (this.b == null) {
             this.b = new HashMap<>();
         }
         return this.b;
     }
 
-    public final boolean d() {
-        if (e()) {
+    public final boolean e() {
+        if (g()) {
             return false;
         }
-        this.d.removeJavascriptInterface("searchBoxJavaBridge_");
+        this.c.removeJavascriptInterface("searchBoxJavaBridge_");
         return true;
+    }
+
+    public final void f() {
+        if (e()) {
+            new Thread(new f(this), "T7@removeSearchBoxImpl").start();
+        }
     }
 }

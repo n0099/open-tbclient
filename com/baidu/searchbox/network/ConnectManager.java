@@ -4,9 +4,8 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Proxy;
-import com.baidu.android.util.devices.NetWorkUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public class ConnectManager {
     private static final boolean DEBUG = false;
     private static final String TAG = "ConnectManager";
@@ -131,7 +130,7 @@ public class ConnectManager {
     public static String getNetworkInfo(Context context) {
         NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
         if (activeNetworkInfo == null || !activeNetworkInfo.isConnected()) {
-            return NetWorkUtils.NETWORK_TYPE_CELL_UN_CONNECTED;
+            return "no";
         }
         if (activeNetworkInfo.getType() == 1) {
             return "wifi";

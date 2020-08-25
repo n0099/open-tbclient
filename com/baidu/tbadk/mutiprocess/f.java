@@ -5,19 +5,19 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class f {
     private static String bduss;
-    private static boolean eFr = false;
+    private static boolean ePV = false;
     private static String stoken;
     private static String tbs;
 
-    public static void iV(boolean z) {
-        eFr = z;
+    public static void jt(boolean z) {
+        ePV = z;
     }
 
     public static boolean isLogin() {
-        return eFr;
+        return ePV;
     }
 
     public static void setBduss(String str) {
@@ -45,10 +45,10 @@ public class f {
     }
 
     public static boolean checkUpIsLogin(Context context) {
-        if (!eFr) {
+        if (!ePV) {
             skipToLoginActivity(context);
         }
-        return eFr;
+        return ePV;
     }
 
     public static void skipToLoginActivity(Context context) {

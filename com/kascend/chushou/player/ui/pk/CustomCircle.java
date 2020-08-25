@@ -8,14 +8,14 @@ public class CustomCircle implements Parcelable {
     public static final Parcelable.Creator<CustomCircle> CREATOR = new Parcelable.Creator<CustomCircle>() { // from class: com.kascend.chushou.player.ui.pk.CustomCircle.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: ao */
+        /* renamed from: ap */
         public CustomCircle createFromParcel(Parcel parcel) {
             return new CustomCircle(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: KJ */
+        /* renamed from: Nn */
         public CustomCircle[] newArray(int i) {
             return new CustomCircle[i];
         }

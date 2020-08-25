@@ -1,127 +1,42 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tbadk.coreExtra.data.AuthTokenData;
-import com.baidu.tbadk.switchs.BarDetailForDirSwitch;
-import java.lang.ref.WeakReference;
-import org.json.JSONObject;
-/* loaded from: classes.dex */
-public class ac {
-    private a lMn;
-    private String mFrom = BarDetailForDirSwitch.BAR_DETAIL_DIR;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.data.by;
+import com.baidu.tbadk.core.data.cb;
+/* loaded from: classes2.dex */
+public class ac extends bw {
+    public static final BdUniqueId mdU = BdUniqueId.gen();
+    private boolean fKl = false;
+    private by mdV;
+    private cb mdW;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void x(String str, long j);
-
-        void y(String str, long j);
+    @Override // com.baidu.tbadk.core.data.bw, com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
+    public BdUniqueId getType() {
+        return mdU;
     }
 
-    public void setFrom(String str) {
-        this.mFrom = str;
+    public boolean dwe() {
+        return this.fKl;
     }
 
-    public void a(a aVar) {
-        this.lMn = aVar;
+    public void vX(boolean z) {
+        this.fKl = z;
     }
 
-    public void J(String str, long j) {
-        new b(str, j, this.mFrom, this.lMn, this, null).execute(new Integer[0]);
+    public by dwf() {
+        return this.mdV;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public static class b extends BdAsyncTask<Integer, Integer, Integer> {
-        private String authSid;
-        private int errorCode;
-        private String errorMsg;
-        private WeakReference<a> lMo;
-        private WeakReference<ac> lMp;
-        private long mForumId;
-        private String mForumName;
-        private String mFrom;
-        private com.baidu.tbadk.core.util.z mNetwork = null;
-        private AuthTokenData tokenData;
+    public void a(by byVar) {
+        this.mdV = byVar;
+    }
 
-        public b(String str, long j, String str2, a aVar, ac acVar, String str3) {
-            this.mForumName = null;
-            this.mForumId = 0L;
-            this.lMo = null;
-            this.lMp = new WeakReference<>(acVar);
-            this.mForumName = str;
-            this.mForumId = j;
-            this.lMo = new WeakReference<>(aVar);
-            this.mFrom = str2;
-            this.authSid = str3;
-            setPriority(3);
-        }
+    public cb dwg() {
+        return this.mdW;
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public Integer doInBackground(Integer... numArr) {
-            JSONObject jSONObject;
-            try {
-                if (this.mForumId != 0 && this.mForumName != null) {
-                    this.mNetwork = new com.baidu.tbadk.core.util.z(TbConfig.SERVER_ADDRESS + TbConfig.UNFAVOLIKE_ADDRESS);
-                    this.mNetwork.addPostData("fid", String.valueOf(this.mForumId));
-                    this.mNetwork.addPostData("kw", this.mForumName);
-                    this.mNetwork.addPostData("favo_type", "1");
-                    this.mNetwork.addPostData("st_type", this.mFrom);
-                    this.mNetwork.addPostData("authsid", this.authSid);
-                    this.mNetwork.bav().baW().mIsNeedTbs = true;
-                    String postNetData = this.mNetwork.postNetData();
-                    if (!as.isEmpty(postNetData) && (jSONObject = new JSONObject(postNetData)) != null) {
-                        this.errorCode = jSONObject.optInt("error_code");
-                        this.errorMsg = jSONObject.optString("error_msg");
-                        this.tokenData = AuthTokenData.parse(jSONObject);
-                    }
-                    if (this.mNetwork.bav().baX().isRequestSuccess()) {
-                        return 1;
-                    }
-                }
-                return 0;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return 0;
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(Integer num) {
-            super.onPostExecute((b) num);
-            if (this.lMo != null) {
-                com.baidu.tieba.tbadkCore.writeModel.a aVar = new com.baidu.tieba.tbadkCore.writeModel.a();
-                aVar.forumId = this.mForumId;
-                a aVar2 = this.lMo.get();
-                if (aVar2 != null) {
-                    if (num.intValue() == 1 && this.mNetwork != null && this.mNetwork.bav().baX().isRequestSuccess()) {
-                        TbadkCoreApplication.getInst().delLikeForum(this.mForumName);
-                        aVar2.x(this.mForumName, this.mForumId);
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UNLIKE_FORUM, Long.valueOf(this.mForumId)));
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UNLIKE_FORUM_NAME, this.mForumName));
-                        aVar.isSuccess = true;
-                    } else {
-                        aVar.isSuccess = false;
-                        if (this.mNetwork != null) {
-                            String errorString = this.mNetwork.isNetSuccess() ? this.mNetwork.getErrorString() : this.mNetwork.baw();
-                            aVar.errorMessage = errorString;
-                            aVar2.y(errorString, this.errorCode);
-                        }
-                    }
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_UNLIKE_FORUM, aVar));
-                }
-            }
-        }
+    public void a(cb cbVar) {
+        this.mdW = cbVar;
     }
 }

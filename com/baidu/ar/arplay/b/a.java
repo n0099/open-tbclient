@@ -18,18 +18,18 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 /* loaded from: classes11.dex */
 public class a implements ARPMessage.MessageHandler {
-    private ARPEngine.g gm = new ARPEngine.g() { // from class: com.baidu.ar.arplay.b.a.1
-        @Override // com.baidu.ar.arplay.core.engine.ARPEngine.g
+    private ARPEngine.f fB = new ARPEngine.f() { // from class: com.baidu.ar.arplay.b.a.1
+        @Override // com.baidu.ar.arplay.core.engine.ARPEngine.f
         public void a(String str, int i, String str2, String str3) {
-            SurfaceTexture A = e.aM().A(str);
-            if (A != null) {
+            SurfaceTexture B = e.aK().B(str);
+            if (B != null) {
                 try {
-                    if (e.aM().z(str) != i) {
-                        e.aM().a(str, i);
+                    if (e.aK().A(str) != i) {
+                        e.aK().a(str, i);
                     }
-                    A.updateTexImage();
+                    B.updateTexImage();
                 } catch (RuntimeException e) {
-                    e.aM().a(str, i);
+                    e.aK().a(str, i);
                 }
             }
         }
@@ -39,7 +39,7 @@ public class a implements ARPMessage.MessageHandler {
     public a(Context context) {
         this.mContext = context.getApplicationContext();
         d.d(this.mContext);
-        bd();
+        bl();
     }
 
     private void F(String str) {
@@ -101,32 +101,32 @@ public class a implements ARPMessage.MessageHandler {
         }
         if (hashMap.get("loop") != null) {
             int intValue = ((Integer) hashMap.get("loop")).intValue();
-            aVar.j(intValue);
+            aVar.g(intValue);
             if (intValue <= 0) {
-                aVar.f(true);
+                aVar.g(true);
             }
         }
         if (hashMap.get("target") != null) {
-            aVar.B(com.baidu.ar.arplay.c.c.a(hashMap.get("target"), (String) null));
+            aVar.C(com.baidu.ar.arplay.c.c.a(hashMap.get("target"), (String) null));
         }
         if (hashMap.get("from_time") != null) {
             aVar.d(com.baidu.ar.arplay.c.c.a(hashMap.get("from_time"), 0));
         }
         switch (i) {
             case 1001:
-                com.baidu.ar.arplay.a.a.aB().a(aVar, hashMap);
+                com.baidu.ar.arplay.a.a.az().a(aVar, hashMap);
                 return;
             case 1003:
-                com.baidu.ar.arplay.a.a.aB().b(aVar, hashMap);
+                com.baidu.ar.arplay.a.a.az().b(aVar, hashMap);
                 return;
             case 1005:
-                com.baidu.ar.arplay.a.a.aB().c(aVar, hashMap);
+                com.baidu.ar.arplay.a.a.az().c(aVar, hashMap);
                 return;
             case 1007:
-                com.baidu.ar.arplay.a.a.aB().d(aVar, hashMap);
+                com.baidu.ar.arplay.a.a.az().d(aVar, hashMap);
                 return;
             case 1012:
-                com.baidu.ar.arplay.a.a.aB().e(aVar, hashMap);
+                com.baidu.ar.arplay.a.a.az().e(aVar, hashMap);
                 return;
             default:
                 return;
@@ -145,25 +145,25 @@ public class a implements ARPMessage.MessageHandler {
             eVar.setId(com.baidu.ar.arplay.c.c.a(hashMap.get("id"), (String) null));
         }
         if (hashMap.get("texture_id") != null) {
-            eVar.l(com.baidu.ar.arplay.c.c.a(hashMap.get("texture_id"), -1));
+            eVar.i(com.baidu.ar.arplay.c.c.a(hashMap.get("texture_id"), -1));
         }
         if (hashMap.get("loop") != null) {
             int a = com.baidu.ar.arplay.c.c.a(hashMap.get("loop"), 0);
-            eVar.j(com.baidu.ar.arplay.c.c.a(hashMap.get("loop"), 0));
+            eVar.g(com.baidu.ar.arplay.c.c.a(hashMap.get("loop"), 0));
             if (a <= 0) {
-                eVar.f(true);
+                eVar.g(true);
             }
         }
         if (hashMap.get("target") != null) {
-            eVar.B(com.baidu.ar.arplay.c.c.a(hashMap.get("target"), (String) null));
+            eVar.C(com.baidu.ar.arplay.c.c.a(hashMap.get("target"), (String) null));
         }
         if (hashMap.get("from_time") != null) {
             eVar.d(com.baidu.ar.arplay.c.c.a(hashMap.get("from_time"), 0));
-            Log.e("VideoTest", "bean fromTime: " + eVar.aP());
+            Log.e("VideoTest", "bean fromTime: " + eVar.aN());
         }
         switch (i) {
             case 1021:
-                e.aM().a(eVar, hashMap);
+                e.aK().a(eVar, hashMap);
                 return;
             case 1022:
             case 1024:
@@ -171,46 +171,46 @@ public class a implements ARPMessage.MessageHandler {
             default:
                 return;
             case 1023:
-                e.aM().b(eVar, hashMap);
+                e.aK().b(eVar, hashMap);
                 return;
             case 1025:
-                e.aM().c(eVar, hashMap);
+                e.aK().c(eVar, hashMap);
                 return;
             case ARPMessageType.MSG_TYPE_VIDEO_STOP /* 1027 */:
-                e.aM().d(eVar, hashMap);
+                e.aK().d(eVar, hashMap);
                 return;
         }
     }
 
-    private void bd() {
-        ARPEngine.getInstance().setVideoUpdateCallback(this.gm);
+    private void bl() {
+        ARPEngine.getInstance().setVideoUpdateCallback(this.fB);
     }
 
-    private void f(HashMap<String, Object> hashMap) {
+    private void e(HashMap<String, Object> hashMap) {
         if (hashMap == null) {
             return;
         }
         String a = com.baidu.ar.arplay.c.c.a(hashMap.get(LuaMessageHelper.KEY_EVENT_NAME), "");
-        a.C0078a c0078a = new a.C0078a();
+        a.C0074a c0074a = new a.C0074a();
         if ("load_webview".equals(a)) {
-            c0078a.dX = com.baidu.ar.arplay.c.c.a(hashMap.get("texture_id"), 0);
-            c0078a.width = com.baidu.ar.arplay.c.c.a(hashMap.get("width"), 0);
-            c0078a.height = com.baidu.ar.arplay.c.c.a(hashMap.get("height"), 0);
-            c0078a.url = com.baidu.ar.arplay.c.c.a(hashMap.get("url"), (String) null);
-            c0078a.gB = com.baidu.ar.arplay.c.c.a(hashMap.get("is_remote"), 0) == 1;
-            b.bh().c(c0078a);
+            c0074a.dz = com.baidu.ar.arplay.c.c.a(hashMap.get("texture_id"), 0);
+            c0074a.width = com.baidu.ar.arplay.c.c.a(hashMap.get("width"), 0);
+            c0074a.height = com.baidu.ar.arplay.c.c.a(hashMap.get("height"), 0);
+            c0074a.url = com.baidu.ar.arplay.c.c.a(hashMap.get("url"), (String) null);
+            c0074a.fQ = com.baidu.ar.arplay.c.c.a(hashMap.get("is_remote"), 0) == 1;
+            b.bp().c(c0074a);
         } else if ("update_webview_js".equals(a)) {
-            c0078a.dX = com.baidu.ar.arplay.c.c.a(hashMap.get("texture_id"), 0);
-            c0078a.gC = com.baidu.ar.arplay.c.c.a(hashMap.get("js_code"), (String) null);
-            b.bh().e(c0078a);
+            c0074a.dz = com.baidu.ar.arplay.c.c.a(hashMap.get("texture_id"), 0);
+            c0074a.fR = com.baidu.ar.arplay.c.c.a(hashMap.get("js_code"), (String) null);
+            b.bp().e(c0074a);
         } else if ("load_native_webview".equals(a)) {
-            c0078a.url = com.baidu.ar.arplay.c.c.a(hashMap.get("url"), (String) null);
-            c0078a.gB = com.baidu.ar.arplay.c.c.a(hashMap.get("is_remote"), 0) == 1;
-            b.bh().d(c0078a);
+            c0074a.url = com.baidu.ar.arplay.c.c.a(hashMap.get("url"), (String) null);
+            c0074a.fQ = com.baidu.ar.arplay.c.c.a(hashMap.get("is_remote"), 0) == 1;
+            b.bp().d(c0074a);
         }
     }
 
-    private void g(HashMap<String, Object> hashMap) {
+    private void f(HashMap<String, Object> hashMap) {
         if (hashMap == null) {
             return;
         }
@@ -219,7 +219,7 @@ public class a implements ARPMessage.MessageHandler {
             dVar.setType(com.baidu.ar.arplay.c.c.a(hashMap.get("type"), 0));
         }
         if (hashMap.get("interval") != null) {
-            dVar.k(com.baidu.ar.arplay.c.c.a(hashMap.get("interval"), 0));
+            dVar.h(com.baidu.ar.arplay.c.c.a(hashMap.get("interval"), 0));
         }
         if (hashMap.get("pattern") != null) {
             dVar.setPattern(com.baidu.ar.arplay.c.c.a(hashMap.get("pattern"), (String) null));
@@ -227,19 +227,19 @@ public class a implements ARPMessage.MessageHandler {
         a(dVar);
     }
 
-    private void h(HashMap<String, Object> hashMap) {
+    private void g(HashMap<String, Object> hashMap) {
         if (hashMap == null) {
             return;
         }
         c cVar = new c();
         Object obj = hashMap.get("number");
         if (obj != null) {
-            cVar.C((String) obj);
+            cVar.D((String) obj);
         }
         a(cVar);
     }
 
-    public void bc() {
+    public void bk() {
         ARPMessage.getInstance().registerMessageHandler(0, this);
         ARPEngine.getInstance().initDataStore(this.mContext.getSharedPreferences("baiduar_lua_data_store", 0));
     }
@@ -249,8 +249,8 @@ public class a implements ARPMessage.MessageHandler {
         switch (i) {
             case 0:
                 if (i2 == -2) {
-                    e.aM().aC();
-                    com.baidu.ar.arplay.a.a.aB().aC();
+                    e.aK().aA();
+                    com.baidu.ar.arplay.a.a.az().aA();
                     return;
                 }
                 return;
@@ -277,13 +277,13 @@ public class a implements ARPMessage.MessageHandler {
                 b(hashMap, i);
                 return;
             case 1401:
-                h(hashMap);
-                return;
-            case 1501:
                 g(hashMap);
                 return;
-            case ARPMessageType.MSG_TYPE_LUA_SDK_BRIDGE /* 1901 */:
+            case 1501:
                 f(hashMap);
+                return;
+            case ARPMessageType.MSG_TYPE_LUA_SDK_BRIDGE /* 1901 */:
+                e(hashMap);
                 return;
             default:
                 return;

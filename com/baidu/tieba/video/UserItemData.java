@@ -3,19 +3,19 @@ package com.baidu.tieba.video;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class UserItemData implements Parcelable {
     public static final Parcelable.Creator<UserItemData> CREATOR = new Parcelable.Creator<UserItemData>() { // from class: com.baidu.tieba.video.UserItemData.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: af */
+        /* renamed from: ag */
         public UserItemData createFromParcel(Parcel parcel) {
             return new UserItemData(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Go */
+        /* renamed from: IK */
         public UserItemData[] newArray(int i) {
             return new UserItemData[i];
         }
@@ -35,7 +35,7 @@ public class UserItemData implements Parcelable {
     public String user_name;
     public String video_num;
 
-    public String dpv() {
+    public String dAQ() {
         return !TextUtils.isEmpty(this.name_show) ? this.name_show : this.user_name;
     }
 

@@ -19,7 +19,7 @@ import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class Manager<M extends Message<?>, T extends MessageTask, R extends MessageRule<?, ?>, N extends ResponsedMessage<?>> implements IMessageProcess<M, T> {
     private static NotFindTaskListener<Message<?>> mNotFindTaskListener = null;
     protected MessageManager mMessageManager;

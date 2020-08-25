@@ -1,40 +1,40 @@
 package com.baidu.tbadk.coreExtra.data;
-/* loaded from: classes.dex */
+
+import com.baidu.live.tbadk.statics.AlaStaticKeys;
+import org.json.JSONObject;
+/* loaded from: classes2.dex */
 public class m {
-    private l epS;
-    private int mErrorCode;
-    private String mErrorString;
-    private boolean mIsSuccess;
+    private String akY;
+    private String eAh;
+    private String eAi;
+    private String mIcon;
+    private int mVersion;
 
-    public l beb() {
-        return this.epS;
+    public void cY(JSONObject jSONObject) {
+        this.mIcon = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
+        this.eAh = jSONObject.optString("tab_code");
+        this.eAi = jSONObject.optString("pop_text");
+        this.akY = jSONObject.optString("thread_id");
+        this.mVersion = jSONObject.optInt("version");
     }
 
-    public void b(l lVar) {
-        this.epS = lVar;
+    public String getIcon() {
+        return this.mIcon;
     }
 
-    public boolean isSuccess() {
-        return this.mIsSuccess;
+    public String bmH() {
+        return this.eAh;
     }
 
-    public void setIsSuccess(boolean z) {
-        this.mIsSuccess = z;
+    public String getPopText() {
+        return this.eAi;
     }
 
-    public int getErrorCode() {
-        return this.mErrorCode;
+    public String getTid() {
+        return this.akY;
     }
 
-    public void setErrorCode(int i) {
-        this.mErrorCode = i;
-    }
-
-    public String getErrorString() {
-        return this.mErrorString;
-    }
-
-    public void setErrorString(String str) {
-        this.mErrorString = str;
+    public int getVersion() {
+        return this.mVersion;
     }
 }

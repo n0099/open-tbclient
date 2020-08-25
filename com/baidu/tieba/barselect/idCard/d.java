@@ -12,32 +12,32 @@ public interface d {
 
     /* loaded from: classes15.dex */
     public interface b {
-        void ab(byte[] bArr);
+        void ac(byte[] bArr);
     }
 
     void a(b bVar);
 
     void a(e eVar);
 
-    void bQK();
+    void caV();
 
-    int bQL();
+    int caW();
 
-    View bQM();
+    View caY();
 
-    Rect bQU();
+    Rect cbg();
 
-    void bQV();
+    void cbh();
 
     void pause();
 
     void resume();
 
-    void sW(int i);
-
-    void setDisplayOrientation(int i);
-
     void start();
 
     void stop();
+
+    void vk(int i);
+
+    void vl(int i);
 }

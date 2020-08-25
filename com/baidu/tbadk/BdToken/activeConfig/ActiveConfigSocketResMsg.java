@@ -3,7 +3,7 @@ package com.baidu.tbadk.BdToken.activeConfig;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.ActiveConfig.ActiveConfigResIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ActiveConfigSocketResMsg extends SocketResponsedMessage {
     private a mData;
 

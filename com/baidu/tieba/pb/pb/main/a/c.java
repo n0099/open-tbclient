@@ -18,7 +18,7 @@ import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.data.f;
 import com.baidu.tieba.pb.pb.main.PbFragment;
@@ -26,48 +26,48 @@ import com.baidu.tieba.pb.pb.main.ay;
 import com.baidu.tieba.view.i;
 /* loaded from: classes16.dex */
 public class c {
-    private com.baidu.tieba.pb.a.c euG;
-    private PbFragment kkb;
-    private ImageView kyi;
-    private RelativeLayout kyg = null;
-    private TextView kyh = null;
-    private CustomMessageListener kyj = new CustomMessageListener(CmdConfigCustom.PB_RICHTEXT_CHANGE_CMD) { // from class: com.baidu.tieba.pb.pb.main.a.c.1
+    private com.baidu.tieba.pb.a.c eFf;
+    private ImageView kNN;
+    private PbFragment kzt;
+    private RelativeLayout kNL = null;
+    private TextView kNM = null;
+    private CustomMessageListener kNO = new CustomMessageListener(CmdConfigCustom.PB_RICHTEXT_CHANGE_CMD) { // from class: com.baidu.tieba.pb.pb.main.a.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (c.this.kyh != null) {
-                c.this.kyh.setTextSize(0, TbConfig.getContentSizeOfPostTitle());
+            if (c.this.kNM != null) {
+                c.this.kNM.setTextSize(0, TbConfig.getContentSizeOfPostTitle());
             }
         }
     };
 
     public c(PbFragment pbFragment, com.baidu.tieba.pb.a.c cVar) {
-        this.kkb = pbFragment;
-        this.euG = cVar;
-        this.kkb.registerListener(this.kyj);
+        this.kzt = pbFragment;
+        this.eFf = cVar;
+        this.kzt.registerListener(this.kNO);
         initView();
     }
 
     private void initView() {
-        if (this.kyg == null) {
-            this.kyg = (RelativeLayout) LayoutInflater.from(this.kkb.getContext()).inflate(R.layout.new_pb_title, (ViewGroup) null);
-            this.kyi = (ImageView) this.kyg.findViewById(R.id.pb_thread_type_stamp_title_bottom_part);
-            this.kyi.setScaleType(ImageView.ScaleType.MATRIX);
+        if (this.kNL == null) {
+            this.kNL = (RelativeLayout) LayoutInflater.from(this.kzt.getContext()).inflate(R.layout.new_pb_title, (ViewGroup) null);
+            this.kNN = (ImageView) this.kNL.findViewById(R.id.pb_thread_type_stamp_title_bottom_part);
+            this.kNN.setScaleType(ImageView.ScaleType.MATRIX);
             Matrix matrix = new Matrix();
-            matrix.postTranslate(0.0f, -ay.cPs());
-            this.kyi.setImageMatrix(matrix);
-            this.kyh = (TextView) this.kyg.findViewById(R.id.tv_pb_title);
-            this.kyh.setLinkTextColor(ao.getColor(R.color.cp_link_tip_c));
-            this.kyh.setLineSpacing(TbConfig.getContentLineSpace(), 1.0f);
-            this.kyh.getPaint().setFakeBoldText(true);
-            ao.setViewTextColor(this.kyh, R.color.cp_cont_b);
-            this.kyh.setTextSize(0, TbConfig.getContentSizeOfPostTitle());
-            this.kyh.setVisibility(8);
-            if (this.kyh.getParent() == null) {
-                this.kyg.addView(this.kyh);
+            matrix.postTranslate(0.0f, -ay.dai());
+            this.kNN.setImageMatrix(matrix);
+            this.kNM = (TextView) this.kNL.findViewById(R.id.tv_pb_title);
+            this.kNM.setLinkTextColor(ap.getColor(R.color.cp_link_tip_c));
+            this.kNM.setLineSpacing(TbConfig.getContentLineSpace(), 1.0f);
+            this.kNM.getPaint().setFakeBoldText(true);
+            ap.setViewTextColor(this.kNM, R.color.cp_cont_b);
+            this.kNM.setTextSize(0, TbConfig.getContentSizeOfPostTitle());
+            this.kNM.setVisibility(8);
+            if (this.kNM.getParent() == null) {
+                this.kNL.addView(this.kNM);
             }
-            this.kyg.setOnTouchListener(this.euG);
-            this.kyg.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.pb.pb.main.a.c.2
+            this.kNL.setOnTouchListener(this.eFf);
+            this.kNL.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.pb.pb.main.a.c.2
                 @Override // android.view.View.OnLongClickListener
                 public boolean onLongClick(View view) {
                     return false;
@@ -77,58 +77,58 @@ public class c {
     }
 
     public void onChangeSkinType(int i) {
-        if (this.kyh != null) {
-            ao.setViewTextColor(this.kyh, R.color.cp_cont_b);
-            this.kyh.setLinkTextColor(ao.getColor(R.color.cp_link_tip_c));
+        if (this.kNM != null) {
+            ap.setViewTextColor(this.kNM, R.color.cp_cont_b);
+            this.kNM.setLinkTextColor(ap.getColor(R.color.cp_link_tip_c));
         }
     }
 
     public void A(f fVar) {
-        if (fVar != null && !fVar.cKx().aUR() && this.kyh.getText() != null && this.kyh.getText().length() > 0) {
-            this.kyh.setVisibility(0);
+        if (fVar != null && !fVar.cVl().bdk() && this.kNM.getText() != null && this.kNM.getText().length() > 0) {
+            this.kNM.setVisibility(0);
         } else {
-            this.kyh.setVisibility(8);
+            this.kNM.setVisibility(8);
         }
     }
 
     public void c(BdTypeListView bdTypeListView) {
         if (bdTypeListView != null) {
-            this.kyg.setVisibility(8);
-            bdTypeListView.removeHeaderView(this.kyg);
+            this.kNL.setVisibility(8);
+            bdTypeListView.removeHeaderView(this.kNL);
         }
     }
 
     public void b(BdTypeListView bdTypeListView) {
         if (bdTypeListView != null) {
-            this.kyg.setVisibility(0);
-            bdTypeListView.addHeaderView(this.kyg);
+            this.kNL.setVisibility(0);
+            bdTypeListView.addHeaderView(this.kNL);
         }
     }
 
     public void B(f fVar) {
-        if (fVar != null && fVar.cKx() != null) {
-            SpannableStringBuilder aWV = fVar.cKx().aWV();
-            SpannableString aH = ay.aH(fVar.cKx());
-            if (!StringUtils.isNull(fVar.cKx().getTitle())) {
-                if (aH != null) {
-                    aWV.append((CharSequence) aH);
-                    this.kyh.setText(aWV, TextView.BufferType.SPANNABLE);
+        if (fVar != null && fVar.cVl() != null) {
+            SpannableStringBuilder bfo = fVar.cVl().bfo();
+            SpannableString aI = ay.aI(fVar.cVl());
+            if (!StringUtils.isNull(fVar.cVl().getTitle())) {
+                if (aI != null) {
+                    bfo.append((CharSequence) aI);
+                    this.kNM.setText(bfo, TextView.BufferType.SPANNABLE);
                 } else {
-                    this.kyh.setText(aWV);
+                    this.kNM.setText(bfo);
                 }
                 C(fVar);
-                this.kyh.setVisibility(0);
-                this.kyh.setMaxLines(3);
-                this.kyh.setEllipsize(TextUtils.TruncateAt.END);
-                this.kyh.invalidate();
+                this.kNM.setVisibility(0);
+                this.kNM.setMaxLines(3);
+                this.kNM.setEllipsize(TextUtils.TruncateAt.END);
+                this.kNM.invalidate();
                 return;
             }
-            this.kyh.setVisibility(8);
+            this.kNM.setVisibility(8);
         }
     }
 
     public void C(f fVar) {
-        if (this.kyh != null) {
+        if (this.kNM != null) {
             int dimens = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds37);
             int dimens2 = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44);
             int dimens3 = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds56);
@@ -136,42 +136,42 @@ public class c {
             layoutParams.topMargin = dimens;
             layoutParams.leftMargin = dimens2;
             layoutParams.rightMargin = dimens2;
-            if (fVar.cLa()) {
+            if (fVar.cVO()) {
                 dimens3 = 0;
             }
             layoutParams.bottomMargin = dimens3;
-            this.kyh.setLayoutParams(layoutParams);
+            this.kNM.setLayoutParams(layoutParams);
         }
     }
 
     public void D(f fVar) {
-        if (fVar != null && fVar.cKx() != null) {
-            SpannableStringBuilder aWV = fVar.cKx().aWV();
-            this.kyh.setOnTouchListener(new i(aWV));
-            this.kyh.setText(aWV);
-            this.kyh.setVisibility(0);
+        if (fVar != null && fVar.cVl() != null) {
+            SpannableStringBuilder bfo = fVar.cVl().bfo();
+            this.kNM.setOnTouchListener(new i(bfo));
+            this.kNM.setText(bfo);
+            this.kNM.setVisibility(0);
         }
     }
 
     public void c(f fVar, boolean z, boolean z2) {
-        if (fVar != null && fVar.cKx() != null && fVar.cKx().aWz() == 0 && !fVar.cKx().aUR()) {
-            if (fVar.khs) {
-                this.kyi.setImageResource(R.drawable.pic_frs_headlines_n);
-                this.kyi.setVisibility(0);
+        if (fVar != null && fVar.cVl() != null && fVar.cVl().beS() == 0 && !fVar.cVl().bdk()) {
+            if (fVar.kwL) {
+                this.kNN.setImageResource(R.drawable.pic_frs_headlines_n);
+                this.kNN.setVisibility(0);
             } else if (z && z2) {
-                this.kyi.setImageResource(R.drawable.pic_pb_stick_refined_n);
-                this.kyi.setVisibility(0);
+                this.kNN.setImageResource(R.drawable.pic_pb_stick_refined_n);
+                this.kNN.setVisibility(0);
             } else if (z) {
-                this.kyi.setImageResource(R.drawable.pic_pb_refined_n);
-                this.kyi.setVisibility(0);
+                this.kNN.setImageResource(R.drawable.pic_pb_refined_n);
+                this.kNN.setVisibility(0);
             } else if (z2) {
-                this.kyi.setImageResource(R.drawable.pic_pb_stick_n);
-                this.kyi.setVisibility(0);
+                this.kNN.setImageResource(R.drawable.pic_pb_stick_n);
+                this.kNN.setVisibility(0);
             } else {
-                this.kyi.setVisibility(8);
+                this.kNN.setVisibility(8);
             }
-            if (this.kyi.getVisibility() == 0 && this.kyi.getLayoutParams() != null) {
-                this.kyi.getLayoutParams().height = ay.cPt() - ay.cPs();
+            if (this.kNN.getVisibility() == 0 && this.kNN.getLayoutParams() != null) {
+                this.kNN.getLayoutParams().height = ay.daj() - ay.dai();
             }
         }
     }

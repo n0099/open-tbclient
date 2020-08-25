@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.pay.channel.interfaces.IPayChannel;
 import com.baidu.live.tbadk.pay.channel.interfaces.IPayChannelBuilder;
 import com.baidu.live.tbadk.pay.channel.interfaces.PayChannelType;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PayChannelManager {
     private HashMap<PayChannelType, IPayChannelBuilder> mPayChannelBuilders;
 
@@ -34,7 +34,7 @@ public class PayChannelManager {
         return null;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class InstanceHolder {
         private static final PayChannelManager sInst = new PayChannelManager();
     }

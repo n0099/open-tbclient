@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.live.data.bc;
+import com.baidu.live.data.be;
 import com.baidu.live.sdk.a;
 import com.baidu.live.sdk.goods.view.AudienceLiveGoodsEnterView;
 import com.baidu.live.tbadk.TbConfig;
@@ -19,53 +19,56 @@ import com.baidu.live.tbadk.ubc.UbcStatisticItem;
 import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import com.baidu.live.tbadk.widget.TbImageView;
-import com.baidu.searchbox.account.data.UserAccountActionItem;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private String aIO;
-    private View.OnClickListener bcW;
-    private View bcX;
-    private boolean bcY;
+    private String aNZ;
+    private View biA;
+    private View biB;
+    private boolean biC;
+    private View.OnClickListener biz;
     private Handler handler = new Handler();
     private long liveId;
+    private Context mContext;
     private String otherParams;
     private long roomId;
 
     public void setOutClickListener(View.OnClickListener onClickListener) {
-        this.bcW = onClickListener;
+        this.biz = onClickListener;
     }
 
-    public void a(final Context context, final AudienceLiveGoodsEnterView audienceLiveGoodsEnterView, long j, long j2, String str, String str2, List<com.baidu.live.sdk.goods.a.a> list) {
+    public void a(final Context context, AudienceLiveGoodsEnterView audienceLiveGoodsEnterView, long j, long j2, String str, String str2, List<com.baidu.live.sdk.goods.a.a> list) {
         if (audienceLiveGoodsEnterView != null && audienceLiveGoodsEnterView.getRootLayout() != null && audienceLiveGoodsEnterView.getRootLayout().getParent() != null && list != null && !list.isEmpty()) {
             final ViewGroup targetView = audienceLiveGoodsEnterView.getTargetView();
             com.baidu.live.sdk.goods.a.a aVar = list.get((int) (Math.random() * list.size()));
             this.liveId = j;
             this.roomId = j2;
-            this.aIO = str;
+            this.aNZ = str;
             this.otherParams = str2;
-            bc bcVar = com.baidu.live.v.a.Hs().beo;
+            be beVar = com.baidu.live.w.a.Nk().bka;
             int i = 0;
-            if (bcVar != null && bcVar.aEs != null) {
-                i = bcVar.aEs.aGr;
+            if (beVar != null && beVar.aJC != null) {
+                i = beVar.aJC.aLB;
             }
             if (i <= 0) {
                 i = 7;
             }
-            this.bcX = a(context, aVar);
+            this.mContext = context;
+            this.biB = audienceLiveGoodsEnterView.getRootLayout();
+            this.biA = a(context, aVar);
             this.handler.post(new Runnable() { // from class: com.baidu.live.sdk.goods.guide.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.a(context, targetView, audienceLiveGoodsEnterView.getRootLayout(), a.this.bcX);
+                    a.this.a(context, targetView, a.this.biB, a.this.biA);
                 }
             });
             this.handler.postDelayed(new Runnable() { // from class: com.baidu.live.sdk.goods.guide.a.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.Hb();
+                    a.this.MT();
                 }
             }, i * 1000);
         }
@@ -75,11 +78,11 @@ public class a {
         View inflate = View.inflate(context, a.h.toast_goods_guide, null);
         TbImageView tbImageView = (TbImageView) inflate.findViewById(a.g.conver_imageView);
         tbImageView.setDefaultBgResource(a.f.sdk_shape_transparent);
-        if (!TextUtils.isEmpty(aVar.bcJ)) {
+        if (!TextUtils.isEmpty(aVar.bih)) {
             try {
-                JSONArray jSONArray = new JSONArray(aVar.bcJ);
+                JSONArray jSONArray = new JSONArray(aVar.bih);
                 if (jSONArray.length() > 0) {
-                    tbImageView.startLoad(jSONArray.optJSONObject(0).optString(UserAccountActionItem.KEY_SRC), 10, false);
+                    tbImageView.startLoad(jSONArray.optJSONObject(0).optString("src"), 10, false);
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -98,12 +101,11 @@ public class a {
         inflate.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.sdk.goods.guide.a.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.handler.removeCallbacksAndMessages(null);
-                a.this.Hb();
-                if (a.this.bcW != null) {
-                    a.this.bcW.onClick(view);
+                a.this.MT();
+                if (a.this.biz != null) {
+                    a.this.biz.onClick(view);
                 }
-                LogManager.getLiveGoodsLogger().doClickGoodsGuideLog(a.this.liveId + "", a.this.roomId + "", a.this.aIO, a.this.otherParams);
+                LogManager.getLiveGoodsLogger().doClickGoodsGuideLog(a.this.liveId + "", a.this.roomId + "", a.this.aNZ, a.this.otherParams);
                 try {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_LIVESDK, TbConfig.getVersion());
@@ -119,10 +121,10 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, ViewGroup viewGroup, View view, View view2) {
         if (viewGroup != null) {
-            this.bcY = true;
+            this.biC = true;
             view2.measure(0, 0);
             int[] iArr = new int[2];
-            view.getLocationOnScreen(iArr);
+            view.getLocationInWindow(iArr);
             int width = view.getWidth();
             if (width <= 0) {
                 view.measure(0, 0);
@@ -137,7 +139,7 @@ public class a {
             viewGroup.addView(view2, layoutParams);
             if (!ILiveGoodsLogger.displayGoodsGuideMap.contains(Long.valueOf(this.liveId))) {
                 ILiveGoodsLogger.displayGoodsGuideMap.add(Long.valueOf(this.liveId));
-                LogManager.getLiveGoodsLogger().doDisplayGoodsGuideLog(this.liveId + "", this.roomId + "", this.aIO, this.otherParams);
+                LogManager.getLiveGoodsLogger().doDisplayGoodsGuideLog(this.liveId + "", this.roomId + "", this.aNZ, this.otherParams);
             }
             UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", "shopcart_show"));
             try {
@@ -150,25 +152,52 @@ public class a {
         }
     }
 
-    public void Hb() {
-        this.bcY = false;
+    public void eD(int i) {
+        if (this.biC && this.handler != null) {
+            this.handler.postDelayed(new Runnable() { // from class: com.baidu.live.sdk.goods.guide.a.4
+                @Override // java.lang.Runnable
+                public void run() {
+                    if (a.this.biC) {
+                        a.this.MS();
+                    }
+                }
+            }, 100L);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void MS() {
+        RelativeLayout.LayoutParams layoutParams;
+        if (this.biC && this.biA != null && this.biA.getVisibility() == 0 && this.biA.getParent() != null && this.mContext != null && this.biB != null && this.biB.getVisibility() == 0 && (layoutParams = (RelativeLayout.LayoutParams) this.biA.getLayoutParams()) != null) {
+            this.biA.measure(0, 0);
+            int[] iArr = new int[2];
+            this.biB.getLocationInWindow(iArr);
+            int width = this.biB.getWidth();
+            if (width <= 0) {
+                this.biB.measure(0, 0);
+                width = this.biB.getMeasuredWidth();
+            }
+            layoutParams.leftMargin = (((width / 2) + iArr[0]) - (this.biA.getMeasuredWidth() / 2)) - this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds10);
+            this.biA.setLayoutParams(layoutParams);
+        }
+    }
+
+    public void MT() {
+        this.biC = false;
         if (this.handler != null) {
             this.handler.removeCallbacksAndMessages(null);
         }
-        if (this.bcX != null && this.bcX.getParent() != null) {
-            ((ViewGroup) this.bcX.getParent()).removeView(this.bcX);
+        if (this.biA != null && this.biA.getParent() != null) {
+            ((ViewGroup) this.biA.getParent()).removeView(this.biA);
         }
     }
 
     public void release() {
-        this.bcY = false;
-        if (this.handler != null) {
-            this.handler.removeCallbacksAndMessages(null);
-        }
-        Hb();
+        this.biC = false;
+        MT();
     }
 
     public boolean isShow() {
-        return this.bcY;
+        return this.biC;
     }
 }

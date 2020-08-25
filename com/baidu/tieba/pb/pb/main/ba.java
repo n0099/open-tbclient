@@ -4,13 +4,13 @@ import android.view.View;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes16.dex */
 public abstract class ba {
-    protected BaseFragmentActivity hjZ;
+    protected BaseFragmentActivity hwQ;
     protected View mRootView;
 
     protected abstract void a(e eVar);
 
     public ba(BaseFragmentActivity baseFragmentActivity, View view) {
-        this.hjZ = baseFragmentActivity;
+        this.hwQ = baseFragmentActivity;
         this.mRootView = view;
     }
 
@@ -19,12 +19,12 @@ public abstract class ba {
     }
 
     public void b(e eVar) {
-        if (this.hjZ != null && this.mRootView != null) {
+        if (this.hwQ != null && this.mRootView != null) {
             a(eVar);
         }
     }
 
-    public void a(View view, View.OnClickListener onClickListener) {
+    public void setOnClickListener(View view, View.OnClickListener onClickListener) {
         if (view != null) {
             view.setOnClickListener(onClickListener);
         }

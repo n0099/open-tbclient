@@ -5,7 +5,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import com.baidu.pano.platform.comapi.a.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class ImageMarker extends a {
     private Drawable a;
     private Bitmap b;

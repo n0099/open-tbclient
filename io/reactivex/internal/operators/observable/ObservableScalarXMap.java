@@ -29,7 +29,7 @@ public final class ObservableScalarXMap {
                             uVar.onSubscribe(scalarDisposable);
                             scalarDisposable.run();
                         } catch (Throwable th) {
-                            io.reactivex.exceptions.a.K(th);
+                            io.reactivex.exceptions.a.J(th);
                             EmptyDisposable.error(th, uVar);
                             return true;
                         }
@@ -38,12 +38,12 @@ public final class ObservableScalarXMap {
                     }
                     return true;
                 } catch (Throwable th2) {
-                    io.reactivex.exceptions.a.K(th2);
+                    io.reactivex.exceptions.a.J(th2);
                     EmptyDisposable.error(th2, uVar);
                     return true;
                 }
             } catch (Throwable th3) {
-                io.reactivex.exceptions.a.K(th3);
+                io.reactivex.exceptions.a.J(th3);
                 EmptyDisposable.error(th3, uVar);
                 return true;
             }

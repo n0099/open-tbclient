@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class DownPrefUtils {
     private static final boolean DEBUG = false;
     public static final String PREF_CDN_HOST = "pref_cdn_host";

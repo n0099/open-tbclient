@@ -10,15 +10,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes16.dex */
 public class CardFrsGameRecommendGameItemView extends LinearLayout {
-    private TbImageView gVD;
-    private TextView gVE;
-    private TextView gVF;
+    private TbImageView hiw;
+    private TextView hix;
+    private TextView hiy;
     private String mForumId;
     public int mSkinType;
 
@@ -42,18 +42,18 @@ public class CardFrsGameRecommendGameItemView extends LinearLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.card_frs_game_recommend_game_view_item, (ViewGroup) this, true);
-        this.gVD = (TbImageView) findViewById(R.id.card_frs_game_recommend_game_pic);
-        this.gVD.setAutoChangeStyle(true);
-        this.gVD.setDefaultResource(17170445);
-        this.gVD.setDefaultErrorResource(R.drawable.icon_default_avatar100);
-        this.gVD.setDefaultBgResource(R.color.cp_bg_line_e);
-        this.gVD.setDrawerType(1);
-        this.gVD.setRadius(context.getResources().getDimensionPixelSize(R.dimen.tbds26));
-        this.gVD.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.gVD.setBorderColor(ao.getColor(R.color.common_color_10043));
-        this.gVD.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds2));
-        this.gVE = (TextView) findViewById(R.id.card_frs_game_recommend_game_name);
-        this.gVF = (TextView) findViewById(R.id.card_frs_game_recommend_game_dec);
+        this.hiw = (TbImageView) findViewById(R.id.card_frs_game_recommend_game_pic);
+        this.hiw.setAutoChangeStyle(true);
+        this.hiw.setDefaultResource(17170445);
+        this.hiw.setDefaultErrorResource(R.drawable.icon_default_avatar100);
+        this.hiw.setDefaultBgResource(R.color.cp_bg_line_e);
+        this.hiw.setDrawerType(1);
+        this.hiw.setRadius(context.getResources().getDimensionPixelSize(R.dimen.tbds26));
+        this.hiw.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.hiw.setBorderColor(ap.getColor(R.color.common_color_10043));
+        this.hiw.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds2));
+        this.hix = (TextView) findViewById(R.id.card_frs_game_recommend_game_name);
+        this.hiy = (TextView) findViewById(R.id.card_frs_game_recommend_game_dec);
         setOrientation(1);
         setFocusable(true);
         setClickable(true);
@@ -62,7 +62,7 @@ public class CardFrsGameRecommendGameItemView extends LinearLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view.getTag() instanceof String) {
-                    TiebaStatic.log(new ap("c13047").ah("obj_locate", 10).dn("fid", CardFrsGameRecommendGameItemView.this.mForumId));
+                    TiebaStatic.log(new aq("c13047").ai("obj_locate", 10).dD("fid", CardFrsGameRecommendGameItemView.this.mForumId));
                     com.baidu.tbadk.browser.a.startWebActivity(CardFrsGameRecommendGameItemView.this.getContext(), (String) view.getTag());
                 }
             }
@@ -74,22 +74,22 @@ public class CardFrsGameRecommendGameItemView extends LinearLayout {
     }
 
     public TbImageView getGamePicView() {
-        return this.gVD;
+        return this.hiw;
     }
 
     public TextView getGameNameView() {
-        return this.gVE;
+        return this.hix;
     }
 
     public TextView getGameDscView() {
-        return this.gVF;
+        return this.hiy;
     }
 
     public void onChangeSkinType(int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            ao.setViewTextColor(this.gVE, R.color.cp_cont_f, 1);
-            ao.setViewTextColor(this.gVF, R.color.cp_cont_d, 1);
+            ap.setViewTextColor(this.hix, R.color.cp_cont_f, 1);
+            ap.setViewTextColor(this.hiy, R.color.cp_cont_d, 1);
         }
     }
 }

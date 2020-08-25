@@ -1,7 +1,7 @@
 package com.sina.weibo.sdk.auth;
 
 import android.text.TextUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes14.dex */
 public class WbAppInfo {
     private int supportVersion;
     private String packageName = "com.sina.weibo";

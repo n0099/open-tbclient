@@ -1,15 +1,15 @@
 package com.baidu.ubc;
 /* loaded from: classes14.dex */
 public class i {
-    private static volatile h mMo;
+    private static volatile h nfk;
 
-    public static synchronized h dAb() {
+    public static synchronized h dLO() {
         h hVar;
         synchronized (i.class) {
-            if (mMo == null) {
-                mMo = new h();
+            if (nfk == null) {
+                nfk = new h();
             }
-            hVar = mMo;
+            hVar = nfk;
         }
         return hVar;
     }

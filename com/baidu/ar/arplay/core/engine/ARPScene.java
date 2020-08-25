@@ -4,78 +4,78 @@ import android.util.Log;
 import java.util.HashMap;
 /* loaded from: classes11.dex */
 public class ARPScene {
-    private HashMap<String, ARPNode> eI;
-    private long eK = -1;
+    private HashMap<String, ARPNode> eh;
+    private long ej = -1;
 
     public ARPScene() {
-        aV();
-    }
-
-    private void aV() {
-        this.eI = new HashMap<>();
+        init();
     }
 
     private ARPNode g(long j) {
         String nativeGetNodeName = nativeGetNodeName(j);
-        ARPNode aRPNode = this.eI.get(nativeGetNodeName);
+        ARPNode aRPNode = this.eh.get(nativeGetNodeName);
         if (aRPNode == null) {
             ARPNode aRPNode2 = new ARPNode();
             aRPNode2.e(j);
-            this.eI.put(nativeGetNodeName, aRPNode2);
+            this.eh.put(nativeGetNodeName, aRPNode2);
             return aRPNode2;
         }
         return aRPNode;
     }
 
-    public ARPNode D(String str) {
-        if (this.eK == -1) {
+    private void init() {
+        this.eh = new HashMap<>();
+    }
+
+    public ARPNode E(String str) {
+        if (this.ej == -1) {
             Log.e(ARPScene.class.getSimpleName(), "node addr is error");
             return null;
         }
-        return g(nativeGetNodeByName(this.eK, str));
+        return g(nativeGetNodeByName(this.ej, str));
     }
 
-    public ARPCamera aY() {
-        long nativeGetActiveCamera = nativeGetActiveCamera(this.eK);
+    public ARPCamera aV() {
+        long nativeGetActiveCamera = nativeGetActiveCamera(this.ej);
         ARPCamera aRPCamera = new ARPCamera();
         aRPCamera.e(nativeGetActiveCamera);
         return aRPCamera;
     }
 
-    public ARPNode aZ() {
-        if (this.eK == -1) {
+    public ARPNode aW() {
+        if (this.ej == -1) {
             Log.e(ARPScene.class.getSimpleName(), "node addr is error");
             return null;
         }
-        return g(nativeGetRootNode(this.eK));
+        return g(nativeGetRootNode(this.ej));
     }
 
-    public void ba() {
-        if (this.eK == -1) {
+    public void aX() {
+        if (this.ej == -1) {
             Log.e(ARPScene.class.getSimpleName(), "node addr is error");
         } else {
-            nativeRelocate(this.eK);
+            nativeRelocate(this.ej);
         }
     }
 
     public void f(long j) {
-        this.eK = j;
+        this.ej = j;
     }
 
-    public boolean g(boolean z) {
-        if (this.eK == -1) {
+    public boolean h(boolean z) {
+        if (this.ej == -1) {
             Log.e(ARPScene.class.getSimpleName(), "node addr is error");
             return false;
         }
-        nativeSetVisible(this.eK, z);
+        nativeSetVisible(this.ej, z);
         return true;
     }
 
-    public void h(boolean z) {
-        if (this.eK == -1) {
+    public void i(boolean z) {
+        if (this.ej == -1) {
             Log.e(ARPScene.class.getSimpleName(), "node addr is error");
         } else {
-            nativeSetOffScreenGuideWork(this.eK, z);
+            nativeSetOffScreenGuideWork(this.ej, z);
         }
     }
 

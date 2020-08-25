@@ -12,12 +12,12 @@ import com.baidu.live.tbadk.extraparams.ResultCallback;
 import com.baidu.live.tbadk.scheme.SchemeCallback;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class f extends com.baidu.live.view.web.a {
-    private SchemeCallback bpB;
+    private SchemeCallback bvq;
 
     public f(SchemeCallback schemeCallback) {
-        this.bpB = schemeCallback;
+        this.bvq = schemeCallback;
     }
 
     @Override // com.baidu.live.view.web.a
@@ -26,14 +26,14 @@ public class f extends com.baidu.live.view.web.a {
     }
 
     @Override // com.baidu.live.view.web.a
-    public void fW(String str) {
+    public void hq(String str) {
         Log.d("JsInterface", "@@ JsInterface-impl PersonalCenterBridgeJsInterface params = " + str);
         try {
             JSONObject jSONObject = new JSONObject(str);
             final String optString = jSONObject.optString(BuyTBeanActivityConfig.CALLBACK);
             boolean z = jSONObject.optInt("is_translucent") == 1;
             String optString2 = jSONObject.optString("from");
-            if (this.bpB != null) {
+            if (this.bvq != null) {
                 ExtraParamsManager.addEnterBuyTBeanCallback(new ResultCallback() { // from class: com.baidu.live.view.web.a.f.1
                     @Override // com.baidu.live.tbadk.extraparams.ResultCallback
                     public void onCallback(JSONObject jSONObject2) {
@@ -53,7 +53,7 @@ public class f extends com.baidu.live.view.web.a {
                             if (!TextUtils.isEmpty(optString6)) {
                                 jSONObject3.put("transitionId", optString6);
                             }
-                            f.this.bpB.doJsCallback(optInt, optString3, jSONObject3, optString);
+                            f.this.bvq.doJsCallback(optInt, optString3, jSONObject3, optString);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }

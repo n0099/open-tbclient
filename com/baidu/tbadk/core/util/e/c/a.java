@@ -8,23 +8,23 @@ import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.v7.widget.ActivityChooserView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.tbadkCore.c;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static int getColor(@ColorRes int i) {
-        return ao.getColor(i);
+        return ap.getColor(i);
     }
 
     public static int f(@ColorRes int i, float f) {
-        return c.l(ao.getColor(i), f);
+        return c.l(ap.getColor(i), f);
     }
 
     public static Drawable getDrawable(@DrawableRes int i) {
-        return ao.getDrawable(i);
+        return ap.getDrawable(i);
     }
 
-    public static int dU(String str) {
+    public static int fn(String str) {
         if (str == null || str.length() == 0) {
             return ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         }

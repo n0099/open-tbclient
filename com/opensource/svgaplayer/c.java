@@ -10,59 +10,59 @@ import kotlin.jvm.a.m;
 import kotlin.jvm.a.r;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public final class c {
-    private HashMap<String, Boolean> nJg = new HashMap<>();
-    private HashMap<String, Bitmap> nJh = new HashMap<>();
-    private HashMap<String, String> nJi = new HashMap<>();
-    private HashMap<String, TextPaint> nJj = new HashMap<>();
-    private HashMap<String, StaticLayout> nJk = new HashMap<>();
-    private HashMap<String, m<Canvas, Integer, Boolean>> nJl = new HashMap<>();
-    private HashMap<String, r<Canvas, Integer, Integer, Integer, Boolean>> nJm = new HashMap<>();
-    private boolean nJn;
+    private HashMap<String, Boolean> ocZ = new HashMap<>();
+    private HashMap<String, Bitmap> oda = new HashMap<>();
+    private HashMap<String, String> odb = new HashMap<>();
+    private HashMap<String, TextPaint> odc = new HashMap<>();
+    private HashMap<String, StaticLayout> odd = new HashMap<>();
+    private HashMap<String, m<Canvas, Integer, Boolean>> ode = new HashMap<>();
+    private HashMap<String, r<Canvas, Integer, Integer, Integer, Boolean>> odf = new HashMap<>();
+    private boolean odg;
 
-    public final HashMap<String, Boolean> dOU() {
-        return this.nJg;
+    public final HashMap<String, Boolean> eaW() {
+        return this.ocZ;
     }
 
-    public final HashMap<String, Bitmap> dOV() {
-        return this.nJh;
+    public final HashMap<String, Bitmap> eaX() {
+        return this.oda;
     }
 
-    public final HashMap<String, String> dOW() {
-        return this.nJi;
+    public final HashMap<String, String> eaY() {
+        return this.odb;
     }
 
-    public final HashMap<String, TextPaint> dOX() {
-        return this.nJj;
+    public final HashMap<String, TextPaint> eaZ() {
+        return this.odc;
     }
 
-    public final HashMap<String, StaticLayout> dOY() {
-        return this.nJk;
+    public final HashMap<String, StaticLayout> eba() {
+        return this.odd;
     }
 
-    public final HashMap<String, m<Canvas, Integer, Boolean>> dOZ() {
-        return this.nJl;
+    public final HashMap<String, m<Canvas, Integer, Boolean>> ebb() {
+        return this.ode;
     }
 
-    public final HashMap<String, r<Canvas, Integer, Integer, Integer, Boolean>> dPa() {
-        return this.nJm;
+    public final HashMap<String, r<Canvas, Integer, Integer, Integer, Boolean>> ebc() {
+        return this.odf;
     }
 
-    public final boolean dPb() {
-        return this.nJn;
+    public final boolean ebd() {
+        return this.odg;
     }
 
-    public final void xL(boolean z) {
-        this.nJn = z;
+    public final void yD(boolean z) {
+        this.odg = z;
     }
 
     public final void a(String str, TextPaint textPaint, String str2) {
         q.m(str, "text");
         q.m(textPaint, "textPaint");
         q.m(str2, "forKey");
-        this.nJn = true;
-        this.nJi.put(str2, str);
-        this.nJj.put(str2, textPaint);
+        this.odg = true;
+        this.odb.put(str2, str);
+        this.odc.put(str2, textPaint);
     }
 }

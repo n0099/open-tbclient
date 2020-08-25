@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.a;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class MotuSwitch extends a {
     public static final int DEFAULT_TYPE = 0;
     public static final String MOTU = "motu_sdk";

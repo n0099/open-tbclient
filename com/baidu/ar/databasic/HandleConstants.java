@@ -15,6 +15,7 @@ public class HandleConstants {
     public static final int TYPE_FACE = 10;
     public static final int TYPE_FAMILY_WITH_CHILD = 23;
     public static final int TYPE_FINGER_POINT = 15;
+    public static final int TYPE_GENDER_TRANS = 24;
     public static final int TYPE_GESTURE = 14;
     public static final int TYPE_HAIR_SEG = 13;
     public static final int TYPE_HAND_SKELETON = 19;

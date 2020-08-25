@@ -3,7 +3,7 @@ package org.java_websocket.b;
 import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.exceptions.InvalidFrameException;
 import org.java_websocket.framing.Framedata;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class a implements b {
     @Override // org.java_websocket.b.b
     public void c(Framedata framedata) throws InvalidDataException {
@@ -14,34 +14,34 @@ public class a implements b {
     }
 
     @Override // org.java_websocket.b.b
-    public boolean Tq(String str) {
+    public boolean Wu(String str) {
         return true;
     }
 
     @Override // org.java_websocket.b.b
-    public boolean Tr(String str) {
+    public boolean Wv(String str) {
         return true;
     }
 
     @Override // org.java_websocket.b.b
     public void e(Framedata framedata) throws InvalidDataException {
-        if (framedata.dXo() || framedata.dXp() || framedata.dXq()) {
-            throw new InvalidFrameException("bad rsv RSV1: " + framedata.dXo() + " RSV2: " + framedata.dXp() + " RSV3: " + framedata.dXq());
+        if (framedata.ejs() || framedata.ejt() || framedata.eju()) {
+            throw new InvalidFrameException("bad rsv RSV1: " + framedata.ejs() + " RSV2: " + framedata.ejt() + " RSV3: " + framedata.eju());
         }
     }
 
     @Override // org.java_websocket.b.b
-    public String dXi() {
+    public String ejm() {
         return "";
     }
 
     @Override // org.java_websocket.b.b
-    public String dXj() {
+    public String ejn() {
         return "";
     }
 
     @Override // org.java_websocket.b.b
-    public b dXk() {
+    public b ejo() {
         return new a();
     }
 

@@ -4,39 +4,39 @@ import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaPlayAnimationView extends ImageView {
-    private ObjectAnimator bir;
-    private boolean bis;
-    private boolean bit;
+    private ObjectAnimator bnW;
+    private boolean bnX;
+    private boolean bnY;
 
     public AlaPlayAnimationView(Context context) {
         super(context);
-        this.bis = false;
-        this.bit = false;
+        this.bnX = false;
+        this.bnY = false;
         init();
     }
 
     public AlaPlayAnimationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bis = false;
-        this.bit = false;
+        this.bnX = false;
+        this.bnY = false;
         init();
     }
 
     private void init() {
-        this.bir = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f, 1.0f);
-        this.bir.setRepeatMode(1);
-        this.bir.setRepeatCount(-1);
-        this.bir.setDuration(700L);
+        this.bnW = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f, 1.0f);
+        this.bnW.setRepeatMode(1);
+        this.bnW.setRepeatCount(-1);
+        this.bnW.setDuration(700L);
         setVisibility(8);
-        this.bis = false;
+        this.bnX = false;
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (this.bit) {
+        if (this.bnY) {
             startPlayAnimation();
         }
     }
@@ -44,30 +44,30 @@ public class AlaPlayAnimationView extends ImageView {
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        It();
+        Om();
     }
 
     public void setAutoStartPlay(boolean z) {
-        this.bit = z;
+        this.bnY = z;
     }
 
     public void startPlayAnimation() {
-        if (!this.bis) {
-            this.bis = true;
-            if (this.bir != null) {
+        if (!this.bnX) {
+            this.bnX = true;
+            if (this.bnW != null) {
                 setVisibility(0);
-                this.bir.start();
+                this.bnW.start();
             }
         }
     }
 
-    public void It() {
-        if (this.bir != null) {
-            this.bir.setRepeatCount(-1);
-            this.bir.cancel();
+    public void Om() {
+        if (this.bnW != null) {
+            this.bnW.setRepeatCount(-1);
+            this.bnW.cancel();
             clearAnimation();
         }
-        this.bis = false;
+        this.bnX = false;
         setVisibility(8);
     }
 }

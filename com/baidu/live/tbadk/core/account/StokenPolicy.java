@@ -7,10 +7,10 @@ import com.baidu.sapi2.callback.GetTplStokenCallback;
 import com.baidu.sapi2.result.GetTplStokenResult;
 import java.util.LinkedList;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class StokenPolicy {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface IStokenCallback {
         void onFailed();
 

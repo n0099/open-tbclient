@@ -6,12 +6,12 @@ import android.widget.Toast;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.aq.al;
+import com.baidu.swan.apps.ap.ak;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/publishThread");
@@ -28,7 +28,7 @@ public class a extends aa {
             return false;
         }
         final String optString = b.optString("data", "");
-        al.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.extcore.a.a.1
+        ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.extcore.a.a.1
             @Override // java.lang.Runnable
             public void run() {
                 Toast.makeText(context, optString, 1).show();

@@ -300,7 +300,7 @@ public final class ObservableConcatMapEager<T, R> extends a<T, R> {
             r0 = move-exception;
          */
         /* JADX WARN: Code restructure failed: missing block: B:68:0x0158, code lost:
-            io.reactivex.exceptions.a.K(r0);
+            io.reactivex.exceptions.a.J(r0);
             r13.error.addThrowable(r0);
             r13.current = null;
             r13.activeCount--;
@@ -364,7 +364,7 @@ public final class ObservableConcatMapEager<T, R> extends a<T, R> {
                                 tVar.subscribe(innerQueuedObserver);
                                 i2 = i3 + 1;
                             } catch (Throwable th) {
-                                io.reactivex.exceptions.a.K(th);
+                                io.reactivex.exceptions.a.J(th);
                                 this.d.dispose();
                                 gVar.clear();
                                 disposeAll();

@@ -6,11 +6,11 @@ import java.util.LinkedList;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class f {
-    public static e i(int i, boolean z) {
+    public static e j(int i, boolean z) {
         return z ? new b(i) : new a(i);
     }
 
-    public static e kt() {
+    public static e lS() {
         return new c();
     }
 

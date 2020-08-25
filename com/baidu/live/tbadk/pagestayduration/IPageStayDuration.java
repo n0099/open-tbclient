@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.pagestayduration;
 
 import java.util.List;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface IPageStayDuration {
     String getCurrentPageKey();
 

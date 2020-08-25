@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import com.baidu.android.imsdk.internal.Constants;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public enum hr {
     UploadSwitch(1),
     UploadFrequency(2),
@@ -107,10 +107,10 @@ public enum hr {
     LatestNotificationNotIntoGroupSwitch(107),
     DCJobMutualSwitch(108),
     StatDataUploadFrequency(120),
-    StatDataUploadNum(121),
+    StatDataUploadNum(Constants.METHOD_IM_FRIEND_GROUP_DROP),
     StatDataProcessFrequency(122),
-    StatDataSwitch(123),
-    StatDataUploadWay(124),
+    StatDataSwitch(Constants.METHOD_IM_FRIEND_GROUP_QUERY),
+    StatDataUploadWay(Constants.METHOD_IM_FRIEND_GROUP_QUERY_MEMBER),
     StatDataDeleteFrequency(Constants.METHOD_IM_FRIEND_GROUP_ASSIGN),
     CollectionDataPluginVersion(1001),
     CollectionPluginDownloadUrl(1002),
@@ -119,13 +119,13 @@ public enum hr {
     
 
     /* renamed from: a  reason: collision with other field name */
-    private final int f465a;
+    private final int f462a;
 
     hr(int i) {
-        this.f465a = i;
+        this.f462a = i;
     }
 
     public int a() {
-        return this.f465a;
+        return this.f462a;
     }
 }

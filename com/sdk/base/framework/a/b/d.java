@@ -1,0 +1,63 @@
+package com.sdk.base.framework.a.b;
+
+import com.sdk.base.framework.c.f;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+/* loaded from: classes5.dex */
+public final class d {
+    private static final Boolean a = Boolean.valueOf(f.b);
+
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0053  */
+    /* JADX WARN: Removed duplicated region for block: B:38:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String a(HttpURLConnection httpURLConnection, c cVar, String str) {
+        StringBuilder sb;
+        StringBuilder sb2;
+        if (httpURLConnection != null) {
+            try {
+                long contentLength = httpURLConnection.getContentLength();
+                if (cVar != null && !cVar.a(contentLength, 0L, true)) {
+                    return null;
+                }
+                sb2 = new StringBuilder();
+                try {
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream(), str));
+                    long j = 0;
+                    while (true) {
+                        String readLine = bufferedReader.readLine();
+                        if (readLine == null) {
+                            break;
+                        }
+                        sb2.append(readLine).append('\n');
+                        j += com.sdk.base.framework.a.a.c.a(readLine, str);
+                        if (cVar != null && !cVar.a(contentLength, j, false)) {
+                            break;
+                        }
+                    }
+                    if (cVar != null) {
+                        cVar.a(contentLength, j, true);
+                    }
+                } catch (Exception e) {
+                    sb = sb2;
+                    e = e;
+                    com.sdk.base.framework.a.a.c.b("StringDownloadHandler", e.getMessage(), a);
+                    if (sb == null) {
+                    }
+                }
+            } catch (Exception e2) {
+                e = e2;
+                sb = null;
+            }
+        } else {
+            sb2 = null;
+        }
+        sb = sb2;
+        if (sb == null) {
+            return sb.toString().trim();
+        }
+        return null;
+    }
+}

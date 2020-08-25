@@ -10,9 +10,9 @@ import java.lang.reflect.Array;
 import java.lang.reflect.GenericArrayType;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public final class a<E> extends TypeAdapter<Object> {
-    public static final TypeAdapterFactory njJ = new TypeAdapterFactory() { // from class: com.google.gson.internal.a.a.1
+    public static final TypeAdapterFactory nDA = new TypeAdapterFactory() { // from class: com.google.gson.internal.a.a.1
         @Override // com.google.gson.TypeAdapterFactory
         public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
             Type type = aVar.getType();
@@ -24,23 +24,23 @@ public final class a<E> extends TypeAdapter<Object> {
         }
     };
     private final Class<E> componentType;
-    private final TypeAdapter<E> njK;
+    private final TypeAdapter<E> nDB;
 
     public a(Gson gson, TypeAdapter<E> typeAdapter, Class<E> cls) {
-        this.njK = new m(gson, typeAdapter, cls);
+        this.nDB = new m(gson, typeAdapter, cls);
         this.componentType = cls;
     }
 
     @Override // com.google.gson.TypeAdapter
     public Object read(com.google.gson.stream.a aVar) throws IOException {
-        if (aVar.dLo() == JsonToken.NULL) {
-            aVar.dLt();
+        if (aVar.dXp() == JsonToken.NULL) {
+            aVar.dXu();
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        aVar.dLm();
+        aVar.dXn();
         while (aVar.hasNext()) {
-            arrayList.add(this.njK.read(aVar));
+            arrayList.add(this.nDB.read(aVar));
         }
         aVar.endArray();
         int size = arrayList.size();
@@ -56,14 +56,14 @@ public final class a<E> extends TypeAdapter<Object> {
     @Override // com.google.gson.TypeAdapter
     public void write(com.google.gson.stream.b bVar, Object obj) throws IOException {
         if (obj == null) {
-            bVar.dLD();
+            bVar.dXE();
             return;
         }
-        bVar.dLz();
+        bVar.dXA();
         int length = Array.getLength(obj);
         for (int i = 0; i < length; i++) {
-            this.njK.write(bVar, Array.get(obj, i));
+            this.nDB.write(bVar, Array.get(obj, i));
         }
-        bVar.dLA();
+        bVar.dXB();
     }
 }

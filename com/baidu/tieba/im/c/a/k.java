@@ -9,7 +9,7 @@ public class k implements CustomMessageTask.CustomRunnable<String> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<String> run(CustomMessage<String> customMessage) {
         int i = com.baidu.adp.lib.f.b.toInt(customMessage.getData(), 0);
-        if (!com.baidu.tieba.im.db.l.ctw().Hy(String.valueOf(i))) {
+        if (!com.baidu.tieba.im.db.l.cEn().Kq(String.valueOf(i))) {
             return null;
         }
         return new CustomResponsedMessage<>(CmdConfigCustom.CMD_DEL_OFFICIAL_DB, String.valueOf(i));

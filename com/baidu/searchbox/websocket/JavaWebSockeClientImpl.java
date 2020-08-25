@@ -1,6 +1,7 @@
 package com.baidu.searchbox.websocket;
 
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
+import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import java.net.URI;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ import org.java_websocket.a.a;
 import org.java_websocket.d.b;
 import org.json.JSONObject;
 @h
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class JavaWebSockeClientImpl implements IWebSocketClient {
     private a webSocketClient;
 
@@ -29,23 +30,23 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
         JavaWebSockeClientImpl$connect$1 javaWebSockeClientImpl$connect$12;
         JavaWebSockeClientImpl javaWebSockeClientImpl;
         final WebSocketRequest webSocketRequest2;
-        ArrayList bJ;
+        ArrayList bL;
         final IWebSocketListener iWebSocketListener2;
         final URI uri;
         org.java_websocket.drafts.a aVar4;
         q.m(webSocketRequest, "request");
         q.m(iWebSocketListener, "listener");
         URI create = URI.create(webSocketRequest.getUrl());
-        List dTP = o.dTP();
+        List efR = o.efR();
         List<String> protocols = webSocketRequest.getProtocols();
         if (protocols == null) {
-            list = dTP;
+            list = efR;
             aVar2 = aVar;
             aVar3 = javaWebSockeClientImpl$connect$1;
             javaWebSockeClientImpl$connect$12 = javaWebSockeClientImpl$connect$1;
             javaWebSockeClientImpl = this;
             webSocketRequest2 = webSocketRequest;
-            bJ = o.bJ(new b(""));
+            bL = o.bL(new b(""));
             iWebSocketListener2 = iWebSocketListener;
             uri = create;
             aVar4 = aVar;
@@ -55,29 +56,29 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
             for (String str : list2) {
                 arrayList.add(new b(str));
             }
-            list = dTP;
+            list = efR;
             aVar2 = aVar;
             aVar3 = javaWebSockeClientImpl$connect$1;
             javaWebSockeClientImpl$connect$12 = javaWebSockeClientImpl$connect$1;
             javaWebSockeClientImpl = this;
             webSocketRequest2 = webSocketRequest;
-            bJ = arrayList;
+            bL = arrayList;
             iWebSocketListener2 = iWebSocketListener;
             uri = create;
             aVar4 = aVar;
         }
-        new org.java_websocket.drafts.a(list, bJ);
+        new org.java_websocket.drafts.a(list, bL);
         final org.java_websocket.drafts.a aVar5 = aVar4;
         final Map<String, String> headers = webSocketRequest.getHeaders();
         new a(uri, aVar5, headers) { // from class: com.baidu.searchbox.websocket.JavaWebSockeClientImpl$connect$1
             @Override // org.java_websocket.a.a
             public void onOpen(org.java_websocket.c.h hVar) {
-                Iterator<String> dXt;
+                Iterator<String> ejx;
                 HashMap hashMap = new HashMap();
-                if (hVar != null && (dXt = hVar.dXt()) != null) {
-                    while (dXt.hasNext()) {
-                        String next = dXt.next();
-                        hashMap.put(next, hVar.Tu(next));
+                if (hVar != null && (ejx = hVar.ejx()) != null) {
+                    while (ejx.hasNext()) {
+                        String next = ejx.next();
+                        hashMap.put(next, hVar.Wy(next));
                     }
                 }
                 IWebSocketListener.this.onOpen(hashMap);
@@ -97,7 +98,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
 
             @Override // org.java_websocket.a.a
             public void onMessage(String str2) {
-                q.m(str2, "p0");
+                q.m(str2, ZeusPerformanceTiming.KEY_WEBVIEWCHROMIUM_CONSTRUCT);
                 IWebSocketListener.this.onMessage(str2);
             }
 
@@ -109,7 +110,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
 
             @Override // org.java_websocket.a.a
             public void onError(Exception exc) {
-                q.m(exc, "p0");
+                q.m(exc, ZeusPerformanceTiming.KEY_WEBVIEWCHROMIUM_CONSTRUCT);
                 IWebSocketListener.this.onError(exc, null);
             }
         };
@@ -119,13 +120,13 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
             int intValue = connectionLostTimeout.intValue();
             a aVar6 = this.webSocketClient;
             if (aVar6 == null) {
-                q.Te("webSocketClient");
+                q.Wi("webSocketClient");
             }
             aVar6.setConnectionLostTimeout(intValue);
         }
         a aVar7 = this.webSocketClient;
         if (aVar7 == null) {
-            q.Te("webSocketClient");
+            q.Wi("webSocketClient");
         }
         aVar7.connect();
     }
@@ -135,7 +136,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
         q.m(str, TiebaInitialize.LogFields.REASON);
         a aVar = this.webSocketClient;
         if (aVar == null) {
-            q.Te("webSocketClient");
+            q.Wi("webSocketClient");
         }
         aVar.close();
     }
@@ -145,7 +146,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
         q.m(str, "message");
         a aVar = this.webSocketClient;
         if (aVar == null) {
-            q.Te("webSocketClient");
+            q.Wi("webSocketClient");
         }
         aVar.send(str);
     }
@@ -155,7 +156,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
         q.m(byteBuffer, "data");
         a aVar = this.webSocketClient;
         if (aVar == null) {
-            q.Te("webSocketClient");
+            q.Wi("webSocketClient");
         }
         aVar.send(byteBuffer);
     }

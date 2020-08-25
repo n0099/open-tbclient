@@ -7,7 +7,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class p extends ClickableSpan {
     private Context mContext;
 
@@ -20,11 +20,11 @@ public class p extends ClickableSpan {
         return this.mContext;
     }
 
-    public void As(String str) {
+    public void CI(String str) {
         com.baidu.tbadk.browser.a.startWebActivity(this.mContext, str);
     }
 
-    public void At(String str) {
+    public void CJ(String str) {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.mContext).createNormalCfg(str, null, null)));
     }
 

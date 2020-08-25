@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.baidu.swan.apps.process.SwanAppIPCData;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SwanAppBearInfo extends SwanAppIPCData {
     private static final String BEAR_DESC = "sign";
     private static final String BEAR_ID = "office_id";
@@ -25,14 +25,14 @@ public class SwanAppBearInfo extends SwanAppIPCData {
     public static final Parcelable.Creator<SwanAppBearInfo> CREATOR = new Parcelable.Creator<SwanAppBearInfo>() { // from class: com.baidu.swan.apps.model.SwanAppBearInfo.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: u */
+        /* renamed from: v */
         public SwanAppBearInfo createFromParcel(Parcel parcel) {
             return new SwanAppBearInfo(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: gq */
+        /* renamed from: iw */
         public SwanAppBearInfo[] newArray(int i) {
             return new SwanAppBearInfo[i];
         }

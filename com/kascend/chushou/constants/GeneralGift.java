@@ -1,5 +1,6 @@
 package com.kascend.chushou.constants;
 
+import com.baidu.android.imsdk.internal.IMConnection;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +36,7 @@ public class GeneralGift implements Serializable {
     public int mPoint = -1;
     public int mCount = -1;
     public String mRepeatedBg = "";
-    public long mDuration = 3000;
+    public long mDuration = IMConnection.RETRY_DELAY_TIMES;
     public boolean mSelectFlag = false;
     public int mGroup = 1;
 

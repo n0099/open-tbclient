@@ -4,13 +4,13 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.adp.lib.util.BdLog;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class GameCenterAppMonitorReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        if (a.blW() != null) {
+        if (a.buJ() != null) {
             try {
-                a.blW().onReceive(context, intent);
+                a.buJ().onReceive(context, intent);
             } catch (Throwable th) {
                 BdLog.e(th);
             }

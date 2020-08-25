@@ -6,7 +6,7 @@ import android.os.Build;
 import com.baidu.ala.helper.AlaLiveBaseInfo;
 import com.baidu.ar.constants.HttpConstants;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes11.dex */
 public class c {
     public String mCuid;
     public String mNetWork;

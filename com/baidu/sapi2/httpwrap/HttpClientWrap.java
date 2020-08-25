@@ -14,13 +14,13 @@ import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.ServiceManager;
 import com.baidu.sapi2.utils.SapiDeviceUtils;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.sapi2.utils.t;
+import com.baidu.sapi2.utils.k;
 import java.net.HttpCookie;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import javax.net.ssl.SSLPeerUnverifiedException;
-/* loaded from: classes19.dex */
+/* loaded from: classes12.dex */
 public class HttpClientWrap {
     private PassHttpClient a = new PassHttpClient();
     private Context b;
@@ -56,7 +56,7 @@ public class HttpClientWrap {
         int i = -202;
         if (th != null && SSLPeerUnverifiedException.class.getSimpleName().equals(th.getClass().getSimpleName())) {
             i = -203;
-            t.a("sslerr_interface", Collections.singletonMap("na_err_code", "0"));
+            k.a("sslerr_interface", Collections.singletonMap("na_err_code", "0"));
         }
         httpHandlerWrap.onFailure(th, i, str);
     }
@@ -113,7 +113,7 @@ public class HttpClientWrap {
                 } catch (Throwable th) {
                     onFailure(th, str3);
                     if (!TextUtils.isEmpty(str)) {
-                        t.a("http_client_response_error", Collections.singletonMap("url", SapiDeviceUtils.DeviceCrypto.base64Encode(str.getBytes())));
+                        k.a("http_client_response_error", Collections.singletonMap("url", SapiDeviceUtils.DeviceCrypto.base64Encode(str.getBytes())));
                     }
                 }
             }
@@ -152,7 +152,7 @@ public class HttpClientWrap {
                 } catch (Throwable th) {
                     onFailure(th, str3);
                     if (!TextUtils.isEmpty(str)) {
-                        t.a("http_client_response_error", Collections.singletonMap("url", SapiDeviceUtils.DeviceCrypto.base64Encode(str.getBytes())));
+                        k.a("http_client_response_error", Collections.singletonMap("url", SapiDeviceUtils.DeviceCrypto.base64Encode(str.getBytes())));
                     }
                 }
             }
@@ -205,7 +205,7 @@ public class HttpClientWrap {
                 } catch (Throwable th) {
                     onFailure(th, str3);
                     if (!TextUtils.isEmpty(str)) {
-                        t.a("http_client_response_error", Collections.singletonMap("url", SapiDeviceUtils.DeviceCrypto.base64Encode(str.getBytes())));
+                        k.a("http_client_response_error", Collections.singletonMap("url", SapiDeviceUtils.DeviceCrypto.base64Encode(str.getBytes())));
                     }
                 }
             }

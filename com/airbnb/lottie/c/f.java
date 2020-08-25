@@ -4,9 +4,9 @@ import android.graphics.Color;
 import android.util.JsonReader;
 import android.util.JsonToken;
 import java.io.IOException;
-/* loaded from: classes20.dex */
+/* loaded from: classes18.dex */
 public class f implements aj<Integer> {
-    public static final f FR = new f();
+    public static final f Gw = new f();
 
     private f() {
     }

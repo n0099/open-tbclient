@@ -3,49 +3,49 @@ package com.baidu.tieba.hottopic.a;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.adp.widget.ListView.ad;
+import com.baidu.adp.widget.ListView.af;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes15.dex */
-public class e extends ad.a {
-    public int aho;
-    public TextView dJr;
-    public View iLB;
-    public TextView iLC;
-    public RelativeLayout iLI;
-    public View iLJ;
-    public TbImageView iLK;
-    public TextView iLL;
-    public TextView iLM;
-    public TextView iLN;
-    public TextView iLO;
+public class e extends af.a {
+    public int aiB;
+    public TextView dSz;
+    public TextView jaA;
+    public RelativeLayout jaG;
+    public View jaH;
+    public TbImageView jaI;
+    public TextView jaJ;
+    public TextView jaK;
+    public TextView jaL;
+    public TextView jaM;
+    public View jaz;
     public View rootView;
 
     public e(View view) {
         super(view);
-        this.aho = 3;
+        this.aiB = 3;
         this.rootView = null;
-        this.iLB = null;
-        this.iLC = null;
-        this.iLI = null;
-        this.iLJ = null;
-        this.iLK = null;
+        this.jaz = null;
+        this.jaA = null;
+        this.jaG = null;
+        this.jaH = null;
+        this.jaI = null;
         this.rootView = view;
-        cq(this.rootView);
+        ct(this.rootView);
     }
 
-    private void cq(View view) {
+    private void ct(View view) {
         if (view != null) {
-            this.iLB = view.findViewById(R.id.top_divider_line);
-            this.iLC = (TextView) view.findViewById(R.id.quality_item_theme_title);
-            this.iLJ = view.findViewById(R.id.divider_line);
-            this.iLI = (RelativeLayout) view.findViewById(R.id.quality_thread_view);
-            this.iLK = (TbImageView) view.findViewById(R.id.img);
-            this.dJr = (TextView) view.findViewById(R.id.title);
-            this.iLL = (TextView) view.findViewById(R.id.desc);
-            this.iLM = (TextView) view.findViewById(R.id.hot_thread_comment).findViewById(R.id.hot_thread_line_tag);
-            this.iLN = (TextView) view.findViewById(R.id.hot_thread_comment).findViewById(R.id.hot_thread_line_praise);
-            this.iLO = (TextView) view.findViewById(R.id.hot_thread_comment).findViewById(R.id.hot_thread_line_comment);
+            this.jaz = view.findViewById(R.id.top_divider_line);
+            this.jaA = (TextView) view.findViewById(R.id.quality_item_theme_title);
+            this.jaH = view.findViewById(R.id.divider_line);
+            this.jaG = (RelativeLayout) view.findViewById(R.id.quality_thread_view);
+            this.jaI = (TbImageView) view.findViewById(R.id.img);
+            this.dSz = (TextView) view.findViewById(R.id.title);
+            this.jaJ = (TextView) view.findViewById(R.id.desc);
+            this.jaK = (TextView) view.findViewById(R.id.hot_thread_comment).findViewById(R.id.hot_thread_line_tag);
+            this.jaL = (TextView) view.findViewById(R.id.hot_thread_comment).findViewById(R.id.hot_thread_line_praise);
+            this.jaM = (TextView) view.findViewById(R.id.hot_thread_comment).findViewById(R.id.hot_thread_line_comment);
         }
     }
 }

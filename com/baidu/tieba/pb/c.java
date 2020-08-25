@@ -6,11 +6,11 @@ import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.view.l;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class c {
-    private static String kfo;
+    private static String kuH;
 
-    public static SpannableStringBuilder aJ(Context context, String str) {
+    public static SpannableStringBuilder aN(Context context, String str) {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
         spannableStringBuilder.append((CharSequence) str);
         int length = spannableStringBuilder.length();
@@ -21,10 +21,10 @@ public class c {
         return spannableStringBuilder;
     }
 
-    public static String cKh() {
-        if (TextUtils.isEmpty(kfo)) {
-            kfo = com.baidu.tbadk.core.sharedPref.b.aZP().getString("nick_name_activity_link", "");
+    public static String cUV() {
+        if (TextUtils.isEmpty(kuH)) {
+            kuH = com.baidu.tbadk.core.sharedPref.b.bik().getString("nick_name_activity_link", "");
         }
-        return kfo;
+        return kuH;
     }
 }

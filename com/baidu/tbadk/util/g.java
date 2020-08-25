@@ -7,7 +7,7 @@ import android.graphics.Paint;
 import android.view.View;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class g {
     public static float[] a(Bitmap bitmap, Matrix matrix) {
         float[] fArr = new float[8];
@@ -15,7 +15,7 @@ public class g {
         return fArr;
     }
 
-    public static Bitmap br(View view) {
+    public static Bitmap bt(View view) {
         Bitmap bitmap = null;
         if (view == null || view.getWidth() <= 0 || view.getHeight() <= 0) {
             return null;

@@ -6,7 +6,7 @@ import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.sdk.Log;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class VideoFreeFlowConfigManager implements INoProGuard {
     public static final String DIRECT = "DIRECT";
     public static final String HOST_MATCH = "HOSTMATCH";
@@ -25,7 +25,7 @@ public class VideoFreeFlowConfigManager implements INoProGuard {
     private byte[] mListLock = new byte[0];
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public static class a {
         String a;
         String b;

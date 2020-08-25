@@ -4,9 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.fsg.base.BaiduRimConstants;
-import com.baidu.g.a.a;
-import com.baidu.sapi2.PassportSDK;
-import com.baidu.sapi2.PassportViewManager;
+import com.baidu.k.a.a;
+import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.SapiJsCallBacks;
@@ -15,30 +14,30 @@ import com.baidu.sapi2.callback.OneKeyLoginCallback;
 import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.dto.SapiWebDTO;
 import com.baidu.sapi2.dto.WebLoginDTO;
-import com.baidu.sapi2.outsdk.c;
+import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import com.baidu.sapi2.result.ExtendSysWebViewMethodResult;
 import com.baidu.sapi2.result.OneKeyLoginResult;
 import com.baidu.sapi2.shell.listener.AuthorizationListener;
 import com.baidu.sapi2.utils.enums.AccountType;
 import java.util.ArrayList;
-/* loaded from: classes19.dex */
+/* loaded from: classes12.dex */
 public class LoadExternalWebViewActivity extends BaseActivity {
     public static final String EXTRA_BUSINESS_FROM = "business_from";
     public static final String EXTRA_BUSINESS_FROM_ONE_KEY_LOGIN = "business_from_one_key_login";
     public static final String EXTRA_BUSINESS_TYPE = "business_type";
     public static final String EXTRA_EXTERNAL_TITLE = "extra_external_title";
     public static final String EXTRA_EXTERNAL_URL = "extra_external_url";
-    private static final int REQUEST_CODE_LOGIN = 2001;
     public static final String RESULT_BUSINESS_TYPE_ACCOUNT_FREEZE = "business_account_freeze";
     public static final String RESULT_BUSINESS_TYPE_PRE_SET_UNAME = "business_pre_set_username";
+    private static final int t = 2001;
+    private String p;
+    private String q;
     private String r;
-    private String s;
-    private String t;
-    private AuthorizationListener u = new AuthorizationListener() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.1
+    private AuthorizationListener s = new AuthorizationListener() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.1
         @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
         public void onFailed(int i, String str) {
-            if ("business_from_one_key_login".equals(LoadExternalWebViewActivity.this.t)) {
-                new c().a(PassportSDK.getInstance().getOneKeyLoginCallback(), -103, (String) null);
+            if ("business_from_one_key_login".equals(LoadExternalWebViewActivity.this.r)) {
+                new OneKeyLoginSdkCall().a(CoreViewRouter.getInstance().getOneKeyLoginCallback(), -103, null);
             }
             LoadExternalWebViewActivity.this.setResult(0);
             LoadExternalWebViewActivity.this.finish();
@@ -46,8 +45,8 @@ public class LoadExternalWebViewActivity extends BaseActivity {
 
         @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
         public void onSuccess(AccountType accountType) {
-            if ("business_from_one_key_login".equals(LoadExternalWebViewActivity.this.t)) {
-                OneKeyLoginCallback oneKeyLoginCallback = PassportSDK.getInstance().getOneKeyLoginCallback();
+            if ("business_from_one_key_login".equals(LoadExternalWebViewActivity.this.r)) {
+                OneKeyLoginCallback oneKeyLoginCallback = CoreViewRouter.getInstance().getOneKeyLoginCallback();
                 OneKeyLoginResult oneKeyLoginResult = new OneKeyLoginResult();
                 oneKeyLoginResult.setResultCode(0);
                 if (oneKeyLoginCallback != null) {
@@ -61,55 +60,31 @@ public class LoadExternalWebViewActivity extends BaseActivity {
         }
     };
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void e() {
-        SapiWebView sapiWebView = this.sapiWebView;
-        if (sapiWebView != null && sapiWebView.canGoBack()) {
-            this.sapiWebView.goBack();
-        } else {
-            finish();
-        }
-    }
-
-    @Override // com.baidu.sapi2.activity.TitleActivity
-    public void configTitle() {
-        setTitleText(this.r);
-        if (PassportViewManager.getInstance().getTitleViewModule() != null) {
-            configCustomTitle();
-            return;
-        }
-        switchDarkmode();
-        setBtnVisibility(4, 0, 4);
-        if (this.configuration.showBottomBack) {
-            setLeftBtnDrawable(null, null, null, null);
-        }
-    }
-
     @Override // com.baidu.sapi2.activity.TitleActivity, android.app.Activity
     public void finish() {
         super.finish();
-        if (PassportSDK.getInstance().getExtendSysWebViewMethodCallback() != null) {
+        if (CoreViewRouter.getInstance().getExtendSysWebViewMethodCallback() != null) {
             ExtendSysWebViewMethodResult extendSysWebViewMethodResult = new ExtendSysWebViewMethodResult();
             extendSysWebViewMethodResult.params.put(BaiduRimConstants.RETCODE_KEY, -301);
             extendSysWebViewMethodResult.params.put("retMsg", "您已取消操作");
-            PassportSDK.getInstance().getExtendSysWebViewMethodCallback().onFinish(extendSysWebViewMethodResult);
+            CoreViewRouter.getInstance().getExtendSysWebViewMethodCallback().onFinish(extendSysWebViewMethodResult);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public SapiWebDTO getWebDTO() {
-        return PassportSDK.getInstance().getWebLoginDTO();
+        return CoreViewRouter.getInstance().getWebLoginDTO();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void init() {
         super.init();
-        this.r = getIntent().getStringExtra(EXTRA_EXTERNAL_TITLE);
-        this.s = getIntent().getStringExtra("extra_external_url");
-        this.t = getIntent().getStringExtra(EXTRA_BUSINESS_FROM);
-        if (TextUtils.isEmpty(this.s)) {
+        this.p = getIntent().getStringExtra(EXTRA_EXTERNAL_TITLE);
+        this.q = getIntent().getStringExtra("extra_external_url");
+        this.r = getIntent().getStringExtra(EXTRA_BUSINESS_FROM);
+        if (TextUtils.isEmpty(this.q)) {
             setResult(0);
             finish();
         }
@@ -130,7 +105,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onBottomBackBtnClick() {
         super.onBottomBackBtnClick();
-        e();
+        a();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -160,7 +135,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
         if (!this.executeSubClassMethod) {
             return;
         }
-        e();
+        a();
     }
 
     @Override // com.baidu.sapi2.activity.TitleActivity, android.app.Activity
@@ -172,12 +147,11 @@ public class LoadExternalWebViewActivity extends BaseActivity {
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();
-        configTitle();
-        this.sapiWebView.setAuthorizationListener(this.u);
+        this.sapiWebView.setAuthorizationListener(this.s);
         this.sapiWebView.setOnNewBackCallback(new SapiWebView.OnNewBackCallback() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.2
             @Override // com.baidu.sapi2.SapiWebView.OnNewBackCallback
             public boolean onBack() {
-                LoadExternalWebViewActivity.this.e();
+                LoadExternalWebViewActivity.this.a();
                 return false;
             }
         });
@@ -251,18 +225,28 @@ public class LoadExternalWebViewActivity extends BaseActivity {
         this.sapiWebView.setWebviewPageFinishCallback(new SapiJsCallBacks.WebviewPageFinishCallback() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.9
             @Override // com.baidu.sapi2.SapiJsCallBacks.WebviewPageFinishCallback
             public void onFinish(String str) {
-                if (PassportSDK.getInstance().getExtendSysWebViewMethodCallback() != null) {
+                if (CoreViewRouter.getInstance().getExtendSysWebViewMethodCallback() != null) {
                     ExtendSysWebViewMethodResult extendSysWebViewMethodResult = new ExtendSysWebViewMethodResult();
                     extendSysWebViewMethodResult.params.put("result", str);
-                    PassportSDK.getInstance().getExtendSysWebViewMethodCallback().onFinish(extendSysWebViewMethodResult);
+                    CoreViewRouter.getInstance().getExtendSysWebViewMethodCallback().onFinish(extendSysWebViewMethodResult);
                 }
             }
         });
         ArrayList arrayList = new ArrayList();
-        WebLoginDTO webLoginDTO = PassportSDK.getInstance().getWebLoginDTO();
+        WebLoginDTO webLoginDTO = CoreViewRouter.getInstance().getWebLoginDTO();
         if (webLoginDTO != null && WebLoginDTO.statExtraValid(webLoginDTO.statExtra)) {
             arrayList.add(new PassNameValuePair("extrajson", webLoginDTO.statExtra));
         }
-        this.sapiWebView.loadExternalUrl(this.s, arrayList);
+        this.sapiWebView.loadExternalUrl(this.q, arrayList);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a() {
+        SapiWebView sapiWebView = this.sapiWebView;
+        if (sapiWebView != null && sapiWebView.canGoBack()) {
+            this.sapiWebView.goBack();
+        } else {
+            finish();
+        }
     }
 }

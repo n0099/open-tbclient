@@ -5,11 +5,10 @@ import android.graphics.Bitmap;
 import android.media.MediaMetadataRetriever;
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.mobstat.Config;
 import com.baidu.searchbox.ugc.transcoder.TranscoderManager;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes8.dex */
 public class TranscoderPlugin implements TranscoderManager.OnCompletionListener, TranscoderManager.OnErrorListener, TranscoderManager.OnInfoListener {
     public static final String AUDIO_CODEC = "aac";
     public static final String KEY_SUPPORT_HW_ENCODE = "support_hw_encode";
@@ -28,7 +27,7 @@ public class TranscoderPlugin implements TranscoderManager.OnCompletionListener,
     private volatile int mStatus = 0;
     private Map<String, String> mVideoParams = new HashMap();
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes8.dex */
     public interface Status {
         public static final int COMPLETION = 4;
         public static final int ERROR = 2;
@@ -72,7 +71,7 @@ public class TranscoderPlugin implements TranscoderManager.OnCompletionListener,
     }
 
     public void setVideoSize(int i, int i2) {
-        this.mVideoParams.put("s", i + Config.EVENT_HEAT_X + i2);
+        this.mVideoParams.put("s", i + "x" + i2);
     }
 
     public void setVideoFrameRate(int i) {

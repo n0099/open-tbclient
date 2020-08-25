@@ -1,7 +1,7 @@
 package com.baidu.platform.comapi.walknavi.e;
 
 import android.os.Bundle;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class d implements c {
     private Bundle a = new Bundle();
 
@@ -13,10 +13,28 @@ public class d implements c {
     }
 
     @Override // com.baidu.platform.comapi.walknavi.e.c
+    public void a(int i, int i2, int i3, String str, String str2) {
+        this.a.putInt("start_x", i);
+        this.a.putInt("start_y", i2);
+        this.a.putInt("start_cityid", i3);
+        this.a.putString("start_floor", str);
+        this.a.putString("start_building", str2);
+    }
+
+    @Override // com.baidu.platform.comapi.walknavi.e.c
     public void a(int[] iArr, int[] iArr2, int[] iArr3) {
         this.a.putIntArray("end_x", iArr);
         this.a.putIntArray("end_y", iArr2);
         this.a.putIntArray("end_cityid", iArr3);
+    }
+
+    @Override // com.baidu.platform.comapi.walknavi.e.c
+    public void a(int[] iArr, int[] iArr2, int[] iArr3, String[] strArr, String[] strArr2) {
+        this.a.putIntArray("end_x", iArr);
+        this.a.putIntArray("end_y", iArr2);
+        this.a.putIntArray("end_cityid", iArr3);
+        this.a.putStringArray("end_floor", strArr);
+        this.a.putStringArray("end_building", strArr2);
     }
 
     @Override // com.baidu.platform.comapi.walknavi.e.c
@@ -40,6 +58,11 @@ public class d implements c {
     }
 
     @Override // com.baidu.platform.comapi.walknavi.e.c
+    public void a(byte[] bArr) {
+        this.a.putByteArray("route_buff", bArr);
+    }
+
+    @Override // com.baidu.platform.comapi.walknavi.e.c
     public byte[] a(String str) {
         return this.a.getByteArray(str);
     }
@@ -47,6 +70,16 @@ public class d implements c {
     @Override // com.baidu.platform.comapi.walknavi.e.c
     public int a(String str, int i) {
         return this.a.getInt(str, i);
+    }
+
+    @Override // com.baidu.platform.comapi.walknavi.e.c
+    public String a(String str, String str2) {
+        return this.a.getString(str, str2);
+    }
+
+    @Override // com.baidu.platform.comapi.walknavi.e.c
+    public String[] c(String str) {
+        return this.a.getStringArray(str);
     }
 
     @Override // com.baidu.platform.comapi.walknavi.e.c

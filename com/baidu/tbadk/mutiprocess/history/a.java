@@ -3,7 +3,7 @@ package com.baidu.tbadk.mutiprocess.history;
 import android.text.TextUtils;
 import com.baidu.tbadk.mutiprocess.b;
 import com.baidu.tieba.card.m;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a implements b<HistoryEvent> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mutiprocess.b
@@ -11,7 +11,7 @@ public class a implements b<HistoryEvent> {
         if (historyEvent == null || TextUtils.isEmpty(historyEvent.tid)) {
             return false;
         }
-        m.Ez(historyEvent.tid);
+        m.GY(historyEvent.tid);
         return true;
     }
 }

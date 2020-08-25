@@ -7,10 +7,10 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
-    private a eQy;
+    private a fbe;
     private final int mBlockSize;
     private final Rect mOriginalBitmapRect;
     private final int mRealHeight;
@@ -59,7 +59,7 @@ public class b {
         return new Point[]{point, point2};
     }
 
-    public a boi() {
+    public a bwV() {
         return new a(this.mBlockSize);
     }
 
@@ -103,13 +103,13 @@ public class b {
 
     public void setThumbnail(Bitmap bitmap) {
         if (bitmap != null) {
-            this.eQy = new a(bitmap);
-            this.eQy.setDstRect(0, 0, this.mRealWidth, this.mRealHeight);
+            this.fbe = new a(bitmap);
+            this.fbe.setDstRect(0, 0, this.mRealWidth, this.mRealHeight);
         }
     }
 
-    public a boj() {
-        return this.eQy;
+    public a bwW() {
+        return this.fbe;
     }
 
     public void moveWindow(float f, float f2) {

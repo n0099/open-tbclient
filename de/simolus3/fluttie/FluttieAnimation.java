@@ -12,7 +12,7 @@ import com.airbnb.lottie.g;
 import com.baidu.adp.lib.util.BdLog;
 import io.flutter.view.TextureRegistry;
 @RequiresApi(api = 15)
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class FluttieAnimation implements ValueAnimator.AnimatorUpdateListener {
     private e composition;
     private g drawable;
@@ -20,24 +20,24 @@ public class FluttieAnimation implements ValueAnimator.AnimatorUpdateListener {
     private boolean pausedButNotByUser;
 
     /* renamed from: plugin  reason: collision with root package name */
-    private final FluttiePlugin f995plugin;
+    private final FluttiePlugin f997plugin;
     private Surface surface;
     private final TextureRegistry.SurfaceTextureEntry surfaceTexture;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public FluttieAnimation(FluttiePlugin fluttiePlugin, TextureRegistry.SurfaceTextureEntry surfaceTextureEntry, e eVar, float f, String str) {
-        this.f995plugin = fluttiePlugin;
+        this.f997plugin = fluttiePlugin;
         this.surfaceTexture = surfaceTextureEntry;
         this.surface = new Surface(surfaceTextureEntry.surfaceTexture());
-        Rect gS = eVar.gS();
-        surfaceTextureEntry.surfaceTexture().setDefaultBufferSize((int) (gS.width() * f), (int) (gS.height() * f));
+        Rect it = eVar.it();
+        surfaceTextureEntry.surfaceTexture().setDefaultBufferSize((int) (it.width() * f), (int) (it.height() * f));
         this.drawable = new g();
         this.drawable.enableMergePathsForKitKatAndAbove(true);
         this.drawable.setScale(f);
         this.composition = eVar;
         this.drawable.a(eVar);
         if (str != null) {
-            this.drawable.aZ("flutter_assets/" + str);
+            this.drawable.be("flutter_assets/" + str);
         }
         this.drawable.addAnimatorUpdateListener(this);
         fluttiePlugin.getRenderingThreads().markDirty(this);
@@ -51,7 +51,7 @@ public class FluttieAnimation implements ValueAnimator.AnimatorUpdateListener {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setDuration(int i) {
-        this.drawable.setSpeed(Math.copySign(this.composition.gT() / i, this.drawable.getSpeed()));
+        this.drawable.setSpeed(Math.copySign(this.composition.iu() / i, this.drawable.getSpeed()));
     }
 
     public int getId() {
@@ -91,7 +91,7 @@ public class FluttieAnimation implements ValueAnimator.AnimatorUpdateListener {
 
     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
     public void onAnimationUpdate(@Nullable ValueAnimator valueAnimator) {
-        this.f995plugin.getRenderingThreads().markDirty(this);
+        this.f997plugin.getRenderingThreads().markDirty(this);
     }
 
     public boolean isPlaying() {

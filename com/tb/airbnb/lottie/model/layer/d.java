@@ -3,7 +3,7 @@ package com.tb.airbnb.lottie.model.layer;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.RectF;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class d extends a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(com.tb.airbnb.lottie.f fVar, Layer layer) {

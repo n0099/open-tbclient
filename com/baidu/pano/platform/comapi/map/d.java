@@ -15,7 +15,7 @@ import com.baidu.lbsapi.tools.Point;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class d implements b {
     final /* synthetic */ InnerPanoramaView a;
 
@@ -125,7 +125,7 @@ public class d implements b {
                                         String a3 = innerPanoramaView7.a(d3, d4, optInt, optInt2);
                                         if (!TextUtils.isEmpty(a3)) {
                                             InnerPanoramaView innerPanoramaView8 = this.a;
-                                            Context context = BaseGLMapView.b;
+                                            Context context = this.a.b;
                                             z2 = this.a.m;
                                             str5 = this.a.n;
                                             innerPanoramaView8.g = new com.baidu.pano.platform.comapi.a.b(context, z2, str5);
@@ -250,15 +250,15 @@ public class d implements b {
         PanoramaViewListener panoramaViewListener;
         PanoramaViewListener panoramaViewListener2;
         Handler handler3;
-        handler = this.a.t;
+        handler = this.a.w;
         if (handler.hasMessages(1001)) {
-            handler3 = this.a.t;
+            handler3 = this.a.w;
             handler3.removeMessages(1001);
         }
         Message message = new Message();
         message.what = 1001;
         message.obj = str;
-        handler2 = this.a.t;
+        handler2 = this.a.w;
         handler2.sendMessage(message);
         panoramaViewListener = this.a.e;
         if (panoramaViewListener != null) {

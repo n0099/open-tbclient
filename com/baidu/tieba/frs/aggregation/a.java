@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.aggregation;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface a {
     void cancel();
 
-    void vi(int i);
+    void xA(int i);
 }

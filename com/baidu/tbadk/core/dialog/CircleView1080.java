@@ -6,14 +6,15 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
+import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class CircleView1080 extends View {
-    private static int dVP = 360;
-    private static int dVQ = 100;
-    private int bhZ;
-    private Paint dVS;
-    private RectF dVU;
+    private static int efp = EncoderTextureDrawer.X264_WIDTH;
+    private static int efq = 100;
+    private int bnH;
+    private Paint efs;
+    private RectF efu;
     private int mValue;
     private int mWidth;
 
@@ -42,18 +43,18 @@ public class CircleView1080 extends View {
 
     public void init() {
         this.mWidth = getResources().getDimensionPixelSize(R.dimen.tbds122);
-        this.bhZ = getResources().getDimensionPixelSize(R.dimen.tbds6);
-        this.dVS = new Paint();
-        this.dVS.setStrokeWidth(this.bhZ);
-        this.dVS.setColor(getResources().getColor(R.color.cp_cont_g));
-        this.dVS.setStyle(Paint.Style.STROKE);
-        this.dVS.setAntiAlias(true);
-        this.dVS.setStrokeCap(Paint.Cap.ROUND);
-        this.dVU = new RectF(this.bhZ / 2, this.bhZ / 2, this.mWidth + (this.bhZ / 2), this.mWidth + (this.bhZ / 2));
+        this.bnH = getResources().getDimensionPixelSize(R.dimen.tbds6);
+        this.efs = new Paint();
+        this.efs.setStrokeWidth(this.bnH);
+        this.efs.setColor(getResources().getColor(R.color.cp_cont_g));
+        this.efs.setStyle(Paint.Style.STROKE);
+        this.efs.setAntiAlias(true);
+        this.efs.setStrokeCap(Paint.Cap.ROUND);
+        this.efu = new RectF(this.bnH / 2, this.bnH / 2, this.mWidth + (this.bnH / 2), this.mWidth + (this.bnH / 2));
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        canvas.drawArc(this.dVU, 270.0f, (dVP * this.mValue) / dVQ, false, this.dVS);
+        canvas.drawArc(this.efu, 270.0f, (efp * this.mValue) / efq, false, this.efs);
     }
 }

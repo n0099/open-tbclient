@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public final class DrawableSplashScreen implements SplashScreen {
     private final long crossfadeDurationInMillis;
     private final Drawable drawable;
@@ -71,7 +71,7 @@ public final class DrawableSplashScreen implements SplashScreen {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes19.dex */
     public static class DrawableSplashScreenView extends ImageView {
         public DrawableSplashScreenView(@NonNull Context context) {
             this(context, null, 0);

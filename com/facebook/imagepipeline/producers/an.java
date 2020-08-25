@@ -4,7 +4,7 @@ import android.content.ContentResolver;
 import com.facebook.imagepipeline.request.ImageRequest;
 import java.io.IOException;
 import java.util.concurrent.Executor;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class an extends z {
     private final ContentResolver mContentResolver;
 
@@ -15,11 +15,11 @@ public class an extends z {
 
     @Override // com.facebook.imagepipeline.producers.z
     protected com.facebook.imagepipeline.g.e g(ImageRequest imageRequest) throws IOException {
-        return f(this.mContentResolver.openInputStream(imageRequest.dKh()), -1);
+        return e(this.mContentResolver.openInputStream(imageRequest.dWg()), -1);
     }
 
     @Override // com.facebook.imagepipeline.producers.z
-    protected String dJz() {
+    protected String dVy() {
         return "QualifiedResourceFetchProducer";
     }
 }

@@ -1,5 +1,5 @@
 package com.sina.weibo.sdk.network.base;
-/* loaded from: classes7.dex */
+/* loaded from: classes14.dex */
 public class WbResponse {
     private WbResponseBody responseBody;
     private int resultCode;

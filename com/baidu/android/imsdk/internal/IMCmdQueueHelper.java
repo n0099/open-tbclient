@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.db.DBManager;
 import com.baidu.android.imsdk.request.Message;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public class IMCmdQueueHelper {
     private static final String TAG = "IMCmdQueueHelper";
 

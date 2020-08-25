@@ -9,13 +9,13 @@ import com.google.gson.Gson;
 import java.util.HashMap;
 /* loaded from: classes18.dex */
 public class a extends d {
-    private Gson dKB;
-    private com.baidu.tieba.easterEgg.d heX;
-    private HashMap<String, String> heY;
+    private Gson dTJ;
+    private com.baidu.tieba.easterEgg.d hrQ;
+    private HashMap<String, String> hrR;
 
     public a(int i) {
         super(i);
-        this.dKB = new Gson();
+        this.dTJ = new Gson();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,39 +23,39 @@ public class a extends d {
     /* renamed from: d */
     public HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         String json;
-        String EO = EO(httpMessageTask.getUrl());
-        if (EO != null && this.heX != null) {
+        String Hn = Hn(httpMessageTask.getUrl());
+        if (Hn != null && this.hrQ != null) {
             if (httpMessage.getExtra() instanceof NetMessage) {
                 NetMessage netMessage = (NetMessage) httpMessage.getExtra();
                 if (netMessage.getSocketMessage() == null) {
                     json = "";
                 } else {
-                    json = this.dKB.toJson(netMessage.getSocketMessage().getData());
+                    json = this.dTJ.toJson(netMessage.getSocketMessage().getData());
                 }
             } else {
-                json = this.dKB.toJson(httpMessage.getParams());
+                json = this.dTJ.toJson(httpMessage.getParams());
             }
-            this.heX.ap(httpMessageTask.getUrl(), this.dKB.toJson(EO), this.dKB.toJson(json));
+            this.hrQ.ap(httpMessageTask.getUrl(), this.dTJ.toJson(Hn), this.dTJ.toJson(json));
         }
         return httpMessage;
     }
 
-    public String EO(String str) {
+    public String Hn(String str) {
         if (str.contains("?")) {
             str = str.split("[?]")[0];
         }
         String replace = str.replace(TbConfig.SERVER_ADDRESS, "");
-        if (this.heY != null) {
-            return this.heY.get(replace);
+        if (this.hrR != null) {
+            return this.hrR.get(replace);
         }
         return null;
     }
 
-    public void G(HashMap<String, String> hashMap) {
-        this.heY = hashMap;
+    public void E(HashMap<String, String> hashMap) {
+        this.hrR = hashMap;
     }
 
     public void a(com.baidu.tieba.easterEgg.d dVar) {
-        this.heX = dVar;
+        this.hrQ = dVar;
     }
 }

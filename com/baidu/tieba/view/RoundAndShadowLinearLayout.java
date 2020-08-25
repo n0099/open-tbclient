@@ -12,9 +12,9 @@ import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import com.baidu.tieba.R;
 import java.util.Arrays;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class RoundAndShadowLinearLayout extends LinearLayout {
-    private Shape dWB;
+    private Shape egb;
     private Paint mPaint;
     private float mRadius;
 
@@ -46,16 +46,16 @@ public class RoundAndShadowLinearLayout extends LinearLayout {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (z) {
-            if (this.dWB == null) {
+            if (this.egb == null) {
                 float[] fArr = new float[8];
                 Arrays.fill(fArr, 0.0f);
                 RectF rectF = new RectF(getPaddingLeft() <= 0 ? 0.1f : getPaddingLeft(), getPaddingTop() <= 0 ? 0.1f : getPaddingTop(), getPaddingRight() <= 0 ? 0.1f : getPaddingRight(), getPaddingBottom() > 0 ? getPaddingBottom() : 0.1f);
                 float[] fArr2 = new float[8];
                 Arrays.fill(fArr, 0.0f);
                 Arrays.fill(fArr2, this.mRadius);
-                this.dWB = new RoundRectShape(fArr, rectF, fArr2);
+                this.egb = new RoundRectShape(fArr, rectF, fArr2);
             }
-            this.dWB.resize(getWidth(), getHeight());
+            this.egb.resize(getWidth(), getHeight());
         }
     }
 
@@ -64,8 +64,8 @@ public class RoundAndShadowLinearLayout extends LinearLayout {
         int saveCount = canvas.getSaveCount();
         canvas.save();
         super.dispatchDraw(canvas);
-        if (this.dWB != null) {
-            this.dWB.draw(canvas, this.mPaint);
+        if (this.egb != null) {
+            this.egb.draw(canvas, this.mPaint);
         }
         if (saveCount >= 1 && saveCount <= canvas.getSaveCount()) {
             canvas.restoreToCount(saveCount);

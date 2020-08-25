@@ -38,7 +38,7 @@ public class RequestGetLabelMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f1121common = this.f988common;
+        builder.f1125common = this.f988common;
         builder.from = Integer.valueOf(this.from);
         if (z) {
             t.a(builder, true);

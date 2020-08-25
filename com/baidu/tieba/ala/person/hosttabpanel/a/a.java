@@ -5,43 +5,43 @@ import com.baidu.live.adp.widget.listview.BdTypeListView;
 import com.baidu.live.tbadk.TbPageContext;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private List<AbsDelegateAdapter> aWf = new ArrayList();
-    private BdTypeListView aWh;
-    private b gDk;
-    private c gDl;
-    private e gDm;
-    private f gDn;
-    private d gDo;
+    private List<AbsDelegateAdapter> bbu = new ArrayList();
+    private BdTypeListView bbw;
+    private b gPJ;
+    private c gPK;
+    private e gPL;
+    private f gPM;
+    private d gPN;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
         this.mPageContext = tbPageContext;
-        this.aWh = bdTypeListView;
-        DS();
+        this.bbw = bdTypeListView;
+        Jv();
     }
 
-    private void DS() {
-        this.gDk = new b(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.a.gDr);
-        this.gDl = new c(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.b.gDu);
-        this.gDm = new e(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.d.gDw);
-        this.gDn = new f(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.e.gDx);
-        this.gDo = new d(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.c.gDv);
-        this.aWf.add(this.gDk);
-        this.aWf.add(this.gDl);
-        this.aWf.add(this.gDm);
-        this.aWf.add(this.gDn);
-        this.aWf.add(this.gDo);
-        this.aWh.addAdapters(this.aWf);
+    private void Jv() {
+        this.gPJ = new b(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.a.gPQ);
+        this.gPK = new c(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.b.gPT);
+        this.gPL = new e(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.d.gPV);
+        this.gPM = new f(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.e.gPW);
+        this.gPN = new d(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.c.gPU);
+        this.bbu.add(this.gPJ);
+        this.bbu.add(this.gPK);
+        this.bbu.add(this.gPL);
+        this.bbu.add(this.gPM);
+        this.bbu.add(this.gPN);
+        this.bbw.addAdapters(this.bbu);
     }
 
     public void onDestroy() {
-        if (this.gDk != null) {
-            this.gDk.onDestroy();
+        if (this.gPJ != null) {
+            this.gPJ.onDestroy();
         }
-        if (this.gDl != null) {
-            this.gDl.onDestroy();
+        if (this.gPK != null) {
+            this.gPK.onDestroy();
         }
     }
 }

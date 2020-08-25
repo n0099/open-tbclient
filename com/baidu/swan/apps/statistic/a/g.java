@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.statistic.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class g extends e {
     private String mId;
     private long mTimestamp;

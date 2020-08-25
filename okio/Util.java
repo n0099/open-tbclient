@@ -1,7 +1,7 @@
 package okio;
 
 import java.nio.charset.Charset;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 final class Util {
     public static final Charset UTF_8 = Charset.forName("UTF-8");
 

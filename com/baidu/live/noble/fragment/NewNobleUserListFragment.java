@@ -12,58 +12,58 @@ import com.baidu.live.noble.c.e;
 import com.baidu.live.noble.d.b;
 import com.baidu.live.tbadk.core.BaseFragment;
 import com.baidu.live.tbadk.log.LogConfig;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class NewNobleUserListFragment extends BaseFragment {
-    private String aBY;
-    private String aYY;
-    private e bad;
-    private b bae;
-    private com.baidu.live.noble.data.b baf;
-    private long bag;
+    private String aHi;
+    private String ber;
+    private b bfA;
+    private com.baidu.live.noble.data.b bfB;
+    private long bfC;
+    private e bfz;
     private boolean mIsHost;
     private String mLiveId;
     private int mTabId;
     private Handler mHandler = new Handler();
-    private final b.a bah = new b.a() { // from class: com.baidu.live.noble.fragment.NewNobleUserListFragment.1
+    private final b.a bfD = new b.a() { // from class: com.baidu.live.noble.fragment.NewNobleUserListFragment.1
         @Override // com.baidu.live.noble.d.b.a
-        public void Gf() {
-            NewNobleUserListFragment.this.Gd();
+        public void LT() {
+            NewNobleUserListFragment.this.LR();
         }
     };
-    private final e.a bai = new e.a() { // from class: com.baidu.live.noble.fragment.NewNobleUserListFragment.2
+    private final e.a bfE = new e.a() { // from class: com.baidu.live.noble.fragment.NewNobleUserListFragment.2
         @Override // com.baidu.live.noble.c.e.a
         public void a(com.baidu.live.noble.data.b bVar) {
-            NewNobleUserListFragment.this.baf = bVar;
-            if (NewNobleUserListFragment.this.bae != null) {
-                NewNobleUserListFragment.this.bae.b(bVar);
+            NewNobleUserListFragment.this.bfB = bVar;
+            if (NewNobleUserListFragment.this.bfA != null) {
+                NewNobleUserListFragment.this.bfA.b(bVar);
             }
             if (bVar == null) {
-                NewNobleUserListFragment.this.bag = 5L;
-                NewNobleUserListFragment.this.ao(NewNobleUserListFragment.this.bag);
+                NewNobleUserListFragment.this.bfC = 5L;
+                NewNobleUserListFragment.this.ap(NewNobleUserListFragment.this.bfC);
                 return;
             }
-            if (bVar.bau <= 0) {
-                NewNobleUserListFragment.this.bag = 5L;
+            if (bVar.bfP <= 0) {
+                NewNobleUserListFragment.this.bfC = 5L;
             } else {
-                NewNobleUserListFragment.this.bag = bVar.bau;
+                NewNobleUserListFragment.this.bfC = bVar.bfP;
             }
-            NewNobleUserListFragment.this.ao(NewNobleUserListFragment.this.bag);
+            NewNobleUserListFragment.this.ap(NewNobleUserListFragment.this.bfC);
         }
 
         @Override // com.baidu.live.noble.c.e.a
         public void onFail(int i, String str) {
             BdUtilHelper.showToast(NewNobleUserListFragment.this.getPageContext().getPageActivity(), str);
-            NewNobleUserListFragment.this.bag = 5L;
-            NewNobleUserListFragment.this.ao(NewNobleUserListFragment.this.bag);
-            if (NewNobleUserListFragment.this.bae != null && NewNobleUserListFragment.this.baf == null) {
-                NewNobleUserListFragment.this.bae.bX(true);
+            NewNobleUserListFragment.this.bfC = 5L;
+            NewNobleUserListFragment.this.ap(NewNobleUserListFragment.this.bfC);
+            if (NewNobleUserListFragment.this.bfA != null && NewNobleUserListFragment.this.bfB == null) {
+                NewNobleUserListFragment.this.bfA.cf(true);
             }
         }
     };
-    private final Runnable baj = new Runnable() { // from class: com.baidu.live.noble.fragment.NewNobleUserListFragment.3
+    private final Runnable bfF = new Runnable() { // from class: com.baidu.live.noble.fragment.NewNobleUserListFragment.3
         @Override // java.lang.Runnable
         public void run() {
-            NewNobleUserListFragment.this.Gd();
+            NewNobleUserListFragment.this.LR();
         }
     };
 
@@ -71,25 +71,25 @@ public class NewNobleUserListFragment extends BaseFragment {
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         initData(bundle);
-        this.bae = new b(getPageContext(), this.mLiveId, this.aYY, this.mIsHost);
-        this.bae.a(this.bah);
-        return this.bae.getRootView();
+        this.bfA = new b(getPageContext(), this.mLiveId, this.ber, this.mIsHost);
+        this.bfA.a(this.bfD);
+        return this.bfA.getRootView();
     }
 
     private void initData(Bundle bundle) {
-        this.bad = new e(getPageContext(), this.bai);
+        this.bfz = new e(getPageContext(), this.bfE);
         Bundle arguments = getArguments();
         if (bundle != null) {
             this.mLiveId = bundle.getString("live_id");
-            this.aYY = bundle.getString("anchor_id");
-            this.aBY = bundle.getString(LogConfig.LOG_GIFT_ID);
+            this.ber = bundle.getString("anchor_id");
+            this.aHi = bundle.getString(LogConfig.LOG_GIFT_ID);
             this.mTabId = bundle.getInt("tab_id");
             this.mIsHost = bundle.getBoolean("is_host");
             return;
         }
         this.mLiveId = arguments.getString("live_id");
-        this.aYY = arguments.getString("anchor_id");
-        this.aBY = arguments.getString(LogConfig.LOG_GIFT_ID);
+        this.ber = arguments.getString("anchor_id");
+        this.aHi = arguments.getString(LogConfig.LOG_GIFT_ID);
         this.mTabId = arguments.getInt("tab_id");
         this.mIsHost = arguments.getBoolean("is_host");
     }
@@ -98,17 +98,17 @@ public class NewNobleUserListFragment extends BaseFragment {
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary() && isAdded()) {
-            Gd();
+            LR();
         } else {
-            Ge();
+            LS();
         }
     }
 
     @Override // android.support.v4.app.Fragment, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        if (this.bae != null) {
-            this.bae.a(configuration);
+        if (this.bfA != null) {
+            this.bfA.a(configuration);
         }
     }
 
@@ -116,39 +116,39 @@ public class NewNobleUserListFragment extends BaseFragment {
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         bundle.putString("live_id", this.mLiveId);
-        bundle.putString("anchor_id", this.aYY);
-        bundle.putString(LogConfig.LOG_GIFT_ID, this.aBY);
+        bundle.putString("anchor_id", this.ber);
+        bundle.putString(LogConfig.LOG_GIFT_ID, this.aHi);
         bundle.putInt("tab_id", this.mTabId);
         bundle.putBoolean("is_host", this.mIsHost);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Gd() {
-        if (this.bad != null) {
-            this.bad.at(this.aYY, this.mLiveId);
+    public void LR() {
+        if (this.bfz != null) {
+            this.bfz.ax(this.ber, this.mLiveId);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ao(long j) {
-        if (this.mHandler != null && this.baj != null) {
-            this.mHandler.removeCallbacks(this.baj);
-            this.mHandler.postDelayed(this.baj, 1000 * j);
+    public void ap(long j) {
+        if (this.mHandler != null && this.bfF != null) {
+            this.mHandler.removeCallbacks(this.bfF);
+            this.mHandler.postDelayed(this.bfF, 1000 * j);
         }
     }
 
-    private void Ge() {
-        if (this.mHandler != null && this.baj != null) {
-            this.mHandler.removeCallbacks(this.baj);
+    private void LS() {
+        if (this.mHandler != null && this.bfF != null) {
+            this.mHandler.removeCallbacks(this.bfF);
         }
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.bad != null) {
-            this.bad.onDestroy();
+        if (this.bfz != null) {
+            this.bfz.onDestroy();
         }
-        Ge();
+        LS();
     }
 }

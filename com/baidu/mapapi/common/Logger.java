@@ -1,7 +1,7 @@
 package com.baidu.mapapi.common;
 
 import android.util.Log;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class Logger {
     public static boolean debugEnable() {
         return false;

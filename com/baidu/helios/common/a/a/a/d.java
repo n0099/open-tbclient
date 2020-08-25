@@ -13,11 +13,11 @@ import java.util.Map;
 import javax.crypto.BadPaddingException;
 import javax.crypto.spec.OAEPParameterSpec;
 import javax.crypto.spec.PSource;
-/* loaded from: classes3.dex */
+/* loaded from: classes8.dex */
 public final class d {
-    private static final Map<String, byte[]> akM = Collections.synchronizedMap(new HashMap());
-    private MessageDigest akK;
-    private MessageDigest akL;
+    private static final Map<String, byte[]> alO = Collections.synchronizedMap(new HashMap());
+    private MessageDigest alM;
+    private MessageDigest alN;
     private final int e;
     private final int f;
     private SecureRandom g;
@@ -61,9 +61,9 @@ public final class d {
                         throw new InvalidKeyException("Digest SHA-1 not available", e);
                     }
                 }
-                this.akK = MessageDigest.getInstance(str);
-                this.akL = MessageDigest.getInstance(str2);
-                this.k = c(this.akK, bArr);
+                this.alM = MessageDigest.getInstance(str);
+                this.alN = MessageDigest.getInstance(str2);
+                this.k = c(this.alM, bArr);
                 this.h = (i2 - 2) - (this.k.length * 2);
                 if (this.h <= 0) {
                     throw new InvalidKeyException("Key is too short for encryption using OAEPPadding with " + str + " and MGF1" + str2);
@@ -74,11 +74,11 @@ public final class d {
         }
     }
 
-    public static d b(int i, int i2, SecureRandom secureRandom) {
+    public static d c(int i, int i2, SecureRandom secureRandom) {
         return new d(i, i2, secureRandom, null);
     }
 
-    public static d b(int i, int i2, SecureRandom secureRandom, OAEPParameterSpec oAEPParameterSpec) {
+    public static d c(int i, int i2, SecureRandom secureRandom, OAEPParameterSpec oAEPParameterSpec) {
         return new d(i, i2, secureRandom, oAEPParameterSpec);
     }
 
@@ -88,10 +88,10 @@ public final class d {
         int i5 = i4;
         int i6 = i3;
         while (i5 > 0) {
-            this.akL.update(bArr, i, i2);
-            this.akL.update(bArr3);
+            this.alN.update(bArr, i, i2);
+            this.alN.update(bArr3);
             try {
-                this.akL.digest(bArr4, 0, bArr4.length);
+                this.alN.digest(bArr4, 0, bArr4.length);
                 int i7 = i5;
                 int i8 = i6;
                 for (int i9 = 0; i9 < bArr4.length && i7 > 0; i9++) {
@@ -124,10 +124,10 @@ public final class d {
     private static byte[] c(MessageDigest messageDigest, byte[] bArr) {
         if (bArr == null || bArr.length == 0) {
             String algorithm = messageDigest.getAlgorithm();
-            byte[] bArr2 = akM.get(algorithm);
+            byte[] bArr2 = alO.get(algorithm);
             if (bArr2 == null) {
                 byte[] digest = messageDigest.digest();
-                akM.put(algorithm, digest);
+                alO.put(algorithm, digest);
                 return digest;
             }
             return bArr2;
@@ -147,7 +147,7 @@ public final class d {
         bArr2[1] = (byte) this.e;
         if (this.e != 1) {
             if (this.g == null) {
-                this.g = a.aky;
+                this.g = a.acK;
             }
             byte[] bArr3 = new byte[64];
             int i5 = length;
@@ -220,7 +220,7 @@ public final class d {
 
     private byte[] u(byte[] bArr) {
         if (this.g == null) {
-            this.g = a.aky;
+            this.g = a.acK;
         }
         int length = this.k.length;
         byte[] bArr2 = new byte[length];
@@ -307,7 +307,7 @@ public final class d {
         }
     }
 
-    public byte[] l(byte[] bArr, int i, int i2) {
-        return a(a.l(bArr, i, i2));
+    public byte[] k(byte[] bArr, int i, int i2) {
+        return a(a.k(bArr, i, i2));
     }
 }

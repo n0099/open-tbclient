@@ -7,7 +7,7 @@ import android.view.VelocityTracker;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class SwipeDismissTouchListener implements View.OnTouchListener {
     private int a;
     private int b;
@@ -26,7 +26,7 @@ public class SwipeDismissTouchListener implements View.OnTouchListener {
     private boolean o;
     private boolean p;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes20.dex */
     public interface DismissCallbacks {
         boolean canDismiss(Object obj);
 
@@ -53,8 +53,8 @@ public class SwipeDismissTouchListener implements View.OnTouchListener {
         ViewGroup.LayoutParams layoutParams = this.e.getLayoutParams();
         int height = this.e.getHeight();
         ValueAnimator duration = ValueAnimator.ofInt(height, 1).setDuration(this.d);
-        duration.addListener(new p(this, layoutParams, height));
-        duration.addUpdateListener(new q(this, layoutParams));
+        duration.addListener(new v(this, layoutParams, height));
+        duration.addUpdateListener(new w(this, layoutParams));
         duration.start();
     }
 
@@ -95,7 +95,7 @@ public class SwipeDismissTouchListener implements View.OnTouchListener {
                         z = this.m.getXVelocity() > 0.0f;
                     }
                     if (r1) {
-                        this.e.animate().translationX(z ? this.g : -this.g).setDuration(this.d).setListener(new o(this));
+                        this.e.animate().translationX(z ? this.g : -this.g).setDuration(this.d).setListener(new u(this));
                     } else if (this.j) {
                         this.e.animate().translationX(0.0f).setDuration(this.d).setListener(null);
                     }

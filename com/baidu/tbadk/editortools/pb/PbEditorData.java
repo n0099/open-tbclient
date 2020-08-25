@@ -3,7 +3,7 @@ package com.baidu.tbadk.editortools.pb;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import java.io.Serializable;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class PbEditorData implements Serializable {
     public static final int TYPE_PB = 0;
     public static final int TYPE_SUB_PB = 1;
@@ -80,7 +80,7 @@ public class PbEditorData implements Serializable {
         this.mDisableVoiceMessage = str;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class ThreadData implements Serializable {
         private long authorId;
         private String authorName;

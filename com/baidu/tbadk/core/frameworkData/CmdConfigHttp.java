@@ -1,5 +1,5 @@
 package com.baidu.tbadk.core.frameworkData;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class CmdConfigHttp {
     public static final int AGREE_ME_HTTP_CMD = 1002211;
     public static final int BAWU_TEAM_INFO_CMD = 1001705;
@@ -96,6 +96,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_CARD_DETAIL = 1003094;
     public static final int CMD_GET_CARD_GIFT_REQ = 1003449;
     public static final int CMD_GET_CATEGORY_CARTOON = 1003096;
+    public static final int CMD_GET_CHANNEL_CONFIG = 1003477;
     public static final int CMD_GET_CHANNEL_FANS_LIST = 1003314;
     public static final int CMD_GET_EMOTION_EMOTION_CHANGE = 1003355;
     public static final int CMD_GET_EMOTION_EMOTION_SHOP = 1003354;
@@ -132,6 +133,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_PUSH_DIALOG_DATA = 1003412;
     public static final int CMD_GET_PUSH_DIALOG_TID = 1003415;
     public static final int CMD_GET_RECOMMEND_DETAIL = 1001535;
+    public static final int CMD_GET_RECOMMEND_GOD_LIST = 1003475;
     public static final int CMD_GET_REPOST_RECOMMEND_FORUM = 1003323;
     public static final int CMD_GET_RN_SYNC = 1003409;
     public static final int CMD_GET_SPLASH_INFO = 1003192;
@@ -149,6 +151,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_USER_VIDEO_LIST = 1003312;
     public static final int CMD_GET_VIDEO_ACTIVITY = 1003376;
     public static final int CMD_GET_VIDEO_INFO_BY_LOGVID = 1003384;
+    public static final int CMD_GET_YOUNGSTER_VERIFY_AUTHID = 1003478;
     public static final int CMD_GIFT_LIST_BY_CATEGORY = 1003046;
     public static final int CMD_GIFT_PALCE_ORDER = 1003053;
     public static final int CMD_GRAFFITI_LIST = 1003082;
@@ -249,6 +252,7 @@ public class CmdConfigHttp {
     public static final int CMD_UEG_REPORT = 1003402;
     public static final int CMD_UPLOAD_COLLECT_EMOTION_INFO = 1003339;
     public static final int CMD_UPLOAD_FACE_GROUP = 1003345;
+    public static final int CMD_URL_PARSER_MESSAGE = 1003476;
     public static final int CMD_USER_FREE_CHANCE = 1003047;
     public static final int CMD_USER_MUTE_ADD = 1003027;
     public static final int CMD_USER_MUTE_CHECK = 1003025;

@@ -3,7 +3,7 @@ package com.baidu.tbadk.download;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class DownloadMessage extends CustomResponsedMessage<List<DownloadData>> {
     public DownloadMessage(List<DownloadData> list) {
         super(CmdConfigCustom.CMD_FILE_DOWNLOAD, list);

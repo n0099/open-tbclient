@@ -9,27 +9,27 @@ public final class FlowableTake<T> extends a<T, T> {
     final long limit;
 
     @Override // io.reactivex.g
-    protected void a(org.a.c<? super T> cVar) {
-        this.nSG.a((j) new TakeSubscriber(cVar, this.limit));
+    protected void a(org.b.c<? super T> cVar) {
+        this.omB.a((j) new TakeSubscriber(cVar, this.limit));
     }
 
     /* loaded from: classes7.dex */
-    static final class TakeSubscriber<T> extends AtomicBoolean implements j<T>, org.a.d {
+    static final class TakeSubscriber<T> extends AtomicBoolean implements j<T>, org.b.d {
         private static final long serialVersionUID = -5636543848937116287L;
-        final org.a.c<? super T> actual;
+        final org.b.c<? super T> actual;
         boolean done;
         final long limit;
         long remaining;
-        org.a.d subscription;
+        org.b.d subscription;
 
-        TakeSubscriber(org.a.c<? super T> cVar, long j) {
+        TakeSubscriber(org.b.c<? super T> cVar, long j) {
             this.actual = cVar;
             this.limit = j;
             this.remaining = j;
         }
 
-        @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
+        @Override // io.reactivex.j, org.b.c
+        public void onSubscribe(org.b.d dVar) {
             if (SubscriptionHelper.validate(this.subscription, dVar)) {
                 this.subscription = dVar;
                 if (this.limit == 0) {
@@ -42,7 +42,7 @@ public final class FlowableTake<T> extends a<T, T> {
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onNext(T t) {
             if (this.done) {
                 return;
@@ -59,7 +59,7 @@ public final class FlowableTake<T> extends a<T, T> {
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onError(Throwable th) {
             if (!this.done) {
                 this.done = true;
@@ -68,7 +68,7 @@ public final class FlowableTake<T> extends a<T, T> {
             }
         }
 
-        @Override // org.a.c
+        @Override // org.b.c
         public void onComplete() {
             if (!this.done) {
                 this.done = true;
@@ -76,7 +76,7 @@ public final class FlowableTake<T> extends a<T, T> {
             }
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 if (!get() && compareAndSet(false, true) && j >= this.limit) {
@@ -87,7 +87,7 @@ public final class FlowableTake<T> extends a<T, T> {
             }
         }
 
-        @Override // org.a.d
+        @Override // org.b.d
         public void cancel() {
             this.subscription.cancel();
         }

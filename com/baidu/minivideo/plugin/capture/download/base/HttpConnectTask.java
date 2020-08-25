@@ -1,10 +1,10 @@
 package com.baidu.minivideo.plugin.capture.download.base;
 
 import com.baidu.minivideo.plugin.capture.download.exception.DownloadException;
-/* loaded from: classes9.dex */
+/* loaded from: classes19.dex */
 public interface HttpConnectTask extends Runnable {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes19.dex */
     public interface OnConnectListener {
         void onConnectCanceled();
 

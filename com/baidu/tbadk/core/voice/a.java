@@ -7,25 +7,25 @@ import com.baidu.adp.lib.util.q;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.n;
 import java.io.File;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
-    public static String bdr() {
+    public static String blX() {
         return q.guid();
     }
 
-    public static String yv(String str) {
+    public static String AK(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
         return "tb/voice/" + str;
     }
 
-    public static String yw(String str) {
+    public static String AL(String str) {
         return n.getStoreFile(str, 1);
     }
 
-    public static String yx(String str) {
-        return f.getFilePath(yv(str));
+    public static String AM(String str) {
+        return f.getFilePath(AK(str));
     }
 
     public static boolean delFile(String str) {

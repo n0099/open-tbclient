@@ -11,13 +11,11 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.ImageView;
-import com.baidu.searchbox.account.data.UserAccountActionItem;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes18.dex */
-public final class GifViewUtils {
+/* loaded from: classes4.dex */
+final class GifViewUtils {
     static final String ANDROID_NS = "http://schemas.android.com/apk/res/android";
     static final List<String> SUPPORTED_RESOURCE_TYPE_NAMES = Arrays.asList("raw", "drawable", "mipmap");
 
@@ -30,7 +28,7 @@ public final class GifViewUtils {
     }
 
     private static int getResourceId(ImageView imageView, AttributeSet attributeSet, boolean z) {
-        int attributeResourceValue = attributeSet.getAttributeResourceValue(ANDROID_NS, z ? UserAccountActionItem.KEY_SRC : "background", 0);
+        int attributeResourceValue = attributeSet.getAttributeResourceValue(ANDROID_NS, z ? "src" : "background", 0);
         if (attributeResourceValue > 0) {
             if (SUPPORTED_RESOURCE_TYPE_NAMES.contains(imageView.getResources().getResourceTypeName(attributeResourceValue)) && !setResource(imageView, z, attributeResourceValue)) {
                 return attributeResourceValue;
@@ -97,7 +95,7 @@ public final class GifViewUtils {
         return 1.0f;
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes4.dex */
     static class InitResult {
         final int mBackgroundResId;
         final boolean mFreezesAnimation;

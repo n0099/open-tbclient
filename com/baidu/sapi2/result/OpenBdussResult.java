@@ -1,14 +1,15 @@
 package com.baidu.sapi2.result;
 
 import android.text.TextUtils;
+import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.utils.Log;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
-public class OpenBdussResult extends SapiResult {
+/* loaded from: classes19.dex */
+public class OpenBdussResult extends SapiResult implements NoProguard {
     public static final int ERROR_CODE_NOT_LOGIN = -901;
     public static final String ERROR_MSG_NOT_LOGIN = "未登录";
     private static final String PARAMS_BDUSS = "bduss";
@@ -29,7 +30,7 @@ public class OpenBdussResult extends SapiResult {
     public Map<String, String> tplStokenMap = new HashMap();
 
     public OpenBdussResult() {
-        this.msgMap.put(ERROR_CODE_NOT_LOGIN, "未登录");
+        this.msgMap.put(-901, "未登录");
     }
 
     public JSONObject toJson() {

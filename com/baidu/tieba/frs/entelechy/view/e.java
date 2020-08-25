@@ -3,12 +3,12 @@ package com.baidu.tieba.frs.entelechy.view;
 import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
-import com.baidu.adp.widget.ListView.ad;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.adp.widget.ListView.af;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-import com.baidu.tieba.frs.v;
+import com.baidu.tieba.frs.w;
 /* loaded from: classes16.dex */
-public class e extends ad.a {
+public class e extends af.a {
     public Context mContext;
     public View mRoot;
     public TextView mTipView;
@@ -20,15 +20,15 @@ public class e extends ad.a {
         this.mContext = context;
     }
 
-    public void a(v vVar) {
-        if (vVar != null) {
+    public void a(w wVar) {
+        if (wVar != null) {
             this.mTipView.setText(R.string.read_here);
-            bci();
+            bkF();
         }
     }
 
-    public void bci() {
-        ao.setViewTextColor(this.mTipView, R.color.cp_link_tip_a);
-        ao.setBackgroundResource(this.mRoot, R.color.cp_bg_line_e);
+    public void bkF() {
+        ap.setViewTextColor(this.mTipView, R.color.cp_link_tip_a);
+        ap.setBackgroundResource(this.mRoot, R.color.cp_bg_line_e);
     }
 }

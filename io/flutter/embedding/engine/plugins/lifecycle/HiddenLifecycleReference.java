@@ -4,7 +4,7 @@ import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.Lifecycle;
 @Keep
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public class HiddenLifecycleReference {
     @NonNull
     private final Lifecycle lifecycle;

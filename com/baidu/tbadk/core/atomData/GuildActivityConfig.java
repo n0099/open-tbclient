@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class GuildActivityConfig extends IntentConfig {
     public static final String FROM_ABOUT_PAGE = "from_about_page";
     public static final String FROM_LOGO_PAGE = "from_logo_page";

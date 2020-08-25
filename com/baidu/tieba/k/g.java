@@ -3,15 +3,15 @@ package com.baidu.tieba.k;
 import android.os.Environment;
 import com.baidubce.AbstractBceClient;
 import java.io.File;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface g {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface a {
-        public static final String jRI = File.separator;
-        public static final String jRJ = Environment.getExternalStorageDirectory() + jRI + "tieba";
-        public static final String jRQ = jRJ + jRI + ".tieba_post_monitor";
-        public static final String jRR = jRQ + jRI + AbstractBceClient.URL_PREFIX;
-        public static final String jRS = jRR + jRI;
+        public static final String khe = File.separator;
+        public static final String khf = Environment.getExternalStorageDirectory() + khe + "tieba";
+        public static final String khm = khf + khe + ".tieba_post_monitor";
+        public static final String khn = khm + khe + AbstractBceClient.URL_PREFIX;
+        public static final String kho = khn + khe;
     }
 }

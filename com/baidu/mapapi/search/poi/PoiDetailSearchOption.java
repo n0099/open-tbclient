@@ -1,37 +1,31 @@
 package com.baidu.mapapi.search.poi;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class PoiDetailSearchOption {
-    boolean a;
+    private String a = "";
     private String b = "";
-    private String c = "";
-    private boolean d = false;
+    private boolean c = false;
 
     public String getUid() {
-        return this.b;
+        return this.a;
     }
 
     public String getUids() {
-        return this.c;
+        return this.b;
     }
 
     public boolean isSearchByUids() {
-        return this.d;
+        return this.c;
     }
 
     public PoiDetailSearchOption poiUid(String str) {
-        this.d = false;
-        this.b = str;
+        this.c = false;
+        this.a = str;
         return this;
     }
 
     public PoiDetailSearchOption poiUids(String str) {
-        this.d = true;
-        this.c = str;
-        return this;
-    }
-
-    public PoiDetailSearchOption showPlaceCarter(boolean z) {
-        this.a = z;
+        this.c = true;
+        this.b = str;
         return this;
     }
 }

@@ -1,14 +1,8 @@
 package com.baidu.tieba.tbadkCore;
-/* loaded from: classes.dex */
+
+import java.util.List;
+/* loaded from: classes2.dex */
 public class z {
-    public String category;
-    public String forumId;
-    public String forumName;
-    public boolean hiL;
-    public String imageUrl;
-    public int index;
-    public aa lMj;
-    public String link;
-    public String name;
-    public String version;
+    public List<aa> dataList;
+    public int mdS;
 }

@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes18.dex */
 public final class MessageAdapter<M extends Message> {
     private static /* synthetic */ int[] $SWITCH_TABLE$com$squareup$wire$Message$Datatype;
     private static /* synthetic */ int[] $SWITCH_TABLE$com$squareup$wire$WireType;
@@ -135,7 +135,7 @@ public final class MessageAdapter<M extends Message> {
         return iArr;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes18.dex */
     public static final class FieldInfo {
         private final Field builderMethod;
         final Message.Datatype datatype;
@@ -779,7 +779,7 @@ public final class MessageAdapter<M extends Message> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes18.dex */
     public static class Storage {
         private final Map<Integer, List<Object>> map;
 

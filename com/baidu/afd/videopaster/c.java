@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes15.dex */
 public class c implements a {
-    private final int Xq;
-    private HashMap Xt;
+    private final int XV;
+    private HashMap XY;
     private int floor;
     private final int height;
     private final String pid;
@@ -13,7 +13,7 @@ public class c implements a {
     private final int width;
 
     private c(int i, int i2, String str, int i3, int i4, int i5) {
-        this.Xq = i;
+        this.XV = i;
         this.refreshCount = i2;
         this.pid = str;
         this.floor = i3;
@@ -36,30 +36,30 @@ public class c implements a {
     }
 
     @Override // com.baidu.afd.videopaster.a
-    public String pU() {
+    public String rt() {
         return this.pid;
     }
 
     @Override // com.baidu.afd.videopaster.a
-    public int pH() {
-        return this.Xq;
+    public int rg() {
+        return this.XV;
     }
 
     @Override // com.baidu.afd.videopaster.a
-    public int pJ() {
+    public int ri() {
         return this.floor;
     }
 
     @Override // com.baidu.afd.videopaster.a
-    public Map<String, String> pK() {
-        return this.Xt;
+    public Map<String, String> rj() {
+        return this.XY;
     }
 
     @Override // com.baidu.afd.videopaster.a
-    public void w(HashMap hashMap) {
-        this.Xt = hashMap;
-        if (!this.Xt.containsKey("iadex")) {
-            hashMap.put("iadex", com.baidu.tbadk.util.c.bmq());
+    public void u(HashMap hashMap) {
+        this.XY = hashMap;
+        if (!this.XY.containsKey("iadex")) {
+            hashMap.put("iadex", com.baidu.tbadk.util.c.bvd());
         }
     }
 }

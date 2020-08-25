@@ -5,18 +5,20 @@ import android.os.Environment;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.baidu.android.pushservice.c;
 import com.baidu.android.pushservice.h.a.b;
 import com.baidu.android.pushservice.i.m;
 import com.baidu.android.pushservice.jni.PushSocket;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.platform.comapi.UIMsg;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 import org.apache.http.HttpStatus;
 import org.json.JSONArray;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public final class e {
     private static volatile e m;
     private String C;
@@ -61,11 +63,11 @@ public final class e {
         }
     };
     private long x = 0;
-    private final int[] y = {180, 300, 360, HttpStatus.SC_METHOD_FAILURE, 540, 720, CyberPlayerManager.MEDIA_INFO_TIMED_TEXT_ERROR};
+    private final int[] y = {180, 300, EncoderTextureDrawer.X264_WIDTH, HttpStatus.SC_METHOD_FAILURE, UIMsg.MsgDefine.MSG_NETWORK_CHANNEL, 720, CyberPlayerManager.MEDIA_INFO_TIMED_TEXT_ERROR};
     private int A = 0;
     private int B = 0;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     class a extends Thread {
         a() {
             setName("PushService-PushConnection-readThread");
@@ -121,7 +123,7 @@ public final class e {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     class b extends Thread {
         b() {
             setName("PushService-PushConnection-SendThread");
@@ -202,14 +204,14 @@ public final class e {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i) {
         if (this.h == 0 && i != 0) {
-            new b.C0066b(this.k).a(System.currentTimeMillis()).a(i + "").b(this.p + "/" + this.q + ":" + this.r + ":" + u + ":" + com.baidu.android.pushservice.i.g.h(this.k)).d(401100L).a();
+            new b.C0062b(this.k).a(System.currentTimeMillis()).a(i + "").b(this.p + "/" + this.q + ":" + this.r + ":" + u + ":" + com.baidu.android.pushservice.i.g.h(this.k)).d(401100L).a();
         } else if (this.h != 0) {
             if (this.o) {
-                new b.C0066b(this.k).b(System.currentTimeMillis()).a(i + "").d(401102L).a();
+                new b.C0062b(this.k).b(System.currentTimeMillis()).a(i + "").d(401102L).a();
                 this.o = false;
                 return;
             }
-            new b.C0066b(this.k).a(true).a(this.h).b(System.currentTimeMillis()).a(i + "").c(this.i).d(401101L).a();
+            new b.C0062b(this.k).a(true).a(this.h).b(System.currentTimeMillis()).a(i + "").c(this.i).d(401101L).a();
             this.h = 0L;
         }
     }

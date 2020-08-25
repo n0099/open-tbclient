@@ -3,56 +3,56 @@ package com.baidu.tieba.write;
 import android.content.Context;
 import android.graphics.Rect;
 import android.view.View;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class h {
-    protected View dZn;
+    protected View eiT;
     protected View mAnchorView;
     protected Context mContext;
-    protected com.baidu.tieba.write.a mud;
-    protected a mui;
+    protected com.baidu.tieba.write.a mMq;
+    protected a mMw;
     protected int mState = 4;
-    protected Rect mun = new Rect();
-    protected Rect muo = new Rect();
+    protected Rect mMB = new Rect();
+    protected Rect mMC = new Rect();
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface a {
-        void FL(int i);
+        void Jw(int i);
     }
 
-    public abstract void akZ();
+    public abstract void asN();
 
-    public abstract void duh();
+    public abstract void dFC();
 
-    public abstract void dui();
+    public abstract void dFD();
 
     public abstract void onDestroy();
 
     public h(Context context, com.baidu.tieba.write.a aVar) {
         this.mContext = context;
-        this.mud = aVar;
+        this.mMq = aVar;
     }
 
-    public void b(a aVar) {
-        this.mui = aVar;
+    public void a(a aVar) {
+        this.mMw = aVar;
     }
 
     public void d(View view, View view2) {
         this.mAnchorView = view;
-        this.dZn = view2;
-        if (this.dZn != null) {
-            this.dZn.getGlobalVisibleRect(this.mun);
+        this.eiT = view2;
+        if (this.eiT != null) {
+            this.eiT.getGlobalVisibleRect(this.mMB);
         }
     }
 
     public void show() {
-        duh();
+        dFC();
     }
 
-    public void eX(boolean z) {
+    public void fq(boolean z) {
         if (z) {
-            akZ();
+            asN();
         } else {
-            dui();
+            dFD();
         }
     }
 }

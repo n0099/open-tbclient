@@ -4,7 +4,7 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 @RequiresApi(14)
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 interface ViewOverlayImpl {
     void add(@NonNull Drawable drawable);
 

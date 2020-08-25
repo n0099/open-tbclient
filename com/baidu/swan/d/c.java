@@ -1,27 +1,48 @@
 package com.baidu.swan.d;
 
-import android.text.TextUtils;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes8.dex */
-public class c {
-    public static String c(JSONObject jSONObject, String str, String str2) {
-        return jSONObject == null ? str2 : jSONObject.optString(str, str2);
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.pms.e.b;
+import com.baidu.webkit.sdk.WebKitFactory;
+import java.util.HashSet;
+import java.util.Set;
+/* loaded from: classes3.dex */
+public final class c implements com.baidu.swan.pms.e.b {
+    private static boolean dMU = false;
+    private static final Set<b.a> dMV = new HashSet();
+
+    @Override // com.baidu.swan.pms.e.b
+    public void a(String str, b.a aVar) {
+        synchronized (dMV) {
+            dMV.add(aVar);
+            if (!dMU) {
+                dMU = true;
+                WebKitFactory.installAsync("file://" + str, new WebKitFactory.WebkitInstallListener() { // from class: com.baidu.swan.d.c.1
+                    @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
+                    public void onInstallStart() {
+                    }
+
+                    @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
+                    public void onInstallFinish(int i, String str2) {
+                        synchronized (c.dMV) {
+                            a.hr(true);
+                            c.this.hs(new b(AppRuntime.getAppContext()).aXz());
+                            boolean unused = c.dMU = false;
+                        }
+                    }
+                });
+            }
+        }
     }
 
-    public static JSONObject a(String str, JSONObject jSONObject, String str2) {
-        if (TextUtils.isEmpty(str)) {
-            str = "NA";
-        }
-        if (jSONObject == null) {
-            jSONObject = new JSONObject();
-        }
-        try {
-            if (TextUtils.isEmpty(c(jSONObject, str2, null))) {
-                jSONObject.put(str2, str);
+    /* JADX INFO: Access modifiers changed from: private */
+    public void hs(boolean z) {
+        synchronized (dMV) {
+            for (b.a aVar : dMV) {
+                if (aVar != null) {
+                    aVar.em(z);
+                }
             }
-        } catch (JSONException e) {
+            dMV.clear();
         }
-        return jSONObject;
     }
 }

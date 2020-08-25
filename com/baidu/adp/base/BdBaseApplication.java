@@ -29,7 +29,7 @@ public class BdBaseApplication extends MAApplication {
                 BdBaseApplication.this.handleInitMessage(message);
             }
         };
-        g.jE().setHostResources(super.getResources());
+        g.ld().setHostResources(super.getResources());
         initBdBaseApp(application);
         super.onCreate();
     }
@@ -43,7 +43,7 @@ public class BdBaseApplication extends MAApplication {
     }
 
     private void initPlugin() {
-        com.baidu.adp.plugin.c.a.oe().init();
+        com.baidu.adp.plugin.c.a.pE().init();
     }
 
     public static BdBaseApplication getInst() {
@@ -75,11 +75,11 @@ public class BdBaseApplication extends MAApplication {
     }
 
     private void initBitmapHelper() {
-        com.baidu.adp.lib.util.d.mC().initial(this.mContext);
+        com.baidu.adp.lib.util.d.ob().initial(this.mContext);
     }
 
     public void onAppMemoryLow() {
-        a.jC().releaseAllPossibleAcitivities();
+        a.lb().releaseAllPossibleAcitivities();
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.lastGcTime > 30000) {
             this.lastGcTime = currentTimeMillis;
@@ -91,16 +91,16 @@ public class BdBaseApplication extends MAApplication {
     }
 
     public void setActivityStackMaxSize(int i) {
-        a.jC().setActivityStackMaxSize(i);
+        a.lb().setActivityStackMaxSize(i);
     }
 
     public int getActivityStackMaxSize() {
-        return a.jC().getActivityStackMaxSize();
+        return a.lb().getActivityStackMaxSize();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        Resources resources = g.jE().getResources();
+        Resources resources = g.ld().getResources();
         return (resources == null || !this.mIsPluginResourceOpen) ? super.getResources() : resources;
     }
 

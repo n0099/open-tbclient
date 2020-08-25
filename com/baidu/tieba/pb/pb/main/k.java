@@ -14,7 +14,7 @@ public class k extends o<com.baidu.tieba.pb.data.e, l> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cf */
+    /* renamed from: cb */
     public l b(ViewGroup viewGroup) {
         return new l(LayoutInflater.from(this.mContext).inflate(R.layout.pb_child_title, viewGroup, false));
     }

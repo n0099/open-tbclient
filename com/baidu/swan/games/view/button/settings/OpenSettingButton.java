@@ -7,7 +7,7 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.core.d.f;
 import com.baidu.swan.apps.res.widget.b.d;
 import com.baidu.swan.games.view.button.base.ApiButton;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class OpenSettingButton extends ApiButton {
     public OpenSettingButton(Context context) {
         super(context);
@@ -15,15 +15,15 @@ public class OpenSettingButton extends ApiButton {
 
     @Override // com.baidu.swan.games.view.button.base.ApiButton, android.view.View.OnClickListener
     public void onClick(View view) {
-        amm();
+        aub();
     }
 
-    public void amm() {
-        f Sc = com.baidu.swan.apps.v.f.akr().Sc();
-        if (Sc == null) {
+    public void aub() {
+        f XX = com.baidu.swan.apps.v.f.arY().XX();
+        if (XX == null) {
             d.k(AppRuntime.getAppContext(), a.h.aiapps_open_fragment_failed_toast).showToast();
         } else {
-            Sc.jO("navigateTo").ag(f.cci, f.cck).a("authority", null).commit();
+            XX.ln("navigateTo").al(f.cig, f.cii).a("authority", null).commit();
         }
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.swan.apps.scheme.j;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class e extends aa {
     public e(j jVar, String str) {
         super(jVar, str);
@@ -19,7 +19,7 @@ public abstract class e extends aa {
     public void a(final CallbackHandler callbackHandler, SwanAppSlaveManager swanAppSlaveManager, final d dVar) {
         swanAppSlaveManager.b(new com.baidu.swan.apps.core.f.d() { // from class: com.baidu.swan.apps.scheme.actions.m.e.1
             @Override // com.baidu.swan.apps.core.f.d
-            public void fY(String str) {
+            public void ht(String str) {
             }
 
             @Override // com.baidu.swan.apps.core.f.d
@@ -27,8 +27,8 @@ public abstract class e extends aa {
             }
 
             @Override // com.baidu.swan.apps.core.f.d
-            public boolean fZ(String str) {
-                if (e.this.e(str, dVar.cLd)) {
+            public boolean hu(String str) {
+                if (e.this.d(str, dVar.cUb)) {
                     e.this.a(str, callbackHandler, dVar.callback);
                     return true;
                 }
@@ -36,7 +36,7 @@ public abstract class e extends aa {
             }
 
             @Override // com.baidu.swan.apps.core.f.d
-            public void fH(String str) {
+            public void hs(String str) {
             }
 
             @Override // com.baidu.swan.apps.core.f.d
@@ -60,7 +60,7 @@ public abstract class e extends aa {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean e(String str, List<String> list) {
+    public boolean d(String str, List<String> list) {
         if (TextUtils.isEmpty(str) || list == null || list.isEmpty()) {
             return false;
         }

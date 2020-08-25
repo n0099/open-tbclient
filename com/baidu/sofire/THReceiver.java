@@ -3,8 +3,8 @@ package com.baidu.sofire;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.sofire.i.u;
-/* loaded from: classes3.dex */
+import com.baidu.sofire.i.w;
+/* loaded from: classes20.dex */
 public class THReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(final Context context, final Intent intent) {
@@ -12,7 +12,7 @@ public class THReceiver extends BroadcastReceiver {
             try {
                 new StringBuilder().append(intent.toString());
                 b.a();
-                u.a().a(new Runnable() { // from class: com.baidu.sofire.THReceiver.1
+                w.a().a(new Runnable() { // from class: com.baidu.sofire.THReceiver.1
                     @Override // java.lang.Runnable
                     public final void run() {
                         try {
@@ -27,12 +27,12 @@ public class THReceiver extends BroadcastReceiver {
                                 a.a(context, intent2);
                             }
                         } catch (Throwable th) {
-                            com.baidu.sofire.i.d.a();
+                            com.baidu.sofire.i.e.a();
                         }
                     }
                 });
             } catch (Throwable th) {
-                com.baidu.sofire.i.d.a();
+                com.baidu.sofire.i.e.a();
             }
         }
     }

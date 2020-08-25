@@ -10,7 +10,7 @@ import com.baidu.fsg.base.utils.SharedPreferencesUtils;
 import com.baidu.fsg.face.base.dto.SapiBiometricDto;
 import java.util.HashMap;
 import org.json.JSONException;
-/* loaded from: classes7.dex */
+/* loaded from: classes11.dex */
 public class c {
     public static final String a = "request_data";
     private static c b = null;

@@ -1,5 +1,5 @@
 package com.baidu.swan.bdtls;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class RSA {
     public static native byte[] decrypt(byte[] bArr);
 

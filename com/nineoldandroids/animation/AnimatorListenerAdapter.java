@@ -1,7 +1,7 @@
 package com.nineoldandroids.animation;
 
 import com.nineoldandroids.animation.Animator;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class AnimatorListenerAdapter implements Animator.AnimatorListener {
     @Override // com.nineoldandroids.animation.Animator.AnimatorListener
     public void onAnimationCancel(Animator animator) {

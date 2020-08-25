@@ -2,7 +2,7 @@ package com.baidu.tbadk.album;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class MediaFileInfo extends OrmObject implements Serializable {
     public static final int TYPE_ADD = 2;
     public static final int TYPE_IMAGE = 0;

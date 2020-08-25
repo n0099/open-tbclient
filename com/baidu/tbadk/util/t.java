@@ -5,13 +5,13 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
-import com.baidu.sofire.ac.FH;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import java.lang.reflect.Field;
 import tbclient.CommonReq;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class t {
     public static void a(Object obj, boolean z) {
         a(obj, z, false);
@@ -22,7 +22,6 @@ public class t {
     }
 
     public static void a(Object obj, boolean z, boolean z2, boolean z3) {
-        AccountData currentAccountInfo;
         if (obj != null) {
             try {
                 Field field = obj.getClass().getField("common");
@@ -49,26 +48,41 @@ public class t {
                 builder.model = Build.MODEL;
                 builder._os_version = Build.VERSION.RELEASE;
                 builder.brand = Build.BRAND;
-                if (z && (currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo()) != null) {
-                    builder.BDUSS = currentAccountInfo.getBDUSS();
-                    String c = com.baidu.tbadk.core.a.d.c(currentAccountInfo);
-                    if (!StringUtils.isNull(c)) {
-                        builder.stoken = c;
+                if (z) {
+                    if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
+                        builder.BDUSS = com.baidu.tbadk.mutiprocess.f.getBduss();
+                        if (!StringUtils.isNull(com.baidu.tbadk.mutiprocess.f.getStoken())) {
+                            builder.stoken = com.baidu.tbadk.mutiprocess.f.getStoken();
+                        }
+                    } else {
+                        AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
+                        if (currentAccountInfo != null) {
+                            builder.BDUSS = currentAccountInfo.getBDUSS();
+                            String c = com.baidu.tbadk.core.a.d.c(currentAccountInfo);
+                            if (!StringUtils.isNull(c)) {
+                                builder.stoken = c;
+                            }
+                        }
                     }
                 }
                 if (z2) {
-                    builder.tbs = TbadkCoreApplication.getInst().getTbs();
+                    if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
+                        builder.tbs = com.baidu.tbadk.mutiprocess.f.getTbs();
+                    } else {
+                        builder.tbs = TbadkCoreApplication.getInst().getTbs();
+                    }
                 }
                 if (z3) {
                     builder.applist = TbadkCoreApplication.getInst().getInstalledAppIds();
                 }
                 builder.pversion = "1.0.3";
                 builder.lego_lib_version = TbConfig.getLegoLibVersion();
-                if (com.baidu.tbadk.core.sharedPref.b.aZP().getInt(SharedPrefConfig.ANDROID_SAFE_SDK_OPEN, 0) == 1) {
-                    builder.z_id = FH.gz(TbadkCoreApplication.getInst());
+                if (com.baidu.tbadk.core.sharedPref.b.bik().getInt(SharedPrefConfig.ANDROID_SAFE_SDK_OPEN, 0) == 1) {
+                    builder.z_id = TbadkCoreApplication.getInst().getZid();
                 }
                 builder.net_type = Integer.valueOf(com.baidu.adp.lib.util.j.netType());
-                builder.oaid = x.bmQ();
+                builder.oaid = x.bvD();
+                builder.sample_id = TbSingleton.getInstance().getSampleId();
                 field.set(obj, builder.build(false));
             } catch (Throwable th) {
                 if (BdLog.isDebugMode()) {

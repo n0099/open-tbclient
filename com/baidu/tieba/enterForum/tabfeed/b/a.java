@@ -1,80 +1,80 @@
 package com.baidu.tieba.enterForum.tabfeed.b;
 
 import com.baidu.adp.widget.ListView.q;
-import com.baidu.tbadk.core.data.bi;
-import com.baidu.tbadk.core.data.bp;
-import com.baidu.tbadk.core.data.bv;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.bq;
+import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.util.y;
 import java.util.ArrayList;
 import tbclient.GeneralResource;
 import tbclient.Tabfeedlist.DataRes;
 import tbclient.ThreadInfo;
 /* loaded from: classes16.dex */
 public class a {
-    private ArrayList<q> hos;
-    private ArrayList<bp> hot;
-    private bi hou;
-    private c hov;
-    private boolean how;
+    private ArrayList<q> hBj;
+    private ArrayList<bq> hBk;
+    private bj hBl;
+    private c hBm;
+    private boolean hBn;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.hos = new ArrayList<>(x.getCount(dataRes.thread_list));
+            this.hBj = new ArrayList<>(y.getCount(dataRes.thread_list));
             for (ThreadInfo threadInfo : dataRes.thread_list) {
-                bv bvVar = new bv();
-                bvVar.a(threadInfo);
-                bvVar.aVN();
-                this.hos.add(bvVar);
+                bw bwVar = new bw();
+                bwVar.a(threadInfo);
+                bwVar.beg();
+                this.hBj.add(bwVar);
             }
-            this.hot = new ArrayList<>();
-            if (!x.isEmpty(dataRes.resource_list)) {
+            this.hBk = new ArrayList<>();
+            if (!y.isEmpty(dataRes.resource_list)) {
                 for (GeneralResource generalResource : dataRes.resource_list) {
-                    bp bpVar = new bp();
-                    bpVar.a(generalResource);
-                    this.hot.add(bpVar);
+                    bq bqVar = new bq();
+                    bqVar.a(generalResource);
+                    this.hBk.add(bqVar);
                 }
             }
-            this.hou = new bi();
-            this.hou.aL(dataRes.recommend_forum_info);
+            this.hBl = new bj();
+            this.hBl.aL(dataRes.recommend_forum_info);
             if (dataRes.hot_userrank_entry != null) {
-                this.hov = new c();
-                this.hov.hot_user = dataRes.hot_userrank_entry.hot_user;
-                this.hov.module_name = dataRes.hot_userrank_entry.module_name;
-                this.hov.module_icon = dataRes.hot_userrank_entry.module_icon;
+                this.hBm = new c();
+                this.hBm.hot_user = dataRes.hot_userrank_entry.hot_user;
+                this.hBm.module_name = dataRes.hot_userrank_entry.module_name;
+                this.hBm.module_icon = dataRes.hot_userrank_entry.module_icon;
             }
-            this.how = dataRes.is_new_url.intValue() == 1;
+            this.hBn = dataRes.is_new_url.intValue() == 1;
         }
     }
 
-    public ArrayList<q> bWn() {
-        return this.hos;
+    public ArrayList<q> cgA() {
+        return this.hBj;
     }
 
-    public ArrayList<bp> bWo() {
-        return this.hot;
+    public ArrayList<bq> cgB() {
+        return this.hBk;
     }
 
-    public bi bWp() {
-        return this.hou;
+    public bj cgC() {
+        return this.hBl;
     }
 
-    public c bWq() {
-        return this.hov;
+    public c cgD() {
+        return this.hBm;
     }
 
-    public boolean bWr() {
-        return this.how;
+    public boolean cgE() {
+        return this.hBn;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: bWs */
+    /* renamed from: cgF */
     public a clone() {
         a aVar = new a();
-        aVar.hos = this.hos;
-        aVar.hot = this.hot;
-        aVar.hou = this.hou;
-        aVar.hov = this.hov;
-        aVar.how = this.how;
+        aVar.hBj = this.hBj;
+        aVar.hBk = this.hBk;
+        aVar.hBl = this.hBl;
+        aVar.hBm = this.hBm;
+        aVar.hBn = this.hBn;
         return aVar;
     }
 }

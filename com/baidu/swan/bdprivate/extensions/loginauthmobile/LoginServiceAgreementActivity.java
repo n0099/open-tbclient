@@ -3,21 +3,21 @@ package com.baidu.swan.bdprivate.extensions.loginauthmobile;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import com.baidu.swan.apps.aq.al;
+import com.baidu.swan.apps.ap.ak;
 import com.baidu.swan.apps.core.container.NgWebView;
 import com.baidu.swan.apps.view.SwanAppActionBar;
 import com.baidu.swan.bdprivate.activity.BaseActivity;
 import com.baidu.swan.bdprivate.b;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public class LoginServiceAgreementActivity extends BaseActivity {
-    private SwanAppActionBar cXa;
+    private SwanAppActionBar dgj;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.bdprivate.activity.BaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        int releaseFixedOrientation = al.releaseFixedOrientation(this);
+        int releaseFixedOrientation = ak.releaseFixedOrientation(this);
         super.onCreate(bundle);
-        al.fixedOrientation(this, releaseFixedOrientation);
+        ak.fixedOrientation(this, releaseFixedOrientation);
         Intent intent = getIntent();
         if (intent == null) {
             finish();
@@ -29,15 +29,15 @@ public class LoginServiceAgreementActivity extends BaseActivity {
         if (extras != null) {
             ngWebView.loadUrl(extras.getString("url"));
         }
-        this.cXa = (SwanAppActionBar) findViewById(b.e.ai_apps_title_bar);
-        this.cXa.setLeftBackViewVisibility(true);
-        this.cXa.setLeftBackViewClickListener(new View.OnClickListener() { // from class: com.baidu.swan.bdprivate.extensions.loginauthmobile.LoginServiceAgreementActivity.1
+        this.dgj = (SwanAppActionBar) findViewById(b.e.ai_apps_title_bar);
+        this.dgj.setLeftBackViewVisibility(true);
+        this.dgj.setLeftBackViewClickListener(new View.OnClickListener() { // from class: com.baidu.swan.bdprivate.extensions.loginauthmobile.LoginServiceAgreementActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 LoginServiceAgreementActivity.this.finish();
             }
         });
-        this.cXa.setTitle(b.g.swanapp_service_agreement);
-        this.cXa.setRightZoneVisibility(false);
+        this.dgj.setTitle(b.g.swanapp_service_agreement);
+        this.dgj.setRightZoneVisibility(false);
     }
 }

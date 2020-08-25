@@ -3,13 +3,13 @@ package kotlin.sequences;
 import java.util.Iterator;
 import kotlin.jvm.internal.q;
 @kotlin.h
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public final class k<T, R> implements c<R> {
-    private final c<T> nZj;
-    private final kotlin.jvm.a.b<T, R> nZx;
+    private final c<T> oth;
+    private final kotlin.jvm.a.b<T, R> otv;
 
     @kotlin.h
-    /* loaded from: classes7.dex */
+    /* loaded from: classes20.dex */
     public static final class a implements Iterator<R> {
         private final Iterator<T> iterator;
 
@@ -20,12 +20,12 @@ public final class k<T, R> implements c<R> {
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         a() {
-            this.iterator = k.this.nZj.iterator();
+            this.iterator = k.this.oth.iterator();
         }
 
         @Override // java.util.Iterator
         public R next() {
-            return (R) k.this.nZx.invoke(this.iterator.next());
+            return (R) k.this.otv.invoke(this.iterator.next());
         }
 
         @Override // java.util.Iterator
@@ -40,8 +40,8 @@ public final class k<T, R> implements c<R> {
     public k(c<? extends T> cVar, kotlin.jvm.a.b<? super T, ? extends R> bVar) {
         q.m(cVar, "sequence");
         q.m(bVar, "transformer");
-        this.nZj = cVar;
-        this.nZx = bVar;
+        this.oth = cVar;
+        this.otv = bVar;
     }
 
     @Override // kotlin.sequences.c

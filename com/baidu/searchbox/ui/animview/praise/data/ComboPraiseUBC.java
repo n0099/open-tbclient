@@ -1,7 +1,7 @@
 package com.baidu.searchbox.ui.animview.praise.data;
 
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes12.dex */
 public class ComboPraiseUBC {
     public static final String UBC_JSON_KEY_NID = "nid";
     public static final String UBC_JSON_KEY_SOURCE = "source";

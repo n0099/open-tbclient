@@ -13,14 +13,14 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes16.dex */
 public class VideoMiddlePageActivity extends BaseFragmentActivity {
-    private VideoMiddlePageFragment iio;
+    private VideoMiddlePageFragment iwt;
     private String mFrom;
     private String mId;
     private String mNid;
@@ -33,7 +33,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         init();
         if (Build.VERSION.SDK_INT >= 28) {
             if (TbSingleton.getInstance().isCutoutScreen(this) || TbSingleton.getInstance().isNotchScreen(this)) {
-                com.baidu.tieba.v.c.a(1, getWindow().getAttributes(), this);
+                com.baidu.tieba.v.c.a(1, getWindow().getAttributes(), getWindow());
             }
         }
     }
@@ -43,33 +43,33 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         this.mId = intent.getStringExtra("PARAM_FID");
         this.mFrom = intent.getStringExtra("PARAM_FROM");
         this.mNid = intent.getStringExtra("key_nid");
-        II();
-        cjO();
+        OB();
+        cus();
     }
 
-    private void cjO() {
-        ap apVar = new ap("c12664");
+    private void cus() {
+        aq aqVar = new aq("c12664");
         if (!StringUtils.isNull(this.mFrom)) {
-            apVar.dn("obj_source", this.mFrom);
+            aqVar.dD("obj_source", this.mFrom);
         }
         if (TextUtils.isEmpty(this.mNid)) {
-            apVar.dn("obj_type", "1");
+            aqVar.dD("obj_type", "1");
         } else {
-            apVar.dn("obj_type", "2");
-            apVar.dn("obj_id", this.mNid);
+            aqVar.dD("obj_type", "2");
+            aqVar.dD("obj_id", this.mNid);
         }
-        TiebaStatic.log(apVar);
+        TiebaStatic.log(aqVar);
     }
 
-    private void II() {
+    private void OB() {
         FragmentManager supportFragmentManager = getSupportFragmentManager();
         if (supportFragmentManager != null && !supportFragmentManager.isDestroyed()) {
             VideoMiddlePageFragment videoMiddlePageFragment = (VideoMiddlePageFragment) supportFragmentManager.findFragmentByTag(VideoMiddlePageFragment.class.getCanonicalName());
             if (videoMiddlePageFragment == null) {
-                videoMiddlePageFragment = VideoMiddlePageFragment.er(this.mFrom, this.mId);
+                videoMiddlePageFragment = VideoMiddlePageFragment.eI(this.mFrom, this.mId);
                 supportFragmentManager.beginTransaction().add(R.id.video_middle_page_container, videoMiddlePageFragment, VideoMiddlePageFragment.class.getCanonicalName()).commitAllowingStateLoss();
             }
-            this.iio = videoMiddlePageFragment;
+            this.iwt = videoMiddlePageFragment;
         }
     }
 
@@ -77,8 +77,8 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (!as.isEmpty(this.mId)) {
-            com.baidu.tbadk.BdToken.c.aQc().p(com.baidu.tbadk.BdToken.b.dEE, com.baidu.adp.lib.f.b.toLong(this.mId, 0L));
+        if (!at.isEmpty(this.mId)) {
+            com.baidu.tbadk.BdToken.c.aYs().p(com.baidu.tbadk.BdToken.b.dNM, com.baidu.adp.lib.f.b.toLong(this.mId, 0L));
         }
     }
 
@@ -86,7 +86,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        com.baidu.tbadk.BdToken.c.aQc().aQm();
+        com.baidu.tbadk.BdToken.c.aYs().aYC();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -120,10 +120,10 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (keyEvent == null || this.iio == null) {
+        if (keyEvent == null || this.iwt == null) {
             return super.onKeyDown(i, keyEvent);
         }
-        if (this.iio.vj(i)) {
+        if (this.iwt.xB(i)) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -150,14 +150,14 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
             }
             pageStayDurationItem.setSorceKeyList(arrayList);
             pageStayDurationItem.isVertical = "0";
-            pageStayDurationItem.eGE = TextUtils.isEmpty(this.mNid) ? "0" : "1";
+            pageStayDurationItem.eRk = TextUtils.isEmpty(this.mNid) ? "0" : "1";
         }
         return pageStayDurationItem;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public long getMissionTid() {
-        if (as.isEmpty(this.mId)) {
+        if (at.isEmpty(this.mId)) {
             return 0L;
         }
         return com.baidu.adp.lib.f.b.toLong(this.mId, 0L);

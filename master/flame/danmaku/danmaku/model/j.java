@@ -1,43 +1,43 @@
 package master.flame.danmaku.danmaku.model;
 /* loaded from: classes6.dex */
 public class j {
-    public int ocp = 0;
-    public int ocq = 0;
-    public int ocs = 0;
-    public int oct = 0;
-    public int ocu = 0;
-    public int ocv = 0;
+    public int own = 0;
+    public int owo = 0;
+    public int owp = 0;
+    public int owq = 0;
+    public int owr = 0;
+    public int ows = 0;
 
     public void resetAll() {
-        this.ocq = 0;
-        this.ocp = 0;
-        this.ocs = 0;
-        this.oct = 0;
-        this.ocu = 0;
-        this.ocv = 0;
+        this.owo = 0;
+        this.own = 0;
+        this.owp = 0;
+        this.owq = 0;
+        this.owr = 0;
+        this.ows = 0;
     }
 
-    public void dVH() {
-        this.ocq++;
+    public void ehK() {
+        this.owo++;
     }
 
-    public void dVI() {
-        this.ocp++;
+    public void ehL() {
+        this.own++;
     }
 
-    public void dVJ() {
-        this.ocs++;
+    public void ehM() {
+        this.owp++;
     }
 
-    public void dVK() {
-        this.oct++;
+    public void ehN() {
+        this.owq++;
     }
 
-    public void dVL() {
-        this.ocu++;
+    public void ehO() {
+        this.owr++;
     }
 
-    public void dVM() {
-        this.ocv++;
+    public void ehP() {
+        this.ows++;
     }
 }

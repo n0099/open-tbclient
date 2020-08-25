@@ -1,14 +1,15 @@
 package com.baidu.swan.videoplayer.media.a.b;
 
 import android.util.Log;
+import com.baidu.ala.helper.AlaConstants;
 import com.baidu.swan.apps.b;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes9.dex */
 public final class a {
     private static final boolean DEBUG = b.DEBUG;
-    public int dCQ;
-    public int dCR;
+    public int dMa;
+    public int dMb;
     public int mAudioBitrate;
     public int mVideoBitrate;
     public int mVideoHeight;
@@ -20,10 +21,10 @@ public final class a {
         try {
             jSONObject.put("videoBitrate", this.mVideoBitrate);
             jSONObject.put("audioBitrate", this.mAudioBitrate);
-            jSONObject.put("videoFPS", this.dCQ);
-            jSONObject.put("netSpeed", this.dCR);
+            jSONObject.put("videoFPS", this.dMa);
+            jSONObject.put("netSpeed", this.dMb);
             jSONObject.put("videoWidth", this.mVideoWidth);
-            jSONObject.put("videoHeight", this.mVideoHeight);
+            jSONObject.put(AlaConstants.STAT_VIDEO_HEIGHT, this.mVideoHeight);
             jSONObject2.putOpt("info", jSONObject);
             return jSONObject2.toString();
         } catch (JSONException e) {

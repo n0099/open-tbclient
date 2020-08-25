@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class ProgressButton extends RelativeLayout {
     public static final int IN_PROGRESS = 2;
     public static final int NOT_IN_PROGRESS = 1;

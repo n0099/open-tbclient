@@ -8,16 +8,16 @@ import com.baidu.tieba.im.data.GroupMsgData;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class e {
     public static void b(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, a.b bVar) {
         a.a(groupMsgData, imMessageCenterPojo, bVar, new a.c() { // from class: com.baidu.tieba.im.chat.b.e.1
             @Override // com.baidu.tieba.im.chat.b.a.c
-            public boolean Hk(String str) {
+            public boolean Kc(String str) {
                 return !TextUtils.isEmpty(str) && ChatStatusManager.getInst().getIsOpen(0) && str.equals(ChatStatusManager.getInst().getCurId(0));
             }
-        }, ChatStatusManager.getInst().getIsOpen(5), new a.InterfaceC0656a() { // from class: com.baidu.tieba.im.chat.b.e.2
-            @Override // com.baidu.tieba.im.chat.b.a.InterfaceC0656a
+        }, ChatStatusManager.getInst().getIsOpen(5), new a.InterfaceC0708a() { // from class: com.baidu.tieba.im.chat.b.e.2
+            @Override // com.baidu.tieba.im.chat.b.a.InterfaceC0708a
             public boolean a(ChatMessage chatMessage, ImMessageCenterPojo imMessageCenterPojo2) {
                 if (chatMessage != null && chatMessage.getMsgType() == 22) {
                     if (com.baidu.tieba.im.util.e.r(chatMessage)) {
@@ -47,10 +47,10 @@ public class e {
             }
             JSONObject jSONObject = new JSONObject(content);
             String optString = jSONObject.optString(TbEnum.SystemMessage.KEY_EVENT_ID);
-            if (TextUtils.isEmpty(optString) || !optString.equals("22001") || (optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM)) == null || optJSONObject.optLong(TbEnum.SystemMessage.KEY_GROUP_ID) != com.baidu.tieba.im.sendmessage.a.jjw.longValue()) {
+            if (TextUtils.isEmpty(optString) || !optString.equals("22001") || (optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM)) == null || optJSONObject.optLong(TbEnum.SystemMessage.KEY_GROUP_ID) != com.baidu.tieba.im.sendmessage.a.jyv.longValue()) {
                 return -1L;
             }
-            return com.baidu.tieba.im.util.d.fe(optJSONObject.optLong("readMsgId"));
+            return com.baidu.tieba.im.util.d.fq(optJSONObject.optLong("readMsgId"));
         } catch (Exception e) {
             return -1L;
         }

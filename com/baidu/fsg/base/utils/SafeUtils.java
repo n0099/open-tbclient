@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.fsg.base.armor.RimArmor;
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public final class SafeUtils {
     public static final String TAG = "SafeUtils";
 

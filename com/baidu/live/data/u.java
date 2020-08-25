@@ -1,8 +1,10 @@
 package com.baidu.live.data;
-
-import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class u {
-    public TbPageContext pageContext;
+    public boolean aEw;
+    public String groupId;
+    public String liveId;
+    public int tabType;
     public String userId;
+    public String userName;
 }

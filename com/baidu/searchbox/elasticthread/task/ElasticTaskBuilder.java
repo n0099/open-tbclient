@@ -2,7 +2,7 @@ package com.baidu.searchbox.elasticthread.task;
 
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class ElasticTaskBuilder {
     private static volatile ElasticTaskBuilder sInstance = null;
     private long currentTaskId = 0;

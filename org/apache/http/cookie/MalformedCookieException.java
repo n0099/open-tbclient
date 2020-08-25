@@ -2,7 +2,7 @@ package org.apache.http.cookie;
 
 import org.apache.http.ProtocolException;
 @Deprecated
-/* loaded from: classes20.dex */
+/* loaded from: classes9.dex */
 public class MalformedCookieException extends ProtocolException {
     public MalformedCookieException() {
         throw new RuntimeException("Stub!");

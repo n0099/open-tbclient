@@ -4,20 +4,20 @@ import com.baidu.turbonet.net.UploadDataProvider;
 import java.io.IOException;
 import java.io.OutputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes19.dex */
+/* loaded from: classes10.dex */
 public abstract class f extends OutputStream {
     private boolean mClosed;
-    private IOException mLv;
-    private boolean mLw;
+    private IOException neq;
+    private boolean ner;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract void dzE() throws IOException;
+    public abstract void dLr() throws IOException;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract void dzF() throws IOException;
+    public abstract void dLs() throws IOException;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract UploadDataProvider dzG();
+    public abstract UploadDataProvider dLt();
 
     @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
@@ -26,14 +26,14 @@ public abstract class f extends OutputStream {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void d(IOException iOException) {
-        this.mLv = iOException;
-        this.mLw = true;
+        this.neq = iOException;
+        this.ner = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void checkNotClosed() throws IOException {
-        if (this.mLw) {
-            dzU();
+        if (this.ner) {
+            dLH();
             throw new IOException("Writing after request completed.");
         } else if (this.mClosed) {
             throw new IOException("Stream has been closed.");
@@ -41,9 +41,9 @@ public abstract class f extends OutputStream {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void dzU() throws IOException {
-        if (this.mLv != null) {
-            throw this.mLv;
+    public void dLH() throws IOException {
+        if (this.neq != null) {
+            throw this.neq;
         }
     }
 }

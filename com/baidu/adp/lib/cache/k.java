@@ -7,13 +7,13 @@ public interface k<T> {
 
     T get(String str, String str2);
 
-    e ks();
-
-    l.b<T> r(String str, String str2);
+    e lR();
 
     void remove(String str, String str2);
 
     void set(String str, String str2, T t, long j);
 
     void startup(String str);
+
+    l.b<T> t(String str, String str2);
 }

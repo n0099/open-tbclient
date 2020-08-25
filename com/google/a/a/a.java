@@ -4,7 +4,7 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes5.dex */
+/* loaded from: classes11.dex */
 public class a implements IInterface {
     private final IBinder a;
     private final String b;

@@ -7,13 +7,13 @@ import android.util.Log;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Modifier;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static void a(int i, String str, String str2, @Nullable Bundle bundle) {
-        a nH = nH(str);
-        if (nH == null) {
+        a pF = pF(str);
+        if (pF == null) {
             if (DEBUG) {
                 throw new RuntimeException("Messenger创建代理类失败");
             }
@@ -26,14 +26,14 @@ public class b {
         if (bundle == null) {
             bundle = new Bundle();
         }
-        nH.cAu = bundle;
-        nH.cAv = i;
-        nH.cAw = str2;
-        nH.A(bundle);
+        pF.cID = bundle;
+        pF.cIE = i;
+        pF.cIF = str2;
+        pF.y(bundle);
     }
 
     public static void a(int i, String str, @Nullable Bundle bundle) {
-        if (!com.baidu.swan.apps.process.a.b.d.a.nI(str)) {
+        if (!com.baidu.swan.apps.process.a.b.d.a.pG(str)) {
             if (DEBUG) {
                 Log.d("MDelegate-Delegation", "send result to client: " + i + " observer: " + str);
             }
@@ -43,7 +43,7 @@ public class b {
                 bundle2.putBundle("key_result_data", bundle);
             }
             if (i == -1000) {
-                com.baidu.swan.apps.process.messaging.a.a.P(bundle2);
+                com.baidu.swan.apps.process.messaging.a.a.N(bundle2);
             } else {
                 com.baidu.swan.apps.process.messaging.a.a.c(i, bundle2);
             }
@@ -56,7 +56,7 @@ public class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static a nH(@Nullable String str) {
+    private static a pF(@Nullable String str) {
         if (TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 Log.e("MDelegate-Delegation", "create delegation with null delegate name");

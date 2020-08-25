@@ -4,53 +4,53 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.games.t.a.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile a dnb;
-    private com.baidu.swan.games.t.a.a dnc;
+    private static volatile a dxg;
+    private com.baidu.swan.games.t.a.a dxh;
 
     private a() {
     }
 
-    public static a aGJ() {
-        if (dnb == null) {
+    public static a aPA() {
+        if (dxg == null) {
             synchronized (a.class) {
-                if (dnb == null) {
-                    dnb = new a();
+                if (dxg == null) {
+                    dxg = new a();
                 }
             }
         }
-        return dnb;
+        return dxg;
     }
 
     public void c(com.baidu.swan.games.t.a.a aVar) {
-        this.dnc = aVar;
+        this.dxh = aVar;
     }
 
-    public boolean tG(String str) {
-        String X = X(str, 1);
-        if (TextUtils.isEmpty(X)) {
+    public boolean vW(String str) {
+        String Z = Z(str, 1);
+        if (TextUtils.isEmpty(Z)) {
             return false;
         }
-        if (this.dnc != null && this.dnc.dlO != null && this.dnc.dlO.dlW != null && this.dnc.dlO.dlW.containsKey(X)) {
+        if (this.dxh != null && this.dxh.dvT != null && this.dxh.dvT.dwb != null && this.dxh.dvT.dwb.containsKey(Z)) {
             if (DEBUG) {
                 Log.i("SubPackageDataHelper", "内存中查询分包是否存在信息");
             }
-            return this.dnc.dlO.dlW.get(X).booleanValue();
+            return this.dxh.dvT.dwb.get(Z).booleanValue();
         }
         if (DEBUG) {
             Log.i("SubPackageDataHelper", "DB中查询分包是否存在信息");
         }
-        String arx = e.arx();
-        if (e.arv() != null) {
-            String version = e.arv().getVersion();
-            if (TextUtils.isEmpty(arx) || TextUtils.isEmpty(version)) {
+        String azK = e.azK();
+        if (e.azI() != null) {
+            String version = e.azI().getVersion();
+            if (TextUtils.isEmpty(azK) || TextUtils.isEmpty(version)) {
                 return false;
             }
-            boolean W = com.baidu.swan.pms.database.a.aKS().W(arx, version, X);
+            boolean W = com.baidu.swan.pms.database.a.aTt().W(azK, version, Z);
             if (W) {
-                Q(X, true);
+                V(Z, true);
                 return W;
             }
             return W;
@@ -58,47 +58,47 @@ public class a {
         return false;
     }
 
-    public void Q(String str, boolean z) {
-        if (!TextUtils.isEmpty(str) && this.dnc != null && this.dnc.dlO != null && this.dnc.dlO.dlW != null) {
+    public void V(String str, boolean z) {
+        if (!TextUtils.isEmpty(str) && this.dxh != null && this.dxh.dvT != null && this.dxh.dvT.dwb != null) {
             if (DEBUG) {
                 Log.i("SubPackageDataHelper", "更新内存缓存信息: " + str + ": " + z);
             }
-            this.dnc.dlO.dlW.put(str, Boolean.valueOf(z));
+            this.dxh.dvT.dwb.put(str, Boolean.valueOf(z));
         }
     }
 
-    public String oo(String str) {
-        String X = X(str, 1);
-        if (TextUtils.isEmpty(X) || this.dnc == null || this.dnc.dlP == null || this.dnc.dlP.dlX == null) {
+    public String ql(String str) {
+        String Z = Z(str, 1);
+        if (TextUtils.isEmpty(Z) || this.dxh == null || this.dxh.dvU == null || this.dxh.dvU.dwc == null) {
             return null;
         }
-        return this.dnc.dlP.dlX.get(X);
+        return this.dxh.dvU.dwc.get(Z);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:16:0x002d  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public String X(String str, int i) {
+    public String Z(String str, int i) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        if (this.dnc == null || this.dnc.dlO == null || this.dnc.dlO.dlV == null) {
+        if (this.dxh == null || this.dxh.dvT == null || this.dxh.dvT.dwa == null) {
             return null;
         }
-        for (a.C0459a c0459a : this.dnc.dlO.dlV) {
-            if (TextUtils.equals(c0459a.name, str) || TextUtils.equals(c0459a.dlT, str)) {
+        for (a.C0507a c0507a : this.dxh.dvT.dwa) {
+            if (TextUtils.equals(c0507a.name, str) || TextUtils.equals(c0507a.dvY, str)) {
                 switch (i) {
                     case 0:
-                        return c0459a.name;
+                        return c0507a.name;
                     case 1:
-                        return c0459a.dlT;
+                        return c0507a.dvY;
                     case 2:
-                        return c0459a.path;
+                        return c0507a.path;
                     case 3:
-                        return c0459a.dlU;
+                        return c0507a.dvZ;
                     default:
-                        return c0459a.dlT;
+                        return c0507a.dvY;
                 }
             }
             while (r2.hasNext()) {

@@ -1,7 +1,6 @@
 package com.baidu.webkit.internal.daemon;
 
 import android.content.Context;
-import com.a.a.a.a.a.a.a;
 import com.baidu.webkit.internal.ConectivityUtils;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
@@ -10,8 +9,9 @@ import com.baidu.webkit.net.BdNetTask;
 import com.baidu.webkit.net.INetListener;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
+import com.baidu.webkit.sdk.WebViewFactory;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class QuicPreConnect implements INoProGuard, INetListener {
     private static final String LOG_TAG = "QuicPreConnect";
     private static boolean mDownloading = false;
@@ -29,19 +29,26 @@ public class QuicPreConnect implements INoProGuard, INetListener {
             Log.i(LOG_TAG, "tryToQuicPreConnect spring_festival_switch return");
         } else if (!WebKitFactory.getNeedDownloadCloudResource()) {
             Log.i(LOG_TAG, "no need tryToQuicPreConnect");
-        } else if (ConectivityUtils.getNetType(context).equals("unknown") || mDownloading) {
+        } else if (ConectivityUtils.getNetType(context).equals("unknown")) {
         } else {
-            mDownloading = true;
-            Log.w(LOG_TAG, "tryToQuicPreConnect");
-            try {
-                BdNet bdNet = new BdNet(context);
-                bdNet.setEventListener(new QuicPreConnect());
-                BdNetTask bdNetTask = new BdNetTask();
-                bdNetTask.setNet(bdNet);
-                bdNetTask.setUrl(getUrl(context));
-                bdNet.start(bdNetTask, false);
-            } catch (Exception e) {
-                a.a(e);
+            if (WebSettingsGlobalBlink.getPreconnectABTestEnable() && WebSettingsGlobalBlink.hasQuicAltService("https://m.baidu.com") && WebViewFactory.hasProvider() && WebViewFactory.getProvider().getStatics() != null) {
+                String str = mQuicPreConnectUrl + System.currentTimeMillis();
+                Log.i(LOG_TAG, "QuicPreconnect tryToQuicPreConnect preconnectUrl Url = " + str);
+                WebViewFactory.getProvider().getStatics().preconnectUrl(str, 1);
+            } else if (mDownloading) {
+            } else {
+                mDownloading = true;
+                Log.i(LOG_TAG, "tryToQuicPreConnect prelink.html");
+                try {
+                    BdNet bdNet = new BdNet(context);
+                    bdNet.setEventListener(new QuicPreConnect());
+                    BdNetTask bdNetTask = new BdNetTask();
+                    bdNetTask.setNet(bdNet);
+                    bdNetTask.setUrl(getUrl(context));
+                    bdNet.start(bdNetTask, false);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

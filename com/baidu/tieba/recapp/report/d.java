@@ -15,45 +15,45 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.cookie.SM;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class d {
-    private static d lrq;
-    private CustomMessageListener lrs = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.recapp.report.d.1
+    private static d lHL;
+    private CustomMessageListener lHN = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.recapp.report.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.isNetWorkAvailable() && d.this.lrr != null) {
-                d.this.lrr.dda();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.isNetWorkAvailable() && d.this.lHM != null) {
+                d.this.lHM.dok();
             }
         }
     };
-    private e lrr = new h();
+    private e lHM = new h();
 
-    public static d dcY() {
-        if (lrq == null) {
+    public static d doi() {
+        if (lHL == null) {
             synchronized (d.class) {
-                if (lrq == null) {
-                    lrq = new d();
+                if (lHL == null) {
+                    lHL = new d();
                 }
             }
         }
-        return lrq;
+        return lHL;
     }
 
-    private boolean dcZ() {
+    private boolean doj() {
         return SwitchManager.getInstance().findType(AdUploadSwitch.KEY) != 0;
     }
 
     private d() {
-        MessageManager.getInstance().registerListener(this.lrs);
+        MessageManager.getInstance().registerListener(this.lHN);
     }
 
     public void a(c cVar) {
-        if (dcZ() && cVar != null && this.lrr != null) {
+        if (doj() && cVar != null && this.lHM != null) {
             if (j.isNetWorkAvailable()) {
-                this.lrr.b(cVar);
+                this.lHM.b(cVar);
             } else {
-                this.lrr.c(cVar);
+                this.lHM.c(cVar);
             }
         }
     }
@@ -72,7 +72,7 @@ public class d {
             AdUploadHttpRequest adUploadHttpRequest = new AdUploadHttpRequest(new ArrayList());
             String cookie = CookieManager.getInstance().getCookie("*.baidu.com");
             if (TextUtils.isEmpty(cookie) || !cookie.contains("BAIDUID=")) {
-                cookie = com.baidu.tbadk.browser.a.dIZ;
+                cookie = com.baidu.tbadk.browser.a.dSg;
             }
             adUploadHttpRequest.addHeader(SM.COOKIE, cookie);
             MessageManager.getInstance().sendMessage(adUploadHttpRequest, httpMessageTask);

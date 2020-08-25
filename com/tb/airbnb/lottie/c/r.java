@@ -5,13 +5,13 @@ import android.util.JsonToken;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 class r {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static <T> List<com.tb.airbnb.lottie.e.a<T>> a(JsonReader jsonReader, com.tb.airbnb.lottie.d dVar, float f, aj<T> ajVar) throws IOException {
         ArrayList arrayList = new ArrayList();
         if (jsonReader.peek() == JsonToken.STRING) {
-            dVar.aX("Lottie doesn't support expressions.");
+            dVar.bc("Lottie doesn't support expressions.");
         } else {
             jsonReader.beginObject();
             while (jsonReader.hasNext()) {
@@ -48,12 +48,12 @@ class r {
                 }
             }
             jsonReader.endObject();
-            l(arrayList);
+            m(arrayList);
         }
         return arrayList;
     }
 
-    public static void l(List<? extends com.tb.airbnb.lottie.e.a<?>> list) {
+    public static void m(List<? extends com.tb.airbnb.lottie.e.a<?>> list) {
         int size = list.size();
         int i = 0;
         while (true) {
@@ -61,11 +61,11 @@ class r {
             if (i2 >= size - 1) {
                 break;
             }
-            list.get(i2).Gs = Float.valueOf(list.get(i2 + 1).Aq);
+            list.get(i2).Ha = Float.valueOf(list.get(i2 + 1).AX);
             i = i2 + 1;
         }
         com.tb.airbnb.lottie.e.a<?> aVar = list.get(size - 1);
-        if (aVar.Gp == 0) {
+        if (aVar.GX == 0) {
             list.remove(aVar);
         }
     }

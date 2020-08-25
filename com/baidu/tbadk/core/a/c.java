@@ -15,13 +15,13 @@ import javax.crypto.NoSuchPaddingException;
 import javax.security.cert.CertificateException;
 import javax.security.cert.X509Certificate;
 import org.json.JSONArray;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class c {
     private String mKey;
 
     public c() {
         this.mKey = "kf1t9tsczk16vc8z";
-        this.mKey = aTB();
+        this.mKey = bbS();
     }
 
     private byte[] b(Key key, byte[] bArr) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
@@ -60,7 +60,7 @@ public class c {
         return com.baidu.adp.lib.util.c.encodeBytes(jSONArray.toString().getBytes("UTF-8"));
     }
 
-    private String aTB() {
+    private String bbS() {
         Random random = new Random();
         StringBuffer stringBuffer = new StringBuffer();
         for (int i = 0; i < 16; i++) {

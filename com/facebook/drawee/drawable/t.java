@@ -1,7 +1,7 @@
 package com.facebook.drawee.drawable;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public interface t {
     void onDraw();
 
-    void xg(boolean z);
+    void xX(boolean z);
 }

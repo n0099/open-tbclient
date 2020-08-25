@@ -1,9 +1,8 @@
 package com.baidu.webkit.sdk;
 
 import android.content.Context;
-import com.a.a.a.a.a.a.a;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.outsdk.c;
+import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -13,7 +12,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public class LoadErrorCode {
     public static final String COLON = ":";
     public static final int GET_INTERN_PACKAGEINFO_FAIL = 2;
@@ -50,7 +49,7 @@ public class LoadErrorCode {
     private volatile StringBuilder mDetails;
     private volatile int mErrorCode;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public static class Statistics {
         private static final boolean DEBUG = true;
         private static final String KEY_ERROR_CNT = "error_cnt";
@@ -69,7 +68,7 @@ public class LoadErrorCode {
         private static final String RECORD_FILE_NAME = "/load_error.json".replace('/', File.separatorChar);
 
         /* JADX INFO: Access modifiers changed from: private */
-        /* loaded from: classes8.dex */
+        /* loaded from: classes19.dex */
         public static class ErrorItem {
             public int mCount;
             public String mDetails;
@@ -112,18 +111,18 @@ public class LoadErrorCode {
                         try {
                             fileOutputStream.close();
                         } catch (Exception e2) {
-                            a.a(e2);
+                            e2.printStackTrace();
                         }
                     } catch (Exception e3) {
                         e = e3;
                         addInfo(e.getMessage());
-                        a.a(e);
+                        e.printStackTrace();
                         if (fileOutputStream != null) {
                             try {
                                 fileOutputStream.close();
                                 z = false;
                             } catch (Exception e4) {
-                                a.a(e4);
+                                e4.printStackTrace();
                                 z = false;
                             }
                         } else {
@@ -139,7 +138,7 @@ public class LoadErrorCode {
                         try {
                             fileOutputStream.close();
                         } catch (Exception e5) {
-                            a.a(e5);
+                            e5.printStackTrace();
                         }
                     }
                     throw th;
@@ -171,7 +170,7 @@ public class LoadErrorCode {
                 }
             } catch (Exception e) {
                 addInfo(e.getMessage());
-                a.a(e);
+                e.printStackTrace();
                 z = false;
             }
             if (!z) {
@@ -226,9 +225,9 @@ public class LoadErrorCode {
 
         /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0064 */
         /* JADX DEBUG: Failed to insert an additional move for type inference into block B:3:0x0007 */
-        /* JADX DEBUG: Multi-variable search result rejected for r0v10, resolved type: org.json.JSONObject */
         /* JADX WARN: Multi-variable type inference failed */
         /* JADX WARN: Type inference failed for: r0v0, types: [java.io.FileInputStream] */
+        /* JADX WARN: Type inference failed for: r0v10, types: [org.json.JSONObject] */
         /* JADX WARN: Type inference failed for: r0v11 */
         /* JADX WARN: Type inference failed for: r0v12 */
         /* JADX WARN: Type inference failed for: r0v13 */
@@ -238,10 +237,10 @@ public class LoadErrorCode {
         /* JADX WARN: Type inference failed for: r0v9 */
         private static JSONObject fileToJSON() {
             FileInputStream fileInputStream;
-            JSONObject jSONObject = 0;
-            jSONObject = 0;
-            jSONObject = 0;
-            jSONObject = 0;
+            ?? r0 = 0;
+            r0 = 0;
+            r0 = 0;
+            r0 = 0;
             try {
                 if (sRecordFile.exists()) {
                     try {
@@ -251,22 +250,22 @@ public class LoadErrorCode {
                             if (available > 0) {
                                 byte[] bArr = new byte[available];
                                 fileInputStream.read(bArr);
-                                JSONObject jSONObject2 = new JSONObject(new String(bArr));
+                                JSONObject jSONObject = new JSONObject(new String(bArr));
                                 try {
-                                    Log.d(TAG, "readJSON " + jSONObject2);
-                                    jSONObject = jSONObject2;
+                                    Log.d(TAG, "readJSON " + jSONObject);
+                                    r0 = jSONObject;
                                 } catch (Exception e) {
-                                    jSONObject = jSONObject2;
+                                    r0 = jSONObject;
                                     e = e;
                                     addInfo(e.getMessage());
-                                    a.a(e);
+                                    e.printStackTrace();
                                     if (fileInputStream != null) {
                                         try {
                                             fileInputStream.close();
                                         } catch (IOException e2) {
                                         }
                                     }
-                                    return jSONObject;
+                                    return r0;
                                 }
                             }
                             try {
@@ -283,14 +282,14 @@ public class LoadErrorCode {
                         th = th;
                         if (0 != 0) {
                             try {
-                                jSONObject.close();
+                                r0.close();
                             } catch (IOException e6) {
                             }
                         }
                         throw th;
                     }
                 }
-                return jSONObject;
+                return r0;
             } catch (Throwable th2) {
                 th = th2;
             }
@@ -347,7 +346,7 @@ public class LoadErrorCode {
 
         public static synchronized void init(Context context) {
             synchronized (Statistics.class) {
-                addInfo(c.l);
+                addInfo(OneKeyLoginSdkCall.l);
                 if (context == null) {
                     Log.e(TAG, "[ERROR]init ctx null");
                 } else if (!sIsInited) {
@@ -380,7 +379,7 @@ public class LoadErrorCode {
                 jSONObject2.put(KEY_T7_ERROR_LIST, jSONArray);
                 return jSONObject2;
             } catch (JSONException e) {
-                a.a(e);
+                e.printStackTrace();
                 addInfo(e.getMessage());
                 return null;
             }
@@ -402,7 +401,7 @@ public class LoadErrorCode {
                     case 93:
                         bytes[i] = 62;
                         break;
-                    case 123:
+                    case Constants.METHOD_IM_FRIEND_GROUP_QUERY /* 123 */:
                         bytes[i] = 40;
                         break;
                     case Constants.METHOD_IM_FRIEND_GROUP_ASSIGN /* 125 */:

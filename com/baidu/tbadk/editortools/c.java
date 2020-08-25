@@ -1,18 +1,18 @@
 package com.baidu.tbadk.editortools;
 
 import android.content.Context;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class c {
-    protected abstract void a(d dVar);
+    protected abstract void a(e eVar);
 
-    protected abstract void b(d dVar);
+    protected abstract void b(e eVar);
 
-    protected abstract d dU(Context context);
+    protected abstract e ed(Context context);
 
-    public d dT(Context context) {
-        d dU = dU(context);
-        a(dU);
-        b(dU);
-        return dU;
+    public e ec(Context context) {
+        e ed = ed(context);
+        a(ed);
+        b(ed);
+        return ed;
     }
 }

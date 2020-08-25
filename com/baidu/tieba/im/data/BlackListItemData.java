@@ -3,9 +3,9 @@ package com.baidu.tieba.im.data;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class BlackListItemData extends AbstractImageProvider {
-    private String bqH;
+    private String bwx;
     private long userId;
     private String userName;
     private String userNameShow;
@@ -13,7 +13,7 @@ public class BlackListItemData extends AbstractImageProvider {
     @Override // com.baidu.tbadk.core.util.AbstractImageProvider
     public ArrayList<String> getPhotoUrl() {
         ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add(Lc());
+        arrayList.add(Rc());
         return arrayList;
     }
 
@@ -29,19 +29,19 @@ public class BlackListItemData extends AbstractImageProvider {
         this.userName = str;
     }
 
-    public String Lc() {
-        return this.bqH;
+    public String Rc() {
+        return this.bwx;
     }
 
-    public void ge(String str) {
-        this.bqH = str;
+    public void hz(String str) {
+        this.bwx = str;
     }
 
-    public void yT(String str) {
+    public void Bj(String str) {
         this.userNameShow = str;
     }
 
-    public String bgJ() {
+    public String bpu() {
         return StringUtils.isNull(this.userNameShow) ? this.userName : this.userNameShow;
     }
 }

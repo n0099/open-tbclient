@@ -12,6 +12,7 @@ import android.hardware.camera2.CameraManager;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.baidu.ar.arplay.core.engine.pixel.PixelReadParams;
 import com.baidu.live.adp.lib.util.BdLog;
 import java.lang.reflect.Method;
@@ -119,9 +120,9 @@ public class CameraUtils {
                 break;
         }
         if (cameraInfo.facing == 1) {
-            return (360 - ((i2 + cameraInfo.orientation) % 360)) % 360;
+            return (360 - ((i2 + cameraInfo.orientation) % EncoderTextureDrawer.X264_WIDTH)) % EncoderTextureDrawer.X264_WIDTH;
         }
-        return ((cameraInfo.orientation - i2) + 360) % 360;
+        return ((cameraInfo.orientation - i2) + EncoderTextureDrawer.X264_WIDTH) % EncoderTextureDrawer.X264_WIDTH;
     }
 
     public static void setVideoStabilization(Camera.Parameters parameters) {
@@ -242,10 +243,10 @@ public class CameraUtils {
             Camera.getCameraInfo(i, cameraInfo);
             int rotationAngle = getRotationAngle(activity);
             if (cameraInfo.facing == 1) {
-                i3 = (cameraInfo.orientation + rotationAngle) % 360;
-                i2 = (360 - i3) % 360;
+                i3 = (cameraInfo.orientation + rotationAngle) % EncoderTextureDrawer.X264_WIDTH;
+                i2 = (360 - i3) % EncoderTextureDrawer.X264_WIDTH;
             } else {
-                i2 = ((cameraInfo.orientation - rotationAngle) + 360) % 360;
+                i2 = ((cameraInfo.orientation - rotationAngle) + EncoderTextureDrawer.X264_WIDTH) % EncoderTextureDrawer.X264_WIDTH;
             }
             return i2;
         } catch (RuntimeException e) {

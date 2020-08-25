@@ -6,7 +6,7 @@ import com.baidu.tieba.forumMember.tbtitle.TbTitleActivityConfig;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ShareFromPBMsgData extends ShareBaseMsgData {
     protected String content;
     protected String forumName;

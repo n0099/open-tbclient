@@ -8,9 +8,9 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ae {
-    public static TextView eLc;
+    public static TextView eVH;
 
     public static int getCharLength(char c) {
         if (isCharacter(c)) {
@@ -105,11 +105,11 @@ public class ae {
                 char charAt = str.charAt(i4);
                 if (i3 >= i2) {
                     if (i3 == i2) {
-                        if (e(sb.charAt(sb.length() - 1))) {
+                        if (d(sb.charAt(sb.length() - 1))) {
                             return sb.append(charAt).toString();
                         }
                         return sb.toString();
-                    } else if (sb.length() > 2 && e(sb.charAt(sb.length() - 2))) {
+                    } else if (sb.length() > 2 && d(sb.charAt(sb.length() - 2))) {
                         return sb.toString();
                     } else {
                         return sb.deleteCharAt(sb.length() - 1).toString();
@@ -128,7 +128,7 @@ public class ae {
         return sb.toString();
     }
 
-    public static boolean e(char c) {
+    public static boolean d(char c) {
         return c >= 55296 && c <= 56319;
     }
 
@@ -179,12 +179,12 @@ public class ae {
         return str2;
     }
 
-    public static Pair<Integer, Integer> t(String str, int i, int i2) {
+    public static Pair<Integer, Integer> s(String str, int i, int i2) {
         try {
-            if (eLc == null) {
-                eLc = new TextView(TbadkCoreApplication.getInst().getContext());
+            if (eVH == null) {
+                eVH = new TextView(TbadkCoreApplication.getInst().getContext());
             }
-            TextView textView = eLc;
+            TextView textView = eVH;
             if (textView.getLayoutParams() == null) {
                 textView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             }

@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.searchbox.http.statistics.NetworkStatRecord;
 import com.baidu.searchbox.v8engine.JsArrayBuffer;
 import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.searchbox.websocket.WebSocketRequest;
@@ -30,36 +31,36 @@ import org.apache.http.client.methods.HttpOptions;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpTrace;
 import org.json.JSONException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c extends com.baidu.swan.games.network.a {
-    private static final Set<String> bRm = i.O("text", "arraybuffer");
-    private static final Set<String> bRk = i.O(HttpOptions.METHOD_NAME, "GET", HttpHead.METHOD_NAME, "POST", HttpPut.METHOD_NAME, HttpDelete.METHOD_NAME, HttpTrace.METHOD_NAME, "CONNECT");
+    private static final Set<String> bWM = i.N("text", "arraybuffer");
+    private static final Set<String> bWK = i.N(HttpOptions.METHOD_NAME, "GET", HttpHead.METHOD_NAME, "POST", HttpPut.METHOD_NAME, HttpDelete.METHOD_NAME, HttpTrace.METHOD_NAME, "CONNECT");
 
     public c(com.baidu.swan.games.f.b bVar, com.baidu.swan.games.binding.model.c cVar) {
         super(bVar, cVar);
-        this.dkH = 1;
+        this.requestType = 1;
     }
 
     @Override // com.baidu.swan.games.network.a
     public void start() {
-        Request aFQ;
-        if (this.dkI != null && (aFQ = aFQ()) != null) {
-            d(aFQ);
+        Request aOH;
+        if (this.duO != null && (aOH = aOH()) != null) {
+            d(aOH);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void d(Request request) {
-        final String k = k(this.dkI);
+        final String k = k(this.duO);
         final String httpUrl = request.url().toString();
-        if (com.baidu.swan.apps.runtime.e.arv() == null) {
+        if (com.baidu.swan.apps.runtime.e.azI() == null) {
             i("", -1, "request:swanApp is null");
             return;
         }
         final long currentTimeMillis = System.currentTimeMillis();
-        h.R(httpUrl, 1);
-        final com.baidu.swan.games.network.b arK = com.baidu.swan.apps.runtime.e.arv().arK();
-        arK.a(request, new Callback() { // from class: com.baidu.swan.games.network.c.c.1
+        h.a(httpUrl, 1, (NetworkStatRecord) null);
+        final com.baidu.swan.games.network.b azX = com.baidu.swan.apps.runtime.e.azI().azX();
+        azX.a(request, new Callback() { // from class: com.baidu.swan.games.network.c.c.1
             @Override // okhttp3.Callback
             public void onResponse(Call call, Response response) {
                 if (!response.isSuccessful()) {
@@ -109,7 +110,7 @@ public class c extends com.baidu.swan.games.network.a {
 
             @Override // okhttp3.Callback
             public void onFailure(Call call, IOException iOException) {
-                arK.cancelTag(c.this.mTaskId);
+                azX.cancelTag(c.this.mTaskId);
                 c.this.a(httpUrl, 0, iOException.getMessage(), currentTimeMillis);
             }
         });
@@ -176,53 +177,53 @@ public class c extends com.baidu.swan.games.network.a {
     @NonNull
     private static String k(@NonNull com.baidu.swan.games.binding.model.c cVar) {
         String lowerCase = cVar.optString("responseType").toLowerCase();
-        if (!bRm.contains(lowerCase)) {
+        if (!bWM.contains(lowerCase)) {
             return "text";
         }
         return lowerCase;
     }
 
-    private Request aFQ() {
-        String aFJ = aFJ();
-        if (TextUtils.isEmpty(aFJ)) {
+    private Request aOH() {
+        String aOA = aOA();
+        if (TextUtils.isEmpty(aOA)) {
             if (DEBUG) {
-                Log.d("RequestTask", "buildRequest url =" + aFJ);
+                Log.d("RequestTask", "buildRequest url =" + aOA);
                 return null;
             }
             return null;
         }
-        String optString = this.dkI.optString("method");
+        String optString = this.duO.optString("method");
         if (TextUtils.isEmpty(optString)) {
             optString = "GET";
         }
         String upperCase = optString.toUpperCase();
-        if (!bRk.contains(upperCase)) {
-            i(aFJ, -1, "request:method is invalid");
+        if (!bWK.contains(upperCase)) {
+            i(aOA, -1, "request:method is invalid");
             return null;
         }
         HashMap hashMap = new HashMap();
         Request.Builder builder = new Request.Builder();
-        a(builder, this.dkI.sB(WebSocketRequest.PARAM_KEY_HEADER), (Map<String, String>) hashMap, true);
+        a(builder, this.duO.uS(WebSocketRequest.PARAM_KEY_HEADER), (Map<String, String>) hashMap, true);
         if (DEBUG) {
             Log.d("RequestTask", "lowerCaseHeaderMap =" + hashMap);
         }
-        String optString2 = this.dkI.optString("data", null);
-        JsArrayBuffer a = optString2 == null ? this.dkI.a("data", (JsArrayBuffer) null) : optString2;
+        String optString2 = this.duO.optString("data", null);
+        JsArrayBuffer a = optString2 == null ? this.duO.a("data", (JsArrayBuffer) null) : optString2;
         boolean z = a != null;
         if (z && !HttpMethod.permitsRequestBody(upperCase)) {
-            return builder.url(aFJ).method(upperCase, null).tag(this.mTaskId).build();
+            return builder.url(aOA).method(upperCase, null).tag(this.mTaskId).build();
         }
         RequestBody c = (z || HttpMethod.requiresRequestBody(upperCase)) ? c(a, hashMap) : null;
         if (HttpMethod.requiresRequestBody(upperCase) && c == null) {
             return null;
         }
-        return builder.url(aFJ).method(upperCase, c).tag(this.mTaskId).build();
+        return builder.url(aOA).method(upperCase, c).tag(this.mTaskId).build();
     }
 
     @Nullable
     private RequestBody c(Object obj, Map<String, String> map) {
         String str = map.get(Headers.CONTENT_TYPE);
-        MediaType parse = !TextUtils.isEmpty(str) ? MediaType.parse(str) : f.a.cwH;
+        MediaType parse = !TextUtils.isEmpty(str) ? MediaType.parse(str) : f.a.cEB;
         if (obj instanceof JsArrayBuffer) {
             byte[] buffer = ((JsArrayBuffer) obj).buffer();
             if (buffer == null) {

@@ -4,10 +4,14 @@ import android.content.Context;
 import android.support.v7.widget.ActivityChooserView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
-/* loaded from: classes8.dex */
+/* loaded from: classes19.dex */
 public abstract class WebSettings implements Observer {
     public static final int LOAD_CACHE_ELSE_NETWORK = 1;
     public static final int LOAD_CACHE_ONLY = 3;
@@ -17,6 +21,9 @@ public abstract class WebSettings implements Observer {
     public static final int LOAD_NO_CACHE = 2;
     private static final String LOGTAG = "WebSettings";
     public static final int MENU_ITEM_NONE = 0;
+    public static final int MENU_ITEM_PROCESS_TEXT = 4;
+    public static final int MENU_ITEM_SHARE = 1;
+    public static final int MENU_ITEM_WEB_SEARCH = 2;
     public static final int MIXED_CONTENT_ALWAYS_ALLOW = 0;
     public static final int MIXED_CONTENT_COMPATIBILITY_MODE = 2;
     public static final int MIXED_CONTENT_NEVER_ALLOW = 1;
@@ -30,7 +37,12 @@ public abstract class WebSettings implements Observer {
     private final Object lockObject = new Object();
     public boolean mEnableJsPrompt = true;
 
-    /* loaded from: classes8.dex */
+    @Retention(RetentionPolicy.SOURCE)
+    /* loaded from: classes19.dex */
+    public @interface CacheMode {
+    }
+
+    /* loaded from: classes19.dex */
     public static class CodeCacheSetting {
         public String id;
         public int maxCount;
@@ -38,14 +50,14 @@ public abstract class WebSettings implements Observer {
         public int sizeLimit;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public enum FlingAlgorithm {
         FAST,
         QUADRATIC,
         CUBIC
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public enum ImgQuality {
         NO_COMPRESS,
         LOW_COMPRESS,
@@ -53,7 +65,7 @@ public abstract class WebSettings implements Observer {
         HIGHT_COMPRESS
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public enum LayoutAlgorithm {
         NORMAL,
         SINGLE_COLUMN,
@@ -61,14 +73,20 @@ public abstract class WebSettings implements Observer {
         TEXT_AUTOSIZING
     }
 
-    /* loaded from: classes8.dex */
+    @Target({ElementType.PARAMETER, ElementType.METHOD})
+    @Retention(RetentionPolicy.SOURCE)
+    /* loaded from: classes19.dex */
+    private @interface MenuItemFlags {
+    }
+
+    /* loaded from: classes19.dex */
     public enum PluginState {
         ON,
         ON_DEMAND,
         OFF
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public enum ProxyType {
         NO_PROXY,
         SPDY_PROXY,
@@ -76,14 +94,14 @@ public abstract class WebSettings implements Observer {
         SPDYANDOVERSEAS_PROXY
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public enum RemoveAdLevel {
         DISABLE,
         LOW_LEVEL,
         HIGH_LEVEL
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public enum RenderPriority {
         NORMAL,
         HIGH,
@@ -91,7 +109,7 @@ public abstract class WebSettings implements Observer {
     }
 
     @Deprecated
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public enum TextSize {
         SMALLEST(50),
         SMALLER(75),
@@ -108,7 +126,7 @@ public abstract class WebSettings implements Observer {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes19.dex */
     public enum ZoomDensity {
         FAR(150),
         MEDIUM(100),
@@ -246,6 +264,8 @@ public abstract class WebSettings implements Observer {
 
     @Deprecated
     public abstract ZoomDensity getDefaultZoom();
+
+    public abstract int getDisabledActionModeMenuItems();
 
     public abstract boolean getDisplayZoomControls();
 
@@ -518,6 +538,8 @@ public abstract class WebSettings implements Observer {
     @Deprecated
     public abstract void setDefaultZoom(ZoomDensity zoomDensity);
 
+    public abstract void setDisabledActionModeMenuItems(int i);
+
     public abstract void setDisplayZoomControls(boolean z);
 
     public void setDomParserOptType(int i) {
@@ -567,6 +589,7 @@ public abstract class WebSettings implements Observer {
 
     public abstract void setFullScreenMode(boolean z);
 
+    @Deprecated
     public abstract void setGeolocationDatabasePath(String str);
 
     public abstract void setGeolocationEnabled(boolean z);
@@ -648,6 +671,9 @@ public abstract class WebSettings implements Observer {
     public abstract void setOffscreenPreRaster(boolean z);
 
     public void setPageCacheCapacity(int i) {
+    }
+
+    public void setPageFreezeDisable(boolean z) {
     }
 
     public void setPauseAudioEnabled(boolean z) {

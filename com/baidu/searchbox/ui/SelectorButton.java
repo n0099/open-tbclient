@@ -5,7 +5,7 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.Button;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class SelectorButton extends Button {
     private static final float DISABLED_ALPHA_SCALE_DEFAULT = 0.4f;
     private static final int NORMAL_ALPHA = 1;

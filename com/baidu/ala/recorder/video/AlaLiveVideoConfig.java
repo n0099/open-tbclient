@@ -1,6 +1,7 @@
 package com.baidu.ala.recorder.video;
 
 import com.baidu.ala.recorder.video.DynamicBitRateConfig;
+import com.baidu.platform.comapi.UIMsg;
 import com.baidu.tbadk.TbConfig;
 import java.util.List;
 /* loaded from: classes7.dex */
@@ -26,7 +27,7 @@ public class AlaLiveVideoConfig {
     public AlaLiveVideoConfig(AlaLiveVideoConfig alaLiveVideoConfig) {
         this.mPreviewWidth = PREVIEW_WIDTH;
         this.mPreviewHeight = 1280;
-        this.mOutputWidth = 540;
+        this.mOutputWidth = UIMsg.MsgDefine.MSG_NETWORK_CHANNEL;
         this.mOutputHeight = TbConfig.HEAD_IMG_SIZE;
         this.mVideoGOP = 2;
         this.mEncoderType = 1;
@@ -60,7 +61,7 @@ public class AlaLiveVideoConfig {
     public AlaLiveVideoConfig(List<DynamicBitRateConfig.DynamicBitRateItem> list, List<DynamicBitRateConfig.DynamicBitRateItem> list2, double d, double d2, int i, boolean z, boolean z2, int i2, int i3) {
         this.mPreviewWidth = PREVIEW_WIDTH;
         this.mPreviewHeight = 1280;
-        this.mOutputWidth = 540;
+        this.mOutputWidth = UIMsg.MsgDefine.MSG_NETWORK_CHANNEL;
         this.mOutputHeight = TbConfig.HEAD_IMG_SIZE;
         this.mVideoGOP = 2;
         this.mEncoderType = 1;
@@ -90,7 +91,7 @@ public class AlaLiveVideoConfig {
     private AlaLiveVideoConfig() {
         this.mPreviewWidth = PREVIEW_WIDTH;
         this.mPreviewHeight = 1280;
-        this.mOutputWidth = 540;
+        this.mOutputWidth = UIMsg.MsgDefine.MSG_NETWORK_CHANNEL;
         this.mOutputHeight = TbConfig.HEAD_IMG_SIZE;
         this.mVideoGOP = 2;
         this.mEncoderType = 1;
@@ -191,6 +192,10 @@ public class AlaLiveVideoConfig {
 
     public int getVideoGOP() {
         return this.mVideoGOP;
+    }
+
+    public void setEncodeType(int i) {
+        this.mEncoderType = i;
     }
 
     public int getEncoderType() {

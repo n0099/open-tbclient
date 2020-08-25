@@ -4,32 +4,18 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.sapi2.PassportSDK;
+import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.callback.AccountCenterCallback;
 import com.baidu.sapi2.dto.AccountCenterDTO;
 import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.result.AccountCenterResult;
 import com.baidu.sapi2.utils.Log;
-/* loaded from: classes19.dex */
+/* loaded from: classes12.dex */
 public class AccountCenterExternalActivity extends AccountCenterActivity {
     public static final String EXTRA_EXTERNAL_URL = "extra_external_url";
-    private static final String G = "AccountCenterExternalActivity";
-    private String H;
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void h() {
-        this.sapiWebView.loadUrl(SapiWebView.FN_SWITCH_VIEW);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void i() {
-        Intent intent = new Intent(this, AccountCenterActivity.class);
-        intent.setFlags(67108864);
-        intent.putExtra("action", "quit");
-        PendingIntent.getActivity(getApplicationContext(), 0, intent, 134217728);
-        startActivity(intent);
-    }
+    private static final String G = AccountCenterExternalActivity.class.getSimpleName();
+    private String F;
 
     public void finishActivity() {
         super.finish();
@@ -37,8 +23,8 @@ public class AccountCenterExternalActivity extends AccountCenterActivity {
 
     @Override // com.baidu.sapi2.activity.AccountCenterActivity
     protected void loadAccountCenter(String str) {
-        this.H = getIntent().getStringExtra("extra_external_url");
-        this.sapiWebView.loadUrl(this.H);
+        this.F = getIntent().getStringExtra("extra_external_url");
+        this.sapiWebView.loadUrl(this.F);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -46,7 +32,7 @@ public class AccountCenterExternalActivity extends AccountCenterActivity {
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i == 1004 && i2 == -1) {
-            i();
+            b();
             this.loginStatusChange = true;
         }
     }
@@ -54,7 +40,7 @@ public class AccountCenterExternalActivity extends AccountCenterActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.AccountCenterActivity, com.baidu.sapi2.activity.TitleActivity
     public void onBottomBackBtnClick() {
-        h();
+        a();
     }
 
     @Override // com.baidu.sapi2.activity.AccountCenterActivity, com.baidu.sapi2.activity.SlideActiviy, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
@@ -64,7 +50,7 @@ public class AccountCenterExternalActivity extends AccountCenterActivity {
         this.sapiWebView.setOnNewBackCallback(new SapiWebView.OnNewBackCallback() { // from class: com.baidu.sapi2.activity.AccountCenterExternalActivity.1
             @Override // com.baidu.sapi2.SapiWebView.OnNewBackCallback
             public boolean onBack() {
-                AccountCenterExternalActivity.this.h();
+                AccountCenterExternalActivity.this.a();
                 return false;
             }
         });
@@ -83,21 +69,21 @@ public class AccountCenterExternalActivity extends AccountCenterActivity {
                     AccountCenterExternalActivity.this.startActivity(intent);
                 }
                 if ("quit".equals(str)) {
-                    AccountCenterExternalActivity.this.i();
+                    AccountCenterExternalActivity.this.b();
                 }
             }
         });
         this.sapiWebView.setSwitchAccountCallback(new SapiWebView.SwitchAccountCallback() { // from class: com.baidu.sapi2.activity.AccountCenterExternalActivity.4
             @Override // com.baidu.sapi2.SapiWebView.SwitchAccountCallback
             public void onAccountSwitch(SapiWebView.SwitchAccountCallback.Result result) {
-                AccountCenterCallback accountCenterCallback = PassportSDK.getInstance().getAccountCenterCallback();
-                AccountCenterDTO accountCenterDTO = PassportSDK.getInstance().getAccountCenterDTO();
+                AccountCenterCallback accountCenterCallback = CoreViewRouter.getInstance().getAccountCenterCallback();
+                AccountCenterDTO accountCenterDTO = CoreViewRouter.getInstance().getAccountCenterDTO();
                 if (accountCenterDTO != null && accountCenterDTO.handleLogin && accountCenterCallback != null) {
                     AccountCenterResult accountCenterResult = new AccountCenterResult() { // from class: com.baidu.sapi2.activity.AccountCenterExternalActivity.4.1
                         @Override // com.baidu.sapi2.result.AccountCenterResult
                         public void loginSuc() {
                             super.loginSuc();
-                            AccountCenterExternalActivity.this.i();
+                            AccountCenterExternalActivity.this.b();
                             AccountCenterExternalActivity.this.loginStatusChange = true;
                         }
                     };
@@ -138,6 +124,20 @@ public class AccountCenterExternalActivity extends AccountCenterActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.AccountCenterActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void onLeftBtnClick() {
-        h();
+        a();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a() {
+        this.sapiWebView.loadUrl(SapiWebView.FN_SWITCH_VIEW);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b() {
+        Intent intent = new Intent(this, AccountCenterActivity.class);
+        intent.setFlags(67108864);
+        intent.putExtra("action", "quit");
+        PendingIntent.getActivity(getApplicationContext(), 0, intent, 134217728);
+        startActivity(intent);
     }
 }

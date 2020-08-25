@@ -4,11 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.swan.apps.aq.al;
+import com.baidu.swan.apps.ap.ak;
 /* loaded from: classes19.dex */
 public abstract class c {
-    protected String dsU;
-    protected boolean dsV = false;
+    protected String dCU;
+    protected boolean dCV = false;
     protected String mId;
     protected String mName;
 
@@ -18,15 +18,15 @@ public abstract class c {
     public c(String str, String str2, String str3) {
         this.mId = str;
         this.mName = str2;
-        this.dsU = str3;
+        this.dCU = str3;
     }
 
-    public boolean du(Context context) {
-        return al.getPackageInfo(context.getApplicationContext(), this.dsU) != null;
+    public boolean dA(Context context) {
+        return ak.getPackageInfo(context.getApplicationContext(), this.dCU) != null;
     }
 
-    public boolean aJz() {
-        return this.dsV;
+    public boolean aSp() {
+        return this.dCV;
     }
 
     public String getName() {
@@ -34,8 +34,8 @@ public abstract class c {
     }
 
     public void b(Context context, LatLng latLng, LatLng latLng2, String str, String str2) {
-        if (!du(context) && this.dsV) {
-            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + this.dsU));
+        if (!dA(context) && this.dCV) {
+            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + this.dCU));
             intent.addFlags(268435456);
             context.startActivity(intent);
             return;

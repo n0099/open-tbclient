@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class NoPressedLinearLayout extends LinearLayout {
     public NoPressedLinearLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);

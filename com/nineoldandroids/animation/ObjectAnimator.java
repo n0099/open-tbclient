@@ -1,12 +1,12 @@
 package com.nineoldandroids.animation;
 
 import android.view.View;
-import com.baidu.mobstat.Config;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.nineoldandroids.util.Property;
 import com.nineoldandroids.view.animation.AnimatorProxy;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class ObjectAnimator extends ValueAnimator {
     private static final boolean DBG = false;
     private static final Map<String, Property> PROXY_PROPERTIES = new HashMap();
@@ -20,14 +20,14 @@ public final class ObjectAnimator extends ValueAnimator {
         PROXY_PROPERTIES.put("pivotY", PreHoneycombCompat.PIVOT_Y);
         PROXY_PROPERTIES.put("translationX", PreHoneycombCompat.TRANSLATION_X);
         PROXY_PROPERTIES.put("translationY", PreHoneycombCompat.TRANSLATION_Y);
-        PROXY_PROPERTIES.put("rotation", PreHoneycombCompat.ROTATION);
+        PROXY_PROPERTIES.put(MapBundleKey.MapObjKey.OBJ_SS_ARROW_ROTATION, PreHoneycombCompat.ROTATION);
         PROXY_PROPERTIES.put("rotationX", PreHoneycombCompat.ROTATION_X);
         PROXY_PROPERTIES.put("rotationY", PreHoneycombCompat.ROTATION_Y);
         PROXY_PROPERTIES.put("scaleX", PreHoneycombCompat.SCALE_X);
         PROXY_PROPERTIES.put("scaleY", PreHoneycombCompat.SCALE_Y);
         PROXY_PROPERTIES.put("scrollX", PreHoneycombCompat.SCROLL_X);
         PROXY_PROPERTIES.put("scrollY", PreHoneycombCompat.SCROLL_Y);
-        PROXY_PROPERTIES.put(Config.EVENT_HEAT_X, PreHoneycombCompat.X);
+        PROXY_PROPERTIES.put("x", PreHoneycombCompat.X);
         PROXY_PROPERTIES.put("y", PreHoneycombCompat.Y);
     }
 

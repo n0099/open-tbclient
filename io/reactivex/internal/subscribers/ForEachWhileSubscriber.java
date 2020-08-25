@@ -5,7 +5,7 @@ import io.reactivex.exceptions.CompositeException;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.d;
+import org.b.d;
 /* loaded from: classes7.dex */
 public final class ForEachWhileSubscriber<T> extends AtomicReference<d> implements io.reactivex.disposables.b, j<T> {
     private static final long serialVersionUID = -4403180040475402120L;
@@ -20,14 +20,14 @@ public final class ForEachWhileSubscriber<T> extends AtomicReference<d> implemen
         this.onComplete = aVar;
     }
 
-    @Override // io.reactivex.j, org.a.c
+    @Override // io.reactivex.j, org.b.c
     public void onSubscribe(d dVar) {
         if (SubscriptionHelper.setOnce(this, dVar)) {
             dVar.request(Long.MAX_VALUE);
         }
     }
 
-    @Override // org.a.c
+    @Override // org.b.c
     public void onNext(T t) {
         if (!this.done) {
             try {
@@ -36,14 +36,14 @@ public final class ForEachWhileSubscriber<T> extends AtomicReference<d> implemen
                     onComplete();
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.K(th);
+                io.reactivex.exceptions.a.J(th);
                 dispose();
                 onError(th);
             }
         }
     }
 
-    @Override // org.a.c
+    @Override // org.b.c
     public void onError(Throwable th) {
         if (this.done) {
             io.reactivex.e.a.onError(th);
@@ -53,19 +53,19 @@ public final class ForEachWhileSubscriber<T> extends AtomicReference<d> implemen
         try {
             this.onError.accept(th);
         } catch (Throwable th2) {
-            io.reactivex.exceptions.a.K(th2);
+            io.reactivex.exceptions.a.J(th2);
             io.reactivex.e.a.onError(new CompositeException(th, th2));
         }
     }
 
-    @Override // org.a.c
+    @Override // org.b.c
     public void onComplete() {
         if (!this.done) {
             this.done = true;
             try {
                 this.onComplete.run();
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.K(th);
+                io.reactivex.exceptions.a.J(th);
                 io.reactivex.e.a.onError(th);
             }
         }

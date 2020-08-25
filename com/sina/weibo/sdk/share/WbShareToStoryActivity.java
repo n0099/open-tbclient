@@ -14,7 +14,7 @@ import com.sina.weibo.sdk.api.StoryObject;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.sina.weibo.sdk.utils.LogUtil;
 import com.sina.weibo.sdk.web.view.WbSdkProgressBar;
-/* loaded from: classes7.dex */
+/* loaded from: classes14.dex */
 public class WbShareToStoryActivity extends BaseActivity {
     private String callbackActivity;
     private View progressBar;

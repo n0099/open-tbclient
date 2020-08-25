@@ -7,7 +7,7 @@ import io.reactivex.o;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
 public final class MaybeAmb<T> extends k<T> {
-    private final Iterable<? extends o<? extends T>> nSH;
+    private final Iterable<? extends o<? extends T>> omC;
     private final o<? extends T>[] sources;
 
     @Override // io.reactivex.k
@@ -18,7 +18,7 @@ public final class MaybeAmb<T> extends k<T> {
             o<? extends T>[] oVarArr2 = new o[8];
             try {
                 int i = 0;
-                for (o<? extends T> oVar : this.nSH) {
+                for (o<? extends T> oVar : this.omC) {
                     if (oVar == null) {
                         EmptyDisposable.error(new NullPointerException("One of the sources is null"), mVar);
                         return;
@@ -35,7 +35,7 @@ public final class MaybeAmb<T> extends k<T> {
                 length = i;
                 oVarArr = oVarArr2;
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.K(th);
+                io.reactivex.exceptions.a.J(th);
                 EmptyDisposable.error(th, mVar);
                 return;
             }

@@ -4,30 +4,32 @@ import android.content.Context;
 import android.os.Vibrator;
 /* loaded from: classes11.dex */
 public class d {
-    private static d dM;
-    long[] dL = {800, 60, 400, 60};
-    private Vibrator dN;
+
+    /* renamed from: do  reason: not valid java name */
+    private static d f0do;
+    long[] dn = {800, 60, 400, 60};
+    private Vibrator dp;
 
     private d(Context context) {
-        this.dN = (Vibrator) context.getSystemService("vibrator");
+        this.dp = (Vibrator) context.getSystemService("vibrator");
     }
 
     public static synchronized d c(Context context) {
         d dVar;
         synchronized (d.class) {
-            if (dM == null) {
-                dM = new d(context);
+            if (f0do == null) {
+                f0do = new d(context);
             }
-            dVar = dM;
+            dVar = f0do;
         }
         return dVar;
     }
 
     public void a(long[] jArr) {
-        this.dN.vibrate(jArr, -1);
+        this.dp.vibrate(jArr, -1);
     }
 
     public void c(long j) {
-        this.dN.vibrate(j);
+        this.dp.vibrate(j);
     }
 }

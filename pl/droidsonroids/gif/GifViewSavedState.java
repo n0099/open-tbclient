@@ -6,7 +6,7 @@ import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes18.dex */
+/* loaded from: classes4.dex */
 public class GifViewSavedState extends View.BaseSavedState {
     public static final Parcelable.Creator<GifViewSavedState> CREATOR = new Parcelable.Creator<GifViewSavedState>() { // from class: pl.droidsonroids.gif.GifViewSavedState.1
         /* JADX DEBUG: Method merged with bridge method */

@@ -5,10 +5,10 @@ import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import com.baidu.live.adp.base.BdPageContext;
 import com.baidu.live.tbadk.core.data.BaseData;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class ILiveMultiBeautyView extends LinearLayout {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface a {
     }
 

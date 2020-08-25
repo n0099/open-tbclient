@@ -1,10 +1,19 @@
 package com.baidu.tbadk.switchs;
-/* loaded from: classes.dex */
+
+import com.facebook.common.util.TriState;
+/* loaded from: classes2.dex */
 public class QuickWebViewSwitch extends BaseNormalSwitch {
+    private static TriState state = TriState.UNSET;
     private static QuickWebViewSwitch mInstance = new QuickWebViewSwitch();
 
     public static boolean getInOn() {
-        return mInstance.isOn();
+        if (state == TriState.UNSET) {
+            return mInstance.isOn();
+        }
+        if (state == TriState.YES) {
+            return true;
+        }
+        return false;
     }
 
     @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.adp.lib.featureSwitch.a
@@ -16,5 +25,9 @@ public class QuickWebViewSwitch extends BaseNormalSwitch {
     @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.adp.lib.featureSwitch.a
     public int getDefaultType() {
         return super.getDefaultType();
+    }
+
+    public static void setState(TriState triState) {
+        state = triState;
     }
 }

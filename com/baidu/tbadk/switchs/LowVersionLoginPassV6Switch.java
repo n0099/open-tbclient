@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.a;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class LowVersionLoginPassV6Switch extends a {
     public static final int DEFAULT_TYPE = 0;
     public static final String KEY = "switch_low_version_login_passv6";

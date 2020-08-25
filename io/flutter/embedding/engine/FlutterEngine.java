@@ -24,7 +24,7 @@ import io.flutter.embedding.engine.systemchannels.TextInputChannel;
 import io.flutter.plugin.platform.PlatformViewsController;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public class FlutterEngine {
     private static final String TAG = "FlutterEngine";
     @NonNull
@@ -60,7 +60,7 @@ public class FlutterEngine {
     @NonNull
     private final TextInputChannel textInputChannel;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes19.dex */
     public interface EngineLifecycleListener {
         void onPreEngineRestart();
     }

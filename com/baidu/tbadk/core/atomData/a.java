@@ -1,20 +1,23 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
     public Activity activity;
     public int channel;
-    public ShareItem dLR;
+    public ShareItem dVa;
+    public DialogInterface.OnCancelListener onCancelListener;
 
-    public a(ShareItem shareItem, Activity activity) {
-        this.dLR = shareItem;
+    public a(ShareItem shareItem, Activity activity, DialogInterface.OnCancelListener onCancelListener) {
+        this.dVa = shareItem;
         this.activity = activity;
+        this.onCancelListener = onCancelListener;
     }
 
     public a(ShareItem shareItem, Activity activity, int i) {
-        this.dLR = shareItem;
+        this.dVa = shareItem;
         this.activity = activity;
         this.channel = i;
     }

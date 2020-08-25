@@ -11,84 +11,85 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.browser.BrowserHelper;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class c {
-    private static int gxm = 0;
-    private static volatile c gxn = null;
+    private static int gJl = 0;
+    private static volatile c gJm = null;
     private long currLiveId;
     private long duration;
     private long now;
     private Handler handler = new Handler();
-    Runnable gxo = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.task.c.1
+    Runnable gJn = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.task.c.1
         @Override // java.lang.Runnable
         public void run() {
-            Log.i("TaskHelper", "@@ reportRunnable haokan=" + c.gxm + ", currLiveId=" + c.this.currLiveId + ", duration=" + c.this.duration);
-            c.this.aeU();
+            Log.i("TaskHelper", "@@ reportRunnable haokan=" + c.gJl + ", currLiveId=" + c.this.currLiveId + ", duration=" + c.this.duration);
+            c.this.ama();
             c.this.stopRecord();
         }
     };
 
-    public static c bME() {
-        if (gxn == null) {
+    public static c bWB() {
+        if (gJm == null) {
             synchronized (c.class) {
-                if (gxn == null) {
-                    gxn = new c();
+                if (gJm == null) {
+                    gJm = new c();
                 }
             }
         }
-        return gxn;
+        return gJm;
     }
 
-    public void dY(long j) {
-        Log.i("TaskHelper", "@@ startRecord watchCount=" + gxm + ", currLiveId=" + this.currLiveId + ", liveId=" + j + ", duration=" + this.duration);
-        if (bMF()) {
+    public void ej(long j) {
+        Log.i("TaskHelper", "@@ startRecord watchCount=" + gJl + ", currLiveId=" + this.currLiveId + ", liveId=" + j + ", duration=" + this.duration);
+        if (bWC()) {
             this.currLiveId = j;
             this.duration = 0L;
             this.now = System.currentTimeMillis();
-            this.handler.removeCallbacks(this.gxo);
-            this.handler.postDelayed(this.gxo, 60000 - this.duration);
+            this.handler.removeCallbacks(this.gJn);
+            this.handler.postDelayed(this.gJn, 60000 - this.duration);
         }
     }
 
     public void pauseRecord() {
-        Log.i("TaskHelper", "@@ pauseRecord watchCount=" + gxm + ", currLiveId=" + this.currLiveId + ", duration=" + this.duration);
-        this.handler.removeCallbacks(this.gxo);
+        Log.i("TaskHelper", "@@ pauseRecord watchCount=" + gJl + ", currLiveId=" + this.currLiveId + ", duration=" + this.duration);
+        this.handler.removeCallbacks(this.gJn);
         this.duration = System.currentTimeMillis() - this.now;
         if (this.duration < 0) {
             this.duration = 0L;
         }
     }
 
-    public void dZ(long j) {
-        Log.i("TaskHelper", "@@ resumeRecord watchCount=" + gxm + ", currLiveId=" + this.currLiveId + ", liveId=" + j + ", duration=" + this.duration);
+    public void ek(long j) {
+        Log.i("TaskHelper", "@@ resumeRecord watchCount=" + gJl + ", currLiveId=" + this.currLiveId + ", liveId=" + j + ", duration=" + this.duration);
         if (this.currLiveId == 0 || this.currLiveId != j) {
             stopRecord();
             return;
         }
         this.now = System.currentTimeMillis();
-        this.handler.removeCallbacks(this.gxo);
-        this.handler.postDelayed(this.gxo, 60000 - this.duration);
+        this.handler.removeCallbacks(this.gJn);
+        this.handler.postDelayed(this.gJn, 60000 - this.duration);
     }
 
     public void stopRecord() {
-        Log.i("TaskHelper", "@@ stopRecord watchCount=" + gxm + ", currLiveId=" + this.currLiveId + ", duration=" + this.duration);
+        Log.i("TaskHelper", "@@ stopRecord watchCount=" + gJl + ", currLiveId=" + this.currLiveId + ", duration=" + this.duration);
         this.duration = 0L;
         this.currLiveId = 0L;
-        this.handler.removeCallbacks(this.gxo);
+        this.handler.removeCallbacks(this.gJn);
     }
 
-    private boolean bMF() {
-        return gxm < 30;
+    private boolean bWC() {
+        return gJl < 30;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aeU() {
-        Log.i("TaskHelper", "@@ report watchCount=" + gxm + ", currLiveId=" + this.currLiveId + ", duration=" + this.duration + ", isNeed=" + bMF());
-        if (bMF()) {
+    public void ama() {
+        Log.i("TaskHelper", "@@ report watchCount=" + gJl + ", currLiveId=" + this.currLiveId + ", duration=" + this.duration + ", isNeed=" + bWC());
+        if (bWC()) {
             HttpMessage httpMessage = new HttpMessage(1021127);
             httpMessage.addParam("live_id", this.currLiveId);
             httpMessage.addParam("client_ip", "");
@@ -98,14 +99,14 @@ public class c {
 
     public void a(Context context, a aVar) {
         if (aVar != null) {
-            gxm++;
-            if (context != null && (context instanceof Activity) && aVar.gxb == 1 && !TextUtils.isEmpty(aVar.tips)) {
-                d(context, aVar.tips, aVar.url, aVar.title);
+            gJl++;
+            if (context != null && (context instanceof Activity) && aVar.gJa == 1 && !TextUtils.isEmpty(aVar.tips)) {
+                e(context, aVar.tips, aVar.url, aVar.title);
             }
         }
     }
 
-    private void d(final Context context, String str, final String str2, String str3) {
+    private void e(final Context context, String str, final String str2, String str3) {
         View inflate = LayoutInflater.from(context).inflate(a.h.dialog_task_result, (ViewGroup) null);
         final Dialog dialog = new Dialog(context, a.j.PlayLevelDialog);
         dialog.requestWindowFeature(1);
@@ -137,7 +138,7 @@ public class c {
                 }
             }
         };
-        this.handler.postDelayed(runnable, 3000L);
+        this.handler.postDelayed(runnable, IMConnection.RETRY_DELAY_TIMES);
         findViewById.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.task.c.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {

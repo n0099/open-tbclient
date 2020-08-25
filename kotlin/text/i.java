@@ -1,8 +1,8 @@
 package kotlin.text;
 @kotlin.h
-/* loaded from: classes7.dex */
+/* loaded from: classes20.dex */
 public interface i {
-    kotlin.b.h dUC();
+    kotlin.b.h egE();
 
-    i dUD();
+    i egF();
 }

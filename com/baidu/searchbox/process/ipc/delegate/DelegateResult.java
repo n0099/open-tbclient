@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import com.baidu.searchbox.process.ipc.delegate.DelegateDef;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
-/* loaded from: classes18.dex */
+/* loaded from: classes14.dex */
 public class DelegateResult implements DelegateDef.ResultCode {
     public final Class<? extends Delegation> mDelegation;
     private StringBuilder mDesc;

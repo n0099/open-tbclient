@@ -1,15 +1,15 @@
 package com.baidu.tbadk.core.view.userLike;
 
 import android.view.View;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface b {
     void a(boolean z, int i, boolean z2);
 
-    void bi(View view);
+    void bk(View view);
 
     void g(View.OnClickListener onClickListener);
 
-    void nc(int i);
+    void pk(int i);
 
     void r(boolean z, int i);
 }

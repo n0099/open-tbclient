@@ -9,22 +9,22 @@ import com.baidu.afd.videopaster.data.VideoPasterResponseData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes15.dex */
 public class a {
-    private InterfaceC0034a Ys;
-    private VideoPasterResponseData Yt;
+    private InterfaceC0031a YX;
+    private VideoPasterResponseData YY;
     private boolean isLoading;
-    private final HttpMessageListener XE = new HttpMessageListener(CmdConfigHttp.CMD_VIDEO_PASTER_AD_REQUEST) { // from class: com.baidu.afd.videopaster.a.a.1
+    private final HttpMessageListener Yk = new HttpMessageListener(CmdConfigHttp.CMD_VIDEO_PASTER_AD_REQUEST) { // from class: com.baidu.afd.videopaster.a.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             a.this.isLoading = false;
-            a.this.Yt = (VideoPasterResponseData) httpResponsedMessage;
+            a.this.YY = (VideoPasterResponseData) httpResponsedMessage;
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003431) {
                 if (httpResponsedMessage instanceof VideoPasterResponseData) {
-                    if (a.this.Ys != null) {
-                        a.this.Ys.b(((VideoPasterResponseData) httpResponsedMessage).getPasterData());
+                    if (a.this.YX != null) {
+                        a.this.YX.b(((VideoPasterResponseData) httpResponsedMessage).getPasterData());
                     }
-                } else if (a.this.Ys != null) {
-                    a.this.Ys.e(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                } else if (a.this.YX != null) {
+                    a.this.YX.d(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
@@ -33,16 +33,16 @@ public class a {
 
     /* renamed from: com.baidu.afd.videopaster.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes15.dex */
-    public interface InterfaceC0034a {
+    public interface InterfaceC0031a {
         void b(com.baidu.afd.videopaster.data.a aVar);
 
-        void e(int i, String str);
+        void d(int i, String str);
     }
 
     public a() {
-        this.XE.setSelfListener(true);
-        this.XE.setTag(this.mBdUniqueId);
-        MessageManager.getInstance().registerListener(this.XE);
+        this.Yk.setSelfListener(true);
+        this.Yk.setTag(this.mBdUniqueId);
+        MessageManager.getInstance().registerListener(this.Yk);
     }
 
     public void a(VideoPasterRequestData videoPasterRequestData) {
@@ -62,27 +62,27 @@ public class a {
     public void reset() {
         cancelRequest();
         this.isLoading = false;
-        this.Yt = null;
+        this.YY = null;
     }
 
     public boolean isLoading() {
         return this.isLoading;
     }
 
-    public VideoPasterResponseData qu() {
-        return this.Yt;
+    public VideoPasterResponseData rT() {
+        return this.YY;
     }
 
-    public void a(InterfaceC0034a interfaceC0034a) {
-        this.Ys = interfaceC0034a;
+    public void a(InterfaceC0031a interfaceC0031a) {
+        this.YX = interfaceC0031a;
     }
 
     public void onDestroy() {
-        if (this.XE != null) {
-            MessageManager.getInstance().unRegisterListener(this.XE);
+        if (this.Yk != null) {
+            MessageManager.getInstance().unRegisterListener(this.Yk);
         }
-        if (this.Ys != null) {
-            this.Ys = null;
+        if (this.YX != null) {
+            this.YX = null;
         }
     }
 }

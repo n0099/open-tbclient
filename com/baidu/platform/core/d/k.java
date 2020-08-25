@@ -11,12 +11,13 @@ import com.baidu.mapapi.search.route.SuggestAddrInfo;
 import com.baidu.mapapi.search.route.TransitRouteResult;
 import com.baidu.mapapi.search.route.WalkingRouteResult;
 import com.baidu.platform.base.SearchType;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes20.dex */
 public class k extends com.baidu.platform.base.d {
     SuggestAddrInfo b = null;
     protected boolean c;
@@ -109,7 +110,7 @@ public class k extends com.baidu.platform.base.d {
                     poiInfo.address = jSONObject.optString("addr");
                     poiInfo.uid = jSONObject.optString("uid");
                     poiInfo.name = jSONObject.optString("name");
-                    poiInfo.location = CoordUtil.decodeLocation(jSONObject.optString("geo"));
+                    poiInfo.location = CoordUtil.decodeLocation(jSONObject.optString(MapBundleKey.MapObjKey.OBJ_GEO));
                     poiInfo.city = str;
                     arrayList.add(poiInfo);
                 }
@@ -154,7 +155,7 @@ public class k extends com.baidu.platform.base.d {
             if (i2 >= optJSONArray.length()) {
                 return arrayList;
             }
-            List<PoiInfo> a = a((JSONArray) optJSONArray.opt(i2), "");
+            List<PoiInfo> a = a(((JSONObject) optJSONArray.opt(i2)).optJSONArray("way_ponits"), "");
             if (a != null) {
                 arrayList.add(a);
             }

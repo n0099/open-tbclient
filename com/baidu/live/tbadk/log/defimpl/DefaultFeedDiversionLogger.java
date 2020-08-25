@@ -1,7 +1,7 @@
 package com.baidu.live.tbadk.log.defimpl;
 
 import com.baidu.live.tbadk.log.IFeedDiversionLogger;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class DefaultFeedDiversionLogger implements IFeedDiversionLogger {
     @Override // com.baidu.live.tbadk.log.IFeedDiversionLogger
     public void doDisplayGuideFloatLayerLog(String str, String str2) {

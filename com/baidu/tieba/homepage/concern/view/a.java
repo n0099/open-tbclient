@@ -18,7 +18,7 @@ public class a extends com.baidu.card.b<AbsThreadDataSupport> {
         super(tbPageContext.getPageActivity());
         this.mPageContext = tbPageContext;
         Activity pageActivity = tbPageContext.getPageActivity();
-        this.mNoDataView = NoDataViewFactory.a(pageActivity, null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.SINGALL), NoDataViewFactory.d.m31do(null, pageActivity.getResources().getString(R.string.concern_no_data_title)), null);
+        this.mNoDataView = NoDataViewFactory.a(pageActivity, null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.SINGALL), NoDataViewFactory.d.dE(null, pageActivity.getResources().getString(R.string.concern_no_data_title)), null);
         this.mNoDataView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         this.mNoDataView.setVisibility(0);
         this.mNoDataView.bringToFront();
@@ -31,13 +31,13 @@ public class a extends com.baidu.card.b<AbsThreadDataSupport> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.card.n
+    @Override // com.baidu.card.o
     /* renamed from: b */
-    public void D(AbsThreadDataSupport absThreadDataSupport) {
+    public void F(AbsThreadDataSupport absThreadDataSupport) {
         this.mNoDataView.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // com.baidu.card.o
+    @Override // com.baidu.card.p
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         this.mNoDataView.onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }

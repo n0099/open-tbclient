@@ -4,7 +4,7 @@ import android.content.Context;
 import com.heytap.mcssdk.mode.AppMessage;
 import com.heytap.mcssdk.mode.CommandMessage;
 import com.heytap.mcssdk.mode.SptDataMessage;
-/* loaded from: classes20.dex */
+/* loaded from: classes9.dex */
 public interface MessageCallback {
     void processMessage(Context context, AppMessage appMessage);
 

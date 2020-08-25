@@ -8,24 +8,33 @@ import android.view.KeyEvent;
 import com.baidu.pass.biometrics.base.NoProguard;
 import com.baidu.pass.biometrics.base.R;
 import com.baidu.pass.biometrics.base.utils.PassBioGlobalUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes20.dex */
 public class BaseActivity extends Activity implements NoProguard {
-    private String mMultiWindowTips;
-    private boolean mIsShowMultiWindowTips = false;
-    private boolean mIsMultiWindowAvailable = true;
-    private boolean mIsActivityInForeground = false;
+    private String c;
+    private boolean a = false;
+    private boolean b = true;
+    private boolean d = false;
 
-    @Override // android.app.Activity
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        this.mMultiWindowTips = getResources().getString(R.string.pass_bio_multi_window_tips);
+    @TargetApi(24)
+    private void a() {
+        if (Build.VERSION.SDK_INT < 24 || !isInMultiWindowMode()) {
+            return;
+        }
+        if (this.a) {
+            PassBioGlobalUtils.toastWithText(getActivity(), this.c, 1);
+        }
+        if (this.b) {
+            return;
+        }
+        finish();
     }
 
-    @Override // android.app.Activity
-    public void onResume() {
-        super.onResume();
-        this.mIsActivityInForeground = true;
-        showMultiWindowTips();
+    public Activity getActivity() {
+        return this;
+    }
+
+    public boolean isActivityInForeground() {
+        return this.d;
     }
 
     @Override // android.app.Activity
@@ -34,9 +43,9 @@ public class BaseActivity extends Activity implements NoProguard {
     }
 
     @Override // android.app.Activity
-    public void onPause() {
-        super.onPause();
-        this.mIsActivityInForeground = false;
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        this.c = getResources().getString(R.string.pass_bio_multi_window_tips);
     }
 
     @Override // android.app.Activity
@@ -53,55 +62,49 @@ public class BaseActivity extends Activity implements NoProguard {
         return super.onKeyDown(i, keyEvent);
     }
 
-    public boolean isActivityInForeground() {
-        return this.mIsActivityInForeground;
-    }
-
     @Override // android.app.Activity
     @TargetApi(24)
     public void onMultiWindowModeChanged(boolean z) {
         if (Build.VERSION.SDK_INT >= 24) {
             super.onMultiWindowModeChanged(z);
             if (z && isActivityInForeground()) {
-                if (this.mIsShowMultiWindowTips) {
-                    PassBioGlobalUtils.toastWithText(getActivity(), this.mMultiWindowTips, 1);
+                if (this.a) {
+                    PassBioGlobalUtils.toastWithText(getActivity(), this.c, 1);
                 }
-                if (!this.mIsMultiWindowAvailable) {
-                    finish();
+                if (this.b) {
+                    return;
                 }
-            }
-        }
-    }
-
-    public Activity getActivity() {
-        return this;
-    }
-
-    @TargetApi(24)
-    private void showMultiWindowTips() {
-        if (Build.VERSION.SDK_INT >= 24 && isInMultiWindowMode()) {
-            if (this.mIsShowMultiWindowTips) {
-                PassBioGlobalUtils.toastWithText(getActivity(), this.mMultiWindowTips, 1);
-            }
-            if (!this.mIsMultiWindowAvailable) {
                 finish();
             }
         }
     }
 
-    protected void setIsShowMultiWindowTips(boolean z) {
-        if (z != this.mIsShowMultiWindowTips) {
-            this.mIsShowMultiWindowTips = z;
-        }
+    @Override // android.app.Activity
+    public void onPause() {
+        super.onPause();
+        this.d = false;
+    }
+
+    @Override // android.app.Activity
+    public void onResume() {
+        super.onResume();
+        this.d = true;
+        a();
     }
 
     protected void setIsMultiWindowAvailable(boolean z) {
-        if (z != this.mIsMultiWindowAvailable) {
-            this.mIsMultiWindowAvailable = z;
+        if (z != this.b) {
+            this.b = z;
+        }
+    }
+
+    protected void setIsShowMultiWindowTips(boolean z) {
+        if (z != this.a) {
+            this.a = z;
         }
     }
 
     protected void setMultiWindowTipsId(String str) {
-        this.mMultiWindowTips = str;
+        this.c = str;
     }
 }

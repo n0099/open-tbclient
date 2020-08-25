@@ -6,7 +6,7 @@ import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiContext;
 import java.util.HashMap;
-/* loaded from: classes19.dex */
+/* loaded from: classes12.dex */
 public class b {
     public static final String a = "login_";
     public static final String b = "login_pop";
@@ -26,7 +26,7 @@ public class b {
             SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
             hashMap.put("uid", currentAccount == null ? "uid_is_empty" : currentAccount.uid);
             hashMap.put("scenes", str);
-            t.a("ptoken_is_null", hashMap);
+            k.a("ptoken_is_null", hashMap);
         }
     }
 }

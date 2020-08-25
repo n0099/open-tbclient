@@ -8,35 +8,35 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class c {
-    private static List<WeakReference<ScheduledFuture<?>>> mNI = new ArrayList();
-    private static int mNK = 30;
-    private static ExecutorService mNJ = Executors.newFixedThreadPool(2);
-    private static ScheduledExecutorService mNL = Executors.newScheduledThreadPool(2);
+    private static List<WeakReference<ScheduledFuture<?>>> ngA = new ArrayList();
+    private static int ngC = 30;
+    private static ExecutorService ngB = Executors.newFixedThreadPool(2);
+    private static ScheduledExecutorService ngD = Executors.newScheduledThreadPool(2);
 
     public static void execute(Runnable runnable) {
-        if (mNJ == null || mNJ.isShutdown()) {
-            mNJ = Executors.newFixedThreadPool(2);
+        if (ngB == null || ngB.isShutdown()) {
+            ngB = Executors.newFixedThreadPool(2);
         }
-        mNJ.execute(runnable);
+        ngB.execute(runnable);
     }
 
     public static synchronized void a(Runnable runnable, long j, long j2) {
         synchronized (c.class) {
-            if (mNL == null || mNL.isShutdown()) {
-                mNL = Executors.newScheduledThreadPool(2);
+            if (ngD == null || ngD.isShutdown()) {
+                ngD = Executors.newScheduledThreadPool(2);
             }
-            mNI.add(new WeakReference<>(mNL.scheduleAtFixedRate(runnable, j, j2, TimeUnit.MILLISECONDS)));
+            ngA.add(new WeakReference<>(ngD.scheduleAtFixedRate(runnable, j, j2, TimeUnit.MILLISECONDS)));
         }
     }
 
     public static synchronized void a(Runnable runnable) {
         synchronized (c.class) {
-            if (mNL == null || mNL.isShutdown()) {
-                mNL = Executors.newScheduledThreadPool(2);
+            if (ngD == null || ngD.isShutdown()) {
+                ngD = Executors.newScheduledThreadPool(2);
             }
-            mNL.execute(runnable);
+            ngD.execute(runnable);
         }
     }
 }

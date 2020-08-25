@@ -3,7 +3,7 @@ package io.flutter.plugin.common;
 import io.flutter.plugin.common.StandardMessageCodec;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes12.dex */
+/* loaded from: classes19.dex */
 public final class StandardMethodCodec implements MethodCodec {
     public static final StandardMethodCodec INSTANCE = new StandardMethodCodec(StandardMessageCodec.INSTANCE);
     private final StandardMessageCodec messageCodec;

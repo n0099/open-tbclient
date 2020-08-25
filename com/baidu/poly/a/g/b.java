@@ -3,7 +3,7 @@ package com.baidu.poly.a.g;
 import android.text.TextUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class b {
     private static String a(byte[] bArr) {
         StringBuilder sb = new StringBuilder();
@@ -17,17 +17,7 @@ public class b {
         return sb.toString();
     }
 
-    public static String g(String str) {
-        try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-            messageDigest.update(str.getBytes());
-            return a(messageDigest.digest());
-        } catch (NoSuchAlgorithmException e) {
-            return String.valueOf(str.hashCode());
-        }
-    }
-
-    public static String h(String str) {
+    public static String dC(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }
@@ -37,6 +27,16 @@ public class b {
             return a(messageDigest.digest());
         } catch (NoSuchAlgorithmException e) {
             return "";
+        }
+    }
+
+    public static String g(String str) {
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            messageDigest.update(str.getBytes());
+            return a(messageDigest.digest());
+        } catch (NoSuchAlgorithmException e) {
+            return String.valueOf(str.hashCode());
         }
     }
 }

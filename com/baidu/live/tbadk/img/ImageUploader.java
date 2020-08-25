@@ -19,7 +19,7 @@ import java.io.Closeable;
 import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.LinkedList;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ImageUploader {
     private int bigHeight;
     private int bigWidth;
@@ -34,7 +34,7 @@ public class ImageUploader {
     private String groupId = "1";
     private NetWork mNetwork = null;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface ImageUploadProgressCallback {
         void onImageDataSentInBackground(String str, Object obj, long j, long j2);
     }
