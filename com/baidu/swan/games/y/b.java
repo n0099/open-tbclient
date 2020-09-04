@@ -18,15 +18,15 @@ public class b {
     public static void a(String str, a aVar) {
         e azI;
         if (aVar != null && !TextUtils.isEmpty(str) && (azI = e.azI()) != null) {
-            if (com.baidu.swan.games.y.a.aPA().vW(str)) {
+            if (com.baidu.swan.games.y.a.aPA().vX(str)) {
                 aVar.aPB();
                 return;
             }
-            String ql = com.baidu.swan.games.y.a.aPA().ql(str);
-            if (TextUtils.isEmpty(ql)) {
+            String qm = com.baidu.swan.games.y.a.aPA().qm(str);
+            if (TextUtils.isEmpty(qm)) {
                 aVar.gv(2112);
             } else {
-                com.baidu.swan.pms.c.a(new f(azI.id, azI.getVersion(), ql, 1), new com.baidu.swan.games.y.b.a(azI.id, azI.getVersion(), com.baidu.swan.games.y.a.aPA().Z(str, 2), aVar));
+                com.baidu.swan.pms.c.a(new f(azI.id, azI.getVersion(), qm, 1), new com.baidu.swan.games.y.b.a(azI.id, azI.getVersion(), com.baidu.swan.games.y.a.aPA().Z(str, 2), aVar));
             }
         }
     }

@@ -25,10 +25,10 @@ import com.baidu.tbadk.mutiprocess.share.ShareEvent;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.MissionInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
-    private static a ehV;
-    private static CustomMessageListener eia = new CustomMessageListener(2921440) { // from class: com.baidu.tbadk.core.f.a.2
+    private static a ehZ;
+    private static CustomMessageListener eie = new CustomMessageListener(2921440) { // from class: com.baidu.tbadk.core.f.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -38,10 +38,10 @@ public class a {
         }
     };
     private int activityId;
-    private int ehW;
-    private int ehX;
-    private int ehY;
-    private CustomMessageListener ehZ = new CustomMessageListener(2921406) { // from class: com.baidu.tbadk.core.f.a.1
+    private int eia;
+    private int eib;
+    private int eic;
+    private CustomMessageListener eid = new CustomMessageListener(2921406) { // from class: com.baidu.tbadk.core.f.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -51,7 +51,7 @@ public class a {
             }
         }
     };
-    private final b<com.baidu.adp.widget.ImageView.a> eib = new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.core.f.a.3
+    private final b<com.baidu.adp.widget.ImageView.a> eif = new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.core.f.a.3
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.e.b
@@ -71,14 +71,14 @@ public class a {
     private int missionId;
 
     public static a bih() {
-        if (ehV == null) {
+        if (ehZ == null) {
             synchronized (a.class) {
-                if (ehV == null) {
-                    ehV = new a();
+                if (ehZ == null) {
+                    ehZ = new a();
                 }
             }
         }
-        return ehV;
+        return ehZ;
     }
 
     public void d(com.baidu.tbadk.BdToken.activeConfig.a aVar) {
@@ -86,9 +86,9 @@ public class a {
         TbPageContext o;
         if (!q.aYY().aZd() && aVar != null) {
             boolean z = com.baidu.tbadk.core.sharedPref.b.bik().getBoolean("key_task_system_new_user_popup_show_number", false);
-            if (aVar.isNewUser && !StringUtils.isNull(aVar.dQB) && !z && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null && (o = o(currentActivity)) != null) {
-                this.mNewUserRedPackageData = aVar.dQE;
-                c.mM().a(this.mNewUserRedPackageData.topPicUrl, 10, this.eib, 0, 0, o.getUniqueId(), new Object[0]);
+            if (aVar.isNewUser && !StringUtils.isNull(aVar.dQF) && !z && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null && (o = o(currentActivity)) != null) {
+                this.mNewUserRedPackageData = aVar.dQI;
+                c.mM().a(this.mNewUserRedPackageData.topPicUrl, 10, this.eif, 0, 0, o.getUniqueId(), new Object[0]);
                 com.baidu.tbadk.core.sharedPref.b.bik().putBoolean("key_task_system_new_user_popup_show_number", true);
             }
         }
@@ -109,13 +109,13 @@ public class a {
         if (missionInfo != null && missionInfo.activityid.intValue() != 0 && missionInfo.missionid.intValue() != 0) {
             this.activityId = missionInfo.activityid.intValue();
             this.missionId = missionInfo.missionid.intValue();
-            this.ehW = missionInfo.total_limit.intValue();
-            this.ehY = missionInfo.cleartype.intValue();
-            this.ehX = missionInfo.cleartime.intValue();
+            this.eia = missionInfo.total_limit.intValue();
+            this.eic = missionInfo.cleartype.intValue();
+            this.eib = missionInfo.cleartime.intValue();
             com.baidu.tbadk.BdToken.b bVar = new com.baidu.tbadk.BdToken.b();
-            bVar.ct(this.ehX);
-            bVar.mA(this.ehY);
-            com.baidu.tbadk.core.sharedPref.b.bik().putInt("task_share_thread_success_data_total_limit", this.ehW);
+            bVar.ct(this.eib);
+            bVar.mA(this.eic);
+            com.baidu.tbadk.core.sharedPref.b.bik().putInt("task_share_thread_success_data_total_limit", this.eia);
             com.baidu.tbadk.core.sharedPref.b.bik().putInt("task_share_thread_success_data_mission_id", this.missionId);
             com.baidu.tbadk.core.sharedPref.b.bik().putInt("task_share_thread_success_data_action_id", this.activityId);
             com.baidu.tbadk.core.sharedPref.b.bik().putLong("task_share_thread_success_data_specific_clear_time", bVar.aYa());
@@ -161,7 +161,7 @@ public class a {
     }
 
     public void init() {
-        MessageManager.getInstance().registerListener(this.ehZ);
-        MessageManager.getInstance().registerListener(eia);
+        MessageManager.getInstance().registerListener(this.eid);
+        MessageManager.getInstance().registerListener(eie);
     }
 }

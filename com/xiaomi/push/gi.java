@@ -9,7 +9,7 @@ public class gi extends gj {
     private String b;
 
     /* renamed from: b  reason: collision with other field name */
-    private boolean f394b;
+    private boolean f393b;
     private String c;
     private String d;
     private String e;
@@ -29,7 +29,7 @@ public class gi extends gj {
         this.j = "";
         this.k = "";
         this.l = "";
-        this.f394b = false;
+        this.f393b = false;
     }
 
     public gi(Bundle bundle) {
@@ -41,7 +41,7 @@ public class gi extends gj {
         this.j = "";
         this.k = "";
         this.l = "";
-        this.f394b = false;
+        this.f393b = false;
         this.b = bundle.getString("ext_msg_type");
         this.d = bundle.getString("ext_msg_lang");
         this.c = bundle.getString("ext_msg_thread");
@@ -50,7 +50,7 @@ public class gi extends gj {
         this.g = bundle.getString("ext_body_encode");
         this.h = bundle.getString("ext_msg_appid");
         this.a = bundle.getBoolean("ext_msg_trans", false);
-        this.f394b = bundle.getBoolean("ext_msg_encrypt", false);
+        this.f393b = bundle.getBoolean("ext_msg_encrypt", false);
         this.i = bundle.getString("ext_msg_seq");
         this.j = bundle.getString("ext_msg_mseq");
         this.k = bundle.getString("ext_msg_fseq");
@@ -93,7 +93,7 @@ public class gi extends gj {
         if (!TextUtils.isEmpty(this.k)) {
             a.putString("ext_msg_fseq", this.k);
         }
-        if (this.f394b) {
+        if (this.f393b) {
             a.putBoolean("ext_msg_encrypt", true);
         }
         if (!TextUtils.isEmpty(this.l)) {
@@ -146,7 +146,7 @@ public class gi extends gj {
         if (!TextUtils.isEmpty(this.b)) {
             sb.append(" type=\"").append(this.b).append("\"");
         }
-        if (this.f394b) {
+        if (this.f393b) {
             sb.append(" s=\"1\"");
         }
         sb.append(">");
@@ -197,7 +197,7 @@ public class gi extends gj {
     }
 
     public void b(boolean z) {
-        this.f394b = z;
+        this.f393b = z;
     }
 
     public String c() {

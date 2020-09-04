@@ -22,6 +22,6 @@ public class j implements ILiveScheme {
         } catch (JSONException e) {
             str = "";
         }
-        com.baidu.tieba.sdk.a.dpk().aU(context, str);
+        com.baidu.tieba.sdk.a.dpn().aU(context, str);
     }
 }

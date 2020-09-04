@@ -10,19 +10,19 @@ public class aj {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static int aFd() {
-        JSONObject sJ = sJ(getAppId());
-        if (sJ != null) {
-            return sJ.optInt("launch_count", 0);
+        JSONObject sK = sK(getAppId());
+        if (sK != null) {
+            return sK.optInt("launch_count", 0);
         }
         return 0;
     }
 
     public static long aFe() {
         long currentTimeMillis = System.currentTimeMillis();
-        JSONObject sJ = sJ(getAppId());
-        long optLong = sJ != null ? sJ.optLong("foreground_aiapp_last_time_local", 0L) : 0L;
-        if (sJ != null) {
-            return sJ.optLong("visit_duration", 0L) + (currentTimeMillis - optLong);
+        JSONObject sK = sK(getAppId());
+        long optLong = sK != null ? sK.optLong("foreground_aiapp_last_time_local", 0L) : 0L;
+        if (sK != null) {
+            return sK.optLong("visit_duration", 0L) + (currentTimeMillis - optLong);
         }
         return 0L;
     }
@@ -45,7 +45,7 @@ public class aj {
         return TextUtils.isEmpty(optString) || !optString.equals(currentDate);
     }
 
-    public static JSONObject sJ(String str) {
+    public static JSONObject sK(String str) {
         JSONObject jSONObject;
         JSONException e;
         String string = com.baidu.swan.apps.storage.c.h.aDf().getString("dailyInfo", "");

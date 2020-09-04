@@ -5,7 +5,7 @@ import android.graphics.Paint;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.style.ReplacementSpan;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b extends ReplacementSpan {
     private final Paint mPaint;
     private int mWidth;

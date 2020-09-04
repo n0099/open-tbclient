@@ -14,24 +14,24 @@ import org.json.JSONArray;
 /* loaded from: classes8.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final b cFx = new b();
-    private final List<d> cFt = new ArrayList();
-    private final Map<String, d> cFu = new HashMap();
-    private boolean cFv = false;
-    private a cFw;
+    private static final b cFB = new b();
+    private a cFA;
+    private final List<d> cFx = new ArrayList();
+    private final Map<String, d> cFy = new HashMap();
+    private boolean cFz = false;
 
     private b() {
     }
 
     public static b avi() {
-        return cFx;
+        return cFB;
     }
 
     public void reset() {
-        this.cFv = false;
-        synchronized (this.cFt) {
-            this.cFt.clear();
-            this.cFu.clear();
+        this.cFz = false;
+        synchronized (this.cFx) {
+            this.cFx.clear();
+            this.cFy.clear();
         }
         if (DEBUG) {
             Log.d("MaUpdateRecorder", "reset");
@@ -39,10 +39,10 @@ public class b {
     }
 
     public void done() {
-        this.cFv = true;
-        synchronized (this.cFt) {
-            this.cFt.clear();
-            this.cFu.clear();
+        this.cFz = true;
+        synchronized (this.cFx) {
+            this.cFx.clear();
+            this.cFy.clear();
         }
         if (DEBUG) {
             Log.d("MaUpdateRecorder", AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE);
@@ -50,12 +50,12 @@ public class b {
     }
 
     public void a(a aVar) {
-        this.cFw = aVar;
+        this.cFA = aVar;
     }
 
-    public String oO(String str) {
+    public String oP(String str) {
         String str2 = null;
-        if (!this.cFv) {
+        if (!this.cFz) {
             if (DEBUG) {
                 Log.d("MaUpdateRecorder", "begin update scope id - " + str);
             }
@@ -64,8 +64,8 @@ public class b {
                 str2 = Thread.currentThread().getName() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + UUID.randomUUID().toString();
                 d dVar = new d(str);
                 dVar.bp(currentTimeMillis);
-                synchronized (this.cFt) {
-                    this.cFu.put(str2, dVar);
+                synchronized (this.cFx) {
+                    this.cFy.put(str2, dVar);
                 }
                 if (DEBUG) {
                     Log.d("MaUpdateRecorder", "begin update uni tag - " + str2);
@@ -76,19 +76,19 @@ public class b {
         return str2;
     }
 
-    public void oP(String str) {
-        if (!this.cFv) {
+    public void oQ(String str) {
+        if (!this.cFz) {
             if (DEBUG) {
                 Log.d("MaUpdateRecorder", "end update uni tag - " + str);
             }
             if (!TextUtils.isEmpty(str)) {
                 long currentTimeMillis = System.currentTimeMillis();
-                synchronized (this.cFt) {
-                    d dVar = this.cFu.get(str);
+                synchronized (this.cFx) {
+                    d dVar = this.cFy.get(str);
                     if (dVar != null) {
                         dVar.bq(currentTimeMillis);
-                        this.cFt.add(dVar);
-                        this.cFu.remove(str);
+                        this.cFx.add(dVar);
+                        this.cFy.remove(str);
                     }
                 }
                 if (DEBUG) {
@@ -111,10 +111,10 @@ public class b {
 
     private JSONArray avj() {
         JSONArray jSONArray = new JSONArray();
-        synchronized (this.cFt) {
+        synchronized (this.cFx) {
             try {
-                for (d dVar : this.cFt) {
-                    if (dVar != null && (this.cFw == null || this.cFw.a(dVar))) {
+                for (d dVar : this.cFx) {
+                    if (dVar != null && (this.cFA == null || this.cFA.a(dVar))) {
                         jSONArray.put(dVar.toJson());
                     }
                 }

@@ -105,7 +105,7 @@ public abstract class a implements r {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.r
-    public String iH(String str) {
+    public String iI(String str) {
         return com.baidu.swan.apps.i.c.processCommonParams(str);
     }
 }

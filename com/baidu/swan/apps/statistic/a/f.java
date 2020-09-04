@@ -11,18 +11,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class f extends e {
-    public String cQE;
-    public SwanCoreVersion cXB;
+    public String cQI;
+    public SwanCoreVersion cXF;
     public String mAppVersion = "";
-    public String cXC = "";
-    public String cXD = "";
-    public String cXE = "";
-    public String cXF = "";
     public String cXG = "";
-    public String mScheme = "";
     public String cXH = "";
     public String cXI = "";
     public String cXJ = "";
+    public String cXK = "";
+    public String mScheme = "";
+    public String cXL = "";
+    public String cXM = "";
+    public String cXN = "";
     public String mErrorCode = "";
 
     public f() {
@@ -49,75 +49,75 @@ public class f extends e {
         }
         this.mAppId = eVar.getAppId();
         this.mSource = eVar.aqN();
-        this.cXE = eVar.aqT().getString("aiapp_extra_need_download", "");
-        this.cXG = eVar.aqT().getString("aiapp_extra_preset_pkg", "");
-        this.cXF = eVar.aqT().getString("aiapp_extra_pkg_downloading", "0");
+        this.cXI = eVar.aqT().getString("aiapp_extra_need_download", "");
+        this.cXK = eVar.aqT().getString("aiapp_extra_preset_pkg", "");
+        this.cXJ = eVar.aqT().getString("aiapp_extra_pkg_downloading", "0");
         this.mScheme = eVar.aqP();
-        this.cXJ = eVar.getPage();
-        this.cQE = eVar.arg();
+        this.cXN = eVar.getPage();
+        this.cQI = eVar.arg();
     }
 
-    public void rz(String str) {
-        this.cQE = str;
+    public void rA(String str) {
+        this.cQI = str;
     }
 
     public String arg() {
-        return this.cQE;
+        return this.cQI;
     }
 
     @Override // com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
         try {
             com.baidu.swan.apps.runtime.e agn = com.baidu.swan.apps.v.f.arY().agn();
-            String a = com.baidu.swan.apps.swancore.b.a(this.cXB, this.mFrom == "swangame" ? 1 : 0);
+            String a = com.baidu.swan.apps.swancore.b.a(this.cXF, this.mFrom == "swangame" ? 1 : 0);
             if (agn != null && agn.XZ() != null) {
                 b.a XZ = agn.XZ();
                 if (TextUtils.isEmpty(this.mAppVersion)) {
                     this.mAppVersion = agn.getVersion();
                 }
-                if (TextUtils.isEmpty(this.cXC)) {
-                    this.cXC = XZ.getVersionCode();
+                if (TextUtils.isEmpty(this.cXG)) {
+                    this.cXG = XZ.getVersionCode();
                 }
                 if (XZ.aqS() != null) {
-                    this.cXE = XZ.aqS().getString("aiapp_extra_need_download", "");
-                    this.cXG = XZ.aqT().getString("aiapp_extra_preset_pkg", "0");
-                    this.cXF = XZ.aqT().getString("aiapp_extra_pkg_downloading", "0");
+                    this.cXI = XZ.aqS().getString("aiapp_extra_need_download", "");
+                    this.cXK = XZ.aqT().getString("aiapp_extra_preset_pkg", "0");
+                    this.cXJ = XZ.aqT().getString("aiapp_extra_pkg_downloading", "0");
                 }
                 if (TextUtils.isEmpty(this.mScheme)) {
                     this.mScheme = XZ.aqP();
                 }
-                this.mScheme = com.baidu.swan.apps.statistic.g.rm(this.mScheme);
+                this.mScheme = com.baidu.swan.apps.statistic.g.rn(this.mScheme);
                 if (TextUtils.isEmpty(this.mPage) && !TextUtils.isEmpty(XZ.getPage())) {
-                    this.cXJ = XZ.getPage();
+                    this.cXN = XZ.getPage();
                 }
-                this.cXJ = com.baidu.swan.apps.statistic.g.rm(this.cXJ);
-                if (TextUtils.isEmpty(this.cQE)) {
-                    this.cQE = XZ.arg();
+                this.cXN = com.baidu.swan.apps.statistic.g.rn(this.cXN);
+                if (TextUtils.isEmpty(this.cQI)) {
+                    this.cQI = XZ.arg();
                 }
             }
-            this.cXD = SwanAppNetworkUtils.auT().type;
-            if (this.cXz == null) {
-                this.cXz = new JSONObject();
+            this.cXH = SwanAppNetworkUtils.auT().type;
+            if (this.cXD == null) {
+                this.cXD = new JSONObject();
             }
-            this.cXz.put("swan", a);
-            this.cXz.put(ETAG.KEY_APP_VERSION, this.mAppVersion);
-            this.cXz.put("thirdversion", this.cXC);
-            this.cXz.put("net", this.cXD);
-            this.cXz.put("needdown", this.cXE);
-            this.cXz.put("preset", this.cXG);
-            this.cXz.put("isPreDownloading", this.cXF);
-            this.cXz.put(SuspensionBallEntity.KEY_SCHEME, this.mScheme);
-            this.cXz.put("page", this.cXJ);
-            this.cXz.put("error_code", this.mErrorCode);
-            this.cXz.put("launchid", this.cQE);
-            if (!TextUtils.isEmpty(this.cXH)) {
-                this.cXz.put("canceltime", this.cXH);
+            this.cXD.put("swan", a);
+            this.cXD.put(ETAG.KEY_APP_VERSION, this.mAppVersion);
+            this.cXD.put("thirdversion", this.cXG);
+            this.cXD.put("net", this.cXH);
+            this.cXD.put("needdown", this.cXI);
+            this.cXD.put("preset", this.cXK);
+            this.cXD.put("isPreDownloading", this.cXJ);
+            this.cXD.put(SuspensionBallEntity.KEY_SCHEME, this.mScheme);
+            this.cXD.put("page", this.cXN);
+            this.cXD.put("error_code", this.mErrorCode);
+            this.cXD.put("launchid", this.cQI);
+            if (!TextUtils.isEmpty(this.cXL)) {
+                this.cXD.put("canceltime", this.cXL);
             }
-            if (!TextUtils.isEmpty(this.cXI)) {
-                this.cXz.put("successtime", this.cXI);
+            if (!TextUtils.isEmpty(this.cXM)) {
+                this.cXD.put("successtime", this.cXM);
             }
             if (DEBUG) {
-                Log.d("SwanAppUBCEvent", "SwanAppUBCEvent: mExt=" + this.cXz + "\t " + Thread.currentThread().getId());
+                Log.d("SwanAppUBCEvent", "SwanAppUBCEvent: mExt=" + this.cXD + "\t " + Thread.currentThread().getId());
             }
         } catch (JSONException e) {
             if (DEBUG) {

@@ -14,8 +14,8 @@ public class SplashAd {
     private static boolean d;
     private com.baidu.mobads.production.g.a a;
     private int b;
-    private SplashAdListener bDq;
-    private IOAdEventListener bDr;
+    private SplashAdListener bDt;
+    private IOAdEventListener bDu;
     private volatile String c;
     public static String RSPLASH_PATTERN = "pattern";
     public static String RSPLASH_BTN_POS = "btn_pos";
@@ -27,8 +27,8 @@ public class SplashAd {
     public SplashAd(Context context, ViewGroup viewGroup, SplashAdListener splashAdListener, String str, boolean z) {
         this.b = 4;
         this.c = OneKeyLoginSdkCall.l;
-        this.bDq = new q(this);
-        this.bDr = new r(this);
+        this.bDt = new q(this);
+        this.bDu = new r(this);
         try {
             com.baidu.mobads.a.a.l = System.currentTimeMillis();
             com.baidu.mobads.a.a.m = 0L;
@@ -41,10 +41,10 @@ public class SplashAd {
                 a(viewGroup, context);
             }
             if (splashAdListener != null) {
-                this.bDq = splashAdListener;
+                this.bDt = splashAdListener;
             }
             if (TextUtils.isEmpty(str)) {
-                this.bDq.onAdFailed("请您输入正确的广告位ID");
+                this.bDt.onAdFailed("请您输入正确的广告位ID");
                 return;
             }
             XAdView xAdView = new XAdView(context);

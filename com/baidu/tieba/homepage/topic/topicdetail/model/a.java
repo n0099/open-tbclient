@@ -19,8 +19,8 @@ import tbclient.ThreadInfo;
 import tbclient.User;
 /* loaded from: classes16.dex */
 public class a {
-    private BdUniqueId ePv;
-    private final com.baidu.adp.framework.listener.a hpZ = new com.baidu.adp.framework.listener.a(1003010, CmdConfigSocket.CMD_GET_MY_POST) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.a.1
+    private BdUniqueId ePz;
+    private final com.baidu.adp.framework.listener.a hqd = new com.baidu.adp.framework.listener.a(1003010, CmdConfigSocket.CMD_GET_MY_POST) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
@@ -32,18 +32,18 @@ public class a {
             }
         }
     };
-    private TopicDetailView iTz;
+    private TopicDetailView iTF;
 
     public a(TopicDetailView topicDetailView) {
-        this.iTz = topicDetailView;
+        this.iTF = topicDetailView;
     }
 
     public void m(BdUniqueId bdUniqueId) {
-        this.ePv = bdUniqueId;
-        this.hpZ.setTag(bdUniqueId);
-        this.hpZ.getHttpMessageListener().setSelfListener(true);
-        this.hpZ.getSocketMessageListener().setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.hpZ);
+        this.ePz = bdUniqueId;
+        this.hqd.setTag(bdUniqueId);
+        this.hqd.getHttpMessageListener().setSelfListener(true);
+        this.hqd.getSocketMessageListener().setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.hqd);
     }
 
     public RunnableC0701a B(long j, long j2) {
@@ -71,7 +71,7 @@ public class a {
                 i = 2;
             }
             RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-            requestGetMyPostNetMessage.setTag(a.this.ePv);
+            requestGetMyPostNetMessage.setTag(a.this.ePz);
             requestGetMyPostNetMessage.setParams(this.threadId, this.postId, 0L, equipmentWidth, equipmentHeight, f, i);
             MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
         }
@@ -90,7 +90,7 @@ public class a {
             bwVar.a(build);
             bwVar.cz(new Date().getTime());
             if (com.baidu.tieba.card.data.l.aa(bwVar)) {
-                this.iTz.aC(bwVar);
+                this.iTF.aC(bwVar);
             }
         }
     }

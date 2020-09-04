@@ -25,7 +25,7 @@ public class d {
         x(str, null, str2);
     }
 
-    public static void iq(final String str) {
+    public static void ir(final String str) {
         SwanAppNetworkUtils.a(new SwanAppNetworkUtils.a() { // from class: com.baidu.swan.apps.core.d.1
             @Override // com.baidu.swan.apps.network.SwanAppNetworkUtils.a
             public void onResult(int i) {

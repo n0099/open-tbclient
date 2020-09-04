@@ -4,25 +4,25 @@ import com.baidu.android.common.others.IStringUtil;
 @kotlin.h
 /* loaded from: classes20.dex */
 final class d {
-    private final double osQ;
-    private final double osR;
+    private final double oti;
+    private final double otj;
 
     public boolean isEmpty() {
-        return this.osQ > this.osR;
+        return this.oti > this.otj;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof d) && ((isEmpty() && ((d) obj).isEmpty()) || (this.osQ == ((d) obj).osQ && this.osR == ((d) obj).osR));
+        return (obj instanceof d) && ((isEmpty() && ((d) obj).isEmpty()) || (this.oti == ((d) obj).oti && this.otj == ((d) obj).otj));
     }
 
     public int hashCode() {
         if (isEmpty()) {
             return -1;
         }
-        return (Double.valueOf(this.osQ).hashCode() * 31) + Double.valueOf(this.osR).hashCode();
+        return (Double.valueOf(this.oti).hashCode() * 31) + Double.valueOf(this.otj).hashCode();
     }
 
     public String toString() {
-        return this.osQ + IStringUtil.TOP_PATH + this.osR;
+        return this.oti + IStringUtil.TOP_PATH + this.otj;
     }
 }

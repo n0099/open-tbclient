@@ -5,13 +5,13 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 /* loaded from: classes8.dex */
 public class c implements b {
-    private final Queue<a> dcn = new ArrayDeque();
-    private a dco;
+    private final Queue<a> dcr = new ArrayDeque();
+    private a dcs;
 
     public void b(a aVar) {
         if (aVar != null) {
-            synchronized (this.dcn) {
-                this.dcn.offer(aVar.a(this));
+            synchronized (this.dcr) {
+                this.dcr.offer(aVar.a(this));
             }
         }
         aFH();
@@ -19,40 +19,40 @@ public class c implements b {
 
     @Override // com.baidu.swan.apps.ap.d.b
     public void a(a aVar) {
-        synchronized (this.dcn) {
-            if (aVar == this.dco) {
+        synchronized (this.dcr) {
+            if (aVar == this.dcs) {
                 runNextTask();
             }
         }
     }
 
     private void aFH() {
-        synchronized (this.dcn) {
-            if (this.dco == null) {
+        synchronized (this.dcr) {
+            if (this.dcs == null) {
                 runNextTask();
             }
         }
     }
 
     private void runNextTask() {
-        synchronized (this.dcn) {
-            this.dco = null;
-            if (!this.dcn.isEmpty()) {
-                this.dco = this.dcn.poll();
-                if (this.dco == null) {
+        synchronized (this.dcr) {
+            this.dcs = null;
+            if (!this.dcr.isEmpty()) {
+                this.dcs = this.dcr.poll();
+                if (this.dcs == null) {
                     runNextTask();
                 } else {
-                    ak.m(this.dco);
+                    ak.m(this.dcs);
                 }
             }
         }
     }
 
     public synchronized void clear() {
-        if (this.dco != null) {
-            this.dco.finish();
-            this.dco = null;
+        if (this.dcs != null) {
+            this.dcs.finish();
+            this.dcs = null;
         }
-        this.dcn.clear();
+        this.dcr.clear();
     }
 }

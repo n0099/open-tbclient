@@ -33,7 +33,7 @@ public class a {
                 if ((qVar instanceof c) && (bce = (cVar = (c) qVar).bce()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(com.baidu.adp.lib.f.b.toLong(bce.getTid(), 0L))) != null) {
                     cVar.setSource(threadPersonalized.source);
                     cVar.setWeight(threadPersonalized.weight);
-                    cVar.Ha(threadPersonalized.abtest_tag);
+                    cVar.Hb(threadPersonalized.abtest_tag);
                     bce.mRecomAbTag = threadPersonalized.abtest_tag;
                     bce.mRecomSource = threadPersonalized.source;
                     bce.mRecomWeight = threadPersonalized.weight;

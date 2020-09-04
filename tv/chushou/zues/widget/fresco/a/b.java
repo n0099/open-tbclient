@@ -8,11 +8,11 @@ import android.graphics.Paint;
 import com.facebook.cache.common.g;
 /* loaded from: classes6.dex */
 public class b extends com.facebook.imagepipeline.request.a {
-    private static final b oOD = new b();
-    private static final com.facebook.cache.common.b oOC = new g("GrayPostprocessor");
+    private static final b oOV = new b();
+    private static final com.facebook.cache.common.b oOU = new g("GrayPostprocessor");
 
-    public static b emB() {
-        return oOD;
+    public static b emK() {
+        return oOV;
     }
 
     private b() {
@@ -34,7 +34,7 @@ public class b extends com.facebook.imagepipeline.request.a {
     }
 
     @Override // com.facebook.imagepipeline.request.a, com.facebook.imagepipeline.request.b
-    public com.facebook.cache.common.b dVn() {
-        return oOC;
+    public com.facebook.cache.common.b dVw() {
+        return oOU;
     }
 }

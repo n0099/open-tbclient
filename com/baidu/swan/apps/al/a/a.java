@@ -10,15 +10,15 @@ import com.baidu.swan.apps.console.c;
 import com.baidu.swan.apps.runtime.e;
 /* loaded from: classes8.dex */
 public class a {
-    private static volatile a cYG;
-    private SensorManager bnK;
-    private SensorEventListener cYH;
-    private Sensor cYI;
-    private InterfaceC0337a cYJ;
-    private double[] cYK = new double[3];
-    private boolean cYL = false;
-    private long cYM = 0;
-    private int cYN;
+    private static volatile a cYK;
+    private SensorManager bnN;
+    private SensorEventListener cYL;
+    private Sensor cYM;
+    private InterfaceC0337a cYN;
+    private double[] cYO = new double[3];
+    private boolean cYP = false;
+    private long cYQ = 0;
+    private int cYR;
     private Context mContext;
 
     /* renamed from: com.baidu.swan.apps.al.a.a$a  reason: collision with other inner class name */
@@ -31,36 +31,36 @@ public class a {
     }
 
     public static a aDw() {
-        if (cYG == null) {
+        if (cYK == null) {
             synchronized (a.class) {
-                if (cYG == null) {
-                    cYG = new a();
+                if (cYK == null) {
+                    cYK = new a();
                 }
             }
         }
-        return cYG;
+        return cYK;
     }
 
     public void m(Context context, int i) {
         this.mContext = context;
-        this.cYN = i;
+        this.cYR = i;
     }
 
     public void a(InterfaceC0337a interfaceC0337a) {
-        this.cYJ = interfaceC0337a;
+        this.cYN = interfaceC0337a;
     }
 
     public void aDx() {
         if (this.mContext == null) {
             c.e("accelerometer", "start error, none context");
-        } else if (this.cYL) {
+        } else if (this.cYP) {
             c.w("accelerometer", "has already start");
         } else {
-            this.bnK = (SensorManager) this.mContext.getSystemService("sensor");
-            if (this.bnK != null) {
-                this.cYI = this.bnK.getDefaultSensor(1);
-                this.bnK.registerListener(aDA(), this.cYI, 1);
-                this.cYL = true;
+            this.bnN = (SensorManager) this.mContext.getSystemService("sensor");
+            if (this.bnN != null) {
+                this.cYM = this.bnN.getDefaultSensor(1);
+                this.bnN.registerListener(aDA(), this.cYM, 1);
+                this.cYP = true;
                 c.i("accelerometer", "start listen");
                 return;
             }
@@ -69,57 +69,57 @@ public class a {
     }
 
     public void aDy() {
-        if (!this.cYL) {
+        if (!this.cYP) {
             c.w("accelerometer", "has already stop");
             return;
         }
-        if (this.cYH != null && this.bnK != null) {
-            this.bnK.unregisterListener(this.cYH);
-            this.cYH = null;
+        if (this.cYL != null && this.bnN != null) {
+            this.bnN.unregisterListener(this.cYL);
+            this.cYL = null;
         }
-        this.bnK = null;
-        this.cYI = null;
-        this.cYL = false;
+        this.bnN = null;
+        this.cYM = null;
+        this.cYP = false;
     }
 
     public static void release() {
-        if (cYG != null) {
-            cYG.aDz();
+        if (cYK != null) {
+            cYK.aDz();
         }
     }
 
     private void aDz() {
         c.i("accelerometer", "release");
-        if (this.cYL) {
+        if (this.cYP) {
             aDy();
         }
-        this.bnK = null;
-        this.cYI = null;
-        this.cYH = null;
-        this.cYK = null;
+        this.bnN = null;
+        this.cYM = null;
+        this.cYL = null;
+        this.cYO = null;
         this.mContext = null;
-        cYG = null;
+        cYK = null;
     }
 
     private SensorEventListener aDA() {
         c.i("accelerometer", "get Accelerometer listener");
-        if (this.cYH != null) {
-            return this.cYH;
+        if (this.cYL != null) {
+            return this.cYL;
         }
-        this.cYH = new SensorEventListener() { // from class: com.baidu.swan.apps.al.a.a.1
+        this.cYL = new SensorEventListener() { // from class: com.baidu.swan.apps.al.a.a.1
             @Override // android.hardware.SensorEventListener
             public void onSensorChanged(SensorEvent sensorEvent) {
                 if (sensorEvent != null && sensorEvent.sensor != null && sensorEvent.sensor.getType() == 1) {
                     if (sensorEvent.values != null && sensorEvent.values.length == 3) {
-                        if (a.this.cYJ != null && System.currentTimeMillis() - a.this.cYM > a.this.cYN) {
-                            a.this.cYK[0] = (-sensorEvent.values[0]) / 9.8d;
-                            a.this.cYK[1] = (-sensorEvent.values[1]) / 9.8d;
-                            a.this.cYK[2] = (-sensorEvent.values[2]) / 9.8d;
-                            a.this.cYJ.b(a.this.cYK);
-                            a.this.cYM = System.currentTimeMillis();
+                        if (a.this.cYN != null && System.currentTimeMillis() - a.this.cYQ > a.this.cYR) {
+                            a.this.cYO[0] = (-sensorEvent.values[0]) / 9.8d;
+                            a.this.cYO[1] = (-sensorEvent.values[1]) / 9.8d;
+                            a.this.cYO[2] = (-sensorEvent.values[2]) / 9.8d;
+                            a.this.cYN.b(a.this.cYO);
+                            a.this.cYQ = System.currentTimeMillis();
                         }
                         if (e.DEBUG) {
-                            Log.d("AccelerometerManager", "current Time : " + a.this.cYM + "current Acc x : " + a.this.cYK[0] + "current Acc y : " + a.this.cYK[1] + "current Acc z : " + a.this.cYK[2]);
+                            Log.d("AccelerometerManager", "current Time : " + a.this.cYQ + "current Acc x : " + a.this.cYO[0] + "current Acc y : " + a.this.cYO[1] + "current Acc z : " + a.this.cYO[2]);
                             return;
                         }
                         return;
@@ -132,6 +132,6 @@ public class a {
             public void onAccuracyChanged(Sensor sensor, int i) {
             }
         };
-        return this.cYH;
+        return this.cYL;
     }
 }

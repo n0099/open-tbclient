@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.k;
 import com.baidu.tbadk.util.t;
 import tbclient.Profile.DataReq;
 import tbclient.Profile.ProfileReqIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ProfileRequestMessage extends NetMessage {
     private boolean error_hint;
     private Long friend_uid;

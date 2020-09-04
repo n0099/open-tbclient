@@ -8,25 +8,25 @@ import com.cmic.sso.sdk.a.b;
 /* loaded from: classes7.dex */
 public class j {
     @SuppressLint({"StaticFieldLeak"})
-    private static j niU;
+    private static j njm;
     private Context a;
 
     public static void a(Context context) {
-        niU = new j(context);
+        njm = new j(context);
     }
 
     private j(Context context) {
         this.a = context;
     }
 
-    public static j dNo() {
-        return niU;
+    public static j dNx() {
+        return njm;
     }
 
     public String b() {
         try {
-            b.C0856b dNg = com.cmic.sso.sdk.a.b.dNf().dNg();
-            return dNg.KJ(dNg.f());
+            b.C0856b dNp = com.cmic.sso.sdk.a.b.dNo().dNp();
+            return dNp.KJ(dNp.f());
         } catch (Exception e) {
             e.printStackTrace();
             return "";
@@ -38,8 +38,8 @@ public class j {
         String str;
         TelephonyManager telephonyManager;
         String str2;
-        b.C0856b dNg = com.cmic.sso.sdk.a.b.dNf().dNg();
-        String KL = dNg.KL(dNg.f());
+        b.C0856b dNp = com.cmic.sso.sdk.a.b.dNo().dNp();
+        String KL = dNp.KL(dNp.f());
         if (TextUtils.isEmpty(KL) && n.a(this.a) && (telephonyManager = (TelephonyManager) this.a.getSystemService("phone")) != null) {
             String simOperator = telephonyManager.getSimOperator();
             if (TextUtils.isEmpty(simOperator) && g.a(this.a, "android.permission.READ_PHONE_STATE") && n.d()) {
@@ -154,11 +154,11 @@ public class j {
     }
 
     @SuppressLint({"MissingPermission"})
-    public String xM(boolean z) {
+    public String xO(boolean z) {
         try {
             if (n.d()) {
-                b.C0856b dNg = com.cmic.sso.sdk.a.b.dNf().dNg();
-                String KK = dNg.KK(dNg.f());
+                b.C0856b dNp = com.cmic.sso.sdk.a.b.dNo().dNp();
+                String KK = dNp.KK(dNp.f());
                 if (TextUtils.isEmpty(KK) && z) {
                     KK = ((TelephonyManager) this.a.getSystemService("phone")).getDeviceId();
                 }
@@ -176,8 +176,8 @@ public class j {
 
     public String c() {
         try {
-            b.C0856b dNg = com.cmic.sso.sdk.a.b.dNf().dNg();
-            String KJ = dNg.KJ((dNg.f() + 1) % 2);
+            b.C0856b dNp = com.cmic.sso.sdk.a.b.dNo().dNp();
+            String KJ = dNp.KJ((dNp.f() + 1) % 2);
             if (KJ == null) {
                 return "";
             }
@@ -189,8 +189,8 @@ public class j {
 
     public String d() {
         try {
-            b.C0856b dNg = com.cmic.sso.sdk.a.b.dNf().dNg();
-            String KK = dNg.KK((dNg.f() + 1) % 2);
+            b.C0856b dNp = com.cmic.sso.sdk.a.b.dNo().dNp();
+            String KK = dNp.KK((dNp.f() + 1) % 2);
             if (KK == null) {
                 return "";
             }
@@ -202,8 +202,8 @@ public class j {
 
     @SuppressLint({"MissingPermission"})
     public static String e() {
-        b.C0856b dNg = com.cmic.sso.sdk.a.b.dNf().dNg();
-        return dNg.a(dNg.f());
+        b.C0856b dNp = com.cmic.sso.sdk.a.b.dNo().dNp();
+        return dNp.a(dNp.f());
     }
 
     public String f() {

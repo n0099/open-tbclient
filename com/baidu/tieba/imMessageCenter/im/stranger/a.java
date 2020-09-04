@@ -11,14 +11,14 @@ public class a {
     /* loaded from: classes16.dex */
     public static class C0727a {
         public String fName;
-        public String ilh;
-        public String jCL;
-        public int jDh;
-        public String jDi;
-        public String jDj;
-        public int jDk;
-        public String jDl;
-        public String jDm;
+        public String iln;
+        public String jCR;
+        public int jDn;
+        public String jDo;
+        public String jDp;
+        public int jDq;
+        public String jDr;
+        public String jDs;
         public String postId;
         public String threadId;
         public int threadType;
@@ -26,7 +26,7 @@ public class a {
         public int type;
     }
 
-    public static C0727a Ln(String str) {
+    public static C0727a Lo(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -35,9 +35,9 @@ public class a {
             JSONArray jSONArray = new JSONArray(str);
             if (jSONArray.length() > 0) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(0);
-                c0727a.jDi = optJSONObject.optString("title");
-                c0727a.jCL = optJSONObject.optString("content");
-                c0727a.jDl = optJSONObject.optString("quote_content");
+                c0727a.jDo = optJSONObject.optString("title");
+                c0727a.jCR = optJSONObject.optString("content");
+                c0727a.jDr = optJSONObject.optString("quote_content");
                 c0727a.fName = optJSONObject.optString("fname");
                 c0727a.threadId = optJSONObject.optString("thread_id");
                 c0727a.postId = optJSONObject.optString("post_id");
@@ -46,14 +46,14 @@ public class a {
                 c0727a.threadType = optJSONObject.optInt("thread_type");
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject("quote_user");
                 if (optJSONObject2 != null) {
-                    c0727a.jDj = optJSONObject2.optString("id");
-                    c0727a.jDm = optJSONObject2.optString("portrait");
-                    c0727a.jDk = optJSONObject2.optInt("gender");
+                    c0727a.jDp = optJSONObject2.optString("id");
+                    c0727a.jDs = optJSONObject2.optString("portrait");
+                    c0727a.jDq = optJSONObject2.optInt("gender");
                 }
                 JSONObject optJSONObject3 = optJSONObject.optJSONObject("replyer");
                 if (optJSONObject3 != null) {
-                    c0727a.ilh = optJSONObject3.optString("id");
-                    c0727a.jDh = optJSONObject3.optInt("gender");
+                    c0727a.iln = optJSONObject3.optString("id");
+                    c0727a.jDn = optJSONObject3.optInt("gender");
                 }
             }
             return c0727a;

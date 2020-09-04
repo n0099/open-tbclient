@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Scroller;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class DragContainer extends LinearLayout {
     private Bitmap bm;
     private final int delay;

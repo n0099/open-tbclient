@@ -26,7 +26,7 @@ import com.baidu.tbadk.core.util.be;
 import java.util.HashMap;
 /* loaded from: classes16.dex */
 public class SchemaRouteActivity extends BaseActivity {
-    private final f.a hUv = new f.a() { // from class: com.baidu.tieba.tblauncher.SchemaRouteActivity.1
+    private final f.a hUB = new f.a() { // from class: com.baidu.tieba.tblauncher.SchemaRouteActivity.1
         @Override // com.baidu.tbadk.BdToken.f.a
         public void z(HashMap<String, Object> hashMap) {
             if (hashMap != null && (hashMap.get(com.baidu.tbadk.BdToken.f.PARAM_URL) instanceof String)) {
@@ -75,7 +75,7 @@ public class SchemaRouteActivity extends BaseActivity {
             } else if (!TextUtils.isEmpty(dataString) && dataString.contains("tbwebview")) {
                 Uri data = intent.getData();
                 if (com.baidu.tbadk.BdToken.f.p(data)) {
-                    com.baidu.tbadk.BdToken.f.aYL().d(data, this.hUv);
+                    com.baidu.tbadk.BdToken.f.aYL().d(data, this.hUB);
                 } else {
                     TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(getActivity());
                     tbWebViewActivityConfig.setUri(intent.getData());
@@ -109,9 +109,9 @@ public class SchemaRouteActivity extends BaseActivity {
                     sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LogoActivityConfig((Context) getActivity(), false)));
                 }
                 com.baidu.tbadk.BdToken.c.aYs().setSchemaUp(true);
-            } else if (!TextUtils.isEmpty(dataString) && dataString.contains(com.baidu.tbadk.BdToken.f.HOST + com.baidu.tbadk.BdToken.f.dPc)) {
+            } else if (!TextUtils.isEmpty(dataString) && dataString.contains(com.baidu.tbadk.BdToken.f.HOST + com.baidu.tbadk.BdToken.f.dPg)) {
                 Uri parse = Uri.parse(dataString);
-                be.bju().b(getPageContext(), new String[]{"tiebachushou://liveroom?roomid=" + parse.getQueryParameter(com.baidu.tbadk.BdToken.f.dPv) + "&livetype=" + parse.getQueryParameter(com.baidu.tbadk.BdToken.f.dPu)});
+                be.bju().b(getPageContext(), new String[]{"tiebachushou://liveroom?roomid=" + parse.getQueryParameter(com.baidu.tbadk.BdToken.f.dPz) + "&livetype=" + parse.getQueryParameter(com.baidu.tbadk.BdToken.f.dPy)});
                 com.baidu.tbadk.BdToken.c.aYs().setSchemaUp(true);
             } else if (!TextUtils.isEmpty(dataString) && dataString.contains("unidispatch/onekeysign")) {
                 if (TbadkCoreApplication.isLogin()) {

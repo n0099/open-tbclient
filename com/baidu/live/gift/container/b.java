@@ -11,7 +11,7 @@ import com.baidu.live.sdk.a;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class b extends BaseAdapter {
-    private List<g> aQy;
+    private List<g> aQA;
     private Context mContext;
     private int mType;
 
@@ -21,25 +21,25 @@ public class b extends BaseAdapter {
     }
 
     public void E(List<g> list) {
-        this.aQy = list;
+        this.aQA = list;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aQy == null) {
+        if (this.aQA == null) {
             return 1;
         }
-        return this.aQy.size() + 1;
+        return this.aQA.size() + 1;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: dW */
     public g getItem(int i) {
-        if (this.aQy == null || i < 0 || i >= getCount() - 1) {
+        if (this.aQA == null || i < 0 || i >= getCount() - 1) {
             return null;
         }
-        return this.aQy.get(i);
+        return this.aQA.get(i);
     }
 
     @Override // android.widget.Adapter

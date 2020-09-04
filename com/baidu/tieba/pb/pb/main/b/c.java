@@ -26,7 +26,7 @@ import com.baidu.tieba.tbadkCore.data.PostData;
 import java.util.ArrayList;
 /* loaded from: classes16.dex */
 public class c {
-    public a kPV = new a() { // from class: com.baidu.tieba.pb.pb.main.b.c.1
+    public a kQc = new a() { // from class: com.baidu.tieba.pb.pb.main.b.c.1
         @Override // com.baidu.tieba.pb.pb.main.b.c.a
         public void a(f fVar, bw bwVar, PostData postData, View view) {
             String shareImageUrl;
@@ -40,7 +40,7 @@ public class c {
                     if (!StringUtils.isNull(shareImageUrl) && shareImageUrl.startsWith(TbConfig.URL_IMAGE_PREFIX)) {
                         shareImageUrl = shareImageUrl.substring(TbConfig.URL_IMAGE_PREFIX.length());
                     }
-                    bwVar = fVar.cVl();
+                    bwVar = fVar.cVm();
                     if (bwVar == null) {
                         return;
                     }
@@ -50,13 +50,13 @@ public class c {
                 mVar.E(cV);
                 mVar.setContent(bwVar.getAbstract());
                 if (bwVar.beW() != null) {
-                    mVar.sB(true);
-                    mVar.Nm(StringUtils.translateSecondsToString(bwVar.beW().video_duration.intValue()));
+                    mVar.sD(true);
+                    mVar.Nn(StringUtils.translateSecondsToString(bwVar.beW().video_duration.intValue()));
                 } else {
-                    mVar.sB(false);
+                    mVar.sD(false);
                 }
                 if (!StringUtils.isNull(shareImageUrl)) {
-                    mVar.Nn(shareImageUrl);
+                    mVar.No(shareImageUrl);
                 }
                 String title = bwVar.getTitle();
                 if (StringUtils.isNull(title)) {
@@ -70,10 +70,10 @@ public class c {
                     tid = bwVar.getTid();
                     str = "?share=9105&fr=share";
                 }
-                mVar.F(c.this.NU("http://tieba.baidu.com/p/" + tid + str));
+                mVar.F(c.this.NV("http://tieba.baidu.com/p/" + tid + str));
                 ShareItem shareItem = new ShareItem();
                 shareItem.shareType = 1;
-                shareItem.eEj = true;
+                shareItem.eEn = true;
                 shareItem.extData = tid;
                 shareItem.pid = postData.getId();
                 Bundle bundle = new Bundle();
@@ -118,7 +118,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Bitmap NU(String str) {
+    public Bitmap NV(String str) {
         CustomResponsedMessage runTask;
         if (str == null || str.length() == 0 || (runTask = MessageManager.getInstance().runTask(2921388, Bitmap.class, str)) == null || runTask.getData() == null) {
             return null;

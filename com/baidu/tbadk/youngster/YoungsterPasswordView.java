@@ -23,17 +23,17 @@ import com.baidu.tbadk.youngster.PasswordView;
 import com.baidu.tbadk.youngster.b.b;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.BdTopToast;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class YoungsterPasswordView extends LinearLayout implements View.OnClickListener {
-    private TextView fjG;
-    private PasswordView fjH;
-    private TextView fjI;
-    private ImageView fjJ;
-    private LinearLayout fjK;
-    private String fjL;
-    private BdTopToast fjM;
-    private CustomMessageListener fjN;
-    private PasswordView.a fjx;
+    private PasswordView.a fjB;
+    private TextView fjK;
+    private PasswordView fjL;
+    private TextView fjM;
+    private ImageView fjN;
+    private LinearLayout fjO;
+    private String fjP;
+    private BdTopToast fjQ;
+    private CustomMessageListener fjR;
     private int from;
     private TbPageContext<?> pageContext;
     private int pageType;
@@ -42,8 +42,8 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
         this(tbPageContext.getPageActivity());
         this.pageContext = tbPageContext;
         if (tbPageContext != null) {
-            this.fjN.setTag(tbPageContext.getUniqueId());
-            tbPageContext.registerListener(this.fjN);
+            this.fjR.setTag(tbPageContext.getUniqueId());
+            tbPageContext.registerListener(this.fjR);
         }
     }
 
@@ -57,10 +57,10 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
 
     public YoungsterPasswordView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fjx = new PasswordView.a() { // from class: com.baidu.tbadk.youngster.YoungsterPasswordView.1
+        this.fjB = new PasswordView.a() { // from class: com.baidu.tbadk.youngster.YoungsterPasswordView.1
             @Override // com.baidu.tbadk.youngster.PasswordView.a
             public void onComplete() {
-                String passWord = YoungsterPasswordView.this.fjH.getPassWord();
+                String passWord = YoungsterPasswordView.this.fjL.getPassWord();
                 YoungsterPasswordActivityConfig youngsterPasswordActivityConfig = new YoungsterPasswordActivityConfig(YoungsterPasswordView.this.getContext());
                 youngsterPasswordActivityConfig.setKeyYoungsterPasswordInput(passWord);
                 switch (YoungsterPasswordView.this.pageType) {
@@ -68,12 +68,12 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
                         youngsterPasswordActivityConfig.setYoungsterPasswordPageType(2);
                         youngsterPasswordActivityConfig.setKeyYoungsterPasswordFrom(YoungsterPasswordView.this.from);
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, youngsterPasswordActivityConfig));
-                        YoungsterPasswordView.this.fjH.byV();
+                        YoungsterPasswordView.this.fjL.byW();
                         return;
                     case 2:
-                        if (!StringUtils.isNull(YoungsterPasswordView.this.fjL)) {
-                            if (YoungsterPasswordView.this.fjL.equals(passWord)) {
-                                b.CY(passWord);
+                        if (!StringUtils.isNull(YoungsterPasswordView.this.fjP)) {
+                            if (YoungsterPasswordView.this.fjP.equals(passWord)) {
+                                b.CZ(passWord);
                                 if (YoungsterPasswordView.this.from == 1) {
                                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921487));
                                     if (a.lb().getSize() > 3) {
@@ -86,16 +86,16 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
                                 com.baidu.tbadk.core.e.b.r(YoungsterPasswordView.this.getContext(), 2);
                                 return;
                             }
-                            if (YoungsterPasswordView.this.getParent() != null && !YoungsterPasswordView.this.fjM.isShown()) {
-                                YoungsterPasswordView.this.fjM.aE((ViewGroup) YoungsterPasswordView.this.getParent().getParent());
+                            if (YoungsterPasswordView.this.getParent() != null && !YoungsterPasswordView.this.fjQ.isShown()) {
+                                YoungsterPasswordView.this.fjQ.aE((ViewGroup) YoungsterPasswordView.this.getParent().getParent());
                             }
-                            YoungsterPasswordView.this.fjH.byV();
+                            YoungsterPasswordView.this.fjL.byW();
                             return;
                         }
                         return;
                     case 3:
-                        if (b.CZ(passWord)) {
-                            b.bzd();
+                        if (b.Da(passWord)) {
+                            b.bze();
                             if (YoungsterPasswordView.this.from != 1) {
                                 if (YoungsterPasswordView.this.from == 2 || YoungsterPasswordView.this.from == 3) {
                                     com.baidu.tbadk.core.e.b.r(YoungsterPasswordView.this.getContext(), 2);
@@ -110,23 +110,23 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
                             com.baidu.tbadk.core.sharedPref.b.bik().putBoolean("key_youngster_homgpage_top_view_closed", false);
                             return;
                         }
-                        if (YoungsterPasswordView.this.getParent() != null && !YoungsterPasswordView.this.fjM.isShown()) {
-                            YoungsterPasswordView.this.fjM.aE((ViewGroup) YoungsterPasswordView.this.getParent().getParent());
+                        if (YoungsterPasswordView.this.getParent() != null && !YoungsterPasswordView.this.fjQ.isShown()) {
+                            YoungsterPasswordView.this.fjQ.aE((ViewGroup) YoungsterPasswordView.this.getParent().getParent());
                         }
-                        YoungsterPasswordView.this.fjH.byV();
+                        YoungsterPasswordView.this.fjL.byW();
                         return;
                     case 4:
                         youngsterPasswordActivityConfig.setYoungsterPasswordPageType(5);
                         youngsterPasswordActivityConfig.setKeyYoungsterPasswordFrom(YoungsterPasswordView.this.from);
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, youngsterPasswordActivityConfig));
-                        YoungsterPasswordView.this.fjH.byV();
+                        YoungsterPasswordView.this.fjL.byW();
                         return;
                     case 5:
-                        if (!StringUtils.isNull(YoungsterPasswordView.this.fjL)) {
-                            if (YoungsterPasswordView.this.fjL.equals(passWord)) {
+                        if (!StringUtils.isNull(YoungsterPasswordView.this.fjP)) {
+                            if (YoungsterPasswordView.this.fjP.equals(passWord)) {
                                 if (YoungsterPasswordView.this.from != 1) {
                                     if (YoungsterPasswordView.this.from == 2 || YoungsterPasswordView.this.from == 3) {
-                                        b.CY(passWord);
+                                        b.CZ(passWord);
                                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921486, 5));
                                         com.baidu.tbadk.core.e.b.r(YoungsterPasswordView.this.getContext(), 2);
                                         return;
@@ -140,10 +140,10 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
                                 }
                                 return;
                             }
-                            if (YoungsterPasswordView.this.getParent() != null && !YoungsterPasswordView.this.fjM.isShown()) {
-                                YoungsterPasswordView.this.fjM.aE((ViewGroup) YoungsterPasswordView.this.getParent().getParent());
+                            if (YoungsterPasswordView.this.getParent() != null && !YoungsterPasswordView.this.fjQ.isShown()) {
+                                YoungsterPasswordView.this.fjQ.aE((ViewGroup) YoungsterPasswordView.this.getParent().getParent());
                             }
-                            YoungsterPasswordView.this.fjH.byV();
+                            YoungsterPasswordView.this.fjL.byW();
                             return;
                         }
                         return;
@@ -152,12 +152,12 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
                 }
             }
         };
-        this.fjN = new CustomMessageListener(2921489) { // from class: com.baidu.tbadk.youngster.YoungsterPasswordView.2
+        this.fjR = new CustomMessageListener(2921489) { // from class: com.baidu.tbadk.youngster.YoungsterPasswordView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (YoungsterPasswordView.this.getParent() != null) {
-                    new BdTopToast(YoungsterPasswordView.this.getContext(), 2000).wS(false).Sp(YoungsterPasswordView.this.getContext().getString(R.string.youngster_settings_verify_fail)).aE((ViewGroup) YoungsterPasswordView.this.getParent().getParent());
+                    new BdTopToast(YoungsterPasswordView.this.getContext(), 2000).wU(false).Sp(YoungsterPasswordView.this.getContext().getString(R.string.youngster_settings_verify_fail)).aE((ViewGroup) YoungsterPasswordView.this.getParent().getParent());
                 }
             }
         };
@@ -166,52 +166,52 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
 
     private void init() {
         inflate(getContext(), R.layout.view_youngster_password, this);
-        this.fjG = (TextView) findViewById(R.id.txt_youngster_password_title);
-        this.fjH = (PasswordView) findViewById(R.id.password_view_youngster);
-        this.fjI = (TextView) findViewById(R.id.txt_youngster_password_content);
-        this.fjJ = (ImageView) findViewById(R.id.img_youngster_content_arrow);
-        this.fjK = (LinearLayout) findViewById(R.id.youngster_content_group);
-        this.fjH.setOnPasswordInputComplete(this.fjx);
-        this.fjK.setOnClickListener(this);
-        this.fjM = new BdTopToast(getContext(), 2000).wS(false).Sp(getContext().getString(R.string.youngster_settings_input_password_error));
+        this.fjK = (TextView) findViewById(R.id.txt_youngster_password_title);
+        this.fjL = (PasswordView) findViewById(R.id.password_view_youngster);
+        this.fjM = (TextView) findViewById(R.id.txt_youngster_password_content);
+        this.fjN = (ImageView) findViewById(R.id.img_youngster_content_arrow);
+        this.fjO = (LinearLayout) findViewById(R.id.youngster_content_group);
+        this.fjL.setOnPasswordInputComplete(this.fjB);
+        this.fjO.setOnClickListener(this);
+        this.fjQ = new BdTopToast(getContext(), 2000).wU(false).Sp(getContext().getString(R.string.youngster_settings_input_password_error));
     }
 
     public void rO(int i) {
         this.pageType = i;
-        this.fjJ.setVisibility(8);
+        this.fjN.setVisibility(8);
         switch (i) {
             case 1:
-                this.fjG.setText(R.string.youngster_settings_set_password);
-                this.fjI.setText(R.string.youngster_settings_set_password_content);
+                this.fjK.setText(R.string.youngster_settings_set_password);
+                this.fjM.setText(R.string.youngster_settings_set_password_content);
                 return;
             case 2:
-                this.fjG.setText(R.string.youngster_settings_verify_password);
-                this.fjI.setText(R.string.youngster_settings_set_password_content);
+                this.fjK.setText(R.string.youngster_settings_verify_password);
+                this.fjM.setText(R.string.youngster_settings_set_password_content);
                 return;
             case 3:
-                this.fjG.setText(R.string.youngster_settings_input_password);
-                this.fjI.setText(R.string.youngster_settings_input_password_content);
-                this.fjJ.setVisibility(0);
+                this.fjK.setText(R.string.youngster_settings_input_password);
+                this.fjM.setText(R.string.youngster_settings_input_password_content);
+                this.fjN.setVisibility(0);
                 return;
             case 4:
-                this.fjG.setText(R.string.youngster_settings_set_new_password);
-                this.fjI.setText(R.string.youngster_settings_reset_password_content);
+                this.fjK.setText(R.string.youngster_settings_set_new_password);
+                this.fjM.setText(R.string.youngster_settings_reset_password_content);
                 return;
             case 5:
-                this.fjG.setText(R.string.youngster_settings_verify_password);
-                this.fjI.setText(R.string.youngster_settings_reset_password_content);
+                this.fjK.setText(R.string.youngster_settings_verify_password);
+                this.fjM.setText(R.string.youngster_settings_reset_password_content);
                 return;
             default:
                 return;
         }
     }
 
-    public void byW() {
-        this.fjH.byW();
+    public void byX() {
+        this.fjL.byX();
     }
 
-    public void byX() {
-        this.fjH.byX();
+    public void byY() {
+        this.fjL.byY();
     }
 
     public void setPageContext(TbPageContext<?> tbPageContext) {
@@ -219,7 +219,7 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
     }
 
     public void setPrePassword(String str) {
-        this.fjL = str;
+        this.fjP = str;
     }
 
     public void setFrom(int i) {
@@ -227,15 +227,15 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
     }
 
     public void onChangeSkinType() {
-        ap.setViewTextColor(this.fjG, R.color.cp_cont_b);
-        this.fjH.onChangeSkinType();
-        ap.setViewTextColor(this.fjI, R.color.cp_cont_d);
-        SvgManager.bjq().a(this.fjJ, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
+        ap.setViewTextColor(this.fjK, R.color.cp_cont_b);
+        this.fjL.onChangeSkinType();
+        ap.setViewTextColor(this.fjM, R.color.cp_cont_d);
+        SvgManager.bjq().a(this.fjN, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.fjK && this.pageType == 3) {
+        if (view == this.fjO && this.pageType == 3) {
             String youngsterVerifyUrl = YoungsterVerifyActivityConfig.getYoungsterVerifyUrl();
             if (!StringUtils.isNull(youngsterVerifyUrl)) {
                 YoungsterVerifyActivityConfig youngsterVerifyActivityConfig = new YoungsterVerifyActivityConfig(getContext(), getContext().getString(R.string.youngster_settings_verify_title), youngsterVerifyUrl, true);
@@ -244,7 +244,7 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
                 youngsterVerifyActivityConfig.setFixTitle(true);
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, youngsterVerifyActivityConfig));
             }
-            this.fjH.byV();
+            this.fjL.byW();
         }
     }
 }

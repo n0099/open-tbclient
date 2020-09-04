@@ -9,17 +9,17 @@ import org.apache.http.HttpHost;
 /* loaded from: classes8.dex */
 public class a implements d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Set<String> cju = new HashSet();
+    private static final Set<String> cjy = new HashSet();
 
     static {
-        cju.add("https");
-        cju.add(HttpHost.DEFAULT_SCHEME_NAME);
-        cju.add(LoginConstants.SMS_LOGIN);
-        cju.add("tel");
+        cjy.add("https");
+        cjy.add(HttpHost.DEFAULT_SCHEME_NAME);
+        cjy.add(LoginConstants.SMS_LOGIN);
+        cjy.add("tel");
     }
 
     @Override // com.baidu.swan.apps.core.f.d
-    public void ht(String str) {
+    public void hu(String str) {
     }
 
     @Override // com.baidu.swan.apps.core.f.d
@@ -27,12 +27,12 @@ public class a implements d {
     }
 
     @Override // com.baidu.swan.apps.core.f.d
-    public boolean hu(String str) {
+    public boolean hv(String str) {
         Uri parse;
         if (str == null || (parse = Uri.parse(str)) == null) {
             return true;
         }
-        boolean contains = cju.contains(parse.getScheme());
+        boolean contains = cjy.contains(parse.getScheme());
         if (DEBUG) {
             Log.d("WebViewWidgetListener", (contains ? "legal schemes : " : "illegal schemes : ") + parse.getScheme());
         }
@@ -40,7 +40,7 @@ public class a implements d {
     }
 
     @Override // com.baidu.swan.apps.core.f.d
-    public void hs(String str) {
+    public void ht(String str) {
     }
 
     @Override // com.baidu.swan.apps.core.f.d

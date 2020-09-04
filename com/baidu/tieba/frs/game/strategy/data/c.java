@@ -8,8 +8,8 @@ import java.util.List;
 /* loaded from: classes16.dex */
 public class c {
     public boolean hasMore;
-    public int ihq;
-    public List<q> ihr;
+    public int ihw;
+    public List<q> ihx;
     public String key;
     public int labelId;
     public int pn;
@@ -19,9 +19,9 @@ public class c {
         if (y.isEmpty(list)) {
             return 0;
         }
-        if (y.isEmpty(this.ihr)) {
-            this.ihr = new LinkedList();
-            this.ihr.addAll(list);
+        if (y.isEmpty(this.ihx)) {
+            this.ihx = new LinkedList();
+            this.ihx.addAll(list);
             return list.size();
         }
         LinkedList linkedList = new LinkedList();
@@ -29,11 +29,11 @@ public class c {
             q qVar = list.get(i);
             int i2 = 0;
             while (true) {
-                if (i2 >= this.ihr.size()) {
+                if (i2 >= this.ihx.size()) {
                     z = false;
                     break;
                 }
-                q qVar2 = this.ihr.get(i2);
+                q qVar2 = this.ihx.get(i2);
                 if (qVar != null && (qVar instanceof b) && qVar2 != null && (qVar2 instanceof b)) {
                     bw bce = ((b) qVar).bce();
                     bw bce2 = ((b) qVar2).bce();
@@ -49,7 +49,7 @@ public class c {
             }
         }
         if (linkedList.size() != 0) {
-            y.addAll(this.ihr, 0, linkedList);
+            y.addAll(this.ihx, 0, linkedList);
         }
         return linkedList.size();
     }

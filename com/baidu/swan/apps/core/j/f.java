@@ -8,32 +8,32 @@ import java.util.HashMap;
 /* loaded from: classes8.dex */
 public class f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private b cmf;
-    private HashMap<String, c> cmg;
+    private b cmj;
+    private HashMap<String, c> cmk;
 
     public static f ajq() {
-        return a.cmh;
+        return a.cml;
     }
 
     private f() {
         long currentTimeMillis = System.currentTimeMillis();
-        this.cmf = ajr();
-        this.cmg = this.cmf.ajn();
+        this.cmj = ajr();
+        this.cmk = this.cmj.ajn();
         if (DEBUG) {
             Log.d("SwanAppPresetManager", "构造PresetMap耗时：" + (System.currentTimeMillis() - currentTimeMillis));
         }
     }
 
     @Nullable
-    public c lO(String str) {
-        if (this.cmg != null) {
-            return this.cmg.get(str);
+    public c lP(String str) {
+        if (this.cmk != null) {
+            return this.cmk.get(str);
         }
         return null;
     }
 
     public void a(c cVar, d dVar) {
-        this.cmf.a(cVar, dVar);
+        this.cmj.a(cVar, dVar);
     }
 
     private b ajr() {
@@ -47,6 +47,6 @@ public class f {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes8.dex */
     public static class a {
-        private static final f cmh = new f();
+        private static final f cml = new f();
     }
 }

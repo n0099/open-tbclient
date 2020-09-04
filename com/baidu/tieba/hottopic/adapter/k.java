@@ -10,8 +10,8 @@ import com.baidu.tieba.hottopic.controller.HotTopicActivity;
 import com.baidu.tieba.hottopic.data.n;
 /* loaded from: classes15.dex */
 public class k extends com.baidu.adp.widget.ListView.a<n, a> {
-    private HotTopicActivity iXq;
-    public boolean iXz;
+    public boolean iXF;
+    private HotTopicActivity iXw;
     public final TbPageContext<?> mPageContext;
     private BdUniqueId mTag;
 
@@ -22,9 +22,9 @@ public class k extends com.baidu.adp.widget.ListView.a<n, a> {
     /* JADX INFO: Access modifiers changed from: protected */
     public k(HotTopicActivity hotTopicActivity, BdUniqueId bdUniqueId) {
         super(hotTopicActivity.getPageContext().getPageActivity(), bdUniqueId);
-        this.iXz = true;
+        this.iXF = true;
         this.mTag = null;
-        this.iXq = hotTopicActivity;
+        this.iXw = hotTopicActivity;
         this.mPageContext = hotTopicActivity.getPageContext();
     }
 
@@ -33,10 +33,10 @@ public class k extends com.baidu.adp.widget.ListView.a<n, a> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bM */
     public a b(ViewGroup viewGroup) {
-        com.baidu.tieba.hottopic.view.a aVar = new com.baidu.tieba.hottopic.view.a(this.iXq.getPageContext());
+        com.baidu.tieba.hottopic.view.a aVar = new com.baidu.tieba.hottopic.view.a(this.iXw.getPageContext());
         aVar.setTag(getTag());
         aVar.setFrom("home");
-        this.iXz = true;
+        this.iXF = true;
         return new a(aVar);
     }
 
@@ -44,12 +44,12 @@ public class k extends com.baidu.adp.widget.ListView.a<n, a> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, n nVar, a aVar) {
-        if (aVar == null || aVar.iXA == null) {
+        if (aVar == null || aVar.iXG == null) {
             return null;
         }
-        if (this.iXz) {
-            aVar.iXA.a(nVar);
-            this.iXz = false;
+        if (this.iXF) {
+            aVar.iXG.a(nVar);
+            this.iXF = false;
         }
         aVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         return aVar.getView();
@@ -57,19 +57,19 @@ public class k extends com.baidu.adp.widget.ListView.a<n, a> {
 
     /* loaded from: classes15.dex */
     public class a extends af.a {
-        public com.baidu.tieba.hottopic.view.a iXA;
+        public com.baidu.tieba.hottopic.view.a iXG;
         private int mSkinType;
 
         public a(com.baidu.tieba.hottopic.view.a aVar) {
             super(aVar.getView());
             this.mSkinType = 3;
-            this.iXA = aVar;
+            this.iXG = aVar;
         }
 
         public void onChangeSkinType(int i) {
             if (this.mSkinType != i) {
-                if (this.iXA != null) {
-                    this.iXA.onChangeSkinType(this.iXA.getTbPageContext(), i);
+                if (this.iXG != null) {
+                    this.iXG.onChangeSkinType(this.iXG.getTbPageContext(), i);
                 }
                 this.mSkinType = i;
             }

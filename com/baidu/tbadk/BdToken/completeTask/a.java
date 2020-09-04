@@ -1,27 +1,27 @@
 package com.baidu.tbadk.BdToken.completeTask;
 
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
-    public static int dQH = 1;
-    public static int dQI = 2;
-    public static int dQJ = 3;
-    public static int dQK = 4;
     public static int dQL = 1;
     public static int dQM = 2;
+    public static int dQN = 3;
+    public static int dQO = 4;
+    public static int dQP = 1;
+    public static int dQQ = 2;
     public int activityId;
     public String btnText;
     public String btn_color;
     public String btn_text_color;
-    public String dPD;
-    public String dPE;
-    public int dQN;
-    public int dQO;
-    public long dQP;
-    public long dQQ;
-    public ArrayList<String> dQR = new ArrayList<>();
-    public ArrayList<String> dQS = new ArrayList<>();
-    public int dQT = 0;
+    public String dPH;
+    public String dPI;
+    public int dQR;
+    public int dQS;
+    public long dQT;
+    public long dQU;
+    public ArrayList<String> dQV = new ArrayList<>();
+    public ArrayList<String> dQW = new ArrayList<>();
+    public int dQX = 0;
     public int duration;
     public String imgUrl;
     public String message;

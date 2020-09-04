@@ -7,16 +7,16 @@ public class b implements Runnable {
     final /* synthetic */ EventClientReport a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ a f20a;
+    final /* synthetic */ a f19a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar, EventClientReport eventClientReport) {
-        this.f20a = aVar;
+        this.f19a = aVar;
         this.a = eventClientReport;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f20a.b(this.a);
+        this.f19a.b(this.a);
     }
 }

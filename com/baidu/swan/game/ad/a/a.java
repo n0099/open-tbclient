@@ -17,7 +17,7 @@ public interface a {
     public interface b {
         void a(AdElementInfo adElementInfo);
 
-        void tP(String str);
+        void tQ(String str);
     }
 
     /* loaded from: classes19.dex */

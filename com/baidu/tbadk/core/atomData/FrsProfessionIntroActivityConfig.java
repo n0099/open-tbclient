@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class FrsProfessionIntroActivityConfig extends IntentConfig {
     public static final String KEY_DARK_DARK_COLOR = "key_dark_dark_color";
     public static final String KEY_DARK_LIGHT_COLOR = "key_dark_light_color";

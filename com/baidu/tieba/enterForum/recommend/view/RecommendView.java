@@ -32,21 +32,21 @@ import java.util.List;
 /* loaded from: classes16.dex */
 public class RecommendView extends FrameLayout implements ForumTestView.a {
     private BdTypeRecyclerView Wu;
-    private NoNetworkView.a fCp;
-    private BdSwipeRefreshLayout fEV;
-    private g fMN;
-    private RecommendForumHeaderView hAm;
-    private com.baidu.tieba.enterForum.recommend.a.a hAn;
-    private com.baidu.tieba.enterForum.recommend.b.a hAo;
-    private com.baidu.tieba.enterForum.home.c hAp;
-    private FrameLayout hAq;
-    private long hAr;
-    private int hAs;
-    private CustomMessageListener hAt;
-    private CustomMessageListener hAu;
-    private int hvY;
-    private com.baidu.tieba.enterForum.recommend.a hyO;
-    private List<f> hzi;
+    private NoNetworkView.a fCt;
+    private BdSwipeRefreshLayout fEZ;
+    private g fMR;
+    private CustomMessageListener hAA;
+    private RecommendForumHeaderView hAs;
+    private com.baidu.tieba.enterForum.recommend.a.a hAt;
+    private com.baidu.tieba.enterForum.recommend.b.a hAu;
+    private com.baidu.tieba.enterForum.home.c hAv;
+    private FrameLayout hAw;
+    private long hAx;
+    private int hAy;
+    private CustomMessageListener hAz;
+    private int hwe;
+    private com.baidu.tieba.enterForum.recommend.a hyU;
+    private List<f> hzo;
     RecyclerView.OnScrollListener mOnScrollListener;
     private TbPageContext<?> mPageContext;
     private com.baidu.tbadk.core.view.g mPullView;
@@ -60,50 +60,50 @@ public class RecommendView extends FrameLayout implements ForumTestView.a {
     public RecommendView(TbPageContext<?> tbPageContext) {
         super(tbPageContext.getPageActivity());
         this.mSkinType = 3;
-        this.hAt = new CustomMessageListener(2921396) { // from class: com.baidu.tieba.enterForum.recommend.view.RecommendView.1
+        this.hAz = new CustomMessageListener(2921396) { // from class: com.baidu.tieba.enterForum.recommend.view.RecommendView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (RecommendView.this.hAp != null) {
-                    RecommendView.this.hAp.setSearchHint(TbSingleton.getInstance().getHotSearch());
+                if (RecommendView.this.hAv != null) {
+                    RecommendView.this.hAv.setSearchHint(TbSingleton.getInstance().getHotSearch());
                 }
             }
         };
-        this.fCp = new NoNetworkView.a() { // from class: com.baidu.tieba.enterForum.recommend.view.RecommendView.2
+        this.fCt = new NoNetworkView.a() { // from class: com.baidu.tieba.enterForum.recommend.view.RecommendView.2
             @Override // com.baidu.tbadk.core.view.NoNetworkView.a
             public void onNetworkChange(boolean z) {
-                if (z && RecommendView.this.hyO != null) {
-                    RecommendView.this.hyO.loadData();
+                if (z && RecommendView.this.hyU != null) {
+                    RecommendView.this.hyU.loadData();
                 }
             }
         };
-        this.hAu = new CustomMessageListener(2921383) { // from class: com.baidu.tieba.enterForum.recommend.view.RecommendView.3
+        this.hAA = new CustomMessageListener(2921383) { // from class: com.baidu.tieba.enterForum.recommend.view.RecommendView.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage.getData() instanceof Long) {
                     Long l = (Long) customResponsedMessage.getData();
-                    if (RecommendView.this.hAo != null && l != null) {
-                        RecommendView.this.hAr = l.longValue();
-                        if (RecommendView.this.hyO != null) {
-                            RecommendView.this.hyO.loadData();
+                    if (RecommendView.this.hAu != null && l != null) {
+                        RecommendView.this.hAx = l.longValue();
+                        if (RecommendView.this.hyU != null) {
+                            RecommendView.this.hyU.loadData();
                         }
                     }
                 }
             }
         };
         this.mOnScrollListener = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.enterForum.recommend.view.RecommendView.4
-            private int fGp = -1;
-            int hAw = 0;
+            private int fGt = -1;
+            int hAC = 0;
 
             @Override // android.support.v7.widget.RecyclerView.OnScrollListener
             public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-                if (this.fGp != i && RecommendView.this.hAp != null) {
-                    this.fGp = i;
-                    if (this.fGp != 1) {
+                if (this.fGt != i && RecommendView.this.hAv != null) {
+                    this.fGt = i;
+                    if (this.fGt != 1) {
                         if (RecommendView.this.a(recyclerView)) {
                         }
-                        RecommendView.this.hAm.cgt();
+                        RecommendView.this.hAs.cgu();
                     }
                 }
             }
@@ -111,68 +111,68 @@ public class RecommendView extends FrameLayout implements ForumTestView.a {
             @Override // android.support.v7.widget.RecyclerView.OnScrollListener
             public void onScrolled(RecyclerView recyclerView, int i, int i2) {
                 super.onScrolled(recyclerView, i, i2);
-                this.hAw += i2;
+                this.hAC += i2;
             }
         };
         this.mPageContext = tbPageContext;
-        this.hvY = UtilHelper.getStatusBarHeight() + l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds240);
-        this.hAs = l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds114);
+        this.hwe = UtilHelper.getStatusBarHeight() + l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds240);
+        this.hAy = l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds114);
         init(tbPageContext.getPageActivity());
-        tbPageContext.registerListener(this.hAu);
-        tbPageContext.registerListener(this.hAt);
+        tbPageContext.registerListener(this.hAA);
+        tbPageContext.registerListener(this.hAz);
         onChangeSkinType();
     }
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.fragment_enter_recommend_layout, (ViewGroup) this, true);
         setClipChildren(false);
-        this.fEV = (BdSwipeRefreshLayout) findViewById(R.id.enter_recommend_refresh_layout);
+        this.fEZ = (BdSwipeRefreshLayout) findViewById(R.id.enter_recommend_refresh_layout);
         this.mPullView = new com.baidu.tbadk.core.view.g(this.mPageContext);
-        this.fEV.setProgressView(this.mPullView);
-        this.fEV.setClipChildren(false);
+        this.fEZ.setProgressView(this.mPullView);
+        this.fEZ.setClipChildren(false);
         this.Wu = (BdTypeRecyclerView) findViewById(R.id.enter_recommend_list_view);
         this.Wu.setLayoutManager(new LinearLayoutManager(context));
         this.Wu.setFadingEdgeLength(0);
         this.Wu.setOverScrollMode(2);
         this.Wu.setClipChildren(false);
         this.Wu.addOnScrollListener(this.mOnScrollListener);
-        this.hAn = new com.baidu.tieba.enterForum.recommend.a.a(this.mPageContext, this.Wu);
-        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.fEV.getLayoutParams();
-        marginLayoutParams.topMargin = this.hvY - getResources().getDimensionPixelSize(R.dimen.tbds24);
-        this.fEV.setLayoutParams(marginLayoutParams);
-        this.hAm = new RecommendForumHeaderView(this.mPageContext);
-        this.hAm.setOnSecectedListener(this);
+        this.hAt = new com.baidu.tieba.enterForum.recommend.a.a(this.mPageContext, this.Wu);
+        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.fEZ.getLayoutParams();
+        marginLayoutParams.topMargin = this.hwe - getResources().getDimensionPixelSize(R.dimen.tbds24);
+        this.fEZ.setLayoutParams(marginLayoutParams);
+        this.hAs = new RecommendForumHeaderView(this.mPageContext);
+        this.hAs.setOnSecectedListener(this);
         FrameLayout frameLayout = new FrameLayout(this.mPageContext.getPageActivity());
-        frameLayout.addView(new View(this.mPageContext.getPageActivity()), new FrameLayout.LayoutParams(-1, this.hAs));
-        this.hAq = frameLayout;
+        frameLayout.addView(new View(this.mPageContext.getPageActivity()), new FrameLayout.LayoutParams(-1, this.hAy));
+        this.hAw = frameLayout;
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        if (this.hAn != null) {
-            this.hAn.setPageUniqueId(bdUniqueId);
+        if (this.hAt != null) {
+            this.hAt.setPageUniqueId(bdUniqueId);
         }
         if (this.mPullView != null) {
             this.mPullView.setTag(bdUniqueId);
         }
-        if (this.hAm != null) {
-            this.hAm.setPageId(bdUniqueId);
+        if (this.hAs != null) {
+            this.hAs.setPageId(bdUniqueId);
         }
     }
 
     public void setPresenter(com.baidu.tieba.enterForum.recommend.a aVar) {
-        this.hyO = aVar;
+        this.hyU = aVar;
     }
 
     public void setData(com.baidu.tieba.enterForum.recommend.b.a aVar) {
         if (aVar != null) {
-            this.hAo = aVar;
-            if (y.isEmpty(aVar.cgh()) && y.isEmpty(aVar.nG(true))) {
+            this.hAu = aVar;
+            if (y.isEmpty(aVar.cgi()) && y.isEmpty(aVar.nI(true))) {
                 showNoDataView();
                 return;
             }
-            bLs();
-            List<f> eA = aVar.eA(this.hAr);
-            this.hAr = 0L;
+            bLt();
+            List<f> eA = aVar.eA(this.hAx);
+            this.hAx = 0L;
             f fVar = (f) y.getItem(eA, 1);
             if (fVar == null) {
                 fVar = (f) y.getItem(eA, 0);
@@ -185,30 +185,30 @@ public class RecommendView extends FrameLayout implements ForumTestView.a {
 
     @Override // com.baidu.tieba.enterForum.recommend.view.ForumTestView.a
     public void eB(long j) {
-        a(this.hAo, j);
+        a(this.hAu, j);
     }
 
     @Override // com.baidu.tieba.enterForum.recommend.view.ForumTestView.a
-    public void cgr() {
+    public void cgs() {
         if (this.Wu != null && !y.isEmpty(this.Wu.getData()) && this.Wu.getData().size() == 1 && (this.Wu.getData().get(0) instanceof e)) {
             showNoDataView();
         }
     }
 
     private void co(List<f> list) {
-        this.Wu.removeHeaderView(this.hAq);
-        this.Wu.removeHeaderView(this.hAm);
+        this.Wu.removeHeaderView(this.hAw);
+        this.Wu.removeHeaderView(this.hAs);
         if (this.Wu.getHeaderViewsCount() == 0) {
         }
-        this.Wu.addHeaderView(this.hAm);
-        this.hzi = list;
-        this.hAm.setData(list);
-        this.hAp.setSearchHint(TbSingleton.getInstance().getHotSearch());
+        this.Wu.addHeaderView(this.hAs);
+        this.hzo = list;
+        this.hAs.setData(list);
+        this.hAv.setSearchHint(TbSingleton.getInstance().getHotSearch());
     }
 
     private void a(com.baidu.tieba.enterForum.recommend.b.a aVar, long j) {
         if (aVar != null) {
-            this.hAn.setData(aVar.h(j, !y.isEmpty(this.hzi)));
+            this.hAt.setData(aVar.h(j, !y.isEmpty(this.hzo)));
         }
     }
 
@@ -218,50 +218,50 @@ public class RecommendView extends FrameLayout implements ForumTestView.a {
         }
     }
 
-    public void bGd() {
-        this.fEV.setRefreshing(false);
+    public void bGe() {
+        this.fEZ.setRefreshing(false);
     }
 
-    public void bLs() {
+    public void bLt() {
         if (this.Wu != null) {
             this.Wu.setVisibility(0);
         }
     }
 
-    public void gS(boolean z) {
-        if (!cgv()) {
-            if (this.fMN == null) {
-                this.fMN = new g(getContext());
-                this.fMN.bsZ();
-                this.fMN.setTopMargin((getHeight() - l.getDimens(getContext(), R.dimen.tbds304)) / 2);
-                this.fMN.onChangeSkinType();
+    public void gT(boolean z) {
+        if (!cgw()) {
+            if (this.fMR == null) {
+                this.fMR = new g(getContext());
+                this.fMR.bta();
+                this.fMR.setTopMargin((getHeight() - l.getDimens(getContext(), R.dimen.tbds304)) / 2);
+                this.fMR.onChangeSkinType();
             }
-            this.fMN.attachView(this, z);
+            this.fMR.attachView(this, z);
         }
     }
 
     public void hideLoadingView() {
-        if (this.fMN != null) {
-            this.fMN.dettachView(this);
-            this.fMN = null;
+        if (this.fMR != null) {
+            this.fMR.dettachView(this);
+            this.fMR = null;
         }
     }
 
-    public boolean cgv() {
-        if (this.fMN != null) {
-            return this.fMN.isViewAttached();
+    public boolean cgw() {
+        if (this.fMR != null) {
+            return this.fMR.isViewAttached();
         }
         return false;
     }
 
-    public void nK(boolean z) {
-        if (!cgw()) {
+    public void nM(boolean z) {
+        if (!cgx()) {
             if (this.mRefreshView == null) {
                 this.mRefreshView = new h(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.recommend.view.RecommendView.5
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (j.isNetworkAvailableForImmediately() && RecommendView.this.hyO != null) {
-                            RecommendView.this.hyO.loadData();
+                        if (j.isNetworkAvailableForImmediately() && RecommendView.this.hyU != null) {
+                            RecommendView.this.hyU.loadData();
                         }
                     }
                 });
@@ -280,8 +280,8 @@ public class RecommendView extends FrameLayout implements ForumTestView.a {
             this.mRefreshView = new h(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.recommend.view.RecommendView.6
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (j.isNetworkAvailableForImmediately() && RecommendView.this.hyO != null) {
-                        RecommendView.this.hyO.loadData();
+                    if (j.isNetworkAvailableForImmediately() && RecommendView.this.hyU != null) {
+                        RecommendView.this.hyU.loadData();
                     }
                 }
             });
@@ -294,14 +294,14 @@ public class RecommendView extends FrameLayout implements ForumTestView.a {
         this.Wu.setVisibility(8);
     }
 
-    public void bFW() {
+    public void bFX() {
         if (this.mRefreshView != null) {
             this.mRefreshView.dettachView(this);
             this.mRefreshView = null;
         }
     }
 
-    public boolean cgw() {
+    public boolean cgx() {
         if (this.mRefreshView != null) {
             return this.mRefreshView.isViewAttached();
         }
@@ -316,19 +316,19 @@ public class RecommendView extends FrameLayout implements ForumTestView.a {
             if (this.mPullView != null) {
                 this.mPullView.changeSkin(skinType);
             }
-            if (this.fMN != null) {
-                this.fMN.onChangeSkinType();
+            if (this.fMR != null) {
+                this.fMR.onChangeSkinType();
             }
             if (this.mRefreshView != null) {
                 this.mRefreshView.onChangeSkinType();
             }
-            if (this.hAn != null) {
-                this.hAn.notifyDataSetChanged();
+            if (this.hAt != null) {
+                this.hAt.notifyDataSetChanged();
             }
-            if (this.hAm != null) {
-                this.hAm.onChangeSkinType();
+            if (this.hAs != null) {
+                this.hAs.onChangeSkinType();
             }
-            ap.setBackgroundColor(this.fEV, R.color.cp_bg_line_e);
+            ap.setBackgroundColor(this.fEZ, R.color.cp_bg_line_e);
             ap.setBackgroundColor(this.Wu, R.color.cp_bg_line_e);
         }
     }
@@ -340,8 +340,8 @@ public class RecommendView extends FrameLayout implements ForumTestView.a {
     }
 
     public void setTabViewController(com.baidu.tieba.enterForum.home.c cVar) {
-        this.hAp = cVar;
-        if (this.hAp != null) {
+        this.hAv = cVar;
+        if (this.hAv != null) {
         }
     }
 
@@ -349,11 +349,11 @@ public class RecommendView extends FrameLayout implements ForumTestView.a {
         if (this.Wu != null) {
             this.Wu.removeOnScrollListener(this.mOnScrollListener);
         }
-        bGd();
+        bGe();
         hideLoadingView();
-        bFW();
-        if (this.hAm != null) {
-            this.hAm.cgu();
+        bFX();
+        if (this.hAs != null) {
+            this.hAs.cgv();
         }
     }
 }

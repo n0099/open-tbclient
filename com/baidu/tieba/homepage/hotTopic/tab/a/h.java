@@ -9,75 +9,75 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes16.dex */
 public class h {
-    private List<com.baidu.adp.widget.ListView.a> bbu;
-    private v hyl;
-    private b iLA;
-    private d iLB;
-    private c iLC;
-    private e iLD;
-    private f iLE;
-    private g iLy;
-    private l iLz;
+    private List<com.baidu.adp.widget.ListView.a> bbw;
+    private v hyr;
+    private g iLE;
+    private l iLF;
+    private b iLG;
+    private d iLH;
+    private c iLI;
+    private e iLJ;
+    private f iLK;
     private TbPageContext mPageContext;
 
     public h(TbPageContext tbPageContext, v vVar) {
         this.mPageContext = tbPageContext;
-        this.hyl = vVar;
+        this.hyr = vVar;
         Jv();
     }
 
     private void Jv() {
-        this.bbu = new ArrayList();
-        this.bbu.add(new j(this.mPageContext));
-        this.bbu.add(new k(this.mPageContext));
-        this.bbu.add(new i(this.mPageContext));
-        this.bbu.add(new w(this.mPageContext));
-        this.iLy = new g(this.mPageContext);
-        this.iLy.a(this.hyl);
-        this.bbu.add(this.iLy);
-        this.iLz = new l(this.mPageContext);
-        this.iLz.a(this.hyl);
-        this.bbu.add(this.iLz);
-        this.iLA = new b(this.mPageContext);
-        this.iLA.a(this.hyl);
-        this.bbu.add(this.iLA);
-        this.iLB = new d(this.mPageContext);
-        this.iLB.a(this.hyl);
-        this.bbu.add(this.iLB);
-        this.iLC = new c(this.mPageContext);
-        this.iLC.a(this.hyl);
-        this.bbu.add(this.iLC);
-        this.iLD = new e(this.mPageContext);
-        this.iLD.a(this.hyl);
-        this.bbu.add(this.iLD);
-        this.iLE = new f(this.mPageContext);
-        this.iLE.a(this.hyl);
-        this.bbu.add(this.iLE);
-        this.hyl.addAdapters(this.bbu);
+        this.bbw = new ArrayList();
+        this.bbw.add(new j(this.mPageContext));
+        this.bbw.add(new k(this.mPageContext));
+        this.bbw.add(new i(this.mPageContext));
+        this.bbw.add(new w(this.mPageContext));
+        this.iLE = new g(this.mPageContext);
+        this.iLE.a(this.hyr);
+        this.bbw.add(this.iLE);
+        this.iLF = new l(this.mPageContext);
+        this.iLF.a(this.hyr);
+        this.bbw.add(this.iLF);
+        this.iLG = new b(this.mPageContext);
+        this.iLG.a(this.hyr);
+        this.bbw.add(this.iLG);
+        this.iLH = new d(this.mPageContext);
+        this.iLH.a(this.hyr);
+        this.bbw.add(this.iLH);
+        this.iLI = new c(this.mPageContext);
+        this.iLI.a(this.hyr);
+        this.bbw.add(this.iLI);
+        this.iLJ = new e(this.mPageContext);
+        this.iLJ.a(this.hyr);
+        this.bbw.add(this.iLJ);
+        this.iLK = new f(this.mPageContext);
+        this.iLK.a(this.hyr);
+        this.bbw.add(this.iLK);
+        this.hyr.addAdapters(this.bbw);
     }
 
     public void notifyDataSetChanged() {
-        if (this.hyl != null) {
-            this.hyl.getListAdapter().notifyDataSetChanged();
+        if (this.hyr != null) {
+            this.hyr.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setData(List<q> list) {
-        this.hyl.setData(list);
+        this.hyr.setData(list);
     }
 
     public List<q> getData() {
-        return this.hyl.getData();
+        return this.hyr.getData();
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        for (com.baidu.adp.widget.ListView.a aVar : this.bbu) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.bbw) {
             aVar.setPageId(bdUniqueId);
         }
     }
 
     public void setOnItemCoverListener(com.baidu.tbadk.h.f fVar) {
-        for (com.baidu.adp.widget.ListView.a aVar : this.bbu) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.bbw) {
             if (aVar instanceof a) {
                 ((a) aVar).setOnItemCoverListener(fVar);
             }

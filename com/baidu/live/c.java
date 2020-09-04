@@ -6,7 +6,7 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
 /* loaded from: classes7.dex */
 public class c extends SharedPrefHelper {
-    private static volatile c ayL;
+    private static volatile c ayN;
 
     @Override // com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper
     public synchronized SharedPreferences getSharedPreferences() {
@@ -14,13 +14,13 @@ public class c extends SharedPrefHelper {
     }
 
     public static c AD() {
-        if (ayL == null) {
+        if (ayN == null) {
             synchronized (c.class) {
-                if (ayL == null) {
-                    ayL = new c();
+                if (ayN == null) {
+                    ayN = new c();
                 }
             }
         }
-        return ayL;
+        return ayN;
     }
 }

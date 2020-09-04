@@ -75,7 +75,7 @@ public final class e {
                 i = i3;
             }
             if (!file.delete()) {
-                g.bKk.e("FileUtil", "delete dir " + file.getAbsolutePath() + " failed.");
+                g.bKo.e("FileUtil", "delete dir " + file.getAbsolutePath() + " failed.");
             }
         }
         return i;

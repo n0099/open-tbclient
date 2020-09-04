@@ -18,27 +18,27 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class a implements b {
-    private b.a aMA;
-    private HttpMessageListener aMB;
+    private b.a aMC;
+    private HttpMessageListener aMD;
 
     public void a(b.a aVar) {
-        this.aMA = aVar;
+        this.aMC = aVar;
     }
 
     public void bh(boolean z) {
-        this.aMB = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GET_TAB_LIVE_INFO) { // from class: com.baidu.live.entereffect.c.a.1
+        this.aMD = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GET_TAB_LIVE_INFO) { // from class: com.baidu.live.entereffect.c.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage instanceof EnterEffectDynamicListHttpResponsedMessage) {
-                    if (a.this.aMA != null) {
-                        a.this.aMA.b(httpResponsedMessage.getError() == 0, ((EnterEffectDynamicListHttpResponsedMessage) httpResponsedMessage).getDatas());
+                    if (a.this.aMC != null) {
+                        a.this.aMC.b(httpResponsedMessage.getError() == 0, ((EnterEffectDynamicListHttpResponsedMessage) httpResponsedMessage).getDatas());
                     }
                     a.this.a((EnterEffectDynamicListHttpResponsedMessage) httpResponsedMessage);
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.aMB);
+        MessageManager.getInstance().registerListener(this.aMD);
         com.baidu.live.entereffect.http.a aVar = new com.baidu.live.entereffect.http.a(z);
         aVar.addParam("scene_from", p.EZ());
         MessageManager.getInstance().sendMessage(aVar);
@@ -46,8 +46,8 @@ public class a implements b {
     }
 
     public void release() {
-        this.aMA = null;
-        MessageManager.getInstance().unRegisterListener(this.aMB);
+        this.aMC = null;
+        MessageManager.getInstance().unRegisterListener(this.aMD);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

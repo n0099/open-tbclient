@@ -34,68 +34,68 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class b implements View.OnClickListener, a.InterfaceC0629a, f {
-    private com.baidu.live.p.f bel;
-    private boolean biC;
-    private View bqG;
-    private FrameLayout gpj;
-    private AlaLiveView gxf;
-    private String gyA;
-    private AlaLiveInfoData gyB;
-    private View gyj;
-    private AlphaGradientHListView gyk;
-    private a gyl;
-    private View gym;
-    private TextView gyn;
-    private TextView gyo;
-    private o gyp;
+    private com.baidu.live.p.f ben;
+    private boolean biF;
+    private View bqJ;
+    private FrameLayout gpn;
+    private AlaLiveView gxj;
+    private HeadImageView gyA;
+    private ViewGroup gyB;
+    private d gyC;
+    private boolean gyD;
+    private String gyE;
+    private AlaLiveInfoData gyF;
+    private View gyn;
+    private AlphaGradientHListView gyo;
+    private a gyp;
     private View gyq;
-    private e gyr;
-    private h gyt;
+    private TextView gyr;
+    private TextView gys;
+    private o gyt;
     private View gyu;
-    private TextView gyv;
-    private HeadImageView gyw;
-    private ViewGroup gyx;
-    private d gyy;
-    private boolean gyz;
+    private e gyv;
+    private h gyx;
+    private View gyy;
+    private TextView gyz;
     private Handler mHandler;
     private TbPageContext mTbPageContext;
     private int currentIndex = -1;
-    private x gys = new x();
+    private x gyw = new x();
 
     public b(TbPageContext tbPageContext, com.baidu.live.p.f fVar, AlaLiveView alaLiveView, View view, FrameLayout frameLayout, e eVar) {
         this.mTbPageContext = tbPageContext;
-        this.bel = fVar;
-        this.bqG = fVar.getLivePlayer();
-        this.gxf = alaLiveView;
-        this.gpj = frameLayout;
-        this.gyq = view;
-        this.gyr = eVar;
-        this.gys.aEx = "全景视角";
-        this.gys.url = fVar.getVideoPath();
-        this.gyA = this.gys.url;
+        this.ben = fVar;
+        this.bqJ = fVar.getLivePlayer();
+        this.gxj = alaLiveView;
+        this.gpn = frameLayout;
+        this.gyu = view;
+        this.gyv = eVar;
+        this.gyw.aEz = "全景视角";
+        this.gyw.url = fVar.getVideoPath();
+        this.gyE = this.gyw.url;
         this.mHandler = new Handler();
         initView();
     }
 
     private void initView() {
-        bRi();
-        mc(false);
         bRj();
+        me(false);
+        bRk();
     }
 
-    private void bRi() {
-        if (this.gyj == null) {
-            this.gyj = LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(a.h.ala_liveroom_exclusive_scene_layout, (ViewGroup) null);
-            this.gyk = (AlphaGradientHListView) this.gyj.findViewById(a.g.lv_scene_list);
-            this.gym = this.gyj.findViewById(a.g.ll_tip_container);
-            this.gyo = (TextView) this.gym.findViewById(a.g.tv_scene_tip);
-            this.gyl = new a(this.mTbPageContext.getPageActivity(), true);
-            this.gyl.a(this);
-            this.gyk.setAdapter((ListAdapter) this.gyl);
-            this.gyk.setSelector(this.mTbPageContext.getPageActivity().getResources().getDrawable(a.f.sdk_transparent_bg));
-            this.gyk.setDirection(2);
-            this.gyk.setColor(this.mTbPageContext.getResources().getColor(a.d.sdk_white_alpha0), this.mTbPageContext.getResources().getColor(a.d.sdk_white_alpha100));
-            this.gyk.setOnScrollListener(new AbsHListView.g() { // from class: com.baidu.tieba.ala.liveroom.exclusive.b.1
+    private void bRj() {
+        if (this.gyn == null) {
+            this.gyn = LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(a.h.ala_liveroom_exclusive_scene_layout, (ViewGroup) null);
+            this.gyo = (AlphaGradientHListView) this.gyn.findViewById(a.g.lv_scene_list);
+            this.gyq = this.gyn.findViewById(a.g.ll_tip_container);
+            this.gys = (TextView) this.gyq.findViewById(a.g.tv_scene_tip);
+            this.gyp = new a(this.mTbPageContext.getPageActivity(), true);
+            this.gyp.a(this);
+            this.gyo.setAdapter((ListAdapter) this.gyp);
+            this.gyo.setSelector(this.mTbPageContext.getPageActivity().getResources().getDrawable(a.f.sdk_transparent_bg));
+            this.gyo.setDirection(2);
+            this.gyo.setColor(this.mTbPageContext.getResources().getColor(a.d.sdk_white_alpha0), this.mTbPageContext.getResources().getColor(a.d.sdk_white_alpha100));
+            this.gyo.setOnScrollListener(new AbsHListView.g() { // from class: com.baidu.tieba.ala.liveroom.exclusive.b.1
                 @Override // com.baidu.live.tieba.horizonallist.widget.AbsHListView.g
                 public void a(AbsHListView absHListView, int i) {
                 }
@@ -103,10 +103,10 @@ public class b implements View.OnClickListener, a.InterfaceC0629a, f {
                 @Override // com.baidu.live.tieba.horizonallist.widget.AbsHListView.g
                 public void a(AbsHListView absHListView, int i, int i2, int i3) {
                     if (i != 0) {
-                        if (!b.this.gyz) {
-                            b.this.gyz = true;
-                            b.this.gyk.setShadowWidth(BdUtilHelper.getDimens(b.this.mTbPageContext.getPageActivity(), a.e.sdk_ds30));
-                            b.this.gyk.setNeedAlphaShade(true);
+                        if (!b.this.gyD) {
+                            b.this.gyD = true;
+                            b.this.gyo.setShadowWidth(BdUtilHelper.getDimens(b.this.mTbPageContext.getPageActivity(), a.e.sdk_ds30));
+                            b.this.gyo.setNeedAlphaShade(true);
                             return;
                         }
                         return;
@@ -114,70 +114,70 @@ public class b implements View.OnClickListener, a.InterfaceC0629a, f {
                     View childAt = absHListView.getChildAt(i);
                     if (childAt != null) {
                         if (childAt.getLeft() < -6) {
-                            if (!b.this.gyz) {
-                                b.this.gyz = true;
-                                b.this.gyk.setShadowWidth(BdUtilHelper.getDimens(b.this.mTbPageContext.getPageActivity(), a.e.sdk_ds30));
-                                b.this.gyk.setNeedAlphaShade(true);
+                            if (!b.this.gyD) {
+                                b.this.gyD = true;
+                                b.this.gyo.setShadowWidth(BdUtilHelper.getDimens(b.this.mTbPageContext.getPageActivity(), a.e.sdk_ds30));
+                                b.this.gyo.setNeedAlphaShade(true);
                             }
-                        } else if (b.this.gyz) {
-                            b.this.gyz = false;
-                            b.this.gyk.setNeedAlphaShade(false);
+                        } else if (b.this.gyD) {
+                            b.this.gyD = false;
+                            b.this.gyo.setNeedAlphaShade(false);
                         }
                     }
                 }
             });
-            this.gyn = (TextView) this.gyj.findViewById(a.g.tv_all_scene);
-            this.gyn.setOnClickListener(this);
+            this.gyr = (TextView) this.gyn.findViewById(a.g.tv_all_scene);
+            this.gyr.setOnClickListener(this);
         }
     }
 
-    private void bRj() {
-        if (this.gyu == null) {
-            this.gyu = LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(a.h.ala_exclusive_scene_land_top_view, (ViewGroup) null);
-            this.gyw = (HeadImageView) this.gyu.findViewById(a.g.iv_land_scene_avatar);
-            this.gyw.setScaleType(ImageView.ScaleType.FIT_XY);
-            this.gyw.setDefaultBgResource(a.f.sdk_pic_mycenter_avatar_def);
-            this.gyw.setDefaultErrorResource(a.f.sdk_pic_mycenter_avatar_def);
-            this.gyv = (TextView) this.gyu.findViewById(a.g.tv_land_scene_name);
-            this.gyx = (ViewGroup) this.gyu.findViewById(a.g.ll_land_content_container);
-            this.gyx.setOnClickListener(this);
+    private void bRk() {
+        if (this.gyy == null) {
+            this.gyy = LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(a.h.ala_exclusive_scene_land_top_view, (ViewGroup) null);
+            this.gyA = (HeadImageView) this.gyy.findViewById(a.g.iv_land_scene_avatar);
+            this.gyA.setScaleType(ImageView.ScaleType.FIT_XY);
+            this.gyA.setDefaultBgResource(a.f.sdk_pic_mycenter_avatar_def);
+            this.gyA.setDefaultErrorResource(a.f.sdk_pic_mycenter_avatar_def);
+            this.gyz = (TextView) this.gyy.findViewById(a.g.tv_land_scene_name);
+            this.gyB = (ViewGroup) this.gyy.findViewById(a.g.ll_land_content_container);
+            this.gyB.setOnClickListener(this);
         }
     }
 
     private void a(boolean z, View view) {
-        if (bRk() && this.biC && view != null && view.getVisibility() == 0) {
-            c.a(this.mTbPageContext.getPageActivity(), view, z, this.gyp.Cz(), this.gyp.Cy(), true);
+        if (bRl() && this.biF && view != null && view.getVisibility() == 0) {
+            c.a(this.mTbPageContext.getPageActivity(), view, z, this.gyt.Cz(), this.gyt.Cy(), true);
         }
     }
 
-    private boolean bRk() {
-        return this.gyp != null && this.gyp.Cw();
+    private boolean bRl() {
+        return this.gyt != null && this.gyt.Cw();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bZ(List<x> list) {
-        if (this.gyl != null) {
-            this.gyl.setDatas(list);
+        if (this.gyp != null) {
+            this.gyp.setDatas(list);
         }
     }
 
     public void u(r rVar) {
         if (rVar != null) {
-            this.gyB = rVar.mLiveInfo;
-            if (rVar.aEr != null) {
-                if (this.gyp == null) {
-                    this.gyp = rVar.aEr;
-                } else if (!b(rVar.aEr) || !a(rVar.aEr) || !this.biC) {
-                    if (!b(rVar.aEr) && a(rVar.aEr) && this.biC) {
+            this.gyF = rVar.mLiveInfo;
+            if (rVar.aEt != null) {
+                if (this.gyt == null) {
+                    this.gyt = rVar.aEt;
+                } else if (!b(rVar.aEt) || !a(rVar.aEt) || !this.biF) {
+                    if (!b(rVar.aEt) && a(rVar.aEt) && this.biF) {
                         XC();
-                        this.gyp = rVar.aEr;
+                        this.gyt = rVar.aEt;
                     } else {
-                        this.gyp = rVar.aEr;
+                        this.gyt = rVar.aEt;
                     }
                 } else {
                     return;
                 }
-                bRm();
+                bRn();
             }
         }
     }
@@ -199,41 +199,41 @@ public class b implements View.OnClickListener, a.InterfaceC0629a, f {
         }
     }
 
-    public void bRl() {
+    public void bRm() {
         hideLoadingView();
     }
 
     public void onStart() {
-        if (this.bel != null) {
-            String videoPath = this.bel.getVideoPath();
-            if (!TextUtils.isEmpty(videoPath) && !videoPath.equals(this.gyA) && this.gys != null && this.gys.url != null) {
+        if (this.ben != null) {
+            String videoPath = this.ben.getVideoPath();
+            if (!TextUtils.isEmpty(videoPath) && !videoPath.equals(this.gyE) && this.gyw != null && this.gyw.url != null) {
                 this.currentIndex = -1;
-                bRs();
-                a(this.gys, true);
-                FY(videoPath);
+                bRt();
+                a(this.gyw, true);
+                FZ(videoPath);
             }
         }
     }
 
     public void eD(int i) {
-        if (bRk() && this.biC) {
+        if (bRl() && this.biF) {
             if (i == 1) {
-                bRv();
+                bRw();
                 tZ(i);
-                bRs();
-            } else if (i == 2) {
                 bRt();
+            } else if (i == 2) {
+                bRu();
             }
-            if (this.gyt != null) {
-                this.gyt.dz(i);
+            if (this.gyx != null) {
+                this.gyx.dz(i);
             }
         }
     }
 
     public void Iq() {
-        this.gys.url = null;
-        if (this.gyB != null) {
-            this.gyB.playUrl = null;
+        this.gyw.url = null;
+        if (this.gyF != null) {
+            this.gyF.playUrl = null;
         }
         XC();
     }
@@ -241,28 +241,28 @@ public class b implements View.OnClickListener, a.InterfaceC0629a, f {
     private void dw(JSONObject jSONObject) {
         o w = o.w(jSONObject.optJSONObject("multi_session"));
         if (w != null) {
-            if (this.gyp == null) {
-                this.gyp = w;
-            } else if (!b(w) || !a(w) || !this.biC) {
-                if (!b(w) && a(w) && this.biC) {
+            if (this.gyt == null) {
+                this.gyt = w;
+            } else if (!b(w) || !a(w) || !this.biF) {
+                if (!b(w) && a(w) && this.biF) {
                     XC();
-                    this.gyp = w;
+                    this.gyt = w;
                 } else {
-                    this.gyp = w;
+                    this.gyt = w;
                 }
             } else {
                 return;
             }
-            if (this.gyp != null) {
-                bRm();
+            if (this.gyt != null) {
+                bRn();
             }
         }
     }
 
-    private void bRm() {
-        String action = this.gyp.getAction();
+    private void bRn() {
+        String action = this.gyt.getAction();
         if (TextUtils.equals("1", action)) {
-            if (bRk()) {
+            if (bRl()) {
                 XB();
             }
         } else if (TextUtils.equals("2", action)) {
@@ -271,35 +271,35 @@ public class b implements View.OnClickListener, a.InterfaceC0629a, f {
     }
 
     private void XB() {
-        if (!this.biC) {
-            bRr();
-            this.biC = true;
-            bRn();
+        if (!this.biF) {
+            bRs();
+            this.biF = true;
+            bRo();
             this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.exclusive.b.2
                 @Override // java.lang.Runnable
                 public void run() {
                     int realScreenOrientation = UtilHelper.getRealScreenOrientation(b.this.mTbPageContext.getPageActivity());
-                    b.this.bRp();
-                    if (!TextUtils.isEmpty(b.this.gyp.CA())) {
-                        b.this.gyo.setText(b.this.gyp.CA());
+                    b.this.bRq();
+                    if (!TextUtils.isEmpty(b.this.gyt.CA())) {
+                        b.this.gys.setText(b.this.gyt.CA());
                     }
-                    b.this.bZ(b.this.gyp.Cx());
+                    b.this.bZ(b.this.gyt.Cx());
                     b.this.eD(realScreenOrientation);
-                    b.this.bRA();
-                    b.this.a(b.this.gys, true);
-                    if (b.this.gyr != null) {
-                        b.this.gyr.tR(b.this.getHeight());
+                    b.this.bRB();
+                    b.this.a(b.this.gyw, true);
+                    if (b.this.gyv != null) {
+                        b.this.gyv.tR(b.this.getHeight());
                     }
                     b.this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.exclusive.b.2.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            b.this.bRw();
+                            b.this.bRx();
                         }
                     }, 100L);
                     b.this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.exclusive.b.2.2
                         @Override // java.lang.Runnable
                         public void run() {
-                            b.this.bRx();
+                            b.this.bRy();
                         }
                     }, 5000L);
                 }
@@ -307,7 +307,7 @@ public class b implements View.OnClickListener, a.InterfaceC0629a, f {
         }
     }
 
-    private void bRn() {
+    private void bRo() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_LIVESDK, TbConfig.getVersion());
@@ -317,7 +317,7 @@ public class b implements View.OnClickListener, a.InterfaceC0629a, f {
         UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", "vision_show").setContentExt(jSONObject));
     }
 
-    private void bRo() {
+    private void bRp() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_LIVESDK, TbConfig.getVersion());
@@ -342,67 +342,67 @@ public class b implements View.OnClickListener, a.InterfaceC0629a, f {
     }
 
     private void XC() {
-        if (this.biC) {
-            this.biC = false;
+        if (this.biF) {
+            this.biF = false;
             this.currentIndex = -1;
-            bRq();
-            bRv();
-            if (a(this.gys)) {
-                FY(this.gys.url);
+            bRr();
+            bRw();
+            if (a(this.gyw)) {
+                FZ(this.gyw.url);
             }
-            if (this.gyr != null) {
-                this.gyr.tR(0);
+            if (this.gyv != null) {
+                this.gyv.tR(0);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bRp() {
-        if (this.gyj.getParent() != null) {
-            ((ViewGroup) this.gyj.getParent()).removeView(this.gyj);
+    public void bRq() {
+        if (this.gyn.getParent() != null) {
+            ((ViewGroup) this.gyn.getParent()).removeView(this.gyn);
         }
-        if (this.gxf != null) {
-            this.gxf.addView(this.gyj, (this.gyq != null ? this.gxf.getView().indexOfChild(this.gyq) : -1) + 1, new RelativeLayout.LayoutParams(-1, -2));
-        }
-    }
-
-    private void bRq() {
-        if (this.gyj.getParent() != null) {
-            ((ViewGroup) this.gyj.getParent()).removeView(this.gyj);
+        if (this.gxj != null) {
+            this.gxj.addView(this.gyn, (this.gyu != null ? this.gxj.getView().indexOfChild(this.gyu) : -1) + 1, new RelativeLayout.LayoutParams(-1, -2));
         }
     }
 
-    private void mc(boolean z) {
-        if (this.gyj != null) {
-            this.gyj.setVisibility(z ? 0 : 8);
+    private void bRr() {
+        if (this.gyn.getParent() != null) {
+            ((ViewGroup) this.gyn.getParent()).removeView(this.gyn);
+        }
+    }
+
+    private void me(boolean z) {
+        if (this.gyn != null) {
+            this.gyn.setVisibility(z ? 0 : 8);
         }
     }
 
     private boolean a(o oVar) {
-        return this.gyp.fO(oVar.getAction());
+        return this.gyt.fP(oVar.getAction());
     }
 
     private boolean b(o oVar) {
-        return this.gyp.fP(oVar.getId());
+        return this.gyt.fQ(oVar.getId());
     }
 
-    private void bRr() {
-        if (this.bel != null) {
-            this.gys.url = this.bel.getVideoPath();
-            this.gyA = this.gys.url;
+    private void bRs() {
+        if (this.ben != null) {
+            this.gyw.url = this.ben.getVideoPath();
+            this.gyE = this.gyw.url;
         }
     }
 
     private void tZ(int i) {
         RelativeLayout.LayoutParams layoutParams;
         int bottom;
-        if (this.bqG != null && (layoutParams = (RelativeLayout.LayoutParams) this.gyj.getLayoutParams()) != null) {
+        if (this.bqJ != null && (layoutParams = (RelativeLayout.LayoutParams) this.gyn.getLayoutParams()) != null) {
             if (i != 2) {
-                if (this.bqG.getLayoutParams() instanceof FrameLayout.LayoutParams) {
-                    FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.bqG.getLayoutParams();
+                if (this.bqJ.getLayoutParams() instanceof FrameLayout.LayoutParams) {
+                    FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.bqJ.getLayoutParams();
                     bottom = layoutParams2.topMargin + layoutParams2.height;
                 } else {
-                    bottom = this.bqG.getBottom();
+                    bottom = this.bqJ.getBottom();
                 }
                 int i2 = 0;
                 if (!UtilHelper.canUseStyleImmersiveSticky()) {
@@ -410,77 +410,77 @@ public class b implements View.OnClickListener, a.InterfaceC0629a, f {
                 }
                 layoutParams.topMargin = ((bottom + i2) - this.mTbPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds20)) - this.mTbPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds80);
             }
-            this.gyj.setLayoutParams(layoutParams);
-            mc(true);
+            this.gyn.setLayoutParams(layoutParams);
+            me(true);
         }
     }
 
-    private void bRs() {
+    private void bRt() {
         if (this.currentIndex == -1) {
-            a(true, (View) this.gyn);
+            a(true, (View) this.gyr);
         }
-        if (this.gyl != null) {
-            this.gyl.tX(this.currentIndex);
+        if (this.gyp != null) {
+            this.gyp.tX(this.currentIndex);
         }
-        if (this.gyk != null && this.currentIndex > 2) {
+        if (this.gyo != null && this.currentIndex > 2) {
             this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.exclusive.b.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (b.this.gyk != null) {
-                        b.this.gyk.setSelection(b.this.currentIndex);
-                        b.this.gyk.smoothScrollToPosition(b.this.currentIndex);
+                    if (b.this.gyo != null) {
+                        b.this.gyo.setSelection(b.this.currentIndex);
+                        b.this.gyo.smoothScrollToPosition(b.this.currentIndex);
                     }
                 }
             });
         }
     }
 
-    private void bRt() {
-        bRu();
+    private void bRu() {
+        bRv();
     }
 
-    private void bRu() {
-        mc(false);
-        if (this.gyu != null && this.gpj != null) {
-            if (this.gyu.getParent() != null) {
-                ((ViewGroup) this.gyu.getParent()).removeView(this.gyu);
+    private void bRv() {
+        me(false);
+        if (this.gyy != null && this.gpn != null) {
+            if (this.gyy.getParent() != null) {
+                ((ViewGroup) this.gyy.getParent()).removeView(this.gyy);
             }
             int i = -1;
-            if (this.gpj != null) {
-                i = this.gpj.indexOfChild(this.gpj.findViewById(a.g.content_layout));
+            if (this.gpn != null) {
+                i = this.gpn.indexOfChild(this.gpn.findViewById(a.g.content_layout));
             }
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, BdUtilHelper.getDimens(this.mTbPageContext.getPageActivity(), a.e.sdk_ds82));
             layoutParams.gravity = 21;
             layoutParams.rightMargin = (ScreenHelper.getRealScreenWidth(this.mTbPageContext.getPageActivity()) / 4) + BdUtilHelper.getDimens(this.mTbPageContext.getPageActivity(), a.e.sdk_ds26);
-            this.gpj.addView(this.gyu, i + 1, layoutParams);
+            this.gpn.addView(this.gyy, i + 1, layoutParams);
         }
     }
 
-    private void bRv() {
-        if (this.gyu != null && this.gyu.getParent() != null) {
-            ((ViewGroup) this.gyu.getParent()).removeView(this.gyu);
+    private void bRw() {
+        if (this.gyy != null && this.gyy.getParent() != null) {
+            ((ViewGroup) this.gyy.getParent()).removeView(this.gyy);
         }
-        if (this.gyy != null && this.gyy.isShowing()) {
-            this.gyy.dismiss();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void bRw() {
-        if (this.gym != null && this.gym.getVisibility() != 0) {
-            this.gym.setVisibility(0);
+        if (this.gyC != null && this.gyC.isShowing()) {
+            this.gyC.dismiss();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bRx() {
-        if (this.gym != null && this.gym.getVisibility() == 0) {
-            this.gym.setVisibility(4);
+        if (this.gyq != null && this.gyq.getVisibility() != 0) {
+            this.gyq.setVisibility(0);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void bRy() {
+        if (this.gyq != null && this.gyq.getVisibility() == 0) {
+            this.gyq.setVisibility(4);
         }
     }
 
     public int getHeight() {
-        if (this.biC) {
+        if (this.biF) {
             return this.mTbPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds104);
         }
         return 0;
@@ -488,60 +488,60 @@ public class b implements View.OnClickListener, a.InterfaceC0629a, f {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.gyn == view) {
-            if (this.gys != null) {
-                c(true, 1, this.gys.aEx);
+        if (this.gyr == view) {
+            if (this.gyw != null) {
+                c(true, 1, this.gyw.aEz);
                 this.currentIndex = -1;
-                a(true, (View) this.gyn);
-                if (this.gyl != null) {
-                    this.gyl.tX(this.currentIndex);
+                a(true, (View) this.gyr);
+                if (this.gyp != null) {
+                    this.gyp.tX(this.currentIndex);
                 }
-                a(this.gys, true);
-                if (a(this.gys)) {
-                    FY(this.gys.url);
+                a(this.gyw, true);
+                if (a(this.gyw)) {
+                    FZ(this.gyw.url);
                 }
             }
-        } else if (this.gyx == view) {
-            bRo();
-            bRy();
-        }
-    }
-
-    private void bRy() {
-        bRz();
-        if (!this.gyy.isShowing()) {
-            this.gyy.a(this.gyp, this.currentIndex);
+        } else if (this.gyB == view) {
+            bRp();
+            bRz();
         }
     }
 
     private void bRz() {
-        if (this.gyy == null) {
-            this.gyy = new d(this.mTbPageContext.getPageActivity());
-            this.gyy.a(this);
+        bRA();
+        if (!this.gyC.isShowing()) {
+            this.gyC.a(this.gyt, this.currentIndex);
+        }
+    }
+
+    private void bRA() {
+        if (this.gyC == null) {
+            this.gyC = new d(this.mTbPageContext.getPageActivity());
+            this.gyC.a(this);
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.exclusive.a.InterfaceC0629a
     public void a(View view, int i, x xVar) {
         this.currentIndex = i;
-        c(false, i + 2, xVar.aEx);
-        a(false, (View) this.gyn);
+        c(false, i + 2, xVar.aEz);
+        a(false, (View) this.gyr);
         a(xVar, false);
         if (a(xVar)) {
-            FY(xVar.url);
+            FZ(xVar.url);
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.exclusive.f
     public void a(boolean z, View view, int i, x xVar) {
-        a(z, this.gyn);
+        a(z, this.gyr);
         if (z) {
-            if (this.gys != null) {
+            if (this.gyw != null) {
                 this.currentIndex = -1;
-                c(false, 1, this.gys.aEx);
-                a(this.gys, true);
-                if (a(this.gys)) {
-                    FY(this.gys.url);
+                c(false, 1, this.gyw.aEz);
+                a(this.gyw, true);
+                if (a(this.gyw)) {
+                    FZ(this.gyw.url);
                     return;
                 }
                 return;
@@ -549,62 +549,62 @@ public class b implements View.OnClickListener, a.InterfaceC0629a, f {
             return;
         }
         this.currentIndex = i;
-        c(false, i + 2, xVar.aEx);
+        c(false, i + 2, xVar.aEz);
         a(xVar, false);
         if (a(xVar)) {
-            FY(xVar.url);
+            FZ(xVar.url);
         }
     }
 
     private boolean a(x xVar) {
-        return (xVar == null || TextUtils.isEmpty(xVar.url) || TextUtils.equals(xVar.url, this.gyA)) ? false : true;
+        return (xVar == null || TextUtils.isEmpty(xVar.url) || TextUtils.equals(xVar.url, this.gyE)) ? false : true;
     }
 
-    private void FY(String str) {
-        if (!TextUtils.isEmpty(str) && this.bel != null && this.gyB != null) {
-            bRB();
-            this.gyA = str;
-            this.bel.ch(true);
-            this.gyB.playUrl = str;
-            this.bel.c(this.gyB);
+    private void FZ(String str) {
+        if (!TextUtils.isEmpty(str) && this.ben != null && this.gyF != null) {
+            bRC();
+            this.gyE = str;
+            this.ben.ch(true);
+            this.gyF.playUrl = str;
+            this.ben.c(this.gyF);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(x xVar, boolean z) {
         if (xVar != null) {
-            bRj();
+            bRk();
             if (z) {
-                this.gyw.setVisibility(8);
+                this.gyA.setVisibility(8);
             } else {
-                this.gyw.setVisibility(0);
-                this.gyw.startLoad(xVar.imageUrl, 10, false);
+                this.gyA.setVisibility(0);
+                this.gyA.startLoad(xVar.imageUrl, 10, false);
             }
-            this.gyv.setText(xVar.getLabelName());
+            this.gyz.setText(xVar.getLabelName());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bRA() {
-        if (this.gyp != null) {
-            bRj();
-            c.a(this.mTbPageContext.getPageActivity(), this.gyx, true, this.gyp.Cz(), this.gyp.Cy(), true);
+    public void bRB() {
+        if (this.gyt != null) {
+            bRk();
+            c.a(this.mTbPageContext.getPageActivity(), this.gyB, true, this.gyt.Cz(), this.gyt.Cy(), true);
         }
     }
 
-    private void bRB() {
-        bRC();
-        this.gyt.show();
+    private void bRC() {
+        bRD();
+        this.gyx.show();
     }
 
     private void hideLoadingView() {
-        bRC();
-        this.gyt.dismiss();
+        bRD();
+        this.gyx.dismiss();
     }
 
-    private void bRC() {
-        if (this.gyt == null) {
-            this.gyt = new h(this.mTbPageContext.getPageActivity(), this.bel.getLivePlayer());
+    private void bRD() {
+        if (this.gyx == null) {
+            this.gyx = new h(this.mTbPageContext.getPageActivity(), this.ben.getLivePlayer());
         }
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.data;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.FrsPage.TopNotice;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class bz {
     private String title = null;
     private String title_link = null;

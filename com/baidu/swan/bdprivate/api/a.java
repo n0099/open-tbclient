@@ -17,11 +17,11 @@ public class a extends d {
     }
 
     @SuppressLint({"SwanBindApiNote"})
-    public com.baidu.swan.apps.api.c.b sX(String str) {
+    public com.baidu.swan.apps.api.c.b sY(String str) {
         return a(str, new com.baidu.swan.apps.api.a.c("getBDUSS") { // from class: com.baidu.swan.bdprivate.api.a.1
             @Override // com.baidu.swan.apps.api.a.c
             protected boolean abK() {
-                return com.baidu.swan.apps.runtime.d.azE().axR() && com.baidu.swan.apps.runtime.d.azE().azA().azU().qZ("mapp_i_get_bduss");
+                return com.baidu.swan.apps.runtime.d.azE().axR() && com.baidu.swan.apps.runtime.d.azE().azA().azU().ra("mapp_i_get_bduss");
             }
 
             @Override // com.baidu.swan.apps.api.a.c

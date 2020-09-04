@@ -2,7 +2,7 @@ package com.baidu.tieba.play.cyberPlayer;
 
 import android.content.Intent;
 import com.baidu.cyberplayer.sdk.remote.RemotePlayerService;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class CyberRemotePlayerService extends RemotePlayerService {
     @Override // com.baidu.cyberplayer.sdk.remote.RemotePlayerService, android.app.Service
     public int onStartCommand(Intent intent, int i, int i2) {
@@ -14,11 +14,11 @@ public class CyberRemotePlayerService extends RemotePlayerService {
 
     @Override // com.baidu.cyberplayer.sdk.remote.RemotePlayerService
     public long getPCDNNetHandle() {
-        long dkw = c.dkw();
-        if (dkw == 0) {
+        long dkz = c.dkz();
+        if (dkz == 0) {
             c.init();
-            return c.dkw();
+            return c.dkz();
         }
-        return dkw;
+        return dkz;
     }
 }

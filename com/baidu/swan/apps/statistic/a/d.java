@@ -9,9 +9,9 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class d extends f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static int cGD = 35;
-    private boolean cGF = false;
-    private JSONObject cXy;
+    private static int cGH = 35;
+    private boolean cGJ = false;
+    private JSONObject cXC;
 
     public d() {
         this.mSource = "NA";
@@ -28,38 +28,38 @@ public class d extends f {
         return this;
     }
 
-    public d fT(boolean z) {
-        this.cGF = z;
-        return this;
-    }
-
-    public d ru(String str) {
-        this.mFrom = str;
+    public d fU(boolean z) {
+        this.cGJ = z;
         return this;
     }
 
     public d rv(String str) {
-        this.mAppId = str;
+        this.mFrom = str;
         return this;
     }
 
     public d rw(String str) {
-        this.mSource = str;
+        this.mAppId = str;
         return this;
     }
 
     public d rx(String str) {
+        this.mSource = str;
+        return this;
+    }
+
+    public d ry(String str) {
         this.mPage = str;
         return this;
     }
 
     public d cm(String str, String str2) {
         if (str != null && str2 != null) {
-            if (this.cXy == null) {
-                this.cXy = new JSONObject();
+            if (this.cXC == null) {
+                this.cXC = new JSONObject();
             }
             try {
-                this.cXy.put(str, str2);
+                this.cXC.put(str, str2);
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -81,7 +81,7 @@ public class d extends f {
                 this.mScheme = eVar.aqP();
             }
             if (!TextUtils.isEmpty(eVar.getPage())) {
-                this.cXJ = eVar.getPage();
+                this.cXN = eVar.getPage();
             }
         }
         return this;
@@ -89,22 +89,22 @@ public class d extends f {
 
     @Override // com.baidu.swan.apps.statistic.a.f, com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
-        if (this.cXz == null) {
-            this.cXz = new JSONObject();
+        if (this.cXD == null) {
+            this.cXD = new JSONObject();
         }
         try {
-            if (this.cXy != null) {
-                if (this.cGF) {
-                    String kn = ak.kn(cGD);
+            if (this.cXC != null) {
+                if (this.cGJ) {
+                    String kn = ak.kn(cGH);
                     if (!TextUtils.isEmpty(kn)) {
-                        this.cXy.put("stacktrace", kn);
+                        this.cXC.put("stacktrace", kn);
                     }
                 }
-                this.cXz.put("info", this.cXy);
+                this.cXD.put("info", this.cXC);
             }
             ExtensionCore ako = com.baidu.swan.apps.core.turbo.d.ajS().ako();
             if (ako != null) {
-                this.cXz.put("extension_ver", ako.extensionCoreVersionName);
+                this.cXD.put("extension_ver", ako.extensionCoreVersionName);
             }
         } catch (JSONException e) {
             if (DEBUG) {

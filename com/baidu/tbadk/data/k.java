@@ -1,7 +1,7 @@
 package com.baidu.tbadk.data;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class k {
-    public String eJB;
+    public String eJF;
     public String mLink;
     public int type;
 }

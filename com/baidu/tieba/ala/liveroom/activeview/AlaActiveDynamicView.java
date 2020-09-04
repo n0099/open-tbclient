@@ -23,24 +23,24 @@ import com.baidu.live.w.d;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class AlaActiveDynamicView extends RelativeLayout implements c {
-    private TbImageView fAp;
-    private a gle;
-    private i glf;
-    private ViewGroup glg;
-    private View glh;
-    private TextView gli;
-    private TextView glj;
-    private TextView glk;
-    private TextView gll;
-    private ViewGroup glm;
-    private View gln;
+    private TbImageView fAt;
+    private a gli;
+    private i glj;
+    private ViewGroup glk;
+    private View gll;
+    private TextView glm;
+    private TextView gln;
     private TextView glo;
     private TextView glp;
-    private TextView glq;
-    private ProgressBar glr;
-    private ForegroundColorSpan gls;
-    private ForegroundColorSpan glt;
-    private int glu;
+    private ViewGroup glq;
+    private View glr;
+    private TextView gls;
+    private TextView glt;
+    private TextView glu;
+    private ProgressBar glv;
+    private ForegroundColorSpan glw;
+    private ForegroundColorSpan glx;
+    private int gly;
     private long mEndTime;
     private int mTextColor;
     private CountDownTimer mTimer;
@@ -61,40 +61,40 @@ public class AlaActiveDynamicView extends RelativeLayout implements c {
     }
 
     public void setCallback(a aVar) {
-        this.gle = aVar;
+        this.gli = aVar;
     }
 
     public i getActivityInfo() {
-        return this.glf;
+        return this.glj;
     }
 
     public void setActivityInfo(i iVar) {
-        this.glf = iVar;
+        this.glj = iVar;
     }
 
     public void setData(String str, ba baVar) {
         a(baVar);
-        this.fAp.startLoad(str, 10, false);
-        this.gli.setText(baVar.text);
-        this.gli.setTextColor(this.mTextColor);
-        this.glj.setText(baVar.point);
-        this.glj.setTextColor(this.glu);
+        this.fAt.startLoad(str, 10, false);
+        this.glm.setText(baVar.text);
+        this.glm.setTextColor(this.mTextColor);
+        this.gln.setText(baVar.point);
+        this.gln.setTextColor(this.gly);
         setLayoutBg(baVar);
         setValues(baVar);
-        bML();
+        bMM();
     }
 
     public void setTimer(String str) {
-        this.glo.setText(str);
-        if (this.glg.getVisibility() != 8) {
-            this.glg.setVisibility(8);
+        this.gls.setText(str);
+        if (this.glk.getVisibility() != 8) {
+            this.glk.setVisibility(8);
         }
-        if (this.glm.getVisibility() != 0) {
-            this.glm.setVisibility(0);
+        if (this.glq.getVisibility() != 0) {
+            this.glq.setVisibility(0);
         }
     }
 
-    private void bIn() {
+    private void bIo() {
         this.mEndTime = 0L;
         if (this.mTimer != null) {
             this.mTimer.cancel();
@@ -113,30 +113,30 @@ public class AlaActiveDynamicView extends RelativeLayout implements c {
 
     @Override // com.baidu.tieba.ala.liveroom.activeview.c
     public void release() {
-        bIn();
-        this.gle = null;
+        bIo();
+        this.gli = null;
     }
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(a.h.ala_active_dynamic, (ViewGroup) this, true);
-        this.fAp = (TbImageView) findViewById(a.g.iv_bg);
-        this.glg = (ViewGroup) findViewById(a.g.layout_data);
-        this.glh = findViewById(a.g.divider_data);
-        this.gli = (TextView) findViewById(a.g.tv_data_title);
-        this.glj = (TextView) findViewById(a.g.tv_data_point);
-        this.glk = (TextView) findViewById(a.g.tv_data_a);
-        this.gll = (TextView) findViewById(a.g.tv_data_b);
-        this.glm = (ViewGroup) findViewById(a.g.layout_timer);
-        this.gln = findViewById(a.g.divider_timer);
-        this.glo = (TextView) findViewById(a.g.tv_timer_title);
-        this.glp = (TextView) findViewById(a.g.tv_timer_tip);
-        this.glq = (TextView) findViewById(a.g.tv_timer_num);
-        this.glr = (ProgressBar) findViewById(a.g.pb_timer);
+        this.fAt = (TbImageView) findViewById(a.g.iv_bg);
+        this.glk = (ViewGroup) findViewById(a.g.layout_data);
+        this.gll = findViewById(a.g.divider_data);
+        this.glm = (TextView) findViewById(a.g.tv_data_title);
+        this.gln = (TextView) findViewById(a.g.tv_data_point);
+        this.glo = (TextView) findViewById(a.g.tv_data_a);
+        this.glp = (TextView) findViewById(a.g.tv_data_b);
+        this.glq = (ViewGroup) findViewById(a.g.layout_timer);
+        this.glr = findViewById(a.g.divider_timer);
+        this.gls = (TextView) findViewById(a.g.tv_timer_title);
+        this.glt = (TextView) findViewById(a.g.tv_timer_tip);
+        this.glu = (TextView) findViewById(a.g.tv_timer_num);
+        this.glv = (ProgressBar) findViewById(a.g.pb_timer);
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.activeview.AlaActiveDynamicView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (AlaActiveDynamicView.this.gle != null) {
-                    AlaActiveDynamicView.this.gle.b(AlaActiveDynamicView.this.glf);
+                if (AlaActiveDynamicView.this.gli != null) {
+                    AlaActiveDynamicView.this.gli.b(AlaActiveDynamicView.this.glj);
                 }
             }
         });
@@ -145,11 +145,11 @@ public class AlaActiveDynamicView extends RelativeLayout implements c {
     private void a(ba baVar) {
         boolean z;
         boolean z2 = true;
-        if (TextUtils.isEmpty(baVar.aJg)) {
+        if (TextUtils.isEmpty(baVar.aJi)) {
             z = false;
         } else {
             try {
-                this.mTextColor = Color.parseColor(baVar.aJg);
+                this.mTextColor = Color.parseColor(baVar.aJi);
                 z = true;
             } catch (Exception e) {
                 z = false;
@@ -158,20 +158,20 @@ public class AlaActiveDynamicView extends RelativeLayout implements c {
         if (!z) {
             this.mTextColor = getResources().getColor(a.d.sdk_active_normal);
         }
-        if (TextUtils.isEmpty(baVar.aJh)) {
+        if (TextUtils.isEmpty(baVar.aJj)) {
             z2 = false;
         } else {
             try {
-                this.glu = Color.parseColor(baVar.aJh);
+                this.gly = Color.parseColor(baVar.aJj);
             } catch (Exception e2) {
                 z2 = false;
             }
         }
         if (!z2) {
-            this.glu = getResources().getColor(a.d.sdk_active_highlight);
+            this.gly = getResources().getColor(a.d.sdk_active_highlight);
         }
-        this.gls = new ForegroundColorSpan(this.mTextColor);
-        this.glt = new ForegroundColorSpan(this.glu);
+        this.glw = new ForegroundColorSpan(this.mTextColor);
+        this.glx = new ForegroundColorSpan(this.gly);
     }
 
     private void setLayoutBg(ba baVar) {
@@ -180,7 +180,7 @@ public class AlaActiveDynamicView extends RelativeLayout implements c {
         int parseColor;
         int parseColor2;
         int i2 = 0;
-        String str = baVar.aJi;
+        String str = baVar.aJk;
         if (TextUtils.isEmpty(str)) {
             i = 0;
             z = false;
@@ -196,7 +196,7 @@ public class AlaActiveDynamicView extends RelativeLayout implements c {
         }
         if (z) {
             int i3 = -1;
-            String str2 = baVar.aJj;
+            String str2 = baVar.aJl;
             if (!TextUtils.isEmpty(str2)) {
                 try {
                     i3 = Integer.parseInt(str2);
@@ -216,35 +216,35 @@ public class AlaActiveDynamicView extends RelativeLayout implements c {
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setCornerRadius(getResources().getDimensionPixelOffset(a.e.sdk_ds8));
         gradientDrawable.setColor(parseColor);
-        this.glg.setBackgroundDrawable(gradientDrawable);
-        this.glm.setBackgroundDrawable(gradientDrawable);
-        this.glh.setBackgroundColor(parseColor2);
-        this.gln.setBackgroundColor(parseColor2);
+        this.glk.setBackgroundDrawable(gradientDrawable);
+        this.glq.setBackgroundDrawable(gradientDrawable);
+        this.gll.setBackgroundColor(parseColor2);
+        this.glr.setBackgroundColor(parseColor2);
     }
 
     private void setValues(ba baVar) {
-        List<ba.a> list = baVar.aJf;
+        List<ba.a> list = baVar.aJh;
         if (list != null) {
             ba.a aVar = list.get(0);
             if (aVar != null) {
                 SpannableString spannableString = new SpannableString(aVar.text + "：" + aVar.value);
-                spannableString.setSpan(this.gls, 0, aVar.text.length() + 1, 18);
-                spannableString.setSpan(this.glt, aVar.text.length() + 1, spannableString.length(), 18);
-                this.glk.setText(spannableString);
+                spannableString.setSpan(this.glw, 0, aVar.text.length() + 1, 18);
+                spannableString.setSpan(this.glx, aVar.text.length() + 1, spannableString.length(), 18);
+                this.glo.setText(spannableString);
             }
             ba.a aVar2 = list.get(1);
             if (aVar2 != null) {
                 SpannableString spannableString2 = new SpannableString(aVar2.text + "：" + aVar2.value);
-                spannableString2.setSpan(this.gls, 0, aVar2.text.length() + 1, 18);
-                spannableString2.setSpan(this.glt, aVar2.text.length() + 1, spannableString2.length(), 18);
-                this.gll.setText(spannableString2);
+                spannableString2.setSpan(this.glw, 0, aVar2.text.length() + 1, 18);
+                spannableString2.setSpan(this.glx, aVar2.text.length() + 1, spannableString2.length(), 18);
+                this.glp.setText(spannableString2);
             }
         }
     }
 
-    private void bML() {
-        this.glo.setTextColor(this.glu);
-        this.glp.setTextColor(this.mTextColor);
-        this.glq.setTextColor(this.mTextColor);
+    private void bMM() {
+        this.gls.setTextColor(this.gly);
+        this.glt.setTextColor(this.mTextColor);
+        this.glu.setTextColor(this.mTextColor);
     }
 }

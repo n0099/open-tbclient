@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.a.f;
 import com.baidu.tbadk.lcs.a;
 import org.apache.http.conn.params.ConnRoutePNames;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class SocketStatic {
     public static String Tag = "tag";
 
@@ -28,7 +28,7 @@ public class SocketStatic {
                         BdSocketLinkService.startService(false, "net succ");
                     }
                     synchronized (f.class) {
-                        f.elJ.removeParameter(ConnRoutePNames.DEFAULT_PROXY);
+                        f.elN.removeParameter(ConnRoutePNames.DEFAULT_PROXY);
                         f.proxyHost = null;
                     }
                 }

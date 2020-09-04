@@ -81,7 +81,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, MethodChannel.Me
             BdStatisticsManager.getInstance().performance(str2, statsItem);
             result.success(null);
         } else if (methodCall.method.equals("reportPageLoadPerformance")) {
-            if (m.bun().buo() && methodCall.arguments != null && (hashMap = (HashMap) methodCall.arguments) != null && hashMap.get("viewCreateTime") != null && ((Double) hashMap.get("viewCreateTime")).doubleValue() > 0.0d) {
+            if (m.buo().bup() && methodCall.arguments != null && (hashMap = (HashMap) methodCall.arguments) != null && hashMap.get("viewCreateTime") != null && ((Double) hashMap.get("viewCreateTime")).doubleValue() > 0.0d) {
                 String str3 = (String) hashMap.get("pageName");
                 if (OpenFlutter.ACTIVITY_SIGN_TOGETHER.equals(str3)) {
                     str = "sign_all_flt";
@@ -92,7 +92,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, MethodChannel.Me
                 mN.append("action", "time");
                 mN.append("ishttp", hashMap.get("isHttp"));
                 mN.append("issuccess", hashMap.get("errCode") == BasicPushStatus.SUCCESS_CODE ? "1" : "0");
-                mN.append("nettype", m.bun().getNetType());
+                mN.append("nettype", m.buo().getNetType());
                 if (hashMap.containsKey("whiteTime") && (hashMap.get("whiteTime") instanceof Double)) {
                     mN.append("wt", Double.valueOf(((Double) hashMap.get("whiteTime")).doubleValue() * 1000.0d));
                 }
@@ -124,6 +124,12 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, MethodChannel.Me
                 }
                 if (hashMap.containsKey("dartItemParseTime") && (hashMap.get("dartItemParseTime") instanceof Double)) {
                     mN.append("dpt", Double.valueOf(((Double) hashMap.get("dartItemParseTime")).doubleValue() * 1000.0d));
+                }
+                if (hashMap.containsKey("reqWaitTime") && (hashMap.get("reqWaitTime") instanceof Double)) {
+                    mN.append("rqwt", Double.valueOf(((Double) hashMap.get("reqWaitTime")).doubleValue() * 1000.0d));
+                }
+                if (hashMap.containsKey("renderTime") && (hashMap.get("renderTime") instanceof Double)) {
+                    mN.append("rdt", Double.valueOf(((Double) hashMap.get("renderTime")).doubleValue() * 1000.0d));
                 }
                 mN.append("hs", hashMap.get("httpSize"));
                 BdStatisticsManager.getInstance().performance(str, mN);

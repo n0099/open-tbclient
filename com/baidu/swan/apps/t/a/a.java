@@ -214,8 +214,8 @@ public class a implements com.baidu.swan.pms.b {
             return;
         }
         int i = pMSAppInfo.type;
-        final com.baidu.swan.apps.storage.c.b rZ = h.rZ(com.baidu.swan.apps.storage.b.U(str, pMSAppInfo.type));
-        rZ.putBoolean("swan_service_update_degraded", z);
+        final com.baidu.swan.apps.storage.c.b sa = h.sa(com.baidu.swan.apps.storage.b.U(str, pMSAppInfo.type));
+        sa.putBoolean("swan_service_update_degraded", z);
         if (com.baidu.swan.apps.runtime.e.DEBUG) {
             Log.d("SwanAppUpdateManager", "update async appKey = " + str + " ; type = " + i + " ; serviceDegraded = " + z);
         }
@@ -229,7 +229,7 @@ public class a implements com.baidu.swan.pms.b {
         p.postOnSerial(new Runnable() { // from class: com.baidu.swan.apps.t.a.a.2
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.swan.apps.network.c.a.auW().a(rZ, jSONObject);
+                com.baidu.swan.apps.network.c.a.auW().a(sa, jSONObject);
             }
         }, "parseAccreditList");
     }

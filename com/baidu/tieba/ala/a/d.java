@@ -10,7 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class d {
-    public File fOt = null;
+    public File fOx = null;
     public String mLoadingFile;
     public String mMd5;
     public String mType;
@@ -18,36 +18,36 @@ public class d {
     public String mVersion;
 
     public boolean isLoaded() {
-        return bHB() != null && bHB().exists();
+        return bHC() != null && bHC().exists();
     }
 
-    public void bHA() {
-        File file = new File(bHC());
+    public void bHB() {
+        File file = new File(bHD());
         if (file != null) {
             com.baidu.tieba.ala.a.b.a.deleteDir(file);
         }
-        this.fOt = null;
+        this.fOx = null;
+        bHD();
         bHC();
-        bHB();
     }
 
     public String getName() {
         return this.mVersion + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.mMd5;
     }
 
-    public File bHB() {
-        if (this.fOt == null && !TextUtils.isEmpty(this.mVersion)) {
-            this.fOt = new File(bHC(), getName());
+    public File bHC() {
+        if (this.fOx == null && !TextUtils.isEmpty(this.mVersion)) {
+            this.fOx = new File(bHD(), getName());
         }
-        return this.fOt;
+        return this.fOx;
     }
 
     public String getFilePath() {
-        return bHB().getAbsolutePath();
+        return bHC().getAbsolutePath();
     }
 
-    public String bHC() {
-        return TextUtils.equals(this.mType, "so") ? c.bHy().getAbsolutePath() : c.bHz().getAbsolutePath();
+    public String bHD() {
+        return TextUtils.equals(this.mType, "so") ? c.bHz().getAbsolutePath() : c.bHA().getAbsolutePath();
     }
 
     public String getLoadingFile() {
@@ -79,21 +79,21 @@ public class d {
                 }
             }
             com.baidu.tieba.ala.a.b.a.unzipFile(file, file2.getAbsolutePath());
-            file2.renameTo(bHB());
+            file2.renameTo(bHC());
         } catch (Exception e3) {
             z = false;
             e = e3;
         }
         if (isLoaded()) {
-            if (bHD()) {
+            if (bHE()) {
                 z = true;
                 if (!z) {
                     try {
-                        com.baidu.tieba.ala.a.b.a.deleteDir(bHB());
+                        com.baidu.tieba.ala.a.b.a.deleteDir(bHC());
                     } catch (Exception e4) {
                         e = e4;
                         e.printStackTrace();
-                        com.baidu.tieba.ala.a.b.a.deleteDir(bHB());
+                        com.baidu.tieba.ala.a.b.a.deleteDir(bHC());
                         return z;
                     }
                 }
@@ -108,10 +108,10 @@ public class d {
         return z;
     }
 
-    public boolean bHD() {
+    public boolean bHE() {
         JSONArray optJSONArray;
         try {
-            File file = new File(bHB(), "files.json");
+            File file = new File(bHC(), "files.json");
             if (file == null || !file.exists()) {
                 return false;
             }
@@ -127,7 +127,7 @@ public class d {
             ArrayList<a> arrayList = new ArrayList<>();
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
-                arrayList.add(a.EF(optJSONArray.getString(i)));
+                arrayList.add(a.EG(optJSONArray.getString(i)));
             }
             return Z(arrayList);
         } catch (Exception e) {
@@ -164,7 +164,7 @@ public class d {
         }
     }
 
-    public static d dU(String str, String str2) {
+    public static d dV(String str, String str2) {
         d dVar = new d();
         dVar.mVersion = str;
         String str3 = "https://pic.rmb.bdstatic.com/baidu-ar-so-live-";
@@ -173,7 +173,7 @@ public class d {
         }
         String str4 = str3 + str + ".zip";
         dVar.mUrl = str4;
-        dVar.mMd5 = com.baidu.tieba.ala.a.b.b.dV(str4, "MD5");
+        dVar.mMd5 = com.baidu.tieba.ala.a.b.b.dW(str4, "MD5");
         dVar.mType = str2;
         return dVar;
     }
@@ -184,7 +184,7 @@ public class d {
         public String mName;
         public String mPath;
 
-        public static a EF(String str) {
+        public static a EG(String str) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }

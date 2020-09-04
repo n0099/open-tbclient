@@ -10,11 +10,11 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public abstract class b<ResultDataT> {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public final h<ResultDataT> cUW = new h<>();
-    private final Set<com.baidu.swan.apps.ap.e.b<h<ResultDataT>>> cqf = new HashSet();
-    private final LinkedList<d> cUX = new LinkedList<>();
-    private boolean cUY = false;
-    private boolean cUZ = false;
+    public final h<ResultDataT> cVa = new h<>();
+    private final Set<com.baidu.swan.apps.ap.e.b<h<ResultDataT>>> cqj = new HashSet();
+    private final LinkedList<d> cVb = new LinkedList<>();
+    private boolean cVc = false;
+    private boolean cVd = false;
 
     protected abstract void aBA();
 
@@ -32,7 +32,7 @@ public abstract class b<ResultDataT> {
                 throw new OAuthException(10001);
             }
         }.a(this).aBC();
-        this.cUY = true;
+        this.cVc = true;
     }
 
     private void aBu() {
@@ -46,7 +46,7 @@ public abstract class b<ResultDataT> {
                 throw new OAuthException(10001);
             }
         }.a(this).aBC();
-        this.cUZ = true;
+        this.cVd = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -59,19 +59,19 @@ public abstract class b<ResultDataT> {
     }
 
     public b<ResultDataT> A(com.baidu.swan.apps.ap.e.b<h<ResultDataT>> bVar) {
-        if (this.cUW.cVN.isCallbackAvailable()) {
-            this.cqf.add(bVar);
+        if (this.cVa.cVR.isCallbackAvailable()) {
+            this.cqj.add(bVar);
         }
         return this;
     }
 
     private void aBx() {
-        for (final com.baidu.swan.apps.ap.e.b<h<ResultDataT>> bVar : this.cqf) {
+        for (final com.baidu.swan.apps.ap.e.b<h<ResultDataT>> bVar : this.cqj) {
             c.h(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.b.3
                 @Override // java.lang.Runnable
                 public void run() {
                     if (bVar != null) {
-                        bVar.I(b.this.cUW);
+                        bVar.I(b.this.cVa);
                     }
                 }
             });
@@ -88,18 +88,18 @@ public abstract class b<ResultDataT> {
     }
 
     public TaskState aBz() {
-        return this.cUW.cVN;
+        return this.cVa.cVR;
     }
 
     public void rz() {
-        this.cUW.cVN = TaskState.INIT;
-        this.cUY = false;
-        this.cUZ = false;
+        this.cVa.cVR = TaskState.INIT;
+        this.cVc = false;
+        this.cVd = false;
     }
 
     public b a(@NonNull d dVar) {
         dVar.a(this);
-        this.cUX.offer(dVar);
+        this.cVb.offer(dVar);
         return this;
     }
 
@@ -117,11 +117,11 @@ public abstract class b<ResultDataT> {
             if (DEBUG) {
                 c.c("IllegalState on prepare", false);
             }
-        } else if (!this.cUY) {
+        } else if (!this.cVc) {
             aBt();
-        } else if (!this.cUX.isEmpty()) {
-            this.cUX.poll().aBC();
-        } else if (!this.cUZ) {
+        } else if (!this.cVb.isEmpty()) {
+            this.cVb.poll().aBC();
+        } else if (!this.cVd) {
             aBu();
         } else {
             exec();
@@ -134,11 +134,11 @@ public abstract class b<ResultDataT> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void V(ResultDataT resultdatat) {
-        this.cUW.mData = resultdatat;
+        this.cVa.mData = resultdatat;
     }
 
     private void a(TaskState taskState) {
-        this.cUW.cVN = taskState;
+        this.cVa.cVR = taskState;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -149,16 +149,16 @@ public abstract class b<ResultDataT> {
     /* JADX INFO: Access modifiers changed from: protected */
     public void v(@Nullable Exception exc) {
         if (exc instanceof OAuthException) {
-            this.cUW.cVO = (OAuthException) exc;
+            this.cVa.cVS = (OAuthException) exc;
         } else if (exc != null) {
-            this.cUW.cVO = new OAuthException(exc, 10001);
+            this.cVa.cVS = new OAuthException(exc, 10001);
         }
-        if (!this.cUW.isOk() && DEBUG && exc != null) {
+        if (!this.cVa.isOk() && DEBUG && exc != null) {
             exc.printStackTrace();
         }
         a(TaskState.FINISHED);
         c.c(toString(), false);
         aBx();
-        this.cqf.clear();
+        this.cqj.clear();
     }
 }

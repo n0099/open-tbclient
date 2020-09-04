@@ -12,10 +12,10 @@ import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import com.baidu.tieba.R;
 import java.util.Arrays;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class RoundLinearLayout extends LinearLayout {
-    private Shape egb;
-    private int egc;
+    private Shape egf;
+    private int egg;
     private Paint mPaint;
     private float mRadius;
 
@@ -30,7 +30,7 @@ public class RoundLinearLayout extends LinearLayout {
     public RoundLinearLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mRadius = 0.0f;
-        this.egc = 4;
+        this.egg = 4;
         setLayerType(1, null);
         this.mRadius = getResources().getDimension(R.dimen.tbds32);
         this.mPaint = new Paint();
@@ -45,23 +45,23 @@ public class RoundLinearLayout extends LinearLayout {
     }
 
     public void setRoundCount(int i) {
-        this.egc = i;
+        this.egg = i;
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (z) {
-            if (this.egb == null) {
+            if (this.egf == null) {
                 float[] fArr = new float[8];
                 Arrays.fill(fArr, 0.0f);
                 RectF rectF = new RectF(getPaddingLeft(), getPaddingTop() > 0 ? getPaddingTop() : 1.0f, getPaddingRight() <= 0 ? 1.0f : getPaddingRight(), getPaddingBottom());
                 float[] fArr2 = new float[8];
                 Arrays.fill(fArr, 0.0f);
-                Arrays.fill(fArr2, 0, this.egc, this.mRadius);
-                this.egb = new RoundRectShape(fArr, rectF, fArr2);
+                Arrays.fill(fArr2, 0, this.egg, this.mRadius);
+                this.egf = new RoundRectShape(fArr, rectF, fArr2);
             }
-            this.egb.resize(getWidth(), getHeight());
+            this.egf.resize(getWidth(), getHeight());
         }
     }
 
@@ -70,8 +70,8 @@ public class RoundLinearLayout extends LinearLayout {
         int saveCount = canvas.getSaveCount();
         canvas.save();
         super.dispatchDraw(canvas);
-        if (this.egb != null) {
-            this.egb.draw(canvas, this.mPaint);
+        if (this.egf != null) {
+            this.egf.draw(canvas, this.mPaint);
         }
         if (saveCount >= 1 && saveCount <= canvas.getSaveCount()) {
             canvas.restoreToCount(saveCount);

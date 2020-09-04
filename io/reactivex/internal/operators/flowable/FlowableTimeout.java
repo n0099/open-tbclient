@@ -12,8 +12,8 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operators.flowable.a<T, T> {
     final h<? super T, ? extends org.b.b<V>> itemTimeoutIndicator;
-    final org.b.b<? extends T> onb;
-    final org.b.b<U> onx;
+    final org.b.b<U> onP;
+    final org.b.b<? extends T> onu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
@@ -23,17 +23,17 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
 
     @Override // io.reactivex.g
     protected void a(org.b.c<? super T> cVar) {
-        if (this.onb == null) {
+        if (this.onu == null) {
             TimeoutSubscriber timeoutSubscriber = new TimeoutSubscriber(cVar, this.itemTimeoutIndicator);
             cVar.onSubscribe(timeoutSubscriber);
-            timeoutSubscriber.startFirstTimeout(this.onx);
-            this.omB.a((j) timeoutSubscriber);
+            timeoutSubscriber.startFirstTimeout(this.onP);
+            this.omT.a((j) timeoutSubscriber);
             return;
         }
-        TimeoutFallbackSubscriber timeoutFallbackSubscriber = new TimeoutFallbackSubscriber(cVar, this.itemTimeoutIndicator, this.onb);
+        TimeoutFallbackSubscriber timeoutFallbackSubscriber = new TimeoutFallbackSubscriber(cVar, this.itemTimeoutIndicator, this.onu);
         cVar.onSubscribe(timeoutFallbackSubscriber);
-        timeoutFallbackSubscriber.startFirstTimeout(this.onx);
-        this.omB.a((j) timeoutFallbackSubscriber);
+        timeoutFallbackSubscriber.startFirstTimeout(this.onP);
+        this.omT.a((j) timeoutFallbackSubscriber);
     }
 
     /* loaded from: classes7.dex */

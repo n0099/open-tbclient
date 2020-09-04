@@ -6,10 +6,10 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class NoDataViewFactory {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum ImgType {
         NONE,
         CREATE,
@@ -25,31 +25,31 @@ public class NoDataViewFactory {
         NETERROR
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class b {
-        final a erE;
-        final a erF;
-        final int erG;
+        final a erI;
+        final a erJ;
+        final int erK;
 
         private b(a aVar) {
-            this.erE = aVar.erE;
-            this.erF = aVar.erF;
-            this.erG = aVar.erG;
+            this.erI = aVar.erI;
+            this.erJ = aVar.erJ;
+            this.erK = aVar.erK;
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes.dex */
         public static class a {
-            private a erE = null;
-            private a erF = null;
-            private int erG = -1;
+            private a erI = null;
+            private a erJ = null;
+            private int erK = -1;
 
             public a b(a aVar) {
-                this.erE = aVar;
+                this.erI = aVar;
                 return this;
             }
 
             public a oF(int i) {
-                this.erG = i;
+                this.erK = i;
                 return this;
             }
 
@@ -72,43 +72,43 @@ public class NoDataViewFactory {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a {
-        View.OnClickListener erD;
+        View.OnClickListener erH;
         String mText;
 
         public a(String str, View.OnClickListener onClickListener) {
             this.mText = str;
-            this.erD = onClickListener;
+            this.erH = onClickListener;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class c {
-        final int erB;
-        final ImgType erH;
+        final int erF;
+        final ImgType erL;
         final int mHeight;
         final int mMarginTop;
         final int mWidth;
 
         private c(a aVar) {
-            this.erH = aVar.erH;
+            this.erL = aVar.erL;
             this.mMarginTop = aVar.mMarginTop;
-            this.erB = aVar.erB;
+            this.erF = aVar.erF;
             this.mHeight = aVar.mHeight;
             this.mWidth = aVar.mWidth;
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes.dex */
         public static class a {
-            private ImgType erH = ImgType.NONE;
+            private ImgType erL = ImgType.NONE;
             private int mMarginTop = -1;
-            private int erB = -1;
+            private int erF = -1;
             private int mHeight = -1;
             private int mWidth = -1;
 
             public a b(ImgType imgType) {
-                this.erH = imgType;
+                this.erL = imgType;
                 return this;
             }
 
@@ -118,7 +118,7 @@ public class NoDataViewFactory {
             }
 
             public a oH(int i) {
-                this.erB = i;
+                this.erF = i;
                 return this;
             }
 
@@ -161,10 +161,10 @@ public class NoDataViewFactory {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class d {
-        final String erI;
-        final int erJ;
+        final String erM;
+        final int erN;
         final int mDrawableId;
         final String mSubTitle;
         final String mTitle;
@@ -172,31 +172,31 @@ public class NoDataViewFactory {
         private d(a aVar) {
             this.mTitle = aVar.mTitle;
             this.mSubTitle = aVar.mSubTitle;
-            this.erI = aVar.erI;
-            this.erJ = aVar.erK;
+            this.erM = aVar.erM;
+            this.erN = aVar.erO;
             this.mDrawableId = aVar.mDrawableId;
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes.dex */
         public static class a {
             private String mTitle = null;
             private String mSubTitle = null;
-            private String erI = null;
-            private int erK = -1;
+            private String erM = null;
+            private int erO = -1;
             private int mDrawableId = 0;
 
-            public a AC(String str) {
+            public a AD(String str) {
                 this.mTitle = str;
                 return this;
             }
 
-            public a AD(String str) {
+            public a AE(String str) {
                 this.mSubTitle = str;
                 return this;
             }
 
             public a oL(int i) {
-                this.erK = i;
+                this.erO = i;
                 return this;
             }
 
@@ -207,29 +207,29 @@ public class NoDataViewFactory {
 
         public static d aX(int i, int i2) {
             a aVar = new a();
-            aVar.AD(TbadkCoreApplication.getInst().getResources().getString(i));
+            aVar.AE(TbadkCoreApplication.getInst().getResources().getString(i));
             aVar.oL(i2);
             return aVar.bkt();
         }
 
         public static d oK(int i) {
-            return AB(TbadkCoreApplication.getInst().getResources().getString(i));
+            return AC(TbadkCoreApplication.getInst().getResources().getString(i));
         }
 
         public static d aY(int i, int i2) {
             return dE(TbadkCoreApplication.getInst().getResources().getString(i), TbadkCoreApplication.getInst().getResources().getString(i2));
         }
 
-        public static d AB(String str) {
+        public static d AC(String str) {
             a aVar = new a();
-            aVar.AD(str);
+            aVar.AE(str);
             return aVar.bkt();
         }
 
         public static d dE(String str, String str2) {
             a aVar = new a();
-            aVar.AD(str);
-            aVar.AC(str2);
+            aVar.AE(str);
+            aVar.AD(str2);
             return aVar.bkt();
         }
     }

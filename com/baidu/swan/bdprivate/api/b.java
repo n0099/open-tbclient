@@ -18,7 +18,7 @@ public class b extends d {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void sV(String str);
+        void sW(String str);
     }
 
     public b(@NonNull com.baidu.swan.apps.api.a.b bVar) {
@@ -26,7 +26,7 @@ public class b extends d {
     }
 
     @SuppressLint({"SwanBindApiNote"})
-    public com.baidu.swan.apps.api.c.b sY(String str) {
+    public com.baidu.swan.apps.api.c.b sZ(String str) {
         e azJ = e.azJ();
         if (azJ == null) {
             if (DEBUG) {
@@ -81,7 +81,7 @@ public class b extends d {
         } else {
             com.baidu.swan.bdprivate.a.a.a(com.baidu.swan.apps.runtime.d.azE(), str, arrayList, new a() { // from class: com.baidu.swan.bdprivate.api.b.2
                 @Override // com.baidu.swan.bdprivate.api.b.a
-                public void sV(String str3) {
+                public void sW(String str3) {
                     try {
                         b.this.a(str2, new com.baidu.swan.apps.api.c.b(0, new JSONObject(str3)));
                     } catch (JSONException e) {

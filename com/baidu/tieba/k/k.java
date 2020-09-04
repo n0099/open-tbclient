@@ -2,39 +2,39 @@ package com.baidu.tieba.k;
 
 import android.os.SystemClock;
 import com.baidu.tieba.play.cyberPlayer.TbCyberVideoView;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class k {
     private static final String TAG = k.class.getName();
-    private long khO;
-    private long khP;
-    private long khQ;
-    private boolean khR;
-
-    public void cRp() {
-        this.khO = 0L;
-        this.khP = 0L;
-        this.khQ = 0L;
-    }
+    private long khV;
+    private long khW;
+    private long khX;
+    private boolean khY;
 
     public void cRq() {
-        this.khR = true;
-        this.khO = SystemClock.elapsedRealtime();
+        this.khV = 0L;
+        this.khW = 0L;
+        this.khX = 0L;
     }
 
     public void cRr() {
-        this.khP = SystemClock.elapsedRealtime();
+        this.khY = true;
+        this.khV = SystemClock.elapsedRealtime();
     }
 
     public void cRs() {
-        this.khQ = SystemClock.elapsedRealtime();
+        this.khW = SystemClock.elapsedRealtime();
+    }
+
+    public void cRt() {
+        this.khX = SystemClock.elapsedRealtime();
     }
 
     public void a(TbCyberVideoView tbCyberVideoView) {
-        if (this.khR) {
-            this.khR = false;
+        if (this.khY) {
+            this.khY = false;
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            long j = this.khP - this.khO;
-            long j2 = elapsedRealtime - this.khQ;
+            long j = this.khW - this.khV;
+            long j2 = elapsedRealtime - this.khX;
             long j3 = j2 + j;
             if ((com.baidu.adp.lib.util.j.netType() == 2 || j <= 17500) && tbCyberVideoView != null) {
                 tbCyberVideoView.h(j, j2, j3);

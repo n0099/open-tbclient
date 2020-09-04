@@ -10,11 +10,11 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
     private BdTypeRecyclerView Wu;
-    private List<com.baidu.adp.widget.ListView.a> bbu;
-    private e fEa;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.c fEb;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.b fEc;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.a fEd;
+    private List<com.baidu.adp.widget.ListView.a> bbw;
+    private e fEe;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.c fEf;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.b fEg;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.a fEh;
     private Context mContext;
     private TbPageContext mPageContext;
     private int tabType;
@@ -28,16 +28,16 @@ public class a {
     }
 
     private void Jv() {
-        this.bbu = new ArrayList();
-        this.fEa = new e(this.mPageContext, this.tabType);
-        this.fEb = new com.baidu.tieba.ala.alasquare.live_tab.a.c(this.mPageContext);
-        this.fEc = new com.baidu.tieba.ala.alasquare.live_tab.a.b(this.mPageContext);
-        this.fEd = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
-        this.bbu.add(this.fEa);
-        this.bbu.add(this.fEb);
-        this.bbu.add(this.fEc);
-        this.bbu.add(this.fEd);
-        this.Wu.addAdapters(this.bbu);
+        this.bbw = new ArrayList();
+        this.fEe = new e(this.mPageContext, this.tabType);
+        this.fEf = new com.baidu.tieba.ala.alasquare.live_tab.a.c(this.mPageContext);
+        this.fEg = new com.baidu.tieba.ala.alasquare.live_tab.a.b(this.mPageContext);
+        this.fEh = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
+        this.bbw.add(this.fEe);
+        this.bbw.add(this.fEf);
+        this.bbw.add(this.fEg);
+        this.bbw.add(this.fEh);
+        this.Wu.addAdapters(this.bbw);
     }
 
     public void setData(List<q> list) {

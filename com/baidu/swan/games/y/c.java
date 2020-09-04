@@ -11,35 +11,35 @@ import com.baidu.swan.games.y.b;
 /* loaded from: classes8.dex */
 public class c extends EventTargetImpl {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.games.f.b dox;
-    private com.baidu.swan.games.binding.model.a dxi;
-    private String dxj;
+    private com.baidu.swan.games.f.b doB;
+    private com.baidu.swan.games.binding.model.a dxm;
+    private String dxn;
 
     public c(com.baidu.swan.games.f.b bVar) {
         super(bVar);
-        this.dox = bVar;
+        this.doB = bVar;
     }
 
     public void n(JsObject jsObject) {
         reset();
         o(jsObject);
-        if (TextUtils.isEmpty(this.dxj)) {
+        if (TextUtils.isEmpty(this.dxn)) {
             if (DEBUG) {
                 Log.i("LoadSubpackageTask", "params error");
             }
-            com.baidu.swan.games.v.c.k(this.dxj, 2111, "");
+            com.baidu.swan.games.v.c.k(this.dxn, 2111, "");
             return;
         }
-        b.a(this.dxj, new b.a() { // from class: com.baidu.swan.games.y.c.1
+        b.a(this.dxn, new b.a() { // from class: com.baidu.swan.games.y.c.1
             @Override // com.baidu.swan.games.y.b.a
             public void aPB() {
-                c.this.gJ(c.this.vX(c.this.dxj));
+                c.this.gK(c.this.vY(c.this.dxn));
             }
 
             @Override // com.baidu.swan.games.y.b.a
             public void gv(int i) {
-                c.this.gJ(false);
-                com.baidu.swan.games.v.c.k(c.this.dxj, i, "");
+                c.this.gK(false);
+                com.baidu.swan.games.v.c.k(c.this.dxn, i, "");
             }
 
             @Override // com.baidu.swan.games.y.b.a
@@ -61,20 +61,20 @@ public class c extends EventTargetImpl {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gJ(final boolean z) {
-        if (this.dox != null) {
-            this.dox.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.y.c.2
+    public void gK(final boolean z) {
+        if (this.doB != null) {
+            this.doB.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.y.c.2
                 @Override // java.lang.Runnable
                 public void run() {
                     if (z) {
-                        if (c.this.dxi != null) {
-                            c.this.dxi.onSuccess();
+                        if (c.this.dxm != null) {
+                            c.this.dxm.onSuccess();
                             if (c.DEBUG) {
                                 Log.i("LoadSubpackageTask", "success call");
                             }
                         }
-                    } else if (c.this.dxi != null) {
-                        c.this.dxi.onFail();
+                    } else if (c.this.dxm != null) {
+                        c.this.dxm.onFail();
                         if (c.DEBUG) {
                             Log.i("LoadSubpackageTask", "fail call");
                         }
@@ -85,29 +85,29 @@ public class c extends EventTargetImpl {
     }
 
     private void reset() {
-        this.dxi = null;
-        this.dxj = null;
+        this.dxm = null;
+        this.dxn = null;
     }
 
     private void o(JsObject jsObject) {
         com.baidu.swan.games.binding.model.c e;
         if (jsObject != null && (e = com.baidu.swan.games.binding.model.c.e(jsObject)) != null) {
-            this.dxi = com.baidu.swan.games.binding.model.a.f(e);
+            this.dxm = com.baidu.swan.games.binding.model.a.f(e);
             try {
-                this.dxj = e.getString("name");
+                this.dxn = e.getString("name");
             } catch (JSTypeMismatchException e2) {
                 if (DEBUG) {
                     e2.printStackTrace();
                 }
-                com.baidu.swan.games.utils.b.a(this.dox, e2);
+                com.baidu.swan.games.utils.b.a(this.doB, e2);
                 reset();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean vX(String str) {
-        if (this.dox == null) {
+    public boolean vY(String str) {
+        if (this.doB == null) {
             return false;
         }
         String str2 = f.arY().arF() + a.aPA().Z(str, 2);
@@ -115,7 +115,7 @@ public class c extends EventTargetImpl {
         if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(Z)) {
             return false;
         }
-        this.dox.cJ(str2, Z);
+        this.doB.cJ(str2, Z);
         return true;
     }
 }

@@ -4,21 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.FrsPage.ActivityHead;
 import tbclient.FrsPage.HeadImgs;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class v {
-    private String dXH;
-    private int dXI;
-    private ArrayList<y> dXJ = new ArrayList<>();
+    private String dXL;
+    private int dXM;
+    private ArrayList<y> dXN = new ArrayList<>();
     private int height;
     private String obj_id;
     private int width;
 
     public ArrayList<y> bcI() {
-        return this.dXJ;
+        return this.dXN;
     }
 
     public void C(ArrayList<y> arrayList) {
-        this.dXJ = arrayList;
+        this.dXN = arrayList;
     }
 
     public String bcJ() {
@@ -27,8 +27,8 @@ public class v {
 
     public void a(ActivityHead activityHead) {
         if (activityHead != null) {
-            this.dXI = activityHead.activity_type.intValue();
-            this.dXH = activityHead.activity_title;
+            this.dXM = activityHead.activity_type.intValue();
+            this.dXL = activityHead.activity_title;
             this.width = activityHead.top_size == null ? 0 : activityHead.top_size.width.intValue();
             this.height = activityHead.top_size != null ? activityHead.top_size.height.intValue() : 0;
             this.obj_id = activityHead.obj_id;
@@ -48,7 +48,7 @@ public class v {
         if (headImgs != null) {
             y yVar = new y();
             yVar.b(headImgs);
-            this.dXJ.add(yVar);
+            this.dXN.add(yVar);
         }
     }
 }

@@ -3,9 +3,9 @@ package com.baidu.live.data;
 import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public class f {
-    private String aDd;
-    private ArrayList<Integer> aDe;
-    private boolean aDf;
+    private String aDf;
+    private ArrayList<Integer> aDg;
+    private boolean aDh;
     private int categoryId;
 
     public void setCategoryId(int i) {
@@ -13,15 +13,15 @@ public class f {
     }
 
     public void setCategoryName(String str) {
-        this.aDd = str;
+        this.aDf = str;
     }
 
     public void k(ArrayList<Integer> arrayList) {
-        this.aDe = arrayList;
+        this.aDg = arrayList;
     }
 
     public String getCategoryName() {
-        return this.aDd;
+        return this.aDf;
     }
 
     public int getCategoryId() {
@@ -29,10 +29,10 @@ public class f {
     }
 
     public ArrayList<Integer> Cu() {
-        return this.aDe;
+        return this.aDg;
     }
 
     public void bg(boolean z) {
-        this.aDf = z;
+        this.aDh = z;
     }
 }

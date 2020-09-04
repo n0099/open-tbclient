@@ -7,8 +7,8 @@ import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 /* loaded from: classes8.dex */
 public abstract class a implements d {
-    private static final ReadWriteLock cXY = new ReentrantReadWriteLock();
-    private File cXZ = aCX();
+    private static final ReadWriteLock cYc = new ReentrantReadWriteLock();
+    private File cYd = aCX();
     private final long MAX_SIZE = getMaxSize();
 
     @NonNull
@@ -16,12 +16,12 @@ public abstract class a implements d {
 
     @Override // com.baidu.swan.apps.storage.b.d
     public void bJ(long j) {
-        cXY.writeLock().lock();
+        cYc.writeLock().lock();
         try {
-            if (this.cXZ == null) {
-                this.cXZ = aCX();
+            if (this.cYd == null) {
+                this.cYd = aCX();
             }
-            File file = this.cXZ;
+            File file = this.cYd;
             if (!file.exists()) {
                 file.createNewFile();
             }
@@ -31,25 +31,25 @@ public abstract class a implements d {
                 e.printStackTrace();
             }
         } finally {
-            cXY.writeLock().unlock();
+            cYc.writeLock().unlock();
         }
     }
 
     @Override // com.baidu.swan.apps.storage.b.d
     public boolean bK(long j) {
-        cXY.readLock().lock();
+        cYc.readLock().lock();
         try {
             return aCW() + j > this.MAX_SIZE;
         } finally {
-            cXY.readLock().unlock();
+            cYc.readLock().unlock();
         }
     }
 
     private long aCW() {
-        if (this.cXZ == null) {
-            this.cXZ = aCX();
+        if (this.cYd == null) {
+            this.cYd = aCX();
         }
-        File file = this.cXZ;
+        File file = this.cYd;
         if (file.exists() && file.isFile()) {
             String readFileData = com.baidu.swan.c.d.readFileData(file);
             try {

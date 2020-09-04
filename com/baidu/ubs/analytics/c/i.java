@@ -99,9 +99,9 @@ public final class i {
         WifiInfo connectionInfo = wifiManager.getConnectionInfo();
         if (connectionInfo != null && Config.DEF_MAC_ID.equals(connectionInfo.getMacAddress())) {
             try {
-                String dMx = dMx();
-                if (dMx != null) {
-                    encode = com.baidu.ubs.analytics.d.f.encode(dMx);
+                String dMG = dMG();
+                if (dMG != null) {
+                    encode = com.baidu.ubs.analytics.d.f.encode(dMG);
                 } else {
                     encode = com.baidu.ubs.analytics.d.f.encode(a(wifiManager));
                 }
@@ -117,7 +117,7 @@ public final class i {
         }
     }
 
-    private static String dMx() {
+    private static String dMG() {
         try {
             for (NetworkInterface networkInterface : Collections.list(NetworkInterface.getNetworkInterfaces())) {
                 if (networkInterface.getName().equalsIgnoreCase("wlan0")) {
@@ -211,21 +211,21 @@ public final class i {
 
     public static String y() {
         if (TextUtils.isEmpty(z)) {
-            ae(com.baidu.ubs.analytics.d.dMi().getContext());
+            ae(com.baidu.ubs.analytics.d.dMr().getContext());
         }
         return z;
     }
 
     public static String z() {
         if (TextUtils.isEmpty(A)) {
-            ae(com.baidu.ubs.analytics.d.dMi().getContext());
+            ae(com.baidu.ubs.analytics.d.dMr().getContext());
         }
         return A;
     }
 
     public static String A() {
         if (TextUtils.isEmpty(B)) {
-            ae(com.baidu.ubs.analytics.d.dMi().getContext());
+            ae(com.baidu.ubs.analytics.d.dMr().getContext());
         }
         return B;
     }

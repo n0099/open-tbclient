@@ -1,19 +1,19 @@
 package com.baidu.tbadk.BdToken;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class l extends h {
-    private volatile long dPJ;
+    private volatile long dPN;
 
     public l(b bVar) {
         super(bVar);
-        this.dPJ = System.currentTimeMillis();
+        this.dPN = System.currentTimeMillis();
     }
 
     public synchronized long aYS() {
-        this.dPJ = System.currentTimeMillis() + 60000;
-        return this.dPJ;
+        this.dPN = System.currentTimeMillis() + 60000;
+        return this.dPN;
     }
 
     public boolean isTimeout() {
-        return System.currentTimeMillis() - this.dPJ >= 60000;
+        return System.currentTimeMillis() - this.dPN >= 60000;
     }
 }

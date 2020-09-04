@@ -15,9 +15,9 @@ public final class i {
     public static JsonElement parse(com.google.gson.stream.a aVar) throws JsonParseException {
         boolean z = true;
         try {
-            aVar.dXp();
+            aVar.dXy();
             z = false;
-            return n.nFk.read(aVar);
+            return n.nFC.read(aVar);
         } catch (MalformedJsonException e) {
             throw new JsonSyntaxException(e);
         } catch (EOFException e2) {
@@ -33,7 +33,7 @@ public final class i {
     }
 
     public static void a(JsonElement jsonElement, com.google.gson.stream.b bVar) throws IOException {
-        n.nFk.write(bVar, jsonElement);
+        n.nFC.write(bVar, jsonElement);
     }
 
     public static Writer a(Appendable appendable) {
@@ -42,22 +42,22 @@ public final class i {
 
     /* loaded from: classes3.dex */
     private static final class a extends Writer {
-        private final Appendable nDu;
-        private final C0878a nDv = new C0878a();
+        private final Appendable nDM;
+        private final C0878a nDN = new C0878a();
 
         a(Appendable appendable) {
-            this.nDu = appendable;
+            this.nDM = appendable;
         }
 
         @Override // java.io.Writer
         public void write(char[] cArr, int i, int i2) throws IOException {
-            this.nDv.chars = cArr;
-            this.nDu.append(this.nDv, i, i + i2);
+            this.nDN.chars = cArr;
+            this.nDM.append(this.nDN, i, i + i2);
         }
 
         @Override // java.io.Writer
         public void write(int i) throws IOException {
-            this.nDu.append((char) i);
+            this.nDM.append((char) i);
         }
 
         @Override // java.io.Writer, java.io.Flushable

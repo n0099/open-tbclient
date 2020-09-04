@@ -20,26 +20,26 @@ import java.util.Locale;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class c extends WebSocketEventTarget {
-    private b dvn;
+    private b dvr;
     private String taskId;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar, com.baidu.swan.games.f.b bVar2) {
         super(bVar2);
-        this.dvn = bVar;
+        this.dvr = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c j(JsObject jsObject) {
         com.baidu.swan.games.binding.model.c k = k(jsObject);
         this.taskId = String.format(Locale.CHINA, "WebSocketTask-%d", Long.valueOf(System.currentTimeMillis()));
-        int uK = k.uK("url");
-        if (uK != 7) {
-            a(k, "connectSocket", String.format("parameter error: parameter.url should be %s instead of %s", com.baidu.swan.games.w.a.d.lh(7), com.baidu.swan.games.w.a.d.lh(uK)));
+        int uL = k.uL("url");
+        if (uL != 7) {
+            a(k, "connectSocket", String.format("parameter error: parameter.url should be %s instead of %s", com.baidu.swan.games.w.a.d.lh(7), com.baidu.swan.games.w.a.d.lh(uL)));
         } else {
             String optString = k.optString("url");
             String optString2 = k.optString("__plugin__");
-            if (!this.dvn.auV()) {
+            if (!this.dvr.auV()) {
                 a(k, "connectSocket", "up to max connect count");
             } else if (!cV(optString, optString2)) {
                 a(k, "connectSocket", String.format("invalid url \"%s\"", optString));
@@ -49,7 +49,7 @@ public class c extends WebSocketEventTarget {
                 try {
                     WebSocketTask connect = WebSocketManager.INSTANCE.connect(b, this);
                     this.taskId = connect.getTaskId();
-                    this.dvn.a(connect);
+                    this.dvr.a(connect);
                     com.baidu.swan.games.utils.b.a(k, true, new e.c(this.taskId, String.format("%s:ok", "connectSocket")));
                 } catch (Exception e) {
                     a(k, "connectSocket", e.getMessage());
@@ -64,7 +64,7 @@ public class c extends WebSocketEventTarget {
         String str;
         JsArrayBuffer jsArrayBuffer = null;
         com.baidu.swan.games.binding.model.c k = k(jsObject);
-        switch (this.dvq) {
+        switch (this.dvu) {
             case IDLE:
                 a(k, "SocketTask.send", "SocketTask.readyState is not OPEN");
                 return;
@@ -72,7 +72,7 @@ public class c extends WebSocketEventTarget {
                 a(k, "SocketTask.send", "SocketTask.readyState is CLOSED");
                 return;
             default:
-                switch (k.uK("data")) {
+                switch (k.uL("data")) {
                     case 7:
                         str = k.optString("data", null);
                         break;
@@ -113,7 +113,7 @@ public class c extends WebSocketEventTarget {
     @JavascriptInterface
     public void close(JsObject jsObject) {
         com.baidu.swan.games.binding.model.c k = k(jsObject);
-        if (this.dvq == WebSocketEventTarget.SocketTaskState.CLOSE) {
+        if (this.dvu == WebSocketEventTarget.SocketTaskState.CLOSE) {
             a(k, "SocketTask.close", "SocketTask.readyState is CLOSED");
             return;
         }
@@ -123,10 +123,10 @@ public class c extends WebSocketEventTarget {
         } catch (Exception e) {
             a(k, "SocketTask.close", e.getMessage());
         } finally {
-            this.dvn.oM(this.taskId);
+            this.dvr.oN(this.taskId);
         }
         if (!(optInt == 1000 || (optInt >= 3000 && optInt <= 4999))) {
-            a(k, "SocketTask.close", d.dvp);
+            a(k, "SocketTask.close", d.dvt);
             return;
         }
         WebSocketManager.INSTANCE.close(this.taskId, optInt, optString);
@@ -147,18 +147,18 @@ public class c extends WebSocketEventTarget {
         WebSocketRequest.Builder builder = new WebSocketRequest.Builder();
         builder.setUrl(str);
         builder.setMethod(cVar.optString("method"));
-        com.baidu.swan.games.binding.model.c uS = cVar.uS(WebSocketRequest.PARAM_KEY_HEADER);
-        if (uS != null) {
-            for (String str2 : uS.keySet()) {
-                if (!TextUtils.isEmpty(str2) && !com.baidu.swan.apps.network.a.bWN.contains(str2.toUpperCase())) {
-                    builder.addHeader(str2, uS.toString(str2));
+        com.baidu.swan.games.binding.model.c uT = cVar.uT(WebSocketRequest.PARAM_KEY_HEADER);
+        if (uT != null) {
+            for (String str2 : uT.keySet()) {
+                if (!TextUtils.isEmpty(str2) && !com.baidu.swan.apps.network.a.bWR.contains(str2.toUpperCase())) {
+                    builder.addHeader(str2, uT.toString(str2));
                 }
             }
         }
-        String[] uN = cVar.uN(WebSocketRequest.PARAM_KEY_PROTOCOLS);
+        String[] uO = cVar.uO(WebSocketRequest.PARAM_KEY_PROTOCOLS);
         ArrayList arrayList = new ArrayList();
-        if (uN != null && uN.length != 0) {
-            arrayList.addAll(Arrays.asList(uN));
+        if (uO != null && uO.length != 0) {
+            arrayList.addAll(Arrays.asList(uO));
         } else {
             arrayList.add("");
         }
@@ -192,16 +192,16 @@ public class c extends WebSocketEventTarget {
     @Override // com.baidu.swan.games.network.websocket.WebSocketEventTarget, com.baidu.searchbox.websocket.IWebSocketListener
     public void onClose(JSONObject jSONObject) {
         super.onClose(jSONObject);
-        if (this.dvn != null && jSONObject != null) {
-            this.dvn.oM(jSONObject.optString(Message.TASK_ID));
+        if (this.dvr != null && jSONObject != null) {
+            this.dvr.oN(jSONObject.optString(Message.TASK_ID));
         }
     }
 
     @Override // com.baidu.swan.games.network.websocket.WebSocketEventTarget, com.baidu.searchbox.websocket.IWebSocketListener
     public void onError(Throwable th, JSONObject jSONObject) {
         super.onError(th, jSONObject);
-        if (this.dvn != null && jSONObject != null) {
-            this.dvn.oM(jSONObject.optString(Message.TASK_ID));
+        if (this.dvr != null && jSONObject != null) {
+            this.dvr.oN(jSONObject.optString(Message.TASK_ID));
         }
     }
 

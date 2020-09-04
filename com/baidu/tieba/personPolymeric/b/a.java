@@ -3,5 +3,5 @@ package com.baidu.tieba.personPolymeric.b;
 public interface a {
     void AD(int i);
 
-    void gt(boolean z);
+    void gu(boolean z);
 }

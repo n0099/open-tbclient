@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 /* loaded from: classes7.dex */
 public abstract class f implements IBinder, IBinder.DeathRecipient {
-    private volatile IBinder bMN;
-    private HashSet<IBinder.DeathRecipient> bMO = new HashSet<>();
+    private volatile IBinder bMR;
+    private HashSet<IBinder.DeathRecipient> bMS = new HashSet<>();
     private Object mLock = new Object();
 
     protected abstract IBinder Wq() throws RemoteException;
@@ -18,10 +18,10 @@ public abstract class f implements IBinder, IBinder.DeathRecipient {
     private IBinder Wr() throws RemoteException {
         IBinder iBinder;
         synchronized (this.mLock) {
-            iBinder = this.bMN;
+            iBinder = this.bMR;
             if (iBinder == null) {
                 iBinder = Wq();
-                this.bMN = iBinder;
+                this.bMR = iBinder;
                 if (iBinder != null) {
                     iBinder.linkToDeath(this, 0);
                 } else {
@@ -84,30 +84,30 @@ public abstract class f implements IBinder, IBinder.DeathRecipient {
 
     @Override // android.os.IBinder
     public void linkToDeath(IBinder.DeathRecipient deathRecipient, int i) throws RemoteException {
-        synchronized (this.bMO) {
-            this.bMO.add(deathRecipient);
+        synchronized (this.bMS) {
+            this.bMS.add(deathRecipient);
         }
     }
 
     @Override // android.os.IBinder
     public boolean unlinkToDeath(IBinder.DeathRecipient deathRecipient, int i) {
-        synchronized (this.bMO) {
-            this.bMO.remove(deathRecipient);
+        synchronized (this.bMS) {
+            this.bMS.remove(deathRecipient);
         }
-        return this.bMN != null;
+        return this.bMR != null;
     }
 
     @Override // android.os.IBinder.DeathRecipient
     public void binderDied() {
         synchronized (this.mLock) {
-            IBinder iBinder = this.bMN;
+            IBinder iBinder = this.bMR;
             if (iBinder != null) {
                 iBinder.unlinkToDeath(this, 0);
-                this.bMN = null;
+                this.bMR = null;
             }
             ArrayList<IBinder.DeathRecipient> arrayList = new ArrayList();
-            synchronized (this.bMO) {
-                arrayList.addAll(this.bMO);
+            synchronized (this.bMS) {
+                arrayList.addAll(this.bMS);
             }
             for (IBinder.DeathRecipient deathRecipient : arrayList) {
                 deathRecipient.binderDied();

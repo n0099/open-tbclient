@@ -3,8 +3,8 @@ package com.baidu.swan.apps.view.narootview;
 import android.support.annotation.NonNull;
 /* loaded from: classes8.dex */
 public class b {
-    private int deU;
-    private int deV;
+    private int deY;
+    private int deZ;
     private int mFlags = 0;
 
     @NonNull
@@ -22,18 +22,18 @@ public class b {
     }
 
     public int aGm() {
-        return this.deU;
+        return this.deY;
     }
 
     public void ky(int i) {
-        this.deU = i;
+        this.deY = i;
     }
 
     public int aGn() {
-        return this.deV;
+        return this.deZ;
     }
 
     public void kz(int i) {
-        this.deV = i;
+        this.deZ = i;
     }
 }

@@ -11,8 +11,8 @@ import com.baidu.tieba.personExtra.RecommendGodSocketResponseMessage;
 import com.baidu.tieba.personPolymeric.c.q;
 /* loaded from: classes18.dex */
 public class c {
-    private a kgR;
-    private boolean kgS;
+    private a kgY;
+    private boolean kgZ;
     private q recommendGodData;
     private BdUniqueId uniqueId;
     private int pageNum = 0;
@@ -28,18 +28,18 @@ public class c {
                         c.this.recommendGodData = ((RecommendGodHttpResponseMessage) responsedMessage).recommendGodData;
                     }
                     if (c.this.recommendGodData != null) {
-                        c.this.pageNum = c.this.recommendGodData.gcm;
+                        c.this.pageNum = c.this.recommendGodData.gcq;
                     }
                     int error = responsedMessage.getError();
                     if (error == 0 && c.this.recommendGodData != null) {
-                        if (y.isEmpty(c.this.recommendGodData.lmQ)) {
-                            error = c.this.kgS ? 3 : 2;
+                        if (y.isEmpty(c.this.recommendGodData.lnb)) {
+                            error = c.this.kgZ ? 3 : 2;
                         }
                     } else {
                         error = 1;
                     }
-                    if (c.this.kgR != null) {
-                        c.this.kgR.a(c.this.recommendGodData, error);
+                    if (c.this.kgY != null) {
+                        c.this.kgY.a(c.this.recommendGodData, error);
                     }
                 }
             }
@@ -61,9 +61,9 @@ public class c {
         RecommendGodReqMsg recommendGodReqMsg = new RecommendGodReqMsg();
         recommendGodReqMsg.portrait = str;
         if (this.pageNum == 0) {
-            this.kgS = false;
+            this.kgZ = false;
         } else {
-            this.kgS = true;
+            this.kgZ = true;
         }
         recommendGodReqMsg.pageNum = this.pageNum + 1;
         recommendGodReqMsg.setTag(this.uniqueId);
@@ -81,6 +81,6 @@ public class c {
     }
 
     public void a(a aVar) {
-        this.kgR = aVar;
+        this.kgY = aVar;
     }
 }

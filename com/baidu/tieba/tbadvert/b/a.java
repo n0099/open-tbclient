@@ -10,44 +10,44 @@ import com.baidu.tbadk.core.util.aa;
 import com.baidu.tbadk.core.util.y;
 /* loaded from: classes20.dex */
 public class a {
-    private com.baidu.tieba.tbadvert.a.a mji;
-    private InterfaceC0810a mjj;
-    private InterfaceC0810a mjk = new InterfaceC0810a() { // from class: com.baidu.tieba.tbadvert.b.a.1
+    private com.baidu.tieba.tbadvert.a.a mjx;
+    private InterfaceC0810a mjy;
+    private InterfaceC0810a mjz = new InterfaceC0810a() { // from class: com.baidu.tieba.tbadvert.b.a.1
         @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0810a
         public void a(com.baidu.tieba.tbadvert.a.a aVar) {
-            a.this.mji = aVar;
-            if (a.this.mjj != null) {
-                a.this.mjj.a(aVar);
+            a.this.mjx = aVar;
+            if (a.this.mjy != null) {
+                a.this.mjy.a(aVar);
             }
         }
 
         @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0810a
         public void aK(Object obj) {
-            if (a.this.mjj != null) {
-                a.this.mjj.aK(obj);
+            if (a.this.mjy != null) {
+                a.this.mjy.aK(obj);
             }
         }
 
         @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0810a
-        public void dyc() {
-            a.this.mji = null;
-            if (a.this.mjj != null) {
-                a.this.mjj.dyc();
+        public void dyh() {
+            a.this.mjx = null;
+            if (a.this.mjy != null) {
+                a.this.mjy.dyh();
             }
         }
     };
-    private com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a> mjl = new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.tbadvert.b.a.2
+    private com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a> mjA = new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.tbadvert.b.a.2
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.e.b
         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
             super.onLoaded((AnonymousClass2) aVar, str, i);
             if (aVar == null || aVar.getRawBitmap() == null) {
-                if (a.this.mjj != null) {
-                    a.this.mjj.dyc();
+                if (a.this.mjy != null) {
+                    a.this.mjy.dyh();
                 }
-            } else if (a.this.mjj != null) {
-                a.this.mjj.aK(aVar);
+            } else if (a.this.mjy != null) {
+                a.this.mjy.aK(aVar);
             }
         }
 
@@ -55,8 +55,8 @@ public class a {
         @Override // com.baidu.adp.lib.e.b
         public void onCancelled(String str) {
             super.onCancelled(str);
-            if (a.this.mjj != null) {
-                a.this.mjj.dyc();
+            if (a.this.mjy != null) {
+                a.this.mjy.dyh();
             }
         }
     };
@@ -68,42 +68,42 @@ public class a {
 
         void aK(Object obj);
 
-        void dyc();
+        void dyh();
     }
 
-    public void dyg() {
-        b bVar = new b(this.mjk);
+    public void dyl() {
+        b bVar = new b(this.mjz);
         bVar.setSelfExecute(true);
         bVar.execute(new String[0]);
     }
 
-    public com.baidu.tieba.tbadvert.a.b dyh() {
-        if (this.mji == null || y.isEmpty(this.mji.mjf)) {
+    public com.baidu.tieba.tbadvert.a.b dym() {
+        if (this.mjx == null || y.isEmpty(this.mjx.mju)) {
             return null;
         }
-        for (com.baidu.tieba.tbadvert.a.b bVar : this.mji.mjf) {
-            if (bVar != null && bVar.dyf() && bVar.ecy == 3) {
+        for (com.baidu.tieba.tbadvert.a.b bVar : this.mjx.mju) {
+            if (bVar != null && bVar.dyk() && bVar.ecC == 3) {
                 return bVar;
             }
         }
         return null;
     }
 
-    public void dyi() {
-        com.baidu.tieba.tbadvert.a.b dyh = dyh();
-        if (dyh != null && !TextUtils.isEmpty(dyh.mjh)) {
-            m(dyh.showType, dyh.mjh, true);
-        } else if (this.mjj != null) {
-            this.mjj.dyc();
+    public void dyn() {
+        com.baidu.tieba.tbadvert.a.b dym = dym();
+        if (dym != null && !TextUtils.isEmpty(dym.mjw)) {
+            m(dym.showType, dym.mjw, true);
+        } else if (this.mjy != null) {
+            this.mjy.dyh();
         }
     }
 
-    public void dyj() {
-        if (this.mji != null && !y.isEmpty(this.mji.mjf)) {
-            com.baidu.tieba.tbadvert.a.b dyh = dyh();
-            for (com.baidu.tieba.tbadvert.a.b bVar : this.mji.mjf) {
-                if (bVar != null && bVar != dyh && bVar.dyf() && bVar.ecy != 4) {
-                    m(bVar.showType, bVar.mjh, false);
+    public void dyo() {
+        if (this.mjx != null && !y.isEmpty(this.mjx.mju)) {
+            com.baidu.tieba.tbadvert.a.b dym = dym();
+            for (com.baidu.tieba.tbadvert.a.b bVar : this.mjx.mju) {
+                if (bVar != null && bVar != dym && bVar.dyk() && bVar.ecC != 4) {
+                    m(bVar.showType, bVar.mjw, false);
                 }
             }
         }
@@ -112,7 +112,7 @@ public class a {
     private void m(int i, String str, boolean z) {
         if (i == 1 || i == 2) {
             if (z) {
-                c.mM().a(str, 10, this.mjl, null);
+                c.mM().a(str, 10, this.mjA, null);
             } else {
                 c.mM().a(str, 10, null, null);
             }
@@ -120,15 +120,15 @@ public class a {
     }
 
     public void a(InterfaceC0810a interfaceC0810a) {
-        this.mjj = interfaceC0810a;
+        this.mjy = interfaceC0810a;
     }
 
     /* loaded from: classes20.dex */
     private class b extends BdAsyncTask<String, Void, Object> {
-        private InterfaceC0810a mjj;
+        private InterfaceC0810a mjy;
 
         public b(InterfaceC0810a interfaceC0810a) {
-            this.mjj = interfaceC0810a;
+            this.mjy = interfaceC0810a;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -148,11 +148,11 @@ public class a {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Object obj) {
-            if (this.mjj != null) {
+            if (this.mjy != null) {
                 if (obj instanceof com.baidu.tieba.tbadvert.a.a) {
-                    this.mjj.a((com.baidu.tieba.tbadvert.a.a) obj);
+                    this.mjy.a((com.baidu.tieba.tbadvert.a.a) obj);
                 } else {
-                    this.mjj.dyc();
+                    this.mjy.dyh();
                 }
             }
         }

@@ -18,7 +18,7 @@ public interface k {
 
         int Jn();
 
-        void gQ(String str);
+        void gR(String str);
     }
 
     void Bb();

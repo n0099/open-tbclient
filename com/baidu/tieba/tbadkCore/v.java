@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class v {
     private String blockUrl;
     private int cur_score;
@@ -21,8 +21,8 @@ public class v {
     private String level_name;
     private int levelup_score;
     private BlockPopInfoData mBlockPopInfoData;
-    private List<FeedForumData> mdH = new ArrayList();
-    private int mdG = 0;
+    private List<FeedForumData> mdW = new ArrayList();
+    private int mdV = 0;
     private int like_num = 0;
     private int user_level = 0;
 
@@ -41,7 +41,7 @@ public class v {
         this.fid = str;
     }
 
-    public int dtV() {
+    public int dua() {
         return this.user_level;
     }
 
@@ -66,7 +66,7 @@ public class v {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.mdG = jSONObject.optInt("is_black", 0);
+                this.mdV = jSONObject.optInt("is_black", 0);
                 this.like_num = jSONObject.optInt("like_num", 0);
                 this.user_level = jSONObject.optInt("level_id", 0);
                 setLike(jSONObject.optInt("is_like", 0));
@@ -110,7 +110,7 @@ public class v {
                     feedForumData.setReason(jSONObject.optString(TiebaInitialize.LogFields.REASON));
                     feedForumData.setIsLike(jSONObject.optInt("is_like", 0));
                     feedForumData.setPos(jSONObject.optInt("pos", 0));
-                    this.mdH.add(feedForumData);
+                    this.mdW.add(feedForumData);
                     i = i2 + 1;
                 } else {
                     return;
@@ -158,8 +158,8 @@ public class v {
         return this.levelup_score;
     }
 
-    public List<FeedForumData> dvR() {
-        return this.mdH;
+    public List<FeedForumData> dvW() {
+        return this.mdW;
     }
 
     public BlockPopInfoData getBlockPopInfoData() {
@@ -170,7 +170,7 @@ public class v {
         this.mBlockPopInfoData = blockPopInfoData;
     }
 
-    public String dwa() {
+    public String dwf() {
         return this.blockUrl;
     }
 

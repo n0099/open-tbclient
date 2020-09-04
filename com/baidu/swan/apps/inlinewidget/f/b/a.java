@@ -14,37 +14,37 @@ import java.util.Map;
 /* loaded from: classes8.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final HashMap<String, Long> cun = new HashMap<>();
-    private final HashMap<String, String> cuo = new HashMap<>();
-    private boolean cup = false;
-    private boolean cuq = false;
+    private final HashMap<String, Long> cus = new HashMap<>();
+    private final HashMap<String, String> cuu = new HashMap<>();
+    private boolean cuv = false;
+    private boolean cuw = false;
 
-    public synchronized void mZ(@NonNull String str) {
-        if (!this.cuq && !this.cun.containsKey(str)) {
-            this.cun.put(str, Long.valueOf(System.currentTimeMillis()));
+    public synchronized void na(@NonNull String str) {
+        if (!this.cuw && !this.cus.containsKey(str)) {
+            this.cus.put(str, Long.valueOf(System.currentTimeMillis()));
         }
     }
 
-    public synchronized boolean na(@NonNull String str) {
-        return this.cun.containsKey(str);
+    public synchronized boolean nb(@NonNull String str) {
+        return this.cus.containsKey(str);
     }
 
-    public synchronized boolean nb(@NonNull String str) {
-        return this.cuo.containsKey(str);
+    public synchronized boolean nc(@NonNull String str) {
+        return this.cuu.containsKey(str);
     }
 
     public synchronized void bx(String str, String str2) {
-        if (!this.cuq) {
-            this.cuo.put(str, str2);
+        if (!this.cuw) {
+            this.cuu.put(str, str2);
         }
     }
 
     public synchronized void aoh() {
-        this.cuq = true;
+        this.cuw = true;
     }
 
     public synchronized boolean isFinished() {
-        return this.cuq;
+        return this.cuw;
     }
 
     public void aoi() {
@@ -59,39 +59,39 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void a(b.a aVar) {
-        if (!this.cup) {
-            this.cup = true;
-            boolean equals = TextUtils.equals("1", this.cuo.get("autoPlay"));
-            boolean equals2 = TextUtils.equals("1", this.cuo.get("playMethod"));
+        if (!this.cuv) {
+            this.cuv = true;
+            boolean equals = TextUtils.equals("1", this.cuu.get("autoPlay"));
+            boolean equals2 = TextUtils.equals("1", this.cuu.get("playMethod"));
             if (DEBUG) {
                 Log.d("VideoStaticRecorder", "submit: autoPlay:" + equals + ",apiPlay:" + equals2);
             }
             if (!equals && !equals2) {
                 aoj();
             } else {
-                i.pe("video");
-                HybridUbcFlow oW = i.oW("video");
-                for (Map.Entry<String, Long> entry : this.cun.entrySet()) {
-                    oW.f(new UbcFlowEvent(entry.getKey()).br(entry.getValue().longValue()));
+                i.pf("video");
+                HybridUbcFlow oX = i.oX("video");
+                for (Map.Entry<String, Long> entry : this.cus.entrySet()) {
+                    oX.f(new UbcFlowEvent(entry.getKey()).br(entry.getValue().longValue()));
                 }
-                for (Map.Entry<String, String> entry2 : this.cuo.entrySet()) {
-                    oW.bW(entry2.getKey(), entry2.getValue());
+                for (Map.Entry<String, String> entry2 : this.cuu.entrySet()) {
+                    oX.bW(entry2.getKey(), entry2.getValue());
                 }
-                String pb = oW.pb("fmpArrived");
-                if (TextUtils.isEmpty(pb)) {
-                    pb = "0";
+                String pc = oX.pc("fmpArrived");
+                if (TextUtils.isEmpty(pc)) {
+                    pc = "0";
                 }
-                oW.bW("fmpArrived", pb);
-                oW.f(new UbcFlowEvent("na_start").br(aVar.getLong("launch_time", 0L)));
-                oW.bW("launchID", aVar.arg());
-                oW.avx();
+                oX.bW("fmpArrived", pc);
+                oX.f(new UbcFlowEvent("na_start").br(aVar.getLong("launch_time", 0L)));
+                oX.bW("launchID", aVar.arg());
+                oX.avx();
                 aoj();
             }
         }
     }
 
     private void aoj() {
-        this.cun.clear();
-        this.cuo.clear();
+        this.cus.clear();
+        this.cuu.clear();
     }
 }

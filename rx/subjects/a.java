@@ -6,10 +6,10 @@ import rx.internal.operators.NotificationLite;
 import rx.subjects.SubjectSubscriptionManager;
 /* loaded from: classes5.dex */
 public final class a<T> extends c<T, T> {
-    private static final Object[] oqU = new Object[0];
-    private final SubjectSubscriptionManager<T> oKd;
+    private static final Object[] orn = new Object[0];
+    private final SubjectSubscriptionManager<T> oKv;
 
-    public static <T> a<T> elh() {
+    public static <T> a<T> elq() {
         return e(null, false);
     }
 
@@ -32,25 +32,25 @@ public final class a<T> extends c<T, T> {
 
     protected a(d.a<T> aVar, SubjectSubscriptionManager<T> subjectSubscriptionManager) {
         super(aVar);
-        this.oKd = subjectSubscriptionManager;
+        this.oKv = subjectSubscriptionManager;
     }
 
     @Override // rx.e
     public void onCompleted() {
-        if (this.oKd.getLatest() == null || this.oKd.active) {
-            Object eka = NotificationLite.eka();
-            for (SubjectSubscriptionManager.b<T> bVar : this.oKd.terminate(eka)) {
-                bVar.cj(eka);
+        if (this.oKv.getLatest() == null || this.oKv.active) {
+            Object ekj = NotificationLite.ekj();
+            for (SubjectSubscriptionManager.b<T> bVar : this.oKv.terminate(ekj)) {
+                bVar.cj(ekj);
             }
         }
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        if (this.oKd.getLatest() == null || this.oKd.active) {
+        if (this.oKv.getLatest() == null || this.oKv.active) {
             Object error = NotificationLite.error(th);
             ArrayList arrayList = null;
-            for (SubjectSubscriptionManager.b<T> bVar : this.oKd.terminate(error)) {
+            for (SubjectSubscriptionManager.b<T> bVar : this.oKv.terminate(error)) {
                 try {
                     bVar.cj(error);
                 } catch (Throwable th2) {
@@ -66,9 +66,9 @@ public final class a<T> extends c<T, T> {
 
     @Override // rx.e
     public void onNext(T t) {
-        if (this.oKd.getLatest() == null || this.oKd.active) {
+        if (this.oKv.getLatest() == null || this.oKv.active) {
             Object next = NotificationLite.next(t);
-            for (SubjectSubscriptionManager.b<T> bVar : this.oKd.next(next)) {
+            for (SubjectSubscriptionManager.b<T> bVar : this.oKv.next(next)) {
                 bVar.cj(next);
             }
         }

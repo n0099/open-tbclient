@@ -10,47 +10,47 @@ import android.util.AttributeSet;
 import android.view.View;
 /* loaded from: classes14.dex */
 public class PointPageIndicator extends View {
-    protected Drawable dEA;
-    protected Drawable dEB;
-    protected Rect dEC;
-    protected Rect dED;
-    private int dEE;
-    private int dEF;
+    protected Drawable dEE;
+    protected Drawable dEF;
+    protected Rect dEG;
+    protected Rect dEH;
+    private int dEI;
+    private int dEJ;
     private int mPosition;
 
     public PointPageIndicator(Context context) {
         super(context);
-        this.dEA = null;
-        this.dEB = null;
-        this.dEC = new Rect();
-        this.dED = new Rect();
-        this.dEE = 0;
+        this.dEE = null;
+        this.dEF = null;
+        this.dEG = new Rect();
+        this.dEH = new Rect();
+        this.dEI = 0;
         this.mPosition = 0;
-        this.dEF = 0;
+        this.dEJ = 0;
         init(context);
     }
 
     public PointPageIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dEA = null;
-        this.dEB = null;
-        this.dEC = new Rect();
-        this.dED = new Rect();
-        this.dEE = 0;
+        this.dEE = null;
+        this.dEF = null;
+        this.dEG = new Rect();
+        this.dEH = new Rect();
+        this.dEI = 0;
         this.mPosition = 0;
-        this.dEF = 0;
+        this.dEJ = 0;
         init(context);
     }
 
     public PointPageIndicator(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.dEA = null;
-        this.dEB = null;
-        this.dEC = new Rect();
-        this.dED = new Rect();
-        this.dEE = 0;
+        this.dEE = null;
+        this.dEF = null;
+        this.dEG = new Rect();
+        this.dEH = new Rect();
+        this.dEI = 0;
         this.mPosition = 0;
-        this.dEF = 0;
+        this.dEJ = 0;
         init(context);
     }
 
@@ -58,15 +58,15 @@ public class PointPageIndicator extends View {
     }
 
     public PointPageIndicator lI(int i) {
-        if (this.dEF != i) {
-            this.dEF = i;
+        if (this.dEJ != i) {
+            this.dEJ = i;
             invalidate();
         }
         return this;
     }
 
     public PointPageIndicator lJ(int i) {
-        this.dEE = i;
+        this.dEI = i;
         return this;
     }
 
@@ -82,13 +82,13 @@ public class PointPageIndicator extends View {
     }
 
     public PointPageIndicator b(Drawable drawable, Drawable drawable2) {
-        this.dEA = drawable;
-        this.dEB = drawable2;
+        this.dEE = drawable;
+        this.dEF = drawable2;
         if (drawable instanceof BitmapDrawable) {
-            this.dEC.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+            this.dEG.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
         }
         if (drawable2 instanceof BitmapDrawable) {
-            this.dED.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
+            this.dEH.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
         }
         return this;
     }
@@ -97,16 +97,16 @@ public class PointPageIndicator extends View {
     protected void onDraw(Canvas canvas) {
         int width;
         super.onDraw(canvas);
-        if (this.dEF > 0) {
-            int i = this.dEF;
-            int i2 = this.dEE;
+        if (this.dEJ > 0) {
+            int i = this.dEJ;
+            int i2 = this.dEI;
             int height = getHeight();
             int width2 = getWidth();
             int i3 = this.mPosition;
-            Rect rect = this.dEC;
-            Rect rect2 = this.dED;
-            Drawable drawable = this.dEA;
-            Drawable drawable2 = this.dEB;
+            Rect rect = this.dEG;
+            Rect rect2 = this.dEH;
+            Drawable drawable = this.dEE;
+            Drawable drawable2 = this.dEF;
             int width3 = (width2 - ((((i - 1) * i2) + (rect.width() * (i - 1))) + rect2.width())) / 2;
             for (int i4 = 0; i4 < i; i4++) {
                 if (i4 == i3) {

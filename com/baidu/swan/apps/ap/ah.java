@@ -32,11 +32,11 @@ import java.io.File;
 /* loaded from: classes8.dex */
 public class ah {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final DisplayMetrics bKo = com.baidu.swan.apps.t.a.aoJ().getResources().getDisplayMetrics();
-    private static final float bKp = bKo.density;
+    private static final DisplayMetrics bKs = com.baidu.swan.apps.t.a.aoJ().getResources().getDisplayMetrics();
+    private static final float bKt = bKs.density;
     private static DisplayMetrics sDisplayMetrics;
 
-    public static Pair<Integer, Integer> sG(String str) {
+    public static Pair<Integer, Integer> sH(String str) {
         long j;
         Pair<Integer, Integer> arL;
         if (!DEBUG) {
@@ -86,19 +86,19 @@ public class ah {
             z3 = false;
             z4 = false;
         } else {
-            String qW = com.baidu.swan.apps.scheme.actions.k.j.qW(ai.delAllParamsFromUrl(str));
+            String qX = com.baidu.swan.apps.scheme.actions.k.j.qX(ai.delAllParamsFromUrl(str));
             SwanAppConfigData arD = com.baidu.swan.apps.v.f.arY().arD();
             b.a XZ = com.baidu.swan.apps.runtime.e.azI().XZ();
-            com.baidu.swan.apps.runtime.config.c a = com.baidu.swan.apps.v.f.arY().a(qW, arD, d.C0426d.bB(XZ.getAppId(), XZ.getVersion()).getPath() + File.separator);
+            com.baidu.swan.apps.runtime.config.c a = com.baidu.swan.apps.v.f.arY().a(qX, arD, d.C0426d.bB(XZ.getAppId(), XZ.getVersion()).getPath() + File.separator);
             if (com.baidu.swan.apps.runtime.config.c.a(a)) {
                 z5 = true;
                 z6 = a(a, appContext);
             }
-            boolean sN = ak.sN(qW);
-            boolean z7 = a.cRH;
+            boolean sO = ak.sO(qX);
+            boolean z7 = a.cRL;
             z = z5;
             z2 = z7;
-            z3 = sN;
+            z3 = sO;
             z4 = z6;
         }
         int i6 = z3 ? i - i2 : i;
@@ -133,7 +133,7 @@ public class ah {
     }
 
     private static boolean a(@NonNull com.baidu.swan.apps.runtime.config.c cVar, Context context) {
-        return com.baidu.swan.apps.view.a.b.SUPPORT_IMMERSION && (TextUtils.equals(cVar.cRK, "custom") || !ac.cC(context));
+        return com.baidu.swan.apps.view.a.b.SUPPORT_IMMERSION && (TextUtils.equals(cVar.cRO, "custom") || !ac.cC(context));
     }
 
     /* JADX WARN: Removed duplicated region for block: B:23:0x004e  */
@@ -276,13 +276,13 @@ public class ah {
     @UiThread
     public static Bitmap t(float f, float f2) {
         com.baidu.swan.apps.v.f arY = com.baidu.swan.apps.v.f.arY();
-        AbsoluteLayout nY = arY.nY(arY.agW());
-        if (nY == null || nY.getWidth() <= 0 || nY.getHeight() <= 0) {
+        AbsoluteLayout nZ = arY.nZ(arY.agW());
+        if (nZ == null || nZ.getWidth() <= 0 || nZ.getHeight() <= 0) {
             return null;
         }
-        Bitmap createBitmap = Bitmap.createBitmap((int) (nY.getWidth() * f), (int) (nY.getHeight() * f2), Bitmap.Config.ARGB_4444);
+        Bitmap createBitmap = Bitmap.createBitmap((int) (nZ.getWidth() * f), (int) (nZ.getHeight() * f2), Bitmap.Config.ARGB_4444);
         createBitmap.eraseColor(-1);
-        nY.draw(new Canvas(createBitmap));
+        nZ.draw(new Canvas(createBitmap));
         return createBitmap;
     }
 
@@ -445,7 +445,7 @@ public class ah {
             }
         }
         if (i == 0) {
-            return (int) (25.0f * bKp);
+            return (int) (25.0f * bKt);
         }
         return i;
     }

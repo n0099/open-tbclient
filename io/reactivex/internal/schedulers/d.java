@@ -14,85 +14,85 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class d extends v {
-    static final RxThreadFactory opC;
-    static final RxThreadFactory opD;
-    private static final TimeUnit opE = TimeUnit.SECONDS;
-    static final c opF = new c(new RxThreadFactory("RxCachedThreadSchedulerShutdown"));
-    static final a opG;
-    final ThreadFactory opi;
-    final AtomicReference<a> opj;
+    static final RxThreadFactory opU;
+    static final RxThreadFactory opV;
+    private static final TimeUnit opW = TimeUnit.SECONDS;
+    static final c opX = new c(new RxThreadFactory("RxCachedThreadSchedulerShutdown"));
+    static final a opY;
+    final ThreadFactory opB;
+    final AtomicReference<a> opC;
 
     static {
-        opF.dispose();
+        opX.dispose();
         int max = Math.max(1, Math.min(10, Integer.getInteger("rx2.io-priority", 5).intValue()));
-        opC = new RxThreadFactory("RxCachedThreadScheduler", max);
-        opD = new RxThreadFactory("RxCachedWorkerPoolEvictor", max);
-        opG = new a(0L, null, opC);
-        opG.shutdown();
+        opU = new RxThreadFactory("RxCachedThreadScheduler", max);
+        opV = new RxThreadFactory("RxCachedWorkerPoolEvictor", max);
+        opY = new a(0L, null, opU);
+        opY.shutdown();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
     public static final class a implements Runnable {
-        private final long opH;
-        private final ConcurrentLinkedQueue<c> opI;
-        final io.reactivex.disposables.a opJ;
-        private final ScheduledExecutorService opK;
-        private final Future<?> opL;
-        private final ThreadFactory opi;
+        private final ThreadFactory opB;
+        private final long opZ;
+        private final ConcurrentLinkedQueue<c> oqa;
+        final io.reactivex.disposables.a oqb;
+        private final ScheduledExecutorService oqc;
+        private final Future<?> oqd;
 
         a(long j, TimeUnit timeUnit, ThreadFactory threadFactory) {
             ScheduledFuture<?> scheduledFuture;
             ScheduledExecutorService scheduledExecutorService = null;
-            this.opH = timeUnit != null ? timeUnit.toNanos(j) : 0L;
-            this.opI = new ConcurrentLinkedQueue<>();
-            this.opJ = new io.reactivex.disposables.a();
-            this.opi = threadFactory;
+            this.opZ = timeUnit != null ? timeUnit.toNanos(j) : 0L;
+            this.oqa = new ConcurrentLinkedQueue<>();
+            this.oqb = new io.reactivex.disposables.a();
+            this.opB = threadFactory;
             if (timeUnit != null) {
-                ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1, d.opD);
+                ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1, d.opV);
                 scheduledExecutorService = newScheduledThreadPool;
-                scheduledFuture = newScheduledThreadPool.scheduleWithFixedDelay(this, this.opH, this.opH, TimeUnit.NANOSECONDS);
+                scheduledFuture = newScheduledThreadPool.scheduleWithFixedDelay(this, this.opZ, this.opZ, TimeUnit.NANOSECONDS);
             } else {
                 scheduledFuture = null;
             }
-            this.opK = scheduledExecutorService;
-            this.opL = scheduledFuture;
+            this.oqc = scheduledExecutorService;
+            this.oqd = scheduledFuture;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            efp();
+            efy();
         }
 
-        c efo() {
-            if (this.opJ.isDisposed()) {
-                return d.opF;
+        c efx() {
+            if (this.oqb.isDisposed()) {
+                return d.opX;
             }
-            while (!this.opI.isEmpty()) {
-                c poll = this.opI.poll();
+            while (!this.oqa.isEmpty()) {
+                c poll = this.oqa.poll();
                 if (poll != null) {
                     return poll;
                 }
             }
-            c cVar = new c(this.opi);
-            this.opJ.a(cVar);
+            c cVar = new c(this.opB);
+            this.oqb.a(cVar);
             return cVar;
         }
 
         void a(c cVar) {
-            cVar.gL(now() + this.opH);
-            this.opI.offer(cVar);
+            cVar.gN(now() + this.opZ);
+            this.oqa.offer(cVar);
         }
 
-        void efp() {
-            if (!this.opI.isEmpty()) {
+        void efy() {
+            if (!this.oqa.isEmpty()) {
                 long now = now();
-                Iterator<c> it = this.opI.iterator();
+                Iterator<c> it = this.oqa.iterator();
                 while (it.hasNext()) {
                     c next = it.next();
-                    if (next.efq() <= now) {
-                        if (this.opI.remove(next)) {
-                            this.opJ.b(next);
+                    if (next.efz() <= now) {
+                        if (this.oqa.remove(next)) {
+                            this.oqb.b(next);
                         }
                     } else {
                         return;
@@ -106,56 +106,56 @@ public final class d extends v {
         }
 
         void shutdown() {
-            this.opJ.dispose();
-            if (this.opL != null) {
-                this.opL.cancel(true);
+            this.oqb.dispose();
+            if (this.oqd != null) {
+                this.oqd.cancel(true);
             }
-            if (this.opK != null) {
-                this.opK.shutdownNow();
+            if (this.oqc != null) {
+                this.oqc.shutdownNow();
             }
         }
     }
 
     public d() {
-        this(opC);
+        this(opU);
     }
 
     public d(ThreadFactory threadFactory) {
-        this.opi = threadFactory;
-        this.opj = new AtomicReference<>(opG);
+        this.opB = threadFactory;
+        this.opC = new AtomicReference<>(opY);
         start();
     }
 
     @Override // io.reactivex.v
     public void start() {
-        a aVar = new a(60L, opE, this.opi);
-        if (!this.opj.compareAndSet(opG, aVar)) {
+        a aVar = new a(60L, opW, this.opB);
+        if (!this.opC.compareAndSet(opY, aVar)) {
             aVar.shutdown();
         }
     }
 
     @Override // io.reactivex.v
-    public v.c eeU() {
-        return new b(this.opj.get());
+    public v.c efd() {
+        return new b(this.opC.get());
     }
 
     /* loaded from: classes7.dex */
     static final class b extends v.c {
-        private final a opM;
-        private final c opN;
         final AtomicBoolean once = new AtomicBoolean();
-        private final io.reactivex.disposables.a opv = new io.reactivex.disposables.a();
+        private final io.reactivex.disposables.a opN = new io.reactivex.disposables.a();
+        private final a oqe;
+        private final c oqf;
 
         b(a aVar) {
-            this.opM = aVar;
-            this.opN = aVar.efo();
+            this.oqe = aVar;
+            this.oqf = aVar.efx();
         }
 
         @Override // io.reactivex.disposables.b
         public void dispose() {
             if (this.once.compareAndSet(false, true)) {
-                this.opv.dispose();
-                this.opM.a(this.opN);
+                this.opN.dispose();
+                this.oqe.a(this.oqf);
             }
         }
 
@@ -166,26 +166,26 @@ public final class d extends v {
 
         @Override // io.reactivex.v.c
         public io.reactivex.disposables.b c(Runnable runnable, long j, TimeUnit timeUnit) {
-            return this.opv.isDisposed() ? EmptyDisposable.INSTANCE : this.opN.a(runnable, j, timeUnit, this.opv);
+            return this.opN.isDisposed() ? EmptyDisposable.INSTANCE : this.oqf.a(runnable, j, timeUnit, this.opN);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
     public static final class c extends f {
-        private long opO;
+        private long oqg;
 
         c(ThreadFactory threadFactory) {
             super(threadFactory);
-            this.opO = 0L;
+            this.oqg = 0L;
         }
 
-        public long efq() {
-            return this.opO;
+        public long efz() {
+            return this.oqg;
         }
 
-        public void gL(long j) {
-            this.opO = j;
+        public void gN(long j) {
+            this.oqg = j;
         }
     }
 }

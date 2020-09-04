@@ -19,8 +19,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class b extends BdBaseModel {
-    private a aUi;
-    private HttpMessageListener aUj;
+    private a aUk;
+    private HttpMessageListener aUl;
     private boolean isHost;
 
     /* loaded from: classes7.dex */
@@ -36,11 +36,11 @@ public class b extends BdBaseModel {
                 int i2 = i;
                 if (i2 < arrayList2.size()) {
                     com.baidu.live.gift.b bVar = arrayList2.get(i2);
-                    if (bVar != null && bVar.aMJ != null) {
+                    if (bVar != null && bVar.aML != null) {
                         com.baidu.live.gift.c cVar = new com.baidu.live.gift.c();
-                        cVar.aMM = com.baidu.live.gift.b.a.gE(bVar.aMJ.zipName);
-                        cVar.upZipDirPath = com.baidu.live.gift.b.a.gG(bVar.aMJ.zipName);
-                        cVar.aML = bVar;
+                        cVar.aMO = com.baidu.live.gift.b.a.gF(bVar.aML.zipName);
+                        cVar.upZipDirPath = com.baidu.live.gift.b.a.gH(bVar.aML.zipName);
+                        cVar.aMN = bVar;
                         arrayList.add(cVar);
                     }
                     i = i2 + 1;
@@ -53,7 +53,7 @@ public class b extends BdBaseModel {
 
     public b(BdPageContext bdPageContext) {
         super(bdPageContext);
-        this.aUj = new HttpMessageListener(1021089) { // from class: com.baidu.live.gift.giftList.b.1
+        this.aUl = new HttpMessageListener(1021089) { // from class: com.baidu.live.gift.giftList.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -64,14 +64,14 @@ public class b extends BdBaseModel {
                     if (GI != null) {
                         b.this.d(arrayList, GI);
                     }
-                    if (b.this.aUi != null) {
-                        b.this.aUi.n(arrayList);
+                    if (b.this.aUk != null) {
+                        b.this.aUk.n(arrayList);
                     }
                     b.this.a(alaDynamicGiftListHttpResponseMessage);
                 }
             }
         };
-        registerListener(this.aUj);
+        registerListener(this.aUl);
     }
 
     public void setHost(boolean z) {
@@ -95,11 +95,11 @@ public class b extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.aUj);
+        MessageManager.getInstance().unRegisterListener(this.aUl);
     }
 
     public void a(a aVar) {
-        this.aUi = aVar;
+        this.aUk = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

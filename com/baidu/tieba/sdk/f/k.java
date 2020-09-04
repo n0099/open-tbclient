@@ -54,7 +54,7 @@ public class k implements ILiveScheme {
                     }
                 });
             }
-            com.baidu.tieba.sdk.a.dpk().PN(jSONObject.toString());
+            com.baidu.tieba.sdk.a.dpn().PN(jSONObject.toString());
         } catch (Exception e) {
             e.printStackTrace();
         }

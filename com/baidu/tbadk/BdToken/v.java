@@ -14,26 +14,26 @@ import android.os.Vibrator;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class v implements SensorEventListener {
-    private SensorManager bnK;
-    private Sensor cYI;
+    private SensorManager bnN;
+    private Sensor cYM;
     private Context context;
-    private final double dQp = 9.8d;
-    private final int dQq = 400;
-    private final int dQr = 255;
-    private final int dQs = 1;
-    private final int dQt = 2000;
-    private a dQu;
-    private int dQv;
-    private int dQw;
-    private long dQx;
+    private int dQA;
+    private long dQB;
+    private final double dQt = 9.8d;
+    private final int dQu = 400;
+    private final int dQv = 255;
+    private final int dQw = 1;
+    private final int dQx = 2000;
+    private a dQy;
+    private int dQz;
     private boolean isOpen;
     private MediaPlayer mMediaPlayer;
     private SoundPool mSoundPool;
     private Vibrator mVibrator;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface a {
         void aZz();
     }
@@ -41,29 +41,29 @@ public class v implements SensorEventListener {
     public v(@NonNull Context context, @Nullable a aVar) {
         if (context != null) {
             this.context = context;
-            this.dQu = aVar;
-            this.bnK = (SensorManager) context.getSystemService("sensor");
-            if (this.bnK != null) {
-                this.cYI = this.bnK.getDefaultSensor(1);
+            this.dQy = aVar;
+            this.bnN = (SensorManager) context.getSystemService("sensor");
+            if (this.bnN != null) {
+                this.cYM = this.bnN.getDefaultSensor(1);
             }
             this.mVibrator = (Vibrator) context.getSystemService("vibrator");
             this.mSoundPool = new SoundPool(1, 3, 0);
             if (this.mSoundPool != null) {
-                this.dQv = this.mSoundPool.load(context, R.raw.shake_tone, 1);
+                this.dQz = this.mSoundPool.load(context, R.raw.shake_tone, 1);
             }
         }
     }
 
     public void open() {
-        if (this.cYI != null) {
-            this.bnK.registerListener(this, this.cYI, 2);
+        if (this.cYM != null) {
+            this.bnN.registerListener(this, this.cYM, 2);
             this.isOpen = true;
         }
     }
 
     public void close() {
-        if (this.bnK != null) {
-            this.bnK.unregisterListener(this);
+        if (this.bnN != null) {
+            this.bnN.unregisterListener(this);
             this.isOpen = false;
         }
     }
@@ -74,8 +74,8 @@ public class v implements SensorEventListener {
 
     @Override // android.hardware.SensorEventListener
     public void onSensorChanged(SensorEvent sensorEvent) {
-        if (sensorEvent.sensor.getType() == 1 && y(sensorEvent.values) && this.dQu != null) {
-            this.dQu.aZz();
+        if (sensorEvent.sensor.getType() == 1 && y(sensorEvent.values) && this.dQy != null) {
+            this.dQy.aZz();
         }
     }
 
@@ -100,8 +100,8 @@ public class v implements SensorEventListener {
 
     private boolean aZx() {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.dQx > 2000) {
-            this.dQx = currentTimeMillis;
+        if (currentTimeMillis - this.dQB > 2000) {
+            this.dQB = currentTimeMillis;
             return true;
         }
         return false;
@@ -129,7 +129,7 @@ public class v implements SensorEventListener {
         return true;
     }
 
-    public void xU(String str) {
+    public void xV(String str) {
         if (this.mMediaPlayer == null) {
             this.mMediaPlayer = new MediaPlayer();
         }
@@ -149,13 +149,13 @@ public class v implements SensorEventListener {
         }
     }
 
-    public void hz(boolean z) {
-        if (z || this.dQw == 0) {
+    public void hA(boolean z) {
+        if (z || this.dQA == 0) {
             if (this.mSoundPool != null) {
-                this.mSoundPool.play(this.dQv, 1.0f, 1.0f, 0, 0, 1.0f);
+                this.mSoundPool.play(this.dQz, 1.0f, 1.0f, 0, 0, 1.0f);
             }
         } else if (this.mSoundPool != null) {
-            this.mSoundPool.play(this.dQw, 1.0f, 1.0f, 0, 0, 1.0f);
+            this.mSoundPool.play(this.dQA, 1.0f, 1.0f, 0, 0, 1.0f);
         }
     }
 }

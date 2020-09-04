@@ -9,33 +9,33 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes8.dex */
 public class g<K, V> {
-    private final v<V> ntA;
+    private final v<V> ntS;
     @GuardedBy("this")
-    private final LinkedHashMap<K, V> ntB = new LinkedHashMap<>();
+    private final LinkedHashMap<K, V> ntT = new LinkedHashMap<>();
     @GuardedBy("this")
-    private int ntC = 0;
+    private int ntU = 0;
 
     public g(v<V> vVar) {
-        this.ntA = vVar;
+        this.ntS = vVar;
     }
 
     public synchronized int getCount() {
-        return this.ntB.size();
+        return this.ntT.size();
     }
 
     public synchronized int getSizeInBytes() {
-        return this.ntC;
+        return this.ntU;
     }
 
     @Nullable
-    public synchronized K dRL() {
-        return this.ntB.isEmpty() ? null : this.ntB.keySet().iterator().next();
+    public synchronized K dRU() {
+        return this.ntT.isEmpty() ? null : this.ntT.keySet().iterator().next();
     }
 
     public synchronized ArrayList<Map.Entry<K, V>> a(@Nullable com.facebook.common.internal.h<K> hVar) {
         ArrayList<Map.Entry<K, V>> arrayList;
-        arrayList = new ArrayList<>(this.ntB.entrySet().size());
-        for (Map.Entry<K, V> entry : this.ntB.entrySet()) {
+        arrayList = new ArrayList<>(this.ntT.entrySet().size());
+        for (Map.Entry<K, V> entry : this.ntT.entrySet()) {
             if (hVar == null || hVar.aR(entry.getKey())) {
                 arrayList.add(entry);
             }
@@ -44,29 +44,29 @@ public class g<K, V> {
     }
 
     public synchronized boolean contains(K k) {
-        return this.ntB.containsKey(k);
+        return this.ntT.containsKey(k);
     }
 
     @Nullable
     public synchronized V get(K k) {
-        return this.ntB.get(k);
+        return this.ntT.get(k);
     }
 
     @Nullable
     public synchronized V put(K k, V v) {
         V remove;
-        remove = this.ntB.remove(k);
-        this.ntC -= bj(remove);
-        this.ntB.put(k, v);
-        this.ntC += bj(v);
+        remove = this.ntT.remove(k);
+        this.ntU -= bj(remove);
+        this.ntT.put(k, v);
+        this.ntU += bj(v);
         return remove;
     }
 
     @Nullable
     public synchronized V remove(K k) {
         V remove;
-        remove = this.ntB.remove(k);
-        this.ntC -= bj(remove);
+        remove = this.ntT.remove(k);
+        this.ntU -= bj(remove);
         return remove;
     }
 
@@ -74,6 +74,6 @@ public class g<K, V> {
         if (v == null) {
             return 0;
         }
-        return this.ntA.bh(v);
+        return this.ntS.bh(v);
     }
 }

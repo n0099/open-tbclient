@@ -9,17 +9,17 @@ import java.nio.ByteBuffer;
 /* loaded from: classes10.dex */
 public final class b extends f {
     private final ByteBuffer mBuffer;
-    private final d ndS;
-    private final g ndU;
-    private boolean ndW;
-    private boolean ndX;
-    private final UploadDataProvider ndp = new a();
-    private boolean ndV = false;
+    private final d nek;
+    private final g nem;
+    private boolean neo;
+    private boolean nep;
+    private final UploadDataProvider ndH = new a();
+    private boolean nen = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(d dVar, int i, g gVar, boolean z, boolean z2) {
-        this.ndW = false;
-        this.ndX = false;
+        this.neo = false;
+        this.nep = false;
         if (dVar == null) {
             throw new NullPointerException();
         }
@@ -27,15 +27,15 @@ public final class b extends f {
             throw new IllegalArgumentException("chunkLength should be greater than 0");
         }
         this.mBuffer = ByteBuffer.allocate(i);
-        this.ndS = dVar;
-        this.ndU = gVar;
-        this.ndW = z;
-        this.ndX = z2;
+        this.nek = dVar;
+        this.nem = gVar;
+        this.neo = z;
+        this.nep = z2;
     }
 
     @Override // java.io.OutputStream
     public void write(int i) throws IOException {
-        dLu();
+        dLD();
         this.mBuffer.put((byte) i);
     }
 
@@ -50,36 +50,36 @@ public final class b extends f {
             int min = Math.min(i3, this.mBuffer.remaining());
             this.mBuffer.put(bArr, (i + i2) - i3, min);
             i3 -= min;
-            dLu();
+            dLD();
         }
     }
 
     @Override // com.baidu.turbonet.net.a.f, java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         super.close();
-        if (!this.ndV) {
-            this.ndV = true;
+        if (!this.nen) {
+            this.nen = true;
             this.mBuffer.flip();
-            if (this.ndW) {
-                this.ndU.KA(this.ndS.getReadTimeout());
+            if (this.neo) {
+                this.nem.KA(this.nek.getReadTimeout());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.turbonet.net.a.f
-    public void dLr() throws IOException {
+    public void dLA() throws IOException {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.turbonet.net.a.f
-    public void dLs() throws IOException {
+    public void dLB() throws IOException {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.turbonet.net.a.f
-    public UploadDataProvider dLt() {
-        return this.ndp;
+    public UploadDataProvider dLC() {
+        return this.ndH;
     }
 
     /* loaded from: classes10.dex */
@@ -97,12 +97,12 @@ public final class b extends f {
             if (byteBuffer.remaining() >= b.this.mBuffer.remaining()) {
                 byteBuffer.put(b.this.mBuffer);
                 b.this.mBuffer.clear();
-                uploadDataSink.xy(b.this.ndV);
-                if (!b.this.ndV) {
-                    b.this.ndU.quit();
+                uploadDataSink.xA(b.this.nen);
+                if (!b.this.nen) {
+                    b.this.nem.quit();
                     return;
-                } else if (b.this.ndW) {
-                    b.this.ndU.quit();
+                } else if (b.this.neo) {
+                    b.this.nem.quit();
                     return;
                 } else {
                     return;
@@ -112,7 +112,7 @@ public final class b extends f {
             b.this.mBuffer.limit(b.this.mBuffer.position() + byteBuffer.remaining());
             byteBuffer.put(b.this.mBuffer);
             b.this.mBuffer.limit(limit);
-            uploadDataSink.xy(false);
+            uploadDataSink.xA(false);
         }
 
         @Override // com.baidu.turbonet.net.UploadDataProvider
@@ -121,23 +121,23 @@ public final class b extends f {
         }
     }
 
-    private void dLu() throws IOException {
+    private void dLD() throws IOException {
         if (!this.mBuffer.hasRemaining()) {
-            dLv();
+            dLE();
         }
     }
 
-    private void dLv() throws IOException {
+    private void dLE() throws IOException {
         checkNotClosed();
         this.mBuffer.flip();
-        this.ndU.KA(this.ndS.getReadTimeout());
-        dLH();
+        this.nem.KA(this.nek.getReadTimeout());
+        dLQ();
     }
 
     @Override // java.io.OutputStream, java.io.Flushable
     public void flush() throws IOException {
-        if (this.ndX && this.mBuffer.position() > 0) {
-            dLv();
+        if (this.nep && this.mBuffer.position() > 0) {
+            dLE();
         }
     }
 }

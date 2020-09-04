@@ -1,11 +1,11 @@
 package com.baidu.mcn;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
-    public String bzQ;
-    public String bzR;
-    public String bzS;
     public String bzT;
-    public int bzU;
+    public String bzU;
+    public String bzV;
+    public String bzW;
+    public int bzX;
     public String fid;
     public String tid;
 }

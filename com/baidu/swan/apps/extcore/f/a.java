@@ -52,7 +52,7 @@ public class a {
     public static void x(Bundle bundle) {
         if (bundle != null) {
             if (!ProcessUtils.isMainProcess()) {
-                com.baidu.swan.apps.process.messaging.a.axs().a(new com.baidu.swan.apps.process.messaging.c(18, bundle).fp(true));
+                com.baidu.swan.apps.process.messaging.a.axs().a(new com.baidu.swan.apps.process.messaging.c(18, bundle).fq(true));
                 return;
             }
             String string = bundle.getString("arg_dst_folder");
@@ -108,16 +108,16 @@ public class a {
         return false;
     }
 
-    public static long mD(@Nullable String str) {
-        String[] mE = mE(str);
-        if (mE == null) {
+    public static long mE(@Nullable String str) {
+        String[] mF = mF(str);
+        if (mF == null) {
             return 0L;
         }
         int i = 0;
         long j = 0;
         while (i < 3) {
             try {
-                j = (j << 16) | (i < mE.length ? Integer.valueOf(mE[i]).intValue() : 0L);
+                j = (j << 16) | (i < mF.length ? Integer.valueOf(mF[i]).intValue() : 0L);
                 i++;
             } catch (NumberFormatException e) {
                 if (DEBUG) {
@@ -140,7 +140,7 @@ public class a {
         return i == 1 ? com.baidu.swan.apps.ad.a.a.awU() : com.baidu.swan.apps.ad.a.a.awT();
     }
 
-    private static String[] mE(@Nullable String str) {
+    private static String[] mF(@Nullable String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

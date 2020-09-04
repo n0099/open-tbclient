@@ -7,7 +7,7 @@ import kotlin.jvm.internal.q;
 /* loaded from: classes6.dex */
 public final class e implements tv.chushou.basis.d.a.b.e {
     @Override // tv.chushou.basis.d.a.b.e
-    public String gp(String str, String str2) {
+    public String gq(String str, String str2) {
         String encrypt = tv.chushou.a.a.d.b.encrypt(q.O(str, str2));
         q.l((Object) encrypt, "MD5Utils.encrypt(secret + text)");
         return encrypt;

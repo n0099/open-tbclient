@@ -1,10 +1,10 @@
 package com.baidu.tieba.frs;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ba {
     public Object ext;
     public String forumId;
     public String forumName;
-    public boolean hXN = false;
+    public boolean hXT = false;
     public int pn;
     public String stType;
 }

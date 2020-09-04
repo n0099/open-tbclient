@@ -8,8 +8,8 @@ import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 /* loaded from: classes14.dex */
 public class a {
     private String appId;
-    private String dFj;
-    private long dFk = 0;
+    private String dFn;
+    private long dFo = 0;
     private String downloadUrl;
     private String md5;
     private String sign;
@@ -34,7 +34,7 @@ public class a {
         int columnIndex9 = cursor.getColumnIndex(IMConstants.MSG_ROW_ID);
         String string = cursor.getString(columnIndex2);
         if (!TextUtils.isEmpty(string)) {
-            aVar.dFj = string;
+            aVar.dFn = string;
             aVar.appId = cursor.getString(columnIndex);
             aVar.versionName = cursor.getString(columnIndex3);
             aVar.versionCode = cursor.getInt(columnIndex4);
@@ -42,14 +42,14 @@ public class a {
             aVar.md5 = cursor.getString(columnIndex6);
             aVar.sign = cursor.getString(columnIndex7);
             aVar.downloadUrl = cursor.getString(columnIndex8);
-            aVar.dFk = cursor.getLong(columnIndex9);
+            aVar.dFo = cursor.getLong(columnIndex9);
         }
         return aVar;
     }
 
     @NonNull
     public String toString() {
-        return "SwanMiniPackageInfo{appId='" + this.appId + "', bundleId='" + this.dFj + "', versionCode=" + this.versionCode + ", versionName='" + this.versionName + "', size=" + this.size + ", md5='" + this.md5 + "', sign='" + this.sign + "', downloadUrl='" + this.downloadUrl + "', rawid=" + this.dFk + '}';
+        return "SwanMiniPackageInfo{appId='" + this.appId + "', bundleId='" + this.dFn + "', versionCode=" + this.versionCode + ", versionName='" + this.versionName + "', size=" + this.size + ", md5='" + this.md5 + "', sign='" + this.sign + "', downloadUrl='" + this.downloadUrl + "', rawid=" + this.dFo + '}';
     }
 
     public String getAppId() {
@@ -57,7 +57,7 @@ public class a {
     }
 
     public String getBundleId() {
-        return this.dFj;
+        return this.dFn;
     }
 
     public int getVersionCode() {

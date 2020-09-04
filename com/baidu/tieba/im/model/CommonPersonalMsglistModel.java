@@ -10,7 +10,7 @@ import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.ResponseCommitPersonalMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.util.e;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class CommonPersonalMsglistModel extends MsglistModel {
     private final CustomMessageListener mCustomListener;
     protected UserData mUser;

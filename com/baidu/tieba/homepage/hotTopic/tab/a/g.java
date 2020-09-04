@@ -19,12 +19,12 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.aa;
 /* loaded from: classes16.dex */
 public class g extends a<bv, al<bw>> {
-    private aa<bw> aeT;
+    private aa<bw> aeV;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public g(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, bw.eaW);
-        this.aeT = new aa<bw>() { // from class: com.baidu.tieba.homepage.hotTopic.tab.a.g.1
+        super(tbPageContext, bw.eba);
+        this.aeV = new aa<bw>() { // from class: com.baidu.tieba.homepage.hotTopic.tab.a.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             /* renamed from: b */
@@ -42,7 +42,7 @@ public class g extends a<bv, al<bw>> {
         aj.a aVar = new aj.a(this.mPageContext.getPageActivity());
         aVar.tP().bu(com.baidu.adp.lib.util.l.getDimens(this.mPageContext.getPageActivity(), com.baidu.tbadk.a.b.a.aL(R.dimen.tbds30, R.dimen.tbds10)));
         aVar.a(new com.baidu.card.l(this.mPageContext.getPageActivity()));
-        aj a = aVar.a(false, viewGroup, this.akI);
+        aj a = aVar.a(false, viewGroup, this.akK);
         a.setSourceForPb(2);
         al alVar = new al(a);
         alVar.setPageId(this.mPageId);
@@ -51,10 +51,10 @@ public class g extends a<bv, al<bw>> {
             public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
                 if ((qVar instanceof bv) && (view.getTag() instanceof al)) {
                     al alVar2 = (al) view.getTag();
-                    bw bwVar = ((bv) qVar).dUS;
+                    bw bwVar = ((bv) qVar).dUW;
                     bwVar.objType = 1;
-                    if (g.this.aeT != null) {
-                        g.this.aeT.a(alVar2.getView(), bwVar);
+                    if (g.this.aeV != null) {
+                        g.this.aeV.a(alVar2.getView(), bwVar);
                     }
                     ay.a((AbsThreadDataSupport) bwVar, view.getContext(), 0, false, com.baidu.card.f.a((v) viewGroup2, view, i));
                     alVar2.tR().b(new a.C0095a(1));
@@ -68,14 +68,14 @@ public class g extends a<bv, al<bw>> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.homepage.hotTopic.tab.a.a, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bv bvVar, al<bw> alVar) {
-        if (bvVar == null || alVar == null || alVar.getView() == null || bvVar.dUS == null) {
+        if (bvVar == null || alVar == null || alVar.getView() == null || bvVar.dUW == null) {
             return null;
         }
-        bvVar.dUS.dZb = getPositionByType(i) + 1;
+        bvVar.dUW.dZf = getPositionByType(i) + 1;
         alVar.tR().setPosition(i);
-        alVar.b((al<bw>) bvVar.dUS);
+        alVar.b((al<bw>) bvVar.dUW);
         alVar.tR().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        alVar.tR().a(this.aeT);
+        alVar.tR().a(this.aeV);
         return alVar.getView();
     }
 }

@@ -19,8 +19,8 @@ public class s implements CustomMessageTask.CustomRunnable<Object> {
         responseSearchGroupLocalMessage.setError(0);
         responseSearchGroupLocalMessage.setGid(groupId);
         String str = groupId + "";
-        com.baidu.adp.lib.cache.l<String> zx = com.baidu.tbadk.core.c.a.bhb().zx("tb.im_group_search_history");
-        zx.setForever(str, zx.get(str));
+        com.baidu.adp.lib.cache.l<String> zy = com.baidu.tbadk.core.c.a.bhb().zy("tb.im_group_search_history");
+        zy.setForever(str, zy.get(str));
         return responseSearchGroupLocalMessage;
     }
 }

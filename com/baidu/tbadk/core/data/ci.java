@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.data;
 import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
 import tbclient.YulePostActivity;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ci {
     private String activity_banner;
     private String activity_button;

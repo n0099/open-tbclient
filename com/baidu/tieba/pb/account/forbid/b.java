@@ -25,14 +25,14 @@ public class b {
 
     /* loaded from: classes16.dex */
     private static class a extends BdAsyncTask<String, Object, ForbidTplData> {
-        private String kvc;
-        private String kvd;
-        private InterfaceC0764b kve;
+        private String kvj;
+        private String kvk;
+        private InterfaceC0764b kvl;
 
         public a(String str, String str2, InterfaceC0764b interfaceC0764b) {
-            this.kvc = str;
-            this.kvd = str2;
-            this.kve = interfaceC0764b;
+            this.kvj = str;
+            this.kvk = str2;
+            this.kvl = interfaceC0764b;
             setPriority(3);
         }
 
@@ -42,8 +42,8 @@ public class b {
         /* renamed from: M */
         public ForbidTplData doInBackground(String... strArr) {
             aa aaVar = new aa(b.BAWU_LIST_REASON);
-            aaVar.addPostData("forum_id", this.kvc);
-            aaVar.addPostData("user_id", this.kvd);
+            aaVar.addPostData("forum_id", this.kvj);
+            aaVar.addPostData("user_id", this.kvk);
             String postNetData = aaVar.postNetData();
             if (aaVar.biQ().bjw().isRequestSuccess()) {
                 try {
@@ -67,11 +67,11 @@ public class b {
         /* renamed from: c */
         public void onPostExecute(ForbidTplData forbidTplData) {
             super.onPostExecute(forbidTplData);
-            if (this.kve != null) {
+            if (this.kvl != null) {
                 if (forbidTplData.error.errno == 0 && at.isEmpty(forbidTplData.error.errMsg)) {
-                    this.kve.a(forbidTplData);
+                    this.kvl.a(forbidTplData);
                 } else {
-                    this.kve.b(forbidTplData);
+                    this.kvl.b(forbidTplData);
                 }
             }
         }

@@ -223,11 +223,11 @@ public class SwanAppNetworkUtils {
     }
 
     public static String auU() {
-        String sL = ak.sL(com.baidu.swan.apps.core.turbo.d.ajS().akq());
-        if (TextUtils.isEmpty(sL)) {
+        String sM = ak.sM(com.baidu.swan.apps.core.turbo.d.ajS().akq());
+        if (TextUtils.isEmpty(sM)) {
             return "";
         }
-        return sL;
+        return sM;
     }
 
     public static <T> void a(String str, String str2, ResponseCallback<T> responseCallback) {

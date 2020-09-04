@@ -6,11 +6,11 @@ import com.baidu.ubs.analytics.d.j;
 public final class c {
     private long e;
     private Context mContext;
-    private boolean nfA;
-    private long nfB;
-    private long nfC;
-    private boolean nfD;
-    private int nfE;
+    private boolean nfS;
+    private long nfT;
+    private long nfU;
+    private boolean nfV;
+    private int nfW;
 
     /* synthetic */ c(a aVar, byte b) {
         this(aVar);
@@ -18,12 +18,12 @@ public final class c {
 
     private c(a aVar) {
         this.mContext = aVar.mContext;
-        this.nfA = aVar.nfA;
-        this.e = aVar.nfF;
-        this.nfB = aVar.nfB;
-        this.nfD = aVar.nfD;
-        this.nfC = aVar.nfC;
-        this.nfE = aVar.nfE;
+        this.nfS = aVar.nfS;
+        this.e = aVar.nfX;
+        this.nfT = aVar.nfT;
+        this.nfV = aVar.nfV;
+        this.nfU = aVar.nfU;
+        this.nfW = aVar.nfW;
     }
 
     public final Context b() {
@@ -31,7 +31,7 @@ public final class c {
     }
 
     public final boolean c() {
-        return this.nfA;
+        return this.nfS;
     }
 
     public final long d() {
@@ -39,68 +39,68 @@ public final class c {
     }
 
     public final long e() {
-        return this.nfB;
+        return this.nfT;
     }
 
     public final long f() {
-        return this.nfC;
+        return this.nfU;
     }
 
     public final boolean g() {
-        return this.nfD;
+        return this.nfV;
     }
 
     public final int h() {
-        return this.nfE;
+        return this.nfW;
     }
 
     /* loaded from: classes5.dex */
     public static class a {
         private Context mContext;
-        private boolean nfA = true;
-        private long nfF = 30000;
-        private long nfB = 60000;
-        private long nfC = 10000;
-        private boolean nfD = false;
-        private int nfE = 1000;
+        private boolean nfS = true;
+        private long nfX = 30000;
+        private long nfT = 60000;
+        private long nfU = 10000;
+        private boolean nfV = false;
+        private int nfW = 1000;
 
         public a fZ(Context context) {
             this.mContext = context;
             return this;
         }
 
-        public a xH(boolean z) {
-            this.nfA = z;
+        public a xJ(boolean z) {
+            this.nfS = z;
             return this;
         }
 
-        public a ge(long j) {
-            this.nfF = 1000 * j;
+        public a gg(long j) {
+            this.nfX = 1000 * j;
             return this;
         }
 
         public a KD(int i) {
-            this.nfB = i * 60 * 1000;
+            this.nfT = i * 60 * 1000;
             return this;
         }
 
-        public a gf(long j) {
-            this.nfC = 1000 * j;
+        public a gh(long j) {
+            this.nfU = 1000 * j;
             return this;
         }
 
-        public a xI(boolean z) {
-            this.nfD = z;
+        public a xK(boolean z) {
+            this.nfV = z;
             return this;
         }
 
         public a KE(int i) {
             int i2 = i <= 0 ? 0 : i;
-            this.nfE = i2 < 1000 ? i2 : 1000;
+            this.nfW = i2 < 1000 ? i2 : 1000;
             return this;
         }
 
-        public c dMg() {
+        public c dMp() {
             if (this.mContext == null) {
                 j.I("Context must be not empty!");
                 return null;

@@ -9,7 +9,7 @@ public interface c {
 
     void b(b bVar);
 
-    void hA(String str);
+    void hB(String str);
 
     @Deprecated
     void quitLiveShow();

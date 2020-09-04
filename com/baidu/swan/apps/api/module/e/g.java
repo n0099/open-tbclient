@@ -12,7 +12,7 @@ public class g extends com.baidu.swan.apps.api.a.d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b jm(String str) {
+    public com.baidu.swan.apps.api.c.b jn(String str) {
         if (DEBUG) {
             Log.d("Api-TabBar", "handle: " + str);
         }
@@ -42,7 +42,7 @@ public class g extends com.baidu.swan.apps.api.a.d {
         }
     }
 
-    public com.baidu.swan.apps.api.c.b jn(String str) {
+    public com.baidu.swan.apps.api.c.b jo(String str) {
         if (DEBUG) {
             Log.d("Api-TabBar", "handle: " + str);
         }
@@ -86,14 +86,14 @@ public class g extends com.baidu.swan.apps.api.a.d {
         return XX == null || XX.ahn() == null || !XX.ahn().agb();
     }
 
-    public com.baidu.swan.apps.api.c.b jo(String str) {
+    public com.baidu.swan.apps.api.c.b jp(String str) {
         if (DEBUG) {
             Log.d("Api-TabBar", "start open tab bar");
         }
         return H(str, true);
     }
 
-    public com.baidu.swan.apps.api.c.b jp(String str) {
+    public com.baidu.swan.apps.api.c.b jq(String str) {
         if (DEBUG) {
             Log.d("Api-TabBar", "start close tab bar");
         }
@@ -124,7 +124,7 @@ public class g extends com.baidu.swan.apps.api.a.d {
         ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.api.module.e.g.1
             @Override // java.lang.Runnable
             public void run() {
-                boolean fW;
+                boolean fX;
                 com.baidu.swan.apps.tabbar.b.a abU = g.abU();
                 if (abU == null) {
                     com.baidu.swan.apps.console.c.e("Api-TabBar", "tabBarViewController is null");
@@ -132,11 +132,11 @@ public class g extends com.baidu.swan.apps.api.a.d {
                     return;
                 }
                 if (z) {
-                    fW = abU.fX(optBoolean);
+                    fX = abU.fY(optBoolean);
                 } else {
-                    fW = abU.fW(optBoolean);
+                    fX = abU.fX(optBoolean);
                 }
-                if (!fW) {
+                if (!fX) {
                     com.baidu.swan.apps.console.c.e("Api-TabBar", (z ? "open" : "close") + "bottom bar fail");
                     g.this.a(optString, new com.baidu.swan.apps.api.c.b(1001));
                 }

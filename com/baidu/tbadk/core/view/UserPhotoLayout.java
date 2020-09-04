@@ -12,7 +12,7 @@ import android.widget.ListView;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class UserPhotoLayout extends LinearLayout implements AbsListView.RecyclerListener {
     private boolean mAutoChangeStyle;
     private b mChildClickListener;
@@ -25,12 +25,12 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
     private c mTbRecyclerListener;
     private com.baidu.adp.lib.d.b<HeadImageView> mUserPhotoPool;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface b {
         void oU(int i);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface d {
         int blf();
 
@@ -185,7 +185,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
         private final int mIndex;
 
@@ -264,7 +264,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         return headImageView;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     private static class c implements AbsListView.RecyclerListener {
         private int mId;
 

@@ -2,7 +2,7 @@ package kotlin;
 @h
 /* loaded from: classes20.dex */
 public final class l {
-    public static final l orN = new l();
+    public static final l osf = new l();
 
     private l() {
     }

@@ -9,10 +9,10 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 /* loaded from: classes7.dex */
 public class a implements b {
-    private String aHi;
-    private String ber;
-    private com.baidu.tieba.ala.guardthrone.view.a gex;
-    private com.baidu.tieba.ala.guardthrone.view.a gey;
+    private String aHk;
+    private String beu;
+    private com.baidu.tieba.ala.guardthrone.view.a geB;
+    private com.baidu.tieba.ala.guardthrone.view.a geC;
     private boolean mIsHost;
     private String mLiveId;
     private RelativeLayout mRootView;
@@ -23,8 +23,8 @@ public class a implements b {
     public void a(TbPageContext tbPageContext, String str, String str2, String str3, int i, boolean z) {
         this.mTbPageContext = tbPageContext;
         this.mLiveId = str;
-        this.ber = str2;
-        this.aHi = str3;
+        this.beu = str2;
+        this.aHk = str3;
         this.mTabId = i;
         this.mIsHost = z;
         initView();
@@ -32,21 +32,21 @@ public class a implements b {
 
     private void initView() {
         this.mRootView = new RelativeLayout(this.mTbPageContext.getPageActivity());
-        this.gex = new com.baidu.tieba.ala.guardthrone.view.a(this.mTbPageContext, false, this.mIsHost);
-        this.gex.d(this.mLiveId, this.ber, this.aHi, this.mTabId);
-        this.gey = new com.baidu.tieba.ala.guardthrone.view.a(this.mTbPageContext, true, this.mIsHost);
-        this.gey.d(this.mLiveId, this.ber, this.aHi, this.mTabId);
+        this.geB = new com.baidu.tieba.ala.guardthrone.view.a(this.mTbPageContext, false, this.mIsHost);
+        this.geB.d(this.mLiveId, this.beu, this.aHk, this.mTabId);
+        this.geC = new com.baidu.tieba.ala.guardthrone.view.a(this.mTbPageContext, true, this.mIsHost);
+        this.geC.d(this.mLiveId, this.beu, this.aHk, this.mTabId);
         if (UtilHelper.getRealScreenOrientation(this.mTbPageContext.getPageActivity()) == 2) {
-            this.gey.getRootView().setVisibility(0);
-            this.gex.getRootView().setVisibility(8);
+            this.geC.getRootView().setVisibility(0);
+            this.geB.getRootView().setVisibility(8);
         } else {
-            this.gey.getRootView().setVisibility(8);
-            this.gex.getRootView().setVisibility(0);
+            this.geC.getRootView().setVisibility(8);
+            this.geB.getRootView().setVisibility(0);
         }
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
         layoutParams.addRule(12);
-        this.mRootView.addView(this.gex.getRootView(), layoutParams);
-        this.mRootView.addView(this.gey.getRootView(), layoutParams);
+        this.mRootView.addView(this.geB.getRootView(), layoutParams);
+        this.mRootView.addView(this.geC.getRootView(), layoutParams);
     }
 
     @Override // com.baidu.live.h.b
@@ -60,28 +60,28 @@ public class a implements b {
 
     @Override // com.baidu.live.h.b
     public void onConfigurationChanged(Configuration configuration) {
-        if (this.gex != null && this.gey != null) {
+        if (this.geB != null && this.geC != null) {
             if (configuration.orientation == 2) {
-                this.gey.getRootView().setVisibility(0);
-                this.gex.getRootView().setVisibility(8);
+                this.geC.getRootView().setVisibility(0);
+                this.geB.getRootView().setVisibility(8);
             } else {
-                this.gey.getRootView().setVisibility(8);
-                this.gex.getRootView().setVisibility(0);
+                this.geC.getRootView().setVisibility(8);
+                this.geB.getRootView().setVisibility(0);
             }
-            this.gex.baR();
-            this.gey.baR();
+            this.geB.baR();
+            this.geC.baR();
         }
     }
 
     @Override // com.baidu.live.h.b
     public void onDestroy() {
-        if (this.gex != null) {
-            this.gex.bLf();
-            this.gex.onDestroy();
+        if (this.geB != null) {
+            this.geB.bLg();
+            this.geB.onDestroy();
         }
-        if (this.gey != null) {
-            this.gey.bLf();
-            this.gey.onDestroy();
+        if (this.geC != null) {
+            this.geC.bLg();
+            this.geC.onDestroy();
         }
     }
 

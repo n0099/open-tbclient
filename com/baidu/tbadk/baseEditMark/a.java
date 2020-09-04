@@ -5,11 +5,11 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class a {
 
     /* renamed from: com.baidu.tbadk.baseEditMark.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface InterfaceC0535a {
         void c(boolean z, boolean z2, String str);
     }
@@ -28,7 +28,7 @@ public abstract class a {
 
     public abstract String baz();
 
-    public abstract void hA(boolean z);
+    public abstract void hB(boolean z);
 
     public static a a(BaseActivity baseActivity) {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_MARK_MANAGER, a.class, baseActivity);

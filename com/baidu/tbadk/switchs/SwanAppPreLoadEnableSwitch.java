@@ -2,7 +2,7 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.featureSwitch.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class SwanAppPreLoadEnableSwitch extends a {
     public static final String KEY = "android_swanapp_preload_enable";
     public static final int TYPE_CLOSE = 0;

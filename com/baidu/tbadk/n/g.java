@@ -1,7 +1,7 @@
 package com.baidu.tbadk.n;
 
 import com.baidu.adp.BdUniqueId;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class g {
     protected BdUniqueId mId = BdUniqueId.gen();
     protected int mSubType = 0;

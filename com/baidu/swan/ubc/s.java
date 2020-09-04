@@ -17,27 +17,27 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class s {
-    private String bXU;
-    private String dKg;
-    private String dKh;
-    private String dKi;
-    private String dKj;
+    private String bXY;
     private String dKk;
     private String dKl;
     private String dKm;
+    private String dKn;
     private String dKo;
     private String dKp;
     private String dKq;
-    private String dKr;
-    private String daw;
+    private String dKs;
+    private String dKt;
+    private String dKu;
+    private String dKv;
+    private String daB;
     private String mAppVersion;
     private String mContent;
     private String mCuid;
     private String mUuid;
-    a dKe = new a();
-    b dKf = new b();
-    private String cXD = com.baidu.swan.b.a.getNetworkClass();
-    private String dKn = "";
+    a dKi = new a();
+    b dKj = new b();
+    private String cXH = com.baidu.swan.b.a.getNetworkClass();
+    private String dKr = "";
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(String str) {
@@ -45,47 +45,47 @@ public class s {
         try {
             PackageInfo packageInfo = appContext.getPackageManager().getPackageInfo(appContext.getPackageName(), 0);
             this.mAppVersion = packageInfo.versionName;
-            this.dKh = packageInfo.packageName;
+            this.dKl = packageInfo.packageName;
         } catch (PackageManager.NameNotFoundException e) {
         }
         TelephonyManager telephonyManager = (TelephonyManager) AppRuntime.getAppContext().getSystemService("phone");
         if (telephonyManager != null && (Build.VERSION.SDK_INT < 23 || appContext.checkSelfPermission("android.permission.READ_PHONE_STATE") == 0)) {
-            this.dKi = telephonyManager.getSimOperator();
+            this.dKm = telephonyManager.getSimOperator();
         }
         this.mCuid = e.aVF().getDeviceId(appContext);
         this.mUuid = e.aVF().cl(appContext);
-        this.daw = e.aVF().getHostName();
-        this.dKm = e.aVF().apW();
-        this.dKp = str;
+        this.daB = e.aVF().getHostName();
+        this.dKq = e.aVF().apW();
+        this.dKt = str;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes10.dex */
     public class a {
-        String dKs;
-        int dKt;
+        String dKw;
+        int dKx;
         String deviceType;
         String os = "Android";
         String osVersion = Build.VERSION.RELEASE;
         String brand = Build.MANUFACTURER;
-        int aKc = Build.VERSION.SDK_INT;
+        int aKe = Build.VERSION.SDK_INT;
         String model = Build.MODEL;
 
         public a() {
             Context appContext = AppRuntime.getAppContext();
             WindowManager windowManager = (WindowManager) appContext.getSystemService("window");
-            this.dKs = windowManager.getDefaultDisplay().getWidth() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + windowManager.getDefaultDisplay().getHeight();
-            this.dKt = appContext.getResources().getDisplayMetrics().densityDpi;
+            this.dKw = windowManager.getDefaultDisplay().getWidth() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + windowManager.getDefaultDisplay().getHeight();
+            this.dKx = appContext.getResources().getDisplayMetrics().densityDpi;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes10.dex */
     public final class b {
-        String dKv;
+        String dKz;
 
         private b() {
-            this.dKv = e.aVF().getUserId(AppRuntime.getAppContext());
+            this.dKz = e.aVF().getUserId(AppRuntime.getAppContext());
         }
     }
 
@@ -93,37 +93,37 @@ public class s {
         JSONObject jSONObject = new JSONObject();
         try {
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.putOpt("os", this.dKe.os);
-            jSONObject2.putOpt("osversion", this.dKe.osVersion);
-            jSONObject2.putOpt("model", this.dKe.model);
-            jSONObject2.putOpt(CashierData.DEVICE_TYPE, this.dKe.deviceType);
-            jSONObject2.putOpt(CashierData.SDK, this.dKe.aKc + "");
-            jSONObject2.putOpt(Constants.PHONE_BRAND, this.dKe.brand);
-            jSONObject2.putOpt("screen", this.dKe.dKs);
-            jSONObject2.putOpt("density", this.dKe.dKt + "");
+            jSONObject2.putOpt("os", this.dKi.os);
+            jSONObject2.putOpt("osversion", this.dKi.osVersion);
+            jSONObject2.putOpt("model", this.dKi.model);
+            jSONObject2.putOpt(CashierData.DEVICE_TYPE, this.dKi.deviceType);
+            jSONObject2.putOpt(CashierData.SDK, this.dKi.aKe + "");
+            jSONObject2.putOpt(Constants.PHONE_BRAND, this.dKi.brand);
+            jSONObject2.putOpt("screen", this.dKi.dKw);
+            jSONObject2.putOpt("density", this.dKi.dKx + "");
             JSONObject jSONObject3 = new JSONObject();
-            jSONObject3.putOpt("passId", this.dKf.dKv);
+            jSONObject3.putOpt("passId", this.dKj.dKz);
             jSONObject.putOpt("userInfo", jSONObject3);
             jSONObject.putOpt("system", jSONObject2);
             jSONObject.putOpt("appVersion", this.mAppVersion);
-            jSONObject.putOpt("appBranch", this.dKg);
-            jSONObject.putOpt("appPackageName", this.dKh);
+            jSONObject.putOpt("appBranch", this.dKk);
+            jSONObject.putOpt("appPackageName", this.dKl);
             jSONObject.putOpt("cuid", this.mCuid);
             jSONObject.putOpt("uuid", this.mUuid);
-            jSONObject.putOpt("hostName", this.daw);
-            jSONObject.putOpt("net", this.cXD);
-            jSONObject.putOpt("operator", this.dKi);
-            jSONObject.putOpt("smartAppId", this.dKj);
-            jSONObject.putOpt("smartAppVersion", this.dKk);
-            jSONObject.putOpt("swanCoreVersion", this.dKl);
-            jSONObject.putOpt("swanNativeVersion", this.dKm);
-            jSONObject.putOpt("swanType", this.dKn);
-            jSONObject.putOpt("swanId", this.dKo);
-            jSONObject.putOpt("bizId", this.dKp);
-            jSONObject.putOpt("eventType", this.dKq);
-            jSONObject.putOpt("eventName", this.bXU);
+            jSONObject.putOpt("hostName", this.daB);
+            jSONObject.putOpt("net", this.cXH);
+            jSONObject.putOpt("operator", this.dKm);
+            jSONObject.putOpt("smartAppId", this.dKn);
+            jSONObject.putOpt("smartAppVersion", this.dKo);
+            jSONObject.putOpt("swanCoreVersion", this.dKp);
+            jSONObject.putOpt("swanNativeVersion", this.dKq);
+            jSONObject.putOpt("swanType", this.dKr);
+            jSONObject.putOpt("swanId", this.dKs);
+            jSONObject.putOpt("bizId", this.dKt);
+            jSONObject.putOpt("eventType", this.dKu);
+            jSONObject.putOpt("eventName", this.bXY);
             jSONObject.putOpt("content", this.mContent);
-            jSONObject.putOpt("propagation", this.dKr);
+            jSONObject.putOpt("propagation", this.dKv);
         } catch (JSONException e) {
         }
         return jSONObject;
@@ -145,7 +145,7 @@ public class s {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static String xo(String str) {
+    public static String xp(String str) {
         JSONObject jSONObject;
         if (e.aVF() != null) {
             try {

@@ -3,17 +3,17 @@ package com.baidu.tieba.ala.liveroom.j;
 import java.util.HashSet;
 /* loaded from: classes7.dex */
 public class g {
-    private static HashSet<Integer> gzw = new HashSet<>();
+    private static HashSet<Integer> gzA = new HashSet<>();
 
     public static void ub(int i) {
-        if (gzw != null) {
-            gzw.add(Integer.valueOf(i));
+        if (gzA != null) {
+            gzA.add(Integer.valueOf(i));
         }
     }
 
     public static void uc(int i) {
-        if (gzw != null) {
-            gzw.remove(Integer.valueOf(i));
+        if (gzA != null) {
+            gzA.remove(Integer.valueOf(i));
         }
     }
 
@@ -24,9 +24,9 @@ public class g {
     */
     public static boolean ud(int i) {
         int i2 = 2913168;
-        if (gzw != null) {
-            if (!gzw.contains(2913168)) {
-                if (gzw.contains(2913128)) {
+        if (gzA != null) {
+            if (!gzA.contains(2913168)) {
+                if (gzA.contains(2913128)) {
                     i2 = 2913128;
                 }
             }
@@ -37,9 +37,9 @@ public class g {
         }
     }
 
-    public static void bRN() {
-        if (gzw != null) {
-            gzw.clear();
+    public static void bRO() {
+        if (gzA != null) {
+            gzA.clear();
         }
     }
 }

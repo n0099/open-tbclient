@@ -4,7 +4,7 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class SearchFriendResult extends OrmObject implements Serializable {
     private static final long serialVersionUID = 14010660746769448L;
     private String errmsg;
@@ -47,7 +47,7 @@ public class SearchFriendResult extends OrmObject implements Serializable {
         return this.user_info;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class UserInfo extends OrmObject implements Serializable {
         private static final long serialVersionUID = -4475845825063348182L;
         private String portrait;

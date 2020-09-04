@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.n;
 import com.baidu.tbadk.util.ak;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class TiebaPrepareImageService extends BdBaseService {
     private static final String DISPLAY_SIZE = "display_size";
     public static final String FILE_NAME = "file_name";
@@ -114,9 +114,9 @@ public class TiebaPrepareImageService extends BdBaseService {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, Boolean> {
-        String bnA = null;
+        String bnD = null;
         String mFileName;
         int mRequestCode;
         Uri mUri;
@@ -155,16 +155,16 @@ public class TiebaPrepareImageService extends BdBaseService {
                     }
                     Bitmap resizeBitmap = BitmapHelper.resizeBitmap(ImageResult, i);
                     if (resizeBitmap == null || n.a(null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY, resizeBitmap, 85) == null) {
-                        this.bnA = TiebaPrepareImageService.this.getString(R.string.error_sd_error);
+                        this.bnD = TiebaPrepareImageService.this.getString(R.string.error_sd_error);
                     }
                 } else {
-                    this.bnA = TiebaPrepareImageService.this.getString(R.string.error_sd_error);
+                    this.bnD = TiebaPrepareImageService.this.getString(R.string.error_sd_error);
                     z = false;
                 }
                 TiebaPrepareImageService.IS_DECODING = false;
                 return Boolean.valueOf(z);
             }
-            this.bnA = TiebaPrepareImageService.this.getString(R.string.pic_parser_error);
+            this.bnD = TiebaPrepareImageService.this.getString(R.string.pic_parser_error);
             z = false;
             TiebaPrepareImageService.IS_DECODING = false;
             return Boolean.valueOf(z);
@@ -183,8 +183,8 @@ public class TiebaPrepareImageService extends BdBaseService {
             super.onPostExecute((a) bool);
             Intent intent = new Intent(TbConfig.getBroadcastActionImageResized());
             intent.putExtra("result", bool);
-            if (this.bnA != null) {
-                intent.putExtra(BdStatsConstant.StatsType.ERROR, this.bnA);
+            if (this.bnD != null) {
+                intent.putExtra(BdStatsConstant.StatsType.ERROR, this.bnD);
             }
             TiebaPrepareImageService.this.sendBroadcast(intent);
         }

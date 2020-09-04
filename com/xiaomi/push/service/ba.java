@@ -9,12 +9,12 @@ public class ba extends XMPushService.i {
     private fl a;
 
     /* renamed from: a  reason: collision with other field name */
-    private XMPushService f878a;
+    private XMPushService f877a;
 
     public ba(XMPushService xMPushService, fl flVar) {
         super(4);
-        this.f878a = null;
-        this.f878a = xMPushService;
+        this.f877a = null;
+        this.f877a = xMPushService;
         this.a = flVar;
     }
 
@@ -27,11 +27,11 @@ public class ba extends XMPushService.i {
     public void a() {
         try {
             if (this.a != null) {
-                this.f878a.a(this.a);
+                this.f877a.a(this.a);
             }
         } catch (gd e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);
-            this.f878a.a(10, e);
+            this.f877a.a(10, e);
         }
     }
 }

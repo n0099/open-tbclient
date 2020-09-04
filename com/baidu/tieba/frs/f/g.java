@@ -4,14 +4,14 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class g {
-    private static String csN() {
+    private static String csO() {
         return "pref_name_frs_sortType_" + TbadkCoreApplication.getCurrentAccount();
     }
 
     private static SharedPreferences getSharedPreferences() {
-        return TbadkCoreApplication.getInst().getSharedPreferences(csN(), 0);
+        return TbadkCoreApplication.getInst().getSharedPreferences(csO(), 0);
     }
 
     public static void aO(String str, int i) {
@@ -26,7 +26,7 @@ public class g {
         }
     }
 
-    public static int IW(String str) {
+    public static int IX(String str) {
         if (TextUtils.isEmpty(str)) {
             return -1;
         }

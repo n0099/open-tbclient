@@ -8,16 +8,16 @@ public class i implements b {
     private final boolean Fo;
     private final String name;
     @Nullable
-    private final com.tb.airbnb.lottie.model.a.a oja;
+    private final com.tb.airbnb.lottie.model.a.d ojA;
     @Nullable
-    private final com.tb.airbnb.lottie.model.a.d oji;
+    private final com.tb.airbnb.lottie.model.a.a ojs;
 
     public i(String str, boolean z, Path.FillType fillType, @Nullable com.tb.airbnb.lottie.model.a.a aVar, @Nullable com.tb.airbnb.lottie.model.a.d dVar) {
         this.name = str;
         this.Fo = z;
         this.EN = fillType;
-        this.oja = aVar;
-        this.oji = dVar;
+        this.ojs = aVar;
+        this.ojA = dVar;
     }
 
     public String getName() {
@@ -25,13 +25,13 @@ public class i implements b {
     }
 
     @Nullable
-    public com.tb.airbnb.lottie.model.a.a edL() {
-        return this.oja;
+    public com.tb.airbnb.lottie.model.a.a edU() {
+        return this.ojs;
     }
 
     @Nullable
-    public com.tb.airbnb.lottie.model.a.d edl() {
-        return this.oji;
+    public com.tb.airbnb.lottie.model.a.d edu() {
+        return this.ojA;
     }
 
     public Path.FillType jO() {

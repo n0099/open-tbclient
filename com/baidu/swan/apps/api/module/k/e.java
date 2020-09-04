@@ -14,7 +14,7 @@ public class e extends com.baidu.swan.apps.api.a.d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b jW(String str) {
+    public com.baidu.swan.apps.api.c.b jX(String str) {
         if (DEBUG) {
             Log.d("Api-DeviceInfo", "start get device info");
         }

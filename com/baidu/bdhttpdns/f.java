@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes6.dex */
 final class f {
-    private static volatile f adt;
+    private static volatile f adv;
 
     /* loaded from: classes6.dex */
     interface a {
@@ -19,12 +19,12 @@ final class f {
 
     /* loaded from: classes6.dex */
     private class b implements Runnable {
-        private a adu;
+        private a adw;
         private String b;
 
         public b(String str, a aVar) {
             this.b = str;
-            this.adu = aVar;
+            this.adw = aVar;
         }
 
         @Override // java.lang.Runnable
@@ -38,7 +38,7 @@ final class f {
             } else {
                 arrayList = null;
             }
-            this.adu.a(((arrayList == null || arrayList.isEmpty()) && (arrayList2 == null || arrayList2.isEmpty())) ? -1 : 0, arrayList, arrayList2, 60L, this.b);
+            this.adw.a(((arrayList == null || arrayList.isEmpty()) && (arrayList2 == null || arrayList2.isEmpty())) ? -1 : 0, arrayList, arrayList2, 60L, this.b);
         }
     }
 
@@ -86,14 +86,14 @@ final class f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static f sV() {
-        if (adt == null) {
+        if (adv == null) {
             synchronized (f.class) {
-                if (adt == null) {
-                    adt = new f();
+                if (adv == null) {
+                    adv = new f();
                 }
             }
         }
-        return adt;
+        return adv;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -105,7 +105,7 @@ final class f {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public BDHttpDnsResult dd(String str) {
+    public BDHttpDnsResult de(String str) {
         ArrayList arrayList;
         ArrayList arrayList2 = null;
         Map<String, ArrayList> b2 = b(str);

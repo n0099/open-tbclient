@@ -2,27 +2,27 @@ package com.baidu.tieba.tbadkCore.data;
 
 import android.content.Context;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class m {
-    private String ZO;
-    private HashMap ejd;
+    private String ZQ;
+    private HashMap ejh;
     private Context mContext;
 
     public m(Context context, String str, HashMap hashMap) {
         this.mContext = null;
-        this.ZO = null;
-        this.ejd = null;
+        this.ZQ = null;
+        this.ejh = null;
         this.mContext = context;
-        this.ZO = str;
-        this.ejd = hashMap;
+        this.ZQ = str;
+        this.ejh = hashMap;
     }
 
-    public String dws() {
-        return this.ZO;
+    public String dwx() {
+        return this.ZQ;
     }
 
     public HashMap getParams() {
-        return this.ejd;
+        return this.ejh;
     }
 
     public Context getContext() {

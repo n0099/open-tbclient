@@ -34,14 +34,14 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class ay {
     public static void a(AbsThreadDataSupport absThreadDataSupport, Context context, int i, int i2) {
         if (absThreadDataSupport != null && context != null && absThreadDataSupport.bce() != null) {
             bw bce = absThreadDataSupport.bce();
             String beq = com.baidu.tieba.card.m.beq();
             if (i == 3) {
-                beq = com.baidu.tieba.card.m.cbP();
+                beq = com.baidu.tieba.card.m.cbQ();
             }
             PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(bce, null, beq, RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);
             createFromThreadCfg.setForumId(String.valueOf(bce.getFid()));
@@ -65,13 +65,13 @@ public final class ay {
                 bfVar.t(bce);
                 createFromThreadCfg.setRecomData(bfVar);
             }
-            if (bce.eec) {
+            if (bce.eeg) {
                 createFromThreadCfg.setFromHomePageQuality(true);
             }
             if (bce.bfL() && createFromThreadCfg.getIntent() != null) {
                 createFromThreadCfg.getIntent().putExtra("KEY_IS_INTERVIEW_LIVE", true);
             }
-            com.baidu.tieba.card.m.GY(bce.getTid());
+            com.baidu.tieba.card.m.GZ(bce.getTid());
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
         }
     }
@@ -81,7 +81,7 @@ public final class ay {
             bw bce = absThreadDataSupport.bce();
             String beq = com.baidu.tieba.card.m.beq();
             if (i == 3) {
-                beq = com.baidu.tieba.card.m.cbP();
+                beq = com.baidu.tieba.card.m.cbQ();
             }
             PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(bce, null, beq, RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);
             createFromThreadCfg.setForumId(String.valueOf(bce.getFid()));
@@ -115,7 +115,7 @@ public final class ay {
             createFromThreadCfg.setThreadData(bce);
             createFromThreadCfg.setVideoOriginArea(rect);
             createFromThreadCfg.setIsPrivacy(bce.isPrivacy);
-            com.baidu.tieba.card.m.GY(bce.getTid());
+            com.baidu.tieba.card.m.GZ(bce.getTid());
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
         }
     }
@@ -217,7 +217,7 @@ public final class ay {
             Rect rect = new Rect();
             view.getGlobalVisibleRect(rect);
             ImageViewerConfig.a aVar = new ImageViewerConfig.a();
-            aVar.x(arrayList).mM(i).yP(bwVar.beI()).yQ(String.valueOf(bwVar.getFid())).yR(bwVar.getTid()).hH(z).yS(arrayList.size() > 0 ? arrayList.get(0) : "").hI(true).a(concurrentHashMap).hJ(true).r(bwVar).hO(z2).a(rect, UtilHelper.fixedDrawableRect(rect, view));
+            aVar.x(arrayList).mM(i).yQ(bwVar.beI()).yR(String.valueOf(bwVar.getFid())).yS(bwVar.getTid()).hI(z).yT(arrayList.size() > 0 ? arrayList.get(0) : "").hJ(true).a(concurrentHashMap).hK(true).r(bwVar).hP(z2).a(rect, UtilHelper.fixedDrawableRect(rect, view));
             ImageViewerConfig dP = aVar.dP(context);
             if (str != null) {
                 dP.getIntent().putExtra("from", str);
@@ -277,14 +277,14 @@ public final class ay {
     public static void a(TextView textView, TextView textView2, bw bwVar, int i, boolean z) {
         SpannableStringBuilder spannableStringBuilder;
         if (bwVar != null) {
-            bwVar.ic(false);
+            bwVar.id(false);
             SpannableStringBuilder spannableStringBuilder2 = null;
             if (bwVar.bef() != null) {
                 spannableStringBuilder2 = new SpannableStringBuilder(bwVar.bef());
             }
             if (bwVar.getTabId() <= 0 || at.isEmpty(bwVar.getTabName()) || !x(bwVar) || !(spannableStringBuilder2 == null || at.isEmptyStringAfterTrim(spannableStringBuilder2.toString()))) {
                 spannableStringBuilder = spannableStringBuilder2;
-            } else if (bwVar.isShareThread && bwVar.edE != null) {
+            } else if (bwVar.isShareThread && bwVar.edI != null) {
                 spannableStringBuilder = new SpannableStringBuilder(TbadkCoreApplication.getInst().getString(R.string.share_thread_default_abstract));
             } else if (bwVar.bfG()) {
                 spannableStringBuilder = new SpannableStringBuilder(TbadkCoreApplication.getInst().getString(R.string.voice_thread_default_abstract));
@@ -313,7 +313,7 @@ public final class ay {
                     layoutParams2.setMargins(0, com.baidu.adp.lib.util.l.getDimens(textView.getContext(), R.dimen.tbds7), 0, 0);
                     textView.setLayoutParams(layoutParams2);
                 }
-                bwVar.ic(a(textView, spannableStringBuilder, i2, i));
+                bwVar.id(a(textView, spannableStringBuilder, i2, i));
             } else {
                 textView.setVisibility(8);
             }
@@ -325,7 +325,7 @@ public final class ay {
 
     public static void a(TextView textView, TextView textView2, SpannableString spannableString, bw bwVar, int i, boolean z, boolean z2) {
         if (bwVar != null) {
-            bwVar.ic(false);
+            bwVar.id(false);
             if (spannableString != null && !at.isEmptyStringAfterTrim(spannableString.toString())) {
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(spannableString);
                 textView.setVisibility(0);
@@ -349,7 +349,7 @@ public final class ay {
                     layoutParams2.setMargins(0, com.baidu.adp.lib.util.l.getDimens(textView.getContext(), R.dimen.tbds7), 0, 0);
                     textView.setLayoutParams(layoutParams2);
                 }
-                bwVar.ic(a(textView, spannableStringBuilder, i2, i));
+                bwVar.id(a(textView, spannableStringBuilder, i2, i));
             } else {
                 textView.setVisibility(8);
             }

@@ -8,11 +8,11 @@ import com.baidu.android.common.logging.Log;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes7.dex */
 public class g {
-    private static final g oiX = new g();
+    private static final g ojp = new g();
     private final LruCache<String, com.tb.airbnb.lottie.d> Eu = new LruCache<>(Log.FILE_LIMETE);
 
-    public static g ede() {
-        return oiX;
+    public static g edn() {
+        return ojp;
     }
 
     @VisibleForTesting

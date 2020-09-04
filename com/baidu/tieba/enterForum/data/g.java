@@ -9,14 +9,14 @@ import java.util.List;
 import tbclient.ForumRecommend.LikeForum;
 /* loaded from: classes16.dex */
 public class g {
-    private ArrayList<f> hup = new ArrayList<>();
+    private ArrayList<f> huv = new ArrayList<>();
 
-    public ArrayList<f> ceS() {
-        return this.hup;
+    public ArrayList<f> ceT() {
+        return this.huv;
     }
 
-    public void ceT() {
-        Iterator<f> it = this.hup.iterator();
+    public void ceU() {
+        Iterator<f> it = this.huv.iterator();
         while (it.hasNext()) {
             it.next().vU(0);
         }
@@ -37,7 +37,7 @@ public class g {
                         f fVar = new f();
                         fVar.a((LikeForum) list.get(i));
                         if (!TextUtils.isEmpty(fVar.getName())) {
-                            this.hup.add(fVar);
+                            this.huv.add(fVar);
                         }
                     } else {
                         return;

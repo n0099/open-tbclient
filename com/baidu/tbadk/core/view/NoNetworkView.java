@@ -18,7 +18,7 @@ import com.baidu.tbadk.coreExtra.NoNetworkMoreActivity;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class NoNetworkView extends RelativeLayout implements View.OnClickListener {
     private static boolean mHasNetwork;
     private static ArrayList<NoNetworkView> mViews = new ArrayList<>();
@@ -28,7 +28,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
     private TextView mGuide;
     private final ArrayList<a> networkChangeListeners;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface a {
         void onNetworkChange(boolean z);
     }

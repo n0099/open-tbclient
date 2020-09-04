@@ -1,7 +1,7 @@
 package com.baidu.tieba.InjectPlugin;
 
 import android.view.View;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b {
     private View view;
     public int what;

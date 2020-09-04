@@ -7,12 +7,12 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes14.dex */
 public class f {
-    private final Set<String> dGJ;
+    private final Set<String> dGN;
     private final String mVersion;
 
     public f(String str, Set<String> set) {
         this.mVersion = str;
-        this.dGJ = set;
+        this.dGN = set;
     }
 
     public String getVersion() {
@@ -20,7 +20,7 @@ public class f {
     }
 
     public Set<String> aUF() {
-        return this.dGJ;
+        return this.dGN;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -9,15 +9,15 @@ import org.json.JSONObject;
 public final class a {
     public static int a = 12323;
     public static int b = 12324;
-    public b aeI;
-    private JSONObject aeJ;
+    public b aeK;
+    private JSONObject aeL;
     public JSONObject d;
     public boolean e = false;
 
     public final void a() {
-        if (this.aeJ != null) {
-            SessionMonitorEngine.getInstance().recordImmediately(ZeusPerformanceTiming.SERVER_TYPE_T7_INIT, this.aeJ.toString());
-            this.aeJ = null;
+        if (this.aeL != null) {
+            SessionMonitorEngine.getInstance().recordImmediately(ZeusPerformanceTiming.SERVER_TYPE_T7_INIT, this.aeL.toString());
+            this.aeL = null;
         }
     }
 
@@ -38,14 +38,14 @@ public final class a {
 
     public final void b(String str, String str2) {
         try {
-            if (this.aeJ == null) {
-                this.aeJ = new JSONObject();
-                this.aeJ.put("type", b);
+            if (this.aeL == null) {
+                this.aeL = new JSONObject();
+                this.aeL.put("type", b);
             }
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                 return;
             }
-            this.aeJ.put(str, str2);
+            this.aeL.put(str, str2);
         } catch (Exception e) {
             Log.e("mWebkitDownloadStatics JSON error");
         }

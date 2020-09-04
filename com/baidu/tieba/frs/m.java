@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import tbclient.WindowToast;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class m {
     public static void a(Activity activity, TbPageContext<?> tbPageContext) {
         int equipmentWidth;
@@ -28,9 +28,9 @@ public class m {
             final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(activity);
             aVar.aX(inflate);
             aVar.nw(2);
-            aVar.ig(true);
+            aVar.ih(true);
             aVar.setAutoNight(true);
-            aVar.m39if(true);
+            aVar.ig(true);
             int dimens = com.baidu.adp.lib.util.l.getDimens(activity, R.dimen.tbds31);
             com.baidu.tbadk.core.util.ap.c(inflate, dimens, R.color.cp_bg_line_d, R.color.cp_cont_a);
             tbImageView.setRadius(dimens);
@@ -82,9 +82,9 @@ public class m {
             final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
             aVar.aX(inflate);
             aVar.nw(2);
-            aVar.ig(false);
+            aVar.ih(false);
             aVar.setAutoNight(true);
-            aVar.m39if(true);
+            aVar.ig(true);
             int dimens = com.baidu.adp.lib.util.l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds31);
             com.baidu.tbadk.core.util.ap.c(inflate, dimens, R.color.cp_bg_line_d, R.color.cp_bg_line_d);
             tbImageView.setRadius(dimens);

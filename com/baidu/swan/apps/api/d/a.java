@@ -9,7 +9,7 @@ import com.baidu.swan.apps.adaptation.b.e;
 /* loaded from: classes8.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final String[] bYk = {"swan", "swanAPI", "utils"};
+    private static final String[] bYo = {"swan", "swanAPI", "utils"};
 
     @NonNull
     public static Pair<Boolean, com.baidu.swan.apps.api.c.a> a(com.baidu.swan.apps.api.a.a aVar, String str) {
@@ -34,9 +34,9 @@ public class a {
         } else {
             String aaT = ((e) callbackHandler).aaT();
             if ("ai_apps_widget".equals(aaT)) {
-                z = kk(str);
+                z = kl(str);
             } else if ("ai_apps_ad_landing".equals(aaT)) {
-                if (!com.baidu.swan.apps.ag.a.b.qG(str)) {
+                if (!com.baidu.swan.apps.ag.a.b.qH(str)) {
                     z = true;
                 }
             } else if (!"swan_app_alliance_login_widget".equals(aaT) && !"swan_app_alliance_choose_address_widget".equals(aaT) && DEBUG) {
@@ -49,19 +49,19 @@ public class a {
         return z;
     }
 
-    private static boolean kk(@NonNull String str) {
+    private static boolean kl(@NonNull String str) {
         String[] strArr;
         int indexOf = str.indexOf("/");
         if (indexOf < 0) {
             return true;
         }
         if (!str.startsWith("swan")) {
-            return !com.baidu.swan.apps.ag.a.b.qE(str);
+            return !com.baidu.swan.apps.ag.a.b.qF(str);
         }
         String substring = str.substring(indexOf + 1);
-        int length = bYk.length;
+        int length = bYo.length;
         for (int i = 0; i < length; i++) {
-            if (com.baidu.swan.apps.ag.a.b.qE(strArr[i] + "/" + substring)) {
+            if (com.baidu.swan.apps.ag.a.b.qF(strArr[i] + "/" + substring)) {
                 return false;
             }
         }

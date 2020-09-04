@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.util.n;
 import java.io.File;
 import java.io.Serializable;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class EditVideoData extends OrmObject implements Serializable {
     public String coverPath;
     public String filterName;

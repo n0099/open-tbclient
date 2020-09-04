@@ -1,5 +1,5 @@
 package com.baidu.tbadk.coreExtra.data;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public enum EmotionGroupType {
     LOCAL,
     BIG_EMOTION,

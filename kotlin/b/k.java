@@ -4,8 +4,8 @@ import com.baidu.android.common.others.IStringUtil;
 @kotlin.h
 /* loaded from: classes20.dex */
 public final class k extends i {
-    public static final a otg = new a(null);
-    private static final k otf = new k(1, 0);
+    public static final a oty = new a(null);
+    private static final k otx = new k(1, 0);
 
     public k(long j, long j2) {
         super(j, j2, 1L);
@@ -13,12 +13,12 @@ public final class k extends i {
 
     @Override // kotlin.b.i
     public boolean isEmpty() {
-        return egz() > egA();
+        return egI() > egJ();
     }
 
     @Override // kotlin.b.i
     public boolean equals(Object obj) {
-        return (obj instanceof k) && ((isEmpty() && ((k) obj).isEmpty()) || (egz() == ((k) obj).egz() && egA() == ((k) obj).egA()));
+        return (obj instanceof k) && ((isEmpty() && ((k) obj).isEmpty()) || (egI() == ((k) obj).egI() && egJ() == ((k) obj).egJ()));
     }
 
     @Override // kotlin.b.i
@@ -26,12 +26,12 @@ public final class k extends i {
         if (isEmpty()) {
             return -1;
         }
-        return (int) ((31 * (egz() ^ (egz() >>> 32))) + (egA() ^ (egA() >>> 32)));
+        return (int) ((31 * (egI() ^ (egI() >>> 32))) + (egJ() ^ (egJ() >>> 32)));
     }
 
     @Override // kotlin.b.i
     public String toString() {
-        return egz() + IStringUtil.TOP_PATH + egA();
+        return egI() + IStringUtil.TOP_PATH + egJ();
     }
 
     @kotlin.h

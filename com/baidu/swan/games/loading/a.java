@@ -12,11 +12,11 @@ import kotlin.reflect.j;
 /* loaded from: classes8.dex */
 public final class a {
     static final /* synthetic */ j[] $$delegatedProperties = {t.a(new PropertyReference1Impl(t.M(a.class), "loadingTips", "getLoadingTips()[Ljava/lang/String;"))};
-    private final d duF = e.b(SwanLoadingTips$loadingTips$2.INSTANCE);
-    private int duG;
+    private final d duJ = e.b(SwanLoadingTips$loadingTips$2.INSTANCE);
+    private int duK;
 
     private final String[] aOx() {
-        d dVar = this.duF;
+        d dVar = this.duJ;
         j jVar = $$delegatedProperties[0];
         return (String[]) dVar.getValue();
     }
@@ -25,8 +25,8 @@ public final class a {
         String[] aOx = aOx();
         if (aOx != null) {
             if (!(aOx.length == 0)) {
-                String str = aOx[this.duG % aOx.length];
-                this.duG++;
+                String str = aOx[this.duK % aOx.length];
+                this.duK++;
                 return str;
             }
         }

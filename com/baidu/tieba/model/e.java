@@ -22,32 +22,32 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class e {
     public static a.b a(a.b bVar) {
         a.b bVar2;
-        String[] cQY;
+        String[] cQZ;
         if (bVar == null) {
             return null;
         }
         try {
-            cQY = cQY();
+            cQZ = cQZ();
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        if (cQY != null) {
+        if (cQZ != null) {
             ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
             arrayList.add(new BasicNameValuePair("crypttype", "1"));
             arrayList.add(new BasicNameValuePair("tpl", "tb"));
             arrayList.add(new BasicNameValuePair("appid", "1"));
             arrayList.add(new BasicNameValuePair("clientip", getClientIP()));
-            arrayList.add(new BasicNameValuePair("cert_id", cQY[0]));
+            arrayList.add(new BasicNameValuePair("cert_id", cQZ[0]));
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("bduss", bVar.mBduss);
             jSONObject.put("ptoken", bVar.mPtoken);
             jSONObject.put("cuid", DeviceId.getDeviceID(TbadkCoreApplication.getInst().getApp()));
             jSONObject.put("clientid", TbadkCoreApplication.getInst().getImei());
-            arrayList.add(new BasicNameValuePair(TableDefine.DB_TABLE_USERINFO, new com.baidu.tbadk.core.a.c().encrypt(cQY[1], jSONObject.toString())));
+            arrayList.add(new BasicNameValuePair(TableDefine.DB_TABLE_USERINFO, new com.baidu.tbadk.core.a.c().encrypt(cQZ[1], jSONObject.toString())));
             arrayList.add(new BasicNameValuePair("sig", f(arrayList, "6e93e7659ae637845c7f83abee68a740")));
             aa aaVar = new aa("http://passport.baidu.com/v2/sapi/bdusslogin");
             aaVar.biQ().bjv().mIsNeedAddCommenParam = false;
@@ -72,7 +72,7 @@ public class e {
         return null;
     }
 
-    private static String[] cQY() {
+    private static String[] cQZ() {
         try {
             aa aaVar = new aa("http://passport.baidu.com/sslcrypt/get_last_cert");
             aaVar.biQ().bjv().mIsNeedAddCommenParam = false;

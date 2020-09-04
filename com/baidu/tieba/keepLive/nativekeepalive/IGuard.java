@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.tieba.keepLive.nativekeepalive.GuardProxy;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface IGuard {
     void onDaemonAssistantCreate(Context context, GuardConfigurations guardConfigurations);
 
@@ -14,7 +14,7 @@ public interface IGuard {
 
     void onPersistentCreate(Context context, GuardConfigurations guardConfigurations);
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class Fetcher {
         private static IGuard mDaemonStrategy;
 

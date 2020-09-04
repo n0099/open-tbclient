@@ -11,12 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class c extends BaseAdapter {
-    private ViewGroup fBF;
-    private a fCa;
-    public List<com.baidu.live.ar.e> azB = new ArrayList();
-    private int fzN = -1;
-    private int fzO = -1;
-    private int fBH = 0;
+    private ViewGroup fBJ;
+    private a fCe;
+    public List<com.baidu.live.ar.e> azD = new ArrayList();
+    private int fzR = -1;
+    private int fzS = -1;
+    private int fBL = 0;
 
     /* loaded from: classes7.dex */
     public interface a {
@@ -24,26 +24,26 @@ public class c extends BaseAdapter {
     }
 
     public c(ViewGroup viewGroup) {
-        this.fBF = viewGroup;
+        this.fBJ = viewGroup;
     }
 
     public void a(a aVar) {
-        this.fCa = aVar;
+        this.fCe = aVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.azB == null) {
+        if (this.azD == null) {
             return 0;
         }
-        return this.azB.size();
+        return this.azD.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: sy */
     public com.baidu.live.ar.e getItem(int i) {
-        return (com.baidu.live.ar.e) ListUtils.getItem(this.azB, i);
+        return (com.baidu.live.ar.e) ListUtils.getItem(this.azD, i);
     }
 
     @Override // android.widget.Adapter
@@ -53,22 +53,22 @@ public class c extends BaseAdapter {
 
     public void e(List<com.baidu.live.ar.e> list, int i) {
         if (!ListUtils.isEmpty(list)) {
-            this.azB.clear();
-            this.azB.addAll(list);
-            this.fzN = i;
+            this.azD.clear();
+            this.azD.addAll(list);
+            this.fzR = i;
             notifyDataSetChanged();
         }
     }
 
     public List<com.baidu.live.ar.e> getDatas() {
-        return this.azB;
+        return this.azD;
     }
 
     @Override // android.widget.Adapter
     public View getView(final int i, View view, ViewGroup viewGroup) {
         final d dVar;
         if (view == null) {
-            view = LayoutInflater.from(this.fBF.getContext()).inflate(a.h.face_feature_ar_item_layout, (ViewGroup) null);
+            view = LayoutInflater.from(this.fBJ.getContext()).inflate(a.h.face_feature_ar_item_layout, (ViewGroup) null);
             dVar = new d(view);
             view.setTag(dVar);
         } else {
@@ -86,14 +86,14 @@ public class c extends BaseAdapter {
         });
         if (dVar != null) {
             dVar.a(getItem(i));
-            if (this.fzN == i) {
-                dVar.bFo();
+            if (this.fzR == i) {
+                dVar.bFp();
             } else {
-                dVar.bFn();
+                dVar.bFo();
             }
         }
-        if (i == 0 && this.fBH != 0) {
-            view.setPadding(this.fBH, 0, 0, 0);
+        if (i == 0 && this.fBL != 0) {
+            view.setPadding(this.fBL, 0, 0, 0);
         } else {
             view.setPadding(0, 0, 0, 0);
         }
@@ -103,11 +103,11 @@ public class c extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.live.ar.e eVar, int i, d dVar, int[] iArr) {
         if (eVar != null) {
-            this.fzO = i;
-            if (this.fCa != null) {
-                this.fCa.b(i, iArr);
+            this.fzS = i;
+            if (this.fCe != null) {
+                this.fCe.b(i, iArr);
             }
-            this.fzN = i;
+            this.fzR = i;
             if (com.baidu.live.c.AD().getInt("beauty_subitem_redot", 0) == 1) {
                 com.baidu.live.c.AD().putBoolean(eVar.getType(), false);
             }
@@ -115,19 +115,19 @@ public class c extends BaseAdapter {
         }
     }
 
-    public int Ew(String str) {
+    public int Ex(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
-        for (int i = 0; i < this.azB.size(); i++) {
-            if (TextUtils.equals(str, this.azB.get(i).getType())) {
+        for (int i = 0; i < this.azD.size(); i++) {
+            if (TextUtils.equals(str, this.azD.get(i).getType())) {
                 return i;
             }
         }
         return 0;
     }
 
-    public String Ex(String str) {
+    public String Ey(String str) {
         int i = 0;
         if (TextUtils.equals(str, "goddessFace")) {
             i = 1;
@@ -138,6 +138,6 @@ public class c extends BaseAdapter {
     }
 
     public void sx(int i) {
-        this.fBH = i;
+        this.fBL = i;
     }
 }

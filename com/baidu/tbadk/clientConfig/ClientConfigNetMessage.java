@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.t;
 import tbclient.GetClientConfig.DataReq;
 import tbclient.GetClientConfig.GetClientConfigReqIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ClientConfigNetMessage extends NetMessage {
     private String mType;
 

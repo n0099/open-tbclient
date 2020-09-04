@@ -2,9 +2,9 @@ package com.baidu.tbadk.core.util;
 
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.TbadkSettings;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a implements com.baidu.adp.lib.stats.b {
-    private static a eiW = null;
+    private static a eja = null;
 
     private a() {
     }
@@ -12,10 +12,10 @@ public class a implements com.baidu.adp.lib.stats.b {
     public static synchronized a biq() {
         a aVar;
         synchronized (a.class) {
-            if (eiW == null) {
-                eiW = new a();
+            if (eja == null) {
+                eja = new a();
             }
-            aVar = eiW;
+            aVar = eja;
         }
         return aVar;
     }

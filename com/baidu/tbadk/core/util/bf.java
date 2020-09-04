@@ -5,7 +5,7 @@ import android.graphics.Rect;
 import android.os.Build;
 import android.view.View;
 import com.compatible.menukey.MenuKeyUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class bf {
     public static Rect getVisibilityRegion(Activity activity) {
         Rect rect = new Rect();

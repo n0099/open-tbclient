@@ -2,12 +2,12 @@ package com.baidu.tbadk.core.util;
 
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ad {
     private static ArrayList<a> mStatisticsDatas = new ArrayList<>();
     public static AtomicInteger mErrorNums = new AtomicInteger(0);
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a {
         public int mMethod;
         public int mMode;

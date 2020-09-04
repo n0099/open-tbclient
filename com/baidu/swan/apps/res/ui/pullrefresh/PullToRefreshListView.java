@@ -9,8 +9,8 @@ import android.widget.ListView;
 import com.baidu.swan.apps.res.ui.pullrefresh.ILoadingLayout;
 /* loaded from: classes8.dex */
 public class PullToRefreshListView extends PullToRefreshBase<ListView> implements AbsListView.OnScrollListener {
-    private LoadingLayout cNU;
-    private AbsListView.OnScrollListener cNn;
+    private LoadingLayout cNY;
+    private AbsListView.OnScrollListener cNr;
     private ListView mListView;
 
     public PullToRefreshListView(Context context) {
@@ -38,8 +38,8 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
     }
 
     public void setHasMoreData(boolean z) {
-        if (this.cNU != null) {
-            this.cNU.setState(z ? ILoadingLayout.State.RESET : ILoadingLayout.State.NO_MORE_DATA);
+        if (this.cNY != null) {
+            this.cNY.setState(z ? ILoadingLayout.State.RESET : ILoadingLayout.State.NO_MORE_DATA);
         }
         LoadingLayout footerLoadingLayout = getFooterLoadingLayout();
         if (footerLoadingLayout != null) {
@@ -48,7 +48,7 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
     }
 
     public void setOnScrollListener(AbsListView.OnScrollListener onScrollListener) {
-        this.cNn = onScrollListener;
+        this.cNr = onScrollListener;
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
@@ -64,8 +64,8 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
     public void startLoading() {
         super.startLoading();
-        if (this.cNU != null) {
-            this.cNU.setState(ILoadingLayout.State.REFRESHING);
+        if (this.cNY != null) {
+            this.cNY.setState(ILoadingLayout.State.REFRESHING);
         }
     }
 
@@ -74,20 +74,20 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
         if (isScrollLoadEnabled() != z) {
             super.setScrollLoadEnabled(z);
             if (z) {
-                if (this.cNU == null) {
-                    this.cNU = new FooterLoadingLayout(getContext());
-                    this.mListView.addFooterView(this.cNU, null, false);
+                if (this.cNY == null) {
+                    this.cNY = new FooterLoadingLayout(getContext());
+                    this.mListView.addFooterView(this.cNY, null, false);
                 }
-                this.cNU.show(true);
-            } else if (this.cNU != null) {
-                this.cNU.show(false);
+                this.cNY.show(true);
+            } else if (this.cNY != null) {
+                this.cNY.show(false);
             }
         }
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
     public LoadingLayout getFooterLoadingLayout() {
-        return isScrollLoadEnabled() ? this.cNU : super.getFooterLoadingLayout();
+        return isScrollLoadEnabled() ? this.cNY : super.getFooterLoadingLayout();
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -95,20 +95,20 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
         if (isScrollLoadEnabled() && ayX() && ((i == 0 || i == 2) && isReadyForPullUp())) {
             startLoading();
         }
-        if (this.cNn != null) {
-            this.cNn.onScrollStateChanged(absListView, i);
+        if (this.cNr != null) {
+            this.cNr.onScrollStateChanged(absListView, i);
         }
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        if (this.cNn != null) {
-            this.cNn.onScroll(absListView, i, i2, i3);
+        if (this.cNr != null) {
+            this.cNr.onScroll(absListView, i, i2, i3);
         }
     }
 
     private boolean ayX() {
-        return this.cNU == null || this.cNU.getState() != ILoadingLayout.State.NO_MORE_DATA;
+        return this.cNY == null || this.cNY.getState() != ILoadingLayout.State.NO_MORE_DATA;
     }
 
     private boolean ayY() {

@@ -56,11 +56,11 @@ public final class R {
     public static final class id {
         public static final int FILL = 0x7f0f01a1;
         public static final int STROKE = 0x7f0f01a2;
-        public static final int circleProgressBar = 0x7f0f26e7;
-        public static final int ivBigLoading = 0x7f0f26e5;
-        public static final int ivSmallLoading = 0x7f0f26e6;
+        public static final int circleProgressBar = 0x7f0f26e8;
+        public static final int ivBigLoading = 0x7f0f26e6;
+        public static final int ivSmallLoading = 0x7f0f26e7;
         public static final int sv_outmost_container = 0x7f0f1998;
-        public static final int tvMsg = 0x7f0f26e8;
+        public static final int tvMsg = 0x7f0f26e9;
     }
 
     /* loaded from: classes.dex */

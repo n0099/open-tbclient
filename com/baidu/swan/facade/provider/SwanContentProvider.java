@@ -19,15 +19,15 @@ import java.util.Set;
 /* loaded from: classes20.dex */
 public class SwanContentProvider extends ContentProvider {
     private static final boolean DEBUG = b.DEBUG;
-    private static final String dhy = AppRuntime.getAppContext().getPackageName() + ".provider";
-    private static UriMatcher dhz = new UriMatcher(-1);
-    private static HashSet<String> dhA = new HashSet<>();
+    private static final String dhC = AppRuntime.getAppContext().getPackageName() + ".provider";
+    private static UriMatcher dhD = new UriMatcher(-1);
+    private static HashSet<String> dhE = new HashSet<>();
 
     static {
         ProcessorInfo[] values;
         for (ProcessorInfo processorInfo : ProcessorInfo.values()) {
             if (processorInfo != null) {
-                dhz.addURI(dhy, processorInfo.getPath(), processorInfo.getMatcherCode());
+                dhD.addURI(dhC, processorInfo.getPath(), processorInfo.getMatcherCode());
             }
         }
     }
@@ -47,7 +47,7 @@ public class SwanContentProvider extends ContentProvider {
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
         a kE;
-        if (aHl() && (kE = kE(dhz.match(uri))) != null) {
+        if (aHl() && (kE = kE(dhD.match(uri))) != null) {
             return kE.query(uri, strArr, str, strArr2, str2);
         }
         return null;
@@ -57,7 +57,7 @@ public class SwanContentProvider extends ContentProvider {
     @Nullable
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
         a kE;
-        if (!aHm() || (kE = kE(dhz.match(uri))) == null) {
+        if (!aHm() || (kE = kE(dhD.match(uri))) == null) {
             return null;
         }
         return kE.insert(uri, contentValues);
@@ -66,7 +66,7 @@ public class SwanContentProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
         a kE;
-        if (!aHm() || (kE = kE(dhz.match(uri))) == null) {
+        if (!aHm() || (kE = kE(dhD.match(uri))) == null) {
             return 0;
         }
         return kE.delete(uri, str, strArr);
@@ -75,7 +75,7 @@ public class SwanContentProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
         a kE;
-        if (!aHm() || (kE = kE(dhz.match(uri))) == null) {
+        if (!aHm() || (kE = kE(dhD.match(uri))) == null) {
             return 0;
         }
         return kE.update(uri, contentValues, str, strArr);
@@ -107,12 +107,12 @@ public class SwanContentProvider extends ContentProvider {
         boolean z = true;
         if (!aw(Process.myUid(), Binder.getCallingUid())) {
             String callingPackage = getCallingPackage();
-            if (!dhA.contains(callingPackage)) {
-                String tv2 = c.tv(callingPackage);
+            if (!dhE.contains(callingPackage)) {
+                String tw = c.tw(callingPackage);
                 Set<String> aHd = com.baidu.swan.config.c.c.aHc().aHd();
-                z = (aHd == null || !aHd.contains(tv2)) ? false : false;
+                z = (aHd == null || !aHd.contains(tw)) ? false : false;
                 if (z) {
-                    dhA.add(callingPackage);
+                    dhE.add(callingPackage);
                 }
             }
         }

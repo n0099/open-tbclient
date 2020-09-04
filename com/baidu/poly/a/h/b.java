@@ -9,9 +9,9 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class b {
     private String action;
-    private long bFJ = System.currentTimeMillis();
-    private String bFK = f.getNetworkType();
-    private JSONObject bFL;
+    private long bFN = System.currentTimeMillis();
+    private String bFO = f.getNetworkType();
+    private JSONObject bFP;
     private String content;
 
     public b(String str) {
@@ -26,10 +26,10 @@ public class b {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("a", this.action);
-            jSONObject.put("t", this.bFJ);
-            jSONObject.put(Config.EXCEPTION_CRASH_TYPE, this.bFK);
-            if (this.bFL != null) {
-                jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, this.bFL);
+            jSONObject.put("t", this.bFN);
+            jSONObject.put(Config.EXCEPTION_CRASH_TYPE, this.bFO);
+            if (this.bFP != null) {
+                jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, this.bFP);
             } else if (!TextUtils.isEmpty(this.content)) {
                 try {
                     jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, new JSONObject(this.content));
@@ -39,7 +39,7 @@ public class b {
             }
             return jSONObject;
         } catch (JSONException e2) {
-            if (com.baidu.poly.util.d.bGI) {
+            if (com.baidu.poly.util.d.bGM) {
                 e2.printStackTrace();
                 return jSONObject;
             }
@@ -48,11 +48,11 @@ public class b {
     }
 
     public b ae(JSONObject jSONObject) {
-        this.bFL = jSONObject;
+        this.bFP = jSONObject;
         return this;
     }
 
-    public b hY(String str) {
+    public b hZ(String str) {
         this.content = str;
         return this;
     }

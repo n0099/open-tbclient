@@ -9,28 +9,28 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.util.ac;
 import com.baidu.tbadk.util.ad;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class d extends a {
-    private static d jzb = new d();
+    private static d jzh = new d();
 
     private d() {
     }
 
-    public static d cIj() {
-        return jzb;
+    public static d cIk() {
+        return jzh;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.settingcache.a
-    /* renamed from: eV */
-    public OfficialSettingItemData eS(String str, String str2) {
+    /* renamed from: eW */
+    public OfficialSettingItemData eT(String str, String str2) {
         OfficialSettingItemData officialSettingItemData;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
         String str3 = str + UgcConstant.AT_RULE_TAG + str2;
-        synchronized (this.jyU) {
-            ChatSetting chatSetting = this.jyU.get(str3);
+        synchronized (this.jza) {
+            ChatSetting chatSetting = this.jza.get(str3);
             officialSettingItemData = (chatSetting == null || !(chatSetting instanceof OfficialSettingItemData)) ? null : (OfficialSettingItemData) chatSetting;
         }
         if (officialSettingItemData == null) {
@@ -43,22 +43,22 @@ public class d extends a {
         return officialSettingItemData;
     }
 
-    public void cDV() {
+    public void cDW() {
         super.y(OfficialSettingItemData.class);
     }
 
     public void a(String str, String str2, UserData userData) {
-        OfficialSettingItemData eS;
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && userData != null && (eS = eS(str, str2)) != null) {
-            eS.setToPortrait(userData.getPortrait());
-            eS.setToName(userData.getUserName());
-            a(eS);
+        OfficialSettingItemData eT;
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && userData != null && (eT = eT(str, str2)) != null) {
+            eT.setToPortrait(userData.getPortrait());
+            eT.setToName(userData.getUserName());
+            a(eT);
         }
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
-    protected l<String> cIg() {
-        return com.baidu.tbadk.core.c.a.bhb().zx("tb.im_official_chat_setting");
+    protected l<String> cIh() {
+        return com.baidu.tbadk.core.c.a.bhb().zy("tb.im_official_chat_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
@@ -73,13 +73,13 @@ public class d extends a {
                 }
                 return;
             }
-            l<String> cIg = cIg();
+            l<String> cIh = cIh();
             String str = myUid + UgcConstant.AT_RULE_TAG + toUid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(officialSettingItemData);
-            synchronized (this.jyU) {
-                this.jyU.put(str, officialSettingItemData);
+            synchronized (this.jza) {
+                this.jza.put(str, officialSettingItemData);
             }
-            cIg.setForever(str, jsonStrWithObject);
+            cIh.setForever(str, jsonStrWithObject);
         }
     }
 
@@ -96,15 +96,15 @@ public class d extends a {
                 return;
             }
             final String str = myUid + UgcConstant.AT_RULE_TAG + toUid;
-            synchronized (this.jyU) {
-                this.jyU.put(str, officialSettingItemData);
+            synchronized (this.jza) {
+                this.jza.put(str, officialSettingItemData);
             }
             ad.b(new ac<Void>() { // from class: com.baidu.tieba.im.settingcache.d.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.ac
-                /* renamed from: bBB */
+                /* renamed from: bBC */
                 public Void doInBackground() {
-                    d.this.cIg().setForever(str, OrmObject.jsonStrWithObject(officialSettingItemData));
+                    d.this.cIh().setForever(str, OrmObject.jsonStrWithObject(officialSettingItemData));
                     return null;
                 }
             }, lVar);

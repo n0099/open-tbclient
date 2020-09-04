@@ -6,19 +6,19 @@ import android.view.MotionEvent;
 import android.widget.FrameLayout;
 /* loaded from: classes6.dex */
 public class PolyFrameLayout extends FrameLayout {
-    private boolean bGS;
+    private boolean bGW;
 
     public PolyFrameLayout(Context context) {
         this(context, null);
     }
 
     public void a(boolean z) {
-        this.bGS = z;
+        this.bGW = z;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.bGS) {
+        if (this.bGW) {
             return true;
         }
         return super.onInterceptTouchEvent(motionEvent);
@@ -30,6 +30,6 @@ public class PolyFrameLayout extends FrameLayout {
 
     public PolyFrameLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bGS = false;
+        this.bGW = false;
     }
 }

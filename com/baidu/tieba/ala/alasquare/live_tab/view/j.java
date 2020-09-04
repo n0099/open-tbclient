@@ -8,27 +8,27 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class j extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live_tab.b.e> {
-    private l fIp;
-    private l fIq;
+    private l fIt;
+    private l fIu;
     private ViewGroup rootView;
 
     public j(TbPageContext<?> tbPageContext, ViewGroup viewGroup, int i) {
         super(tbPageContext, viewGroup);
-        this.fIp = new l(tbPageContext, i);
-        this.fIq = new l(tbPageContext, i);
+        this.fIt = new l(tbPageContext, i);
+        this.fIu = new l(tbPageContext, i);
         this.rootView = (ViewGroup) getView();
         View view = new View(getContext());
         this.rootView.setPadding(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds44), getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds12), getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds44), 0);
-        this.rootView.addView(this.fIp.getView());
+        this.rootView.addView(this.fIt.getView());
         this.rootView.addView(view, new LinearLayout.LayoutParams(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds12), -1));
-        this.rootView.addView(this.fIq.getView());
+        this.rootView.addView(this.fIu.getView());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         ap.setBackgroundColor(this.rootView, R.color.cp_bg_line_d);
-        this.fIp.onChangeSkinType(tbPageContext, i);
-        this.fIq.onChangeSkinType(tbPageContext, i);
+        this.fIt.onChangeSkinType(tbPageContext, i);
+        this.fIu.onChangeSkinType(tbPageContext, i);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -40,8 +40,8 @@ public class j extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.alasquare.live_tab.b.e eVar) {
         if (eVar != null) {
-            this.fIp.a(eVar.fEz);
-            this.fIq.a(eVar.fEA);
+            this.fIt.a(eVar.fED);
+            this.fIu.a(eVar.fEE);
         }
     }
 

@@ -27,8 +27,8 @@ class c {
         eVar2.mPage = c0512a.mGameId;
         eVar2.mValue = c0512a.mGameName;
         eVar2.u("na_start", Long.valueOf(j));
-        eVar2.u("h5_start", Long.valueOf(c0512a.dzZ));
-        eVar2.u("h5_finish", Long.valueOf(c0512a.dAa));
+        eVar2.u("h5_start", Long.valueOf(c0512a.dAd));
+        eVar2.u("h5_finish", Long.valueOf(c0512a.dAe));
         h.a("1235", eVar2);
     }
 }

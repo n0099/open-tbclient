@@ -9,12 +9,12 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes7.dex */
 public class t {
-    private Map<String, s> aOK;
-    private Map<String, Integer> aOL;
+    private Map<String, s> aOM;
+    private Map<String, Integer> aON;
     private List<i> mDatas;
 
     public static t EQ() {
-        return a.aOM;
+        return a.aOO;
     }
 
     public void D(List<i> list) {
@@ -34,45 +34,45 @@ public class t {
     }
 
     public Map<String, s> ER() {
-        return this.aOK;
+        return this.aOM;
     }
 
     public Map<String, Integer> ES() {
-        return this.aOL;
+        return this.aON;
     }
 
     public void release() {
         if (this.mDatas != null) {
             this.mDatas.clear();
         }
-        if (this.aOK != null) {
-            this.aOK.clear();
+        if (this.aOM != null) {
+            this.aOM.clear();
         }
-        if (this.aOL != null) {
-            this.aOL.clear();
+        if (this.aON != null) {
+            this.aON.clear();
         }
     }
 
     private void ET() {
         g.a.C0173a c0173a;
-        if (this.aOK == null) {
-            this.aOK = new HashMap();
+        if (this.aOM == null) {
+            this.aOM = new HashMap();
         }
-        this.aOK.clear();
-        if (this.aOL == null) {
-            this.aOL = new HashMap();
+        this.aOM.clear();
+        if (this.aON == null) {
+            this.aON = new HashMap();
         }
-        this.aOL.clear();
+        this.aON.clear();
         if (this.mDatas != null && this.mDatas.size() > 0) {
             for (i iVar : this.mDatas) {
                 List<g> Er = iVar.Er();
                 if (Er != null && !Er.isEmpty()) {
                     for (g gVar : Er) {
-                        if (gVar.aNn != null && (c0173a = gVar.aNn.aNx) != null && c0173a.key == 10 && c0173a.aNz != null) {
-                            String optString = c0173a.aNz.optString("id");
-                            if (this.aOK.get(optString) == null) {
-                                this.aOK.put(optString, new s(gVar.DR(), gVar.aNn.aNt, gVar.aNf));
-                                this.aOL.put(optString, Integer.valueOf(gVar.aNn.aNu));
+                        if (gVar.aNp != null && (c0173a = gVar.aNp.aNz) != null && c0173a.key == 10 && c0173a.aNB != null) {
+                            String optString = c0173a.aNB.optString("id");
+                            if (this.aOM.get(optString) == null) {
+                                this.aOM.put(optString, new s(gVar.DR(), gVar.aNp.aNv, gVar.aNh));
+                                this.aON.put(optString, Integer.valueOf(gVar.aNp.aNw));
                             }
                         }
                     }
@@ -86,6 +86,6 @@ public class t {
 
     /* loaded from: classes7.dex */
     private static class a {
-        private static final t aOM = new t();
+        private static final t aOO = new t();
     }
 }

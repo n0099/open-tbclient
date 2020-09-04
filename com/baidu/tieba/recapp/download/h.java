@@ -24,9 +24,9 @@ public class h {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.dWg;
-        if (StringUtils.isNull(str) && advertAppInfo.dWo != null) {
-            str = advertAppInfo.dWo.userName;
+        String str = advertAppInfo.dWk;
+        if (StringUtils.isNull(str) && advertAppInfo.dWs != null) {
+            str = advertAppInfo.dWs.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -38,12 +38,12 @@ public class h {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        com.baidu.tbadk.distribute.a.bri().b(advertAppInfo);
-        String str2 = advertAppInfo.dWg;
+        com.baidu.tbadk.distribute.a.brj().b(advertAppInfo);
+        String str2 = advertAppInfo.dWk;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        i.dnu().a(advertAppInfo.dWi, advertAppInfo.apkUrl, str2, i, i.Pp(advertAppInfo.dWi).intValue(), null, true, false, true, advertAppInfo.dWo.userPortrait, downloadStaticsData, advertAppInfo.dWo.userName);
+        i.dnx().a(advertAppInfo.dWm, advertAppInfo.apkUrl, str2, i, i.Pq(advertAppInfo.dWm).intValue(), null, true, false, true, advertAppInfo.dWs.userPortrait, downloadStaticsData, advertAppInfo.dWs.userName);
         return true;
     }
 
@@ -52,7 +52,7 @@ public class h {
         if (adAdSense != null && !adAdSense.bmz()) {
             s.e(advertAppInfo);
         } else {
-            i.dnu().B(advertAppInfo.apkUrl, advertAppInfo.dWi, true);
+            i.dnx().B(advertAppInfo.apkUrl, advertAppInfo.dWm, true);
         }
     }
 

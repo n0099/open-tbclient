@@ -9,7 +9,7 @@ import java.util.Comparator;
 import org.json.JSONObject;
 /* loaded from: classes12.dex */
 public abstract class a {
-    public static Comparator<a> avO = new Comparator<a>() { // from class: com.baidu.helios.channels.a.1
+    public static Comparator<a> avQ = new Comparator<a>() { // from class: com.baidu.helios.channels.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
@@ -18,8 +18,8 @@ public abstract class a {
             return priority != 0 ? priority > 0 ? -1 : 1 : aVar.getName().compareTo(aVar2.getName());
         }
     };
-    protected C0143a avM;
-    protected a.C0148a avN;
+    protected C0143a avO;
+    protected a.C0148a avP;
     private final String b;
     private long c;
 
@@ -27,19 +27,19 @@ public abstract class a {
     /* loaded from: classes12.dex */
     public static class C0143a {
         public Context applicationContext;
-        public com.baidu.helios.common.c.a avP;
-        public com.baidu.helios.ids.b avQ;
+        public com.baidu.helios.common.c.a avR;
+        public com.baidu.helios.ids.b avS;
     }
 
     /* loaded from: classes12.dex */
     public static abstract class b {
-        private a.C0148a avw;
+        private a.C0148a avy;
         private String b;
         private String c;
         private boolean d = true;
 
         public b(a.C0148a c0148a, String str) {
-            this.avw = c0148a;
+            this.avy = c0148a;
             this.b = str;
             this.c = "target-pkg-" + Base64.encodeToString(str.getBytes(), 3);
         }
@@ -53,7 +53,7 @@ public abstract class a {
         public abstract void q(JSONObject jSONObject);
 
         public boolean zL() {
-            String q = this.avw.q(this.c, true);
+            String q = this.avy.q(this.c, true);
             if (!TextUtils.isEmpty(q)) {
                 try {
                     p(new JSONObject(q));
@@ -70,7 +70,7 @@ public abstract class a {
                 try {
                     JSONObject jSONObject = new JSONObject();
                     q(jSONObject);
-                    this.avw.d(this.c, jSONObject.toString(), true);
+                    this.avy.d(this.c, jSONObject.toString(), true);
                     aT(false);
                     return true;
                 } catch (Exception e) {
@@ -142,7 +142,7 @@ public abstract class a {
             return new g(i, null, exc);
         }
 
-        public static g ft(String str) {
+        public static g fu(String str) {
             return new g(0, str, null);
         }
 
@@ -165,8 +165,8 @@ public abstract class a {
     public abstract g a(String str, f fVar);
 
     public final void a(C0143a c0143a) {
-        this.avM = c0143a;
-        this.avN = c0143a.avP.Ah().fv(IXAdRequestInfo.CS);
+        this.avO = c0143a;
+        this.avP = c0143a.avR.Ah().fw(IXAdRequestInfo.CS);
     }
 
     public abstract void a(c cVar);

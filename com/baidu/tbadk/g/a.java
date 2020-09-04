@@ -1,5 +1,5 @@
 package com.baidu.tbadk.g;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface a {
     void baQ();
 
@@ -7,5 +7,5 @@ public interface a {
 
     void w(boolean z, boolean z2);
 
-    void ya(String str);
+    void yb(String str);
 }

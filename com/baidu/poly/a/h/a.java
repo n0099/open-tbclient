@@ -6,61 +6,61 @@ import kotlin.jvm.internal.q;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public final class a {
-    private static Long bFH = 0L;
-    private static Long bFI = 0L;
+    private static Long bFL = 0L;
+    private static Long bFM = 0L;
 
     public static final void E() {
-        Long l = bFI;
+        Long l = bFM;
         if (l != null) {
             if (l == null) {
-                q.egj();
+                q.egs();
             }
             if (l.longValue() > 0) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    Long l2 = bFI;
+                    Long l2 = bFM;
                     if (l2 == null) {
-                        q.egj();
+                        q.egs();
                     }
                     jSONObject.put("3", l2.longValue());
                     jSONObject.put("4", System.currentTimeMillis());
                 } catch (Exception e) {
                 }
                 d.a(new b("1000").ae(jSONObject));
-                bFI = 0L;
+                bFM = 0L;
             }
         }
     }
 
     public static final void F() {
-        Long l = bFH;
+        Long l = bFL;
         if (l != null) {
             if (l == null) {
-                q.egj();
+                q.egs();
             }
             if (l.longValue() > 0) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    Long l2 = bFH;
+                    Long l2 = bFL;
                     if (l2 == null) {
-                        q.egj();
+                        q.egs();
                     }
                     jSONObject.put("1", l2.longValue());
                     jSONObject.put("2", System.currentTimeMillis());
                 } catch (Exception e) {
                 }
                 d.a(new b("1000").ae(jSONObject));
-                bFH = 0L;
+                bFL = 0L;
             }
         }
     }
 
     public static final void a(Long l) {
-        bFH = l;
+        bFL = l;
     }
 
     public static final void c(Long l) {
-        bFI = l;
+        bFM = l;
     }
 
     public static final void i(String str) {

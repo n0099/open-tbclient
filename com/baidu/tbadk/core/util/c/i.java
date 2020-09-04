@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util.c;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class i extends a {
     private int height;
     private int procType;

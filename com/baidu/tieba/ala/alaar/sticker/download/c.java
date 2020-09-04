@@ -41,7 +41,7 @@ public class c {
         private CharSequence mName;
         private String mUri;
 
-        public a Ec(String str) {
+        public a Ed(String str) {
             this.mUri = str;
             return this;
         }
@@ -56,7 +56,7 @@ public class c {
             return this;
         }
 
-        public c bEt() {
+        public c bEu() {
             return new c(this.mUri, this.mFolder, this.mName, this.mDescription);
         }
     }

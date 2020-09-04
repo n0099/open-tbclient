@@ -1,5 +1,5 @@
 package com.baidu.tbadk.core.view.userLike;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface a {
     int getFansNum();
 

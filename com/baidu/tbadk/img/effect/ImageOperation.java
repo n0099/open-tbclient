@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.BdLog;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ImageOperation extends OrmObject implements Serializable {
     public String actionName;
     public String actionParam;

@@ -25,11 +25,11 @@ public abstract class b<T extends com.baidu.swan.apps.extcore.model.b.a> extends
     }
 
     public long amw() {
-        return h.aDf().getLong(this.cqV.amr(), 0L);
+        return h.aDf().getLong(this.cqZ.amr(), 0L);
     }
 
     public void aX(long j) {
-        h.aDf().putLong(this.cqV.amr(), j);
+        h.aDf().putLong(this.cqZ.amr(), j);
     }
 
     @Override // com.baidu.swan.apps.extcore.b.a
@@ -53,20 +53,20 @@ public abstract class b<T extends com.baidu.swan.apps.extcore.model.b.a> extends
         if (DEBUG) {
             Log.d("ExtCore-PresetControl", "doUpdate: preset");
         }
-        if (TextUtils.isEmpty(aVar.cry)) {
+        if (TextUtils.isEmpty(aVar.crC)) {
             if (DEBUG) {
                 Log.e("ExtCore-PresetControl", "doUpdate: preset with null coreFilePath");
             }
             return new IllegalStateException("ExtCore-PresetControl doUpdate: failed by updateInfo.coreFilePath is empty");
         }
-        long mD = com.baidu.swan.apps.extcore.f.a.mD(aVar.versionName);
-        if (d.dn(aVar.cry, aW(mD).getPath())) {
-            com.baidu.swan.apps.extcore.f.a.a(amg(), mD);
-            aX(mD);
-            com.baidu.swan.apps.extcore.f.a.x(this.cqV.amv(), false);
+        long mE = com.baidu.swan.apps.extcore.f.a.mE(aVar.versionName);
+        if (d.dn(aVar.crC, aW(mE).getPath())) {
+            com.baidu.swan.apps.extcore.f.a.a(amg(), mE);
+            aX(mE);
+            com.baidu.swan.apps.extcore.f.a.x(this.cqZ.amv(), false);
             return null;
         }
-        Exception exc = new Exception("ExtCore-PresetControl doUpdate: failed by can not unzip coreFile = " + aVar.cry);
+        Exception exc = new Exception("ExtCore-PresetControl doUpdate: failed by can not unzip coreFile = " + aVar.crC);
         if (DEBUG) {
             Log.e("ExtCore-PresetControl", "doUpdate preset unzip failed: " + Log.getStackTraceString(exc));
             return exc;
@@ -75,20 +75,20 @@ public abstract class b<T extends com.baidu.swan.apps.extcore.model.b.a> extends
     }
 
     private boolean isNeedUpdate() {
-        if (!com.baidu.swan.apps.extcore.f.a.hC(this.cqV.amv())) {
+        if (!com.baidu.swan.apps.extcore.f.a.hC(this.cqZ.amv())) {
             if (DEBUG) {
                 Log.d("ExtCore-PresetControl", "isNeedUpdate: false");
                 return false;
             }
             return false;
         }
-        a a = a.a(this.cqV);
+        a a = a.a(this.cqZ);
         long amw = amw();
-        long mD = com.baidu.swan.apps.extcore.f.a.mD(a.extensionCoreVersionName);
+        long mE = com.baidu.swan.apps.extcore.f.a.mE(a.extensionCoreVersionName);
         if (DEBUG) {
-            Log.d("ExtCore-PresetControl", "isNeedUpdate curVer: " + amw + " newVer: " + mD);
+            Log.d("ExtCore-PresetControl", "isNeedUpdate curVer: " + amw + " newVer: " + mE);
         }
-        return amw < mD;
+        return amw < mE;
     }
 
     @SuppressLint({"SwanNewThread"})
@@ -104,10 +104,10 @@ public abstract class b<T extends com.baidu.swan.apps.extcore.model.b.a> extends
                 @Override // java.lang.Runnable
                 public void run() {
                     c.bb("ExtCore-PresetControl", "run: tryUpdateAsync start doUpdate");
-                    a a = a.a(b.this.cqV);
+                    a a = a.a(b.this.cqZ);
                     com.baidu.swan.apps.extcore.model.a aVar = new com.baidu.swan.apps.extcore.model.a();
                     aVar.versionName = a.extensionCoreVersionName;
-                    aVar.cry = b.this.cqV.amt();
+                    aVar.crC = b.this.cqZ.amt();
                     b.this.t(b.this.b(aVar));
                 }
             }, "updateExtensionCoreAsync").start();
@@ -119,10 +119,10 @@ public abstract class b<T extends com.baidu.swan.apps.extcore.model.b.a> extends
 
     public void amh() {
         if (isNeedUpdate()) {
-            a a = a.a(this.cqV);
+            a a = a.a(this.cqZ);
             com.baidu.swan.apps.extcore.model.a aVar = new com.baidu.swan.apps.extcore.model.a();
             aVar.versionName = a.extensionCoreVersionName;
-            aVar.cry = this.cqV.amt();
+            aVar.crC = this.cqZ.amt();
             t(b(aVar));
         }
     }

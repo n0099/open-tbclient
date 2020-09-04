@@ -6,7 +6,7 @@ import com.baidu.webkit.internal.ETAG;
 import java.util.HashMap;
 /* loaded from: classes7.dex */
 public class e {
-    public static HashMap hv(String str) {
+    public static HashMap hw(String str) {
         HashMap hashMap = new HashMap();
         String replace = str.replace("?", ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
         if (replace.contains(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) {

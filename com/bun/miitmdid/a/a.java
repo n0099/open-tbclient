@@ -9,14 +9,14 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 /* loaded from: classes11.dex */
 public class a implements b {
-    public C0853a nht = new C0853a();
+    public C0853a nhL = new C0853a();
 
     /* renamed from: com.bun.miitmdid.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public class C0853a {
-        public com.bun.miitmdid.a.a.a nhu;
-        public com.bun.miitmdid.a.a.b nhv;
-        public c nhw;
+        public com.bun.miitmdid.a.a.a nhM;
+        public com.bun.miitmdid.a.a.b nhN;
+        public c nhO;
 
         public C0853a() {
         }
@@ -30,9 +30,9 @@ public class a implements b {
             return false;
         }
         if (jSONObject.optJSONObject(RomUtils.MANUFACTURER_HUAWEI) != null) {
-            aVar.nht.nhu = new com.bun.miitmdid.a.a.a();
+            aVar.nhL.nhM = new com.bun.miitmdid.a.a.a();
         }
-        return aVar.nht.nhu != null;
+        return aVar.nhL.nhM != null;
     }
 
     private static boolean b(a aVar, JSONObject jSONObject) {
@@ -40,9 +40,9 @@ public class a implements b {
             return false;
         }
         if (jSONObject.optJSONObject(RomUtils.MANUFACTURER_XIAOMI) != null) {
-            aVar.nht.nhw = new c();
+            aVar.nhL.nhO = new c();
         }
-        return aVar.nht.nhw != null;
+        return aVar.nhL.nhO != null;
     }
 
     private static boolean c(a aVar, JSONObject jSONObject) {
@@ -53,9 +53,9 @@ public class a implements b {
         com.bun.miitmdid.a.a.b bVar = new com.bun.miitmdid.a.a.b();
         if (optJSONObject != null) {
             bVar.a = optJSONObject.optString("appid");
-            aVar.nht.nhv = bVar;
+            aVar.nhL.nhN = bVar;
         }
-        return aVar.nht.nhv != null;
+        return aVar.nhL.nhN != null;
     }
 
     public static a gh(Context context) {
@@ -82,6 +82,6 @@ public class a implements b {
 
     @Override // com.bun.miitmdid.a.b
     public String a() {
-        return (this.nht == null || this.nht.nhv == null || this.nht.nhv.a == null) ? "" : this.nht.nhv.a;
+        return (this.nhL == null || this.nhL.nhN == null || this.nhL.nhN.a == null) ? "" : this.nhL.nhN.a;
     }
 }

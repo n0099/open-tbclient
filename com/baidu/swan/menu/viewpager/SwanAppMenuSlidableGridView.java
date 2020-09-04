@@ -52,10 +52,10 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
 
     @Override // com.baidu.swan.menu.viewpager.SlideableGridView
     protected void dE(Context context) {
-        this.dEH = new com.baidu.swan.menu.viewpager.a(context).aD(g.c.menu_indicator_normal, g.c.menu_indicator_selected).lJ((int) getResources().getDimension(g.b.common_grid_indicator_margin));
-        this.dEI[0] = (int) getResources().getDimension(g.b.aiapp_menu_gridview_indicator_height);
-        this.dEI[1] = (int) getResources().getDimension(g.b.aiapp_menu_gridview_indicator_height);
-        addView(this.dEH, aSQ());
+        this.dEL = new com.baidu.swan.menu.viewpager.a(context).aD(g.c.menu_indicator_normal, g.c.menu_indicator_selected).lJ((int) getResources().getDimension(g.b.common_grid_indicator_margin));
+        this.dEM[0] = (int) getResources().getDimension(g.b.aiapp_menu_gridview_indicator_height);
+        this.dEM[1] = (int) getResources().getDimension(g.b.aiapp_menu_gridview_indicator_height);
+        addView(this.dEL, aSQ());
     }
 
     @Override // com.baidu.swan.menu.viewpager.SlideableGridView
@@ -68,13 +68,13 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
         SlideableGridView.a gridItemAdapter = getGridItemAdapter();
         int pageCount = gridItemAdapter == null ? 0 : gridItemAdapter.getPageCount();
         boolean z = pageCount > 1;
-        int i = !z ? this.dEI[0] : this.dEI[1];
+        int i = !z ? this.dEM[0] : this.dEM[1];
         if (!z) {
-            this.dEH.setVisibility(8);
+            this.dEL.setVisibility(8);
             return;
         }
-        this.dEH.setVisibility(0);
-        this.dEH.lI(pageCount);
-        this.dEH.getLayoutParams().height = i;
+        this.dEL.setVisibility(0);
+        this.dEL.lI(pageCount);
+        this.dEL.getLayoutParams().height = i;
     }
 }

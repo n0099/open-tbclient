@@ -3,9 +3,9 @@ package com.baidu.browser.core.async;
 import java.util.HashMap;
 /* loaded from: classes19.dex */
 public final class b {
-    private static HashMap<String, a> aeq = new HashMap<>();
+    private static HashMap<String, a> aes = new HashMap<>();
 
-    public static synchronized a dg(String str) {
+    public static synchronized a dh(String str) {
         a s;
         synchronized (b.class) {
             s = s(str, 0);
@@ -16,13 +16,13 @@ public final class b {
     static synchronized a s(String str, int i) {
         a aVar;
         synchronized (b.class) {
-            if (!aeq.containsKey(str) || (aVar = aeq.get(str)) == null) {
+            if (!aes.containsKey(str) || (aVar = aes.get(str)) == null) {
                 aVar = new a(str, i);
                 try {
                     aVar.start();
                 } catch (Exception e) {
                 }
-                aeq.put(str, aVar);
+                aes.put(str, aVar);
             }
         }
         return aVar;
@@ -32,7 +32,7 @@ public final class b {
         synchronized (b.class) {
             if (aVar != null) {
                 aVar.tm();
-                aeq.values().remove(aVar);
+                aes.values().remove(aVar);
             }
         }
     }

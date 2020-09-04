@@ -1,5 +1,5 @@
 package com.baidu.tbadk.g;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface c {
     void baQ();
 
@@ -7,5 +7,5 @@ public interface c {
 
     void onAdClick();
 
-    void ya(String str);
+    void yb(String str);
 }

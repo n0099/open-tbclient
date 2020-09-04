@@ -2,7 +2,7 @@ package com.baidu.tbadk.n;
 
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class l {
     public String subType = null;
 

@@ -8,8 +8,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class az extends BaseData {
-    public int aEF;
-    public ArrayList<i> aJe = new ArrayList<>();
+    public int aEH;
+    public ArrayList<i> aJg = new ArrayList<>();
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
     public void parserJson(JSONObject jSONObject) {
@@ -19,10 +19,10 @@ public class az extends BaseData {
             try {
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 if (optJSONObject != null) {
-                    this.aEF = optJSONObject.optInt("interval");
+                    this.aEH = optJSONObject.optInt("interval");
                 }
-                if (this.aEF <= 0) {
-                    this.aEF = 5;
+                if (this.aEH <= 0) {
+                    this.aEH = 5;
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("im_rate");
                 if (optJSONObject2 == null) {
@@ -40,7 +40,7 @@ public class az extends BaseData {
                             iVar.a(aVar);
                             iVar.parseJson(optJSONObject4);
                             iVar.serverTime = optLong;
-                            this.aJe.add(iVar);
+                            this.aJg.add(iVar);
                         }
                     }
                 }

@@ -23,136 +23,136 @@ import com.baidu.tieba.recapp.report.g;
 import java.io.File;
 /* loaded from: classes17.dex */
 public class SplashAdView extends BCAdView {
-    private b fsh;
-    public boolean fsi;
-    public ScalableVideoView fsj;
+    private b fsl;
+    public boolean fsm;
+    public ScalableVideoView fsn;
 
     public SplashAdView(TbPageContext<?> tbPageContext, String str, AdType adType, int i, int i2, RedirectType redirectType) {
         super(tbPageContext, str, adType, i, i2);
-        this.fse = redirectType;
-        this.fsd = new c(tbPageContext.getPageActivity());
-        this.fsa = new AdInfo();
+        this.fsi = redirectType;
+        this.fsh = new c(tbPageContext.getPageActivity());
+        this.fse = new AdInfo();
     }
 
-    public boolean bCj() {
+    public boolean bCk() {
         loadAd();
-        this.fsa = AdInfo.jsonToObject(this.fsd.bCb());
-        this.fsa.placeId = this.placeId;
-        if (this.fsa.advisible == 0) {
-            d.doi().a(g.s(this.fsa.extraParam, 3, this.fsa.placeId));
+        this.fse = AdInfo.jsonToObject(this.fsh.bCc());
+        this.fse.placeId = this.placeId;
+        if (this.fse.advisible == 0) {
+            d.dol().a(g.r(this.fse.extraParam, 3, this.fse.placeId));
         }
-        this.fsh = b.DU(a.bCh());
-        if (this.fsh.isValidate()) {
-            if (this.fsh.bcy()) {
-                this.fsi = true;
-                String str = this.fsh.videoLocalPath;
+        this.fsl = b.DV(a.bCi());
+        if (this.fsl.isValidate()) {
+            if (this.fsl.bcy()) {
+                this.fsm = true;
+                String str = this.fsl.videoLocalPath;
                 File file = new File(str);
                 if (file.exists()) {
                     a.T(file);
                     RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.mWidth, this.mHeight);
-                    this.fsj = new ScalableVideoView(this.mContext);
-                    this.fsj.setScalableType(ScalableType.CENTER_CROP);
+                    this.fsn = new ScalableVideoView(this.mContext);
+                    this.fsn.setScalableType(ScalableType.CENTER_CROP);
                     try {
-                        this.fsj.setDataSource(str);
-                        this.fsj.setVolume(0.0f, 0.0f);
-                        this.fsj.prepareAsync(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.advert.sdk.view.SplashAdView.1
+                        this.fsn.setDataSource(str);
+                        this.fsn.setVolume(0.0f, 0.0f);
+                        this.fsn.prepareAsync(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.advert.sdk.view.SplashAdView.1
                             @Override // android.media.MediaPlayer.OnPreparedListener
                             public void onPrepared(MediaPlayer mediaPlayer) {
-                                SplashAdView.this.fsj.start();
+                                SplashAdView.this.fsn.start();
                             }
                         });
-                        this.fsj.setOnErrorListener(new MediaPlayer.OnErrorListener() { // from class: com.baidu.tieba.advert.sdk.view.SplashAdView.2
+                        this.fsn.setOnErrorListener(new MediaPlayer.OnErrorListener() { // from class: com.baidu.tieba.advert.sdk.view.SplashAdView.2
                             @Override // android.media.MediaPlayer.OnErrorListener
                             public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
-                                a.bCg();
-                                SplashAdView.this.fsh.videoLocalPath = "";
-                                a.a(SplashAdView.this.fsh);
+                                a.bCh();
+                                SplashAdView.this.fsl.videoLocalPath = "";
+                                a.a(SplashAdView.this.fsl);
                                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_ADVERT_SDK_SPLASH_CLICK, "advertevent://timeout"));
                                 return false;
                             }
                         });
-                        this.fsj.setOnCompletionListener(new MediaPlayer.OnCompletionListener() { // from class: com.baidu.tieba.advert.sdk.view.SplashAdView.3
+                        this.fsn.setOnCompletionListener(new MediaPlayer.OnCompletionListener() { // from class: com.baidu.tieba.advert.sdk.view.SplashAdView.3
                             @Override // android.media.MediaPlayer.OnCompletionListener
                             public void onCompletion(MediaPlayer mediaPlayer) {
                                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_ADVERT_SDK_SPLASH_CLICK, "advertevent://timeout"));
                             }
                         });
-                        this.fsj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.advert.sdk.view.SplashAdView.4
+                        this.fsn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.advert.sdk.view.SplashAdView.4
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view) {
                                 if (!a.isFastDoubleClick()) {
-                                    if (SplashAdView.this.fsa.advisible != 0) {
-                                        d.doi().a(g.c(SplashAdView.this.fsa.extraParam, 2, SplashAdView.this.fsa.placeId, "video"));
+                                    if (SplashAdView.this.fse.advisible != 0) {
+                                        d.dol().a(g.d(SplashAdView.this.fse.extraParam, 2, SplashAdView.this.fse.placeId, "video"));
                                     }
-                                    if (SplashAdView.this.frX != null && !TextUtils.isEmpty(SplashAdView.this.fsh.videoJumpUrl)) {
-                                        SplashAdView.this.frX.DS(SplashAdView.this.fsh.videoJumpUrl);
+                                    if (SplashAdView.this.fsb != null && !TextUtils.isEmpty(SplashAdView.this.fsl.videoJumpUrl)) {
+                                        SplashAdView.this.fsb.DT(SplashAdView.this.fsl.videoJumpUrl);
                                     }
                                 }
                             }
                         });
-                        addView(this.fsj, layoutParams);
-                        d.doi().a(g.c(this.fsa.extraParam, 3, this.fsa.placeId, "video"));
+                        addView(this.fsn, layoutParams);
+                        d.dol().a(g.d(this.fse.extraParam, 3, this.fse.placeId, "video"));
                         return true;
                     } catch (Exception e) {
                         e.printStackTrace();
-                        a.bCg();
-                        this.fsh.videoLocalPath = "";
-                        a.a(this.fsh);
+                        a.bCh();
+                        this.fsl.videoLocalPath = "";
+                        a.a(this.fsl);
                         return false;
                     }
                 }
-                a.bCg();
-                this.fsh.videoLocalPath = "";
-                a.a(this.fsh);
+                a.bCh();
+                this.fsl.videoLocalPath = "";
+                a.a(this.fsl);
                 return false;
-            } else if (!TextUtils.isEmpty(this.fsh.adImgUrl)) {
-                if (this.frZ != null) {
-                    this.frZ = null;
+            } else if (!TextUtils.isEmpty(this.fsl.adImgUrl)) {
+                if (this.fsd != null) {
+                    this.fsd = null;
                 }
-                this.frZ = new TbImageView(this.mContext);
-                this.frZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.advert.sdk.view.SplashAdView.5
+                this.fsd = new TbImageView(this.mContext);
+                this.fsd.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.advert.sdk.view.SplashAdView.5
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (!a.isFastDoubleClick()) {
-                            if (SplashAdView.this.fsa.advisible != 0) {
-                                d.doi().a(g.c(SplashAdView.this.fsa.extraParam, 2, SplashAdView.this.fsa.placeId, "image"));
+                            if (SplashAdView.this.fse.advisible != 0) {
+                                d.dol().a(g.d(SplashAdView.this.fse.extraParam, 2, SplashAdView.this.fse.placeId, "image"));
                             }
-                            if (SplashAdView.this.frX != null && !TextUtils.isEmpty(SplashAdView.this.fsh.redirectUrl)) {
-                                SplashAdView.this.frX.DS(SplashAdView.this.fsh.redirectUrl);
+                            if (SplashAdView.this.fsb != null && !TextUtils.isEmpty(SplashAdView.this.fsl.redirectUrl)) {
+                                SplashAdView.this.fsb.DT(SplashAdView.this.fsl.redirectUrl);
                             }
                         }
                     }
                 });
-                this.frZ.startLoad(this.fsa.adImgUrl, 10, false);
-                this.frZ.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                addView(this.frZ, new RelativeLayout.LayoutParams(this.mWidth, this.mHeight));
-                d.doi().a(g.c(this.fsa.extraParam, 3, this.fsa.placeId, "image"));
+                this.fsd.startLoad(this.fse.adImgUrl, 10, false);
+                this.fsd.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                addView(this.fsd, new RelativeLayout.LayoutParams(this.mWidth, this.mHeight));
+                d.dol().a(g.d(this.fse.extraParam, 3, this.fse.placeId, "image"));
                 return true;
             } else {
-                a.bCg();
+                a.bCh();
             }
         } else {
-            a.bCf();
             a.bCg();
+            a.bCh();
         }
         return false;
     }
 
-    public String bCk() {
-        if (this.fsa == null) {
-            if (this.fsb == null) {
+    public String bCl() {
+        if (this.fse == null) {
+            if (this.fsf == null) {
                 return null;
             }
-            return this.fsb.displayName;
+            return this.fsf.displayName;
         }
-        return this.fsa.displayName;
+        return this.fse.displayName;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.fsj != null) {
-            this.fsj.onDetachedFromWindow();
+        if (this.fsn != null) {
+            this.fsn.onDetachedFromWindow();
         }
     }
 
@@ -163,6 +163,6 @@ public class SplashAdView extends BCAdView {
     }
 
     public b getEntryInfoData() {
-        return this.fsh;
+        return this.fsl;
     }
 }

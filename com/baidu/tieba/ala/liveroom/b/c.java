@@ -8,7 +8,7 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes7.dex */
 public class c {
-    private TextView glZ;
+    private TextView gmd;
     private TbPageContext mContext;
     private View mView;
 
@@ -20,13 +20,13 @@ public class c {
 
     private void initUI() {
         this.mView = LayoutInflater.from(this.mContext.getPageActivity()).inflate(a.h.ala_id_view_layout, (ViewGroup) null);
-        this.glZ = (TextView) this.mView.findViewById(a.g.ala_id_txt);
+        this.gmd = (TextView) this.mView.findViewById(a.g.ala_id_txt);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void ec(long j) {
-        if (this.glZ != null) {
-            this.glZ.setText(String.format(this.mContext.getString(a.i.sdk_live_id), String.valueOf(j)));
+        if (this.gmd != null) {
+            this.gmd.setText(String.format(this.mContext.getString(a.i.sdk_live_id), String.valueOf(j)));
         }
     }
 

@@ -12,13 +12,11 @@ public interface c {
 
     boolean aa(String str, boolean z);
 
-    boolean rC(String str);
-
     boolean rD(String str);
 
-    String rI(String str);
+    boolean rE(String str);
 
-    String rR(String str);
+    String rJ(String str);
 
     String rS(String str);
 
@@ -29,4 +27,6 @@ public interface c {
     String rV(String str);
 
     String rW(String str);
+
+    String rX(String str);
 }

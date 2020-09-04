@@ -18,21 +18,21 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 /* loaded from: classes17.dex */
 public class SearchBoxView extends RelativeLayout {
-    private String jOC;
+    private String jOI;
     private Activity mCurrentActivity;
     private View.OnClickListener mOnClickListener;
-    private LinearLayout mbX;
-    private TextView mbY;
-    private TextView mbZ;
-    private View.OnClickListener mca;
+    private LinearLayout mcm;
+    private TextView mcn;
+    private TextView mco;
+    private View.OnClickListener mcp;
 
     public SearchBoxView(Context context) {
         super(context);
-        this.jOC = "sq_tb_search";
-        this.mbX = null;
-        this.mbY = null;
-        this.mbZ = null;
-        this.mca = new View.OnClickListener() { // from class: com.baidu.tieba.square.view.SearchBoxView.1
+        this.jOI = "sq_tb_search";
+        this.mcm = null;
+        this.mcn = null;
+        this.mco = null;
+        this.mcp = new View.OnClickListener() { // from class: com.baidu.tieba.square.view.SearchBoxView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CaptureActivityConfig(SearchBoxView.this.mCurrentActivity, RequestResponseCode.REQUEST_CAPTURE_VIEW)));
@@ -42,7 +42,7 @@ public class SearchBoxView extends RelativeLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view.getId() == R.id.search_bg_layout) {
-                    TiebaStatic.eventStat(SearchBoxView.this.mCurrentActivity, SearchBoxView.this.jOC, "click", 1, new Object[0]);
+                    TiebaStatic.eventStat(SearchBoxView.this.mCurrentActivity, SearchBoxView.this.jOI, "click", 1, new Object[0]);
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_SQUARESEARCH, new IntentConfig(SearchBoxView.this.mCurrentActivity)));
                 }
             }
@@ -52,11 +52,11 @@ public class SearchBoxView extends RelativeLayout {
 
     public SearchBoxView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jOC = "sq_tb_search";
-        this.mbX = null;
-        this.mbY = null;
-        this.mbZ = null;
-        this.mca = new View.OnClickListener() { // from class: com.baidu.tieba.square.view.SearchBoxView.1
+        this.jOI = "sq_tb_search";
+        this.mcm = null;
+        this.mcn = null;
+        this.mco = null;
+        this.mcp = new View.OnClickListener() { // from class: com.baidu.tieba.square.view.SearchBoxView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CaptureActivityConfig(SearchBoxView.this.mCurrentActivity, RequestResponseCode.REQUEST_CAPTURE_VIEW)));
@@ -66,7 +66,7 @@ public class SearchBoxView extends RelativeLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view.getId() == R.id.search_bg_layout) {
-                    TiebaStatic.eventStat(SearchBoxView.this.mCurrentActivity, SearchBoxView.this.jOC, "click", 1, new Object[0]);
+                    TiebaStatic.eventStat(SearchBoxView.this.mCurrentActivity, SearchBoxView.this.jOI, "click", 1, new Object[0]);
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_SQUARESEARCH, new IntentConfig(SearchBoxView.this.mCurrentActivity)));
                 }
             }
@@ -76,11 +76,11 @@ public class SearchBoxView extends RelativeLayout {
 
     public SearchBoxView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jOC = "sq_tb_search";
-        this.mbX = null;
-        this.mbY = null;
-        this.mbZ = null;
-        this.mca = new View.OnClickListener() { // from class: com.baidu.tieba.square.view.SearchBoxView.1
+        this.jOI = "sq_tb_search";
+        this.mcm = null;
+        this.mcn = null;
+        this.mco = null;
+        this.mcp = new View.OnClickListener() { // from class: com.baidu.tieba.square.view.SearchBoxView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CaptureActivityConfig(SearchBoxView.this.mCurrentActivity, RequestResponseCode.REQUEST_CAPTURE_VIEW)));
@@ -90,7 +90,7 @@ public class SearchBoxView extends RelativeLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view.getId() == R.id.search_bg_layout) {
-                    TiebaStatic.eventStat(SearchBoxView.this.mCurrentActivity, SearchBoxView.this.jOC, "click", 1, new Object[0]);
+                    TiebaStatic.eventStat(SearchBoxView.this.mCurrentActivity, SearchBoxView.this.jOI, "click", 1, new Object[0]);
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_SQUARESEARCH, new IntentConfig(SearchBoxView.this.mCurrentActivity)));
                 }
             }
@@ -101,29 +101,29 @@ public class SearchBoxView extends RelativeLayout {
     private void init(Context context) {
         this.mCurrentActivity = (Activity) context;
         LayoutInflater.from(context).inflate(R.layout.widget_search_box, this);
-        this.mbX = (LinearLayout) findViewById(R.id.search_bg_layout);
-        this.mbY = (TextView) findViewById(R.id.search_bar_text);
-        this.mbX.setOnClickListener(this.mOnClickListener);
-        this.mbZ = (TextView) findViewById(R.id.search_from_qr);
-        this.mbZ.setOnClickListener(this.mca);
+        this.mcm = (LinearLayout) findViewById(R.id.search_bg_layout);
+        this.mcn = (TextView) findViewById(R.id.search_bar_text);
+        this.mcm.setOnClickListener(this.mOnClickListener);
+        this.mco = (TextView) findViewById(R.id.search_from_qr);
+        this.mco.setOnClickListener(this.mcp);
     }
 
     public void setClickStatKey(String str) {
-        this.jOC = str;
+        this.jOI = str;
     }
 
     @Override // android.view.View
     public void setOnClickListener(View.OnClickListener onClickListener) {
         if (onClickListener != null) {
-            this.mbX.setOnClickListener(onClickListener);
+            this.mcm.setOnClickListener(onClickListener);
         }
     }
 
     public void setText(CharSequence charSequence) {
-        this.mbY.setHint(charSequence);
+        this.mcn.setHint(charSequence);
     }
 
     public void setText(int i) {
-        this.mbY.setHint(i);
+        this.mcn.setHint(i);
     }
 }

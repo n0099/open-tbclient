@@ -13,13 +13,13 @@ import com.baidu.tieba.forumsearch.message.SearchPostForumRequestMessage;
 import com.baidu.tieba.forumsearch.message.SearchPostForumSocketResponseMessage;
 /* loaded from: classes18.dex */
 public class d {
-    private a hQN;
-    private com.baidu.adp.framework.listener.a hQR = new com.baidu.adp.framework.listener.a(1003335, CmdConfigSocket.CMD_SEARCH_POST_FORUM) { // from class: com.baidu.tieba.forumsearch.controller.d.1
+    private a hQT;
+    private com.baidu.adp.framework.listener.a hQX = new com.baidu.adp.framework.listener.a(1003335, CmdConfigSocket.CMD_SEARCH_POST_FORUM) { // from class: com.baidu.tieba.forumsearch.controller.d.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage == null || responsedMessage.hasError() || responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() != d.this.mPageId) {
-                if (d.this.hQN != null) {
-                    d.this.hQN.a(false, null);
+                if (d.this.hQT != null) {
+                    d.this.hQT.a(false, null);
                     return;
                 }
                 return;
@@ -28,8 +28,8 @@ public class d {
             if (responsedMessage instanceof SearchPostForumSocketResponseMessage) {
                 searchData = ((SearchPostForumSocketResponseMessage) responsedMessage).getSearchData();
             }
-            if (d.this.hQN != null) {
-                d.this.hQN.a(searchData != null, searchData);
+            if (d.this.hQT != null) {
+                d.this.hQT.a(searchData != null, searchData);
             }
         }
     };
@@ -44,15 +44,15 @@ public class d {
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mPageContext = tbPageContext;
         this.mPageId = bdUniqueId;
-        this.hQR.setTag(this.mPageId);
-        MessageManager.getInstance().registerListener(this.hQR);
+        this.hQX.setTag(this.mPageId);
+        MessageManager.getInstance().registerListener(this.hQX);
     }
 
     public void a(a aVar) {
-        this.hQN = aVar;
+        this.hQT = aVar;
     }
 
-    public void Im(String str) {
+    public void In(String str) {
         if (!StringUtils.isNull(str)) {
             if (!l.isNetOk()) {
                 this.mPageContext.showToast(R.string.neterror);

@@ -7,7 +7,7 @@ import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.Icon;
 import tbclient.TshowInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class IconData extends OrmObject implements Serializable {
     public static String meizhi_icon_name = "meizhi_level";
     public static String redi_icon_name = "is_verify";

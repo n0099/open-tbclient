@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.data;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ba {
-    public String dZy;
+    public String dZC;
     public String firstDir;
     public String secondDir;
     public String tid;

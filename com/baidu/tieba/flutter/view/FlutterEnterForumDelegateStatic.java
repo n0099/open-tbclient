@@ -34,7 +34,7 @@ public class FlutterEnterForumDelegateStatic extends b {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null && FlutterMyTabEnableSwitch.isOn()) {
-                    if (c.aZN().xZ("11_8_forum_guide_a") != null || c.aZN().xZ("11_8_forum_guide_b") != null || c.aZN().xZ("11_8_forum_guide_c") != null) {
+                    if (c.aZN().ya("11_8_forum_guide_a") != null || c.aZN().ya("11_8_forum_guide_b") != null || c.aZN().ya("11_8_forum_guide_c") != null) {
                         FlutterEnterForumDelegateStatic flutterEnterForumDelegateStatic = new FlutterEnterForumDelegateStatic();
                         ((d) customResponsedMessage.getData()).a(flutterEnterForumDelegateStatic);
                         if (((d) customResponsedMessage.getData()).getContext() == null || flutterEnterForumDelegateStatic.getFragmentTabStructure() == null) {
@@ -60,7 +60,7 @@ public class FlutterEnterForumDelegateStatic extends b {
         Resources resources = g.ld().getResources();
         cVar.textResId = resources.getIdentifier("enter_forum", "string", BdBaseApplication.getInst().getPackageName());
         cVar.animationResId = resources.getIdentifier("lottie_tab_forum", "raw", BdBaseApplication.getInst().getPackageName());
-        cVar.showIconType = com.baidu.tbadk.mainTab.c.ePz;
+        cVar.showIconType = com.baidu.tbadk.mainTab.c.ePD;
         return cVar;
     }
 
@@ -69,7 +69,7 @@ public class FlutterEnterForumDelegateStatic extends b {
         this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(g.ld().getResources().getIdentifier("maintab_bottom_indicator", "layout", BdBaseApplication.getInst().getPackageName()), (ViewGroup) null);
         this.tipView = new MessageRedDotView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.ePQ = this.mIndicator;
+        aVar.ePU = this.mIndicator;
         aVar.offsetX = l.dip2px(context, 10.0f);
         aVar.view = this.tipView;
         this.mIndicator.b("emotion", aVar);

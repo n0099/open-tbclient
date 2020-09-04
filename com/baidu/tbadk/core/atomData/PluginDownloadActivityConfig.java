@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInfos;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class PluginDownloadActivityConfig extends IntentConfig {
     public static final String PLUGIN_CONFIG = "plugin_config";
 

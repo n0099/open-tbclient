@@ -23,21 +23,21 @@ import okhttp3.Response;
 /* loaded from: classes4.dex */
 public class a extends HttpManager {
     private static final boolean DEBUG = com.baidu.swan.a.b.isDebug();
-    private static volatile a dER;
+    private static volatile a dEV;
 
     private a() {
         super(com.baidu.swan.a.b.aSS().getAppContext());
     }
 
     public static a aSW() {
-        if (dER == null) {
+        if (dEV == null) {
             synchronized (a.class) {
-                if (dER == null) {
-                    dER = new a();
+                if (dEV == null) {
+                    dEV = new a();
                 }
             }
         }
-        return dER;
+        return dEV;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -70,16 +70,16 @@ public class a extends HttpManager {
     }
 
     public void c(@NonNull com.baidu.swan.a.b.a aVar) {
-        if (aVar.dEN == null) {
-            aVar.dEN = aTi();
+        if (aVar.dER == null) {
+            aVar.dER = aTi();
         }
-        if (wv(aVar.url)) {
-            aVar.dEN.onFail(new Exception("url is invalid"));
+        if (ww(aVar.url)) {
+            aVar.dER.onFail(new Exception("url is invalid"));
             return;
         }
         HttpRequestBuilder d = b.d(aVar);
         a(d, aVar);
-        d.build().executeAsync(aVar.dEN);
+        d.build().executeAsync(aVar.dER);
     }
 
     public OkHttpClient.Builder aSX() {
@@ -159,13 +159,13 @@ public class a extends HttpManager {
         if (aVar.headers != null && aVar.headers.size() > 0) {
             httpRequestBuilder.headers(aVar.headers);
         }
-        if (aVar.dEO) {
+        if (aVar.dES) {
             httpRequestBuilder.userAgent(com.baidu.swan.a.b.aSS().getUserAgent());
         }
-        if (aVar.dEP) {
+        if (aVar.dET) {
             httpRequestBuilder.cookieManager(com.baidu.swan.a.b.aSS().aqb());
         }
-        if (aVar.dEQ) {
+        if (aVar.dEU) {
             a(httpRequestBuilder);
         }
         if (aVar.tag != null) {
@@ -203,7 +203,7 @@ public class a extends HttpManager {
         }
     }
 
-    private boolean wv(String str) {
+    private boolean ww(String str) {
         if (TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 Log.e("SwanHttpManager", "url is empty");

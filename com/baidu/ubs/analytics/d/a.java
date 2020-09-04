@@ -7,7 +7,7 @@ public final class a {
     static final String aQ = aP + "/baidu/ab/crash/";
     static final String aR = aP + "/baidu/ab/sdklog/";
     public static final String aS = aP + "/baidu/ab/sdkupdata/" + at() + "/";
-    private static int and = EnumC0851a.aV;
+    private static int anf = EnumC0851a.aV;
 
     /* JADX WARN: $VALUES field not found */
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -20,8 +20,8 @@ public final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean dME() {
-        return and == EnumC0851a.aV;
+    public static boolean dMN() {
+        return anf == EnumC0851a.aV;
     }
 
     public static String u() {

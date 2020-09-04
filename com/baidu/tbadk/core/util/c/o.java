@@ -6,7 +6,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class o implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a> {
     private int width = 0;
     private int height = 0;
@@ -29,7 +29,7 @@ public class o implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
     @Override // com.baidu.adp.lib.e.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(p(str, i, i2), com.baidu.tbadk.imageManager.c.bsW().Cl(p(str, i, i2)), i, i2);
+        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(p(str, i, i2), com.baidu.tbadk.imageManager.c.bsX().Cm(p(str, i, i2)), i, i2);
         if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.getRawBitmap() == null || checkIsValidPicMemoryCache.getRawBitmap().isRecycled()) {
             return null;
         }
@@ -52,7 +52,7 @@ public class o implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
             com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) obj;
             aVar.aF(i);
             aVar.aG(i2);
-            com.baidu.tbadk.imageManager.c.bsW().c(p(str, i, i2), aVar);
+            com.baidu.tbadk.imageManager.c.bsX().c(p(str, i, i2), aVar);
         }
     }
 

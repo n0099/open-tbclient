@@ -13,11 +13,11 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes8.dex */
 public class d {
-    private static d cYR;
-    private boolean cYT;
+    private static d cYV;
+    private boolean cYX;
     private AudioManager mAudioManager;
-    private final ConcurrentHashMap<String, a> cYS = new ConcurrentHashMap<>();
-    private BroadcastReceiver cYU = new BroadcastReceiver() { // from class: com.baidu.swan.apps.al.b.d.1
+    private final ConcurrentHashMap<String, a> cYW = new ConcurrentHashMap<>();
+    private BroadcastReceiver cYY = new BroadcastReceiver() { // from class: com.baidu.swan.apps.al.b.d.1
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             int i;
@@ -25,7 +25,7 @@ public class d {
                 if (d.this.mAudioManager == null) {
                     d.this.mAudioManager = (AudioManager) com.baidu.swan.apps.t.a.aoJ().getSystemService("audio");
                 }
-                for (Map.Entry entry : d.this.cYS.entrySet()) {
+                for (Map.Entry entry : d.this.cYW.entrySet()) {
                     if (d.this.mAudioManager != null) {
                         i = d.this.mAudioManager.getStreamVolume(3);
                     } else {
@@ -46,41 +46,41 @@ public class d {
     }
 
     public static d aDB() {
-        if (cYR == null) {
+        if (cYV == null) {
             synchronized (d.class) {
-                if (cYR == null) {
-                    cYR = new d();
+                if (cYV == null) {
+                    cYV = new d();
                 }
             }
         }
-        return cYR;
+        return cYV;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(@NonNull String str, @NonNull a aVar) {
         if (!TextUtils.isEmpty(str)) {
             synchronized (this) {
-                this.cYS.put(str, aVar);
-                if (!this.cYT) {
+                this.cYW.put(str, aVar);
+                if (!this.cYX) {
                     registerReceiver();
                 }
                 if (com.baidu.swan.apps.b.DEBUG) {
-                    Log.d("SystemVolumeManager", "Id = " + str + " listener added, listeners count: " + this.cYS.size());
+                    Log.d("SystemVolumeManager", "Id = " + str + " listener added, listeners count: " + this.cYW.size());
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean se(@NonNull String str) {
+    public boolean sf(@NonNull String str) {
         if (!TextUtils.isEmpty(str)) {
             synchronized (this) {
-                a remove = this.cYS.remove(str);
-                if (this.cYS.size() == 0 && this.cYT) {
+                a remove = this.cYW.remove(str);
+                if (this.cYW.size() == 0 && this.cYX) {
                     unregisterReceiver();
                 }
                 if (com.baidu.swan.apps.b.DEBUG && remove != null) {
-                    Log.d("SystemVolumeManager", "Id = " + str + " listener removed, listeners count: " + this.cYS.size());
+                    Log.d("SystemVolumeManager", "Id = " + str + " listener removed, listeners count: " + this.cYW.size());
                 }
                 r0 = remove != null;
             }
@@ -102,31 +102,31 @@ public class d {
     private void registerReceiver() {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(VideoReceiver.ACTION_VOLUME_CHANGED);
-        com.baidu.swan.apps.t.a.aoJ().registerReceiver(this.cYU, intentFilter);
-        this.cYT = true;
+        com.baidu.swan.apps.t.a.aoJ().registerReceiver(this.cYY, intentFilter);
+        this.cYX = true;
     }
 
     private void unregisterReceiver() {
         try {
-            com.baidu.swan.apps.t.a.aoJ().unregisterReceiver(this.cYU);
-            this.cYT = false;
+            com.baidu.swan.apps.t.a.aoJ().unregisterReceiver(this.cYY);
+            this.cYX = false;
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public static void release() {
-        if (cYR != null) {
-            cYR.aDz();
+        if (cYV != null) {
+            cYV.aDz();
         }
     }
 
     private void aDz() {
         synchronized (this) {
-            this.cYS.clear();
+            this.cYW.clear();
             this.mAudioManager = null;
-            this.cYT = false;
+            this.cYX = false;
         }
-        cYR = null;
+        cYV = null;
     }
 }

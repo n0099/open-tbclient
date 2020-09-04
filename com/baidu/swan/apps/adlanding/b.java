@@ -17,25 +17,25 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class b {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.apps.media.b.a bTc;
-    private JSONObject bTd;
+    private com.baidu.swan.apps.media.b.a bTg;
+    private JSONObject bTh;
     private Context mContext;
 
     public b(Context context, JSONObject jSONObject) {
         this.mContext = context;
-        this.bTd = jSONObject;
+        this.bTh = jSONObject;
     }
 
     public b(Context context, JSONObject jSONObject, com.baidu.swan.apps.media.b.a aVar) {
         this.mContext = context;
-        this.bTd = jSONObject;
-        this.bTc = aVar;
+        this.bTh = jSONObject;
+        this.bTg = aVar;
     }
 
     private String c(String str, HashMap<String, String> hashMap) {
         HashMap hashMap2 = new HashMap();
-        if (this.bTc != null) {
-            hashMap2.put("cur_time", String.valueOf(this.bTc.getDuration() / 1000));
+        if (this.bTg != null) {
+            hashMap2.put("cur_time", String.valueOf(this.bTg.getDuration() / 1000));
         }
         hashMap2.put("origin_time", String.valueOf(System.currentTimeMillis()));
         hashMap.putAll(hashMap2);
@@ -56,7 +56,7 @@ public class b {
         return str;
     }
 
-    public void iK(String str) {
+    public void iL(String str) {
         d(str, new HashMap<>());
     }
 
@@ -69,7 +69,7 @@ public class b {
             hashMap.put("da_page", "VIDEOADDETAI");
         }
         hashMap.put("play_mode", String.valueOf((SwanAppNetworkUtils.isWifiNetworkConnected(this.mContext) && TextUtils.equals(str, "vstart")) ? 0 : 1));
-        JSONArray optJSONArray = this.bTd != null ? this.bTd.optJSONArray(str) : null;
+        JSONArray optJSONArray = this.bTh != null ? this.bTh.optJSONArray(str) : null;
         if (optJSONArray != null) {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 String optString = optJSONArray.optString(i);
@@ -107,9 +107,9 @@ public class b {
                     }
                 }
             });
-            aVar.dEO = true;
-            aVar.dEP = false;
-            aVar.dEQ = false;
+            aVar.dES = true;
+            aVar.dET = false;
+            aVar.dEU = false;
             com.baidu.swan.a.c.a.aSW().a(aVar);
         }
     }

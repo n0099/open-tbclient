@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class LbsWebViewSwitch extends a {
     public static final String LBS_WEBVIEW_SWITCH_KEY = "android_lbs_webview_open";
     public static final int TYPE_OFF = 0;

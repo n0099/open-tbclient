@@ -22,24 +22,24 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class a extends EventTargetImpl {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static final Set<String> bWN = i.N("REFERER", "USER-AGENT");
-    protected static final Set<String> bWY = i.N("localhost", "127.0.0.1");
-    protected com.baidu.swan.games.binding.model.c duO;
-    private com.baidu.swan.games.f.b duP;
+    public static final Set<String> bWR = i.N("REFERER", "USER-AGENT");
+    protected static final Set<String> bXc = i.N("localhost", "127.0.0.1");
+    protected com.baidu.swan.games.binding.model.c duS;
+    private com.baidu.swan.games.f.b duT;
     protected String mTaskId;
     public int requestType;
 
     public a(@NonNull com.baidu.swan.games.f.b bVar, com.baidu.swan.games.binding.model.c cVar) {
         super(bVar);
         this.requestType = 0;
-        this.duP = bVar;
+        this.duT = bVar;
         this.mTaskId = aOB();
-        this.duO = cVar;
+        this.duS = cVar;
     }
 
     @JavascriptInterface
     public void abort() {
-        if (this.duO != null && e.azI() != null) {
+        if (this.duS != null && e.azI() != null) {
             e.azI().azX().cancelTag(this.mTaskId);
         }
     }
@@ -47,7 +47,7 @@ public class a extends EventTargetImpl {
     public void start() {
     }
 
-    protected HttpUrl jB(String str) {
+    protected HttpUrl jC(String str) {
         HttpUrl parse = HttpUrl.parse(str);
         if (com.baidu.swan.apps.runtime.d.azE().azC() == null) {
             if (a(parse)) {
@@ -63,8 +63,8 @@ public class a extends EventTargetImpl {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public String aOA() {
-        String optString = this.duO.optString("url");
-        if (this.duO == null || TextUtils.isEmpty(this.mTaskId)) {
+        String optString = this.duS.optString("url");
+        if (this.duS == null || TextUtils.isEmpty(this.mTaskId)) {
             i("", 0, "request:swanApp is null");
             return null;
         } else if (TextUtils.isEmpty(optString)) {
@@ -74,12 +74,12 @@ public class a extends EventTargetImpl {
             i("", -1, "request:swanApp is null");
             return null;
         } else {
-            HttpUrl jB = jB(optString);
-            if (jB == null) {
+            HttpUrl jC = jC(optString);
+            if (jC == null) {
                 i(optString, -1, "request:url scheme is invalid");
                 return null;
             }
-            String url = jB.url().toString();
+            String url = jC.url().toString();
             switch (com.baidu.swan.apps.ag.a.b.K("request", url, "")) {
                 case 0:
                     return url;
@@ -97,7 +97,7 @@ public class a extends EventTargetImpl {
     }
 
     protected boolean a(@Nullable HttpUrl httpUrl) {
-        return (httpUrl == null || bWY.contains(httpUrl.host().toLowerCase())) ? false : true;
+        return (httpUrl == null || bXc.contains(httpUrl.host().toLowerCase())) ? false : true;
     }
 
     protected String aOB() {
@@ -135,16 +135,16 @@ public class a extends EventTargetImpl {
     }
 
     public void j(com.baidu.swan.games.binding.model.c cVar) {
-        if (cVar != null && this.duO != null) {
-            this.duO.put("success", cVar.uR("success"));
-            this.duO.put("fail", cVar.uR("fail"));
-            this.duO.put(com.baidu.mobads.openad.c.b.COMPLETE, cVar.uR(com.baidu.mobads.openad.c.b.COMPLETE));
+        if (cVar != null && this.duS != null) {
+            this.duS.put("success", cVar.uS("success"));
+            this.duS.put("fail", cVar.uS("fail"));
+            this.duS.put(com.baidu.mobads.openad.c.b.COMPLETE, cVar.uS(com.baidu.mobads.openad.c.b.COMPLETE));
         }
     }
 
     @Override // com.baidu.searchbox.v8engine.event.EventTargetImpl, com.baidu.searchbox.v8engine.event.EventTarget
     public boolean dispatchEvent(final JSEvent jSEvent) {
-        this.duP.postOnJSThread(new Runnable() { // from class: com.baidu.swan.games.network.a.1
+        this.duT.postOnJSThread(new Runnable() { // from class: com.baidu.swan.games.network.a.1
             @Override // java.lang.Runnable
             public void run() {
                 a.super.dispatchEvent(jSEvent);
@@ -155,23 +155,23 @@ public class a extends EventTargetImpl {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onSuccess(final Object obj) {
-        this.duP.postOnJSThread(new Runnable() { // from class: com.baidu.swan.games.network.a.2
+        this.duT.postOnJSThread(new Runnable() { // from class: com.baidu.swan.games.network.a.2
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.swan.games.utils.b.a(a.this.duO, true, obj);
+                com.baidu.swan.games.utils.b.a(a.this.duS, true, obj);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void i(String str, final int i, final String str2) {
-        this.duP.postOnJSThread(new Runnable() { // from class: com.baidu.swan.games.network.a.3
+        this.duT.postOnJSThread(new Runnable() { // from class: com.baidu.swan.games.network.a.3
             @Override // java.lang.Runnable
             public void run() {
                 com.baidu.swan.games.network.c.b bVar = new com.baidu.swan.games.network.c.b();
                 bVar.errMsg = str2;
                 bVar.statusCode = i;
-                com.baidu.swan.games.utils.b.a(a.this.duO, false, bVar);
+                com.baidu.swan.games.utils.b.a(a.this.duS, false, bVar);
             }
         });
     }
@@ -187,13 +187,13 @@ public class a extends EventTargetImpl {
     protected static void a(@NonNull Request.Builder builder, com.baidu.swan.games.binding.model.c cVar, Map<String, String> map) {
         if (cVar != null && cVar.length() >= 1) {
             for (String str : cVar.keySet()) {
-                if (!TextUtils.isEmpty(str) && !bWN.contains(str.toUpperCase())) {
-                    String sL = ak.sL(cVar.toString(str));
-                    if (!TextUtils.isEmpty(sL)) {
+                if (!TextUtils.isEmpty(str) && !bWR.contains(str.toUpperCase())) {
+                    String sM = ak.sM(cVar.toString(str));
+                    if (!TextUtils.isEmpty(sM)) {
                         if (map != null) {
-                            map.put(str.toLowerCase(), sL);
+                            map.put(str.toLowerCase(), sM);
                         }
-                        builder.header(str, sL);
+                        builder.header(str, sM);
                     }
                 }
             }

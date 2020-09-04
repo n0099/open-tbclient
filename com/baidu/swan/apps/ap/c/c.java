@@ -11,7 +11,7 @@ import java.lang.reflect.Parameter;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
 public interface c {
-    public static final b<Class<?>> dcf = new b<Class<?>>("CLASS") { // from class: com.baidu.swan.apps.ap.c.c.1
+    public static final b<Class<?>> dcj = new b<Class<?>>("CLASS") { // from class: com.baidu.swan.apps.ap.c.c.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.swan.apps.ap.c.b
@@ -28,7 +28,7 @@ public interface c {
             aVar.a(i, cls.getPackage()).a(i, cls.getSuperclass()).a(i, cls.getComponentType()).a(i, cls.getDeclaringClass()).a(i, cls.getEnclosingClass()).a(i, cls.getInterfaces()).a(i, cls.getEnclosingConstructor()).a(i, cls.getEnclosingMethod()).a(i, cls.getDeclaredClasses()).a(i, cls.getDeclaredAnnotations()).a(i, cls.getDeclaredConstructors()).a(i, cls.getDeclaredFields()).a(i, cls.getDeclaredMethods());
         }
     };
-    public static final b<Package> dcg = new b<Package>("PACKAGE") { // from class: com.baidu.swan.apps.ap.c.c.2
+    public static final b<Package> dck = new b<Package>("PACKAGE") { // from class: com.baidu.swan.apps.ap.c.c.2
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.swan.apps.ap.c.b
@@ -36,7 +36,7 @@ public interface c {
             aVar.a(i, r5.getDeclaredAnnotations());
         }
     };
-    public static final b<Annotation> dch = new b<Annotation>("ANNOTATION") { // from class: com.baidu.swan.apps.ap.c.c.3
+    public static final b<Annotation> dcl = new b<Annotation>("ANNOTATION") { // from class: com.baidu.swan.apps.ap.c.c.3
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.swan.apps.ap.c.b
@@ -44,7 +44,7 @@ public interface c {
             aVar.a(i, annotation.annotationType());
         }
     };
-    public static final b<Field> dci = new b<Field>("FIELD") { // from class: com.baidu.swan.apps.ap.c.c.4
+    public static final b<Field> dcm = new b<Field>("FIELD") { // from class: com.baidu.swan.apps.ap.c.c.4
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.swan.apps.ap.c.b
@@ -52,7 +52,7 @@ public interface c {
             aVar.a(i, field.getType()).a(i, field.getDeclaredAnnotations()).a(i, field.getDeclaringClass());
         }
     };
-    public static final b<Method> dcj = new b<Method>("METHOD") { // from class: com.baidu.swan.apps.ap.c.c.5
+    public static final b<Method> dcn = new b<Method>("METHOD") { // from class: com.baidu.swan.apps.ap.c.c.5
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.swan.apps.ap.c.b
@@ -66,7 +66,7 @@ public interface c {
             }
         }
     };
-    public static final b<Constructor<?>> dck = new b<Constructor<?>>("CONSTRUCTOR") { // from class: com.baidu.swan.apps.ap.c.c.6
+    public static final b<Constructor<?>> dco = new b<Constructor<?>>("CONSTRUCTOR") { // from class: com.baidu.swan.apps.ap.c.c.6
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.swan.apps.ap.c.b
@@ -80,7 +80,7 @@ public interface c {
             }
         }
     };
-    public static final b<Parameter> dcl = new b<Parameter>("PARAMETER") { // from class: com.baidu.swan.apps.ap.c.c.7
+    public static final b<Parameter> dcp = new b<Parameter>("PARAMETER") { // from class: com.baidu.swan.apps.ap.c.c.7
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.swan.apps.ap.c.b

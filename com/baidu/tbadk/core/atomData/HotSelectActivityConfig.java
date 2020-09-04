@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class HotSelectActivityConfig extends IntentConfig {
     public static int FROM_PB = 1;
     public static int FROM_POST_THREAD = 2;

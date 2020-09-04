@@ -9,14 +9,14 @@ import java.util.LinkedList;
 /* loaded from: classes11.dex */
 public class a {
     protected String TAG;
-    protected boolean bOl;
-    protected int bOm;
-    protected int bOn;
-    protected int bOo;
-    protected int bOp;
+    protected boolean bOp;
     protected int bOq;
-    protected int[] bOr;
-    protected int[] bOs;
+    protected int bOr;
+    protected int bOs;
+    protected int bOt;
+    protected int bOu;
+    protected int[] bOv;
+    protected int[] bOw;
     protected Context mContext;
     protected int mCoordsPerVertex;
     protected int mDisplayHeight;
@@ -36,11 +36,11 @@ public class a {
 
     public a(Context context, String str, String str2) {
         this.TAG = getClass().getSimpleName();
-        this.bOl = true;
+        this.bOp = true;
         this.mCoordsPerVertex = 2;
-        this.mVertexCount = com.baidu.rtc.camera.filter.glfilter.utils.b.bOw.length / this.mCoordsPerVertex;
-        this.bOp = -1;
-        this.bOq = -1;
+        this.mVertexCount = com.baidu.rtc.camera.filter.glfilter.utils.b.bOA.length / this.mCoordsPerVertex;
+        this.bOt = -1;
+        this.bOu = -1;
         this.mContext = context;
         this.mRunOnDraw = new LinkedList<>();
         this.mVertexShader = str;
@@ -51,15 +51,15 @@ public class a {
     public void Xa() {
         if (!TextUtils.isEmpty(this.mVertexShader) && !TextUtils.isEmpty(this.mFragmentShader)) {
             this.mProgramHandle = com.baidu.rtc.camera.filter.glfilter.utils.a.createProgram(this.mVertexShader, this.mFragmentShader);
-            this.bOm = GLES30.glGetAttribLocation(this.mProgramHandle, "aPosition");
-            this.bOn = GLES30.glGetAttribLocation(this.mProgramHandle, "aTextureCoord");
-            this.bOo = GLES30.glGetUniformLocation(this.mProgramHandle, "inputTexture");
+            this.bOq = GLES30.glGetAttribLocation(this.mProgramHandle, "aPosition");
+            this.bOr = GLES30.glGetAttribLocation(this.mProgramHandle, "aTextureCoord");
+            this.bOs = GLES30.glGetUniformLocation(this.mProgramHandle, "inputTexture");
             this.mIsInitialized = true;
             return;
         }
-        this.bOm = -1;
-        this.bOn = -1;
-        this.bOo = -1;
+        this.bOq = -1;
+        this.bOr = -1;
+        this.bOs = -1;
         this.mIsInitialized = false;
     }
 
@@ -74,7 +74,7 @@ public class a {
     }
 
     public boolean a(int i, FloatBuffer floatBuffer, FloatBuffer floatBuffer2) {
-        if (this.mIsInitialized && i != -1 && this.bOl) {
+        if (this.mIsInitialized && i != -1 && this.bOp) {
             GLES30.glViewport(0, 0, this.mDisplayWidth, this.mDisplayHeight);
             GLES30.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
             GLES30.glClear(16384);
@@ -87,33 +87,33 @@ public class a {
     }
 
     public int b(int i, FloatBuffer floatBuffer, FloatBuffer floatBuffer2) {
-        if (i != -1 && this.bOr != null && this.mIsInitialized && this.bOl) {
-            GLES30.glViewport(0, 0, this.bOp, this.bOq);
-            GLES30.glBindFramebuffer(36160, this.bOr[0]);
+        if (i != -1 && this.bOv != null && this.mIsInitialized && this.bOp) {
+            GLES30.glViewport(0, 0, this.bOt, this.bOu);
+            GLES30.glBindFramebuffer(36160, this.bOv[0]);
             GLES30.glUseProgram(this.mProgramHandle);
             runPendingOnDrawTasks();
             c(i, floatBuffer, floatBuffer2);
             GLES30.glBindFramebuffer(36160, 0);
-            return this.bOs[0];
+            return this.bOw[0];
         }
         return i;
     }
 
     protected void c(int i, FloatBuffer floatBuffer, FloatBuffer floatBuffer2) {
         floatBuffer.position(0);
-        GLES30.glVertexAttribPointer(this.bOm, this.mCoordsPerVertex, 5126, false, 0, (Buffer) floatBuffer);
-        GLES30.glEnableVertexAttribArray(this.bOm);
+        GLES30.glVertexAttribPointer(this.bOq, this.mCoordsPerVertex, 5126, false, 0, (Buffer) floatBuffer);
+        GLES30.glEnableVertexAttribArray(this.bOq);
         floatBuffer2.position(0);
-        GLES30.glVertexAttribPointer(this.bOn, 2, 5126, false, 0, (Buffer) floatBuffer2);
-        GLES30.glEnableVertexAttribArray(this.bOn);
+        GLES30.glVertexAttribPointer(this.bOr, 2, 5126, false, 0, (Buffer) floatBuffer2);
+        GLES30.glEnableVertexAttribArray(this.bOr);
         GLES30.glActiveTexture(33984);
         GLES30.glBindTexture(Xe(), i);
-        GLES30.glUniform1i(this.bOo, 0);
+        GLES30.glUniform1i(this.bOs, 0);
         Xb();
         Xc();
         Xd();
-        GLES30.glDisableVertexAttribArray(this.bOm);
-        GLES30.glDisableVertexAttribArray(this.bOn);
+        GLES30.glDisableVertexAttribArray(this.bOq);
+        GLES30.glDisableVertexAttribArray(this.bOr);
         GLES30.glBindTexture(Xe(), 0);
         GLES30.glUseProgram(0);
     }
@@ -142,31 +142,31 @@ public class a {
 
     public void Y(int i, int i2) {
         if (isInitialized()) {
-            if (this.bOr != null && (this.bOp != i || this.bOq != i2)) {
+            if (this.bOv != null && (this.bOt != i || this.bOu != i2)) {
                 destroyFrameBuffer();
             }
-            if (this.bOr == null) {
-                this.bOp = i;
-                this.bOq = i2;
-                this.bOr = new int[1];
-                this.bOs = new int[1];
-                com.baidu.rtc.camera.filter.glfilter.utils.a.a(this.bOr, this.bOs, i, i2);
+            if (this.bOv == null) {
+                this.bOt = i;
+                this.bOu = i2;
+                this.bOv = new int[1];
+                this.bOw = new int[1];
+                com.baidu.rtc.camera.filter.glfilter.utils.a.a(this.bOv, this.bOw, i, i2);
             }
         }
     }
 
     public void destroyFrameBuffer() {
         if (this.mIsInitialized) {
-            if (this.bOs != null) {
-                GLES30.glDeleteTextures(1, this.bOs, 0);
-                this.bOs = null;
+            if (this.bOw != null) {
+                GLES30.glDeleteTextures(1, this.bOw, 0);
+                this.bOw = null;
             }
-            if (this.bOr != null) {
-                GLES30.glDeleteFramebuffers(1, this.bOr, 0);
-                this.bOr = null;
+            if (this.bOv != null) {
+                GLES30.glDeleteFramebuffers(1, this.bOv, 0);
+                this.bOv = null;
             }
-            this.bOp = -1;
-            this.bOp = -1;
+            this.bOt = -1;
+            this.bOt = -1;
         }
     }
 

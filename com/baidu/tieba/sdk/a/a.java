@@ -36,7 +36,7 @@ public class a extends HttpRule {
     @Override // com.baidu.live.adp.framework.controller.MessageRule
     public HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         if (httpMessage != null && httpMessage.getCmd() < 1030999 && httpMessage.getCmd() >= 1021000) {
-            String str = "3.8.5/dev|2020-08-20 21:44:05|e7a9fcc";
+            String str = "3.8.5/dev|2020-08-28 17:00:55|29d39f8";
             try {
                 str = URLEncoder.encode(str);
             } catch (Exception e) {

@@ -9,7 +9,7 @@ import com.baidu.searchbox.network.core.connect.IHttpDelegator;
 import com.baidu.searchbox.network.request.HttpRequest;
 import com.baidu.searchbox.network.statistics.NetworkInfoRecord;
 import com.baidu.searchbox.network.statistics.NetworkStat;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class e implements IHttpContext {
     @Override // com.baidu.searchbox.network.IHttpContext
     public void init(AbstractHttpManager abstractHttpManager) {

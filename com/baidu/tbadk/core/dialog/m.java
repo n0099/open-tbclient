@@ -1,5 +1,5 @@
 package com.baidu.tbadk.core.dialog;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class m {
     private boolean checked;
     private String desc;

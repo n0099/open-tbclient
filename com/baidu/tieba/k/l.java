@@ -1,9 +1,9 @@
 package com.baidu.tieba.k;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface l {
-    e MJ(String str);
+    e MK(String str);
 
     i av(String str, String str2, String str3);
 
-    h cRt();
+    h cRu();
 }

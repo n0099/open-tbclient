@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.StringUtils;
 import tbclient.SchoolRecomUserInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class bn {
     private String uid = "";
     private String uname = "";

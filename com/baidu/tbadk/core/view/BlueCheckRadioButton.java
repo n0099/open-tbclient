@@ -11,10 +11,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BlueCheckRadioButton extends RelativeLayout {
-    private TextView eoO;
-    private RadioButton eoP;
+    private TextView eoS;
+    private RadioButton eoT;
     private Context mContext;
 
     public BlueCheckRadioButton(Context context) {
@@ -31,51 +31,51 @@ public class BlueCheckRadioButton extends RelativeLayout {
 
     private void init() {
         LayoutInflater.from(this.mContext).inflate(R.layout.custom_blue_check_radio_button_layout, (ViewGroup) this, true);
-        this.eoO = (TextView) findViewById(R.id.custom_check_radio_button_tv);
-        this.eoP = (RadioButton) findViewById(R.id.custom_check_radio_button_rb);
+        this.eoS = (TextView) findViewById(R.id.custom_check_radio_button_tv);
+        this.eoT = (RadioButton) findViewById(R.id.custom_check_radio_button_rb);
         bkj();
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.BlueCheckRadioButton.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (BlueCheckRadioButton.this.eoP != null) {
-                    BlueCheckRadioButton.this.eoP.setButtonDrawable(R.drawable.chx_tips_list_ok_selector);
-                    BlueCheckRadioButton.this.eoP.toggle();
+                if (BlueCheckRadioButton.this.eoT != null) {
+                    BlueCheckRadioButton.this.eoT.setButtonDrawable(R.drawable.chx_tips_list_ok_selector);
+                    BlueCheckRadioButton.this.eoT.toggle();
                 }
             }
         });
     }
 
     public void bkj() {
-        if (this.eoO != null) {
-            ap.setViewTextColor(this.eoO, "cp_link_tip_a");
+        if (this.eoS != null) {
+            ap.setViewTextColor(this.eoS, "cp_link_tip_a");
         }
     }
 
     public void setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
-        if (this.eoP != null) {
-            this.eoP.setOnCheckedChangeListener(onCheckedChangeListener);
+        if (this.eoT != null) {
+            this.eoT.setOnCheckedChangeListener(onCheckedChangeListener);
         }
     }
 
     public void setText(String str) {
-        if (this.eoO != null) {
-            this.eoO.setText(str);
+        if (this.eoS != null) {
+            this.eoS.setText(str);
         }
     }
 
     @Override // android.view.View
     public void setTag(Object obj) {
-        if (this.eoP != null) {
-            this.eoP.setTag(obj);
+        if (this.eoT != null) {
+            this.eoT.setTag(obj);
         }
     }
 
     @Override // android.view.View
     public Object getTag() {
-        return this.eoP.getTag();
+        return this.eoT.getTag();
     }
 
     public void setChecked(boolean z) {
-        this.eoP.setChecked(z);
+        this.eoT.setChecked(z);
     }
 }

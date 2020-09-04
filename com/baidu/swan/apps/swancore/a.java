@@ -27,11 +27,11 @@ public class a {
     /* renamed from: com.baidu.swan.apps.swancore.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
     public static class C0448a {
-        private static final a cYr = new a();
+        private static final a cYv = new a();
     }
 
     public static a aDg() {
-        return C0448a.cYr;
+        return C0448a.cYv;
     }
 
     public static String jx(int i) {
@@ -80,7 +80,7 @@ public class a {
                 if (bVar2 == null) {
                     return 1;
                 }
-                return String.valueOf(bVar.cYs).compareTo(String.valueOf(bVar2.cYs));
+                return String.valueOf(bVar.cYw).compareTo(String.valueOf(bVar2.cYw));
             }
         });
     }
@@ -127,16 +127,16 @@ public class a {
             return arrayList;
         }
         for (String str : stringSet) {
-            b sa = sa(str);
-            if (sa != null) {
-                arrayList.add(sa);
+            b sb = sb(str);
+            if (sb != null) {
+                arrayList.add(sb);
             }
         }
         au(arrayList);
         return arrayList;
     }
 
-    private b sa(String str) {
+    private b sb(String str) {
         b bVar;
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -155,11 +155,11 @@ public class a {
 
     /* loaded from: classes8.dex */
     public static class b {
-        long cYs;
+        long cYw;
         long swanCoreVersion;
 
         b(long j, long j2) {
-            this.cYs = j;
+            this.cYw = j;
             this.swanCoreVersion = j2;
         }
 
@@ -169,7 +169,7 @@ public class a {
             String str;
             String str2 = null;
             try {
-                str = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date(this.cYs));
+                str = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date(this.cYw));
             } catch (Exception e2) {
                 e = e2;
                 str = null;
@@ -189,7 +189,7 @@ public class a {
         public String toJson() {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("time", this.cYs);
+                jSONObject.put("time", this.cYw);
                 jSONObject.put("version", this.swanCoreVersion);
                 return jSONObject.toString();
             } catch (JSONException e) {

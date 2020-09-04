@@ -8,10 +8,10 @@ import com.baidu.swan.apps.ap.ak;
 import com.baidu.swan.apps.v.f;
 /* loaded from: classes8.dex */
 public class d {
-    private b dxv;
+    private b dxz;
 
     public d(JsObject jsObject) {
-        this.dxv = b.l(com.baidu.swan.games.binding.model.c.e(jsObject));
+        this.dxz = b.l(com.baidu.swan.games.binding.model.c.e(jsObject));
         a.aPC().a(this);
     }
 
@@ -43,7 +43,7 @@ public class d {
     */
     public void c(c cVar) {
         boolean z = false;
-        if (this.dxv != null && JSEvent.isValid(cVar)) {
+        if (this.dxz != null && JSEvent.isValid(cVar)) {
             com.baidu.swan.apps.console.c.i("UpdateManagerApi", String.format("dispatchEvent : eventType = %s; hasUpdate = %s", cVar.type, Boolean.valueOf(cVar.hasUpdate)));
             String str = cVar.type;
             switch (str.hashCode()) {
@@ -69,13 +69,13 @@ public class d {
             }
             switch (z) {
                 case false:
-                    this.dxv.b(cVar);
+                    this.dxz.b(cVar);
                     return;
                 case true:
-                    this.dxv.aPE();
+                    this.dxz.aPE();
                     return;
                 case true:
-                    this.dxv.aPF();
+                    this.dxz.aPF();
                     return;
                 default:
                     return;

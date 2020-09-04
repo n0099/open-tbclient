@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tieba.tbadkCore.d.a;
 import com.baidu.tieba.tbadkCore.data.AppData;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface o {
     com.baidu.adp.widget.ListView.a<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId);
 
@@ -20,17 +20,17 @@ public interface o {
 
     com.baidu.adp.widget.ListView.a<?, ?> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId);
 
-    j dnb();
+    j dne();
 
-    l dnc();
+    l dnf();
 
-    com.baidu.tieba.r.a dnd();
+    com.baidu.tieba.r.a dng();
 
-    g dne();
+    g dnh();
 
-    List<AppData> dnf();
+    List<AppData> dni();
 
-    void dng();
+    void dnj();
 
     void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4);
 }

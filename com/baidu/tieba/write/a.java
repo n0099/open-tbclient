@@ -17,157 +17,157 @@ import com.baidu.tbadk.widget.OvalActionButton;
 import com.baidu.tbadk.widget.layout.GridLayout;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class a {
-    protected TbPageContext efn;
-    protected g mKI;
-    public View.OnClickListener mKJ = new View.OnClickListener() { // from class: com.baidu.tieba.write.a.1
+    protected TbPageContext efr;
+    protected g mLa;
+    public View.OnClickListener mLb = new View.OnClickListener() { // from class: com.baidu.tieba.write.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.mKI != null) {
-                if (a.this.mKI.getBgColor() != 0) {
-                    UtilHelper.setNavigationBarBackground(a.this.efn.getPageActivity(), a.this.mKI.getBgColor());
+            if (a.this.mLa != null) {
+                if (a.this.mLa.getBgColor() != 0) {
+                    UtilHelper.setNavigationBarBackground(a.this.efr.getPageActivity(), a.this.mLa.getBgColor());
                 }
-                a.this.mKI.xa(true);
+                a.this.mLa.xc(true);
             }
         }
     };
-    protected View mRootView = cpo();
+    protected View mRootView = cpp();
 
-    public abstract View cpo();
+    public abstract View cpp();
 
     public a(TbPageContext tbPageContext, g gVar) {
-        this.efn = tbPageContext;
-        this.mKI = gVar;
+        this.efr = tbPageContext;
+        this.mLa = gVar;
     }
 
     public void onChangeSkinType(int i) {
     }
 
-    public void dFs() {
+    public void dFB() {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class c extends a {
-        TextView evH;
-        ImageView mLA;
-        public LinearLayout mLB;
-        ImageView mLC;
-        TextView mLD;
-        public LinearLayout mLE;
-        ImageView mLF;
-        TextView mLG;
-        public OvalActionButton mLH;
-        public GridLayout mLI;
-        public View mLd;
-        public TBLottieAnimationView mLe;
-        public View mLm;
-        public LinearLayout mLn;
-        public ImageView mLo;
-        public TextView mLp;
-        public LinearLayout mLq;
-        public ImageView mLr;
-        public TextView mLs;
-        public LinearLayout mLt;
-        public ImageView mLu;
-        public TextView mLv;
-        public LinearLayout mLw;
-        public ImageView mLx;
-        public TextView mLy;
-        public LinearLayout mLz;
+        TextView evL;
+        public View mLE;
+        public LinearLayout mLF;
+        public ImageView mLG;
+        public TextView mLH;
+        public LinearLayout mLI;
+        public ImageView mLJ;
+        public TextView mLK;
+        public LinearLayout mLL;
+        public ImageView mLM;
+        public TextView mLN;
+        public LinearLayout mLO;
+        public ImageView mLP;
+        public TextView mLQ;
+        public LinearLayout mLR;
+        ImageView mLS;
+        public LinearLayout mLT;
+        ImageView mLU;
+        TextView mLV;
+        public LinearLayout mLW;
+        ImageView mLX;
+        TextView mLY;
+        public OvalActionButton mLZ;
+        public View mLv;
+        public TBLottieAnimationView mLw;
+        public GridLayout mMa;
 
         public c(TbPageContext tbPageContext, g gVar) {
             super(tbPageContext, gVar);
             if (tbPageContext != null) {
-                this.mLq = (LinearLayout) this.mRootView.findViewById(R.id.home_write_article);
-                this.mLr = (ImageView) this.mRootView.findViewById(R.id.home_write_article_icon);
-                this.mLs = (TextView) this.mRootView.findViewById(R.id.home_write_article_title);
-                this.mLn = (LinearLayout) this.mRootView.findViewById(R.id.home_write_photo);
-                this.mLo = (ImageView) this.mRootView.findViewById(R.id.home_write_photo_icon);
-                this.mLp = (TextView) this.mRootView.findViewById(R.id.home_write_photo_title);
-                this.mLt = (LinearLayout) this.mRootView.findViewById(R.id.home_write_album);
-                this.mLu = (ImageView) this.mRootView.findViewById(R.id.home_write_album_icon);
-                this.mLv = (TextView) this.mRootView.findViewById(R.id.home_write_album_title);
-                this.mLw = (LinearLayout) this.mRootView.findViewById(R.id.home_write_live);
-                this.mLx = (ImageView) this.mRootView.findViewById(R.id.home_write_live_icon);
-                this.mLy = (TextView) this.mRootView.findViewById(R.id.home_write_live_title);
-                this.mLz = (LinearLayout) this.mRootView.findViewById(R.id.home_write_vote);
-                this.mLA = (ImageView) this.mRootView.findViewById(R.id.home_write_vote_icon);
-                this.evH = (TextView) this.mRootView.findViewById(R.id.home_write_vote_title);
-                this.mLB = (LinearLayout) this.mRootView.findViewById(R.id.home_write_score);
-                this.mLC = (ImageView) this.mRootView.findViewById(R.id.home_write_score_icon);
-                this.mLD = (TextView) this.mRootView.findViewById(R.id.home_write_score_title);
-                this.mLE = (LinearLayout) this.mRootView.findViewById(R.id.home_write_commodity);
-                this.mLF = (ImageView) this.mRootView.findViewById(R.id.home_write_commodity_icon);
-                this.mLG = (TextView) this.mRootView.findViewById(R.id.home_write_commodity_title);
-                this.mLH = (OvalActionButton) this.mRootView.findViewById(R.id.write_close_view);
-                if (this.mKI != null && "frs".equals(this.mKI.getFrom())) {
-                    this.mLH.setIsCircle(true);
-                    this.mLH.setHasShadow(false);
+                this.mLI = (LinearLayout) this.mRootView.findViewById(R.id.home_write_article);
+                this.mLJ = (ImageView) this.mRootView.findViewById(R.id.home_write_article_icon);
+                this.mLK = (TextView) this.mRootView.findViewById(R.id.home_write_article_title);
+                this.mLF = (LinearLayout) this.mRootView.findViewById(R.id.home_write_photo);
+                this.mLG = (ImageView) this.mRootView.findViewById(R.id.home_write_photo_icon);
+                this.mLH = (TextView) this.mRootView.findViewById(R.id.home_write_photo_title);
+                this.mLL = (LinearLayout) this.mRootView.findViewById(R.id.home_write_album);
+                this.mLM = (ImageView) this.mRootView.findViewById(R.id.home_write_album_icon);
+                this.mLN = (TextView) this.mRootView.findViewById(R.id.home_write_album_title);
+                this.mLO = (LinearLayout) this.mRootView.findViewById(R.id.home_write_live);
+                this.mLP = (ImageView) this.mRootView.findViewById(R.id.home_write_live_icon);
+                this.mLQ = (TextView) this.mRootView.findViewById(R.id.home_write_live_title);
+                this.mLR = (LinearLayout) this.mRootView.findViewById(R.id.home_write_vote);
+                this.mLS = (ImageView) this.mRootView.findViewById(R.id.home_write_vote_icon);
+                this.evL = (TextView) this.mRootView.findViewById(R.id.home_write_vote_title);
+                this.mLT = (LinearLayout) this.mRootView.findViewById(R.id.home_write_score);
+                this.mLU = (ImageView) this.mRootView.findViewById(R.id.home_write_score_icon);
+                this.mLV = (TextView) this.mRootView.findViewById(R.id.home_write_score_title);
+                this.mLW = (LinearLayout) this.mRootView.findViewById(R.id.home_write_commodity);
+                this.mLX = (ImageView) this.mRootView.findViewById(R.id.home_write_commodity_icon);
+                this.mLY = (TextView) this.mRootView.findViewById(R.id.home_write_commodity_title);
+                this.mLZ = (OvalActionButton) this.mRootView.findViewById(R.id.write_close_view);
+                if (this.mLa != null && "frs".equals(this.mLa.getFrom())) {
+                    this.mLZ.setIsCircle(true);
+                    this.mLZ.setHasShadow(false);
                 }
-                this.mLm = this.mRootView.findViewById(R.id.view_background_white);
-                this.mLd = this.mRootView.findViewById(R.id.view_background_translate);
-                this.mLI = (GridLayout) this.mRootView.findViewById(R.id.type_container);
-                this.mLI.setMeasureAllChild(true);
-                this.mLI.setVerNum(2);
-                this.mLe = (TBLottieAnimationView) this.mRootView.findViewById(R.id.bottom_bar_background);
-                this.mLe.setSpeed(1.2f);
-                dFs();
-                this.mLd.setOnClickListener(this.mKJ);
-                this.mLd.setClickable(true);
-                this.mLr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.c.1
+                this.mLE = this.mRootView.findViewById(R.id.view_background_white);
+                this.mLv = this.mRootView.findViewById(R.id.view_background_translate);
+                this.mMa = (GridLayout) this.mRootView.findViewById(R.id.type_container);
+                this.mMa.setMeasureAllChild(true);
+                this.mMa.setVerNum(2);
+                this.mLw = (TBLottieAnimationView) this.mRootView.findViewById(R.id.bottom_bar_background);
+                this.mLw.setSpeed(1.2f);
+                dFB();
+                this.mLv.setOnClickListener(this.mLb);
+                this.mLv.setClickable(true);
+                this.mLJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.c.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (c.this.mKI != null) {
-                            c.this.mKI.SA(c.this.mKI.cth());
+                        if (c.this.mLa != null) {
+                            c.this.mLa.SA(c.this.mLa.cti());
                         }
                     }
                 });
-                this.mLo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.c.2
+                this.mLG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.c.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (c.this.mKI != null) {
-                            c.this.mKI.dFJ();
+                        if (c.this.mLa != null) {
+                            c.this.mLa.dFS();
                         }
                     }
                 });
-                this.mLu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.c.3
+                this.mLM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.c.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (c.this.mKI != null) {
-                            c.this.mKI.dFI();
+                        if (c.this.mLa != null) {
+                            c.this.mLa.dFR();
                         }
                     }
                 });
-                this.mLx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.c.4
+                this.mLP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.c.4
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (c.this.mKI != null) {
-                            c.this.mKI.dFH();
+                        if (c.this.mLa != null) {
+                            c.this.mLa.dFQ();
                         }
                     }
                 });
-                this.mLz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.c.5
+                this.mLR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.c.5
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (c.this.mKI != null) {
-                            c.this.mKI.Sz(c.this.mKI.cth());
+                        if (c.this.mLa != null) {
+                            c.this.mLa.Sz(c.this.mLa.cti());
                         }
                     }
                 });
-                this.mLB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.c.6
+                this.mLT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.c.6
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (c.this.mKI != null) {
-                            c.this.mKI.dFF();
+                        if (c.this.mLa != null) {
+                            c.this.mLa.dFO();
                         }
                     }
                 });
-                this.mLE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.c.7
+                this.mLW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.c.7
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (c.this.mKI != null) {
-                            c.this.mKI.dFG();
+                        if (c.this.mLa != null) {
+                            c.this.mLa.dFP();
                         }
                     }
                 });
@@ -175,62 +175,62 @@ public abstract class a {
         }
 
         @Override // com.baidu.tieba.write.a
-        public View cpo() {
-            return LayoutInflater.from(this.efn.getPageActivity()).inflate(R.layout.bottom_write_thread, (ViewGroup) null);
+        public View cpp() {
+            return LayoutInflater.from(this.efr.getPageActivity()).inflate(R.layout.bottom_write_thread, (ViewGroup) null);
         }
 
-        public void wW(boolean z) {
-            this.mLB.setVisibility(z ? 0 : 8);
+        public void wY(boolean z) {
+            this.mLT.setVisibility(z ? 0 : 8);
         }
 
         @Override // com.baidu.tieba.write.a
         public void onChangeSkinType(int i) {
-            this.mLH.onChangeSkinType(i);
-            ap.a(this.mLe, R.raw.bottom_bar_bg);
-            ap.setBackgroundResource(this.mLm, R.drawable.write_tab_background);
-            this.mLo.setImageDrawable(SvgManager.bjq().i(R.drawable.ic_icon_post_photograph60_svg, 1, true));
-            this.mLr.setImageDrawable(SvgManager.bjq().i(R.drawable.ic_icon_post_text60_svg, 1, true));
-            this.mLu.setImageDrawable(SvgManager.bjq().i(R.drawable.ic_icon_post_image60_svg, 1, true));
-            this.mLx.setImageDrawable(SvgManager.bjq().i(R.drawable.ic_icon_post_live60_svg, 1, true));
-            this.mLA.setImageDrawable(SvgManager.bjq().i(R.drawable.ic_icon_post_vote60_svg, 1, true));
-            this.mLC.setImageDrawable(SvgManager.bjq().i(R.drawable.ic_icon_post_evaluation60_svg, 1, true));
-            ap.setImageResource(this.mLF, R.drawable.icon_post_haowu60);
-            ap.setViewTextColor(this.mLp, R.color.cp_cont_b);
-            ap.setViewTextColor(this.mLs, R.color.cp_cont_b);
-            ap.setViewTextColor(this.mLv, R.color.cp_cont_b);
-            ap.setViewTextColor(this.mLy, R.color.cp_cont_b);
-            ap.setViewTextColor(this.evH, R.color.cp_cont_b);
-            ap.setViewTextColor(this.mLD, R.color.cp_cont_b);
-            ap.setViewTextColor(this.mLG, R.color.cp_cont_b);
+            this.mLZ.onChangeSkinType(i);
+            ap.a(this.mLw, R.raw.bottom_bar_bg);
+            ap.setBackgroundResource(this.mLE, R.drawable.write_tab_background);
+            this.mLG.setImageDrawable(SvgManager.bjq().i(R.drawable.ic_icon_post_photograph60_svg, 1, true));
+            this.mLJ.setImageDrawable(SvgManager.bjq().i(R.drawable.ic_icon_post_text60_svg, 1, true));
+            this.mLM.setImageDrawable(SvgManager.bjq().i(R.drawable.ic_icon_post_image60_svg, 1, true));
+            this.mLP.setImageDrawable(SvgManager.bjq().i(R.drawable.ic_icon_post_live60_svg, 1, true));
+            this.mLS.setImageDrawable(SvgManager.bjq().i(R.drawable.ic_icon_post_vote60_svg, 1, true));
+            this.mLU.setImageDrawable(SvgManager.bjq().i(R.drawable.ic_icon_post_evaluation60_svg, 1, true));
+            ap.setImageResource(this.mLX, R.drawable.icon_post_haowu60);
+            ap.setViewTextColor(this.mLH, R.color.cp_cont_b);
+            ap.setViewTextColor(this.mLK, R.color.cp_cont_b);
+            ap.setViewTextColor(this.mLN, R.color.cp_cont_b);
+            ap.setViewTextColor(this.mLQ, R.color.cp_cont_b);
+            ap.setViewTextColor(this.evL, R.color.cp_cont_b);
+            ap.setViewTextColor(this.mLV, R.color.cp_cont_b);
+            ap.setViewTextColor(this.mLY, R.color.cp_cont_b);
         }
 
         @Override // com.baidu.tieba.write.a
-        public void dFs() {
-            int equipmentWidth = l.getEquipmentWidth(this.efn.getPageActivity());
+        public void dFB() {
+            int equipmentWidth = l.getEquipmentWidth(this.efr.getPageActivity());
             int i = (int) (0.14537036f * equipmentWidth);
-            b(this.mLr, i);
-            b(this.mLo, i);
-            b(this.mLu, i);
-            b(this.mLx, i);
-            b(this.mLA, i);
-            b(this.mLC, i);
-            b(this.mLF, i);
+            b(this.mLJ, i);
+            b(this.mLG, i);
+            b(this.mLM, i);
+            b(this.mLP, i);
+            b(this.mLS, i);
+            b(this.mLU, i);
+            b(this.mLX, i);
             float dimens = (equipmentWidth * 1.0f) / l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1080);
-            ViewGroup.LayoutParams layoutParams = this.mLI.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.mMa.getLayoutParams();
             if (layoutParams instanceof RelativeLayout.LayoutParams) {
                 ((RelativeLayout.LayoutParams) layoutParams).bottomMargin = (int) (l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds455) * dimens);
-                this.mLI.setLayoutParams(layoutParams);
+                this.mMa.setLayoutParams(layoutParams);
             }
-            ViewGroup.LayoutParams layoutParams2 = this.mLm.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams2 = this.mLE.getLayoutParams();
             if (layoutParams2 instanceof RelativeLayout.LayoutParams) {
                 int dimens2 = (int) (l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1144) * dimens);
                 ((RelativeLayout.LayoutParams) layoutParams2).height = dimens2 <= 0 ? 1144 : dimens2;
-                this.mLm.setLayoutParams(layoutParams2);
+                this.mLE.setLayoutParams(layoutParams2);
             }
-            ViewGroup.LayoutParams layoutParams3 = this.mLe.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams3 = this.mLw.getLayoutParams();
             if (layoutParams3 instanceof RelativeLayout.LayoutParams) {
                 ((RelativeLayout.LayoutParams) layoutParams3).height = (int) ((dimens * l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds800)) - ((l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds135) * dimens) - TbadkCoreApplication.getInst().getMainTabBottomBarHeight()));
-                this.mLe.setLayoutParams(layoutParams3);
+                this.mLw.setLayoutParams(layoutParams3);
             }
         }
 
@@ -244,210 +244,210 @@ public abstract class a {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class b extends a {
-        public View dSC;
-        public View dzy;
-        public View mLd;
-        public TBLottieAnimationView mLe;
-        public RelativeLayout mLf;
-        public View mLg;
-        public View mLh;
-        public View mLi;
-        public View mLj;
-        public View mLk;
+        public View dSG;
+        public View dzC;
+        public View mLA;
+        public View mLB;
+        public View mLC;
+        public View mLv;
+        public TBLottieAnimationView mLw;
+        public RelativeLayout mLx;
+        public View mLy;
+        public View mLz;
 
         public b(TbPageContext tbPageContext, g gVar) {
             super(tbPageContext, gVar);
-            this.mLd = this.mRootView.findViewById(R.id.transparent_back_view);
-            this.dzy = this.mRootView.findViewById(R.id.view_background);
-            this.mLe = (TBLottieAnimationView) this.mRootView.findViewById(R.id.bottom_bar_background);
-            this.mLf = (RelativeLayout) this.mRootView.findViewById(R.id.type_container);
-            this.dSC = this.mRootView.findViewById(R.id.closeView);
-            this.mLg = this.mRootView.findViewById(R.id.publish_text_view);
-            this.mLh = this.mRootView.findViewById(R.id.publish_image_view);
-            this.mLi = this.mRootView.findViewById(R.id.publish_video_view);
-            this.mLj = this.mRootView.findViewById(R.id.publish_ala_view);
-            this.mLk = this.mRootView.findViewById(R.id.publish_ala_view_tip);
-            this.dzy.setOnClickListener(this.mKJ);
-            this.mLf.setOnClickListener(this.mKJ);
-            this.dSC.setOnClickListener(this.mKJ);
-            this.mLg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.b.1
+            this.mLv = this.mRootView.findViewById(R.id.transparent_back_view);
+            this.dzC = this.mRootView.findViewById(R.id.view_background);
+            this.mLw = (TBLottieAnimationView) this.mRootView.findViewById(R.id.bottom_bar_background);
+            this.mLx = (RelativeLayout) this.mRootView.findViewById(R.id.type_container);
+            this.dSG = this.mRootView.findViewById(R.id.closeView);
+            this.mLy = this.mRootView.findViewById(R.id.publish_text_view);
+            this.mLz = this.mRootView.findViewById(R.id.publish_image_view);
+            this.mLA = this.mRootView.findViewById(R.id.publish_video_view);
+            this.mLB = this.mRootView.findViewById(R.id.publish_ala_view);
+            this.mLC = this.mRootView.findViewById(R.id.publish_ala_view_tip);
+            this.dzC.setOnClickListener(this.mLb);
+            this.mLx.setOnClickListener(this.mLb);
+            this.dSG.setOnClickListener(this.mLb);
+            this.mLy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (b.this.mKI != null) {
-                        b.this.mKI.SA(b.this.mKI.cth());
+                    if (b.this.mLa != null) {
+                        b.this.mLa.SA(b.this.mLa.cti());
                     }
                 }
             });
-            this.mLh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.b.2
+            this.mLz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.b.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (b.this.mKI != null) {
-                        b.this.mKI.dFI();
+                    if (b.this.mLa != null) {
+                        b.this.mLa.dFR();
                     }
                 }
             });
-            this.mLi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.b.3
+            this.mLA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.b.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (b.this.mKI != null) {
-                        b.this.mKI.dFJ();
+                    if (b.this.mLa != null) {
+                        b.this.mLa.dFS();
                     }
                 }
             });
-            this.mLj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.b.4
+            this.mLB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.b.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (b.this.mKI != null) {
-                        b.this.mKI.dFH();
+                    if (b.this.mLa != null) {
+                        b.this.mLa.dFQ();
                     }
                 }
             });
-            wU(false);
-            this.mLe.setSpeed(1.4f);
+            wW(false);
+            this.mLw.setSpeed(1.4f);
         }
 
         @Override // com.baidu.tieba.write.a
-        public View cpo() {
-            return LayoutInflater.from(this.efn.getPageActivity()).inflate(R.layout.home_page_bottom_write_thread, (ViewGroup) null);
+        public View cpp() {
+            return LayoutInflater.from(this.efr.getPageActivity()).inflate(R.layout.home_page_bottom_write_thread, (ViewGroup) null);
         }
 
         @Override // com.baidu.tieba.write.a
         public void onChangeSkinType(int i) {
-            ap.a(this.mLe, R.raw.lottie_use_publish_n);
-            ap.setBackgroundResource(this.dzy, R.color.cp_mask_d);
-            ap.setBackgroundResource(this.mLk, R.drawable.home_publish_ala_red_tip);
+            ap.a(this.mLw, R.raw.lottie_use_publish_n);
+            ap.setBackgroundResource(this.dzC, R.color.cp_mask_d);
+            ap.setBackgroundResource(this.mLC, R.drawable.home_publish_ala_red_tip);
         }
 
-        public void wU(boolean z) {
-            this.dzy.setClickable(z);
-            this.mLf.setClickable(z);
-            this.dSC.setClickable(z);
-            this.mLg.setClickable(z);
-            this.mLh.setClickable(z);
-            this.mLi.setClickable(z);
-            this.mLj.setClickable(z);
+        public void wW(boolean z) {
+            this.dzC.setClickable(z);
+            this.mLx.setClickable(z);
+            this.dSG.setClickable(z);
+            this.mLy.setClickable(z);
+            this.mLz.setClickable(z);
+            this.mLA.setClickable(z);
+            this.mLB.setClickable(z);
         }
 
-        public void wV(boolean z) {
-            if (this.mLk != null) {
+        public void wX(boolean z) {
+            if (this.mLC != null) {
                 if (z) {
-                    this.mLk.setVisibility(0);
+                    this.mLC.setVisibility(0);
                 } else {
-                    this.mLk.setVisibility(8);
+                    this.mLC.setVisibility(8);
                 }
             }
         }
     }
 
     /* renamed from: com.baidu.tieba.write.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class C0826a extends a {
-        public View dzy;
-        private LinearLayout mKL;
-        private LinearLayout mKM;
-        private LinearLayout mKN;
-        private LinearLayout mKO;
-        private LinearLayout mKP;
-        private ImageView mKQ;
-        private ImageView mKR;
-        private ImageView mKS;
-        private ImageView mKT;
-        private TextView mKU;
-        private TextView mKV;
-        private TextView mKW;
-        private TextView mKX;
-        private View mKY;
-        private View mKZ;
-        private View mLa;
-        private int mLb;
+        public View dzC;
+        private LinearLayout mLd;
+        private LinearLayout mLe;
+        private LinearLayout mLf;
+        private LinearLayout mLg;
+        private LinearLayout mLh;
+        private ImageView mLi;
+        private ImageView mLj;
+        private ImageView mLk;
+        private ImageView mLl;
+        private TextView mLm;
+        private TextView mLn;
+        private TextView mLo;
+        private TextView mLp;
+        private View mLq;
+        private View mLr;
+        private View mLs;
+        private int mLt;
 
         public C0826a(TbPageContext tbPageContext, g gVar) {
             super(tbPageContext, gVar);
-            this.dzy = this.mRootView.findViewById(R.id.view_background);
-            this.mKL = (LinearLayout) this.mRootView.findViewById(R.id.type_container);
-            this.mKM = (LinearLayout) this.mRootView.findViewById(R.id.thread_text);
-            this.mKQ = (ImageView) this.mRootView.findViewById(R.id.thread_text_iv);
-            this.mKU = (TextView) this.mRootView.findViewById(R.id.thread_text_tv);
-            this.mKN = (LinearLayout) this.mRootView.findViewById(R.id.thread_pic);
-            this.mKR = (ImageView) this.mRootView.findViewById(R.id.thread_pic_iv);
-            this.mKV = (TextView) this.mRootView.findViewById(R.id.thread_pic_tv);
-            this.mKO = (LinearLayout) this.mRootView.findViewById(R.id.thread_video);
-            this.mKS = (ImageView) this.mRootView.findViewById(R.id.thread_video_iv);
-            this.mKW = (TextView) this.mRootView.findViewById(R.id.thread_video_tv);
-            this.mKP = (LinearLayout) this.mRootView.findViewById(R.id.thread_ala);
-            this.mKT = (ImageView) this.mRootView.findViewById(R.id.thread_ala_iv);
-            this.mKX = (TextView) this.mRootView.findViewById(R.id.thread_ala_tv);
-            this.mKY = this.mRootView.findViewById(R.id.line_1);
-            this.mKZ = this.mRootView.findViewById(R.id.line_2);
-            this.mLa = this.mRootView.findViewById(R.id.line_3);
-            this.mKU.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.home_write_article_title));
-            this.mKV.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.home_write_article_pic));
-            this.mKW.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.home_write_photo_title));
-            this.mKX.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.ala_live));
-            this.dzy.setOnClickListener(this.mKJ);
-            this.mKM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.a.1
+            this.dzC = this.mRootView.findViewById(R.id.view_background);
+            this.mLd = (LinearLayout) this.mRootView.findViewById(R.id.type_container);
+            this.mLe = (LinearLayout) this.mRootView.findViewById(R.id.thread_text);
+            this.mLi = (ImageView) this.mRootView.findViewById(R.id.thread_text_iv);
+            this.mLm = (TextView) this.mRootView.findViewById(R.id.thread_text_tv);
+            this.mLf = (LinearLayout) this.mRootView.findViewById(R.id.thread_pic);
+            this.mLj = (ImageView) this.mRootView.findViewById(R.id.thread_pic_iv);
+            this.mLn = (TextView) this.mRootView.findViewById(R.id.thread_pic_tv);
+            this.mLg = (LinearLayout) this.mRootView.findViewById(R.id.thread_video);
+            this.mLk = (ImageView) this.mRootView.findViewById(R.id.thread_video_iv);
+            this.mLo = (TextView) this.mRootView.findViewById(R.id.thread_video_tv);
+            this.mLh = (LinearLayout) this.mRootView.findViewById(R.id.thread_ala);
+            this.mLl = (ImageView) this.mRootView.findViewById(R.id.thread_ala_iv);
+            this.mLp = (TextView) this.mRootView.findViewById(R.id.thread_ala_tv);
+            this.mLq = this.mRootView.findViewById(R.id.line_1);
+            this.mLr = this.mRootView.findViewById(R.id.line_2);
+            this.mLs = this.mRootView.findViewById(R.id.line_3);
+            this.mLm.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.home_write_article_title));
+            this.mLn.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.home_write_article_pic));
+            this.mLo.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.home_write_photo_title));
+            this.mLp.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.ala_live));
+            this.dzC.setOnClickListener(this.mLb);
+            this.mLe.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (C0826a.this.mKI != null) {
-                        C0826a.this.mKI.SA(C0826a.this.mKI.cth());
+                    if (C0826a.this.mLa != null) {
+                        C0826a.this.mLa.SA(C0826a.this.mLa.cti());
                     }
                 }
             });
-            this.mKN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.a.2
+            this.mLf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (C0826a.this.mKI != null) {
-                        C0826a.this.mKI.dFI();
+                    if (C0826a.this.mLa != null) {
+                        C0826a.this.mLa.dFR();
                     }
                 }
             });
-            this.mKO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.a.3
+            this.mLg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.a.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (C0826a.this.mKI != null) {
-                        C0826a.this.mKI.dFJ();
+                    if (C0826a.this.mLa != null) {
+                        C0826a.this.mLa.dFS();
                     }
                 }
             });
-            this.mKP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.a.4
+            this.mLh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.a.a.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (C0826a.this.mKI != null) {
-                        C0826a.this.mKI.dFH();
+                    if (C0826a.this.mLa != null) {
+                        C0826a.this.mLa.dFQ();
                     }
                 }
             });
-            this.mLb = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds21);
+            this.mLt = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds21);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
 
         @Override // com.baidu.tieba.write.a
-        public View cpo() {
-            return LayoutInflater.from(this.efn.getPageActivity()).inflate(R.layout.home_page_test_write_thread_view, (ViewGroup) null);
+        public View cpp() {
+            return LayoutInflater.from(this.efr.getPageActivity()).inflate(R.layout.home_page_test_write_thread_view, (ViewGroup) null);
         }
 
         @Override // com.baidu.tieba.write.a
         public void onChangeSkinType(int i) {
             super.onChangeSkinType(i);
-            ap.setBackgroundColor(this.dzy, R.color.cp_mask_b_alpha16);
-            com.baidu.tbadk.core.util.e.a.bjQ().oe(0).ol(1).V(this.mLb).of(R.color.cp_bg_line_i).aZ(this.mKL);
-            SvgManager.bjq().a(this.mKQ, R.drawable.ic_icon_mask_send_word16, SvgManager.SvgResourceStateType.NORMAL);
-            SvgManager.bjq().a(this.mKR, R.drawable.ic_icon_mask_send_pic16, SvgManager.SvgResourceStateType.NORMAL);
-            SvgManager.bjq().a(this.mKS, R.drawable.ic_icon_mask_send_video16, SvgManager.SvgResourceStateType.NORMAL);
-            SvgManager.bjq().a(this.mKT, R.drawable.ic_icon_mask_send_live16, SvgManager.SvgResourceStateType.NORMAL);
-            ap.setViewTextColor(this.mKU, R.color.cp_cont_b);
-            ap.setViewTextColor(this.mKV, R.color.cp_cont_b);
-            ap.setViewTextColor(this.mKW, R.color.cp_cont_b);
-            ap.setViewTextColor(this.mKX, R.color.cp_cont_b);
-            com.baidu.tbadk.core.util.e.a.bjQ().oe(0).ol(1).oh(R.color.cp_bg_line_c).of(R.color.cp_bg_line_i).X(this.mLb).W(this.mLb).aZ(this.mKM);
-            com.baidu.tbadk.core.util.e.a.bjQ().oe(0).ol(1).oh(R.color.cp_bg_line_c).of(R.color.cp_bg_line_i).aZ(this.mKN);
-            com.baidu.tbadk.core.util.e.a.bjQ().oe(0).ol(1).oh(R.color.cp_bg_line_c).of(R.color.cp_bg_line_i).aZ(this.mKO);
-            com.baidu.tbadk.core.util.e.a.bjQ().oe(0).ol(1).oh(R.color.cp_bg_line_c).of(R.color.cp_bg_line_i).Z(this.mLb).Y(this.mLb).aZ(this.mKP);
-            ap.setBackgroundColor(this.mKY, R.color.cp_bg_line_b);
-            ap.setBackgroundColor(this.mKZ, R.color.cp_bg_line_b);
-            ap.setBackgroundColor(this.mLa, R.color.cp_bg_line_b);
+            ap.setBackgroundColor(this.dzC, R.color.cp_mask_b_alpha16);
+            com.baidu.tbadk.core.util.e.a.bjQ().oe(0).ol(1).V(this.mLt).of(R.color.cp_bg_line_i).aZ(this.mLd);
+            SvgManager.bjq().a(this.mLi, R.drawable.ic_icon_mask_send_word16, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.bjq().a(this.mLj, R.drawable.ic_icon_mask_send_pic16, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.bjq().a(this.mLk, R.drawable.ic_icon_mask_send_video16, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.bjq().a(this.mLl, R.drawable.ic_icon_mask_send_live16, SvgManager.SvgResourceStateType.NORMAL);
+            ap.setViewTextColor(this.mLm, R.color.cp_cont_b);
+            ap.setViewTextColor(this.mLn, R.color.cp_cont_b);
+            ap.setViewTextColor(this.mLo, R.color.cp_cont_b);
+            ap.setViewTextColor(this.mLp, R.color.cp_cont_b);
+            com.baidu.tbadk.core.util.e.a.bjQ().oe(0).ol(1).oh(R.color.cp_bg_line_c).of(R.color.cp_bg_line_i).X(this.mLt).W(this.mLt).aZ(this.mLe);
+            com.baidu.tbadk.core.util.e.a.bjQ().oe(0).ol(1).oh(R.color.cp_bg_line_c).of(R.color.cp_bg_line_i).aZ(this.mLf);
+            com.baidu.tbadk.core.util.e.a.bjQ().oe(0).ol(1).oh(R.color.cp_bg_line_c).of(R.color.cp_bg_line_i).aZ(this.mLg);
+            com.baidu.tbadk.core.util.e.a.bjQ().oe(0).ol(1).oh(R.color.cp_bg_line_c).of(R.color.cp_bg_line_i).Z(this.mLt).Y(this.mLt).aZ(this.mLh);
+            ap.setBackgroundColor(this.mLq, R.color.cp_bg_line_b);
+            ap.setBackgroundColor(this.mLr, R.color.cp_bg_line_b);
+            ap.setBackgroundColor(this.mLs, R.color.cp_bg_line_b);
         }
     }
 }

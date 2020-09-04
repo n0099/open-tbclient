@@ -25,8 +25,8 @@ import java.util.HashMap;
 /* loaded from: classes8.dex */
 public class BaseActivityDialog extends Activity implements DialogInterface {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private SwanAppScrollView cKZ;
-    private a cOP;
+    private SwanAppScrollView cLd;
+    private a cOT;
     private int mBtnHeight;
     private LinearLayout mBtnPanelLayout;
     private FrameLayout mDialogContent;
@@ -48,8 +48,8 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         super.onCreate(bundle);
         setContentView(a.g.aiapps_alert_dialog);
         getWindow().setLayout(-1, -1);
-        this.cOP = a.qc(getIntent().getStringExtra("BOX_ACTIVITY_DIALOG_FOR_BUILDER"));
-        if (this.cOP == null) {
+        this.cOT = a.qd(getIntent().getStringExtra("BOX_ACTIVITY_DIALOG_FOR_BUILDER"));
+        if (this.cOT == null) {
             if (DEBUG) {
                 Log.e("BaseActivityDialog", "The builder for dialog activity can NOT be null.");
             }
@@ -70,7 +70,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
     @Override // android.content.DialogInterface
     public void cancel() {
         DialogInterface.OnCancelListener onCancelListener;
-        if (this.cOP != null && (onCancelListener = this.cOP.cancelListener) != null) {
+        if (this.cOT != null && (onCancelListener = this.cOT.cancelListener) != null) {
             onCancelListener.onCancel(this);
         }
         finish();
@@ -90,7 +90,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
 
     protected void onDismiss() {
         DialogInterface.OnDismissListener onDismissListener;
-        if (this.cOP != null && (onDismissListener = this.cOP.dismissListener) != null) {
+        if (this.cOT != null && (onDismissListener = this.cOT.dismissListener) != null) {
             onDismissListener.onDismiss(this);
         }
     }
@@ -111,11 +111,11 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         this.mIcon = (ImageView) findViewById(a.f.dialog_icon);
         this.mDialogLayout = (RelativeLayout) findViewById(a.f.searchbox_alert_dialog);
         this.mDivider2 = findViewById(a.f.divider2);
-        this.cKZ = (SwanAppScrollView) findViewById(a.f.message_scrollview);
+        this.cLd = (SwanAppScrollView) findViewById(a.f.message_scrollview);
         this.mBtnPanelLayout = (LinearLayout) findViewById(a.f.btn_panel);
         this.mBtnHeight = getResources().getDimensionPixelSize(a.d.aiapps_dialog_btns_height);
-        if (this.cOP.mScrollViewHeight > 0) {
-            this.cKZ.getLayoutParams().height = this.cOP.mScrollViewHeight;
+        if (this.cOT.mScrollViewHeight > 0) {
+            this.cLd.getLayoutParams().height = this.cOT.mScrollViewHeight;
         }
         if (com.baidu.swan.apps.ap.c.isGingerbread() || com.baidu.swan.apps.ap.c.isGingerbreadmr1()) {
             int dimensionPixelSize = this.mMessage.getResources().getDimensionPixelSize(a.d.aiapps_dialog_text_padding);
@@ -124,8 +124,8 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
     }
 
     protected void setupViews() {
-        if (this.cOP != null) {
-            a aVar = this.cOP;
+        if (this.cOT != null) {
+            a aVar = this.cOT;
             setTitle(aVar.title);
             setIcon(aVar.icon);
             setMessage(aVar.message);
@@ -229,8 +229,8 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 BaseActivityDialog.this.onButtonClick(-1);
-                if (BaseActivityDialog.this.cOP != null) {
-                    BaseActivityDialog.this.cOP.onEvent(new a.C0430a(BaseActivityDialog.this, -1));
+                if (BaseActivityDialog.this.cOT != null) {
+                    BaseActivityDialog.this.cOT.onEvent(new a.C0430a(BaseActivityDialog.this, -1));
                 }
                 BaseActivityDialog.this.dismiss();
             }
@@ -255,8 +255,8 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 BaseActivityDialog.this.onButtonClick(-2);
-                if (BaseActivityDialog.this.cOP != null) {
-                    BaseActivityDialog.this.cOP.onEvent(new a.C0430a(BaseActivityDialog.this, -2));
+                if (BaseActivityDialog.this.cOT != null) {
+                    BaseActivityDialog.this.cOT.onEvent(new a.C0430a(BaseActivityDialog.this, -2));
                 }
                 BaseActivityDialog.this.dismiss();
             }
@@ -283,9 +283,9 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
     }
 
     private void release() {
-        if (this.cOP != null) {
-            this.cOP.release();
-            this.cOP = null;
+        if (this.cOT != null) {
+            this.cOT.release();
+            this.cOT = null;
         }
         setView(null);
     }
@@ -328,19 +328,19 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         }
 
         public a iR(int i) {
-            return qa(this.mContext.getString(i));
+            return qb(this.mContext.getString(i));
         }
 
-        public a qa(String str) {
+        public a qb(String str) {
             this.title = str;
             return this;
         }
 
         public a iS(int i) {
-            return qb(this.mContext.getString(i));
+            return qc(this.mContext.getString(i));
         }
 
-        public a qb(String str) {
+        public a qc(String str) {
             this.message = str;
             return this;
         }
@@ -409,7 +409,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             });
         }
 
-        static a qc(String str) {
+        static a qd(String str) {
             a remove;
             if (!TextUtils.isEmpty(str)) {
                 synchronized (sBuilderMap) {

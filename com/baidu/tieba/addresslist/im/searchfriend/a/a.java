@@ -12,6 +12,6 @@ public class a implements CustomMessageTask.CustomRunnable<Object> {
         if (customMessage == null) {
             return null;
         }
-        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_OFFICIAL_ACCOUNT, f.bBS().bBU());
+        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_OFFICIAL_ACCOUNT, f.bBT().bBV());
     }
 }

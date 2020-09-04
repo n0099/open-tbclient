@@ -5,18 +5,18 @@ import com.baidu.adp.widget.ListView.q;
 import com.baidu.tieba.frs.FrsTabInfoData;
 /* loaded from: classes16.dex */
 public class b implements q {
-    private FrsTabInfoData iLN;
+    private FrsTabInfoData iLT;
 
     public b(FrsTabInfoData frsTabInfoData) {
-        this.iLN = frsTabInfoData;
+        this.iLT = frsTabInfoData;
     }
 
-    public FrsTabInfoData cmB() {
-        return this.iLN;
+    public FrsTabInfoData cmC() {
+        return this.iLT;
     }
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return a.iLM;
+        return a.iLS;
     }
 }

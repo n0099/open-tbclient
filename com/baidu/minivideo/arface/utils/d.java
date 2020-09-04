@@ -3,22 +3,22 @@ package com.baidu.minivideo.arface.utils;
 import java.io.File;
 /* loaded from: classes6.dex */
 public class d extends c {
-    private static d bCp;
+    private static d bCs;
 
     private d() {
     }
 
     public static d Tl() {
-        if (bCp == null) {
+        if (bCs == null) {
             init();
         }
-        return bCp;
+        return bCs;
     }
 
     private static synchronized void init() {
         synchronized (d.class) {
-            if (bCp == null) {
-                bCp = new d();
+            if (bCs == null) {
+                bCs = new d();
             }
         }
     }

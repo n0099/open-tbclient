@@ -5,15 +5,15 @@ import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationExceptio
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes11.dex */
 public final class r implements View.OnClickListener {
-    private final /* synthetic */ InstallActivity nCq;
+    private final /* synthetic */ InstallActivity nCI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(InstallActivity installActivity) {
-        this.nCq = installActivity;
+        this.nCI = installActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        this.nCq.D(new UnavailableUserDeclinedInstallationException());
+        this.nCI.D(new UnavailableUserDeclinedInstallationException());
     }
 }

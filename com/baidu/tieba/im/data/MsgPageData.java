@@ -5,7 +5,7 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class MsgPageData extends OrmObject implements Serializable {
     private static final long serialVersionUID = -7666708726763728750L;
     private boolean isNewAdd = false;

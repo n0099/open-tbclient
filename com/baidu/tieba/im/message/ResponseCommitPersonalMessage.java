@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.baidu.tieba.im.util.d;
 import com.squareup.wire.Wire;
 import protobuf.CommitPersonalMsg.CommitPersonalMsgResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ResponseCommitPersonalMessage extends ResponseCommitMessage {
     public static final int CANT_CHAT = 2230303;
     private String toUserId;

@@ -15,10 +15,10 @@ import com.baidu.tieba.livesdk.share.model.AlaShareInBarModel;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyActivity> {
-    private ArrayList<TransmitForumData> jUy;
-    private AlaShareInBarModel jUz;
+    private ArrayList<TransmitForumData> jUE;
+    private AlaShareInBarModel jUF;
     private String mLiveId = "";
-    private final AlaShareInBarModel.a jUA = new AlaShareInBarModel.a() { // from class: com.baidu.tieba.livesdk.share.AlaShareInBarEmptyActivity.2
+    private final AlaShareInBarModel.a jUG = new AlaShareInBarModel.a() { // from class: com.baidu.tieba.livesdk.share.AlaShareInBarEmptyActivity.2
         @Override // com.baidu.tieba.livesdk.share.model.AlaShareInBarModel.a
         public void a(int i, String str, com.baidu.tieba.livesdk.share.b.a aVar) {
             AlaShareInBarEmptyActivity.this.closeLoadingDialog();
@@ -37,38 +37,38 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
         initData(bundle);
-        cNV();
+        cNW();
     }
 
     private void initData(Bundle bundle) {
-        this.jUz = new AlaShareInBarModel();
-        this.jUz.a(this.jUA);
+        this.jUF = new AlaShareInBarModel();
+        this.jUF.a(this.jUG);
         Intent intent = getIntent();
         if (intent != null) {
             this.mLiveId = intent.getStringExtra("extra_key_live_id");
-            this.jUy = intent.getParcelableArrayListExtra(AlaWriteShareInBarActivityConfig.EXTRA_KEY_FORUM_LIST);
+            this.jUE = intent.getParcelableArrayListExtra(AlaWriteShareInBarActivityConfig.EXTRA_KEY_FORUM_LIST);
         } else if (bundle != null) {
             this.mLiveId = bundle.getString("extra_key_live_id");
-            this.jUy = bundle.getParcelableArrayList(AlaWriteShareInBarActivityConfig.EXTRA_KEY_FORUM_LIST);
+            this.jUE = bundle.getParcelableArrayList(AlaWriteShareInBarActivityConfig.EXTRA_KEY_FORUM_LIST);
         }
     }
 
-    private void cNV() {
+    private void cNW() {
         if (!j.isNetWorkAvailable()) {
             showToast(b.C0735b.neterror);
             finish();
-        } else if (StringUtils.isNull(this.mLiveId) || y.isEmpty(this.jUy)) {
+        } else if (StringUtils.isNull(this.mLiveId) || y.isEmpty(this.jUE)) {
             finish();
         } else {
             showLoadingDialog((String) null, new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.livesdk.share.AlaShareInBarEmptyActivity.1
                 @Override // android.content.DialogInterface.OnCancelListener
                 public void onCancel(DialogInterface dialogInterface) {
-                    AlaShareInBarEmptyActivity.this.jUz.cancelLoadData();
+                    AlaShareInBarEmptyActivity.this.jUF.cancelLoadData();
                 }
             });
-            TransmitForumData transmitForumData = this.jUy.get(0);
+            TransmitForumData transmitForumData = this.jUE.get(0);
             if (transmitForumData != null) {
-                this.jUz.au(this.mLiveId, String.valueOf(transmitForumData.forumId), "");
+                this.jUF.au(this.mLiveId, String.valueOf(transmitForumData.forumId), "");
             }
         }
     }
@@ -82,8 +82,8 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.jUz != null) {
-            this.jUz.onDestroy();
+        if (this.jUF != null) {
+            this.jUF.onDestroy();
         }
     }
 }

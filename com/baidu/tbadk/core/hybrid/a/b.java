@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.hybrid.o;
 import com.baidu.tbadk.data.g;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b extends n {
     public b(l lVar) {
         super(lVar);
@@ -30,7 +30,7 @@ public class b extends n {
             g gVar = new g();
             gVar.setActivityId(optInt);
             gVar.pW(optInt2);
-            gVar.BE(optString);
+            gVar.BF(optString);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_ADCARD, gVar));
         }
     }

@@ -7,7 +7,7 @@ public interface f {
 
     boolean Wz(String str);
 
-    Iterator<String> ejx();
+    Iterator<String> ejG();
 
     byte[] getContent();
 }

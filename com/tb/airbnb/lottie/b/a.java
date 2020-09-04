@@ -13,14 +13,14 @@ import java.util.Map;
 public class a {
     private final AssetManager assetManager;
     @Nullable
-    private com.tb.airbnb.lottie.a oiU;
-    private final h<String> oiT = new h<>();
+    private com.tb.airbnb.lottie.a ojm;
+    private final h<String> ojl = new h<>();
     private final Map<h<String>, Typeface> DW = new HashMap();
     private final Map<String, Typeface> DX = new HashMap();
     private String DZ = ".ttf";
 
     public a(Drawable.Callback callback, @Nullable com.tb.airbnb.lottie.a aVar) {
-        this.oiU = aVar;
+        this.ojm = aVar;
         if (!(callback instanceof View)) {
             Log.w("LOTTIE", "LottieDrawable must be inside of a view for images to work.");
             this.assetManager = null;
@@ -30,15 +30,15 @@ public class a {
     }
 
     public void a(@Nullable com.tb.airbnb.lottie.a aVar) {
-        this.oiU = aVar;
+        this.ojm = aVar;
     }
 
     public Typeface q(String str, String str2) {
-        this.oiT.set(str, str2);
-        Typeface typeface = this.DW.get(this.oiT);
+        this.ojl.set(str, str2);
+        Typeface typeface = this.DW.get(this.ojl);
         if (typeface == null) {
             Typeface a = a(bi(str), str2);
-            this.DW.put(this.oiT, a);
+            this.DW.put(this.ojl, a);
             return a;
         }
         return typeface;
@@ -49,10 +49,10 @@ public class a {
         Typeface typeface = this.DX.get(str);
         if (typeface == null) {
             typeface = null;
-            if (this.oiU != null) {
-                typeface = this.oiU.aZ(str);
+            if (this.ojm != null) {
+                typeface = this.ojm.aZ(str);
             }
-            if (this.oiU != null && typeface == null && (ba = this.oiU.ba(str)) != null) {
+            if (this.ojm != null && typeface == null && (ba = this.ojm.ba(str)) != null) {
                 typeface = Typeface.createFromAsset(this.assetManager, ba);
             }
             if (typeface == null) {

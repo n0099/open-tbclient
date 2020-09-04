@@ -2,13 +2,13 @@ package com.baidu.tbadk.util;
 
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.tbadk.switchs.TBCdnPortraitSwitch;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class m {
-    public static boolean bvq() {
-        return bvr();
+    public static boolean bvr() {
+        return bvs();
     }
 
-    public static boolean bvr() {
+    public static boolean bvs() {
         return com.baidu.tbadk.core.util.n.checkSD() && com.baidu.adp.gif.c.lF();
     }
 
@@ -38,7 +38,7 @@ public class m {
         return true;
     }
 
-    public static boolean CG(String str) {
+    public static boolean CH(String str) {
         int indexOf;
         return str != null && (indexOf = str.indexOf("tiebapic")) > 0 && indexOf < 20;
     }

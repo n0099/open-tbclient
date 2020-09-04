@@ -96,15 +96,15 @@ public interface d extends e.b {
 
     void i(SwanAppActivity swanAppActivity);
 
-    com.baidu.swan.apps.adaptation.b.e lT(String str);
-
-    @NonNull
-    com.baidu.swan.apps.runtime.config.c nW(String str);
+    com.baidu.swan.apps.adaptation.b.e lU(String str);
 
     @NonNull
     com.baidu.swan.apps.runtime.config.c nX(String str);
 
-    AbsoluteLayout nY(String str);
+    @NonNull
+    com.baidu.swan.apps.runtime.config.c nY(String str);
+
+    AbsoluteLayout nZ(String str);
 
     void showLoadingView();
 

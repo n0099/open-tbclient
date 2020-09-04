@@ -4,12 +4,12 @@ import android.support.annotation.NonNull;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes8.dex */
 public class k extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.f.c.a> {
-    public static String cuk = "release";
+    public static String cuo = "release";
 
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
     public String anJ() {
-        return cuk;
+        return cuo;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

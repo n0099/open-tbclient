@@ -15,7 +15,7 @@ import com.baidu.swan.gamecenter.a;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class InstallAntiBlockingActivity extends Activity {
-    private JSONObject dna;
+    private JSONObject dne;
     private String mPackageName;
     private String mType;
 
@@ -30,7 +30,7 @@ public class InstallAntiBlockingActivity extends Activity {
         if (intent != null) {
             this.mType = intent.getStringExtra("type");
             this.mPackageName = intent.getStringExtra("packageName");
-            this.dna = v.parseString(intent.getStringExtra("ubc_params"));
+            this.dne = v.parseString(intent.getStringExtra("ubc_params"));
         }
         ImageView imageView = (ImageView) findViewById(a.d.install_guide_image);
         View findViewById = findViewById(a.d.install_guide_layout);
@@ -62,10 +62,10 @@ public class InstallAntiBlockingActivity extends Activity {
         findViewById.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.gamecenter.appmanager.install.InstallAntiBlockingActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                com.baidu.swan.gamecenter.appmanager.d.c.a(InstallAntiBlockingActivity.this.mPackageName, TextUtils.equals(InstallAntiBlockingActivity.this.mType, "authorize") ? "authorizeClick" : "continueClick", "success", null, new com.baidu.swan.gamecenter.appmanager.d.a(InstallAntiBlockingActivity.this.dna));
+                com.baidu.swan.gamecenter.appmanager.d.c.a(InstallAntiBlockingActivity.this.mPackageName, TextUtils.equals(InstallAntiBlockingActivity.this.mType, "authorize") ? "authorizeClick" : "continueClick", "success", null, new com.baidu.swan.gamecenter.appmanager.d.a(InstallAntiBlockingActivity.this.dne));
                 InstallAntiBlockingActivity.this.finish();
             }
         });
-        com.baidu.swan.gamecenter.appmanager.d.c.a(this.mPackageName, this.mType, "success", null, new com.baidu.swan.gamecenter.appmanager.d.a(this.dna));
+        com.baidu.swan.gamecenter.appmanager.d.c.a(this.mPackageName, this.mType, "success", null, new com.baidu.swan.gamecenter.appmanager.d.a(this.dne));
     }
 }

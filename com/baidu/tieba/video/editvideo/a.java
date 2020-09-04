@@ -7,15 +7,15 @@ import java.util.List;
 public interface a {
     void N(Bitmap bitmap);
 
-    void Of(String str);
+    void Og(String str);
 
     void RD(String str);
 
-    void bpO();
+    void bpP();
 
-    void dBu();
+    void dBD();
 
-    void dfK();
+    void dfL();
 
     void finishPage();
 

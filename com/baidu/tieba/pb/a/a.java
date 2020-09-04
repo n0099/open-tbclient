@@ -4,58 +4,58 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.MotionEvent;
 import android.view.View;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a implements View.OnTouchListener {
-    private InterfaceC0761a kys;
+    private InterfaceC0761a kyz;
     private int count = 0;
-    private long kyq = 0;
-    private long kyr = 0;
-    private long kyt = 500;
+    private long kyx = 0;
+    private long kyy = 0;
+    private long kyA = 500;
     private Handler mHandler = new Handler() { // from class: com.baidu.tieba.pb.a.a.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 2) {
                 a.this.count = 0;
-                a.this.kyq = 0L;
-                a.this.kyr = 0L;
+                a.this.kyx = 0L;
+                a.this.kyy = 0L;
             } else if (message.what == 1 && a.this.count == 1) {
-                if (a.this.kys != null) {
-                    a.this.kys.cWo();
+                if (a.this.kyz != null) {
+                    a.this.kyz.cWp();
                 }
                 a.this.count = 0;
-                a.this.kyq = 0L;
-                a.this.kyr = 0L;
+                a.this.kyx = 0L;
+                a.this.kyy = 0L;
             }
         }
     };
 
     /* renamed from: com.baidu.tieba.pb.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface InterfaceC0761a {
-        void cWn();
-
         void cWo();
+
+        void cWp();
     }
 
     public a(InterfaceC0761a interfaceC0761a) {
-        this.kys = interfaceC0761a;
+        this.kyz = interfaceC0761a;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            if (this.kys == null) {
+            if (this.kyz == null) {
                 return false;
             }
             this.count++;
             if (this.count == 1) {
-                this.kyq = System.currentTimeMillis();
-                this.mHandler.sendEmptyMessageDelayed(1, this.kyt);
+                this.kyx = System.currentTimeMillis();
+                this.mHandler.sendEmptyMessageDelayed(1, this.kyA);
                 return true;
             } else if (this.count == 2) {
-                this.kyr = System.currentTimeMillis();
-                if (this.kyr - this.kyq < this.kyt) {
-                    this.kys.cWn();
+                this.kyy = System.currentTimeMillis();
+                if (this.kyy - this.kyx < this.kyA) {
+                    this.kyz.cWo();
                 }
                 this.mHandler.sendEmptyMessage(2);
                 return true;

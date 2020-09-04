@@ -1,8 +1,8 @@
 package com.baidu.tbadk.plugins;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class PluginCheckUtil {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     enum Status {
         UnInstalled,
         Downloading,

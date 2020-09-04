@@ -73,7 +73,7 @@ public class l {
         return this.Ps;
     }
 
-    public void ch(String str) {
+    public void ci(String str) {
         this.Ps = str;
     }
 }

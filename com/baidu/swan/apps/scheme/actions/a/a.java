@@ -41,7 +41,7 @@ public class a extends aa {
             c.e("backgroundColor", "slave container is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (!ahn.a(ahn.getWebViewContainer(), SwanAppConfigData.fn(optString))) {
+        } else if (!ahn.a(ahn.getWebViewContainer(), SwanAppConfigData.fo(optString))) {
             c.e("backgroundColor", "set window background fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;

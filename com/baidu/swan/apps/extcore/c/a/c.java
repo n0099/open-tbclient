@@ -65,7 +65,7 @@ public class c extends aa {
                     Log.d("replaceGameCore", "gameCoreZipFile: " + amq + " gameCoreDir: " + amo);
                 }
                 if (amq.exists() && com.baidu.swan.c.d.unzipFile(amq.getPath(), amo.getPath())) {
-                    com.baidu.swan.apps.ad.a.a.fi(true);
+                    com.baidu.swan.apps.ad.a.a.fj(true);
                     com.baidu.swan.apps.res.widget.b.d.k(context, a.h.aiapps_debug_game_core_download_success).showToast();
                     callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(0).toString());
                     return;

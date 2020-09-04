@@ -6,7 +6,7 @@ import com.baidu.tieba.R;
 /* loaded from: classes15.dex */
 public class b extends com.baidu.tieba.card.data.b {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public int hoc = R.color.cp_bg_line_c;
+    public int hog = R.color.cp_bg_line_c;
     public int dividerHeight = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q

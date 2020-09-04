@@ -20,19 +20,19 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 /* loaded from: classes9.dex */
 public class a {
-    public static volatile boolean ayn = false;
-    private static volatile Map<Long, Message> ayp = new LinkedHashMap();
-    private static volatile a ayq;
+    public static volatile boolean ayp = false;
+    private static volatile Map<Long, Message> ayr = new LinkedHashMap();
+    private static volatile a ays;
     private static Context mContext;
     public static Handler mHandler;
-    public boolean ayo = false;
+    public boolean ayq = false;
 
     public static a al(Context context) {
-        if (ayq == null) {
+        if (ays == null) {
             mContext = context.getApplicationContext();
-            ayq = new a();
+            ays = new a();
         }
-        return ayq;
+        return ays;
     }
 
     public void e(Context context, final Intent intent) {
@@ -47,15 +47,15 @@ public class a {
 
     private a() {
         mHandler = new Handler(mContext.getMainLooper());
-        ayn = false;
+        ayp = false;
         AA();
     }
 
     private void AA() {
         try {
-            LogUtils.d("IMServiceImpl", "isSmallFlow :" + ayn);
+            LogUtils.d("IMServiceImpl", "isSmallFlow :" + ayp);
             IMManager.init(mContext.getApplicationContext(), IMConfigInternal.getInstance().getProductLine(mContext.getApplicationContext()));
-            if (ayn) {
+            if (ayp) {
                 AB();
             } else if (!IMSDK.getInstance(mContext.getApplicationContext()).init()) {
                 IMConnection.getInstance(mContext).disconnectedByPeer();
@@ -69,14 +69,14 @@ public class a {
             r(2, Integer.valueOf(i).intValue());
         }
         r(3, 196);
-        this.ayo = true;
+        this.ayq = true;
     }
 
     private void r(int i, int i2) {
     }
 
     public void onHandleWork(@NonNull Intent intent) {
-        LogUtils.d("IMServiceImpl", "-- onHandleWork -- " + intent + ", isSmallFlow :" + ayn);
+        LogUtils.d("IMServiceImpl", "-- onHandleWork -- " + intent + ", isSmallFlow :" + ayp);
         if (intent == null) {
             intent = new Intent();
             LogUtils.i("IMServiceImpl", "--- onStart by null intent!");
@@ -99,9 +99,9 @@ public class a {
     }
 
     public static void am(Context context) {
-        synchronized (ayp) {
-            if (ayp != null) {
-                for (Message message : ayp.values()) {
+        synchronized (ayr) {
+            if (ayr != null) {
+                for (Message message : ayr.values()) {
                     if (message != null) {
                         message.handleMessageResult(context, null, -1, "");
                     }

@@ -6,22 +6,22 @@ import kotlin.collections.ad;
 /* loaded from: classes20.dex */
 final class f extends ad {
     private int index;
-    private final int[] osw;
+    private final int[] osO;
 
     public f(int[] iArr) {
         q.m(iArr, com.baidu.fsg.base.statistics.b.j);
-        this.osw = iArr;
+        this.osO = iArr;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.index < this.osw.length;
+        return this.index < this.osO.length;
     }
 
     @Override // kotlin.collections.ad
     public int nextInt() {
         try {
-            int[] iArr = this.osw;
+            int[] iArr = this.osO;
             int i = this.index;
             this.index = i + 1;
             return iArr[i];

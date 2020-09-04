@@ -4,10 +4,10 @@ import android.text.TextUtils;
 import java.net.MalformedURLException;
 import java.net.URL;
 import org.apache.http.HttpHost;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 class p {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean zF(String str) {
+    public static boolean zG(String str) {
         if (TextUtils.isEmpty(str)) {
             return true;
         }
@@ -27,7 +27,7 @@ class p {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean zG(String str) {
+    public static boolean zH(String str) {
         if (TextUtils.isEmpty(str)) {
             return true;
         }

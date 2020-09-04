@@ -26,21 +26,21 @@ import com.baidu.tieba.ala.charm.view.CharmItemView;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class d {
-    private String aAE;
-    private boolean bbH;
-    private CommonEmptyView bgl;
-    private PbListView fPV;
-    private ALaCharmCardActivity fQe;
-    private com.baidu.tieba.ala.charm.view.g fQf;
-    private View fQg;
-    private String fQh;
-    private View.OnClickListener fQi = new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.d.5
+    private String aAG;
+    private boolean bbJ;
+    private CommonEmptyView bgn;
+    private PbListView fPZ;
+    private ALaCharmCardActivity fQi;
+    private com.baidu.tieba.ala.charm.view.g fQj;
+    private View fQk;
+    private String fQl;
+    private View.OnClickListener fQm = new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.d.5
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             ViewHelper.checkUpIsLogin(view.getContext());
         }
     };
-    private TextView fmc;
+    private TextView fmg;
     private String mGroupId;
     private BdListView mListView;
     private String mLiveId;
@@ -48,69 +48,69 @@ public class d {
     private View mRootView;
 
     public d(ALaCharmCardActivity aLaCharmCardActivity, String str, String str2, boolean z, String str3, String str4, String str5) {
-        this.fQe = aLaCharmCardActivity;
+        this.fQi = aLaCharmCardActivity;
         this.mGroupId = str;
         this.mLiveId = str2;
-        this.bbH = z;
-        this.aAE = str3;
-        this.fQh = str5;
-        this.mRootView = this.fQe.getLayoutInflater().inflate(a.h.online_list_detail_layout, (ViewGroup) null);
+        this.bbJ = z;
+        this.aAG = str3;
+        this.fQl = str5;
+        this.mRootView = this.fQi.getLayoutInflater().inflate(a.h.online_list_detail_layout, (ViewGroup) null);
         this.mListView = (BdListView) this.mRootView.findViewById(a.g.detail_list);
-        this.bgl = (CommonEmptyView) this.mRootView.findViewById(a.g.emptyView);
+        this.bgn = (CommonEmptyView) this.mRootView.findViewById(a.g.emptyView);
         if (TbadkCoreApplication.isLogin()) {
             this.mRootView.findViewById(a.g.toLogin_layout).setVisibility(8);
         } else {
             str4 = TextUtils.isEmpty(str4) ? "主播" : str4;
             TextView textView = (TextView) this.mRootView.findViewById(a.g.toLogin_text);
-            String string = this.fQe.getString(a.i.online_toLogin);
+            String string = this.fQi.getString(a.i.online_toLogin);
             Object[] objArr = new Object[1];
             objArr[0] = str4.length() > 5 ? str4.substring(0, 5) + StringHelper.STRING_MORE : str4;
             textView.setText(String.format(string, objArr));
-            textView.setOnClickListener(this.fQi);
+            textView.setOnClickListener(this.fQm);
             this.mRootView.findViewById(a.g.toLogin_layout).setVisibility(0);
         }
-        this.fQf = new com.baidu.tieba.ala.charm.view.g(aLaCharmCardActivity.getPageContext());
-        this.mListView.setAdapter((ListAdapter) this.fQf);
-        this.mListView.setEmptyView(this.bgl);
+        this.fQj = new com.baidu.tieba.ala.charm.view.g(aLaCharmCardActivity.getPageContext());
+        this.mListView.setAdapter((ListAdapter) this.fQj);
+        this.mListView.setEmptyView(this.bgn);
         this.mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.ala.charm.d.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                d.this.a(d.this.fQf.getItem(i));
+                d.this.a(d.this.fQj.getItem(i));
             }
         });
-        this.fmc = (TextView) this.mRootView.findViewById(a.g.top_text);
-        if (this.fPV == null) {
-            this.fPV = new PbListView(this.fQe);
-            this.fPV.setTextColor(this.fQe.getResources().getColor(a.d.sdk_cp_cont_j));
-            this.fPV.setSkinType(0);
-            this.fPV.setContainerBackgroundColorResId(a.d.sdk_transparent);
-            this.fPV.createView();
+        this.fmg = (TextView) this.mRootView.findViewById(a.g.top_text);
+        if (this.fPZ == null) {
+            this.fPZ = new PbListView(this.fQi);
+            this.fPZ.setTextColor(this.fQi.getResources().getColor(a.d.sdk_cp_cont_j));
+            this.fPZ.setSkinType(0);
+            this.fPZ.setContainerBackgroundColorResId(a.d.sdk_transparent);
+            this.fPZ.createView();
         }
     }
 
     public void a(List<j> list, AlaLiveUserInfoData alaLiveUserInfoData, long j) {
-        if (this.bbH) {
+        if (this.bbJ) {
             dP(j);
         }
-        this.fQf.setData(list);
+        this.fQj.setData(list);
         a(list, alaLiveUserInfoData);
     }
 
     private void a(List<j> list, AlaLiveUserInfoData alaLiveUserInfoData) {
         final int i;
         int i2 = 0;
-        if (TbadkCoreApplication.isLogin() && !this.bbH && alaLiveUserInfoData != null) {
+        if (TbadkCoreApplication.isLogin() && !this.bbJ && alaLiveUserInfoData != null) {
             final int paddingBottom = this.mListView.getPaddingBottom();
-            final int dimensionPixelSize = this.fQe.getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds128);
+            final int dimensionPixelSize = this.fQi.getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds128);
             this.mListView.setPadding(this.mListView.getPaddingLeft(), this.mListView.getPaddingTop(), this.mListView.getRight(), this.mListView.getResources().getDimensionPixelOffset(a.e.sdk_ds128) + paddingBottom);
-            this.fQg = this.mRootView.findViewById(a.g.layout_bottom);
-            this.fQg.setVisibility(0);
+            this.fQk = this.mRootView.findViewById(a.g.layout_bottom);
+            this.fQk.setVisibility(0);
             CharmItemView charmItemView = (CharmItemView) this.mRootView.findViewById(a.g.item_bottom);
             charmItemView.setData(2, alaLiveUserInfoData.rank, alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, alaLiveUserInfoData.totalPrice, 0L);
-            charmItemView.fRR.setData(alaLiveUserInfoData);
-            charmItemView.fRN.setTextColor(1728053247);
-            charmItemView.fRQ.setVisibility(8);
-            if (!TextUtils.isEmpty(this.fQh)) {
+            charmItemView.fRV.setData(alaLiveUserInfoData);
+            charmItemView.fRR.setTextColor(1728053247);
+            charmItemView.fRU.setVisibility(8);
+            if (!TextUtils.isEmpty(this.fQl)) {
                 if (list != null) {
                     while (true) {
                         i = i2;
@@ -118,7 +118,7 @@ public class d {
                             break;
                         }
                         j jVar = list.get(i);
-                        if (jVar != null && jVar.aDE != null && String.valueOf(jVar.aDE.userId).equals(this.fQh)) {
+                        if (jVar != null && jVar.aDG != null && String.valueOf(jVar.aDG.userId).equals(this.fQl)) {
                             break;
                         }
                         i2 = i + 1;
@@ -135,11 +135,11 @@ public class d {
                         public void onScroll(AbsListView absListView, int i3, int i4, int i5) {
                             if (i >= i3 && i < i3 + i4) {
                                 d.this.mListView.setPadding(d.this.mListView.getPaddingLeft(), d.this.mListView.getPaddingTop(), d.this.mListView.getPaddingRight(), paddingBottom);
-                                d.this.fQg.setVisibility(8);
+                                d.this.fQk.setVisibility(8);
                                 return;
                             }
                             d.this.mListView.setPadding(d.this.mListView.getPaddingLeft(), d.this.mListView.getPaddingTop(), d.this.mListView.getPaddingRight(), paddingBottom + dimensionPixelSize);
-                            d.this.fQg.setVisibility(0);
+                            d.this.fQk.setVisibility(0);
                         }
                     });
                 }
@@ -147,13 +147,13 @@ public class d {
         }
     }
 
-    public void kU(boolean z) {
+    public void kW(boolean z) {
         if (z) {
-            this.bgl.reset();
-            this.bgl.setTitle(a.i.online_empty_text);
-            this.bgl.setup(CommonEmptyView.ImgType.NO_RANK_LIST, CommonEmptyView.StyleType.DARK);
-            this.bgl.setVisibility(0);
-            this.bgl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.d.3
+            this.bgn.reset();
+            this.bgn.setTitle(a.i.online_empty_text);
+            this.bgn.setup(CommonEmptyView.ImgType.NO_RANK_LIST, CommonEmptyView.StyleType.DARK);
+            this.bgn.setVisibility(0);
+            this.bgn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.d.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     d.this.age();
@@ -161,24 +161,24 @@ public class d {
             });
             return;
         }
-        this.bgl.setVisibility(8);
+        this.bgn.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(j jVar) {
-        if (jVar != null && jVar.aDE != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(this.fQe.getPageContext().getPageActivity(), jVar.aDE.userId + "", jVar.aDE.userName, jVar.aDE.portrait, jVar.aDE.sex, jVar.aDE.levelId, null, null, 0L, jVar.aDE.fansCount, jVar.aDE.fansCount, jVar.aDE.userStatus, this.mGroupId, this.mLiveId, this.bbH, this.aAE, null, jVar.aDE.userName, this.mOtherParams)));
+        if (jVar != null && jVar.aDG != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(this.fQi.getPageContext().getPageActivity(), jVar.aDG.userId + "", jVar.aDG.userName, jVar.aDG.portrait, jVar.aDG.sex, jVar.aDG.levelId, null, null, 0L, jVar.aDG.fansCount, jVar.aDG.fansCount, jVar.aDG.userStatus, this.mGroupId, this.mLiveId, this.bbJ, this.aAG, null, jVar.aDG.userName, this.mOtherParams)));
         }
     }
 
     public void dO(long j) {
-        if (this.fmc != null) {
-            this.fmc.setText(String.format(this.fQe.getString(a.i.online_count), i.numFormatOverWanNaForAudienceNum(j)));
+        if (this.fmg != null) {
+            this.fmg.setText(String.format(this.fQi.getString(a.i.online_count), i.numFormatOverWanNaForAudienceNum(j)));
         }
     }
 
     private void dP(long j) {
-        ((TextView) this.mRootView.findViewById(a.g.tv_value_total)).setText(String.format(this.fQe.getString(a.i.charm_host_total_value), StringHelper.formatValue(j)));
+        ((TextView) this.mRootView.findViewById(a.g.tv_value_total)).setText(String.format(this.fQi.getString(a.i.charm_host_total_value), StringHelper.formatValue(j)));
     }
 
     public View getRootView() {
@@ -186,22 +186,22 @@ public class d {
     }
 
     public void l(View.OnClickListener onClickListener) {
-        this.bgl.reset();
-        this.bgl.setTitle(a.i.sdk_net_fail_tip);
-        this.bgl.setRefreshButton(a.i.sdk_net_refresh_btn_text, onClickListener);
-        this.bgl.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
-        this.bgl.setVisibility(0);
+        this.bgn.reset();
+        this.bgn.setTitle(a.i.sdk_net_fail_tip);
+        this.bgn.setRefreshButton(a.i.sdk_net_refresh_btn_text, onClickListener);
+        this.bgn.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
+        this.bgn.setVisibility(0);
     }
 
-    public void bFW() {
-        this.bgl.setVisibility(8);
+    public void bFX() {
+        this.bgn.setVisibility(8);
     }
 
     public void au(String str, boolean z) {
-        this.mListView.setNextPage(this.fPV);
-        this.fPV.endLoadDataWithNoMore(str);
+        this.mListView.setNextPage(this.fPZ);
+        this.fPZ.endLoadDataWithNoMore(str);
         if (z) {
-            this.fPV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.d.4
+            this.fPZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.d.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     d.this.age();

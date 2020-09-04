@@ -26,7 +26,7 @@ import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class d {
     private static final boolean DEBUG = com.baidu.prologue.a.a.a.GLOBAL_DEBUG;
-    private static a bKB;
+    private static a bKF;
 
     public static File aO(String str, String str2) {
         StringBuffer stringBuffer = new StringBuffer();
@@ -53,7 +53,7 @@ public class d {
         return new File(Vu(), "splash.dat");
     }
 
-    public static File ib(String str) {
+    public static File ic(String str) {
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append(str);
         stringBuffer.append(".tmp");
@@ -66,29 +66,29 @@ public class d {
             if (str.startsWith(HttpHost.DEFAULT_SCHEME_NAME) || str.startsWith("https")) {
                 final File aO = aO(eVar.url, eVar.md5);
                 if (!aO.exists()) {
-                    final File ib = ib(eVar.md5);
-                    if (ib.exists()) {
-                        ib.delete();
+                    final File ic = ic(eVar.md5);
+                    if (ic.exists()) {
+                        ic.delete();
                     }
                     com.baidu.prologue.service.network.a.execute(new Runnable() { // from class: com.baidu.prologue.business.data.d.1
                         @Override // java.lang.Runnable
                         public void run() {
                             try {
-                                com.baidu.prologue.a.c.e.a(ib, str, new e.a() { // from class: com.baidu.prologue.business.data.d.1.1
+                                com.baidu.prologue.a.c.e.a(ic, str, new e.a() { // from class: com.baidu.prologue.business.data.d.1.1
                                     @Override // com.baidu.prologue.a.c.e.a
                                     public void Vi() {
-                                        if (!h.p(ib).equals(eVar.md5)) {
+                                        if (!h.p(ic).equals(eVar.md5)) {
                                             if (d.DEBUG) {
                                                 Log.d("SourceManager", "md5 check fail  url:" + eVar.url);
                                                 return;
                                             }
                                             return;
                                         }
-                                        d.d(ib, aO);
+                                        d.d(ic, aO);
                                     }
                                 });
                             } catch (Exception e) {
-                                if (com.baidu.prologue.a.b.a.bKi.get().UU()) {
+                                if (com.baidu.prologue.a.b.a.bKm.get().UU()) {
                                     Log.e("SourceManager", e.toString());
                                 }
                             }
@@ -138,9 +138,9 @@ public class d {
     }
 
     public static void e(final e eVar) {
-        if (eVar.bKQ >= 1) {
-            if (eVar.bKR < Integer.MAX_VALUE) {
-                eVar.bKR++;
+        if (eVar.bKU >= 1) {
+            if (eVar.bKV < Integer.MAX_VALUE) {
+                eVar.bKV++;
             }
             com.baidu.prologue.service.network.a.execute(new Runnable() { // from class: com.baidu.prologue.business.data.d.2
                 @Override // java.lang.Runnable
@@ -388,12 +388,12 @@ public class d {
                         }
                     }
                     if (arrayList.size() > 0) {
-                        if (d.bKB == null) {
-                            a unused = d.bKB = new a(arrayList);
-                            com.baidu.prologue.a.b.a.bKi.get().UK().registerReceiver(d.bKB, d.bKB.getIntentFilter());
+                        if (d.bKF == null) {
+                            a unused = d.bKF = new a(arrayList);
+                            com.baidu.prologue.a.b.a.bKm.get().UK().registerReceiver(d.bKF, d.bKF.getIntentFilter());
                             return;
                         }
-                        d.bKB.setNeedDownloadList(arrayList);
+                        d.bKF.setNeedDownloadList(arrayList);
                     }
                 }
             }
@@ -402,14 +402,14 @@ public class d {
 
     public static int f(e eVar) {
         int i = 0;
-        if (!eVar.bKS) {
+        if (!eVar.bKW) {
             long currentTimeMillis = System.currentTimeMillis() / 1000;
             long lastShowTime = f.getLastShowTime();
             i = (currentTimeMillis < eVar.start || currentTimeMillis > eVar.end) ? 2 : 2;
-            if (eVar.bKR >= eVar.bKQ && eVar.bKQ >= 1) {
+            if (eVar.bKV >= eVar.bKU && eVar.bKU >= 1) {
                 i |= 8;
             }
-            if (currentTimeMillis - lastShowTime < eVar.bKP * 60000) {
+            if (currentTimeMillis - lastShowTime < eVar.bKT * 60000) {
                 i |= 16;
             }
             if (eVar.advisible == 0) {

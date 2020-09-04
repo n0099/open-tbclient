@@ -16,21 +16,21 @@ import com.baidu.tieba.person.e;
 import com.baidu.tieba.view.h;
 import java.util.ArrayList;
 import java.util.Date;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
-    private static a lBf;
-    private e lBg;
+    private static a lBq;
+    private e lBr;
     private int mScore = 0;
 
-    public static a dmM() {
-        if (lBf == null) {
+    public static a dmP() {
+        if (lBq == null) {
             synchronized (a.class) {
-                if (lBf == null) {
-                    lBf = new a();
+                if (lBq == null) {
+                    lBq = new a();
                 }
             }
         }
-        return lBf;
+        return lBq;
     }
 
     public void init() {
@@ -81,22 +81,22 @@ public class a {
             hVar.setTitleSize(R.dimen.ds28);
             hVar.setTitlePadding(0, dimens, 0, dimens3);
             hVar.H(0, 0, 0, dimens2);
-            hVar.wT(true);
+            hVar.wV(true);
             hVar.a(new h.e() { // from class: com.baidu.tieba.o.a.1
                 @Override // com.baidu.tieba.view.h.e
                 public void Gc(int i) {
-                    if (a.this.lBg != null) {
-                        a.this.lBg.dismiss();
-                        a.this.lBg = null;
+                    if (a.this.lBr != null) {
+                        a.this.lBr.dismiss();
+                        a.this.lBr = null;
                         a.this.mScore = i;
                         TiebaStatic.log(new aq("c13072").ai("obj_type", a.this.mScore));
                         a.this.I(tbPageContext);
                     }
                 }
             });
-            this.lBg = new e(tbPageContext.getContext(), hVar.bhw());
-            this.lBg.U(0.7f);
-            g.a(this.lBg, tbPageContext);
+            this.lBr = new e(tbPageContext.getContext(), hVar.bhw());
+            this.lBr.U(0.7f);
+            g.a(this.lBr, tbPageContext);
             TiebaStatic.log(new aq("c13071"));
         }
     }
@@ -117,7 +117,7 @@ public class a {
             hVar.Jl(this.mScore);
             hVar.Jm(0);
             hVar.Jn(0);
-            hVar.wT(false);
+            hVar.wV(false);
             l.getDimens(tbPageContext.getContext(), R.dimen.ds42);
             int dimens = l.getDimens(tbPageContext.getContext(), R.dimen.ds32);
             l.getDimens(tbPageContext.getContext(), R.dimen.ds51);
@@ -126,9 +126,9 @@ public class a {
             aVar.a(new h.c() { // from class: com.baidu.tieba.o.a.2
                 @Override // com.baidu.tieba.view.h.c
                 public void onClick() {
-                    if (a.this.lBg != null) {
-                        a.this.lBg.dismiss();
-                        a.this.lBg = null;
+                    if (a.this.lBr != null) {
+                        a.this.lBr.dismiss();
+                        a.this.lBr = null;
                         if (a.this.mScore == 1 || a.this.mScore == 2) {
                             a.this.K(tbPageContext);
                             TiebaStatic.log(new aq("c13077"));
@@ -142,9 +142,9 @@ public class a {
             hVar.a(new h.b() { // from class: com.baidu.tieba.o.a.3
                 @Override // com.baidu.tieba.view.h.b
                 public void onClick() {
-                    if (a.this.lBg != null) {
-                        a.this.lBg.dismiss();
-                        a.this.lBg = null;
+                    if (a.this.lBr != null) {
+                        a.this.lBr.dismiss();
+                        a.this.lBr = null;
                         if (a.this.mScore == 1 || a.this.mScore == 2) {
                             TiebaStatic.log(new aq("c13078"));
                         } else {
@@ -154,9 +154,9 @@ public class a {
                 }
             });
             hVar.aT(arrayList);
-            this.lBg = new e(tbPageContext.getContext(), hVar.bhw());
-            this.lBg.U(0.7f);
-            g.a(this.lBg, tbPageContext);
+            this.lBr = new e(tbPageContext.getContext(), hVar.bhw());
+            this.lBr.U(0.7f);
+            g.a(this.lBr, tbPageContext);
             if (this.mScore == 1 || this.mScore == 2) {
                 TiebaStatic.log(new aq("c13076"));
             } else {

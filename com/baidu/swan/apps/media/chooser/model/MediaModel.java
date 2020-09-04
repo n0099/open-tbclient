@@ -88,7 +88,7 @@ public class MediaModel implements Parcelable, Comparable<Object> {
         return this.tempPath;
     }
 
-    public void os(String str) {
+    public void ot(String str) {
         this.tempPath = str;
     }
 

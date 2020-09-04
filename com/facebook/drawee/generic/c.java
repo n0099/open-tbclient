@@ -78,7 +78,7 @@ public class c {
                         } else if (index == a.C0864a.GenericDraweeHierarchy_overlayImage) {
                             bVar.s(a(context, obtainStyledAttributes, index));
                         } else if (index == a.C0864a.GenericDraweeHierarchy_roundAsCircle) {
-                            a(bVar).xZ(obtainStyledAttributes.getBoolean(index, false));
+                            a(bVar).yb(obtainStyledAttributes.getBoolean(index, false));
                         } else if (index == a.C0864a.GenericDraweeHierarchy_roundedCornerRadius) {
                             i2 = obtainStyledAttributes.getDimensionPixelSize(index, i2);
                         } else if (index == a.C0864a.GenericDraweeHierarchy_roundTopLeft) {
@@ -169,8 +169,8 @@ public class c {
                 z8 = true;
             }
         }
-        if (bVar.dQH() != null && i > 0) {
-            bVar.q(new com.facebook.drawee.drawable.b(bVar.dQH(), i));
+        if (bVar.dQQ() != null && i > 0) {
+            bVar.q(new com.facebook.drawee.drawable.b(bVar.dQQ(), i));
         }
         if (i2 > 0) {
             a(bVar).h(z9 ? i2 : 0.0f, z10 ? i2 : 0.0f, z12 ? i2 : 0.0f, z11 ? i2 : 0.0f);
@@ -180,10 +180,10 @@ public class c {
 
     @ReturnsOwnership
     private static RoundingParams a(b bVar) {
-        if (bVar.dQx() == null) {
+        if (bVar.dQG() == null) {
             bVar.b(new RoundingParams());
         }
-        return bVar.dQx();
+        return bVar.dQG();
     }
 
     @Nullable
@@ -201,23 +201,23 @@ public class c {
             case -1:
                 return null;
             case 0:
-                return p.b.npk;
+                return p.b.npC;
             case 1:
-                return p.b.npl;
+                return p.b.npD;
             case 2:
-                return p.b.npm;
+                return p.b.npE;
             case 3:
-                return p.b.npn;
+                return p.b.npF;
             case 4:
-                return p.b.npo;
+                return p.b.npG;
             case 5:
-                return p.b.npp;
+                return p.b.npH;
             case 6:
-                return p.b.npq;
+                return p.b.npI;
             case 7:
-                return p.b.npr;
+                return p.b.npJ;
             case 8:
-                return p.b.nps;
+                return p.b.npK;
             default:
                 throw new RuntimeException("XML attribute not specified!");
         }

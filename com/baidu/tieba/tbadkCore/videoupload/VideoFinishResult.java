@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.util.TbErrInfo;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class VideoFinishResult implements Serializable {
     private static final String KEY_ERROR = "error";
     private static final String KEY_ERROR_MSG = "errmsg";

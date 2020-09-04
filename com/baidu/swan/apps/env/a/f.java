@@ -65,10 +65,10 @@ public class f {
                         Log.i("SwanAppDiskCleaner", "after strategy swanApp size=" + list.size());
                     }
                     com.baidu.swan.pms.node.b.a aUD = com.baidu.swan.pms.node.b.b.aUC().aUD();
-                    long j = aUD.dGz;
-                    long j2 = aUD.dGB;
-                    long j3 = aUD.dGA;
-                    long j4 = aUD.dGy;
+                    long j = aUD.dGD;
+                    long j2 = aUD.dGF;
+                    long j3 = aUD.dGE;
+                    long j4 = aUD.dGC;
                     if (f.DEBUG) {
                         Log.i("SwanAppDiskCleaner", "forceCleanHour=" + j + ", ignoreCleanHour=" + j2 + ", holdMaxCount=" + j3 + ", maxCount=" + j4);
                     }

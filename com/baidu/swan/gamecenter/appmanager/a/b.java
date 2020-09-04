@@ -127,35 +127,35 @@ public class b extends com.baidu.swan.gamecenter.c.a {
 
     /* loaded from: classes3.dex */
     private static class a extends com.baidu.swan.apps.process.a.b.c.c {
-        private String dng;
-        private com.baidu.swan.apps.o.b dnh;
+        private String dnk;
+        private com.baidu.swan.apps.o.b dnl;
         private String mPackageName;
 
         a(String str, String str2, com.baidu.swan.apps.o.b bVar) {
             this.mPackageName = str;
-            this.dng = str2;
-            this.dnh = bVar;
+            this.dnk = str2;
+            this.dnl = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.process.a.b.c.a
         public void onEvent(@NonNull com.baidu.swan.apps.process.a.b.a.b bVar) {
             Bundle result = bVar.getResult();
-            if (this.dnh != null) {
+            if (this.dnl != null) {
                 if (result != null) {
-                    b.a(result, this.dnh);
+                    b.a(result, this.dnl);
                 } else {
-                    this.dnh.onFail(1001, "");
+                    this.dnl.onFail(1001, "");
                 }
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void axH() {
-            if (this.dnh != null) {
-                this.dnh.onFail(31018, "download process is killed");
-                b.i(this.mPackageName, this.dng, 31018);
-                this.dnh = null;
+            if (this.dnl != null) {
+                this.dnl.onFail(31018, "download process is killed");
+                b.i(this.mPackageName, this.dnk, 31018);
+                this.dnl = null;
             }
         }
 
@@ -173,10 +173,10 @@ public class b extends com.baidu.swan.gamecenter.c.a {
     /* renamed from: com.baidu.swan.gamecenter.appmanager.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     private static class RunnableC0485b implements Runnable {
-        private WeakReference<a> dni;
+        private WeakReference<a> dnm;
 
         RunnableC0485b(a aVar) {
-            this.dni = new WeakReference<>(aVar);
+            this.dnm = new WeakReference<>(aVar);
         }
 
         @Override // java.lang.Runnable
@@ -184,8 +184,8 @@ public class b extends com.baidu.swan.gamecenter.c.a {
             if (b.DEBUG) {
                 Log.d("appManagerAction", "onConnectionDown");
             }
-            if (this.dni.get() != null) {
-                this.dni.get().axH();
+            if (this.dnm.get() != null) {
+                this.dnm.get().axH();
             }
         }
     }

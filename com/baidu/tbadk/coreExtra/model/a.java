@@ -16,10 +16,10 @@ import com.baidu.tbadk.coreExtra.data.AuthTokenData;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
-    private C0549a eCY;
-    private boolean eyb;
+    private C0549a eDc;
+    private boolean eyg;
     private com.baidu.adp.base.d mLoadDataCallBack;
     private TbPageContext mPageContext;
 
@@ -36,24 +36,24 @@ public class a {
     }
 
     public void a(boolean z, String str, String str2, boolean z2, String str3, BdUniqueId bdUniqueId, String str4, String str5) {
-        if (this.eCY == null) {
-            this.eCY = new C0549a();
-            this.eCY.setPriority(2);
-            this.eCY.iT(z);
-            this.eCY.setPortrait(str);
-            this.eCY.setToUid(str2);
-            this.eCY.setIsGod(z2);
-            this.eCY.setFrom(str3);
-            this.eCY.setPageId(bdUniqueId);
-            this.eCY.setForumId(str4);
-            this.eCY.setInLive(str5);
-            this.eCY.execute(new Integer[0]);
+        if (this.eDc == null) {
+            this.eDc = new C0549a();
+            this.eDc.setPriority(2);
+            this.eDc.iV(z);
+            this.eDc.setPortrait(str);
+            this.eDc.setToUid(str2);
+            this.eDc.setIsGod(z2);
+            this.eDc.setFrom(str3);
+            this.eDc.setPageId(bdUniqueId);
+            this.eDc.setForumId(str4);
+            this.eDc.setInLive(str5);
+            this.eDc.execute(new Integer[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tbadk.coreExtra.model.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class C0549a extends BdAsyncTask<Integer, Integer, String> {
         private String authSid;
         private String forumId;
@@ -85,7 +85,7 @@ public class a {
             this.toUid = str;
         }
 
-        public void iT(boolean z) {
+        public void iV(boolean z) {
             this.isAttention = z;
         }
 
@@ -121,7 +121,7 @@ public class a {
                     this.mNetwork = new aa();
                     if (this.isAttention) {
                         this.mNetwork.setUrl(TbConfig.SERVER_ADDRESS + "c/c/user/follow");
-                        this.mNetwork.ik(true);
+                        this.mNetwork.il(true);
                     } else {
                         this.mNetwork.setUrl(TbConfig.SERVER_ADDRESS + "c/c/user/unfollow");
                     }
@@ -151,7 +151,7 @@ public class a {
         public void onPostExecute(String str) {
             boolean[] i;
             super.onPostExecute((C0549a) str);
-            a.this.eCY = null;
+            a.this.eDc = null;
             if (this.mNetwork != null) {
                 UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
                 aVar.isSucc = this.mNetwork.biQ().bjw().isRequestSuccess();
@@ -159,10 +159,10 @@ public class a {
                 aVar.isAttention = this.isAttention;
                 aVar.toUid = this.toUid;
                 aVar.isGod = this.isGod;
-                aVar.eyb = a.this.eyb;
+                aVar.eyg = a.this.eyg;
                 aVar.parserJson(str, this.showToastAfterAttentionSuc);
                 if (this.mNetwork.biQ().bjw().isRequestSuccess()) {
-                    aVar.eCa = null;
+                    aVar.eCe = null;
                 }
                 int serverErrorCode = this.mNetwork.getServerErrorCode();
                 if (!AntiHelper.c(a.this.getContext(), serverErrorCode, aVar.blockUrl)) {
@@ -185,9 +185,9 @@ public class a {
                 this.mNetwork.cancelNetConnect();
                 this.mNetwork = null;
             }
-            if (a.this.eCY != null) {
-                a.this.eCY.cancel();
-                a.this.eCY = null;
+            if (a.this.eDc != null) {
+                a.this.eDc.cancel();
+                a.this.eDc = null;
             }
             if (a.this.mLoadDataCallBack != null) {
                 a.this.mLoadDataCallBack.callback(false);
@@ -203,8 +203,8 @@ public class a {
     }
 
     public void cancel() {
-        if (this.eCY != null) {
-            this.eCY.cancel();
+        if (this.eDc != null) {
+            this.eDc.cancel();
         }
     }
 
@@ -217,16 +217,16 @@ public class a {
             zArr = new boolean[2];
             zArr[0] = !NotificationManagerCompat.from(this.mPageContext.getPageActivity()).areNotificationsEnabled();
             zArr[1] = !com.baidu.tbadk.coreExtra.messageCenter.d.boy().boA();
-            if (!zArr[0] && !zArr[1] && tbPageContext != null && !this.eyb) {
+            if (!zArr[0] && !zArr[1] && tbPageContext != null && !this.eyg) {
                 tbPageContext.showToast(R.string.attention_success);
             }
-        } else if (tbPageContext != null && !this.eyb) {
+        } else if (tbPageContext != null && !this.eyg) {
             tbPageContext.showToast(R.string.attention_success);
         }
         return zArr;
     }
 
-    public void iC(boolean z) {
-        this.eyb = z;
+    public void iD(boolean z) {
+        this.eyg = z;
     }
 }

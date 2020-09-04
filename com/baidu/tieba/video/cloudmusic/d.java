@@ -12,9 +12,9 @@ public interface d {
 
         void c(CloudMusicData.MusicTagList musicTagList);
 
-        void coU();
+        void coV();
 
-        void dlK();
+        void dlN();
     }
 
     /* loaded from: classes17.dex */
@@ -29,10 +29,10 @@ public interface d {
 
         void b(CloudMusicData.MusicTagList musicTagList);
 
-        void dBd();
+        void dBm();
 
-        void wA(boolean z);
+        void wC(boolean z);
 
-        void wB(boolean z);
+        void wD(boolean z);
     }
 }

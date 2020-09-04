@@ -6,21 +6,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class WrapLineLayout extends ViewGroup {
-    private List<List<View>> ewh;
-    private List<Integer> ewi;
+    private List<List<View>> ewl;
+    private List<Integer> ewm;
 
     public WrapLineLayout(Context context) {
         super(context);
-        this.ewh = new ArrayList();
-        this.ewi = new ArrayList();
+        this.ewl = new ArrayList();
+        this.ewm = new ArrayList();
     }
 
     public WrapLineLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ewh = new ArrayList();
-        this.ewi = new ArrayList();
+        this.ewl = new ArrayList();
+        this.ewm = new ArrayList();
     }
 
     @Override // android.view.ViewGroup
@@ -91,8 +91,8 @@ public class WrapLineLayout extends ViewGroup {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        this.ewh.clear();
-        this.ewi.clear();
+        this.ewl.clear();
+        this.ewm.clear();
         int width = (getWidth() - getPaddingLeft()) - getPaddingRight();
         ArrayList arrayList = new ArrayList();
         int childCount = getChildCount();
@@ -105,8 +105,8 @@ public class WrapLineLayout extends ViewGroup {
             int measuredWidth = childAt.getMeasuredWidth();
             int measuredHeight = childAt.getMeasuredHeight();
             if (marginLayoutParams.leftMargin + measuredWidth + marginLayoutParams.rightMargin + i6 > width) {
-                this.ewi.add(Integer.valueOf(i5));
-                this.ewh.add(arrayList);
+                this.ewm.add(Integer.valueOf(i5));
+                this.ewl.add(arrayList);
                 i6 = 0;
                 arrayList = new ArrayList();
             }
@@ -117,17 +117,17 @@ public class WrapLineLayout extends ViewGroup {
             i5 = max;
             i6 = i8;
         }
-        this.ewi.add(Integer.valueOf(i5));
-        this.ewh.add(arrayList);
+        this.ewm.add(Integer.valueOf(i5));
+        this.ewl.add(arrayList);
         int paddingLeft = getPaddingLeft();
         int paddingTop = getPaddingTop();
-        int size = this.ewh.size();
+        int size = this.ewl.size();
         int i9 = 0;
         int i10 = paddingTop;
         int i11 = paddingLeft;
         while (i9 < size) {
-            List<View> list = this.ewh.get(i9);
-            int intValue = this.ewi.get(i9).intValue();
+            List<View> list = this.ewl.get(i9);
+            int intValue = this.ewm.get(i9).intValue();
             int i12 = 0;
             while (true) {
                 int i13 = i12;

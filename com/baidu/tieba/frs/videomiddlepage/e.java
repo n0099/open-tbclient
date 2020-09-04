@@ -18,33 +18,33 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes16.dex */
 public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.aggregation.g, com.baidu.tieba.card.a.a<a>> {
-    private List<a> Ys;
-    private com.baidu.tieba.lego.card.view.f Yt;
-    private String dYo;
-    private boolean ial;
-    private com.baidu.tieba.frs.aggregation.a iam;
-    private boolean ian;
-    private aa<com.baidu.tieba.frs.aggregation.g> iao;
-    private c ivT;
-    private com.baidu.tieba.frs.videomiddlepage.a.a ivU;
-    private b ivX;
-    private com.baidu.tieba.lego.card.view.g ivZ;
-    private a iwu;
-    private boolean iwv;
-    private boolean iww;
-    private int iwx;
+    private List<a> Yu;
+    private com.baidu.tieba.lego.card.view.f Yv;
+    private String dYs;
+    private boolean iar;
+    private com.baidu.tieba.frs.aggregation.a ias;
+    private boolean iat;
+    private aa<com.baidu.tieba.frs.aggregation.g> iau;
+    private c ivZ;
+    private a iwA;
+    private boolean iwB;
+    private boolean iwC;
+    private int iwD;
+    private com.baidu.tieba.frs.videomiddlepage.a.a iwa;
+    private b iwd;
+    private com.baidu.tieba.lego.card.view.g iwf;
     private BdUniqueId mBdUniqueId;
     private String mFrom;
     private Handler mHandler;
     private TbPageContext mPageContext;
 
     public e(TbPageContext<?> tbPageContext, com.baidu.tieba.frs.aggregation.a aVar, c cVar, boolean z, String str, String str2, com.baidu.tieba.lego.card.view.f fVar, BdUniqueId bdUniqueId, b bVar, com.baidu.tieba.lego.card.view.g gVar) {
-        super(tbPageContext.getPageActivity().getBaseContext(), com.baidu.tieba.frs.aggregation.g.iat);
-        this.Ys = new ArrayList();
+        super(tbPageContext.getPageActivity().getBaseContext(), com.baidu.tieba.frs.aggregation.g.iaz);
+        this.Yu = new ArrayList();
         this.mHandler = new Handler();
-        this.iwv = true;
-        this.iwx = 1;
-        this.iao = new aa<com.baidu.tieba.frs.aggregation.g>() { // from class: com.baidu.tieba.frs.videomiddlepage.e.1
+        this.iwB = true;
+        this.iwD = 1;
+        this.iau = new aa<com.baidu.tieba.frs.aggregation.g>() { // from class: com.baidu.tieba.frs.videomiddlepage.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             public void a(View view, com.baidu.tieba.frs.aggregation.g gVar2) {
@@ -58,14 +58,14 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.aggre
                     bwVar.setThreadType(40);
                     if ((view.getId() == R.id.video_container || view.getId() == R.id.video_agg_container || view.getId() == R.id.mobile_network_play) && view.getTag() != null && (view.getTag() instanceof a)) {
                         a aVar2 = (a) view.getTag();
-                        if (e.this.iwu != null && e.this.iwu != aVar2 && (view.getId() == R.id.video_container || view.getId() == R.id.mobile_network_play)) {
-                            e.this.iwu.coJ();
+                        if (e.this.iwA != null && e.this.iwA != aVar2 && (view.getId() == R.id.video_container || view.getId() == R.id.mobile_network_play)) {
+                            e.this.iwA.coK();
                         }
-                        if (e.this.iwu != aVar2) {
-                            e.this.iwu = aVar2;
+                        if (e.this.iwA != aVar2) {
+                            e.this.iwA = aVar2;
                         }
-                        if (e.this.iwu != null) {
-                            e.this.iwu.pi(e.this.iwv);
+                        if (e.this.iwA != null) {
+                            e.this.iwA.pk(e.this.iwB);
                         }
                     }
                     if (view.getId() == R.id.title) {
@@ -75,8 +75,8 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.aggre
                             aqVar.dD("uid", TbadkCoreApplication.getCurrentAccount());
                         }
                         TiebaStatic.log(aqVar);
-                        if (e.this.iwu != null && !e.this.iwu.cuo()) {
-                            com.baidu.tieba.s.c.dvE().b(e.this.mBdUniqueId, com.baidu.tieba.s.a.a(bwVar, PageStayDurationConstants.PageName.VIDEO_LIST, "common_click", 1, gVar2.hmy, false, (String) null, (String) null));
+                        if (e.this.iwA != null && !e.this.iwA.cup()) {
+                            com.baidu.tieba.s.c.dvJ().b(e.this.mBdUniqueId, com.baidu.tieba.s.a.a(bwVar, PageStayDurationConstants.PageName.VIDEO_LIST, "common_click", 1, gVar2.hmC, false, (String) null, (String) null));
                         }
                     } else if (view.getId() == R.id.agree_view_container) {
                         aq aqVar2 = new aq("c12414");
@@ -92,7 +92,7 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.aggre
                             aqVar3.dD("uid", TbadkCoreApplication.getCurrentAccount());
                         }
                         TiebaStatic.log(aqVar3);
-                        com.baidu.tieba.s.c.dvE().b(e.this.mBdUniqueId, com.baidu.tieba.s.a.a(bwVar, PageStayDurationConstants.PageName.VIDEO_LIST, "common_click", 5, gVar2.hmy, false, (String) null, (String) null));
+                        com.baidu.tieba.s.c.dvJ().b(e.this.mBdUniqueId, com.baidu.tieba.s.a.a(bwVar, PageStayDurationConstants.PageName.VIDEO_LIST, "common_click", 5, gVar2.hmC, false, (String) null, (String) null));
                     } else if (view.getId() == R.id.user_icon || view.getId() == R.id.user_name) {
                         aq aqVar4 = new aq("c12412");
                         aqVar4.dD("fid", gVar2.forumId);
@@ -100,7 +100,7 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.aggre
                             aqVar4.dD("uid", TbadkCoreApplication.getCurrentAccount());
                         }
                         TiebaStatic.log(aqVar4);
-                        com.baidu.tieba.s.c.dvE().b(e.this.mBdUniqueId, com.baidu.tieba.s.a.a(bwVar, PageStayDurationConstants.PageName.VIDEO_LIST, "common_click", 2, gVar2.hmy, false, (String) null, (String) null));
+                        com.baidu.tieba.s.c.dvJ().b(e.this.mBdUniqueId, com.baidu.tieba.s.a.a(bwVar, PageStayDurationConstants.PageName.VIDEO_LIST, "common_click", 2, gVar2.hmC, false, (String) null, (String) null));
                     } else if (view.getId() == R.id.attention) {
                         aq aqVar5 = new aq("c12413");
                         aqVar5.dD("fid", gVar2.forumId);
@@ -121,34 +121,34 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.aggre
         };
         this.mPageContext = tbPageContext;
         this.mBdUniqueId = bdUniqueId;
-        this.iam = aVar;
-        this.ian = z;
-        this.ivT = cVar;
+        this.ias = aVar;
+        this.iat = z;
+        this.ivZ = cVar;
         this.mFrom = str;
-        this.ivU = new com.baidu.tieba.frs.videomiddlepage.a.a();
-        this.dYo = str2;
-        this.Yt = fVar;
-        this.ivX = bVar;
-        this.ivZ = gVar;
+        this.iwa = new com.baidu.tieba.frs.videomiddlepage.a.a();
+        this.dYs = str2;
+        this.Yv = fVar;
+        this.iwd = bVar;
+        this.iwf = gVar;
     }
 
-    public void pn(boolean z) {
-        this.iww = z;
+    public void pp(boolean z) {
+        this.iwC = z;
     }
 
     public void onConfigurationChanged(Configuration configuration) {
         int i = configuration.orientation;
-        if (i != this.iwx) {
-            this.iwx = i;
-            if (this.iwu != null) {
-                this.ial = true;
-                this.iwu.onConfigurationChanged(configuration);
+        if (i != this.iwD) {
+            this.iwD = i;
+            if (this.iwA != null) {
+                this.iar = true;
+                this.iwA.onConfigurationChanged(configuration);
                 if (configuration.orientation == 1) {
                     this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.videomiddlepage.e.2
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (e.this.ial) {
-                                e.this.ial = false;
+                            if (e.this.iar) {
+                                e.this.iar = false;
                             }
                         }
                     }, 500L);
@@ -162,10 +162,10 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.aggre
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aK */
     public com.baidu.tieba.card.a.a<a> b(ViewGroup viewGroup) {
-        a aVar = new a(this.mPageContext, this.ian, this.mFrom, this.dYo, this.ivX);
-        aVar.c(this.iao);
-        aVar.a(this.ivZ);
-        this.Ys.add(aVar);
+        a aVar = new a(this.mPageContext, this.iat, this.mFrom, this.dYs, this.iwd);
+        aVar.c(this.iau);
+        aVar.a(this.iwf);
+        this.Yu.add(aVar);
         return new com.baidu.tieba.card.a.a<>(aVar);
     }
 
@@ -179,21 +179,21 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.aggre
         if (gVar.bgv() != null) {
             gVar.bgv().keyFromHomePage = this.mFrom;
         }
-        if (!this.iww) {
-            if (!this.ial) {
-                aVar.ccE().a(gVar, i, this.iam);
+        if (!this.iwC) {
+            if (!this.iar) {
+                aVar.ccF().a(gVar, i, this.ias);
                 i trigger = gVar.getTrigger();
                 if (trigger != null) {
                     trigger.ro();
                 }
-                aVar.ccE().mPosition = i;
-                aVar.ccE().setOnVideoContainerForegroundClickListener(this.ivT);
+                aVar.ccF().mPosition = i;
+                aVar.ccF().setOnVideoContainerForegroundClickListener(this.ivZ);
             } else {
-                aVar.ccE().c(gVar, i, this.iam);
+                aVar.ccF().c(gVar, i, this.ias);
             }
         }
-        if (aVar.ccE() instanceof com.baidu.tieba.lego.card.view.h) {
-            aVar.ccE().setCurrentPlayCallBack(this.Yt);
+        if (aVar.ccF() instanceof com.baidu.tieba.lego.card.view.h) {
+            aVar.ccF().setCurrentPlayCallBack(this.Yv);
         }
         String a = com.baidu.tieba.s.a.a(gVar.threadId, "", "", gVar.mBaijiahao);
         bw bwVar = new bw();
@@ -202,47 +202,47 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.aggre
         bwVar.setBaijiahaoData(gVar.mBaijiahao);
         bwVar.setFid(com.baidu.adp.lib.f.b.toLong(gVar.forumId, 0L));
         bwVar.setThreadType(40);
-        com.baidu.tieba.s.c.dvE().a(this.mBdUniqueId, a, com.baidu.tieba.s.a.a(bwVar, PageStayDurationConstants.PageName.VIDEO_LIST, "common_exp", i + 1, false, null, null));
+        com.baidu.tieba.s.c.dvJ().a(this.mBdUniqueId, a, com.baidu.tieba.s.a.a(bwVar, PageStayDurationConstants.PageName.VIDEO_LIST, "common_exp", i + 1, false, null, null));
         return aVar.getView();
     }
 
     public boolean rs() {
-        if (this.iwu != null) {
-            return this.iwu.isPlaying();
+        if (this.iwA != null) {
+            return this.iwA.isPlaying();
         }
         return false;
     }
 
-    public boolean cug() {
-        if (this.iwu != null) {
-            return this.iwu.cug();
+    public boolean cuh() {
+        if (this.iwA != null) {
+            return this.iwA.cuh();
         }
         return false;
     }
 
     public void rq() {
-        if (this.iwu != null) {
-            this.iwu.coI();
+        if (this.iwA != null) {
+            this.iwA.coJ();
         }
     }
 
     public void rr() {
-        if (this.iwu != null) {
-            this.iwu.coJ();
+        if (this.iwA != null) {
+            this.iwA.coK();
         }
     }
 
-    public void cut() {
-        if (this.iwu != null) {
-            this.iwu.cuh();
+    public void cuu() {
+        if (this.iwA != null) {
+            this.iwA.cui();
         }
     }
 
     public void onDestroy() {
-        if (this.ivU != null) {
-            this.ivU.cuz();
+        if (this.iwa != null) {
+            this.iwa.cuA();
         }
-        for (a aVar : this.Ys) {
+        for (a aVar : this.Yu) {
             if (aVar != null) {
                 aVar.onDestroy();
             }
@@ -250,15 +250,15 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.aggre
     }
 
     public boolean xB(int i) {
-        if (this.iwu == null) {
+        if (this.iwA == null) {
             return false;
         }
-        return this.iwu.xB(i);
+        return this.iwA.xB(i);
     }
 
-    public void cuu() {
-        if (this.iwu != null) {
-            this.iwu.cun();
+    public void cuv() {
+        if (this.iwA != null) {
+            this.iwA.cuo();
         }
     }
 }

@@ -13,15 +13,15 @@ import com.googlecode.mp4parser.boxes.apple.TrackLoadSettingsAtom;
 public class n extends EventTargetImpl implements com.baidu.swan.games.a.c {
     @V8JavascriptField
     public String adUnitId;
-    private String dkJ;
-    private j dmF;
-    private boolean dmP;
-    private h dmT;
+    private String dkN;
+    private j dmJ;
+    private boolean dmT;
+    private h dmX;
 
     public n(com.baidu.swan.games.f.b bVar, JsObject jsObject) {
         super(bVar);
         this.adUnitId = "";
-        this.dmF = new j() { // from class: com.baidu.swan.game.ad.e.n.1
+        this.dmJ = new j() { // from class: com.baidu.swan.game.ad.e.n.1
             @Override // com.baidu.swan.game.ad.e.j
             public void onLoad() {
                 n.this.dispatchEvent(new JSEvent(TrackLoadSettingsAtom.TYPE));
@@ -30,33 +30,33 @@ public class n extends EventTargetImpl implements com.baidu.swan.games.a.c {
             @Override // com.baidu.swan.game.ad.e.j
             public void onError(String str) {
                 JSEvent jSEvent = new JSEvent(BdStatsConstant.StatsType.ERROR);
-                jSEvent.data = m.ua(str);
+                jSEvent.data = m.ub(str);
                 n.this.dispatchEvent(jSEvent);
             }
 
             @Override // com.baidu.swan.game.ad.e.j
-            public void gt(boolean z) {
+            public void gu(boolean z) {
                 JSEvent jSEvent = new JSEvent("close");
-                jSEvent.data = m.gu(z);
+                jSEvent.data = m.gv(z);
                 n.this.dispatchEvent(jSEvent);
             }
         };
         com.baidu.swan.games.binding.model.c e = com.baidu.swan.games.binding.model.c.e(jsObject);
         if (e != null) {
             this.adUnitId = e.optString("adUnitId");
-            this.dkJ = e.optString("appSid");
+            this.dkN = e.optString("appSid");
         }
-        if (e == null || TextUtils.isEmpty(this.adUnitId) || TextUtils.isEmpty(this.dkJ)) {
+        if (e == null || TextUtils.isEmpty(this.adUnitId) || TextUtils.isEmpty(this.dkN)) {
             bVar.throwJSException(JSExceptionType.Error, "请求广告的必须参数为空,中断执行");
             return;
         }
-        this.dmP = com.baidu.swan.game.ad.d.f.aJs();
-        if (this.dmP) {
-            this.dkJ = com.baidu.swan.game.ad.d.f.aJv();
+        this.dmT = com.baidu.swan.game.ad.d.f.aJs();
+        if (this.dmT) {
+            this.dkN = com.baidu.swan.game.ad.d.f.aJv();
             this.adUnitId = com.baidu.swan.game.ad.d.f.aJw();
         }
-        this.dmT = new h(this.dkJ, this.adUnitId, this.dmP);
-        this.dmT.a(this.dmF);
+        this.dmX = new h(this.dkN, this.adUnitId, this.dmT);
+        this.dmX.a(this.dmJ);
         loadAd(null);
     }
 
@@ -64,18 +64,18 @@ public class n extends EventTargetImpl implements com.baidu.swan.games.a.c {
     @JavascriptInterface
     public synchronized void loadAd(JsObject jsObject) {
         com.baidu.swan.games.binding.model.c e = com.baidu.swan.games.binding.model.c.e(jsObject);
-        if (this.dmT != null) {
-            this.dmT.b(e);
+        if (this.dmX != null) {
+            this.dmX.b(e);
         }
     }
 
     @Override // com.baidu.swan.games.a.c
     @JavascriptInterface
     public synchronized void showAd(JsObject jsObject) {
-        com.baidu.swan.games.view.a.b.wj(this.dmT.getType());
+        com.baidu.swan.games.view.a.b.wk(this.dmX.getType());
         com.baidu.swan.games.binding.model.c e = com.baidu.swan.games.binding.model.c.e(jsObject);
-        if (this.dmT != null) {
-            this.dmT.c(e);
+        if (this.dmX != null) {
+            this.dmX.c(e);
         }
     }
 }

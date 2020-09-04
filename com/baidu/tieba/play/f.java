@@ -4,58 +4,58 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.widget.MediaController;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class f {
-    private MediaController.MediaPlayerControl fpe;
-    private a hjC;
-    private c lse;
-    private b lsf;
-    private int lsc = 1000;
-    private int lsd = 0;
+    private MediaController.MediaPlayerControl fpi;
+    private a hjG;
+    private c lsp;
+    private b lsq;
+    private int lsn = 1000;
+    private int lso = 0;
     private Handler mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.play.f.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (message != null && message.what == 1 && f.this.fpe != null && f.this.fpe.isPlaying()) {
-                int currentPosition = f.this.fpe.getCurrentPosition();
-                int duration = f.this.fpe.getDuration();
-                if (currentPosition < f.this.lsd) {
-                    if (f.this.hjC != null) {
-                        f.this.hjC.rX();
+            if (message != null && message.what == 1 && f.this.fpi != null && f.this.fpi.isPlaying()) {
+                int currentPosition = f.this.fpi.getCurrentPosition();
+                int duration = f.this.fpi.getDuration();
+                if (currentPosition < f.this.lso) {
+                    if (f.this.hjG != null) {
+                        f.this.hjG.rX();
                     }
-                } else if (currentPosition == f.this.lsd && f.this.lse != null) {
-                    f.this.lse.bFP();
+                } else if (currentPosition == f.this.lso && f.this.lsp != null) {
+                    f.this.lsp.bFQ();
                 }
-                if (f.this.lsf != null) {
-                    f.this.lsf.bX(duration, currentPosition);
+                if (f.this.lsq != null) {
+                    f.this.lsq.bX(duration, currentPosition);
                 }
-                f.this.lsd = currentPosition;
-                f.this.djQ();
+                f.this.lso = currentPosition;
+                f.this.djT();
             }
         }
     };
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface a {
         void rX();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface b {
         void bX(int i, int i2);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface c {
-        void bFP();
+        void bFQ();
     }
 
     public void setPlayer(MediaController.MediaPlayerControl mediaPlayerControl) {
-        this.fpe = mediaPlayerControl;
+        this.fpi = mediaPlayerControl;
     }
 
     public void start() {
-        this.lsd = 0;
-        djQ();
+        this.lso = 0;
+        djT();
     }
 
     public void stop() {
@@ -63,20 +63,20 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void djQ() {
+    public void djT() {
         this.mHandler.removeMessages(1);
-        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.lsc);
+        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.lsn);
     }
 
     public void a(a aVar) {
-        this.hjC = aVar;
+        this.hjG = aVar;
     }
 
     public void a(c cVar) {
-        this.lse = cVar;
+        this.lsp = cVar;
     }
 
     public void a(b bVar) {
-        this.lsf = bVar;
+        this.lsq = bVar;
     }
 }

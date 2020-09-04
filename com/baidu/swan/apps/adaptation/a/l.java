@@ -16,7 +16,7 @@ public interface l {
 
     void a(a.InterfaceC0382a interfaceC0382a);
 
-    void ds(boolean z);
+    void dt(boolean z);
 
     void gq(int i);
 }

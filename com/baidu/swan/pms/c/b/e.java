@@ -7,14 +7,14 @@ import org.json.JSONObject;
 /* loaded from: classes14.dex */
 public class e extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.e> {
     @Nullable
-    private g dFY;
+    private g dGc;
     @Nullable
-    private g dFZ;
+    private g dGd;
 
     public e(g gVar, com.baidu.swan.pms.c.d.g gVar2, @Nullable g gVar3, @Nullable g gVar4) {
         super(gVar, gVar2);
-        this.dFY = gVar3;
-        this.dFZ = gVar4;
+        this.dGc = gVar3;
+        this.dGd = gVar4;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,9 +30,9 @@ public class e extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.e> {
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: a */
     public com.baidu.swan.pms.model.a ag(com.baidu.swan.pms.c.c.e eVar) {
-        this.dFu.aiw();
-        com.baidu.swan.pms.g.a.k(this.cqu.getCategory(), eVar.maxAge);
-        f.b(eVar.data, (this.dFu == this.dFY || this.dFu == this.dFZ) ? null : this.dFu, this.dFY, this.dFZ);
+        this.dFy.aiw();
+        com.baidu.swan.pms.g.a.k(this.cqy.getCategory(), eVar.maxAge);
+        f.b(eVar.data, (this.dFy == this.dGc || this.dFy == this.dGd) ? null : this.dFy, this.dGc, this.dGd);
         return null;
     }
 

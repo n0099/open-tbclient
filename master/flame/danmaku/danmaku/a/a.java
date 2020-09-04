@@ -6,76 +6,76 @@ import master.flame.danmaku.danmaku.model.l;
 import master.flame.danmaku.danmaku.model.m;
 /* loaded from: classes6.dex */
 public abstract class a {
-    protected DanmakuContext ouG;
-    protected f ovp;
-    protected int oyA;
-    protected float oyB;
-    protected float oyC;
-    private l oyD;
-    protected m oyE;
-    protected InterfaceC0976a oyF;
-    protected b<?> oyy;
-    protected int oyz;
+    protected DanmakuContext ouY;
+    protected f ovH;
+    protected b<?> oyQ;
+    protected int oyR;
+    protected int oyS;
+    protected float oyT;
+    protected float oyU;
+    private l oyV;
+    protected m oyW;
+    protected InterfaceC0976a oyX;
 
     /* renamed from: master.flame.danmaku.danmaku.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     public interface InterfaceC0976a {
     }
 
-    protected abstract l eiB();
+    protected abstract l eiK();
 
     public a c(m mVar) {
-        this.oyE = mVar;
-        this.oyz = mVar.getWidth();
-        this.oyA = mVar.getHeight();
-        this.oyB = mVar.getDensity();
-        this.oyC = mVar.ehU();
-        this.ouG.oxR.j(this.oyz, this.oyA, eiy());
-        this.ouG.oxR.eio();
+        this.oyW = mVar;
+        this.oyR = mVar.getWidth();
+        this.oyS = mVar.getHeight();
+        this.oyT = mVar.getDensity();
+        this.oyU = mVar.eid();
+        this.ouY.oyj.j(this.oyR, this.oyS, eiH());
+        this.ouY.oyj.eix();
         return this;
     }
 
     public a a(InterfaceC0976a interfaceC0976a) {
-        this.oyF = interfaceC0976a;
+        this.oyX = interfaceC0976a;
         return this;
     }
 
-    protected float eiy() {
-        return 1.0f / (this.oyB - 0.6f);
+    protected float eiH() {
+        return 1.0f / (this.oyT - 0.6f);
     }
 
     public a d(f fVar) {
-        this.ovp = fVar;
+        this.ovH = fVar;
         return this;
     }
 
-    public l eiz() {
-        if (this.oyD != null) {
-            return this.oyD;
+    public l eiI() {
+        if (this.oyV != null) {
+            return this.oyV;
         }
-        this.ouG.oxR.ein();
-        this.oyD = eiB();
-        eiA();
-        this.ouG.oxR.eio();
-        return this.oyD;
+        this.ouY.oyj.eiw();
+        this.oyV = eiK();
+        eiJ();
+        this.ouY.oyj.eix();
+        return this.oyV;
     }
 
-    protected void eiA() {
-        if (this.oyy != null) {
-            this.oyy.release();
+    protected void eiJ() {
+        if (this.oyQ != null) {
+            this.oyQ.release();
         }
-        this.oyy = null;
+        this.oyQ = null;
     }
 
     public void release() {
-        eiA();
+        eiJ();
     }
 
     public a c(DanmakuContext danmakuContext) {
-        if (this.ouG != null && this.ouG != danmakuContext) {
-            this.oyD = null;
+        if (this.ouY != null && this.ouY != danmakuContext) {
+            this.oyV = null;
         }
-        this.ouG = danmakuContext;
+        this.ouY = danmakuContext;
         return this;
     }
 }

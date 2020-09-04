@@ -8,9 +8,9 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ae {
-    public static TextView eVH;
+    public static TextView eVL;
 
     public static int getCharLength(char c) {
         if (isCharacter(c)) {
@@ -181,10 +181,10 @@ public class ae {
 
     public static Pair<Integer, Integer> s(String str, int i, int i2) {
         try {
-            if (eVH == null) {
-                eVH = new TextView(TbadkCoreApplication.getInst().getContext());
+            if (eVL == null) {
+                eVL = new TextView(TbadkCoreApplication.getInst().getContext());
             }
-            TextView textView = eVH;
+            TextView textView = eVL;
             if (textView.getLayoutParams() == null) {
                 textView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             }

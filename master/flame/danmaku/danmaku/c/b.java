@@ -9,18 +9,18 @@ import master.flame.danmaku.danmaku.model.m;
 public class b {
     public static boolean a(m mVar, d dVar, d dVar2, long j, long j2) {
         int type = dVar.getType();
-        if (type == dVar2.getType() && !dVar.ehz()) {
-            long ehI = dVar2.ehI() - dVar.ehI();
-            if (ehI <= 0) {
+        if (type == dVar2.getType() && !dVar.ehI()) {
+            long ehR = dVar2.ehR() - dVar.ehR();
+            if (ehR <= 0) {
                 return true;
             }
-            if (Math.abs(ehI) >= j || dVar.ehy() || dVar2.ehy()) {
+            if (Math.abs(ehR) >= j || dVar.ehH() || dVar2.ehH()) {
                 return false;
             }
             if (type == 5 || type == 4) {
                 return true;
             }
-            return a(mVar, dVar, dVar2, j2) || a(mVar, dVar, dVar2, dVar.ehI() + dVar.getDuration());
+            return a(mVar, dVar, dVar2, j2) || a(mVar, dVar, dVar2, dVar.ehR() + dVar.getDuration());
         }
         return false;
     }
@@ -51,12 +51,12 @@ public class b {
         if (eVar == null) {
             eVar = new e();
         }
-        eVar.e((int) Math.ceil(dVar.ovO), (int) Math.ceil(dVar.ovP), mVar.getDensityDpi(), false);
+        eVar.e((int) Math.ceil(dVar.owg), (int) Math.ceil(dVar.owh), mVar.getDensityDpi(), false);
         f fVar = eVar.get();
         if (fVar != null) {
-            ((master.flame.danmaku.danmaku.model.b) mVar).a(dVar, fVar.owO, 0.0f, 0.0f, true);
+            ((master.flame.danmaku.danmaku.model.b) mVar).a(dVar, fVar.oxg, 0.0f, 0.0f, true);
             if (mVar.isHardwareAccelerated()) {
-                fVar.K(mVar.getWidth(), mVar.getHeight(), mVar.ehW(), mVar.ehX());
+                fVar.K(mVar.getWidth(), mVar.getHeight(), mVar.eif(), mVar.eig());
             }
         }
         return eVar;
@@ -123,7 +123,7 @@ public class b {
         if (!TextUtils.isEmpty(charSequence) && charSequence.toString().contains("/n")) {
             String[] split = String.valueOf(dVar.text).split("/n", -1);
             if (split.length > 1) {
-                dVar.ovK = split;
+                dVar.owc = split;
             }
         }
     }

@@ -6,13 +6,13 @@ import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.img.ImageFileInfo;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c {
-    private static c ePg = new c();
+    private static c ePk = new c();
     private final HashMap<String, Class<? extends b>> imageActions = new HashMap<>();
 
-    public static c bsY() {
-        return ePg;
+    public static c bsZ() {
+        return ePk;
     }
 
     private c() {

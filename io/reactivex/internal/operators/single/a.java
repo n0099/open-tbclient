@@ -18,23 +18,23 @@ public final class a<T, R> extends w<R> {
     /* loaded from: classes7.dex */
     static final class C0965a<T, R> implements y<T> {
         final h<? super T, ? extends R> mapper;
-        final y<? super R> ooS;
+        final y<? super R> opk;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public C0965a(y<? super R> yVar, h<? super T, ? extends R> hVar) {
-            this.ooS = yVar;
+            this.opk = yVar;
             this.mapper = hVar;
         }
 
         @Override // io.reactivex.y
         public void onSubscribe(io.reactivex.disposables.b bVar) {
-            this.ooS.onSubscribe(bVar);
+            this.opk.onSubscribe(bVar);
         }
 
         @Override // io.reactivex.y
         public void onSuccess(T t) {
             try {
-                this.ooS.onSuccess(io.reactivex.internal.functions.a.k(this.mapper.apply(t), "The mapper function returned a null value."));
+                this.opk.onSuccess(io.reactivex.internal.functions.a.k(this.mapper.apply(t), "The mapper function returned a null value."));
             } catch (Throwable th) {
                 io.reactivex.exceptions.a.J(th);
                 onError(th);
@@ -43,7 +43,7 @@ public final class a<T, R> extends w<R> {
 
         @Override // io.reactivex.y
         public void onError(Throwable th) {
-            this.ooS.onError(th);
+            this.opk.onError(th);
         }
     }
 }

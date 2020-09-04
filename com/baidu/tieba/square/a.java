@@ -15,152 +15,152 @@ import com.baidu.tieba.square.model.ForumSquareModel;
 import java.util.List;
 /* loaded from: classes16.dex */
 public class a implements d {
-    private String lXA = "";
-    private ForumSquareModel lXx;
-    public b lXy;
-    private c lXz;
+    private ForumSquareModel lXM;
+    public b lXN;
+    private c lXO;
+    private String lXP = "";
     private final Context mContext;
     private final TbPageContext mTbPageContext;
 
     public a(Context context, TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
         this.mContext = context;
-        this.lXx = new ForumSquareModel(context, this);
-        this.lXy = new b(context, this.mTbPageContext);
+        this.lXM = new ForumSquareModel(context, this);
+        this.lXN = new b(context, this.mTbPageContext);
     }
 
     public void startLoadData() {
-        this.lXz = new c(this.mContext, this, this.lXy);
-        this.lXz.duO();
-        crt();
+        this.lXO = new c(this.mContext, this, this.lXN);
+        this.lXO.duT();
+        cru();
     }
 
-    private void crt() {
-        this.lXy.duI();
-        this.lXx.Qu(this.lXA);
+    private void cru() {
+        this.lXN.duN();
+        this.lXM.Qu(this.lXP);
     }
 
-    public void duC() {
-        this.lXy.duC();
+    public void duH() {
+        this.lXN.duH();
     }
 
     @Override // com.baidu.tieba.square.d
     public void d(String str, List<String> list, List<q> list2) {
         boolean z = true;
-        if (this.lXx != null && this.lXy != null) {
-            if (TextUtils.isEmpty(str) || str.equals(this.lXA)) {
-                String duF = this.lXy.duF();
-                if (TextUtils.isEmpty(str) || str.equals(duF)) {
+        if (this.lXM != null && this.lXN != null) {
+            if (TextUtils.isEmpty(str) || str.equals(this.lXP)) {
+                String duK = this.lXN.duK();
+                if (TextUtils.isEmpty(str) || str.equals(duK)) {
                     z = false;
                 }
             }
-            this.lXA = str;
-            this.lXy.duJ();
-            this.lXy.c(str, list, z);
-            this.lXy.s(list2, this.lXx.t(list2, 300));
+            this.lXP = str;
+            this.lXN.duO();
+            this.lXN.c(str, list, z);
+            this.lXN.s(list2, this.lXM.t(list2, 300));
             q(str, list2);
         }
     }
 
     private void q(String str, List<q> list) {
-        if (this.lXy != null && this.lXx != null) {
+        if (this.lXN != null && this.lXM != null) {
             if (y.isEmpty(list)) {
-                this.lXy.bGT();
+                this.lXN.bGU();
             } else if (y.getCount(list) < 10) {
-                this.lXy.duM();
+                this.lXN.duR();
             } else {
-                this.lXy.vR(this.lXx.Qv(str));
+                this.lXN.vT(this.lXM.Qv(str));
             }
         }
     }
 
     @Override // com.baidu.tieba.square.d
     public void a(String str, ErrorData errorData) {
-        if (this.lXy != null && this.lXx != null) {
-            this.lXy.duJ();
-            com.baidu.tieba.square.data.c Qt = this.lXx.Qt(str);
+        if (this.lXN != null && this.lXM != null) {
+            this.lXN.duO();
+            com.baidu.tieba.square.data.c Qt = this.lXM.Qt(str);
             if (Qt == null || (Qt.hasMore && y.isEmpty(Qt.getDataList()))) {
-                this.lXy.bGT();
-                this.lXy.duG();
+                this.lXN.bGU();
+                this.lXN.duL();
                 return;
             }
-            this.lXy.fc(Qt.getDataList());
+            this.lXN.fc(Qt.getDataList());
             q(str, Qt.getDataList());
         }
     }
 
     @Override // com.baidu.tieba.square.d
     public void e(ErrorData errorData) {
-        if (this.lXy != null) {
-            this.lXy.duH();
+        if (this.lXN != null) {
+            this.lXN.duM();
         }
     }
 
-    public void bKC() {
+    public void bKD() {
         String className = getClassName();
-        if (this.lXx != null && this.lXy != null) {
-            boolean isLoading = this.lXx.isLoading();
-            boolean vR = this.lXy.vR(this.lXx.Qv(className));
-            if (!isLoading && vR) {
-                this.lXx.Qu(className);
+        if (this.lXM != null && this.lXN != null) {
+            boolean isLoading = this.lXM.isLoading();
+            boolean vT = this.lXN.vT(this.lXM.Qv(className));
+            if (!isLoading && vT) {
+                this.lXM.Qu(className);
             }
         }
     }
 
-    public void duD() {
-        if (this.lXy != null) {
-            this.lXy.duI();
+    public void duI() {
+        if (this.lXN != null) {
+            this.lXN.duN();
         }
-        if (this.lXx != null) {
-            this.lXx.Qu(getClassName());
+        if (this.lXM != null) {
+            this.lXM.Qu(getClassName());
         }
     }
 
     public void Qn(String str) {
-        Qo(this.lXA);
-        this.lXA = str;
-        if (this.lXx != null && this.lXy != null) {
-            com.baidu.tieba.square.data.c Qt = this.lXx.Qt(str);
+        Qo(this.lXP);
+        this.lXP = str;
+        if (this.lXM != null && this.lXN != null) {
+            com.baidu.tieba.square.data.c Qt = this.lXM.Qt(str);
             if (Qt == null || (Qt.hasMore && y.isEmpty(Qt.getDataList()))) {
-                this.lXy.duK();
+                this.lXN.duP();
                 q(str, null);
-                this.lXx.Qu(str);
-                this.lXy.scrollToPositionWithOffset(0, 0);
+                this.lXM.Qu(str);
+                this.lXN.scrollToPositionWithOffset(0, 0);
                 return;
             }
-            this.lXy.duJ();
+            this.lXN.duO();
             q(str, Qt.getDataList());
-            this.lXy.fc(Qt.getDataList());
-            this.lXy.scrollToPositionWithOffset(Qt.lXX, Qt.scrollOffset);
+            this.lXN.fc(Qt.getDataList());
+            this.lXN.scrollToPositionWithOffset(Qt.lYm, Qt.scrollOffset);
         }
     }
 
     public void Qo(String str) {
         com.baidu.tieba.square.data.c Qt;
-        Pair<Integer, Integer> duE;
-        if (this.lXy != null && this.lXx != null && !TextUtils.isEmpty(str) && (Qt = this.lXx.Qt(str)) != null && (duE = this.lXy.duE()) != null) {
-            Qt.lXX = ((Integer) duE.first).intValue();
-            Qt.scrollOffset = ((Integer) duE.second).intValue();
+        Pair<Integer, Integer> duJ;
+        if (this.lXN != null && this.lXM != null && !TextUtils.isEmpty(str) && (Qt = this.lXM.Qt(str)) != null && (duJ = this.lXN.duJ()) != null) {
+            Qt.lYm = ((Integer) duJ.first).intValue();
+            Qt.scrollOffset = ((Integer) duJ.second).intValue();
         }
     }
 
     public String getClassName() {
-        return this.lXA;
+        return this.lXP;
     }
 
     public void Y(Intent intent) {
         Uri uri;
         if (intent != null) {
-            this.lXA = intent.getStringExtra(ForumSquareActivityConfig.FORUM_CLASS_NAME);
-            if (TextUtils.isEmpty(this.lXA) && (uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI)) != null) {
-                this.lXA = uri.getQueryParameter("tab_name");
+            this.lXP = intent.getStringExtra(ForumSquareActivityConfig.FORUM_CLASS_NAME);
+            if (TextUtils.isEmpty(this.lXP) && (uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI)) != null) {
+                this.lXP = uri.getQueryParameter("tab_name");
             }
         }
     }
 
     public void Qp(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.lXy.Qq(str);
+            this.lXN.Qq(str);
             Qn(str);
         }
     }

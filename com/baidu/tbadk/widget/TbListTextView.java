@@ -11,7 +11,7 @@ import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"WrongCall"})
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class TbListTextView extends TextView {
     private boolean checkSelection;
 
@@ -64,7 +64,7 @@ public class TbListTextView extends TextView {
 
     private void fixSpannedWithSpaces(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
         a a2 = a(spannableStringBuilder, i, i2);
-        if (a2.cbT) {
+        if (a2.cbX) {
             a(i, i2, spannableStringBuilder, a2);
         } else {
             fallbackToString(i, i2);
@@ -93,7 +93,7 @@ public class TbListTextView extends TextView {
                 BdLog.e(e.getMessage());
             }
         }
-        return a.bwt();
+        return a.bwu();
     }
 
     private boolean isNotSpace(CharSequence charSequence, int i) {
@@ -138,9 +138,9 @@ public class TbListTextView extends TextView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a {
-        public final boolean cbT;
+        public final boolean cbX;
         public final List<Object> spansWithSpacesAfter;
         public final List<Object> spansWithSpacesBefore;
 
@@ -148,12 +148,12 @@ public class TbListTextView extends TextView {
             return new a(true, list, list2);
         }
 
-        public static a bwt() {
+        public static a bwu() {
             return new a(false, null, null);
         }
 
         private a(boolean z, List<Object> list, List<Object> list2) {
-            this.cbT = z;
+            this.cbX = z;
             this.spansWithSpacesBefore = list;
             this.spansWithSpacesAfter = list2;
         }

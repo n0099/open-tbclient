@@ -9,28 +9,28 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
-    private boolean ltm;
-    private boolean ltn;
-    private HashMap<String, Integer> lto;
+    private HashMap<String, Integer> ltA;
+    private boolean lty;
+    private boolean ltz;
 
     public void dY(JSONObject jSONObject) {
         if (jSONObject != null) {
-            boolean z = this.ltm;
-            this.ltm = jSONObject.optInt("switch", 0) == 1;
-            this.ltn = jSONObject.optInt("p2p_config", 0) == 1;
+            boolean z = this.lty;
+            this.lty = jSONObject.optInt("switch", 0) == 1;
+            this.ltz = jSONObject.optInt("p2p_config", 0) == 1;
             JSONArray optJSONArray = jSONObject.optJSONArray("domain_list");
             if (optJSONArray != null) {
-                this.lto = new HashMap<>();
+                this.ltA = new HashMap<>();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     String optString = optJSONArray.optString(i);
                     if (!StringUtils.isNull(optString)) {
-                        this.lto.put(optString, 0);
+                        this.ltA.put(optString, 0);
                     }
                 }
             }
-            if (this.ltm) {
+            if (this.lty) {
                 c.init();
                 if (!z) {
                     Intent intent = new Intent(TbadkCoreApplication.getInst().getContext(), CyberRemotePlayerService.class);
@@ -47,21 +47,21 @@ public class a {
         }
     }
 
-    public boolean dkf() {
-        if (this.ltm) {
+    public boolean dki() {
+        if (this.lty) {
             c.init();
         }
-        return this.ltm;
+        return this.lty;
     }
 
-    public boolean dkg() {
-        return this.ltn;
+    public boolean dkj() {
+        return this.ltz;
     }
 
     public boolean x(Uri uri) {
-        if (this.lto == null || uri == null) {
+        if (this.ltA == null || uri == null) {
             return false;
         }
-        return this.lto.containsKey(uri.getHost());
+        return this.ltA.containsKey(uri.getHost());
     }
 }

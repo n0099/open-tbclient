@@ -4,22 +4,22 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class f {
-    private static int bpB() {
+    private static int bpC() {
         if (at.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
             return 3;
         }
         return com.baidu.tbadk.core.sharedPref.b.bik().getInt("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), 3);
     }
 
-    public static int bpC() {
+    public static int bpD() {
         if (TbSingleton.getInstance().getSharePanelConfData() == null || !TbSingleton.getInstance().getSharePanelConfData().bmT()) {
             return -1;
         }
-        int bpB = bpB();
+        int bpC = bpC();
         int i = R.drawable.icon_mask_share_wechat40_svg;
-        switch (bpB) {
+        switch (bpC) {
             case 2:
                 return R.drawable.icon_mask_share_circle40_svg;
             case 3:

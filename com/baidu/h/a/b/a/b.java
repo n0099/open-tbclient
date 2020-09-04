@@ -9,5 +9,5 @@ public interface b {
 
     void a(String str, String str2, int i, com.baidu.h.a.b.b bVar, boolean z);
 
-    void hB(String str);
+    void hC(String str);
 }

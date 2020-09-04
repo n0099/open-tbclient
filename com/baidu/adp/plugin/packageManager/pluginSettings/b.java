@@ -115,12 +115,12 @@ public class b {
     private PluginSettings qo() {
         Wire wire = new Wire(new Class[0]);
         try {
-            byte[] cG = cG(qm().qp());
-            if (cG == null) {
+            byte[] cH = cH(qm().qp());
+            if (cH == null) {
                 com.baidu.adp.plugin.b.b.F("PluginSettingIOManager_read0", "data_is_null");
                 return null;
             }
-            WriteSettingsReqIdl writeSettingsReqIdl = (WriteSettingsReqIdl) wire.parseFrom(cG, WriteSettingsReqIdl.class);
+            WriteSettingsReqIdl writeSettingsReqIdl = (WriteSettingsReqIdl) wire.parseFrom(cH, WriteSettingsReqIdl.class);
             if (writeSettingsReqIdl == null || writeSettingsReqIdl.data == null) {
                 com.baidu.adp.plugin.b.b.F("PluginSettingIOManager_read0", writeSettingsReqIdl == null ? "res_is_null" : "res_data_is_null");
                 return null;
@@ -207,7 +207,7 @@ public class b {
     /* JADX WARN: Type inference failed for: r2v3 */
     /* JADX WARN: Type inference failed for: r2v4 */
     /* JADX WARN: Type inference failed for: r2v6, types: [java.io.FileInputStream, java.io.InputStream] */
-    private byte[] cG(String str) {
+    private byte[] cH(String str) {
         ?? r2;
         Throwable th;
         ?? r1;

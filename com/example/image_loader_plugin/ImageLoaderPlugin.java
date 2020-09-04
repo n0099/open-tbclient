@@ -222,7 +222,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCal
     }
 
     private boolean shouldMonitorPerformance(int i) {
-        return m.bun().buo() && i % 100 == 0;
+        return m.buo().bup() && i % 100 == 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

@@ -8,22 +8,22 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes6.dex */
 public class a {
-    private static volatile Executor bGA;
-    private static final int bGB = Runtime.getRuntime().availableProcessors();
-    private static final int bGC = (bGB * 2) + 1;
-    private static final ThreadFactory bGD = new ThreadFactoryC0273a();
+    private static volatile Executor bGE;
+    private static final int bGF = Runtime.getRuntime().availableProcessors();
+    private static final int bGG = (bGF * 2) + 1;
+    private static final ThreadFactory bGH = new ThreadFactoryC0273a();
 
     /* renamed from: com.baidu.poly.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     static class ThreadFactoryC0273a implements ThreadFactory {
-        private final AtomicInteger bGE = new AtomicInteger(1);
+        private final AtomicInteger bGI = new AtomicInteger(1);
 
         ThreadFactoryC0273a() {
         }
 
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
-            return new Thread(runnable, "cashier #" + this.bGE.getAndIncrement());
+            return new Thread(runnable, "cashier #" + this.bGI.getAndIncrement());
         }
     }
 
@@ -34,16 +34,16 @@ public class a {
     private static synchronized Executor getExecutor() {
         Executor executor;
         synchronized (a.class) {
-            if (bGA == null) {
+            if (bGE == null) {
                 synchronized (a.class) {
-                    if (bGA == null) {
-                        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(2, bGC, 8L, TimeUnit.SECONDS, new LinkedBlockingQueue(), bGD);
+                    if (bGE == null) {
+                        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(2, bGG, 8L, TimeUnit.SECONDS, new LinkedBlockingQueue(), bGH);
                         threadPoolExecutor.allowCoreThreadTimeOut(true);
-                        bGA = threadPoolExecutor;
+                        bGE = threadPoolExecutor;
                     }
                 }
             }
-            executor = bGA;
+            executor = bGE;
         }
         return executor;
     }

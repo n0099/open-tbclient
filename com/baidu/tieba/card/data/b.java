@@ -1,7 +1,7 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class b implements com.baidu.adp.widget.ListView.q, com.baidu.afd.j {
     public int position;
     private com.baidu.afd.i trigger;

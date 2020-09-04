@@ -45,7 +45,7 @@ public class b {
         this.Rg = new HashMap();
     }
 
-    public ServiceInfo ci(String str) {
+    public ServiceInfo cj(String str) {
         ServiceInfo[] serviceInfoArr;
         if (TextUtils.isEmpty(str)) {
             return null;

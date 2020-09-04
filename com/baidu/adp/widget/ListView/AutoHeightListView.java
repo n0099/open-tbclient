@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ListView;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class AutoHeightListView extends ListView {
     public AutoHeightListView(Context context) {
         this(context, null);

@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.util.y;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class d {
     public static String b(ArrayList<String> arrayList, String str, int i) {
         ArrayList arrayList2 = new ArrayList();

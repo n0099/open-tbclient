@@ -4,10 +4,10 @@ import android.support.annotation.NonNull;
 import android.text.Selection;
 import android.text.SpanWatcher;
 import android.text.Spannable;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c implements SpanWatcher {
-    private int exA;
-    private int exB;
+    private int exE;
+    private int exF;
     private SpanGroupManager mSpanGroupManager;
 
     public c(@NonNull SpanGroupManager spanGroupManager) {
@@ -25,13 +25,13 @@ public class c implements SpanWatcher {
     @Override // android.text.SpanWatcher
     public void onSpanChanged(Spannable spannable, Object obj, int i, int i2, int i3, int i4) {
         if (this.mSpanGroupManager != null) {
-            if (obj == Selection.SELECTION_END && this.exB != i3) {
-                this.exB = i3;
-                a pi = this.mSpanGroupManager.pi(this.exB);
+            if (obj == Selection.SELECTION_END && this.exF != i3) {
+                this.exF = i3;
+                a pi = this.mSpanGroupManager.pi(this.exF);
                 if (pi instanceof TbLinkSpanGroup) {
                     int start = pi.getStart();
                     int end = pi.getEnd();
-                    if (Math.abs(this.exB - end) <= Math.abs(this.exB - start)) {
+                    if (Math.abs(this.exF - end) <= Math.abs(this.exF - start)) {
                         start = end;
                     }
                     int selectionStart = Selection.getSelectionStart(spannable);
@@ -44,13 +44,13 @@ public class c implements SpanWatcher {
                     Selection.setSelection(spannable, selectionStart, start);
                 }
             }
-            if (obj == Selection.SELECTION_START && this.exA != i3) {
-                this.exA = i3;
-                a pi2 = this.mSpanGroupManager.pi(this.exA);
+            if (obj == Selection.SELECTION_START && this.exE != i3) {
+                this.exE = i3;
+                a pi2 = this.mSpanGroupManager.pi(this.exE);
                 if (pi2 instanceof TbLinkSpanGroup) {
                     int start2 = pi2.getStart();
                     int end2 = pi2.getEnd();
-                    if (Math.abs(this.exA - end2) <= Math.abs(this.exA - start2)) {
+                    if (Math.abs(this.exE - end2) <= Math.abs(this.exE - start2)) {
                         start2 = end2;
                     }
                     int selectionEnd = Selection.getSelectionEnd(spannable);

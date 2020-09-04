@@ -7,13 +7,13 @@ import android.widget.FrameLayout;
 import java.util.ArrayList;
 /* loaded from: classes8.dex */
 public class d {
-    private FrameLayout aht;
-    private boolean dxW;
-    private ArrayList<a> dxV = new ArrayList<>();
-    private boolean dxX = false;
+    private FrameLayout ahv;
+    private boolean dya;
+    private ArrayList<a> dxZ = new ArrayList<>();
+    private boolean dyb = false;
 
     public d(@NonNull FrameLayout frameLayout) {
-        this.aht = frameLayout;
+        this.ahv = frameLayout;
     }
 
     public boolean a(View view, com.baidu.swan.apps.model.a.a.a aVar) {
@@ -23,7 +23,7 @@ public class d {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(aVar.getWidth(), aVar.getHeight());
         layoutParams.leftMargin = aVar.getLeft();
         layoutParams.topMargin = aVar.getTop();
-        this.aht.addView(view, layoutParams);
+        this.ahv.addView(view, layoutParams);
         return true;
     }
 
@@ -31,7 +31,7 @@ public class d {
         if (!aE(view)) {
             return false;
         }
-        this.aht.removeView(view);
+        this.ahv.removeView(view);
         return true;
     }
 
@@ -42,65 +42,65 @@ public class d {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(aVar.getWidth(), aVar.getHeight());
         layoutParams.leftMargin = aVar.getLeft();
         layoutParams.topMargin = aVar.getTop();
-        this.aht.updateViewLayout(view, layoutParams);
+        this.ahv.updateViewLayout(view, layoutParams);
         return true;
     }
 
     public boolean isLandScape() {
-        return this.dxW;
-    }
-
-    public void gO(boolean z) {
-        this.dxW = z;
-    }
-
-    public boolean aE(View view) {
-        return view != null && view.getParent() == this.aht && this.aht.indexOfChild(view) >= 0;
-    }
-
-    public Context getContext() {
-        return this.aht.getContext();
-    }
-
-    public FrameLayout aQn() {
-        return this.aht;
-    }
-
-    public boolean aQo() {
-        return this.dxX;
+        return this.dya;
     }
 
     public void gP(boolean z) {
-        this.dxX = z;
+        this.dya = z;
+    }
+
+    public boolean aE(View view) {
+        return view != null && view.getParent() == this.ahv && this.ahv.indexOfChild(view) >= 0;
+    }
+
+    public Context getContext() {
+        return this.ahv.getContext();
+    }
+
+    public FrameLayout aQn() {
+        return this.ahv;
+    }
+
+    public boolean aQo() {
+        return this.dyb;
+    }
+
+    public void gQ(boolean z) {
+        this.dyb = z;
     }
 
     public synchronized void a(a aVar) {
         if (aVar != null) {
-            if (!this.dxV.contains(aVar)) {
-                this.dxV.add(aVar);
+            if (!this.dxZ.contains(aVar)) {
+                this.dxZ.add(aVar);
             }
         }
     }
 
     public synchronized void b(a aVar) {
         if (aVar != null) {
-            this.dxV.remove(aVar);
+            this.dxZ.remove(aVar);
         }
     }
 
     private synchronized a[] aQp() {
         a[] aVarArr;
-        if (this.dxV.isEmpty()) {
+        if (this.dxZ.isEmpty()) {
             aVarArr = null;
         } else {
-            aVarArr = new a[this.dxV.size()];
-            this.dxV.toArray(aVarArr);
+            aVarArr = new a[this.dxZ.size()];
+            this.dxZ.toArray(aVarArr);
         }
         return aVarArr;
     }
 
     private synchronized void aQq() {
-        this.dxV.clear();
+        this.dxZ.clear();
     }
 
     public void aoa() {

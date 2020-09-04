@@ -10,36 +10,36 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class al {
-    private BdUniqueId ahK;
-    private a ekv;
-    private HttpMessageListener ekw = new HttpMessageListener(1003396) { // from class: com.baidu.tbadk.core.util.al.1
+    private BdUniqueId ahM;
+    private HttpMessageListener ekA = new HttpMessageListener(1003396) { // from class: com.baidu.tbadk.core.util.al.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Message<?> orginalMessage;
             if (httpResponsedMessage != null && (orginalMessage = httpResponsedMessage.getOrginalMessage()) != null && (orginalMessage.getExtra() instanceof Long)) {
                 long longValue = ((Long) orginalMessage.getExtra()).longValue();
-                boolean z = httpResponsedMessage.getOrginalMessage().getTag() == al.this.ahK;
-                if (al.this.ekv != null) {
-                    al.this.ekv.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), longValue, z);
+                boolean z = httpResponsedMessage.getOrginalMessage().getTag() == al.this.ahM;
+                if (al.this.ekz != null) {
+                    al.this.ekz.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), longValue, z);
                 }
             }
         }
     };
+    private a ekz;
     private TbPageContext mPageContext;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface a {
         void a(int i, String str, long j, boolean z);
     }
 
     public al(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mPageContext = tbPageContext;
-        this.ahK = bdUniqueId;
-        this.ekw.setTag(bdUniqueId);
-        this.mPageContext.registerListener(this.ekw);
+        this.ahM = bdUniqueId;
+        this.ekA.setTag(bdUniqueId);
+        this.mPageContext.registerListener(this.ekA);
         bje();
     }
 
@@ -55,12 +55,12 @@ public class al {
     public void cF(long j) {
         HttpMessage httpMessage = new HttpMessage(1003396);
         httpMessage.addParam("fans_uid", j);
-        httpMessage.setTag(this.ahK);
+        httpMessage.setTag(this.ahM);
         httpMessage.setExtra(Long.valueOf(j));
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     public void a(a aVar) {
-        this.ekv = aVar;
+        this.ekz = aVar;
     }
 }

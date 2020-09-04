@@ -30,7 +30,7 @@ public class a extends aa {
         if (bz == null || !bz.isValid()) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "invalid params: " + param);
             return false;
-        } else if (!com.baidu.swan.apps.core.a.a.a.kX(parseString.optString("netconf", "1"))) {
+        } else if (!com.baidu.swan.apps.core.a.a.a.kY(parseString.optString("netconf", "1"))) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "Network limitation");
             return false;
         } else {
@@ -41,6 +41,6 @@ public class a extends aa {
     }
 
     private PrefetchEvent bz(@NonNull JSONObject jSONObject) {
-        return new PrefetchEvent.a().lJ(jSONObject.optString("state")).lI(jSONObject.optString("schema")).lK(jSONObject.optString("scene")).lH(jSONObject.optString("appKey")).aiY();
+        return new PrefetchEvent.a().lK(jSONObject.optString("state")).lJ(jSONObject.optString("schema")).lL(jSONObject.optString("scene")).lI(jSONObject.optString("appKey")).aiY();
     }
 }

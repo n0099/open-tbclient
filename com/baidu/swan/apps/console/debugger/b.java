@@ -8,67 +8,67 @@ import com.baidu.swan.apps.console.debugger.b.d;
 import java.io.File;
 /* loaded from: classes8.dex */
 public class b {
-    private static a ccr;
+    private static a ccw;
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String ccp = "";
-    private static String ccq = "";
-    private static int cct = 0;
-
-    public static void kF(String str) {
-        ccp = str;
-    }
+    private static String ccu = "";
+    private static String ccv = "";
+    private static int ccx = 0;
 
     public static void kG(String str) {
-        ccq = str;
+        ccu = str;
+    }
+
+    public static void kH(String str) {
+        ccv = str;
     }
 
     public static String adL() {
-        return ccp;
+        return ccu;
     }
 
     public static String adM() {
-        return ccq;
+        return ccv;
     }
 
     public static String adN() {
-        return ccr != null ? ccr.adK() + File.separator + ccq : "";
+        return ccw != null ? ccw.adK() + File.separator + ccv : "";
     }
 
     public static String adO() {
-        return ccr != null ? ccr.adK() + File.separator + ccp : "";
+        return ccw != null ? ccw.adK() + File.separator + ccu : "";
     }
 
     public static boolean adP() {
-        return cct == 2;
+        return ccx == 2;
     }
 
     public static boolean adQ() {
-        return cct == 1;
+        return ccx == 1;
     }
 
     public static void n(Bundle bundle) {
         String g = u.g(bundle, "extraWSUrl");
         String g2 = u.g(bundle, "adb_debug_path");
         if (!TextUtils.isEmpty(g)) {
-            ccr = new d();
-            cct = 1;
+            ccw = new d();
+            ccx = 1;
         } else if (!TextUtils.isEmpty(g2)) {
-            ccr = new com.baidu.swan.apps.console.debugger.adbdebug.b();
-            cct = 2;
+            ccw = new com.baidu.swan.apps.console.debugger.adbdebug.b();
+            ccx = 2;
         } else {
             if (DEBUG) {
                 Log.d("UserDebugParams", "not debug mode");
             }
-            cct = 0;
-            ccr = null;
+            ccx = 0;
+            ccw = null;
             return;
         }
-        ccr.n(bundle);
+        ccw.n(bundle);
     }
 
     public static void o(Bundle bundle) {
-        if (ccr != null) {
-            ccr.o(bundle);
+        if (ccw != null) {
+            ccw.o(bundle);
         }
     }
 }

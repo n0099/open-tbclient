@@ -162,7 +162,7 @@ public class ItemLocationBox extends AbstractFullBox {
     }
 
     public Item createItem(int i, int i2, int i3, long j, List<Extent> list) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_10, (Object) this, (Object) this, new Object[]{org.aspectj.a.a.a.Og(i), org.aspectj.a.a.a.Og(i2), org.aspectj.a.a.a.Og(i3), org.aspectj.a.a.a.gY(j), list}));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_10, (Object) this, (Object) this, new Object[]{org.aspectj.a.a.a.Og(i), org.aspectj.a.a.a.Og(i2), org.aspectj.a.a.a.Og(i3), org.aspectj.a.a.a.ha(j), list}));
         return new Item(i, i2, i3, j, list);
     }
 
@@ -272,7 +272,7 @@ public class ItemLocationBox extends AbstractFullBox {
     }
 
     public Extent createExtent(long j, long j2, long j3) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, (Object) this, (Object) this, new Object[]{org.aspectj.a.a.a.gY(j), org.aspectj.a.a.a.gY(j2), org.aspectj.a.a.a.gY(j3)}));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, (Object) this, (Object) this, new Object[]{org.aspectj.a.a.a.ha(j), org.aspectj.a.a.a.ha(j2), org.aspectj.a.a.a.ha(j3)}));
         return new Extent(j, j2, j3);
     }
 

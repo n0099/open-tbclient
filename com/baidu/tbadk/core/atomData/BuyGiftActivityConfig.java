@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BuyGiftActivityConfig extends IntentConfig {
     public static final String FROM = "from";
     public static final int FROM_PERSON_CENTER = 1;

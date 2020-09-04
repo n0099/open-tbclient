@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class MangaBrowserActivityConfig extends IntentConfig {
     public static final int BROWSER_FROM_BOOK_COVER = 1;
     public static final int BROWSER_FROM_COLLECTION = 3;

@@ -16,11 +16,11 @@ import com.baidu.tieba.card.s;
 import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnItemData;
 /* loaded from: classes16.dex */
 public class b {
-    public static void JL(String str) {
+    public static void JM(String str) {
         aq aqVar = new aq(str);
         aqVar.ai("obj_type", 1);
         aqVar.dD("uid", TbadkCoreApplication.getCurrentAccount());
-        s.cbX().e(aqVar);
+        s.cbY().e(aqVar);
     }
 
     public static void b(String str, Object obj, int i) {
@@ -32,26 +32,26 @@ public class b {
             aqVar.dD("uid", TbadkCoreApplication.getCurrentAccount());
             aqVar.u("tid", specialColumnItemData.threadId);
             aqVar.u("obj_id", specialColumnItemData.liveId);
-            s.cbX().e(aqVar);
+            s.cbY().e(aqVar);
         } else if (obj instanceof MetaData) {
             aq aqVar2 = new aq(str);
             aqVar2.ai("obj_type", 1);
             aqVar2.ai("obj_locate", i);
             aqVar2.u("uid", ((MetaData) obj).getUserIdLong());
-            s.cbX().e(aqVar2);
+            s.cbY().e(aqVar2);
         } else if (obj instanceof bi) {
             aq aqVar3 = new aq(str);
             aqVar3.ai("obj_type", 1);
             aqVar3.ai("obj_locate", i);
             aqVar3.u("fid", ((bi) obj).getForumId());
-            s.cbX().e(aqVar3);
+            s.cbY().e(aqVar3);
         } else if (obj instanceof j) {
             aq aqVar4 = new aq(str);
             aqVar4.ai("obj_type", 1);
             aqVar4.dD("uid", TbadkCoreApplication.getCurrentAccount());
             aqVar4.ai("obj_locate", i);
             aqVar4.dD("obj_param1", ((j) obj).bcB());
-            s.cbX().e(aqVar4);
+            s.cbY().e(aqVar4);
         }
     }
 
@@ -127,9 +127,9 @@ public class b {
     public static void a(AbsThreadDataSupport absThreadDataSupport, String str) {
         if (absThreadDataSupport != null && absThreadDataSupport.bce() != null) {
             if (absThreadDataSupport.bce().bdk()) {
-                s.cbX().e(l.b(absThreadDataSupport.bce(), str));
+                s.cbY().e(l.b(absThreadDataSupport.bce(), str));
             } else {
-                s.cbX().e(l.a(absThreadDataSupport.bce(), str));
+                s.cbY().e(l.a(absThreadDataSupport.bce(), str));
             }
         }
     }

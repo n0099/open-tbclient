@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class HasGoodsAuthResponseMessage extends JsonHttpResponsedMessage {
-    public boolean biQ;
+    public boolean biT;
 
     public HasGoodsAuthResponseMessage() {
         super(1021143);
@@ -15,7 +15,7 @@ public class HasGoodsAuthResponseMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.biQ = optJSONObject.optBoolean("isAuth");
+            this.biT = optJSONObject.optBoolean("isAuth");
         }
     }
 }

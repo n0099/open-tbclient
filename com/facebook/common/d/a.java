@@ -8,7 +8,7 @@ import java.util.Map;
 import javax.annotation.Nullable;
 /* loaded from: classes9.dex */
 public class a {
-    public static final Map<String, String> nkQ = ImmutableMap.of("mkv", MimeType.Video.MKV, "glb", "model/gltf-binary", "flv", "flv-application/octet-stream");
+    public static final Map<String, String> nli = ImmutableMap.of("mkv", MimeType.Video.MKV, "glb", "model/gltf-binary", "flv", "flv-application/octet-stream");
 
     public static boolean Us(@Nullable String str) {
         return str != null && str.startsWith("video/");
@@ -23,7 +23,7 @@ public class a {
         String lowerCase = Uu.toLowerCase(Locale.US);
         String mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(lowerCase);
         if (mimeTypeFromExtension == null) {
-            return nkQ.get(lowerCase);
+            return nli.get(lowerCase);
         }
         return mimeTypeFromExtension;
     }

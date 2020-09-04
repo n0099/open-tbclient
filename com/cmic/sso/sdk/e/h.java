@@ -12,14 +12,14 @@ public class h {
     private static long d = 0;
 
     public static void a(boolean z, boolean z2) {
-        k.a dNp = k.dNp();
-        dNp.a("phonescripstarttime");
-        dNp.a("phonescripcache");
-        dNp.a("pre_sim_key");
+        k.a dNy = k.dNy();
+        dNy.a("phonescripstarttime");
+        dNy.a("phonescripcache");
+        dNy.a("pre_sim_key");
         if (z2) {
-            dNp.a();
+            dNy.a();
         } else {
-            dNp.b();
+            dNy.b();
         }
         if (z) {
             b = null;
@@ -53,11 +53,11 @@ public class h {
     public static void b(Context context, String str, long j, String str2) {
         String a2 = b.a(context, str);
         if (!TextUtils.isEmpty(a2)) {
-            k.a dNp = k.dNp();
-            dNp.a("phonescripcache", a2);
-            dNp.a("phonescripstarttime", j);
-            dNp.a("pre_sim_key", str2);
-            dNp.b();
+            k.a dNy = k.dNy();
+            dNy.a("phonescripcache", a2);
+            dNy.a("phonescripstarttime", j);
+            dNy.a("pre_sim_key", str2);
+            dNy.b();
         }
     }
 

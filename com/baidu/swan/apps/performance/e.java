@@ -7,13 +7,13 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static JSONObject cGy;
+    private static JSONObject cGC;
 
     public static void avP() {
         try {
-            cGy = i.avS().avN();
-            if (cGy != null) {
-                cGy.put("_ts", com.baidu.swan.apps.ap.j.a(new Date(), "yyyy-MM-dd HH:mm:ss"));
+            cGC = i.avS().avN();
+            if (cGC != null) {
+                cGC.put("_ts", com.baidu.swan.apps.ap.j.a(new Date(), "yyyy-MM-dd HH:mm:ss"));
             }
         } catch (JSONException e) {
             if (DEBUG) {
@@ -27,7 +27,7 @@ public class e {
         try {
             JSONObject avN = i.avS().avN();
             if (avN == null || !avN.has("events")) {
-                avN = cGy != null ? cGy : jSONObject;
+                avN = cGC != null ? cGC : jSONObject;
             }
             jSONObject = avN;
         } catch (JSONException e) {
@@ -35,7 +35,7 @@ public class e {
                 Log.e("PerformanceUbcSnapshot", "JSONException:", e);
             }
         }
-        cGy = null;
+        cGC = null;
         return jSONObject;
     }
 }

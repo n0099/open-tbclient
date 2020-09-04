@@ -16,68 +16,68 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class e extends c {
-    private com.baidu.live.gift.c.a aWf;
-    private long aWg;
+    private com.baidu.live.gift.c.a aWh;
+    private long aWi;
 
     @Override // com.baidu.live.gift.panel.c, com.baidu.live.tbadk.core.fragment.LazyLoadFragment
     protected void onInflate(View view, Bundle bundle) {
         super.onInflate(view, bundle);
-        this.aVW.setType(1);
-        this.aVW.FS();
+        this.aVY.setType(1);
+        this.aVY.FS();
     }
 
     @Override // com.baidu.live.gift.panel.c, com.baidu.live.tbadk.core.fragment.LazyLoadFragment
     protected void onInitial() {
         super.onInitial();
         Hh();
-        this.aWf.gJ("gift_panel");
+        this.aWh.gK("gift_panel");
     }
 
     @Override // com.baidu.live.gift.panel.c
     protected boolean Hx() {
-        g Ga = this.aVW.Ga();
+        g Ga = this.aVY.Ga();
         if (Ga == null) {
             return false;
         }
         Hh();
-        int Gb = this.aVW.Gb();
+        int Gb = this.aVY.Gb();
         if (!a(Ga, Gb) || e(Ga)) {
             return true;
         }
         long currentTimeMillis = System.currentTimeMillis();
         if (Ga.DY()) {
-            Ga.aNs = this.aVX != null ? this.aVX.FC() : null;
-            if (Ga.aNs == null) {
+            Ga.aNu = this.aVZ != null ? this.aVZ.FC() : null;
+            if (Ga.aNu == null) {
                 return false;
             }
-            Ga.aNs.aOt = Ga.DV();
-            com.baidu.live.gift.b.b.GM().a(Ga, Gb, this.aVJ.mUserId, this.aVJ.mUserName, this.aVJ.mLiveId, this.aVJ.mRoomId, this.aVJ.mAppId, this.aVJ.aTc, this.aVJ.otherParams, 0L, currentTimeMillis);
+            Ga.aNu.aOv = Ga.DV();
+            com.baidu.live.gift.b.b.GM().a(Ga, Gb, this.aVL.mUserId, this.aVL.mUserName, this.aVL.mLiveId, this.aVL.mRoomId, this.aVL.mAppId, this.aVL.aTe, this.aVL.otherParams, 0L, currentTimeMillis);
             closeActivity();
         } else {
-            com.baidu.live.gift.b.b.GM().a(Ga, Gb, this.aVJ.mUserId, this.aVJ.mUserName, this.aVJ.mLiveId, this.aVJ.mRoomId, this.aVJ.mAppId, this.aVJ.aTc, this.aVJ.otherParams, 0L, currentTimeMillis);
+            com.baidu.live.gift.b.b.GM().a(Ga, Gb, this.aVL.mUserId, this.aVL.mUserName, this.aVL.mLiveId, this.aVL.mRoomId, this.aVL.mAppId, this.aVL.aTe, this.aVL.otherParams, 0L, currentTimeMillis);
         }
         String str = null;
-        if (Ga.aNs != null) {
-            str = Ga.aNs.EH();
+        if (Ga.aNu != null) {
+            str = Ga.aNu.EH();
         }
         if (str == null) {
             str = "";
         }
-        this.aWf.a(Ga.DR(), Ga.DS(), Ga.aNn.aNt, this.aVJ.mUserId, this.aVJ.mLiveId, Gb, Gb > 1 ? 1 : 0, str, currentTimeMillis);
+        this.aWh.a(Ga.DR(), Ga.DS(), Ga.aNp.aNv, this.aVL.mUserId, this.aVL.mLiveId, Gb, Gb > 1 ? 1 : 0, str, currentTimeMillis);
         return true;
     }
 
     @Override // com.baidu.live.gift.panel.c
     protected void Hy() {
         Hh();
-        this.aWf.gJ("gift_panel");
+        this.aWh.gK("gift_panel");
     }
 
     @Override // com.baidu.live.gift.panel.c
     protected boolean a(g gVar, int i) {
         g.a aVar;
         boolean a = super.a(gVar, i);
-        if (a && (aVar = gVar.aNn) != null && i > aVar.aNu) {
+        if (a && (aVar = gVar.aNp) != null && i > aVar.aNw) {
             BdUtilHelper.showToast(TbadkCoreApplication.getInst(), "赠送失败，达到最高发送礼物上限");
             return false;
         }
@@ -87,8 +87,8 @@ public class e extends c {
     @Override // com.baidu.live.gift.panel.c
     protected boolean Hw() {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.aWg >= 1000) {
-            this.aWg = currentTimeMillis;
+        if (currentTimeMillis - this.aWi >= 1000) {
+            this.aWi = currentTimeMillis;
             return true;
         }
         return false;
@@ -97,29 +97,29 @@ public class e extends c {
     @Override // com.baidu.live.gift.panel.c, com.baidu.live.tbadk.core.fragment.LazyLoadFragment, com.baidu.live.tbadk.core.fragment.SupportXFragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.aWf != null) {
-            this.aWf.release();
+        if (this.aWh != null) {
+            this.aWh.release();
         }
     }
 
     private void Hh() {
-        if (this.aWf == null) {
-            this.aWf = new com.baidu.live.gift.c.a();
-            this.aWf.a(new com.baidu.live.gift.c.b() { // from class: com.baidu.live.gift.panel.e.1
+        if (this.aWh == null) {
+            this.aWh = new com.baidu.live.gift.c.a();
+            this.aWh.a(new com.baidu.live.gift.c.b() { // from class: com.baidu.live.gift.panel.e.1
                 @Override // com.baidu.live.gift.c.b, com.baidu.live.gift.c.c.a
                 public void a(boolean z, int i, String str, ArrayList<i> arrayList, ArrayList<com.baidu.live.data.f> arrayList2, ArrayList<com.baidu.live.data.g> arrayList3) {
                     super.a(z, i, str, arrayList, arrayList2, arrayList3);
                     if (!z && !TextUtils.isEmpty(str) && e.this.mVisible) {
                         BdUtilHelper.showToast(TbadkCoreApplication.getInst(), str);
                     }
-                    e.this.aVW.a(true, arrayList, arrayList2, arrayList3, z, i);
+                    e.this.aVY.a(true, arrayList, arrayList2, arrayList3, z, i);
                 }
 
                 @Override // com.baidu.live.gift.c.b, com.baidu.live.gift.c.c.a
                 public void a(boolean z, int i, String str, String str2, int i2) {
                     ArrayList<i> arrayList;
                     super.a(z, i, str, str2, i2);
-                    if (z && !TextUtils.isEmpty(str2) && (arrayList = e.this.aVW.aRl) != null) {
+                    if (z && !TextUtils.isEmpty(str2) && (arrayList = e.this.aVY.aRn) != null) {
                         Iterator<i> it = arrayList.iterator();
                         while (it.hasNext()) {
                             List<g> Er = it.next().Er();
@@ -134,16 +134,16 @@ public class e extends c {
                                 } else {
                                     for (g gVar : Er) {
                                         if (gVar.DR().equals(str2)) {
-                                            gVar.aNn.aNu = i2;
+                                            gVar.aNp.aNw = i2;
                                         }
                                     }
                                 }
                             }
                         }
                         if (i2 == 0) {
-                            e.this.aVW.a(false, z, i);
+                            e.this.aVY.a(false, z, i);
                         } else {
-                            e.this.aVW.A(str2, i2);
+                            e.this.aVY.A(str2, i2);
                         }
                     }
                 }
@@ -153,11 +153,11 @@ public class e extends c {
 
     private boolean e(g gVar) {
         g.a.C0173a c0173a;
-        g.a aVar = gVar.aNn;
-        if (aVar == null || (c0173a = aVar.aNx) == null || c0173a.key != 10) {
+        g.a aVar = gVar.aNp;
+        if (aVar == null || (c0173a = aVar.aNz) == null || c0173a.key != 10) {
             return false;
         }
-        if (c0173a.aNz != null && c0173a.aNz.optInt("price") == 100) {
+        if (c0173a.aNB != null && c0173a.aNB.optInt("price") == 100) {
             HB();
         }
         return true;
@@ -165,8 +165,8 @@ public class e extends c {
 
     private void HB() {
         br[] brVarArr;
-        be beVar = com.baidu.live.w.a.Nk().bka;
-        if (beVar != null && beVar.aJB != null && beVar.aJB.aLn && beVar.aJy != null && (brVarArr = beVar.aJy.aKr) != null && brVarArr.length > 0) {
+        be beVar = com.baidu.live.w.a.Nk().bkd;
+        if (beVar != null && beVar.aJD != null && beVar.aJD.aLp && beVar.aJA != null && (brVarArr = beVar.aJA.aKt) != null && brVarArr.length > 0) {
             for (int i = 0; i < brVarArr.length; i++) {
                 if (brVarArr[i].price == 100) {
                     closeActivity();

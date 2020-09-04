@@ -7,53 +7,53 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes15.dex */
 public class b implements q, com.baidu.tieba.InjectPlugin.a {
-    private static SparseArray<BdUniqueId> fkj = new SparseArray<>();
-    private Object fkk;
-    private int fkl;
+    private static SparseArray<BdUniqueId> fkn = new SparseArray<>();
+    private Object fko;
+    private int fkp;
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return fkj.get(this.fkl);
+        return fkn.get(this.fkp);
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a
-    public Object bzo() {
-        return this.fkk;
+    public Object bzp() {
+        return this.fko;
     }
 
     public void av(Object obj) {
-        this.fkk = obj;
+        this.fko = obj;
     }
 
-    public int bzp() {
-        return this.fkl;
+    public int bzq() {
+        return this.fkp;
     }
 
     public void rP(int i) {
-        this.fkl = i;
+        this.fkp = i;
     }
 
     public static void bi(List<Integer> list) {
-        if (fkj.size() <= 0 && list != null) {
+        if (fkn.size() <= 0 && list != null) {
             for (Integer num : list) {
-                fkj.put(num.intValue(), BdUniqueId.gen());
+                fkn.put(num.intValue(), BdUniqueId.gen());
             }
         }
     }
 
-    public static List<BdUniqueId> bzq() {
+    public static List<BdUniqueId> bzr() {
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < fkj.size(); i++) {
-            arrayList.add(fkj.valueAt(i));
+        for (int i = 0; i < fkn.size(); i++) {
+            arrayList.add(fkn.valueAt(i));
         }
         return arrayList;
     }
 
     public static int o(BdUniqueId bdUniqueId) {
         int indexOfValue;
-        if (fkj.size() == 0 || (indexOfValue = fkj.indexOfValue(bdUniqueId)) == -1 || fkj.size() <= indexOfValue) {
+        if (fkn.size() == 0 || (indexOfValue = fkn.indexOfValue(bdUniqueId)) == -1 || fkn.size() <= indexOfValue) {
             return -1;
         }
-        return fkj.keyAt(indexOfValue);
+        return fkn.keyAt(indexOfValue);
     }
 }

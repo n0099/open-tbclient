@@ -9,44 +9,44 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static a cWE;
-    private com.baidu.swan.apps.ak.b.b cWF = new com.baidu.swan.apps.ak.b.b();
-    private c cWG = new c();
-    private C0336a cWH = new C0336a();
-    private com.baidu.swan.apps.ak.a.a cWI = new com.baidu.swan.apps.ak.a.a();
+    private static a cWI;
+    private com.baidu.swan.apps.ak.b.b cWJ = new com.baidu.swan.apps.ak.b.b();
+    private c cWK = new c();
+    private C0336a cWL = new C0336a();
+    private com.baidu.swan.apps.ak.a.a cWM = new com.baidu.swan.apps.ak.a.a();
 
     private a() {
     }
 
     public static a aCf() {
-        if (cWE == null) {
+        if (cWI == null) {
             synchronized (a.class) {
-                if (cWE == null) {
-                    cWE = new a();
+                if (cWI == null) {
+                    cWI = new a();
                 }
             }
         }
-        return cWE;
+        return cWI;
     }
 
     public void bK(JSONObject jSONObject) {
-        this.cWF.bM(jSONObject);
+        this.cWJ.bM(jSONObject);
     }
 
-    public void re(String str) {
+    public void rf(String str) {
         ck(str, null);
     }
 
     public void ck(String str, String str2) {
-        this.cWF.add(str, str2);
+        this.cWJ.add(str, str2);
     }
 
     public void bL(JSONObject jSONObject) {
-        this.cWG.bM(jSONObject);
+        this.cWK.bM(jSONObject);
     }
 
     public JSONObject aCg() {
-        JSONObject aCm = this.cWF.aCm();
+        JSONObject aCm = this.cWJ.aCm();
         if (DEBUG) {
             Log.d("SwanStabilityTracer", "LaunchTraces: " + aCm);
         }
@@ -54,7 +54,7 @@ public final class a {
     }
 
     public JSONObject aCh() {
-        JSONObject aCm = this.cWG.aCm();
+        JSONObject aCm = this.cWK.aCm();
         if (DEBUG) {
             Log.d("SwanStabilityTracer", "WhiteTraces: " + aCm);
         }
@@ -62,7 +62,7 @@ public final class a {
     }
 
     public JSONObject aCi() {
-        JSONObject aCm = this.cWH.aCm();
+        JSONObject aCm = this.cWL.aCm();
         if (DEBUG) {
             Log.d("SwanStabilityTracer", "extraTraces: " + aCm);
         }
@@ -70,9 +70,9 @@ public final class a {
     }
 
     public void clear() {
-        this.cWF.clear();
-        this.cWG.clear();
-        this.cWH.clear();
+        this.cWJ.clear();
+        this.cWK.clear();
+        this.cWL.clear();
     }
 
     public File aCj() {
@@ -80,28 +80,28 @@ public final class a {
         jSONArray.put(aCg());
         jSONArray.put(aCh());
         jSONArray.put(aCi());
-        return this.cWI.G(jSONArray);
+        return this.cWM.G(jSONArray);
     }
 
     public void aCk() {
-        if (this.cWH.cWJ != null && this.cWH.cWJ.length() != 0) {
+        if (this.cWL.cWN != null && this.cWL.cWN.length() != 0) {
             JSONArray jSONArray = new JSONArray();
             jSONArray.put(aCg());
             jSONArray.put(aCh());
             jSONArray.put(aCi());
-            this.cWI.G(jSONArray);
+            this.cWM.G(jSONArray);
         }
     }
 
     public com.baidu.swan.apps.ak.a.a aCl() {
-        return this.cWI;
+        return this.cWM;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.ak.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
     public class C0336a implements com.baidu.swan.apps.ak.b.a<JSONObject> {
-        private JSONArray cWJ;
+        private JSONArray cWN;
 
         private C0336a() {
         }
@@ -109,7 +109,7 @@ public final class a {
         public JSONObject aCm() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("extra", this.cWJ);
+                jSONObject.put("extra", this.cWN);
             } catch (JSONException e) {
                 if (DEBUG) {
                     Log.e("SwanStabilityTracer", Log.getStackTraceString(e));
@@ -119,7 +119,7 @@ public final class a {
         }
 
         public void clear() {
-            this.cWJ = null;
+            this.cWN = null;
         }
     }
 }

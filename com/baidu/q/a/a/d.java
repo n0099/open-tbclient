@@ -5,11 +5,11 @@ import android.content.Context;
 public abstract class d implements c {
     protected Context mCtx;
     protected int mStatusCode = -200;
-    protected boolean ngN;
-    protected String ngP;
-    protected String ngQ;
-    protected String ngR;
-    protected boolean nhq;
+    protected boolean nhI;
+    protected boolean nhf;
+    protected String nhh;
+    protected String nhi;
+    protected String nhj;
 
     public d(Context context) {
         if (context != null) {
@@ -18,28 +18,28 @@ public abstract class d implements c {
     }
 
     @Override // com.baidu.q.a.a.c
-    public boolean dML() {
-        return this.ngN;
+    public boolean dMU() {
+        return this.nhf;
     }
 
     @Override // com.baidu.q.a.a.c
     public boolean isSupport() {
-        return this.nhq;
+        return this.nhI;
     }
 
     @Override // com.baidu.q.a.a.c
     public String getOAID() {
-        return this.ngP;
+        return this.nhh;
     }
 
     @Override // com.baidu.q.a.a.c
     public String getAAID() {
-        return this.ngQ;
+        return this.nhi;
     }
 
     @Override // com.baidu.q.a.a.c
     public String getVAID() {
-        return this.ngR;
+        return this.nhj;
     }
 
     @Override // com.baidu.q.a.a.c
@@ -48,28 +48,28 @@ public abstract class d implements c {
     }
 
     @Override // com.baidu.q.a.a.c
-    public void xK(boolean z) {
-        this.ngN = z;
+    public void xM(boolean z) {
+        this.nhf = z;
     }
 
     @Override // com.baidu.q.a.a.c
-    public void xL(boolean z) {
-        this.nhq = z;
+    public void xN(boolean z) {
+        this.nhI = z;
     }
 
     @Override // com.baidu.q.a.a.c
     public void Ua(String str) {
-        this.ngP = str;
+        this.nhh = str;
     }
 
     @Override // com.baidu.q.a.a.c
     public void Ub(String str) {
-        this.ngQ = str;
+        this.nhi = str;
     }
 
     @Override // com.baidu.q.a.a.c
     public void Uc(String str) {
-        this.ngR = str;
+        this.nhj = str;
     }
 
     @Override // com.baidu.q.a.a.c

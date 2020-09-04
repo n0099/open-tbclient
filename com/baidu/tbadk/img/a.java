@@ -7,53 +7,53 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.img.f;
 import com.baidu.tieba.R;
 import java.lang.ref.WeakReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a<T> {
-    private final f eOG;
-    private int eOH;
+    private final f eOK;
+    private int eOL;
     private String mPath;
     public T progessObject;
     private WeakReference<InterfaceC0555a<T>> mUploadProgressCallback = null;
-    private c eOE = null;
-    private a<T>.b eOF = null;
+    private c eOI = null;
+    private a<T>.b eOJ = null;
 
     /* renamed from: com.baidu.tbadk.img.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface InterfaceC0555a<T> {
         void onImageProgessInUI(int i, T t);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface c {
         void a(String str, ImageUploadResult imageUploadResult);
     }
 
     public void qq(int i) {
-        this.eOH = i;
+        this.eOL = i;
     }
 
     public a(String str, String str2) {
         this.mPath = null;
         this.mPath = str;
-        this.eOG = new f(str2);
+        this.eOK = new f(str2);
     }
 
     public void setServersideResize(int i, int i2, int i3, int i4) {
-        this.eOG.setServersideResize(i, i2, i3, i4);
+        this.eOK.setServersideResize(i, i2, i3, i4);
     }
 
     public void loadPic(boolean z) {
-        if (this.eOF == null) {
-            this.eOF = new b();
-            this.eOF.setIsNeedAddWater(z);
-            this.eOF.qq(this.eOH);
-            this.eOF.execute(new String[0]);
+        if (this.eOJ == null) {
+            this.eOJ = new b();
+            this.eOJ.setIsNeedAddWater(z);
+            this.eOJ.qq(this.eOL);
+            this.eOJ.execute(new String[0]);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     private class b extends BdAsyncTask<String, Integer, ImageUploadResult> implements f.a {
-        private int eOH;
+        private int eOL;
         private boolean isNeedAddWater;
 
         private b() {
@@ -61,7 +61,7 @@ public class a<T> {
         }
 
         public void qq(int i) {
-            this.eOH = i;
+            this.eOL = i;
         }
 
         protected void setIsNeedAddWater(boolean z) {
@@ -73,13 +73,13 @@ public class a<T> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: E */
         public ImageUploadResult doInBackground(String... strArr) {
-            return bsX();
+            return bsY();
         }
 
-        private ImageUploadResult bsX() {
-            a.this.eOG.a(this, null);
-            a.this.eOG.qq(this.eOH);
-            ImageUploadResult ar = a.this.eOG.ar(a.this.mPath, this.isNeedAddWater);
+        private ImageUploadResult bsY() {
+            a.this.eOK.a(this, null);
+            a.this.eOK.qq(this.eOL);
+            ImageUploadResult ar = a.this.eOK.ar(a.this.mPath, this.isNeedAddWater);
             publishProgress(100);
             return ar;
         }
@@ -111,19 +111,19 @@ public class a<T> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreCancel() {
             super.onPreCancel();
-            if (a.this.eOE != null) {
+            if (a.this.eOI != null) {
                 ImageUploadResult imageUploadResult = new ImageUploadResult();
                 imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_CALCELLED;
                 imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.send_error);
-                a.this.eOE.a(a.this.mPath, imageUploadResult);
+                a.this.eOI.a(a.this.mPath, imageUploadResult);
             }
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel();
-            a.this.eOF = null;
-            a.this.eOG.cancel();
+            a.this.eOJ = null;
+            a.this.eOK.cancel();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -132,15 +132,15 @@ public class a<T> {
         /* renamed from: a */
         public void onPostExecute(ImageUploadResult imageUploadResult) {
             super.onPostExecute(imageUploadResult);
-            a.this.eOF = null;
-            if (a.this.eOE != null) {
+            a.this.eOJ = null;
+            if (a.this.eOI != null) {
                 if (imageUploadResult == null) {
                     imageUploadResult = new ImageUploadResult();
                     imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_ERROR;
                     imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.send_error);
                     TiebaStatic.imgError(-1002, imageUploadResult.error_msg, "");
                 }
-                a.this.eOE.a(a.this.mPath, imageUploadResult);
+                a.this.eOI.a(a.this.mPath, imageUploadResult);
             }
         }
     }
@@ -150,11 +150,11 @@ public class a<T> {
     }
 
     public void a(c cVar) {
-        this.eOE = cVar;
+        this.eOI = cVar;
     }
 
     public void setGroupId(String str) {
-        this.eOG.setGroupId(str);
+        this.eOK.setGroupId(str);
     }
 
     public T getProgessObject() {

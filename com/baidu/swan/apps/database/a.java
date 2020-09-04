@@ -5,18 +5,16 @@ public class a {
     public String appKey;
     public String bearInfo;
     public int category;
-
-    /* renamed from: com  reason: collision with root package name */
-    public String f972com;
-    public String con;
-    public int coo;
-    public String cop;
     public String coq;
     public String cor;
-    public long cos;
-    public int cot;
+    public int cos;
+    public String cot;
     public String cou;
-    public boolean cov;
+    public String cov;
+    public long cow;
+    public int cox;
+    public String coy;
+    public boolean coz;
     public long createTime;
     public String description;
     public int errorCode;
@@ -37,6 +35,6 @@ public class a {
     public String version;
 
     public String akN() {
-        return "SwanAppDbInfo{appId='" + this.appId + "', appKey='" + this.appKey + "', errorCode=" + this.errorCode + ", errorDetail='" + this.errorDetail + "', errorMsg='" + this.errorMsg + "', resumeDate='" + this.resumeDate + "', maxSwanVersion='" + this.f972com + "', minSwanVersion='" + this.con + "', name='" + this.name + "', version='" + this.version + "', type=" + this.type + ", isHaveZip=" + this.coo + ", targetSwanVersion='" + this.cor + "', mAppZipSize=" + this.cos + ", mPendingApsErrcode=" + this.cot + ", category=" + this.category + ", versionCode='" + this.cou + "', maxAge=" + this.maxAge + ", createTime=" + this.createTime + ", forceFetchMetaInfoFlag=" + this.cov + ", payProtected=" + this.payProtected + '}';
+        return "SwanAppDbInfo{appId='" + this.appId + "', appKey='" + this.appKey + "', errorCode=" + this.errorCode + ", errorDetail='" + this.errorDetail + "', errorMsg='" + this.errorMsg + "', resumeDate='" + this.resumeDate + "', maxSwanVersion='" + this.coq + "', minSwanVersion='" + this.cor + "', name='" + this.name + "', version='" + this.version + "', type=" + this.type + ", isHaveZip=" + this.cos + ", targetSwanVersion='" + this.cov + "', mAppZipSize=" + this.cow + ", mPendingApsErrcode=" + this.cox + ", category=" + this.category + ", versionCode='" + this.coy + "', maxAge=" + this.maxAge + ", createTime=" + this.createTime + ", forceFetchMetaInfoFlag=" + this.coz + ", payProtected=" + this.payProtected + '}';
     }
 }

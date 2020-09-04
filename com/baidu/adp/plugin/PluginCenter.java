@@ -83,9 +83,9 @@ public class PluginCenter {
                 bVar.isSucc = false;
                 com.baidu.adp.plugin.b.a.py().E("plugincenter_launch_lowversion", str);
                 com.baidu.adp.plugin.b.a.py().f("plugin_load", "plugincenter_load_lowversion", str, findPluginSetting.apkPath + Constants.ACCEPT_TIME_SEPARATOR_SERVER + findPluginSetting.versionCode + Constants.ACCEPT_TIME_SEPARATOR_SERVER + findPluginSetting.forbidden + Constants.ACCEPT_TIME_SEPARATOR_SERVER + findPluginSetting.tempVersionCode + Constants.ACCEPT_TIME_SEPARATOR_SERVER + findPluginSetting.installStatus);
-                com.baidu.adp.plugin.packageManager.pluginSettings.c.qq().cM(str);
+                com.baidu.adp.plugin.packageManager.pluginSettings.c.qq().cN(str);
                 if (z) {
-                    com.baidu.adp.plugin.packageManager.status.a.qw().cO(str);
+                    com.baidu.adp.plugin.packageManager.status.a.qw().cP(str);
                 }
             } else if (this.mPluginsMap.containsKey(str)) {
                 bVar.isSucc = false;
@@ -163,7 +163,7 @@ public class PluginCenter {
     }
 
     public boolean isEnable(String str) {
-        return isLoaded(str) && !com.baidu.adp.plugin.packageManager.pluginSettings.c.qq().cK(str);
+        return isLoaded(str) && !com.baidu.adp.plugin.packageManager.pluginSettings.c.qq().cL(str);
     }
 
     public int getHostResourcesId(Context context, String str, String str2, String str3) {
@@ -241,7 +241,7 @@ public class PluginCenter {
     }
 
     public <P> P getMotuClassInstance() {
-        if (PluginPackageManager.pO().isFeatureForbidden("com.baidu.tbadk.motu_gallery") || PluginPackageManager.pO().cA(NAME_MOTUSDK)) {
+        if (PluginPackageManager.pO().isFeatureForbidden("com.baidu.tbadk.motu_gallery") || PluginPackageManager.pO().cB(NAME_MOTUSDK)) {
             return null;
         }
         try {
@@ -414,7 +414,7 @@ public class PluginCenter {
                                 }
                             }
                             if (j > PLUGIN_RETRY_MIN_TIME_INTERVAL) {
-                                com.baidu.adp.plugin.packageManager.status.a.qw().cO(value.getPackageName());
+                                com.baidu.adp.plugin.packageManager.status.a.qw().cP(value.getPackageName());
                             }
                         }
                     }

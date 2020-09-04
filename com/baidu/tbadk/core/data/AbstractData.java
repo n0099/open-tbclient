@@ -4,7 +4,7 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.Abstract;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class AbstractData extends OrmObject implements Serializable {
     public String duringTime;
     public String link;

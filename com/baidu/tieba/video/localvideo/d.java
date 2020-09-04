@@ -7,7 +7,7 @@ public class d {
     private boolean hasLoaded = false;
     private long lastModified;
     private String mimeType;
-    private String mzg;
+    private String mzy;
     private Bitmap thumbnailBitmap;
     private int videoHeight;
     private String videoId;
@@ -59,7 +59,7 @@ public class d {
     }
 
     public void RT(String str) {
-        this.mzg = str;
+        this.mzy = str;
     }
 
     public long getLastModified() {
@@ -78,11 +78,11 @@ public class d {
         this.thumbnailBitmap = bitmap;
     }
 
-    public void wH(boolean z) {
+    public void wJ(boolean z) {
         this.hasLoaded = z;
     }
 
-    public boolean dCB() {
+    public boolean dCK() {
         return this.hasLoaded;
     }
 }

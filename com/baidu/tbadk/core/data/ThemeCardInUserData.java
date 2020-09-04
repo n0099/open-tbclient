@@ -4,7 +4,7 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.ThemeCardInUser;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ThemeCardInUserData extends OrmObject implements Serializable {
     private static final long serialVersionUID = 1;
     private long cardId;

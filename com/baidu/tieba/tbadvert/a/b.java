@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes20.dex */
 public class b {
-    public int ecy;
+    public int ecC;
     public long endTime;
     public int id;
     public String linkUrl;
-    public String mjh;
+    public String mjw;
     public long showTime = IMConnection.RETRY_DELAY_TIMES;
     public int showType;
     public long startTime;
@@ -22,13 +22,13 @@ public class b {
             this.startTime = jSONObject.optLong("start_time", 0L);
             this.endTime = jSONObject.optLong("end_time", 0L);
             this.showType = jSONObject.optInt(RecordVideoActivityConfig.SHOW_TYPE, 0);
-            this.ecy = jSONObject.optInt("show_status", 0);
-            this.mjh = jSONObject.optString("resource_url");
+            this.ecC = jSONObject.optInt("show_status", 0);
+            this.mjw = jSONObject.optString("resource_url");
             this.linkUrl = jSONObject.optString("link_url");
         }
     }
 
-    public boolean dyf() {
+    public boolean dyk() {
         return this.showType == 1;
     }
 

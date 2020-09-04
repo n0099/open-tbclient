@@ -14,33 +14,33 @@ import com.baidu.tieba.recapp.s;
 import tbclient.VideoInfo;
 /* loaded from: classes15.dex */
 public class a implements ImagePagerAdapter.a {
-    private static int jGU = 7;
-    private boolean eGg;
-    private DragImageView.d eHS;
-    private TbPageContext<?> efn;
-    private AdvertAppInfo jGW;
-    private boolean jGX;
-    private b jGY;
-    private c jGZ;
-    private AdCard jHb;
-    private VideoInfo jHc;
-    private int jGV = 0;
-    private boolean jHa = false;
+    private static int jHa = 7;
+    private boolean eGk;
+    private DragImageView.d eHW;
+    private TbPageContext<?> efr;
+    private AdvertAppInfo jHc;
+    private boolean jHd;
+    private b jHe;
+    private c jHf;
+    private AdCard jHh;
+    private VideoInfo jHi;
+    private int jHb = 0;
+    private boolean jHg = false;
     private final View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.image.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.jGW != null && a.this.jHb != null) {
-                if (a.this.jGY == null || !a.this.jGY.jHi || a.this.jGY.cKm() != view) {
-                    com.baidu.tieba.lego.card.b.c.a(com.baidu.tieba.lego.card.b.c.d(a.this.jGW));
+            if (a.this.jHc != null && a.this.jHh != null) {
+                if (a.this.jHe == null || !a.this.jHe.jHo || a.this.jHe.cKn() != view) {
+                    com.baidu.tieba.lego.card.b.c.a(com.baidu.tieba.lego.card.b.c.d(a.this.jHc));
                     if (view.getId() == R.id.image_ad_button) {
                         a.this.cz(view);
-                        a.this.jGZ.Lo("button");
+                        a.this.jHf.Lp("button");
                     } else if (view.getId() == R.id.bottom_container) {
-                        a.this.cKg();
-                        a.this.jGZ.Lo("title");
+                        a.this.cKh();
+                        a.this.jHf.Lp("title");
                     } else {
-                        a.this.cKf();
-                        a.this.jGZ.Lo(a.this.jGW.bcz() ? "image" : "video");
+                        a.this.cKg();
+                        a.this.jHf.Lp(a.this.jHc.bcz() ? "image" : "video");
                     }
                 }
             }
@@ -48,35 +48,35 @@ public class a implements ImagePagerAdapter.a {
     };
 
     public a(boolean z, boolean z2, TbPageContext<?> tbPageContext, String str, String str2) {
-        this.eGg = false;
-        this.jGX = false;
-        this.eGg = z;
-        this.jGX = z2;
-        this.efn = tbPageContext;
-        this.jGZ = new c(tbPageContext.getPageActivity(), str, str2);
+        this.eGk = false;
+        this.jHd = false;
+        this.eGk = z;
+        this.jHd = z2;
+        this.efr = tbPageContext;
+        this.jHf = new c(tbPageContext.getPageActivity(), str, str2);
     }
 
     public void a(AdvertAppInfo advertAppInfo, int i) {
-        this.jGW = advertAppInfo;
-        this.jGW.page = "PIC_PAGE";
-        this.jGZ.c(this.jGW);
-        this.jGV = i;
-        if (this.jGW.legoCard instanceof AdCard) {
-            this.jHb = (AdCard) this.jGW.legoCard;
-            this.jHc = this.jHb.videoInfo;
+        this.jHc = advertAppInfo;
+        this.jHc.page = "PIC_PAGE";
+        this.jHf.c(this.jHc);
+        this.jHb = i;
+        if (this.jHc.legoCard instanceof AdCard) {
+            this.jHh = (AdCard) this.jHc.legoCard;
+            this.jHi = this.jHh.videoInfo;
         }
     }
 
-    public boolean cKc() {
-        if (!this.jGX || this.jGW == null) {
+    public boolean cKd() {
+        if (!this.jHd || this.jHc == null) {
             return false;
         }
-        return this.jGW.bcx() || this.jGW.bcw();
+        return this.jHc.bcx() || this.jHc.bcw();
     }
 
     public String getAdId() {
-        if (this.jGW != null) {
-            return this.jGW.dWf;
+        if (this.jHc != null) {
+            return this.jHc.dWj;
         }
         return null;
     }
@@ -84,50 +84,50 @@ public class a implements ImagePagerAdapter.a {
     @Override // com.baidu.tbadk.coreExtra.view.ImagePagerAdapter.a
     public View j(ViewGroup viewGroup, int i) {
         if (BZ(i)) {
-            this.jGY = new b(viewGroup, this.efn);
-            this.jGY.setDragToExitListener(this.eHS);
-            cKd();
-            viewGroup.addView(this.jGY.getView());
-            return this.jGY.getView();
+            this.jHe = new b(viewGroup, this.efr);
+            this.jHe.setDragToExitListener(this.eHW);
+            cKe();
+            viewGroup.addView(this.jHe.getView());
+            return this.jHe.getView();
         }
         return null;
     }
 
     private boolean BZ(int i) {
-        return cKc() && this.jGV != 0 && i == this.jGV;
+        return cKd() && this.jHb != 0 && i == this.jHb;
     }
 
-    private void cKd() {
-        if (this.jGW != null && this.jGW.dWo != null) {
-            cKe();
-            this.jGY.a(this.jGW, this.jHb);
-            if (!TextUtils.isEmpty(this.jGW.dWo.userName)) {
-                this.jGY.jHg.setText(this.jGW.dWo.userName);
-                if (!TextUtils.isEmpty(this.jGW.dWo.tagName)) {
-                    this.jGY.jHh.setText(this.jGW.dWo.tagName);
+    private void cKe() {
+        if (this.jHc != null && this.jHc.dWs != null) {
+            cKf();
+            this.jHe.a(this.jHc, this.jHh);
+            if (!TextUtils.isEmpty(this.jHc.dWs.userName)) {
+                this.jHe.jHm.setText(this.jHc.dWs.userName);
+                if (!TextUtils.isEmpty(this.jHc.dWs.tagName)) {
+                    this.jHe.jHn.setText(this.jHc.dWs.tagName);
                 } else {
-                    this.jGY.jHh.setText(this.efn.getString(R.string.advert_label));
+                    this.jHe.jHn.setText(this.efr.getString(R.string.advert_label));
                 }
             }
-            if (!TextUtils.isEmpty(this.jGW.dWo.dWx)) {
-                this.jGY.jHf.setText(this.jGW.dWo.dWx);
+            if (!TextUtils.isEmpty(this.jHc.dWs.dWB)) {
+                this.jHe.jHl.setText(this.jHc.dWs.dWB);
             }
-            this.jGY.jHm.setVisibility(this.jGW.bcy() ? 0 : 8);
-            this.jGY.E(this.mClickListener);
+            this.jHe.jHs.setVisibility(this.jHc.bcy() ? 0 : 8);
+            this.jHe.E(this.mClickListener);
         }
     }
 
     public void setDragToExitListener(DragImageView.d dVar) {
-        this.eHS = dVar;
+        this.eHW = dVar;
     }
 
-    private void cKe() {
+    private void cKf() {
         String str;
-        this.jGY.cKm().setEvent(new TbImageView.a() { // from class: com.baidu.tieba.image.a.1
+        this.jHe.cKn().setEvent(new TbImageView.a() { // from class: com.baidu.tieba.image.a.1
             @Override // com.baidu.tbadk.widget.TbImageView.a
             public void onComplete(String str2, boolean z) {
                 if (z) {
-                    a.this.jGY.cKn();
+                    a.this.jHe.cKo();
                 }
             }
 
@@ -135,66 +135,66 @@ public class a implements ImagePagerAdapter.a {
             public void onCancel() {
             }
         });
-        if (this.jGW.bcy() && this.jHc != null) {
-            str = this.jHc.thumbnail_url;
+        if (this.jHc.bcy() && this.jHi != null) {
+            str = this.jHi.thumbnail_url;
         } else {
-            str = this.jGW.dWo.dWz;
+            str = this.jHc.dWs.dWD;
         }
-        this.jGY.cKm().a(str, this.eGg ? 30 : 31, 720, 720, false);
-        if (this.jGY.cKl() != null) {
-            this.jGY.cKl().setIsCdn(this.eGg);
-            this.jGY.cKl().setUrl(str, true);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void cKf() {
-        if (this.jGW.bcz()) {
-            cKh();
-        } else {
-            cKi();
+        this.jHe.cKn().a(str, this.eGk ? 30 : 31, 720, 720, false);
+        if (this.jHe.cKm() != null) {
+            this.jHe.cKm().setIsCdn(this.eGk);
+            this.jHe.cKm().setUrl(str, true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cKg() {
-        cKh();
+        if (this.jHc.bcz()) {
+            cKi();
+        } else {
+            cKj();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void cKh() {
+        cKi();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cz(View view) {
-        cKh();
-    }
-
-    private void cKh() {
-        if (s.aR(this.efn.getPageActivity(), this.jHb.getScheme() != null ? this.jHb.getScheme() : this.jGW.dWh) == 1) {
-            this.jGZ.Lp(this.jGW.bcz() ? "image" : "video");
-        }
+        cKi();
     }
 
     private void cKi() {
-        if (this.jGW != null && this.jHb != null && this.jHc != null && s.a(this.efn.getPageActivity(), this.jHb.getScheme(), this.jGW) == 1) {
-            this.jGZ.Lp(this.jGW.bcz() ? "image" : "video");
+        if (s.aR(this.efr.getPageActivity(), this.jHh.getScheme() != null ? this.jHh.getScheme() : this.jHc.dWl) == 1) {
+            this.jHf.Lq(this.jHc.bcz() ? "image" : "video");
         }
     }
 
-    public void cKj() {
-        if (!this.jHa) {
-            this.jHa = true;
-            this.jGZ.aff();
-            com.baidu.tieba.lego.card.b.c.b(com.baidu.tieba.lego.card.b.c.d(this.jGW));
+    private void cKj() {
+        if (this.jHc != null && this.jHh != null && this.jHi != null && s.a(this.efr.getPageActivity(), this.jHh.getScheme(), this.jHc) == 1) {
+            this.jHf.Lq(this.jHc.bcz() ? "image" : "video");
+        }
+    }
+
+    public void cKk() {
+        if (!this.jHg) {
+            this.jHg = true;
+            this.jHf.aff();
+            com.baidu.tieba.lego.card.b.c.b(com.baidu.tieba.lego.card.b.c.d(this.jHc));
         }
     }
 
     public void onDestroy() {
-        if (this.jGY != null) {
-            this.jGY.onDestroy();
+        if (this.jHe != null) {
+            this.jHe.onDestroy();
         }
     }
 
     public void onCreate() {
-        if (this.jGY != null) {
-            this.jGY.onCreate();
+        if (this.jHe != null) {
+            this.jHe.onCreate();
         }
     }
 }

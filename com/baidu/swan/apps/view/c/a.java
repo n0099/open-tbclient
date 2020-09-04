@@ -13,7 +13,7 @@ import com.baidu.swan.apps.process.SwanAppProcessInfo;
 import com.baidu.swan.apps.res.widget.dialog.g;
 /* loaded from: classes8.dex */
 public class a implements g.c {
-    private FrameLayout cWD = null;
+    private FrameLayout cWH = null;
 
     @Override // com.baidu.swan.apps.res.widget.dialog.g.c
     public void a(g gVar, g.b bVar) {
@@ -45,23 +45,23 @@ public class a implements g.c {
             view.post(new Runnable() { // from class: com.baidu.swan.apps.view.c.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.this.cWD == null) {
-                        a.this.cWD = new FrameLayout(viewGroup.getContext());
-                        a.this.cWD.setBackgroundResource(a.c.aiapps_night_mode_cover_layer);
+                    if (a.this.cWH == null) {
+                        a.this.cWH = new FrameLayout(viewGroup.getContext());
+                        a.this.cWH.setBackgroundResource(a.c.aiapps_night_mode_cover_layer);
                     }
-                    viewGroup.removeView(a.this.cWD);
+                    viewGroup.removeView(a.this.cWH);
                     FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
                     layoutParams.gravity = 17;
-                    viewGroup.addView(a.this.cWD, layoutParams);
+                    viewGroup.addView(a.this.cWH, layoutParams);
                 }
             });
         }
     }
 
     private void A(ViewGroup viewGroup) {
-        if (viewGroup != null && this.cWD != null) {
-            viewGroup.removeView(this.cWD);
-            this.cWD = null;
+        if (viewGroup != null && this.cWH != null) {
+            viewGroup.removeView(this.cWH);
+            this.cWH = null;
         }
     }
 }

@@ -77,7 +77,7 @@ public abstract class d implements com.baidu.swan.apps.api.a.a {
     }
 
     @NonNull
-    public static Pair<com.baidu.swan.apps.api.c.a, JSONObject> iO(String str) {
+    public static Pair<com.baidu.swan.apps.api.c.a, JSONObject> iP(String str) {
         if (DEBUG) {
             Log.d("Api-Base", "parseParams(String): String");
         }
@@ -335,7 +335,7 @@ public abstract class d implements com.baidu.swan.apps.api.a.a {
     }
 
     @Nullable
-    public static JSONObject iP(String str) {
+    public static JSONObject iQ(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

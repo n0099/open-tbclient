@@ -2,7 +2,7 @@ package com.baidu.tieba.quickWebView.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class QuickWebViewBridgeData extends OrmObject {
     public long begin;
     public String callBack;

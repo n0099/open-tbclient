@@ -49,19 +49,19 @@ public class a extends Drawable implements Animatable {
             a.this.unscheduleSelf(runnable);
         }
     };
-    private final C0030a XB = new C0030a(this.mCallback);
+    private final C0030a XD = new C0030a(this.mCallback);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Context context, View view) {
         this.mParent = view;
         this.mResources = context.getResources();
-        this.XB.setColors(COLORS);
+        this.XD.setColors(COLORS);
         updateSizes(1);
         setupAnimators();
     }
 
     private void setSizeParameters(double d, double d2, double d3, double d4, float f, float f2) {
-        C0030a c0030a = this.XB;
+        C0030a c0030a = this.XD;
         float f3 = this.mResources.getDisplayMetrics().density;
         this.mWidth = f3 * d;
         this.mHeight = f3 * d2;
@@ -81,29 +81,29 @@ public class a extends Drawable implements Animatable {
     }
 
     public void showArrow(boolean z) {
-        this.XB.setShowArrow(z);
+        this.XD.setShowArrow(z);
     }
 
     public void setArrowScale(float f) {
-        this.XB.setArrowScale(f);
+        this.XD.setArrowScale(f);
     }
 
     public void setStartEndTrim(float f, float f2) {
-        this.XB.setStartTrim(f);
-        this.XB.setEndTrim(f2);
+        this.XD.setStartTrim(f);
+        this.XD.setEndTrim(f2);
     }
 
     public void setProgressRotation(float f) {
-        this.XB.setRotation(f);
+        this.XD.setRotation(f);
     }
 
     public void setBackgroundColor(int i) {
-        this.XB.setBackgroundColor(i);
+        this.XD.setBackgroundColor(i);
     }
 
     public void setColorSchemeColors(int... iArr) {
-        this.XB.setColors(iArr);
-        this.XB.setColorIndex(0);
+        this.XD.setColors(iArr);
+        this.XD.setColorIndex(0);
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -121,7 +121,7 @@ public class a extends Drawable implements Animatable {
         Rect bounds = getBounds();
         int save = canvas.save();
         canvas.rotate(this.mRotation, bounds.exactCenterX(), bounds.exactCenterY());
-        this.XB.draw(canvas, bounds);
+        this.XD.draw(canvas, bounds);
         if (save >= 1 && save <= canvas.getSaveCount()) {
             canvas.restoreToCount(save);
         }
@@ -129,17 +129,17 @@ public class a extends Drawable implements Animatable {
 
     @Override // android.graphics.drawable.Drawable
     public void setAlpha(int i) {
-        this.XB.setAlpha(i);
+        this.XD.setAlpha(i);
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getAlpha() {
-        return this.XB.getAlpha();
+        return this.XD.getAlpha();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setColorFilter(ColorFilter colorFilter) {
-        this.XB.setColorFilter(colorFilter);
+        this.XD.setColorFilter(colorFilter);
     }
 
     void setRotation(float f) {
@@ -168,15 +168,15 @@ public class a extends Drawable implements Animatable {
     @Override // android.graphics.drawable.Animatable
     public void start() {
         this.mAnimation.reset();
-        this.XB.storeOriginals();
-        if (this.XB.getEndTrim() != this.XB.getStartTrim()) {
+        this.XD.storeOriginals();
+        if (this.XD.getEndTrim() != this.XD.getStartTrim()) {
             this.mFinishing = true;
             this.mAnimation.setDuration(666L);
             this.mParent.startAnimation(this.mAnimation);
             return;
         }
-        this.XB.setColorIndex(0);
-        this.XB.resetOriginals();
+        this.XD.setColorIndex(0);
+        this.XD.resetOriginals();
         this.mAnimation.setDuration(1332L);
         this.mParent.startAnimation(this.mAnimation);
     }
@@ -185,9 +185,9 @@ public class a extends Drawable implements Animatable {
     public void stop() {
         this.mParent.clearAnimation();
         setRotation(0.0f);
-        this.XB.setShowArrow(false);
-        this.XB.setColorIndex(0);
-        this.XB.resetOriginals();
+        this.XD.setShowArrow(false);
+        this.XD.setColorIndex(0);
+        this.XD.resetOriginals();
     }
 
     float a(C0030a c0030a) {
@@ -219,7 +219,7 @@ public class a extends Drawable implements Animatable {
     }
 
     private void setupAnimators() {
-        final C0030a c0030a = this.XB;
+        final C0030a c0030a = this.XD;
         Animation animation = new Animation() { // from class: com.baidu.adp.widget.refresh.a.1
             @Override // android.view.animation.Animation
             public void applyTransformation(float f, Transformation transformation) {

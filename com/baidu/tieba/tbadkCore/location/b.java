@@ -1,22 +1,22 @@
 package com.baidu.tieba.tbadkCore.location;
 
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b {
-    private static b mhh;
+    private static b mhw;
     private LocationData mLocationData;
     private long mTimeStamp;
-    private boolean mhi = com.baidu.tbadk.core.sharedPref.b.bik().getBoolean(SharedPrefConfig.NO_LONGER_SHOW_ADDRESS, false);
+    private boolean mhx = com.baidu.tbadk.core.sharedPref.b.bik().getBoolean(SharedPrefConfig.NO_LONGER_SHOW_ADDRESS, false);
 
-    public static b dxi() {
-        if (mhh == null) {
+    public static b dxn() {
+        if (mhw == null) {
             synchronized (b.class) {
-                if (mhh == null) {
-                    mhh = new b();
+                if (mhw == null) {
+                    mhw = new b();
                 }
             }
         }
-        return mhh;
+        return mhw;
     }
 
     public long getTimeStamp() {
@@ -35,11 +35,11 @@ public class b {
         this.mLocationData = locationData;
     }
 
-    public boolean dxj() {
-        return this.mhi;
+    public boolean dxo() {
+        return this.mhx;
     }
 
-    public void wd(boolean z) {
-        this.mhi = z;
+    public void wf(boolean z) {
+        this.mhx = z;
     }
 }

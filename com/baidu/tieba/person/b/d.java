@@ -17,28 +17,28 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes18.dex */
 public class d extends af.a {
-    public int aiB;
-    public TextView dSz;
-    public View iLd;
-    public HTypeListView ldS;
-    public e ldT;
+    public int aiD;
+    public TextView dSD;
+    public View iLj;
+    public HTypeListView ldZ;
+    public e lea;
     public TbPageContext mPageContext;
     public View rootView;
 
     public d(View view, TbPageContext tbPageContext) {
         super(view);
-        this.aiB = 3;
+        this.aiD = 3;
         this.rootView = view;
         this.mPageContext = tbPageContext;
-        this.iLd = view.findViewById(R.id.divider_view_under_photo_album);
-        this.dSz = (TextView) view.findViewById(R.id.text_view_photo_album);
-        this.ldS = (HTypeListView) view.findViewById(R.id.listview_photo_album);
-        this.ldT = new e(this.mPageContext, this.ldS);
+        this.iLj = view.findViewById(R.id.divider_view_under_photo_album);
+        this.dSD = (TextView) view.findViewById(R.id.text_view_photo_album);
+        this.ldZ = (HTypeListView) view.findViewById(R.id.listview_photo_album);
+        this.lea = new e(this.mPageContext, this.ldZ);
     }
 
     public void a(f fVar) {
         if (fVar != null) {
-            this.ldT.setDatas(eG(fVar.getPhotoAlbum()));
+            this.lea.setDatas(eG(fVar.getPhotoAlbum()));
         }
     }
 
@@ -53,13 +53,13 @@ public class d extends af.a {
         return list;
     }
 
-    public void dgt() {
-        if (this.aiB != TbadkCoreApplication.getInst().getSkinType()) {
-            this.aiB = TbadkCoreApplication.getInst().getSkinType();
+    public void dgu() {
+        if (this.aiD != TbadkCoreApplication.getInst().getSkinType()) {
+            this.aiD = TbadkCoreApplication.getInst().getSkinType();
             ap.setBackgroundColor(this.rootView, R.color.cp_bg_line_d);
-            ap.setBackgroundColor(this.iLd, R.color.cp_bg_line_c);
-            ap.setViewTextColor(this.dSz, R.color.cp_cont_d, 1);
-            this.ldT.notifyDataSetChanged();
+            ap.setBackgroundColor(this.iLj, R.color.cp_bg_line_c);
+            ap.setViewTextColor(this.dSD, R.color.cp_cont_d, 1);
+            this.lea.notifyDataSetChanged();
         }
     }
 }

@@ -6,15 +6,15 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes8.dex */
 public class l {
-    private static String ami;
+    private static String amk;
 
     public static String aEK() {
-        if (TextUtils.isEmpty(ami)) {
+        if (TextUtils.isEmpty(amk)) {
             synchronized (l.class) {
-                ami = aEL();
+                amk = aEL();
             }
         }
-        return ami;
+        return amk;
     }
 
     private static String aEL() {

@@ -246,9 +246,9 @@ public class GlobalStateSyncPlugin implements FlutterPlugin, MethodChannel.Metho
     }
 
     private static String getExperimentID() {
-        e j = d.j(f.dRn);
-        if (j != null && !at.isEmpty(j.dRm)) {
-            String str = j.dRm;
+        e j = d.j(f.dRr);
+        if (j != null && !at.isEmpty(j.dRq)) {
+            String str = j.dRq;
             char c = 65535;
             switch (str.hashCode()) {
                 case 1687628:

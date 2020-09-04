@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.a;
 /* loaded from: classes4.dex */
 public abstract class g {
-    private h fOJ;
+    private h fON;
 
     public abstract float getProgress();
 
@@ -12,17 +12,17 @@ public abstract class g {
     protected abstract void onDetach();
 
     public void a(h hVar) {
-        this.fOJ = hVar;
+        this.fON = hVar;
         onAttach();
     }
 
     public void detach() {
-        this.fOJ = null;
+        this.fON = null;
         onDetach();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public h bHJ() {
-        return this.fOJ;
+    public h bHK() {
+        return this.fON;
     }
 }

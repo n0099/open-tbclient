@@ -16,13 +16,13 @@ public interface Framedata {
 
     boolean aeC();
 
-    ByteBuffer ejr();
+    ByteBuffer ejA();
 
-    boolean ejs();
+    boolean ejB();
 
-    boolean ejt();
+    boolean ejC();
 
-    boolean eju();
+    boolean ejD();
 
-    Opcode ejv();
+    Opcode ejE();
 }

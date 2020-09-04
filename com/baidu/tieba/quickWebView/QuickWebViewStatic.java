@@ -6,7 +6,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.quickWebView.message.WebViewCacheResHttpMsg;
 import com.baidu.tieba.quickWebView.message.WebViewCacheResSocketMsg;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class QuickWebViewStatic {
     static {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.WEBVIEW_CACHE_INFO, WebViewCacheResSocketMsg.class, false, false);

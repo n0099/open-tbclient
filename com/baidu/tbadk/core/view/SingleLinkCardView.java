@@ -15,11 +15,11 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class SingleLinkCardView extends RelativeLayout {
-    private TbImageView esP;
-    private TextView esQ;
-    private TextView esR;
+    private TbImageView esT;
+    private TextView esU;
+    private TextView esV;
 
     public SingleLinkCardView(Context context) {
         this(context, null);
@@ -32,32 +32,32 @@ public class SingleLinkCardView extends RelativeLayout {
     public SingleLinkCardView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         LayoutInflater.from(context).inflate(R.layout.single_link_card_layout, this);
-        this.esP = (TbImageView) findViewById(R.id.iv_single_link_icon);
-        this.esP.setBorderSurroundContent(true);
-        this.esP.setDrawCorner(true);
-        this.esP.setConrers(15);
-        this.esP.setGifIconSupport(false);
-        this.esP.setLongIconSupport(false);
-        this.esP.setDrawBorder(true);
-        this.esP.setBorderWidth(UtilHelper.getDimenPixelSize(R.dimen.tbds1));
-        this.esP.setBorderColor(ap.getColor(R.color.cp_border_a));
-        this.esP.setRadius(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds10));
-        this.esP.setPlaceHolder(2);
-        this.esQ = (TextView) findViewById(R.id.tv_single_link_text);
-        this.esR = (TextView) findViewById(R.id.goods_price);
+        this.esT = (TbImageView) findViewById(R.id.iv_single_link_icon);
+        this.esT.setBorderSurroundContent(true);
+        this.esT.setDrawCorner(true);
+        this.esT.setConrers(15);
+        this.esT.setGifIconSupport(false);
+        this.esT.setLongIconSupport(false);
+        this.esT.setDrawBorder(true);
+        this.esT.setBorderWidth(UtilHelper.getDimenPixelSize(R.dimen.tbds1));
+        this.esT.setBorderColor(ap.getColor(R.color.cp_border_a));
+        this.esT.setRadius(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds10));
+        this.esT.setPlaceHolder(2);
+        this.esU = (TextView) findViewById(R.id.tv_single_link_text);
+        this.esV = (TextView) findViewById(R.id.goods_price);
         onChangeSkinType();
     }
 
     public void onChangeSkinType() {
         ap.setBackgroundResource(this, R.drawable.bg_link_card);
-        ap.setViewTextColor(this.esQ, R.color.cp_cont_j);
-        ap.setViewTextColor(this.esR, R.color.cp_link_tip_d);
+        ap.setViewTextColor(this.esU, R.color.cp_cont_j);
+        ap.setViewTextColor(this.esV, R.color.cp_link_tip_d);
     }
 
     public void a(com.baidu.tieba.card.data.d dVar) {
         if (dVar instanceof PbLinkData) {
             PbLinkData pbLinkData = (PbLinkData) dVar;
-            this.esP.startLoad(pbLinkData.picUrl, 10, false);
+            this.esT.startLoad(pbLinkData.picUrl, 10, false);
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
             if (!TextUtils.isEmpty(pbLinkData.linkFrom)) {
                 spannableStringBuilder.append((CharSequence) pbLinkData.linkFrom);
@@ -79,24 +79,24 @@ public class SingleLinkCardView extends RelativeLayout {
             } else {
                 spannableStringBuilder.append((CharSequence) pbLinkData.title);
             }
-            this.esQ.setText(spannableStringBuilder);
+            this.esU.setText(spannableStringBuilder);
             if (pbLinkData.urlType == 2) {
                 if (TextUtils.isEmpty(pbLinkData.extTxt)) {
-                    this.esR.setVisibility(8);
+                    this.esV.setVisibility(8);
                 } else {
-                    this.esQ.setMaxLines(1);
-                    this.esR.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.commodity_price_prefix), pbLinkData.extTxt));
-                    this.esR.setVisibility(0);
+                    this.esU.setMaxLines(1);
+                    this.esV.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.commodity_price_prefix), pbLinkData.extTxt));
+                    this.esV.setVisibility(0);
                 }
             } else {
-                this.esR.setVisibility(8);
+                this.esV.setVisibility(8);
             }
             if (TextUtils.isEmpty(pbLinkData.title) && !TextUtils.isEmpty(pbLinkData.linkUrl) && TextUtils.isEmpty(pbLinkData.extTxt)) {
-                this.esQ.setMaxLines(1);
+                this.esU.setMaxLines(1);
             }
         } else if (dVar instanceof PbGoodsData) {
             PbGoodsData pbGoodsData = (PbGoodsData) dVar;
-            this.esP.startLoad(pbGoodsData.picUrl, 10, false);
+            this.esT.startLoad(pbGoodsData.picUrl, 10, false);
             SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder();
             if (!TextUtils.isEmpty(pbGoodsData.linkFrom)) {
                 spannableStringBuilder2.append((CharSequence) pbGoodsData.linkFrom);
@@ -118,16 +118,16 @@ public class SingleLinkCardView extends RelativeLayout {
             } else {
                 spannableStringBuilder2.append((CharSequence) pbGoodsData.title);
             }
-            this.esQ.setText(spannableStringBuilder2);
+            this.esU.setText(spannableStringBuilder2);
             if (TextUtils.isEmpty(pbGoodsData.price)) {
-                this.esR.setVisibility(8);
+                this.esV.setVisibility(8);
             } else {
-                this.esQ.setMaxLines(1);
-                this.esR.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.commodity_price_prefix), pbGoodsData.price));
-                this.esR.setVisibility(0);
+                this.esU.setMaxLines(1);
+                this.esV.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.commodity_price_prefix), pbGoodsData.price));
+                this.esV.setVisibility(0);
             }
             if (TextUtils.isEmpty(pbGoodsData.title) && !TextUtils.isEmpty(pbGoodsData.linkUrl) && TextUtils.isEmpty(pbGoodsData.price)) {
-                this.esQ.setMaxLines(1);
+                this.esU.setMaxLines(1);
             }
         }
     }

@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.AddMsgRecord.AddMsgRecordResIdl;
 import tbclient.AddMsgRecord.DataRes;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class AddMsgRecordHttpProtoResponse extends HttpResponsedMessage {
     private DataRes mData;
 

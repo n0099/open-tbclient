@@ -11,7 +11,7 @@ import java.io.File;
 public class c {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static PathType rJ(String str) {
+    public static PathType rK(String str) {
         if (TextUtils.isEmpty(str)) {
             return PathType.ERROR;
         }

@@ -12,10 +12,10 @@ import com.baidu.tieba.ala.person.a.d;
 import com.baidu.tieba.ala.person.c.c;
 /* loaded from: classes7.dex */
 public class a {
-    private InterfaceC0650a gRd;
-    private com.baidu.live.n.a gRe;
-    private c gRf;
-    private c gRg;
+    private InterfaceC0650a gRh;
+    private com.baidu.live.n.a gRi;
+    private c gRj;
+    private c gRk;
     private TbPageContext mTbPageContext;
 
     /* renamed from: com.baidu.tieba.ala.person.c.a$a  reason: collision with other inner class name */
@@ -32,13 +32,13 @@ public class a {
 
     public a(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        this.gRf = new c(tbPageContext);
-        this.gRg = new c(tbPageContext);
-        this.gRf.a(new c.a() { // from class: com.baidu.tieba.ala.person.c.a.1
+        this.gRj = new c(tbPageContext);
+        this.gRk = new c(tbPageContext);
+        this.gRj.a(new c.a() { // from class: com.baidu.tieba.ala.person.c.a.1
             @Override // com.baidu.tieba.ala.person.c.c.a
             public void c(d dVar) {
-                if (dVar != null && a.this.gRd != null) {
-                    a.this.gRd.a(dVar);
+                if (dVar != null && a.this.gRh != null) {
+                    a.this.gRh.a(dVar);
                 }
             }
 
@@ -46,11 +46,11 @@ public class a {
             public void onFail(String str) {
             }
         });
-        this.gRg.a(new c.a() { // from class: com.baidu.tieba.ala.person.c.a.2
+        this.gRk.a(new c.a() { // from class: com.baidu.tieba.ala.person.c.a.2
             @Override // com.baidu.tieba.ala.person.c.c.a
             public void c(d dVar) {
-                if (dVar != null && a.this.gRd != null) {
-                    a.this.gRd.b(dVar);
+                if (dVar != null && a.this.gRh != null) {
+                    a.this.gRh.b(dVar);
                 }
             }
 
@@ -62,51 +62,51 @@ public class a {
 
     public void k(String str, String str2, String str3, String str4, String str5) {
         if (!BdNetTypeUtil.isNetWorkAvailable() || TextUtils.isEmpty(str)) {
-            if (this.gRd != null) {
-                this.gRd.onFail(this.mTbPageContext.getPageActivity().getResources().getString(a.i.sdk_no_network));
+            if (this.gRh != null) {
+                this.gRh.onFail(this.mTbPageContext.getPageActivity().getResources().getString(a.i.sdk_no_network));
                 return;
             }
             return;
         }
-        this.gRe = new com.baidu.live.n.a(new com.baidu.live.n.c() { // from class: com.baidu.tieba.ala.person.c.a.3
+        this.gRi = new com.baidu.live.n.a(new com.baidu.live.n.c() { // from class: com.baidu.tieba.ala.person.c.a.3
             @Override // com.baidu.live.n.c
             public void a(PersonUserData personUserData) {
-                if (a.this.gRd != null) {
-                    a.this.gRd.c(personUserData);
+                if (a.this.gRh != null) {
+                    a.this.gRh.c(personUserData);
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913214, personUserData));
             }
 
             @Override // com.baidu.live.n.c
             public void p(int i, String str6) {
-                if (a.this.gRd != null) {
-                    a.this.gRd.onFail(str6);
+                if (a.this.gRh != null) {
+                    a.this.gRh.onFail(str6);
                 }
             }
         });
-        this.gRe.execute(str, str2, str3, str4, str5);
-        eg(str, str4);
+        this.gRi.execute(str, str2, str3, str4, str5);
+        eh(str, str4);
     }
 
-    public void eg(String str, String str2) {
+    public void eh(String str, String str2) {
         if (TbadkCoreApplication.isLogin()) {
-            this.gRf.setPn(-1);
-            this.gRf.h(0, str, str2);
-            this.gRg.setPn(-1);
-            this.gRg.h(1, str, str2);
+            this.gRj.setPn(-1);
+            this.gRj.i(0, str, str2);
+            this.gRk.setPn(-1);
+            this.gRk.i(1, str, str2);
         }
     }
 
     public void onDestroy() {
-        if (this.gRe != null && !this.gRe.isCancelled()) {
-            this.gRe.cancel();
+        if (this.gRi != null && !this.gRi.isCancelled()) {
+            this.gRi.cancel();
         }
-        if (this.gRd != null) {
-            this.gRd.onFail(null);
+        if (this.gRh != null) {
+            this.gRh.onFail(null);
         }
     }
 
     public void a(InterfaceC0650a interfaceC0650a) {
-        this.gRd = interfaceC0650a;
+        this.gRh = interfaceC0650a;
     }
 }

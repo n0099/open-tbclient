@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.data.VideoEasterEggData;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class VideoEasterEggActivityConfig extends IntentConfig {
     public static final String FROM_FRS = "from_frs";
     public static final String FROM_HOTTOPIC = "from_hottopic";

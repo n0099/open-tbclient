@@ -11,11 +11,11 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 /* loaded from: classes9.dex */
 public abstract class j<E> extends h {
-    private p dHD;
-    private boolean dHE;
-    private boolean dHF;
-    private com.baidu.swan.support.v4.b.f<String, o> dHO;
-    final l dHz;
+    final l dHD;
+    private p dHH;
+    private boolean dHI;
+    private boolean dHJ;
+    private com.baidu.swan.support.v4.b.f<String, o> dHS;
     private final Activity mActivity;
     final Context mContext;
     private final Handler mHandler;
@@ -27,7 +27,7 @@ public abstract class j<E> extends h {
     }
 
     j(Activity activity, Context context, Handler handler, int i) {
-        this.dHz = new l();
+        this.dHD = new l();
         this.mActivity = activity;
         this.mContext = context;
         this.mHandler = handler;
@@ -87,15 +87,15 @@ public abstract class j<E> extends h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l aUX() {
-        return this.dHz;
+        return this.dHD;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void wR(String str) {
+    public void wS(String str) {
         p pVar;
-        if (this.dHO != null && (pVar = (p) this.dHO.get(str)) != null && !pVar.mRetaining) {
+        if (this.dHS != null && (pVar = (p) this.dHS.get(str)) != null && !pVar.mRetaining) {
             pVar.doDestroy();
-            this.dHO.remove(str);
+            this.dHS.remove(str);
         }
     }
 
@@ -105,46 +105,46 @@ public abstract class j<E> extends h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void doLoaderStart() {
-        if (!this.dHE) {
-            this.dHE = true;
-            if (this.dHD != null) {
-                this.dHD.aVb();
-            } else if (!this.dHF) {
-                this.dHD = d("(root)", this.dHE, false);
-                if (this.dHD != null && !this.dHD.mStarted) {
-                    this.dHD.aVb();
+        if (!this.dHI) {
+            this.dHI = true;
+            if (this.dHH != null) {
+                this.dHH.aVb();
+            } else if (!this.dHJ) {
+                this.dHH = d("(root)", this.dHI, false);
+                if (this.dHH != null && !this.dHH.mStarted) {
+                    this.dHH.aVb();
                 }
             }
-            this.dHF = true;
+            this.dHJ = true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void doLoaderStop(boolean z) {
-        if (this.dHD != null && this.dHE) {
-            this.dHE = false;
+        if (this.dHH != null && this.dHI) {
+            this.dHI = false;
             if (z) {
-                this.dHD.aVc();
+                this.dHH.aVc();
             } else {
-                this.dHD.doStop();
+                this.dHH.doStop();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void doLoaderDestroy() {
-        if (this.dHD != null) {
-            this.dHD.doDestroy();
+        if (this.dHH != null) {
+            this.dHH.doDestroy();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void reportLoaderStart() {
-        if (this.dHO != null) {
-            int size = this.dHO.size();
+        if (this.dHS != null) {
+            int size = this.dHS.size();
             p[] pVarArr = new p[size];
             for (int i = size - 1; i >= 0; i--) {
-                pVarArr[i] = (p) this.dHO.valueAt(i);
+                pVarArr[i] = (p) this.dHS.valueAt(i);
             }
             for (int i2 = 0; i2 < size; i2++) {
                 p pVar = pVarArr[i2];
@@ -156,14 +156,14 @@ public abstract class j<E> extends h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p d(String str, boolean z, boolean z2) {
-        if (this.dHO == null) {
-            this.dHO = new com.baidu.swan.support.v4.b.f<>();
+        if (this.dHS == null) {
+            this.dHS = new com.baidu.swan.support.v4.b.f<>();
         }
-        p pVar = (p) this.dHO.get(str);
+        p pVar = (p) this.dHS.get(str);
         if (pVar == null) {
             if (z2) {
                 p pVar2 = new p(str, this, z);
-                this.dHO.put(str, pVar2);
+                this.dHS.put(str, pVar2);
                 return pVar2;
             }
             return pVar;
@@ -175,11 +175,11 @@ public abstract class j<E> extends h {
     /* JADX INFO: Access modifiers changed from: package-private */
     public com.baidu.swan.support.v4.b.f<String, o> aUW() {
         boolean z;
-        if (this.dHO != null) {
-            int size = this.dHO.size();
+        if (this.dHS != null) {
+            int size = this.dHS.size();
             p[] pVarArr = new p[size];
             for (int i = size - 1; i >= 0; i--) {
-                pVarArr[i] = (p) this.dHO.valueAt(i);
+                pVarArr[i] = (p) this.dHS.valueAt(i);
             }
             z = false;
             for (int i2 = 0; i2 < size; i2++) {
@@ -188,34 +188,34 @@ public abstract class j<E> extends h {
                     z = true;
                 } else {
                     pVar.doDestroy();
-                    this.dHO.remove(pVar.mWho);
+                    this.dHS.remove(pVar.mWho);
                 }
             }
         } else {
             z = false;
         }
         if (z) {
-            return this.dHO;
+            return this.dHS;
         }
         return null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(com.baidu.swan.support.v4.b.f<String, o> fVar) {
-        this.dHO = fVar;
+        this.dHS = fVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void dumpLoaders(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
         printWriter.print(str);
         printWriter.print("mLoadersStarted=");
-        printWriter.println(this.dHE);
-        if (this.dHD != null) {
+        printWriter.println(this.dHI);
+        if (this.dHH != null) {
             printWriter.print(str);
             printWriter.print("Loader Manager ");
-            printWriter.print(Integer.toHexString(System.identityHashCode(this.dHD)));
+            printWriter.print(Integer.toHexString(System.identityHashCode(this.dHH)));
             printWriter.println(":");
-            this.dHD.dump(str + "  ", fileDescriptor, printWriter, strArr);
+            this.dHH.dump(str + "  ", fileDescriptor, printWriter, strArr);
         }
     }
 }

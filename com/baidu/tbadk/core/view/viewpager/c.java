@@ -7,13 +7,13 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class c<T extends q, V extends BdBaseViewPagerAdapter.a> {
     protected BdUniqueId UM;
-    protected a<T, V> eyC;
+    protected a<T, V> eyG;
     protected Context mContext;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface a<T extends q, V extends BdBaseViewPagerAdapter.a> {
         void c(V v, T t);
     }
@@ -37,10 +37,10 @@ public abstract class c<T extends q, V extends BdBaseViewPagerAdapter.a> {
     }
 
     public void setOnItemClickListener(a<T, V> aVar) {
-        this.eyC = aVar;
+        this.eyG = aVar;
     }
 
     public a<T, V> blQ() {
-        return this.eyC;
+        return this.eyG;
     }
 }

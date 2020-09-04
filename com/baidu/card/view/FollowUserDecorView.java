@@ -16,8 +16,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.view.FollowUserButton;
 /* loaded from: classes15.dex */
 public class FollowUserDecorView extends FollowUserButton {
-    private c ajc;
-    private boolean ajd;
+    private c aje;
+    private boolean ajf;
     private BdUniqueId mBdUniqueId;
 
     public FollowUserDecorView(Context context) {
@@ -37,18 +37,18 @@ public class FollowUserDecorView extends FollowUserButton {
             setVisibility(8);
             return;
         }
-        if (this.ajc == null) {
-            this.ajc = new c(W(getContext()), this);
-            this.ajc.m(this.mBdUniqueId);
+        if (this.aje == null) {
+            this.aje = new c(W(getContext()), this);
+            this.aje.m(this.mBdUniqueId);
         }
         setVisibility(0);
-        this.ajc.a(bwVar.beE());
+        this.aje.a(bwVar.beE());
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         this.mBdUniqueId = bdUniqueId;
-        if (this.ajc != null) {
-            this.ajc.m(this.mBdUniqueId);
+        if (this.aje != null) {
+            this.aje.m(this.mBdUniqueId);
         }
     }
 
@@ -65,7 +65,7 @@ public class FollowUserDecorView extends FollowUserButton {
     @Override // com.baidu.tieba.view.FollowUserButton
     public void aN(boolean z) {
         super.aN(z);
-        if (this.ajd && !z) {
+        if (this.ajf && !z) {
             b bVar = new b();
             bVar.pb(R.color.cp_link_tip_a);
             bVar.oX(UtilHelper.getDimenPixelSize(R.dimen.tbds24));
@@ -75,6 +75,6 @@ public class FollowUserDecorView extends FollowUserButton {
     }
 
     public void setUseNewStyle(boolean z) {
-        this.ajd = z;
+        this.ajf = z;
     }
 }

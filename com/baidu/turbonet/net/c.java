@@ -7,7 +7,7 @@ import java.util.Locale;
 /* loaded from: classes10.dex */
 final class c {
     private static final Object sLock = new Object();
-    private static int ndA = 0;
+    private static int ndS = 0;
 
     public static String fW(Context context) {
         StringBuilder sb = new StringBuilder();
@@ -37,14 +37,14 @@ final class c {
     private static int fX(Context context) {
         int i;
         synchronized (sLock) {
-            if (ndA == 0) {
+            if (ndS == 0) {
                 try {
-                    ndA = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
+                    ndS = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
                 } catch (PackageManager.NameNotFoundException e) {
                     throw new IllegalStateException("Cannot determine package version");
                 }
             }
-            i = ndA;
+            i = ndS;
         }
         return i;
     }

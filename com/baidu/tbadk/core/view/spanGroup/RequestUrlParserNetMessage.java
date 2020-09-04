@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import tbclient.UrlParser.DataReq;
 import tbclient.UrlParser.UrlParserReqIdl;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class RequestUrlParserNetMessage extends NetMessage {
     private long mForumId;
     private int mLinkNum;

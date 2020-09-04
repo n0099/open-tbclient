@@ -6,6 +6,6 @@ public class a {
     }
 
     public static b aHg() {
-        return com.baidu.tieba.aiapps.apps.h.d.bDd();
+        return com.baidu.tieba.aiapps.apps.h.d.bDe();
     }
 }

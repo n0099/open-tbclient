@@ -51,8 +51,8 @@ public class CommonEncryptionSampleList extends AbstractList<Sample> {
     public class a implements Sample {
         static final /* synthetic */ boolean $assertionsDisabled;
         private final Cipher cipher;
-        private final Sample nGD;
-        private final CencSampleAuxiliaryDataFormat nGE;
+        private final Sample nGV;
+        private final CencSampleAuxiliaryDataFormat nGW;
 
         static {
             $assertionsDisabled = !CommonEncryptionSampleList.class.desiredAssertionStatus();
@@ -63,18 +63,18 @@ public class CommonEncryptionSampleList extends AbstractList<Sample> {
         }
 
         private a(Sample sample, CencSampleAuxiliaryDataFormat cencSampleAuxiliaryDataFormat, Cipher cipher) {
-            this.nGD = sample;
-            this.nGE = cencSampleAuxiliaryDataFormat;
+            this.nGV = sample;
+            this.nGW = cencSampleAuxiliaryDataFormat;
             this.cipher = cipher;
         }
 
         @Override // com.googlecode.mp4parser.authoring.Sample
         public void writeTo(WritableByteChannel writableByteChannel) throws IOException {
-            ByteBuffer byteBuffer = (ByteBuffer) this.nGD.asByteBuffer().rewind();
-            CommonEncryptionSampleList.this.initCipher(this.nGE.iv);
+            ByteBuffer byteBuffer = (ByteBuffer) this.nGV.asByteBuffer().rewind();
+            CommonEncryptionSampleList.this.initCipher(this.nGW.iv);
             try {
-                if (this.nGE.pairs != null && this.nGE.pairs.size() > 0) {
-                    for (CencSampleAuxiliaryDataFormat.Pair pair : this.nGE.pairs) {
+                if (this.nGW.pairs != null && this.nGW.pairs.size() > 0) {
+                    for (CencSampleAuxiliaryDataFormat.Pair pair : this.nGW.pairs) {
                         byte[] bArr = new byte[pair.clear];
                         byteBuffer.get(bArr);
                         writableByteChannel.write(ByteBuffer.wrap(bArr));
@@ -106,15 +106,15 @@ public class CommonEncryptionSampleList extends AbstractList<Sample> {
 
         @Override // com.googlecode.mp4parser.authoring.Sample
         public long getSize() {
-            return this.nGD.getSize();
+            return this.nGV.getSize();
         }
 
         @Override // com.googlecode.mp4parser.authoring.Sample
         public ByteBuffer asByteBuffer() {
-            ByteBuffer byteBuffer = (ByteBuffer) this.nGD.asByteBuffer().rewind();
+            ByteBuffer byteBuffer = (ByteBuffer) this.nGV.asByteBuffer().rewind();
             ByteBuffer allocate = ByteBuffer.allocate(byteBuffer.limit());
-            CencSampleAuxiliaryDataFormat cencSampleAuxiliaryDataFormat = this.nGE;
-            CommonEncryptionSampleList.this.initCipher(this.nGE.iv);
+            CencSampleAuxiliaryDataFormat cencSampleAuxiliaryDataFormat = this.nGW;
+            CommonEncryptionSampleList.this.initCipher(this.nGW.iv);
             try {
                 if (cencSampleAuxiliaryDataFormat.pairs != null) {
                     for (CencSampleAuxiliaryDataFormat.Pair pair : cencSampleAuxiliaryDataFormat.pairs) {

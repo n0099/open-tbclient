@@ -16,42 +16,42 @@ public class a {
     /* renamed from: com.a.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
     static class C0008a {
-        private static Object ocP;
-        private static Method ocQ;
-        private static Method ocR;
-        private static Method ocS;
-        private static Method ocT;
+        private static Object odh;
+        private static Method odi;
+        private static Method odj;
+        private static Method odk;
+        private static Method odl;
         private static Class<?> sClass;
 
         static {
-            ocQ = null;
-            ocR = null;
-            ocS = null;
-            ocT = null;
+            odi = null;
+            odj = null;
+            odk = null;
+            odl = null;
             try {
                 sClass = Class.forName("com.android.id.impl.IdProviderImpl");
-                ocP = sClass.newInstance();
-                ocQ = sClass.getMethod("getUDID", Context.class);
-                ocR = sClass.getMethod("getOAID", Context.class);
-                ocS = sClass.getMethod("getVAID", Context.class);
-                ocT = sClass.getMethod("getAAID", Context.class);
+                odh = sClass.newInstance();
+                odi = sClass.getMethod("getUDID", Context.class);
+                odj = sClass.getMethod("getOAID", Context.class);
+                odk = sClass.getMethod("getVAID", Context.class);
+                odl = sClass.getMethod("getAAID", Context.class);
             } catch (Throwable th) {
                 Log.e("XiaomiId", "xiaomi init error", th);
             }
         }
 
         public static boolean isSupported() {
-            return (sClass == null || ocP == null) ? false : true;
+            return (sClass == null || odh == null) ? false : true;
         }
 
         public static String bo(Context context) {
-            return b(context, ocR);
+            return b(context, odj);
         }
 
         private static String b(Context context, Method method) {
-            if (ocP != null && method != null) {
+            if (odh != null && method != null) {
                 try {
-                    Object invoke = method.invoke(ocP, context);
+                    Object invoke = method.invoke(odh, context);
                     if (invoke != null) {
                         return (String) invoke;
                     }

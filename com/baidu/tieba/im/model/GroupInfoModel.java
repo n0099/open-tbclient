@@ -189,11 +189,11 @@ public class GroupInfoModel extends BdBaseModel<GroupInfoActivity> {
     }
 
     public ArrayList<String> getBigUrlList() {
-        if (this.mData == null || this.mData.cHd() == null || this.mData.cHd().size() <= 0) {
+        if (this.mData == null || this.mData.cHe() == null || this.mData.cHe().size() <= 0) {
             return null;
         }
         ArrayList<String> arrayList = new ArrayList<>();
-        for (PhotoUrlData photoUrlData : this.mData.cHd()) {
+        for (PhotoUrlData photoUrlData : this.mData.cHe()) {
             if (photoUrlData != null) {
                 arrayList.add(photoUrlData.getBigurl());
             }
@@ -203,8 +203,8 @@ public class GroupInfoModel extends BdBaseModel<GroupInfoActivity> {
 
     public HashMap<String, ImageUrlData> getAssistUrls() {
         HashMap<String, ImageUrlData> hashMap = new HashMap<>();
-        if (this.mData != null && this.mData.cHd() != null && this.mData.cHd().size() > 0) {
-            for (PhotoUrlData photoUrlData : this.mData.cHd()) {
+        if (this.mData != null && this.mData.cHe() != null && this.mData.cHe().size() > 0) {
+            for (PhotoUrlData photoUrlData : this.mData.cHe()) {
                 if (photoUrlData != null) {
                     String bigurl = photoUrlData.getBigurl();
                     ImageUrlData imageUrlData = new ImageUrlData();
@@ -227,12 +227,12 @@ public class GroupInfoModel extends BdBaseModel<GroupInfoActivity> {
             return null;
         }
         this.mChangePhotoUrlData = photoUrlData;
-        if (this.mData != null && this.mData.cHd() != null && this.mData.cHd().size() > 0) {
-            int size = this.mData.cHd().size();
-            List<PhotoUrlData> cHd = this.mData.cHd();
+        if (this.mData != null && this.mData.cHe() != null && this.mData.cHe().size() > 0) {
+            int size = this.mData.cHe().size();
+            List<PhotoUrlData> cHe = this.mData.cHe();
             for (int i = 1; i < size; i++) {
-                if (cHd.get(i) != null && !picId.equals(cHd.get(i).getPicId())) {
-                    sb.append(cHd.get(i).getPicId());
+                if (cHe.get(i) != null && !picId.equals(cHe.get(i).getPicId())) {
+                    sb.append(cHe.get(i).getPicId());
                     if (i != size - 1) {
                         sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                     }
@@ -252,12 +252,12 @@ public class GroupInfoModel extends BdBaseModel<GroupInfoActivity> {
             return null;
         }
         this.mChangePhotoUrlData = photoUrlData;
-        if (this.mData != null && this.mData.cHd() != null && this.mData.cHd().size() > 0) {
-            List<PhotoUrlData> cHd = this.mData.cHd();
-            int size = cHd.size();
+        if (this.mData != null && this.mData.cHe() != null && this.mData.cHe().size() > 0) {
+            List<PhotoUrlData> cHe = this.mData.cHe();
+            int size = cHe.size();
             for (int i = 1; i < size; i++) {
-                if (cHd.get(i) != null) {
-                    sb.append(cHd.get(i).getPicId());
+                if (cHe.get(i) != null) {
+                    sb.append(cHe.get(i).getPicId());
                     sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 }
             }
@@ -269,10 +269,10 @@ public class GroupInfoModel extends BdBaseModel<GroupInfoActivity> {
     }
 
     public void delePhotoData() {
-        if (this.mData != null && this.mData.cHd() != null && this.mData.cHd().size() > 0 && this.mChangePhotoUrlData != null) {
-            for (PhotoUrlData photoUrlData : this.mData.cHd()) {
+        if (this.mData != null && this.mData.cHe() != null && this.mData.cHe().size() > 0 && this.mChangePhotoUrlData != null) {
+            for (PhotoUrlData photoUrlData : this.mData.cHe()) {
                 if (photoUrlData != null && photoUrlData.getPicId().equals(this.mChangePhotoUrlData.getPicId())) {
-                    this.mData.cHd().remove(photoUrlData);
+                    this.mData.cHe().remove(photoUrlData);
                     return;
                 }
             }
@@ -281,47 +281,47 @@ public class GroupInfoModel extends BdBaseModel<GroupInfoActivity> {
 
     public void addPhotoData() {
         if (this.mData != null && this.mChangePhotoUrlData != null) {
-            if (this.mData.cHd() == null) {
+            if (this.mData.cHe() == null) {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(this.mChangePhotoUrlData);
                 this.mData.dP(arrayList);
                 return;
             }
-            if (this.mData.cHd().size() > 0 && this.mData.cHd().get(0) != null && TextUtils.isEmpty(this.mData.cHd().get(0).getPicId())) {
-                this.mData.cHd().remove(0);
+            if (this.mData.cHe().size() > 0 && this.mData.cHe().get(0) != null && TextUtils.isEmpty(this.mData.cHe().get(0).getPicId())) {
+                this.mData.cHe().remove(0);
             }
             PhotoUrlData photoUrlData = new PhotoUrlData();
             photoUrlData.setBigurl(this.mChangePhotoUrlData.getBigurl());
             photoUrlData.setPicId(this.mChangePhotoUrlData.getPicId());
             photoUrlData.setSmallurl(this.mChangePhotoUrlData.getSmallurl());
-            this.mData.cHd().add(photoUrlData);
+            this.mData.cHe().add(photoUrlData);
         }
     }
 
     public void updataPortraitData() {
-        if (this.mData != null && this.mData.cHd() != null && this.mData.cHd().size() > 0 && this.mChangePhotoUrlData != null) {
+        if (this.mData != null && this.mData.cHe() != null && this.mData.cHe().size() > 0 && this.mChangePhotoUrlData != null) {
             int i = 0;
             while (true) {
-                if (i >= this.mData.cHd().size()) {
+                if (i >= this.mData.cHe().size()) {
                     i = -1;
                     break;
-                } else if (this.mData.cHd().get(i) == null || this.mData.cHd().get(i).getPicId() == null || !this.mData.cHd().get(i).getPicId().equals(this.mChangePhotoUrlData.getPicId())) {
+                } else if (this.mData.cHe().get(i) == null || this.mData.cHe().get(i).getPicId() == null || !this.mData.cHe().get(i).getPicId().equals(this.mChangePhotoUrlData.getPicId())) {
                     i++;
                 } else {
-                    this.mData.cHd().remove(i);
+                    this.mData.cHe().remove(i);
                     break;
                 }
             }
-            if (this.mData.cHd().size() > 0 && this.mData.cHd().get(0) != null && TextUtils.isEmpty(this.mData.cHd().get(0).getPicId())) {
-                this.mData.cHd().remove(0);
+            if (this.mData.cHe().size() > 0 && this.mData.cHe().get(0) != null && TextUtils.isEmpty(this.mData.cHe().get(0).getPicId())) {
+                this.mData.cHe().remove(0);
             }
-            this.mData.cHd().add(i, this.mData.cHd().get(0));
-            this.mData.cHd().remove(0);
+            this.mData.cHe().add(i, this.mData.cHe().get(0));
+            this.mData.cHe().remove(0);
             PhotoUrlData photoUrlData = new PhotoUrlData();
             photoUrlData.setBigurl(this.mChangePhotoUrlData.getBigurl());
             photoUrlData.setPicId(this.mChangePhotoUrlData.getPicId());
             photoUrlData.setSmallurl(this.mChangePhotoUrlData.getSmallurl());
-            this.mData.cHd().add(0, photoUrlData);
+            this.mData.cHe().add(0, photoUrlData);
         }
     }
 
@@ -333,10 +333,10 @@ public class GroupInfoModel extends BdBaseModel<GroupInfoActivity> {
     }
 
     public boolean removeMemberByUid(String str) {
-        if (str != null && this.mData != null && this.mData.cHc() != null && this.mData.cHc().size() > 0) {
-            for (MemberData memberData : this.mData.cHc()) {
+        if (str != null && this.mData != null && this.mData.cHd() != null && this.mData.cHd().size() > 0) {
+            for (MemberData memberData : this.mData.cHd()) {
                 if (str.equals(String.valueOf(memberData.getUserId()))) {
-                    this.mData.cHc().remove(memberData);
+                    this.mData.cHd().remove(memberData);
                     return true;
                 }
             }

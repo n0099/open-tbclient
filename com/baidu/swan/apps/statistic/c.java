@@ -30,14 +30,14 @@ public class c {
                     jSONObject.put("page", aVar.page);
                 }
                 boolean isEmpty = TextUtils.isEmpty(aVar.appId);
-                boolean isEmpty2 = TextUtils.isEmpty(aVar.cWS);
+                boolean isEmpty2 = TextUtils.isEmpty(aVar.cWW);
                 if (!isEmpty || !isEmpty2) {
                     JSONObject jSONObject2 = new JSONObject();
                     if (!isEmpty) {
                         jSONObject2.put("appid", aVar.appId);
                     }
                     if (!isEmpty2) {
-                        jSONObject2.put("info", aVar.cWS);
+                        jSONObject2.put("info", aVar.cWW);
                     }
                     jSONObject.put("ext", jSONObject2);
                 }
@@ -59,40 +59,40 @@ public class c {
     /* loaded from: classes8.dex */
     public static class a {
         private String appId;
-        private String cWS;
+        private String cWW;
         private String page;
         private String source;
         private String type;
         private String value;
-        private c cWR = new c();
+        private c cWV = new c();
         private String from = "swan";
 
         public a(int i) {
             this.type = String.valueOf(i);
         }
 
-        public a rg(String str) {
+        public a rh(String str) {
             this.source = str;
             return this;
         }
 
-        public a rh(String str) {
+        public a ri(String str) {
             this.page = str;
             return this;
         }
 
-        public a ri(String str) {
+        public a rj(String str) {
             this.appId = str;
             return this;
         }
 
-        public a rj(String str) {
-            this.cWS = str;
+        public a rk(String str) {
+            this.cWW = str;
             return this;
         }
 
         public void ama() {
-            this.cWR.a(this);
+            this.cWV.a(this);
         }
     }
 }

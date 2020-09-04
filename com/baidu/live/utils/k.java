@@ -76,7 +76,7 @@ public class k {
         }
     }
 
-    public static boolean hn(String str) {
+    public static boolean ho(String str) {
         if (str.contains("·") || str.contains("•")) {
             if (str.matches("^[\\u4e00-\\u9fa5]+[·•][\\u4e00-\\u9fa5]+$")) {
                 return true;

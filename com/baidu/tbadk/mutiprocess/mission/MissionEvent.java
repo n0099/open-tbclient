@@ -1,7 +1,7 @@
 package com.baidu.tbadk.mutiprocess.mission;
 
 import com.baidu.tbadk.mutiprocess.SerializableEvent;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class MissionEvent extends SerializableEvent {
     public static final String MESSAGE_ACTIVITY = "onActivity";
     public static final String MESSAGE_CREATE = "onCreate";

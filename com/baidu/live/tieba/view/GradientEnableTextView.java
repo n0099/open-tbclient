@@ -14,15 +14,15 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 /* loaded from: classes7.dex */
 public class GradientEnableTextView extends TextView {
-    private boolean aXc;
-    private int bob;
-    private int boc;
-    private int bod;
+    private boolean aXe;
     private int boe;
-    private String bof;
-    private boolean bog;
+    private int bof;
+    private int bog;
     private int boh;
-    private int boi;
+    private String boi;
+    private boolean boj;
+    private int bok;
+    private int bol;
 
     public GradientEnableTextView(Context context) {
         this(context, null);
@@ -35,61 +35,61 @@ public class GradientEnableTextView extends TextView {
     public GradientEnableTextView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.k.sdk_GradientEnableTextView);
-        this.bob = obtainStyledAttributes.getColor(a.k.sdk_GradientEnableTextView_startColorEnable, -1);
-        this.boc = obtainStyledAttributes.getColor(a.k.sdk_GradientEnableTextView_endColorEnable, -1);
-        this.bod = obtainStyledAttributes.getColor(a.k.sdk_GradientEnableTextView_startColorDisableEnable, -1);
-        this.boe = obtainStyledAttributes.getColor(a.k.sdk_GradientEnableTextView_endColorDisableEnable, -1);
+        this.boe = obtainStyledAttributes.getColor(a.k.sdk_GradientEnableTextView_startColorEnable, -1);
+        this.bof = obtainStyledAttributes.getColor(a.k.sdk_GradientEnableTextView_endColorEnable, -1);
+        this.bog = obtainStyledAttributes.getColor(a.k.sdk_GradientEnableTextView_startColorDisableEnable, -1);
+        this.boh = obtainStyledAttributes.getColor(a.k.sdk_GradientEnableTextView_endColorDisableEnable, -1);
         obtainStyledAttributes.recycle();
-        this.bog = true;
+        this.boj = true;
     }
 
     @Override // android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         if (isClickable()) {
             if (motionEvent.getAction() == 0) {
-                this.aXc = true;
+                this.aXe = true;
             } else if (motionEvent.getAction() == 3 || motionEvent.getAction() == 1) {
-                this.aXc = false;
+                this.aXe = false;
             }
         } else {
-            this.aXc = false;
+            this.aXe = false;
         }
-        if (isClickable() && !this.aXc) {
-            this.boh = this.bob;
-            this.boi = this.boc;
+        if (isClickable() && !this.aXe) {
+            this.bok = this.boe;
+            this.bol = this.bof;
         } else {
-            this.boh = this.bod;
-            this.boi = this.boe;
+            this.bok = this.bog;
+            this.bol = this.boh;
         }
         invalidate();
         return super.onTouchEvent(motionEvent);
     }
 
     public void setCheckStrEquals(boolean z) {
-        this.bog = z;
+        this.boj = z;
     }
 
     public void setGradientTextColor(int i, int i2) {
-        this.bob = i;
-        this.boc = i2;
+        this.boe = i;
+        this.bof = i2;
         invalidate();
     }
 
     public void setGradientDisableTextColor(int i, int i2) {
-        this.bod = i;
-        this.boe = i2;
+        this.bog = i;
+        this.boh = i2;
         invalidate();
     }
 
     @Override // android.view.View
     public void setClickable(boolean z) {
         super.setClickable(z);
-        if (z && !this.aXc) {
-            this.boh = this.bob;
-            this.boi = this.boc;
+        if (z && !this.aXe) {
+            this.bok = this.boe;
+            this.bol = this.bof;
         } else {
-            this.boh = this.bod;
-            this.boi = this.boe;
+            this.bok = this.bog;
+            this.bol = this.boh;
         }
         invalidate();
     }
@@ -98,15 +98,15 @@ public class GradientEnableTextView extends TextView {
     @SuppressLint({"DrawAllocation"})
     protected void onDraw(Canvas canvas) {
         String charSequence = getText().toString();
-        if (this.boh == -1 || this.boi == -1) {
-            this.boh = this.bob;
-            this.boi = this.boc;
+        if (this.bok == -1 || this.bol == -1) {
+            this.bok = this.boe;
+            this.bol = this.bof;
         }
-        if (!TextUtils.isEmpty(charSequence) && this.boh != -1 && this.boi != -1 && (!this.bog || !charSequence.equals(this.bof))) {
-            this.bof = charSequence;
+        if (!TextUtils.isEmpty(charSequence) && this.bok != -1 && this.bol != -1 && (!this.boj || !charSequence.equals(this.boi))) {
+            this.boi = charSequence;
             float measureText = getPaint().measureText(charSequence);
             float width = (getWidth() - measureText) / 2.0f;
-            getPaint().setShader(new LinearGradient(width, 0.0f, width + measureText, 0.0f, this.boh, this.boi, Shader.TileMode.CLAMP));
+            getPaint().setShader(new LinearGradient(width, 0.0f, width + measureText, 0.0f, this.bok, this.bol, Shader.TileMode.CLAMP));
         }
         super.onDraw(canvas);
     }

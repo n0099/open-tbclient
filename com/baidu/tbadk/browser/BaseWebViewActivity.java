@@ -57,7 +57,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivity> {
     private static final String BOOLEAN_VALUE_CONFIG = "1";
     private static final String KEY_FOR_NATIVE_CHECK = "enable_tieba_native_open";
@@ -148,7 +148,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
     private HashMap<String, a> mJsInterfaces = null;
     private boolean mIsTranslucent = false;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface a {
         Object f(TbPageContext<?> tbPageContext);
     }
@@ -201,10 +201,10 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         initData();
         this.mView.bbv();
         this.mView.f(this.mOnRefreshClickListener);
-        this.mView.hE(this.mIsLogin);
-        this.mView.hE(isNeedShowMenuItem());
+        this.mView.hF(this.mIsLogin);
+        this.mView.hF(isNeedShowMenuItem());
         if (!StringUtils.isNull(this.mUrlTitle)) {
-            this.mView.yI(this.mUrlTitle);
+            this.mView.yJ(this.mUrlTitle);
         }
         if (!this.mView.bbt() && UtilHelper.canUseStyleImmersiveSticky() && !isTranslucent()) {
             bg.addStateBarViewSpace(this.mView.mRoot, R.color.cp_link_tip_b, false);
@@ -214,7 +214,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         }
         registerListener(this.webviewLoginListener);
         if (isNeedShowADItem()) {
-            this.mView.hF(true);
+            this.mView.hG(true);
         }
     }
 
@@ -231,7 +231,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
     public void onUserChanged(boolean z) {
         super.onUserChanged(z);
         if (this.mView != null) {
-            this.mView.hE(z);
+            this.mView.hF(z);
         }
     }
 
@@ -280,7 +280,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                 return;
             }
             if (this.mUrl.contains("useImmersive=0") && "Meizu".equalsIgnoreCase(Build.BRAND)) {
-                this.mView.hG(false);
+                this.mView.hH(false);
             }
             if (this.mUrl.contains("custompagestyle") && this.mUrl.contains("transparent")) {
                 this.mView.bbB();
@@ -459,7 +459,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                 break;
             }
         }
-        if (scheme != null && !scheme.equals(SHOUBAI_SCHEME) && !scheme.equals(com.baidu.tbadk.BdToken.f.dOT)) {
+        if (scheme != null && !scheme.equals(SHOUBAI_SCHEME) && !scheme.equals(com.baidu.tbadk.BdToken.f.dOX)) {
             z = z && "1".equals(parse.getQueryParameter(KEY_FOR_NATIVE_CHECK));
         }
         if (z) {
@@ -533,9 +533,9 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         if (!TextUtils.isEmpty(str4)) {
             shareItem.imageUri = Uri.parse(str4);
         }
-        shareItem.eEg = true;
+        shareItem.eEk = true;
         shareItem.extData = this.mUrl;
-        shareItem.eEs = 13;
+        shareItem.eEw = 13;
         Bundle bundle = new Bundle();
         bundle.putString(TiebaInitialize.Params.OBJ_URL, shareItem.linkUrl);
         shareItem.ae(bundle);
@@ -573,14 +573,14 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                         shareItem.topic = optString5;
                     }
                     if (!at.isEmpty(optString6)) {
-                        shareItem.eEy = optString6;
+                        shareItem.eEC = optString6;
                     }
                     if (!at.isEmpty(optString7)) {
-                        shareItem.eEz = optString7;
+                        shareItem.eED = optString7;
                     }
                     shareItem.shareType = jSONObject.optInt("shareimg");
                     if (!at.isEmpty(optString8) && "1".equals(optString8)) {
-                        shareItem.eEm = true;
+                        shareItem.eEq = true;
                         shareItem.title = optString + " " + optString2;
                     }
                     String optString9 = jSONObject.optString("extdata");
@@ -677,7 +677,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                 finish();
             }
         } else if (id == R.id.widget_navi_share_button) {
-            if (this.mView.dSR) {
+            if (this.mView.dSV) {
                 loadUrl("javascript:window.local_obj.getSource(document.getElementsByTagName('html')[0].innerHTML);");
                 com.baidu.adp.lib.f.e.mS().post(this.mShareRunnable);
                 this.mShareResultToFe = true;
@@ -796,14 +796,14 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         String str2;
         boolean z;
         String str3 = "";
-        a.b yM = com.baidu.tbadk.core.a.a.bbN().yM(TbadkCoreApplication.getCurrentBduss());
-        if (yM != null) {
-            if (yM.mBduss != null) {
-                str3 = yM.mBduss;
+        a.b yN = com.baidu.tbadk.core.a.a.bbN().yN(TbadkCoreApplication.getCurrentBduss());
+        if (yN != null) {
+            if (yN.mBduss != null) {
+                str3 = yN.mBduss;
             }
-            if (yM.mPtoken != null) {
+            if (yN.mPtoken != null) {
                 str = str3;
-                str2 = yM.mPtoken;
+                str2 = yN.mPtoken;
                 ai.a aVar = new ai.a(str, str2);
                 if (this.mCookieInfo == null && (this.mCookieInfo == null || !this.mCookieInfo.equals(aVar))) {
                     z = true;
@@ -846,7 +846,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         return this.mIsTranslucent;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     final class InJavaScriptLocalObj {
         InJavaScriptLocalObj() {
         }

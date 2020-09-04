@@ -20,11 +20,11 @@ public final class gy extends al.b {
         ArrayList arrayList;
         List list;
         List list2;
-        obj = gx.f412a;
+        obj = gx.f411a;
         synchronized (obj) {
-            list = gx.f414a;
+            list = gx.f413a;
             arrayList = new ArrayList(list);
-            list2 = gx.f414a;
+            list2 = gx.f413a;
             list2.clear();
         }
         gx.b(this.a, arrayList);

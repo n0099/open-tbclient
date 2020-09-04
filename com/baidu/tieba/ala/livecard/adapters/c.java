@@ -13,13 +13,13 @@ import com.baidu.tieba.card.y;
 import com.baidu.tieba.frs.k;
 /* loaded from: classes4.dex */
 public class c extends k<bw, com.baidu.tieba.ala.livecard.a.a> implements y {
-    private com.baidu.tieba.ala.livecard.b.b giI;
-    private aa<bw> giJ;
+    private com.baidu.tieba.ala.livecard.b.b giM;
+    private aa<bw> giN;
     private String mForumName;
 
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.giJ = new aa<bw>() { // from class: com.baidu.tieba.ala.livecard.adapters.c.1
+        this.giN = new aa<bw>() { // from class: com.baidu.tieba.ala.livecard.adapters.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             /* renamed from: b */
@@ -44,19 +44,19 @@ public class c extends k<bw, com.baidu.tieba.ala.livecard.a.a> implements y {
         if (this.mPageContext == null) {
             return null;
         }
-        this.giI = new com.baidu.tieba.ala.livecard.b.b(this.mPageContext);
-        this.giI.p(this.mPageId);
-        this.giI.setForumName(this.mForumName);
-        return new com.baidu.tieba.ala.livecard.a.a(this.giI);
+        this.giM = new com.baidu.tieba.ala.livecard.b.b(this.mPageContext);
+        this.giM.p(this.mPageId);
+        this.giM.setForumName(this.mForumName);
+        return new com.baidu.tieba.ala.livecard.a.a(this.giM);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bw bwVar, com.baidu.tieba.ala.livecard.a.a aVar) {
-        aVar.giV.a(bwVar);
-        aVar.giV.setForumName(this.mForumName);
-        aVar.giV.c(this.giJ);
+        aVar.giZ.a(bwVar);
+        aVar.giZ.setForumName(this.mForumName);
+        aVar.giZ.c(this.giN);
         if (bwVar != null) {
             bwVar.bfQ();
         }

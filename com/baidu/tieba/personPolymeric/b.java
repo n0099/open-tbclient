@@ -1,18 +1,37 @@
 package com.baidu.tieba.personPolymeric;
 /* loaded from: classes18.dex */
 public class b {
-    private static b lkh = new b();
+    private static b lko = new b();
     private long creatTime = 0;
-    private long eRT = 0;
+    private long lkp = 0;
+    private long lkq = 0;
+    private long eRX = 0;
     private long beginTime = 0;
-    private long lev = 0;
-    private long lew = 0;
+    private long lkr = 0;
+    private long lks = 0;
 
     private b() {
     }
 
-    public static b die() {
-        return lkh;
+    public String toString() {
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.append(" beginTime:");
+        stringBuffer.append(this.beginTime);
+        stringBuffer.append(" creatTime:");
+        stringBuffer.append(this.creatTime);
+        stringBuffer.append(" refreshStartTime:");
+        stringBuffer.append(this.lks);
+        stringBuffer.append(" refrehTime:");
+        stringBuffer.append(this.lkr);
+        stringBuffer.append(" drawTime:");
+        stringBuffer.append(this.eRX);
+        stringBuffer.append(" profileTime:");
+        stringBuffer.append(this.lkq);
+        return stringBuffer.toString();
+    }
+
+    public static b dif() {
+        return lko;
     }
 
     public long getCreateTime() {
@@ -31,44 +50,47 @@ public class b {
         this.beginTime = j;
     }
 
-    public long dgx() {
-        return this.eRT;
+    public long dgy() {
+        return this.eRX;
     }
 
     public void fI(long j) {
-        this.eRT = j;
+        this.eRX = j;
     }
 
     public long getRefreshTime() {
-        return this.lev;
+        return this.lkr;
     }
 
     public void setRefreshTime(long j) {
-        this.lev = j;
+        this.lkr = j;
     }
 
-    public long dgy() {
-        return this.lew;
+    public long dgz() {
+        return this.lks;
     }
 
     public void fJ(long j) {
-        if (this.lew == 0) {
-            this.lew = j;
+        if (this.lks == 0) {
+            this.lks = j;
         }
     }
 
-    public String toString() {
-        StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(" beginTime:");
-        stringBuffer.append(this.beginTime);
-        stringBuffer.append(" creatTime:");
-        stringBuffer.append(this.creatTime);
-        stringBuffer.append(" refrehStartTime:");
-        stringBuffer.append(this.lew);
-        stringBuffer.append(" refrehTime:");
-        stringBuffer.append(this.lev);
-        stringBuffer.append(" drawTime:");
-        stringBuffer.append(this.eRT);
-        return stringBuffer.toString();
+    public long dig() {
+        return this.lkp;
+    }
+
+    public void fL(long j) {
+        if (this.lkp == 0) {
+            this.lkp = j;
+        }
+    }
+
+    public long dih() {
+        return this.lkq;
+    }
+
+    public void fM(long j) {
+        this.lkq = j;
     }
 }

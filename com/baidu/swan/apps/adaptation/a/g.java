@@ -15,7 +15,7 @@ public interface g<VIEW extends View> {
 
     VIEW getRealView();
 
-    void iG(String str);
+    void iH(String str);
 
     void updateProgress(int i);
 }

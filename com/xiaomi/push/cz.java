@@ -39,40 +39,40 @@ public class cz {
     protected static Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static a f189a;
+    private static a f188a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static cz f190a;
+    private static cz f189a;
     private static String c;
     private static String d;
 
     /* renamed from: a  reason: collision with other field name */
-    private long f192a;
+    private long f191a;
 
     /* renamed from: a  reason: collision with other field name */
-    private cy f193a;
+    private cy f192a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected b f194a;
+    protected b f193a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f195a;
+    private String f194a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected Map<String, cw> f196a;
+    protected Map<String, cw> f195a;
 
     /* renamed from: b  reason: collision with other field name */
-    private final long f197b;
+    private final long f196b;
 
     /* renamed from: b  reason: collision with other field name */
-    private String f198b;
+    private String f197b;
 
     /* renamed from: c  reason: collision with other field name */
-    private long f199c;
+    private long f198c;
     protected static Map<String, cv> b = new HashMap();
 
     /* renamed from: a  reason: collision with other field name */
-    protected static boolean f191a = false;
+    protected static boolean f190a = false;
 
     /* loaded from: classes7.dex */
     public interface a {
@@ -90,19 +90,19 @@ public class cz {
     }
 
     protected cz(Context context, cy cyVar, b bVar, String str, String str2, String str3) {
-        this.f196a = new HashMap();
-        this.f195a = "0";
-        this.f192a = 0L;
-        this.f197b = 15L;
-        this.f199c = 0L;
-        this.f198b = "isp_prov_city_country_ip";
-        this.f194a = bVar;
+        this.f195a = new HashMap();
+        this.f194a = "0";
+        this.f191a = 0L;
+        this.f196b = 15L;
+        this.f198c = 0L;
+        this.f197b = "isp_prov_city_country_ip";
+        this.f193a = bVar;
         if (cyVar == null) {
-            this.f193a = new da(this);
+            this.f192a = new da(this);
         } else {
-            this.f193a = cyVar;
+            this.f192a = cyVar;
         }
-        this.f195a = str;
+        this.f194a = str;
         c = str2 == null ? context.getPackageName() : str2;
         d = str3 == null ? f() : str3;
     }
@@ -110,10 +110,10 @@ public class cz {
     public static synchronized cz a() {
         cz czVar;
         synchronized (cz.class) {
-            if (f190a == null) {
+            if (f189a == null) {
                 throw new IllegalStateException("the host manager is not initialized yet.");
             }
-            czVar = f190a;
+            czVar = f189a;
         }
         return czVar;
     }
@@ -168,9 +168,9 @@ public class cz {
 
     private ArrayList<cv> a(ArrayList<String> arrayList) {
         m224d();
-        synchronized (this.f196a) {
+        synchronized (this.f195a) {
             m220a();
-            for (String str : this.f196a.keySet()) {
+            for (String str : this.f195a.keySet()) {
                 if (!arrayList.contains(str)) {
                     arrayList.add(str);
                 }
@@ -185,7 +185,7 @@ public class cz {
                 cv cvVar = (cv) array[i];
                 if (!cvVar.b()) {
                     isEmpty = true;
-                    b.remove(cvVar.f186b);
+                    b.remove(cvVar.f185b);
                 }
                 i++;
                 isEmpty = isEmpty;
@@ -200,7 +200,7 @@ public class cz {
         }
         try {
             String str2 = az.d(a) ? "wifi" : "wap";
-            String a2 = a(arrayList, str2, this.f195a, isEmpty);
+            String a2 = a(arrayList, str2, this.f194a, isEmpty);
             if (!TextUtils.isEmpty(a2)) {
                 JSONObject jSONObject = new JSONObject(a2);
                 com.xiaomi.channel.commonutils.logger.b.b(a2);
@@ -263,7 +263,7 @@ public class cz {
                                     }
                                 }
                                 synchronized (b) {
-                                    if (this.f193a.a(next)) {
+                                    if (this.f192a.a(next)) {
                                         b.put(next, cvVar3);
                                     }
                                 }
@@ -296,11 +296,11 @@ public class cz {
             if (a == null) {
                 a = context;
             }
-            if (f190a == null) {
-                if (f189a == null) {
-                    f190a = new cz(context, cyVar, bVar, str, str2, str3);
+            if (f189a == null) {
+                if (f188a == null) {
+                    f189a = new cz(context, cyVar, bVar, str, str2, str3);
                 } else {
-                    f190a = f189a.a(context, cyVar, bVar, str);
+                    f189a = f188a.a(context, cyVar, bVar, str);
                 }
             }
         }
@@ -308,8 +308,8 @@ public class cz {
 
     public static synchronized void a(a aVar) {
         synchronized (cz.class) {
-            f189a = aVar;
-            f190a = null;
+            f188a = aVar;
+            f189a = null;
         }
     }
 
@@ -351,7 +351,7 @@ public class cz {
         if (TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException("the host is empty");
         }
-        if (this.f193a.a(str)) {
+        if (this.f192a.a(str)) {
             cv c2 = c(str);
             return (c2 == null || !c2.b()) ? (z && az.b(a) && (d2 = d(str)) != null) ? d2 : new db(this, str, c2) : c2;
         }
@@ -399,7 +399,7 @@ public class cz {
                 buildUpon.appendQueryParameter(ayVar.a(), ayVar.b());
             }
             try {
-                str3 = this.f194a == null ? az.a(a, new URL(buildUpon.toString())) : this.f194a.a(buildUpon.toString());
+                str3 = this.f193a == null ? az.a(a, new URL(buildUpon.toString())) : this.f193a.a(buildUpon.toString());
                 return str3;
             } catch (IOException e2) {
                 e = e2;
@@ -415,11 +415,11 @@ public class cz {
     /* renamed from: a  reason: collision with other method in class */
     protected JSONObject m217a() {
         JSONObject jSONObject;
-        synchronized (this.f196a) {
+        synchronized (this.f195a) {
             jSONObject = new JSONObject();
             jSONObject.put("ver", 2);
             JSONArray jSONArray = new JSONArray();
-            for (cw cwVar : this.f196a.values()) {
+            for (cw cwVar : this.f195a.values()) {
                 jSONArray.put(cwVar.m212a());
             }
             jSONObject.put("data", jSONArray);
@@ -434,29 +434,29 @@ public class cz {
 
     /* renamed from: a  reason: collision with other method in class */
     public void m218a() {
-        synchronized (this.f196a) {
-            this.f196a.clear();
+        synchronized (this.f195a) {
+            this.f195a.clear();
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public void m219a(String str) {
-        this.f198b = str;
+        this.f197b = str;
     }
 
     public void a(String str, cv cvVar) {
         if (TextUtils.isEmpty(str) || cvVar == null) {
             throw new IllegalArgumentException("the argument is invalid " + str + ", " + cvVar);
         }
-        if (this.f193a.a(str)) {
-            synchronized (this.f196a) {
+        if (this.f192a.a(str)) {
+            synchronized (this.f195a) {
                 m220a();
-                if (this.f196a.containsKey(str)) {
-                    this.f196a.get(str).a(cvVar);
+                if (this.f195a.containsKey(str)) {
+                    this.f195a.get(str).a(cvVar);
                 } else {
                     cw cwVar = new cw(str);
                     cwVar.a(cvVar);
-                    this.f196a.put(str, cwVar);
+                    this.f195a.put(str, cwVar);
                 }
             }
         }
@@ -464,12 +464,12 @@ public class cz {
 
     /* renamed from: a  reason: collision with other method in class */
     protected boolean m220a() {
-        synchronized (this.f196a) {
-            if (f191a) {
+        synchronized (this.f195a) {
+            if (f190a) {
                 return true;
             }
-            f191a = true;
-            this.f196a.clear();
+            f190a = true;
+            this.f195a.clear();
             String d2 = d();
             if (TextUtils.isEmpty(d2)) {
                 return false;
@@ -492,11 +492,11 @@ public class cz {
     /* renamed from: b  reason: collision with other method in class */
     public void m221b() {
         ArrayList<String> arrayList;
-        synchronized (this.f196a) {
+        synchronized (this.f195a) {
             m220a();
-            arrayList = new ArrayList<>(this.f196a.keySet());
+            arrayList = new ArrayList<>(this.f195a.keySet());
             for (int size = arrayList.size() - 1; size >= 0; size--) {
-                cw cwVar = this.f196a.get(arrayList.get(size));
+                cw cwVar = this.f195a.get(arrayList.get(size));
                 if (cwVar != null && cwVar.a() != null) {
                     arrayList.remove(size);
                 }
@@ -518,8 +518,8 @@ public class cz {
 
     /* renamed from: b  reason: collision with other method in class */
     protected void m222b(String str) {
-        synchronized (this.f196a) {
-            this.f196a.clear();
+        synchronized (this.f195a) {
+            this.f195a.clear();
             JSONObject jSONObject = new JSONObject(str);
             if (jSONObject.optInt("ver") != 2) {
                 throw new JSONException("Bad version");
@@ -527,12 +527,12 @@ public class cz {
             JSONArray optJSONArray = jSONObject.optJSONArray("data");
             for (int i = 0; i < optJSONArray.length(); i++) {
                 cw a2 = new cw().a(optJSONArray.getJSONObject(i));
-                this.f196a.put(a2.m210a(), a2);
+                this.f195a.put(a2.m210a(), a2);
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray(GestureAR.SDK_TO_LUA_GESTURE_RESULT_RESERVED);
             for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                 cv a3 = new cv("").a(optJSONArray2.getJSONObject(i2));
-                b.put(a3.f186b, a3);
+                b.put(a3.f185b, a3);
             }
         }
     }
@@ -540,9 +540,9 @@ public class cz {
     protected cv c(String str) {
         cw cwVar;
         cv a2;
-        synchronized (this.f196a) {
+        synchronized (this.f195a) {
             m220a();
-            cwVar = this.f196a.get(str);
+            cwVar = this.f195a.get(str);
         }
         if (cwVar == null || (a2 = cwVar.a()) == null) {
             return null;
@@ -552,8 +552,8 @@ public class cz {
 
     public String c() {
         StringBuilder sb = new StringBuilder();
-        synchronized (this.f196a) {
-            for (Map.Entry<String, cw> entry : this.f196a.entrySet()) {
+        synchronized (this.f195a) {
+            for (Map.Entry<String, cw> entry : this.f195a.entrySet()) {
                 sb.append(entry.getKey());
                 sb.append(":\n");
                 sb.append(entry.getValue().toString());
@@ -565,7 +565,7 @@ public class cz {
 
     /* renamed from: c  reason: collision with other method in class */
     public void m223c() {
-        synchronized (this.f196a) {
+        synchronized (this.f195a) {
             try {
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(a.openFileOutput(e(), 0)));
                 String jSONObject = m217a().toString();
@@ -580,16 +580,16 @@ public class cz {
     }
 
     protected cv d(String str) {
-        if (System.currentTimeMillis() - this.f199c > this.f192a * 60 * 1000) {
-            this.f199c = System.currentTimeMillis();
+        if (System.currentTimeMillis() - this.f198c > this.f191a * 60 * 1000) {
+            this.f198c = System.currentTimeMillis();
             ArrayList<String> arrayList = new ArrayList<>();
             arrayList.add(str);
             cv cvVar = a(arrayList).get(0);
             if (cvVar != null) {
-                this.f192a = 0L;
+                this.f191a = 0L;
                 return cvVar;
-            } else if (this.f192a < 15) {
-                this.f192a++;
+            } else if (this.f191a < 15) {
+                this.f191a++;
             }
         }
         return null;
@@ -633,21 +633,21 @@ public class cz {
 
     /* renamed from: d  reason: collision with other method in class */
     public void m224d() {
-        synchronized (this.f196a) {
-            for (cw cwVar : this.f196a.values()) {
+        synchronized (this.f195a) {
+            for (cw cwVar : this.f195a.values()) {
                 cwVar.a(true);
             }
             boolean z = false;
             while (!z) {
-                Iterator<String> it = this.f196a.keySet().iterator();
+                Iterator<String> it = this.f195a.keySet().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z = true;
                         break;
                     }
                     String next = it.next();
-                    if (this.f196a.get(next).m211a().isEmpty()) {
-                        this.f196a.remove(next);
+                    if (this.f195a.get(next).m211a().isEmpty()) {
+                        this.f195a.remove(next);
                         z = false;
                         break;
                     }

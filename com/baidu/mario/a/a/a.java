@@ -13,32 +13,32 @@ import java.nio.ByteBuffer;
 /* loaded from: classes20.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private e bzb;
-    private HandlerThread bzr;
-    private Handler bzs;
-    private com.baidu.mario.a.b.a bzt;
-    private volatile boolean bzu = false;
+    private e bze;
+    private HandlerThread bzu;
+    private Handler bzv;
+    private com.baidu.mario.a.b.a bzw;
+    private volatile boolean bzx = false;
 
     private void a(e eVar, c cVar) {
-        this.bzr = new HandlerThread("AudioRecorderThread");
-        this.bzr.start();
-        this.bzs = new b(this.bzr.getLooper());
+        this.bzu = new HandlerThread("AudioRecorderThread");
+        this.bzu.start();
+        this.bzv = new b(this.bzu.getLooper());
         try {
-            this.bzt = new com.baidu.mario.a.b.a();
+            this.bzw = new com.baidu.mario.a.b.a();
         } catch (VerifyError e) {
             Log.e(TAG, "initRecorder verifyError");
-            if (this.bzt == null) {
+            if (this.bzw == null) {
                 return;
             }
         }
-        this.bzb = eVar;
+        this.bze = eVar;
         if (Build.VERSION.SDK_INT >= 18) {
-            this.bzt.a(cVar);
+            this.bzw.a(cVar);
         }
     }
 
     public boolean isRunning() {
-        return this.bzr != null && this.bzr.isAlive();
+        return this.bzu != null && this.bzu.isAlive();
     }
 
     public boolean a(d dVar, e eVar, c cVar) {
@@ -47,38 +47,38 @@ public class a {
             return false;
         }
         a(eVar, cVar);
-        this.bzs.sendMessage(this.bzs.obtainMessage(1001, dVar));
-        this.bzu = true;
+        this.bzv.sendMessage(this.bzv.obtainMessage(1001, dVar));
+        this.bzx = true;
         return true;
     }
 
     public void startRecording() {
-        if (this.bzs != null) {
-            this.bzs.sendMessage(this.bzs.obtainMessage(1002));
+        if (this.bzv != null) {
+            this.bzv.sendMessage(this.bzv.obtainMessage(1002));
         }
     }
 
     public void d(ByteBuffer byteBuffer, int i, long j) {
         if (byteBuffer != null && i > 0) {
             C0219a c0219a = new C0219a(byteBuffer, i, j);
-            if (this.bzs != null && this.bzu) {
-                this.bzs.sendMessage(this.bzs.obtainMessage(1003, c0219a));
+            if (this.bzv != null && this.bzx) {
+                this.bzv.sendMessage(this.bzv.obtainMessage(1003, c0219a));
             }
         }
     }
 
     public void stopRecording() {
-        if (this.bzs != null && this.bzu) {
-            this.bzu = false;
-            this.bzs.sendMessage(this.bzs.obtainMessage(1004));
+        if (this.bzv != null && this.bzx) {
+            this.bzx = false;
+            this.bzv.sendMessage(this.bzv.obtainMessage(1004));
         }
     }
 
     public void Sv() {
-        if (this.bzs != null) {
-            this.bzs.removeCallbacksAndMessages(null);
-            this.bzs.sendMessage(this.bzs.obtainMessage(1005));
-            this.bzs.sendMessage(this.bzs.obtainMessage(1006));
+        if (this.bzv != null) {
+            this.bzv.removeCallbacksAndMessages(null);
+            this.bzv.sendMessage(this.bzv.obtainMessage(1005));
+            this.bzv.sendMessage(this.bzv.obtainMessage(1006));
         }
     }
 
@@ -100,7 +100,7 @@ public class a {
                     return;
                 case 1003:
                     C0219a c0219a = (C0219a) message.obj;
-                    a.this.e(c0219a.bzv, c0219a.bzw, c0219a.bzx);
+                    a.this.e(c0219a.bzy, c0219a.bzz, c0219a.bzA);
                     return;
                 case 1004:
                     a.this.Sx();
@@ -119,67 +119,67 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(d dVar) {
-        if (Build.VERSION.SDK_INT >= 18 && this.bzt != null) {
-            this.bzt.a(dVar, this.bzb);
+        if (Build.VERSION.SDK_INT >= 18 && this.bzw != null) {
+            this.bzw.a(dVar, this.bze);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Sw() {
         if (Build.VERSION.SDK_INT >= 18) {
-            this.bzt.SH();
+            this.bzw.SH();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(ByteBuffer byteBuffer, int i, long j) {
         if (Build.VERSION.SDK_INT >= 18) {
-            this.bzt.b(false, byteBuffer, i, j);
+            this.bzw.b(false, byteBuffer, i, j);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Sx() {
-        if (Build.VERSION.SDK_INT >= 18 && this.bzt != null) {
-            this.bzt.b(true, (ByteBuffer) null, 0, 0L);
+        if (Build.VERSION.SDK_INT >= 18 && this.bzw != null) {
+            this.bzw.b(true, (ByteBuffer) null, 0, 0L);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Sy() {
         if (Build.VERSION.SDK_INT >= 18) {
-            if (this.bzt != null) {
-                this.bzt.SG();
-                this.bzt.SF();
+            if (this.bzw != null) {
+                this.bzw.SG();
+                this.bzw.SF();
             }
-            this.bzt = null;
-            this.bzb = null;
+            this.bzw = null;
+            this.bze = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Sz() {
-        if (this.bzs != null) {
-            this.bzs.removeCallbacksAndMessages(null);
-            this.bzs = null;
+        if (this.bzv != null) {
+            this.bzv.removeCallbacksAndMessages(null);
+            this.bzv = null;
         }
-        if (this.bzr != null) {
-            this.bzr.quit();
-            this.bzr = null;
+        if (this.bzu != null) {
+            this.bzu.quit();
+            this.bzu = null;
         }
     }
 
     /* renamed from: com.baidu.mario.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes20.dex */
     private class C0219a {
-        ByteBuffer bzv;
-        int bzw;
-        long bzx;
+        long bzA;
+        ByteBuffer bzy;
+        int bzz;
 
         public C0219a(ByteBuffer byteBuffer, int i, long j) {
-            this.bzv = byteBuffer;
-            this.bzw = i;
-            this.bzx = j;
+            this.bzy = byteBuffer;
+            this.bzz = i;
+            this.bzA = j;
         }
     }
 }

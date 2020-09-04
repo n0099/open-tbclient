@@ -8,66 +8,66 @@ public class e implements b {
     private final float EX;
     private final List<com.tb.airbnb.lottie.model.a.b> EY;
     private final String name;
-    private final com.tb.airbnb.lottie.model.a.d oji;
-    private final GradientType ojm;
-    private final com.tb.airbnb.lottie.model.a.c ojn;
-    private final com.tb.airbnb.lottie.model.a.f ojo;
-    private final com.tb.airbnb.lottie.model.a.f ojp;
-    private final com.tb.airbnb.lottie.model.a.b ojs;
-    private final ShapeStroke.LineCapType ojt;
-    private final ShapeStroke.LineJoinType oju;
+    private final com.tb.airbnb.lottie.model.a.d ojA;
+    private final GradientType ojE;
+    private final com.tb.airbnb.lottie.model.a.c ojF;
+    private final com.tb.airbnb.lottie.model.a.f ojG;
+    private final com.tb.airbnb.lottie.model.a.f ojH;
+    private final com.tb.airbnb.lottie.model.a.b ojK;
+    private final ShapeStroke.LineCapType ojL;
+    private final ShapeStroke.LineJoinType ojM;
     @Nullable
-    private final com.tb.airbnb.lottie.model.a.b ojv;
+    private final com.tb.airbnb.lottie.model.a.b ojN;
 
     public e(String str, GradientType gradientType, com.tb.airbnb.lottie.model.a.c cVar, com.tb.airbnb.lottie.model.a.d dVar, com.tb.airbnb.lottie.model.a.f fVar, com.tb.airbnb.lottie.model.a.f fVar2, com.tb.airbnb.lottie.model.a.b bVar, ShapeStroke.LineCapType lineCapType, ShapeStroke.LineJoinType lineJoinType, float f, List<com.tb.airbnb.lottie.model.a.b> list, @Nullable com.tb.airbnb.lottie.model.a.b bVar2) {
         this.name = str;
-        this.ojm = gradientType;
-        this.ojn = cVar;
-        this.oji = dVar;
-        this.ojo = fVar;
-        this.ojp = fVar2;
-        this.ojs = bVar;
-        this.ojt = lineCapType;
-        this.oju = lineJoinType;
+        this.ojE = gradientType;
+        this.ojF = cVar;
+        this.ojA = dVar;
+        this.ojG = fVar;
+        this.ojH = fVar2;
+        this.ojK = bVar;
+        this.ojL = lineCapType;
+        this.ojM = lineJoinType;
         this.EX = f;
         this.EY = list;
-        this.ojv = bVar2;
+        this.ojN = bVar2;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public GradientType edq() {
-        return this.ojm;
+    public GradientType edz() {
+        return this.ojE;
     }
 
-    public com.tb.airbnb.lottie.model.a.c edr() {
-        return this.ojn;
+    public com.tb.airbnb.lottie.model.a.c edA() {
+        return this.ojF;
     }
 
-    public com.tb.airbnb.lottie.model.a.d edl() {
-        return this.oji;
+    public com.tb.airbnb.lottie.model.a.d edu() {
+        return this.ojA;
     }
 
-    public com.tb.airbnb.lottie.model.a.f eds() {
-        return this.ojo;
+    public com.tb.airbnb.lottie.model.a.f edB() {
+        return this.ojG;
     }
 
-    public com.tb.airbnb.lottie.model.a.f edt() {
-        return this.ojp;
+    public com.tb.airbnb.lottie.model.a.f edC() {
+        return this.ojH;
     }
 
-    public com.tb.airbnb.lottie.model.a.b edu() {
-        return this.ojs;
+    public com.tb.airbnb.lottie.model.a.b edD() {
+        return this.ojK;
     }
 
-    public ShapeStroke.LineCapType edv() {
-        return this.ojt;
+    public ShapeStroke.LineCapType edE() {
+        return this.ojL;
     }
 
-    public ShapeStroke.LineJoinType edw() {
-        return this.oju;
+    public ShapeStroke.LineJoinType edF() {
+        return this.ojM;
     }
 
     public List<com.tb.airbnb.lottie.model.a.b> jV() {
@@ -75,8 +75,8 @@ public class e implements b {
     }
 
     @Nullable
-    public com.tb.airbnb.lottie.model.a.b edx() {
-        return this.ojv;
+    public com.tb.airbnb.lottie.model.a.b edG() {
+        return this.ojN;
     }
 
     public float jX() {

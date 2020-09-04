@@ -6,12 +6,12 @@ import android.util.Log;
 import android.webkit.JavascriptInterface;
 /* loaded from: classes7.dex */
 public abstract class a {
-    protected h buN;
+    protected h buQ;
     protected Handler mHandler;
 
     public abstract String getName();
 
-    public abstract void hq(String str);
+    public abstract void hr(String str);
 
     public void g(String str, String str2, boolean z) {
     }
@@ -25,10 +25,10 @@ public abstract class a {
         this.mHandler.post(new Runnable() { // from class: com.baidu.live.view.web.a.1
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.buN != null) {
-                    a.this.buN.hx(str);
+                if (a.this.buQ != null) {
+                    a.this.buQ.hy(str);
                 } else {
-                    a.this.hq(str);
+                    a.this.hr(str);
                 }
             }
         });
@@ -49,6 +49,6 @@ public abstract class a {
     }
 
     public void a(h hVar) {
-        this.buN = hVar;
+        this.buQ = hVar;
     }
 }

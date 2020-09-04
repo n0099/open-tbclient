@@ -131,7 +131,7 @@ public class XFlutterView extends FrameLayout {
 
     private void setPadding() {
         this.viewportMetrics.paddingTop = UtilHelper.getStatusBarHeight();
-        sendViewportMetricsToFlutter();
+        sendViewportMetricsToFlutter(1);
     }
 
     public void addOnFirstFrameRenderedListener(@NonNull FlutterUiDisplayListener flutterUiDisplayListener) {
@@ -160,7 +160,7 @@ public class XFlutterView extends FrameLayout {
         Log.v("FlutterView", "Size changed. Sending Flutter new viewport metrics. FlutterView was " + i3 + " x " + i4 + ", it is now " + i + " x " + i2);
         this.viewportMetrics.width = i;
         this.viewportMetrics.height = i2;
-        sendViewportMetricsToFlutter();
+        sendViewportMetricsToFlutter(2);
     }
 
     @Override // android.view.View
@@ -179,7 +179,7 @@ public class XFlutterView extends FrameLayout {
         this.viewportMetrics.viewInsetBottom = windowInsets.getSystemWindowInsetBottom();
         this.viewportMetrics.viewInsetLeft = 0;
         Log.v("FlutterView", "Updating window insets (onApplyWindowInsets()):\nStatus bar insets: Top: " + this.viewportMetrics.paddingTop + ", Left: " + this.viewportMetrics.paddingLeft + ", Right: " + this.viewportMetrics.paddingRight + "\nKeyboard insets: Bottom: " + this.viewportMetrics.viewInsetBottom + ", Left: " + this.viewportMetrics.viewInsetLeft + ", Right: " + this.viewportMetrics.viewInsetRight + "System Gesture Insets - Left: " + this.viewportMetrics.systemGestureInsetLeft + ", Top: " + this.viewportMetrics.systemGestureInsetTop + ", Right: " + this.viewportMetrics.systemGestureInsetRight + ", Bottom: " + this.viewportMetrics.viewInsetBottom);
-        sendViewportMetricsToFlutter();
+        sendViewportMetricsToFlutter(3);
         return onApplyWindowInsets;
     }
 
@@ -195,7 +195,7 @@ public class XFlutterView extends FrameLayout {
             this.viewportMetrics.viewInsetBottom = rect.bottom;
             this.viewportMetrics.viewInsetLeft = 0;
             Log.v("FlutterView", "Updating window insets (fitSystemWindows()):\nStatus bar insets: Top: " + this.viewportMetrics.paddingTop + ", Left: " + this.viewportMetrics.paddingLeft + ", Right: " + this.viewportMetrics.paddingRight + "\nKeyboard insets: Bottom: " + this.viewportMetrics.viewInsetBottom + ", Left: " + this.viewportMetrics.viewInsetLeft + ", Right: " + this.viewportMetrics.viewInsetRight);
-            sendViewportMetricsToFlutter();
+            sendViewportMetricsToFlutter(4);
             return true;
         }
         return super.fitSystemWindows(rect);
@@ -311,7 +311,7 @@ public class XFlutterView extends FrameLayout {
         this.textInputPlugin.getInputMethodManager().restartInput(this);
         sendUserSettingsToFlutter();
         sendLocalesToFlutter(getResources().getConfiguration());
-        sendViewportMetricsToFlutter();
+        sendViewportMetricsToFlutter(5);
         for (FlutterView.FlutterEngineAttachmentListener flutterEngineAttachmentListener : this.flutterEngineAttachmentListeners) {
             flutterEngineAttachmentListener.onFlutterEngineAttachedToFlutterView(flutterEngine);
         }
@@ -383,9 +383,9 @@ public class XFlutterView extends FrameLayout {
         }
     }
 
-    private void sendViewportMetricsToFlutter() {
+    private void sendViewportMetricsToFlutter(int i) {
         if (!isAttachedToFlutterEngine()) {
-            Log.w("FlutterView", "Tried to send viewport metrics from Android to Flutter but this FlutterView was not attached to a FlutterEngine.");
+            Log.w("FlutterView", i + " Tried to send viewport metrics from Android to Flutter but this FlutterView was not attached to a FlutterEngine.");
         } else if (this.viewportMetrics.width != 0 || this.viewportMetrics.height != 0) {
             this.viewportMetrics.devicePixelRatio = getResources().getDisplayMetrics().density;
             this.flutterEngine.getRenderer().setViewportMetrics(this.viewportMetrics);

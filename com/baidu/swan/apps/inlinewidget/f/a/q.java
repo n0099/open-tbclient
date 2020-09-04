@@ -7,7 +7,7 @@ import android.util.Log;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes8.dex */
 public class q extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.f.c.a> {
-    private AudioManager bgN;
+    private AudioManager bgP;
 
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
@@ -42,12 +42,12 @@ public class q extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.in
     }
 
     private void a(double d, Context context) {
-        if (this.bgN == null) {
-            this.bgN = (AudioManager) context.getSystemService("audio");
+        if (this.bgP == null) {
+            this.bgP = (AudioManager) context.getSystemService("audio");
         }
-        if (this.bgN != null) {
-            int round = (int) Math.round(this.bgN.getStreamMaxVolume(3) * d);
-            if (round == this.bgN.getStreamVolume(3)) {
+        if (this.bgP != null) {
+            int round = (int) Math.round(this.bgP.getStreamMaxVolume(3) * d);
+            if (round == this.bgP.getStreamVolume(3)) {
                 if (DEBUG) {
                     Log.d("【InlineCommand】", "Setting same volume level, ignore : (" + round + ")");
                     return;
@@ -60,7 +60,7 @@ public class q extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.in
             if (DEBUG) {
                 Log.d("【InlineCommand】", "setVolumeInt" + round);
             }
-            this.bgN.setStreamVolume(3, round, 0);
+            this.bgP.setStreamVolume(3, round, 0);
         }
     }
 }

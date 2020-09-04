@@ -11,55 +11,55 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes20.dex */
 public final class c extends MessageMicro {
-    private boolean apY;
     private boolean aqa;
-    private String apZ = "";
+    private boolean aqc;
     private String aqb = "";
-    private List<a> aqc = Collections.emptyList();
-    private int apu = -1;
+    private String aqd = "";
+    private List<a> aqe = Collections.emptyList();
+    private int apw = -1;
 
     /* loaded from: classes20.dex */
     public static final class a extends MessageMicro {
-        private boolean apj;
-        private boolean aqd;
+        private boolean apm;
         private boolean aqf;
-        private int aqe = 0;
+        private boolean aqh;
         private int aqg = 0;
-        private String apl = "";
-        private int apu = -1;
+        private int aqi = 0;
+        private String apn = "";
+        private int apw = -1;
 
         public a bW(int i) {
-            this.aqd = true;
-            this.aqe = i;
-            return this;
-        }
-
-        public a bX(int i) {
             this.aqf = true;
             this.aqg = i;
             return this;
         }
 
-        public a ej(String str) {
-            this.apj = true;
-            this.apl = str;
+        public a bX(int i) {
+            this.aqh = true;
+            this.aqi = i;
+            return this;
+        }
+
+        public a ek(String str) {
+            this.apm = true;
+            this.apn = str;
             return this;
         }
 
         @Override // com.google.protobuf.micro.MessageMicro
         public int getCachedSize() {
-            if (this.apu < 0) {
+            if (this.apw < 0) {
                 getSerializedSize();
             }
-            return this.apu;
+            return this.apw;
         }
 
         public String getName() {
-            return this.apl;
+            return this.apn;
         }
 
         public int getOffset() {
-            return this.aqe;
+            return this.aqg;
         }
 
         @Override // com.google.protobuf.micro.MessageMicro
@@ -71,12 +71,12 @@ public final class c extends MessageMicro {
             if (hasName()) {
                 computeInt32Size += CodedOutputStreamMicro.computeStringSize(3, getName());
             }
-            this.apu = computeInt32Size;
+            this.apw = computeInt32Size;
             return computeInt32Size;
         }
 
         public boolean hasName() {
-            return this.apj;
+            return this.apm;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -95,7 +95,7 @@ public final class c extends MessageMicro {
                         bX(codedInputStreamMicro.readInt32());
                         break;
                     case 26:
-                        ej(codedInputStreamMicro.readString());
+                        ek(codedInputStreamMicro.readString());
                         break;
                     default:
                         if (!parseUnknownField(codedInputStreamMicro, readTag)) {
@@ -109,15 +109,15 @@ public final class c extends MessageMicro {
         }
 
         public boolean vR() {
-            return this.aqd;
+            return this.aqf;
         }
 
         public int vS() {
-            return this.aqg;
+            return this.aqi;
         }
 
         public boolean vT() {
-            return this.aqf;
+            return this.aqh;
         }
 
         @Override // com.google.protobuf.micro.MessageMicro
@@ -140,22 +140,16 @@ public final class c extends MessageMicro {
 
     public c a(a aVar) {
         if (aVar != null) {
-            if (this.aqc.isEmpty()) {
-                this.aqc = new ArrayList();
+            if (this.aqe.isEmpty()) {
+                this.aqe = new ArrayList();
             }
-            this.aqc.add(aVar);
+            this.aqe.add(aVar);
         }
         return this;
     }
 
     public a bV(int i) {
-        return this.aqc.get(i);
-    }
-
-    public c eh(String str) {
-        this.apY = true;
-        this.apZ = str;
-        return this;
+        return this.aqe.get(i);
     }
 
     public c ei(String str) {
@@ -164,16 +158,22 @@ public final class c extends MessageMicro {
         return this;
     }
 
+    public c ej(String str) {
+        this.aqc = true;
+        this.aqd = str;
+        return this;
+    }
+
     @Override // com.google.protobuf.micro.MessageMicro
     public int getCachedSize() {
-        if (this.apu < 0) {
+        if (this.apw < 0) {
             getSerializedSize();
         }
-        return this.apu;
+        return this.apw;
     }
 
     public String getMd5() {
-        return this.apZ;
+        return this.aqb;
     }
 
     @Override // com.google.protobuf.micro.MessageMicro
@@ -186,7 +186,7 @@ public final class c extends MessageMicro {
         while (true) {
             int i = computeStringSize;
             if (!it.hasNext()) {
-                this.apu = i;
+                this.apw = i;
                 return i;
             }
             computeStringSize = CodedOutputStreamMicro.computeMessageSize(3, it.next()) + i;
@@ -203,10 +203,10 @@ public final class c extends MessageMicro {
                 case 0:
                     break;
                 case 10:
-                    eh(codedInputStreamMicro.readString());
+                    ei(codedInputStreamMicro.readString());
                     break;
                 case 18:
-                    ei(codedInputStreamMicro.readString());
+                    ej(codedInputStreamMicro.readString());
                     break;
                 case 26:
                     a aVar = new a();
@@ -225,23 +225,23 @@ public final class c extends MessageMicro {
     }
 
     public boolean vM() {
-        return this.apY;
-    }
-
-    public String vN() {
-        return this.aqb;
-    }
-
-    public boolean vO() {
         return this.aqa;
     }
 
-    public List<a> vP() {
+    public String vN() {
+        return this.aqd;
+    }
+
+    public boolean vO() {
         return this.aqc;
     }
 
+    public List<a> vP() {
+        return this.aqe;
+    }
+
     public int vQ() {
-        return this.aqc.size();
+        return this.aqe.size();
     }
 
     @Override // com.google.protobuf.micro.MessageMicro

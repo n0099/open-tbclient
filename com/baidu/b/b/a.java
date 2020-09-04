@@ -10,9 +10,9 @@ import java.util.Comparator;
 import org.json.JSONObject;
 /* loaded from: classes20.dex */
 public abstract class a {
-    public static Comparator<a> ach = new com.baidu.b.b.b();
-    protected C0088a acf;
-    protected a.C0090a acg;
+    public static Comparator<a> acj = new com.baidu.b.b.b();
+    protected C0088a ach;
+    protected a.C0090a aci;
     private final String d;
     private long e;
 
@@ -20,18 +20,18 @@ public abstract class a {
     /* loaded from: classes20.dex */
     public static class C0088a {
         public Context a;
-        public com.baidu.b.e.a aci;
+        public com.baidu.b.e.a acm;
     }
 
     /* loaded from: classes20.dex */
     public static abstract class b {
-        private a.C0090a acj;
+        private a.C0090a acn;
         private String b;
         private String c;
         private boolean d = true;
 
         public b(a.C0090a c0090a, String str) {
-            this.acj = c0090a;
+            this.acn = c0090a;
             this.b = str;
             this.c = "target-pkg-" + Base64.encodeToString(str.getBytes(), 3);
         }
@@ -43,7 +43,7 @@ public abstract class a {
         }
 
         public boolean a() {
-            String a = this.acj.a(this.c, true);
+            String a = this.acn.a(this.c, true);
             if (!TextUtils.isEmpty(a)) {
                 try {
                     a(new JSONObject(a));
@@ -62,7 +62,7 @@ public abstract class a {
                 try {
                     JSONObject jSONObject = new JSONObject();
                     b(jSONObject);
-                    this.acj.c(this.c, jSONObject.toString(), true);
+                    this.acn.c(this.c, jSONObject.toString(), true);
                     a(false);
                     return true;
                 } catch (Exception e) {
@@ -83,14 +83,14 @@ public abstract class a {
 
     /* loaded from: classes20.dex */
     public static class e {
-        public h.a acm;
-        public Exception acn;
+        public h.a aco;
+        public Exception acp;
         public int b;
 
         public e(int i, h.a aVar, Exception exc) {
             this.b = i;
-            this.acm = aVar;
-            this.acn = exc;
+            this.aco = aVar;
+            this.acp = exc;
         }
 
         public static e a(h.a aVar) {
@@ -122,8 +122,8 @@ public abstract class a {
     }
 
     public final void a(C0088a c0088a) {
-        this.acf = c0088a;
-        this.acg = c0088a.aci.sJ().cU(IXAdRequestInfo.CS);
+        this.ach = c0088a;
+        this.aci = c0088a.acm.sJ().cV(IXAdRequestInfo.CS);
     }
 
     public abstract void a(c cVar);

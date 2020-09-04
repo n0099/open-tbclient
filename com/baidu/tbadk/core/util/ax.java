@@ -1,8 +1,8 @@
 package com.baidu.tbadk.core.util;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ax {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a {
         public static int LOCATE_WRITE = 1;
         public static int LOCATE_REPLY = 2;
@@ -11,7 +11,7 @@ public class ax {
         public static int LOCATE_SIGN = 5;
         public static int LOCATE_CHAT = 6;
         public static int LOCATE_LIKE_BAR = 7;
-        public static int eli = 8;
-        public static int elj = 9;
+        public static int elm = 8;
+        public static int eln = 9;
     }
 }

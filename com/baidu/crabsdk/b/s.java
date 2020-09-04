@@ -85,7 +85,7 @@ public final class s {
         return sb.toString();
     }
 
-    public static Thread dr(String str) {
+    public static Thread ds(String str) {
         Map<Thread, StackTraceElement[]> allStackTraces = Thread.getAllStackTraces();
         if (allStackTraces != null && allStackTraces.size() > 0) {
             for (Thread thread : allStackTraces.keySet()) {

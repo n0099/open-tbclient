@@ -3,7 +3,7 @@ package com.baidu.tieba.lego.card.model;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.q;
 import java.io.Serializable;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface ICardInfo extends q, Serializable {
     int getAdapterCount();
 

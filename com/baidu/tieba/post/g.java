@@ -29,53 +29,53 @@ import java.util.regex.Pattern;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes18.dex */
 public class g extends BaseAdapter {
-    private BdUniqueId ahK;
-    private TbPageContext<BaseFragmentActivity> hHG;
-    private String lkJ;
-    private PersonPostModel llT;
-    private PersonPostModel.a lwA;
-    private final PersonPostModel.a lwB = new PersonPostModel.a() { // from class: com.baidu.tieba.post.g.1
+    private BdUniqueId ahM;
+    private TbPageContext<BaseFragmentActivity> hHM;
+    private String lkU;
+    private PersonPostModel lme;
+    private PersonPostModel.a lwL;
+    private final PersonPostModel.a lwM = new PersonPostModel.a() { // from class: com.baidu.tieba.post.g.1
         @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.a
         public void b(PersonPostModel personPostModel, boolean z) {
             if (z) {
-                g.this.llT = personPostModel;
-                Iterator<q> it = g.this.llT.postList.iterator();
+                g.this.lme = personPostModel;
+                Iterator<q> it = g.this.lme.postList.iterator();
                 while (it.hasNext()) {
                     q next = it.next();
                     if (next != null && !(next instanceof PersonPostModel.PostInfoList)) {
                         it.remove();
                     }
                 }
-            } else if (g.this.llT != null) {
+            } else if (g.this.lme != null) {
                 for (int i = 0; i < personPostModel.postList.size(); i++) {
                     if (personPostModel.postList.get(i) instanceof PersonPostModel.PostInfoList) {
-                        g.this.llT.postList.add(personPostModel.postList.get(i));
+                        g.this.lme.postList.add(personPostModel.postList.get(i));
                     }
                 }
             }
-            if (g.this.lwA != null) {
-                g.this.lwA.b(personPostModel, z);
+            if (g.this.lwL != null) {
+                g.this.lwL.b(personPostModel, z);
             }
             g.this.notifyDataSetChanged();
         }
     };
-    private final a.InterfaceC0783a lwC = new a.InterfaceC0783a() { // from class: com.baidu.tieba.post.g.2
+    private final a.InterfaceC0783a lwN = new a.InterfaceC0783a() { // from class: com.baidu.tieba.post.g.2
         @Override // com.baidu.tieba.post.a.InterfaceC0783a
         public void dg(View view) {
             String[] strArr;
             int id = view.getId();
             if (id == R.id.portrait) {
-                ((BaseFragmentActivity) g.this.hHG.getOrignalPage()).finish();
+                ((BaseFragmentActivity) g.this.hHM.getOrignalPage()).finish();
             } else if (id == R.id.username) {
-                ((BaseFragmentActivity) g.this.hHG.getOrignalPage()).finish();
+                ((BaseFragmentActivity) g.this.hHM.getOrignalPage()).finish();
             } else if ((id == R.id.item_header || id == R.id.original_post_title || id == R.id.item_footer || id == R.id.reply_count) && (strArr = (String[]) view.getTag()) != null) {
                 if ("0".equals(strArr[2]) || strArr[1] == null) {
-                    PbActivityConfig createNormalCfg = new PbActivityConfig(g.this.hHG.getPageActivity()).createNormalCfg(strArr[0], strArr[1], "person_page");
+                    PbActivityConfig createNormalCfg = new PbActivityConfig(g.this.hHM.getPageActivity()).createNormalCfg(strArr[0], strArr[1], "person_page");
                     createNormalCfg.setStartFrom(4);
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createNormalCfg));
                     return;
                 }
-                SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(g.this.hHG.getPageActivity()).createSubPbActivityConfig(strArr[0], strArr[1], "person_post_reply", false);
+                SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(g.this.hHM.getPageActivity()).createSubPbActivityConfig(strArr[0], strArr[1], "person_post_reply", false);
                 createSubPbActivityConfig.setKeyPageStartFrom(4);
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, createSubPbActivityConfig));
             }
@@ -84,35 +84,35 @@ public class g extends BaseAdapter {
     private final String mUid;
 
     public g(TbPageContext<BaseFragmentActivity> tbPageContext, String str, String str2, BdUniqueId bdUniqueId) {
-        this.hHG = tbPageContext;
+        this.hHM = tbPageContext;
         this.mUid = str;
-        this.ahK = bdUniqueId;
+        this.ahM = bdUniqueId;
     }
 
     public void a(PersonPostModel.a aVar) {
-        this.lwA = aVar;
+        this.lwL = aVar;
     }
 
-    public void vg(boolean z) {
-        if (this.llT == null) {
-            this.llT = new PersonPostModel(this.hHG, this.ahK, null, true, PersonPostModel.FROM_PERSON_POST);
-            this.llT.setUniqueId(this.ahK);
+    public void vi(boolean z) {
+        if (this.lme == null) {
+            this.lme = new PersonPostModel(this.hHM, this.ahM, null, true, PersonPostModel.FROM_PERSON_POST);
+            this.lme.setUniqueId(this.ahM);
         }
-        this.llT.fetchPost(this.hHG, this.lwB, z, this.mUid, false, true, false, null);
+        this.lme.fetchPost(this.hHM, this.lwM, z, this.mUid, false, true, false, null);
     }
 
-    public void coU() {
-        if (this.llT != null) {
-            this.llT.cancelLoadData();
+    public void coV() {
+        if (this.lme != null) {
+            this.lme.cancelLoadData();
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.llT == null || this.llT.postList == null) {
+        if (this.lme == null || this.lme.postList == null) {
             return 0;
         }
-        return this.llT.postList.size();
+        return this.lme.postList.size();
     }
 
     @Override // android.widget.Adapter
@@ -130,30 +130,30 @@ public class g extends BaseAdapter {
         a aVar;
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.person_post_item_reply, viewGroup, false);
-            aVar = new a(view, this.hHG);
+            aVar = new a(view, this.hHM);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
         if (i == 0) {
-            aVar.lnX.setVisibility(0);
+            aVar.lok.setVisibility(0);
         } else {
-            aVar.lnX.setVisibility(8);
+            aVar.lok.setVisibility(8);
         }
         a(i, aVar, viewGroup);
         return view;
     }
 
     public PersonPostModel.PostInfoList FM(int i) {
-        return (PersonPostModel.PostInfoList) this.llT.postList.get(i);
+        return (PersonPostModel.PostInfoList) this.lme.postList.get(i);
     }
 
     private void a(int i, a aVar, ViewGroup viewGroup) {
         PersonPostModel.PostInfoList FM = FM(i);
-        if (this.lkJ == null) {
-            this.lkJ = FM.user_portrait;
+        if (this.lkU == null) {
+            this.lkU = FM.user_portrait;
         }
-        aVar.a(FM, false, this.lkJ);
+        aVar.a(FM, false, this.lkU);
         ArrayList<String[]> arrayList = new ArrayList<>();
         int length = FM.content.length;
         for (int i2 = 0; i2 < length; i2++) {
@@ -169,26 +169,26 @@ public class g extends BaseAdapter {
                 arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(FM.thread_id), String.valueOf(FM.content[i2].post_id), String.valueOf(FM.content[i2].post_type), at.getFormatTime(FM.content[i2].create_time * 1000), String.valueOf(FM.thread_type)});
             }
         }
-        aVar.lwE.setContent(arrayList);
+        aVar.lwP.setContent(arrayList);
         if (Pattern.compile("^回复：").matcher(FM.title).find()) {
-            aVar.lnQ.setText(FM.title.replaceFirst("回复：", "原贴："));
+            aVar.lob.setText(FM.title.replaceFirst("回复：", "原贴："));
         } else {
-            aVar.lnQ.setText(FM.title);
+            aVar.lob.setText(FM.title);
         }
         if (FM.originalThreadInfo != null && !StringUtils.isNull(FM.originalThreadInfo.showText)) {
-            aVar.lnQ.setText("分享：" + FM.originalThreadInfo.showText);
+            aVar.lob.setText("分享：" + FM.originalThreadInfo.showText);
         }
-        aVar.lnQ.setTag(new String[]{String.valueOf(FM.thread_id), null, null, String.valueOf(FM.thread_type)});
+        aVar.lob.setTag(new String[]{String.valueOf(FM.thread_id), null, null, String.valueOf(FM.thread_type)});
         if (FM.thread_type == 33) {
-            aVar.lnQ.setCompoundDrawablesWithIntrinsicBounds(ap.getDrawable(R.drawable.icon_zhibo), (Drawable) null, (Drawable) null, (Drawable) null);
+            aVar.lob.setCompoundDrawablesWithIntrinsicBounds(ap.getDrawable(R.drawable.icon_zhibo), (Drawable) null, (Drawable) null, (Drawable) null);
         } else {
-            aVar.lnQ.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+            aVar.lob.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
         }
-        ap.setBackgroundResource(aVar.lnQ, R.drawable.person_post_line);
-        ap.setViewTextColor(aVar.lnQ, R.color.common_color_10039, 1);
+        ap.setBackgroundResource(aVar.lob, R.drawable.person_post_line);
+        ap.setViewTextColor(aVar.lob, R.color.common_color_10039, 1);
         int dimensionPixelSize = viewGroup.getResources().getDimensionPixelSize(R.dimen.ds20);
-        aVar.lnQ.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
-        aVar.a(this.lwC);
+        aVar.lob.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
+        aVar.a(this.lwN);
         aVar.changeSkin(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -196,27 +196,27 @@ public class g extends BaseAdapter {
     @SuppressLint({"ResourceAsColor"})
     /* loaded from: classes18.dex */
     public static class a extends com.baidu.tieba.post.a {
-        private View hkf;
-        private View hkg;
-        public TextView lnQ;
-        public ReplyLinearLayout lwE;
+        private View hkj;
+        private View hkk;
+        public TextView lob;
+        public ReplyLinearLayout lwP;
 
         public a(View view, TbPageContext<BaseFragmentActivity> tbPageContext) {
             super(view, tbPageContext);
-            this.lwE = (ReplyLinearLayout) view.findViewById(R.id.content_container);
-            this.lnQ = (TextView) view.findViewById(R.id.original_post_title);
-            this.hkf = view.findViewById(R.id.reply_top_line);
-            this.hkg = view.findViewById(R.id.reply_bottom_line);
-            this.lnQ.setOnClickListener(this);
+            this.lwP = (ReplyLinearLayout) view.findViewById(R.id.content_container);
+            this.lob = (TextView) view.findViewById(R.id.original_post_title);
+            this.hkj = view.findViewById(R.id.reply_top_line);
+            this.hkk = view.findViewById(R.id.reply_bottom_line);
+            this.lob.setOnClickListener(this);
         }
 
         @Override // com.baidu.tieba.post.a
         public void changeSkin(int i) {
             super.changeSkin(i);
-            ap.setBackgroundResource(this.lnQ, R.color.cp_bg_line_e);
-            ap.setViewTextColor(this.lnQ, R.color.cp_cont_b, 1);
-            ap.setBackgroundResource(this.hkf, R.color.cp_bg_line_c);
-            ap.setBackgroundResource(this.hkg, R.color.cp_bg_line_c);
+            ap.setBackgroundResource(this.lob, R.color.cp_bg_line_e);
+            ap.setViewTextColor(this.lob, R.color.cp_cont_b, 1);
+            ap.setBackgroundResource(this.hkj, R.color.cp_bg_line_c);
+            ap.setBackgroundResource(this.hkk, R.color.cp_bg_line_c);
         }
     }
 }

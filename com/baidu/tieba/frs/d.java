@@ -1,17 +1,17 @@
 package com.baidu.tieba.frs;
 
 import tbclient.FrsPage.BrandForumInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class d {
-    public String aDg;
-    public String hRG;
-    public String hRH;
+    public String aDi;
+    public String hRM;
+    public String hRN;
 
     public void a(BrandForumInfo brandForumInfo) {
         if (brandForumInfo != null) {
-            this.hRG = brandForumInfo.brand_desc;
-            this.aDg = brandForumInfo.jump_url;
-            this.hRH = brandForumInfo.jump_desc;
+            this.hRM = brandForumInfo.brand_desc;
+            this.aDi = brandForumInfo.jump_url;
+            this.hRN = brandForumInfo.jump_desc;
         }
     }
 }

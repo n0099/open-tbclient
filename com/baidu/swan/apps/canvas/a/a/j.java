@@ -13,12 +13,12 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class j extends a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String bZu;
+    private String bZy;
     private Bitmap mBitmap;
     private Matrix mMatrix;
 
     public j(String str) {
-        this.bZu = str;
+        this.bZy = str;
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
@@ -27,7 +27,7 @@ public class j extends a {
 
     public int acO() {
         try {
-            JSONObject jSONObject = new JSONObject(this.bZu);
+            JSONObject jSONObject = new JSONObject(this.bZy);
             int H = com.baidu.swan.apps.ap.ah.H((float) jSONObject.optDouble("x"));
             int H2 = com.baidu.swan.apps.ap.ah.H((float) jSONObject.optDouble("y"));
             int optInt = jSONObject.optInt("width");

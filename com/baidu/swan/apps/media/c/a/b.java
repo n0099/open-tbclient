@@ -7,9 +7,9 @@ import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 /* loaded from: classes8.dex */
 public class b extends aa {
-    private a cDd;
-    private e cDe;
-    private d cDf;
+    private a cDh;
+    private e cDi;
+    private d cDj;
 
     public b(j jVar) {
         super(jVar, "/swanAPI/vrvideo");
@@ -48,22 +48,22 @@ public class b extends aa {
         }
         switch (c) {
             case 0:
-                if (this.cDd == null) {
-                    this.cDd = new a("/swanAPI/vrvideo/open");
+                if (this.cDh == null) {
+                    this.cDh = new a("/swanAPI/vrvideo/open");
                 }
-                a = this.cDd.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a = this.cDh.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 1:
-                if (this.cDe == null) {
-                    this.cDe = new e("/swanAPI/vrvideo/update");
+                if (this.cDi == null) {
+                    this.cDi = new e("/swanAPI/vrvideo/update");
                 }
-                a = this.cDe.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a = this.cDi.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 2:
-                if (this.cDf == null) {
-                    this.cDf = new d("/swanAPI/vrvideo/remove");
+                if (this.cDj == null) {
+                    this.cDj = new d("/swanAPI/vrvideo/remove");
                 }
-                a = this.cDf.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a = this.cDj.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             default:
                 a = false;

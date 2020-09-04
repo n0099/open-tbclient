@@ -26,12 +26,12 @@ public class a extends e {
             com.baidu.swan.apps.console.c.e("insertWebView", "params is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (!TextUtils.isEmpty(p.mSrc) && d(p.mSrc, p.cUb)) {
+        } else if (!TextUtils.isEmpty(p.mSrc) && d(p.mSrc, p.cUf)) {
             com.baidu.swan.apps.console.c.e("insertWebView", "params is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         } else {
-            final com.baidu.swan.apps.adaptation.b.c cVar = (com.baidu.swan.apps.adaptation.b.c) com.baidu.swan.apps.v.f.arY().lT(p.caU);
+            final com.baidu.swan.apps.adaptation.b.c cVar = (com.baidu.swan.apps.adaptation.b.c) com.baidu.swan.apps.v.f.arY().lU(p.caY);
             if (cVar == null) {
                 com.baidu.swan.apps.console.c.e("insertWebView", "viewManager is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
@@ -45,9 +45,9 @@ public class a extends e {
                     public void I(h<b.d> hVar) {
                         if (!com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
                             com.baidu.swan.apps.setting.oauth.c.a(hVar, callbackHandler, p.callback);
-                            p.aml = null;
+                            p.amn = null;
                         } else {
-                            p.cUa = false;
+                            p.cUe = false;
                             a.this.a(callbackHandler, (SwanAppSlaveManager) cVar, p);
                         }
                         if (cVar.a(p)) {

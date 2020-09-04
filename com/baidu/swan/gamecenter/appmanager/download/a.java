@@ -11,29 +11,29 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String dnk;
-    private long dnl;
+    private String dno;
+    private long dnp;
     private String mPackageName;
     private String mUrl;
 
     public a() {
         this.mUrl = "";
-        this.dnk = "";
-        this.dnl = System.currentTimeMillis();
+        this.dno = "";
+        this.dnp = System.currentTimeMillis();
     }
 
     public a(@NonNull Download download) {
         this.mUrl = "";
-        this.dnk = "";
-        this.dnl = System.currentTimeMillis();
+        this.dno = "";
+        this.dnp = System.currentTimeMillis();
         this.mUrl = download.getUrl();
         this.mPackageName = download.getKeyByUser();
         String fromParam = download.getFromParam();
         if (!TextUtils.isEmpty(fromParam)) {
             try {
                 JSONObject jSONObject = new JSONObject(fromParam);
-                this.dnk = jSONObject.optString("apk_id");
-                this.dnl = jSONObject.optLong("download_time", System.currentTimeMillis());
+                this.dno = jSONObject.optString("apk_id");
+                this.dnp = jSONObject.optLong("download_time", System.currentTimeMillis());
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -48,8 +48,8 @@ public class a {
         download.setKeyByUser(this.mPackageName);
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("apk_id", this.dnk);
-            jSONObject.put("download_time", this.dnl);
+            jSONObject.put("apk_id", this.dno);
+            jSONObject.put("download_time", this.dnp);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -66,27 +66,27 @@ public class a {
         return download;
     }
 
-    public a ui(String str) {
+    public a uj(String str) {
         this.mUrl = str;
         return this;
     }
 
-    public a uj(String str) {
+    public a uk(String str) {
         this.mPackageName = str;
         return this;
     }
 
     public String aKk() {
-        return this.dnk;
+        return this.dno;
     }
 
-    public a uk(String str) {
-        this.dnk = str;
+    public a ul(String str) {
+        this.dno = str;
         return this;
     }
 
     public long getDownloadTime() {
-        return this.dnl;
+        return this.dnp;
     }
 
     private static String getDownloadDir() {

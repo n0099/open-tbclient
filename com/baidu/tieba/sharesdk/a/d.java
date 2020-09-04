@@ -16,7 +16,7 @@ public class d extends a {
     public void a(ShareEntity shareEntity, com.baidu.tieba.sharesdk.b.b bVar) {
         String str;
         if (shareEntity == null || TextUtils.isEmpty(shareEntity.getContent())) {
-            l.showToast(getAppContext(), R.string.share_empty_tip);
+            l.showToast(getAppContext(), (int) R.string.share_empty_tip);
             if (bVar != null) {
                 bVar.df(0, 2);
                 return;

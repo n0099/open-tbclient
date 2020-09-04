@@ -6,17 +6,17 @@ import java.util.HashSet;
 /* loaded from: classes8.dex */
 public final class g {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static int cXc = 0;
+    private static int cXg = 0;
 
     public static int aCB() {
-        return cXc;
+        return cXg;
     }
 
     public static void ju(int i) {
-        cXc = i;
+        cXg = i;
     }
 
-    public static String rm(String str) {
+    public static String rn(String str) {
         if (!TextUtils.isEmpty(str)) {
             String params = ai.getParams(str);
             if (!TextUtils.isEmpty(params)) {

@@ -6,34 +6,34 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public class c implements a {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile c bYg;
-    private List<a> bYh = new ArrayList();
+    private static volatile c bYk;
+    private List<a> bYl = new ArrayList();
 
     private c() {
-        this.bYh.add(new b());
+        this.bYl.add(new b());
     }
 
     public static c acz() {
-        if (bYg == null) {
+        if (bYk == null) {
             synchronized (c.class) {
-                if (bYg == null) {
-                    bYg = new c();
+                if (bYk == null) {
+                    bYk = new c();
                 }
             }
         }
-        return bYg;
+        return bYk;
     }
 
     @Override // com.baidu.swan.apps.api.b.a
-    public void ki(String str) {
+    public void kj(String str) {
         if (DEBUG) {
             Log.d("Api-Marker", "markStart: " + str);
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.bYh.size()) {
-                this.bYh.get(i2).ki(str);
+            if (i2 < this.bYl.size()) {
+                this.bYl.get(i2).kj(str);
                 i = i2 + 1;
             } else {
                 return;
@@ -42,15 +42,15 @@ public class c implements a {
     }
 
     @Override // com.baidu.swan.apps.api.b.a
-    public void kj(String str) {
+    public void kk(String str) {
         if (DEBUG) {
             Log.d("Api-Marker", "markEnd: " + str);
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.bYh.size()) {
-                this.bYh.get(i2).kj(str);
+            if (i2 < this.bYl.size()) {
+                this.bYl.get(i2).kk(str);
                 i = i2 + 1;
             } else {
                 return;
@@ -62,8 +62,8 @@ public class c implements a {
         if (DEBUG) {
             Log.d("Api-Marker", "release: ");
         }
-        if (bYg != null) {
-            bYg = null;
+        if (bYk != null) {
+            bYk = null;
         }
     }
 }

@@ -23,10 +23,10 @@ import tbclient.HotUserRankEntry;
 import tbclient.ShortUserInfo;
 /* loaded from: classes16.dex */
 public class HotRankEntryView extends RelativeLayout {
-    private TextView iAa;
-    private boolean icp;
-    private ImageView izY;
-    private ImageOverlayView izZ;
+    private ImageView iAe;
+    private ImageOverlayView iAf;
+    private TextView iAg;
+    private boolean icv;
     private ImageView mArrow;
     private int mSkinType;
 
@@ -42,15 +42,15 @@ public class HotRankEntryView extends RelativeLayout {
 
     private void init(final Context context) {
         LayoutInflater.from(context).inflate(R.layout.hot_rank_entry, (ViewGroup) this, true);
-        this.izY = (ImageView) findViewById(R.id.first_tag);
+        this.iAe = (ImageView) findViewById(R.id.first_tag);
         int dimensionPixelOffset = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds62);
         int dimensionPixelOffset2 = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds1);
         int dimensionPixelOffset3 = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds20);
-        this.izZ = (ImageOverlayView) findViewById(R.id.image_group);
-        this.izZ.j(3, dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset2, R.color.cp_mask_c_alpha50, dimensionPixelOffset3);
-        this.izZ.setStrokeStyle(1);
-        this.izZ.setLoadImageType(12);
-        this.iAa = (TextView) findViewById(R.id.entry_describe);
+        this.iAf = (ImageOverlayView) findViewById(R.id.image_group);
+        this.iAf.j(3, dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset2, R.color.cp_mask_c_alpha50, dimensionPixelOffset3);
+        this.iAf.setStrokeStyle(1);
+        this.iAf.setLoadImageType(12);
+        this.iAg = (TextView) findViewById(R.id.entry_describe);
         this.mArrow = (ImageView) findViewById(R.id.arrow);
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.HotRankEntryView.1
             @Override // android.view.View.OnClickListener
@@ -69,9 +69,9 @@ public class HotRankEntryView extends RelativeLayout {
                     arrayList.add(shortUserInfo.portrait);
                 }
             }
-            this.izZ.setData(arrayList);
-            this.icp = z;
-            this.iAa.setText(!at.isEmpty(hotUserRankEntry.module_name) ? hotUserRankEntry.module_name : getResources().getString(R.string.hot_rank));
+            this.iAf.setData(arrayList);
+            this.icv = z;
+            this.iAg.setText(!at.isEmpty(hotUserRankEntry.module_name) ? hotUserRankEntry.module_name : getResources().getString(R.string.hot_rank));
             ap.setBackgroundResource(this, z ? R.drawable.frs_red_list_entrance_bg_black : R.drawable.frs_red_list_entrance_bg_white);
         }
     }
@@ -79,10 +79,10 @@ public class HotRankEntryView extends RelativeLayout {
     public void onChangeSkinType(int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            ap.setBackgroundResource(this, this.icp ? R.drawable.frs_red_list_entrance_bg_black : R.drawable.frs_red_list_entrance_bg_white);
-            SvgManager.bjq().a(this.izY, R.drawable.svg_icon_mask_first16, SvgManager.SvgResourceStateType.NORMAL);
-            this.izZ.onChangeSkinType();
-            ap.setViewTextColor(this.iAa, R.color.cp_cont_a);
+            ap.setBackgroundResource(this, this.icv ? R.drawable.frs_red_list_entrance_bg_black : R.drawable.frs_red_list_entrance_bg_white);
+            SvgManager.bjq().a(this.iAe, R.drawable.svg_icon_mask_first16, SvgManager.SvgResourceStateType.NORMAL);
+            this.iAf.onChangeSkinType();
+            ap.setViewTextColor(this.iAg, R.color.cp_cont_a);
             SvgManager.bjq().a(this.mArrow, R.drawable.icon_pure_arrow12_right_svg, R.color.cp_cont_a, SvgManager.SvgResourceStateType.NORMAL);
         }
     }

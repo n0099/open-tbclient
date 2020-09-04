@@ -6,14 +6,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class c implements a<JSONObject> {
-    private JSONArray cWN;
+    private JSONArray cWR;
 
     public void bM(JSONObject jSONObject) {
         if (jSONObject != null) {
-            if (this.cWN == null) {
-                this.cWN = new JSONArray();
+            if (this.cWR == null) {
+                this.cWR = new JSONArray();
             }
-            this.cWN.put(jSONObject);
+            this.cWR.put(jSONObject);
             if (DEBUG) {
                 Log.d("WhiteCollector", "FEStage: " + jSONObject);
             }
@@ -23,7 +23,7 @@ public class c implements a<JSONObject> {
     public JSONObject aCm() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("stageError", this.cWN);
+            jSONObject.put("stageError", this.cWR);
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.e("WhiteCollector", Log.getStackTraceString(e));
@@ -33,6 +33,6 @@ public class c implements a<JSONObject> {
     }
 
     public void clear() {
-        this.cWN = null;
+        this.cWR = null;
     }
 }

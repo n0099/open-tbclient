@@ -2,9 +2,9 @@ package com.baidu.tbadk.core.view.viewpager.bannerflow;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.q;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class a implements q {
-    public static final BdUniqueId eyJ = BdUniqueId.gen();
+    public static final BdUniqueId eyN = BdUniqueId.gen();
 
     public abstract Object blV();
 
@@ -12,6 +12,6 @@ public abstract class a implements q {
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return eyJ;
+        return eyN;
     }
 }

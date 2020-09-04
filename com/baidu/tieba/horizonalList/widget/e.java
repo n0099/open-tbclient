@@ -2,10 +2,10 @@ package com.baidu.tieba.horizonalList.widget;
 
 import android.view.View;
 import com.baidu.adp.widget.ListView.af;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class e extends af.a {
-    public View.OnClickListener eFC;
-    public int iWU;
+    public View.OnClickListener eFG;
+    public int iXa;
 
     public abstract void a(c cVar);
 
@@ -18,6 +18,6 @@ public abstract class e extends af.a {
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.eFC = onClickListener;
+        this.eFG = onClickListener;
     }
 }

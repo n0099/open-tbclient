@@ -12,7 +12,7 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.util.ai;
 import com.xiaomi.mipush.sdk.Constants;
 import org.apache.http.cookie.SM;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class s {
     public s() {
         MessageManager messageManager = MessageManager.getInstance();

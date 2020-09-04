@@ -10,6 +10,8 @@ public interface IDownloadModel extends Serializable {
     @NonNull
     DownloadStatus getCurrentState();
 
+    String getExtInfo();
+
     int getPercent();
 
     String getPkgName();

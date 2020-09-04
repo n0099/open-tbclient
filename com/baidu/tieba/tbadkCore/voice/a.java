@@ -2,7 +2,7 @@ package com.baidu.tieba.tbadkCore.voice;
 
 import com.baidu.adp.lib.voice.f;
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface a {
     void a(f fVar);
 
@@ -10,7 +10,7 @@ public interface a {
 
     boolean a(f fVar, int i);
 
-    void cT(String str);
+    void cU(String str);
 
     void release();
 

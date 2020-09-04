@@ -3,27 +3,27 @@ package rx.internal.util.a;
 import java.util.Iterator;
 /* loaded from: classes5.dex */
 public class y<E> extends aa<E> {
-    private static final long oIY;
-    private static final int oIZ;
-    private static final long oJb;
-    private static final long oJc;
-    static final int ooX = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096).intValue();
-    private static final Object opd = new Object();
+    private static final long oJq;
+    private static final int oJr;
+    private static final long oJt;
+    private static final long oJu;
+    static final int opp = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096).intValue();
+    private static final Object opw = new Object();
 
     static {
-        int Q = ae.oJi.Q(Object[].class);
+        int Q = ae.oJA.Q(Object[].class);
         if (4 == Q) {
-            oIZ = 2;
+            oJr = 2;
         } else if (8 == Q) {
-            oIZ = 3;
+            oJr = 3;
         } else {
             throw new IllegalStateException("Unknown pointer size");
         }
-        oIY = ae.oJi.R(Object[].class);
+        oJq = ae.oJA.R(Object[].class);
         try {
-            oJc = ae.oJi.b(ad.class.getDeclaredField("producerIndex"));
+            oJu = ae.oJA.b(ad.class.getDeclaredField("producerIndex"));
             try {
-                oJb = ae.oJi.b(aa.class.getDeclaredField("consumerIndex"));
+                oJt = ae.oJA.b(aa.class.getDeclaredField("consumerIndex"));
             } catch (NoSuchFieldException e) {
                 InternalError internalError = new InternalError();
                 internalError.initCause(e);
@@ -40,11 +40,11 @@ public class y<E> extends aa<E> {
         int NR = h.NR(i);
         long j = NR - 1;
         E[] eArr = (E[]) new Object[NR + 1];
-        this.oJh = eArr;
-        this.oJg = j;
+        this.oJz = eArr;
+        this.oJy = j;
         NO(NR);
-        this.oJf = eArr;
-        this.oJe = j;
+        this.oJx = eArr;
+        this.oJw = j;
         this.producerLookAhead = j - 1;
         soProducerIndex(0L);
     }
@@ -59,14 +59,14 @@ public class y<E> extends aa<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        E[] eArr = this.oJh;
+        E[] eArr = this.oJz;
         long j = this.producerIndex;
-        long j2 = this.oJg;
+        long j2 = this.oJy;
         long Z = Z(j, j2);
         if (j < this.producerLookAhead) {
             return a(eArr, e, j, Z);
         }
-        int i = this.ooY;
+        int i = this.opq;
         if (b(eArr, Z(i + j, j2)) == null) {
             this.producerLookAhead = (i + j) - 1;
             return a(eArr, e, j, Z);
@@ -86,30 +86,30 @@ public class y<E> extends aa<E> {
 
     private void a(E[] eArr, long j, long j2, E e, long j3) {
         E[] eArr2 = (E[]) new Object[eArr.length];
-        this.oJh = eArr2;
+        this.oJz = eArr2;
         this.producerLookAhead = (j + j3) - 1;
         b(eArr2, j2, e);
         b(eArr, eArr2);
-        b(eArr, j2, opd);
+        b(eArr, j2, opw);
         soProducerIndex(j + 1);
     }
 
     private void b(E[] eArr, E[] eArr2) {
-        b(eArr, hf(eArr.length - 1), eArr2);
+        b(eArr, hh(eArr.length - 1), eArr2);
     }
 
     private E[] T(E[] eArr) {
-        return (E[]) ((Object[]) b(eArr, hf(eArr.length - 1)));
+        return (E[]) ((Object[]) b(eArr, hh(eArr.length - 1)));
     }
 
     @Override // java.util.Queue
     public final E poll() {
-        E[] eArr = this.oJf;
+        E[] eArr = this.oJx;
         long j = this.consumerIndex;
-        long j2 = this.oJe;
+        long j2 = this.oJw;
         long Z = Z(j, j2);
         E e = (E) b(eArr, Z);
-        boolean z = e == opd;
+        boolean z = e == opw;
         if (e != null && !z) {
             b(eArr, Z, (Object) null);
             soConsumerIndex(j + 1);
@@ -122,7 +122,7 @@ public class y<E> extends aa<E> {
     }
 
     private E a(E[] eArr, long j, long j2) {
-        this.oJf = eArr;
+        this.oJx = eArr;
         long Z = Z(j, j2);
         E e = (E) b(eArr, Z);
         if (e == null) {
@@ -135,67 +135,67 @@ public class y<E> extends aa<E> {
 
     @Override // java.util.Queue
     public final E peek() {
-        E[] eArr = this.oJf;
+        E[] eArr = this.oJx;
         long j = this.consumerIndex;
-        long j2 = this.oJe;
+        long j2 = this.oJw;
         E e = (E) b(eArr, Z(j, j2));
-        if (e == opd) {
+        if (e == opw) {
             return b(T(eArr), j, j2);
         }
         return e;
     }
 
     private E b(E[] eArr, long j, long j2) {
-        this.oJf = eArr;
+        this.oJx = eArr;
         return (E) b(eArr, Z(j, j2));
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public final int size() {
-        long efk = efk();
+        long eft = eft();
         while (true) {
-            long efj = efj();
-            long efk2 = efk();
-            if (efk == efk2) {
-                return (int) (efj - efk2);
+            long efs = efs();
+            long eft2 = eft();
+            if (eft == eft2) {
+                return (int) (efs - eft2);
             }
-            efk = efk2;
+            eft = eft2;
         }
     }
 
     private void NO(int i) {
-        this.ooY = Math.min(i / 4, ooX);
+        this.opq = Math.min(i / 4, opp);
     }
 
-    private long efj() {
-        return ae.oJi.e(this, oJc);
+    private long efs() {
+        return ae.oJA.e(this, oJu);
     }
 
-    private long efk() {
-        return ae.oJi.e(this, oJb);
+    private long eft() {
+        return ae.oJA.e(this, oJt);
     }
 
     private void soProducerIndex(long j) {
-        ae.oJi.a(this, oJc, j);
+        ae.oJA.a(this, oJu, j);
     }
 
     private void soConsumerIndex(long j) {
-        ae.oJi.a(this, oJb, j);
+        ae.oJA.a(this, oJt, j);
     }
 
     private static long Z(long j, long j2) {
-        return hf(j & j2);
+        return hh(j & j2);
     }
 
-    private static long hf(long j) {
-        return oIY + (j << oIZ);
+    private static long hh(long j) {
+        return oJq + (j << oJr);
     }
 
     private static void b(Object[] objArr, long j, Object obj) {
-        ae.oJi.b(objArr, j, obj);
+        ae.oJA.b(objArr, j, obj);
     }
 
     private static <E> Object b(E[] eArr, long j) {
-        return ae.oJi.d(eArr, j);
+        return ae.oJA.d(eArr, j);
     }
 }

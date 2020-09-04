@@ -82,7 +82,7 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
             if (this.Sz != null) {
-                return Boolean.valueOf(cs(this.Sz.apkPath));
+                return Boolean.valueOf(ct(this.Sz.apkPath));
             }
             return false;
         }
@@ -112,7 +112,7 @@ public class a {
             a.this.pI();
         }
 
-        private boolean cs(String str) {
+        private boolean ct(String str) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }

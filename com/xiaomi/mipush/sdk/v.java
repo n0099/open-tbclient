@@ -15,24 +15,24 @@ public class v implements Thread.UncaughtExceptionHandler {
     private static final Object a = new Object();
 
     /* renamed from: a  reason: collision with other field name */
-    private static final String[] f84a = {"com.xiaomi.channel.commonutils", "com.xiaomi.common.logger", "com.xiaomi.measite.smack", "com.xiaomi.metoknlp", "com.xiaomi.mipush.sdk", "com.xiaomi.network", "com.xiaomi.push", "com.xiaomi.slim", "com.xiaomi.smack", "com.xiaomi.stats", "com.xiaomi.tinyData", "com.xiaomi.xmpush.thrift", "com.xiaomi.clientreport"};
+    private static final String[] f83a = {"com.xiaomi.channel.commonutils", "com.xiaomi.common.logger", "com.xiaomi.measite.smack", "com.xiaomi.metoknlp", "com.xiaomi.mipush.sdk", "com.xiaomi.network", "com.xiaomi.push", "com.xiaomi.slim", "com.xiaomi.smack", "com.xiaomi.stats", "com.xiaomi.tinyData", "com.xiaomi.xmpush.thrift", "com.xiaomi.clientreport"};
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f85a;
+    private Context f84a;
 
     /* renamed from: a  reason: collision with other field name */
-    private SharedPreferences f86a;
+    private SharedPreferences f85a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Thread.UncaughtExceptionHandler f87a;
+    private Thread.UncaughtExceptionHandler f86a;
 
     public v(Context context) {
         this(context, Thread.getDefaultUncaughtExceptionHandler());
     }
 
     public v(Context context, Thread.UncaughtExceptionHandler uncaughtExceptionHandler) {
-        this.f85a = context;
-        this.f87a = uncaughtExceptionHandler;
+        this.f84a = context;
+        this.f86a = uncaughtExceptionHandler;
     }
 
     private String a(Throwable th) {
@@ -47,7 +47,7 @@ public class v implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: a  reason: collision with other method in class */
     private void m119a() {
-        com.xiaomi.push.ai.a(this.f85a).a(new w(this));
+        com.xiaomi.push.ai.a(this.f84a).a(new w(this));
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -60,7 +60,7 @@ public class v implements Thread.UncaughtExceptionHandler {
         if (TextUtils.isEmpty(a2)) {
             return;
         }
-        s.a(this.f85a).a(b, a2);
+        s.a(this.f84a).a(b, a2);
         if (m122a()) {
             m119a();
         }
@@ -68,21 +68,21 @@ public class v implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: a  reason: collision with other method in class */
     private boolean m122a() {
-        this.f86a = this.f85a.getSharedPreferences("mipush_extra", 4);
-        if (az.e(this.f85a)) {
-            if (com.xiaomi.push.service.ak.a(this.f85a).a(hr.Crash4GUploadSwitch.a(), true)) {
-                return ((float) Math.abs((System.currentTimeMillis() / 1000) - this.f86a.getLong("last_crash_upload_time_stamp", 0L))) >= ((float) Math.max(3600, com.xiaomi.push.service.ak.a(this.f85a).a(hr.Crash4GUploadFrequency.a(), 3600))) * 0.9f;
+        this.f85a = this.f84a.getSharedPreferences("mipush_extra", 4);
+        if (az.e(this.f84a)) {
+            if (com.xiaomi.push.service.ak.a(this.f84a).a(hr.Crash4GUploadSwitch.a(), true)) {
+                return ((float) Math.abs((System.currentTimeMillis() / 1000) - this.f85a.getLong("last_crash_upload_time_stamp", 0L))) >= ((float) Math.max(3600, com.xiaomi.push.service.ak.a(this.f84a).a(hr.Crash4GUploadFrequency.a(), 3600))) * 0.9f;
             }
             return false;
-        } else if (az.d(this.f85a)) {
-            return Math.abs((System.currentTimeMillis() / 1000) - this.f86a.getLong("last_crash_upload_time_stamp", 0L)) >= ((long) Math.max(60, com.xiaomi.push.service.ak.a(this.f85a).a(hr.CrashWIFIUploadFrequency.a(), 1800)));
+        } else if (az.d(this.f84a)) {
+            return Math.abs((System.currentTimeMillis() / 1000) - this.f85a.getLong("last_crash_upload_time_stamp", 0L)) >= ((long) Math.max(60, com.xiaomi.push.service.ak.a(this.f84a).a(hr.CrashWIFIUploadFrequency.a(), 1800)));
         } else {
             return true;
         }
     }
 
     private boolean a(boolean z, String str) {
-        for (String str2 : f84a) {
+        for (String str2 : f83a) {
             if (str.contains(str2)) {
                 return true;
             }
@@ -106,8 +106,8 @@ public class v implements Thread.UncaughtExceptionHandler {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        this.f86a = this.f85a.getSharedPreferences("mipush_extra", 4);
-        SharedPreferences.Editor edit = this.f86a.edit();
+        this.f85a = this.f84a.getSharedPreferences("mipush_extra", 4);
+        SharedPreferences.Editor edit = this.f85a.edit();
         edit.putLong("last_crash_upload_time_stamp", System.currentTimeMillis() / 1000);
         com.xiaomi.push.r.a(edit);
     }
@@ -122,8 +122,8 @@ public class v implements Thread.UncaughtExceptionHandler {
                 com.xiaomi.channel.commonutils.logger.b.a(e);
             }
         }
-        if (this.f87a != null) {
-            this.f87a.uncaughtException(thread, th);
+        if (this.f86a != null) {
+            this.f86a.uncaughtException(thread, th);
             return;
         }
         Process.killProcess(Process.myPid());

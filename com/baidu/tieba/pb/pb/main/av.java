@@ -5,11 +5,11 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes16.dex */
 public class av {
-    private PbFragment kKt;
-    private com.baidu.tieba.c.e kKu;
+    private PbFragment kKA;
+    private com.baidu.tieba.c.e kKB;
 
     public av(PbFragment pbFragment) {
-        this.kKt = pbFragment;
+        this.kKA = pbFragment;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003374, TbConfig.SERVER_ADDRESS + TbConfig.SUBMIT_SHOW_PB_TIPS);
         tbHttpMessageTask.setResponsedClass(SubmitPbShowTipHttpResponseMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -17,8 +17,8 @@ public class av {
     }
 
     public void destroy() {
-        if (this.kKu != null) {
-            this.kKu.NG();
+        if (this.kKB != null) {
+            this.kKB.NG();
         }
     }
 }

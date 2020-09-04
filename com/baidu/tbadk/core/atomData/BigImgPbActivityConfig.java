@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BigImgPbActivityConfig extends IntentConfig {
     public static final String BIGPB_URL = "http://tieba.baidu.com/n/drift-bottle/detail";
     public static final String BIG_PB_TID = "big_pb_tid";

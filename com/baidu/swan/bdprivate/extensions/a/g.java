@@ -19,7 +19,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class g extends aa {
-    private int dfK;
+    private int dfO;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
@@ -29,7 +29,7 @@ public class g extends aa {
 
     public g(j jVar) {
         super(jVar, "/swanAPI/privateGetUserInfo");
-        this.dfK = -1;
+        this.dfO = -1;
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
@@ -66,8 +66,8 @@ public class g extends aa {
         final JSONObject jSONObject = new JSONObject();
         com.baidu.swan.bdprivate.a.aa dd = com.baidu.swan.bdprivate.a.a.dd(context);
         jSONObject.put(SapiAccountManager.SESSION_DISPLAYNAME, dd.displayName);
-        jSONObject.put("portrait", dd.aYk);
-        if (this.dfK != -1) {
+        jSONObject.put("portrait", dd.aYm);
+        if (this.dfO != -1) {
             a(callbackHandler, str, jSONObject);
         } else {
             a(new a() { // from class: com.baidu.swan.bdprivate.extensions.a.g.1
@@ -77,7 +77,7 @@ public class g extends aa {
                         g.this.a(callbackHandler, str, jSONObject);
                         return;
                     }
-                    g.this.dfK = g.this.bQ(jSONObject2);
+                    g.this.dfO = g.this.bQ(jSONObject2);
                     g.this.a(callbackHandler, str, jSONObject);
                 }
             });
@@ -86,9 +86,9 @@ public class g extends aa {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(CallbackHandler callbackHandler, String str, JSONObject jSONObject) {
-        if (this.dfK != -1) {
+        if (this.dfO != -1) {
             try {
-                jSONObject.put("gender", String.valueOf(this.dfK));
+                jSONObject.put("gender", String.valueOf(this.dfO));
             } catch (JSONException e) {
                 e.printStackTrace();
             }

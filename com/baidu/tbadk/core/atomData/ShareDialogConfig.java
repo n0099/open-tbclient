@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ShareDialogConfig extends IntentConfig {
     public View.OnClickListener copyLinkListener;
     public int copyTitleId;
@@ -38,7 +38,7 @@ public class ShareDialogConfig extends IntentConfig {
     public ShareItem[] specialShareItems;
     public ArrayList<Pair<Integer, Pair<Integer, View.OnClickListener>>> textViewList;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum From {
         Default,
         Recommend,

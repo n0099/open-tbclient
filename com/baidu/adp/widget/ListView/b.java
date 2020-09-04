@@ -2,7 +2,7 @@ package com.baidu.adp.widget.ListView;
 
 import android.view.View;
 import com.baidu.adp.widget.ListView.af;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b<T extends View> extends af.a {
     protected T UR;
 

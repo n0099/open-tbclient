@@ -17,18 +17,18 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class i extends BaseAdapter {
-    private AlbumActivity boI;
-    private c bpk;
-    private f bpm;
-    private g bpn;
+    private AlbumActivity boL;
+    private c bpn;
+    private f bpp;
+    private g bpq;
     private LayoutInflater mLayoutInflater;
     private final List<MediaFileInfo> mDataList = new ArrayList();
-    private boolean bpl = false;
+    private boolean bpo = false;
 
     public i(AlbumActivity albumActivity, c cVar) {
-        this.boI = albumActivity;
-        this.bpk = cVar;
-        this.mLayoutInflater = LayoutInflater.from(this.boI.getPageContext().getPageActivity());
+        this.boL = albumActivity;
+        this.bpn = cVar;
+        this.mLayoutInflater = LayoutInflater.from(this.boL.getPageContext().getPageActivity());
     }
 
     public void setData(List<MediaFileInfo> list) {
@@ -87,35 +87,35 @@ public class i extends BaseAdapter {
                 b bVar2 = new b();
                 view = this.mLayoutInflater.inflate(a.h.sdk_ph_album_image_item_view, viewGroup, false);
                 bVar2.rootView = view;
-                bVar2.bpq = (TbImageView) view.findViewById(a.g.pic);
-                bVar2.bpq.setDefaultResource(0);
-                bVar2.bpq.setDefaultErrorResource(0);
-                bVar2.bpq.setTagPaddingDis(8, 8);
-                bVar2.bpq.setGifIconSupport(true);
-                bVar2.bpq.setLongIconSupport(true);
-                bVar2.bpr = (ImageView) view.findViewById(a.g.select_icon);
-                bVar2.bps = (RelativeLayout) view.findViewById(a.g.lay_select);
+                bVar2.bpt = (TbImageView) view.findViewById(a.g.pic);
+                bVar2.bpt.setDefaultResource(0);
+                bVar2.bpt.setDefaultErrorResource(0);
+                bVar2.bpt.setTagPaddingDis(8, 8);
+                bVar2.bpt.setGifIconSupport(true);
+                bVar2.bpt.setLongIconSupport(true);
+                bVar2.bpu = (ImageView) view.findViewById(a.g.select_icon);
+                bVar2.bpv = (RelativeLayout) view.findViewById(a.g.lay_select);
                 view.setTag(bVar2);
                 bVar = bVar2;
             } else {
                 bVar = (b) view.getTag();
             }
-            bVar.bpq.setIsLongPic(imageFileInfo.isLong());
-            bVar.bpq.startLoad(TbImageView.getUrlWithResizeTag(imageFileInfo.getFilePath(), 200, 200), 35, false);
-            a(bVar.bpr, mediaFileInfo);
+            bVar.bpt.setIsLongPic(imageFileInfo.isLong());
+            bVar.bpt.startLoad(TbImageView.getUrlWithResizeTag(imageFileInfo.getFilePath(), 200, 200), 35, false);
+            a(bVar.bpu, mediaFileInfo);
             a aVar = new a(mediaFileInfo, i);
-            bVar.bpq.setOnClickListener(aVar);
-            bVar.bps.setOnClickListener(aVar);
+            bVar.bpt.setOnClickListener(aVar);
+            bVar.bpv.setOnClickListener(aVar);
         }
         return view;
     }
 
     private void a(ImageView imageView, MediaFileInfo mediaFileInfo) {
         boolean z = false;
-        if (this.bpk != null && (mediaFileInfo instanceof ImageFileInfo)) {
-            z = this.bpk.isAdded((ImageFileInfo) mediaFileInfo);
-        } else if (this.bpk != null && (mediaFileInfo instanceof VideoFileInfo)) {
-            z = this.bpk.b((VideoFileInfo) mediaFileInfo);
+        if (this.bpn != null && (mediaFileInfo instanceof ImageFileInfo)) {
+            z = this.bpn.isAdded((ImageFileInfo) mediaFileInfo);
+        } else if (this.bpn != null && (mediaFileInfo instanceof VideoFileInfo)) {
+            z = this.bpn.b((VideoFileInfo) mediaFileInfo);
         }
         b(imageView, z);
     }
@@ -123,11 +123,11 @@ public class i extends BaseAdapter {
     public void b(ImageView imageView, boolean z) {
         if (imageView != null) {
             if (z) {
-                imageView.setContentDescription(this.boI.getResources().getString(a.i.sdk_ph_check_box_checked));
+                imageView.setContentDescription(this.boL.getResources().getString(a.i.sdk_ph_check_box_checked));
                 SkinManager.setImageResource(imageView, a.f.sdk_ph_icon_list_select_ok_n);
                 return;
             }
-            imageView.setContentDescription(this.boI.getResources().getString(a.i.sdk_ph_check_box_not_checked));
+            imageView.setContentDescription(this.boL.getResources().getString(a.i.sdk_ph_check_box_not_checked));
             SkinManager.setImageResource(imageView, a.f.sdk_ph_icon_list_select_n);
         }
     }
@@ -135,48 +135,48 @@ public class i extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
-        private MediaFileInfo bpo;
+        private MediaFileInfo bpr;
         private int position;
 
         public a(MediaFileInfo mediaFileInfo, int i) {
-            this.bpo = mediaFileInfo;
+            this.bpr = mediaFileInfo;
             this.position = i;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view.getId() == a.g.pic) {
-                if (i.this.bpm != null && this.bpo != null) {
-                    i.this.bpm.a(this.position, this.bpo);
+                if (i.this.bpp != null && this.bpr != null) {
+                    i.this.bpp.a(this.position, this.bpr);
                 }
-            } else if (view.getId() == a.g.lay_select && this.bpo != null && i.this.bpn != null) {
-                i.this.bpn.b(this.position, this.bpo);
+            } else if (view.getId() == a.g.lay_select && this.bpr != null && i.this.bpq != null) {
+                i.this.bpq.b(this.position, this.bpr);
             }
         }
     }
 
     public boolean isScroll() {
-        return this.bpl;
+        return this.bpo;
     }
 
-    public void cB(boolean z) {
-        this.bpl = z;
+    public void cC(boolean z) {
+        this.bpo = z;
     }
 
     public void a(f fVar) {
-        this.bpm = fVar;
+        this.bpp = fVar;
     }
 
     public void a(g gVar) {
-        this.bpn = gVar;
+        this.bpq = gVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes7.dex */
     public class b {
-        TbImageView bpq;
-        ImageView bpr;
-        RelativeLayout bps;
+        TbImageView bpt;
+        ImageView bpu;
+        RelativeLayout bpv;
         View rootView;
 
         private b() {

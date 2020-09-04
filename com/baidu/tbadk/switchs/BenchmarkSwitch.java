@@ -2,7 +2,7 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.a;
 import com.baidu.tbadk.TbSingleton;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BenchmarkSwitch extends a {
     public static final String ANDROID_BENCHMARK_SWITCH = "android_benchmark_switch";
     public static final int DEFAULT_TYPE = 1;

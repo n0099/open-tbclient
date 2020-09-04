@@ -2,33 +2,33 @@ package com.baidu.swan.games.bdtls;
 /* loaded from: classes8.dex */
 public class c {
     private static final boolean DEBUG = a.DEBUG;
-    private static volatile c dpi;
+    private static volatile c dpm;
     private boolean mEnable = true;
-    private a dph = new a();
+    private a dpl = new a();
 
     public static c aLl() {
-        if (dpi == null) {
+        if (dpm == null) {
             synchronized (c.class) {
-                if (dpi == null) {
-                    dpi = new c();
+                if (dpm == null) {
+                    dpm = new c();
                 }
             }
         }
-        return dpi;
+        return dpm;
     }
 
     private c() {
     }
 
-    public boolean uE(String str) {
-        return this.dph != null && this.dph.uE(str);
+    public boolean uF(String str) {
+        return this.dpl != null && this.dpl.uF(str);
     }
 
     public boolean isEnable() {
-        if (this.dph == null) {
+        if (this.dpl == null) {
             return false;
         }
-        return this.dph.aLk();
+        return this.dpl.aLk();
     }
 
     public void setEnable(boolean z) {

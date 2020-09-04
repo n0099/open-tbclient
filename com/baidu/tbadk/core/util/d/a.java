@@ -2,14 +2,14 @@ package com.baidu.tbadk.core.util.d;
 
 import android.graphics.drawable.Drawable;
 import com.baidu.tbadk.core.util.SvgManager;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class a {
-    public int egM;
-    public SvgManager.SvgResourceStateType emQ;
+    public int egQ;
+    public SvgManager.SvgResourceStateType emU;
 
     public abstract Drawable getDrawable();
 
     public a(int i) {
-        this.egM = i;
+        this.egQ = i;
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.tbadk.editortools.pb;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface b {
-    boolean brU();
+    boolean brV();
 }

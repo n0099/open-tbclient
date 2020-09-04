@@ -18,10 +18,10 @@ import com.baidu.tieba.R;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b {
     private static final HashMap<Integer, Integer[]> sBtnStyleMap = new HashMap<>(2);
-    private InterfaceC0538b efh;
+    private InterfaceC0538b efl;
     private final Activity mActivity;
     private final ViewGroup mContentView;
     private com.baidu.adp.base.e<?> mContext;
@@ -39,7 +39,7 @@ public class b {
     private int mTextViewGravity = -1;
     private int mItemView = R.layout.dialog_bdlist_item;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class a {
         public static final int BOTTOM_TO_TOP = R.style.dialog_ani_b2t;
         public static final int TOP_TO_BOTTOM = R.style.dialog_ani_t2b;
@@ -48,7 +48,7 @@ public class b {
     }
 
     /* renamed from: com.baidu.tbadk.core.dialog.b$b  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface InterfaceC0538b {
         void a(b bVar, int i, View view);
     }
@@ -66,13 +66,13 @@ public class b {
         this.mLineView = this.mRootView.findViewById(R.id.line_bg);
     }
 
-    public b zA(String str) {
+    public b zB(String str) {
         this.mTitle = str;
         return this;
     }
 
     public b nx(int i) {
-        return zA(this.mActivity.getResources().getString(i));
+        return zB(this.mActivity.getResources().getString(i));
     }
 
     public b a(CharSequence[] charSequenceArr, InterfaceC0538b interfaceC0538b) {
@@ -86,7 +86,7 @@ public class b {
         if (list != null && list.size() > 0) {
             this.mItems = list;
             if (interfaceC0538b != null) {
-                this.efh = interfaceC0538b;
+                this.efl = interfaceC0538b;
             }
         }
         return this;
@@ -198,11 +198,11 @@ public class b {
         } else {
             ap.setBackgroundResource(inflate, R.drawable.dialg_alert_btn_bg);
         }
-        if (this.efh != null) {
+        if (this.efl != null) {
             linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    b.this.efh.a(b.this, i, textView);
+                    b.this.efl.a(b.this, i, textView);
                 }
             });
         }

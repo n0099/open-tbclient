@@ -6,25 +6,25 @@ import kotlin.jvm.KotlinReflectionNotSupportedError;
 @kotlin.h
 /* loaded from: classes20.dex */
 public final class m implements l, kotlin.reflect.c<Object> {
-    private final Class<?> osA;
+    private final Class<?> osS;
 
     public m(Class<?> cls) {
         q.m(cls, "jClass");
-        this.osA = cls;
+        this.osS = cls;
     }
 
     @Override // kotlin.jvm.internal.l
-    public Class<?> egh() {
-        return this.osA;
+    public Class<?> egq() {
+        return this.osS;
     }
 
     @Override // kotlin.reflect.a
     public List<Annotation> getAnnotations() {
-        egi();
+        egr();
         throw null;
     }
 
-    private final Void egi() {
+    private final Void egr() {
         throw new KotlinReflectionNotSupportedError();
     }
 
@@ -37,6 +37,6 @@ public final class m implements l, kotlin.reflect.c<Object> {
     }
 
     public String toString() {
-        return egh().toString() + " (Kotlin reflection is not available)";
+        return egq().toString() + " (Kotlin reflection is not available)";
     }
 }

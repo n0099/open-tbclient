@@ -9,61 +9,61 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes15.dex */
 public class e {
-    private List<com.baidu.adp.widget.ListView.a> bbu = new ArrayList();
-    private BdTypeListView fCP;
-    private j iXh;
-    private h iXi;
-    private k iXj;
-    private f iXk;
-    private g iXl;
-    private a iXm;
-    private i iXn;
+    private List<com.baidu.adp.widget.ListView.a> bbw = new ArrayList();
+    private BdTypeListView fCT;
+    private j iXn;
+    private h iXo;
+    private k iXp;
+    private f iXq;
+    private g iXr;
+    private a iXs;
+    private i iXt;
 
     public e(HotTopicActivity hotTopicActivity, BdTypeListView bdTypeListView) {
         a(hotTopicActivity, bdTypeListView);
     }
 
     private void a(HotTopicActivity hotTopicActivity, BdTypeListView bdTypeListView) {
-        this.iXk = new f(hotTopicActivity, com.baidu.tieba.hottopic.data.g.TYPE);
-        this.iXh = new j(hotTopicActivity, com.baidu.tieba.hottopic.data.m.iZQ);
-        this.iXi = new h(hotTopicActivity, com.baidu.tieba.hottopic.data.i.iZy);
-        this.iXj = new k(hotTopicActivity, n.iZT);
+        this.iXq = new f(hotTopicActivity, com.baidu.tieba.hottopic.data.g.TYPE);
+        this.iXn = new j(hotTopicActivity, com.baidu.tieba.hottopic.data.m.iZW);
+        this.iXo = new h(hotTopicActivity, com.baidu.tieba.hottopic.data.i.iZE);
+        this.iXp = new k(hotTopicActivity, n.iZZ);
         TbPageContext pageContext = hotTopicActivity.getPageContext();
-        this.iXl = new g(pageContext, com.baidu.tieba.card.data.l.TYPE);
-        this.iXm = new a(pageContext, com.baidu.tieba.card.data.m.ebo);
-        this.iXn = new i(pageContext, com.baidu.tieba.card.data.l.ebs);
-        this.bbu.add(this.iXh);
-        this.bbu.add(this.iXi);
-        this.bbu.add(this.iXj);
-        this.bbu.add(this.iXk);
-        this.bbu.add(this.iXl);
-        this.bbu.add(this.iXm);
-        this.bbu.add(this.iXn);
-        this.fCP = bdTypeListView;
-        this.fCP.addAdapters(this.bbu);
+        this.iXr = new g(pageContext, com.baidu.tieba.card.data.l.TYPE);
+        this.iXs = new a(pageContext, com.baidu.tieba.card.data.m.ebs);
+        this.iXt = new i(pageContext, com.baidu.tieba.card.data.l.ebw);
+        this.bbw.add(this.iXn);
+        this.bbw.add(this.iXo);
+        this.bbw.add(this.iXp);
+        this.bbw.add(this.iXq);
+        this.bbw.add(this.iXr);
+        this.bbw.add(this.iXs);
+        this.bbw.add(this.iXt);
+        this.fCT = bdTypeListView;
+        this.fCT.addAdapters(this.bbw);
     }
 
     public void a(com.baidu.tieba.hottopic.data.e eVar) {
         ArrayList<q> arrayList;
-        if (eVar.cAf() != null) {
-            arrayList = eVar.cAf();
+        if (eVar.cAg() != null) {
+            arrayList = eVar.cAg();
         } else {
             arrayList = new ArrayList<>();
         }
-        if (this.fCP != null) {
-            this.fCP.setData(arrayList);
+        if (this.fCT != null) {
+            this.fCT.setData(arrayList);
         }
     }
 
     public void setFromCDN(boolean z) {
-        if (this.iXl != null) {
-            this.iXl.setFromCDN(z);
+        if (this.iXr != null) {
+            this.iXr.setFromCDN(z);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.fCP.getAdapter() instanceof com.baidu.adp.widget.ListView.f) {
-            this.fCP.getAdapter().notifyDataSetChanged();
+        if (this.fCT.getAdapter() instanceof com.baidu.adp.widget.ListView.f) {
+            this.fCT.getAdapter().notifyDataSetChanged();
         }
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.tbadk.data.IconData;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class OldUserData extends AbstractImageProvider implements Serializable {
     private static final long serialVersionUID = -4483304441506804594L;
     private long id;
@@ -160,7 +160,7 @@ public class OldUserData extends AbstractImageProvider implements Serializable {
         return arrayList;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class Permission extends OrmObject implements Serializable {
         private static final int TRUE = 1;
         private static final long serialVersionUID = -661968182172681650L;

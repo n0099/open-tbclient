@@ -19,7 +19,7 @@ public final class BdZeusDownloadHelper {
     protected long c;
     private Context h;
     public static final String a = BdZeusDownloadHelper.class.getSimpleName();
-    private static BdZeusDownloadHelper aeL = null;
+    private static BdZeusDownloadHelper aeN = null;
     protected static String f = "com.baidu.android.appswitchsdk:web";
     private String i = "";
     private String k = "";
@@ -131,14 +131,14 @@ public final class BdZeusDownloadHelper {
     }
 
     public static BdZeusDownloadHelper T(Context context) {
-        if (aeL == null) {
+        if (aeN == null) {
             synchronized (BdZeusDownloadHelper.class) {
-                if (aeL == null) {
-                    aeL = new BdZeusDownloadHelper(context);
+                if (aeN == null) {
+                    aeN = new BdZeusDownloadHelper(context);
                 }
             }
         }
-        return aeL;
+        return aeN;
     }
 
     public static void a() {

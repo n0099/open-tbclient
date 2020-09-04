@@ -6,11 +6,11 @@ import com.bun.miitmdid.utils.SupplierListener;
 /* loaded from: classes11.dex */
 public class a implements InnerIdSupplier, com.bun.miitmdid.supplier.c.a {
     public SupplierListener a;
-    private SumsungCore nhU;
+    private SumsungCore nin;
 
     public a(Context context, SupplierListener supplierListener) {
         this.a = supplierListener;
-        this.nhU = new SumsungCore(context, this);
+        this.nin = new SumsungCore(context, this);
     }
 
     @Override // com.bun.miitmdid.supplier.c.a
@@ -39,39 +39,39 @@ public class a implements InnerIdSupplier, com.bun.miitmdid.supplier.c.a {
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getAAID() {
         String aaid;
-        return (isSupported() && (aaid = this.nhU.getAAID()) != null) ? aaid : "";
+        return (isSupported() && (aaid = this.nin.getAAID()) != null) ? aaid : "";
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getOAID() {
         String oaid;
-        return (isSupported() && (oaid = this.nhU.getOAID()) != null) ? oaid : "";
+        return (isSupported() && (oaid = this.nin.getOAID()) != null) ? oaid : "";
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
     public String getUDID() {
         String udid;
-        return (isSupported() && (udid = this.nhU.getUDID()) != null) ? udid : "";
+        return (isSupported() && (udid = this.nin.getUDID()) != null) ? udid : "";
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getVAID() {
         String vaid;
-        return (isSupported() && (vaid = this.nhU.getVAID()) != null) ? vaid : "";
+        return (isSupported() && (vaid = this.nin.getVAID()) != null) ? vaid : "";
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public boolean isSupported() {
-        if (this.nhU != null) {
-            return this.nhU.isSupported();
+        if (this.nin != null) {
+            return this.nin.isSupported();
         }
         return false;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
     public void shutDown() {
-        if (this.nhU != null) {
-            this.nhU.shutdown();
+        if (this.nin != null) {
+            this.nin.shutdown();
         }
     }
 }

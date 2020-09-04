@@ -12,7 +12,7 @@ import javax.annotation.concurrent.ThreadSafe;
 @d
 /* loaded from: classes6.dex */
 public class GifImage implements c, b {
-    private static volatile boolean njq;
+    private static volatile boolean njI;
     @d
     private long mNativeContext;
 
@@ -52,17 +52,17 @@ public class GifImage implements c, b {
     @d
     private native int nativeGetWidth();
 
-    private static synchronized void dND() {
+    private static synchronized void dNM() {
         synchronized (GifImage.class) {
-            if (!njq) {
-                njq = true;
+            if (!njI) {
+                njI = true;
                 a.loadLibrary("gifimage");
             }
         }
     }
 
     public static GifImage y(long j, int i) {
-        dND();
+        dNM();
         g.checkArgument(j != 0);
         return nativeCreateFromNativeMemory(j, i);
     }
@@ -101,7 +101,7 @@ public class GifImage implements c, b {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public int[] dNE() {
+    public int[] dNN() {
         return nativeGetFrameDurations();
     }
 
@@ -126,7 +126,7 @@ public class GifImage implements c, b {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public boolean dNF() {
+    public boolean dNO() {
         return false;
     }
 
@@ -139,7 +139,7 @@ public class GifImage implements c, b {
     public AnimatedDrawableFrameInfo KO(int i) {
         GifFrame KQ = KQ(i);
         try {
-            return new AnimatedDrawableFrameInfo(i, KQ.getXOffset(), KQ.getYOffset(), KQ.getWidth(), KQ.getHeight(), AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS, KP(KQ.dNC()));
+            return new AnimatedDrawableFrameInfo(i, KQ.getXOffset(), KQ.getYOffset(), KQ.getWidth(), KQ.getHeight(), AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS, KP(KQ.dNL()));
         } finally {
             KQ.dispose();
         }

@@ -15,19 +15,19 @@ import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes14.dex */
 public class a extends SQLiteOpenHelper {
     private static final int DB_VERSION = 10;
-    private static volatile a dEY;
-    private ConcurrentHashMap<Class<?>, com.baidu.swan.pms.database.b.a> dEX;
+    private static volatile a dFc;
+    private ConcurrentHashMap<Class<?>, com.baidu.swan.pms.database.b.a> dFb;
 
     private void aTz() {
-        this.dEX = new ConcurrentHashMap<>();
-        this.dEX.put(f.class, new e());
-        this.dEX.put(g.class, new com.baidu.swan.pms.database.b.f());
-        this.dEX.put(PMSAppInfo.class, new com.baidu.swan.pms.database.b.b());
-        this.dEX.put(d.class, new com.baidu.swan.pms.database.b.d());
-        this.dEX.put(com.baidu.swan.pms.model.b.class, new c());
-        this.dEX.put(h.class, new com.baidu.swan.pms.database.b.g());
-        this.dEX.put(com.baidu.swan.pms.b.a.class, new com.baidu.swan.pms.b.a.a());
-        this.dEX.put(i.class, new com.baidu.swan.pms.database.b.h());
+        this.dFb = new ConcurrentHashMap<>();
+        this.dFb.put(f.class, new e());
+        this.dFb.put(g.class, new com.baidu.swan.pms.database.b.f());
+        this.dFb.put(PMSAppInfo.class, new com.baidu.swan.pms.database.b.b());
+        this.dFb.put(d.class, new com.baidu.swan.pms.database.b.d());
+        this.dFb.put(com.baidu.swan.pms.model.b.class, new c());
+        this.dFb.put(h.class, new com.baidu.swan.pms.database.b.g());
+        this.dFb.put(com.baidu.swan.pms.b.a.class, new com.baidu.swan.pms.b.a.a());
+        this.dFb.put(i.class, new com.baidu.swan.pms.database.b.h());
     }
 
     private a() {
@@ -40,31 +40,31 @@ public class a extends SQLiteOpenHelper {
     }
 
     public static a aTA() {
-        if (dEY == null) {
+        if (dFc == null) {
             synchronized (a.class) {
-                if (dEY == null) {
-                    dEY = new a();
+                if (dFc == null) {
+                    dFc = new a();
                 }
             }
         }
-        return dEY;
+        return dFc;
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        for (com.baidu.swan.pms.database.b.a aVar : this.dEX.values()) {
+        for (com.baidu.swan.pms.database.b.a aVar : this.dFb.values()) {
             aVar.onCreate(sQLiteDatabase);
         }
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        for (com.baidu.swan.pms.database.b.a aVar : this.dEX.values()) {
+        for (com.baidu.swan.pms.database.b.a aVar : this.dFb.values()) {
             aVar.onUpgrade(sQLiteDatabase, i, i2);
         }
     }
 
     public void release() {
-        dEY = null;
+        dFc = null;
     }
 }

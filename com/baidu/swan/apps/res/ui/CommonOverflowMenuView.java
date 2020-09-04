@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes8.dex */
 public class CommonOverflowMenuView extends LinearLayout implements a.b {
-    private SwanAppScrollView cKZ;
+    private SwanAppScrollView cLd;
     private HashMap<com.baidu.swan.apps.res.widget.a.b, ImageView> mBdMenuItemIconMap;
     private List<TextView> mBdMenuItemTexList;
     private SparseArray<View> mChildView;
@@ -66,7 +66,7 @@ public class CommonOverflowMenuView extends LinearLayout implements a.b {
     private void init(Context context) {
         this.mContentView = LayoutInflater.from(context).inflate(a.g.aiapps_menu_scroll_view, (ViewGroup) this, true);
         this.mLinearContent = (LinearLayout) this.mContentView.findViewById(a.f.menu_linear);
-        this.cKZ = (SwanAppScrollView) this.mContentView.findViewById(a.f.menu_scrollview);
+        this.cLd = (SwanAppScrollView) this.mContentView.findViewById(a.f.menu_scrollview);
         setFocusable(true);
         setFocusableInTouchMode(true);
         updateUI();
@@ -163,11 +163,11 @@ public class CommonOverflowMenuView extends LinearLayout implements a.b {
     }
 
     public void setMaxHeightRes(int i) {
-        this.cKZ.setMaxHeight(getContext().getResources().getDimensionPixelSize(i));
+        this.cLd.setMaxHeight(getContext().getResources().getDimensionPixelSize(i));
     }
 
     public void setMaxHeightPixel(int i) {
-        this.cKZ.setMaxHeight(i);
+        this.cLd.setMaxHeight(i);
     }
 
     public LinearLayout getLinearContent() {

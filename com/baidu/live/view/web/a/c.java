@@ -14,13 +14,13 @@ public class c extends com.baidu.live.view.web.a {
     }
 
     @Override // com.baidu.live.view.web.a
-    public void hq(String str) {
+    public void hr(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
             final y yVar = new y();
-            yVar.aEy = jSONObject.optInt("tab", -1);
-            yVar.aEz = jSONObject.optInt("category_id", -1);
-            yVar.aEA = jSONObject.optInt(LogConfig.LOG_GIFT_ID, -1);
+            yVar.aEA = jSONObject.optInt("tab", -1);
+            yVar.aEB = jSONObject.optInt("category_id", -1);
+            yVar.aEC = jSONObject.optInt(LogConfig.LOG_GIFT_ID, -1);
             if (jSONObject.optInt("close", 0) == 1) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913123));
                 this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.live.view.web.a.c.1

@@ -5,9 +5,9 @@ import android.graphics.Bitmap;
 public interface c {
     boolean V(Bitmap bitmap);
 
-    void dHv();
+    void dHE();
 
-    void dHw();
+    void dHF();
 
-    void dHx();
+    void dHG();
 }

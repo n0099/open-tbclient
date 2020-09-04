@@ -11,18 +11,18 @@ import com.baidu.tieba.card.aa;
 import com.baidu.tieba.square.ForumSquareActivity;
 /* loaded from: classes16.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.square.data.b, com.baidu.tieba.card.a.a<com.baidu.tieba.square.view.c>> {
-    private aa<com.baidu.tieba.square.data.b> giM;
+    private aa<com.baidu.tieba.square.data.b> giQ;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity(), com.baidu.tieba.square.data.b.TYPE);
-        this.giM = new aa<com.baidu.tieba.square.data.b>() { // from class: com.baidu.tieba.square.a.c.1
+        this.giQ = new aa<com.baidu.tieba.square.data.b>() { // from class: com.baidu.tieba.square.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             public void a(View view, com.baidu.tieba.square.data.b bVar) {
                 if (bVar != null && (c.this.mPageContext.getPageActivity() instanceof ForumSquareActivity)) {
-                    String className = ((ForumSquareActivity) c.this.mPageContext.getPageActivity()).duB().getClassName();
+                    String className = ((ForumSquareActivity) c.this.mPageContext.getPageActivity()).duG().getClassName();
                     if (!"推荐".equals(className)) {
                         aq aqVar = new aq("c13652");
                         aqVar.u("uid", TbadkCoreApplication.getCurrentAccountId());
@@ -56,13 +56,13 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.square.da
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.square.data.b bVar, com.baidu.tieba.card.a.a<com.baidu.tieba.square.view.c> aVar) {
-        if (bVar == null || aVar == null || aVar.ccE() == null) {
+        if (bVar == null || aVar == null || aVar.ccF() == null) {
             return null;
         }
-        aVar.ccE().a(bVar);
-        aVar.ccE().c(this.giM);
+        aVar.ccF().a(bVar);
+        aVar.ccF().c(this.giQ);
         if (this.mPageContext.getPageActivity() instanceof ForumSquareActivity) {
-            String className = ((ForumSquareActivity) this.mPageContext.getPageActivity()).duB().getClassName();
+            String className = ((ForumSquareActivity) this.mPageContext.getPageActivity()).duG().getClassName();
             if (!"推荐".equals(className)) {
                 aq aqVar = new aq("c13651");
                 aqVar.u("uid", TbadkCoreApplication.getCurrentAccountId());

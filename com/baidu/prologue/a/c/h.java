@@ -31,7 +31,7 @@ public class h {
                     } catch (Exception e) {
                         fileInputStream = fileInputStream2;
                         exc = e;
-                        if (com.baidu.prologue.a.b.a.bKi.get().UU()) {
+                        if (com.baidu.prologue.a.b.a.bKm.get().UU()) {
                             throw new RuntimeException(exc);
                         }
                         if (fileInputStream != null) {

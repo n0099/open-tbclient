@@ -6,16 +6,16 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import java.util.LinkedHashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class n {
-    private static n lsZ = null;
-    private LinkedHashMap<String, Integer> lta = new LinkedHashMap<>(150, 0.75f, true);
+    private static n ltk = null;
+    private LinkedHashMap<String, Integer> ltl = new LinkedHashMap<>(150, 0.75f, true);
     private CustomMessageListener mAccountChangedListener = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.play.n.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                n.this.lta.clear();
+                n.this.ltl.clear();
             }
         }
     };
@@ -24,31 +24,31 @@ public class n {
         MessageManager.getInstance().registerListener(this.mAccountChangedListener);
     }
 
-    public static n dkd() {
-        if (lsZ == null) {
+    public static n dkg() {
+        if (ltk == null) {
             synchronized (n.class) {
-                if (lsZ == null) {
-                    lsZ = new n();
+                if (ltk == null) {
+                    ltk = new n();
                 }
             }
         }
-        return lsZ;
+        return ltk;
     }
 
     public void by(String str, int i) {
-        if (i != 0 || !this.lta.containsKey(str)) {
-            this.lta.put(str, Integer.valueOf(i));
+        if (i != 0 || !this.ltl.containsKey(str)) {
+            this.ltl.put(str, Integer.valueOf(i));
         }
     }
 
     public void remove(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.lta.remove(str);
+            this.ltl.remove(str);
         }
     }
 
-    public int OE(String str) {
-        Integer num = this.lta.get(str);
+    public int OF(String str) {
+        Integer num = this.ltl.get(str);
         if (num != null) {
             return num.intValue();
         }
@@ -56,6 +56,6 @@ public class n {
     }
 
     public void clear() {
-        this.lta.clear();
+        this.ltl.clear();
     }
 }

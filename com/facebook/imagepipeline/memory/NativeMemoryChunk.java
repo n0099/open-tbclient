@@ -112,7 +112,7 @@ public class NativeMemoryChunk implements Closeable {
         }
     }
 
-    public long dOF() {
+    public long dOO() {
         return this.mNativePtr;
     }
 

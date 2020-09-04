@@ -18,18 +18,18 @@ import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes16.dex */
 public class ag {
-    public int aEB;
+    public int aED;
 
     public ag(PbModel pbModel, BaseFragmentActivity baseFragmentActivity) {
     }
 
-    private void IX(String str) {
+    private void IY(String str) {
         if (str.startsWith("//")) {
             str = str.substring(2);
         }
         Map<String, String> paramPair = com.baidu.tbadk.core.util.be.getParamPair(str);
         if (paramPair != null) {
-            this.aEB = 5;
+            this.aED = 5;
             com.baidu.tbadk.core.util.aq aqVar = new com.baidu.tbadk.core.util.aq("c10320");
             aqVar.dD("obj_locate", paramPair.get("obj_locate"));
             aqVar.ai("obj_type", 1);
@@ -61,22 +61,22 @@ public class ag {
             if (!StringUtils.isNull(uri2) && uri2.startsWith("tbpb://")) {
                 String decode = Uri.decode(uri.getEncodedPath());
                 if (!StringUtils.isNull(decode)) {
-                    IX(decode);
-                    HashMap<String, Object> NE = NE(decode);
-                    String str = (String) NE.get("tid");
-                    if ("mpush".equals((String) NE.get("fr")) && !StringUtils.isNull(str)) {
+                    IY(decode);
+                    HashMap<String, Object> NF = NF(decode);
+                    String str = (String) NF.get("tid");
+                    if ("mpush".equals((String) NF.get("fr")) && !StringUtils.isNull(str)) {
                         TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c11895").dD("tid", str));
                     }
                     HttpMessage httpMessage = new HttpMessage(1003393);
                     httpMessage.addParam("call_url", uri2);
                     MessageManager.getInstance().sendMessage(httpMessage);
-                    aVar.z(NE);
+                    aVar.z(NF);
                 }
             }
         }
     }
 
-    public HashMap<String, Object> NE(String str) {
+    public HashMap<String, Object> NF(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }

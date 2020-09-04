@@ -11,10 +11,10 @@ import com.baidu.swan.games.c.d;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class g {
-    protected com.baidu.swan.games.f.b dox;
+    protected com.baidu.swan.games.f.b doB;
 
     public g(com.baidu.swan.games.f.b bVar) {
-        this.dox = bVar;
+        this.doB = bVar;
     }
 
     public void setEnableDebug(JsObject jsObject) {
@@ -23,12 +23,12 @@ public class g {
             boolean optBoolean = e.optBoolean("enableDebug");
             com.baidu.swan.apps.runtime.e azI = com.baidu.swan.apps.runtime.e.azI();
             if (azI == null) {
-                a(e, false, uz("internal error"));
+                a(e, false, uA("internal error"));
                 return;
             }
             SwanAppActivity azC = azI.azC();
             if (azC == null) {
-                a(e, false, uz("internal error"));
+                a(e, false, uA("internal error"));
             } else if (optBoolean == com.baidu.swan.apps.console.a.adG()) {
                 a(e, true, "setEnableDebug:ok");
             } else {
@@ -51,7 +51,7 @@ public class g {
                     return;
                 }
                 com.baidu.swan.apps.core.c.c.U(context, str);
-                g.this.a(cVar, false, g.this.uz(str));
+                g.this.a(cVar, false, g.this.uA(str));
             }
         });
     }
@@ -60,7 +60,7 @@ public class g {
     public void a(final Context context, final com.baidu.swan.games.binding.model.c cVar) {
         d.aMC().a(new d.a() { // from class: com.baidu.swan.games.c.g.2
             @Override // com.baidu.swan.games.c.d.a
-            public void dQ(boolean z) {
+            public void dR(boolean z) {
                 if (z) {
                     com.baidu.swan.apps.console.a.l(context, true);
                     g.this.a(cVar, true, "setEnableDebug:ok");
@@ -73,7 +73,7 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String uz(String str) {
+    public String uA(String str) {
         return String.format("setEnableDebug:fail %s", str);
     }
 

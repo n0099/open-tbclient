@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class VideoUploadSwitch extends a {
     public static final String KEY = "movideo_split";
     public static final int UPLOAD_TYPE_MULTI = 1;

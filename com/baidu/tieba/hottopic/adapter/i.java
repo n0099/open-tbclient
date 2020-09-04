@@ -18,47 +18,47 @@ import com.baidu.tieba.hottopic.controller.HotTopicActivity;
 import com.baidu.tieba.hottopic.data.n;
 /* loaded from: classes15.dex */
 public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.l, com.baidu.tieba.card.a.a<u>> {
-    private BdUniqueId ePv;
-    private com.baidu.tieba.card.data.l hjK;
-    private aa<bx> hyp;
-    private u iXu;
+    private BdUniqueId ePz;
+    private com.baidu.tieba.card.data.l hjO;
+    private aa<bx> hyv;
+    private u iXA;
     private TbPageContext<HotTopicActivity> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public i(TbPageContext<HotTopicActivity> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.hyp = new aa<bx>() { // from class: com.baidu.tieba.hottopic.adapter.i.1
+        this.hyv = new aa<bx>() { // from class: com.baidu.tieba.hottopic.adapter.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             public void a(View view, bx bxVar) {
                 int i;
-                com.baidu.tieba.card.data.l lVar = i.this.hjK;
-                if (lVar != null && lVar.dUS != null && !StringUtils.isNull(lVar.dUS.getTid())) {
-                    if (i.this.iXu.getHeaderImg() != null && view.getId() == i.this.iXu.getHeaderImg().getId()) {
+                com.baidu.tieba.card.data.l lVar = i.this.hjO;
+                if (lVar != null && lVar.dUW != null && !StringUtils.isNull(lVar.dUW.getTid())) {
+                    if (i.this.iXA.getHeaderImg() != null && view.getId() == i.this.iXA.getHeaderImg().getId()) {
                         i = 1;
-                    } else if (i.this.iXu.cbD() != null && view.getId() == i.this.iXu.cbD().getId()) {
+                    } else if (i.this.iXA.cbE() != null && view.getId() == i.this.iXA.cbE().getId()) {
                         i = 1;
-                    } else if (i.this.iXu.hla != null && view.getId() == i.this.iXu.hla.getId()) {
+                    } else if (i.this.iXA.hle != null && view.getId() == i.this.iXA.hle.getId()) {
                         i = 3;
                     } else {
                         i = 2;
                     }
                     String topicName = ((HotTopicActivity) i.this.mPageContext.getOrignalPage()).getTopicName();
-                    String czJ = ((HotTopicActivity) i.this.mPageContext.getOrignalPage()).czJ();
+                    String czK = ((HotTopicActivity) i.this.mPageContext.getOrignalPage()).czK();
                     bw bce = lVar.bce();
                     TiebaStatic.log(new aq("c12941").ai("obj_type", i).dD("tid", bce.getId()));
-                    if ("c10814".equals(lVar.ccl())) {
+                    if ("c10814".equals(lVar.ccm())) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
-                        TiebaStatic.log(new aq("c10814").dD("tid", bce.getId()).dD("obj_name", topicName).dD("topic_id", czJ));
-                    } else if ("c10816".equals(lVar.ccl())) {
+                        TiebaStatic.log(new aq("c10814").dD("tid", bce.getId()).dD("obj_name", topicName).dD("topic_id", czK));
+                    } else if ("c10816".equals(lVar.ccm())) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
-                        TiebaStatic.log(new aq("c10816").dD("post_id", bce.getTid()).dD("obj_name", topicName).dD("topic_id", czJ));
+                        TiebaStatic.log(new aq("c10816").dD("post_id", bce.getTid()).dD("obj_name", topicName).dD("topic_id", czK));
                     }
                 }
             }
         };
         this.mPageContext = tbPageContext;
-        this.ePv = tbPageContext.getUniqueId();
+        this.ePz = tbPageContext.getUniqueId();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -66,30 +66,30 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aK */
     public com.baidu.tieba.card.a.a<u> b(ViewGroup viewGroup) {
-        this.iXu = new u(this.mPageContext);
-        this.iXu.p(this.ePv);
-        this.iXu.ng(false);
-        this.iXu.currentPageType = 0;
-        if (this.iXu.gja != null) {
-            this.iXu.gja.etW = 0;
+        this.iXA = new u(this.mPageContext);
+        this.iXA.p(this.ePz);
+        this.iXA.ni(false);
+        this.iXA.currentPageType = 0;
+        if (this.iXA.gje != null) {
+            this.iXA.gje.eua = 0;
         }
-        if (this.iXu.hla != null) {
-            this.iXu.hla.hlO = 0;
+        if (this.iXA.hle != null) {
+            this.iXA.hle.hlS = 0;
         }
-        return new com.baidu.tieba.card.a.a<>(this.iXu);
+        return new com.baidu.tieba.card.a.a<>(this.iXA);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.l lVar, com.baidu.tieba.card.a.a<u> aVar) {
-        if (lVar == null || aVar == null || aVar.ccE() == null) {
+        if (lVar == null || aVar == null || aVar.ccF() == null) {
             return null;
         }
-        this.hjK = lVar;
-        aVar.ccE().a(new bx(lVar.bce()));
-        aVar.ccE().c(this.hyp);
-        ((u) ((com.baidu.tieba.card.a.a) this.UO).ccE()).nl(!(getItem(i + 1) instanceof n));
+        this.hjO = lVar;
+        aVar.ccF().a(new bx(lVar.bce()));
+        aVar.ccF().c(this.hyv);
+        ((u) ((com.baidu.tieba.card.a.a) this.UO).ccF()).nn(!(getItem(i + 1) instanceof n));
         return aVar.getView();
     }
 }

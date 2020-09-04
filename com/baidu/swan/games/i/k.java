@@ -42,7 +42,7 @@ public class k {
                             String str2 = dw + File.separator + "swangame/anonymous/sandbox";
                             if (!file3.renameTo(new File(str2))) {
                                 n.cO(str, str2);
-                                n.vm(str);
+                                n.vn(str);
                             }
                         }
                     }

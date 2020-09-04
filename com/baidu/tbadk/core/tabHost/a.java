@@ -15,9 +15,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
-    private final b<com.baidu.adp.widget.ImageView.a> eib = new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.core.tabHost.a.1
+    private final b<com.baidu.adp.widget.ImageView.a> eif = new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.core.tabHost.a.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.e.b
@@ -56,17 +56,17 @@ public class a {
             String str = (String) pair.first;
             String str2 = (String) pair.second;
             if ((TbadkCoreApplication.getInst().getSkinType() == 1) && !TextUtils.isEmpty(str2)) {
-                zL(str2);
+                zM(str2);
             } else if (!TextUtils.isEmpty(str)) {
-                zL(str);
+                zM(str);
             } else {
                 bip();
             }
         }
     }
 
-    private void zL(String str) {
-        c.mM().a(str, 10, this.eib, getBdUniqueId());
+    private void zM(String str) {
+        c.mM().a(str, 10, this.eif, getBdUniqueId());
     }
 
     private BdUniqueId getBdUniqueId() {

@@ -12,16 +12,16 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes8.dex */
 public class i implements b {
-    private String cUs;
+    private String cUw;
     private final Context mContext = AppRuntime.getAppContext();
     @NonNull
     private final SharedPreferences mSp;
 
     public i(String str) {
-        this.cUs = (TextUtils.isEmpty(str) || str.indexOf(File.separatorChar) >= 0) ? "default" : str;
-        if ("default".equals(this.cUs)) {
+        this.cUw = (TextUtils.isEmpty(str) || str.indexOf(File.separatorChar) >= 0) ? "default" : str;
+        if ("default".equals(this.cUw)) {
             this.mSp = PreferenceManager.getDefaultSharedPreferences(this.mContext);
-            this.cUs = this.mContext.getPackageName() + "_preferences";
+            this.cUw = this.mContext.getPackageName() + "_preferences";
             return;
         }
         this.mSp = this.mContext.getSharedPreferences(str, 0);
@@ -35,7 +35,7 @@ public class i implements b {
     @Override // com.baidu.swan.c.b
     @NonNull
     public File getFile() {
-        return ak(this.mContext, this.cUs);
+        return ak(this.mContext, this.cUw);
     }
 
     @Override // com.baidu.swan.c.b

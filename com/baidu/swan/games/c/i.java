@@ -7,37 +7,37 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class i {
-    private static volatile boolean cco = false;
-    private static volatile boolean dqS = false;
-    private static volatile List<com.baidu.swan.apps.event.a.b> dqT = new ArrayList();
+    private static volatile boolean cct = false;
+    private static volatile boolean dqW = false;
+    private static volatile List<com.baidu.swan.apps.event.a.b> dqX = new ArrayList();
 
     private i() {
     }
 
-    public static void dI(boolean z) {
-        cco = z;
-        com.baidu.swan.apps.console.c.dI(z);
+    public static void dJ(boolean z) {
+        cct = z;
+        com.baidu.swan.apps.console.c.dJ(z);
     }
 
     public static void aMR() {
         synchronized (i.class) {
-            dqT = new ArrayList();
+            dqX = new ArrayList();
         }
-        dqS = false;
+        dqW = false;
     }
 
     public static void aMS() {
-        if (cco && !dqS) {
+        if (cct && !dqW) {
             synchronized (i.class) {
-                if (dqT != null) {
-                    for (int i = 0; i < dqT.size(); i++) {
-                        com.baidu.swan.apps.v.f.arY().a("console", dqT.get(i));
+                if (dqX != null) {
+                    for (int i = 0; i < dqX.size(); i++) {
+                        com.baidu.swan.apps.v.f.arY().a("console", dqX.get(i));
                     }
-                    dqT.clear();
-                    dqT = null;
+                    dqX.clear();
+                    dqX = null;
                 }
             }
-            dqS = true;
+            dqW = true;
         }
     }
 
@@ -64,22 +64,22 @@ public class i {
     }
 
     public static void cH(String str, String str2) {
-        if (cco) {
+        if (cct) {
             a(c.cF(str, str2));
         }
     }
 
     public static void cI(String str, String str2) {
-        if (cco) {
+        if (cct) {
             a(c.cG(str, str2));
         }
     }
 
     private static void a(com.baidu.swan.apps.event.a.b bVar) {
-        if (!dqS) {
+        if (!dqW) {
             synchronized (i.class) {
-                if (dqT != null) {
-                    dqT.add(bVar);
+                if (dqX != null) {
+                    dqX.add(bVar);
                     return;
                 }
             }

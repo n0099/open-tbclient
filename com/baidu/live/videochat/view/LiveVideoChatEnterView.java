@@ -12,26 +12,26 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tieba.view.bubbleview.BubbleLayout;
 /* loaded from: classes7.dex */
 public class LiveVideoChatEnterView extends RelativeLayout {
-    private ImageView bsg;
-    private BubbleLayout bsh;
-    private TextView bsi;
-    private boolean bsj;
-    private long bsk;
-    private String bsl;
-    private int bsm;
-    private int bsn;
-    private Runnable bso;
+    private ImageView bsj;
+    private BubbleLayout bsk;
+    private TextView bsl;
+    private boolean bsm;
+    private long bsn;
+    private String bso;
+    private int bsp;
+    private int bsq;
+    private Runnable bsr;
     private CharSequence mContentText;
     private Handler mHandler;
 
     public LiveVideoChatEnterView(Context context) {
         super(context);
-        this.bsj = false;
-        this.bsk = 0L;
-        this.bsl = null;
-        this.bsm = -1;
-        this.bsn = 0;
-        this.bso = new Runnable() { // from class: com.baidu.live.videochat.view.LiveVideoChatEnterView.1
+        this.bsm = false;
+        this.bsn = 0L;
+        this.bso = null;
+        this.bsp = -1;
+        this.bsq = 0;
+        this.bsr = new Runnable() { // from class: com.baidu.live.videochat.view.LiveVideoChatEnterView.1
             @Override // java.lang.Runnable
             public void run() {
                 LiveVideoChatEnterView.this.Qu();
@@ -42,12 +42,12 @@ public class LiveVideoChatEnterView extends RelativeLayout {
 
     public LiveVideoChatEnterView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bsj = false;
-        this.bsk = 0L;
-        this.bsl = null;
-        this.bsm = -1;
-        this.bsn = 0;
-        this.bso = new Runnable() { // from class: com.baidu.live.videochat.view.LiveVideoChatEnterView.1
+        this.bsm = false;
+        this.bsn = 0L;
+        this.bso = null;
+        this.bsp = -1;
+        this.bsq = 0;
+        this.bsr = new Runnable() { // from class: com.baidu.live.videochat.view.LiveVideoChatEnterView.1
             @Override // java.lang.Runnable
             public void run() {
                 LiveVideoChatEnterView.this.Qu();
@@ -58,12 +58,12 @@ public class LiveVideoChatEnterView extends RelativeLayout {
 
     public LiveVideoChatEnterView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bsj = false;
-        this.bsk = 0L;
-        this.bsl = null;
-        this.bsm = -1;
-        this.bsn = 0;
-        this.bso = new Runnable() { // from class: com.baidu.live.videochat.view.LiveVideoChatEnterView.1
+        this.bsm = false;
+        this.bsn = 0L;
+        this.bso = null;
+        this.bsp = -1;
+        this.bsq = 0;
+        this.bsr = new Runnable() { // from class: com.baidu.live.videochat.view.LiveVideoChatEnterView.1
             @Override // java.lang.Runnable
             public void run() {
                 LiveVideoChatEnterView.this.Qu();
@@ -74,9 +74,9 @@ public class LiveVideoChatEnterView extends RelativeLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(a.h.sdk_live_video_chat_enter_view, this);
-        this.bsh = (BubbleLayout) findViewById(a.g.layout_bubble);
-        this.bsi = (TextView) findViewById(a.g.layout_bubble_text);
-        this.bsg = (ImageView) findViewById(a.g.live_video_chat_enter);
+        this.bsk = (BubbleLayout) findViewById(a.g.layout_bubble);
+        this.bsl = (TextView) findViewById(a.g.layout_bubble_text);
+        this.bsj = (ImageView) findViewById(a.g.live_video_chat_enter);
     }
 
     public View getEnterView() {
@@ -88,26 +88,26 @@ public class LiveVideoChatEnterView extends RelativeLayout {
     }
 
     public void setAutoHideBubble(boolean z, long j) {
-        if (this.bsk <= 0) {
-            this.bsk = 0L;
+        if (this.bsn <= 0) {
+            this.bsn = 0L;
         }
-        this.bsj = z;
-        this.bsk = j;
+        this.bsm = z;
+        this.bsn = j;
     }
 
     public void setMaxShowTime(int i) {
         if (i < 0) {
             i = -1;
         }
-        this.bsm = i;
+        this.bsp = i;
     }
 
     public void Qu() {
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        if (this.bsh != null && this.bsh.getParent() != null) {
-            this.bsh.setVisibility(4);
+        if (this.bsk != null && this.bsk.getParent() != null) {
+            this.bsk.setVisibility(4);
         }
     }
 }

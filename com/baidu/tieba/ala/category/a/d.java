@@ -15,29 +15,29 @@ import com.baidu.live.adp.widget.listview.TypeAdapter;
 import com.baidu.live.sdk.a;
 /* loaded from: classes7.dex */
 public class d extends TypeAdapter.ViewHolder implements View.OnClickListener {
-    private com.baidu.tieba.ala.category.b.c fPc;
-    private TextView fPe;
-    private ImageView fPf;
+    private com.baidu.tieba.ala.category.b.c fPg;
+    private TextView fPi;
+    private ImageView fPj;
 
     public d(Context context, BdUniqueId bdUniqueId) {
         super(LayoutInflater.from(context).inflate(a.h.item_live_category_two, (ViewGroup) null));
-        this.fPe = (TextView) getView().findViewById(a.g.category_two_name_tv);
-        this.fPf = (ImageView) getView().findViewById(a.g.cb_iv);
-        this.fPf.setOnClickListener(this);
+        this.fPi = (TextView) getView().findViewById(a.g.category_two_name_tv);
+        this.fPj = (ImageView) getView().findViewById(a.g.cb_iv);
+        this.fPj.setOnClickListener(this);
     }
 
     public void a(com.baidu.tieba.ala.category.b.c cVar, String str) {
         if (cVar != null) {
-            this.fPc = cVar;
-            this.fPe.setText(this.fPc.getName());
-            this.fPf.setSelected(!StringUtils.isNull(this.fPc.getId()) && TextUtils.equals(this.fPc.getId(), str));
+            this.fPg = cVar;
+            this.fPi.setText(this.fPg.getName());
+            this.fPj.setSelected(!StringUtils.isNull(this.fPg.getId()) && TextUtils.equals(this.fPg.getId(), str));
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!this.fPe.isSelected()) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913201, this.fPc));
+        if (!this.fPi.isSelected()) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913201, this.fPg));
         }
     }
 }

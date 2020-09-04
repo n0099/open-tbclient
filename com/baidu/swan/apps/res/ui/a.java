@@ -7,7 +7,7 @@ import com.baidu.swan.apps.a;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class a extends com.baidu.swan.apps.res.widget.a.a {
-    private CommonOverflowMenuView cKY;
+    private CommonOverflowMenuView cLc;
     private int mDelatX;
     private int mDelatY;
     private int mGravity;
@@ -16,7 +16,7 @@ public class a extends com.baidu.swan.apps.res.widget.a.a {
     protected View getMenuView(Context context) {
         CommonOverflowMenuView commonOverflowMenuView = new CommonOverflowMenuView(context);
         commonOverflowMenuView.setOrientation(1);
-        this.cKY = commonOverflowMenuView;
+        this.cLc = commonOverflowMenuView;
         return commonOverflowMenuView;
     }
 

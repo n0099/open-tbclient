@@ -4,8 +4,8 @@ import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class ar {
-    public String aIB;
-    public String aIC;
+    public String aID;
+    public String aIE;
     public long endTime;
     public int flag;
     public long serverTime;
@@ -15,11 +15,11 @@ public class ar {
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.type = jSONObject.optInt("type");
-            this.aIB = jSONObject.optString(AlaLiveStickerInfo.STICKER_ID);
+            this.aID = jSONObject.optString(AlaLiveStickerInfo.STICKER_ID);
             this.startTime = jSONObject.optLong("start_time");
             this.endTime = jSONObject.optLong("end_time");
             this.serverTime = jSONObject.optLong("server_time");
-            this.aIC = jSONObject.optString("punish_key");
+            this.aIE = jSONObject.optString("punish_key");
             this.flag = jSONObject.optInt(FrsActivityConfig.FLAG);
         }
     }

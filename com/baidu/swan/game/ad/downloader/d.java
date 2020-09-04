@@ -7,13 +7,13 @@ import com.baidu.swan.apps.adlanding.download.model.SwanAdDownloadState;
 import com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction;
 /* loaded from: classes19.dex */
 public class d extends com.baidu.swan.apps.process.a.b.c.c {
-    private com.baidu.swan.apps.adlanding.download.a.a djL;
-    private SwanAppDownloadAction.SwanAppDownloadType djM;
+    private com.baidu.swan.apps.adlanding.download.a.a djP;
+    private SwanAppDownloadAction.SwanAppDownloadType djQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(com.baidu.swan.apps.adlanding.download.a.a aVar, @NonNull SwanAppDownloadAction.SwanAppDownloadType swanAppDownloadType) {
-        this.djL = aVar;
-        this.djM = swanAppDownloadType;
+        this.djP = aVar;
+        this.djQ = swanAppDownloadType;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,14 +24,14 @@ public class d extends com.baidu.swan.apps.process.a.b.c.c {
             int i = result.getInt("state", SwanAdDownloadState.NOT_START.value());
             int i2 = result.getInt("progress", 0);
             SwanAdDownloadState convert = SwanAdDownloadState.convert(i);
-            this.djL.a(convert, i2);
-            this.djL.b(convert, i2);
+            this.djP.a(convert, i2);
+            this.djP.b(convert, i2);
             String string = result.getString("packageName", "");
             if (!TextUtils.isEmpty(string)) {
-                this.djL.iN(string);
+                this.djP.iO(string);
             }
-            if (this.djM == SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD) {
-                this.djL.dz(true);
+            if (this.djQ == SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD) {
+                this.djP.dA(true);
             }
         }
     }

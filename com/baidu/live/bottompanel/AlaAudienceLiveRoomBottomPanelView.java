@@ -16,13 +16,13 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class AlaAudienceLiveRoomBottomPanelView extends LinearLayout {
-    private final List<d> aBr;
-    private final List<e> aBs;
-    private e aBt;
-    private AlaLiveRoomPanelTabHost aBu;
-    private com.baidu.live.bottompanel.a aBv;
-    private boolean aBw;
-    private a aBx;
+    private final List<d> aBt;
+    private final List<e> aBu;
+    private e aBv;
+    private AlaLiveRoomPanelTabHost aBw;
+    private com.baidu.live.bottompanel.a aBx;
+    private boolean aBy;
+    private a aBz;
     private float mDownX;
     private Scroller mScroller;
     private int mTouchSlop;
@@ -34,11 +34,11 @@ public class AlaAudienceLiveRoomBottomPanelView extends LinearLayout {
 
     public AlaAudienceLiveRoomBottomPanelView(Context context) {
         super(context);
-        this.aBr = new LinkedList();
-        this.aBs = new LinkedList();
+        this.aBt = new LinkedList();
+        this.aBu = new LinkedList();
         this.mDownX = 0.0f;
-        this.aBw = false;
-        this.aBx = new a() { // from class: com.baidu.live.bottompanel.AlaAudienceLiveRoomBottomPanelView.1
+        this.aBy = false;
+        this.aBz = new a() { // from class: com.baidu.live.bottompanel.AlaAudienceLiveRoomBottomPanelView.1
             @Override // com.baidu.live.bottompanel.AlaAudienceLiveRoomBottomPanelView.a
             public void Bx() {
                 AlaAudienceLiveRoomBottomPanelView.this.Bw();
@@ -51,8 +51,8 @@ public class AlaAudienceLiveRoomBottomPanelView extends LinearLayout {
         setOrientation(0);
         this.mScroller = new Scroller(getContext());
         this.mTouchSlop = BdUtilHelper.getScreenDimensions(getContext())[0] / 4;
-        this.aBu = new AlaLiveRoomPanelTabHost(getContext());
-        this.aBu.setOnPageChangeListener(new AlaLiveRoomPanelTabHost.a() { // from class: com.baidu.live.bottompanel.AlaAudienceLiveRoomBottomPanelView.2
+        this.aBw = new AlaLiveRoomPanelTabHost(getContext());
+        this.aBw.setOnPageChangeListener(new AlaLiveRoomPanelTabHost.a() { // from class: com.baidu.live.bottompanel.AlaAudienceLiveRoomBottomPanelView.2
             @Override // com.baidu.live.bottompanel.AlaLiveRoomPanelTabHost.a
             public void a(int i, d dVar) {
                 if (dVar != null && dVar.IN() != 1) {
@@ -60,8 +60,8 @@ public class AlaAudienceLiveRoomBottomPanelView extends LinearLayout {
                 }
             }
         });
-        addView(this.aBu);
-        this.aBv = new com.baidu.live.bottompanel.a(getContext(), this.aBx);
+        addView(this.aBw);
+        this.aBx = new com.baidu.live.bottompanel.a(getContext(), this.aBz);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -75,11 +75,11 @@ public class AlaAudienceLiveRoomBottomPanelView extends LinearLayout {
     }
 
     public void setTabCtlList(List<d> list) {
-        this.aBr.clear();
+        this.aBt.clear();
         if (!ListUtils.isEmpty(list)) {
-            this.aBr.addAll(list);
+            this.aBt.addAll(list);
         }
-        Collections.sort(this.aBr, new Comparator<d>() { // from class: com.baidu.live.bottompanel.AlaAudienceLiveRoomBottomPanelView.3
+        Collections.sort(this.aBt, new Comparator<d>() { // from class: com.baidu.live.bottompanel.AlaAudienceLiveRoomBottomPanelView.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
             /* renamed from: a */
@@ -87,32 +87,32 @@ public class AlaAudienceLiveRoomBottomPanelView extends LinearLayout {
                 return dVar.IN() - dVar2.IN();
             }
         });
-        this.aBu.setData(this.aBr, true);
+        this.aBw.setData(this.aBt, true);
     }
 
     public void setPageCtlList(List<e> list) {
-        this.aBs.clear();
+        this.aBu.clear();
         if (!ListUtils.isEmpty(list)) {
-            this.aBs.addAll(list);
+            this.aBu.addAll(list);
         }
     }
 
     public boolean Bw() {
-        if (this.aBt != null) {
-            View rootView = this.aBv.getRootView();
+        if (this.aBv != null) {
+            View rootView = this.aBx.getRootView();
             this.mScroller.startScroll(rootView.getMeasuredWidth(), 0, -rootView.getMeasuredWidth(), 0);
-            this.aBt.enterBackground();
+            this.aBv.enterBackground();
             removeView(rootView);
-            this.aBv.reset();
-            this.aBt = null;
-            this.aBw = false;
+            this.aBx.reset();
+            this.aBv = null;
+            this.aBy = false;
             return true;
         }
         return false;
     }
 
     public void setPageSelectedListener(AlaLiveRoomPanelTabHost.b bVar) {
-        this.aBu.setPageSelectedListener(bVar);
+        this.aBw.setPageSelectedListener(bVar);
     }
 
     @Override // android.view.View
@@ -131,7 +131,7 @@ public class AlaAudienceLiveRoomBottomPanelView extends LinearLayout {
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.aBw) {
+        if (this.aBy) {
             switch (motionEvent.getAction() & 255) {
                 case 0:
                     this.mDownX = (int) motionEvent.getX();
@@ -150,7 +150,7 @@ public class AlaAudienceLiveRoomBottomPanelView extends LinearLayout {
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.aBw) {
+        if (this.aBy) {
             switch (motionEvent.getAction() & 255) {
                 case 0:
                 default:
@@ -159,7 +159,7 @@ public class AlaAudienceLiveRoomBottomPanelView extends LinearLayout {
                     this.mDownX = 0.0f;
                     return false;
                 case 2:
-                    if (((int) motionEvent.getX()) - this.mDownX < this.mTouchSlop || this.aBt == null) {
+                    if (((int) motionEvent.getX()) - this.mDownX < this.mTouchSlop || this.aBv == null) {
                         return true;
                     }
                     Bw();

@@ -1,5 +1,5 @@
 package com.baidu.tbadk.core.frameworkData;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class CmdConfigHttp {
     public static final int AGREE_ME_HTTP_CMD = 1002211;
     public static final int BAWU_TEAM_INFO_CMD = 1001705;

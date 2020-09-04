@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import protobuf.UpdateMaskInfo.UpdateMaskInfoResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ResponseUpdateMaskInfoMessage extends SocketResponsedMessage {
     public ResponseUpdateMaskInfoMessage() {
         super(CmdConfigSocket.CMD_UPDATE_MASK_INFO);

@@ -11,20 +11,20 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes14.dex */
 public class h implements View.OnKeyListener, f, com.baidu.swan.menu.viewpager.b {
-    private j dDR;
-    private List<i> dDS;
-    private f dDV;
-    private com.baidu.swan.menu.viewpager.b dDW;
-    private View.OnKeyListener dDX;
-    private a dDY;
-    private b dDZ;
+    private j dDV;
+    private List<i> dDW;
+    private f dDZ;
+    private com.baidu.swan.menu.viewpager.b dEa;
+    private View.OnKeyListener dEb;
+    private a dEc;
+    private b dEd;
     private Context mContext;
     private int mStyle;
-    private boolean dDP = false;
-    private int dDQ = 0;
-    private List<i> dDT = new ArrayList();
-    private List<List<i>> dDU = new ArrayList();
-    private int dEa = -1;
+    private boolean dDT = false;
+    private int dDU = 0;
+    private List<i> dDX = new ArrayList();
+    private List<List<i>> dDY = new ArrayList();
+    private int dEe = -1;
 
     /* loaded from: classes14.dex */
     public interface a {
@@ -32,20 +32,20 @@ public class h implements View.OnKeyListener, f, com.baidu.swan.menu.viewpager.b
     }
 
     public h(Context context, View view, int i, b bVar, @Nullable com.baidu.swan.menu.a aVar) {
-        this.dDS = new ArrayList();
+        this.dDW = new ArrayList();
         if (i >= 0) {
             this.mContext = context;
             this.mStyle = i;
-            this.dDZ = bVar;
-            this.dDS = k.lG(this.mStyle);
-            this.dDZ.g(this.mStyle, this.dDS);
-            this.dDZ.h(this.mStyle, this.dDS);
-            this.dDR = new j(this.mContext, view, aVar);
-            this.dDR.a(new PopupWindow.a() { // from class: com.baidu.swan.menu.h.1
+            this.dEd = bVar;
+            this.dDW = k.lG(this.mStyle);
+            this.dEd.g(this.mStyle, this.dDW);
+            this.dEd.h(this.mStyle, this.dDW);
+            this.dDV = new j(this.mContext, view, aVar);
+            this.dDV.a(new PopupWindow.a() { // from class: com.baidu.swan.menu.h.1
                 @Override // com.baidu.swan.menu.PopupWindow.a
                 public void onDismiss() {
-                    if (h.this.dDY != null) {
-                        h.this.dDY.a(h.this, false);
+                    if (h.this.dEc != null) {
+                        h.this.dEc.a(h.this, false);
                     }
                 }
             });
@@ -53,18 +53,18 @@ public class h implements View.OnKeyListener, f, com.baidu.swan.menu.viewpager.b
     }
 
     private void aSE() {
-        this.dDU.clear();
-        int size = this.dDT.size();
+        this.dDY.clear();
+        int size = this.dDX.size();
         if (size > 0 && size <= 5) {
-            this.dDU.add(this.dDT);
+            this.dDY.add(this.dDX);
         } else if (size > 5 && size <= 10) {
-            int i = this.dDP ? 5 : this.dEa;
-            this.dDU.add(this.dDT.subList(0, i));
-            this.dDU.add(this.dDT.subList(i, size));
+            int i = this.dDT ? 5 : this.dEe;
+            this.dDY.add(this.dDX.subList(0, i));
+            this.dDY.add(this.dDX.subList(i, size));
         } else if (size > 10) {
-            int ceil = this.dDP ? (int) Math.ceil(size / 2.0f) : this.dEa;
-            this.dDU.add(this.dDT.subList(0, ceil));
-            this.dDU.add(this.dDT.subList(ceil, size));
+            int ceil = this.dDT ? (int) Math.ceil(size / 2.0f) : this.dEe;
+            this.dDY.add(this.dDX.subList(0, ceil));
+            this.dDY.add(this.dDX.subList(ceil, size));
         }
     }
 
@@ -81,19 +81,19 @@ public class h implements View.OnKeyListener, f, com.baidu.swan.menu.viewpager.b
             dismiss(true);
             return;
         }
-        if (this.dDZ != null) {
-            this.dDZ.f(this.mStyle, this.dDS);
+        if (this.dEd != null) {
+            this.dEd.f(this.mStyle, this.dDW);
         }
         o(z, i);
         aSE();
-        this.dDR.b(this.dDU, view, z2, this.dDQ);
-        if (this.dDY != null) {
-            this.dDY.a(this, true);
+        this.dDV.b(this.dDY, view, z2, this.dDU);
+        if (this.dEc != null) {
+            this.dEc.a(this, true);
         }
     }
 
     public void a(f fVar) {
-        this.dDV = fVar;
+        this.dDZ = fVar;
     }
 
     @Override // com.baidu.swan.menu.f
@@ -102,37 +102,37 @@ public class h implements View.OnKeyListener, f, com.baidu.swan.menu.viewpager.b
             if (d(iVar)) {
                 dismiss(true);
             }
-            if (this.dDV == null) {
+            if (this.dDZ == null) {
                 return false;
             }
-            return this.dDV.a(view, iVar);
+            return this.dDZ.a(view, iVar);
         }
         return true;
     }
 
     @Override // com.baidu.swan.menu.viewpager.b
     public boolean c(i iVar) {
-        if (d(iVar) && !this.dDP) {
+        if (d(iVar) && !this.dDT) {
             dismiss(true);
         }
-        if (this.dDW == null) {
+        if (this.dEa == null) {
             return false;
         }
-        return this.dDW.c(iVar);
+        return this.dEa.c(iVar);
     }
 
     @Override // android.view.View.OnKeyListener
     public boolean onKey(View view, int i, KeyEvent keyEvent) {
-        if (this.dDX != null) {
-            return this.dDX.onKey(view, i, keyEvent);
+        if (this.dEb != null) {
+            return this.dEb.onKey(view, i, keyEvent);
         }
         return false;
     }
 
-    public void gZ(boolean z) {
+    public void ha(boolean z) {
         a(lC(5), z);
         aSE();
-        this.dDR.auh();
+        this.dDV.auh();
         aSD();
     }
 
@@ -141,19 +141,19 @@ public class h implements View.OnKeyListener, f, com.baidu.swan.menu.viewpager.b
     }
 
     public void dismiss(boolean z) {
-        this.dDR.eQ(z);
-        if (this.dDY != null) {
-            this.dDY.a(this, false);
+        this.dDV.eR(z);
+        if (this.dEc != null) {
+            this.dEc.a(this, false);
         }
     }
 
     public boolean isShowing() {
-        return this.dDR != null && this.dDR.isShowing();
+        return this.dDV != null && this.dDV.isShowing();
     }
 
     public void aSD() {
-        if (this.dDR != null) {
-            this.dDR.aSD();
+        if (this.dDV != null) {
+            this.dDV.aSD();
         }
     }
 
@@ -161,34 +161,34 @@ public class h implements View.OnKeyListener, f, com.baidu.swan.menu.viewpager.b
         i lH;
         int i3 = 0;
         boolean z = false;
-        for (i iVar : this.dDS) {
+        for (i iVar : this.dDW) {
             z = iVar.getItemId() == i ? true : z;
         }
         if (!z && (lH = k.lH(i)) != null) {
-            int size = this.dDS.size();
+            int size = this.dDW.size();
             if (i2 > 0) {
                 i3 = i2 >= size ? size : i2;
             }
-            this.dDS.add(i3, lH);
+            this.dDW.add(i3, lH);
         }
     }
 
     public void lA(int i) {
-        if (this.dDS != null) {
+        if (this.dDW != null) {
             int i2 = -1;
-            for (int i3 = 0; i3 < this.dDS.size(); i3++) {
-                if (this.dDS.get(i3).getItemId() == i) {
+            for (int i3 = 0; i3 < this.dDW.size(); i3++) {
+                if (this.dDW.get(i3).getItemId() == i) {
                     i2 = i3;
                 }
             }
             if (i2 > -1) {
-                this.dDS.remove(i2);
+                this.dDW.remove(i2);
             }
         }
     }
 
     public void lB(int i) {
-        this.dDR.lB(i);
+        this.dDV.lB(i);
     }
 
     private boolean d(i iVar) {
@@ -196,16 +196,16 @@ public class h implements View.OnKeyListener, f, com.baidu.swan.menu.viewpager.b
     }
 
     public void setScreenOrientation(int i) {
-        this.dDQ = i;
+        this.dDU = i;
     }
 
     private void o(boolean z, int i) {
-        if (this.dDS != null) {
-            this.dDT.clear();
+        if (this.dDW != null) {
+            this.dDX.clear();
             lD(41);
             i a2 = a(lC(38), i);
             if (a2 != null && a2.isVisible()) {
-                this.dDT.add(a2);
+                this.dDX.add(a2);
             }
             lD(48);
             lD(45);
@@ -213,20 +213,20 @@ public class h implements View.OnKeyListener, f, com.baidu.swan.menu.viewpager.b
             lD(101);
             i lC = lC(35);
             if (lC != null && lC.isVisible()) {
-                this.dDT.add(lC);
+                this.dDX.add(lC);
             }
             lD(39);
             lD(42);
             lD(9);
-            if (!this.dDP) {
-                this.dEa = this.dDT.size() - 1;
+            if (!this.dDT) {
+                this.dEe = this.dDX.size() - 1;
             }
             lD(37);
             lD(100);
             lD(43);
             i a3 = a(lC(5), z);
             if (a3 != null && a3.isVisible()) {
-                this.dDT.add(a3);
+                this.dDX.add(a3);
             }
             lD(46);
             lD(47);
@@ -258,7 +258,7 @@ public class h implements View.OnKeyListener, f, com.baidu.swan.menu.viewpager.b
         }
         if (i >= 0) {
             Long l = valueOf;
-            for (i iVar : this.dDT) {
+            for (i iVar : this.dDX) {
                 if (iVar.getItemId() == i) {
                     l = Long.valueOf(l.longValue() + iVar.aSG());
                     iVar.lE(l.longValue() > 0 ? 1 : 0);
@@ -297,10 +297,10 @@ public class h implements View.OnKeyListener, f, com.baidu.swan.menu.viewpager.b
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 >= this.dDS.size()) {
+            if (i3 >= this.dDW.size()) {
                 return null;
             }
-            i iVar = this.dDS.get(i3);
+            i iVar = this.dDW.get(i3);
             if (iVar.getItemId() != i) {
                 i2 = i3 + 1;
             } else {
@@ -314,7 +314,7 @@ public class h implements View.OnKeyListener, f, com.baidu.swan.menu.viewpager.b
     private void lD(int i) {
         i lC = lC(i);
         if (lC != null && lC.isVisible()) {
-            this.dDT.add(lC);
+            this.dDX.add(lC);
         }
     }
 }

@@ -52,14 +52,14 @@ public final class b {
         return new b(i);
     }
 
-    public static b ot(String str) {
+    public static b ou(String str) {
         if (str == null) {
             throw new NullPointerException("Asset name must not be null");
         }
-        return ou("file:///android_asset/" + str);
+        return ov("file:///android_asset/" + str);
     }
 
-    public static b ou(String str) {
+    public static b ov(String str) {
         if (str == null) {
             throw new NullPointerException("Uri must not be null");
         }
@@ -80,14 +80,14 @@ public final class b {
     }
 
     public b atu() {
-        return eN(true);
+        return eO(true);
     }
 
     public b atv() {
-        return eN(false);
+        return eO(false);
     }
 
-    public b eN(boolean z) {
+    public b eO(boolean z) {
         this.tile = z;
         return this;
     }

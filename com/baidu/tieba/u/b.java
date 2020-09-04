@@ -14,24 +14,24 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes17.dex */
 public class b {
-    private static b mta = new b();
+    private static b mts = new b();
 
-    public static b dAs() {
-        return mta;
+    public static b dAB() {
+        return mts;
     }
 
-    public void dAt() {
+    public void dAC() {
         if (f.checkSD()) {
             new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.u.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
-                    List dAv = b.dAv();
-                    int size = dAv.size();
+                    List dAE = b.dAE();
+                    int size = dAE.size();
                     for (int i = 0; i < size; i++) {
-                        a aVar = (a) dAv.get(i);
-                        b.this.p(aVar.uuid, aVar.lHw);
+                        a aVar = (a) dAE.get(i);
+                        b.this.p(aVar.uuid, aVar.lHJ);
                     }
                     return null;
                 }
@@ -39,8 +39,8 @@ public class b {
         }
     }
 
-    private static File[] dAu() {
-        File file = new File(g.a.kho);
+    private static File[] dAD() {
+        File file = new File(g.a.khv);
         if (file.exists()) {
             return file.listFiles();
         }
@@ -48,21 +48,21 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static List<a> dAv() {
+    public static List<a> dAE() {
         ArrayList arrayList = new ArrayList();
-        File[] dAu = dAu();
-        if (dAu != null) {
-            for (File file : dAu) {
+        File[] dAD = dAD();
+        if (dAD != null) {
+            for (File file : dAD) {
                 String name = file.getName();
-                JSONObject Ru = Ru(file.getAbsolutePath() + g.a.khe + "kpi");
+                JSONObject Ru = Ru(file.getAbsolutePath() + g.a.khl + "kpi");
                 if (Ru == null) {
-                    com.baidu.tieba.k.d.Mz(name);
+                    com.baidu.tieba.k.d.MA(name);
                 } else {
-                    JSONObject Rv = Rv(file.getAbsolutePath() + g.a.khe + ETAG.KEY_DEBUG);
+                    JSONObject Rv = Rv(file.getAbsolutePath() + g.a.khl + ETAG.KEY_DEBUG);
                     if (Rv == null) {
-                        com.baidu.tieba.k.d.Mz(name);
+                        com.baidu.tieba.k.d.MA(name);
                     } else {
-                        arrayList.add(new a(name, a(VideoPlatformStatic.bAw(), Ru, Rv)));
+                        arrayList.add(new a(name, a(VideoPlatformStatic.bAx(), Ru, Rv)));
                     }
                 }
             }
@@ -97,7 +97,7 @@ public class b {
     private static JSONObject Rv(String str) {
         if (!StringUtils.isNull(str) && new File(str).exists()) {
             try {
-                return new JSONObject().put("running", ab(com.baidu.tieba.k.d.My(str)));
+                return new JSONObject().put("running", ab(com.baidu.tieba.k.d.Mz(str)));
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;
@@ -121,7 +121,7 @@ public class b {
             }
         }
         if (!z) {
-            jSONArray.put(new com.baidu.tieba.n.c(502, "unknown", -4399, "").dkP());
+            jSONArray.put(new com.baidu.tieba.n.c(502, "unknown", -4399, "").dkS());
             return jSONArray;
         }
         return jSONArray;
@@ -158,8 +158,8 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(a aVar) {
         try {
-            c.e(c.ed(aVar.lHw), TbConfig.SERVER_ADDRESS + TbConfig.URL_POST_VIDEO_MONITOR_REPORT);
-            com.baidu.tieba.k.d.Mz(aVar.uuid);
+            c.e(c.ed(aVar.lHJ), TbConfig.SERVER_ADDRESS + TbConfig.URL_POST_VIDEO_MONITOR_REPORT);
+            com.baidu.tieba.k.d.MA(aVar.uuid);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -149,7 +149,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static synchronized String nh(String str) {
+    public static synchronized String ni(String str) {
         FileLock fileLock;
         BufferedReader bufferedReader;
         Throwable th;

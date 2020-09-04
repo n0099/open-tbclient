@@ -85,6 +85,6 @@ public class c extends a {
     }
 
     @Override // com.baidu.swan.apps.inlinewidget.f.c.a
-    public void nd(String str) {
+    public void ne(String str) {
     }
 }

@@ -5,92 +5,92 @@ import com.baidu.live.adp.base.BdBaseView;
 import com.baidu.live.tbadk.BaseActivity;
 /* loaded from: classes7.dex */
 public class a extends BdBaseView<BaseActivity> {
-    private AlbumActivity boI;
-    private String boP;
-    private String boQ;
-    private String[] boR;
-    private j boS;
-    private h boT;
+    private AlbumActivity boL;
+    private String boS;
+    private String boT;
+    private String[] boU;
+    private j boV;
+    private h boW;
 
     public a(AlbumActivity albumActivity) {
         super(albumActivity.getPageContext());
-        this.boP = "tag_image";
-        this.boQ = "tag_b_image";
-        this.boI = albumActivity;
+        this.boS = "tag_image";
+        this.boT = "tag_b_image";
+        this.boL = albumActivity;
     }
 
     public void OB() {
-        this.boR = new String[2];
-        this.boS = new j(this.boI.getPageContext(), this.boI);
-        this.boR[0] = this.boP;
-        this.boT = new h(this.boI.getPageContext(), this.boI);
-        this.boR[1] = this.boQ;
+        this.boU = new String[2];
+        this.boV = new j(this.boL.getPageContext(), this.boL);
+        this.boU[0] = this.boS;
+        this.boW = new h(this.boL.getPageContext(), this.boL);
+        this.boU[1] = this.boT;
     }
 
     public void onChangeSkinType(int i) {
-        this.boS.onChangeSkinType(i);
-        this.boT.onChangeSkinType(i);
+        this.boV.onChangeSkinType(i);
+        this.boW.onChangeSkinType(i);
     }
 
     public View OC() {
-        if (this.boS == null) {
+        if (this.boV == null) {
             return null;
         }
-        return this.boS.OT();
+        return this.boV.OT();
     }
 
     public View OD() {
-        if (this.boS == null) {
+        if (this.boV == null) {
             return null;
         }
-        return this.boS.OX();
+        return this.boV.OX();
     }
 
     public View OE() {
-        if (this.boT == null) {
+        if (this.boW == null) {
             return null;
         }
-        return this.boT.OT();
+        return this.boW.OT();
     }
 
     public View OF() {
-        if (this.boT == null) {
+        if (this.boW == null) {
             return null;
         }
-        return this.boT.OU();
+        return this.boW.OU();
     }
 
     public View OG() {
-        if (this.boT == null) {
+        if (this.boW == null) {
             return null;
         }
-        return this.boT.OG();
+        return this.boW.OG();
     }
 
     public View OH() {
-        if (this.boS == null) {
+        if (this.boV == null) {
             return null;
         }
-        return this.boS.OG();
+        return this.boV.OG();
     }
 
     public void onDestroy() {
     }
 
     public h OI() {
-        return this.boT;
+        return this.boW;
     }
 
     public j OJ() {
-        return this.boS;
+        return this.boV;
     }
 
-    public void cy(boolean z) {
-        if (this.boT != null) {
-            this.boT.cy(z);
+    public void cz(boolean z) {
+        if (this.boW != null) {
+            this.boW.cz(z);
         }
-        if (this.boS != null) {
-            this.boS.cy(z);
+        if (this.boV != null) {
+            this.boV.cz(z);
         }
     }
 }

@@ -8,11 +8,11 @@ import java.net.URL;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
 public final class q implements Runnable {
-    final /* synthetic */ Context aoV;
+    final /* synthetic */ Context aoX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(Context context) {
-        this.aoV = context;
+        this.aoX = context;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:36:0x00b9 A[Catch: Exception -> 0x00bd, TRY_LEAVE, TryCatch #3 {Exception -> 0x00bd, blocks: (B:34:0x00b4, B:36:0x00b9), top: B:51:0x00b4, outer: #7 }] */
@@ -69,9 +69,9 @@ public final class q implements Runnable {
             dataOutputStream.close();
             if (httpURLConnection2.getResponseCode() == 200) {
                 com.baidu.crabsdk.b.n.clear();
-                com.baidu.crabsdk.c.a.ds("#### ^@^ sync ok!");
+                com.baidu.crabsdk.c.a.dt("#### ^@^ sync ok!");
             } else {
-                com.baidu.crabsdk.c.a.ds("#### T^T sync failed!");
+                com.baidu.crabsdk.c.a.dt("#### T^T sync failed!");
             }
             httpURLConnection2.disconnect();
             try {

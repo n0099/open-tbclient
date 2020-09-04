@@ -32,29 +32,29 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class b implements com.baidu.live.y.c {
-    private static volatile b gJf = null;
-    private Dialog aXw;
+    private static volatile b gJj = null;
+    private Dialog aXy;
     private long currLiveId;
-    private boolean gJg = false;
-    private boolean gJh = false;
+    private boolean gJk = false;
+    private boolean gJl = false;
     private Handler handler = new Handler();
     private long startTime;
 
-    public static b bWA() {
-        if (gJf == null) {
+    public static b bWB() {
+        if (gJj == null) {
             synchronized (b.class) {
-                if (gJf == null) {
-                    gJf = new b();
+                if (gJj == null) {
+                    gJj = new b();
                 }
             }
         }
-        return gJf;
+        return gJj;
     }
 
     @Override // com.baidu.live.y.c
     public void Fd() {
-        if (this.aXw != null && this.aXw.isShowing()) {
-            Context context = this.aXw.getContext();
+        if (this.aXy != null && this.aXy.isShowing()) {
+            Context context = this.aXy.getContext();
             if (context != null) {
                 if (context instanceof Activity) {
                     Activity activity = (Activity) context;
@@ -66,20 +66,20 @@ public class b implements com.baidu.live.y.c {
                         return;
                     }
                 }
-                this.aXw.dismiss();
+                this.aXy.dismiss();
             } else {
                 return;
             }
         }
-        this.aXw = null;
+        this.aXy = null;
     }
 
     @Override // com.baidu.live.y.c
     public void b(final Context context, final long j, long j2, String str, String str2) {
         if (TbConfig.FLOWER_GUIDE_STATUS != 2) {
             this.currLiveId = 0L;
-            this.gJg = false;
-            this.gJh = false;
+            this.gJk = false;
+            this.gJl = false;
             if (!isEnable(str2)) {
                 if (TbConfig.FLOWER_GUIDE_STATUS != 2) {
                     TbConfig.FLOWER_GUIDE_STATUS = 0;
@@ -90,7 +90,7 @@ public class b implements com.baidu.live.y.c {
             TbConfig.FLOWER_GUIDE_STATUS = 1;
             this.currLiveId = j;
             this.startTime = System.currentTimeMillis();
-            this.gJh = true;
+            this.gJl = true;
             if (isDebug()) {
                 this.handler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.task.b.1
                     @Override // java.lang.Runnable
@@ -115,8 +115,8 @@ public class b implements com.baidu.live.y.c {
     @Override // com.baidu.live.y.c
     public void a(Context context, long j, int[] iArr) {
         boolean isDebug = isDebug();
-        if (this.gJh && this.startTime > 0 && this.currLiveId == j) {
-            if ((!this.gJg || TbadkCoreApplication.getInst().currentAccountFlowerNum <= 0 || isDebug) && TbadkCoreApplication.isLogin()) {
+        if (this.gJl && this.startTime > 0 && this.currLiveId == j) {
+            if ((!this.gJk || TbadkCoreApplication.getInst().currentAccountFlowerNum <= 0 || isDebug) && TbadkCoreApplication.isLogin()) {
                 long j2 = 60;
                 if (isDebug) {
                     j2 = 3;
@@ -163,8 +163,8 @@ public class b implements com.baidu.live.y.c {
                 return;
             }
         }
-        if (this.aXw != null && this.aXw.isShowing()) {
-            this.aXw.dismiss();
+        if (this.aXy != null && this.aXy.isShowing()) {
+            this.aXy.dismiss();
         }
         View inflate = LayoutInflater.from(context).inflate(a.h.dialog_flower_guide, (ViewGroup) null);
         final Dialog dialog = new Dialog(context, a.j.FlowerGuideDialogStyle);
@@ -216,8 +216,8 @@ public class b implements com.baidu.live.y.c {
         });
         try {
             dialog.show();
-            this.aXw = dialog;
-            this.gJh = false;
+            this.aXy = dialog;
+            this.gJl = false;
             com.baidu.live.c.AD().putInt("showtimes_flower_task_dialog", com.baidu.live.c.AD().getInt("showtimes_flower_task_dialog", 0) + 1);
         } catch (Exception e) {
             e.printStackTrace();
@@ -227,7 +227,7 @@ public class b implements com.baidu.live.y.c {
     /* JADX INFO: Access modifiers changed from: private */
     public void eP(Context context) {
         e eVar = new e();
-        eVar.bkp = true;
+        eVar.bks = true;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913220, eVar));
     }
 
@@ -242,7 +242,7 @@ public class b implements com.baidu.live.y.c {
         bo boVar;
         bq bqVar;
         boolean isDebug = isDebug();
-        if ((!TbadkCoreApplication.getInst().isHaokan() && !TbadkCoreApplication.getInst().isQuanmin()) || !TbadkCoreApplication.isLogin() || (beVar = com.baidu.live.w.a.Nk().bka) == null || (boVar = beVar.aJy) == null || (bqVar = boVar.aKt) == null) {
+        if ((!TbadkCoreApplication.getInst().isHaokan() && !TbadkCoreApplication.getInst().isQuanmin()) || !TbadkCoreApplication.isLogin() || (beVar = com.baidu.live.w.a.Nk().bkd) == null || (boVar = beVar.aJA) == null || (bqVar = boVar.aKv) == null) {
             return false;
         }
         if (!(bqVar.isShow == 1)) {
@@ -252,7 +252,7 @@ public class b implements com.baidu.live.y.c {
             TbConfig.FLOWER_GUIDE_STATUS = 2;
             return false;
         } else {
-            boolean z = bqVar.aKC == 1;
+            boolean z = bqVar.aKE == 1;
             long j = TbadkCoreApplication.getInst().currentAccountFlowerNum;
             if (z) {
                 if (TbadkCoreApplication.getInst().isHaokan()) {
@@ -274,12 +274,12 @@ public class b implements com.baidu.live.y.c {
                     if (j > 0 && !isDebug) {
                         return false;
                     }
-                    this.gJg = true;
+                    this.gJk = true;
                 }
             } else if (j > 0 && !isDebug) {
                 return false;
             } else {
-                this.gJg = true;
+                this.gJk = true;
             }
             return true;
         }
@@ -288,8 +288,8 @@ public class b implements com.baidu.live.y.c {
     @Override // com.baidu.live.y.c
     public void release() {
         this.currLiveId = 0L;
-        this.gJg = false;
-        this.gJh = false;
+        this.gJk = false;
+        this.gJl = false;
         TbConfig.FLOWER_GUIDE_STATUS = 0;
         this.handler.removeCallbacksAndMessages(null);
         Fd();

@@ -12,20 +12,20 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PayWalletActivityConfig;
 import com.baidu.tbadk.core.util.be;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c {
-    private static c eRr = null;
+    private static c eRv = null;
 
     private c() {
     }
 
-    public static synchronized c buc() {
+    public static synchronized c bud() {
         c cVar;
         synchronized (c.class) {
-            if (eRr == null) {
-                eRr = new c();
+            if (eRv == null) {
+                eRv = new c();
             }
-            cVar = eRr;
+            cVar = eRv;
         }
         return cVar;
     }

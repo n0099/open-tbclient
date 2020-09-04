@@ -53,8 +53,8 @@ public class b {
             @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
             public boolean onPreDownload(DownloadData downloadData2) {
                 c cVar = new c();
-                cVar.aLP = 1;
-                cVar.aLQ = downloadData2;
+                cVar.aLR = 1;
+                cVar.aLS = downloadData2;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar));
                 return true;
             }
@@ -62,8 +62,8 @@ public class b {
             @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
             public boolean onFileDownloaded(DownloadData downloadData2) {
                 c cVar = new c();
-                cVar.aLP = 4;
-                cVar.aLQ = downloadData2;
+                cVar.aLR = 4;
+                cVar.aLS = downloadData2;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar));
                 return true;
             }
@@ -105,8 +105,8 @@ public class b {
                 }
                 UbcStatisticManager.getInstance().logSendResponse(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_DOWN_RES_RESP, UbcStatConstant.ContentType.UBC_TYPE_RES_DOWN, "liveroom", "").setContentExt(jSONObject), null, true);
                 c cVar = new c();
-                cVar.aLP = 2;
-                cVar.aLQ = downloadData2;
+                cVar.aLR = 2;
+                cVar.aLS = downloadData2;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar));
             }
         });
@@ -173,14 +173,14 @@ public class b {
                 if (bool.booleanValue()) {
                     if (a.existFile(str)) {
                         c cVar = new c();
-                        cVar.aLP = 5;
-                        cVar.aLQ = DownloadData.this;
+                        cVar.aLR = 5;
+                        cVar.aLS = DownloadData.this;
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar));
                         return;
                     }
                     c cVar2 = new c();
-                    cVar2.aLP = 6;
-                    cVar2.aLQ = DownloadData.this;
+                    cVar2.aLR = 6;
+                    cVar2.aLS = DownloadData.this;
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar2));
                     BdLog.e("zip empty");
                     return;
@@ -190,7 +190,7 @@ public class b {
         }.execute(new Void[0]);
     }
 
-    public static ArrayList<String> fT(String str) {
+    public static ArrayList<String> fU(String str) {
         ArrayList<String> arrayList = null;
         String string = com.baidu.live.c.AD().getSharedPreferences().getString(str, null);
         if (string == null) {

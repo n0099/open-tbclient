@@ -16,14 +16,14 @@ import com.tb.airbnb.lottie.LottieAnimationView;
 import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public class a implements com.baidu.h.a.d.a {
-    private int bwf;
-    private int bwg;
+    private int bwi;
+    private int bwj;
 
     @Override // com.baidu.h.a.d.a
     public void a(final Activity activity, a.InterfaceC0132a interfaceC0132a) {
         TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-        this.bwf = inst.getResources().getDimensionPixelSize(a.C0203a.like_explosion_size);
-        this.bwg = inst.getResources().getDimensionPixelSize(a.C0203a.like_heart_size);
+        this.bwi = inst.getResources().getDimensionPixelSize(a.C0203a.like_explosion_size);
+        this.bwj = inst.getResources().getDimensionPixelSize(a.C0203a.like_heart_size);
         final HeartSurfaceView heartSurfaceView = new HeartSurfaceView(inst);
         heartSurfaceView.setZOrderOnTop(true);
         heartSurfaceView.getHolder().setFormat(-3);
@@ -80,12 +80,12 @@ public class a implements com.baidu.h.a.d.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public RelativeLayout.LayoutParams a(ViewGroup viewGroup, View view, int i, int i2) {
-        int i3 = (this.bwf - this.bwg) / 2;
+        int i3 = (this.bwi - this.bwj) / 2;
         int left = (view.getLeft() + i) - i3;
         int top = (view.getTop() + i2) - i3;
-        int width = viewGroup.getWidth() - (this.bwf + left);
-        int height = viewGroup.getHeight() - (this.bwf + top);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.bwf, this.bwf);
+        int width = viewGroup.getWidth() - (this.bwi + left);
+        int height = viewGroup.getHeight() - (this.bwi + top);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.bwi, this.bwi);
         layoutParams.setMargins(left, top, width, height);
         return layoutParams;
     }

@@ -130,11 +130,16 @@ public class BdBitmapHelper {
             }
             Matrix matrix = new Matrix();
             matrix.postScale(f, f);
-            Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
-            if (createBitmap != bitmap) {
-                bitmap.recycle();
+            try {
+                Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
+                if (createBitmap != bitmap) {
+                    bitmap.recycle();
+                }
+                return createBitmap;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return bitmap;
             }
-            return createBitmap;
         }
         return bitmap;
     }

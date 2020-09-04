@@ -4,9 +4,9 @@ import com.baidu.swan.games.i.n;
 import com.baidu.swan.games.l.a;
 /* loaded from: classes8.dex */
 public class g extends a {
-    public void mh(String str) {
-        a.c.ng(str);
-        n.vp(str);
-        com.baidu.swan.games.w.b.vQ(str);
+    public void mi(String str) {
+        a.c.nh(str);
+        n.vq(str);
+        com.baidu.swan.games.w.b.vR(str);
     }
 }

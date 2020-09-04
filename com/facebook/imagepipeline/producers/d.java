@@ -9,35 +9,35 @@ import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes8.dex */
 public class d implements ak {
     @GuardedBy("this")
-    private boolean ezd = false;
+    private boolean ezh = false;
     @GuardedBy("this")
     private final List<al> mCallbacks = new ArrayList();
     private final String mId;
-    private final Object nmD;
-    private final ImageRequest nmE;
+    private final Object nmV;
+    private final ImageRequest nmW;
     @GuardedBy("this")
-    private boolean nmO;
-    private final am nxN;
-    private final ImageRequest.RequestLevel nxO;
+    private boolean nng;
+    private final am nyf;
+    private final ImageRequest.RequestLevel nyg;
     @GuardedBy("this")
-    private Priority nxP;
+    private Priority nyh;
     @GuardedBy("this")
-    private boolean nxQ;
+    private boolean nyi;
 
     public d(ImageRequest imageRequest, String str, am amVar, Object obj, ImageRequest.RequestLevel requestLevel, boolean z, boolean z2, Priority priority) {
-        this.nmE = imageRequest;
+        this.nmW = imageRequest;
         this.mId = str;
-        this.nxN = amVar;
-        this.nmD = obj;
-        this.nxO = requestLevel;
-        this.nmO = z;
-        this.nxP = priority;
-        this.nxQ = z2;
+        this.nyf = amVar;
+        this.nmV = obj;
+        this.nyg = requestLevel;
+        this.nng = z;
+        this.nyh = priority;
+        this.nyi = z2;
     }
 
     @Override // com.facebook.imagepipeline.producers.ak
-    public ImageRequest dVo() {
-        return this.nmE;
+    public ImageRequest dVx() {
+        return this.nmW;
     }
 
     @Override // com.facebook.imagepipeline.producers.ak
@@ -46,33 +46,33 @@ public class d implements ak {
     }
 
     @Override // com.facebook.imagepipeline.producers.ak
-    public am dVp() {
-        return this.nxN;
+    public am dVy() {
+        return this.nyf;
     }
 
     @Override // com.facebook.imagepipeline.producers.ak
-    public Object dPU() {
-        return this.nmD;
+    public Object dQd() {
+        return this.nmV;
     }
 
     @Override // com.facebook.imagepipeline.producers.ak
-    public ImageRequest.RequestLevel dVq() {
-        return this.nxO;
+    public ImageRequest.RequestLevel dVz() {
+        return this.nyg;
     }
 
     @Override // com.facebook.imagepipeline.producers.ak
-    public synchronized boolean dVr() {
-        return this.nmO;
+    public synchronized boolean dVA() {
+        return this.nng;
     }
 
     @Override // com.facebook.imagepipeline.producers.ak
-    public synchronized Priority dVs() {
-        return this.nxP;
+    public synchronized Priority dVB() {
+        return this.nyh;
     }
 
     @Override // com.facebook.imagepipeline.producers.ak
-    public synchronized boolean dVt() {
-        return this.nxQ;
+    public synchronized boolean dVC() {
+        return this.nyi;
     }
 
     @Override // com.facebook.imagepipeline.producers.ak
@@ -80,26 +80,26 @@ public class d implements ak {
         boolean z = false;
         synchronized (this) {
             this.mCallbacks.add(alVar);
-            if (this.ezd) {
+            if (this.ezh) {
                 z = true;
             }
         }
         if (z) {
-            alVar.dRG();
+            alVar.dRP();
         }
     }
 
     public void cancel() {
-        fK(dVu());
+        fK(dVD());
     }
 
     @Nullable
-    public synchronized List<al> ye(boolean z) {
+    public synchronized List<al> yg(boolean z) {
         ArrayList arrayList;
-        if (z == this.nmO) {
+        if (z == this.nng) {
             arrayList = null;
         } else {
-            this.nmO = z;
+            this.nng = z;
             arrayList = new ArrayList(this.mCallbacks);
         }
         return arrayList;
@@ -108,34 +108,34 @@ public class d implements ak {
     @Nullable
     public synchronized List<al> a(Priority priority) {
         ArrayList arrayList;
-        if (priority == this.nxP) {
+        if (priority == this.nyh) {
             arrayList = null;
         } else {
-            this.nxP = priority;
+            this.nyh = priority;
             arrayList = new ArrayList(this.mCallbacks);
         }
         return arrayList;
     }
 
     @Nullable
-    public synchronized List<al> yf(boolean z) {
+    public synchronized List<al> yh(boolean z) {
         ArrayList arrayList;
-        if (z == this.nxQ) {
+        if (z == this.nyi) {
             arrayList = null;
         } else {
-            this.nxQ = z;
+            this.nyi = z;
             arrayList = new ArrayList(this.mCallbacks);
         }
         return arrayList;
     }
 
     @Nullable
-    public synchronized List<al> dVu() {
+    public synchronized List<al> dVD() {
         ArrayList arrayList;
-        if (this.ezd) {
+        if (this.ezh) {
             arrayList = null;
         } else {
-            this.ezd = true;
+            this.ezh = true;
             arrayList = new ArrayList(this.mCallbacks);
         }
         return arrayList;
@@ -144,7 +144,7 @@ public class d implements ak {
     public static void fK(@Nullable List<al> list) {
         if (list != null) {
             for (al alVar : list) {
-                alVar.dRG();
+                alVar.dRP();
             }
         }
     }
@@ -152,7 +152,7 @@ public class d implements ak {
     public static void fL(@Nullable List<al> list) {
         if (list != null) {
             for (al alVar : list) {
-                alVar.dVv();
+                alVar.dVE();
             }
         }
     }
@@ -160,7 +160,7 @@ public class d implements ak {
     public static void fM(@Nullable List<al> list) {
         if (list != null) {
             for (al alVar : list) {
-                alVar.dVw();
+                alVar.dVF();
             }
         }
     }
@@ -168,7 +168,7 @@ public class d implements ak {
     public static void fN(@Nullable List<al> list) {
         if (list != null) {
             for (al alVar : list) {
-                alVar.dVx();
+                alVar.dVG();
             }
         }
     }

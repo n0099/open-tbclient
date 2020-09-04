@@ -47,18 +47,18 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
 
     private void a(com.baidu.tieba.hottopic.a.a aVar, final com.baidu.tieba.hottopic.data.b bVar) {
         if (aVar != null && bVar != null) {
-            String string = StringUtils.isNull(bVar.czU()) ? this.mContext.getResources().getString(R.string.hot_topic_hot_trend) : bVar.czU();
-            aVar.jal.setText(bVar.czT());
-            aVar.jaj.setText(string);
-            aVar.jap.startLoad(bVar.czS(), 10, false);
+            String string = StringUtils.isNull(bVar.czV()) ? this.mContext.getResources().getString(R.string.hot_topic_hot_trend) : bVar.czV();
+            aVar.jar.setText(bVar.czU());
+            aVar.jap.setText(string);
+            aVar.jav.startLoad(bVar.czT(), 10, false);
             if (StringUtils.isNull(bVar.getName())) {
-                aVar.jak.setVisibility(8);
-                aVar.jal.setPadding(0, 0, 0, 0);
+                aVar.jaq.setVisibility(8);
+                aVar.jar.setPadding(0, 0, 0, 0);
             } else {
-                aVar.jak.setVisibility(0);
-                aVar.jak.setText(bVar.getName());
+                aVar.jaq.setVisibility(0);
+                aVar.jaq.setText(bVar.getName());
             }
-            aVar.jaq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.c.1
+            aVar.jaw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.c.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotTopicActivityConfig(view.getContext()).createNormalConfig(String.valueOf(bVar.getId()), bVar.getName(), "5")));
@@ -71,15 +71,15 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
     private void a(com.baidu.tieba.hottopic.a.a aVar) {
         if (aVar != null) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-            if (aVar.aiB != this.mSkinType) {
-                aVar.aiB = this.mSkinType;
+            if (aVar.aiD != this.mSkinType) {
+                aVar.aiD = this.mSkinType;
                 ap.setBackgroundColor(aVar.getView(), R.color.cp_bg_line_d);
-                ap.setViewTextColor(aVar.jaj, R.color.cp_cont_d, 1);
-                ap.setViewTextColor(aVar.jak, R.color.cp_cont_b, 1);
-                ap.setViewTextColor(aVar.jal, R.color.cp_cont_c, 1);
-                ap.setBackgroundColor(aVar.jan, R.color.cp_bg_line_c);
-                ap.setBackgroundColor(aVar.jao, R.color.cp_bg_line_c);
-                ap.setBackgroundResource(aVar.jaq, R.drawable.hot_topic_ranklist_bg);
+                ap.setViewTextColor(aVar.jap, R.color.cp_cont_d, 1);
+                ap.setViewTextColor(aVar.jaq, R.color.cp_cont_b, 1);
+                ap.setViewTextColor(aVar.jar, R.color.cp_cont_c, 1);
+                ap.setBackgroundColor(aVar.jat, R.color.cp_bg_line_c);
+                ap.setBackgroundColor(aVar.jau, R.color.cp_bg_line_c);
+                ap.setBackgroundResource(aVar.jaw, R.drawable.hot_topic_ranklist_bg);
             }
         }
     }

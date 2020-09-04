@@ -4,20 +4,20 @@ import com.baidu.rtc.camera.engine.model.AspectRatio;
 import io.flutter.plugin.platform.PlatformPlugin;
 /* loaded from: classes11.dex */
 public final class b {
-    private static final b bNK = new b();
-    public int bNA;
-    public int bNB;
-    public int bNC;
-    public int bND;
+    private static final b bNO = new b();
+    public boolean bNB;
+    public AspectRatio bNC;
+    public float bND;
     public int bNE;
     public int bNF;
-    public boolean bNG;
-    public boolean bNH;
-    public com.baidu.rtc.camera.engine.b.a bNI;
-    public com.baidu.rtc.camera.engine.b.b bNJ;
-    public boolean bNx;
-    public AspectRatio bNy;
-    public float bNz;
+    public int bNG;
+    public int bNH;
+    public int bNI;
+    public int bNJ;
+    public boolean bNK;
+    public boolean bNL;
+    public com.baidu.rtc.camera.engine.b.a bNM;
+    public com.baidu.rtc.camera.engine.b.b bNN;
     public int cameraId;
     public int orientation;
 
@@ -26,30 +26,29 @@ public final class b {
     }
 
     private void reset() {
-        this.bNx = false;
-        this.bNy = AspectRatio.Ratio_16_9;
-        this.bNz = 0.5625f;
-        this.bNA = 30;
-        this.bNB = 0;
-        this.bNC = PlatformPlugin.DEFAULT_SYSTEM_UI;
-        this.bND = 720;
-        this.bNE = 0;
+        this.bNB = false;
+        this.bNC = AspectRatio.Ratio_16_9;
+        this.bND = 0.5625f;
+        this.bNE = 30;
         this.bNF = 0;
+        this.bNG = PlatformPlugin.DEFAULT_SYSTEM_UI;
+        this.bNH = 720;
+        this.bNI = 0;
+        this.bNJ = 0;
         this.orientation = 0;
-        this.bNG = false;
+        this.bNK = false;
         this.cameraId = 1;
-        this.bNH = false;
-        this.bNI = null;
-        this.bNJ = null;
+        this.bNL = false;
+        this.bNM = null;
+        this.bNN = null;
     }
 
     public static b WH() {
-        return bNK;
+        return bNO;
     }
 
-    /* renamed from: do  reason: not valid java name */
-    public void m32do(boolean z) {
-        this.bNG = z;
+    public void dp(boolean z) {
+        this.bNK = z;
         if (z) {
             this.cameraId = 0;
         } else {

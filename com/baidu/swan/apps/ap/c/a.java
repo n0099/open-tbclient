@@ -13,20 +13,20 @@ import java.util.Set;
 /* loaded from: classes8.dex */
 public final class a implements c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private ClassLoader dbX;
-    private final Object[] dce;
-    private final Set<b<?>> dbV = new HashSet();
-    private final Set<Object> dbW = new HashSet();
-    private int dbY = 0;
-    private int dbZ = 0;
-    private int dca = 0;
-    private int dcb = 0;
-    private int dcc = -1;
+    private ClassLoader dcb;
+    private final Object[] dci;
+    private final Set<b<?>> dbZ = new HashSet();
+    private final Set<Object> dca = new HashSet();
+    private int dcc = 0;
     private int dcd = 0;
+    private int dce = 0;
+    private int dcf = 0;
+    private int dcg = -1;
+    private int dch = 0;
 
     private a(ClassLoader classLoader, Object... objArr) {
-        this.dbX = classLoader;
-        this.dce = objArr == null ? new Object[0] : objArr;
+        this.dcb = classLoader;
+        this.dci = objArr == null ? new Object[0] : objArr;
     }
 
     public static a a(ClassLoader classLoader, Object... objArr) {
@@ -34,12 +34,12 @@ public final class a implements c {
     }
 
     public boolean aFG() {
-        return this.dcd > 0;
+        return this.dch > 0;
     }
 
     public a a(b<?>... bVarArr) {
         if (bVarArr != null) {
-            this.dbV.addAll(Arrays.asList(bVarArr));
+            this.dbZ.addAll(Arrays.asList(bVarArr));
         }
         return this;
     }
@@ -47,8 +47,8 @@ public final class a implements c {
     public a kq(int i) {
         Object[] objArr;
         if (!aFG() && i > 0) {
-            this.dcd = i;
-            for (Object obj : this.dce) {
+            this.dch = i;
+            for (Object obj : this.dci) {
                 if (obj instanceof Class) {
                     a(i, (Class) obj);
                 } else if (obj instanceof Annotation) {
@@ -64,50 +64,50 @@ public final class a implements c {
                 }
             }
         }
-        this.dcd = 0;
+        this.dch = 0;
         return this;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a a(int i, @NonNull Class<?>... clsArr) {
-        return a(dcf, i, clsArr);
+        return a(dcj, i, clsArr);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a a(int i, @NonNull Package... packageArr) {
-        return a(dcg, i, packageArr);
+        return a(dck, i, packageArr);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a a(int i, @NonNull Annotation... annotationArr) {
-        return a(dch, i, annotationArr);
+        return a(dcl, i, annotationArr);
     }
 
     public a a(int i, @NonNull Method... methodArr) {
-        return a(dcj, i, methodArr);
+        return a(dcn, i, methodArr);
     }
 
     public a a(int i, @NonNull Field... fieldArr) {
-        return a(dci, i, fieldArr);
+        return a(dcm, i, fieldArr);
     }
 
     public a a(int i, Constructor<?>... constructorArr) {
-        return a(dck, i, constructorArr);
+        return a(dco, i, constructorArr);
     }
 
     @RequiresApi(api = 26)
     public a a(int i, Parameter... parameterArr) {
-        return a(dcl, i, parameterArr);
+        return a(dcp, i, parameterArr);
     }
 
     @SafeVarargs
     private final <TargeT> a a(@NonNull b<TargeT> bVar, int i, TargeT... targetArr) {
-        if (!this.dbV.contains(bVar)) {
+        if (!this.dbZ.contains(bVar)) {
             int i2 = i - 1;
             if (i > 0 && targetArr != null && targetArr.length > 0) {
                 for (TargeT target : targetArr) {
                     if (X(target)) {
-                        bVar.a(this, this.dbX, i2, target);
+                        bVar.a(this, this.dcb, i2, target);
                     }
                 }
             }
@@ -116,15 +116,15 @@ public final class a implements c {
     }
 
     private <TargeT> boolean X(TargeT target) {
-        this.dbY++;
+        this.dcc++;
         if (target == null) {
-            this.dca++;
+            this.dce++;
             return false;
-        } else if (this.dbW.contains(target)) {
-            this.dbZ++;
+        } else if (this.dca.contains(target)) {
+            this.dcd++;
             return false;
         } else {
-            this.dbW.add(target);
+            this.dca.add(target);
             return true;
         }
     }

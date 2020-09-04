@@ -1,5 +1,5 @@
 package com.baidu.tieba.im.util;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class d {
     public static long ai(long j) {
         return 1 + j;

@@ -14,55 +14,55 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.tbadvert.view.CountDownTextView;
 /* loaded from: classes20.dex */
 public class a {
-    private FrameLayout aht;
+    private FrameLayout ahv;
     private Context mContext;
-    private ImageView mjo;
-    private InterfaceC0811a mjp;
+    private ImageView mjD;
+    private InterfaceC0811a mjE;
 
     /* renamed from: com.baidu.tieba.tbadvert.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes20.dex */
     public interface InterfaceC0811a {
-        void dyd();
+        void dyi();
 
-        void dye();
+        void dyj();
     }
 
     public a(Context context, InterfaceC0811a interfaceC0811a) {
-        this.mjp = interfaceC0811a;
+        this.mjE = interfaceC0811a;
         this.mContext = context;
-        this.aht = new FrameLayout(context);
+        this.ahv = new FrameLayout(context);
     }
 
     public View getView() {
-        return this.aht;
+        return this.ahv;
     }
 
     public void f(Object obj, int i) {
         if (obj instanceof com.baidu.adp.widget.ImageView.a) {
             k((com.baidu.adp.widget.ImageView.a) obj);
         }
-        dyk();
+        dyp();
         If(i);
     }
 
     private void k(com.baidu.adp.widget.ImageView.a aVar) {
-        this.mjo = new ImageView(this.mContext);
-        this.mjo.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.mjD = new ImageView(this.mContext);
+        this.mjD.setScaleType(ImageView.ScaleType.CENTER_CROP);
         if (aVar != null) {
-            this.mjo.setImageBitmap(aVar.getRawBitmap());
+            this.mjD.setImageBitmap(aVar.getRawBitmap());
         }
-        this.mjo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadvert.view.a.1
+        this.mjD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadvert.view.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.mjp != null) {
-                    a.this.mjp.dyd();
+                if (a.this.mjE != null) {
+                    a.this.mjE.dyi();
                 }
             }
         });
-        this.aht.addView(this.mjo);
+        this.ahv.addView(this.mjD);
     }
 
-    private void dyk() {
+    private void dyp() {
         TextView textView = new TextView(this.mContext);
         textView.setText(R.string.tb_ad_label);
         int dimension = (int) this.mContext.getResources().getDimension(R.dimen.ds28);
@@ -78,7 +78,7 @@ public class a {
         textView.setBackgroundDrawable(gradientDrawable);
         layoutParams.gravity = 83;
         layoutParams.setMargins(dimension, 0, 0, (int) this.mContext.getResources().getDimension(R.dimen.ds28));
-        this.aht.addView(textView, layoutParams);
+        this.ahv.addView(textView, layoutParams);
     }
 
     private void If(int i) {
@@ -100,20 +100,20 @@ public class a {
         countDownTextView.ax(string, i);
         layoutParams.gravity = 53;
         layoutParams.setMargins(0, statusBarHeight, (int) this.mContext.getResources().getDimension(R.dimen.ds32), 0);
-        this.aht.addView(countDownTextView, layoutParams);
+        this.ahv.addView(countDownTextView, layoutParams);
         countDownTextView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadvert.view.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.mjp != null) {
-                    a.this.mjp.dye();
+                if (a.this.mjE != null) {
+                    a.this.mjE.dyj();
                 }
             }
         });
         countDownTextView.setTimeoutListener(new CountDownTextView.b() { // from class: com.baidu.tieba.tbadvert.view.a.3
             @Override // com.baidu.tieba.tbadvert.view.CountDownTextView.b
             public void bD(View view) {
-                if (a.this.mjp != null) {
-                    a.this.mjp.dye();
+                if (a.this.mjE != null) {
+                    a.this.mjE.dyj();
                 }
             }
         });

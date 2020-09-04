@@ -44,13 +44,13 @@ import java.util.List;
 /* loaded from: classes19.dex */
 public class SwanAppAbTestStatic {
     public static String Tag = "tag";
-    private static boolean fsx = false;
-    private static h fsy = new h<PrivacyPolicyEvent>() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.1
+    private static boolean fsB = false;
+    private static h fsC = new h<PrivacyPolicyEvent>() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tbadk.mutiprocess.b
         public boolean a(PrivacyPolicyEvent privacyPolicyEvent) {
             if (privacyPolicyEvent != null) {
-                SwanAppAbTestStatic.bCw();
+                SwanAppAbTestStatic.bCx();
             }
             return true;
         }
@@ -58,9 +58,9 @@ public class SwanAppAbTestStatic {
 
     static {
         if (ae.biY()) {
-            bCw();
+            bCx();
         } else {
-            g.btm().a(PrivacyPolicyEvent.class, fsy, BdUniqueId.gen());
+            g.btn().a(PrivacyPolicyEvent.class, fsC, BdUniqueId.gen());
         }
         CustomMessageTask customMessageTask = new CustomMessageTask(2921361, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -157,7 +157,7 @@ public class SwanAppAbTestStatic {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SAPI_INIT, TbadkCoreApplication.getInst().getApp()));
                 }
                 if (!SapiAccountManager.getInstance().isLogin()) {
-                    com.baidu.tieba.aiapps.apps.a.a.bCx().a((GetUserInfoResult) null);
+                    com.baidu.tieba.aiapps.apps.a.a.bCy().a((GetUserInfoResult) null);
                 }
                 SapiAccountManager.getInstance().getAccountService().getUserInfo(new GetUserInfoCallback() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.5.1
                     /* JADX DEBUG: Method merged with bridge method */
@@ -173,7 +173,7 @@ public class SwanAppAbTestStatic {
                         com.baidu.swan.apps.storage.c.h.aDf().putString("bd_box_avatar_url", getUserInfoResult.portraitHttps);
                         com.baidu.swan.apps.storage.c.h.aDf().putString("bd_box_bduss", SapiAccountManager.getInstance().getSession().bduss);
                         com.baidu.swan.apps.storage.c.h.aDf().putString("bd_box_ptoken", SapiAccountManager.getInstance().getSession().getPtoken());
-                        com.baidu.tieba.aiapps.apps.a.a.bCx().a(getUserInfoResult);
+                        com.baidu.tieba.aiapps.apps.a.a.bCy().a(getUserInfoResult);
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
@@ -194,17 +194,17 @@ public class SwanAppAbTestStatic {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void bCw() {
-        if (!fsx) {
-            fsx = true;
+    public static void bCx() {
+        if (!fsB) {
+            fsB = true;
             SwanAppInitHelper.initModules(TbadkCoreApplication.getInst(), false);
             if (Build.VERSION.SDK_INT > 21 && !TbadkCoreApplication.getInst().isRemoteProcess()) {
-                com.baidu.tieba.aiapps.apps.i.a.bDl();
-                if (ProcessUtils.isMainProcess() && !c.dPq()) {
+                com.baidu.tieba.aiapps.apps.i.a.bDm();
+                if (ProcessUtils.isMainProcess() && !c.dPz()) {
                     c.initialize(AppRuntime.getAppContext());
                 }
-                com.baidu.tieba.aiapps.apps.a.a.bCx().init(TbadkCoreApplication.getInst());
-                com.baidu.tieba.aiapps.apps.share.c.bDj().eG(TbadkCoreApplication.getInst());
+                com.baidu.tieba.aiapps.apps.a.a.bCy().init(TbadkCoreApplication.getInst());
+                com.baidu.tieba.aiapps.apps.share.c.bDk().eG(TbadkCoreApplication.getInst());
                 b.ag(TbadkCoreApplication.getInst()).b(new com.baidu.helios.c<String>() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.6
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.helios.c

@@ -8,7 +8,7 @@ import java.util.List;
 import tbclient.LogTogether.AdReq;
 import tbclient.LogTogether.DataReq;
 import tbclient.LogTogether.LogTogetherReqIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class DistributeRequest extends NetMessage {
     private List<AdReq> adReqList;
 

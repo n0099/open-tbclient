@@ -51,7 +51,7 @@ public class g extends a {
         com.baidu.swan.apps.console.c.i("SwanAppCameraManager", "handleAuthorized start");
         com.baidu.swan.apps.ab.a.a(PermissionRequest.RESOURCE_VIDEO_CAPTURE, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 100, context, new com.baidu.swan.apps.ab.b() { // from class: com.baidu.swan.apps.camera.a.g.2
             @Override // com.baidu.swan.apps.ab.b
-            public void iF(String str) {
+            public void iG(String str) {
                 g.this.a(unitedSchemeEntity, callbackHandler, g.this.a(aVar));
                 com.baidu.swan.apps.console.c.e("SwanAppCameraManager", str + "");
             }
@@ -71,8 +71,8 @@ public class g extends a {
         if (aVar == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCameraManager", "Model is null");
         } else {
-            String str = aVar.bYI;
-            com.baidu.swan.apps.model.a.a.a aVar2 = aVar.caX;
+            String str = aVar.bYM;
+            com.baidu.swan.apps.model.a.a.a aVar2 = aVar.cbb;
             if (TextUtils.isEmpty(str) || aVar2 == null || !aVar2.isValid()) {
                 com.baidu.swan.apps.console.c.e("SwanAppCameraManager", "cameraId = " + str + " ; position = " + (aVar2 == null));
             } else {

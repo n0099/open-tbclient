@@ -14,15 +14,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes14.dex */
 public class e {
-    private static volatile IRemoteUBCService dJt;
-    private static Map<String, Integer> dJu = new HashMap();
-    private static Set<String> dJv = new HashSet();
+    private static volatile IRemoteUBCService dJx;
+    private static Map<String, Integer> dJy = new HashMap();
+    private static Set<String> dJz = new HashSet();
 
     static {
-        dJv.add("606");
-        dJv.add("671");
-        dJu.put("606", -1);
-        dJu.put("671", -1);
+        dJz.add("606");
+        dJz.add("671");
+        dJy.put("606", -1);
+        dJy.put("671", -1);
     }
 
     public static final l aVF() {
@@ -69,7 +69,7 @@ public class e {
         }
     }
 
-    public static final Flow xh(String str) {
+    public static final Flow xi(String str) {
         return j(str, "", 0);
     }
 
@@ -84,28 +84,28 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static IRemoteUBCService aVG() throws RemoteException {
-        if (dJt == null) {
+        if (dJx == null) {
             synchronized (e.class) {
-                if (dJt == null) {
+                if (dJx == null) {
                     IBinder E = IPCServiceManager.E("open_log", true);
                     if (E == null) {
                         throw new RemoteException("Ceres get remote service empty !");
                     }
                     if (E != null) {
-                        dJt = IRemoteUBCService.Stub.asInterface(E);
+                        dJx = IRemoteUBCService.Stub.asInterface(E);
                     }
                 }
             }
         }
-        return dJt;
+        return dJx;
     }
 
     private static String dl(String str, String str2) {
         l aVF;
         Integer valueOf;
-        if (dJv.contains(str) && (aVF = aVF()) != null && aVF.avo()) {
+        if (dJz.contains(str) && (aVF = aVF()) != null && aVF.avo()) {
             synchronized (e.class) {
-                Integer num = dJu.get(str);
+                Integer num = dJy.get(str);
                 if (num == null) {
                     num = -1;
                 }
@@ -123,7 +123,7 @@ public class e {
                     jSONObject.put("counter", valueOf);
                     str2 = jSONObject.toString();
                     u.aWn().putInt("ubc_counter" + str, valueOf.intValue());
-                    dJu.put(str, valueOf);
+                    dJy.put(str, valueOf);
                 } catch (JSONException e) {
                 }
             }
@@ -134,9 +134,9 @@ public class e {
     private static JSONObject k(String str, JSONObject jSONObject) {
         l aVF;
         Integer valueOf;
-        if (dJv.contains(str) && (aVF = aVF()) != null && aVF.avo()) {
+        if (dJz.contains(str) && (aVF = aVF()) != null && aVF.avo()) {
             synchronized (e.class) {
-                Integer num = dJu.get(str);
+                Integer num = dJy.get(str);
                 if (num == null) {
                     num = -1;
                 }
@@ -152,7 +152,7 @@ public class e {
                     }
                     jSONObject.put("counter", valueOf);
                     u.aWn().putInt("ubc_counter" + str, valueOf.intValue());
-                    dJu.put(str, valueOf);
+                    dJy.put(str, valueOf);
                 } catch (JSONException e) {
                 }
             }

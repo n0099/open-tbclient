@@ -15,7 +15,7 @@ public final class FlowableUnsubscribeOn<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.b.c<? super T> cVar) {
-        this.omB.a((j) new UnsubscribeSubscriber(cVar, this.scheduler));
+        this.omT.a((j) new UnsubscribeSubscriber(cVar, this.scheduler));
     }
 
     /* loaded from: classes7.dex */

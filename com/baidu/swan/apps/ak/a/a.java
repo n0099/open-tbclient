@@ -18,7 +18,7 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private final String cWL;
+    private final String cWP;
 
     public a() {
         String str;
@@ -31,9 +31,9 @@ public class a {
             str = "";
         }
         if (!TextUtils.isEmpty(str)) {
-            this.cWL = str + File.separator + "aiapps_folder/stability";
+            this.cWP = str + File.separator + "aiapps_folder/stability";
         } else {
-            this.cWL = "";
+            this.cWP = "";
         }
     }
 
@@ -61,11 +61,11 @@ public class a {
     }
 
     public File[] aCn() {
-        if (TextUtils.isEmpty(this.cWL)) {
+        if (TextUtils.isEmpty(this.cWP)) {
             return null;
         }
         try {
-            return new File(this.cWL).listFiles();
+            return new File(this.cWP).listFiles();
         } catch (Exception e) {
             if (DEBUG) {
                 Log.e("SwanStabilityTraceCache", "TraceCache Exception:", e);
@@ -111,9 +111,9 @@ public class a {
     }
 
     private File bH(long j) {
-        if (TextUtils.isEmpty(this.cWL)) {
+        if (TextUtils.isEmpty(this.cWP)) {
             return null;
         }
-        return new File(this.cWL + File.separator + (e.azK() == null ? "" : e.azK()) + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + j + "_swan_stability_traces.log");
+        return new File(this.cWP + File.separator + (e.azK() == null ? "" : e.azK()) + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + j + "_swan_stability_traces.log");
     }
 }

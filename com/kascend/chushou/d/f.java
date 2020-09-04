@@ -29,7 +29,7 @@ public final class f {
             q.l((Object) string, "Res.getString(id)");
             return string;
         } else if (str == null) {
-            q.egj();
+            q.egs();
             return str;
         } else {
             return str;

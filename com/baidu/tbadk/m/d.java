@@ -2,13 +2,13 @@ package com.baidu.tbadk.m;
 
 import com.baidu.adp.lib.util.StringUtils;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class d {
     private String abTag;
     private String currentPageKey;
-    public String eRi;
-    private String eRj;
-    public String eRk;
+    public String eRm;
+    private String eRn;
+    public String eRo;
     private long fid;
     public boolean isRouteStat = false;
     public String isVertical;
@@ -95,20 +95,20 @@ public class d {
         return this.task_id;
     }
 
-    public String btX() {
+    public String btY() {
         return this.abTag;
     }
 
-    public void Cu(String str) {
+    public void Cv(String str) {
         this.abTag = str;
     }
 
-    public String btY() {
-        return this.eRj;
+    public String btZ() {
+        return this.eRn;
     }
 
-    public void Cv(String str) {
-        this.eRj = str;
+    public void Cw(String str) {
+        this.eRn = str;
     }
 
     public boolean isDirtyData() {

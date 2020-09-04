@@ -12,8 +12,8 @@ import android.widget.FrameLayout;
 import com.baidu.swan.impl.map.location.h;
 /* loaded from: classes19.dex */
 public class FlipperFrameLayout extends FrameLayout implements h.a {
-    private h dBF;
-    private boolean dBN;
+    private h dBJ;
+    private boolean dBR;
     private float mLastY;
 
     public FlipperFrameLayout(@NonNull Context context) {
@@ -29,12 +29,12 @@ public class FlipperFrameLayout extends FrameLayout implements h.a {
     }
 
     public void setViewFlipper(h hVar) {
-        this.dBF = hVar;
+        this.dBJ = hVar;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.dBN || this.dBF == null) {
+        if (this.dBR || this.dBJ == null) {
             this.mLastY = motionEvent.getRawY();
             return super.onInterceptTouchEvent(motionEvent);
         }
@@ -49,11 +49,11 @@ public class FlipperFrameLayout extends FrameLayout implements h.a {
             case 2:
                 float rawY = motionEvent.getRawY() - this.mLastY;
                 boolean z = rawY <= 0.0f;
-                if (z && !this.dBF.isFlipped() && T(rawY)) {
-                    this.dBF.gW(true);
+                if (z && !this.dBJ.isFlipped() && T(rawY)) {
+                    this.dBJ.gX(true);
                     return true;
-                } else if (!z && aSa() && this.dBF.isFlipped() && T(rawY)) {
-                    this.dBF.gW(false);
+                } else if (!z && aSa() && this.dBJ.isFlipped() && T(rawY)) {
+                    this.dBJ.gX(false);
                     return true;
                 }
                 break;
@@ -74,12 +74,12 @@ public class FlipperFrameLayout extends FrameLayout implements h.a {
     }
 
     @Override // com.baidu.swan.impl.map.location.h.a
-    public void gU(boolean z) {
-        this.dBN = false;
+    public void gV(boolean z) {
+        this.dBR = false;
     }
 
     @Override // com.baidu.swan.impl.map.location.h.a
-    public void gV(boolean z) {
-        this.dBN = true;
+    public void gW(boolean z) {
+        this.dBR = true;
     }
 }

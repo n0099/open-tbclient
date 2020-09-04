@@ -11,7 +11,7 @@ public class h {
         if (e != null) {
             com.baidu.swan.apps.runtime.e azI = com.baidu.swan.apps.runtime.e.azI();
             if (azI == null) {
-                a(e, false, uz("internal error"));
+                a(e, false, uA("internal error"));
                 return;
             }
             try {
@@ -23,7 +23,7 @@ public class h {
                 a(e, true, "setInnerAudioOption:ok");
             } catch (Exception e2) {
                 com.baidu.swan.apps.console.c.e("InnerAudioOptionApi", "set swanApp global var error");
-                a(e, false, uz("internal error"));
+                a(e, false, uA("internal error"));
             }
         }
     }
@@ -34,7 +34,7 @@ public class h {
         com.baidu.swan.games.utils.b.a(cVar, z, bVar);
     }
 
-    private String uz(String str) {
+    private String uA(String str) {
         return String.format("setInnerAudioOption:fail %s", str);
     }
 }

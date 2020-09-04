@@ -27,29 +27,29 @@ import java.util.Queue;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class AlaChallengeMvpTipView extends LinearLayout {
-    private TranslateAnimation aPx;
-    private LinearLayout fum;
-    private final CustomMessageListener gvt;
-    private ImageView gvv;
-    private Queue<a> gvw;
-    private boolean gvx;
-    private final CustomMessageListener gvy;
+    private TranslateAnimation aPz;
+    private LinearLayout fuq;
+    private Queue<a> gvA;
+    private boolean gvB;
+    private final CustomMessageListener gvC;
+    private final CustomMessageListener gvx;
+    private ImageView gvz;
     private Handler handler;
     private TextView mContentText;
 
     /* loaded from: classes7.dex */
     public static class a {
         public CharSequence text;
-        public int gvE = 1;
+        public int gvI = 1;
         public long duration = 4500;
     }
 
     public AlaChallengeMvpTipView(Context context) {
         super(context);
-        this.gvw = new LinkedList();
+        this.gvA = new LinkedList();
         this.handler = new Handler();
-        this.gvx = false;
-        this.gvy = new CustomMessageListener(2913213) { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeMvpTipView.1
+        this.gvB = false;
+        this.gvC = new CustomMessageListener(2913213) { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeMvpTipView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -58,7 +58,7 @@ public class AlaChallengeMvpTipView extends LinearLayout {
                 }
             }
         };
-        this.gvt = new CustomMessageListener(2913205) { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeMvpTipView.2
+        this.gvx = new CustomMessageListener(2913205) { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeMvpTipView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -72,10 +72,10 @@ public class AlaChallengeMvpTipView extends LinearLayout {
 
     public AlaChallengeMvpTipView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gvw = new LinkedList();
+        this.gvA = new LinkedList();
         this.handler = new Handler();
-        this.gvx = false;
-        this.gvy = new CustomMessageListener(2913213) { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeMvpTipView.1
+        this.gvB = false;
+        this.gvC = new CustomMessageListener(2913213) { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeMvpTipView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -84,7 +84,7 @@ public class AlaChallengeMvpTipView extends LinearLayout {
                 }
             }
         };
-        this.gvt = new CustomMessageListener(2913205) { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeMvpTipView.2
+        this.gvx = new CustomMessageListener(2913205) { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeMvpTipView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -98,10 +98,10 @@ public class AlaChallengeMvpTipView extends LinearLayout {
 
     public AlaChallengeMvpTipView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.gvw = new LinkedList();
+        this.gvA = new LinkedList();
         this.handler = new Handler();
-        this.gvx = false;
-        this.gvy = new CustomMessageListener(2913213) { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeMvpTipView.1
+        this.gvB = false;
+        this.gvC = new CustomMessageListener(2913213) { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeMvpTipView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -110,7 +110,7 @@ public class AlaChallengeMvpTipView extends LinearLayout {
                 }
             }
         };
-        this.gvt = new CustomMessageListener(2913205) { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeMvpTipView.2
+        this.gvx = new CustomMessageListener(2913205) { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeMvpTipView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -125,26 +125,26 @@ public class AlaChallengeMvpTipView extends LinearLayout {
     private void init() {
         setPadding(getResources().getDimensionPixelOffset(a.e.sdk_ds12), 0, getResources().getDimensionPixelOffset(a.e.sdk_ds12), 0);
         LayoutInflater.from(getContext()).inflate(a.h.ala_challenge_mvp_tip_layout, (ViewGroup) this, true);
-        this.gvv = (ImageView) findViewById(a.g.id_challenge_mvp_tip_icon);
+        this.gvz = (ImageView) findViewById(a.g.id_challenge_mvp_tip_icon);
         this.mContentText = (TextView) findViewById(a.g.id_challenge_mvp_tip_content);
-        this.fum = (LinearLayout) findViewById(a.g.id_challenge_mvp_tip_content_layout);
+        this.fuq = (LinearLayout) findViewById(a.g.id_challenge_mvp_tip_content_layout);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public a bQB() {
-        return this.gvw.peek();
+    public a bQC() {
+        return this.gvA.peek();
     }
 
     public void next() {
         a poll;
-        if (!this.gvx && (poll = this.gvw.poll()) != null) {
+        if (!this.gvB && (poll = this.gvA.poll()) != null) {
             b(poll);
         }
     }
 
     public void a(a aVar) {
-        if (!TextUtils.isEmpty(aVar.text) && aVar.gvE > 0) {
-            this.gvw.add(aVar);
+        if (!TextUtils.isEmpty(aVar.text) && aVar.gvI > 0) {
+            this.gvA.add(aVar);
         }
     }
 
@@ -168,7 +168,7 @@ public class AlaChallengeMvpTipView extends LinearLayout {
             }
             if (spannableStringBuilder != null && spannableStringBuilder.length() > 0) {
                 a aVar = new a();
-                aVar.gvE = 3;
+                aVar.gvI = 3;
                 aVar.text = spannableStringBuilder;
                 a(aVar);
                 next();
@@ -211,7 +211,7 @@ public class AlaChallengeMvpTipView extends LinearLayout {
         valueOf.setSpan(new ForegroundColorSpan(getResources().getColor(a.d.sdk_color_F7E51B)), 4, optString.length() + 4, 33);
         spannableStringBuilder.append((CharSequence) valueOf);
         a aVar = new a();
-        aVar.gvE = 2;
+        aVar.gvI = 2;
         aVar.text = spannableStringBuilder;
         aVar.duration = 6000L;
         return aVar;
@@ -227,49 +227,49 @@ public class AlaChallengeMvpTipView extends LinearLayout {
     /* renamed from: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeMvpTipView$3  reason: invalid class name */
     /* loaded from: classes7.dex */
     public class AnonymousClass3 implements Runnable {
-        final /* synthetic */ int gvA;
-        final /* synthetic */ a gvB;
+        final /* synthetic */ int gvE;
+        final /* synthetic */ a gvF;
 
         AnonymousClass3(int i, a aVar) {
-            this.gvA = i;
-            this.gvB = aVar;
+            this.gvE = i;
+            this.gvF = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            int width = ((AlaChallengeMvpTipView.this.getWidth() - AlaChallengeMvpTipView.this.getPaddingLeft()) - AlaChallengeMvpTipView.this.getPaddingRight()) - AlaChallengeMvpTipView.this.gvv.getWidth();
-            int i = this.gvA;
+            int width = ((AlaChallengeMvpTipView.this.getWidth() - AlaChallengeMvpTipView.this.getPaddingLeft()) - AlaChallengeMvpTipView.this.getPaddingRight()) - AlaChallengeMvpTipView.this.gvz.getWidth();
+            int i = this.gvE;
             float f = -(((i - width) * 1.0f) / width);
             if (i < width) {
                 f = 0.0f;
             }
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) AlaChallengeMvpTipView.this.fum.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) AlaChallengeMvpTipView.this.fuq.getLayoutParams();
             if (i < width) {
                 layoutParams.width = -2;
-                AlaChallengeMvpTipView.this.fum.setLayoutParams(layoutParams);
+                AlaChallengeMvpTipView.this.fuq.setLayoutParams(layoutParams);
             } else {
                 layoutParams.width = i;
-                AlaChallengeMvpTipView.this.fum.setLayoutParams(layoutParams);
+                AlaChallengeMvpTipView.this.fuq.setLayoutParams(layoutParams);
             }
-            AlaChallengeMvpTipView.this.aPx = new TranslateAnimation(2, 0.0f, 2, f, 1, 0.0f, 1, 0.0f);
-            long j = this.gvB.duration;
+            AlaChallengeMvpTipView.this.aPz = new TranslateAnimation(2, 0.0f, 2, f, 1, 0.0f, 1, 0.0f);
+            long j = this.gvF.duration;
             if (j <= 0) {
                 j = 4500;
             }
-            AlaChallengeMvpTipView.this.aPx.setDuration(j);
-            AlaChallengeMvpTipView.this.aPx.setFillAfter(false);
-            AlaChallengeMvpTipView.this.aPx.setStartOffset(1000L);
-            AlaChallengeMvpTipView.this.aPx.setRepeatCount(this.gvB.gvE - 1);
-            AlaChallengeMvpTipView.this.aPx.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeMvpTipView.3.1
+            AlaChallengeMvpTipView.this.aPz.setDuration(j);
+            AlaChallengeMvpTipView.this.aPz.setFillAfter(false);
+            AlaChallengeMvpTipView.this.aPz.setStartOffset(1000L);
+            AlaChallengeMvpTipView.this.aPz.setRepeatCount(this.gvF.gvI - 1);
+            AlaChallengeMvpTipView.this.aPz.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeMvpTipView.3.1
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationStart(Animation animation) {
-                    AlaChallengeMvpTipView.this.gvx = true;
+                    AlaChallengeMvpTipView.this.gvB = true;
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    AlaChallengeMvpTipView.this.gvx = false;
-                    if (AlaChallengeMvpTipView.this.bQB() != null) {
+                    AlaChallengeMvpTipView.this.gvB = false;
+                    if (AlaChallengeMvpTipView.this.bQC() != null) {
                         AlaChallengeMvpTipView.this.handler.post(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeMvpTipView.3.1.1
                             @Override // java.lang.Runnable
                             public void run() {
@@ -285,31 +285,31 @@ public class AlaChallengeMvpTipView extends LinearLayout {
                 public void onAnimationRepeat(Animation animation) {
                 }
             });
-            AlaChallengeMvpTipView.this.fum.clearAnimation();
-            AlaChallengeMvpTipView.this.fum.startAnimation(AlaChallengeMvpTipView.this.aPx);
+            AlaChallengeMvpTipView.this.fuq.clearAnimation();
+            AlaChallengeMvpTipView.this.fuq.startAnimation(AlaChallengeMvpTipView.this.aPz);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        MessageManager.getInstance().registerListener(this.gvt);
-        MessageManager.getInstance().registerListener(this.gvy);
+        MessageManager.getInstance().registerListener(this.gvx);
+        MessageManager.getInstance().registerListener(this.gvC);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        MessageManager.getInstance().unRegisterListener(this.gvt);
-        MessageManager.getInstance().unRegisterListener(this.gvy);
+        MessageManager.getInstance().unRegisterListener(this.gvx);
+        MessageManager.getInstance().unRegisterListener(this.gvC);
         Ft();
         setVisibility(4);
     }
 
     public void Ft() {
         this.handler.removeCallbacksAndMessages(null);
-        this.gvw.clear();
-        this.fum.clearAnimation();
-        this.gvx = false;
+        this.gvA.clear();
+        this.fuq.clearAnimation();
+        this.gvB = false;
     }
 }

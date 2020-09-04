@@ -8,36 +8,36 @@ import java.util.HashMap;
 /* loaded from: classes8.dex */
 public class a {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private c.a cRQ;
-    private c.a cRR;
-    private HashMap<String, c.a> cRS = new HashMap<>();
+    private c.a cRU;
+    private c.a cRV;
+    private HashMap<String, c.a> cRW = new HashMap<>();
 
-    public void qC(String str) {
+    public void qD(String str) {
         if (TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 throw new RuntimeException("appId can not be empty");
             }
             return;
         }
-        fN(true);
+        fO(true);
         W(str, true);
     }
 
-    public ArrayList<String> fN(boolean z) {
-        if (this.cRR != null && this.cRR.data != null && this.cRR.data.size() > 0) {
+    public ArrayList<String> fO(boolean z) {
+        if (this.cRV != null && this.cRV.data != null && this.cRV.data.size() > 0) {
             if (DEBUG) {
-                Log.e("SwanAppWebSafe", "read webActions from cache: token=" + this.cRR.token + ", data=" + this.cRR.data);
+                Log.e("SwanAppWebSafe", "read webActions from cache: token=" + this.cRV.token + ", data=" + this.cRV.data);
             }
-            return this.cRR.data;
+            return this.cRV.data;
         }
-        if (this.cRR != null) {
-            this.cRR.token = "";
-            this.cRR.data.clear();
+        if (this.cRV != null) {
+            this.cRV.token = "";
+            this.cRV.data.clear();
         } else {
-            this.cRR = new c.a();
+            this.cRV = new c.a();
         }
-        c.a(z, this.cRR);
-        return this.cRR.data;
+        c.a(z, this.cRV);
+        return this.cRV.data;
     }
 
     public ArrayList<String> aAL() {
@@ -47,24 +47,24 @@ public class a {
     }
 
     public ArrayList<String> W(String str, boolean z) {
-        if (this.cRQ != null && this.cRQ.data != null && this.cRQ.data.size() > 0) {
+        if (this.cRU != null && this.cRU.data != null && this.cRU.data.size() > 0) {
             if (DEBUG) {
-                Log.e("SwanAppWebSafe", "read webdomains from cache: token=" + this.cRQ.token + ", data=" + this.cRQ.data);
+                Log.e("SwanAppWebSafe", "read webdomains from cache: token=" + this.cRU.token + ", data=" + this.cRU.data);
             }
-            return this.cRQ.data;
+            return this.cRU.data;
         }
-        if (this.cRQ != null) {
-            this.cRQ.token = "";
-            this.cRQ.data.clear();
+        if (this.cRU != null) {
+            this.cRU.token = "";
+            this.cRU.data.clear();
         } else {
-            this.cRQ = new c.a();
+            this.cRU = new c.a();
         }
-        c.a(z, str, this.cRQ);
-        return this.cRQ.data;
+        c.a(z, str, this.cRU);
+        return this.cRU.data;
     }
 
     public c.a m(String str, String str2, boolean z) {
-        c.a aVar = this.cRS.get(str2);
+        c.a aVar = this.cRW.get(str2);
         if (aVar != null && aVar.data != null && aVar.data.size() > 0) {
             if (DEBUG) {
                 Log.e("SwanAppWebSafe", "read serverDomains from cache: data= " + aVar.data);
@@ -77,20 +77,20 @@ public class a {
                 aVar = new c.a();
             }
             c.a(z, str, str2, aVar);
-            this.cRS.put(str2, aVar);
+            this.cRW.put(str2, aVar);
         }
         return aVar;
     }
 
     public void release() {
-        if (this.cRQ != null) {
-            this.cRQ.data.clear();
+        if (this.cRU != null) {
+            this.cRU.data.clear();
         }
-        if (this.cRR != null) {
-            this.cRR.data.clear();
+        if (this.cRV != null) {
+            this.cRV.data.clear();
         }
-        this.cRQ = null;
-        this.cRR = null;
+        this.cRU = null;
+        this.cRV = null;
         if (DEBUG) {
             Log.d("SwanAppWebSafe", "release cache done");
         }

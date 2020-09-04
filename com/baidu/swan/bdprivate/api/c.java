@@ -18,7 +18,7 @@ public class c extends d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b sZ(String str) {
+    public com.baidu.swan.apps.api.c.b ta(String str) {
         if (DEBUG) {
             Log.d("Api-QuickLogin", "exec quickLogin");
         }
@@ -42,7 +42,7 @@ public class c extends d {
             /* renamed from: a */
             public void I(h<b.d> hVar) {
                 if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
-                    c.this.ta(optString);
+                    c.this.tb(optString);
                     return;
                 }
                 int errorCode = hVar.getErrorCode();
@@ -57,7 +57,7 @@ public class c extends d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ta(final String str) {
+    public void tb(final String str) {
         f.a(new com.baidu.swan.bdprivate.extensions.quicklogin.c() { // from class: com.baidu.swan.bdprivate.api.c.2
             @Override // com.baidu.swan.bdprivate.extensions.quicklogin.c
             public void a(QuickLoginInfo quickLoginInfo) {
@@ -85,7 +85,7 @@ public class c extends d {
         });
     }
 
-    public com.baidu.swan.apps.api.c.b tb(String str) {
+    public com.baidu.swan.apps.api.c.b tc(String str) {
         if (DEBUG) {
             Log.d("Api-QuickLogin", "query quick login info");
         }
@@ -109,7 +109,7 @@ public class c extends d {
             /* renamed from: a */
             public void I(h<b.d> hVar) {
                 if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
-                    c.this.tc(optString);
+                    c.this.td(optString);
                     return;
                 }
                 int errorCode = hVar.getErrorCode();
@@ -124,12 +124,12 @@ public class c extends d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void tc(final String str) {
+    public void td(final String str) {
         f.a(new com.baidu.swan.bdprivate.extensions.quicklogin.c() { // from class: com.baidu.swan.bdprivate.api.c.4
             @Override // com.baidu.swan.bdprivate.extensions.quicklogin.c
             public void a(QuickLoginInfo quickLoginInfo) {
                 if (quickLoginInfo == null) {
-                    c.this.td(str);
+                    c.this.te(str);
                 } else {
                     c.this.a(str, quickLoginInfo);
                 }
@@ -162,7 +162,7 @@ public class c extends d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void td(String str) {
+    public void te(String str) {
         a(str, new com.baidu.swan.apps.api.c.b(10001, "internal error"));
     }
 }

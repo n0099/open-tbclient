@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.widget.Toast;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class e {
     private static Toast mToast;
     private boolean dontShowToast;

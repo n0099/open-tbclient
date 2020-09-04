@@ -23,9 +23,9 @@ public class f implements com.baidu.swan.apps.ap.e.b<HybridUbcFlow> {
         long s;
         String optString;
         com.baidu.swan.apps.runtime.e azI = com.baidu.swan.apps.runtime.e.azI();
-        if (hybridUbcFlow != null && !hybridUbcFlow.cGk.isEmpty() && DEBUG && azI != null) {
+        if (hybridUbcFlow != null && !hybridUbcFlow.cGo.isEmpty() && DEBUG && azI != null) {
             HybridUbcFlow.SubmitStrategy avI = hybridUbcFlow.avI();
-            if (!hybridUbcFlow.cGi.contains("fe_route_start")) {
+            if (!hybridUbcFlow.cGm.contains("fe_route_start")) {
                 str = "na_first_receive_action";
             } else {
                 str = "fe_route_start";
@@ -49,8 +49,8 @@ public class f implements com.baidu.swan.apps.ap.e.b<HybridUbcFlow> {
             }
             Log.i("RouteReporter", String.format("Delta [%s]  Cost Src  Total Action", sb.toString()));
             long j = 0;
-            long avW = hybridUbcFlow.cGk.get(0).avW();
-            for (UbcFlowEvent ubcFlowEvent : hybridUbcFlow.cGk) {
+            long avW = hybridUbcFlow.cGo.get(0).avW();
+            for (UbcFlowEvent ubcFlowEvent : hybridUbcFlow.cGo) {
                 long s2 = hybridUbcFlow.s(ubcFlowEvent.id, str);
                 boolean z = s2 < 0;
                 boolean z2 = s2 > s;
@@ -91,10 +91,10 @@ public class f implements com.baidu.swan.apps.ap.e.b<HybridUbcFlow> {
                 Log.i("RouteReporter", sb2.toString());
                 j = s2;
             }
-            Log.i("RouteReporter", "Total  ： " + hybridUbcFlow.cGk.size());
+            Log.i("RouteReporter", "Total  ： " + hybridUbcFlow.cGo.size());
             StringBuilder sb3 = new StringBuilder();
             sb3.append("\n\n小程序路由总时长：========> " + s);
-            sb3.append("\nsub_state :" + (TextUtils.equals(hybridUbcFlow.pb("sub_state"), "0") ? "无需下载分包" : "需要下载分包")).append("\npreload :" + (TextUtils.equals(hybridUbcFlow.pb("preload"), "0") ? "未完成" : "已完成")).append("\nhasWebViewWidget :" + (TextUtils.equals(hybridUbcFlow.pb("web_widget_state"), "0") ? "无webview组件" : "有webview组件")).append("\ntype ：" + (TextUtils.isEmpty(hybridUbcFlow.avw().optString("type")) ? "" : optString));
+            sb3.append("\nsub_state :" + (TextUtils.equals(hybridUbcFlow.pc("sub_state"), "0") ? "无需下载分包" : "需要下载分包")).append("\npreload :" + (TextUtils.equals(hybridUbcFlow.pc("preload"), "0") ? "未完成" : "已完成")).append("\nhasWebViewWidget :" + (TextUtils.equals(hybridUbcFlow.pc("web_widget_state"), "0") ? "无webview组件" : "有webview组件")).append("\ntype ：" + (TextUtils.isEmpty(hybridUbcFlow.avw().optString("type")) ? "" : optString));
             Log.i("RouteReporter", "Report ： " + sb3.toString());
         }
     }

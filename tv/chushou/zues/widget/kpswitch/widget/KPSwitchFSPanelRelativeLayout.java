@@ -8,7 +8,7 @@ import tv.chushou.zues.widget.kpswitch.b;
 import tv.chushou.zues.widget.kpswitch.b.e;
 /* loaded from: classes6.dex */
 public class KPSwitchFSPanelRelativeLayout extends RelativeLayout implements b {
-    private a oQb;
+    private a oQt;
 
     public KPSwitchFSPanelRelativeLayout(Context context) {
         super(context);
@@ -26,7 +26,7 @@ public class KPSwitchFSPanelRelativeLayout extends RelativeLayout implements b {
     }
 
     private void init() {
-        this.oQb = new a(this);
+        this.oQt = new a(this);
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.b
@@ -35,7 +35,7 @@ public class KPSwitchFSPanelRelativeLayout extends RelativeLayout implements b {
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.b
-    public void yu(boolean z) {
-        this.oQb.yu(z);
+    public void yw(boolean z) {
+        this.oQt.yw(z);
     }
 }

@@ -9,17 +9,17 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes16.dex */
 public class g extends com.baidu.card.b<AbsThreadDataSupport> {
-    private com.baidu.tieba.homepage.topic.topictab.view.a iRd;
+    private com.baidu.tieba.homepage.topic.topictab.view.a iRj;
 
     public g(Context context, TbPageContext<?> tbPageContext) {
         super(context);
-        this.iRd = new com.baidu.tieba.homepage.topic.topictab.view.a(tbPageContext);
+        this.iRj = new com.baidu.tieba.homepage.topic.topictab.view.a(tbPageContext);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.iRd.czj();
+        return this.iRj.czk();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,17 +27,17 @@ public class g extends com.baidu.card.b<AbsThreadDataSupport> {
     /* renamed from: b */
     public void F(AbsThreadDataSupport absThreadDataSupport) {
         if (absThreadDataSupport instanceof com.baidu.tieba.homepage.topic.topictab.b.a) {
-            this.iRd.a((com.baidu.tieba.homepage.topic.topictab.b.a) absThreadDataSupport);
+            this.iRj.a((com.baidu.tieba.homepage.topic.topictab.b.a) absThreadDataSupport);
         }
     }
 
     @Override // com.baidu.card.p
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         ap.setBackgroundResource(getView(), R.drawable.addresslist_item_bg);
-        this.iRd.onChangeSkinType(tbPageContext, i);
+        this.iRj.onChangeSkinType(tbPageContext, i);
     }
 
     public void setTag(BdUniqueId bdUniqueId) {
-        this.iRd.setTag(bdUniqueId);
+        this.iRj.setTag(bdUniqueId);
     }
 }

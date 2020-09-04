@@ -15,18 +15,18 @@ import java.util.List;
 /* loaded from: classes20.dex */
 public class g {
     private Context a;
-    private c adb;
+    private c ade;
 
     public g(Context context, c cVar) {
         this.a = context;
-        this.adb = cVar;
+        this.ade = cVar;
     }
 
     private f O(Context context) {
         String str;
         f fVar;
         f fVar2 = null;
-        List<b> N = this.adb.N(context);
+        List<b> N = this.ade.N(context);
         if (N != null) {
             File filesDir = context.getFilesDir();
             if (com.baidu.fsg.face.base.b.c.g.equals(filesDir.getName())) {
@@ -37,9 +37,9 @@ public class g {
             }
             for (b bVar : N) {
                 if (!bVar.d) {
-                    File file = new File(new File(bVar.ace.dataDir, str), "libcuid.so");
+                    File file = new File(new File(bVar.acg.dataDir, str), "libcuid.so");
                     if (file.exists()) {
-                        fVar = f.cV(com.baidu.b.f.c.a(file));
+                        fVar = f.cW(com.baidu.b.f.c.a(file));
                         if (fVar != null) {
                             return fVar;
                         }
@@ -67,7 +67,7 @@ public class g {
         }
     }
 
-    private f cY(String str) {
+    private f cZ(String str) {
         String str2 = "";
         String str3 = "";
         File file = new File(Environment.getExternalStorageDirectory(), "baidu/.cuid");
@@ -106,7 +106,7 @@ public class g {
     private f sL() {
         File file = new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid2");
         if (file.exists()) {
-            return f.cV(com.baidu.b.f.c.a(file));
+            return f.cW(com.baidu.b.f.c.a(file));
         }
         return null;
     }
@@ -115,10 +115,10 @@ public class g {
         return f.N(c("com.baidu.deviceid"), c("bd_setting_i"));
     }
 
-    public f cX(String str) {
+    public f cY(String str) {
         f O = 0 == 0 ? O(this.a) : null;
         if (O == null) {
-            O = f.cV(c("com.baidu.deviceid.v2"));
+            O = f.cW(c("com.baidu.deviceid.v2"));
         }
         boolean b = b("android.permission.READ_EXTERNAL_STORAGE");
         f sL = (O == null && b) ? sL() : O;
@@ -128,7 +128,7 @@ public class g {
         boolean z = false;
         if (sL == null && b) {
             z = true;
-            sL = cY(d(""));
+            sL = cZ(d(""));
         }
         if (!z) {
             d("");

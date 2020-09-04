@@ -78,21 +78,21 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes17.dex */
 public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implements View.OnClickListener, View.OnLongClickListener, a.InterfaceC0210a, c, d {
-    private UpdateGroupModel jeV;
-    private com.baidu.tieba.im.groupInfo.a jsG;
-    private GroupInfoModel jsH;
-    private a jsI;
+    private UpdateGroupModel jfb;
+    private com.baidu.tieba.im.groupInfo.a jsM;
+    private GroupInfoModel jsN;
+    private a jsO;
     private PermissionJudgePolicy mPermissionJudgement;
     private int type = 0;
     private final WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
-    private long jsJ = -1;
-    private long jsK = -1;
-    private final b.InterfaceC0538b jsL = new b.InterfaceC0538b() { // from class: com.baidu.tieba.im.groupInfo.GroupInfoActivity.1
+    private long jsP = -1;
+    private long jsQ = -1;
+    private final b.InterfaceC0538b jsR = new b.InterfaceC0538b() { // from class: com.baidu.tieba.im.groupInfo.GroupInfoActivity.1
         @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0538b
         public void a(com.baidu.tbadk.core.dialog.b bVar, int i, View view) {
             bVar.dismiss();
             if (i == 0) {
-                GroupInfoActivity.this.cmy();
+                GroupInfoActivity.this.cmz();
             } else if (i == 1) {
                 AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(GroupInfoActivity.this.getPageContext().getPageActivity(), GroupInfoActivity.this.writeImagesInfo.toJsonString());
                 albumActivityConfig.setRequestCode(RequestResponseCode.REQUEST_ALBUM_IMAGE);
@@ -100,7 +100,7 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
             }
         }
     };
-    private final b jsM = new b() { // from class: com.baidu.tieba.im.groupInfo.GroupInfoActivity.2
+    private final b jsS = new b() { // from class: com.baidu.tieba.im.groupInfo.GroupInfoActivity.2
         @Override // com.baidu.tieba.im.groupInfo.b
         public void a(i iVar, int i, Object obj, int i2) {
             if (iVar != null && iVar.isShowing()) {
@@ -126,28 +126,28 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage == null) {
-                GroupInfoActivity.this.jsG.cGv();
+                GroupInfoActivity.this.jsM.cGw();
                 GroupInfoActivity.this.showToast(R.string.neterror);
             } else if (customResponsedMessage.getCmd() == 2001102) {
                 if (!(customResponsedMessage instanceof ResponseGroupInfoLocalMessage)) {
-                    GroupInfoActivity.this.jsH.sendMessage(GroupInfoActivity.this.jsH.getGroupId(), GroupInfoActivity.this.jsH.getFrom());
+                    GroupInfoActivity.this.jsN.sendMessage(GroupInfoActivity.this.jsN.getGroupId(), GroupInfoActivity.this.jsN.getFrom());
                     return;
                 }
                 ResponseGroupInfoLocalMessage responseGroupInfoLocalMessage = (ResponseGroupInfoLocalMessage) customResponsedMessage;
-                if (responseGroupInfoLocalMessage.getOrginalMessage() == null || ((RequestGroupInfoLocalMessage) responseGroupInfoLocalMessage.getOrginalMessage()).getGroupId() == GroupInfoActivity.this.jsH.getGroupId()) {
+                if (responseGroupInfoLocalMessage.getOrginalMessage() == null || ((RequestGroupInfoLocalMessage) responseGroupInfoLocalMessage.getOrginalMessage()).getGroupId() == GroupInfoActivity.this.jsN.getGroupId()) {
                     if (responseGroupInfoLocalMessage.getError() != 0) {
-                        GroupInfoActivity.this.jsH.sendMessage(GroupInfoActivity.this.jsH.getGroupId(), GroupInfoActivity.this.jsH.getFrom());
+                        GroupInfoActivity.this.jsN.sendMessage(GroupInfoActivity.this.jsN.getGroupId(), GroupInfoActivity.this.jsN.getFrom());
                         return;
                     }
                     GroupInfoActivity.this.Qy();
-                    GroupInfoActivity.this.jsH.setData(responseGroupInfoLocalMessage.getData());
-                    GroupInfoActivity.this.jsG.setData(responseGroupInfoLocalMessage.getData());
-                    GroupInfoActivity.this.cGg();
+                    GroupInfoActivity.this.jsN.setData(responseGroupInfoLocalMessage.getData());
+                    GroupInfoActivity.this.jsM.setData(responseGroupInfoLocalMessage.getData());
+                    GroupInfoActivity.this.cGh();
                 }
             }
         }
     };
-    private final CustomMessageListener jqd = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.groupInfo.GroupInfoActivity.4
+    private final CustomMessageListener jqj = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.groupInfo.GroupInfoActivity.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -178,7 +178,7 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
         initListener();
         a(bundle, (Intent) null);
         initUI();
-        cGg();
+        cGh();
         startLoading();
     }
 
@@ -186,50 +186,50 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         a((Bundle) null, intent);
-        this.jsK = this.jsH.getGroupId();
+        this.jsQ = this.jsN.getGroupId();
         startLoading();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cGg() {
-        if (this.jsH != null) {
-            long groupId = this.jsH.getGroupId();
-            this.jsK = groupId;
-            this.jsJ = groupId;
+    public void cGh() {
+        if (this.jsN != null) {
+            long groupId = this.jsN.getGroupId();
+            this.jsQ = groupId;
+            this.jsP = groupId;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cGh() {
-        if (this.jsJ != this.jsK) {
+    public void cGi() {
+        if (this.jsP != this.jsQ) {
             initUI();
-            cGg();
+            cGh();
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     private void initListener() {
-        this.jsI = new a();
-        registerListener(CmdConfigSocket.CMD_REQUEST_GROUP_INFO_BY_ID, this.jsI);
+        this.jsO = new a();
+        registerListener(CmdConfigSocket.CMD_REQUEST_GROUP_INFO_BY_ID, this.jsO);
         registerListener(CmdConfigCustom.CMD_REQUEST_GROUP_INFO_BY_ID_LOCAL, this.mCustomListener);
-        registerListener(CmdConfigSocket.CMD_UPDATE_GROUP, this.jsI);
-        registerListener(CmdConfigSocket.CMD_REMOVE_MEMBERS, this.jsI);
-        registerListener(CmdConfigSocket.CMD_JOIN_GROUP, this.jsI);
-        registerListener(CmdConfigSocket.CMD_CREATE_GROUP_ACTIVITY, this.jsI);
-        registerListener(CmdConfigSocket.CMD_DEL_GROUP_ACTIVITY, this.jsI);
-        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_KICK_OUT, this.jqd);
-        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_APPLY_JOIN_SUCCESS, this.jqd);
-        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_NAME_CHANGE, this.jqd);
-        registerListener(CmdConfigSocket.CMD_DISSMISS_GROUP, this.jsI);
-        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_DISMISS_GROUP, this.jqd);
-        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_ACTIVITYS_CHANGE, this.jqd);
-        registerListener(CmdConfigSocket.CMD_UPGRADE_MEMBER_GROUP, this.jsI);
+        registerListener(CmdConfigSocket.CMD_UPDATE_GROUP, this.jsO);
+        registerListener(CmdConfigSocket.CMD_REMOVE_MEMBERS, this.jsO);
+        registerListener(CmdConfigSocket.CMD_JOIN_GROUP, this.jsO);
+        registerListener(CmdConfigSocket.CMD_CREATE_GROUP_ACTIVITY, this.jsO);
+        registerListener(CmdConfigSocket.CMD_DEL_GROUP_ACTIVITY, this.jsO);
+        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_KICK_OUT, this.jqj);
+        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_APPLY_JOIN_SUCCESS, this.jqj);
+        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_NAME_CHANGE, this.jqj);
+        registerListener(CmdConfigSocket.CMD_DISSMISS_GROUP, this.jsO);
+        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_DISMISS_GROUP, this.jqj);
+        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_ACTIVITYS_CHANGE, this.jqj);
+        registerListener(CmdConfigSocket.CMD_UPGRADE_MEMBER_GROUP, this.jsO);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        this.jsH.saveInstance(bundle);
+        this.jsN.saveInstance(bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -242,16 +242,16 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.jsH.cancelMessage();
-        MessageManager.getInstance().unRegisterListener(this.jqd);
-        if (this.jsG != null) {
-            this.jsG.onDestory();
+        this.jsN.cancelMessage();
+        MessageManager.getInstance().unRegisterListener(this.jqj);
+        if (this.jsM != null) {
+            this.jsM.onDestory();
         }
     }
 
     private void initUI() {
-        this.jsG = new com.baidu.tieba.im.groupInfo.a(this);
-        this.jsG.a(this.jsM);
+        this.jsM = new com.baidu.tieba.im.groupInfo.a(this);
+        this.jsM.a(this.jsS);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -262,25 +262,25 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
 
     /* JADX INFO: Access modifiers changed from: private */
     public void startLoading() {
-        this.jsG.cGw();
-        this.jsH.sendLocalMessage(this.jsH.getGroupId(), this.jsH.getFrom());
-        this.jsH.sendMessage(this.jsH.getGroupId(), this.jsH.getFrom());
+        this.jsM.cGx();
+        this.jsN.sendLocalMessage(this.jsN.getGroupId(), this.jsN.getFrom());
+        this.jsN.sendMessage(this.jsN.getGroupId(), this.jsN.getFrom());
     }
 
     public void a(Bundle bundle, Intent intent) {
-        this.jsH = new GroupInfoModel(this);
-        this.jsH.setUniqueId(getUniqueId());
+        this.jsN = new GroupInfoModel(this);
+        this.jsN.setUniqueId(getUniqueId());
         if (bundle == null) {
-            GroupInfoModel groupInfoModel = this.jsH;
+            GroupInfoModel groupInfoModel = this.jsN;
             if (intent == null) {
                 intent = getIntent();
             }
             groupInfoModel.initWithIntent(intent);
         } else {
-            this.jsH.initWithBundle(bundle);
+            this.jsN.initWithBundle(bundle);
         }
-        this.jeV = new UpdateGroupModel(getPageContext());
-        this.jeV.setUniqueId(getUniqueId());
+        this.jfb = new UpdateGroupModel(getPageContext());
+        this.jfb.setUniqueId(getUniqueId());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -297,72 +297,72 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        if (this.jsG != null) {
-            this.jsG.changeSkinType(i);
+        if (this.jsM != null) {
+            this.jsM.changeSkinType(i);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.jsG.cGx()) {
-            if (this.jsH.getData() != null && this.jsH.getData().cHh()) {
+        if (view == this.jsM.cGy()) {
+            if (this.jsN.getData() != null && this.jsN.getData().cHi()) {
                 TiebaStatic.log("edit_place_at_groupinfo");
-                sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupAddressLocateActivityConfig(getPageContext().getPageActivity(), RequestResponseCode.REQUEST_ADDRESS_VIEW, this.jsH.getData().getGroup().getPosition(), this.jsH.getData().getGroup().getBusiness(), (this.jsH.getData().getGroup().getFlag() & 1) == 1)));
+                sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupAddressLocateActivityConfig(getPageContext().getPageActivity(), RequestResponseCode.REQUEST_ADDRESS_VIEW, this.jsN.getData().getGroup().getPosition(), this.jsN.getData().getGroup().getBusiness(), (this.jsN.getData().getGroup().getFlag() & 1) == 1)));
             }
-        } else if (view == this.jsG.cFd()) {
+        } else if (view == this.jsM.cFe()) {
             closeActivity();
-        } else if (view != this.jsG.cGk()) {
-            if (view == this.jsG.cGs()) {
-                if (this.jsH.getData() != null && this.jsH.getData().getGroup() != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(getPageContext().getPageActivity(), String.valueOf(this.jsH.getData().getGroup().getAuthorId()), this.jsH.getData().getGroup().getAuthorName())));
+        } else if (view != this.jsM.cGl()) {
+            if (view == this.jsM.cGt()) {
+                if (this.jsN.getData() != null && this.jsN.getData().getGroup() != null) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(getPageContext().getPageActivity(), String.valueOf(this.jsN.getData().getGroup().getAuthorId()), this.jsN.getData().getGroup().getAuthorName())));
                 }
-            } else if (view == this.jsG.cGt()) {
-                if (this.jsH != null && this.jsH.getData() != null) {
-                    sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupLevelActivityConfig(getPageContext().getPageActivity(), this.jsH.getGroupId(), this.jsH.getData().isMemGroup())));
+            } else if (view == this.jsM.cGu()) {
+                if (this.jsN != null && this.jsN.getData() != null) {
+                    sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupLevelActivityConfig(getPageContext().getPageActivity(), this.jsN.getGroupId(), this.jsN.getData().isMemGroup())));
                 }
-            } else if (view == this.jsG.cGr()) {
+            } else if (view == this.jsM.cGs()) {
                 if (TextUtils.isEmpty(TbadkApplication.getCurrentAccount())) {
                     TbadkCoreApplication.getInst().login(getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(getPageContext().getPageActivity(), true, 3)));
-                } else if (this.jsH.getData() != null) {
-                    if (this.jsH.getData().cHg()) {
-                        if (this.jsH.getData().getGroup() != null) {
-                            TiebaStatic.log(new aq("c10334").dD("obj_type", String.valueOf(this.jsH.getData().getGroup().getGroupId())));
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(getPageContext().getPageActivity(), this.jsH.getGroupId(), this.jsH.getData().getGroup().getName(), this.jsH.getData().getGroup().getAuthorId(), "group_info")));
+                } else if (this.jsN.getData() != null) {
+                    if (this.jsN.getData().cHh()) {
+                        if (this.jsN.getData().getGroup() != null) {
+                            TiebaStatic.log(new aq("c10334").dD("obj_type", String.valueOf(this.jsN.getData().getGroup().getGroupId())));
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(getPageContext().getPageActivity(), this.jsN.getGroupId(), this.jsN.getData().getGroup().getName(), this.jsN.getData().getGroup().getAuthorId(), "group_info")));
                         }
-                    } else if (this.jsH.hasRecentJoin()) {
+                    } else if (this.jsN.hasRecentJoin()) {
                         showToast(R.string.has_recent_join);
-                    } else if (this.jsH.getData() != null) {
-                        if (this.jsH.getData().cHf() <= 0) {
+                    } else if (this.jsN.getData() != null) {
+                        if (this.jsN.getData().cHg() <= 0) {
                             showToast(R.string.add_group_max);
-                        } else if (ApplyJoinGroupActivityConfig.JOINTYPE_DEFAULT == this.jsH.getJoinType()) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IM_APPLE_JOIN_GROUP_ACTIVITY_START, new ApplyJoinGroupActivityConfig(getPageContext().getPageActivity(), "" + this.jsH.getGroupId(), this.jsH.getData().cHe(), this.jsH.getData().cHf())));
-                        } else if (ApplyJoinGroupActivityConfig.JOINTYPE_INVITE == this.jsH.getJoinType()) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IM_APPLE_JOIN_GROUP_ACTIVITY_START, new ApplyJoinGroupActivityConfig(getPageContext().getPageActivity(), "" + this.jsH.getGroupId(), this.jsH.getData().cHe(), this.jsH.getData().cHf(), this.jsH.getInviteUserId(), this.jsH.getDefaultUserMsg())));
+                        } else if (ApplyJoinGroupActivityConfig.JOINTYPE_DEFAULT == this.jsN.getJoinType()) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IM_APPLE_JOIN_GROUP_ACTIVITY_START, new ApplyJoinGroupActivityConfig(getPageContext().getPageActivity(), "" + this.jsN.getGroupId(), this.jsN.getData().cHf(), this.jsN.getData().cHg())));
+                        } else if (ApplyJoinGroupActivityConfig.JOINTYPE_INVITE == this.jsN.getJoinType()) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IM_APPLE_JOIN_GROUP_ACTIVITY_START, new ApplyJoinGroupActivityConfig(getPageContext().getPageActivity(), "" + this.jsN.getGroupId(), this.jsN.getData().cHf(), this.jsN.getData().cHg(), this.jsN.getInviteUserId(), this.jsN.getDefaultUserMsg())));
                         }
                     }
                 }
-            } else if (view == this.jsG.cGq()) {
-                if (this.jsH.getData() != null && this.jsH.getData().getGroup() != null) {
-                    sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupSettingActivityConfig(getPageContext().getPageActivity(), 4, this.jsH.getData().getGroup().getName(), "" + this.jsH.getGroupId(), this.jsH.getData().cHh(), this.jsH.getData().getGroup().getFlag())));
+            } else if (view == this.jsM.cGr()) {
+                if (this.jsN.getData() != null && this.jsN.getData().getGroup() != null) {
+                    sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupSettingActivityConfig(getPageContext().getPageActivity(), 4, this.jsN.getData().getGroup().getName(), "" + this.jsN.getGroupId(), this.jsN.getData().cHi(), this.jsN.getData().getGroup().getFlag())));
                 }
-            } else if (view == this.jsG.cGo()) {
-                if (this.jsH.getData() != null && this.jsH.getData().getGroup() != null) {
-                    sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new UpdateGroupActivityConfig(getPageContext().getPageActivity(), 1, this.jsH.getGroupId(), 1, this.jsH.getData().getGroup().getName())));
+            } else if (view == this.jsM.cGp()) {
+                if (this.jsN.getData() != null && this.jsN.getData().getGroup() != null) {
+                    sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new UpdateGroupActivityConfig(getPageContext().getPageActivity(), 1, this.jsN.getGroupId(), 1, this.jsN.getData().getGroup().getName())));
                 }
-            } else if (view == this.jsG.cGn()) {
-                if (this.jsH.getData() != null && this.jsH.getData().cHh() && this.jsH.getData().getGroup() != null) {
-                    sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new UpdateGroupActivityConfig(getPageContext().getPageActivity(), 2, this.jsH.getGroupId(), 2, this.jsH.getData().getGroup().getIntro())));
+            } else if (view == this.jsM.cGo()) {
+                if (this.jsN.getData() != null && this.jsN.getData().cHi() && this.jsN.getData().getGroup() != null) {
+                    sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new UpdateGroupActivityConfig(getPageContext().getPageActivity(), 2, this.jsN.getGroupId(), 2, this.jsN.getData().getGroup().getIntro())));
                 }
-            } else if (view == this.jsG.cGu() || view == this.jsG.cGl()) {
-                MembersActivity.d(getPageContext().getPageActivity(), this.jsH.getGroupId());
-            } else if (view == this.jsG.cGm()) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new InviteFriendListActivityConfig(getPageContext().getPageActivity(), 0L, this.jsH.getGroupId())));
-            } else if (view == this.jsG.cGp() && this.jsH.getData() != null && this.jsH.getData().cHg()) {
-                GroupActivityData cHb = this.jsH.getData().cHb();
-                if (cHb != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupActivityActivityConfig(getPageContext().getPageActivity(), cHb.getActivityId(), this.jsH.getGroupId(), 0)));
+            } else if (view == this.jsM.cGv() || view == this.jsM.cGm()) {
+                MembersActivity.d(getPageContext().getPageActivity(), this.jsN.getGroupId());
+            } else if (view == this.jsM.cGn()) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new InviteFriendListActivityConfig(getPageContext().getPageActivity(), 0L, this.jsN.getGroupId())));
+            } else if (view == this.jsM.cGq() && this.jsN.getData() != null && this.jsN.getData().cHh()) {
+                GroupActivityData cHc = this.jsN.getData().cHc();
+                if (cHc != null) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupActivityActivityConfig(getPageContext().getPageActivity(), cHc.getActivityId(), this.jsN.getGroupId(), 0)));
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CreateGroupActivityActivityConfig(getPageContext().getPageActivity(), this.jsH.getGroupId())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CreateGroupActivityActivityConfig(getPageContext().getPageActivity(), this.jsN.getGroupId())));
                 }
             }
         }
@@ -377,22 +377,22 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
 
     @Override // com.baidu.tieba.im.groupInfo.d
     public void c(View view, Object obj, int i) {
-        this.jsG.d(obj, i);
+        this.jsM.d(obj, i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnLongClickListener
     public boolean onLongClick(View view) {
-        if (view == this.jsG.cGj()) {
-            if (this.jsH.getData() == null || this.jsH.getData().getGroup() == null) {
+        if (view == this.jsM.cGk()) {
+            if (this.jsN.getData() == null || this.jsN.getData().getGroup() == null) {
                 return false;
             }
-            this.jsG.KQ(String.valueOf(this.jsH.getData().getGroup().getGroupId()));
+            this.jsM.KR(String.valueOf(this.jsN.getData().getGroup().getGroupId()));
             return false;
-        } else if (view != this.jsG.cGn() || this.jsH.getData().cHh()) {
+        } else if (view != this.jsM.cGo() || this.jsN.getData().cHi()) {
             return false;
         } else {
-            if (this.jsH.getData() != null && this.jsH.getData().getGroup() != null) {
-                this.jsG.KP(String.valueOf(this.jsH.getData().getGroup().getIntro()));
+            if (this.jsN.getData() != null && this.jsN.getData().getGroup() != null) {
+                this.jsM.KQ(String.valueOf(this.jsN.getData().getGroup().getIntro()));
             }
             return true;
         }
@@ -414,16 +414,16 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, albumActivityConfig));
             }
         } else if (i == 1) {
-            ArrayList<String> bigUrlList = this.jsH.getBigUrlList();
-            HashMap<String, ImageUrlData> assistUrls = this.jsH.getAssistUrls();
+            ArrayList<String> bigUrlList = this.jsN.getBigUrlList();
+            HashMap<String, ImageUrlData> assistUrls = this.jsN.getAssistUrls();
             if (obj != null && (obj instanceof PhotoUrlData) && bigUrlList != null) {
-                sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupImageActivityConfig(getPageContext().getPageActivity(), ((PhotoUrlData) obj).getBigurl(), bigUrlList, this.jsH.getGroupId(), assistUrls)));
+                sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupImageActivityConfig(getPageContext().getPageActivity(), ((PhotoUrlData) obj).getBigurl(), bigUrlList, this.jsN.getGroupId(), assistUrls)));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cmy() {
+    public void cmz() {
         if (!ae.requestWriteExternalStorgeAndCameraPermission(getPageContext().getPageActivity(), 1)) {
             ao.g(getPageContext());
         }
@@ -439,11 +439,11 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
                 case 1:
                     if (intent != null) {
                         String stringExtra = intent.getStringExtra(UpdateGroupActivityConfig.GROUP_TEXT);
-                        if (this.jsG != null) {
-                            this.jsG.setGroupName(stringExtra);
+                        if (this.jsM != null) {
+                            this.jsM.setGroupName(stringExtra);
                         }
-                        if (this.jsH != null && this.jsH.getData() != null && this.jsH.getData().getGroup() != null) {
-                            this.jsH.getData().getGroup().setName(stringExtra);
+                        if (this.jsN != null && this.jsN.getData() != null && this.jsN.getData().getGroup() != null) {
+                            this.jsN.getData().getGroup().setName(stringExtra);
                             return;
                         }
                         return;
@@ -452,11 +452,11 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
                 case 2:
                     if (intent != null) {
                         String stringExtra2 = intent.getStringExtra(UpdateGroupActivityConfig.GROUP_TEXT);
-                        if (this.jsG != null) {
-                            this.jsG.KN(stringExtra2);
+                        if (this.jsM != null) {
+                            this.jsM.KO(stringExtra2);
                         }
-                        if (this.jsH != null && this.jsH.getData() != null && this.jsH.getData().getGroup() != null) {
-                            this.jsH.getData().getGroup().setIntro(stringExtra2);
+                        if (this.jsN != null && this.jsN.getData() != null && this.jsN.getData().getGroup() != null) {
+                            this.jsN.getData().getGroup().setIntro(stringExtra2);
                             return;
                         }
                         return;
@@ -468,8 +468,8 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
                 case 4:
                     if (intent != null) {
                         int intExtra = intent.getIntExtra(GroupSettingActivityConfig.INTENT_DATA_GROUP_FLAG, 0);
-                        if (this.jsH != null && this.jsH.getData() != null && this.jsH.getData().getGroup() != null) {
-                            this.jsH.getData().getGroup().setFlag(intExtra);
+                        if (this.jsN != null && this.jsN.getData() != null && this.jsN.getData().getGroup() != null) {
+                            this.jsN.getData().getGroup().setFlag(intExtra);
                             return;
                         }
                         return;
@@ -487,7 +487,7 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
                 case RequestResponseCode.REQUEST_CAMERA_VIEW /* 12010 */:
                     break;
                 case RequestResponseCode.REQUEST_ADDRESS_VIEW /* 21001 */:
-                    k(intent.getBooleanExtra("ResultDataIsHiddenAddress", true) ? 1 : 0, intent.getStringExtra("ResultDataAddress"), intent.getStringExtra("ResultDataSelectedBusiness"));
+                    l(intent.getBooleanExtra("ResultDataIsHiddenAddress", true) ? 1 : 0, intent.getStringExtra("ResultDataAddress"), intent.getStringExtra("ResultDataSelectedBusiness"));
                     return;
                 default:
                     return;
@@ -498,7 +498,7 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
             }
             b(photoUrlData);
         } else if (i2 == 0 && i == 12010) {
-            cmy();
+            cmz();
         }
     }
 
@@ -518,54 +518,54 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
     public void a(PhotoUrlData photoUrlData) {
         this.type = 2;
         if (photoUrlData != null) {
-            KL(this.jsH.generateDeleAlbum(photoUrlData));
+            KM(this.jsN.generateDeleAlbum(photoUrlData));
         }
     }
 
     private void b(PhotoUrlData photoUrlData) {
         this.type = 1;
         if (photoUrlData != null) {
-            String generateAddAlbum = this.jsH.generateAddAlbum(photoUrlData);
+            String generateAddAlbum = this.jsN.generateAddAlbum(photoUrlData);
             if (!TextUtils.isEmpty(generateAddAlbum)) {
-                KL(generateAddAlbum);
+                KM(generateAddAlbum);
             }
         }
     }
 
-    private void k(int i, String str, String str2) {
+    private void l(int i, String str, String str2) {
         this.type = 4;
-        if (this.jeV != null) {
-            this.jeV.setGroupId(this.jsH.getGroupId());
-            this.jeV.setFlag(i);
-            this.jeV.setPosition(str);
-            this.jeV.setBusiness(str2);
-            this.jeV.sendMessage(5);
-            this.jsG.cGw();
+        if (this.jfb != null) {
+            this.jfb.setGroupId(this.jsN.getGroupId());
+            this.jfb.setFlag(i);
+            this.jfb.setPosition(str);
+            this.jfb.setBusiness(str2);
+            this.jfb.sendMessage(5);
+            this.jsM.cGx();
         }
     }
 
-    private void KL(String str) {
-        if (this.jeV != null) {
-            this.jeV.setGroupId(this.jsH.getGroupId());
-            this.jeV.setAlbum(str);
-            this.jeV.sendMessage(3);
-            this.jsG.cGw();
+    private void KM(String str) {
+        if (this.jfb != null) {
+            this.jfb.setGroupId(this.jsN.getGroupId());
+            this.jfb.setAlbum(str);
+            this.jfb.sendMessage(3);
+            this.jsM.cGx();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aF(Object obj) {
-        GroupCardModel.cFW();
+        GroupCardModel.cFX();
         this.type = 3;
         if (obj != null && (obj instanceof PhotoUrlData)) {
             PhotoUrlData photoUrlData = (PhotoUrlData) obj;
-            this.jsH.setChangePhotoUrlData(photoUrlData);
+            this.jsN.setChangePhotoUrlData(photoUrlData);
             String picId = photoUrlData.getPicId();
-            if (this.jeV != null) {
-                this.jeV.setGroupId(this.jsH.getGroupId());
-                this.jeV.setPortrait(picId);
-                this.jeV.sendMessage(4);
-                this.jsG.cGw();
+            if (this.jfb != null) {
+                this.jfb.setGroupId(this.jsN.getGroupId());
+                this.jfb.setPortrait(picId);
+                this.jfb.sendMessage(4);
+                this.jsM.cGx();
             }
         }
     }
@@ -584,52 +584,52 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
             String[] split;
             Message<?> orginalMessage2;
             if (socketResponsedMessage == null) {
-                GroupInfoActivity.this.jsG.cGv();
+                GroupInfoActivity.this.jsM.cGw();
                 GroupInfoActivity.this.showToast(R.string.neterror);
             } else if (socketResponsedMessage.getCmd() == 103004) {
-                GroupInfoActivity.this.jsG.cGv();
+                GroupInfoActivity.this.jsM.cGw();
                 final ResponseGroupInfoMessage responseGroupInfoMessage = (ResponseGroupInfoMessage) socketResponsedMessage;
-                if (GroupInfoActivity.this.jsH.getSendMsg() == responseGroupInfoMessage.getOrginalMessage()) {
+                if (GroupInfoActivity.this.jsN.getSendMsg() == responseGroupInfoMessage.getOrginalMessage()) {
                     if (responseGroupInfoMessage.getError() == 2230101) {
                         GroupInfoActivity.this.showToast(StringUtils.isNull(responseGroupInfoMessage.getErrorString()) ? GroupInfoActivity.this.getResources().getString(R.string.neterror) : responseGroupInfoMessage.getErrorString(), false);
                         GroupInfoActivity.this.finish();
                     } else if (responseGroupInfoMessage.getData() != null && responseGroupInfoMessage.getError() == 0) {
-                        GroupInfoActivity.this.cGg();
+                        GroupInfoActivity.this.cGh();
                         GroupInfoActivity.this.Qy();
-                        GroupInfoActivity.this.jsH.setData(responseGroupInfoMessage.getData());
-                        if (responseGroupInfoMessage == null || responseGroupInfoMessage.getData().cHg()) {
-                            GroupInfoActivity.this.jsG.a(responseGroupInfoMessage.getData(), false);
+                        GroupInfoActivity.this.jsN.setData(responseGroupInfoMessage.getData());
+                        if (responseGroupInfoMessage == null || responseGroupInfoMessage.getData().cHh()) {
+                            GroupInfoActivity.this.jsM.a(responseGroupInfoMessage.getData(), false);
                             return;
                         }
-                        GroupInfoActivity.this.jsG.cGw();
-                        com.baidu.tieba.im.settingcache.b.cIh().a(TbadkApplication.getCurrentAccount(), String.valueOf(GroupInfoActivity.this.jsH.getGroupId()), 60000L, new l<Boolean>() { // from class: com.baidu.tieba.im.groupInfo.GroupInfoActivity.a.1
+                        GroupInfoActivity.this.jsM.cGx();
+                        com.baidu.tieba.im.settingcache.b.cIi().a(TbadkApplication.getCurrentAccount(), String.valueOf(GroupInfoActivity.this.jsN.getGroupId()), 60000L, new l<Boolean>() { // from class: com.baidu.tieba.im.groupInfo.GroupInfoActivity.a.1
                             /* JADX DEBUG: Method merged with bridge method */
                             @Override // com.baidu.tbadk.util.l
                             public void onReturnDataInUI(Boolean bool) {
                                 if (bool == null) {
                                     bool = false;
                                 }
-                                GroupInfoActivity.this.jsG.cGv();
-                                GroupInfoActivity.this.jsG.a(responseGroupInfoMessage.getData(), bool.booleanValue());
-                                GroupInfoActivity.this.jsH.setHasRecentJoin(bool.booleanValue() ? false : true);
+                                GroupInfoActivity.this.jsM.cGw();
+                                GroupInfoActivity.this.jsM.a(responseGroupInfoMessage.getData(), bool.booleanValue());
+                                GroupInfoActivity.this.jsN.setHasRecentJoin(bool.booleanValue() ? false : true);
                             }
                         });
                     } else {
                         GroupInfoActivity.this.showToast(R.string.neterror);
-                        GroupInfoActivity.this.cGh();
+                        GroupInfoActivity.this.cGi();
                     }
                 }
             } else if (socketResponsedMessage.getCmd() == 103110) {
                 if (socketResponsedMessage instanceof ResponseJoinGroupMessage) {
                     ResponseJoinGroupMessage responseJoinGroupMessage = (ResponseJoinGroupMessage) socketResponsedMessage;
-                    if (responseJoinGroupMessage.getError() == 0 && (orginalMessage2 = responseJoinGroupMessage.getOrginalMessage()) != null && (orginalMessage2 instanceof RequestJoinGroupMessage) && ((RequestJoinGroupMessage) orginalMessage2).getGroupId() == GroupInfoActivity.this.jsH.getGroupId()) {
-                        GroupInfoActivity.this.jsG.cGA();
-                        GroupInfoActivity.this.jsH.setHasRecentJoin(true);
-                        GroupInfoActivity.this.cGi();
+                    if (responseJoinGroupMessage.getError() == 0 && (orginalMessage2 = responseJoinGroupMessage.getOrginalMessage()) != null && (orginalMessage2 instanceof RequestJoinGroupMessage) && ((RequestJoinGroupMessage) orginalMessage2).getGroupId() == GroupInfoActivity.this.jsN.getGroupId()) {
+                        GroupInfoActivity.this.jsM.cGB();
+                        GroupInfoActivity.this.jsN.setHasRecentJoin(true);
+                        GroupInfoActivity.this.cGj();
                     }
                 }
             } else if (socketResponsedMessage.getCmd() == 103102) {
-                GroupInfoActivity.this.jsG.cGv();
+                GroupInfoActivity.this.jsM.cGw();
                 if (socketResponsedMessage.getError() != 0) {
                     GroupInfoActivity.this.showToast(R.string.neterror);
                     return;
@@ -642,34 +642,34 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
                     switch (GroupInfoActivity.this.type) {
                         case 1:
                             if (type == 3) {
-                                GroupInfoActivity.this.jsH.addPhotoData();
-                                GroupInfoActivity.this.jsG.a(GroupInfoActivity.this.jsH.getData());
+                                GroupInfoActivity.this.jsN.addPhotoData();
+                                GroupInfoActivity.this.jsM.a(GroupInfoActivity.this.jsN.getData());
                                 return;
                             }
                             return;
                         case 2:
                             if (type == 3) {
-                                GroupInfoActivity.this.jsH.delePhotoData();
-                                GroupInfoActivity.this.jsG.a(GroupInfoActivity.this.jsH.getData());
+                                GroupInfoActivity.this.jsN.delePhotoData();
+                                GroupInfoActivity.this.jsM.a(GroupInfoActivity.this.jsN.getData());
                                 return;
                             }
                             return;
                         case 3:
                             if (type == 4) {
-                                GroupInfoActivity.this.jsH.updataPortraitData();
-                                GroupInfoActivity.this.jsG.a(GroupInfoActivity.this.jsH.getData());
+                                GroupInfoActivity.this.jsN.updataPortraitData();
+                                GroupInfoActivity.this.jsM.a(GroupInfoActivity.this.jsN.getData());
                                 return;
                             }
                             return;
                         case 4:
-                            GroupInfoActivity.this.jsH.getData().getGroup().setFlag(GroupInfoActivity.this.jeV.getFlag());
-                            GroupInfoActivity.this.jsH.getData().getGroup().setPosition(GroupInfoActivity.this.jeV.getPosition());
-                            GroupInfoActivity.this.jsH.getData().getGroup().setBusiness(GroupInfoActivity.this.jeV.getBusiness());
-                            if ((GroupInfoActivity.this.jsH.getData().getGroup().getFlag() & 1) == 1) {
-                                GroupInfoActivity.this.jsG.qJ(GroupInfoActivity.this.jsH.getData().cHh());
+                            GroupInfoActivity.this.jsN.getData().getGroup().setFlag(GroupInfoActivity.this.jfb.getFlag());
+                            GroupInfoActivity.this.jsN.getData().getGroup().setPosition(GroupInfoActivity.this.jfb.getPosition());
+                            GroupInfoActivity.this.jsN.getData().getGroup().setBusiness(GroupInfoActivity.this.jfb.getBusiness());
+                            if ((GroupInfoActivity.this.jsN.getData().getGroup().getFlag() & 1) == 1) {
+                                GroupInfoActivity.this.jsM.qL(GroupInfoActivity.this.jsN.getData().cHi());
                             } else {
-                                String position = GroupInfoActivity.this.jsH.getData().getGroup().getPosition();
-                                String business = GroupInfoActivity.this.jsH.getData().getGroup().getBusiness();
+                                String position = GroupInfoActivity.this.jsN.getData().getGroup().getPosition();
+                                String business = GroupInfoActivity.this.jsN.getData().getGroup().getBusiness();
                                 StringBuffer stringBuffer = new StringBuffer();
                                 if (position != null) {
                                     stringBuffer.append(position);
@@ -677,7 +677,7 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
                                 if (business != null) {
                                     stringBuffer.append(business);
                                 }
-                                GroupInfoActivity.this.jsG.r(GroupInfoActivity.this.jsH.getData().cHh(), stringBuffer.toString());
+                                GroupInfoActivity.this.jsM.r(GroupInfoActivity.this.jsN.getData().cHi(), stringBuffer.toString());
                             }
                             GroupInfoActivity.this.showToast(R.string.operation_success);
                             return;
@@ -690,29 +690,29 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
                     ResponseRemoveMembersMessage responseRemoveMembersMessage = (ResponseRemoveMembersMessage) socketResponsedMessage;
                     if (responseRemoveMembersMessage.getError() == 0 && (orginalMessage = responseRemoveMembersMessage.getOrginalMessage()) != null && (orginalMessage instanceof RequestRemoveMembersMessage)) {
                         RequestRemoveMembersMessage requestRemoveMembersMessage = (RequestRemoveMembersMessage) orginalMessage;
-                        if (requestRemoveMembersMessage.getGroupId() == GroupInfoActivity.this.jsH.getGroupId()) {
+                        if (requestRemoveMembersMessage.getGroupId() == GroupInfoActivity.this.jsN.getGroupId()) {
                             String userIds = requestRemoveMembersMessage.getUserIds();
                             if (!TextUtils.isEmpty(userIds) && (split = userIds.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) != null && split.length != 0) {
                                 String id = TbadkApplication.getCurrentAccountObj().getID();
                                 if (!TextUtils.isEmpty(id)) {
                                     for (String str : split) {
                                         if (id.equals(str)) {
-                                            ResponseGroupInfoLocalMessage.a data = GroupInfoActivity.this.jsH.getData();
-                                            data.By(data.cHf() + 1);
-                                            data.qQ(false);
-                                            GroupInfoActivity.this.jsH.setHasRecentJoin(false);
-                                            GroupInfoActivity.this.jsG.a(data, true);
-                                            GroupInfoActivity.this.jsG.KO(str);
-                                            GroupInfoActivity.this.cGi();
+                                            ResponseGroupInfoLocalMessage.a data = GroupInfoActivity.this.jsN.getData();
+                                            data.By(data.cHg() + 1);
+                                            data.qS(false);
+                                            GroupInfoActivity.this.jsN.setHasRecentJoin(false);
+                                            GroupInfoActivity.this.jsM.a(data, true);
+                                            GroupInfoActivity.this.jsM.KP(str);
+                                            GroupInfoActivity.this.cGj();
                                             return;
                                         }
-                                        if (GroupInfoActivity.this.jsH.removeMemberByUid(str)) {
-                                            GroupInfoActivity.this.jsG.KO(str);
-                                            GroupData group = GroupInfoActivity.this.jsH.getData().getGroup();
+                                        if (GroupInfoActivity.this.jsN.removeMemberByUid(str)) {
+                                            GroupInfoActivity.this.jsM.KP(str);
+                                            GroupData group = GroupInfoActivity.this.jsN.getData().getGroup();
                                             if (group != null && group.getMemberNum() > 1) {
                                                 group.setMemberNum(group.getMemberNum() - 1);
                                             }
-                                            GroupInfoActivity.this.jsG.setData(GroupInfoActivity.this.jsH.getData());
+                                            GroupInfoActivity.this.jsM.setData(GroupInfoActivity.this.jsN.getData());
                                         }
                                     }
                                 }
@@ -723,7 +723,7 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
             } else if (socketResponsedMessage.getCmd() == 103104) {
                 if (socketResponsedMessage instanceof ResponseDismissGroupMessage) {
                     ResponseDismissGroupMessage responseDismissGroupMessage = (ResponseDismissGroupMessage) socketResponsedMessage;
-                    if (responseDismissGroupMessage.getError() == 0 && GroupInfoActivity.this.jsH.getGroupId() == responseDismissGroupMessage.getGroupId()) {
+                    if (responseDismissGroupMessage.getError() == 0 && GroupInfoActivity.this.jsN.getGroupId() == responseDismissGroupMessage.getGroupId()) {
                         GroupInfoActivity.this.finish();
                     }
                 }
@@ -745,18 +745,18 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
     }
 
     public void b(GroupNewsPojo groupNewsPojo) {
-        if (groupNewsPojo != null && this.jsH != null && this.jsH.getData() != null) {
+        if (groupNewsPojo != null && this.jsN != null && this.jsN.getData() != null) {
             try {
                 JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
                 String string = jSONObject.getJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM).getString(TbEnum.SystemMessage.KEY_GROUP_ID);
-                if (jSONObject.getString(TbEnum.SystemMessage.KEY_EVENT_ID).equals(TbEnum.SystemMessage.EVENT_ID_KICKED_OUT) && string.equals(String.valueOf(this.jsH.getGroupId())) && this.jsH.getData().cHg()) {
-                    this.jsH.getData().qQ(false);
-                    GroupData group = this.jsH.getData().getGroup();
+                if (jSONObject.getString(TbEnum.SystemMessage.KEY_EVENT_ID).equals(TbEnum.SystemMessage.EVENT_ID_KICKED_OUT) && string.equals(String.valueOf(this.jsN.getGroupId())) && this.jsN.getData().cHh()) {
+                    this.jsN.getData().qS(false);
+                    GroupData group = this.jsN.getData().getGroup();
                     if (group != null && group.getMemberNum() > 1) {
                         group.setMemberNum(group.getMemberNum() - 1);
                     }
-                    this.jsG.a(this.jsH.getData(), true);
-                    cGi();
+                    this.jsM.a(this.jsN.getData(), true);
+                    cGj();
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -767,12 +767,12 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
     public void f(GroupNewsPojo groupNewsPojo) {
         try {
             String optString = new JSONObject(groupNewsPojo.getContent()).optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM).optString(TbEnum.SystemMessage.KEY_GROUP_ID);
-            if (!TextUtils.isEmpty(optString) && this.jsH != null && optString.equals(String.valueOf(this.jsH.getGroupId())) && this.jsH.getData() != null) {
-                this.jsH.getData().qQ(true);
-                if (this.jsG != null) {
-                    this.jsG.qL(true);
-                    this.jsG.cGy();
-                    cGi();
+            if (!TextUtils.isEmpty(optString) && this.jsN != null && optString.equals(String.valueOf(this.jsN.getGroupId())) && this.jsN.getData() != null) {
+                this.jsN.getData().qS(true);
+                if (this.jsM != null) {
+                    this.jsM.qN(true);
+                    this.jsM.cGz();
+                    cGj();
                 }
             }
         } catch (JSONException e) {
@@ -782,17 +782,17 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(GroupNewsPojo groupNewsPojo) {
-        if (groupNewsPojo != null && this.jsH != null && this.jsH.getData() != null) {
+        if (groupNewsPojo != null && this.jsN != null && this.jsN.getData() != null) {
             try {
                 JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
                 JSONObject jSONObject2 = jSONObject.getJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM);
                 String string = jSONObject2.getString(TbEnum.SystemMessage.KEY_GROUP_ID);
-                if (jSONObject.getString(TbEnum.SystemMessage.KEY_EVENT_ID).equals(TbEnum.SystemMessage.EVENT_ID_GROUP_NAME_MODIFY) && string.equals(String.valueOf(this.jsH.getGroupId()))) {
+                if (jSONObject.getString(TbEnum.SystemMessage.KEY_EVENT_ID).equals(TbEnum.SystemMessage.EVENT_ID_GROUP_NAME_MODIFY) && string.equals(String.valueOf(this.jsN.getGroupId()))) {
                     String string2 = jSONObject2.getString(TbEnum.SystemMessage.KEY_GROUP_NAME);
                     if (!TextUtils.isEmpty(string2)) {
-                        this.jsG.setGroupName(string2);
-                        if (this.jsH.getData() != null && this.jsH.getData().getGroup() != null) {
-                            this.jsH.getData().getGroup().setName(string2);
+                        this.jsM.setGroupName(string2);
+                        if (this.jsN.getData() != null && this.jsN.getData().getGroup() != null) {
+                            this.jsN.getData().getGroup().setName(string2);
                         }
                     }
                 }
@@ -804,11 +804,11 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(GroupNewsPojo groupNewsPojo) {
-        if (groupNewsPojo != null && this.jsH != null) {
+        if (groupNewsPojo != null && this.jsN != null) {
             try {
                 JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
                 String string = jSONObject.getJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM).getString(TbEnum.SystemMessage.KEY_GROUP_ID);
-                if (jSONObject.getString(TbEnum.SystemMessage.KEY_EVENT_ID).equals(TbEnum.SystemMessage.EVENT_ID_DISMISS_GROUP) && string.equals(String.valueOf(this.jsH.getGroupId()))) {
+                if (jSONObject.getString(TbEnum.SystemMessage.KEY_EVENT_ID).equals(TbEnum.SystemMessage.EVENT_ID_DISMISS_GROUP) && string.equals(String.valueOf(this.jsN.getGroupId()))) {
                     finish();
                 }
             } catch (JSONException e) {
@@ -827,9 +827,9 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cGi() {
-        if (this.jsH != null) {
-            this.jsH.clearGroupInfoCache(String.valueOf(this.jsH.getGroupId()));
+    public void cGj() {
+        if (this.jsN != null) {
+            this.jsN.clearGroupInfoCache(String.valueOf(this.jsN.getGroupId()));
         }
     }
 

@@ -5,19 +5,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes8.dex */
 public class g {
-    private HashMap<String, h> dsz = new HashMap<>();
+    private HashMap<String, h> dsD = new HashMap<>();
 
     public ArrayList<h> y(String... strArr) {
         ArrayList<h> arrayList = null;
         if (strArr != null && strArr.length != 0) {
             for (String str : strArr) {
                 if (!TextUtils.isEmpty(str)) {
-                    for (String str2 : this.dsz.keySet()) {
+                    for (String str2 : this.dsD.keySet()) {
                         if (str2.startsWith(str) || str.startsWith(str2)) {
                             if (arrayList == null) {
                                 arrayList = new ArrayList<>();
                             }
-                            arrayList.add(this.dsz.get(str2));
+                            arrayList.add(this.dsD.get(str2));
                         }
                     }
                 }
@@ -30,7 +30,7 @@ public class g {
         if (strArr != null && strArr.length != 0) {
             for (String str : strArr) {
                 if (!TextUtils.isEmpty(str)) {
-                    this.dsz.put(str, hVar);
+                    this.dsD.put(str, hVar);
                 }
             }
         }
@@ -39,14 +39,14 @@ public class g {
     public void b(h hVar, String... strArr) {
         if (strArr != null && strArr.length != 0) {
             for (String str : strArr) {
-                if (!TextUtils.isEmpty(str) && this.dsz.get(str) == hVar) {
-                    this.dsz.remove(str);
+                if (!TextUtils.isEmpty(str) && this.dsD.get(str) == hVar) {
+                    this.dsD.remove(str);
                 }
             }
         }
     }
 
     public void aoj() {
-        this.dsz.clear();
+        this.dsD.clear();
     }
 }

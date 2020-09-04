@@ -23,45 +23,45 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class l {
-    private AlphaAnimation fGH;
-    public TbImageView fGt;
-    public TextView fGu;
-    public TextView fGw;
-    public LinearLayout fGx;
-    public TbImageView fIt;
-    public ImageView fIu;
-    private com.baidu.tieba.ala.alasquare.a.a fIv;
-    private SdkLiveInfoData fIy;
+    private static final float fGD = TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.tbds20);
+    private static final float[] fGE = {0.0f, 0.0f, 0.0f, 0.0f, fGD, fGD, fGD, fGD};
+    private static final float[] fGF = {0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, fGD, fGD};
+    private static final float[] fGG = {0.0f, 0.0f, 0.0f, 0.0f, fGD, fGD, 0.0f, 0.0f};
+    public TextView fGA;
+    public LinearLayout fGB;
+    private AlphaAnimation fGL;
+    public TbImageView fGx;
+    public TextView fGy;
+    private SdkLiveInfoData fIC;
+    public TbImageView fIx;
+    public ImageView fIy;
+    private com.baidu.tieba.ala.alasquare.a.a fIz;
     private String mCoverUrl;
     public View mRootView;
     private TbPageContext<?> mTbPageContext;
     private int tabType;
-    private static final float fGz = TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.tbds20);
-    private static final float[] fGA = {0.0f, 0.0f, 0.0f, 0.0f, fGz, fGz, fGz, fGz};
-    private static final float[] fGB = {0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, fGz, fGz};
-    private static final float[] fGC = {0.0f, 0.0f, 0.0f, 0.0f, fGz, fGz, 0.0f, 0.0f};
     public int mSkinType = 3;
-    private int[] fGD = {TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha0), TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha40)};
-    private boolean fGG = false;
-    private boolean fGI = true;
+    private int[] fGH = {TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha0), TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha40)};
+    private boolean fGK = false;
+    private boolean fGM = true;
     private boolean mIsAnimating = false;
-    private int fIw = 0;
+    private int fIA = 0;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.live_tab.view.l.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            com.baidu.tieba.ala.alasquare.live_tab.c.a(l.this.mTbPageContext.getPageActivity(), l.this.fIy);
-            if (l.this.fIv != null && l.this.fIy != null) {
-                if (l.this.fIv.eee) {
+            com.baidu.tieba.ala.alasquare.live_tab.c.a(l.this.mTbPageContext.getPageActivity(), l.this.fIC);
+            if (l.this.fIz != null && l.this.fIC != null) {
+                if (l.this.fIz.eei) {
                     aq aqVar = new aq("c13611");
-                    aqVar.dD("obj_param1", l.this.fIy.liveId);
-                    aqVar.dD("fid", l.this.fIv.fid);
-                    aqVar.dD("fname", l.this.fIv.fname);
-                    aqVar.ai("obj_locate", l.this.fIv.position);
-                    if (l.this.fIy != null && l.this.fIy.uiTransParam != null) {
-                        aqVar.dD("ab_tag", l.this.fIy.uiTransParam.abTag);
-                        aqVar.dD("star_id", l.this.fIy.uiTransParam.starId);
-                        aqVar.dD("extra", l.this.fIy.uiTransParam.extra);
-                        aqVar.dD("source_from", l.this.fIy.uiTransParam.sourceFrom);
+                    aqVar.dD("obj_param1", l.this.fIC.liveId);
+                    aqVar.dD("fid", l.this.fIz.fid);
+                    aqVar.dD("fname", l.this.fIz.fname);
+                    aqVar.ai("obj_locate", l.this.fIz.position);
+                    if (l.this.fIC != null && l.this.fIC.uiTransParam != null) {
+                        aqVar.dD("ab_tag", l.this.fIC.uiTransParam.abTag);
+                        aqVar.dD("star_id", l.this.fIC.uiTransParam.starId);
+                        aqVar.dD("extra", l.this.fIC.uiTransParam.extra);
+                        aqVar.dD("source_from", l.this.fIC.uiTransParam.sourceFrom);
                     }
                     TiebaStatic.log(aqVar);
                     return;
@@ -73,7 +73,7 @@ public class l {
                 } else if (102 == l.this.tabType) {
                     str = "颜值";
                 }
-                aqVar2.dD("obj_param1", l.this.fIy.liveId);
+                aqVar2.dD("obj_param1", l.this.fIC.liveId);
                 aqVar2.dD("entryname", str);
                 TiebaStatic.log(aqVar2);
             }
@@ -84,20 +84,20 @@ public class l {
         this.mTbPageContext = tbPageContext;
         this.tabType = i;
         this.mRootView = LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(R.layout.tab_live_item_view, (ViewGroup) null, false);
-        this.fGt = (TbImageView) this.mRootView.findViewById(R.id.imgSquareView);
-        this.fGt.setBorderSurroundContent(true);
-        this.fGt.setDrawBorder(true);
-        this.fGt.setPlaceHolder(2);
-        this.fGt.setBorderWidth(com.baidu.adp.lib.util.l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds1));
-        this.fGu = (TextView) this.mRootView.findViewById(R.id.tvLiveCount);
-        this.fGw = (TextView) this.mRootView.findViewById(R.id.tvUserName);
-        this.fGx = (LinearLayout) this.mRootView.findViewById(R.id.tvUserNameWrapper);
-        this.fIt = (TbImageView) this.mRootView.findViewById(R.id.live_label);
-        this.fIu = (ImageView) this.mRootView.findViewById(R.id.live_redpacket_label);
+        this.fGx = (TbImageView) this.mRootView.findViewById(R.id.imgSquareView);
+        this.fGx.setBorderSurroundContent(true);
+        this.fGx.setDrawBorder(true);
+        this.fGx.setPlaceHolder(2);
+        this.fGx.setBorderWidth(com.baidu.adp.lib.util.l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds1));
+        this.fGy = (TextView) this.mRootView.findViewById(R.id.tvLiveCount);
+        this.fGA = (TextView) this.mRootView.findViewById(R.id.tvUserName);
+        this.fGB = (LinearLayout) this.mRootView.findViewById(R.id.tvUserNameWrapper);
+        this.fIx = (TbImageView) this.mRootView.findViewById(R.id.live_label);
+        this.fIy = (ImageView) this.mRootView.findViewById(R.id.live_redpacket_label);
         this.mRootView.setOnClickListener(this.mOnClickListener);
-        this.fGH = new AlphaAnimation(0.0f, 1.0f);
-        this.fGH.setDuration(200L);
-        this.fGH.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.alasquare.live_tab.view.l.1
+        this.fGL = new AlphaAnimation(0.0f, 1.0f);
+        this.fGL.setDuration(200L);
+        this.fGL.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.alasquare.live_tab.view.l.1
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
                 l.this.mIsAnimating = true;
@@ -125,7 +125,7 @@ public class l {
     public void a(com.baidu.tieba.ala.alasquare.a.a aVar, int i) {
         String str;
         int equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(this.mRootView.getContext());
-        if (equipmentWidth != this.fIw) {
+        if (equipmentWidth != this.fIA) {
             ViewGroup.LayoutParams layoutParams = this.mRootView.getLayoutParams();
             int equipmentWidth2 = (com.baidu.adp.lib.util.l.getEquipmentWidth(this.mRootView.getContext()) - this.mRootView.getContext().getResources().getDimensionPixelSize(R.dimen.tbds12)) - (this.mRootView.getContext().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
             if (layoutParams == null) {
@@ -135,53 +135,53 @@ public class l {
                 layoutParams.height = layoutParams.width;
             }
             this.mRootView.setLayoutParams(layoutParams);
-            this.fIw = equipmentWidth;
+            this.fIA = equipmentWidth;
         }
-        if (aVar == null || aVar.fCu == null) {
+        if (aVar == null || aVar.fCy == null) {
             getView().setVisibility(4);
             return;
         }
         getView().setVisibility(0);
-        this.fIv = aVar;
-        this.fIy = aVar.fCu;
-        Object tag = this.fGt.getTag();
-        if (this.fGI) {
-            this.fGG = true;
-            this.fGI = false;
-        } else if ((tag instanceof String) && !StringUtils.isNull(this.fIy.liveInfo.cover) && !((String) tag).equals(this.fIy.liveInfo.cover)) {
-            this.fGG = true;
-        } else if (!StringUtils.isNull(this.mCoverUrl) && !StringUtils.isNull(this.fIy.liveInfo.cover) && !this.mCoverUrl.equals(this.fIy.liveInfo.cover)) {
-            this.fGG = true;
+        this.fIz = aVar;
+        this.fIC = aVar.fCy;
+        Object tag = this.fGx.getTag();
+        if (this.fGM) {
+            this.fGK = true;
+            this.fGM = false;
+        } else if ((tag instanceof String) && !StringUtils.isNull(this.fIC.liveInfo.cover) && !((String) tag).equals(this.fIC.liveInfo.cover)) {
+            this.fGK = true;
+        } else if (!StringUtils.isNull(this.mCoverUrl) && !StringUtils.isNull(this.fIC.liveInfo.cover) && !this.mCoverUrl.equals(this.fIC.liveInfo.cover)) {
+            this.fGK = true;
         } else {
-            this.fGG = false;
+            this.fGK = false;
         }
-        GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, this.fGD);
-        this.mCoverUrl = this.fIy.liveInfo.cover;
-        this.fGt.setTag(this.mCoverUrl);
+        GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, this.fGH);
+        this.mCoverUrl = this.fIC.liveInfo.cover;
+        this.fGx.setTag(this.mCoverUrl);
         if (aVar.isLeft) {
-            this.fGt.setConrers(5);
-            gradientDrawable.setCornerRadii(fGB);
-            this.fGt.setPlaceHolder(2);
+            this.fGx.setConrers(5);
+            gradientDrawable.setCornerRadii(fGF);
+            this.fGx.setPlaceHolder(2);
         } else if (aVar.isRight) {
-            this.fGt.setConrers(10);
-            gradientDrawable.setCornerRadii(fGC);
-            this.fGt.setPlaceHolder(2);
-        } else if (aVar.fCv) {
-            this.fGt.setConrers(15);
-            gradientDrawable.setCornerRadii(fGA);
-            this.fGt.setPlaceHolder(2);
+            this.fGx.setConrers(10);
+            gradientDrawable.setCornerRadii(fGG);
+            this.fGx.setPlaceHolder(2);
+        } else if (aVar.fCz) {
+            this.fGx.setConrers(15);
+            gradientDrawable.setCornerRadii(fGE);
+            this.fGx.setPlaceHolder(2);
         }
-        this.fGt.setRadius((int) fGz);
-        this.fGt.startLoad(this.fIy.liveInfo.cover, 10, false);
-        this.fGx.setBackgroundDrawable(gradientDrawable);
-        this.fGt.setEvent(new TbImageView.a() { // from class: com.baidu.tieba.ala.alasquare.live_tab.view.l.2
+        this.fGx.setRadius((int) fGD);
+        this.fGx.startLoad(this.fIC.liveInfo.cover, 10, false);
+        this.fGB.setBackgroundDrawable(gradientDrawable);
+        this.fGx.setEvent(new TbImageView.a() { // from class: com.baidu.tieba.ala.alasquare.live_tab.view.l.2
             String url;
 
             @Override // com.baidu.tbadk.widget.TbImageView.a
             public void onComplete(String str2, boolean z) {
-                if (z && l.this.fGG && !l.this.mIsAnimating) {
+                if (z && l.this.fGK && !l.this.mIsAnimating) {
                     if (StringUtils.isNull(this.url) || !this.url.equals(str2)) {
-                        l.this.fGt.startAnimation(l.this.fGH);
+                        l.this.fGx.startAnimation(l.this.fGL);
                         this.url = str2;
                     }
                 }
@@ -191,60 +191,60 @@ public class l {
             public void onCancel() {
             }
         });
-        this.fGu.setText(this.mTbPageContext.getPageActivity().getResources().getString(R.string.square_sub_live_audience_label, at.cP(this.fIy.liveInfo.audienceCount)));
-        this.fGw.setText(this.fIy.title);
+        this.fGy.setText(this.mTbPageContext.getPageActivity().getResources().getString(R.string.square_sub_live_audience_label, at.cP(this.fIC.liveInfo.audienceCount)));
+        this.fGA.setText(this.fIC.title);
         if (TbadkCoreApplication.getInst().getSkinType() == 1 || TbadkCoreApplication.getInst().getSkinType() == 4) {
-            str = this.fIy.recom_extra_img_night;
+            str = this.fIC.recom_extra_img_night;
         } else {
-            str = this.fIy.recom_extra_img;
+            str = this.fIC.recom_extra_img;
         }
-        if (!StringUtils.isNull(str) && this.fIy.recom_extra_img_width > 0 && this.fIy.recom_extra_img_height > 0) {
+        if (!StringUtils.isNull(str) && this.fIC.recom_extra_img_width > 0 && this.fIC.recom_extra_img_height > 0) {
             if (aVar.isLeft) {
-                this.fIt.setConrers(1);
+                this.fIx.setConrers(1);
             } else if (aVar.isRight) {
-                this.fIt.setConrers(0);
-            } else if (aVar.fCv) {
-                this.fIt.setConrers(1);
+                this.fIx.setConrers(0);
+            } else if (aVar.fCz) {
+                this.fIx.setConrers(1);
             } else {
-                this.fIt.setConrers(0);
+                this.fIx.setConrers(0);
             }
-            this.fIt.setRadius((int) fGz);
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.fIt.getLayoutParams();
+            this.fIx.setRadius((int) fGD);
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.fIx.getLayoutParams();
             if (layoutParams2 != null) {
                 int dimensionPixelSize = this.mTbPageContext.getResources().getDimensionPixelSize(R.dimen.ds42);
                 layoutParams2.height = dimensionPixelSize;
-                layoutParams2.width = (int) ((this.fIy.recom_extra_img_width / this.fIy.recom_extra_img_height) * dimensionPixelSize);
-                this.fIt.setLayoutParams(layoutParams2);
+                layoutParams2.width = (int) ((this.fIC.recom_extra_img_width / this.fIC.recom_extra_img_height) * dimensionPixelSize);
+                this.fIx.setLayoutParams(layoutParams2);
             }
-            this.fIt.startLoad(str, 10, false);
-            this.fIt.setVisibility(0);
+            this.fIx.startLoad(str, 10, false);
+            this.fIx.setVisibility(0);
         } else {
-            this.fIt.setVisibility(8);
+            this.fIx.setVisibility(8);
         }
-        if (this.fIy.liveInfo.haveRedpkg) {
-            this.fIu.setVisibility(0);
+        if (this.fIC.liveInfo.haveRedpkg) {
+            this.fIy.setVisibility(0);
         } else {
-            this.fIu.setVisibility(8);
+            this.fIy.setVisibility(8);
         }
-        if (this.fIy != null) {
+        if (this.fIC != null) {
             if (i == 2) {
-                TiebaStatic.log(new aq("c12899").dD("tid", this.fIy.tid));
+                TiebaStatic.log(new aq("c12899").dD("tid", this.fIC.tid));
             } else if (i == 1) {
-                TiebaStatic.log(new aq("c12903").dD("tid", this.fIy.tid));
+                TiebaStatic.log(new aq("c12903").dD("tid", this.fIC.tid));
             }
         }
         onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
-        if (aVar.eee) {
+        if (aVar.eei) {
             aq aqVar = new aq("c13610");
-            aqVar.dD("obj_param1", this.fIy != null ? this.fIy.liveId : "");
+            aqVar.dD("obj_param1", this.fIC != null ? this.fIC.liveId : "");
             aqVar.dD("fid", aVar.fid);
             aqVar.dD("fname", aVar.fname);
             aqVar.ai("obj_locate", aVar.position);
-            if (this.fIy != null && this.fIy.uiTransParam != null) {
-                aqVar.dD("ab_tag", this.fIy.uiTransParam.abTag);
-                aqVar.dD("star_id", this.fIy.uiTransParam.starId);
-                aqVar.dD("extra", this.fIy.uiTransParam.extra);
-                aqVar.dD("source_from", this.fIy.uiTransParam.sourceFrom);
+            if (this.fIC != null && this.fIC.uiTransParam != null) {
+                aqVar.dD("ab_tag", this.fIC.uiTransParam.abTag);
+                aqVar.dD("star_id", this.fIC.uiTransParam.starId);
+                aqVar.dD("extra", this.fIC.uiTransParam.extra);
+                aqVar.dD("source_from", this.fIC.uiTransParam.sourceFrom);
             }
             TiebaStatic.log(aqVar);
             return;
@@ -256,19 +256,19 @@ public class l {
         } else if (102 == this.tabType) {
             str2 = "颜值";
         }
-        aqVar2.dD("obj_param1", this.fIy == null ? "" : this.fIy.liveId);
+        aqVar2.dD("obj_param1", this.fIC == null ? "" : this.fIC.liveId);
         aqVar2.dD("entryname", str2);
         TiebaStatic.log(aqVar2);
     }
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ap.setViewTextColor(this.fGu, (int) R.color.cp_cont_a);
-            ap.setViewTextColor(this.fGw, (int) R.color.cp_cont_a);
+            ap.setViewTextColor(this.fGy, (int) R.color.cp_cont_a);
+            ap.setViewTextColor(this.fGA, (int) R.color.cp_cont_a);
             Drawable drawable = ap.getDrawable(this.mTbPageContext.getResources(), (int) R.drawable.tab_icon_living_seeding);
             drawable.setBounds(0, 0, this.mTbPageContext.getResources().getDimensionPixelOffset(R.dimen.tbds18), this.mTbPageContext.getResources().getDimensionPixelOffset(R.dimen.tbds18));
-            this.fGu.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
-            this.fGu.setCompoundDrawablePadding(this.mTbPageContext.getResources().getDimensionPixelOffset(R.dimen.tbds8));
+            this.fGy.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
+            this.fGy.setCompoundDrawablePadding(this.mTbPageContext.getResources().getDimensionPixelOffset(R.dimen.tbds8));
             this.mSkinType = i;
         }
     }

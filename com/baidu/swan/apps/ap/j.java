@@ -8,20 +8,20 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes8.dex */
 public final class j {
-    private static final Set<Integer> daV = new HashSet();
-    private static final Set<Integer> daW = new HashSet();
-    private static final Set<Integer> daX = new HashSet();
+    private static final Set<Integer> daZ = new HashSet();
+    private static final Set<Integer> dba = new HashSet();
+    private static final Set<Integer> dbb = new HashSet();
 
     static {
-        daV.add(2);
-        daV.add(3);
-        daV.add(4);
-        daV.add(5);
-        daV.add(6);
-        daW.add(7);
-        daW.add(1);
-        daX.addAll(daV);
-        daX.addAll(daW);
+        daZ.add(2);
+        daZ.add(3);
+        daZ.add(4);
+        daZ.add(5);
+        daZ.add(6);
+        dba.add(7);
+        dba.add(1);
+        dbb.addAll(daZ);
+        dbb.addAll(dba);
     }
 
     public static Date aEI() {

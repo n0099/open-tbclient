@@ -20,29 +20,29 @@ import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
 /* loaded from: classes16.dex */
 public class e {
-    private FrameLayout dBr;
-    private PbListView fDW;
-    private BdTypeRecyclerView hVx;
-    private FrsADFragment hYP;
-    private a hZa;
+    private FrameLayout dBv;
+    private PbListView fEa;
+    private BdTypeRecyclerView hVD;
+    private FrsADFragment hYV;
+    private a hZg;
     private RelativeLayout mContainer;
 
     public e(FrsADFragment frsADFragment, View view) {
-        this.hYP = frsADFragment;
+        this.hYV = frsADFragment;
         ca(view);
     }
 
-    public a coD() {
-        return this.hZa;
+    public a coE() {
+        return this.hZg;
     }
 
     private void ca(View view) {
         this.mContainer = (RelativeLayout) view.findViewById(R.id.frs_ad_container);
-        this.hVx = (BdTypeRecyclerView) view.findViewById(R.id.frs_ad_listview);
-        this.hVx.setLayoutManager(new LinearLayoutManager(this.hVx.getContext()));
-        this.hVx.setFadingEdgeLength(0);
-        this.hVx.setOverScrollMode(2);
-        this.hVx.setRecyclerListener(new RecyclerView.RecyclerListener() { // from class: com.baidu.tieba.frs.ad.e.1
+        this.hVD = (BdTypeRecyclerView) view.findViewById(R.id.frs_ad_listview);
+        this.hVD.setLayoutManager(new LinearLayoutManager(this.hVD.getContext()));
+        this.hVD.setFadingEdgeLength(0);
+        this.hVD.setOverScrollMode(2);
+        this.hVD.setRecyclerListener(new RecyclerView.RecyclerListener() { // from class: com.baidu.tieba.frs.ad.e.1
             @Override // android.support.v7.widget.RecyclerView.RecyclerListener
             public void onViewRecycled(RecyclerView.ViewHolder viewHolder) {
                 View view2 = viewHolder.itemView;
@@ -61,104 +61,104 @@ public class e {
                 }
             }
         });
-        this.hVx.setOnSrollToBottomListener(this.hYP);
-        this.hZa = new a(this.hYP, this.hVx);
-        this.fDW = new PbListView(this.hYP.getPageContext().getPageActivity());
-        this.fDW.createView();
-        this.fDW.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
-        this.fDW.setHeight(l.getDimens(this.hYP.getActivity(), R.dimen.tbds182));
-        this.fDW.setLineGone();
-        this.fDW.setTextSize(R.dimen.tbfontsize33);
-        this.fDW.setTextColor(ap.getColor(R.color.cp_cont_j));
-        this.fDW.setNoMoreTextColorId(R.color.cp_cont_e);
-        this.dBr = (FrameLayout) view.findViewById(R.id.frs_ad_list_content);
-        kf(false);
+        this.hVD.setOnSrollToBottomListener(this.hYV);
+        this.hZg = new a(this.hYV, this.hVD);
+        this.fEa = new PbListView(this.hYV.getPageContext().getPageActivity());
+        this.fEa.createView();
+        this.fEa.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
+        this.fEa.setHeight(l.getDimens(this.hYV.getActivity(), R.dimen.tbds182));
+        this.fEa.setLineGone();
+        this.fEa.setTextSize(R.dimen.tbfontsize33);
+        this.fEa.setTextColor(ap.getColor(R.color.cp_cont_j));
+        this.fEa.setNoMoreTextColorId(R.color.cp_cont_e);
+        this.dBv = (FrameLayout) view.findViewById(R.id.frs_ad_list_content);
+        kh(false);
     }
 
-    public void kf(boolean z) {
+    public void kh(boolean z) {
         if (!z) {
             v vVar = new v();
             vVar.tabId = 90;
-            vVar.fky = false;
+            vVar.fkC = false;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, vVar));
         }
     }
 
-    public void coE() {
+    public void coF() {
         v vVar = new v();
         vVar.tabId = 90;
-        vVar.fky = false;
+        vVar.fkC = false;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, vVar));
     }
 
     public BdTypeRecyclerView getListView() {
-        return this.hVx;
+        return this.hVD;
     }
 
-    public RelativeLayout bZb() {
+    public RelativeLayout bZc() {
         return this.mContainer;
     }
 
-    public void oC(boolean z) {
+    public void oE(boolean z) {
         ad adVar = new ad();
         adVar.tabId = 90;
-        adVar.esv = z;
+        adVar.esz = z;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(9205410, adVar));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bGR() {
-        this.hVx.setNextPage(this.fDW);
-        this.fDW.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-        this.fDW.startLoadData();
-    }
-
     public void bGS() {
-        this.hVx.setNextPage(this.fDW);
-        this.fDW.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-        this.fDW.endLoadData();
-        this.fDW.setText(this.hYP.getResources().getString(R.string.list_no_more));
+        this.hVD.setNextPage(this.fEa);
+        this.fEa.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        this.fEa.startLoadData();
     }
 
     public void bGT() {
-        this.hVx.setNextPage(null);
+        this.hVD.setNextPage(this.fEa);
+        this.fEa.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        this.fEa.endLoadData();
+        this.fEa.setText(this.hYV.getResources().getString(R.string.list_no_more));
     }
 
-    public void oD(boolean z) {
-        this.dBr.setVisibility(z ? 0 : 8);
+    public void bGU() {
+        this.hVD.setNextPage(null);
+    }
+
+    public void oF(boolean z) {
+        this.dBv.setVisibility(z ? 0 : 8);
     }
 
     public void startPullRefresh() {
         v vVar = new v();
         vVar.tabId = 90;
-        vVar.fky = true;
+        vVar.fkC = true;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, vVar));
     }
 
-    public void cne() {
-        if (this.hZa != null) {
-            this.hZa.notifyDataSetChanged();
+    public void cnf() {
+        if (this.hZg != null) {
+            this.hZg.notifyDataSetChanged();
         }
     }
 
     public void onChangeSkinType(int i) {
-        this.hYP.getBaseFragmentActivity().getLayoutMode().setNightMode(i == 1);
-        this.hYP.getBaseFragmentActivity().getLayoutMode().onModeChanged(this.mContainer);
-        if (this.fDW != null) {
-            this.fDW.setTextColor(ap.getColor(R.color.cp_cont_j));
-            this.fDW.changeSkin(i);
+        this.hYV.getBaseFragmentActivity().getLayoutMode().setNightMode(i == 1);
+        this.hYV.getBaseFragmentActivity().getLayoutMode().onModeChanged(this.mContainer);
+        if (this.fEa != null) {
+            this.fEa.setTextColor(ap.getColor(R.color.cp_cont_j));
+            this.fEa.changeSkin(i);
         }
-        if (this.hZa != null) {
-            this.hZa.notifyDataSetChanged();
+        if (this.hZg != null) {
+            this.hZg.notifyDataSetChanged();
         }
     }
 
     public void onDestroy() {
-        this.hZa.onDestory();
-        this.hVx.setOnSrollToBottomListener(null);
+        this.hZg.onDestory();
+        this.hVD.setOnSrollToBottomListener(null);
     }
 
     public void setOnScrollListener(RecyclerView.OnScrollListener onScrollListener) {
-        this.hVx.setOnScrollListener(onScrollListener);
+        this.hVD.setOnScrollListener(onScrollListener);
     }
 }

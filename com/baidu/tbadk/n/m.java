@@ -5,52 +5,52 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class m {
-    private static String eSs = "tb_perfor_samllflow_time";
-    private static volatile m eSv;
-    private long eSu;
-    private boolean ayn = false;
-    private long eSt = 86400;
-    private long eSr = com.baidu.tbadk.core.sharedPref.b.bik().getLong(eSs, 0);
+    private static String eSw = "tb_perfor_samllflow_time";
+    private static volatile m eSz;
+    private long eSy;
+    private boolean ayp = false;
+    private long eSx = 86400;
+    private long eSv = com.baidu.tbadk.core.sharedPref.b.bik().getLong(eSw, 0);
 
-    public static m bun() {
-        if (eSv == null) {
+    public static m buo() {
+        if (eSz == null) {
             synchronized (m.class) {
-                if (eSv == null) {
-                    eSv = new m();
+                if (eSz == null) {
+                    eSz = new m();
                 }
             }
         }
-        return eSv;
+        return eSz;
     }
 
     private m() {
-        this.eSu = 0L;
-        this.eSu = this.eSt;
+        this.eSy = 0L;
+        this.eSy = this.eSx;
     }
 
-    public boolean buo() {
-        if (!this.ayn || (System.currentTimeMillis() - this.eSr) / 1000 <= this.eSu) {
-            return this.ayn;
+    public boolean bup() {
+        if (!this.ayp || (System.currentTimeMillis() - this.eSv) / 1000 <= this.eSy) {
+            return this.ayp;
         }
         return false;
     }
 
-    public void jB(boolean z) {
+    public void jD(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.eSr || currentTimeMillis - this.eSr >= this.eSu) {
-                this.eSr = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.bik().putLong(eSs, this.eSr);
+            if (0 == this.eSv || currentTimeMillis - this.eSv >= this.eSy) {
+                this.eSv = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.bik().putLong(eSw, this.eSv);
             }
         } else {
-            this.eSr = 0L;
-            com.baidu.tbadk.core.sharedPref.b.bik().putLong(eSs, this.eSr);
+            this.eSv = 0L;
+            com.baidu.tbadk.core.sharedPref.b.bik().putLong(eSw, this.eSv);
         }
-        this.ayn = z;
+        this.ayp = z;
         if (BdStatisticsManager.getInstance().isMainProcess()) {
-            n.bus().but();
+            n.but().buu();
         }
     }
 
@@ -86,7 +86,7 @@ public class m {
         return "WIFI";
     }
 
-    public long bup() {
+    public long buq() {
         try {
             Runtime runtime = Runtime.getRuntime();
             return (runtime.totalMemory() - runtime.freeMemory()) / 1048576;
@@ -97,7 +97,7 @@ public class m {
     }
 
     public l qC(int i) {
-        if (buo()) {
+        if (bup()) {
             switch (i) {
                 case 1000:
                     o oVar = new o();
@@ -155,7 +155,7 @@ public class m {
 
     public void da(long j) {
         if (j > 0) {
-            this.eSu = j;
+            this.eSy = j;
         }
     }
 

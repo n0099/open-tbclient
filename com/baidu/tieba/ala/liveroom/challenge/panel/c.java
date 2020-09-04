@@ -19,49 +19,49 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class c extends g implements k.a {
-    private String eDP;
-    private LinearLayout grA;
-    private LinearLayout grB;
-    private LinkedList<k> grC;
+    private String eDT;
+    private ImageView grC;
     private LinearLayout grD;
-    private TextView grE;
-    private ImageView gry;
-    private LinearLayout grz;
+    private LinearLayout grE;
+    private LinearLayout grF;
+    private LinkedList<k> grG;
+    private LinearLayout grH;
+    private TextView grI;
 
     public c(Context context, m mVar, String str) {
         super(context, mVar);
-        this.grC = new LinkedList<>();
-        this.eDP = str;
-        this.gry = (ImageView) this.mRootView.findViewById(a.g.desc_imageView);
-        this.grz = (LinearLayout) this.mRootView.findViewById(a.g.ala_challenge_enrty_random_entry);
-        this.grA = (LinearLayout) this.mRootView.findViewById(a.g.ala_challenge_enrty_direct_entry);
-        this.gry.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.c.1
+        this.grG = new LinkedList<>();
+        this.eDT = str;
+        this.grC = (ImageView) this.mRootView.findViewById(a.g.desc_imageView);
+        this.grD = (LinearLayout) this.mRootView.findViewById(a.g.ala_challenge_enrty_random_entry);
+        this.grE = (LinearLayout) this.mRootView.findViewById(a.g.ala_challenge_enrty_direct_entry);
+        this.grC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                String str2 = com.baidu.live.w.a.Nk().beH.aGq;
+                String str2 = com.baidu.live.w.a.Nk().beJ.aGs;
                 if (!StringUtils.isNull(str2)) {
                     if (!str2.contains("?")) {
-                        str2 = str2 + "?id=" + c.this.eDP;
+                        str2 = str2 + "?id=" + c.this.eDT;
                     } else if (!str2.contains("&id=")) {
-                        str2 = str2 + "&id=" + c.this.eDP;
+                        str2 = str2 + "&id=" + c.this.eDT;
                     }
                     BrowserHelper.startInternalWebActivity(c.this.mContext, str2);
                 }
             }
         });
-        this.grz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.c.2
+        this.grD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.c.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.gsa != null) {
-                    c.this.gsa.bPZ();
+                if (c.this.gse != null) {
+                    c.this.gse.bQa();
                 }
             }
         });
-        this.grA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.c.3
+        this.grE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.c.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.gsa != null) {
-                    c.this.gsa.bQb();
+                if (c.this.gse != null) {
+                    c.this.gse.bQc();
                 }
             }
         });
@@ -74,14 +74,14 @@ public class c extends g implements k.a {
         findViewById.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.c.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.gsa != null) {
-                    c.this.gsa.bQc();
+                if (c.this.gse != null) {
+                    c.this.gse.bQd();
                 }
             }
         });
-        this.grB = (LinearLayout) this.mRootView.findViewById(a.g.ala_challenge_wait_user_container);
-        this.grD = (LinearLayout) this.mRootView.findViewById(a.g.ala_challenge_direct_challenger_layout);
-        this.grE = (TextView) this.mRootView.findViewById(a.g.ala_challenge_no_challenge_tip);
+        this.grF = (LinearLayout) this.mRootView.findViewById(a.g.ala_challenge_wait_user_container);
+        this.grH = (LinearLayout) this.mRootView.findViewById(a.g.ala_challenge_direct_challenger_layout);
+        this.grI = (TextView) this.mRootView.findViewById(a.g.ala_challenge_no_challenge_tip);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.g
@@ -90,7 +90,7 @@ public class c extends g implements k.a {
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.g
-    protected int bPP() {
+    protected int bPQ() {
         return this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds456) * 2;
     }
 
@@ -105,26 +105,26 @@ public class c extends g implements k.a {
         if (!ListUtils.isEmpty(list)) {
             ArrayList arrayList = new ArrayList();
             for (com.baidu.live.challenge.d dVar : list) {
-                if ((dVar.aCy + 60) - (System.currentTimeMillis() / 1000) < 0) {
+                if ((dVar.aCA + 60) - (System.currentTimeMillis() / 1000) < 0) {
                     arrayList.add(dVar);
                 }
             }
             list.removeAll(arrayList);
         }
         if (ListUtils.isEmpty(list)) {
-            this.grD.setVisibility(8);
-            this.grE.setVisibility(0);
-            bPS();
-            this.gsa.dE(this.grC.size());
+            this.grH.setVisibility(8);
+            this.grI.setVisibility(0);
+            bPT();
+            this.gse.dE(this.grG.size());
             return;
         }
         LinkedList linkedList = new LinkedList();
-        Iterator<k> it = this.grC.iterator();
+        Iterator<k> it = this.grG.iterator();
         while (it.hasNext()) {
             k next = it.next();
             boolean z2 = false;
             for (com.baidu.live.challenge.d dVar2 : list) {
-                z2 = dVar2.equals(next.bQl()) ? true : z2;
+                z2 = dVar2.equals(next.bQm()) ? true : z2;
             }
             if (!z2) {
                 linkedList.add(next);
@@ -134,18 +134,18 @@ public class c extends g implements k.a {
             Iterator it2 = linkedList.iterator();
             while (it2.hasNext()) {
                 k kVar = (k) it2.next();
-                this.grB.removeView(kVar.getView());
-                this.grC.remove(kVar);
+                this.grF.removeView(kVar.getView());
+                this.grG.remove(kVar);
                 kVar.onDestory();
             }
         }
         for (com.baidu.live.challenge.d dVar3 : list) {
-            Iterator<k> it3 = this.grC.iterator();
+            Iterator<k> it3 = this.grG.iterator();
             boolean z3 = false;
             while (it3.hasNext()) {
                 k next2 = it3.next();
-                if (dVar3.equals(next2.bQl())) {
-                    if (dVar3.aCy != next2.bQl().aCy) {
+                if (dVar3.equals(next2.bQm())) {
+                    if (dVar3.aCA != next2.bQm().aCA) {
                         next2.k(dVar3);
                     }
                     z = true;
@@ -159,49 +159,49 @@ public class c extends g implements k.a {
                 kVar2.a(this);
                 kVar2.k(dVar3);
                 if (kVar2.isVisible()) {
-                    this.grB.addView(kVar2.getView());
-                    this.grC.add(kVar2);
+                    this.grF.addView(kVar2.getView());
+                    this.grG.add(kVar2);
                 }
             }
         }
-        if (this.grB.getChildCount() > 0) {
-            this.grD.setVisibility(0);
-            this.grE.setVisibility(8);
+        if (this.grF.getChildCount() > 0) {
+            this.grH.setVisibility(0);
+            this.grI.setVisibility(8);
             return;
         }
-        this.grD.setVisibility(8);
-        this.grE.setVisibility(0);
+        this.grH.setVisibility(8);
+        this.grI.setVisibility(0);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.k.a
     public void a(k kVar) {
         if (kVar != null) {
-            this.grB.removeView(kVar.getView());
-            this.grC.remove(kVar);
+            this.grF.removeView(kVar.getView());
+            this.grG.remove(kVar);
             kVar.onDestory();
-            if (ListUtils.isEmpty(this.grC)) {
-                this.grD.setVisibility(8);
-                this.grE.setVisibility(0);
+            if (ListUtils.isEmpty(this.grG)) {
+                this.grH.setVisibility(8);
+                this.grI.setVisibility(0);
             }
-            this.gsa.dE(this.grC.size());
+            this.gse.dE(this.grG.size());
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.k.a
     public void c(com.baidu.live.challenge.d dVar) {
         if (dVar != null) {
-            this.gsa.ee(dVar.userId);
+            this.gse.ee(dVar.userId);
         }
     }
 
-    public void bPS() {
-        this.grB.removeAllViews();
-        Iterator<k> it = this.grC.iterator();
+    public void bPT() {
+        this.grF.removeAllViews();
+        Iterator<k> it = this.grG.iterator();
         while (it.hasNext()) {
             it.next().onDestory();
         }
-        this.grC.clear();
-        this.grD.setVisibility(8);
+        this.grG.clear();
+        this.grH.setVisibility(8);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.g
@@ -211,7 +211,7 @@ public class c extends g implements k.a {
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.g
     protected boolean onBackKeyDown() {
-        this.gsa.removeView();
+        this.gse.removeView();
         return true;
     }
 }

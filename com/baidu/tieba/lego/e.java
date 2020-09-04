@@ -1,7 +1,7 @@
 package com.baidu.tieba.lego;
 
 import com.baidu.tieba.lego.card.model.ICardInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface e {
     e J(String str, long j);
 
@@ -9,5 +9,5 @@ public interface e {
 
     e bo(String str, int i);
 
-    e fa(String str, String str2);
+    e fb(String str, String str2);
 }

@@ -10,9 +10,9 @@ import com.baidu.tieba.R;
 import tbclient.SimpleUser;
 /* loaded from: classes16.dex */
 public class b {
-    private LinearLayout fnR;
-    private TbSettingTextTipView fnS;
-    private TbSettingTextTipView fnT;
+    private LinearLayout fnV;
+    private TbSettingTextTipView fnW;
+    private TbSettingTextTipView fnX;
     private BaseActivity mActivity;
     private final View.OnClickListener mOnClickListener;
     private LinearLayout mRootLayout;
@@ -20,18 +20,18 @@ public class b {
     public b(BaseActivity baseActivity, View.OnClickListener onClickListener) {
         this.mActivity = baseActivity;
         this.mOnClickListener = onClickListener;
-        bpY();
+        bpZ();
     }
 
-    private void bpY() {
+    private void bpZ() {
         this.mRootLayout = (LinearLayout) LayoutInflater.from(this.mActivity).inflate(R.layout.account_safe_activity, (ViewGroup) null);
-        this.fnR = (LinearLayout) this.mRootLayout.findViewById(R.id.content_container);
-        this.fnS = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.bar_record);
-        this.fnT = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.account_status);
-        this.fnS.bqa();
-        this.fnT.bqa();
-        this.fnS.setOnClickListener(this.mOnClickListener);
-        this.fnT.setOnClickListener(this.mOnClickListener);
+        this.fnV = (LinearLayout) this.mRootLayout.findViewById(R.id.content_container);
+        this.fnW = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.bar_record);
+        this.fnX = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.account_status);
+        this.fnW.bqb();
+        this.fnX.bqb();
+        this.fnW.setOnClickListener(this.mOnClickListener);
+        this.fnX.setOnClickListener(this.mOnClickListener);
     }
 
     public void pT(int i) {
@@ -41,7 +41,7 @@ public class b {
 
     public void a(SimpleUser simpleUser) {
         if (simpleUser != null) {
-            this.fnT.setTip(simpleUser.block_msg);
+            this.fnX.setTip(simpleUser.block_msg);
         }
     }
 

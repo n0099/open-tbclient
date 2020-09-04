@@ -8,13 +8,13 @@ import tbclient.NewHottopic.TimeLine;
 import tbclient.NewHottopic.TimeLineInfo;
 /* loaded from: classes16.dex */
 public class f {
-    public List<e> iTx;
+    public List<e> iTD;
     public String title;
 
     public void a(long j, TimeLine timeLine) {
         if (timeLine != null && !y.isEmpty(timeLine.timeline_info)) {
             this.title = timeLine.title;
-            this.iTx = new ArrayList();
+            this.iTD = new ArrayList();
             int i = 0;
             for (TimeLineInfo timeLineInfo : timeLine.timeline_info) {
                 if (timeLineInfo != null && ((timeLineInfo.tid != null && timeLineInfo.tid.longValue() != 0) || !TextUtils.isEmpty(timeLineInfo.title) || !TextUtils.isEmpty(timeLineInfo.bg_color) || !TextUtils.isEmpty(timeLineInfo.show_time) || !TextUtils.isEmpty(timeLineInfo.small_title))) {
@@ -22,7 +22,7 @@ public class f {
                     eVar.topicId = j;
                     eVar.index = i;
                     eVar.a(timeLineInfo);
-                    this.iTx.add(eVar);
+                    this.iTD.add(eVar);
                     i++;
                 }
             }

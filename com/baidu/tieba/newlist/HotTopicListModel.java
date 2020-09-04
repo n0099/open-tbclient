@@ -13,17 +13,17 @@ import com.baidu.tieba.hottopic.message.ResponseSocketHotRanklistMessage;
 import java.util.LinkedList;
 /* loaded from: classes15.dex */
 public class HotTopicListModel extends BdBaseModel {
-    private b ksK;
+    private b ksR;
     private boolean mIsLoading;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public HotTopicListModel(TbPageContext<?> tbPageContext, b bVar) {
         super(tbPageContext);
-        cxB();
-        this.ksK = bVar;
+        cxC();
+        this.ksR = bVar;
     }
 
-    private void cxB() {
+    private void cxC() {
         registerListener(new com.baidu.adp.framework.listener.a(1003078, CmdConfigSocket.CMD_HOT_TOPIC_RANKLIST) { // from class: com.baidu.tieba.newlist.HotTopicListModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
@@ -36,22 +36,22 @@ public class HotTopicListModel extends BdBaseModel {
                             hotRanklistData = ((ResponseSocketHotRanklistMessage) responsedMessage).getHotRanklistData();
                         }
                         if (hotRanklistData != null) {
-                            if (y.isEmpty(hotRanklistData.iZN)) {
+                            if (y.isEmpty(hotRanklistData.iZT)) {
                                 z = false;
                             } else {
                                 LinkedList linkedList = new LinkedList();
-                                int size = hotRanklistData.iZN.size();
+                                int size = hotRanklistData.iZT.size();
                                 for (int i = 0; i < size; i++) {
-                                    linkedList.add(new com.baidu.tieba.newlist.b.b(hotRanklistData.iZN.get(i), i));
+                                    linkedList.add(new com.baidu.tieba.newlist.b.b(hotRanklistData.iZT.get(i), i));
                                 }
-                                HotTopicListModel.this.ksK.o(responsedMessage.getError(), linkedList);
+                                HotTopicListModel.this.ksR.o(responsedMessage.getError(), linkedList);
                                 z = true;
                             }
                             if (z) {
                                 return;
                             }
                         }
-                        HotTopicListModel.this.ksK.o(-1, null);
+                        HotTopicListModel.this.ksR.o(-1, null);
                     }
                 }
             }

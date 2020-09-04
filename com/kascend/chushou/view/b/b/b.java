@@ -17,7 +17,7 @@ public final class b extends c<com.kascend.chushou.view.b.b.a> {
     private final String d;
     private final String e;
     private final String f;
-    private UserCard nXC;
+    private UserCard nXU;
 
     public static final /* synthetic */ com.kascend.chushou.view.b.b.a a(b bVar) {
         return (com.kascend.chushou.view.b.b.a) bVar.b;
@@ -38,11 +38,11 @@ public final class b extends c<com.kascend.chushou.view.b.b.a> {
     }
 
     public final void a(UserCard userCard) {
-        this.nXC = userCard;
+        this.nXU = userCard;
     }
 
-    public final UserCard eaB() {
-        return this.nXC;
+    public final UserCard eaK() {
+        return this.nXU;
     }
 
     @h
@@ -67,7 +67,7 @@ public final class b extends c<com.kascend.chushou.view.b.b.a> {
                     com.kascend.chushou.view.b.b.a a = b.a(b.this);
                     if (a != null) {
                         a.a(userCard);
-                        lVar = l.orN;
+                        lVar = l.osf;
                     } else {
                         lVar = null;
                     }
@@ -76,7 +76,7 @@ public final class b extends c<com.kascend.chushou.view.b.b.a> {
                     }
                 }
                 a(-1, "");
-                l lVar2 = l.orN;
+                l lVar2 = l.osf;
             }
         }
 
@@ -98,20 +98,20 @@ public final class b extends c<com.kascend.chushou.view.b.b.a> {
     }
 
     public final void d() {
-        com.kascend.chushou.c.c.dYm().a(this.d, this.e, this.f, new a());
+        com.kascend.chushou.c.c.dYv().a(this.d, this.e, this.f, new a());
     }
 
     public final void e() {
         UserCard.UserCardInfo userCardInfo;
         UserCard.UserCardMeta meta;
         String a2 = e.a("_fromView", "50");
-        UserCard userCard = this.nXC;
+        UserCard userCard = this.nXU;
         boolean isSubscribed = (userCard == null || (userCardInfo = userCard.getUserCardInfo()) == null || (meta = userCardInfo.getMeta()) == null) ? false : meta.isSubscribed();
         C0909b c0909b = new C0909b(isSubscribed);
         if (isSubscribed) {
-            com.kascend.chushou.c.c.dYm().b(c0909b, (String) null, this.d, a2);
+            com.kascend.chushou.c.c.dYv().b(c0909b, (String) null, this.d, a2);
         } else {
-            com.kascend.chushou.c.c.dYm().a(c0909b, (String) null, this.d, a2);
+            com.kascend.chushou.c.c.dYv().a(c0909b, (String) null, this.d, a2);
         }
     }
 
@@ -137,8 +137,8 @@ public final class b extends c<com.kascend.chushou.view.b.b.a> {
             UserCard.UserCardMeta meta2;
             boolean z = false;
             if (b.this.b()) {
-                UserCard eaB = b.this.eaB();
-                if (eaB != null && (userCardInfo2 = eaB.getUserCardInfo()) != null && (meta2 = userCardInfo2.getMeta()) != null) {
+                UserCard eaK = b.this.eaK();
+                if (eaK != null && (userCardInfo2 = eaK.getUserCardInfo()) != null && (meta2 = userCardInfo2.getMeta()) != null) {
                     meta2.setSubscribed(!this.b);
                 }
                 if (this.b) {
@@ -148,8 +148,8 @@ public final class b extends c<com.kascend.chushou.view.b.b.a> {
                 }
                 com.kascend.chushou.view.b.b.a a = b.a(b.this);
                 if (a != null) {
-                    UserCard eaB2 = b.this.eaB();
-                    if (eaB2 != null && (userCardInfo = eaB2.getUserCardInfo()) != null && (meta = userCardInfo.getMeta()) != null) {
+                    UserCard eaK2 = b.this.eaK();
+                    if (eaK2 != null && (userCardInfo = eaK2.getUserCardInfo()) != null && (meta = userCardInfo.getMeta()) != null) {
                         z = meta.isSubscribed();
                     }
                     a.a(z);

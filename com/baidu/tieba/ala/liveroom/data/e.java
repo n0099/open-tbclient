@@ -6,12 +6,12 @@ public class e {
     public String forumName;
     public String gameId;
     public String gameName;
-    public String gxA;
-    public boolean gxB;
     public boolean gxC;
     public boolean gxD;
-    public boolean gxy;
-    public boolean gxz;
+    public String gxE;
+    public boolean gxF;
+    public boolean gxG;
+    public boolean gxH;
     public int liveType;
     public String title;
 }

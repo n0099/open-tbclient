@@ -3,31 +3,31 @@ package com.baidu.crabsdk.c;
 import android.util.Log;
 /* loaded from: classes6.dex */
 public final class a {
-    public static String anE = "CRAB";
-    public static String anF = "CRAB-NA";
+    public static String anG = "CRAB";
+    public static String anH = "CRAB-NA";
 
     public static int a(String str, Throwable th) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.e(anE, du(str), th);
-        }
-        return -1;
-    }
-
-    public static int ds(String str) {
-        if (com.baidu.crabsdk.a.F) {
-            return Log.i(anE, du(str));
+            return Log.e(anG, dv(str), th);
         }
         return -1;
     }
 
     public static int dt(String str) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.w(anE, du(str));
+            return Log.i(anG, dv(str));
         }
         return -1;
     }
 
-    private static String du(String str) {
+    public static int du(String str) {
+        if (com.baidu.crabsdk.a.F) {
+            return Log.w(anG, dv(str));
+        }
+        return -1;
+    }
+
+    private static String dv(String str) {
         String str2;
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         if (stackTrace != null) {
@@ -44,14 +44,14 @@ public final class a {
 
     public static int v(String str) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.d(anE, du(str));
+            return Log.d(anG, dv(str));
         }
         return -1;
     }
 
     public static int w(String str) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.e(anE, du(str));
+            return Log.e(anG, dv(str));
         }
         return -1;
     }

@@ -6,7 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 /* loaded from: classes4.dex */
 public class b {
-    private static final c okB;
+    private static final c okT;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
@@ -16,15 +16,15 @@ public class b {
 
     static {
         if (Build.VERSION.SDK_INT >= 23) {
-            okB = new C0950b();
+            okT = new C0950b();
         } else {
-            okB = new a();
+            okT = new a();
         }
     }
 
     @NonNull
     public static h gL(@NonNull Context context) {
-        return okB.a(new com.yanzhenjie.permission.b.a(context));
+        return okT.a(new com.yanzhenjie.permission.b.a(context));
     }
 
     /* loaded from: classes4.dex */

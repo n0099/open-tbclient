@@ -1,15 +1,15 @@
 package master.flame.danmaku.danmaku.model;
 /* loaded from: classes6.dex */
 public abstract class a {
-    public abstract long ehr();
+    public abstract long ehA();
 
-    public abstract int ehs();
+    public abstract int ehB();
 
-    public long eht() {
+    public long ehC() {
         return 1500L;
     }
 
-    public boolean ehu() {
+    public boolean ehD() {
         return false;
     }
 }

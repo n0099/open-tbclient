@@ -6,15 +6,15 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tbadk.mvc.d.b;
 import com.baidu.tbadk.mvc.f.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class d<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>> extends c<D, S, H> {
-    private final Class<H> eQW;
-    private final int eQX;
+    private final Class<H> eRa;
+    private final int eRb;
 
     public d(TbPageContext<?> tbPageContext, Class<H> cls, int i, ViewEventCenter viewEventCenter) {
         super(tbPageContext, viewEventCenter);
-        this.eQX = i;
-        this.eQW = cls;
+        this.eRb = i;
+        this.eRa = cls;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -24,7 +24,7 @@ public class d<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>> extends 
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public final int getItemViewType(int i) {
-        if (this.eQP && btP()) {
+        if (this.eQT && btQ()) {
             return -1;
         }
         return super.getItemViewType(i);
@@ -32,10 +32,10 @@ public class d<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>> extends 
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        if (this.eQP && btP()) {
-            return btO();
+        if (this.eQT && btQ()) {
+            return btP();
         }
-        btN();
-        return a(view, i, (Class<?>) this.eQW, this.eQX);
+        btO();
+        return a(view, i, (Class<?>) this.eRa, this.eRb);
     }
 }

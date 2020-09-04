@@ -15,8 +15,8 @@ import com.baidu.swan.apps.ap.u;
 /* loaded from: classes8.dex */
 public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
     private static final boolean DEBUG = b.DEBUG;
-    private d bRR;
-    private boolean bRS = true;
+    private d bRV;
+    private boolean bRW = true;
     private int mEnterAnimWhenFinishing = 0;
     private int mExitAnimWhenFinishing = 0;
     private String mUrl;
@@ -70,16 +70,16 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
             f bw = new com.baidu.swan.apps.adaptation.b.a.b().bw(this);
             bw.a(new com.baidu.swan.apps.core.f.a() { // from class: com.baidu.swan.apps.SwanAppScopeDetailActivity.2
                 @Override // com.baidu.swan.apps.core.f.a, com.baidu.swan.apps.core.f.d
-                public void ht(String str) {
-                    super.ht(str);
-                    if (SwanAppScopeDetailActivity.this.bRS) {
+                public void hu(String str) {
+                    super.hu(str);
+                    if (SwanAppScopeDetailActivity.this.bRW) {
                         SwanAppScopeDetailActivity.this.setTitle(str);
                     }
                 }
             });
-            this.bRR = bw.aaS();
+            this.bRV = bw.aaS();
             bw.loadUrl(this.mUrl);
-            bw.a((FrameLayout) findViewById(a.f.webview_container), this.bRR.covertToView());
+            bw.a((FrameLayout) findViewById(a.f.webview_container), this.bRV.covertToView());
         }
     }
 
@@ -106,9 +106,9 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.bRR != null) {
-            this.bRR.destroy();
-            this.bRR = null;
+        if (this.bRV != null) {
+            this.bRV.destroy();
+            this.bRV = null;
         }
         this.mUrl = null;
     }

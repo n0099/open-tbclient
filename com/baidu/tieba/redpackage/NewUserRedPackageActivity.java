@@ -25,25 +25,25 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.view.RoundRelativeLayout;
 /* loaded from: classes16.dex */
 public class NewUserRedPackageActivity extends BaseActivity {
-    private s dQf;
-    private ImageView fmw;
-    private RoundRelativeLayout lLd;
-    private ImageView lLe;
-    private TextView lLf;
-    private TextView lLg;
-    private TextView lLh;
-    private NewUserRedPackageData lLi;
+    private s dQj;
+    private ImageView fmA;
+    private RoundRelativeLayout lLq;
+    private ImageView lLr;
+    private TextView lLs;
+    private TextView lLt;
+    private TextView lLu;
+    private NewUserRedPackageData lLv;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.redpackage.NewUserRedPackageActivity.1
         /* JADX DEBUG: Multi-variable search result rejected for r1v11, resolved type: com.baidu.tieba.redpackage.NewUserRedPackageActivity */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view.getId() != NewUserRedPackageActivity.this.fmw.getId()) {
-                if (view.getId() == NewUserRedPackageActivity.this.lLh.getId()) {
+            if (view.getId() != NewUserRedPackageActivity.this.fmA.getId()) {
+                if (view.getId() == NewUserRedPackageActivity.this.lLu.getId()) {
                     TiebaStatic.log(new aq("c13684").ai("obj_type", 2));
                     if (TbadkCoreApplication.isLogin()) {
-                        if (NewUserRedPackageActivity.this.lLi != null) {
-                            be.bju().b(NewUserRedPackageActivity.this.getPageContext(), new String[]{NewUserRedPackageActivity.this.lLi.clickUrl});
+                        if (NewUserRedPackageActivity.this.lLv != null) {
+                            be.bju().b(NewUserRedPackageActivity.this.getPageContext(), new String[]{NewUserRedPackageActivity.this.lLv.clickUrl});
                             NewUserRedPackageActivity.this.finish();
                             return;
                         }
@@ -65,31 +65,31 @@ public class NewUserRedPackageActivity extends BaseActivity {
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
         setContentView(R.layout.activity_new_user_red_package);
-        this.lLd = (RoundRelativeLayout) findViewById(R.id.round_corner_layout);
-        this.lLd.setAllCornerRound(l.getDimens(this, R.dimen.tbds32));
-        this.lLe = (ImageView) findViewById(R.id.top_pic);
-        this.fmw = (ImageView) findViewById(R.id.img_close);
-        this.fmw.setOnClickListener(this.mOnClickListener);
-        this.lLf = (TextView) findViewById(R.id.money_count);
-        this.lLg = (TextView) findViewById(R.id.money_info);
-        this.lLh = (TextView) findViewById(R.id.btn_receive);
-        this.lLh.setOnClickListener(this.mOnClickListener);
+        this.lLq = (RoundRelativeLayout) findViewById(R.id.round_corner_layout);
+        this.lLq.setAllCornerRound(l.getDimens(this, R.dimen.tbds32));
+        this.lLr = (ImageView) findViewById(R.id.top_pic);
+        this.fmA = (ImageView) findViewById(R.id.img_close);
+        this.fmA.setOnClickListener(this.mOnClickListener);
+        this.lLs = (TextView) findViewById(R.id.money_count);
+        this.lLt = (TextView) findViewById(R.id.money_info);
+        this.lLu = (TextView) findViewById(R.id.btn_receive);
+        this.lLu.setOnClickListener(this.mOnClickListener);
         setData();
         TiebaStatic.log(new aq("c13684").ai("obj_type", 1));
-        this.dQf = new s();
+        this.dQj = new s();
     }
 
     private void setData() {
         if (getIntent() != null) {
-            this.lLi = (NewUserRedPackageData) getIntent().getSerializableExtra("key_data");
-            if (this.lLi != null) {
-                a aVar = (a) c.mM().loadResourceFromMemery(this.lLi.topPicUrl, 10, new Object[0]);
+            this.lLv = (NewUserRedPackageData) getIntent().getSerializableExtra("key_data");
+            if (this.lLv != null) {
+                a aVar = (a) c.mM().loadResourceFromMemery(this.lLv.topPicUrl, 10, new Object[0]);
                 if (aVar != null) {
-                    this.lLe.setImageBitmap(aVar.getRawBitmap());
+                    this.lLr.setImageBitmap(aVar.getRawBitmap());
                 }
-                this.lLf.setText(String.format(getString(R.string.new_user_red_package_money_count), this.lLi.money));
-                this.lLg.setText(getString(R.string.new_user_red_package_money_info));
-                this.lLh.setText(getString(R.string.new_user_red_package_receive));
+                this.lLs.setText(String.format(getString(R.string.new_user_red_package_money_count), this.lLv.money));
+                this.lLt.setText(getString(R.string.new_user_red_package_money_info));
+                this.lLu.setText(getString(R.string.new_user_red_package_receive));
             }
         }
     }
@@ -98,10 +98,10 @@ public class NewUserRedPackageActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        ap.setBackgroundColor(this.lLd, R.color.cp_bg_line_d);
-        ap.setViewTextColor(this.lLf, R.color.cp_cont_b);
-        ap.setViewTextColor(this.lLg, R.color.cp_cont_b);
-        ap.setViewTextColor(this.lLh, R.color.cp_link_tip_a);
+        ap.setBackgroundColor(this.lLq, R.color.cp_bg_line_d);
+        ap.setViewTextColor(this.lLs, R.color.cp_cont_b);
+        ap.setViewTextColor(this.lLt, R.color.cp_cont_b);
+        ap.setViewTextColor(this.lLu, R.color.cp_link_tip_a);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -118,9 +118,9 @@ public class NewUserRedPackageActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (i == 25046 && this.lLi != null) {
-            this.dQf.aZr();
-            be.bju().b(getPageContext(), new String[]{this.lLi.clickUrl});
+        if (i == 25046 && this.lLv != null) {
+            this.dQj.aZr();
+            be.bju().b(getPageContext(), new String[]{this.lLv.clickUrl});
             finish();
         }
     }

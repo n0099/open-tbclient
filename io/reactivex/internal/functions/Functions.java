@@ -7,21 +7,21 @@ import java.util.Set;
 import java.util.concurrent.Callable;
 /* loaded from: classes7.dex */
 public final class Functions {
-    static final io.reactivex.c.h<Object, Object> omf = new g();
-    public static final Runnable omg = new d();
-    public static final io.reactivex.c.a omh = new a();
-    static final io.reactivex.c.g<Object> omi = new b();
-    public static final io.reactivex.c.g<Throwable> omj = new e();
-    public static final io.reactivex.c.g<Throwable> omk = new k();
-    public static final io.reactivex.c.i oml = new c();
-    static final io.reactivex.c.j<Object> omm = new l();
-    static final io.reactivex.c.j<Object> omn = new f();
-    static final Callable<Object> omo = new j();
-    static final Comparator<Object> omp = new i();
-    public static final io.reactivex.c.g<org.b.d> omq = new h();
+    static final io.reactivex.c.h<Object, Object> omx = new g();
+    public static final Runnable omy = new d();
+    public static final io.reactivex.c.a omz = new a();
+    static final io.reactivex.c.g<Object> omA = new b();
+    public static final io.reactivex.c.g<Throwable> omB = new e();
+    public static final io.reactivex.c.g<Throwable> omC = new k();
+    public static final io.reactivex.c.i omD = new c();
+    static final io.reactivex.c.j<Object> omE = new l();
+    static final io.reactivex.c.j<Object> omF = new f();
+    static final Callable<Object> omG = new j();
+    static final Comparator<Object> omH = new i();
+    public static final io.reactivex.c.g<org.b.d> omI = new h();
 
-    public static <T> io.reactivex.c.g<T> eeZ() {
-        return (io.reactivex.c.g<T>) omi;
+    public static <T> io.reactivex.c.g<T> efi() {
+        return (io.reactivex.c.g<T>) omA;
     }
 
     /* loaded from: classes7.dex */
@@ -132,7 +132,7 @@ public final class Functions {
         }
 
         @Override // io.reactivex.c.i
-        public void gK(long j) {
+        public void gM(long j) {
         }
     }
 

@@ -25,7 +25,7 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
 import com.baidu.tieba.v.c;
 import com.baidu.webkit.internal.GlobalConstants;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class KuangFloatingViewController {
     private View mFloatingView;
     private String mInfo;

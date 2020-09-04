@@ -2,7 +2,7 @@ package com.baidu.tieba.face.data;
 
 import android.text.TextUtils;
 import java.io.Serializable;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class SingleBarEmotionRecommendData implements b, Serializable {
     private static final long serialVersionUID = 1;
     public String cover;

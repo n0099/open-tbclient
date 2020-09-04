@@ -52,7 +52,7 @@ public class RewardWebView extends WebView {
 
     private void aIj() {
         WebSettings settings = getSettings();
-        settings.setUserAgentString(com.baidu.swan.apps.an.a.sn(settings.getUserAgentString()));
+        settings.setUserAgentString(com.baidu.swan.apps.an.a.so(settings.getUserAgentString()));
     }
 
     @Override // android.webkit.WebView

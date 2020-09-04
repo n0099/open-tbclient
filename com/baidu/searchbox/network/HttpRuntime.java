@@ -4,6 +4,6 @@ import com.baidu.tieba.q.f;
 /* loaded from: classes14.dex */
 public class HttpRuntime {
     public static IHttpContext getHttpContext() {
-        return f.dts();
+        return f.dtx();
     }
 }

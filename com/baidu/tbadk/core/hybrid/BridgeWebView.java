@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.webkit.WebChromeClient;
 import android.webkit.WebViewClient;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BridgeWebView extends BaseWebView {
     protected WebChromeClient chromeClient;
     protected WebViewClient webViewClient;

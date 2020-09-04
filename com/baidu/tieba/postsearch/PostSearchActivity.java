@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aq;
 /* loaded from: classes18.dex */
 public class PostSearchActivity extends BaseFragmentActivity {
-    public String hQD;
-    private g lxq;
-    private d lxr;
+    public String hQJ;
+    private g lxB;
+    private d lxC;
     public String mForumId;
     public String mForumName;
     private ViewPager.OnPageChangeListener mOnPageChangeListener = new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.postsearch.PostSearchActivity.1
@@ -33,58 +33,58 @@ public class PostSearchActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.lxq = new g(this);
-        this.lxq.initView();
-        this.lxq.setOnPageChangeListener(this.mOnPageChangeListener);
-        this.lxr = new d(this);
+        this.lxB = new g(this);
+        this.lxB.initView();
+        this.lxB.setOnPageChangeListener(this.mOnPageChangeListener);
+        this.lxC = new d(this);
         initData();
     }
 
-    public void wu(String str) {
-        this.hQD = str;
-        this.lxq.FS(1);
-        this.lxr.dlK();
-        this.lxq.showLoadingView();
+    public void wv(String str) {
+        this.hQJ = str;
+        this.lxB.FS(1);
+        this.lxC.dlN();
+        this.lxB.showLoadingView();
     }
 
-    public void OM(String str) {
-        this.lxq.OM(str);
+    public void ON(String str) {
+        this.lxB.ON(str);
     }
 
-    public void dlu() {
-        this.lxq.aZ(this.lxr.lxO);
+    public void dlx() {
+        this.lxB.aZ(this.lxC.lxZ);
     }
 
     public void a(int i, b bVar, boolean z) {
-        if (i == 1 && (bVar == null || !bVar.cHV())) {
-            this.lxq.hideLoadingView();
-            this.lxq.dlO();
+        if (i == 1 && (bVar == null || !bVar.cHW())) {
+            this.lxB.hideLoadingView();
+            this.lxB.dlR();
             return;
         }
-        this.lxq.hideLoadingView();
-        this.lxq.dlC();
-        this.lxq.a(i, bVar, z);
+        this.lxB.hideLoadingView();
+        this.lxB.dlF();
+        this.lxB.a(i, bVar, z);
     }
 
-    public boolean dlv() {
-        return this.lxq.dlv();
+    public boolean dly() {
+        return this.lxB.dly();
     }
 
     public void hideSoftKeyPad() {
-        this.lxq.hideSoftKeyPad();
+        this.lxB.hideSoftKeyPad();
     }
 
-    public d dlw() {
-        return this.lxr;
+    public d dlz() {
+        return this.lxC;
     }
 
-    public g dlx() {
-        return this.lxq;
+    public g dlA() {
+        return this.lxB;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        this.lxq.onChangeSkinType(i);
+        this.lxB.onChangeSkinType(i);
     }
 
     private void initData() {
@@ -93,14 +93,14 @@ public class PostSearchActivity extends BaseFragmentActivity {
             this.mForumName = intent.getStringExtra("forum_name");
             this.mForumId = intent.getStringExtra("forum_id");
         }
-        this.lxr.dlH();
+        this.lxC.dlK();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        if (this.lxq != null) {
-            this.lxq.onDestroy();
+        if (this.lxB != null) {
+            this.lxB.onDestroy();
         }
         super.onDestroy();
     }

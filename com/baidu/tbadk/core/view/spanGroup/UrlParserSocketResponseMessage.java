@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.view.spanGroup;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.UrlParser.UrlParserResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class UrlParserSocketResponseMessage extends SocketResponsedMessage {
     private UrlParserResIdl mResponseData;
 

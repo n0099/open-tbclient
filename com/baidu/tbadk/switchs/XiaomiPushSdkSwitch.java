@@ -4,7 +4,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.featureSwitch.a;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class XiaomiPushSdkSwitch extends a {
     public static final int OFF_TYPE = 0;
     public static final int ON_TYPE = 1;

@@ -68,18 +68,18 @@ public class SharepluginPlugin implements FlutterPlugin, MethodChannel.MethodCal
             shareItem.linkUrl = str;
             shareItem.extData = str2;
             shareItem.title = str3;
-            shareItem.eEk = true;
+            shareItem.eEo = true;
             TbadkCoreApplication.getInst().setShareItem(shareItem);
             Bundle bundle = new Bundle();
-            bundle.putInt("obj_param1", shareItem.eEt);
-            bundle.putInt("obj_type", shareItem.eEx);
+            bundle.putInt("obj_param1", shareItem.eEx);
+            bundle.putInt("obj_type", shareItem.eEB);
             bundle.putString("fid", shareItem.fid);
             bundle.putString("tid", shareItem.tid);
-            bundle.putInt("obj_source", shareItem.eeB);
+            bundle.putInt("obj_source", shareItem.eeF);
             shareItem.ae(bundle);
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig(TbadkCoreApplication.getInst().getCurrentActivity(), shareItem, true);
             if (z) {
-                f.cdb().b(shareDialogConfig);
+                f.cdc().b(shareDialogConfig);
                 return;
             }
             shareDialogConfig.isCopyLink = true;
@@ -95,9 +95,9 @@ public class SharepluginPlugin implements FlutterPlugin, MethodChannel.MethodCal
         if (bwVar != null) {
             String valueOf = String.valueOf(bwVar.getFid());
             String beI = bwVar.beI();
-            if (bwVar.edP != null) {
-                valueOf = bwVar.edP.id;
-                beI = bwVar.edP.ori_fname;
+            if (bwVar.edT != null) {
+                valueOf = bwVar.edT.id;
+                beI = bwVar.edT.ori_fname;
             }
             String title = bwVar.getTitle();
             if (TextUtils.isEmpty(title)) {
@@ -143,26 +143,26 @@ public class SharepluginPlugin implements FlutterPlugin, MethodChannel.MethodCal
             int stateThreadType = getStateThreadType(bwVar);
             if (bwVar.bdo()) {
                 shareItem.readCount = -1L;
-                shareItem.eEq = cutString2;
+                shareItem.eEu = cutString2;
             } else {
                 if (stateThreadType == 2 && bwVar.beW() != null) {
                     shareItem.readCount = bwVar.beW().play_count.intValue();
                 } else if (stateThreadType == 1) {
                     shareItem.readCount = bwVar.bew();
                 }
-                shareItem.eEq = str4;
+                shareItem.eEu = str4;
             }
             shareItem.linkUrl = str3;
             shareItem.extData = tid;
             shareItem.fid = valueOf;
             shareItem.fName = beI;
             shareItem.tid = tid;
-            shareItem.eEf = true;
-            shareItem.eeB = 6;
-            shareItem.eEs = 8;
-            shareItem.eEx = stateThreadType;
-            shareItem.eEt = 3;
-            shareItem.eEu = getShareObjParam2(bwVar);
+            shareItem.eEj = true;
+            shareItem.eeF = 6;
+            shareItem.eEw = 8;
+            shareItem.eEB = stateThreadType;
+            shareItem.eEx = 3;
+            shareItem.eEy = getShareObjParam2(bwVar);
             if (parse != null) {
                 shareItem.imageUri = parse;
             }
@@ -171,23 +171,23 @@ public class SharepluginPlugin implements FlutterPlugin, MethodChannel.MethodCal
             }
             shareItem.canShareBySmartApp = z;
             if (z) {
-                shareItem.eEH = bwVar.getShareImageUrl();
+                shareItem.eEL = bwVar.getShareImageUrl();
             }
-            shareItem.eEA = OriginalThreadInfo.ShareInfo.generateShareInfo(bwVar);
-            shareItem.eEB = ShareItem.ForwardInfo.generateForwardInfo(bwVar);
+            shareItem.eEE = OriginalThreadInfo.ShareInfo.generateShareInfo(bwVar);
+            shareItem.eEF = ShareItem.ForwardInfo.generateForwardInfo(bwVar);
             TbadkCoreApplication.getInst().setShareItem(shareItem);
             Bundle bundle = new Bundle();
-            bundle.putInt("obj_param1", shareItem.eEt);
-            bundle.putInt("obj_type", shareItem.eEx);
+            bundle.putInt("obj_param1", shareItem.eEx);
+            bundle.putInt("obj_type", shareItem.eEB);
             bundle.putString("fid", shareItem.fid);
             bundle.putString("tid", shareItem.tid);
-            bundle.putInt("obj_source", shareItem.eeB);
+            bundle.putInt("obj_source", shareItem.eeF);
             shareItem.ae(bundle);
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig(TbadkCoreApplication.getInst().getCurrentActivity(), shareItem, true);
             boolean z2 = false;
             shareDialogConfig.setIsAlaLive((bwVar.getThreadType() == 49 || bwVar.getThreadType() == 60) ? true : true);
             shareDialogConfig.setFrom(ShareDialogConfig.From.PersonPolymeric);
-            f.cdb().b(shareDialogConfig);
+            f.cdc().b(shareDialogConfig);
         }
     }
 
@@ -211,7 +211,7 @@ public class SharepluginPlugin implements FlutterPlugin, MethodChannel.MethodCal
             if (bwVar.bgA()) {
                 return 8;
             }
-            if (!bwVar.isShareThread || bwVar.edE == null) {
+            if (!bwVar.isShareThread || bwVar.edI == null) {
                 return bwVar.bfW() ? 2 : 1;
             }
             return 9;

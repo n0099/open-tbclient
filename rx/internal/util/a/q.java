@@ -10,13 +10,13 @@ public final class q<E> extends v<E> {
         if (e == null) {
             throw new NullPointerException("null elements not allowed");
         }
-        E[] eArr = this.orZ;
+        E[] eArr = this.osr;
         long j = this.producerIndex;
-        long hb = hb(j);
-        if (b(eArr, hb) != null) {
+        long hd = hd(j);
+        if (b(eArr, hd) != null) {
             return false;
         }
-        b(eArr, hb, e);
+        b(eArr, hd, e);
         soProducerIndex(1 + j);
         return true;
     }
@@ -24,53 +24,53 @@ public final class q<E> extends v<E> {
     @Override // java.util.Queue
     public E poll() {
         long j = this.consumerIndex;
-        long hb = hb(j);
-        E[] eArr = this.orZ;
-        E b = b(eArr, hb);
+        long hd = hd(j);
+        E[] eArr = this.osr;
+        E b = b(eArr, hd);
         if (b == null) {
             return null;
         }
-        b(eArr, hb, null);
+        b(eArr, hd, null);
         soConsumerIndex(j + 1);
         return b;
     }
 
     @Override // java.util.Queue
     public E peek() {
-        return hc(hb(this.consumerIndex));
+        return he(hd(this.consumerIndex));
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long efk = efk();
+        long eft = eft();
         while (true) {
-            long efj = efj();
-            long efk2 = efk();
-            if (efk == efk2) {
-                return (int) (efj - efk2);
+            long efs = efs();
+            long eft2 = eft();
+            if (eft == eft2) {
+                return (int) (efs - eft2);
             }
-            efk = efk2;
+            eft = eft2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return efj() == efk();
+        return efs() == eft();
     }
 
     private void soProducerIndex(long j) {
-        ae.oJi.a(this, oJc, j);
+        ae.oJA.a(this, oJu, j);
     }
 
     private void soConsumerIndex(long j) {
-        ae.oJi.a(this, oJb, j);
+        ae.oJA.a(this, oJt, j);
     }
 
-    private long efj() {
-        return ae.oJi.e(this, oJc);
+    private long efs() {
+        return ae.oJA.e(this, oJu);
     }
 
-    private long efk() {
-        return ae.oJi.e(this, oJb);
+    private long eft() {
+        return ae.oJA.e(this, oJt);
     }
 }

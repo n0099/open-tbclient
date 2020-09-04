@@ -17,28 +17,28 @@ public class g extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.w.a.f> {
 
     private boolean a(Context context, com.baidu.swan.apps.w.a.f fVar, com.baidu.swan.apps.w.b bVar, com.baidu.swan.apps.runtime.e eVar) {
         com.baidu.swan.apps.console.c.i("map", "TranslateMarkerAction start");
-        com.baidu.swan.apps.adaptation.b.e lT = com.baidu.swan.apps.v.f.arY().lT(fVar.caU);
-        if (!(lT instanceof com.baidu.swan.apps.adaptation.b.c)) {
+        com.baidu.swan.apps.adaptation.b.e lU = com.baidu.swan.apps.v.f.arY().lU(fVar.caY);
+        if (!(lU instanceof com.baidu.swan.apps.adaptation.b.c)) {
             com.baidu.swan.apps.console.c.e("map", "WebViewManager is null");
             return false;
         }
-        com.baidu.swan.impl.map.item.c wr = com.baidu.swan.impl.map.c.aRu().h((com.baidu.swan.apps.adaptation.b.c) lT).wr(fVar.caT);
-        if (wr == null) {
-            com.baidu.swan.apps.console.c.e("map", "can not find map by id " + fVar.caT);
+        com.baidu.swan.impl.map.item.c ws = com.baidu.swan.impl.map.c.aRu().h((com.baidu.swan.apps.adaptation.b.c) lU).ws(fVar.caX);
+        if (ws == null) {
+            com.baidu.swan.apps.console.c.e("map", "can not find map by id " + fVar.caX);
             return false;
         }
-        return a(fVar, wr, bVar);
+        return a(fVar, ws, bVar);
     }
 
     private boolean a(final com.baidu.swan.apps.w.a.f fVar, com.baidu.swan.impl.map.item.c cVar, final com.baidu.swan.apps.w.b bVar) {
         if (!fVar.isValid()) {
             return false;
         }
-        LatLng latLng = new LatLng(fVar.cxw.latitude, fVar.cxw.longitude);
-        List<com.baidu.swan.impl.map.item.b> ws = cVar.ws(fVar.cxP);
+        LatLng latLng = new LatLng(fVar.cxA.latitude, fVar.cxA.longitude);
+        List<com.baidu.swan.impl.map.item.b> wt = cVar.wt(fVar.cxT);
         com.baidu.swan.apps.console.c.i("map", "TranslateMarkerAction animation start");
-        if (ws != null) {
-            for (com.baidu.swan.impl.map.item.b bVar2 : ws) {
+        if (wt != null) {
+            for (com.baidu.swan.impl.map.item.b bVar2 : wt) {
                 bVar2.a(cVar, latLng, fVar.duration, new b.a() { // from class: com.baidu.swan.impl.map.a.a.g.1
                     @Override // com.baidu.swan.impl.map.item.b.a
                     public void onAnimationEnd() {

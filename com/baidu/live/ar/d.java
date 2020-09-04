@@ -13,24 +13,24 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class d extends BaseData {
-    public f azP;
-    public String azQ;
-    public AlaFilterAndBeautyData azR;
-    public String azT;
-    private HashMap<String, Integer> azY;
+    public static d aAb = new d();
+    public static d aAc = new d();
+    private HashMap<String, Integer> aAa;
+    public f azR;
+    public String azS;
+    public AlaFilterAndBeautyData azT;
+    public String azV;
     public float mFilterLevel;
-    public static d azZ = new d();
-    public static d aAa = new d();
-    public String azO = "";
-    private HashMap<String, Integer> azS = new HashMap<>();
-    public String azU = "1.0";
-    public String azV = "40";
-    private HashMap<String, Integer> azW = new HashMap<>();
-    private ArrayList<c> azX = new ArrayList<>();
+    public String azQ = "";
+    private HashMap<String, Integer> azU = new HashMap<>();
+    public String azW = "1.0";
+    public String azX = "40";
+    private HashMap<String, Integer> azY = new HashMap<>();
+    private ArrayList<c> azZ = new ArrayList<>();
 
     public d() {
-        this.azQ = "";
-        this.azQ = AlaFilterAndBeautyData.BeautyAdjustKey.whiten.getJsonKey();
+        this.azS = "";
+        this.azS = AlaFilterAndBeautyData.BeautyAdjustKey.whiten.getJsonKey();
         AN();
     }
 
@@ -39,15 +39,15 @@ public class d extends BaseData {
         JSONObject jSONObject = new JSONObject();
         try {
             for (AlaFilterAndBeautyData.BeautyAdjustKey beautyAdjustKey : AlaFilterAndBeautyData.BeautyAdjustKey.values()) {
-                jSONObject.put(beautyAdjustKey.getJsonKey(), fD(beautyAdjustKey.getJsonKey()));
+                jSONObject.put(beautyAdjustKey.getJsonKey(), fE(beautyAdjustKey.getJsonKey()));
             }
-            jSONObject.put("filter_name", this.azO);
+            jSONObject.put("filter_name", this.azQ);
             jSONObject.put("filter_level", this.mFilterLevel);
-            jSONObject.put("face_feature_type", this.azT);
-            jSONObject.put("face_feature_max_value", this.azU);
-            jSONObject.put("face_feature_default_value", this.azV);
+            jSONObject.put("face_feature_type", this.azV);
+            jSONObject.put("face_feature_max_value", this.azW);
+            jSONObject.put("face_feature_default_value", this.azX);
             JSONArray jSONArray = new JSONArray();
-            for (Map.Entry<String, Integer> entry : this.azW.entrySet()) {
+            for (Map.Entry<String, Integer> entry : this.azY.entrySet()) {
                 if (!StringUtils.isNullObject(entry.getKey())) {
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject2.put("array_filter_file", entry.getKey());
@@ -57,7 +57,7 @@ public class d extends BaseData {
             }
             jSONObject.put("array_filter", jSONArray);
             JSONArray jSONArray2 = new JSONArray();
-            for (Map.Entry<String, Integer> entry2 : this.azS.entrySet()) {
+            for (Map.Entry<String, Integer> entry2 : this.azU.entrySet()) {
                 if (!StringUtils.isNullObject(entry2.getKey())) {
                     JSONObject jSONObject3 = new JSONObject();
                     jSONObject3.put("face_feature_type", entry2.getKey());
@@ -73,7 +73,7 @@ public class d extends BaseData {
         return jSONObject.toString();
     }
 
-    public d fA(String str) {
+    public d fB(String str) {
         AlaFilterAndBeautyData.BeautyAdjustKey[] values;
         if (!TextUtils.isEmpty(str)) {
             Log.d("ArUpdate", "parseJson jsonStr:" + str);
@@ -82,18 +82,18 @@ public class d extends BaseData {
                 for (AlaFilterAndBeautyData.BeautyAdjustKey beautyAdjustKey : AlaFilterAndBeautyData.BeautyAdjustKey.values()) {
                     z(beautyAdjustKey.getJsonKey(), jSONObject.optInt(beautyAdjustKey.getJsonKey()));
                 }
-                this.azO = jSONObject.optString("filter_name");
+                this.azQ = jSONObject.optString("filter_name");
                 this.mFilterLevel = jSONObject.optInt("filter_level");
-                this.azT = jSONObject.optString("face_feature_type");
-                this.azU = jSONObject.optString("face_feature_max_value");
-                this.azV = jSONObject.optString("face_feature_default_value");
+                this.azV = jSONObject.optString("face_feature_type");
+                this.azW = jSONObject.optString("face_feature_max_value");
+                this.azX = jSONObject.optString("face_feature_default_value");
                 JSONArray optJSONArray = jSONObject.optJSONArray("array_filter");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     int length = optJSONArray.length();
                     for (int i = 0; i < length; i++) {
                         JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i);
                         if (jSONObject2 != null && (jSONObject2.opt("array_filter_level") instanceof Integer)) {
-                            this.azW.put(jSONObject2.optString("array_filter_file"), Integer.valueOf(jSONObject2.optInt("array_filter_level")));
+                            this.azY.put(jSONObject2.optString("array_filter_file"), Integer.valueOf(jSONObject2.optInt("array_filter_level")));
                         }
                     }
                 }
@@ -103,7 +103,7 @@ public class d extends BaseData {
                     for (int i2 = 0; i2 < length2; i2++) {
                         JSONObject jSONObject3 = (JSONObject) optJSONArray2.opt(i2);
                         if (jSONObject3 != null && (jSONObject3.opt("face_feature_level") instanceof Integer)) {
-                            this.azS.put(jSONObject3.optString("face_feature_type"), Integer.valueOf(jSONObject3.optInt("face_feature_level")));
+                            this.azU.put(jSONObject3.optString("face_feature_type"), Integer.valueOf(jSONObject3.optInt("face_feature_level")));
                         }
                     }
                 }
@@ -117,40 +117,40 @@ public class d extends BaseData {
     public void y(String str, int i) {
         if (!TextUtils.isEmpty(str)) {
             Log.d("ArUpdate", "保存在缓存  putFilterValue--filterName:" + str + ", level:" + i);
-            this.azW.put(str, Integer.valueOf(i));
+            this.azY.put(str, Integer.valueOf(i));
         }
     }
 
     public void du(int i) {
-        if (TextUtils.isEmpty(this.azT)) {
-            this.azT = "naturalFace";
+        if (TextUtils.isEmpty(this.azV)) {
+            this.azV = "naturalFace";
         }
-        Log.d("ArUpdate", "保存在缓存  putFaceFeatureValue--faceType:" + this.azT + ", level:" + i);
-        this.azS.put(this.azT, Integer.valueOf(i));
-    }
-
-    public int fB(String str) {
-        Log.d("ArUpdate", "获取子项值 getFilterValue jsonKey:" + str);
-        if (TextUtils.isEmpty(str) || this.azW == null || this.azW.isEmpty()) {
-            return 100;
-        }
-        Log.d("ArUpdate", "获取子项值 getFilterValue value:" + (this.azW.get(str) == null ? 100 : this.azW.get(str).intValue()));
-        if (this.azW.get(str) == null) {
-            return 100;
-        }
-        return this.azW.get(str).intValue();
+        Log.d("ArUpdate", "保存在缓存  putFaceFeatureValue--faceType:" + this.azV + ", level:" + i);
+        this.azU.put(this.azV, Integer.valueOf(i));
     }
 
     public int fC(String str) {
+        Log.d("ArUpdate", "获取子项值 getFilterValue jsonKey:" + str);
+        if (TextUtils.isEmpty(str) || this.azY == null || this.azY.isEmpty()) {
+            return 100;
+        }
+        Log.d("ArUpdate", "获取子项值 getFilterValue value:" + (this.azY.get(str) == null ? 100 : this.azY.get(str).intValue()));
+        if (this.azY.get(str) == null) {
+            return 100;
+        }
+        return this.azY.get(str).intValue();
+    }
+
+    public int fD(String str) {
         Log.d("ArUpdate", "获取子项值 getFaceFeatureValue jsonKey:" + str);
-        if (TextUtils.isEmpty(str) || this.azS == null || this.azS.isEmpty()) {
+        if (TextUtils.isEmpty(str) || this.azU == null || this.azU.isEmpty()) {
             return 40;
         }
-        Log.d("ArUpdate", "获取子项值 sFaceFeatureKeyMap value:" + (this.azS.get(str) == null ? 40 : this.azS.get(str).intValue()));
-        if (this.azS.get(str) == null) {
+        Log.d("ArUpdate", "获取子项值 sFaceFeatureKeyMap value:" + (this.azU.get(str) == null ? 40 : this.azU.get(str).intValue()));
+        if (this.azU.get(str) == null) {
             return 40;
         }
-        return this.azS.get(str).intValue();
+        return this.azU.get(str).intValue();
     }
 
     public int a(f fVar, List<f> list) {
@@ -168,36 +168,36 @@ public class d extends BaseData {
     }
 
     public void a(AlaFilterAndBeautyData alaFilterAndBeautyData) {
-        this.azR = alaFilterAndBeautyData;
+        this.azT = alaFilterAndBeautyData;
     }
 
     private void AN() {
-        this.azY = new HashMap<>();
+        this.aAa = new HashMap<>();
         for (AlaFilterAndBeautyData.BeautyAdjustKey beautyAdjustKey : AlaFilterAndBeautyData.BeautyAdjustKey.values()) {
-            this.azY.put(beautyAdjustKey.getJsonKey(), 0);
+            this.aAa.put(beautyAdjustKey.getJsonKey(), 0);
         }
     }
 
     public void a(boolean z, List<e> list) {
-        if (z || this.azS.size() <= 0) {
-            this.azS = new HashMap<>();
+        if (z || this.azU.size() <= 0) {
+            this.azU = new HashMap<>();
             for (e eVar : list) {
-                this.azS.put(eVar.getType(), Integer.valueOf(eVar.AQ()));
+                this.azU.put(eVar.getType(), Integer.valueOf(eVar.AQ()));
             }
         }
     }
 
     public void z(String str, int i) {
         if (!TextUtils.isEmpty(str)) {
-            this.azY.put(str, Integer.valueOf(i));
+            this.aAa.put(str, Integer.valueOf(i));
         }
     }
 
-    public int fD(String str) {
-        if (TextUtils.isEmpty(str) || this.azY == null || this.azY.isEmpty() || this.azY.get(str) == null) {
+    public int fE(String str) {
+        if (TextUtils.isEmpty(str) || this.aAa == null || this.aAa.isEmpty() || this.aAa.get(str) == null) {
             return 0;
         }
-        return this.azY.get(str).intValue();
+        return this.aAa.get(str).intValue();
     }
 
     public static boolean a(HashMap<AlaFilterAndBeautyData.BeautyAdjustKey, AlaFilterAndBeautyData.b> hashMap, AlaFilterAndBeautyData alaFilterAndBeautyData, JSONObject jSONObject, boolean z) {
@@ -205,8 +205,8 @@ public class d extends BaseData {
         if (alaFilterAndBeautyData == null) {
             return false;
         }
-        aAa.a(alaFilterAndBeautyData);
-        aAa.fA(com.baidu.live.c.AD().getString("ala_beauty_config_ar", ""));
+        aAc.a(alaFilterAndBeautyData);
+        aAc.fB(com.baidu.live.c.AD().getString("ala_beauty_config_ar", ""));
         boolean z3 = com.baidu.live.c.AD().getBoolean("ala_beauty_changed_by_user", false);
         b t = b.t(jSONObject);
         AlaFilterAndBeautyData.BeautyAdjustKey[] values = AlaFilterAndBeautyData.BeautyAdjustKey.values();
@@ -220,26 +220,26 @@ public class d extends BaseData {
             int a2 = a(hashMap, beautyAdjustKey, t, a);
             if (z3) {
                 if (z5) {
-                    aAa.z(beautyAdjustKey.getJsonKey(), a2);
+                    aAc.z(beautyAdjustKey.getJsonKey(), a2);
                     z2 = true;
                 } else {
                     z2 = z4;
                 }
             } else {
-                aAa.z(beautyAdjustKey.getJsonKey(), a2);
+                aAc.z(beautyAdjustKey.getJsonKey(), a2);
                 z2 = true;
             }
-            azZ.z(beautyAdjustKey.getJsonKey(), a2);
+            aAb.z(beautyAdjustKey.getJsonKey(), a2);
             i++;
             z4 = z2;
         }
-        for (f fVar : alaFilterAndBeautyData.azA) {
+        for (f fVar : alaFilterAndBeautyData.azC) {
             c cVar = new c();
             cVar.a(fVar);
-            aAa.a(cVar);
+            aAc.a(cVar);
         }
         if (z4) {
-            com.baidu.live.c.AD().putString("ala_beauty_config_ar", aAa.toJsonString());
+            com.baidu.live.c.AD().putString("ala_beauty_config_ar", aAc.toJsonString());
         }
         if (z) {
             com.baidu.live.c.AD().putBoolean("ar_grading_quality_config_need_update", false);
@@ -259,7 +259,7 @@ public class d extends BaseData {
                     if (obj instanceof String) {
                         try {
                             float floatValue = Float.valueOf((String) obj).floatValue();
-                            return bVar.azm >= floatValue ? 100 : (int) ((bVar.azm / floatValue) * 100.0f);
+                            return bVar.azo >= floatValue ? 100 : (int) ((bVar.azo / floatValue) * 100.0f);
                         } catch (NumberFormatException e) {
                             return i;
                         }
@@ -272,7 +272,7 @@ public class d extends BaseData {
                 if (obj2 instanceof String) {
                     try {
                         float floatValue2 = Float.valueOf((String) obj2).floatValue();
-                        return bVar.azl < floatValue2 ? (int) ((bVar.azl / floatValue2) * 100.0f) : 100;
+                        return bVar.azn < floatValue2 ? (int) ((bVar.azn / floatValue2) * 100.0f) : 100;
                     } catch (NumberFormatException e2) {
                         return i;
                     }
@@ -286,7 +286,7 @@ public class d extends BaseData {
     }
 
     public void a(c cVar) {
-        this.azX.add(cVar);
+        this.azZ.add(cVar);
     }
 
     @Override // com.baidu.live.tbadk.core.data.BaseData

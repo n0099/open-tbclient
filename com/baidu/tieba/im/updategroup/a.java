@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.dialog.a;
 public interface a {
     void KA();
 
-    void Lb(String str);
+    void Lc(String str);
 
     void Nv();
 
@@ -14,21 +14,21 @@ public interface a {
 
     void c(a.b bVar);
 
-    View cCR();
+    View cCS();
 
-    View cDC();
+    View cDD();
 
-    boolean cDs();
+    boolean cDt();
 
-    String cIr();
+    String cIs();
 
-    View cIs();
+    View cIt();
 
-    void cIt();
+    void cIu();
 
-    int cIu();
+    int cIv();
 
-    boolean cIv();
+    boolean cIw();
 
     long getGroupId();
 

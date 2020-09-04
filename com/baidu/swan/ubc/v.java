@@ -6,88 +6,88 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 class v {
-    private boolean dKB = false;
-    private JSONArray cKC = new JSONArray();
-    private SparseArray<Integer> dKx = new SparseArray<>();
-    private ArrayList<String> dKy = new ArrayList<>();
-    private long dKz = 0;
-    private long dKA = 0;
-    private String dJB = "0";
+    private boolean dKF = false;
+    private JSONArray cKG = new JSONArray();
+    private SparseArray<Integer> dKB = new SparseArray<>();
+    private ArrayList<String> dKC = new ArrayList<>();
+    private long dKD = 0;
+    private long dKE = 0;
+    private String dJF = "0";
 
     public final void cQ(JSONObject jSONObject) {
-        this.cKC.put(jSONObject);
+        this.cKG.put(jSONObject);
     }
 
     public final SparseArray<Integer> aWp() {
-        return this.dKx;
+        return this.dKB;
     }
 
     public final void aF(int i, int i2) {
-        this.dKx.put(i, Integer.valueOf(i2));
+        this.dKB.put(i, Integer.valueOf(i2));
     }
 
     public final ArrayList aWq() {
-        return this.dKy;
+        return this.dKC;
     }
 
-    public final void xq(String str) {
-        if (!this.dKy.contains(str)) {
-            this.dKy.add(str);
+    public final void xr(String str) {
+        if (!this.dKC.contains(str)) {
+            this.dKC.add(str);
         }
     }
 
     public final void u(long j, long j2) {
-        if ((j < this.dKz || this.dKz == 0) && j != 0) {
-            this.dKz = j;
+        if ((j < this.dKD || this.dKD == 0) && j != 0) {
+            this.dKD = j;
         }
-        if (j2 > this.dKA) {
-            this.dKA = j2;
+        if (j2 > this.dKE) {
+            this.dKE = j2;
         }
     }
 
     public boolean mm(int i) {
-        return this.cKC.toString().getBytes().length >= i;
+        return this.cKG.toString().getBytes().length >= i;
     }
 
     public boolean isEmpty() {
-        return this.cKC.length() == 0;
+        return this.cKG.length() == 0;
     }
 
     public JSONArray aWr() {
-        return this.cKC;
+        return this.cKG;
     }
 
     public void clearData() {
-        this.dKx.clear();
-        this.dKy.clear();
-        this.cKC = null;
+        this.dKB.clear();
+        this.dKC.clear();
+        this.cKG = null;
     }
 
-    public void xr(String str) {
-        this.dJB = str;
+    public void xs(String str) {
+        this.dJF = str;
     }
 
     public String aWs() {
-        return this.dJB;
+        return this.dJF;
     }
 
     public long aWt() {
-        return this.dKz;
+        return this.dKD;
     }
 
     public long getMaxTime() {
-        return this.dKA;
+        return this.dKE;
     }
 
     public JSONArray aWu() {
-        return this.cKC;
+        return this.cKG;
     }
 
     public boolean aWv() {
-        return this.dKB;
+        return this.dKF;
     }
 
-    public void hj(boolean z) {
-        this.dKB = z;
+    public void hk(boolean z) {
+        this.dKF = z;
     }
 }

@@ -25,26 +25,26 @@ import java.util.List;
 import org.apache.http.HttpHost;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ShareItem {
-    public static final String eEM = n.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME + "/SHARED_IMAGE";
+    public static final String eEQ = n.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME + "/SHARED_IMAGE";
     public Bundle diskPicOperate;
-    public OriginalThreadInfo.ShareInfo eEA;
-    public ForwardInfo eEB;
-    public String eEH;
-    public String eEJ;
-    public int eEK;
+    public int eEB;
+    public String eEC;
+    public String eED;
+    public OriginalThreadInfo.ShareInfo eEE;
+    public ForwardInfo eEF;
     public String eEL;
     public String eEN;
-    public String eEO;
-    public JSONArray eEP;
-    public JSONObject eEQ;
-    public String eEq;
-    public String eEr;
-    public int eEx;
-    public String eEy;
-    public String eEz;
-    public int eeB;
+    public int eEO;
+    public String eEP;
+    public String eER;
+    public String eES;
+    public JSONArray eET;
+    public JSONObject eEU;
+    public String eEu;
+    public String eEv;
+    public int eeF;
     public String extLiveInfo;
     public String fName;
     public String fid;
@@ -59,46 +59,46 @@ public class ShareItem {
     public String topic;
     public int typeShareToSmallApp;
     public String uid;
-    public boolean eEa = false;
-    public boolean eEb = false;
-    public boolean eEc = false;
-    public boolean eEd = false;
     public boolean eEe = false;
     public boolean eEf = false;
     public boolean eEg = false;
     public boolean eEh = false;
     public boolean eEi = false;
-    public boolean isFromImageViewer = false;
     public boolean eEj = false;
     public boolean eEk = false;
     public boolean eEl = false;
     public boolean eEm = false;
-    public String eEn = "";
-    public int eEs = 0;
-    public int eEt = 3;
-    public int eEu = 0;
-    public int eEv = 0;
+    public boolean isFromImageViewer = false;
+    public boolean eEn = false;
+    public boolean eEo = false;
+    public boolean eEp = false;
+    public boolean eEq = false;
+    public String eEr = "";
     public int eEw = 0;
+    public int eEx = 3;
+    public int eEy = 0;
+    public int eEz = 0;
+    public int eEA = 0;
     public long readCount = -1;
     public int shareType = 0;
-    public boolean eED = true;
-    public boolean eEE = true;
-    public boolean eEF = true;
-    public int eEG = 0;
+    public boolean eEH = true;
+    public boolean eEI = true;
+    public boolean eEJ = true;
+    public int eEK = 0;
     public boolean canShareBySmartApp = true;
-    public boolean eEI = false;
+    public boolean eEM = false;
     public String title = null;
     public String content = null;
     public String linkUrl = null;
-    public String eEo = null;
+    public String eEs = null;
     public Uri imageUri = null;
     public Location location = null;
-    private WeakReference<Bitmap> eEC = null;
-    public String eEp = null;
+    private WeakReference<Bitmap> eEG = null;
+    public String eEt = null;
     public String extData = null;
     public String localFile = null;
 
-    public Bundle bpw() {
+    public Bundle bpx() {
         return this.stats;
     }
 
@@ -111,22 +111,22 @@ public class ShareItem {
         this.typeShareToSmallApp = 0;
     }
 
-    public Bitmap bpx() {
+    public Bitmap bpy() {
         Bitmap bitmap;
-        if (this.eEC == null || (bitmap = this.eEC.get()) == null || bitmap.isRecycled()) {
+        if (this.eEG == null || (bitmap = this.eEG.get()) == null || bitmap.isRecycled()) {
             return null;
         }
         return bitmap;
     }
 
     public void w(Bitmap bitmap) {
-        this.eEC = new WeakReference<>(bitmap);
+        this.eEG = new WeakReference<>(bitmap);
     }
 
-    public byte[] bpy() {
+    public byte[] bpz() {
         Bitmap bitmap;
         byte[] bArr;
-        if (this.eEC == null || (bitmap = this.eEC.get()) == null || bitmap.isRecycled()) {
+        if (this.eEG == null || (bitmap = this.eEG.get()) == null || bitmap.isRecycled()) {
             return null;
         }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -144,16 +144,16 @@ public class ShareItem {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [314=4, 315=4, 317=4, 318=4] */
-    public void bpz() {
+    public void bpA() {
         FileOutputStream fileOutputStream = null;
-        if (this.eEC == null) {
+        if (this.eEG == null) {
             return;
         }
         FileOutputStream fileOutputStream2 = null;
         try {
             try {
                 if (n.checkSD()) {
-                    File file = new File(eEM);
+                    File file = new File(eEQ);
                     if (file.exists()) {
                         file.delete();
                     }
@@ -161,14 +161,14 @@ public class ShareItem {
                     if (parentFile != null && !parentFile.exists()) {
                         parentFile.mkdirs();
                     }
-                    byte[] bpy = bpy();
-                    if (bpy != null) {
+                    byte[] bpz = bpz();
+                    if (bpz != null) {
                         FileOutputStream fileOutputStream3 = new FileOutputStream(file);
                         try {
-                            fileOutputStream3.write(bpy);
+                            fileOutputStream3.write(bpz);
                             fileOutputStream3.close();
                             this.imageUri = Uri.fromFile(file);
-                            this.eEC = null;
+                            this.eEG = null;
                             if (fileOutputStream3 != null) {
                                 try {
                                     fileOutputStream3.close();
@@ -230,11 +230,11 @@ public class ShareItem {
         return this.mCommandChannelArray;
     }
 
-    public boolean bpA() {
-        return this.eEx == 7 || this.eEx == 8 || this.eEx == 5 || this.eEx == 6;
+    public boolean bpB() {
+        return this.eEB == 7 || this.eEB == 8 || this.eEB == 5 || this.eEB == 6;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class ForwardInfo extends OrmObject implements Serializable {
         public String avatar;
         public BaijiahaoData baijiahaoData;
@@ -283,21 +283,21 @@ public class ShareItem {
             }
             ForwardInfo forwardInfo = new ForwardInfo();
             forwardInfo.isShareType = false;
-            if (bwVar.isShareThread && bwVar.edE != null) {
+            if (bwVar.isShareThread && bwVar.edI != null) {
                 forwardInfo.isShareType = true;
             }
             if (forwardInfo.isShareType) {
-                if (bwVar.edE.oriUgcInfo != null && !TextUtils.isEmpty(bwVar.edE.oriUgcInfo.oriUgcNid)) {
+                if (bwVar.edI.oriUgcInfo != null && !TextUtils.isEmpty(bwVar.edI.oriUgcInfo.oriUgcNid)) {
                     forwardInfo.isDynamic = true;
                 }
-                forwardInfo.showText = bwVar.edE.bdl();
-                forwardInfo.showPicUrl = bwVar.edE.showPicUrl;
-                forwardInfo.showType = bwVar.edE.showType;
-                forwardInfo.originalBaijiahaoData = bwVar.edE.oriUgcInfo;
-                forwardInfo.originalTid = bwVar.edE.threadId;
+                forwardInfo.showText = bwVar.edI.bdl();
+                forwardInfo.showPicUrl = bwVar.edI.showPicUrl;
+                forwardInfo.showType = bwVar.edI.showType;
+                forwardInfo.originalBaijiahaoData = bwVar.edI.oriUgcInfo;
+                forwardInfo.originalTid = bwVar.edI.threadId;
                 if (i == 1) {
-                    if (postData != null && postData.dwH() != null) {
-                        str = postData.dwH().toString();
+                    if (postData != null && postData.dwM() != null) {
+                        str = postData.dwM().toString();
                     } else if (bwVar.getAbstract() != null) {
                         str = bwVar.bef().toString();
                     }
@@ -329,13 +329,13 @@ public class ShareItem {
                 forwardInfo.originalTid = bwVar.getTid();
             }
             if (i == 1) {
-                if (bwVar.edE != null && bwVar.edE.oriUgcInfo != null) {
+                if (bwVar.edI != null && bwVar.edI.oriUgcInfo != null) {
                     forwardInfo.baijiahaoData = new BaijiahaoData();
-                    forwardInfo.baijiahaoData.oriUgcNid = bwVar.edE.oriUgcInfo.oriUgcNid;
-                    forwardInfo.baijiahaoData.oriUgcTid = bwVar.edE.oriUgcInfo.oriUgcTid;
-                    forwardInfo.baijiahaoData.oriUgcType = bwVar.edE.oriUgcInfo.oriUgcType;
-                    forwardInfo.baijiahaoData.oriUgcVid = bwVar.edE.oriUgcInfo.oriUgcVid;
-                    forwardInfo.baijiahaoData.forwardUrl = bwVar.edE.oriUgcInfo.forwardUrl;
+                    forwardInfo.baijiahaoData.oriUgcNid = bwVar.edI.oriUgcInfo.oriUgcNid;
+                    forwardInfo.baijiahaoData.oriUgcTid = bwVar.edI.oriUgcInfo.oriUgcTid;
+                    forwardInfo.baijiahaoData.oriUgcType = bwVar.edI.oriUgcInfo.oriUgcType;
+                    forwardInfo.baijiahaoData.oriUgcVid = bwVar.edI.oriUgcInfo.oriUgcVid;
+                    forwardInfo.baijiahaoData.forwardUrl = bwVar.edI.oriUgcInfo.forwardUrl;
                 } else if (bwVar.getBaijiahaoData() != null) {
                     forwardInfo.baijiahaoData = new BaijiahaoData();
                     forwardInfo.baijiahaoData.oriUgcNid = bwVar.getBaijiahaoData().oriUgcNid;

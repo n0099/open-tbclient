@@ -16,7 +16,7 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final File cHd = AppRuntime.getAppContext().getExternalCacheDir();
+    private static final File cHh = AppRuntime.getAppContext().getExternalCacheDir();
 
     public static void ap(List<UbcFlowEvent> list) {
         e azJ;
@@ -37,7 +37,7 @@ public class a {
                     }
                 }
             }
-            File file = new File(cHd, "swan_perf");
+            File file = new File(cHh, "swan_perf");
             if (!file.exists()) {
                 file.mkdirs();
             }

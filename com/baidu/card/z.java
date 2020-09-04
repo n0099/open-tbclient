@@ -7,17 +7,17 @@ import com.baidu.tbadk.core.data.AbsThreadDataSupport;
 import com.baidu.tbadk.core.view.MultiLinkCardView;
 /* loaded from: classes15.dex */
 public class z extends h {
-    private MultiLinkCardView afY;
+    private MultiLinkCardView aga;
 
     public z(Context context) {
         super(context);
-        this.afY = new MultiLinkCardView(context);
+        this.aga = new MultiLinkCardView(context);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.afY;
+        return this.aga;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,16 +25,16 @@ public class z extends h {
     /* renamed from: b */
     public void F(AbsThreadDataSupport absThreadDataSupport) {
         if (c(absThreadDataSupport) || absThreadDataSupport == null || absThreadDataSupport.bce() == null || ((com.baidu.tbadk.core.util.y.isEmpty(absThreadDataSupport.bce().bgK()) && com.baidu.tbadk.core.util.y.getCount(absThreadDataSupport.bce().bgL()) <= 1) || ((com.baidu.tbadk.core.util.y.isEmpty(absThreadDataSupport.bce().bgL()) && com.baidu.tbadk.core.util.y.getCount(absThreadDataSupport.bce().bgK()) <= 1) || com.baidu.tbadk.core.util.y.getCount(absThreadDataSupport.bce().bgK()) + com.baidu.tbadk.core.util.y.getCount(absThreadDataSupport.bce().bgL()) <= 1))) {
-            this.afY.setVisibility(8);
+            this.aga.setVisibility(8);
             return;
         }
-        this.afY.h(absThreadDataSupport.bce().bgK(), absThreadDataSupport.bce().bgL());
-        this.afY.setVisibility(0);
+        this.aga.h(absThreadDataSupport.bce().bgK(), absThreadDataSupport.bce().bgL());
+        this.aga.setVisibility(0);
     }
 
     @Override // com.baidu.card.p
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.afY.onChangeSkinType();
+        this.aga.onChangeSkinType();
     }
 
     private boolean c(AbsThreadDataSupport absThreadDataSupport) {

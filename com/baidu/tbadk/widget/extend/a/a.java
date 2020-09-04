@@ -7,9 +7,9 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.h.e;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class a<T> extends b {
-    protected e<T> ajo;
+    protected e<T> ajq;
     protected Context mContext;
     protected List<T> mData;
     protected LayoutInflater mInflater;
@@ -18,7 +18,7 @@ public abstract class a<T> extends b {
     public abstract void a(c cVar, T t, int i);
 
     public void a(e<T> eVar) {
-        this.ajo = eVar;
+        this.ajq = eVar;
     }
 
     public a(Context context, List<T> list, int i) {
@@ -48,20 +48,20 @@ public abstract class a<T> extends b {
     }
 
     /* renamed from: com.baidu.tbadk.widget.extend.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     private class View$OnClickListenerC0562a implements View.OnClickListener {
-        private T fai;
+        private T fam;
         private int position;
 
         public View$OnClickListenerC0562a(T t, int i) {
-            this.fai = t;
+            this.fam = t;
             this.position = i;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.ajo != null) {
-                a.this.ajo.a(view, this.fai, this.position, this.position);
+            if (a.this.ajq != null) {
+                a.this.ajq.a(view, this.fam, this.position, this.position);
             }
         }
     }

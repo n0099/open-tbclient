@@ -10,19 +10,19 @@ import com.baidu.platform.comapi.map.MapController;
 import com.baidu.swan.apps.console.c;
 /* loaded from: classes8.dex */
 public class a {
-    private static volatile a cYX;
-    private SensorManager bnK;
-    private SensorEventListener cYH;
-    private Sensor cYI;
-    private SensorEventListener cYY;
-    private Sensor cYZ;
-    private InterfaceC0340a cZd;
+    private static volatile a cZb;
+    private SensorManager bnN;
+    private SensorEventListener cYL;
+    private Sensor cYM;
+    private SensorEventListener cZc;
+    private Sensor cZd;
+    private InterfaceC0340a cZh;
     private Context mContext;
-    private float[] cZa = new float[3];
-    private float[] cZb = new float[3];
-    private int cZc = -100;
-    private boolean cYL = false;
-    private long cYM = 0;
+    private float[] cZe = new float[3];
+    private float[] cZf = new float[3];
+    private int cZg = -100;
+    private boolean cYP = false;
+    private long cYQ = 0;
 
     /* renamed from: com.baidu.swan.apps.al.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
@@ -34,14 +34,14 @@ public class a {
     }
 
     public static a aDE() {
-        if (cYX == null) {
+        if (cZb == null) {
             synchronized (a.class) {
-                if (cYX == null) {
-                    cYX = new a();
+                if (cZb == null) {
+                    cZb = new a();
                 }
             }
         }
-        return cYX;
+        return cZb;
     }
 
     public void init(Context context) {
@@ -49,22 +49,22 @@ public class a {
     }
 
     public void a(InterfaceC0340a interfaceC0340a) {
-        this.cZd = interfaceC0340a;
+        this.cZh = interfaceC0340a;
     }
 
     public void aDF() {
         if (this.mContext == null) {
             c.e(MapController.COMPASS_LAYER_TAG, "start error, none context");
-        } else if (this.cYL) {
+        } else if (this.cYP) {
             c.w(MapController.COMPASS_LAYER_TAG, "has already start");
         } else {
-            this.bnK = (SensorManager) this.mContext.getSystemService("sensor");
-            if (this.bnK != null) {
-                this.cYI = this.bnK.getDefaultSensor(1);
-                this.cYZ = this.bnK.getDefaultSensor(2);
-                this.bnK.registerListener(aDA(), this.cYI, 1);
-                this.bnK.registerListener(aDH(), this.cYZ, 1);
-                this.cYL = true;
+            this.bnN = (SensorManager) this.mContext.getSystemService("sensor");
+            if (this.bnN != null) {
+                this.cYM = this.bnN.getDefaultSensor(1);
+                this.cZd = this.bnN.getDefaultSensor(2);
+                this.bnN.registerListener(aDA(), this.cYM, 1);
+                this.bnN.registerListener(aDH(), this.cZd, 1);
+                this.cYP = true;
                 c.i(MapController.COMPASS_LAYER_TAG, "start listen");
                 return;
             }
@@ -73,58 +73,58 @@ public class a {
     }
 
     public void aDG() {
-        if (!this.cYL) {
+        if (!this.cYP) {
             c.w(MapController.COMPASS_LAYER_TAG, "has already stop");
             return;
         }
         c.i(MapController.COMPASS_LAYER_TAG, "stop listen");
-        if (this.cYH != null && this.bnK != null) {
-            this.bnK.unregisterListener(this.cYH);
-            this.cYH = null;
+        if (this.cYL != null && this.bnN != null) {
+            this.bnN.unregisterListener(this.cYL);
+            this.cYL = null;
         }
-        if (this.cYY != null && this.bnK != null) {
-            this.bnK.unregisterListener(this.cYY);
-            this.cYY = null;
+        if (this.cZc != null && this.bnN != null) {
+            this.bnN.unregisterListener(this.cZc);
+            this.cZc = null;
         }
-        this.bnK = null;
-        this.cYZ = null;
-        this.cYI = null;
-        this.cYL = false;
+        this.bnN = null;
+        this.cZd = null;
+        this.cYM = null;
+        this.cYP = false;
     }
 
     public static void release() {
-        if (cYX != null) {
-            cYX.aDz();
+        if (cZb != null) {
+            cZb.aDz();
         }
     }
 
     private void aDz() {
         c.i(MapController.COMPASS_LAYER_TAG, "release");
-        if (this.cYL) {
+        if (this.cYP) {
             aDG();
         }
-        this.bnK = null;
-        this.cYZ = null;
-        this.cYI = null;
-        this.cYH = null;
-        this.cYY = null;
+        this.bnN = null;
         this.cZd = null;
+        this.cYM = null;
+        this.cYL = null;
+        this.cZc = null;
+        this.cZh = null;
         this.mContext = null;
-        cYX = null;
+        cZb = null;
     }
 
     private SensorEventListener aDA() {
         c.i(MapController.COMPASS_LAYER_TAG, "get Accelerometer listener");
-        if (this.cYH != null) {
-            return this.cYH;
+        if (this.cYL != null) {
+            return this.cYL;
         }
-        this.cYH = new SensorEventListener() { // from class: com.baidu.swan.apps.al.e.a.1
+        this.cYL = new SensorEventListener() { // from class: com.baidu.swan.apps.al.e.a.1
             @Override // android.hardware.SensorEventListener
             public void onSensorChanged(SensorEvent sensorEvent) {
                 if (sensorEvent != null && sensorEvent.sensor != null && sensorEvent.sensor.getType() == 1) {
-                    a.this.cZa = sensorEvent.values;
-                    a.this.cZc = sensorEvent.accuracy;
-                    c.d("SwanAppCompassManager", "accelerometer changed accuracy: " + a.this.cZc);
+                    a.this.cZe = sensorEvent.values;
+                    a.this.cZg = sensorEvent.accuracy;
+                    c.d("SwanAppCompassManager", "accelerometer changed accuracy: " + a.this.cZg);
                     a.this.aDJ();
                     return;
                 }
@@ -135,21 +135,21 @@ public class a {
             public void onAccuracyChanged(Sensor sensor, int i) {
             }
         };
-        return this.cYH;
+        return this.cYL;
     }
 
     private SensorEventListener aDH() {
         c.i(MapController.COMPASS_LAYER_TAG, "get MagneticFiled listener");
-        if (this.cYY != null) {
-            return this.cYY;
+        if (this.cZc != null) {
+            return this.cZc;
         }
-        this.cYY = new SensorEventListener() { // from class: com.baidu.swan.apps.al.e.a.2
+        this.cZc = new SensorEventListener() { // from class: com.baidu.swan.apps.al.e.a.2
             @Override // android.hardware.SensorEventListener
             public void onSensorChanged(SensorEvent sensorEvent) {
                 if (sensorEvent != null && sensorEvent.sensor != null && sensorEvent.sensor.getType() == 2) {
-                    a.this.cZb = sensorEvent.values;
-                    a.this.cZc = sensorEvent.accuracy;
-                    c.d("SwanAppCompassManager", "magneticFiled changed accuracy: " + a.this.cZc);
+                    a.this.cZf = sensorEvent.values;
+                    a.this.cZg = sensorEvent.accuracy;
+                    c.d("SwanAppCompassManager", "magneticFiled changed accuracy: " + a.this.cZg);
                     a.this.aDJ();
                     return;
                 }
@@ -160,24 +160,24 @@ public class a {
             public void onAccuracyChanged(Sensor sensor, int i) {
             }
         };
-        return this.cYY;
+        return this.cZc;
     }
 
     private float aDI() {
         float[] fArr = new float[3];
         float[] fArr2 = new float[9];
-        SensorManager.getRotationMatrix(fArr2, null, this.cZa, this.cZb);
+        SensorManager.getRotationMatrix(fArr2, null, this.cZe, this.cZf);
         SensorManager.getOrientation(fArr2, fArr);
         return (((float) Math.toDegrees(fArr[0])) + 360.0f) % 360.0f;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aDJ() {
-        if (this.cZd != null && System.currentTimeMillis() - this.cYM > 200) {
+        if (this.cZh != null && System.currentTimeMillis() - this.cYQ > 200) {
             float aDI = aDI();
             c.d("SwanAppCompassManager", "orientation changed, orientation : " + aDI);
-            this.cZd.b(aDI, this.cZc);
-            this.cYM = System.currentTimeMillis();
+            this.cZh.b(aDI, this.cZg);
+            this.cYQ = System.currentTimeMillis();
         }
     }
 

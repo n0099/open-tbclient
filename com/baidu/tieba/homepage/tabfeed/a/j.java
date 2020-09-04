@@ -8,16 +8,16 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.homepage.tabfeed.view.HotTopicRankLayout;
 /* loaded from: classes16.dex */
 public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.tabfeed.data.b, com.baidu.adp.widget.ListView.b<HotTopicRankLayout>> {
-    private v akI;
+    private v akK;
     private TbPageContext mPageContext;
 
     public j(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.hotTopic.tab.b.a.iLJ);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.hotTopic.tab.b.a.iLP);
         this.mPageContext = tbPageContext;
     }
 
     public void a(v vVar) {
-        this.akI = vVar;
+        this.akK = vVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

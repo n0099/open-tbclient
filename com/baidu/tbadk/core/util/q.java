@@ -3,9 +3,9 @@ package com.baidu.tbadk.core.util;
 import com.baidu.adp.lib.util.StringUtils;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class q {
-    public static String zV(String str) {
+    public static String zW(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }

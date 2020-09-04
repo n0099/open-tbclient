@@ -20,7 +20,7 @@ public interface c {
 
         com.facebook.a.a aO(Object obj) throws IOException;
 
-        boolean dNS();
+        boolean dOb();
     }
 
     b B(String str, Object obj) throws IOException;
@@ -33,9 +33,9 @@ public interface c {
 
     long a(a aVar) throws IOException;
 
-    void dNO();
+    void dNX();
 
-    Collection<a> dNP() throws IOException;
+    Collection<a> dNY() throws IOException;
 
     boolean isExternal();
 }

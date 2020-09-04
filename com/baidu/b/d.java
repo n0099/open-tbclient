@@ -4,11 +4,11 @@ import java.util.Comparator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes20.dex */
 public class d implements Comparator<b> {
-    final /* synthetic */ c acZ;
+    final /* synthetic */ c adb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.acZ = cVar;
+        this.adb = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

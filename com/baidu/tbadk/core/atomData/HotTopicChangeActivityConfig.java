@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class HotTopicChangeActivityConfig extends IntentConfig {
     public static final String KEY_USE_ORIGIN_LIST = "KEY_USE_ORIGIN_LIST";
     public static final String ST_TYPE = "hot_topic_change";

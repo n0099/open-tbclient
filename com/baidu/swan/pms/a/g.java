@@ -42,7 +42,7 @@ public abstract class g implements d {
         return null;
     }
 
-    public com.baidu.swan.pms.node.d.c ms(String str) {
+    public com.baidu.swan.pms.node.d.c mt(String str) {
         return null;
     }
 

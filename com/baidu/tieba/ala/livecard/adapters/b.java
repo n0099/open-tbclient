@@ -58,16 +58,16 @@ public class b extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.ala_card_live_item, (ViewGroup) null);
             a aVar2 = new a(view);
-            aVar2.giE.setIsRound(true);
-            aVar2.giE.setDrawBorder(false);
-            aVar2.giE.setAutoChangeStyle(true);
-            aVar2.giE.setGifIconSupport(false);
+            aVar2.giI.setIsRound(true);
+            aVar2.giI.setDrawBorder(false);
+            aVar2.giI.setAutoChangeStyle(true);
+            aVar2.giI.setGifIconSupport(false);
             int equipmentWidth = (l.getEquipmentWidth(this.mPageContext.getPageActivity()) - this.mPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.ds100)) / 3;
             int i2 = (equipmentWidth * 16) / 9;
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar2.giG.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar2.giK.getLayoutParams();
             layoutParams.height = equipmentWidth;
             layoutParams.width = i2;
-            aVar2.giG.setLayoutParams(layoutParams);
+            aVar2.giK.setLayoutParams(layoutParams);
             AbsHListView.LayoutParams layoutParams2 = new AbsHListView.LayoutParams(-1, -1);
             layoutParams2.width = i2;
             view.setLayoutParams(layoutParams2);
@@ -78,12 +78,12 @@ public class b extends BaseAdapter {
         }
         bw item = getItem(i);
         if (item != null && (beY = item.beY()) != null) {
-            aVar.giE.startLoad(beY.cover, 10, false);
-            aVar.giF.setData(item);
-            aVar.giF.setUserHeadImgVisible(8);
-            aVar.giH.setText(item.getTitle());
-            aVar.giF.onChangeSkinType(this.mPageContext);
-            ap.setViewTextColor(aVar.giH, R.color.cp_cont_b, TbadkCoreApplication.getInst().getSkinType());
+            aVar.giI.startLoad(beY.cover, 10, false);
+            aVar.giJ.setData(item);
+            aVar.giJ.setUserHeadImgVisible(8);
+            aVar.giL.setText(item.getTitle());
+            aVar.giJ.onChangeSkinType(this.mPageContext);
+            ap.setViewTextColor(aVar.giL, R.color.cp_cont_b, TbadkCoreApplication.getInst().getSkinType());
             ap.setBackgroundResource(view, R.drawable.addresslist_item_bg);
             return view;
         }
@@ -97,18 +97,18 @@ public class b extends BaseAdapter {
 
     /* loaded from: classes4.dex */
     public static class a {
-        public TbImageView giE;
-        public AlaCardBottomUserInfoLayout giF;
-        public RelativeLayout giG;
-        public TextView giH;
+        public TbImageView giI;
+        public AlaCardBottomUserInfoLayout giJ;
+        public RelativeLayout giK;
+        public TextView giL;
         public View rootView;
 
         public a(View view) {
             this.rootView = view;
-            this.giE = (TbImageView) view.findViewById(R.id.img_thumbnail);
-            this.giF = (AlaCardBottomUserInfoLayout) view.findViewById(R.id.ala_card_bottom_user_info_layout);
-            this.giG = (RelativeLayout) view.findViewById(R.id.ala_card_live_top);
-            this.giH = (TextView) view.findViewById(R.id.ala_card_live_title);
+            this.giI = (TbImageView) view.findViewById(R.id.img_thumbnail);
+            this.giJ = (AlaCardBottomUserInfoLayout) view.findViewById(R.id.ala_card_bottom_user_info_layout);
+            this.giK = (RelativeLayout) view.findViewById(R.id.ala_card_live_top);
+            this.giL = (TextView) view.findViewById(R.id.ala_card_live_title);
         }
     }
 }

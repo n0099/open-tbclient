@@ -6,7 +6,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 /* loaded from: classes15.dex */
 public class TopicGifView extends SurfaceView implements SurfaceHolder.Callback {
-    private SurfaceHolder jdd;
+    private SurfaceHolder jdj;
     private Thread thread;
 
     public TopicGifView(Context context, AttributeSet attributeSet, int i) {
@@ -40,8 +40,8 @@ public class TopicGifView extends SurfaceView implements SurfaceHolder.Callback 
     }
 
     private void init() {
-        this.jdd = getHolder();
-        this.jdd.addCallback(this);
+        this.jdj = getHolder();
+        this.jdj.addCallback(this);
     }
 
     @Override // android.view.SurfaceHolder.Callback

@@ -6,17 +6,17 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.chat.e;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class MsgRightViewItemAdapter extends e<MsgrightView> {
-    private boolean jfS;
+    private boolean jfY;
 
     public MsgRightViewItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.jfS = false;
+        this.jfY = false;
     }
 
-    public void qg(boolean z) {
-        this.jfS = z;
+    public void qi(boolean z) {
+        this.jfY = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,24 +33,24 @@ public class MsgRightViewItemAdapter extends e<MsgrightView> {
     @Override // com.baidu.tieba.im.chat.e, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgrightView> aVar) {
         super.a(i, view, viewGroup, chatMessage, (e.a) aVar);
-        MsgrightView cBS = aVar.cBS();
-        cBS.AK(this.jfJ);
-        cBS.qg(this.jfS);
+        MsgrightView cBT = aVar.cBT();
+        cBT.AK(this.jfP);
+        cBT.qi(this.jfY);
         chatMessage.getCacheData().setIs_left(0);
-        cBS.a(this.jfA);
-        cBS.setOnItemViewLongClickListener(this.jfB);
-        cBS.setPosition(i);
-        cBS.eY(this.fwM);
-        cBS.eX(chatMessage.getCacheData().getLastMsgTime());
-        cBS.a(viewGroup, chatMessage);
-        cBS.b(viewGroup, chatMessage);
+        cBT.a(this.jfG);
+        cBT.setOnItemViewLongClickListener(this.jfH);
+        cBT.setPosition(i);
+        cBT.eY(this.fwQ);
+        cBT.eX(chatMessage.getCacheData().getLastMsgTime());
+        cBT.a(viewGroup, chatMessage);
+        cBT.b(viewGroup, chatMessage);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a extends e.a<MsgrightView> {
         public a(View view, MsgrightView msgrightView) {
             super(view, msgrightView);

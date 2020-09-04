@@ -6,9 +6,9 @@ import com.baidu.live.tbadk.core.data.AlaUserInfoData;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class a {
-    public int ghm;
-    public int ghn;
-    public AlaUserInfoData gho;
+    public int ghq;
+    public int ghr;
+    public AlaUserInfoData ghs;
     public String intro;
     private int isFriend;
     public String liveId;
@@ -35,12 +35,12 @@ public class a {
             this.liveId = jSONObject.optString("live_id");
             this.intro = jSONObject.optString("intro");
             this.live_status = jSONObject.optInt("live_status");
-            this.ghm = jSONObject.optInt("live_id");
+            this.ghq = jSONObject.optInt("live_id");
             this.isFriend = jSONObject.optInt("is_friend");
-            this.ghn = jSONObject.optInt("has_concerned");
+            this.ghr = jSONObject.optInt("has_concerned");
             if (jSONObject.optJSONObject("ala_info") != null) {
-                this.gho = new AlaUserInfoData();
-                this.gho.parserJson(jSONObject.optJSONObject("ala_info"));
+                this.ghs = new AlaUserInfoData();
+                this.ghs.parserJson(jSONObject.optJSONObject("ala_info"));
             }
         }
     }
@@ -49,7 +49,7 @@ public class a {
         return TextUtils.isEmpty(this.name_show) ? this.userName : this.name_show;
     }
 
-    public boolean bLB() {
-        return this.ghn != 0;
+    public boolean bLC() {
+        return this.ghr != 0;
     }
 }

@@ -1,13 +1,13 @@
 package com.baidu.tbadk.suspended;
 
 import android.content.Intent;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface a {
-    boolean buK();
-
     boolean buL();
 
-    Intent buM();
+    boolean buM();
+
+    Intent buN();
 
     void qE(int i);
 }

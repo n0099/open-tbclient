@@ -1,5 +1,5 @@
 package com.baidu.tbadk.core.util.c;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class j extends a {
     private int procType;
 

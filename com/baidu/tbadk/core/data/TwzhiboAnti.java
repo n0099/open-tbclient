@@ -4,7 +4,7 @@ import com.baidu.adp.lib.util.BdLog;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.TwZhiBoAnti;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class TwzhiboAnti implements Serializable {
     public static final int ERROR = 0;
     public static final int OK = 1;

@@ -9,8 +9,8 @@ import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes7.dex */
 public class b implements a {
-    private c bfX;
-    private HttpMessageListener bfY;
+    private c bfZ;
+    private HttpMessageListener bga;
 
     public b() {
         registerTask();
@@ -19,7 +19,7 @@ public class b implements a {
 
     @Override // com.baidu.live.noble.c.a
     public void a(c cVar) {
-        this.bfX = cVar;
+        this.bfZ = cVar;
     }
 
     @Override // com.baidu.live.noble.c.a
@@ -29,7 +29,7 @@ public class b implements a {
 
     @Override // com.baidu.live.noble.c.a
     public void release() {
-        this.bfX = null;
+        this.bfZ = null;
         LX();
         unregisterListener();
     }
@@ -47,7 +47,7 @@ public class b implements a {
     }
 
     private void unregisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.bfY);
+        MessageManager.getInstance().unRegisterListener(this.bga);
     }
 
     private void LY() {
@@ -60,15 +60,15 @@ public class b implements a {
     }
 
     private void LZ() {
-        this.bfY = new HttpMessageListener(1021195) { // from class: com.baidu.live.noble.c.b.1
+        this.bga = new HttpMessageListener(1021195) { // from class: com.baidu.live.noble.c.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (b.this.bfX != null && (httpResponsedMessage instanceof NobleUserInfoHttpResponseMessage)) {
-                    b.this.bfX.b(((NobleUserInfoHttpResponseMessage) httpResponsedMessage).LV());
+                if (b.this.bfZ != null && (httpResponsedMessage instanceof NobleUserInfoHttpResponseMessage)) {
+                    b.this.bfZ.b(((NobleUserInfoHttpResponseMessage) httpResponsedMessage).LV());
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.bfY);
+        MessageManager.getInstance().registerListener(this.bga);
     }
 }

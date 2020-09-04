@@ -10,29 +10,29 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static a crA;
-    private static a crB;
+    private static a crE;
+    private static a crF;
     public String extensionCoreVersionName;
 
     @NonNull
     public static a a(@NonNull com.baidu.swan.apps.extcore.model.b.a aVar) {
-        return aVar.amv() == 1 ? mz(aVar.amu()) : my(aVar.amu());
-    }
-
-    @NonNull
-    private static a my(@NonNull String str) {
-        if (crA == null) {
-            crA = aR(mA(str));
-        }
-        return crA;
+        return aVar.amv() == 1 ? mA(aVar.amu()) : mz(aVar.amu());
     }
 
     @NonNull
     private static a mz(@NonNull String str) {
-        if (crB == null) {
-            crB = aR(mA(str));
+        if (crE == null) {
+            crE = aR(mB(str));
         }
-        return crB;
+        return crE;
+    }
+
+    @NonNull
+    private static a mA(@NonNull String str) {
+        if (crF == null) {
+            crF = aR(mB(str));
+        }
+        return crF;
     }
 
     @NonNull
@@ -44,7 +44,7 @@ public class a {
         return aVar;
     }
 
-    private static JSONObject mA(@NonNull String str) {
+    private static JSONObject mB(@NonNull String str) {
         if (DEBUG) {
             Log.d("ExtCore-PresetConfig", "readPresetConfig start.");
         }

@@ -50,7 +50,7 @@ public final class a {
             if (jSONObject != null) {
                 String optString = jSONObject.optString(SharedPrefConfig.VERSION_NAME);
                 if (!TextUtils.isEmpty(optString)) {
-                    h.aDf().putLong("aiapps_cur_debug_ver_key", com.baidu.swan.apps.swancore.b.sb(optString));
+                    h.aDf().putLong("aiapps_cur_debug_ver_key", com.baidu.swan.apps.swancore.b.sc(optString));
                 }
                 return true;
             }

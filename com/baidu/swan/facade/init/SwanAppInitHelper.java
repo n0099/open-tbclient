@@ -57,7 +57,7 @@ public class SwanAppInitHelper {
     }
 
     private static void initSwanAppModule(Application application) {
-        if (!c.dPq()) {
+        if (!c.dPz()) {
             c.initialize(application);
         }
         if (ProcessUtils.isMainProcess()) {
@@ -118,7 +118,7 @@ public class SwanAppInitHelper {
                 }
             });
         }
-        com.baidu.swan.apps.core.k.b.bT(context).ed(ProcessUtils.isMainProcess());
+        com.baidu.swan.apps.core.k.b.bT(context).ee(ProcessUtils.isMainProcess());
     }
 
     private static boolean isProcessNeedInit() {

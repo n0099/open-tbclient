@@ -25,10 +25,10 @@ import java.util.zip.ZipFile;
 import org.json.JSONObject;
 /* loaded from: classes20.dex */
 public class a {
-    private static final String[] ayg = {"f0fb772cce0da4ed791213b800defea286494ab98d00e1101cbf78a35e70ec4b"};
-    private a.C0148a ayd;
-    private ZipFile aye;
-    private PackageManager ayf;
+    private static final String[] ayi = {"f0fb772cce0da4ed791213b800defea286494ab98d00e1101cbf78a35e70ec4b"};
+    private a.C0148a ayf;
+    private ZipFile ayg;
+    private PackageManager ayh;
     private String k;
     private Context l;
 
@@ -57,12 +57,12 @@ public class a {
     }
 
     private File Ay() {
-        return this.ayd.getFile("c.dat");
+        return this.ayf.getFile("c.dat");
     }
 
-    private InputStream fy(String str) {
+    private InputStream fz(String str) {
         try {
-            return this.aye.getInputStream(new ZipEntry(str));
+            return this.ayg.getInputStream(new ZipEntry(str));
         } catch (Exception e) {
             throw new TrustSubject.ConfigNotFoundException(e);
         }
@@ -70,7 +70,7 @@ public class a {
 
     public long a() {
         try {
-            Bundle bundle = this.ayf.getPackageInfo(this.k, 128).applicationInfo.metaData;
+            Bundle bundle = this.ayh.getPackageInfo(this.k, 128).applicationInfo.metaData;
             if (bundle != null) {
                 String string = bundle.getString("com.baidu.helios.tc.qver");
                 if (!TextUtils.isEmpty(string) && string.startsWith("v")) {
@@ -86,7 +86,7 @@ public class a {
         InputStream inputStream = null;
         try {
             try {
-                inputStream = fy(str);
+                inputStream = fz(str);
                 return d.d(inputStream, "UTF-8");
             } catch (IOException e) {
                 throw new TrustSubject.ConfigNotFoundException(e);
@@ -99,8 +99,8 @@ public class a {
     public void a(String str, Context context, a.C0148a c0148a) {
         this.k = str;
         this.l = context;
-        this.ayd = c0148a;
-        this.ayf = context.getPackageManager();
+        this.ayf = c0148a;
+        this.ayh = context.getPackageManager();
     }
 
     public int b() {
@@ -113,7 +113,7 @@ public class a {
         InputStream inputStream2;
         try {
             AssetManager assets = this.l.createPackageContext(this.k, 0).getAssets();
-            this.ayd.Ai();
+            this.ayf.Ai();
             File Ay = Ay();
             try {
                 Ay.delete();
@@ -150,7 +150,7 @@ public class a {
                                         }
                                     }
                                     HashSet hashSet2 = new HashSet();
-                                    Collections.addAll(hashSet2, ayg);
+                                    Collections.addAll(hashSet2, ayi);
                                     if (!hashSet2.equals(hashSet)) {
                                         c.b(inputStream);
                                         c.b(fileOutputStream);
@@ -291,7 +291,7 @@ public class a {
 
     public boolean d() {
         boolean z = false;
-        File[] listFiles = this.ayd.Aj().listFiles(new FilenameFilter() { // from class: com.baidu.helios.trusts.zone.a.a.1
+        File[] listFiles = this.ayf.Aj().listFiles(new FilenameFilter() { // from class: com.baidu.helios.trusts.zone.a.a.1
             @Override // java.io.FilenameFilter
             public boolean accept(File file, String str) {
                 return str.endsWith(".cfgtmp");
@@ -310,13 +310,13 @@ public class a {
     }
 
     public boolean e() {
-        if (this.aye != null) {
+        if (this.ayg != null) {
             return true;
         }
         File Ay = Ay();
         if (Ay.exists()) {
             try {
-                this.aye = new ZipFile(Ay);
+                this.ayg = new ZipFile(Ay);
                 return true;
             } catch (IOException e) {
                 e.printStackTrace();
@@ -326,9 +326,9 @@ public class a {
     }
 
     public boolean f() {
-        if (this.aye != null) {
-            c.a(this.aye);
-            this.aye = null;
+        if (this.ayg != null) {
+            c.a(this.ayg);
+            this.ayg = null;
             return true;
         }
         return false;

@@ -23,20 +23,20 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class a implements c {
-    private c.a aVD;
-    private HttpMessageListener aVE;
-    private HttpMessageListener aVF;
+    private c.a aVF;
+    private HttpMessageListener aVG;
+    private HttpMessageListener aVH;
 
     public a() {
         registerListener();
     }
 
     public void a(c.a aVar) {
-        this.aVD = aVar;
+        this.aVF = aVar;
     }
 
     @Override // com.baidu.live.gift.c.c
-    public void gJ(String str) {
+    public void gK(String str) {
         com.baidu.live.gift.message.a aVar = new com.baidu.live.gift.message.a(str);
         aVar.addParam("scene_from", p.Pp());
         aVar.addParam("platform", "2");
@@ -49,14 +49,14 @@ public class a implements c {
         d.as(UbcStatisticLiveKey.KEY_ID_SEND_GIFT_REQ, UbcStatConstant.ContentType.UBC_TYPE_GIFT_SEND_PACKAGE);
         q qVar = new q();
         qVar.a(str, str3, str4, str5, i, i2, str6);
-        qVar.aOb = j;
-        qVar.aOc.put(Long.valueOf(j), Long.valueOf(i));
+        qVar.aOd = j;
+        qVar.aOe.put(Long.valueOf(j), Long.valueOf(i));
         MessageManager.getInstance().sendMessage(qVar);
     }
 
     @Override // com.baidu.live.gift.c.c
     public void release() {
-        this.aVD = null;
+        this.aVF = null;
         unregisterListener();
     }
 
@@ -66,42 +66,42 @@ public class a implements c {
     }
 
     private void unregisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.aVE);
-        MessageManager.getInstance().unRegisterListener(this.aVF);
+        MessageManager.getInstance().unRegisterListener(this.aVG);
+        MessageManager.getInstance().unRegisterListener(this.aVH);
     }
 
     private void Hf() {
-        this.aVE = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GAME_LIVE_LIST) { // from class: com.baidu.live.gift.c.a.1
+        this.aVG = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GAME_LIVE_LIST) { // from class: com.baidu.live.gift.c.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage instanceof GiftPackageListHttpResponsedMessage) {
                     GiftPackageListHttpResponsedMessage giftPackageListHttpResponsedMessage = (GiftPackageListHttpResponsedMessage) httpResponsedMessage;
-                    if (a.this.aVD != null) {
-                        a.this.aVD.a(!giftPackageListHttpResponsedMessage.hasError() && giftPackageListHttpResponsedMessage.getError() == 0, giftPackageListHttpResponsedMessage.getError(), giftPackageListHttpResponsedMessage.getErrorString(), giftPackageListHttpResponsedMessage.GY(), giftPackageListHttpResponsedMessage.getCategoryList(), giftPackageListHttpResponsedMessage.GZ());
+                    if (a.this.aVF != null) {
+                        a.this.aVF.a(!giftPackageListHttpResponsedMessage.hasError() && giftPackageListHttpResponsedMessage.getError() == 0, giftPackageListHttpResponsedMessage.getError(), giftPackageListHttpResponsedMessage.getErrorString(), giftPackageListHttpResponsedMessage.GY(), giftPackageListHttpResponsedMessage.getCategoryList(), giftPackageListHttpResponsedMessage.GZ());
                     }
                     a.this.a(giftPackageListHttpResponsedMessage);
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.aVE);
+        MessageManager.getInstance().registerListener(this.aVG);
     }
 
     private void Hg() {
-        this.aVF = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR) { // from class: com.baidu.live.gift.c.a.2
+        this.aVH = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR) { // from class: com.baidu.live.gift.c.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage instanceof GiftPackageConsumeHttpResponsedMessage) {
                     GiftPackageConsumeHttpResponsedMessage giftPackageConsumeHttpResponsedMessage = (GiftPackageConsumeHttpResponsedMessage) httpResponsedMessage;
                     a.this.a(httpResponsedMessage, giftPackageConsumeHttpResponsedMessage);
-                    if (a.this.aVD != null) {
-                        a.this.aVD.a(!giftPackageConsumeHttpResponsedMessage.hasError() && giftPackageConsumeHttpResponsedMessage.getError() == 0, giftPackageConsumeHttpResponsedMessage.getError(), giftPackageConsumeHttpResponsedMessage.getErrorString(), giftPackageConsumeHttpResponsedMessage.aOH, giftPackageConsumeHttpResponsedMessage.aOI);
+                    if (a.this.aVF != null) {
+                        a.this.aVF.a(!giftPackageConsumeHttpResponsedMessage.hasError() && giftPackageConsumeHttpResponsedMessage.getError() == 0, giftPackageConsumeHttpResponsedMessage.getError(), giftPackageConsumeHttpResponsedMessage.getErrorString(), giftPackageConsumeHttpResponsedMessage.aOJ, giftPackageConsumeHttpResponsedMessage.aOK);
                     }
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.aVF);
+        MessageManager.getInstance().registerListener(this.aVH);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -149,11 +149,11 @@ public class a implements c {
         if (giftPackageConsumeHttpResponsedMessage.getError() == 0 && !giftPackageConsumeHttpResponsedMessage.hasError()) {
             if (httpResponsedMessage.getOrginalMessage() instanceof q) {
                 q qVar = (q) httpResponsedMessage.getOrginalMessage();
-                d.a(giftPackageConsumeHttpResponsedMessage, UbcStatisticLiveKey.KEY_ID_SEND_GIFT_RESP, UbcStatConstant.ContentType.UBC_TYPE_GIFT_SEND_PACKAGE_SUCC, qVar.sceneFrom, qVar.giftId, String.valueOf(qVar.aOG), String.valueOf(TbadkCoreApplication.getInst().currentAccountTdouNum), true);
+                d.a(giftPackageConsumeHttpResponsedMessage, UbcStatisticLiveKey.KEY_ID_SEND_GIFT_RESP, UbcStatConstant.ContentType.UBC_TYPE_GIFT_SEND_PACKAGE_SUCC, qVar.sceneFrom, qVar.giftId, String.valueOf(qVar.aOI), String.valueOf(TbadkCoreApplication.getInst().currentAccountTdouNum), true);
             }
         } else if (httpResponsedMessage.getOrginalMessage() instanceof q) {
             q qVar2 = (q) httpResponsedMessage.getOrginalMessage();
-            d.a(giftPackageConsumeHttpResponsedMessage, UbcStatisticLiveKey.KEY_ID_SEND_GIFT_RESP, UbcStatConstant.ContentType.UBC_TYPE_GIFT_SEND_PACKAGE, qVar2.sceneFrom, qVar2.giftId, String.valueOf(qVar2.aOG), String.valueOf(TbadkCoreApplication.getInst().currentAccountTdouNum), true);
+            d.a(giftPackageConsumeHttpResponsedMessage, UbcStatisticLiveKey.KEY_ID_SEND_GIFT_RESP, UbcStatConstant.ContentType.UBC_TYPE_GIFT_SEND_PACKAGE, qVar2.sceneFrom, qVar2.giftId, String.valueOf(qVar2.aOI), String.valueOf(TbadkCoreApplication.getInst().currentAccountTdouNum), true);
         }
     }
 }

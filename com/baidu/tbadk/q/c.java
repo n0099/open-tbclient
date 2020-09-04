@@ -22,7 +22,7 @@ import com.baidubce.http.Headers;
 import java.util.List;
 import java.util.Map;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c extends com.baidu.adp.framework.b.d {
     public c(int i) {
         super(i);
@@ -117,9 +117,9 @@ public class c extends com.baidu.adp.framework.b.d {
             httpMessage.addParam("from", from);
         }
         httpMessage.addParam("net_type", String.valueOf(j.netType()));
-        String bvD = x.bvD();
-        if (!TextUtils.isEmpty(bvD)) {
-            httpMessage.addParam("oaid", bvD);
+        String bvE = x.bvE();
+        if (!TextUtils.isEmpty(bvE)) {
+            httpMessage.addParam("oaid", bvE);
         }
         if (tbHttpMessageTask.isNeedTbs()) {
             httpMessage.addParam("tbs", TbadkCoreApplication.getInst().isMainProcess(false) ? TbadkCoreApplication.getInst().getTbs() : com.baidu.tbadk.mutiprocess.f.getTbs());
@@ -183,7 +183,7 @@ public class c extends com.baidu.adp.framework.b.d {
         stringBuffer.append("tiebaclient!!!");
         httpMessage.addParam("sign", s.toMd5(stringBuffer.toString()));
         if (httpMessage.getHeaders() != null && "1".equals(httpMessage.getHeaders().get("needSig")) && EncSigNewSwitch.isOn()) {
-            httpMessage.addParam("sig", StringU.Df(stringBuffer.toString()));
+            httpMessage.addParam("sig", StringU.Dg(stringBuffer.toString()));
         }
         httpMessage.getHeaders().remove("needSig");
     }

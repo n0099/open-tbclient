@@ -18,15 +18,15 @@ import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.core.util.ay;
 /* loaded from: classes16.dex */
 public class g extends com.baidu.adp.widget.ListView.a<bv, al<bw>> {
-    private v akI;
-    public BdUniqueId ePv;
+    private v akK;
+    public BdUniqueId ePz;
     private TbPageContext<?> mPageContext;
     private String mTabName;
 
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         this.mPageContext = tbPageContext;
-        this.ePv = bdUniqueId2;
+        this.ePz = bdUniqueId2;
         this.mTabName = str;
     }
 
@@ -39,15 +39,15 @@ public class g extends com.baidu.adp.widget.ListView.a<bv, al<bw>> {
         r rVar = new r(this.mPageContext.getPageActivity());
         rVar.tG();
         aVar.a((com.baidu.card.h) rVar);
-        aj a = aVar.a(false, viewGroup, this.akI);
+        aj a = aVar.a(false, viewGroup, this.akK);
         a.setSourceForPb(2);
         al<bw> alVar = new al<>(a);
-        alVar.setPageId(this.ePv);
+        alVar.setPageId(this.ePz);
         a(new ab() { // from class: com.baidu.tieba.enterForum.tabfeed.a.g.1
             @Override // com.baidu.adp.widget.ListView.ab
             public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
                 if ((qVar instanceof bv) && (view.getTag() instanceof al)) {
-                    bw bwVar = ((bv) qVar).dUS;
+                    bw bwVar = ((bv) qVar).dUW;
                     bwVar.objType = 1;
                     ay.a((AbsThreadDataSupport) bwVar, view.getContext(), 2, false);
                     ((al) view.getTag()).tR().b(new a.C0095a(1));
@@ -61,17 +61,17 @@ public class g extends com.baidu.adp.widget.ListView.a<bv, al<bw>> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bv bvVar, al<bw> alVar) {
-        if (bvVar == null || alVar == null || alVar.getView() == null || bvVar.dUS == null) {
+        if (bvVar == null || alVar == null || alVar.getView() == null || bvVar.dUW == null) {
             return null;
         }
-        bvVar.dUS.dZb = getPositionByType(i) + 1;
+        bvVar.dUW.dZf = getPositionByType(i) + 1;
         alVar.tR().setPosition(i);
-        alVar.b((al<bw>) bvVar.dUS);
+        alVar.b((al<bw>) bvVar.dUW);
         alVar.tR().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return alVar.getView();
     }
 
     public void a(v vVar) {
-        this.akI = vVar;
+        this.akK = vVar;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.editortools;
 
 import android.content.Context;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class c {
     protected abstract void a(e eVar);
 

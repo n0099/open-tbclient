@@ -21,7 +21,7 @@ class c {
 
         @Override // android.view.LayoutInflater.Factory2
         public View onCreateView(View view, String str, Context context, AttributeSet attributeSet) {
-            return this.dIF.onCreateView(view, str, context, attributeSet);
+            return this.dIJ.onCreateView(view, str, context, attributeSet);
         }
     }
 

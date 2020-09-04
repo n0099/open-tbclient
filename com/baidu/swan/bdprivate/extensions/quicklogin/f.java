@@ -38,10 +38,10 @@ public class f {
                 String str2 = oneKeyLoginResult.encryptPhoneNum;
                 boolean z2 = oneKeyLoginResult.hasHistory;
                 a aVar = new a();
-                aVar.go(z);
-                aVar.tl(str);
-                aVar.tk(str2);
-                aVar.gp(z2);
+                aVar.gp(z);
+                aVar.tm(str);
+                aVar.tl(str2);
+                aVar.gq(z2);
                 char c = 65535;
                 switch (str.hashCode()) {
                     case 2154:

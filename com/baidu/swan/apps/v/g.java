@@ -7,19 +7,19 @@ import android.util.Log;
 /* loaded from: classes8.dex */
 public class g implements Application.ActivityLifecycleCallbacks {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile g cxj;
+    private static volatile g cxn;
     private int mActivityCount;
     private boolean mIsForeground = false;
 
     public static g ash() {
-        if (cxj == null) {
+        if (cxn == null) {
             synchronized (g.class) {
-                if (cxj == null) {
-                    cxj = new g();
+                if (cxn == null) {
+                    cxn = new g();
                 }
             }
         }
-        return cxj;
+        return cxn;
     }
 
     private g() {

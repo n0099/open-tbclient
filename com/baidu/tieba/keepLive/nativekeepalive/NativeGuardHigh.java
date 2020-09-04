@@ -2,7 +2,7 @@ package com.baidu.tieba.keepLive.nativekeepalive;
 
 import android.content.Context;
 import android.os.Build;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class NativeGuardHigh extends NativeGuardAbs {
     public native void doDaemon(String str, String str2, String str3, String str4);
 

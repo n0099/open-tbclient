@@ -8,25 +8,25 @@ import android.support.annotation.DrawableRes;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class d extends TBSpecificationButtonConfig {
-    private boolean eno;
+    private boolean ens;
 
     public d() {
-        this.ewI = true;
-        this.ewB = R.color.cp_cont_a;
-        this.ewD = R.color.cp_link_tip_a;
-        this.eno = false;
+        this.ewM = true;
+        this.ewF = R.color.cp_cont_a;
+        this.ewH = R.color.cp_link_tip_a;
+        this.ens = false;
         this.minWidth = this.minHeight;
-        this.ewM = this.ewL;
+        this.ewQ = this.ewP;
     }
 
     public void pf(@ColorRes int i) {
-        this.ewB = i;
-        this.ewD = R.color.cp_btn_j;
-        this.eno = false;
-        if (this.ewP != null) {
-            this.ewP.bll();
+        this.ewF = i;
+        this.ewH = R.color.cp_btn_j;
+        this.ens = false;
+        if (this.ewT != null) {
+            this.ewT.bll();
         }
     }
 
@@ -37,8 +37,8 @@ public class d extends TBSpecificationButtonConfig {
     }
 
     public void a(@DrawableRes int i, TBSpecificationButtonConfig.IconType iconType) {
-        this.ewE[0] = i;
-        this.ewF = iconType;
+        this.ewI[0] = i;
+        this.ewJ = iconType;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -48,12 +48,12 @@ public class d extends TBSpecificationButtonConfig {
     }
 
     private Drawable ad(float f) {
-        return this.eno ? ab(f) : ae(f);
+        return this.ens ? ab(f) : ae(f);
     }
 
     private Drawable ae(float f) {
         GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setColor(ap.getColor(this.aiB, this.ewD));
+        gradientDrawable.setColor(ap.getColor(this.aiD, this.ewH));
         gradientDrawable.setShape(0);
         gradientDrawable.setCornerRadius(f);
         return gradientDrawable;
@@ -61,14 +61,14 @@ public class d extends TBSpecificationButtonConfig {
 
     private Drawable ab(float f) {
         GradientDrawable gradientDrawable;
-        int color = ap.getColor(this.aiB, this.ewD);
+        int color = ap.getColor(this.aiD, this.ewH);
         int[] iArr = {com.baidu.tieba.tbadkCore.c.HF(color), color};
         if (Build.VERSION.SDK_INT >= 16) {
             gradientDrawable = new GradientDrawable();
-            gradientDrawable.setOrientation(this.ewO);
+            gradientDrawable.setOrientation(this.ewS);
             gradientDrawable.setColors(iArr);
         } else {
-            gradientDrawable = new GradientDrawable(this.ewO, iArr);
+            gradientDrawable = new GradientDrawable(this.ewS, iArr);
         }
         gradientDrawable.setGradientType(0);
         gradientDrawable.setShape(0);

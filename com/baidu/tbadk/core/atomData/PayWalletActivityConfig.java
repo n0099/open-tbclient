@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.pay.PayConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class PayWalletActivityConfig extends IntentConfig {
     public static final String PAY_CONFIG = "pay_config";
 

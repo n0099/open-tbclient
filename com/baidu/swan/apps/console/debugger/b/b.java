@@ -12,9 +12,9 @@ public class b {
         d.f fVar = new d.f();
         File file = new File(adR, "app.json");
         SwanAppConfigData m = SwanAppConfigData.m(com.baidu.swan.c.d.readFileData(file), adR);
-        fVar.cuN = adR.getPath() + File.separator;
-        fVar.cuO = m;
-        com.baidu.swan.apps.console.c.bb("WirelessDebugBundleHelper", "configFile path: " + file.getPath() + " exist: " + file.exists() + " info.mAppBundlePath path: " + fVar.cuN);
+        fVar.cuR = adR.getPath() + File.separator;
+        fVar.cuS = m;
+        com.baidu.swan.apps.console.c.bb("WirelessDebugBundleHelper", "configFile path: " + file.getPath() + " exist: " + file.exists() + " info.mAppBundlePath path: " + fVar.cuR);
         return fVar;
     }
 

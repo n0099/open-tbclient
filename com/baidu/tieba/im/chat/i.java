@@ -3,7 +3,7 @@ package com.baidu.tieba.im.chat;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.n;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class i {
     BaseActivity mActivity;
     String mUrl;

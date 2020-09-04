@@ -98,17 +98,17 @@ public class RecPersonalizeRequest extends NetMessage {
         builder.new_install = Integer.valueOf(TbadkCoreApplication.getInst().checkNewUser() ? 1 : 0);
         builder.request_times = Integer.valueOf(this.requestTime);
         builder.invoke_source = this.sourceFrom;
-        builder.ad_context_list = com.baidu.tieba.recapp.report.b.doc().dod();
-        builder.app_pos = com.baidu.tieba.recapp.d.a.dnW().dob();
+        builder.ad_context_list = com.baidu.tieba.recapp.report.b.dof().dog();
+        builder.app_pos = com.baidu.tieba.recapp.d.a.dnZ().doe();
         if (TbSingleton.getInstance().getPbToHomeUpdateData() != null) {
             ba pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
             builder.from_tid = Long.valueOf(com.baidu.adp.lib.f.b.toLong(pbToHomeUpdateData.tid, 0L));
-            builder.query_eqid = pbToHomeUpdateData.dZy;
+            builder.query_eqid = pbToHomeUpdateData.dZC;
             builder.first_dir = pbToHomeUpdateData.firstDir;
             builder.second_dir = pbToHomeUpdateData.secondDir;
             TbSingleton.getInstance().setPbToHomeUpdateData(null);
         }
-        builder.ad_ext_params = AdExtParam.a.buW().buX();
+        builder.ad_ext_params = AdExtParam.a.buX().buY();
         PersonalizedReqIdl.Builder builder2 = new PersonalizedReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

@@ -4,6 +4,6 @@ import android.content.Context;
 /* loaded from: classes9.dex */
 public class b {
     public static Context getAppContext() {
-        return a.bKi.get().UK();
+        return a.bKm.get().UK();
     }
 }

@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.a;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class BaseLegoCardInfo implements ICardInfo {
     protected final boolean bCeiling;
     protected final int cardType;
@@ -219,11 +219,11 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
         return getCardType() == iCardInfo.getCardType();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class ClientParams implements Serializable {
         public ClientParams(JSONObject jSONObject) {
             if (jSONObject != null) {
-                a.bzf().parse(jSONObject);
+                a.bzg().parse(jSONObject);
             }
         }
     }

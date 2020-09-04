@@ -7,7 +7,7 @@ import com.baidu.adp.widget.ListView.af;
 import com.baidu.adp.widget.ListView.q;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class HTypeListView extends HListView {
     af mTypeAdapter;
 

@@ -7,15 +7,15 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ThreadForumEnterButtonContainer extends RelativeLayout {
-    private final int euk;
-    private ThreadForumEnterButton eul;
-    private ThreadForumEnterButton eum;
-    private ThreadForumEnterButton eun;
-    private View euo;
-    private int eup;
-    private int euq;
+    private final int euo;
+    private ThreadForumEnterButton eup;
+    private ThreadForumEnterButton euq;
+    private ThreadForumEnterButton eur;
+    private View eus;
+    private int eut;
+    private int euu;
 
     public ThreadForumEnterButtonContainer(Context context) {
         this(context, null);
@@ -27,53 +27,53 @@ public class ThreadForumEnterButtonContainer extends RelativeLayout {
 
     public ThreadForumEnterButtonContainer(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.euk = com.baidu.adp.lib.util.l.getDimens(TbadkApplication.getInst(), R.dimen.tbds22);
+        this.euo = com.baidu.adp.lib.util.l.getDimens(TbadkApplication.getInst(), R.dimen.tbds22);
         LayoutInflater.from(context).inflate(R.layout.thread_forum_enter_button_container_layout, this);
-        this.eul = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_one);
-        this.eum = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_two);
-        this.eun = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_three);
-        this.euo = findViewById(R.id.bottom_placeholder);
-        this.eup = (((com.baidu.adp.lib.util.l.getEquipmentWidth(getContext()) - getPaddingLeft()) - getPaddingRight()) - this.euk) / 2;
-        this.euq = (((com.baidu.adp.lib.util.l.getEquipmentWidth(getContext()) - getPaddingLeft()) - getPaddingRight()) - (this.euk * 2)) / 3;
+        this.eup = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_one);
+        this.euq = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_two);
+        this.eur = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_three);
+        this.eus = findViewById(R.id.bottom_placeholder);
+        this.eut = (((com.baidu.adp.lib.util.l.getEquipmentWidth(getContext()) - getPaddingLeft()) - getPaddingRight()) - this.euo) / 2;
+        this.euu = (((com.baidu.adp.lib.util.l.getEquipmentWidth(getContext()) - getPaddingLeft()) - getPaddingRight()) - (this.euo * 2)) / 3;
     }
 
     public void setBottomPlaceHolderVisibility(boolean z) {
-        this.euo.setVisibility(z ? 0 : 8);
+        this.eus.setVisibility(z ? 0 : 8);
     }
 
     public void onChangeSkinType() {
-        if (this.eul != null) {
-            this.eul.onChangeSkinType();
+        if (this.eup != null) {
+            this.eup.onChangeSkinType();
         }
-        if (this.eum != null) {
-            this.eum.onChangeSkinType();
+        if (this.euq != null) {
+            this.euq.onChangeSkinType();
         }
-        if (this.eun != null) {
-            this.eun.onChangeSkinType();
+        if (this.eur != null) {
+            this.eur.onChangeSkinType();
         }
     }
 
     public void setAfterItemClickListener(View.OnClickListener onClickListener) {
-        if (this.eul != null) {
-            this.eul.setAfterClickListener(onClickListener);
+        if (this.eup != null) {
+            this.eup.setAfterClickListener(onClickListener);
         }
-        if (this.eum != null) {
-            this.eum.setAfterClickListener(onClickListener);
+        if (this.euq != null) {
+            this.euq.setAfterClickListener(onClickListener);
         }
-        if (this.eun != null) {
-            this.eun.setAfterClickListener(onClickListener);
+        if (this.eur != null) {
+            this.eur.setAfterClickListener(onClickListener);
         }
     }
 
     public void setFrom(int i) {
-        if (this.eul != null) {
-            this.eul.setFrom(i);
+        if (this.eup != null) {
+            this.eup.setFrom(i);
         }
-        if (this.eum != null) {
-            this.eum.setFrom(i);
+        if (this.euq != null) {
+            this.euq.setFrom(i);
         }
-        if (this.eun != null) {
-            this.eun.setFrom(i);
+        if (this.eur != null) {
+            this.eur.setFrom(i);
         }
     }
 }

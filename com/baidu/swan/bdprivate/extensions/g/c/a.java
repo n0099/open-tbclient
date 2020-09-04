@@ -61,7 +61,7 @@ public class a {
     }
 
     @Nullable
-    public static String tm(String str) {
+    public static String tn(String str) {
         try {
             Cipher cipher = Cipher.getInstance(e.p);
             cipher.init(1, new SecretKeySpec((EncryptConstant.getPartRecommendAesKey() + "rtad@mic").getBytes(), e.q), new IvParameterSpec((EncryptConstant.getPartRecommendAesIv() + "21248000").getBytes()));
@@ -76,7 +76,7 @@ public class a {
                     e2.printStackTrace();
                 }
             }
-            tn(jSONObject.toString());
+            to(jSONObject.toString());
             return null;
         }
     }
@@ -86,7 +86,7 @@ public class a {
         boolean z;
         int i;
         if (aVar != null && bVar != null) {
-            String str = TextUtils.isEmpty(bVar.dhg) ? "unknown" : bVar.dhg;
+            String str = TextUtils.isEmpty(bVar.dhk) ? "unknown" : bVar.dhk;
             switch (str.hashCode()) {
                 case -1395470197:
                     if (str.equals("bd09ll")) {
@@ -137,18 +137,18 @@ public class a {
                     i = -1;
                     break;
             }
-            aVar.dgX.coordType = i;
-            aVar.dgX.latitude = bVar.latitude;
-            aVar.dgX.longitude = bVar.longitude;
+            aVar.dhb.coordType = i;
+            aVar.dhb.latitude = bVar.latitude;
+            aVar.dhb.longitude = bVar.longitude;
         }
     }
 
-    public static void tn(String str) {
+    public static void to(String str) {
         if (!TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 Log.d("recommend", "reportInfoWhenResponseIsNull: " + str);
             }
-            new c.a(10003).rj(str).ri(com.baidu.swan.apps.runtime.e.azK()).ama();
+            new c.a(10003).rk(str).rj(com.baidu.swan.apps.runtime.e.azK()).ama();
         }
     }
 }

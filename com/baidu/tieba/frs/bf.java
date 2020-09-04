@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class bf {
-    public int hXn;
+    public int hXt;
     public boolean isSelected;
     public String name;
 }

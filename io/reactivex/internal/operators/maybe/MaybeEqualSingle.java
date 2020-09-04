@@ -11,14 +11,14 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class MaybeEqualSingle<T> extends w<Boolean> {
     final d<? super T, ? super T> isEqual;
-    final o<? extends T> onQ;
-    final o<? extends T> onR;
+    final o<? extends T> ooi;
+    final o<? extends T> ooj;
 
     @Override // io.reactivex.w
     protected void b(y<? super Boolean> yVar) {
         EqualCoordinator equalCoordinator = new EqualCoordinator(yVar, this.isEqual);
         yVar.onSubscribe(equalCoordinator);
-        equalCoordinator.subscribe(this.onQ, this.onR);
+        equalCoordinator.subscribe(this.ooi, this.ooj);
     }
 
     /* loaded from: classes7.dex */

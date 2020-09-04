@@ -6,17 +6,17 @@ import java.util.List;
 import tbclient.FrsTabInfo;
 /* loaded from: classes16.dex */
 public class j {
-    private ArrayList<i> hus;
+    private ArrayList<i> huy;
 
     public void ci(List<FrsTabInfo> list) {
-        if (this.hus == null) {
-            this.hus = new ArrayList<>();
+        if (this.huy == null) {
+            this.huy = new ArrayList<>();
         }
-        this.hus.clear();
+        this.huy.clear();
         if (list != null) {
             for (FrsTabInfo frsTabInfo : list) {
                 if (frsTabInfo != null && !StringUtils.isNull(frsTabInfo.tab_code) && !StringUtils.isNull(frsTabInfo.tab_name)) {
-                    this.hus.add(new i(frsTabInfo));
+                    this.huy.add(new i(frsTabInfo));
                 }
             }
         }

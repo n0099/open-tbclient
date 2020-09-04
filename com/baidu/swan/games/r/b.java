@@ -14,16 +14,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class b extends a {
-    private com.baidu.swan.games.f.b dvr;
+    private com.baidu.swan.games.f.b dvv;
 
     public b(@NonNull com.baidu.swan.games.f.b bVar) {
-        this.dvr = bVar;
+        this.dvv = bVar;
     }
 
     @JavascriptInterface
     public void checkIsUserAdvisedToRest(JsObject jsObject) {
         final com.baidu.swan.games.binding.model.c e = com.baidu.swan.games.binding.model.c.e(jsObject);
-        if (e != null && this.dvr != null) {
+        if (e != null && this.dvv != null) {
             final com.baidu.swan.games.r.a.c cVar = new com.baidu.swan.games.r.a.c();
             try {
                 int i = e.getInt("todayPlayedTime");
@@ -74,7 +74,7 @@ public class b extends a {
                         if (a.DEBUG) {
                             Log.d("CheckIsUserAdvisedToRestApi", "on success");
                         }
-                        b.this.dvr.o(new Runnable() { // from class: com.baidu.swan.games.r.b.1.1
+                        b.this.dvv.o(new Runnable() { // from class: com.baidu.swan.games.r.b.1.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 com.baidu.swan.games.utils.b.a(e, true, aVar);
@@ -91,7 +91,7 @@ public class b extends a {
                             cVar.errNo = "100";
                             cVar.errMsg = String.format("%s: fail Error: %s", "checkIsUserAdvisedToRest", exc.getMessage());
                         }
-                        b.this.dvr.o(new Runnable() { // from class: com.baidu.swan.games.r.b.1.2
+                        b.this.dvv.o(new Runnable() { // from class: com.baidu.swan.games.r.b.1.2
                             @Override // java.lang.Runnable
                             public void run() {
                                 com.baidu.swan.games.utils.b.a(e, false, cVar);

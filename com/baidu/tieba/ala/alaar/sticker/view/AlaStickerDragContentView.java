@@ -15,7 +15,7 @@ import com.baidu.live.tbadk.core.util.UtilHelper;
 /* loaded from: classes7.dex */
 public class AlaStickerDragContentView extends RelativeLayout {
     private int borderWidth;
-    private int fzE;
+    private int fzI;
 
     public AlaStickerDragContentView(Context context) {
         super(context);
@@ -31,7 +31,7 @@ public class AlaStickerDragContentView extends RelativeLayout {
 
     public void bB(int i, int i2) {
         this.borderWidth = i;
-        this.fzE = i2;
+        this.fzI = i2;
     }
 
     public DragTextView a(int i, Bitmap bitmap, int i2, e eVar, AlaLiveStickerInfo alaLiveStickerInfo) {
@@ -51,7 +51,7 @@ public class AlaStickerDragContentView extends RelativeLayout {
             dragTextView.setBackground(new BitmapDrawable(createScaledBitmap));
         }
         dragTextView.setType(i);
-        dragTextView.setParentBorder(0, 0, this.borderWidth, this.fzE);
+        dragTextView.setParentBorder(0, 0, this.borderWidth, this.fzI);
         dragTextView.setOnDragViewEventListener(eVar);
         dragTextView.setTextColor(getContext().getResources().getColor(i2));
         if (i == 1) {
@@ -111,7 +111,7 @@ public class AlaStickerDragContentView extends RelativeLayout {
             dragTextView.setBackground(new BitmapDrawable(createScaledBitmap));
         }
         dragTextView.setType(i);
-        dragTextView.setParentBorder(0, 0, this.borderWidth, this.fzE);
+        dragTextView.setParentBorder(0, 0, this.borderWidth, this.fzI);
         dragTextView.setOnDragViewEventListener(eVar);
         dragTextView.setTextColor(getContext().getResources().getColor(i2));
         if (i == 1) {

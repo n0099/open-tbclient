@@ -7,7 +7,7 @@ import com.baidu.tbadk.data.UserVipInfoData;
 import com.baidu.tieba.R;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class AccountData implements Serializable {
     private static final long serialVersionUID = 4126203103788833116L;
     private String bjhAvatar;

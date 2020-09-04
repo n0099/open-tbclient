@@ -6,7 +6,7 @@ import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class DeleteThreadHttpResponseMessage extends TbHttpResponsedMessage {
     private int blockFail;
     private int blockSuccess;

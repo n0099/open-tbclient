@@ -30,7 +30,7 @@ import com.facebook.drawee.generic.RoundingParams;
 import com.facebook.drawee.view.SimpleDraweeView;
 /* loaded from: classes8.dex */
 class e {
-    private static View cPK;
+    private static View cPO;
     private static Runnable mCancelRunnable;
     private static View sMaskView;
     private static boolean sShowMask = false;
@@ -151,13 +151,13 @@ class e {
                                 return;
                             }
                         }
-                        if (e.cPK != null && (e.cPK.getParent() instanceof ViewGroup)) {
-                            ((ViewGroup) e.cPK.getParent()).removeView(e.cPK);
+                        if (e.cPO != null && (e.cPO.getParent() instanceof ViewGroup)) {
+                            ((ViewGroup) e.cPO.getParent()).removeView(e.cPO);
                         }
                         if (!(context instanceof Activity) || !((Activity) context).isFinishing()) {
                             ((ViewGroup) view).addView(view2, layoutParams);
                             view2.startAnimation(animation);
-                            View unused2 = e.cPK = view2;
+                            View unused2 = e.cPO = view2;
                         }
                     }
                 });
@@ -235,7 +235,7 @@ class e {
         if (uri != null) {
             simpleDraweeView.setImageURI(uri);
             if (i != 1) {
-                simpleDraweeView.getHierarchy().a(new RoundingParams().xZ(false));
+                simpleDraweeView.getHierarchy().a(new RoundingParams().yb(false));
             }
         } else {
             simpleDraweeView.setVisibility(8);
@@ -334,10 +334,10 @@ class e {
 
     public static synchronized void cancel() {
         synchronized (e.class) {
-            if (cPK != null) {
-                cPK.post(new AnonymousClass2(cPK, sMaskView));
-                cPK.removeCallbacks(mCancelRunnable);
-                cPK = null;
+            if (cPO != null) {
+                cPO.post(new AnonymousClass2(cPO, sMaskView));
+                cPO.removeCallbacks(mCancelRunnable);
+                cPO = null;
                 mCancelRunnable = null;
                 sMaskView = null;
             }

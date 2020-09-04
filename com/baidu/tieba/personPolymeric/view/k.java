@@ -18,15 +18,15 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.personPolymeric.constant.PersonStatus;
 /* loaded from: classes18.dex */
 public class k {
-    private RelativeLayout fJA;
-    private View fJB;
-    private TextView fJD;
-    private ImageView fJE;
-    private View lpW;
-    private ImageView lpX;
-    private ImageView lpY;
-    private com.baidu.tieba.view.f lpZ;
-    private PersonStatus lqa;
+    private RelativeLayout fJE;
+    private View fJF;
+    private TextView fJH;
+    private ImageView fJI;
+    private View lqh;
+    private ImageView lqi;
+    private ImageView lqj;
+    private com.baidu.tieba.view.f lqk;
+    private PersonStatus lql;
     private boolean mIsHost;
     private TbPageContext mPageContext;
     private int mStatusBarHeight;
@@ -35,21 +35,21 @@ public class k {
     public k(TbPageContext tbPageContext, View view, View view2, boolean z) {
         this(tbPageContext, view, z);
         this.mStatusBarHeight = UtilHelper.getStatusBarHeight();
-        this.lpW = view2;
+        this.lqh = view2;
         Oo();
     }
 
     public k(TbPageContext tbPageContext, View view, boolean z) {
         this.mPageContext = tbPageContext;
         this.mIsHost = z;
-        this.fJA = (RelativeLayout) view.findViewById(R.id.person_center_nav_layout);
-        this.fJB = view.findViewById(R.id.person_center_nav_bg);
-        this.fJD = (TextView) view.findViewById(R.id.person_center_nav_title);
-        this.fJE = (ImageView) view.findViewById(R.id.person_center_nav_back_img);
-        this.fJE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.view.k.1
+        this.fJE = (RelativeLayout) view.findViewById(R.id.person_center_nav_layout);
+        this.fJF = view.findViewById(R.id.person_center_nav_bg);
+        this.fJH = (TextView) view.findViewById(R.id.person_center_nav_title);
+        this.fJI = (ImageView) view.findViewById(R.id.person_center_nav_back_img);
+        this.fJI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.view.k.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (k.this.lpZ == null) {
+                if (k.this.lqk == null) {
                     if (k.this.mPageContext != null) {
                         k.this.mPageContext.getPageActivity().finish();
                         return;
@@ -57,34 +57,34 @@ public class k {
                     return;
                 }
                 com.baidu.tieba.personPolymeric.event.b bVar = new com.baidu.tieba.personPolymeric.event.b();
-                bVar.hEn = 8;
-                k.this.lpZ.a(view2, bVar);
+                bVar.hEt = 8;
+                k.this.lqk.a(view2, bVar);
             }
         });
-        this.lpX = (ImageView) view.findViewById(R.id.person_center_nav_chat_img);
-        this.lpX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.view.k.2
+        this.lqi = (ImageView) view.findViewById(R.id.person_center_nav_chat_img);
+        this.lqi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.view.k.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 TiebaStatic.log(new aq("c12503").dD("obj_locate", "1"));
                 com.baidu.tieba.personPolymeric.event.b bVar = new com.baidu.tieba.personPolymeric.event.b();
-                bVar.hEn = 40;
-                bVar.hEo = new Bundle();
-                bVar.hEo.putSerializable(UserData.TYPE_USER, k.this.mUserData);
-                if (k.this.lpZ != null) {
-                    k.this.lpZ.a(view2, bVar);
+                bVar.hEt = 40;
+                bVar.hEu = new Bundle();
+                bVar.hEu.putSerializable(UserData.TYPE_USER, k.this.mUserData);
+                if (k.this.lqk != null) {
+                    k.this.lqk.a(view2, bVar);
                 }
             }
         });
-        this.lpY = (ImageView) view.findViewById(R.id.person_center_nav_more_img);
-        this.lpY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.view.k.3
+        this.lqj = (ImageView) view.findViewById(R.id.person_center_nav_more_img);
+        this.lqj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.view.k.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
                     TiebaStatic.log(new aq("c12503").dD("obj_locate", "2"));
-                    if (k.this.lpZ != null) {
+                    if (k.this.lqk != null) {
                         com.baidu.tieba.personPolymeric.event.b bVar = new com.baidu.tieba.personPolymeric.event.b();
-                        bVar.hEn = 9;
-                        k.this.lpZ.a(view2, bVar);
+                        bVar.hEt = 9;
+                        k.this.lqk.a(view2, bVar);
                     }
                 }
             }
@@ -92,50 +92,50 @@ public class k {
     }
 
     private void Oo() {
-        if (this.lpW != null) {
+        if (this.lqh != null) {
             if (UtilHelper.canUseStyleImmersiveSticky()) {
-                ViewGroup.LayoutParams layoutParams = this.lpW.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams = this.lqh.getLayoutParams();
                 layoutParams.height = this.mStatusBarHeight;
-                this.lpW.setLayoutParams(layoutParams);
+                this.lqh.setLayoutParams(layoutParams);
                 return;
             }
-            this.lpW.setVisibility(8);
+            this.lqh.setVisibility(8);
         }
     }
 
     public void a(com.baidu.tieba.personPolymeric.c.a aVar, PersonStatus personStatus) {
         if (aVar != null && aVar.getUserData() != null) {
             this.mUserData = aVar.getUserData();
-            this.fJD.setText(this.mUserData.getName_show());
+            this.fJH.setText(this.mUserData.getName_show());
         }
-        this.lqa = personStatus;
-        djn();
+        this.lql = personStatus;
+        djq();
     }
 
     public void a(PersonStatus personStatus) {
-        this.lqa = personStatus;
-        djn();
+        this.lql = personStatus;
+        djq();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void djn() {
+    public void djq() {
         if (this.mIsHost) {
-            this.lpY.setVisibility(8);
-            this.lpX.setVisibility(8);
+            this.lqj.setVisibility(8);
+            this.lqi.setVisibility(8);
         } else if (TbadkCoreApplication.isLogin()) {
-            this.lpX.setVisibility(0);
-            this.lpY.setVisibility(0);
+            this.lqi.setVisibility(0);
+            this.lqj.setVisibility(0);
         } else {
-            this.lpY.setVisibility(8);
-            this.lpX.setVisibility(8);
+            this.lqj.setVisibility(8);
+            this.lqi.setVisibility(8);
         }
     }
 
-    public View djo() {
-        return this.fJA;
+    public View djr() {
+        return this.fJE;
     }
 
-    public boolean djp() {
+    public boolean djs() {
         return this.mIsHost;
     }
 
@@ -143,11 +143,11 @@ public class k {
         float f2;
         float f3 = 1.0f;
         if (f >= 0.0f || f <= 1.0f) {
-            if (this.lpW != null) {
-                this.lpW.setAlpha(f);
+            if (this.lqh != null) {
+                this.lqh.setAlpha(f);
             }
-            this.fJB.setAlpha(f);
-            this.fJD.setAlpha(f);
+            this.fJF.setAlpha(f);
+            this.fJH.setAlpha(f);
         }
         if (f < 0.5f) {
             f2 = 1.0f - (f * 2.0f);
@@ -157,45 +157,45 @@ public class k {
         if (f2 <= 1.0f) {
             f3 = f2 < 0.0f ? 0.0f : f2;
         }
-        this.fJE.setAlpha(f3);
-        this.lpY.setAlpha(f3);
-        this.lpX.setAlpha(f3);
+        this.fJI.setAlpha(f3);
+        this.lqj.setAlpha(f3);
+        this.lqi.setAlpha(f3);
     }
 
-    public void uP(boolean z) {
+    public void uR(boolean z) {
         if (z) {
-            this.fJB.setVisibility(8);
-            this.fJD.setVisibility(8);
+            this.fJF.setVisibility(8);
+            this.fJH.setVisibility(8);
             return;
         }
-        this.fJB.setVisibility(0);
-        this.fJD.setVisibility(0);
+        this.fJF.setVisibility(0);
+        this.fJH.setVisibility(0);
     }
 
-    public void uQ(boolean z) {
-        if (this.fJE != null) {
+    public void uS(boolean z) {
+        if (this.fJI != null) {
             if (z) {
-                SvgManager.bjq().a(this.fJE, R.drawable.icon_pure_topbar_return44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-                SvgManager.bjq().a(this.lpY, R.drawable.icon_pure_topbar_more44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-                SvgManager.bjq().a(this.lpX, R.drawable.icon_pure_topbar_createchat44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.bjq().a(this.fJI, R.drawable.icon_pure_topbar_return44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.bjq().a(this.lqj, R.drawable.icon_pure_topbar_more44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.bjq().a(this.lqi, R.drawable.icon_pure_topbar_createchat44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
                 return;
             }
-            SvgManager.bjq().a(this.fJE, R.drawable.icon_pure_topbar_return44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            SvgManager.bjq().a(this.lpY, R.drawable.icon_pure_topbar_more44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            SvgManager.bjq().a(this.lpX, R.drawable.icon_pure_topbar_createchat44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.bjq().a(this.fJI, R.drawable.icon_pure_topbar_return44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.bjq().a(this.lqj, R.drawable.icon_pure_topbar_more44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.bjq().a(this.lqi, R.drawable.icon_pure_topbar_createchat44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.lpW != null) {
-            ap.setBackgroundColor(this.lpW, R.color.cp_bg_line_d);
+        if (this.lqh != null) {
+            ap.setBackgroundColor(this.lqh, R.color.cp_bg_line_d);
         }
-        ap.setBackgroundColor(this.fJB, R.color.cp_bg_line_d);
-        ap.setViewTextColor(this.fJD, R.color.cp_cont_b);
-        uQ(this.fJB.getAlpha() > 0.5f);
+        ap.setBackgroundColor(this.fJF, R.color.cp_bg_line_d);
+        ap.setViewTextColor(this.fJH, (int) R.color.cp_cont_b);
+        uS(this.fJF.getAlpha() > 0.5f);
     }
 
     public void setOnViewResponseListener(com.baidu.tieba.view.f fVar) {
-        this.lpZ = fVar;
+        this.lqk = fVar;
     }
 }

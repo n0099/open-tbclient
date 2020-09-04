@@ -14,15 +14,15 @@ import com.baidu.tieba.homepage.personalize.data.ConcernUnreadTipReqMessage;
 import tbclient.Userlike.DataRes;
 /* loaded from: classes16.dex */
 public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
-    private com.baidu.adp.framework.listener.a dOR;
-    private b iHN;
-    private a iHO;
-    private boolean iHP;
-    private com.baidu.adp.framework.listener.a iHQ;
+    private com.baidu.adp.framework.listener.a dOV;
+    private b iHT;
+    private a iHU;
+    private boolean iHV;
+    private com.baidu.adp.framework.listener.a iHW;
 
     /* loaded from: classes16.dex */
     public interface a {
-        void pB(boolean z);
+        void pD(boolean z);
     }
 
     /* loaded from: classes16.dex */
@@ -34,8 +34,8 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
 
     public ConcernNetModel(e<BaseFragmentActivity> eVar, BdUniqueId bdUniqueId) {
         super(eVar);
-        this.iHP = false;
-        this.dOR = new com.baidu.adp.framework.listener.a(1003343, CmdConfigSocket.CMD_CONCERN_PAGE) { // from class: com.baidu.tieba.homepage.concern.message.ConcernNetModel.1
+        this.iHV = false;
+        this.dOV = new com.baidu.adp.framework.listener.a(1003343, CmdConfigSocket.CMD_CONCERN_PAGE) { // from class: com.baidu.tieba.homepage.concern.message.ConcernNetModel.1
             /* JADX WARN: Removed duplicated region for block: B:14:0x0033  */
             /* JADX WARN: Removed duplicated region for block: B:15:0x0045  */
             @Override // com.baidu.adp.framework.listener.a
@@ -44,14 +44,14 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
             */
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 boolean z;
-                if (responsedMessage != null && ConcernNetModel.this.iHN != null) {
-                    ConcernNetModel.this.iHP = false;
+                if (responsedMessage != null && ConcernNetModel.this.iHT != null) {
+                    ConcernNetModel.this.iHV = false;
                     if (responsedMessage.getOrginalMessage() != null) {
                         Object extra = responsedMessage.getOrginalMessage().getExtra();
                         if (extra instanceof ConcernPageRequestMessage) {
                             z = at.isEmpty(((ConcernPageRequestMessage) extra).getPageTag());
                             if (responsedMessage.getError() == 0) {
-                                ConcernNetModel.this.iHN.am(responsedMessage.getError(), responsedMessage.getErrorString());
+                                ConcernNetModel.this.iHT.am(responsedMessage.getError(), responsedMessage.getErrorString());
                                 return;
                             }
                             DataRes dataRes = null;
@@ -60,7 +60,7 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
                             } else if (responsedMessage instanceof ConcernPageHttpResMessage) {
                                 dataRes = ((ConcernPageHttpResMessage) responsedMessage).getResultData();
                             }
-                            ConcernNetModel.this.iHN.b(dataRes, z);
+                            ConcernNetModel.this.iHT.b(dataRes, z);
                             return;
                         }
                     }
@@ -70,12 +70,12 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
                 }
             }
         };
-        this.iHQ = new com.baidu.adp.framework.listener.a(1003344, CmdConfigSocket.CMD_CONCERN_CHECK_RED_NOTIFY) { // from class: com.baidu.tieba.homepage.concern.message.ConcernNetModel.2
+        this.iHW = new com.baidu.adp.framework.listener.a(1003344, CmdConfigSocket.CMD_CONCERN_CHECK_RED_NOTIFY) { // from class: com.baidu.tieba.homepage.concern.message.ConcernNetModel.2
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 CheckRedNotifySocketResMessage checkRedNotifySocketResMessage;
                 boolean isShowRedNotify;
-                if (responsedMessage != null && ConcernNetModel.this.iHO != null && responsedMessage.getError() == 0) {
+                if (responsedMessage != null && ConcernNetModel.this.iHU != null && responsedMessage.getError() == 0) {
                     if (responsedMessage instanceof CheckRedNotifyHttpResMessage) {
                         CheckRedNotifyHttpResMessage checkRedNotifyHttpResMessage = (CheckRedNotifyHttpResMessage) responsedMessage;
                         if (checkRedNotifyHttpResMessage != null) {
@@ -88,7 +88,7 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
                         }
                         isShowRedNotify = false;
                     }
-                    ConcernNetModel.this.iHO.pB(false);
+                    ConcernNetModel.this.iHU.pD(false);
                     if (isShowRedNotify && (responsedMessage.getmOrginalMessage().getExtra() instanceof CheckRedNotifyReqMessage) && ((CheckRedNotifyReqMessage) responsedMessage.getmOrginalMessage().getExtra()).reqUnreadTipAfterFinish) {
                         ConcernNetModel.this.sendMessage(new ConcernUnreadTipReqMessage());
                     }
@@ -98,21 +98,21 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
         setUniqueId(bdUniqueId);
         bhB();
         bhA();
-        registerListener(this.dOR);
-        registerListener(this.iHQ);
+        registerListener(this.dOV);
+        registerListener(this.iHW);
     }
 
     public void a(b bVar) {
-        this.iHN = bVar;
+        this.iHT = bVar;
     }
 
     public void a(a aVar) {
-        this.iHO = aVar;
+        this.iHU = aVar;
     }
 
-    public void JB(String str) {
-        if (!this.iHP) {
-            this.iHP = true;
+    public void JC(String str) {
+        if (!this.iHV) {
+            this.iHV = true;
             ConcernPageRequestMessage concernPageRequestMessage = new ConcernPageRequestMessage();
             concernPageRequestMessage.setPageTag(str);
             concernPageRequestMessage.setTag(getUniqueId());
@@ -120,7 +120,7 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public void pA(boolean z) {
+    public void pC(boolean z) {
         CheckRedNotifyReqMessage checkRedNotifyReqMessage = new CheckRedNotifyReqMessage();
         checkRedNotifyReqMessage.setTag(getUniqueId());
         checkRedNotifyReqMessage.reqUnreadTipAfterFinish = z;
@@ -129,8 +129,8 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     protected boolean LoadData() {
-        if (!this.iHP) {
-            this.iHP = true;
+        if (!this.iHV) {
+            this.iHV = true;
             sendMessage(new ConcernPageRequestMessage());
         }
         return true;
@@ -138,7 +138,7 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        this.iHP = false;
+        this.iHV = false;
         cancelMessage();
         return false;
     }

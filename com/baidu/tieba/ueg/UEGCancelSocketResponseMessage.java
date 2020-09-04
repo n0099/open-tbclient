@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.squareup.wire.Wire;
 import tbclient.QueryBlockAndAppealInfo.QueryBlockAndAppealInfoResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class UEGCancelSocketResponseMessage extends SocketResponsedMessage {
     private BlockPopInfoData info;
 

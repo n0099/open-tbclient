@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.UrlParser.UrlParserResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class UrlParserHttpResponseMessage extends TbHttpResponsedMessage {
     private UrlParserResIdl mResponseData;
 

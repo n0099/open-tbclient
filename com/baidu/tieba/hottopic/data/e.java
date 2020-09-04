@@ -19,42 +19,42 @@ import tbclient.Hottopic.SpecialTopic;
 import tbclient.ThreadInfo;
 /* loaded from: classes15.dex */
 public class e {
-    private ArrayList<q> iYW;
-    private bj iYZ;
-    public boolean iZl;
+    private ArrayList<q> iZc;
+    private bj iZf;
+    public boolean iZr;
     public int sortType;
-    private f iYX = null;
-    private n iYY = null;
-    private PostForumData iZa = null;
-    private i iZb = null;
-    private a iZc = null;
-    private a iZd = null;
-    private a iZe = null;
-    private g iZf = null;
-    public d iZg = null;
-    private g iZh = null;
-    private List<com.baidu.tieba.card.data.c> iZi = null;
-    private List<q> iZj = null;
+    private f iZd = null;
+    private n iZe = null;
+    private PostForumData iZg = null;
+    private i iZh = null;
+    private a iZi = null;
+    private a iZj = null;
+    private a iZk = null;
+    private g iZl = null;
+    public d iZm = null;
+    private g iZn = null;
+    private List<com.baidu.tieba.card.data.c> iZo = null;
+    private List<q> iZp = null;
     private av pageData = null;
-    private boolean hBn = true;
-    private int iZk = 0;
+    private boolean hBt = true;
+    private int iZq = 0;
 
     public e() {
-        this.iYW = null;
-        this.iYW = new ArrayList<>();
+        this.iZc = null;
+        this.iZc = new ArrayList<>();
     }
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.hBn = dataRes.is_new_url.intValue() == 1;
+            this.hBt = dataRes.is_new_url.intValue() == 1;
             if (dataRes.topic_info != null) {
-                this.iYX = new f();
-                this.iYX.a(dataRes.topic_info);
+                this.iZd = new f();
+                this.iZd.a(dataRes.topic_info);
             }
             if (dataRes.good_threads != null && !StringUtils.isNull(dataRes.good_threads.hot_title) && y.getCount(dataRes.good_threads.thread_list) != 0) {
-                this.iZh = new g();
-                this.iZh.a(dataRes.good_threads);
-                this.iZi = new ArrayList();
+                this.iZn = new g();
+                this.iZn.a(dataRes.good_threads);
+                this.iZo = new ArrayList();
                 for (ThreadInfo threadInfo : dataRes.good_threads.thread_list) {
                     bw bwVar = new bw();
                     bwVar.nf(5);
@@ -62,42 +62,42 @@ public class e {
                     com.baidu.tieba.card.data.l lVar = null;
                     if (bwVar.isShareThread) {
                         com.baidu.tieba.card.data.l lVar2 = new com.baidu.tieba.card.data.l();
-                        lVar2.dUS = bwVar;
+                        lVar2.dUW = bwVar;
                         lVar = lVar2;
                     } else if (com.baidu.tieba.card.data.m.aa(bwVar)) {
                         com.baidu.tieba.card.data.m mVar = new com.baidu.tieba.card.data.m(bwVar);
-                        mVar.hnu = true;
+                        mVar.hny = true;
                         lVar = mVar;
                     } else if (com.baidu.tieba.card.data.l.aa(bwVar)) {
                         com.baidu.tieba.card.data.l lVar3 = new com.baidu.tieba.card.data.l();
-                        lVar3.dUS = bwVar;
+                        lVar3.dUW = bwVar;
                         lVar = lVar3;
                     }
                     if (lVar != null && lVar.isValid()) {
-                        lVar.Hb("c10814");
-                        this.iZi.add(lVar);
+                        lVar.Hc("c10814");
+                        this.iZo.add(lVar);
                     }
                 }
             }
             if (dataRes.relate_forum != null && dataRes.relate_forum.size() != 0) {
-                this.iYY = new n();
-                this.iYY.parserProtobuf(dataRes.relate_forum);
-                this.iYZ = new bj();
-                this.iYZ.floorPosition = 2;
+                this.iZe = new n();
+                this.iZe.parserProtobuf(dataRes.relate_forum);
+                this.iZf = new bj();
+                this.iZf.floorPosition = 2;
                 if (TextUtils.isEmpty(dataRes.relate_forum_title)) {
-                    this.iYZ.title = TbadkCoreApplication.getInst().getString(R.string.hot_topic_detail_recommend_forum_list_title);
+                    this.iZf.title = TbadkCoreApplication.getInst().getString(R.string.hot_topic_detail_recommend_forum_list_title);
                 } else {
-                    this.iYZ.title = dataRes.relate_forum_title;
+                    this.iZf.title = dataRes.relate_forum_title;
                 }
-                this.iYZ.dZU = R.color.cp_cont_c;
-                ArrayList<bi> bdK = this.iYZ.bdK();
+                this.iZf.dZY = R.color.cp_cont_c;
+                ArrayList<bi> bdK = this.iZf.bdK();
                 for (RelateForum relateForum : dataRes.relate_forum) {
                     if (!StringUtils.isNull(relateForum.forum_name)) {
                         bi biVar = new bi();
                         biVar.cy(relateForum.forum_id.intValue());
-                        biVar.zg(relateForum.forum_name);
-                        biVar.zf(relateForum.avatar);
-                        biVar.zh(relateForum.desc);
+                        biVar.zh(relateForum.forum_name);
+                        biVar.zg(relateForum.avatar);
+                        biVar.zi(relateForum.desc);
                         biVar.nc(relateForum.thread_num.intValue());
                         biVar.nb(relateForum.member_num.intValue());
                         biVar.setLike(relateForum.is_liked.intValue() != 0);
@@ -106,40 +106,40 @@ public class e {
                 }
             }
             if (dataRes.post_forum != null && dataRes.post_forum.size() != 0) {
-                this.iZa = new PostForumData();
-                this.iZa.parserProtobuf(dataRes.post_forum);
+                this.iZg = new PostForumData();
+                this.iZg.parserProtobuf(dataRes.post_forum);
             }
             if (dataRes.pk_module != null && !StringUtils.isNull(dataRes.pk_module.ques_desc)) {
-                this.iZb = new i();
-                this.iZb.a(dataRes.pk_module);
+                this.iZh = new i();
+                this.iZh.a(dataRes.pk_module);
             }
             if (dataRes.bless_module != null) {
-                this.iZc = new a();
-                this.iZc.a(dataRes.bless_module);
+                this.iZi = new a();
+                this.iZi.a(dataRes.bless_module);
             }
             if (dataRes.candle_module != null) {
-                this.iZd = new a();
-                this.iZd.a(dataRes.candle_module);
+                this.iZj = new a();
+                this.iZj.a(dataRes.candle_module);
             }
             if (dataRes.weiguan_module != null) {
-                this.iZe = new a();
-                this.iZe.a(dataRes.weiguan_module);
+                this.iZk = new a();
+                this.iZk.a(dataRes.weiguan_module);
             }
             if (dataRes.hot_thread != null && y.getCount(dataRes.hot_thread.thread_list) != 0) {
-                this.iZf = new g();
-                this.iZf.a(dataRes.hot_thread);
-                this.iZg = new d();
-                this.iZg.a(dataRes.hot_thread);
+                this.iZl = new g();
+                this.iZl.a(dataRes.hot_thread);
+                this.iZm = new d();
+                this.iZm.a(dataRes.hot_thread);
                 if (dataRes.hot_thread.page != null) {
                     this.pageData = new av();
                     this.pageData.a(dataRes.hot_thread.page);
-                    this.iZl = this.pageData.bdu() != 0;
+                    this.iZr = this.pageData.bdu() != 0;
                 }
-                this.iZk = dataRes.is_global_block.intValue();
+                this.iZq = dataRes.is_global_block.intValue();
             }
             if (!y.isEmpty(dataRes.special_topic)) {
-                this.iZj = new ArrayList();
-                boolean z = this.iZb != null;
+                this.iZp = new ArrayList();
+                boolean z = this.iZh != null;
                 Iterator<SpecialTopic> it = dataRes.special_topic.iterator();
                 while (true) {
                     boolean z2 = z;
@@ -153,28 +153,28 @@ public class e {
                         if (!TextUtils.isEmpty(next.title)) {
                             com.baidu.tieba.newdetail.a.c cVar = new com.baidu.tieba.newdetail.a.c(next.title);
                             if (!z2) {
-                                cVar.jZl = false;
+                                cVar.jZs = false;
                                 z2 = true;
                             }
-                            this.iZj.add(cVar);
+                            this.iZp.add(cVar);
                         }
                         boolean z3 = z2;
                         int size = next.thread_list.size();
                         for (int i = 0; i < size; i++) {
-                            this.iZj.add(new com.baidu.tieba.newdetail.a.b(next.thread_list.get(i), i + 1 == size));
+                            this.iZp.add(new com.baidu.tieba.newdetail.a.b(next.thread_list.get(i), i + 1 == size));
                         }
                         z = z3;
                     }
                 }
             }
-            cAh();
+            cAi();
         }
     }
 
     public void a(d dVar) {
-        if (dVar != null && y.getCount(dVar.fku) != 0) {
-            for (com.baidu.tieba.card.data.c cVar : dVar.fku) {
-                this.iYW.add(cVar);
+        if (dVar != null && y.getCount(dVar.fky) != 0) {
+            for (com.baidu.tieba.card.data.c cVar : dVar.fky) {
+                this.iZc.add(cVar);
             }
         }
     }
@@ -182,46 +182,46 @@ public class e {
     public void aD(bw bwVar) {
         if (bwVar != null) {
             com.baidu.tieba.card.data.l lVar = new com.baidu.tieba.card.data.l();
-            lVar.dUS = bwVar;
-            lVar.dUS.nf(5);
-            this.iYW.add(0, lVar);
+            lVar.dUW = bwVar;
+            lVar.dUW.nf(5);
+            this.iZc.add(0, lVar);
         }
     }
 
-    public f czY() {
-        return this.iYX;
-    }
-
-    public i czZ() {
-        return this.iZb;
-    }
-
-    public a cAa() {
-        return this.iZc;
-    }
-
-    public a cAb() {
+    public f czZ() {
         return this.iZd;
     }
 
+    public i cAa() {
+        return this.iZh;
+    }
+
+    public a cAb() {
+        return this.iZi;
+    }
+
     public a cAc() {
+        return this.iZj;
+    }
+
+    public a cAd() {
+        return this.iZk;
+    }
+
+    public n cAe() {
         return this.iZe;
     }
 
-    public n cAd() {
-        return this.iYY;
+    public bj cAf() {
+        return this.iZf;
     }
 
-    public bj cAe() {
-        return this.iYZ;
+    public ArrayList<q> cAg() {
+        return this.iZc;
     }
 
-    public ArrayList<q> cAf() {
-        return this.iYW;
-    }
-
-    public List<q> cAg() {
-        return this.iZj;
+    public List<q> cAh() {
+        return this.iZp;
     }
 
     public av getPageData() {
@@ -232,39 +232,39 @@ public class e {
         this.pageData = avVar;
     }
 
-    public boolean cgE() {
-        return this.hBn;
+    public boolean cgF() {
+        return this.hBt;
     }
 
-    private ArrayList<q> cAh() {
-        if (this.iZb != null) {
-            this.iYW.add(this.iZb);
+    private ArrayList<q> cAi() {
+        if (this.iZh != null) {
+            this.iZc.add(this.iZh);
         }
-        if (y.getCount(this.iZi) > 0) {
-            this.iYW.add(this.iZh);
-            if (this.iZi.size() > 5) {
-                this.iZi = this.iZi.subList(0, 5);
+        if (y.getCount(this.iZo) > 0) {
+            this.iZc.add(this.iZn);
+            if (this.iZo.size() > 5) {
+                this.iZo = this.iZo.subList(0, 5);
             }
-            for (com.baidu.tieba.card.data.c cVar : this.iZi) {
-                this.iYW.add(cVar);
+            for (com.baidu.tieba.card.data.c cVar : this.iZo) {
+                this.iZc.add(cVar);
             }
         }
-        if (this.iYY != null && this.iYY.getCount() > 0 && this.sortType == 1) {
-            this.iYW.add(this.iYY);
+        if (this.iZe != null && this.iZe.getCount() > 0 && this.sortType == 1) {
+            this.iZc.add(this.iZe);
         }
-        if (this.iZg != null && !y.isEmpty(this.iZg.fku)) {
-            this.iYW.add(this.iZf);
-            for (int i = 0; i < this.iZg.fku.size(); i++) {
-                this.iYW.add((com.baidu.tieba.card.data.c) y.getItem(this.iZg.fku, i));
-                if (this.iYY != null && this.iYY.getCount() > 0 && i == 2 && this.sortType == 0) {
-                    this.iYW.add(this.iYY);
+        if (this.iZm != null && !y.isEmpty(this.iZm.fky)) {
+            this.iZc.add(this.iZl);
+            for (int i = 0; i < this.iZm.fky.size(); i++) {
+                this.iZc.add((com.baidu.tieba.card.data.c) y.getItem(this.iZm.fky, i));
+                if (this.iZe != null && this.iZe.getCount() > 0 && i == 2 && this.sortType == 0) {
+                    this.iZc.add(this.iZe);
                 }
             }
         }
-        return this.iYW;
+        return this.iZc;
     }
 
-    public int cAi() {
-        return this.iZk;
+    public int cAj() {
+        return this.iZq;
     }
 }

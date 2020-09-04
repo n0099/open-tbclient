@@ -27,20 +27,20 @@ public final class ObservableCache<T> extends io.reactivex.internal.operators.ob
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
     public static final class a<T> extends f implements u<T> {
-        static final ReplayDisposable[] ooc = new ReplayDisposable[0];
-        static final ReplayDisposable[] ood = new ReplayDisposable[0];
+        static final ReplayDisposable[] oou = new ReplayDisposable[0];
+        static final ReplayDisposable[] oov = new ReplayDisposable[0];
         final AtomicReference<ReplayDisposable<T>[]> observers;
-        volatile boolean omI;
-        boolean omJ;
-        final q<? extends T> ooa;
-        final SequentialDisposable oob;
+        volatile boolean ona;
+        boolean onb;
+        final q<? extends T> oos;
+        final SequentialDisposable oot;
 
         public boolean a(ReplayDisposable<T> replayDisposable) {
             ReplayDisposable<T>[] replayDisposableArr;
             ReplayDisposable<T>[] replayDisposableArr2;
             do {
                 replayDisposableArr = this.observers.get();
-                if (replayDisposableArr == ood) {
+                if (replayDisposableArr == oov) {
                     return false;
                 }
                 int length = replayDisposableArr.length;
@@ -72,7 +72,7 @@ public final class ObservableCache<T> extends io.reactivex.internal.operators.ob
                     }
                     if (i >= 0) {
                         if (length == 1) {
-                            replayDisposableArr2 = ooc;
+                            replayDisposableArr2 = oou;
                         } else {
                             replayDisposableArr2 = new ReplayDisposable[length - 1];
                             System.arraycopy(replayDisposableArr, 0, replayDisposableArr2, 0, i);
@@ -89,17 +89,17 @@ public final class ObservableCache<T> extends io.reactivex.internal.operators.ob
 
         @Override // io.reactivex.u
         public void onSubscribe(io.reactivex.disposables.b bVar) {
-            this.oob.update(bVar);
+            this.oot.update(bVar);
         }
 
         public void connect() {
-            this.ooa.subscribe(this);
-            this.omI = true;
+            this.oos.subscribe(this);
+            this.ona = true;
         }
 
         @Override // io.reactivex.u
         public void onNext(T t) {
-            if (!this.omJ) {
+            if (!this.onb) {
                 add(NotificationLite.next(t));
                 for (ReplayDisposable<T> replayDisposable : this.observers.get()) {
                     replayDisposable.replay();
@@ -109,11 +109,11 @@ public final class ObservableCache<T> extends io.reactivex.internal.operators.ob
 
         @Override // io.reactivex.u
         public void onError(Throwable th) {
-            if (!this.omJ) {
-                this.omJ = true;
+            if (!this.onb) {
+                this.onb = true;
                 add(NotificationLite.error(th));
-                this.oob.dispose();
-                for (ReplayDisposable<T> replayDisposable : this.observers.getAndSet(ood)) {
+                this.oot.dispose();
+                for (ReplayDisposable<T> replayDisposable : this.observers.getAndSet(oov)) {
                     replayDisposable.replay();
                 }
             }
@@ -121,11 +121,11 @@ public final class ObservableCache<T> extends io.reactivex.internal.operators.ob
 
         @Override // io.reactivex.u
         public void onComplete() {
-            if (!this.omJ) {
-                this.omJ = true;
+            if (!this.onb) {
+                this.onb = true;
                 add(NotificationLite.complete());
-                this.oob.dispose();
-                for (ReplayDisposable<T> replayDisposable : this.observers.getAndSet(ood)) {
+                this.oot.dispose();
+                for (ReplayDisposable<T> replayDisposable : this.observers.getAndSet(oov)) {
                     replayDisposable.replay();
                 }
             }
@@ -172,7 +172,7 @@ public final class ObservableCache<T> extends io.reactivex.internal.operators.ob
                         if (size != 0) {
                             Object[] objArr = this.currentBuffer;
                             if (objArr == null) {
-                                objArr = this.state.eft();
+                                objArr = this.state.efC();
                                 this.currentBuffer = objArr;
                             }
                             int length = objArr.length - 1;

@@ -5,8 +5,8 @@ import org.json.JSONObject;
 @kotlin.h
 /* loaded from: classes8.dex */
 public final class h {
-    private static String bTU;
-    public static final h bTV = new h();
+    private static String bTY;
+    public static final h bTZ = new h();
 
     private h() {
     }
@@ -24,6 +24,6 @@ public final class h {
 
     public final void abD() {
         com.baidu.swan.apps.storage.c.h.aDf().putString("alliance_login_uk", "");
-        bTU = null;
+        bTY = null;
     }
 }

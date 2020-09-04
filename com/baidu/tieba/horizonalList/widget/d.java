@@ -10,9 +10,9 @@ import android.widget.WrapperListAdapter;
 import com.baidu.tieba.horizonalList.widget.HListView;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class d implements Filterable, WrapperListAdapter {
-    static final ArrayList<HListView.b> bmO = new ArrayList<>();
+    static final ArrayList<HListView.b> bmR = new ArrayList<>();
     private final ListAdapter mAdapter;
     boolean mAreAllFixedViewsSelectable;
     ArrayList<HListView.b> mFooterViewInfos;
@@ -23,12 +23,12 @@ public class d implements Filterable, WrapperListAdapter {
         this.mAdapter = listAdapter;
         this.mIsFilterable = listAdapter instanceof Filterable;
         if (arrayList == null) {
-            this.mHeaderViewInfos = bmO;
+            this.mHeaderViewInfos = bmR;
         } else {
             this.mHeaderViewInfos = arrayList;
         }
         if (arrayList2 == null) {
-            this.mFooterViewInfos = bmO;
+            this.mFooterViewInfos = bmR;
         } else {
             this.mFooterViewInfos = arrayList2;
         }

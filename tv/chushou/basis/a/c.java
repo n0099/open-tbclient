@@ -10,26 +10,26 @@ import java.io.File;
 import java.util.HashMap;
 /* loaded from: classes6.dex */
 public class c {
-    private static c oKW;
+    private static c oLo;
     private Context mContext;
-    private final HashMap<String, d> oKX = new HashMap<>();
-    private String oKY;
+    private final HashMap<String, d> oLp = new HashMap<>();
+    private String oLq;
 
     private c(Context context) {
-        this.oKY = null;
+        this.oLq = null;
         this.mContext = context.getApplicationContext();
-        this.oKY = this.mContext.getDir("pluginlib", 0).getAbsolutePath();
+        this.oLq = this.mContext.getDir("pluginlib", 0).getAbsolutePath();
     }
 
     public static c gT(Context context) {
-        if (oKW == null) {
+        if (oLo == null) {
             synchronized (c.class) {
-                if (oKW == null) {
-                    oKW = new c(context);
+                if (oLo == null) {
+                    oLo = new c(context);
                 }
             }
         }
-        return oKW;
+        return oLo;
     }
 
     public d bh(String str, boolean z) {
@@ -45,20 +45,20 @@ public class c {
     }
 
     private d b(PackageInfo packageInfo, String str) {
-        d dVar = this.oKX.get(packageInfo.packageName);
+        d dVar = this.oLp.get(packageInfo.packageName);
         if (dVar == null) {
             d dVar2 = new d(WF(str), a(WG(str)), packageInfo);
-            this.oKX.put(packageInfo.packageName, dVar2);
+            this.oLp.put(packageInfo.packageName, dVar2);
             return dVar2;
         }
         return dVar;
     }
 
     private DexClassLoader WF(String str) {
-        return new DexClassLoader(str, elx(), this.oKY, this.mContext.getClassLoader());
+        return new DexClassLoader(str, elG(), this.oLq, this.mContext.getClassLoader());
     }
 
-    public String elx() {
+    public String elG() {
         return this.mContext.getDir("dex", 0).getAbsolutePath();
     }
 
@@ -74,7 +74,7 @@ public class c {
     }
 
     public d WH(String str) {
-        return this.oKX.get(str);
+        return this.oLp.get(str);
     }
 
     private Resources a(AssetManager assetManager) {
@@ -83,7 +83,7 @@ public class c {
     }
 
     private void WI(String str) {
-        e.elz().v(this.mContext, str, this.oKY);
+        e.elI().v(this.mContext, str, this.oLq);
     }
 
     private boolean as(File file) {

@@ -4,17 +4,17 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.HorizontalScrollView;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class HorizontalCustomScrollView extends HorizontalScrollView {
-    private a epX;
+    private a eqb;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface a {
         void aT(int i, int i2);
     }
 
     public void setOnSizeChangeListener(a aVar) {
-        this.epX = aVar;
+        this.eqb = aVar;
     }
 
     public HorizontalCustomScrollView(Context context) {
@@ -40,8 +40,8 @@ public class HorizontalCustomScrollView extends HorizontalScrollView {
     @Override // android.widget.HorizontalScrollView, android.widget.FrameLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        if (this.epX != null) {
-            this.epX.aT(getMeasuredWidth(), getMeasuredHeight());
+        if (this.eqb != null) {
+            this.eqb.aT(getMeasuredWidth(), getMeasuredHeight());
         }
     }
 }

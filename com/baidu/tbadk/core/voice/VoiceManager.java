@@ -40,7 +40,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Date;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class VoiceManager extends BroadcastReceiver implements SensorEventListener {
     public static final boolean BOOLEAN_SEEKTO = false;
     private static final String MI3_MODEL_NAME = "MI 3W";
@@ -228,13 +228,13 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         }
     };
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum PlayMode {
         SPEAKER,
         HEADSET
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface b {
         void b(VoiceData.VoiceModel voiceModel);
 
@@ -249,7 +249,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         void sb();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface c {
         b d(VoiceData.VoiceModel voiceModel);
 
@@ -389,14 +389,14 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                     }
                 };
             }
-            Object AL = com.baidu.tbadk.core.voice.a.AL(voiceModel.getId());
-            if (AL == null) {
+            Object AM = com.baidu.tbadk.core.voice.a.AM(voiceModel.getId());
+            if (AM == null) {
                 if (this.context != null && (this.context.getOrignalPage() instanceof com.baidu.adp.base.h)) {
                     bdUniqueId = ((com.baidu.adp.base.h) this.context.getOrignalPage()).getUniqueId();
                 }
-                AL = com.baidu.adp.lib.e.c.mM().a(voiceModel.getId(), 23, this.mResourceCall, 0, 0, bdUniqueId, voiceModel.from);
+                AM = com.baidu.adp.lib.e.c.mM().a(voiceModel.getId(), 23, this.mResourceCall, 0, 0, bdUniqueId, voiceModel.from);
             }
-            if (voiceModel.isLocal && AL == null) {
+            if (voiceModel.isLocal && AM == null) {
                 if (this.mPlayCall == null) {
                     this.mPlayCall = new d();
                 }
@@ -407,8 +407,8 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                     mVar.append("from", voiceModel.from);
                 }
                 TiebaStatic.voiceError(-1103, "VoiceManager.setDownloading() error : record file not exists", mVar.toString());
-            } else if (AL != null) {
-                setPlaying(voiceModel, (String) AL);
+            } else if (AM != null) {
+                setPlaying(voiceModel, (String) AM);
             } else {
                 voiceModel.voice_status = 2;
                 b playView = getPlayView();
@@ -506,7 +506,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class d implements com.baidu.adp.lib.voice.c {
         private d() {
         }
@@ -1006,7 +1006,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Void, Void, Void> {
         private a() {
         }

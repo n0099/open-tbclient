@@ -14,7 +14,7 @@ import com.baidu.tieba.R;
 import java.lang.ref.SoftReference;
 import java.util.HashMap;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BdToast {
     private static SoftReference<Toast> mToastStatic;
     private static HashMap<DefaultIcon, Integer> sDefaultIconMap = new HashMap<>(2);
@@ -25,14 +25,14 @@ public class BdToast {
     private final TextView mTextView;
     private Toast mToast;
     private int mIconResId = -1;
-    private boolean efo = false;
+    private boolean efs = false;
     private int mGravity = 16;
     private int mDuration = 0;
     private int offsetX = 0;
     private int offsetY = 0;
     private int paddingHorizontal = 0;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum DefaultIcon {
         SUCCESS,
         FAILURE,
@@ -64,7 +64,7 @@ public class BdToast {
 
     public BdToast D(int i, boolean z) {
         this.mIconResId = i;
-        this.efo = z;
+        this.efs = z;
         return this;
     }
 
@@ -91,7 +91,7 @@ public class BdToast {
         w.b(this.mToast);
         updateStaticToast();
         if (this.mIconResId != -1) {
-            if (this.efo) {
+            if (this.efs) {
                 SvgManager.bjq().a(this.mIconView, this.mIconResId, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
             } else {
                 ap.setImageResource(this.mIconView, this.mIconResId);
@@ -114,7 +114,7 @@ public class BdToast {
         this.mToast = new Toast(this.mContext);
         updateStaticToast();
         if (this.mIconResId != -1) {
-            if (this.efo) {
+            if (this.efs) {
                 SvgManager.bjq().a(this.mIconView, this.mIconResId, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
             } else {
                 ap.setImageResource(this.mIconView, this.mIconResId);

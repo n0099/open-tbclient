@@ -5,7 +5,7 @@ import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
 import com.baidu.tbadk.TbSingleton;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class n {
     private k Wo;
     private o Wp;
@@ -142,10 +142,10 @@ public class n {
                 if (this.Wr == null) {
                     this.Wr = new com.baidu.tbadk.n.a.a("anim_switch_slide");
                 }
-                this.Wr.buu();
+                this.Wr.buv();
             }
         } else if (i == 0 && this.Wr != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_slide")) {
-            this.Wr.buv();
+            this.Wr.buw();
         }
         if (this.mRecyclerView instanceof BdTypeRecyclerView) {
             this.Wp.aM(i);

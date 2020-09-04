@@ -10,8 +10,8 @@ import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes7.dex */
 public class a implements b {
-    private b.a aME;
-    private HttpMessageListener aMF;
+    private b.a aMG;
+    private HttpMessageListener aMH;
 
     static {
         registerTask();
@@ -19,7 +19,7 @@ public class a implements b {
 
     @Override // com.baidu.live.follow.a.b
     public void a(b.a aVar) {
-        this.aME = aVar;
+        this.aMG = aVar;
     }
 
     @Override // com.baidu.live.follow.a.b
@@ -27,13 +27,13 @@ public class a implements b {
         Dw();
         com.baidu.live.follow.http.a aVar = new com.baidu.live.follow.http.a();
         aVar.setUserId(str);
-        aVar.gb(str2);
+        aVar.gc(str2);
         MessageManager.getInstance().sendMessage(aVar);
     }
 
     @Override // com.baidu.live.follow.a.b
     public void release() {
-        this.aME = null;
+        this.aMG = null;
         unRegisterListener();
     }
 
@@ -52,26 +52,26 @@ public class a implements b {
     }
 
     private void unRegisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.aMF);
+        MessageManager.getInstance().unRegisterListener(this.aMH);
     }
 
     private void Dw() {
-        if (this.aMF == null) {
-            this.aMF = new HttpMessageListener(1021196) { // from class: com.baidu.live.follow.a.a.1
+        if (this.aMH == null) {
+            this.aMH = new HttpMessageListener(1021196) { // from class: com.baidu.live.follow.a.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                    if (a.this.aME != null && (httpResponsedMessage instanceof FollowStatusHttpResponsedMessage)) {
+                    if (a.this.aMG != null && (httpResponsedMessage instanceof FollowStatusHttpResponsedMessage)) {
                         FollowStatusHttpResponsedMessage followStatusHttpResponsedMessage = (FollowStatusHttpResponsedMessage) httpResponsedMessage;
                         if (followStatusHttpResponsedMessage.getError() == 0) {
-                            a.this.aME.a(true, "", followStatusHttpResponsedMessage.Du());
+                            a.this.aMG.a(true, "", followStatusHttpResponsedMessage.Du());
                         } else {
-                            a.this.aME.a(false, followStatusHttpResponsedMessage.getErrorString(), false);
+                            a.this.aMG.a(false, followStatusHttpResponsedMessage.getErrorString(), false);
                         }
                     }
                 }
             };
         }
-        MessageManager.getInstance().registerListener(this.aMF);
+        MessageManager.getInstance().registerListener(this.aMH);
     }
 }

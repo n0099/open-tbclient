@@ -4,11 +4,11 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BazhuInfoData extends OrmObject {
     public ArrayList<BaInfo> bazhu_info;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class BaInfo extends OrmObject implements Parcelable {
         public static final Parcelable.Creator<BaInfo> CREATOR = new Parcelable.Creator<BaInfo>() { // from class: com.baidu.tbadk.data.BazhuInfoData.BaInfo.1
             /* JADX DEBUG: Method merged with bridge method */

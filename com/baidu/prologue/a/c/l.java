@@ -9,7 +9,7 @@ public class l {
             try {
                 closeable.close();
             } catch (IOException e) {
-                g.bKk.e("SafeUtil", "error closing " + closeable.getClass().getName(), e);
+                g.bKo.e("SafeUtil", "error closing " + closeable.getClass().getName(), e);
             }
         }
     }

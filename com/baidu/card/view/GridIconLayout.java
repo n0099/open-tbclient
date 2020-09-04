@@ -26,18 +26,18 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes15.dex */
 public class GridIconLayout extends FrameLayout implements o<ai>, p {
-    private f<j> ahW;
-    private c aii;
-    private XGridLayout ajn;
-    private e<j> ajo;
-    private com.baidu.tbadk.widget.extend.a.a ajp;
+    private f<j> ahY;
+    private c aik;
+    private XGridLayout ajp;
+    private e<j> ajq;
+    private com.baidu.tbadk.widget.extend.a.a ajr;
 
     public void setOnItemCoverListener(f<j> fVar) {
-        this.ahW = fVar;
+        this.ahY = fVar;
     }
 
     public void setIWindowChangedListener(c cVar) {
-        this.aii = cVar;
+        this.aik = cVar;
     }
 
     public GridIconLayout(Context context) {
@@ -46,19 +46,19 @@ public class GridIconLayout extends FrameLayout implements o<ai>, p {
 
     public GridIconLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ajo = new e<j>() { // from class: com.baidu.card.view.GridIconLayout.1
+        this.ajq = new e<j>() { // from class: com.baidu.card.view.GridIconLayout.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.h.e
             public void a(View view, j jVar, int i, long j) {
                 if (jVar != null) {
-                    GridIconLayout.this.di(jVar.bcB());
+                    GridIconLayout.this.dj(jVar.bcB());
                 }
-                if (GridIconLayout.this.ahW != null) {
-                    GridIconLayout.this.ahW.a(view, jVar, i, j);
+                if (GridIconLayout.this.ahY != null) {
+                    GridIconLayout.this.ahY.a(view, jVar, i, j);
                 }
             }
         };
-        this.ajp = new com.baidu.tbadk.widget.extend.a.a<j>(getContext(), R.layout.grid_icon_item) { // from class: com.baidu.card.view.GridIconLayout.2
+        this.ajr = new com.baidu.tbadk.widget.extend.a.a<j>(getContext(), R.layout.grid_icon_item) { // from class: com.baidu.card.view.GridIconLayout.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.widget.extend.a.a
             public void a(com.baidu.tbadk.widget.extend.a.c cVar, j jVar, int i) {
@@ -70,8 +70,8 @@ public class GridIconLayout extends FrameLayout implements o<ai>, p {
                 TextView textView = (TextView) cVar.qW(R.id.tv_title);
                 ap.setViewTextColor(textView, R.color.cp_cont_b);
                 textView.setText(jVar.getTitle());
-                if (GridIconLayout.this.ahW != null) {
-                    GridIconLayout.this.ahW.b(cVar.getView(), jVar, i, i);
+                if (GridIconLayout.this.ahY != null) {
+                    GridIconLayout.this.ahY.b(cVar.getView(), jVar, i, i);
                 }
             }
         };
@@ -80,20 +80,20 @@ public class GridIconLayout extends FrameLayout implements o<ai>, p {
 
     private void initUI() {
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.ajn = new XGridLayout(getContext());
-        addView(this.ajn);
+        this.ajp = new XGridLayout(getContext());
+        addView(this.ajp);
     }
 
     public void setVerticalSpace(int i) {
-        this.ajn.setVerticalSpace(i);
+        this.ajp.setVerticalSpace(i);
     }
 
     public void setHorizontalSpace(int i) {
-        this.ajn.setHorizontalSpace(i);
+        this.ajp.setHorizontalSpace(i);
     }
 
     public void setMaxItem(int i) {
-        this.ajn.setMaxItem(i);
+        this.ajp.setMaxItem(i);
     }
 
     public void setMarginsTop(View view, int i) {
@@ -109,16 +109,16 @@ public class GridIconLayout extends FrameLayout implements o<ai>, p {
     @Override // android.view.View
     protected void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
-        if (this.aii != null) {
-            this.aii.a(this, i == 0, null);
+        if (this.aik != null) {
+            this.aik.a(this, i == 0, null);
         }
     }
 
     @Override // com.baidu.card.p
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         ap.setBackgroundColor(this, R.color.cp_bg_line_e);
-        if (this.ajn != null) {
-            this.ajn.onChangeSkinType();
+        if (this.ajp != null) {
+            this.ajp.onChangeSkinType();
         }
     }
 
@@ -132,13 +132,13 @@ public class GridIconLayout extends FrameLayout implements o<ai>, p {
         }
         setVisibility(0);
         List<j> list = aiVar.dataList;
-        this.ajn.setAutoGridSpan(list, 5);
-        this.ajn.setAdapter(this.ajp);
-        this.ajp.a(this.ajo);
-        this.ajp.setData(list);
+        this.ajp.setAutoGridSpan(list, 5);
+        this.ajp.setAdapter(this.ajr);
+        this.ajr.a(this.ajq);
+        this.ajr.setData(list);
     }
 
-    public void di(String str) {
+    public void dj(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
                 be.bju().b((TbPageContext) i.I(getContext()), new String[]{str});

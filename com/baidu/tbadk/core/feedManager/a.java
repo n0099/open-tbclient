@@ -2,39 +2,39 @@ package com.baidu.tbadk.core.feedManager;
 
 import com.baidu.tbadk.core.feedManager.FeedRecModel;
 import tbclient.Personalized.DataRes;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
-    private static volatile a ege;
-    private DataRes egg;
-    private FeedRecModel.a egh = new FeedRecModel.a() { // from class: com.baidu.tbadk.core.feedManager.a.1
+    private static volatile a egi;
+    private DataRes egk;
+    private FeedRecModel.a egl = new FeedRecModel.a() { // from class: com.baidu.tbadk.core.feedManager.a.1
         @Override // com.baidu.tbadk.core.feedManager.FeedRecModel.a
         public void a(DataRes dataRes, boolean z, boolean z2) {
-            a.this.egg = dataRes;
+            a.this.egk = dataRes;
         }
 
         @Override // com.baidu.tbadk.core.feedManager.FeedRecModel.a
         public void am(int i, String str) {
-            a.this.egg = null;
+            a.this.egk = null;
         }
     };
-    private FeedRecModel egf = new FeedRecModel();
+    private FeedRecModel egj = new FeedRecModel();
 
     public a() {
-        this.egf.a(this.egh);
+        this.egj.a(this.egl);
     }
 
     public static a bhy() {
-        if (ege == null) {
+        if (egi == null) {
             synchronized (a.class) {
-                if (ege == null) {
-                    ege = new a();
+                if (egi == null) {
+                    egi = new a();
                 }
             }
         }
-        return ege;
+        return egi;
     }
 
     public DataRes bhz() {
-        return this.egg;
+        return this.egk;
     }
 }

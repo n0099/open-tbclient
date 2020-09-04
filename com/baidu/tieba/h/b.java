@@ -8,48 +8,48 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.Esport;
 import tbclient.EsportRank;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b implements q {
-    public static final BdUniqueId iAQ = BdUniqueId.gen();
-    private List<a> geL;
-    private int hmy;
-    private String iAR;
-    private String iAS;
+    public static final BdUniqueId iAW = BdUniqueId.gen();
+    private List<a> geP;
+    private int hmC;
+    private String iAX;
+    private String iAY;
 
     public void a(Esport esport) {
         if (esport != null) {
-            this.hmy = esport.floor_no.intValue();
+            this.hmC = esport.floor_no.intValue();
             if (esport._static != null) {
-                this.iAR = esport._static.img;
-                this.iAS = esport._static.url;
+                this.iAX = esport._static.img;
+                this.iAY = esport._static.url;
             }
-            this.geL = new ArrayList();
-            if (!StringUtils.isNull(this.iAR)) {
+            this.geP = new ArrayList();
+            if (!StringUtils.isNull(this.iAX)) {
                 a aVar = new a();
-                aVar.Jd(this.iAR);
-                aVar.Je(this.iAS);
-                this.geL.add(aVar);
+                aVar.Je(this.iAX);
+                aVar.Jf(this.iAY);
+                this.geP.add(aVar);
             }
             if (!y.isEmpty(esport.billboard)) {
                 for (EsportRank esportRank : esport.billboard) {
                     a aVar2 = new a();
                     aVar2.a(esportRank);
-                    this.geL.add(aVar2);
+                    this.geP.add(aVar2);
                 }
             }
         }
     }
 
-    public int cuV() {
-        return this.hmy;
+    public int cuW() {
+        return this.hmC;
     }
 
-    public List<a> cuW() {
-        return this.geL;
+    public List<a> cuX() {
+        return this.geP;
     }
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return iAQ;
+        return iAW;
     }
 }

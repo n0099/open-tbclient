@@ -16,8 +16,8 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static C0449a cYu;
-    private static C0449a cYv;
+    private static C0449a cYy;
+    private static C0449a cYz;
 
     public static void k(boolean z, int i) {
         h.aDf().putBoolean(jJ(i), z);
@@ -44,17 +44,17 @@ public final class a {
     }
 
     private static C0449a aDp() {
-        if (cYv == null) {
-            cYv = C0449a.b(jR(1), 1);
+        if (cYz == null) {
+            cYz = C0449a.b(jR(1), 1);
         }
-        return cYv;
+        return cYz;
     }
 
     private static C0449a aDq() {
-        if (cYu == null) {
-            cYu = C0449a.b(jR(0), 0);
+        if (cYy == null) {
+            cYy = C0449a.b(jR(0), 0);
         }
-        return cYu;
+        return cYy;
     }
 
     public static synchronized Exception jN(int i) {
@@ -68,11 +68,11 @@ public final class a {
             } else {
                 C0449a jM = jM(i);
                 long j = h.aDf().getLong(jO(i), 0L);
-                long sb = com.baidu.swan.apps.swancore.b.sb(jM.aDr());
+                long sc = com.baidu.swan.apps.swancore.b.sc(jM.aDr());
                 if (DEBUG) {
-                    Log.d("PresetSwanCoreControl", "onPresetUpdate curVer: " + j + " newVer: " + sb);
+                    Log.d("PresetSwanCoreControl", "onPresetUpdate curVer: " + j + " newVer: " + sc);
                 }
-                d = d(sb, i);
+                d = d(sc, i);
             }
         }
         return d;
@@ -156,12 +156,12 @@ public final class a {
     /* renamed from: com.baidu.swan.apps.swancore.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
     public static class C0449a {
-        private String cYw;
+        private String cYA;
 
         public static C0449a b(JSONObject jSONObject, int i) {
             C0449a c0449a = new C0449a();
             if (jSONObject != null) {
-                c0449a.cYw = jSONObject.optString(jA(i));
+                c0449a.cYA = jSONObject.optString(jA(i));
             }
             return c0449a;
         }
@@ -171,7 +171,7 @@ public final class a {
         }
 
         public String aDr() {
-            return TextUtils.isEmpty(this.cYw) ? "0" : this.cYw;
+            return TextUtils.isEmpty(this.cYA) ? "0" : this.cYA;
         }
     }
 }

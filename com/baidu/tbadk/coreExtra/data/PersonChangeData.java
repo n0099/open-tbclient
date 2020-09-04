@@ -2,7 +2,7 @@ package com.baidu.tbadk.coreExtra.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class PersonChangeData extends OrmObject implements Serializable {
     public static final String TAG_PERSON_INFO = "person_change_data";
     private static final long serialVersionUID = 4345761658406426272L;

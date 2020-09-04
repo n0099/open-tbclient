@@ -8,7 +8,7 @@ import com.baidu.webkit.sdk.WebView;
 /* loaded from: classes19.dex */
 public final class a {
     public static final String a = BdSailor.class.getName();
-    private static a aeK;
+    private static a aeM;
     public Context b;
     public WebView c;
     private boolean e;
@@ -20,7 +20,7 @@ public final class a {
         a ts = ts();
         ts.f();
         ts.b = null;
-        aeK = null;
+        aeM = null;
     }
 
     private void f() {
@@ -32,14 +32,14 @@ public final class a {
     }
 
     public static a ts() {
-        if (aeK == null) {
-            aeK = new a();
-        } else if (aeK.c != null && (aeK.e ^ BdZeusUtil.isWebkitLoaded())) {
+        if (aeM == null) {
+            aeM = new a();
+        } else if (aeM.c != null && (aeM.e ^ BdZeusUtil.isWebkitLoaded())) {
             Log.d(a, "BdWebViewSingleton, re-new instance need because of the kernel changed");
-            aeK.f();
-            aeK.e();
+            aeM.f();
+            aeM.e();
         }
-        return aeK;
+        return aeM;
     }
 
     public final boolean c() {

@@ -14,48 +14,48 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @SuppressLint({"DefaultLocale"})
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class i implements a.InterfaceC0019a {
-    private static int elU = 5;
-    private static int elY = 0;
-    private static int elZ = 0;
-    private static int ema = 0;
+    private static int elY = 5;
+    private static int emc = 0;
+    private static int emd = 0;
     private static int eme = 0;
-    private com.baidu.adp.lib.network.http.e elR;
-    private f elV;
+    private static int emi = 0;
+    private com.baidu.adp.lib.network.http.e elV;
+    private f elZ;
     private volatile com.baidu.adp.lib.network.http.c HY = null;
-    private HashMap<String, String> elS = null;
-    private com.baidu.adp.lib.network.http.g elT = new com.baidu.adp.lib.network.http.g();
-    public boolean elW = false;
+    private HashMap<String, String> elW = null;
+    private com.baidu.adp.lib.network.http.g elX = new com.baidu.adp.lib.network.http.g();
+    public boolean ema = false;
     public boolean isGif = false;
     public String exception = "";
-    public com.baidu.adp.lib.network.http.d elX = null;
+    public com.baidu.adp.lib.network.http.d emb = null;
     public int dataSize = -1;
     public int responseCode = -1;
     public int errorCode = -1;
     private boolean needCache = true;
-    private boolean emb = false;
-    public boolean emc = false;
+    private boolean emf = false;
+    public boolean emg = false;
     private boolean mUseHttpClient = TbadkCoreApplication.getInst().isHttpClientOpen();
     private boolean mUseHttpAutoSwitch = TbadkCoreApplication.getInst().isHttpAutoSwitch();
-    private boolean emd = false;
+    private boolean emh = false;
 
     public boolean bjD() {
-        return this.emb;
+        return this.emf;
     }
 
     public com.baidu.adp.lib.network.http.g mt() {
-        return this.elT;
+        return this.elX;
     }
 
     public void rz() {
-        this.elX = null;
+        this.emb = null;
         this.exception = "";
-        this.emb = false;
+        this.emf = false;
         this.responseCode = -1;
         this.dataSize = -1;
         this.isGif = false;
-        this.elW = false;
+        this.ema = false;
     }
 
     public boolean bjE() {
@@ -66,96 +66,96 @@ public class i implements a.InterfaceC0019a {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET, INVOKE, IPUT, IGET]}, finally: {[IGET, INVOKE, IPUT, IGET, CONSTRUCTOR, IGET, IGET, INVOKE, INVOKE, INVOKE, INVOKE, IPUT, CONSTRUCTOR, IGET, IGET, INVOKE, CONST_STR, INVOKE, IGET, INVOKE, INVOKE, IPUT, IF] complete} */
-    private final byte[] An(String str) {
+    private final byte[] Ao(String str) {
         List<String> list;
         StringBuffer stringBuffer = new StringBuffer();
         try {
             try {
                 rz();
-                if (this.elR != null) {
+                if (this.elV != null) {
                     cancel();
                     this.HY = null;
                 }
-                this.elR = new com.baidu.adp.lib.network.http.e();
-                this.elR.ms().setUrl(str);
-                if (this.elS != null) {
-                    for (Map.Entry<String, String> entry : this.elS.entrySet()) {
-                        this.elR.ms().addPostData(entry.getKey(), entry.getValue());
+                this.elV = new com.baidu.adp.lib.network.http.e();
+                this.elV.ms().setUrl(str);
+                if (this.elW != null) {
+                    for (Map.Entry<String, String> entry : this.elW.entrySet()) {
+                        this.elV.ms().addPostData(entry.getKey(), entry.getValue());
                     }
                 }
-                this.HY = new com.baidu.adp.lib.network.http.c(this.elR);
-                this.HY.d(elU, 0, 0);
-                this.elT = this.elR.mt();
-                if (this.elT != null && this.elT.LK != null && (list = this.elT.LK.get(Headers.CACHE_CONTROL)) != null && list.size() > 0) {
+                this.HY = new com.baidu.adp.lib.network.http.c(this.elV);
+                this.HY.d(elY, 0, 0);
+                this.elX = this.elV.mt();
+                if (this.elX != null && this.elX.LK != null && (list = this.elX.LK.get(Headers.CACHE_CONTROL)) != null && list.size() > 0) {
                     this.needCache = !"no-cache".equals(list.get(0));
                 }
-                byte[] bArr = this.elR.mt().retBytes;
-                this.responseCode = this.elR.mt().responseCode;
-                this.errorCode = this.elR.mt().mNetErrorCode;
-                this.emb = this.elR.mt().mA();
+                byte[] bArr = this.elV.mt().retBytes;
+                this.responseCode = this.elV.mt().responseCode;
+                this.errorCode = this.elV.mt().mNetErrorCode;
+                this.emf = this.elV.mt().mA();
                 if (bArr != null) {
                     this.dataSize = bArr.length;
                 } else {
                     this.dataSize = 0;
                 }
-                if (this.elR.mt().contentEncoding != null && this.elR.mt().contentEncoding.toLowerCase().contains("gzip")) {
-                    this.elW = true;
+                if (this.elV.mt().contentEncoding != null && this.elV.mt().contentEncoding.toLowerCase().contains("gzip")) {
+                    this.ema = true;
                 }
-                if (!this.emb) {
+                if (!this.emf) {
                     e(str, null);
                 }
-                this.elX = this.elR.mv();
-                if (this.elX != null) {
+                this.emb = this.elV.mv();
+                if (this.emb != null) {
                     StringBuilder sb = new StringBuilder();
-                    com.baidu.adp.lib.network.http.d dVar = this.elX;
+                    com.baidu.adp.lib.network.http.d dVar = this.emb;
                     dVar.exception = sb.append(dVar.exception).append(stringBuffer.toString()).toString();
                     StringBuilder sb2 = new StringBuilder();
-                    com.baidu.adp.lib.network.http.d dVar2 = this.elX;
+                    com.baidu.adp.lib.network.http.d dVar2 = this.emb;
                     dVar2.exception = sb2.append(dVar2.exception).append("_responseCode:").append(this.responseCode).toString();
                     return bArr;
                 }
                 return bArr;
             } catch (Exception e) {
                 stringBuffer.append("httpmanagererr_" + e.getClass() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + e.getMessage());
-                this.elX = this.elR.mv();
-                if (this.elX != null) {
+                this.emb = this.elV.mv();
+                if (this.emb != null) {
                     StringBuilder sb3 = new StringBuilder();
-                    com.baidu.adp.lib.network.http.d dVar3 = this.elX;
+                    com.baidu.adp.lib.network.http.d dVar3 = this.emb;
                     dVar3.exception = sb3.append(dVar3.exception).append(stringBuffer.toString()).toString();
                     StringBuilder sb4 = new StringBuilder();
-                    com.baidu.adp.lib.network.http.d dVar4 = this.elX;
+                    com.baidu.adp.lib.network.http.d dVar4 = this.emb;
                     dVar4.exception = sb4.append(dVar4.exception).append("_responseCode:").append(this.responseCode).toString();
                     return null;
                 }
                 return null;
             }
         } catch (Throwable th) {
-            this.elX = this.elR.mv();
-            if (this.elX != null) {
+            this.emb = this.elV.mv();
+            if (this.emb != null) {
                 StringBuilder sb5 = new StringBuilder();
-                com.baidu.adp.lib.network.http.d dVar5 = this.elX;
+                com.baidu.adp.lib.network.http.d dVar5 = this.emb;
                 dVar5.exception = sb5.append(dVar5.exception).append(stringBuffer.toString()).toString();
                 StringBuilder sb6 = new StringBuilder();
-                com.baidu.adp.lib.network.http.d dVar6 = this.elX;
+                com.baidu.adp.lib.network.http.d dVar6 = this.emb;
                 dVar6.exception = sb6.append(dVar6.exception).append("_responseCode:").append(this.responseCode).toString();
             }
             throw th;
         }
     }
 
-    public byte[] Ao(String str) {
-        return An(str);
+    public byte[] Ap(String str) {
+        return Ao(str);
     }
 
     private boolean bjF() {
-        if (this.elT.LJ) {
+        if (this.elX.LJ) {
             return false;
         }
         if (this.errorCode == -12 || this.errorCode == -18 || this.errorCode == -19) {
-            int i = eme + 1;
-            eme = i;
+            int i = emi + 1;
+            emi = i;
             if (i >= 5) {
-                eme = 0;
+                emi = 0;
                 return true;
             }
             return false;
@@ -176,35 +176,35 @@ public class i implements a.InterfaceC0019a {
                 if (SwitchManager.getInstance().findType("need_more_logs") == 1) {
                     u.u("httpManager", str, "", "");
                 }
-                byte[] An = An(str);
-                int i3 = elY + 1;
-                elY = i3;
+                byte[] Ao = Ao(str);
+                int i3 = emc + 1;
+                emc = i3;
                 if (i3 <= 2 && this.responseCode != 200) {
-                    if (elY == 1) {
-                        ema = this.errorCode;
+                    if (emc == 1) {
+                        eme = this.errorCode;
                     }
-                    elZ++;
+                    emd++;
                 }
-                if (elY == 2) {
-                    u.b("A2T", ema, this.errorCode, elZ);
+                if (emc == 2) {
+                    u.b("A2T", eme, this.errorCode, emd);
                 }
                 if (true == bjF()) {
                     this.mUseHttpClient = true;
-                    this.emd = true;
+                    this.emh = true;
                     TbadkCoreApplication.getInst().setHttpClientOpen(true);
-                    elZ = 0;
-                    elY = 0;
-                    ema = 0;
+                    emd = 0;
+                    emc = 0;
+                    eme = 0;
                 }
-                if (An == null) {
+                if (Ao == null) {
                     return null;
                 }
-                if (this.elR != null && this.elR.mt().LK != null) {
-                    List<String> list2 = this.elR.mt().LK.get("imgsrc");
+                if (this.elV != null && this.elV.mt().LK != null) {
+                    List<String> list2 = this.elV.mt().LK.get("imgsrc");
                     if (list2 != null && list2.size() > 0 && (str2 = list2.get(0)) != null && str2.length() > 0) {
                         i2 = 1;
                     }
-                    List<String> list3 = this.elR.mt().LK.get("Src-Content-Type");
+                    List<String> list3 = this.elV.mt().LK.get("Src-Content-Type");
                     if (list3 != null && list3.size() > 0) {
                         if ("image/gif".equalsIgnoreCase(list3.get(0))) {
                             this.isGif = true;
@@ -212,19 +212,19 @@ public class i implements a.InterfaceC0019a {
                             this.isGif = false;
                         }
                     }
-                    List<String> list4 = this.elR.mt().LK.get("Error-Message");
+                    List<String> list4 = this.elV.mt().LK.get("Error-Message");
                     if (list4 != null && list4.size() > 0) {
                         String str3 = list4.get(0);
                         if (TextUtils.isEmpty(str3) || str3.equalsIgnoreCase("OK")) {
-                            this.emc = false;
+                            this.emg = false;
                             i = i2;
-                            return (this.emb || (!z && i == 0) || !new String(An, 0, 23).equalsIgnoreCase("app:tiebaclient;type:0;")) ? An : q(An, 23, An.length);
+                            return (this.emf || (!z && i == 0) || !new String(Ao, 0, 23).equalsIgnoreCase("app:tiebaclient;type:0;")) ? Ao : q(Ao, 23, Ao.length);
                         }
-                        this.emc = true;
+                        this.emg = true;
                     }
                 }
                 i = i2;
-                if (this.emb) {
+                if (this.emf) {
                 }
             } catch (Exception e) {
                 this.exception += "BDIMAGE DECODE ERROR" + e.getMessage();
@@ -238,45 +238,45 @@ public class i implements a.InterfaceC0019a {
         try {
             try {
                 rz();
-                if (this.elV != null) {
+                if (this.elZ != null) {
                     cancel();
                 }
-                this.elR = new com.baidu.adp.lib.network.http.e();
-                this.elV = new f(this.elR);
-                this.elR.ms().setUrl(str);
-                if (this.elS != null) {
-                    for (Map.Entry<String, String> entry : this.elS.entrySet()) {
-                        this.elR.ms().addPostData(entry.getKey(), entry.getValue());
+                this.elV = new com.baidu.adp.lib.network.http.e();
+                this.elZ = new f(this.elV);
+                this.elV.ms().setUrl(str);
+                if (this.elW != null) {
+                    for (Map.Entry<String, String> entry : this.elW.entrySet()) {
+                        this.elV.ms().addPostData(entry.getKey(), entry.getValue());
                     }
                 }
-                this.elV.m(null, null, -1);
-                this.elT = this.elR.mt();
-                if (this.elT != null && this.elT.LK != null && (list = this.elT.LK.get(Headers.CACHE_CONTROL)) != null && list.size() > 0) {
+                this.elZ.m(null, null, -1);
+                this.elX = this.elV.mt();
+                if (this.elX != null && this.elX.LK != null && (list = this.elX.LK.get(Headers.CACHE_CONTROL)) != null && list.size() > 0) {
                     this.needCache = !"no-cache".equals(list.get(0));
                 }
-                byte[] bArr = this.elR.mt().retBytes;
-                this.responseCode = this.elR.mt().responseCode;
-                this.errorCode = this.elR.mt().mNetErrorCode;
-                this.emb = this.elR.mt().mA();
+                byte[] bArr = this.elV.mt().retBytes;
+                this.responseCode = this.elV.mt().responseCode;
+                this.errorCode = this.elV.mt().mNetErrorCode;
+                this.emf = this.elV.mt().mA();
                 if (this.mUseHttpAutoSwitch && true == bjF()) {
                     this.mUseHttpClient = false;
                     TbadkCoreApplication.getInst().setHttpClientOpen(false);
-                    elZ = 0;
-                    elY = 0;
-                    ema = 0;
+                    emd = 0;
+                    emc = 0;
+                    eme = 0;
                 }
-                if (this.emd) {
-                    int i4 = elY + 1;
-                    elY = i4;
+                if (this.emh) {
+                    int i4 = emc + 1;
+                    emc = i4;
                     if (i4 <= 2 && this.responseCode != 200) {
-                        elZ++;
-                        if (elY == 1) {
-                            ema = this.errorCode;
+                        emd++;
+                        if (emc == 1) {
+                            eme = this.errorCode;
                         }
                     }
-                    if (elY == 2) {
-                        u.b("T2A", ema, this.errorCode, elZ);
-                        this.emd = false;
+                    if (emc == 2) {
+                        u.b("T2A", eme, this.errorCode, emd);
+                        this.emh = false;
                     }
                 }
                 if (bArr != null) {
@@ -284,16 +284,16 @@ public class i implements a.InterfaceC0019a {
                 } else {
                     this.dataSize = 0;
                 }
-                this.isGif = this.elV.isGif();
-                this.emc = this.elV.bjC();
-                int size = this.elR.mu().size();
+                this.isGif = this.elZ.isGif();
+                this.emg = this.elZ.bjC();
+                int size = this.elV.mu().size();
                 if (size > 0) {
                     sb.append("_ipsize:");
                     sb.append(size);
                     sb.append("_ips:");
                     while (i2 < size) {
-                        if (this.elR.mu().get(i2) != null) {
-                            sb.append(this.elR.mu().get(i2).Lk);
+                        if (this.elV.mu().get(i2) != null) {
+                            sb.append(this.elV.mu().get(i2).Lk);
                         }
                         if (i2 != size - 1) {
                             sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
@@ -301,28 +301,28 @@ public class i implements a.InterfaceC0019a {
                         i2++;
                     }
                 }
-                this.elX = this.elR.mv();
-                if (this.elX != null) {
+                this.emb = this.elV.mv();
+                if (this.emb != null) {
                     StringBuilder sb2 = new StringBuilder();
-                    com.baidu.adp.lib.network.http.d dVar = this.elX;
+                    com.baidu.adp.lib.network.http.d dVar = this.emb;
                     dVar.exception = sb2.append(dVar.exception).append(sb.toString()).toString();
                     StringBuilder sb3 = new StringBuilder();
-                    com.baidu.adp.lib.network.http.d dVar2 = this.elX;
+                    com.baidu.adp.lib.network.http.d dVar2 = this.emb;
                     dVar2.exception = sb3.append(dVar2.exception).append("_responseCode:").append(this.responseCode).toString();
                     StringBuilder sb4 = new StringBuilder();
-                    com.baidu.adp.lib.network.http.d dVar3 = this.elX;
+                    com.baidu.adp.lib.network.http.d dVar3 = this.emb;
                     dVar3.exception = sb4.append(dVar3.exception).append("_size:").append(Integer.toString(this.dataSize)).toString();
                 }
                 return bArr;
             } catch (Throwable th) {
-                int size2 = this.elR.mu().size();
+                int size2 = this.elV.mu().size();
                 if (size2 > 0) {
                     sb.append("_ipsize:");
                     sb.append(size2);
                     sb.append("_ips:");
                     while (i2 < size2) {
-                        if (this.elR.mu().get(i2) != null) {
-                            sb.append(this.elR.mu().get(i2).Lk);
+                        if (this.elV.mu().get(i2) != null) {
+                            sb.append(this.elV.mu().get(i2).Lk);
                         }
                         if (i2 != size2 - 1) {
                             sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
@@ -330,30 +330,30 @@ public class i implements a.InterfaceC0019a {
                         i2++;
                     }
                 }
-                this.elX = this.elR.mv();
-                if (this.elX != null) {
+                this.emb = this.elV.mv();
+                if (this.emb != null) {
                     StringBuilder sb5 = new StringBuilder();
-                    com.baidu.adp.lib.network.http.d dVar4 = this.elX;
+                    com.baidu.adp.lib.network.http.d dVar4 = this.emb;
                     dVar4.exception = sb5.append(dVar4.exception).append(sb.toString()).toString();
                     StringBuilder sb6 = new StringBuilder();
-                    com.baidu.adp.lib.network.http.d dVar5 = this.elX;
+                    com.baidu.adp.lib.network.http.d dVar5 = this.emb;
                     dVar5.exception = sb6.append(dVar5.exception).append("_responseCode:").append(this.responseCode).toString();
                     StringBuilder sb7 = new StringBuilder();
-                    com.baidu.adp.lib.network.http.d dVar6 = this.elX;
+                    com.baidu.adp.lib.network.http.d dVar6 = this.emb;
                     dVar6.exception = sb7.append(dVar6.exception).append("_size:").append(Integer.toString(this.dataSize)).toString();
                 }
                 throw th;
             }
         } catch (Exception e2) {
             sb.append("_httpclienterr_" + e2.getClass() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + e2.getMessage());
-            int size3 = this.elR.mu().size();
+            int size3 = this.elV.mu().size();
             if (size3 > 0) {
                 sb.append("_ipsize:");
                 sb.append(size3);
                 sb.append("_ips:");
                 while (i2 < size3) {
-                    if (this.elR.mu().get(i2) != null) {
-                        sb.append(this.elR.mu().get(i2).Lk);
+                    if (this.elV.mu().get(i2) != null) {
+                        sb.append(this.elV.mu().get(i2).Lk);
                     }
                     if (i2 != size3 - 1) {
                         sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
@@ -361,16 +361,16 @@ public class i implements a.InterfaceC0019a {
                     i2++;
                 }
             }
-            this.elX = this.elR.mv();
-            if (this.elX != null) {
+            this.emb = this.elV.mv();
+            if (this.emb != null) {
                 StringBuilder sb8 = new StringBuilder();
-                com.baidu.adp.lib.network.http.d dVar7 = this.elX;
+                com.baidu.adp.lib.network.http.d dVar7 = this.emb;
                 dVar7.exception = sb8.append(dVar7.exception).append(sb.toString()).toString();
                 StringBuilder sb9 = new StringBuilder();
-                com.baidu.adp.lib.network.http.d dVar8 = this.elX;
+                com.baidu.adp.lib.network.http.d dVar8 = this.emb;
                 dVar8.exception = sb9.append(dVar8.exception).append("_responseCode:").append(this.responseCode).toString();
                 StringBuilder sb10 = new StringBuilder();
-                com.baidu.adp.lib.network.http.d dVar9 = this.elX;
+                com.baidu.adp.lib.network.http.d dVar9 = this.emb;
                 dVar9.exception = sb10.append(dVar9.exception).append("_size:").append(Integer.toString(this.dataSize)).toString();
             }
             return null;
@@ -394,8 +394,8 @@ public class i implements a.InterfaceC0019a {
             stringBuffer.append(str);
             stringBuffer.append("thread_id:");
             stringBuffer.append(Thread.currentThread().getId());
-            for (int i = 0; i < this.elR.mu().size(); i++) {
-                com.baidu.adp.lib.network.http.d dVar = this.elR.mu().get(i);
+            for (int i = 0; i < this.elV.mu().size(); i++) {
+                com.baidu.adp.lib.network.http.d dVar = this.elV.mu().get(i);
                 stringBuffer.append(" index: ");
                 stringBuffer.append(i);
                 stringBuffer.append("exception:");
@@ -429,7 +429,7 @@ public class i implements a.InterfaceC0019a {
             this.exception = stringBuffer.toString();
         } catch (Exception e) {
         } finally {
-            this.emb = false;
+            this.emf = false;
         }
     }
 
@@ -438,16 +438,16 @@ public class i implements a.InterfaceC0019a {
         if (this.HY != null) {
             this.HY.cancel();
         }
-        if (this.elV != null) {
-            this.elV.cancel();
-            this.elV = null;
+        if (this.elZ != null) {
+            this.elZ.cancel();
+            this.elZ = null;
         }
     }
 
     public boolean bjG() {
-        if (this.elV == null) {
+        if (this.elZ == null) {
             return false;
         }
-        return this.elV.elL;
+        return this.elZ.elP;
     }
 }

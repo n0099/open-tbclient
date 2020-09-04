@@ -5,7 +5,7 @@ import com.baidu.swan.apps.adlanding.download.model.SwanAdDownloadState;
 public class a {
     public String name;
     public String url;
-    public SwanAdDownloadState dkj = SwanAdDownloadState.NOT_START;
+    public SwanAdDownloadState dkn = SwanAdDownloadState.NOT_START;
     public int percent = Integer.parseInt("0");
 
     private a() {

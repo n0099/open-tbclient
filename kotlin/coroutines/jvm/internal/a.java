@@ -4,7 +4,7 @@ import kotlin.h;
 @h
 /* loaded from: classes20.dex */
 public final class a implements kotlin.coroutines.a<Object> {
-    public static final a osi = new a();
+    public static final a osA = new a();
 
     private a() {
     }

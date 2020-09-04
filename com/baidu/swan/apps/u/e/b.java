@@ -7,47 +7,47 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String cwE;
-    public com.baidu.swan.apps.ap.e.b<b> cwF;
-    private final List<a> cwG = new ArrayList();
-    private String cwH = b.class.getPackage().getName();
+    private String cwI;
+    public com.baidu.swan.apps.ap.e.b<b> cwJ;
+    private final List<a> cwK = new ArrayList();
+    private String cwL = b.class.getPackage().getName();
 
-    public b nS(String str) {
-        this.cwE = str;
+    public b nT(String str) {
+        this.cwI = str;
         return this;
     }
 
     public String arr() {
-        return this.cwE;
+        return this.cwI;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized List<a> ars() {
-        return new ArrayList(this.cwG);
+        return new ArrayList(this.cwK);
     }
 
     public synchronized a aro() {
         a aVar;
         aVar = new a();
-        this.cwG.add(aVar);
+        this.cwK.add(aVar);
         return aVar;
     }
 
-    public synchronized a nR(String str) {
-        return aro().nU(str);
+    public synchronized a nS(String str) {
+        return aro().nV(str);
     }
 
     public synchronized a bK(String str, String str2) {
-        return nR(str2).nT(str);
+        return nS(str2).nU(str);
     }
 
     public b q(com.baidu.swan.apps.ap.e.b<b> bVar) {
-        this.cwF = bVar;
+        this.cwJ = bVar;
         return this;
     }
 
     public synchronized b art() {
-        return r(this.cwF);
+        return r(this.cwJ);
     }
 
     public synchronized b r(com.baidu.swan.apps.ap.e.b<b> bVar) {
@@ -60,33 +60,33 @@ public final class b {
 
     /* loaded from: classes8.dex */
     public class a {
-        final List<String> cwI;
-        private final List<StackTraceElement> cwJ;
-        final /* synthetic */ b cwK;
+        final List<String> cwM;
+        private final List<StackTraceElement> cwN;
+        final /* synthetic */ b cwO;
         final List<String> msgs;
         String tag;
 
         private a(b bVar) {
             StackTraceElement[] stackTrace;
-            this.cwK = bVar;
+            this.cwO = bVar;
             this.msgs = new ArrayList();
-            this.cwI = new ArrayList();
-            this.cwJ = new ArrayList();
+            this.cwM = new ArrayList();
+            this.cwN = new ArrayList();
             int i = 0;
             for (StackTraceElement stackTraceElement : Thread.currentThread().getStackTrace()) {
                 i++;
-                if (i > 2 && !stackTraceElement.getClassName().startsWith(bVar.cwH)) {
-                    this.cwJ.add(stackTraceElement);
+                if (i > 2 && !stackTraceElement.getClassName().startsWith(bVar.cwL)) {
+                    this.cwN.add(stackTraceElement);
                 }
             }
         }
 
-        public a nT(String str) {
+        public a nU(String str) {
             this.tag = str;
             return this;
         }
 
-        public synchronized a nU(String str) {
+        public synchronized a nV(String str) {
             List<String> list = this.msgs;
             if (TextUtils.isEmpty(str)) {
                 str = "";
@@ -96,16 +96,16 @@ public final class b {
         }
 
         public synchronized a aru() {
-            return m34if(this.cwJ.size());
+            return m34if(this.cwN.size());
         }
 
         /* renamed from: if  reason: not valid java name */
         public synchronized a m34if(int i) {
             synchronized (this) {
                 int i2 = i >= 1 ? i : 1;
-                int size = i2 > this.cwJ.size() ? this.cwJ.size() : i2;
+                int size = i2 > this.cwN.size() ? this.cwN.size() : i2;
                 for (int i3 = 0; i3 < size; i3++) {
-                    this.cwK.nR("[Trace]==> " + this.cwJ.get(i3).toString());
+                    this.cwO.nS("[Trace]==> " + this.cwN.get(i3).toString());
                 }
             }
             return this;
@@ -128,7 +128,7 @@ public final class b {
         /* renamed from: a */
         public void I(b bVar) {
             if (b.DEBUG) {
-                for (a aVar : bVar.cwG) {
+                for (a aVar : bVar.cwK) {
                     for (String str : aVar.msgs) {
                         String arr = bVar.arr();
                         E(TextUtils.isEmpty(aVar.tag) ? arr : aVar.tag, arr + " >>> " + str);

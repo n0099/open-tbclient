@@ -14,13 +14,13 @@ public class j extends g {
 
     @Override // com.baidu.swan.apps.media.b.a.g
     public boolean a(com.baidu.swan.apps.media.b.a aVar, com.baidu.swan.apps.media.b.c cVar, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        com.baidu.swan.apps.console.c.i("video", "sendDanmu, video id:" + cVar.cyk + " slave id: " + cVar.caU);
-        a(aVar, cVar.cCp, unitedSchemeEntity, callbackHandler);
+        com.baidu.swan.apps.console.c.i("video", "sendDanmu, video id:" + cVar.cyo + " slave id: " + cVar.caY);
+        a(aVar, cVar.cCt, unitedSchemeEntity, callbackHandler);
         return true;
     }
 
     private void a(com.baidu.swan.apps.media.b.a aVar, String str, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        aVar.ni(str);
+        aVar.nj(str);
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
     }
 }

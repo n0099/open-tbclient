@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class j {
-    public static void zO(String str) {
+    public static void zP(String str) {
         int i;
         CustomResponsedMessage runTask;
         int i2 = 0;

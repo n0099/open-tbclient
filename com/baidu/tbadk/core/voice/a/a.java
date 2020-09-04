@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.voice.a;
 
 import com.baidu.adp.lib.voice.h;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
     public String md5 = null;
     public String path = null;

@@ -65,10 +65,10 @@ public class aa {
     public static long a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    private static final LinkedList<Pair<Integer, ii>> f831a = new LinkedList<>();
+    private static final LinkedList<Pair<Integer, ii>> f830a = new LinkedList<>();
 
     /* renamed from: a  reason: collision with other field name */
-    private static ExecutorService f832a = Executors.newCachedThreadPool();
+    private static ExecutorService f831a = Executors.newCachedThreadPool();
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes7.dex */
@@ -76,33 +76,33 @@ public class aa {
         private Context a;
 
         /* renamed from: a  reason: collision with other field name */
-        private String f833a;
+        private String f832a;
 
         /* renamed from: a  reason: collision with other field name */
-        private boolean f834a;
+        private boolean f833a;
 
         public a(String str, Context context, boolean z) {
             this.a = context;
-            this.f833a = str;
-            this.f834a = z;
+            this.f832a = str;
+            this.f833a = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
         public Bitmap call() {
-            if (TextUtils.isEmpty(this.f833a)) {
+            if (TextUtils.isEmpty(this.f832a)) {
                 com.xiaomi.channel.commonutils.logger.b.m54a("Failed get online picture/icon resource cause picUrl is empty");
                 return null;
-            } else if (this.f833a.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                ai.b a = ai.a(this.a, this.f833a, this.f834a);
+            } else if (this.f832a.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
+                ai.b a = ai.a(this.a, this.f832a, this.f833a);
                 if (a != null) {
-                    return a.f846a;
+                    return a.f845a;
                 }
                 com.xiaomi.channel.commonutils.logger.b.m54a("Failed get online picture/icon resource");
                 return null;
             } else {
-                Bitmap a2 = ai.a(this.a, this.f833a);
+                Bitmap a2 = ai.a(this.a, this.f832a);
                 if (a2 == null) {
                     com.xiaomi.channel.commonutils.logger.b.m54a("Failed get online picture/icon resource");
                     return a2;
@@ -117,7 +117,7 @@ public class aa {
         long a = 0;
 
         /* renamed from: a  reason: collision with other field name */
-        Notification f835a;
+        Notification f834a;
     }
 
     /* loaded from: classes7.dex */
@@ -125,7 +125,7 @@ public class aa {
         public long a = 0;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f836a;
+        public String f835a;
     }
 
     static int a(Context context, String str) {
@@ -218,9 +218,9 @@ public class aa {
             i2 = 3000;
         }
         String m377a = hzVar != null ? hzVar.m377a() : "";
-        if (hzVar != null && !TextUtils.isEmpty(hzVar.f522e)) {
+        if (hzVar != null && !TextUtils.isEmpty(hzVar.f521e)) {
             Intent intent2 = new Intent("android.intent.action.VIEW");
-            intent2.setData(Uri.parse(hzVar.f522e));
+            intent2.setData(Uri.parse(hzVar.f521e));
             intent2.addFlags(268435456);
             intent2.putExtra("messageId", m377a);
             intent2.putExtra("eventMessageType", i2);
@@ -235,7 +235,7 @@ public class aa {
             intent.addCategory(String.valueOf(m377a));
         } else {
             intent = new Intent("com.xiaomi.mipush.RECEIVE_MESSAGE");
-            intent.setComponent(new ComponentName(iiVar.f607b, "com.xiaomi.mipush.sdk.PushMessageHandler"));
+            intent.setComponent(new ComponentName(iiVar.f606b, "com.xiaomi.mipush.sdk.PushMessageHandler"));
             intent.putExtra("mipush_payload", bArr);
             intent.putExtra("mipush_notified", true);
             intent.addCategory(String.valueOf(i));
@@ -243,10 +243,10 @@ public class aa {
         }
         intent.putExtra("messageId", m377a);
         intent.putExtra("eventMessageType", i2);
-        if (f.b(context, iiVar.f607b, "com.xiaomi.mipush.MESSAGE_CLICKED")) {
+        if (f.b(context, iiVar.f606b, "com.xiaomi.mipush.MESSAGE_CLICKED")) {
             Intent intent3 = new Intent();
             intent3.setAction("com.xiaomi.mipush.MESSAGE_CLICKED");
-            intent3.setClassName(iiVar.f607b, "com.xiaomi.mipush.sdk.BridgeActivity");
+            intent3.setClassName(iiVar.f606b, "com.xiaomi.mipush.sdk.BridgeActivity");
             intent3.addFlags(276824064);
             intent3.putExtra("mipush_serviceIntent", intent);
             intent3.addCategory(String.valueOf(i));
@@ -366,7 +366,7 @@ public class aa {
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
     private static Bitmap a(Context context, String str, boolean z) {
-        Future submit = f832a.submit(new a(str, context, z));
+        Future submit = f831a.submit(new a(str, context, z));
         try {
             try {
                 Bitmap bitmap = (Bitmap) submit.get(180L, TimeUnit.SECONDS);
@@ -584,7 +584,7 @@ public class aa {
             if (str4.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
                 ai.b a13 = ai.a(context, str4, true);
                 if (a13 != null) {
-                    bitmap = a13.f846a;
+                    bitmap = a13.f845a;
                     bVar.a = a13.a;
                 }
             } else {
@@ -615,7 +615,7 @@ public class aa {
                 Uri uri = null;
                 if (currentTimeMillis - a > 10000) {
                     a = currentTimeMillis;
-                    i2 = m536b(context, a6) ? a(context, a6) : m418a.f509a;
+                    i2 = m536b(context, a6) ? a(context, a6) : m418a.f508a;
                     a8.setDefaults(i2);
                     if (m378a != null && (i2 & 1) != 0) {
                         String str5 = m378a.get("sound_uri");
@@ -726,7 +726,7 @@ public class aa {
                                     com.xiaomi.push.ba.a(a3, "setEnableFloat", Boolean.valueOf(Boolean.parseBoolean(m378a.get("enable_float"))));
                                 }
                             }
-                            bVar.f835a = notification;
+                            bVar.f834a = notification;
                             return bVar;
                         }
                     }
@@ -753,7 +753,7 @@ public class aa {
                     if (!TextUtils.isEmpty(m378a.get("enable_float"))) {
                     }
                 }
-                bVar.f835a = notification;
+                bVar.f834a = notification;
                 return bVar;
             }
         }
@@ -791,7 +791,7 @@ public class aa {
         }
         if (m378a != null) {
         }
-        bVar.f835a = notification;
+        bVar.f834a = notification;
         return bVar;
     }
 
@@ -822,8 +822,8 @@ public class aa {
         if (Build.VERSION.SDK_INT >= 11) {
             b a4 = a(context, iiVar, bArr, a2, a3);
             cVar.a = a4.a;
-            cVar.f836a = a(iiVar);
-            notification = a4.f835a;
+            cVar.f835a = a(iiVar);
+            notification = a4.f834a;
         } else {
             Notification notification2 = new Notification(b(context, a(iiVar)), null, System.currentTimeMillis());
             String[] a5 = a(context, m418a2);
@@ -857,7 +857,7 @@ public class aa {
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - a > 10000) {
                 a = currentTimeMillis;
-                int a6 = m536b(context, a(iiVar)) ? a(context, a(iiVar)) : m418a2.f509a;
+                int a6 = m536b(context, a(iiVar)) ? a(context, a(iiVar)) : m418a2.f508a;
                 notification2.defaults = a6;
                 if (m378a != null && (a6 & 1) != 0) {
                     String str = m378a.get("sound_uri");
@@ -923,10 +923,10 @@ public class aa {
             }
         }
         Pair<Integer, ii> pair = new Pair<>(Integer.valueOf(hashCode), iiVar);
-        synchronized (f831a) {
-            f831a.add(pair);
-            if (f831a.size() > 100) {
-                f831a.remove();
+        synchronized (f830a) {
+            f830a.add(pair);
+            if (f830a.size() > 100) {
+                f830a.remove();
             }
         }
         return cVar;
@@ -939,13 +939,13 @@ public class aa {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String a(ii iiVar) {
         hz m418a;
-        if ("com.xiaomi.xmsf".equals(iiVar.f607b) && (m418a = iiVar.m418a()) != null && m418a.m378a() != null) {
+        if ("com.xiaomi.xmsf".equals(iiVar.f606b) && (m418a = iiVar.m418a()) != null && m418a.m378a() != null) {
             String str = m418a.m378a().get("miui_package_name");
             if (!TextUtils.isEmpty(str)) {
                 return str;
             }
         }
-        return iiVar.f607b;
+        return iiVar.f606b;
     }
 
     private static void a(Notification notification, int i) {
@@ -967,8 +967,8 @@ public class aa {
         if (i >= 0) {
             notificationManager.cancel(hashCode);
         }
-        synchronized (f831a) {
-            Iterator<Pair<Integer, ii>> it = f831a.iterator();
+        synchronized (f830a) {
+            Iterator<Pair<Integer, ii>> it = f830a.iterator();
             while (it.hasNext()) {
                 Pair<Integer, ii> next = it.next();
                 ii iiVar = (ii) next.second;
@@ -984,8 +984,8 @@ public class aa {
                     }
                 }
             }
-            if (f831a != null) {
-                f831a.removeAll(linkedList);
+            if (f830a != null) {
+                f830a.removeAll(linkedList);
                 a(context, linkedList);
             }
         }
@@ -997,8 +997,8 @@ public class aa {
         }
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
         LinkedList linkedList = new LinkedList();
-        synchronized (f831a) {
-            Iterator<Pair<Integer, ii>> it = f831a.iterator();
+        synchronized (f830a) {
+            Iterator<Pair<Integer, ii>> it = f830a.iterator();
             while (it.hasNext()) {
                 Pair<Integer, ii> next = it.next();
                 ii iiVar = (ii) next.second;
@@ -1015,8 +1015,8 @@ public class aa {
                     }
                 }
             }
-            if (f831a != null) {
-                f831a.removeAll(linkedList);
+            if (f830a != null) {
+                f830a.removeAll(linkedList);
                 a(context, linkedList);
             }
         }
@@ -1154,7 +1154,7 @@ public class aa {
     /* renamed from: b  reason: collision with other method in class */
     public static boolean m537b(ii iiVar) {
         hz m418a = iiVar.m418a();
-        return a(m418a) && m418a.f515b == 1 && !m533a(iiVar);
+        return a(m418a) && m418a.f514b == 1 && !m533a(iiVar);
     }
 
     private static int c(Map<String, String> map) {
@@ -1175,7 +1175,7 @@ public class aa {
 
     public static boolean c(ii iiVar) {
         hz m418a = iiVar.m418a();
-        return a(m418a) && m418a.f515b == 0 && !m533a(iiVar);
+        return a(m418a) && m418a.f514b == 0 && !m533a(iiVar);
     }
 
     public static boolean d(ii iiVar) {

@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.data;
 
 import java.io.Serializable;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class SystemMsgData implements Serializable {
     private static final long serialVersionUID = -4218611013851599074L;
     private String content;

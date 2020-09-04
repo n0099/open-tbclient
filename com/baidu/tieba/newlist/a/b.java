@@ -10,12 +10,12 @@ import com.baidu.tbadk.h.f;
 import com.baidu.tieba.newlist.view.HotTopicListInfoItem;
 /* loaded from: classes15.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.newlist.b.b, a> {
-    private f<com.baidu.tieba.newlist.b.b> iLk;
+    private f<com.baidu.tieba.newlist.b.b> iLq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.newlist.b.a.ksU);
-        this.iLk = new f<com.baidu.tieba.newlist.b.b>() { // from class: com.baidu.tieba.newlist.a.b.1
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.newlist.b.a.ktb);
+        this.iLq = new f<com.baidu.tieba.newlist.b.b>() { // from class: com.baidu.tieba.newlist.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.h.f
             public void a(View view, com.baidu.tieba.newlist.b.b bVar, int i, long j) {
@@ -37,7 +37,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.newlist.b
     /* renamed from: bY */
     public a b(ViewGroup viewGroup) {
         HotTopicListInfoItem hotTopicListInfoItem = new HotTopicListInfoItem(viewGroup.getContext());
-        hotTopicListInfoItem.setOnItemCoverListener(this.iLk);
+        hotTopicListInfoItem.setOnItemCoverListener(this.iLq);
         hotTopicListInfoItem.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
         a aVar = new a(hotTopicListInfoItem);
         aVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -59,21 +59,21 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.newlist.b
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes15.dex */
     public static class a extends af.a {
-        private HotTopicListInfoItem ksT;
+        private HotTopicListInfoItem kta;
 
         a(HotTopicListInfoItem hotTopicListInfoItem) {
             super(hotTopicListInfoItem);
-            this.ksT = hotTopicListInfoItem;
+            this.kta = hotTopicListInfoItem;
         }
 
         void a(com.baidu.tieba.newlist.b.b bVar) {
             if (bVar != null) {
-                this.ksT.a(bVar);
+                this.kta.a(bVar);
             }
         }
 
         void onChangeSkinType(int i) {
-            this.ksT.onChangeSkinType(i);
+            this.kta.onChangeSkinType(i);
         }
     }
 }

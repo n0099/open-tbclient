@@ -12,7 +12,7 @@ import tbclient.MemeInfo;
 import tbclient.NativeApp;
 import tbclient.PbContent;
 import tbclient.TogetherHi;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class aw {
     public static ArrayList<PbContent> Q(JSONArray jSONArray) throws JSONException {
         if (jSONArray == null) {

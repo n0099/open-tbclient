@@ -7,13 +7,13 @@ import android.widget.AbsListView;
 import com.baidu.tbadk.editortools.view.CommonTabContentView;
 import com.baidu.tbadk.editortools.view.a;
 import java.util.LinkedList;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class i extends com.baidu.tbadk.editortools.view.a {
-    LinkedList<h> eKy;
+    LinkedList<h> eKC;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void g(LinkedList<h> linkedList) {
-        this.eKy = linkedList;
+        this.eKC = linkedList;
     }
 
     @Override // com.baidu.tbadk.editortools.b
@@ -25,13 +25,13 @@ public class i extends com.baidu.tbadk.editortools.view.a {
         if (i < 0 || i >= getCount()) {
             return null;
         }
-        return (DLauncher) this.eKy.get(i);
+        return (DLauncher) this.eKC.get(i);
     }
 
     @Override // com.baidu.tbadk.editortools.view.a
     public int getCount() {
-        if (this.eKy != null) {
-            return this.eKy.size();
+        if (this.eKC != null) {
+            return this.eKC.size();
         }
         return 0;
     }
@@ -50,12 +50,12 @@ public class i extends com.baidu.tbadk.editortools.view.a {
                 return qf;
             }
         });
-        bsH().c(this);
+        bsI().c(this);
         a(new CommonTabContentView.b() { // from class: com.baidu.tbadk.editortools.i.2
             @Override // com.baidu.tbadk.editortools.view.CommonTabContentView.b
             public void b(View view, int i, long j) {
-                if (view.isEnabled() && (view instanceof DLauncher) && i.this.aay != null) {
-                    i.this.aay.bp(view);
+                if (view.isEnabled() && (view instanceof DLauncher) && i.this.aaA != null) {
+                    i.this.aaA.bp(view);
                 }
             }
         });
@@ -63,9 +63,9 @@ public class i extends com.baidu.tbadk.editortools.view.a {
 
     @Override // com.baidu.tbadk.editortools.view.a
     public void exit() {
-        if (this.eKy != null) {
-            this.eKy.clear();
+        if (this.eKC != null) {
+            this.eKC.clear();
         }
-        this.eKy = null;
+        this.eKC = null;
     }
 }

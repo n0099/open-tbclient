@@ -7,8 +7,8 @@ import com.baidu.webkit.internal.GlobalConstants;
 import java.io.File;
 /* loaded from: classes3.dex */
 public class a {
-    private static final String dMQ = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "zeus" + File.separator + "libs";
-    public static final String cmk = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "swan_so_lite" + File.separator + "libs";
+    private static final String dMU = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "zeus" + File.separator + "libs";
+    public static final String cmo = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "swan_so_lite" + File.separator + "libs";
 
     @SuppressLint({"ApplySharedPref"})
     public static void aXw() {
@@ -16,7 +16,7 @@ public class a {
     }
 
     public static boolean aXx() {
-        return new File(new StringBuilder().append(dMQ).append(File.separator).append(GlobalConstants.LIB_ZEUS_CHROMIUM).toString()).exists() && ajv();
+        return new File(new StringBuilder().append(dMU).append(File.separator).append(GlobalConstants.LIB_ZEUS_CHROMIUM).toString()).exists() && ajv();
     }
 
     public static boolean ajv() {
@@ -24,7 +24,7 @@ public class a {
     }
 
     @SuppressLint({"ApplySharedPref"})
-    public static void hr(boolean z) {
+    public static void hs(boolean z) {
         PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).edit().putBoolean("swan_full_install", z).commit();
     }
 }

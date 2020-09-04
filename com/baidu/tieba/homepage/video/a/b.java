@@ -24,17 +24,17 @@ import com.baidu.tieba.play.o;
 import com.tencent.connect.common.Constants;
 /* loaded from: classes16.dex */
 public class b extends com.baidu.adp.widget.ListView.a<m, com.baidu.card.a<m>> {
-    private aa<m> aeT;
-    private v akI;
-    private BdUniqueId ePv;
-    private as hBc;
-    private com.baidu.tieba.homepage.personalize.model.e iOg;
+    private aa<m> aeV;
+    private v akK;
+    private BdUniqueId ePz;
+    private as hBi;
+    private com.baidu.tieba.homepage.personalize.model.e iOm;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(View view, m mVar) {
-        if (this.hBc != null && this.hBc.tW() != null && this.hBc.tW().djM() != null) {
-            if (view.getId() == this.hBc.tW().djM().getId()) {
+        if (this.hBi != null && this.hBi.tW() != null && this.hBi.tW().djP() != null) {
+            if (view.getId() == this.hBi.tW().djP().getId()) {
                 com.baidu.tieba.homepage.video.c.a.r(mVar);
             } else if (view.getId() == R.id.thread_card_root) {
                 com.baidu.tieba.homepage.video.c.a.p(mVar);
@@ -45,16 +45,16 @@ public class b extends com.baidu.adp.widget.ListView.a<m, com.baidu.card.a<m>> {
     /* JADX INFO: Access modifiers changed from: protected */
     public b(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.aeT = new aa<m>() { // from class: com.baidu.tieba.homepage.video.a.b.1
+        this.aeV = new aa<m>() { // from class: com.baidu.tieba.homepage.video.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             /* renamed from: b */
             public void a(View view, m mVar) {
                 if (view != null && mVar != null && mVar.bce() != null) {
                     b.this.a(view, mVar);
-                    if (b.this.iOg != null && (view.getTag() instanceof String) && !com.baidu.tieba.homepage.personalize.f.eP(com.baidu.adp.lib.f.b.toLong(mVar.bce().getTid(), 0L))) {
+                    if (b.this.iOm != null && (view.getTag() instanceof String) && !com.baidu.tieba.homepage.personalize.f.eP(com.baidu.adp.lib.f.b.toLong(mVar.bce().getTid(), 0L))) {
                         com.baidu.tieba.homepage.personalize.f.eO(com.baidu.adp.lib.f.b.toLong(mVar.bce().getTid(), 0L));
-                        b.this.iOg.a(com.baidu.adp.lib.f.b.toLong(mVar.bce().getTid(), 0L), mVar.getWeight(), mVar.getSource(), mVar.ccj(), mVar.cck(), com.baidu.adp.lib.f.b.toInt("3", 1), "video_tab", mVar.bce().getBaijiahaoData());
+                        b.this.iOm.a(com.baidu.adp.lib.f.b.toLong(mVar.bce().getTid(), 0L), mVar.getWeight(), mVar.getSource(), mVar.cck(), mVar.ccl(), com.baidu.adp.lib.f.b.toInt("3", 1), "video_tab", mVar.bce().getBaijiahaoData());
                     }
                 }
             }
@@ -63,7 +63,7 @@ public class b extends com.baidu.adp.widget.ListView.a<m, com.baidu.card.a<m>> {
     }
 
     public void a(v vVar) {
-        this.akI = vVar;
+        this.akK = vVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -89,15 +89,15 @@ public class b extends com.baidu.adp.widget.ListView.a<m, com.baidu.card.a<m>> {
                 }
             }
         });
-        this.hBc = gVar;
-        this.hBc.setPageUniqueId(this.ePv);
-        this.hBc.setFrom("video_tab");
-        this.hBc.setStageType("2001");
-        aVar.c(this.hBc);
-        aj a = aVar.a(false, viewGroup, this.akI);
+        this.hBi = gVar;
+        this.hBi.setPageUniqueId(this.ePz);
+        this.hBi.setFrom("video_tab");
+        this.hBi.setStageType("2001");
+        aVar.c(this.hBi);
+        aj a = aVar.a(false, viewGroup, this.akK);
         com.baidu.card.a<m> aVar2 = new com.baidu.card.a<>(a);
-        aVar2.setPageId(this.ePv);
-        a.a(this.aeT);
+        aVar2.setPageId(this.ePz);
+        a.a(this.aeV);
         a.setSourceForPb(19);
         a(new ab() { // from class: com.baidu.tieba.homepage.video.a.b.3
             @Override // com.baidu.adp.widget.ListView.ab
@@ -106,8 +106,8 @@ public class b extends com.baidu.adp.widget.ListView.a<m, com.baidu.card.a<m>> {
                     al alVar = (al) view.getTag();
                     m mVar = (m) qVar;
                     mVar.objType = 1;
-                    if (b.this.aeT != null) {
-                        b.this.aeT.a(alVar.getView(), mVar);
+                    if (b.this.aeV != null) {
+                        b.this.aeV.a(alVar.getView(), mVar);
                     }
                     com.baidu.tieba.homepage.video.c.a.a(mVar, view.getContext(), 19, false, com.baidu.card.f.a((v) viewGroup2, view, i));
                     alVar.tR().b(new a.C0095a(1));
@@ -133,7 +133,7 @@ public class b extends com.baidu.adp.widget.ListView.a<m, com.baidu.card.a<m>> {
         com.baidu.tieba.homepage.video.c.a.n(mVar);
         aVar.b((com.baidu.card.a<m>) mVar);
         aVar.tR().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        aVar.tR().a(this.aeT);
+        aVar.tR().a(this.aeV);
         return aVar.getView();
     }
 
@@ -142,21 +142,21 @@ public class b extends com.baidu.adp.widget.ListView.a<m, com.baidu.card.a<m>> {
         if (mVar != null) {
             oVar = new o();
             oVar.mLocate = Constants.VIA_ACT_TYPE_NINETEEN;
-            oVar.akY = mVar.tid;
+            oVar.ala = mVar.tid;
             if (mVar.bce() != null) {
-                oVar.eVt = String.valueOf(mVar.bce().getFid());
-                oVar.ltl = mVar.bce().getNid();
+                oVar.eVx = String.valueOf(mVar.bce().getFid());
+                oVar.ltx = mVar.bce().getNid();
                 if (mVar.bce().beW() != null) {
-                    oVar.lth = mVar.bce().beW().video_md5;
-                    oVar.ltj = String.valueOf(mVar.bce().beW().is_vertical);
+                    oVar.ltt = mVar.bce().beW().video_md5;
+                    oVar.ltv = String.valueOf(mVar.bce().beW().is_vertical);
                 }
             }
-            oVar.dYo = mVar.getExtra();
+            oVar.dYs = mVar.getExtra();
             oVar.mSource = mVar.getSource();
-            oVar.ltg = mVar.cck();
-            oVar.ltd = mVar.getWeight();
+            oVar.lts = mVar.ccl();
+            oVar.lto = mVar.getWeight();
             oVar.mUid = TbadkCoreApplication.getCurrentAccount();
-            oVar.mFloor = String.valueOf(mVar.ccj());
+            oVar.mFloor = String.valueOf(mVar.cck());
             if (mVar.bce() != null && mVar.bce().getBaijiahaoData() != null) {
                 oVar.mNid = mVar.bce().getBaijiahaoData().oriUgcNid;
                 oVar.mVid = mVar.bce().getBaijiahaoData().oriUgcVid;
@@ -166,16 +166,16 @@ public class b extends com.baidu.adp.widget.ListView.a<m, com.baidu.card.a<m>> {
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.ePv = bdUniqueId;
+        this.ePz = bdUniqueId;
     }
 
     public void b(com.baidu.tieba.homepage.personalize.model.e eVar) {
-        this.iOg = eVar;
+        this.iOm = eVar;
     }
 
     public void onPause() {
-        if (this.hBc != null) {
-            this.hBc.onPause();
+        if (this.hBi != null) {
+            this.hBi.onPause();
         }
     }
 }

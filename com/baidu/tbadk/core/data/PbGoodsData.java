@@ -5,7 +5,7 @@ import com.baidu.searchbox.config.QuickPersistConfigConst;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.PbGoodsInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class PbGoodsData extends com.baidu.tieba.card.data.d implements Serializable {
     public String goodsUrlH5;
     public String linkFrom;

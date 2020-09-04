@@ -6,7 +6,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.util.ac;
 import com.baidu.tbadk.util.ad;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class Static {
     static {
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.IM_DELETE_IM_DB) { // from class: com.baidu.tieba.im.db.Static.1
@@ -17,10 +17,10 @@ public class Static {
                     ad.b(new ac<Void>() { // from class: com.baidu.tieba.im.db.Static.1.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.tbadk.util.ac
-                        /* renamed from: bBB */
+                        /* renamed from: bBC */
                         public Void doInBackground() {
                             if (customResponsedMessage.getData() instanceof String) {
-                                g.Kz((String) customResponsedMessage.getData());
+                                g.KA((String) customResponsedMessage.getData());
                                 return null;
                             }
                             return null;

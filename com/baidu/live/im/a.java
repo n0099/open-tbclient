@@ -11,46 +11,46 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class a extends com.baidu.live.im.data.a {
-    public static final BdUniqueId aYr = BdUniqueId.gen();
-    public static final BdUniqueId aYs = BdUniqueId.gen();
     public static final BdUniqueId aYt = BdUniqueId.gen();
     public static final BdUniqueId aYu = BdUniqueId.gen();
     public static final BdUniqueId aYv = BdUniqueId.gen();
-    private String aYw;
-    public SpannableStringBuilder aYx;
+    public static final BdUniqueId aYw = BdUniqueId.gen();
+    public static final BdUniqueId aYx = BdUniqueId.gen();
+    private String aYy;
+    public SpannableStringBuilder aYz;
 
     public String Iu() {
-        return this.aYw;
+        return this.aYy;
     }
 
-    public void gL(String str) {
-        this.aYw = str;
+    public void gM(String str) {
+        this.aYy = str;
     }
 
     @Override // com.baidu.live.adp.widget.listview.IAdapterData
     public BdUniqueId getType() {
         if (getMsgType() == 24) {
-            return aYs;
-        }
-        if (getMsgType() == 13) {
-            return aYt;
-        }
-        if (getMsgType() == 26) {
-            return aYt;
-        }
-        if (getMsgType() == 125) {
             return aYu;
         }
-        if (getMsgType() == 27) {
-            return aYt;
-        }
-        if (getMsgType() == 12) {
-            return aYt;
-        }
-        if (getMsgType() == 28) {
+        if (getMsgType() == 13) {
             return aYv;
         }
-        return aYr;
+        if (getMsgType() == 26) {
+            return aYv;
+        }
+        if (getMsgType() == 125) {
+            return aYw;
+        }
+        if (getMsgType() == 27) {
+            return aYv;
+        }
+        if (getMsgType() == 12) {
+            return aYv;
+        }
+        if (getMsgType() == 28) {
+            return aYx;
+        }
+        return aYt;
     }
 
     public boolean H(JSONObject jSONObject) {
@@ -60,7 +60,7 @@ public class a extends com.baidu.live.im.data.a {
         l(jSONObject.optJSONArray("toUid"));
         setContent(jSONObject.optString("content"));
         ew(jSONObject.optInt("barrageType"));
-        gR(jSONObject.optString("barrageId"));
+        gS(jSONObject.optString("barrageId"));
         String optString = jSONObject.optString("barrageCard");
         if (!TextUtils.isEmpty(optString)) {
             try {

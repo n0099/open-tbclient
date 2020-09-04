@@ -4,5 +4,5 @@ import com.baidu.swan.pms.model.g;
 import java.util.List;
 /* loaded from: classes14.dex */
 public class d {
-    public List<g> dGc;
+    public List<g> dGg;
 }

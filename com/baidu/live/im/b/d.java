@@ -9,12 +9,12 @@ import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class d {
-    private List<AlaLiveMarkData> bao;
-    private boolean bbZ;
-    private String bca;
+    private List<AlaLiveMarkData> baq;
+    private boolean bcb;
+    private String bcc;
 
     public static d JD() {
-        return a.bcb;
+        return a.bcd;
     }
 
     private List<br> a(boolean z, int i, List<br> list, br[] brVarArr, br[] brVarArr2) {
@@ -22,9 +22,9 @@ public class d {
         if (list == null) {
             list = new ArrayList<>();
         }
-        boolean z3 = com.baidu.live.w.a.Nk().beH != null && com.baidu.live.w.a.Nk().beH.aHh && (TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isGuardThroneSwitchUnabled());
-        be beVar = com.baidu.live.w.a.Nk().bka;
-        boolean z4 = TbadkCoreApplication.getInst().isMobileBaidu() || !(beVar == null || beVar.aJB == null || beVar.aJB.aLv) || (TbadkCoreApplication.sAlaLiveSwitchData != null && TbadkCoreApplication.sAlaLiveSwitchData.isNobleInfoSwitchUnabled());
+        boolean z3 = com.baidu.live.w.a.Nk().beJ != null && com.baidu.live.w.a.Nk().beJ.aHj && (TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isGuardThroneSwitchUnabled());
+        be beVar = com.baidu.live.w.a.Nk().bkd;
+        boolean z4 = TbadkCoreApplication.getInst().isMobileBaidu() || !(beVar == null || beVar.aJD == null || beVar.aJD.aLx) || (TbadkCoreApplication.sAlaLiveSwitchData != null && TbadkCoreApplication.sAlaLiveSwitchData.isNobleInfoSwitchUnabled());
         boolean z5 = brVarArr != null && brVarArr.length > 0 && z3;
         boolean z6 = i > 2;
         if (brVarArr2 == null || brVarArr2.length <= 0 || z4) {
@@ -68,12 +68,12 @@ public class d {
 
     public br[] e(boolean z, int i) {
         List<br> list;
-        be beVar = com.baidu.live.w.a.Nk().bka;
-        if (beVar == null || beVar.aJB == null || !beVar.aJB.aLn || beVar.aJy == null) {
+        be beVar = com.baidu.live.w.a.Nk().bkd;
+        if (beVar == null || beVar.aJD == null || !beVar.aJD.aLp || beVar.aJA == null) {
             list = null;
         } else {
-            br[] brVarArr = beVar.aJy.aKr;
-            list = a(z, i, (brVarArr == null || brVarArr.length <= 0) ? null : new ArrayList(Arrays.asList(brVarArr)), beVar.aJy.aKx, beVar.aJy.aKy);
+            br[] brVarArr = beVar.aJA.aKt;
+            list = a(z, i, (brVarArr == null || brVarArr.length <= 0) ? null : new ArrayList(Arrays.asList(brVarArr)), beVar.aJA.aKz, beVar.aJA.aKA);
         }
         if (list == null || list.isEmpty()) {
             return null;
@@ -82,50 +82,50 @@ public class d {
     }
 
     public boolean JF() {
-        return this.bbZ;
+        return this.bcb;
     }
 
     public void setSwitchStatus(boolean z) {
-        this.bbZ = z;
+        this.bcb = z;
     }
 
     public String JG() {
-        return this.bca;
+        return this.bcc;
     }
 
     public void setSelectId(String str) {
-        this.bca = str;
+        this.bcc = str;
     }
 
     public List<AlaLiveMarkData> JH() {
-        return this.bao;
+        return this.baq;
     }
 
     public void O(List<AlaLiveMarkData> list) {
-        if (this.bao == null) {
-            this.bao = new ArrayList();
+        if (this.baq == null) {
+            this.baq = new ArrayList();
         }
-        this.bao.clear();
+        this.baq.clear();
         if (list != null && !list.isEmpty()) {
-            this.bao.addAll(list);
+            this.baq.addAll(list);
         }
     }
 
     public void release() {
-        this.bbZ = false;
-        this.bca = null;
-        if (this.bao != null) {
-            this.bao.clear();
+        this.bcb = false;
+        this.bcc = null;
+        if (this.baq != null) {
+            this.baq.clear();
         }
     }
 
     private d() {
-        this.bbZ = false;
+        this.bcb = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes7.dex */
     public static class a {
-        private static final d bcb = new d();
+        private static final d bcd = new d();
     }
 }

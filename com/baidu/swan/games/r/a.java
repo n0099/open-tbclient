@@ -12,7 +12,7 @@ public class a extends com.baidu.swan.games.bdtls.b.a {
             Log.d("requestWithUrlAndBody", "url:" + str + "\nbody:" + str2);
         }
         if (!TextUtils.isEmpty(str)) {
-            if (com.baidu.swan.games.bdtls.c.aLl().isEnable() && com.baidu.swan.games.bdtls.c.aLl().uE(str)) {
+            if (com.baidu.swan.games.bdtls.c.aLl().isEnable() && com.baidu.swan.games.bdtls.c.aLl().uF(str)) {
                 b(str, str2, responseCallback);
                 return;
             }

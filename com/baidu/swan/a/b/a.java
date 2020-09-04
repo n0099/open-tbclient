@@ -5,27 +5,27 @@ import java.util.Map;
 import okhttp3.RequestBody;
 /* loaded from: classes4.dex */
 public class a {
-    public ResponseCallback dEN;
+    public ResponseCallback dER;
     public Map<String, String> headers;
     public RequestBody requestBody;
     public Object tag;
     public String url;
     public String method = "GET";
-    public boolean dEO = false;
-    public boolean dEP = false;
-    public boolean dEQ = false;
+    public boolean dES = false;
+    public boolean dET = false;
+    public boolean dEU = false;
 
     public a() {
     }
 
     public a(String str, ResponseCallback responseCallback) {
         this.url = str;
-        this.dEN = responseCallback;
+        this.dER = responseCallback;
     }
 
     public a(String str, RequestBody requestBody, ResponseCallback responseCallback) {
         this.url = str;
         this.requestBody = requestBody;
-        this.dEN = responseCallback;
+        this.dER = responseCallback;
     }
 }

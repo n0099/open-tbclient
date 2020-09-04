@@ -25,16 +25,16 @@ import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import java.util.ArrayList;
 /* loaded from: classes16.dex */
 public class b extends com.baidu.adp.widget.ListView.a<bo, al<bo>> implements com.baidu.tieba.a.f {
-    private String agH;
-    private com.baidu.tbadk.h.f ahW;
-    private v akI;
-    public BdUniqueId ePv;
-    private NEGFeedBackView.a gjn;
+    private String agJ;
+    private com.baidu.tbadk.h.f ahY;
+    private v akK;
+    public BdUniqueId ePz;
+    private NEGFeedBackView.a gjr;
     private TbPageContext<?> mPageContext;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.ahW = new com.baidu.tbadk.h.f<MetaData>() { // from class: com.baidu.tieba.homepage.tabfeed.a.b.1
+        this.ahY = new com.baidu.tbadk.h.f<MetaData>() { // from class: com.baidu.tieba.homepage.tabfeed.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.h.f
             public void a(View view, MetaData metaData, int i, long j) {
@@ -51,7 +51,7 @@ public class b extends com.baidu.adp.widget.ListView.a<bo, al<bo>> implements co
                 }
             }
         };
-        this.gjn = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.tabfeed.a.b.2
+        this.gjr = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.tabfeed.a.b.2
             @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
             public void onNEGFeedbackWindowShow(ar arVar) {
             }
@@ -76,7 +76,7 @@ public class b extends com.baidu.adp.widget.ListView.a<bo, al<bo>> implements co
     }
 
     public void a(v vVar) {
-        this.akI = vVar;
+        this.akK = vVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -85,15 +85,15 @@ public class b extends com.baidu.adp.widget.ListView.a<bo, al<bo>> implements co
     /* renamed from: aQ */
     public al b(ViewGroup viewGroup) {
         aj.a aVar = new aj.a(this.mPageContext.getPageActivity(), false);
-        com.baidu.tieba.homepage.concern.view.b bVar = new com.baidu.tieba.homepage.concern.view.b(this.mPageContext, this.ePv);
-        bVar.setOnItemCoverListener(this.ahW);
+        com.baidu.tieba.homepage.concern.view.b bVar = new com.baidu.tieba.homepage.concern.view.b(this.mPageContext, this.ePz);
+        bVar.setOnItemCoverListener(this.ahY);
         aVar.c(bVar);
         aVar.tP().bv(0);
         aVar.tP().bx(0);
         aVar.tP().bw(0);
         aVar.tP().br(0);
-        al alVar = new al(aVar.a(true, viewGroup, this.akI));
-        alVar.setPageId(this.ePv);
+        al alVar = new al(aVar.a(true, viewGroup, this.akK));
+        alVar.setPageId(this.ePz);
         return alVar;
     }
 
@@ -106,7 +106,7 @@ public class b extends com.baidu.adp.widget.ListView.a<bo, al<bo>> implements co
         }
         alVar.tR().setPosition(i);
         if (alVar.tR() instanceof com.baidu.tieba.a.e) {
-            alVar.tR().setPage(this.agH);
+            alVar.tR().setPage(this.agJ);
         }
         alVar.b((al<bo>) boVar);
         alVar.tR().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
@@ -156,7 +156,7 @@ public class b extends com.baidu.adp.widget.ListView.a<bo, al<bo>> implements co
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Dj(String str) {
-        this.agH = str;
+    public void Dk(String str) {
+        this.agJ = str;
     }
 }

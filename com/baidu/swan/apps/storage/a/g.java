@@ -30,16 +30,16 @@ public class g extends aa {
             return false;
         }
         String string = eVar.azT().aCP().getString(aA, null);
-        if (string == null && com.baidu.swan.apps.storage.c.cXT) {
+        if (string == null && com.baidu.swan.apps.storage.c.cXX) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1002, "data not found");
             return false;
         }
-        JSONObject jQ = com.baidu.swan.apps.api.module.i.a.jQ(string);
-        if (jQ == null) {
+        JSONObject jR = com.baidu.swan.apps.api.module.i.a.jR(string);
+        if (jR == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "JSONException");
             return false;
         }
-        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jQ, 0);
+        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jR, 0);
         return true;
     }
 }

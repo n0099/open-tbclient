@@ -4,10 +4,10 @@ import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.widget.listview.IAdapterData;
 /* loaded from: classes7.dex */
 public class c extends com.baidu.live.tieba.b.a.a implements IAdapterData {
-    public static BdUniqueId gPU = BdUniqueId.gen();
+    public static BdUniqueId gPY = BdUniqueId.gen();
 
     @Override // com.baidu.live.adp.widget.listview.IAdapterData
     public BdUniqueId getType() {
-        return gPU;
+        return gPY;
     }
 }

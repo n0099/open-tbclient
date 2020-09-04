@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.feedManager.PersonalizedReqIdl;
 import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.util.t;
 import tbclient.Personalized.DataReq;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class FeedRecRequest extends NetMessage {
     private int loadType;
     private int needForumlist;

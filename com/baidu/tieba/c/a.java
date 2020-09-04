@@ -20,7 +20,7 @@ public class a {
             if (TbadkCoreApplication.getCurrentPortrait() != null && queryParameter != null && !TbadkCoreApplication.getCurrentPortrait().contains(queryParameter)) {
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
                 aVar.nw(1);
-                aVar.zz(tbPageContext.getString(R.string.account_not_the_same_as_pc));
+                aVar.zA(tbPageContext.getString(R.string.account_not_the_same_as_pc));
                 aVar.a(R.string.change_account, new a.b() { // from class: com.baidu.tieba.c.a.1
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {

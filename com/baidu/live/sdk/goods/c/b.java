@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class b extends BaseAdapter {
-    private a bjb;
-    private List<com.baidu.live.sdk.goods.a.a> bjc;
+    private a bje;
+    private List<com.baidu.live.sdk.goods.a.a> bjf;
     private boolean isHost;
 
     /* loaded from: classes7.dex */
@@ -22,31 +22,31 @@ public class b extends BaseAdapter {
     }
 
     public void a(a aVar) {
-        this.bjb = aVar;
+        this.bje = aVar;
     }
 
     public void e(boolean z, List<com.baidu.live.sdk.goods.a.a> list) {
         this.isHost = z;
-        if (this.bjc == null) {
-            this.bjc = new ArrayList();
+        if (this.bjf == null) {
+            this.bjf = new ArrayList();
         }
-        this.bjc.clear();
-        this.bjc.addAll(list);
+        this.bjf.clear();
+        this.bjf.addAll(list);
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bjc != null) {
-            return this.bjc.size();
+        if (this.bjf != null) {
+            return this.bjf.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.bjc != null) {
-            return this.bjc.get(i);
+        if (this.bjf != null) {
+            return this.bjf.get(i);
         }
         return null;
     }
@@ -62,7 +62,7 @@ public class b extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(a.h.live_goods_display_list_item, viewGroup, false);
             C0187b c0187b2 = new C0187b();
-            c0187b2.bjf = (LiveGoodsDisplayItemView) view.findViewById(a.g.item_live_goods_display);
+            c0187b2.bji = (LiveGoodsDisplayItemView) view.findViewById(a.g.item_live_goods_display);
             view.setTag(c0187b2);
             c0187b = c0187b2;
         } else {
@@ -70,20 +70,20 @@ public class b extends BaseAdapter {
         }
         final Object item = getItem(i);
         if (item instanceof com.baidu.live.sdk.goods.a.a) {
-            c0187b.bjf.setHost(this.isHost);
-            c0187b.bjf.setData(i + 1, (com.baidu.live.sdk.goods.a.a) item);
+            c0187b.bji.setHost(this.isHost);
+            c0187b.bji.setData(i + 1, (com.baidu.live.sdk.goods.a.a) item);
             if (this.isHost) {
-                c0187b.bjf.setCallback(new LiveGoodsDisplayItemView.a() { // from class: com.baidu.live.sdk.goods.c.b.1
+                c0187b.bji.setCallback(new LiveGoodsDisplayItemView.a() { // from class: com.baidu.live.sdk.goods.c.b.1
                     @Override // com.baidu.live.sdk.goods.view.LiveGoodsDisplayItemView.a
                     public void MW() {
-                        if (b.this.bjb != null) {
-                            b.this.bjb.v(((com.baidu.live.sdk.goods.a.a) item).gid, ((com.baidu.live.sdk.goods.a.a) item).biy);
+                        if (b.this.bje != null) {
+                            b.this.bje.v(((com.baidu.live.sdk.goods.a.a) item).gid, ((com.baidu.live.sdk.goods.a.a) item).biB);
                         }
                     }
                 });
             }
-            if (this.bjb != null) {
-                this.bjb.u(((com.baidu.live.sdk.goods.a.a) item).gid, ((com.baidu.live.sdk.goods.a.a) item).biy);
+            if (this.bje != null) {
+                this.bje.u(((com.baidu.live.sdk.goods.a.a) item).gid, ((com.baidu.live.sdk.goods.a.a) item).biB);
             }
         }
         return view;
@@ -92,11 +92,11 @@ public class b extends BaseAdapter {
     /* renamed from: com.baidu.live.sdk.goods.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
     public static class C0187b {
-        private LiveGoodsDisplayItemView bjf;
+        private LiveGoodsDisplayItemView bji;
 
         public void recycle() {
-            if (this.bjf != null) {
-                this.bjf.release();
+            if (this.bji != null) {
+                this.bji.release();
             }
         }
     }

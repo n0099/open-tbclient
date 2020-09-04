@@ -14,11 +14,11 @@ public class d extends h {
     private int Ue;
     private int Uf;
     private int Ug;
-    private Date cKn;
-    private Date cKo;
-    private String cKw;
-    private boolean cKx;
-    private BdDatePicker cOS;
+    private String cKA;
+    private boolean cKB;
+    private Date cKr;
+    private Date cKs;
+    private BdDatePicker cOW;
 
     d(Context context) {
         super(context, a.i.NoTitleDialog);
@@ -29,7 +29,7 @@ public class d extends h {
     }
 
     public int getYear() {
-        return this.cOS.getYear();
+        return this.cOW.getYear();
     }
 
     public void setMonth(int i) {
@@ -37,7 +37,7 @@ public class d extends h {
     }
 
     public int getMonth() {
-        return this.cOS.getMonth();
+        return this.cOW.getMonth();
     }
 
     public void setDay(int i) {
@@ -45,22 +45,22 @@ public class d extends h {
     }
 
     public int getDay() {
-        return this.cOS.getDay();
+        return this.cOW.getDay();
     }
 
-    private boolean pW(String str) {
-        return this.cOS.pW(str);
+    private boolean pX(String str) {
+        return this.cOW.pX(str);
     }
 
     public String azg() {
         StringBuilder sb = new StringBuilder();
-        if (pW("year")) {
+        if (pX("year")) {
             sb.append(String.format("%d-", Integer.valueOf(getYear())));
         }
-        if (pW("month")) {
+        if (pX("month")) {
             sb.append(String.format("%02d-", Integer.valueOf(getMonth())));
         }
-        if (pW("day")) {
+        if (pX("day")) {
             sb.append(String.format("%02d", Integer.valueOf(getDay())));
         }
         String sb2 = sb.toString();
@@ -71,25 +71,25 @@ public class d extends h {
     }
 
     private void azh() {
-        this.cOS = new BdDatePicker(getContext());
+        this.cOW = new BdDatePicker(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 1;
-        this.cOS.setLayoutParams(layoutParams);
-        this.cOS.setScrollCycle(true);
-        this.cOS.setStartDate(this.cKn);
-        this.cOS.setEndDate(this.cKo);
-        this.cOS.setYear(this.Ue);
-        this.cOS.setMonth(this.Uf);
-        this.cOS.setDay(this.Ug);
-        this.cOS.ays();
-        this.cOS.setFields(this.cKw);
-        this.cOS.setDisabled(this.cKx);
+        this.cOW.setLayoutParams(layoutParams);
+        this.cOW.setScrollCycle(true);
+        this.cOW.setStartDate(this.cKr);
+        this.cOW.setEndDate(this.cKs);
+        this.cOW.setYear(this.Ue);
+        this.cOW.setMonth(this.Uf);
+        this.cOW.setDay(this.Ug);
+        this.cOW.ays();
+        this.cOW.setFields(this.cKA);
+        this.cOW.setDisabled(this.cKB);
     }
 
     @Override // android.app.Dialog
     protected void onCreate(Bundle bundle) {
         azh();
-        azq().at(this.cOS);
+        azq().at(this.cOW);
     }
 
     @Override // com.baidu.swan.apps.res.widget.dialog.c, android.app.Dialog
@@ -98,28 +98,28 @@ public class d extends h {
     }
 
     public void setFields(String str) {
-        this.cKw = str;
+        this.cKA = str;
     }
 
     public void setDisabled(boolean z) {
-        this.cKx = z;
+        this.cKB = z;
     }
 
     public void setStartDate(Date date) {
-        this.cKn = date;
+        this.cKr = date;
     }
 
     public void setEndDate(Date date) {
-        this.cKo = date;
+        this.cKs = date;
     }
 
     /* loaded from: classes8.dex */
     public static class a extends h.a {
-        public Date cOT;
-        public Date cOU;
-        public Date cOV;
-        private String cOW;
-        private boolean cOX;
+        public Date cOX;
+        public Date cOY;
+        public Date cOZ;
+        private String cPa;
+        private boolean cPb;
 
         public a(Context context) {
             super(context);
@@ -131,45 +131,45 @@ public class d extends h {
         }
 
         public a f(Date date) {
-            this.cOT = date;
+            this.cOX = date;
             return this;
         }
 
         public a g(Date date) {
-            this.cOU = date;
+            this.cOY = date;
             return this;
         }
 
         public a h(Date date) {
-            this.cOV = date;
+            this.cOZ = date;
             return this;
         }
 
-        public a qd(String str) {
-            this.cOW = str;
+        public a qe(String str) {
+            this.cPa = str;
             return this;
         }
 
-        public a fv(boolean z) {
-            this.cOX = z;
+        public a fw(boolean z) {
+            this.cPb = z;
             return this;
         }
 
         @Override // com.baidu.swan.apps.res.widget.dialog.h.a
         public h azi() {
             d dVar = (d) super.azi();
-            dVar.setFields(this.cOW);
-            dVar.setDisabled(this.cOX);
-            if (this.cOV != null) {
-                dVar.setYear(this.cOV.getYear() + FeatureCodes.SKY_SEG);
-                dVar.setMonth(this.cOV.getMonth() + 1);
-                dVar.setDay(this.cOV.getDate());
+            dVar.setFields(this.cPa);
+            dVar.setDisabled(this.cPb);
+            if (this.cOZ != null) {
+                dVar.setYear(this.cOZ.getYear() + FeatureCodes.SKY_SEG);
+                dVar.setMonth(this.cOZ.getMonth() + 1);
+                dVar.setDay(this.cOZ.getDate());
             }
-            if (this.cOT != null) {
-                dVar.setStartDate(this.cOT);
+            if (this.cOX != null) {
+                dVar.setStartDate(this.cOX);
             }
-            if (this.cOU != null) {
-                dVar.setEndDate(this.cOU);
+            if (this.cOY != null) {
+                dVar.setEndDate(this.cOY);
             }
             return dVar;
         }

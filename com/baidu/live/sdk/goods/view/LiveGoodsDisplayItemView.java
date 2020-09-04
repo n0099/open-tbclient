@@ -18,17 +18,17 @@ import org.json.JSONArray;
 import org.json.JSONException;
 /* loaded from: classes7.dex */
 public class LiveGoodsDisplayItemView extends FrameLayout {
-    private TextView bgr;
-    private a bjO;
-    private TbImageView bjP;
-    private TextView bjQ;
-    private View bjR;
-    private DanceRectView bjS;
+    private TextView bgu;
+    private a bjR;
+    private TbImageView bjS;
     private TextView bjT;
-    private TextView bjU;
-    private TextView bjV;
+    private View bjU;
+    private DanceRectView bjV;
     private TextView bjW;
     private TextView bjX;
+    private TextView bjY;
+    private TextView bjZ;
+    private TextView bka;
     private boolean isHost;
     private TextView mTitleTextView;
 
@@ -44,27 +44,27 @@ public class LiveGoodsDisplayItemView extends FrameLayout {
 
     public void setHost(boolean z) {
         this.isHost = z;
-        if (this.bgr != null) {
-            this.bgr.setClickable(z);
+        if (this.bgu != null) {
+            this.bgu.setClickable(z);
         }
     }
 
     public void setCallback(a aVar) {
-        this.bjO = aVar;
+        this.bjR = aVar;
     }
 
     public void setData(int i, com.baidu.live.sdk.goods.a.a aVar) {
         JSONArray jSONArray;
         if (aVar != null) {
             setBackgroundColor(0);
-            if (aVar.biy) {
+            if (aVar.biB) {
                 setBackgroundColor(-328966);
             }
-            this.bjQ.setText(String.valueOf(i));
+            this.bjT.setText(String.valueOf(i));
             String str = "";
-            if (!TextUtils.isEmpty(aVar.bih)) {
+            if (!TextUtils.isEmpty(aVar.bik)) {
                 try {
-                    jSONArray = new JSONArray(aVar.bih);
+                    jSONArray = new JSONArray(aVar.bik);
                 } catch (JSONException e) {
                     e.printStackTrace();
                     jSONArray = null;
@@ -73,83 +73,83 @@ public class LiveGoodsDisplayItemView extends FrameLayout {
                     str = jSONArray.optJSONObject(0).optString("src", "");
                 }
             }
-            this.bjP.setTag(str);
-            if (TextUtils.isEmpty(str) || !(this.bjP.getTag() instanceof String) || !this.bjP.getTag().equals(str)) {
-                this.bjP.startLoad("", 10, false, false);
+            this.bjS.setTag(str);
+            if (TextUtils.isEmpty(str) || !(this.bjS.getTag() instanceof String) || !this.bjS.getTag().equals(str)) {
+                this.bjS.startLoad("", 10, false, false);
             }
-            this.bjP.startLoad(str, 10, false, false);
-            if (aVar.biy) {
-                this.bjR.setVisibility(0);
-                this.bjS.startAnim();
+            this.bjS.startLoad(str, 10, false, false);
+            if (aVar.biB) {
+                this.bjU.setVisibility(0);
+                this.bjV.startAnim();
             } else {
-                this.bjR.setVisibility(8);
-                this.bjS.QC();
+                this.bjU.setVisibility(8);
+                this.bjV.QC();
             }
             this.mTitleTextView.setText(aVar.title);
             if (!TextUtils.isEmpty(aVar.source)) {
-                this.bjT.setVisibility(0);
-                this.bjT.setText(aVar.source);
+                this.bjW.setVisibility(0);
+                this.bjW.setText(aVar.source);
             } else {
-                this.bjT.setVisibility(8);
-            }
-            this.bjU.setVisibility(8);
-            if (this.isHost && aVar.bip > 0.0d) {
-                this.bjU.setText("每单赚¥" + UtilHelper.formalDecimalForTwo(aVar.bip));
-                this.bjU.setVisibility(0);
-            }
-            try {
-                this.bjV.setText("¥" + UtilHelper.formalDecimalForTwo(Float.parseFloat(aVar.price)));
-            } catch (Throwable th) {
-                this.bjV.setText("¥" + aVar.price);
+                this.bjW.setVisibility(8);
             }
             this.bjX.setVisibility(8);
-            this.bjW.setVisibility(8);
-            if (aVar.MR()) {
-                this.bjX.setText(aVar.bir + "元券");
+            if (this.isHost && aVar.bis > 0.0d) {
+                this.bjX.setText("每单赚¥" + UtilHelper.formalDecimalForTwo(aVar.bis));
                 this.bjX.setVisibility(0);
-            } else if (aVar.bin > 0.0d) {
+            }
+            try {
+                this.bjY.setText("¥" + UtilHelper.formalDecimalForTwo(Float.parseFloat(aVar.price)));
+            } catch (Throwable th) {
+                this.bjY.setText("¥" + aVar.price);
+            }
+            this.bka.setVisibility(8);
+            this.bjZ.setVisibility(8);
+            if (aVar.MR()) {
+                this.bka.setText(aVar.biu + "元券");
+                this.bka.setVisibility(0);
+            } else if (aVar.bir > 0.0d) {
                 try {
-                    if (aVar.bin > Float.parseFloat(aVar.price)) {
-                        this.bjW.setText("¥" + UtilHelper.formalDecimalForTwo(aVar.bin));
-                        this.bjW.setVisibility(0);
+                    if (aVar.bir > Float.parseFloat(aVar.price)) {
+                        this.bjZ.setText("¥" + UtilHelper.formalDecimalForTwo(aVar.bir));
+                        this.bjZ.setVisibility(0);
                     }
                 } catch (Throwable th2) {
                     th2.printStackTrace();
                 }
             }
-            if (aVar.bis == 1) {
+            if (aVar.biv == 1) {
                 for (int i2 = 0; i2 < getChildCount(); i2++) {
                     getChildAt(i2).setAlpha(1.0f);
                 }
                 if (this.isHost) {
-                    if (aVar.biy) {
-                        this.bgr.setBackgroundResource(a.f.live_goods_bg_display_item_action_confirm);
-                        this.bgr.setText("取消讲解");
-                        this.bgr.setTextColor(getResources().getColorStateList(a.d.live_goods_bg_display_item_action_text_cancel));
+                    if (aVar.biB) {
+                        this.bgu.setBackgroundResource(a.f.live_goods_bg_display_item_action_confirm);
+                        this.bgu.setText("取消讲解");
+                        this.bgu.setTextColor(getResources().getColorStateList(a.d.live_goods_bg_display_item_action_text_cancel));
                         return;
                     }
-                    this.bgr.setBackgroundResource(a.f.live_goods_bg_display_item_action_cancel);
-                    this.bgr.setText("讲解");
-                    this.bgr.setTextColor(getResources().getColorStateList(a.d.live_goods_bg_display_item_action_text_confirm));
+                    this.bgu.setBackgroundResource(a.f.live_goods_bg_display_item_action_cancel);
+                    this.bgu.setText("讲解");
+                    this.bgu.setTextColor(getResources().getColorStateList(a.d.live_goods_bg_display_item_action_text_confirm));
                     return;
                 } else if (aVar.MR()) {
-                    this.bgr.setText("马上抢");
+                    this.bgu.setText("马上抢");
                     return;
                 } else {
-                    this.bgr.setText("购买");
+                    this.bgu.setText("购买");
                     return;
                 }
             }
             for (int i3 = 0; i3 < getChildCount(); i3++) {
                 getChildAt(i3).setAlpha(0.2f);
             }
-            this.bgr.setText("已下架");
+            this.bgu.setText("已下架");
         }
     }
 
     public void release() {
-        if (this.bjS != null) {
-            this.bjS.QC();
+        if (this.bjV != null) {
+            this.bjV.QC();
         }
     }
 
@@ -161,17 +161,17 @@ public class LiveGoodsDisplayItemView extends FrameLayout {
     }
 
     private void FG() {
-        this.bjP = (TbImageView) findViewById(a.g.iv_live_goods_item_thumb);
-        this.bjQ = (TextView) findViewById(a.g.tv_live_goods_item_index);
-        this.bjR = findViewById(a.g.layout_live_goods_item_explain);
-        this.bjS = (DanceRectView) findViewById(a.g.drv_live_goods_item_explain);
+        this.bjS = (TbImageView) findViewById(a.g.iv_live_goods_item_thumb);
+        this.bjT = (TextView) findViewById(a.g.tv_live_goods_item_index);
+        this.bjU = findViewById(a.g.layout_live_goods_item_explain);
+        this.bjV = (DanceRectView) findViewById(a.g.drv_live_goods_item_explain);
         this.mTitleTextView = (TextView) findViewById(a.g.tv_live_goods_item_title);
-        this.bjT = (TextView) findViewById(a.g.tv_live_goods_item_source);
-        this.bjU = (TextView) findViewById(a.g.tv_profit);
-        this.bjV = (TextView) findViewById(a.g.tv_live_goods_item_price_actual);
-        this.bjW = (TextView) findViewById(a.g.tv_live_goods_item_price_quoted);
-        this.bjX = (TextView) findViewById(a.g.tv_live_goods_item_coupon);
-        this.bgr = (TextView) findViewById(a.g.tv_live_goods_item_action);
+        this.bjW = (TextView) findViewById(a.g.tv_live_goods_item_source);
+        this.bjX = (TextView) findViewById(a.g.tv_profit);
+        this.bjY = (TextView) findViewById(a.g.tv_live_goods_item_price_actual);
+        this.bjZ = (TextView) findViewById(a.g.tv_live_goods_item_price_quoted);
+        this.bka = (TextView) findViewById(a.g.tv_live_goods_item_coupon);
+        this.bgu = (TextView) findViewById(a.g.tv_live_goods_item_action);
     }
 
     private void initView() {
@@ -180,26 +180,26 @@ public class LiveGoodsDisplayItemView extends FrameLayout {
         gradientDrawable.setColor(0);
         gradientDrawable.setCornerRadius(getResources().getDimensionPixelOffset(a.e.sdk_ds4));
         gradientDrawable.setStroke(getResources().getDimensionPixelOffset(a.e.sdk_ds2), getResources().getColor(a.d.live_goods_primary));
-        this.bjT.setBackgroundDrawable(gradientDrawable);
+        this.bjW.setBackgroundDrawable(gradientDrawable);
         GradientDrawable gradientDrawable2 = new GradientDrawable();
         gradientDrawable2.setShape(0);
         gradientDrawable2.setColor(-4640);
         gradientDrawable2.setCornerRadius(getResources().getDimensionPixelOffset(a.e.sdk_ds6));
-        this.bjX.setBackgroundDrawable(gradientDrawable2);
-        this.bjR.setBackgroundColor(ColorUtils.setAlphaComponent(getResources().getColor(a.d.live_goods_primary), 204));
-        this.bjW.getPaint().setFlags(17);
-        Drawable background = this.bgr.getBackground();
+        this.bka.setBackgroundDrawable(gradientDrawable2);
+        this.bjU.setBackgroundColor(ColorUtils.setAlphaComponent(getResources().getColor(a.d.live_goods_primary), 204));
+        this.bjZ.getPaint().setFlags(17);
+        Drawable background = this.bgu.getBackground();
         if (!(background instanceof GradientDrawable)) {
             background = new GradientDrawable();
         }
         ((GradientDrawable) background).setCornerRadius(getResources().getDimensionPixelOffset(a.e.sdk_ds30));
         ((GradientDrawable) background).setColor(getResources().getColor(a.d.live_goods_primary));
-        this.bgr.setBackgroundDrawable(background);
-        this.bgr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.sdk.goods.view.LiveGoodsDisplayItemView.1
+        this.bgu.setBackgroundDrawable(background);
+        this.bgu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.sdk.goods.view.LiveGoodsDisplayItemView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (LiveGoodsDisplayItemView.this.bjO != null) {
-                    LiveGoodsDisplayItemView.this.bjO.MW();
+                if (LiveGoodsDisplayItemView.this.bjR != null) {
+                    LiveGoodsDisplayItemView.this.bjR.MW();
                 }
             }
         });

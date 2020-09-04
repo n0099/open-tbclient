@@ -26,7 +26,7 @@ public class a {
     }
 
     private static String k(String str, Object... objArr) {
-        return "[" + dJO() + "] " + j(str, objArr);
+        return "[" + dJX() + "] " + j(str, objArr);
     }
 
     private static void debug(String str, String str2, Object... objArr) {
@@ -74,7 +74,7 @@ public class a {
         return null;
     }
 
-    private static String dJO() {
+    private static String dJX() {
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         String name = a.class.getName();
         int i = 0;

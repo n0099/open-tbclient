@@ -2,16 +2,16 @@ package com.baidu.swan.apps.view.a;
 /* loaded from: classes8.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public int dcS;
-    public boolean dcT;
-    public boolean dcU;
-    public boolean dcV;
-    public boolean dcW;
+    public int dcW;
+    public boolean dcX;
+    public boolean dcY;
+    public boolean dcZ;
+    public boolean dda;
     public boolean isShowNavBar;
     public int statusBarColor;
 
     private a() {
-        this.dcW = true;
+        this.dda = true;
     }
 
     /* renamed from: com.baidu.swan.apps.view.a.a$a  reason: collision with other inner class name */
@@ -22,8 +22,8 @@ public class a {
         private boolean isShowNavBar = true;
         private boolean useLightStatBar = true;
         private boolean isShowStatBar = true;
-        private boolean dcV = false;
-        private boolean dcW = true;
+        private boolean dcZ = false;
+        private boolean dda = true;
 
         public static C0456a aFL() {
             return new C0456a();
@@ -39,40 +39,40 @@ public class a {
             return this;
         }
 
-        public C0456a gc(boolean z) {
+        public C0456a gd(boolean z) {
             this.isShowNavBar = z;
             return this;
         }
 
-        public C0456a gd(boolean z) {
+        public C0456a ge(boolean z) {
             this.useLightStatBar = z;
             return this;
         }
 
-        public C0456a ge(boolean z) {
+        public C0456a gf(boolean z) {
             this.isShowStatBar = z;
             return this;
         }
 
-        public C0456a gf(boolean z) {
-            this.dcV = z;
+        public C0456a gg(boolean z) {
+            this.dcZ = z;
             return this;
         }
 
-        public C0456a gg(boolean z) {
-            this.dcW = z;
+        public C0456a gh(boolean z) {
+            this.dda = z;
             return this;
         }
 
         public a aFM() {
             a aVar = new a();
-            aVar.dcS = this.customStatBarViewBg;
+            aVar.dcW = this.customStatBarViewBg;
             aVar.isShowNavBar = this.isShowNavBar;
-            aVar.dcU = this.isShowStatBar;
-            aVar.dcT = this.useLightStatBar;
+            aVar.dcY = this.isShowStatBar;
+            aVar.dcX = this.useLightStatBar;
             aVar.statusBarColor = this.statusBarColor;
-            aVar.dcV = this.dcV;
-            aVar.dcW = this.dcW;
+            aVar.dcZ = this.dcZ;
+            aVar.dda = this.dda;
             return aVar;
         }
     }

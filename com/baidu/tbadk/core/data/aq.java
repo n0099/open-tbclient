@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import org.json.JSONObject;
 import tbclient.McnAdInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class aq {
     public static McnAdInfo cR(JSONObject jSONObject) {
         McnAdInfo.Builder builder = new McnAdInfo.Builder();

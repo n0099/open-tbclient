@@ -12,7 +12,7 @@ import android.util.Log;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class j {
-    public static final boolean DEBUG = com.baidu.prologue.a.b.a.bKi.get().UU();
+    public static final boolean DEBUG = com.baidu.prologue.a.b.a.bKm.get().UU();
 
     public static boolean H(@NonNull Context context, @NonNull String str) {
         ResolveInfo next;

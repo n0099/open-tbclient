@@ -28,7 +28,7 @@ public class SplashHttpRequest extends HttpMessage {
             addParam("cuid", TbadkCoreApplication.getInst().getCuid());
             addParam("mod", d.getPhoneModel());
             addParam("ot", 2);
-            addParam("ov", d.bCc());
+            addParam("ov", d.bCd());
             addParam(CommandMessage.SDK_VERSION, "1.1.4");
             addParam("nt", d.ey(context).intValue());
             addParam(Config.EXCEPTION_CRASH_TYPE, 2);
@@ -39,7 +39,7 @@ public class SplashHttpRequest extends HttpMessage {
             addParam("adw", adInfo.adWidth);
             addParam("adh", adInfo.adHeight);
             addParam("ac", 1);
-            addParam("ad_ext_params", AdExtParam.a.buW().buX());
+            addParam("ad_ext_params", AdExtParam.a.buX().buY());
         }
     }
 

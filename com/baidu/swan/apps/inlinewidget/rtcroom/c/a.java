@@ -18,7 +18,7 @@ public interface a extends c {
 
     void hJ(int i);
 
-    void mQ(String str);
+    void mR(String str);
 
     void onFocus(int i, int i2, int i3, int i4);
 

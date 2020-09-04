@@ -10,10 +10,10 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class b {
     private BdTypeRecyclerView Wu;
-    private List<com.baidu.adp.widget.ListView.a> bbu;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.a fEd;
-    private d fEp;
-    private boolean fEq = false;
+    private List<com.baidu.adp.widget.ListView.a> bbw;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.a fEh;
+    private d fEt;
+    private boolean fEu = false;
     private Context mContext;
     private TbPageContext mPageContext;
 
@@ -25,13 +25,13 @@ public class b {
     }
 
     private void Jv() {
-        this.bbu = new ArrayList();
-        this.fEp = new d(this.mPageContext);
-        this.fEp.kA(this.fEq);
-        this.fEd = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
-        this.bbu.add(this.fEp);
-        this.bbu.add(this.fEd);
-        this.Wu.addAdapters(this.bbu);
+        this.bbw = new ArrayList();
+        this.fEt = new d(this.mPageContext);
+        this.fEt.kC(this.fEu);
+        this.fEh = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
+        this.bbw.add(this.fEt);
+        this.bbw.add(this.fEh);
+        this.Wu.addAdapters(this.bbw);
     }
 
     public void setData(List<q> list) {
@@ -44,7 +44,7 @@ public class b {
         }
     }
 
-    public void kA(boolean z) {
-        this.fEq = z;
+    public void kC(boolean z) {
+        this.fEu = z;
     }
 }

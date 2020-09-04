@@ -5,39 +5,39 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes19.dex */
 public class a {
-    private static a aeu = new a();
-    private Map<Integer, a.InterfaceC0210a> aet = new HashMap();
+    private static a aew = new a();
+    private Map<Integer, a.InterfaceC0210a> aev = new HashMap();
 
     private a() {
     }
 
     public static a tq() {
-        return aeu;
+        return aew;
     }
 
     public void a(int i, a.InterfaceC0210a interfaceC0210a) {
-        if (this.aet != null) {
+        if (this.aev != null) {
             synchronized (a.class) {
-                if (this.aet.containsKey(Integer.valueOf(i))) {
-                    this.aet.remove(Integer.valueOf(i));
+                if (this.aev.containsKey(Integer.valueOf(i))) {
+                    this.aev.remove(Integer.valueOf(i));
                 }
-                this.aet.put(Integer.valueOf(i), interfaceC0210a);
+                this.aev.put(Integer.valueOf(i), interfaceC0210a);
             }
         }
     }
 
     public void bi(int i) {
         synchronized (a.class) {
-            if (this.aet != null && this.aet.containsKey(Integer.valueOf(i))) {
-                this.aet.remove(Integer.valueOf(i));
+            if (this.aev != null && this.aev.containsKey(Integer.valueOf(i))) {
+                this.aev.remove(Integer.valueOf(i));
             }
         }
     }
 
     public a.InterfaceC0210a bj(int i) {
-        if (this.aet == null || !this.aet.containsKey(Integer.valueOf(i))) {
+        if (this.aev == null || !this.aev.containsKey(Integer.valueOf(i))) {
             return null;
         }
-        return this.aet.get(Integer.valueOf(i));
+        return this.aev.get(Integer.valueOf(i));
     }
 }

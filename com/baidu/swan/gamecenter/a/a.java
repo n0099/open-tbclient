@@ -29,7 +29,7 @@ public class a extends com.baidu.swan.gamecenter.c.a {
                     /* renamed from: c */
                     public void I(com.baidu.swan.apps.setting.oauth.e eVar) {
                         boolean z = true;
-                        if ((eVar == null || eVar.forbidden || eVar.cVk != 1) ? false : false) {
+                        if ((eVar == null || eVar.forbidden || eVar.cVo != 1) ? false : false) {
                             bVar.al(null);
                         } else {
                             bVar.onFail(10001, "authorize fail.");

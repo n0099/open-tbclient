@@ -4,7 +4,7 @@ import android.graphics.Rect;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ae extends RecyclerView.ItemDecoration {
     private int WB;
     private int WC;

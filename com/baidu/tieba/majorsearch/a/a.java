@@ -16,15 +16,15 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes18.dex */
 public class a extends RecyclerView.Adapter<b> {
-    private String dBR;
-    private InterfaceC0746a jXx;
+    private String dBV;
+    private InterfaceC0746a jXE;
     private Context mContext;
     private List<String> mDataList;
 
     /* renamed from: com.baidu.tieba.majorsearch.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes18.dex */
     public interface InterfaceC0746a {
-        void LZ(String str);
+        void Ma(String str);
     }
 
     public a(Context context) {
@@ -46,15 +46,15 @@ public class a extends RecyclerView.Adapter<b> {
         if (this.mDataList != null) {
             final String str = this.mDataList.get(i);
             if (!StringUtils.isNull(str)) {
-                bVar.jXA.setText(str);
-                ap.setViewTextColor(bVar.jXA, R.color.cp_cont_b);
+                bVar.jXH.setText(str);
+                ap.setViewTextColor(bVar.jXH, R.color.cp_cont_b);
                 ap.setBackgroundResource(bVar.itemView, R.drawable.more_pop_item_bg_selector);
-                c(bVar.jXA, str);
+                c(bVar.jXH, str);
                 bVar.itemView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.majorsearch.a.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (a.this.jXx != null) {
-                            a.this.jXx.LZ(str);
+                        if (a.this.jXE != null) {
+                            a.this.jXE.Ma(str);
                         }
                     }
                 });
@@ -71,7 +71,7 @@ public class a extends RecyclerView.Adapter<b> {
     }
 
     public void b(InterfaceC0746a interfaceC0746a) {
-        this.jXx = interfaceC0746a;
+        this.jXE = interfaceC0746a;
     }
 
     public void setData(List<String> list) {
@@ -79,31 +79,31 @@ public class a extends RecyclerView.Adapter<b> {
         notifyDataSetChanged();
     }
 
-    public void cPj() {
+    public void cPk() {
         if (this.mDataList != null) {
             this.mDataList.clear();
             notifyDataSetChanged();
         }
     }
 
-    public void LP(String str) {
-        this.dBR = str;
+    public void LQ(String str) {
+        this.dBV = str;
     }
 
     /* loaded from: classes18.dex */
     public class b extends RecyclerView.ViewHolder {
-        TextView jXA;
+        TextView jXH;
 
         public b(View view) {
             super(view);
-            this.jXA = (TextView) view.findViewById(R.id.tv_major_name);
+            this.jXH = (TextView) view.findViewById(R.id.tv_major_name);
         }
     }
 
     private void c(TextView textView, String str) {
-        if (textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.dBR)) {
+        if (textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.dBV)) {
             String lowerCase = str.toLowerCase();
-            String lowerCase2 = this.dBR.toLowerCase();
+            String lowerCase2 = this.dBV.toLowerCase();
             if (!lowerCase.contains(lowerCase2)) {
                 textView.setText(str);
                 return;
@@ -111,7 +111,7 @@ public class a extends RecyclerView.Adapter<b> {
             int indexOf = lowerCase.indexOf(lowerCase2);
             ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(ap.getColor(R.color.cp_cont_h));
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.dBR.length() + indexOf, 33);
+            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.dBV.length() + indexOf, 33);
             textView.setText(spannableStringBuilder);
         }
     }

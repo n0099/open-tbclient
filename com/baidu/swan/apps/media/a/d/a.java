@@ -23,15 +23,15 @@ import java.nio.ByteBuffer;
 /* loaded from: classes8.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private ByteBuffer[] cCc;
-    private ByteBuffer[] cCd;
+    private ByteBuffer[] cCg;
+    private ByteBuffer[] cCh;
     private MediaCodec.BufferInfo mBufferInfo;
     private int mChannel;
     private String mFormat;
     private MediaCodec mMediaCodec;
     private int mSampleRate;
-    private long cCe = 0;
-    private ByteArrayOutputStream aeN = new ByteArrayOutputStream();
+    private long cCi = 0;
+    private ByteArrayOutputStream aeP = new ByteArrayOutputStream();
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public a(String str, int i, int i2, int i3) {
@@ -87,8 +87,8 @@ public class a {
                         this.mMediaCodec = MediaCodec.createByCodecName(selectCodec.getName());
                         this.mMediaCodec.configure(createAudioFormat, (Surface) null, (MediaCrypto) null, 1);
                         this.mMediaCodec.start();
-                        this.cCc = this.mMediaCodec.getInputBuffers();
-                        this.cCd = this.mMediaCodec.getOutputBuffers();
+                        this.cCg = this.mMediaCodec.getInputBuffers();
+                        this.cCh = this.mMediaCodec.getOutputBuffers();
                         this.mBufferInfo = new MediaCodec.BufferInfo();
                         return;
                     }
@@ -220,13 +220,13 @@ public class a {
             }
             int dequeueInputBuffer = this.mMediaCodec.dequeueInputBuffer(-1L);
             if (dequeueInputBuffer >= 0) {
-                ByteBuffer byteBuffer = this.cCc[dequeueInputBuffer];
+                ByteBuffer byteBuffer = this.cCg[dequeueInputBuffer];
                 byteBuffer.clear();
                 try {
                     byteBuffer.put(bArr);
                     byteBuffer.limit(bArr.length);
-                    this.mMediaCodec.queueInputBuffer(dequeueInputBuffer, 0, bArr.length, bl(this.cCe), 0);
-                    this.cCe++;
+                    this.mMediaCodec.queueInputBuffer(dequeueInputBuffer, 0, bArr.length, bl(this.cCi), 0);
+                    this.cCi++;
                 } catch (IllegalArgumentException | BufferOverflowException e) {
                     if (DEBUG) {
                         e.printStackTrace();
@@ -236,7 +236,7 @@ public class a {
             int dequeueOutputBuffer = this.mMediaCodec.dequeueOutputBuffer(this.mBufferInfo, 0L);
             while (dequeueOutputBuffer >= 0) {
                 int i = this.mBufferInfo.size;
-                ByteBuffer byteBuffer2 = this.cCd[dequeueOutputBuffer];
+                ByteBuffer byteBuffer2 = this.cCh[dequeueOutputBuffer];
                 try {
                     byteBuffer2.position(this.mBufferInfo.offset);
                     byteBuffer2.limit(this.mBufferInfo.offset + i);
@@ -244,7 +244,7 @@ public class a {
                     try {
                         byteBuffer2.get(m, 7, i);
                         byteBuffer2.position(this.mBufferInfo.offset);
-                        this.aeN.write(m);
+                        this.aeP.write(m);
                         this.mMediaCodec.releaseOutputBuffer(dequeueOutputBuffer, false);
                         dequeueOutputBuffer = this.mMediaCodec.dequeueOutputBuffer(this.mBufferInfo, 0L);
                     } catch (IOException | IllegalArgumentException | BufferUnderflowException e2) {
@@ -258,15 +258,15 @@ public class a {
                     }
                 }
             }
-            bArr = this.aeN.toByteArray();
+            bArr = this.aeP.toByteArray();
             try {
-                this.aeN.flush();
+                this.aeP.flush();
             } catch (IOException e4) {
                 if (DEBUG) {
                     e4.printStackTrace();
                 }
             }
-            this.aeN.reset();
+            this.aeP.reset();
         }
         return bArr;
     }

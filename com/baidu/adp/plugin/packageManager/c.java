@@ -73,7 +73,7 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
             if (this.packageName != null) {
-                ct(this.packageName);
+                cu(this.packageName);
             }
             return true;
         }
@@ -100,14 +100,14 @@ public class c {
             c.this.pI();
         }
 
-        private void ct(String str) {
+        private void cu(String str) {
             File[] listFiles;
             File qA = Util.qA();
-            String cR = Util.cR(str);
+            String cS = Util.cS(str);
             if (qA != null && qA.exists() && (listFiles = qA.listFiles()) != null) {
                 int length = listFiles.length;
                 for (int i = 0; i < length; i++) {
-                    if (listFiles[i] != null && listFiles[i].isFile() && listFiles[i].getName().startsWith(cR)) {
+                    if (listFiles[i] != null && listFiles[i].isFile() && listFiles[i].getName().startsWith(cS)) {
                         try {
                             f.forceDelete(listFiles[i]);
                             com.baidu.adp.plugin.b.a.py().f("plugin_del_temp", "deltmp_suc", str, listFiles[i].getName());

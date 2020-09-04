@@ -5,7 +5,7 @@ import com.baidu.swan.apps.ap.ai;
 import com.baidu.swan.apps.scheme.actions.k.j;
 /* loaded from: classes8.dex */
 public final class b {
-    public String cDC;
+    public String cDG;
     public String mBaseUrl;
     public String mPage;
     public String mParams;
@@ -15,7 +15,7 @@ public final class b {
         bVar.mPage = ai.delAllParamsFromUrl(str);
         bVar.mParams = ai.getParams(str);
         bVar.mBaseUrl = str2;
-        bVar.cDC = j.qW(bVar.mPage);
+        bVar.cDG = j.qX(bVar.mPage);
         return bVar;
     }
 
@@ -30,13 +30,13 @@ public final class b {
     }
 
     public static String e(b bVar) {
-        if (bVar == null || TextUtils.isEmpty(bVar.cDC)) {
+        if (bVar == null || TextUtils.isEmpty(bVar.cDG)) {
             return null;
         }
         if (TextUtils.isEmpty(bVar.mParams)) {
-            return bVar.cDC;
+            return bVar.cDG;
         }
-        return bVar.cDC + "?" + bVar.mParams;
+        return bVar.cDG + "?" + bVar.mParams;
     }
 
     public String getPage() {
@@ -48,7 +48,7 @@ public final class b {
     }
 
     public String auk() {
-        return this.cDC;
+        return this.cDG;
     }
 
     public void setParams(String str) {
@@ -56,6 +56,6 @@ public final class b {
     }
 
     public String toString() {
-        return "SwanAppPageParam{mPage='" + this.mPage + "', mParams='" + this.mParams + "', mBaseUrl='" + this.mBaseUrl + "', mRoutePage='" + this.cDC + "'}";
+        return "SwanAppPageParam{mPage='" + this.mPage + "', mParams='" + this.mParams + "', mBaseUrl='" + this.mBaseUrl + "', mRoutePage='" + this.cDG + "'}";
     }
 }

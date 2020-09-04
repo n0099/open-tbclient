@@ -28,9 +28,9 @@ import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.util.Base64Encoder;
 import com.baidu.webkit.internal.ETAG;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
-    public static String dSg;
+    public static String dSk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String parseWebViewUrl(String str, String str2) {
@@ -46,8 +46,8 @@ public class a {
         return str.concat(str3);
     }
 
-    public static void yd(String str) {
-        dSg = str;
+    public static void ye(String str) {
+        dSk = str;
     }
 
     public static void startWebActivity(Context context, String str) {
@@ -182,7 +182,7 @@ public class a {
         }
         if (cookieManager != null) {
             cookieManager.setAcceptCookie(true);
-            if (com.baidu.tbadk.core.a.a.bbN().yM(TbadkCoreApplication.getCurrentBduss()) != null) {
+            if (com.baidu.tbadk.core.a.a.bbN().yN(TbadkCoreApplication.getCurrentBduss()) != null) {
                 String c = com.baidu.tbadk.core.a.d.c(TbadkCoreApplication.getCurrentAccountInfo());
                 StringBuilder sb = new StringBuilder();
                 if (!StringUtils.isNull(c)) {

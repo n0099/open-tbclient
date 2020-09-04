@@ -6,7 +6,7 @@ import com.baidu.swan.apps.v.f;
 import com.baidu.swan.games.view.d;
 /* loaded from: classes8.dex */
 public class c {
-    private static int djD = com.baidu.swan.apps.t.a.aoM().YA();
+    private static int djH = com.baidu.swan.apps.t.a.aoM().YA();
 
     public static boolean c(View view, com.baidu.swan.apps.model.a.a.a aVar) {
         d asc = f.arY().asc();
@@ -28,7 +28,7 @@ public class c {
             if (arI != null) {
                 arI.setRequestedOrientation(0);
             }
-            asc.gP(false);
+            asc.gQ(false);
         }
         return asc.removeView(view);
     }
@@ -52,11 +52,11 @@ public class c {
     }
 
     public static boolean aQv() {
-        return djD == 3;
+        return djH == 3;
     }
 
     public static boolean aQw() {
-        return djD == 2;
+        return djH == 2;
     }
 
     public static void a(com.baidu.swan.games.view.a aVar) {

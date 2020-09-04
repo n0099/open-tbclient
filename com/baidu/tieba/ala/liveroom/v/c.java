@@ -28,28 +28,28 @@ import java.lang.reflect.Field;
 import java.util.regex.Pattern;
 /* loaded from: classes7.dex */
 public class c extends Dialog {
-    private r aAh;
-    private TextView eGL;
-    private ImageView gIn;
-    private RelativeLayout gIo;
-    private EditText gIp;
-    private TextView gIq;
-    Runnable gIr;
+    private r aAj;
+    private TextView eGP;
+    private ImageView gIr;
+    private RelativeLayout gIs;
+    private EditText gIt;
+    private TextView gIu;
+    Runnable gIv;
     private Context mContext;
     private TbPageContext mPageContext;
     private String otherParams;
 
     public c(@NonNull Activity activity, TbPageContext tbPageContext, r rVar, String str) {
         super(activity);
-        this.gIr = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.v.c.6
+        this.gIv = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.v.c.6
             @Override // java.lang.Runnable
             public void run() {
-                BdUtilHelper.showSoftKeyPad(c.this.mContext, c.this.gIp);
+                BdUtilHelper.showSoftKeyPad(c.this.mContext, c.this.gIt);
             }
         };
         this.mContext = activity;
         this.mPageContext = tbPageContext;
-        this.aAh = rVar;
+        this.aAj = rVar;
         this.otherParams = str;
         initView();
     }
@@ -62,37 +62,37 @@ public class c extends Dialog {
         getWindow().setSoftInputMode(16);
         getWindow().setGravity(17);
         getWindow().setAttributes(getWindow().getAttributes());
-        this.gIq = (TextView) findViewById(a.g.rename_restrict);
-        this.gIq.setText(Html.fromHtml(this.mContext.getString(a.i.rename_txt_restrict, 0, 20)));
-        this.gIn = (ImageView) findViewById(a.g.close);
-        this.gIn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.v.c.1
+        this.gIu = (TextView) findViewById(a.g.rename_restrict);
+        this.gIu.setText(Html.fromHtml(this.mContext.getString(a.i.rename_txt_restrict, 0, 20)));
+        this.gIr = (ImageView) findViewById(a.g.close);
+        this.gIr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.v.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 c.this.dismiss();
             }
         });
-        this.gIo = (RelativeLayout) findViewById(a.g.edit_rename_rl);
-        this.gIo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.v.c.2
+        this.gIs = (RelativeLayout) findViewById(a.g.edit_rename_rl);
+        this.gIs.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.v.c.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.gIp.requestFocus();
-                c.this.gIp.post(c.this.gIr);
+                c.this.gIt.requestFocus();
+                c.this.gIt.post(c.this.gIv);
             }
         });
-        this.gIp = (EditText) findViewById(a.g.edit_rename);
-        this.gIp.setCursorVisible(true);
+        this.gIt = (EditText) findViewById(a.g.edit_rename);
+        this.gIt.setCursorVisible(true);
         try {
             Field declaredField = TextView.class.getDeclaredField("mCursorDrawableRes");
             declaredField.setAccessible(true);
             if (TbadkCoreApplication.getInst().isHaokan()) {
-                declaredField.set(this.gIp, Integer.valueOf(a.f.sdk_cursor_hk_bg));
+                declaredField.set(this.gIt, Integer.valueOf(a.f.sdk_cursor_hk_bg));
             } else {
-                declaredField.set(this.gIp, Integer.valueOf(a.f.sdk_cursor_qm_bg));
+                declaredField.set(this.gIt, Integer.valueOf(a.f.sdk_cursor_qm_bg));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        this.gIp.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.ala.liveroom.v.c.3
+        this.gIt.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.ala.liveroom.v.c.3
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -106,21 +106,21 @@ public class c extends Dialog {
             public void afterTextChanged(Editable editable) {
             }
         });
-        b(this.gIp);
-        this.gIp.setFocusableInTouchMode(true);
-        this.gIp.requestFocus();
-        this.eGL = (TextView) findViewById(a.g.rename_confirm);
-        this.eGL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.v.c.4
+        b(this.gIt);
+        this.gIt.setFocusableInTouchMode(true);
+        this.gIt.requestFocus();
+        this.eGP = (TextView) findViewById(a.g.rename_confirm);
+        this.eGP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.v.c.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.gIp == null || c.this.gIp.getText() == null || TextUtils.isEmpty(c.this.gIp.getText().toString())) {
+                if (c.this.gIt == null || c.this.gIt.getText() == null || TextUtils.isEmpty(c.this.gIt.getText().toString())) {
                     if (c.this.mPageContext != null) {
                         c.this.mPageContext.showToast(c.this.mPageContext.getPageActivity().getResources().getString(a.i.sdk_nickname_empty));
                         return;
                     }
                     return;
                 }
-                c.this.Gx("nickname=" + c.this.gIp.getText().toString());
+                c.this.Gy("nickname=" + c.this.gIt.getText().toString());
             }
         });
         if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin()) {
@@ -134,9 +134,9 @@ public class c extends Dialog {
         editText.setFilters(new InputFilter[]{new InputFilter() { // from class: com.baidu.tieba.ala.liveroom.v.c.5
             @Override // android.text.InputFilter
             public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
-                int Gw = c.Gw(charSequence.toString());
-                int Gw2 = c.Gw(spanned.toString());
-                if (!c.isAccount(charSequence.toString()) || Gw + Gw2 > 20) {
+                int Gx = c.Gx(charSequence.toString());
+                int Gx2 = c.Gx(spanned.toString());
+                if (!c.isAccount(charSequence.toString()) || Gx + Gx2 > 20) {
                     return "";
                 }
                 return null;
@@ -144,7 +144,7 @@ public class c extends Dialog {
         }});
     }
 
-    public static int Gw(String str) {
+    public static int Gx(String str) {
         if (str == null || "".equals(str)) {
             return 0;
         }
@@ -158,7 +158,7 @@ public class c extends Dialog {
     /* JADX INFO: Access modifiers changed from: private */
     @SuppressLint({"StringFormatMatches"})
     public void q(CharSequence charSequence) {
-        this.gIq.setText(Html.fromHtml(this.mContext.getString(a.i.rename_txt_restrict, Integer.valueOf(charSequence.length()), 20)));
+        this.gIu.setText(Html.fromHtml(this.mContext.getString(a.i.rename_txt_restrict, Integer.valueOf(charSequence.length()), 20)));
     }
 
     public void onSuccess() {
@@ -166,22 +166,22 @@ public class c extends Dialog {
     }
 
     public void onFail() {
-        if (this.eGL != null) {
-            this.eGL.setClickable(true);
-            this.eGL.setBackgroundResource(a.f.ala_live_follow_btn_radius_20_selector_qm);
+        if (this.eGP != null) {
+            this.eGP.setClickable(true);
+            this.eGP.setBackgroundResource(a.f.ala_live_follow_btn_radius_20_selector_qm);
         }
     }
 
-    public void Gx(String str) {
+    public void Gy(String str) {
         if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin()) {
             AlaStaticItem alaStaticItem = new AlaStaticItem(SdkStaticKeys.REMANE_POP_CLICK);
             alaStaticItem.addParams("other_params", this.otherParams);
             AlaStaticsManager.getInst().onStatic(alaStaticItem);
         }
         if (com.baidu.live.t.a.MF().MG() != null) {
-            this.eGL.setClickable(false);
-            this.eGL.setBackgroundResource(a.f.sdk_round_btn_qm_bg_radius_12_s);
-            com.baidu.live.t.a.MF().MG().ha(str);
+            this.eGP.setClickable(false);
+            this.eGP.setBackgroundResource(a.f.sdk_round_btn_qm_bg_radius_12_s);
+            com.baidu.live.t.a.MF().MG().hb(str);
         }
     }
 }

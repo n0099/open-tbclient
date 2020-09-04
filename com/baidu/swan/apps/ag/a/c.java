@@ -33,16 +33,16 @@ public class c {
                         if (c.DEBUG) {
                             Log.d("WebSafeWhiteListMgr", "read webdomains from file async");
                         }
-                        c.a(aVar, c.qK(L));
+                        c.a(aVar, c.qL(L));
                     }
                 }, "load-WebDomains", 2);
             } else {
-                a(aVar, qK(L));
+                a(aVar, qL(L));
             }
         }
     }
 
-    public static boolean qJ(String str) {
+    public static boolean qK(String str) {
         return new File(L(str, "aiapps_folder/cloud_config", "web_domains.json")).exists();
     }
 
@@ -64,11 +64,11 @@ public class c {
                         if (c.DEBUG) {
                             Log.d("WebSafeWhiteListMgr", "read serverDomains from file async");
                         }
-                        c.a(aVar, c.qK(L), str2);
+                        c.a(aVar, c.qL(L), str2);
                     }
                 }, "load-ServerDomains", 2);
             } else {
-                a(aVar, qK(L), str2);
+                a(aVar, qL(L), str2);
             }
         }
     }
@@ -88,20 +88,20 @@ public class c {
                     if (c.DEBUG) {
                         Log.d("WebSafeWhiteListMgr", "read web actions from file async");
                     }
-                    c.a(aVar, c.qK(L));
+                    c.a(aVar, c.qL(L));
                 }
             }, "load-WebActions", 2);
         } else {
-            a(aVar, qK(L));
+            a(aVar, qL(L));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static String qK(String str) {
+    public static String qL(String str) {
         if (DEBUG) {
             Log.d("WebSafeWhiteListMgr", "the request webSafeData file path:" + str);
         }
-        return com.baidu.swan.apps.s.a.nh(str);
+        return com.baidu.swan.apps.s.a.ni(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

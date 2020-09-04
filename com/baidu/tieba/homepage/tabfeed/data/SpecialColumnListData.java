@@ -88,7 +88,7 @@ public class SpecialColumnListData extends AbsThreadDataSupport implements Parce
         return null;
     }
 
-    public List<SpecialColumnItemData> cyS() {
+    public List<SpecialColumnItemData> cyT() {
         return this.mListData;
     }
 
@@ -96,7 +96,7 @@ public class SpecialColumnListData extends AbsThreadDataSupport implements Parce
         return this.title;
     }
 
-    public List<SpecialColumnItemData> bGi() {
+    public List<SpecialColumnItemData> bGj() {
         return this.mResultListData;
     }
 

@@ -35,9 +35,9 @@ public class b {
                         aVar.mFrom = h.jv(XZ.getAppFrameType());
                     }
                     aVar.errMsg = str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + str2;
-                    aVar.dwV = d.aPp() ? 20 : 10;
-                    aVar.dxd = com.baidu.swan.games.glsurface.a.b.aOd();
-                    aVar.dxe = System.currentTimeMillis() - XA.exceptionTime;
+                    aVar.dwZ = d.aPp() ? 20 : 10;
+                    aVar.dxh = com.baidu.swan.games.glsurface.a.b.aOd();
+                    aVar.dxi = System.currentTimeMillis() - XA.exceptionTime;
                     a(aVar);
                 }
             }
@@ -59,7 +59,7 @@ public class b {
                     if (b.DEBUG) {
                         Log.d("StuckScreenReporter", "get NetworkQuality: " + i);
                     }
-                    a.this.dxc = i;
+                    a.this.dxg = i;
                     h.a("976", a.this);
                 }
             });

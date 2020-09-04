@@ -40,11 +40,12 @@ public class e {
         return new String(com.baidu.cesium.d.a.a(str.getBytes()));
     }
 
-    public static e dm(String str) {
-        return dn(e(str));
+    public static e dn(String str) {
+        return m21do(e(str));
     }
 
-    private static e dn(String str) {
+    /* renamed from: do  reason: not valid java name */
+    private static e m21do(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

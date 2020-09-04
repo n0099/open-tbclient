@@ -27,7 +27,7 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private com.baidu.swan.apps.camera.b.b bYn;
+    private com.baidu.swan.apps.camera.b.b bYr;
     private Timer mTimer;
 
     private a() {
@@ -37,11 +37,11 @@ public class a {
     /* renamed from: com.baidu.swan.apps.camera.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
     public static class C0367a {
-        private static final a bYq = new a();
+        private static final a bYu = new a();
     }
 
     public static a acA() {
-        return C0367a.bYq;
+        return C0367a.bYu;
     }
 
     public boolean a(byte[] bArr, String str, int i, int i2, boolean z) {
@@ -97,7 +97,7 @@ public class a {
     }
 
     public void a(int i, final com.baidu.swan.apps.camera.b.b bVar) {
-        this.bYn = bVar;
+        this.bYr = bVar;
         this.mTimer = new Timer();
         this.mTimer.schedule(new TimerTask() { // from class: com.baidu.swan.apps.camera.a.1
             @Override // java.util.TimerTask, java.lang.Runnable
@@ -111,27 +111,27 @@ public class a {
     }
 
     public void acB() {
-        this.bYn = null;
+        this.bYr = null;
         if (this.mTimer != null) {
             this.mTimer.cancel();
         }
     }
 
     public void cancelTimer() {
-        if (this.bYn != null) {
-            this.bYn.cancel();
+        if (this.bYr != null) {
+            this.bYr.cancel();
         }
         acB();
     }
 
-    public void dC(boolean z) {
+    public void dD(boolean z) {
         if (z) {
             cancelTimer();
         }
     }
 
     public void i(String str, String str2, boolean z) {
-        if (ag.sF("1.13.0")) {
+        if (ag.sG("1.13.0")) {
             HashMap hashMap = new HashMap();
             hashMap.put("wvID", str);
             hashMap.put("cameraId", str2);

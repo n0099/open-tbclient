@@ -7,15 +7,15 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes8.dex */
 public class h implements Runnable {
-    private final i drD;
-    private AtomicBoolean dsA = new AtomicBoolean(false);
-    private List<h> dsB = Collections.synchronizedList(new ArrayList());
+    private final i drH;
+    private AtomicBoolean dsE = new AtomicBoolean(false);
+    private List<h> dsF = Collections.synchronizedList(new ArrayList());
     private String[] mPaths;
     private final Runnable mRunnable;
     private String mTag;
 
     public h(i iVar, Runnable runnable, String str, String[] strArr) {
-        this.drD = iVar;
+        this.drH = iVar;
         this.mRunnable = runnable;
         this.mTag = str;
         this.mPaths = strArr;
@@ -26,7 +26,7 @@ public class h implements Runnable {
         try {
             aNq();
         } finally {
-            this.drD.c(this);
+            this.drH.c(this);
         }
     }
 
@@ -47,24 +47,24 @@ public class h implements Runnable {
     }
 
     public boolean aNt() {
-        return this.dsA.get();
+        return this.dsE.get();
     }
 
     public void aNu() {
-        this.dsA.set(true);
+        this.dsE.set(true);
     }
 
     public void a(h hVar) {
-        if (!this.dsB.contains(hVar)) {
-            this.dsB.add(hVar);
+        if (!this.dsF.contains(hVar)) {
+            this.dsF.add(hVar);
         }
     }
 
     public void b(h hVar) {
-        this.dsB.remove(hVar);
+        this.dsF.remove(hVar);
     }
 
     public boolean aNv() {
-        return this.dsB.isEmpty();
+        return this.dsF.isEmpty();
     }
 }

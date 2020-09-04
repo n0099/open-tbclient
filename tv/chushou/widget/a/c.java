@@ -13,35 +13,35 @@ import java.lang.ref.SoftReference;
 import tv.chushou.widget.a.b;
 /* loaded from: classes6.dex */
 public class c {
-    private static volatile Resources oMv;
-    private static SoftReference<tv.chushou.widget.a.a.a> oMw;
+    private static volatile Resources oMN;
+    private static SoftReference<tv.chushou.widget.a.a.a> oMO;
 
     public static void b(Resources resources) {
-        oMv = resources;
+        oMN = resources;
     }
 
     public static Resources getResources() {
-        return oMv;
+        return oMN;
     }
 
     public static String getString(@StringRes int i) {
-        return oMv.getString(i);
+        return oMN.getString(i);
     }
 
     public static String getString(@StringRes int i, Object... objArr) {
-        return oMv.getString(i, objArr);
+        return oMN.getString(i, objArr);
     }
 
     public static int getColor(@ColorRes int i) {
-        return oMv.getColor(i);
+        return oMN.getColor(i);
     }
 
     public static Drawable getDrawable(@DrawableRes int i) {
-        return oMv.getDrawable(i);
+        return oMN.getDrawable(i);
     }
 
     public static int Ov(@DimenRes int i) {
-        return oMv.getDimensionPixelSize(i);
+        return oMN.getDimensionPixelSize(i);
     }
 
     public static int H(float f) {
@@ -63,17 +63,17 @@ public class c {
     }
 
     @DrawableRes
-    public static int elZ() {
+    public static int emi() {
         return b.C1006b.commonres_placeholder_bg;
     }
 
     @NonNull
-    public static Drawable ema() {
-        if (oMw != null && oMw.get() != null) {
-            return oMw.get().getConstantState().newDrawable();
+    public static Drawable emj() {
+        if (oMO != null && oMO.get() != null) {
+            return oMO.get().getConstantState().newDrawable();
         }
         tv.chushou.widget.a.a.a aVar = new tv.chushou.widget.a.a.a(BitmapFactory.decodeResource(getResources(), b.c.commonres_placeholder_icon), getColor(b.C1006b.commonres_placeholder_bg));
-        oMw = new SoftReference<>(aVar);
+        oMO = new SoftReference<>(aVar);
         return aVar;
     }
 }

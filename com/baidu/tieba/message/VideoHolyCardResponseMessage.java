@@ -2,7 +2,7 @@ package com.baidu.tieba.message;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class VideoHolyCardResponseMessage extends JsonHttpResponsedMessage {
     public boolean isVideoHolyCard;
 

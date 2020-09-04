@@ -38,7 +38,7 @@ public class e extends a {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             com.baidu.swan.apps.console.c.e("SwanAppCameraManager", "get camera view is null");
             return false;
-        } else if (TextUtils.isEmpty(com.baidu.swan.apps.storage.b.rH(eVar.id))) {
+        } else if (TextUtils.isEmpty(com.baidu.swan.apps.storage.b.rI(eVar.id))) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             com.baidu.swan.apps.console.c.e("SwanAppCameraManager", "get camera stop record cache path is empty");
             return false;
@@ -70,7 +70,7 @@ public class e extends a {
         }
         com.baidu.swan.apps.ab.a.a(context, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE, PermissionRequest.RESOURCE_AUDIO_CAPTURE}, 1, new com.baidu.swan.apps.ab.b() { // from class: com.baidu.swan.apps.camera.a.e.2
             @Override // com.baidu.swan.apps.ab.b
-            public void iF(String str) {
+            public void iG(String str) {
                 e.this.a(unitedSchemeEntity, callbackHandler, eVar, cameraPreview, bVar);
             }
 
@@ -98,7 +98,7 @@ public class e extends a {
         } catch (Exception e3) {
             e = e3;
             cameraPreview.acI();
-            com.baidu.swan.apps.camera.a.acA().i(bVar.caU, bVar.bYI, false);
+            com.baidu.swan.apps.camera.a.acA().i(bVar.caY, bVar.bYM, false);
             if (DEBUG) {
                 e.printStackTrace();
             }
@@ -113,7 +113,7 @@ public class e extends a {
         }
         String videoPath2 = cameraPreview.getVideoPath();
         String thumbPath2 = cameraPreview.getThumbPath();
-        if (!z && kp(videoPath2) && !TextUtils.isEmpty(thumbPath2)) {
+        if (!z && kq(videoPath2) && !TextUtils.isEmpty(thumbPath2)) {
             HashMap<String, String> hashMap = new HashMap<>();
             hashMap.put("tempVideoPath", com.baidu.swan.apps.storage.b.cq(videoPath2, eVar.id));
             hashMap.put("tempThumbPath", com.baidu.swan.apps.storage.b.cq(thumbPath2, eVar.id));
@@ -130,7 +130,7 @@ public class e extends a {
         return new com.baidu.swan.apps.camera.d.b(b(unitedSchemeEntity));
     }
 
-    private boolean kp(String str) {
+    private boolean kq(String str) {
         if (!TextUtils.isEmpty(str)) {
             File file = new File(str);
             return file.exists() && file.length() > 0;

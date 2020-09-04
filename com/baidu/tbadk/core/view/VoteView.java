@@ -29,34 +29,34 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class VoteView extends LinearLayout {
-    private static final int aYD = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10);
-    private static final int evB = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds45);
-    private static final int evC = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds469);
-    private static final float[] evD = {aYD, aYD, 0.0f, 0.0f, 0.0f, 0.0f, aYD, aYD};
-    private static final float[] evE = {0.0f, 0.0f, aYD, aYD, aYD, aYD, 0.0f, 0.0f};
-    private static final float[] evF = {aYD, aYD, aYD, aYD, aYD, aYD, aYD, aYD};
-    private static final float[] evG = {evB, evB, evB, evB, evB, evB, evB, evB};
-    private String akY;
-    private boolean akh;
-    private PollData eey;
-    private TextView evH;
-    private TextView evI;
-    private ImageView evJ;
-    private RecyclerView evK;
-    private View evL;
+    private static final int aYF = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10);
+    private static final int evF = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds45);
+    private static final int evG = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds469);
+    private static final float[] evH = {aYF, aYF, 0.0f, 0.0f, 0.0f, 0.0f, aYF, aYF};
+    private static final float[] evI = {0.0f, 0.0f, aYF, aYF, aYF, aYF, 0.0f, 0.0f};
+    private static final float[] evJ = {aYF, aYF, aYF, aYF, aYF, aYF, aYF, aYF};
+    private static final float[] evK = {evF, evF, evF, evF, evF, evF, evF, evF};
+    private boolean akj;
+    private String ala;
+    private PollData eeC;
+    private TextView evL;
     private TextView evM;
-    private List<Integer> evN;
-    private View.OnClickListener evO;
-    private boolean evP;
-    private boolean evQ;
-    private boolean evR;
-    private boolean evS;
-    private AddPollPostModel evT;
-    private AddPollPostModel.a evU;
-    private View.OnClickListener evV;
-    private RecyclerView.Adapter<a> evW;
+    private ImageView evN;
+    private RecyclerView evO;
+    private View evP;
+    private TextView evQ;
+    private List<Integer> evR;
+    private View.OnClickListener evS;
+    private boolean evT;
+    private boolean evU;
+    private boolean evV;
+    private boolean evW;
+    private AddPollPostModel evX;
+    private AddPollPostModel.a evY;
+    private View.OnClickListener evZ;
+    private RecyclerView.Adapter<a> ewa;
     private int mBgColor;
     private Context mContext;
     private List<PollOptionData> mData;
@@ -74,19 +74,19 @@ public class VoteView extends LinearLayout {
     public VoteView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mBgColor = R.color.cp_bg_line_g;
-        this.evU = new AddPollPostModel.a() { // from class: com.baidu.tbadk.core.view.VoteView.1
+        this.evY = new AddPollPostModel.a() { // from class: com.baidu.tbadk.core.view.VoteView.1
             @Override // com.baidu.tieba.model.AddPollPostModel.a
             public void ao(int i2, String str) {
                 if (i2 == 0) {
-                    VoteView.this.evM.setText(VoteView.this.mContext.getString(R.string.pb_voted_text));
-                    VoteView.this.eey.setPolledValue(VoteView.this.aW(VoteView.this.evN));
-                    VoteView.this.eey.setIsPolled(1);
-                    VoteView.this.evP = VoteView.this.eey.getIsPolled() == 1;
-                    VoteView.this.eey.setTotalNum(VoteView.this.eey.getTotalNum() + 1);
+                    VoteView.this.evQ.setText(VoteView.this.mContext.getString(R.string.pb_voted_text));
+                    VoteView.this.eeC.setPolledValue(VoteView.this.aW(VoteView.this.evR));
+                    VoteView.this.eeC.setIsPolled(1);
+                    VoteView.this.evT = VoteView.this.eeC.getIsPolled() == 1;
+                    VoteView.this.eeC.setTotalNum(VoteView.this.eeC.getTotalNum() + 1);
                     VoteView.this.setVoteSubContent(VoteView.this.getSubContent());
-                    VoteView.this.eey.setTotalPoll(VoteView.this.eey.getTotalPoll() + VoteView.this.evN.size());
-                    if (VoteView.this.evW != null) {
-                        VoteView.this.evW.notifyDataSetChanged();
+                    VoteView.this.eeC.setTotalPoll(VoteView.this.eeC.getTotalPoll() + VoteView.this.evR.size());
+                    if (VoteView.this.ewa != null) {
+                        VoteView.this.ewa.notifyDataSetChanged();
                     }
                     VoteView.this.blh();
                 } else if (!StringUtils.isNull(str)) {
@@ -94,18 +94,18 @@ public class VoteView extends LinearLayout {
                 }
             }
         };
-        this.evV = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.VoteView.2
+        this.evZ = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.VoteView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                String aW = VoteView.this.aW(VoteView.this.evN);
-                if (VoteView.this.mPageContext != null && VoteView.this.evT != null && !StringUtils.isNull(VoteView.this.akY) && VoteView.this.evU != null && !StringUtils.isNull(aW) && VoteView.this.eey != null) {
-                    VoteView.this.evT.setTid(com.baidu.adp.lib.f.b.toLong(VoteView.this.akY, -1L));
-                    VoteView.this.evT.a(VoteView.this.evU);
-                    VoteView.this.evT.i(VoteView.this.akY, aW, VoteView.this.mFid);
+                String aW = VoteView.this.aW(VoteView.this.evR);
+                if (VoteView.this.mPageContext != null && VoteView.this.evX != null && !StringUtils.isNull(VoteView.this.ala) && VoteView.this.evY != null && !StringUtils.isNull(aW) && VoteView.this.eeC != null) {
+                    VoteView.this.evX.setTid(com.baidu.adp.lib.f.b.toLong(VoteView.this.ala, -1L));
+                    VoteView.this.evX.a(VoteView.this.evY);
+                    VoteView.this.evX.i(VoteView.this.ala, aW, VoteView.this.mFid);
                 }
             }
         };
-        this.evW = new RecyclerView.Adapter<a>() { // from class: com.baidu.tbadk.core.view.VoteView.3
+        this.ewa = new RecyclerView.Adapter<a>() { // from class: com.baidu.tbadk.core.view.VoteView.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.support.v7.widget.RecyclerView.Adapter
             @NonNull
@@ -118,41 +118,41 @@ public class VoteView extends LinearLayout {
             @Override // android.support.v7.widget.RecyclerView.Adapter
             /* renamed from: b */
             public void onBindViewHolder(@NonNull final a aVar, final int i2) {
-                if (VoteView.this.eey == null || VoteView.this.eey.getOptions() == null || VoteView.this.mData == null) {
+                if (VoteView.this.eeC == null || VoteView.this.eeC.getOptions() == null || VoteView.this.mData == null) {
                     VoteView.this.setSingleUnCheckItemView(aVar);
-                    if (VoteView.this.evO != null) {
-                        aVar.ewa.setOnClickListener(VoteView.this.evO);
+                    if (VoteView.this.evS != null) {
+                        aVar.ewe.setOnClickListener(VoteView.this.evS);
                     }
                 } else {
                     PollOptionData pollOptionData = (PollOptionData) VoteView.this.mData.get(i2);
                     long num = pollOptionData.getNum();
                     boolean z = num == 0;
-                    boolean z2 = VoteView.this.eey.getTotalPoll() == num;
-                    boolean contains = VoteView.this.evN.contains(Integer.valueOf(pollOptionData.getId()));
-                    if (!VoteView.this.evP && !VoteView.this.evQ) {
-                        if (VoteView.this.evR) {
-                            if (!VoteView.this.akh) {
+                    boolean z2 = VoteView.this.eeC.getTotalPoll() == num;
+                    boolean contains = VoteView.this.evR.contains(Integer.valueOf(pollOptionData.getId()));
+                    if (!VoteView.this.evT && !VoteView.this.evU) {
+                        if (VoteView.this.evV) {
+                            if (!VoteView.this.akj) {
                                 VoteView.this.a(aVar, false);
                             } else {
                                 VoteView.this.setSingleUnCheckItemView(aVar);
                             }
-                            if ((!VoteView.this.evS && VoteView.this.mData.size() > 3) || VoteView.this.akh) {
-                                aVar.ewa.setOnClickListener(VoteView.this.evO);
+                            if ((!VoteView.this.evW && VoteView.this.mData.size() > 3) || VoteView.this.akj) {
+                                aVar.ewe.setOnClickListener(VoteView.this.evS);
                             } else {
-                                aVar.ewa.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.VoteView.3.1
+                                aVar.ewe.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.VoteView.3.1
                                     @Override // android.view.View.OnClickListener
                                     public void onClick(View view) {
-                                        VoteView.this.a(aVar, !VoteView.this.evN.contains(Integer.valueOf(((PollOptionData) VoteView.this.mData.get(i2)).getId())));
-                                        if (!VoteView.this.evN.contains(Integer.valueOf(((PollOptionData) VoteView.this.mData.get(i2)).getId()))) {
-                                            VoteView.this.evN.add(Integer.valueOf(((PollOptionData) VoteView.this.mData.get(i2)).getId()));
-                                            VoteView.this.eey.setPolledValue(VoteView.this.aW(VoteView.this.evN));
+                                        VoteView.this.a(aVar, !VoteView.this.evR.contains(Integer.valueOf(((PollOptionData) VoteView.this.mData.get(i2)).getId())));
+                                        if (!VoteView.this.evR.contains(Integer.valueOf(((PollOptionData) VoteView.this.mData.get(i2)).getId()))) {
+                                            VoteView.this.evR.add(Integer.valueOf(((PollOptionData) VoteView.this.mData.get(i2)).getId()));
+                                            VoteView.this.eeC.setPolledValue(VoteView.this.aW(VoteView.this.evR));
                                             ((PollOptionData) VoteView.this.mData.get(i2)).setNum(((PollOptionData) VoteView.this.mData.get(i2)).getNum() + 1);
-                                            VoteView.this.eey.getOptions().get(i2).setNum(((PollOptionData) VoteView.this.mData.get(i2)).getNum());
+                                            VoteView.this.eeC.getOptions().get(i2).setNum(((PollOptionData) VoteView.this.mData.get(i2)).getNum());
                                         } else {
-                                            VoteView.this.evN.remove(Integer.valueOf(((PollOptionData) VoteView.this.mData.get(i2)).getId()));
-                                            VoteView.this.eey.setPolledValue(VoteView.this.aW(VoteView.this.evN));
+                                            VoteView.this.evR.remove(Integer.valueOf(((PollOptionData) VoteView.this.mData.get(i2)).getId()));
+                                            VoteView.this.eeC.setPolledValue(VoteView.this.aW(VoteView.this.evR));
                                             ((PollOptionData) VoteView.this.mData.get(i2)).setNum(((PollOptionData) VoteView.this.mData.get(i2)).getNum() - 1);
-                                            VoteView.this.eey.getOptions().get(i2).setNum(((PollOptionData) VoteView.this.mData.get(i2)).getNum());
+                                            VoteView.this.eeC.getOptions().get(i2).setNum(((PollOptionData) VoteView.this.mData.get(i2)).getNum());
                                         }
                                         VoteView.this.blh();
                                     }
@@ -160,18 +160,18 @@ public class VoteView extends LinearLayout {
                             }
                         } else {
                             VoteView.this.setSingleUnCheckItemView(aVar);
-                            if ((!VoteView.this.evS && VoteView.this.mData.size() > 3) || VoteView.this.akh) {
-                                aVar.ewa.setOnClickListener(VoteView.this.evO);
+                            if ((!VoteView.this.evW && VoteView.this.mData.size() > 3) || VoteView.this.akj) {
+                                aVar.ewe.setOnClickListener(VoteView.this.evS);
                             } else {
-                                aVar.ewa.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.VoteView.3.2
+                                aVar.ewe.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.VoteView.3.2
                                     @Override // android.view.View.OnClickListener
                                     public void onClick(View view) {
-                                        VoteView.this.evN.add(Integer.valueOf(((PollOptionData) VoteView.this.mData.get(i2)).getId()));
-                                        VoteView.this.eey.setPolledValue(VoteView.this.aW(VoteView.this.evN));
+                                        VoteView.this.evR.add(Integer.valueOf(((PollOptionData) VoteView.this.mData.get(i2)).getId()));
+                                        VoteView.this.eeC.setPolledValue(VoteView.this.aW(VoteView.this.evR));
                                         ((PollOptionData) VoteView.this.mData.get(i2)).setNum(((PollOptionData) VoteView.this.mData.get(i2)).getNum() + 1);
-                                        VoteView.this.eey.getOptions().get(i2).setNum(((PollOptionData) VoteView.this.mData.get(i2)).getNum());
-                                        if (VoteView.this.evV != null) {
-                                            VoteView.this.evV.onClick(aVar.ewa);
+                                        VoteView.this.eeC.getOptions().get(i2).setNum(((PollOptionData) VoteView.this.mData.get(i2)).getNum());
+                                        if (VoteView.this.evZ != null) {
+                                            VoteView.this.evZ.onClick(aVar.ewe);
                                         }
                                     }
                                 });
@@ -179,15 +179,15 @@ public class VoteView extends LinearLayout {
                         }
                     } else {
                         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -1, (float) num);
-                        LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(0, -1, (float) (VoteView.this.eey.getTotalPoll() - num));
-                        aVar.ewc.setLayoutParams(layoutParams);
-                        aVar.ewb.setLayoutParams(layoutParams2);
+                        LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(0, -1, (float) (VoteView.this.eeC.getTotalPoll() - num));
+                        aVar.ewg.setLayoutParams(layoutParams);
+                        aVar.ewf.setLayoutParams(layoutParams2);
                         VoteView.this.a(aVar, contains, z2, z);
-                        aVar.ewf.setText(at.cS(num) + VoteView.this.mContext.getString(R.string.write_vote_num));
-                        aVar.ewa.setOnClickListener(VoteView.this.evO);
+                        aVar.ewj.setText(at.cS(num) + VoteView.this.mContext.getString(R.string.write_vote_num));
+                        aVar.ewe.setOnClickListener(VoteView.this.evS);
                     }
                 }
-                aVar.ewa.setText(((PollOptionData) VoteView.this.mData.get(i2)).getText());
+                aVar.ewe.setText(((PollOptionData) VoteView.this.mData.get(i2)).getText());
             }
 
             @Override // android.support.v7.widget.RecyclerView.Adapter
@@ -200,50 +200,50 @@ public class VoteView extends LinearLayout {
         };
         this.mContext = context;
         this.mData = new ArrayList();
-        this.evN = new ArrayList();
+        this.evR = new ArrayList();
         init();
     }
 
     public void setPageContext(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.evT = new AddPollPostModel(this.mPageContext);
+        this.evX = new AddPollPostModel(this.mPageContext);
     }
 
     private void init() {
         LayoutInflater.from(this.mContext).inflate(R.layout.view_vote_main, (ViewGroup) this, true);
-        this.evH = (TextView) findViewById(R.id.vote_title);
-        this.evI = (TextView) findViewById(R.id.vote_sub_content);
-        this.evJ = (ImageView) findViewById(R.id.vote_view_delete);
-        this.evK = (RecyclerView) findViewById(R.id.vote_item_list);
-        this.evL = findViewById(R.id.vote_list_bottom);
-        this.evM = (TextView) findViewById(R.id.vote_view_btn);
-        this.evM.setOnClickListener(this.evV);
-        this.evK.setLayoutManager(new LinearLayoutManager(this.mContext, 1, false) { // from class: com.baidu.tbadk.core.view.VoteView.4
+        this.evL = (TextView) findViewById(R.id.vote_title);
+        this.evM = (TextView) findViewById(R.id.vote_sub_content);
+        this.evN = (ImageView) findViewById(R.id.vote_view_delete);
+        this.evO = (RecyclerView) findViewById(R.id.vote_item_list);
+        this.evP = findViewById(R.id.vote_list_bottom);
+        this.evQ = (TextView) findViewById(R.id.vote_view_btn);
+        this.evQ.setOnClickListener(this.evZ);
+        this.evO.setLayoutManager(new LinearLayoutManager(this.mContext, 1, false) { // from class: com.baidu.tbadk.core.view.VoteView.4
             @Override // android.support.v7.widget.LinearLayoutManager, android.support.v7.widget.RecyclerView.LayoutManager
             public boolean canScrollVertically() {
                 return false;
             }
         });
-        this.evK.setNestedScrollingEnabled(false);
-        this.evK.setAdapter(this.evW);
-        this.evW.notifyDataSetChanged();
+        this.evO.setNestedScrollingEnabled(false);
+        this.evO.setAdapter(this.ewa);
+        this.ewa.notifyDataSetChanged();
     }
 
     private void a(PollData pollData, String str, long j) {
-        this.akY = str;
+        this.ala = str;
         this.mFid = j;
-        this.eey = pollData;
-        this.evP = this.eey.getIsPolled() == 1;
-        this.evN.clear();
-        if (this.evP && !StringUtils.isNull(this.eey.getPolledValue())) {
-            for (String str2 : this.eey.getPolledValue().split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
-                this.evN.add(Integer.valueOf(Integer.parseInt(str2)));
+        this.eeC = pollData;
+        this.evT = this.eeC.getIsPolled() == 1;
+        this.evR.clear();
+        if (this.evT && !StringUtils.isNull(this.eeC.getPolledValue())) {
+            for (String str2 : this.eeC.getPolledValue().split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
+                this.evR.add(Integer.valueOf(Integer.parseInt(str2)));
             }
         }
-        this.evQ = this.eey.getLastTime() <= 0 && this.eey.getLastTime() != -1;
-        this.evR = this.eey.getIsMulti() == 1;
-        if (!StringUtils.isNull(this.eey.getTitle())) {
-            this.evH.setText(this.eey.getTitle());
+        this.evU = this.eeC.getLastTime() <= 0 && this.eeC.getLastTime() != -1;
+        this.evV = this.eeC.getIsMulti() == 1;
+        if (!StringUtils.isNull(this.eeC.getTitle())) {
+            this.evL.setText(this.eeC.getTitle());
         }
         setVoteSubContent(getSubContent());
     }
@@ -251,22 +251,22 @@ public class VoteView extends LinearLayout {
     private void setViewWithAllData(List<PollOptionData> list) {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
         layoutParams.bottomMargin = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds25);
-        this.evK.setLayoutParams(layoutParams);
-        this.evL.setVisibility(8);
-        if (this.evR && !this.evQ && !this.evP && !this.akh) {
-            this.evM.setVisibility(0);
-            this.evM.setText(this.mContext.getString(R.string.pb_vote_text));
+        this.evO.setLayoutParams(layoutParams);
+        this.evP.setVisibility(8);
+        if (this.evV && !this.evU && !this.evT && !this.akj) {
+            this.evQ.setVisibility(0);
+            this.evQ.setText(this.mContext.getString(R.string.pb_vote_text));
         } else {
-            this.evM.setVisibility(8);
+            this.evQ.setVisibility(8);
         }
         setData(list);
     }
 
     public void setDataForPb(PollData pollData, String str, String str2) {
         if (pollData != null) {
-            this.evS = true;
+            this.evW = true;
             a(pollData, str, com.baidu.adp.lib.f.b.toLong(str2, 0L));
-            List<PollOptionData> options = this.eey.getOptions();
+            List<PollOptionData> options = this.eeC.getOptions();
             if (!y.isEmpty(options)) {
                 setViewWithAllData(options);
             }
@@ -276,14 +276,14 @@ public class VoteView extends LinearLayout {
     public void setData(PollData pollData, String str, long j) {
         if (pollData != null) {
             a(pollData, str, j);
-            List<PollOptionData> options = this.eey.getOptions();
+            List<PollOptionData> options = this.eeC.getOptions();
             if (!y.isEmpty(options)) {
                 if (options.size() > 3) {
-                    FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, evC);
+                    FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, evG);
                     layoutParams.bottomMargin = 0;
-                    this.evK.setLayoutParams(layoutParams);
-                    this.evL.setVisibility(0);
-                    this.evM.setVisibility(8);
+                    this.evO.setLayoutParams(layoutParams);
+                    this.evP.setVisibility(0);
+                    this.evQ.setVisibility(8);
                     setData(options.subList(0, 4));
                     return;
                 }
@@ -294,8 +294,8 @@ public class VoteView extends LinearLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public String getSubContent() {
-        String string = this.eey.getIsMulti() == 1 ? this.mContext.getString(R.string.vote_type_multiple) : this.mContext.getString(R.string.vote_type_single);
-        long endTime = this.eey.getEndTime();
+        String string = this.eeC.getIsMulti() == 1 ? this.mContext.getString(R.string.vote_type_multiple) : this.mContext.getString(R.string.vote_type_single);
+        long endTime = this.eeC.getEndTime();
         String str = "";
         if (endTime > 0) {
             Date date = new Date(endTime * 1000);
@@ -306,7 +306,7 @@ public class VoteView extends LinearLayout {
         if (!StringUtils.isNull(str)) {
             string = string + " · " + str;
         }
-        String cS = at.cS(this.eey.getTotalNum());
+        String cS = at.cS(this.eeC.getTotalNum());
         if (!StringUtils.isNull(cS)) {
             return string + " · " + cS + this.mContext.getString(R.string.write_vote_total);
         }
@@ -316,36 +316,36 @@ public class VoteView extends LinearLayout {
     public void setData(List<PollOptionData> list) {
         this.mData.clear();
         this.mData.addAll(list);
-        if (this.evW != null) {
-            this.evW.notifyDataSetChanged();
+        if (this.ewa != null) {
+            this.ewa.notifyDataSetChanged();
         }
     }
 
     public void setVoteTitle(String str) {
         if (!StringUtils.isNull(str)) {
-            this.evH.setText(str);
+            this.evL.setText(str);
         }
     }
 
     public void setVoteSubContent(String str) {
         if (!StringUtils.isNull(str)) {
-            this.evI.setText(str);
+            this.evM.setText(str);
         }
     }
 
     public void setDeleteOnClickListener(View.OnClickListener onClickListener) {
-        if (this.evJ != null && onClickListener != null) {
-            this.evJ.setOnClickListener(onClickListener);
+        if (this.evN != null && onClickListener != null) {
+            this.evN.setOnClickListener(onClickListener);
         }
     }
 
     public void setOnItemClickListener(View.OnClickListener onClickListener) {
-        this.evO = onClickListener;
+        this.evS = onClickListener;
     }
 
     public void setVoteViewDeleteVisibility(int i) {
-        if (this.evJ != null) {
-            this.evJ.setVisibility(i);
+        if (this.evN != null) {
+            this.evN.setVisibility(i);
         }
     }
 
@@ -354,7 +354,7 @@ public class VoteView extends LinearLayout {
     }
 
     public void setIsTransmit(boolean z) {
-        this.akh = z;
+        this.akj = z;
     }
 
     public void onChangeSkinType(int i) {
@@ -363,57 +363,57 @@ public class VoteView extends LinearLayout {
         gradientDrawable.setColor(ap.getColor(this.mBgColor));
         setBackgroundDrawable(gradientDrawable);
         if (this.mBgColor == R.color.cp_bg_line_e) {
-            ap.setBackgroundResource(this.evL, R.drawable.bg_vote_list_transmit_bottom);
+            ap.setBackgroundResource(this.evP, R.drawable.bg_vote_list_transmit_bottom);
         } else {
-            ap.setBackgroundResource(this.evL, R.drawable.bg_vote_list_bottom);
+            ap.setBackgroundResource(this.evP, R.drawable.bg_vote_list_bottom);
         }
-        ap.setViewTextColor(this.evH, R.color.cp_cont_b);
-        ap.setViewTextColor(this.evI, R.color.cp_cont_d);
+        ap.setViewTextColor(this.evL, R.color.cp_cont_b);
+        ap.setViewTextColor(this.evM, R.color.cp_cont_d);
         blh();
-        if (this.evW != null) {
-            this.evW.notifyDataSetChanged();
+        if (this.ewa != null) {
+            this.ewa.notifyDataSetChanged();
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (this.evT != null && !this.evP && !this.evQ && !this.akh) {
-            this.evT.registerListener();
+        if (this.evX != null && !this.evT && !this.evU && !this.akj) {
+            this.evX.registerListener();
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.evT != null) {
-            this.evT.unRegisterListener();
+        if (this.evX != null) {
+            this.evX.unRegisterListener();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void blh() {
         GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setCornerRadii(evG);
+        gradientDrawable.setCornerRadii(evK);
         gradientDrawable.setColor(com.baidu.tieba.tbadkCore.c.l(ap.getColor(R.color.cp_link_tip_a), 0.08f));
-        this.evM.setBackgroundDrawable(gradientDrawable);
-        if (!this.evP && !y.isEmpty(this.evN) && this.evN.size() > 0) {
-            ap.setViewTextColor(this.evM, R.color.cp_link_tip_a);
-            this.evM.setEnabled(true);
+        this.evQ.setBackgroundDrawable(gradientDrawable);
+        if (!this.evT && !y.isEmpty(this.evR) && this.evR.size() > 0) {
+            ap.setViewTextColor(this.evQ, R.color.cp_link_tip_a);
+            this.evQ.setEnabled(true);
             return;
         }
-        this.evM.setTextColor(com.baidu.tieba.tbadkCore.c.l(ap.getColor(R.color.cp_link_tip_a), 0.3f));
-        this.evM.setEnabled(false);
+        this.evQ.setTextColor(com.baidu.tieba.tbadkCore.c.l(ap.getColor(R.color.cp_link_tip_a), 0.3f));
+        this.evQ.setEnabled(false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(a aVar, boolean z, boolean z2, boolean z3) {
-        aVar.ewe.setVisibility(8);
-        aVar.ewf.setVisibility(0);
-        aVar.ewa.setGravity(19);
+        aVar.ewi.setVisibility(8);
+        aVar.ewj.setVisibility(0);
+        aVar.ewe.setGravity(19);
         if (z) {
-            ap.setViewTextColor(aVar.ewa, R.color.cp_link_tip_a);
-            ap.setViewTextColor(aVar.ewf, R.color.cp_link_tip_a);
+            ap.setViewTextColor(aVar.ewe, R.color.cp_link_tip_a);
+            ap.setViewTextColor(aVar.ewj, R.color.cp_link_tip_a);
             if (z2) {
                 a(aVar, com.baidu.tieba.tbadkCore.c.l(ap.getColor(R.color.cp_link_tip_a), 0.16f));
                 return;
@@ -422,8 +422,8 @@ public class VoteView extends LinearLayout {
                 return;
             }
         }
-        ap.setViewTextColor(aVar.ewa, R.color.cp_cont_b);
-        ap.setViewTextColor(aVar.ewf, R.color.cp_cont_b);
+        ap.setViewTextColor(aVar.ewe, R.color.cp_cont_b);
+        ap.setViewTextColor(aVar.ewj, R.color.cp_cont_b);
         if (z3) {
             a(aVar, ap.getColor(R.color.cp_bg_line_h));
         } else if (z2) {
@@ -435,52 +435,52 @@ public class VoteView extends LinearLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setSingleUnCheckItemView(a aVar) {
-        aVar.ewe.setVisibility(8);
-        aVar.ewf.setVisibility(8);
-        aVar.ewa.setGravity(17);
-        ap.setViewTextColor(aVar.ewa, R.color.cp_cont_b);
+        aVar.ewi.setVisibility(8);
+        aVar.ewj.setVisibility(8);
+        aVar.ewe.setGravity(17);
+        ap.setViewTextColor(aVar.ewe, R.color.cp_cont_b);
         a(aVar, ap.getColor(R.color.cp_bg_line_h));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(a aVar, boolean z) {
-        aVar.ewe.setVisibility(0);
-        aVar.ewf.setVisibility(8);
-        aVar.ewa.setGravity(19);
+        aVar.ewi.setVisibility(0);
+        aVar.ewj.setVisibility(8);
+        aVar.ewe.setGravity(19);
         a(aVar, ap.getColor(R.color.cp_bg_line_h));
         if (z) {
-            ap.setViewTextColor(aVar.ewa, R.color.cp_link_tip_a);
-            SvgManager.bjq().a(aVar.ewe, R.drawable.ic_icon_pure_toast_complete24_svg, R.color.cp_link_tip_a, SvgManager.SvgResourceStateType.NORMAL);
+            ap.setViewTextColor(aVar.ewe, R.color.cp_link_tip_a);
+            SvgManager.bjq().a(aVar.ewi, R.drawable.ic_icon_pure_toast_complete24_svg, R.color.cp_link_tip_a, SvgManager.SvgResourceStateType.NORMAL);
             return;
         }
-        ap.setViewTextColor(aVar.ewa, R.color.cp_cont_b);
-        SvgManager.bjq().a(aVar.ewe, R.drawable.ic_icon_pure_strok3_24_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL);
+        ap.setViewTextColor(aVar.ewe, R.color.cp_cont_b);
+        SvgManager.bjq().a(aVar.ewi, R.drawable.ic_icon_pure_strok3_24_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL);
     }
 
     private void a(a aVar, int i) {
-        aVar.ewd.setVisibility(8);
+        aVar.ewh.setVisibility(8);
         GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setCornerRadii(evF);
+        gradientDrawable.setCornerRadii(evJ);
         gradientDrawable.setColor(i);
         gradientDrawable.setStroke(com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds1), com.baidu.tieba.tbadkCore.c.l(ap.getColor(R.color.cp_border_d), 0.16f));
-        aVar.ewa.setBackgroundDrawable(gradientDrawable);
+        aVar.ewe.setBackgroundDrawable(gradientDrawable);
     }
 
     private void a(a aVar, int i, int i2) {
-        aVar.ewd.setVisibility(0);
+        aVar.ewh.setVisibility(0);
         GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setCornerRadii(evD);
+        gradientDrawable.setCornerRadii(evH);
         gradientDrawable.setColor(i);
-        aVar.ewc.setBackgroundDrawable(gradientDrawable);
+        aVar.ewg.setBackgroundDrawable(gradientDrawable);
         GradientDrawable gradientDrawable2 = new GradientDrawable();
-        gradientDrawable2.setCornerRadii(evE);
+        gradientDrawable2.setCornerRadii(evI);
         gradientDrawable2.setColor(i2);
-        aVar.ewb.setBackgroundDrawable(gradientDrawable2);
+        aVar.ewf.setBackgroundDrawable(gradientDrawable2);
         GradientDrawable gradientDrawable3 = new GradientDrawable();
-        gradientDrawable3.setCornerRadii(evF);
+        gradientDrawable3.setCornerRadii(evJ);
         gradientDrawable3.setColor(0);
         gradientDrawable3.setStroke(com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds1), com.baidu.tieba.tbadkCore.c.l(ap.getColor(R.color.cp_border_d), 0.16f));
-        aVar.ewa.setBackgroundDrawable(gradientDrawable3);
+        aVar.ewe.setBackgroundDrawable(gradientDrawable3);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -506,23 +506,23 @@ public class VoteView extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a extends RecyclerView.ViewHolder {
-        public TextView ewa;
-        public View ewb;
-        public View ewc;
-        public LinearLayout ewd;
-        public ImageView ewe;
-        public TextView ewf;
+        public TextView ewe;
+        public View ewf;
+        public View ewg;
+        public LinearLayout ewh;
+        public ImageView ewi;
+        public TextView ewj;
 
         public a(View view) {
             super(view);
-            this.ewa = (TextView) view.findViewById(R.id.vote_item);
-            this.ewb = view.findViewById(R.id.vote_item_background);
-            this.ewc = view.findViewById(R.id.vote_item_foreground);
-            this.ewd = (LinearLayout) view.findViewById(R.id.vote_item_ground);
-            this.ewe = (ImageView) view.findViewById(R.id.vote_check);
-            this.ewf = (TextView) view.findViewById(R.id.vote_num);
+            this.ewe = (TextView) view.findViewById(R.id.vote_item);
+            this.ewf = view.findViewById(R.id.vote_item_background);
+            this.ewg = view.findViewById(R.id.vote_item_foreground);
+            this.ewh = (LinearLayout) view.findViewById(R.id.vote_item_ground);
+            this.ewi = (ImageView) view.findViewById(R.id.vote_check);
+            this.ewj = (TextView) view.findViewById(R.id.vote_num);
         }
     }
 }

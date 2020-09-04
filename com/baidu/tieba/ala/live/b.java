@@ -27,9 +27,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class b {
-    private BaseActivity buT;
-    private TBLottieAnimationView gfO;
-    private PayConfig gfP;
+    private BaseActivity buW;
+    private TBLottieAnimationView gfS;
+    private PayConfig gfT;
     private boolean isPaying;
     private InterfaceC0616b mCallback;
     private View mChannelLayout;
@@ -68,20 +68,20 @@ public class b {
     }
 
     public b(BaseActivity baseActivity, InterfaceC0616b interfaceC0616b, PayConfig payConfig) {
-        this.buT = baseActivity;
+        this.buW = baseActivity;
         this.mContext = baseActivity.getPageContext().getPageActivity();
         this.mCallback = interfaceC0616b;
-        this.gfP = payConfig;
+        this.gfT = payConfig;
         initView();
     }
 
     private void initView() {
-        if (this.buT instanceof AlaSdkWalletOpaqueActivity) {
+        if (this.buW instanceof AlaSdkWalletOpaqueActivity) {
             this.mRootView = (RelativeLayout) LayoutInflater.from(this.mContext).inflate(a.h.sdk_wallet_pay_opaque_layout, (ViewGroup) null);
         } else {
             this.mRootView = (RelativeLayout) LayoutInflater.from(this.mContext).inflate(a.h.sdk_wallet_pay_layout, (ViewGroup) null);
         }
-        this.buT.setContentView(this.mRootView);
+        this.buW.setContentView(this.mRootView);
         this.mTitle = (TextView) this.mRootView.findViewById(a.g.pay_channel_title);
         this.mChannelLayout = this.mRootView.findViewById(a.g.pay_channel_layout);
         this.mTopSpaceView = this.mRootView.findViewById(a.g.pay_channel_top_space_view);
@@ -131,11 +131,11 @@ public class b {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (StringUtils.isNull(b.this.mChosenChannel) || "NaN".equals(b.this.mChosenChannel)) {
-                    b.this.buT.showToast(a.i.sdk_pay_choose_one_channel_tip);
+                    b.this.buW.showToast(a.i.sdk_pay_choose_one_channel_tip);
                     return;
                 }
-                b.this.gfO.setVisibility(0);
-                b.this.gfO.playAnimation();
+                b.this.gfS.setVisibility(0);
+                b.this.gfS.playAnimation();
                 b.this.updatePayBtnText(b.this.mContext.getString(a.i.sdk_pay_loading));
                 if (b.this.mCallback != null) {
                     b.this.mCallback.doPay(b.this.mChosenChannel);
@@ -143,25 +143,25 @@ public class b {
                 }
             }
         });
-        this.gfO = (TBLottieAnimationView) this.mRootView.findViewById(a.g.pay_channel_pay_anim_view);
-        this.gfO.setAnimation("sdk_wallet_pay_anim.json");
-        this.gfO.loop(true);
+        this.gfS = (TBLottieAnimationView) this.mRootView.findViewById(a.g.pay_channel_pay_anim_view);
+        this.gfS.setAnimation("sdk_wallet_pay_anim.json");
+        this.gfS.loop(true);
         onChangeSkinType();
     }
 
     private void refreshView() {
-        String format = String.format("%.2f", Float.valueOf(JavaTypesHelper.toFloat(this.gfP.getMoney(), 0.0f)));
+        String format = String.format("%.2f", Float.valueOf(JavaTypesHelper.toFloat(this.gfT.getMoney(), 0.0f)));
         this.mMoneyTv.setText("￥" + format);
-        if (this.gfP.getPayType() == 2) {
+        if (this.gfT.getPayType() == 2) {
             this.mGoodDesc.setVisibility(0);
             this.mGoodCount.setVisibility(0);
             this.mGoodDivider.setVisibility(0);
             Drawable drawable = this.mContext.getResources().getDrawable(a.f.sdk_icon_huobi_tdou);
             drawable.setBounds(0, 0, this.ds20, this.ds22);
             this.mGoodCount.setCompoundDrawables(drawable, null, null, null);
-            this.mGoodCount.setText(this.gfP.getTBeanNum() + "");
+            this.mGoodCount.setText(this.gfT.getTBeanNum() + "");
         }
-        this.mGoodName.setText(this.gfP.getTitle());
+        this.mGoodName.setText(this.gfT.getTitle());
         handleChannelListView();
         this.mPayBtnStr = String.format(this.mContext.getResources().getString(a.i.sdk_pay_total_pay_confirm_tip), format);
         updatePayBtnText(this.mPayBtnStr);
@@ -271,12 +271,12 @@ public class b {
     }
 
     public void hideLoadingView() {
-        this.buT.hideLoadingView(this.mContentLayout);
+        this.buW.hideLoadingView(this.mContentLayout);
     }
 
     public void payResult(boolean z) {
-        this.gfO.cancelAnimation();
-        this.gfO.setVisibility(8);
+        this.gfS.cancelAnimation();
+        this.gfS.setVisibility(8);
         if (z) {
             updatePayBtnText(this.mContext.getString(a.i.sdk_pay_succ));
         } else {
@@ -288,7 +288,7 @@ public class b {
     private void onChangeSkinType() {
         SkinManager.setBackgroundColor(this.mRootView, a.d.sdk_black_alpha0);
         SkinManager.setImageResource(this.mCloseBtn, a.f.sdk_icon_wallet_close);
-        if (this.buT instanceof AlaSdkWalletOpaqueActivity) {
+        if (this.buW instanceof AlaSdkWalletOpaqueActivity) {
             SkinManager.setBackgroundResource(this.mChannelLayout, a.d.sdk_cp_bg_line_d);
         } else {
             SkinManager.setBackgroundResource(this.mChannelLayout, a.f.sdk_wallet_pay_content_bg);
@@ -308,7 +308,7 @@ public class b {
     /* loaded from: classes7.dex */
     public class a {
         public String curChannel;
-        public HeadImageView gfR;
+        public HeadImageView gfV;
         private boolean mChosen;
         public TextView promptTv;
         public View rootView;
@@ -318,11 +318,11 @@ public class b {
 
         public a(View view) {
             this.rootView = view;
-            this.gfR = (HeadImageView) view.findViewById(a.g.channel_icon);
-            this.gfR.setIsRound(true);
-            this.gfR.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.gfR.setDefaultResource(a.d.sdk_cp_cont_e);
-            this.gfR.setAutoChangeStyle(false);
+            this.gfV = (HeadImageView) view.findViewById(a.g.channel_icon);
+            this.gfV.setIsRound(true);
+            this.gfV.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.gfV.setDefaultResource(a.d.sdk_cp_cont_e);
+            this.gfV.setAutoChangeStyle(false);
             this.titleTv = (TextView) view.findViewById(a.g.channel_title);
             this.promptTv = (TextView) view.findViewById(a.g.channel_prompt);
             this.tagTv = (TextView) view.findViewById(a.g.channel_tag);
@@ -339,7 +339,7 @@ public class b {
 
         public void b(com.baidu.tieba.ala.live.a.a aVar) {
             this.curChannel = aVar.channel;
-            this.gfR.startLoad(aVar.iconUrl, 10, false);
+            this.gfV.startLoad(aVar.iconUrl, 10, false);
             this.titleTv.setText(aVar.title);
             if (!StringUtils.isNull(aVar.prompt)) {
                 this.promptTv.setVisibility(0);

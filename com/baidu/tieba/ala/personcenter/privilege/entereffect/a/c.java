@@ -12,7 +12,7 @@ import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.personcenter.privilege.entereffect.data.a, a> {
     public c(Context context) {
-        super(context, com.baidu.tieba.ala.personcenter.privilege.entereffect.data.a.gWF);
+        super(context, com.baidu.tieba.ala.personcenter.privilege.entereffect.data.a.gWJ);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,8 +26,8 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     private void a(a aVar) {
         if (aVar != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            ap.setViewTextColor(aVar.gWD, R.color.cp_cont_b, 1, skinType);
-            ap.setBackgroundResource(aVar.gWE, R.color.cp_bg_line_c, skinType);
+            ap.setViewTextColor(aVar.gWH, R.color.cp_cont_b, 1, skinType);
+            ap.setBackgroundResource(aVar.gWI, R.color.cp_bg_line_c, skinType);
         }
     }
 
@@ -36,12 +36,12 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.personcenter.privilege.entereffect.data.a aVar, a aVar2) {
         if (aVar != null) {
-            aVar2.gWD.setText(aVar.aDd);
+            aVar2.gWH.setText(aVar.aDf);
         }
         if (i == 0) {
-            aVar2.gWE.setVisibility(8);
+            aVar2.gWI.setVisibility(8);
         } else {
-            aVar2.gWE.setVisibility(0);
+            aVar2.gWI.setVisibility(0);
         }
         a(aVar2);
         return aVar2.getView();
@@ -49,13 +49,13 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
 
     /* loaded from: classes4.dex */
     public static class a extends af.a {
-        public TextView gWD;
-        public View gWE;
+        public TextView gWH;
+        public View gWI;
 
         public a(View view) {
             super(view);
-            this.gWD = (TextView) getView().findViewById(R.id.enter_effect_txt);
-            this.gWE = getView().findViewById(R.id.ala_enter_effect_devide);
+            this.gWH = (TextView) getView().findViewById(R.id.enter_effect_txt);
+            this.gWI = getView().findViewById(R.id.ala_enter_effect_devide);
         }
     }
 }

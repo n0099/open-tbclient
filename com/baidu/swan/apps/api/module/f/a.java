@@ -23,7 +23,7 @@ public class a extends d implements b.a {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b jt(String str) {
+    public com.baidu.swan.apps.api.c.b ju(String str) {
         if (DEBUG) {
             Log.d("Api-GetLocationAction", "handle: " + str);
         }
@@ -40,11 +40,11 @@ public class a extends d implements b.a {
             }
             return bVar;
         }
-        final C0353a jv = C0353a.jv(((JSONObject) aX.second).toString());
-        if (jv == null || !jv.isValid()) {
+        final C0353a jw = C0353a.jw(((JSONObject) aX.second).toString());
+        if (jw == null || !jw.isValid()) {
             c.e("Api-GetLocationAction", "params is invalid");
             return new com.baidu.swan.apps.api.c.b(201, "params is invalid");
-        } else if (TextUtils.isEmpty(jv.bWE)) {
+        } else if (TextUtils.isEmpty(jw.bWI)) {
             c.e("Api-GetLocationAction", "empty cb");
             return new com.baidu.swan.apps.api.c.b(201, "empty cb");
         } else {
@@ -53,7 +53,7 @@ public class a extends d implements b.a {
                 @Override // com.baidu.swan.apps.ap.e.b
                 /* renamed from: a */
                 public void I(h<b.d> hVar) {
-                    a.this.a(hVar, jv, false);
+                    a.this.a(hVar, jw, false);
                 }
             });
             return new com.baidu.swan.apps.api.c.b(0);
@@ -68,7 +68,7 @@ public class a extends d implements b.a {
             return;
         }
         int errorCode = hVar.getErrorCode();
-        a(c0353a.bWE, new com.baidu.swan.apps.api.c.b(errorCode, com.baidu.swan.apps.setting.oauth.c.gC(errorCode)));
+        a(c0353a.bWI, new com.baidu.swan.apps.api.c.b(errorCode, com.baidu.swan.apps.setting.oauth.c.gC(errorCode)));
     }
 
     @Override // com.baidu.swan.apps.api.module.f.b.a
@@ -76,21 +76,21 @@ public class a extends d implements b.a {
         if (DEBUG) {
             Log.d("Api-GetLocationAction", "convert info : " + bVar.toJSON());
         }
-        a(c0353a.bWE, new com.baidu.swan.apps.api.c.b(0, "success", bVar.toJSON()));
+        a(c0353a.bWI, new com.baidu.swan.apps.api.c.b(0, "success", bVar.toJSON()));
     }
 
     @Override // com.baidu.swan.apps.api.module.f.b.a
     public void a(C0353a c0353a, int i) {
         c.e("Api-GetLocationAction", "request location error code : " + i);
-        a(c0353a.bWE, new com.baidu.swan.apps.api.c.b(1001, String.valueOf(i)));
+        a(c0353a.bWI, new com.baidu.swan.apps.api.c.b(1001, String.valueOf(i)));
     }
 
     @Override // com.baidu.swan.apps.api.module.f.b.a
     public void a(C0353a c0353a, String str) {
-        a(c0353a.bWE, new com.baidu.swan.apps.api.c.b(10005, "system deny"));
+        a(c0353a.bWI, new com.baidu.swan.apps.api.c.b(10005, "system deny"));
     }
 
-    public com.baidu.swan.apps.api.c.b ju(String str) {
+    public com.baidu.swan.apps.api.c.b jv(String str) {
         if (DEBUG) {
             Log.d("Api-GetLocationAction", "handle: " + str);
         }
@@ -149,11 +149,11 @@ public class a extends d implements b.a {
     /* renamed from: com.baidu.swan.apps.api.module.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
     public static class C0353a {
-        boolean bWD;
-        public String bWE;
+        boolean bWH;
+        public String bWI;
         public String mType;
 
-        public static C0353a jv(String str) {
+        public static C0353a jw(String str) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
@@ -164,9 +164,9 @@ public class a extends d implements b.a {
                 if (TextUtils.isEmpty(c0353a.mType)) {
                     c0353a.mType = CoordinateType.WGS84;
                 }
-                c0353a.bWD = jSONObject.optBoolean("altitude");
-                c0353a.bWE = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(c0353a.bWE)) {
+                c0353a.bWH = jSONObject.optBoolean("altitude");
+                c0353a.bWI = jSONObject.optString("cb");
+                if (TextUtils.isEmpty(c0353a.bWI)) {
                     return null;
                 }
                 return c0353a;
@@ -180,7 +180,7 @@ public class a extends d implements b.a {
         }
 
         public boolean isValid() {
-            return (TextUtils.equals(this.mType, CoordinateType.WGS84) || TextUtils.equals(this.mType, "gcj02") || TextUtils.equals(this.mType, "bd09ll")) && !TextUtils.isEmpty(this.bWE);
+            return (TextUtils.equals(this.mType, CoordinateType.WGS84) || TextUtils.equals(this.mType, "gcj02") || TextUtils.equals(this.mType, "bd09ll")) && !TextUtils.isEmpty(this.bWI);
         }
     }
 }

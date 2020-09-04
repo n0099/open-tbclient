@@ -8,21 +8,21 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 /* loaded from: classes5.dex */
 public final class g {
-    private static String[] ngE = {"android.permission.WRITE_EXTERNAL_STORAGE"};
-    private static File ngF = null;
-    private static RandomAccessFile ngG = null;
+    private static String[] ngW = {"android.permission.WRITE_EXTERNAL_STORAGE"};
+    private static File ngX = null;
+    private static RandomAccessFile ngY = null;
 
     public static synchronized boolean b(String str, String str2, String str3) {
         boolean z = false;
         synchronized (g.class) {
-            if (dMI() && f(str2, str3)) {
+            if (dMR() && f(str2, str3)) {
                 try {
-                    ngF = new File(str2 + str3);
-                    RandomAccessFile randomAccessFile = new RandomAccessFile(ngF, "rwd");
-                    ngG = randomAccessFile;
-                    randomAccessFile.seek(ngF.length());
-                    ngG.write((str + "\r\n").getBytes("UTF-8"));
-                    ngG.close();
+                    ngX = new File(str2 + str3);
+                    RandomAccessFile randomAccessFile = new RandomAccessFile(ngX, "rwd");
+                    ngY = randomAccessFile;
+                    randomAccessFile.seek(ngX.length());
+                    ngY.write((str + "\r\n").getBytes("UTF-8"));
+                    ngY.close();
                     z = true;
                 } catch (Exception e) {
                     j.b(e);
@@ -35,14 +35,14 @@ public final class g {
     public static synchronized String V(String str, String str2) {
         String str3;
         synchronized (g.class) {
-            if (dMI()) {
+            if (dMR()) {
                 if (TU(str + str2)) {
                     try {
-                        ngF = new File(str + str2);
-                        ngG = new RandomAccessFile(ngF, "r");
+                        ngX = new File(str + str2);
+                        ngY = new RandomAccessFile(ngX, "r");
                         StringBuffer stringBuffer = new StringBuffer();
                         while (true) {
-                            String readLine = ngG.readLine();
+                            String readLine = ngY.readLine();
                             if (readLine == null) {
                                 break;
                             }
@@ -50,14 +50,14 @@ public final class g {
                         }
                         str3 = stringBuffer.toString();
                         try {
-                            ngG.close();
+                            ngY.close();
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
                     } catch (Exception e2) {
                         e2.printStackTrace();
                         try {
-                            ngG.close();
+                            ngY.close();
                         } catch (IOException e3) {
                             e3.printStackTrace();
                         }
@@ -71,39 +71,39 @@ public final class g {
         return str3;
     }
 
-    private static boolean dMI() {
+    private static boolean dMR() {
         String externalStorageState = Environment.getExternalStorageState();
-        return Build.VERSION.SDK_INT >= 23 ? com.baidu.ubs.analytics.d.dMi().getContext().checkCallingOrSelfPermission(ngE[0]) == 0 && externalStorageState.equals("mounted") : externalStorageState.equals("mounted");
+        return Build.VERSION.SDK_INT >= 23 ? com.baidu.ubs.analytics.d.dMr().getContext().checkCallingOrSelfPermission(ngW[0]) == 0 && externalStorageState.equals("mounted") : externalStorageState.equals("mounted");
     }
 
     public static boolean TU(String str) {
         File file = new File(str);
-        ngF = file;
+        ngX = file;
         return file.exists();
     }
 
     public static boolean TV(String str) {
         File file = new File(str);
-        ngF = file;
+        ngX = file;
         return file.delete();
     }
 
     private static boolean f(String str, String str2) {
         try {
-            ngF = new File(str);
+            ngX = new File(str);
             if (!TU(str)) {
-                ngF.mkdirs();
+                ngX.mkdirs();
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         try {
             File file = new File(str + str2);
-            ngF = file;
+            ngX = file;
             if (file.exists()) {
                 return true;
             }
-            return ngF.createNewFile();
+            return ngX.createNewFile();
         } catch (Exception e2) {
             e2.printStackTrace();
             return false;

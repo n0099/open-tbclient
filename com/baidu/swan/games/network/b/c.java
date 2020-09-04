@@ -11,7 +11,7 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private List<com.baidu.swan.games.binding.model.c> duZ = new ArrayList();
+    private List<com.baidu.swan.games.binding.model.c> dvd = new ArrayList();
 
     public c(JSONArray jSONArray) {
         if (jSONArray != null) {
@@ -43,7 +43,7 @@ public class c {
                     switch (c) {
                         case 0:
                             if (i2 < 3) {
-                                this.duZ.add(cf(optJSONObject));
+                                this.dvd.add(cf(optJSONObject));
                                 i2++;
                                 break;
                             } else {
@@ -51,7 +51,7 @@ public class c {
                             }
                         case 1:
                             if (i < 10) {
-                                this.duZ.add(cg(optJSONObject));
+                                this.dvd.add(cg(optJSONObject));
                                 i++;
                                 break;
                             } else {
@@ -67,9 +67,9 @@ public class c {
     public void b(com.baidu.swan.games.f.b bVar) {
         if (bVar != null) {
             if (DEBUG) {
-                Log.d("SwanGamePreloadConfig", "startPreload objectMap:" + this.duZ);
+                Log.d("SwanGamePreloadConfig", "startPreload objectMap:" + this.dvd);
             }
-            for (com.baidu.swan.games.binding.model.c cVar : this.duZ) {
+            for (com.baidu.swan.games.binding.model.c cVar : this.dvd) {
                 if (cVar != null) {
                     String optString = cVar.optString("type");
                     char c = 65535;

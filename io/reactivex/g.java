@@ -18,7 +18,7 @@ public abstract class g<T> implements org.b.b<T> {
 
     protected abstract void a(org.b.c<? super T> cVar);
 
-    public static int eeP() {
+    public static int eeY() {
         return BUFFER_SIZE;
     }
 
@@ -28,12 +28,12 @@ public abstract class g<T> implements org.b.b<T> {
         return io.reactivex.e.a.a(new FlowableCreate(iVar, backpressureStrategy));
     }
 
-    public static <T> g<T> eeQ() {
-        return io.reactivex.e.a.a(io.reactivex.internal.operators.flowable.e.omX);
+    public static <T> g<T> eeZ() {
+        return io.reactivex.e.a.a(io.reactivex.internal.operators.flowable.e.onq);
     }
 
     public static g<Long> a(long j, long j2, TimeUnit timeUnit) {
-        return a(j, j2, timeUnit, io.reactivex.f.a.efz());
+        return a(j, j2, timeUnit, io.reactivex.f.a.efI());
     }
 
     public static g<Long> a(long j, long j2, TimeUnit timeUnit, v vVar) {
@@ -43,7 +43,7 @@ public abstract class g<T> implements org.b.b<T> {
     }
 
     public static g<Long> a(long j, long j2, long j3, long j4, TimeUnit timeUnit) {
-        return a(j, j2, j3, j4, timeUnit, io.reactivex.f.a.efz());
+        return a(j, j2, j3, j4, timeUnit, io.reactivex.f.a.efI());
     }
 
     public static g<Long> a(long j, long j2, long j3, long j4, TimeUnit timeUnit, v vVar) {
@@ -51,7 +51,7 @@ public abstract class g<T> implements org.b.b<T> {
             throw new IllegalArgumentException("count >= 0 required but it was " + j2);
         }
         if (j2 == 0) {
-            return eeQ().a(j3, timeUnit, vVar);
+            return eeZ().a(j3, timeUnit, vVar);
         }
         long j5 = j + (j2 - 1);
         if (j > 0 && j5 < 0) {
@@ -73,11 +73,11 @@ public abstract class g<T> implements org.b.b<T> {
     }
 
     public final g<T> a(io.reactivex.c.a aVar) {
-        return a(Functions.eeZ(), Functions.oml, aVar);
+        return a(Functions.efi(), Functions.omD, aVar);
     }
 
     public final g<T> b(io.reactivex.c.a aVar) {
-        return a(Functions.eeZ(), Functions.eeZ(), aVar, Functions.omh);
+        return a(Functions.efi(), Functions.efi(), aVar, Functions.omz);
     }
 
     private g<T> a(io.reactivex.c.g<? super T> gVar, io.reactivex.c.g<? super Throwable> gVar2, io.reactivex.c.a aVar, io.reactivex.c.a aVar2) {
@@ -96,7 +96,7 @@ public abstract class g<T> implements org.b.b<T> {
     }
 
     public final g<T> a(io.reactivex.c.g<? super org.b.d> gVar) {
-        return a(gVar, Functions.oml, Functions.omh);
+        return a(gVar, Functions.omD, Functions.omz);
     }
 
     public final <R> g<R> a(io.reactivex.c.h<? super T, ? extends R> hVar) {
@@ -105,12 +105,12 @@ public abstract class g<T> implements org.b.b<T> {
     }
 
     public final g<T> a(v vVar) {
-        return a(vVar, false, eeP());
+        return a(vVar, false, eeY());
     }
 
     public final g<T> a(v vVar, boolean z, int i) {
         io.reactivex.internal.functions.a.k(vVar, "scheduler is null");
-        io.reactivex.internal.functions.a.bJ(i, "bufferSize");
+        io.reactivex.internal.functions.a.bI(i, "bufferSize");
         return io.reactivex.e.a.a(new FlowableObserveOn(this, vVar, z, i));
     }
 
@@ -123,11 +123,11 @@ public abstract class g<T> implements org.b.b<T> {
     }
 
     public final io.reactivex.disposables.b b(io.reactivex.c.g<? super T> gVar) {
-        return a(gVar, Functions.omk, Functions.omh, FlowableInternalHelper.RequestMax.INSTANCE);
+        return a(gVar, Functions.omC, Functions.omz, FlowableInternalHelper.RequestMax.INSTANCE);
     }
 
     public final io.reactivex.disposables.b a(io.reactivex.c.g<? super T> gVar, io.reactivex.c.g<? super Throwable> gVar2) {
-        return a(gVar, gVar2, Functions.omh, FlowableInternalHelper.RequestMax.INSTANCE);
+        return a(gVar, gVar2, Functions.omz, FlowableInternalHelper.RequestMax.INSTANCE);
     }
 
     public final io.reactivex.disposables.b a(io.reactivex.c.g<? super T> gVar, io.reactivex.c.g<? super Throwable> gVar2, io.reactivex.c.a aVar) {

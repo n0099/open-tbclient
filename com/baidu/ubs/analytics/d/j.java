@@ -4,55 +4,55 @@ import android.text.TextUtils;
 import android.util.Log;
 /* loaded from: classes5.dex */
 public final class j {
-    private static int ngH = 1000;
-    private static boolean ngI = true;
+    private static int ngZ = 1000;
+    private static boolean nha = true;
 
     public static void c(boolean z) {
-        ngI = z;
+        nha = z;
     }
 
     public static void I(String str) {
-        if (ngI) {
+        if (nha) {
             a(5, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void b(Throwable th) {
-        if (ngI) {
+        if (nha) {
             a(4, "BaiDuAbSDK", "", th);
         }
     }
 
     public static void G(String str) {
-        if (ngI) {
+        if (nha) {
             a(2, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void a(Throwable th) {
-        if (ngI) {
+        if (nha) {
             a(2, "BaiDuAbSDK", "", th);
         }
     }
 
     private static void a(int i, String str, String str2, Throwable th) {
         if (!TextUtils.isEmpty(str2)) {
-            if (str2.length() >= ngH) {
+            if (str2.length() >= ngZ) {
                 switch (i) {
                     case 1:
-                        Log.v(str, str2.substring(0, ngH));
+                        Log.v(str, str2.substring(0, ngZ));
                         break;
                     case 2:
-                        Log.d(str, str2.substring(0, ngH));
+                        Log.d(str, str2.substring(0, ngZ));
                         break;
                     case 3:
-                        Log.i(str, str2.substring(0, ngH));
+                        Log.i(str, str2.substring(0, ngZ));
                         break;
                     case 4:
-                        Log.w(str, str2.substring(0, ngH));
+                        Log.w(str, str2.substring(0, ngZ));
                         break;
                     case 5:
-                        Log.e(str, str2.substring(0, ngH));
+                        Log.e(str, str2.substring(0, ngZ));
                         break;
                 }
             } else {

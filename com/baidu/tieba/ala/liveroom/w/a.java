@@ -5,7 +5,7 @@ import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class a {
     String date;
-    int dej;
+    int den;
     String uid;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +15,7 @@ public class a {
         }
         this.uid = jSONObject.optString("uid");
         this.date = jSONObject.optString("date");
-        this.dej = jSONObject.optInt("times");
+        this.den = jSONObject.optInt("times");
         return this;
     }
 
@@ -25,7 +25,7 @@ public class a {
         try {
             jSONObject.put("uid", this.uid);
             jSONObject.put("date", this.date);
-            jSONObject.put("times", this.dej);
+            jSONObject.put("times", this.den);
             return jSONObject.toString();
         } catch (JSONException e) {
             e.printStackTrace();

@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.data;
 import java.io.Serializable;
 import java.util.List;
 import tbclient.Item;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ItemData implements Serializable {
     public double mIconSize;
     public String mIconUrl;

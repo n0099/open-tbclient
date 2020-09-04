@@ -11,11 +11,11 @@ import com.baidu.searchbox.http.request.HttpRequest;
 import com.baidu.searchbox.http.statistics.NetworkInfoRecord;
 import com.baidu.searchbox.http.statistics.NetworkStat;
 import okhttp3.Request;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c implements IHttpContext {
     public static boolean DEBUG;
     private static final String TAG;
-    private static int lUR;
+    private static int lVg;
     private Context mContext = AppRuntime.getAppContext();
 
     @Override // com.baidu.searchbox.http.IHttpContext
@@ -33,7 +33,7 @@ public class c implements IHttpContext {
         DEBUG = isDebug;
         DEBUG = isDebug;
         TAG = c.class.getSimpleName();
-        lUR = 0;
+        lVg = 0;
     }
 
     @Override // com.baidu.searchbox.http.IHttpContext

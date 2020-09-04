@@ -19,77 +19,77 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes18.dex */
 public class p {
-    private com.baidu.tbadk.core.dialog.i hkl;
-    private com.baidu.tbadk.core.dialog.k hkm;
-    private com.baidu.tbadk.core.dialog.a hkn;
-    private a hko;
-    private CardPersonDynamicThreadData hkp;
-    private List<com.baidu.tbadk.core.dialog.g> hkq;
-    private com.baidu.tbadk.core.dialog.g hkr;
-    private com.baidu.tbadk.core.dialog.g hks;
-    private com.baidu.tbadk.core.dialog.g hkt;
-    private SetPrivacyModel hku;
-    private ForumManageModel hkv;
-    private com.baidu.tieba.callfans.a hkx;
+    private com.baidu.tieba.callfans.a hkB;
+    private com.baidu.tbadk.core.dialog.i hkp;
+    private com.baidu.tbadk.core.dialog.k hkq;
+    private com.baidu.tbadk.core.dialog.a hkr;
+    private a hks;
+    private CardPersonDynamicThreadData hkt;
+    private List<com.baidu.tbadk.core.dialog.g> hku;
+    private com.baidu.tbadk.core.dialog.g hkv;
+    private com.baidu.tbadk.core.dialog.g hkw;
+    private com.baidu.tbadk.core.dialog.g hkx;
+    private SetPrivacyModel hky;
+    private ForumManageModel hkz;
     private Context mContext;
     private TbPageContext mPageContext;
-    private boolean hkw = false;
-    private k.b hky = new k.b() { // from class: com.baidu.tieba.card.p.2
+    private boolean hkA = false;
+    private k.b hkC = new k.b() { // from class: com.baidu.tieba.card.p.2
         @Override // com.baidu.tbadk.core.dialog.k.b
         public void onClick() {
             int i;
             int i2 = 1;
-            if (p.this.hkp != null) {
-                p.this.cbS();
-                if (p.this.hkp.from == 1) {
+            if (p.this.hkt != null) {
+                p.this.cbT();
+                if (p.this.hkt.from == 1) {
                     i = 2;
                 } else {
-                    i = p.this.hkp.from == 3 ? 1 : 1;
+                    i = p.this.hkt.from == 3 ? 1 : 1;
                 }
-                if (p.this.hkp == null || !p.this.hkp.isPrivacy) {
-                    if (p.this.hkp.bce() != null) {
-                        p.this.hkx.setThreadId(p.this.hkp.bce().getTid());
+                if (p.this.hkt == null || !p.this.hkt.isPrivacy) {
+                    if (p.this.hkt.bce() != null) {
+                        p.this.hkB.setThreadId(p.this.hkt.bce().getTid());
                     }
-                    if (TbSingleton.getInstance().mCallFansTid != null && p.this.hkp.bce() != null && TbSingleton.getInstance().mCallFansTid.equals(p.this.hkp.bce().getTid())) {
+                    if (TbSingleton.getInstance().mCallFansTid != null && p.this.hkt.bce() != null && TbSingleton.getInstance().mCallFansTid.equals(p.this.hkt.bce().getTid())) {
                         i2 = 2;
                     }
-                    p.this.hkx.cbt();
-                    if (p.this.hkp.bce() != null) {
-                        p.this.hkx.i(i, i2, p.this.hkp.bce().getTid());
+                    p.this.hkB.cbu();
+                    if (p.this.hkt.bce() != null) {
+                        p.this.hkB.i(i, i2, p.this.hkt.bce().getTid());
                         return;
                     }
                     return;
                 }
                 p.this.mPageContext.showToast(R.string.privacy_thread_can_not_use_call_fans);
-                if (p.this.hkp.bce() != null) {
-                    p.this.hkx.i(i, 3, p.this.hkp.bce().getTid());
+                if (p.this.hkt.bce() != null) {
+                    p.this.hkB.i(i, 3, p.this.hkt.bce().getTid());
                 }
             }
         }
     };
-    private SetPrivacyModel.a hkz = new SetPrivacyModel.a() { // from class: com.baidu.tieba.card.p.5
+    private SetPrivacyModel.a hkD = new SetPrivacyModel.a() { // from class: com.baidu.tieba.card.p.5
         @Override // com.baidu.tieba.model.SetPrivacyModel.a
         public void onSuccess() {
-            if (p.this.hkp.isPrivacy) {
-                p.this.hkp.isPrivacy = false;
-                com.baidu.adp.lib.util.l.showToast(p.this.mContext, R.string.thread_has_open);
-                if (p.this.hkr != null) {
-                    p.this.hkr.setText(p.this.mContext.getString(R.string.set_thread_privacy));
+            if (p.this.hkt.isPrivacy) {
+                p.this.hkt.isPrivacy = false;
+                com.baidu.adp.lib.util.l.showToast(p.this.mContext, (int) R.string.thread_has_open);
+                if (p.this.hkv != null) {
+                    p.this.hkv.setText(p.this.mContext.getString(R.string.set_thread_privacy));
                 }
-                if (p.this.hko != null) {
-                    p.this.hko.setPrivacy(false);
+                if (p.this.hks != null) {
+                    p.this.hks.setPrivacy(false);
                     return;
                 }
                 return;
             }
-            p.this.hkp.isPrivacy = true;
-            if (p.this.hkr != null) {
-                p.this.hkr.setText(p.this.mContext.getString(R.string.set_thread_public_open));
+            p.this.hkt.isPrivacy = true;
+            if (p.this.hkv != null) {
+                p.this.hkv.setText(p.this.mContext.getString(R.string.set_thread_public_open));
             }
-            if (p.this.hko != null) {
-                p.this.hko.setPrivacy(true);
+            if (p.this.hks != null) {
+                p.this.hks.setPrivacy(true);
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CARD_PERSON_DYNAMIC_THREAD_HIDE, p.this.hkp.threadId));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CARD_PERSON_DYNAMIC_THREAD_HIDE, p.this.hkt.threadId));
         }
 
         @Override // com.baidu.tieba.model.SetPrivacyModel.a
@@ -97,69 +97,69 @@ public class p {
             com.baidu.adp.lib.util.l.showToast(p.this.mContext, str);
         }
     };
-    private k.b hkA = new k.b() { // from class: com.baidu.tieba.card.p.6
+    private k.b hkE = new k.b() { // from class: com.baidu.tieba.card.p.6
         @Override // com.baidu.tbadk.core.dialog.k.b
         public void onClick() {
             if (!com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
-                com.baidu.adp.lib.util.l.showToast(p.this.mContext, R.string.neterror);
+                com.baidu.adp.lib.util.l.showToast(p.this.mContext, (int) R.string.neterror);
                 return;
             }
-            if (p.this.hkp.isPrivacy) {
-                if (p.this.hkp.from == 1) {
+            if (p.this.hkt.isPrivacy) {
+                if (p.this.hkt.from == 1) {
                     TiebaStatic.log(new aq("c12599").ai("obj_type", 2));
                 }
-            } else if (p.this.hkp.from != 1) {
-                if (p.this.hkp.from == 3) {
+            } else if (p.this.hkt.from != 1) {
+                if (p.this.hkt.from == 3) {
                     TiebaStatic.log(new aq("c12600").ai("obj_type", 2));
                 }
             } else {
                 TiebaStatic.log(new aq("c12599").ai("obj_type", 1));
             }
-            if (p.this.hku == null) {
-                p.this.hku = new SetPrivacyModel(p.this.mPageContext, p.this.hkp);
+            if (p.this.hky == null) {
+                p.this.hky = new SetPrivacyModel(p.this.mPageContext, p.this.hkt);
             }
-            if (!p.this.hku.isRunning()) {
-                p.this.hku.a(p.this.hkz);
-                p.this.hku.LoadData();
+            if (!p.this.hky.isRunning()) {
+                p.this.hky.a(p.this.hkD);
+                p.this.hky.LoadData();
             }
-            p.this.cbS();
+            p.this.cbT();
         }
     };
-    private k.b hkB = new k.b() { // from class: com.baidu.tieba.card.p.7
+    private k.b hkF = new k.b() { // from class: com.baidu.tieba.card.p.7
         @Override // com.baidu.tbadk.core.dialog.k.b
         public void onClick() {
             if (!com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
-                com.baidu.adp.lib.util.l.showToast(p.this.mContext, R.string.neterror);
+                com.baidu.adp.lib.util.l.showToast(p.this.mContext, (int) R.string.neterror);
                 return;
             }
-            if (p.this.hkp != null && p.this.hkv != null) {
-                p.this.cbT();
-                p.this.hkn.bhg();
+            if (p.this.hkt != null && p.this.hkz != null) {
+                p.this.cbU();
+                p.this.hkr.bhg();
             }
-            p.this.cbS();
+            p.this.cbT();
         }
     };
-    private com.baidu.adp.base.d hkC = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.card.p.8
+    private com.baidu.adp.base.d hkG = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.card.p.8
         @Override // com.baidu.adp.base.d
         public void callback(Object obj) {
             if (obj instanceof ForumManageModel.b) {
                 ForumManageModel.b bVar = (ForumManageModel.b) obj;
                 if (bVar.mErrCode == 0) {
-                    com.baidu.adp.lib.util.l.showToast(p.this.mContext, R.string.delete_success);
-                    if (p.this.hkp != null) {
-                        if (at.isEmpty(p.this.hkp.hnS)) {
-                            if (!at.isEmpty(p.this.hkp.threadId)) {
-                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_DELETE_CARD_PERSON_DYNAMIC_THREAD, p.this.hkp.threadId));
+                    com.baidu.adp.lib.util.l.showToast(p.this.mContext, (int) R.string.delete_success);
+                    if (p.this.hkt != null) {
+                        if (at.isEmpty(p.this.hkt.hnW)) {
+                            if (!at.isEmpty(p.this.hkt.threadId)) {
+                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_DELETE_CARD_PERSON_DYNAMIC_THREAD, p.this.hkt.threadId));
                                 return;
                             }
                             return;
                         }
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921436, p.this.hkp.hnS));
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921436, p.this.hkt.hnW));
                     }
-                } else if (!at.isEmpty(bVar.mhz)) {
-                    com.baidu.adp.lib.util.l.showToast(p.this.mContext, bVar.mhz);
+                } else if (!at.isEmpty(bVar.mhO)) {
+                    com.baidu.adp.lib.util.l.showToast(p.this.mContext, bVar.mhO);
                 } else {
-                    com.baidu.adp.lib.util.l.showToast(p.this.mContext, R.string.delete_fail);
+                    com.baidu.adp.lib.util.l.showToast(p.this.mContext, (int) R.string.delete_fail);
                 }
             }
         }
@@ -174,130 +174,130 @@ public class p {
         if (tbPageContext != null) {
             this.mPageContext = tbPageContext;
             this.mContext = this.mPageContext.getPageActivity();
-            this.hkq = new ArrayList();
-            this.hkm = new com.baidu.tbadk.core.dialog.k(this.mContext);
-            this.hkv = new ForumManageModel(this.mPageContext);
-            this.hkv.setLoadDataCallBack(this.hkC);
-            this.hkx = new com.baidu.tieba.callfans.a(tbPageContext);
+            this.hku = new ArrayList();
+            this.hkq = new com.baidu.tbadk.core.dialog.k(this.mContext);
+            this.hkz = new ForumManageModel(this.mPageContext);
+            this.hkz.setLoadDataCallBack(this.hkG);
+            this.hkB = new com.baidu.tieba.callfans.a(tbPageContext);
         }
     }
 
     public void onChangeSkinType() {
-        if (this.hkm != null) {
-            this.hkm.onChangeSkinType();
+        if (this.hkq != null) {
+            this.hkq.onChangeSkinType();
         }
-        if (this.hkn != null) {
-            com.baidu.tbadk.r.a.a(this.mPageContext, this.hkn.getRealView());
+        if (this.hkr != null) {
+            com.baidu.tbadk.r.a.a(this.mPageContext, this.hkr.getRealView());
         }
     }
 
     public void create() {
-        if (this.hkl == null) {
-            this.hkr = new com.baidu.tbadk.core.dialog.g(this.hkm);
-            this.hkr.a(this.hkA);
-            if (!this.hkw) {
-                this.hkq.add(this.hkr);
+        if (this.hkp == null) {
+            this.hkv = new com.baidu.tbadk.core.dialog.g(this.hkq);
+            this.hkv.a(this.hkE);
+            if (!this.hkA) {
+                this.hku.add(this.hkv);
             }
-            if (TbSingleton.getInstance().mShowCallFans && !this.hkw) {
-                this.hks = new com.baidu.tbadk.core.dialog.g(this.mContext.getString(R.string.call_fans), this.hkm);
-                this.hks.a(this.hky);
-                this.hkq.add(this.hks);
+            if (TbSingleton.getInstance().mShowCallFans && !this.hkA) {
+                this.hkw = new com.baidu.tbadk.core.dialog.g(this.mContext.getString(R.string.call_fans), this.hkq);
+                this.hkw.a(this.hkC);
+                this.hku.add(this.hkw);
             }
-            this.hkt = new com.baidu.tbadk.core.dialog.g(this.mContext.getString(R.string.delete), this.hkm);
-            this.hkt.a(this.hkB);
-            this.hkq.add(this.hkt);
-            this.hkm.a(new k.a() { // from class: com.baidu.tieba.card.p.1
+            this.hkx = new com.baidu.tbadk.core.dialog.g(this.mContext.getString(R.string.delete), this.hkq);
+            this.hkx.a(this.hkF);
+            this.hku.add(this.hkx);
+            this.hkq.a(new k.a() { // from class: com.baidu.tieba.card.p.1
                 @Override // com.baidu.tbadk.core.dialog.k.a
                 public void onClick() {
-                    p.this.cbS();
+                    p.this.cbT();
                 }
             });
-            this.hkm.aT(this.hkq);
-            this.hkl = new com.baidu.tbadk.core.dialog.i(this.mPageContext, this.hkm);
+            this.hkq.aT(this.hku);
+            this.hkp = new com.baidu.tbadk.core.dialog.i(this.mPageContext, this.hkq);
         }
     }
 
     public void a(a aVar) {
-        this.hko = aVar;
+        this.hks = aVar;
     }
 
     public void a(CardPersonDynamicThreadData cardPersonDynamicThreadData) {
-        this.hkp = cardPersonDynamicThreadData;
-        if (this.hkp != null && this.hkr != null) {
-            if (this.hkp.isPrivacy) {
-                this.hkr.setText(this.mContext.getString(R.string.set_thread_public_open));
+        this.hkt = cardPersonDynamicThreadData;
+        if (this.hkt != null && this.hkv != null) {
+            if (this.hkt.isPrivacy) {
+                this.hkv.setText(this.mContext.getString(R.string.set_thread_public_open));
             } else {
-                this.hkr.setText(this.mContext.getString(R.string.set_thread_privacy));
+                this.hkv.setText(this.mContext.getString(R.string.set_thread_privacy));
             }
-            if (this.hks != null) {
+            if (this.hkw != null) {
                 if (TbSingleton.getInstance().mCanCallFans) {
-                    this.hks.setText(this.mContext.getString(R.string.call_fans));
+                    this.hkw.setText(this.mContext.getString(R.string.call_fans));
                     return;
                 }
-                if (TbSingleton.getInstance().mCallFansTid != null && this.hkp.bce() != null && TbSingleton.getInstance().mCallFansTid.equals(this.hkp.bce().getTid())) {
-                    this.hks.setText(this.mContext.getString(R.string.have_called_fans));
+                if (TbSingleton.getInstance().mCallFansTid != null && this.hkt.bce() != null && TbSingleton.getInstance().mCallFansTid.equals(this.hkt.bce().getTid())) {
+                    this.hkw.setText(this.mContext.getString(R.string.have_called_fans));
                 } else {
-                    this.hks.setText(this.mContext.getString(R.string.call_fans));
+                    this.hkw.setText(this.mContext.getString(R.string.call_fans));
                 }
-                this.hks.setTextColor(R.color.cp_cont_b_alpha33);
+                this.hkw.setTextColor(R.color.cp_cont_b_alpha33);
             }
         }
     }
 
     public void show() {
-        if (this.hkl != null) {
-            this.hkl.Nv();
+        if (this.hkp != null) {
+            this.hkp.Nv();
         }
     }
 
-    public void cbS() {
-        if (this.hkl != null && this.hkl.isShowing()) {
-            this.hkl.dismiss();
+    public void cbT() {
+        if (this.hkp != null && this.hkp.isShowing()) {
+            this.hkp.dismiss();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cbT() {
-        if (this.hkn == null) {
-            this.hkn = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
-            if (this.hkw) {
-                this.hkn.nt(R.string.del_dynamic_confirm);
+    public void cbU() {
+        if (this.hkr == null) {
+            this.hkr = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
+            if (this.hkA) {
+                this.hkr.nt(R.string.del_dynamic_confirm);
             } else {
-                this.hkn.nt(R.string.del_thread_confirm);
+                this.hkr.nt(R.string.del_thread_confirm);
             }
-            this.hkn.a(R.string.dialog_ok, new a.b() { // from class: com.baidu.tieba.card.p.3
+            this.hkr.a(R.string.dialog_ok, new a.b() { // from class: com.baidu.tieba.card.p.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     if (!com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
-                        com.baidu.adp.lib.util.l.showToast(p.this.mContext, R.string.neterror);
+                        com.baidu.adp.lib.util.l.showToast(p.this.mContext, (int) R.string.neterror);
                         return;
                     }
-                    if (p.this.hkp.from != 1) {
-                        if (p.this.hkp.from == 3) {
+                    if (p.this.hkt.from != 1) {
+                        if (p.this.hkt.from == 3) {
                             TiebaStatic.log(new aq("c12600").ai("obj_type", 1));
                         }
                     } else {
                         TiebaStatic.log(new aq("c12599").ai("obj_type", 3));
                     }
-                    if (p.this.hkw) {
-                        p.this.hkv.aW(p.this.hkp.dUS);
+                    if (p.this.hkA) {
+                        p.this.hkz.aW(p.this.hkt.dUW);
                     }
-                    p.this.hkv.a(p.this.hkp.forumId, p.this.hkp.forumName, p.this.hkp.threadId, p.this.hkp.postId, 0, 0, true, p.this.hkp.dUS.getBaijiahaoData());
+                    p.this.hkz.a(p.this.hkt.forumId, p.this.hkt.forumName, p.this.hkt.threadId, p.this.hkt.postId, 0, 0, true, p.this.hkt.dUW.getBaijiahaoData());
                     aVar.dismiss();
                 }
             });
-            this.hkn.b(R.string.dialog_cancel, new a.b() { // from class: com.baidu.tieba.card.p.4
+            this.hkr.b(R.string.dialog_cancel, new a.b() { // from class: com.baidu.tieba.card.p.4
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
                 }
             });
-            this.hkn.m39if(true);
-            this.hkn.b(this.mPageContext);
+            this.hkr.ig(true);
+            this.hkr.b(this.mPageContext);
         }
     }
 
-    public void nh(boolean z) {
-        this.hkw = z;
+    public void nj(boolean z) {
+        this.hkA = z;
     }
 }

@@ -11,24 +11,24 @@ import com.baidu.live.tbadk.log.LogManager;
 import com.baidu.live.utils.k;
 /* loaded from: classes7.dex */
 public class a extends Dialog implements View.OnClickListener {
-    private HeadImageView gyP;
-    private TextView gyQ;
-    private TextView gyR;
-    private InterfaceC0633a gyS;
-    private String gyT;
-    private String gyU;
-    private String gyV;
-    private String gyW;
+    private HeadImageView gyT;
+    private TextView gyU;
+    private TextView gyV;
+    private InterfaceC0633a gyW;
     private String gyX;
+    private String gyY;
+    private String gyZ;
+    private String gza;
+    private String gzb;
     private View mClose;
     private long roomId;
 
     /* renamed from: com.baidu.tieba.ala.liveroom.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
     public interface InterfaceC0633a {
-        void bRD();
-
         void bRE();
+
+        void bRF();
     }
 
     public a(Context context) {
@@ -45,61 +45,61 @@ public class a extends Dialog implements View.OnClickListener {
     }
 
     private void initData() {
-        this.gyP.setIsRound(true);
-        this.gyP.setBorderWidth(getContext().getResources().getDimensionPixelSize(a.e.sdk_ds2));
-        this.gyP.setBorderColor(getContext().getResources().getColor(a.d.sdk_white_alpha100));
+        this.gyT.setIsRound(true);
+        this.gyT.setBorderWidth(getContext().getResources().getDimensionPixelSize(a.e.sdk_ds2));
+        this.gyT.setBorderColor(getContext().getResources().getColor(a.d.sdk_white_alpha100));
     }
 
     private void initView() {
-        this.gyP = (HeadImageView) findViewById(a.g.user_icon);
-        this.gyQ = (TextView) findViewById(a.g.invite_txt);
-        this.gyR = (TextView) findViewById(a.g.go_to_client);
+        this.gyT = (HeadImageView) findViewById(a.g.user_icon);
+        this.gyU = (TextView) findViewById(a.g.invite_txt);
+        this.gyV = (TextView) findViewById(a.g.go_to_client);
         this.mClose = findViewById(a.g.close);
-        k.a(this.gyP, this.gyT, true, false);
-        this.gyQ.setText(this.gyU);
-        this.gyR.setText(this.gyV);
+        k.a(this.gyT, this.gyX, true, false);
+        this.gyU.setText(this.gyY);
+        this.gyV.setText(this.gyZ);
     }
 
     private void initListener() {
-        this.gyR.setOnClickListener(this);
+        this.gyV.setOnClickListener(this);
         this.mClose.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.gyR) {
-            if (this.gyS != null) {
-                this.gyS.bRE();
+        if (view == this.gyV) {
+            if (this.gyW != null) {
+                this.gyW.bRF();
             }
             dismiss();
-            LogManager.getFeedDiversionLogger().doClickGuideFloatDialogLog(this.roomId + "", this.gyW, this.gyX);
+            LogManager.getFeedDiversionLogger().doClickGuideFloatDialogLog(this.roomId + "", this.gza, this.gzb);
         } else if (view == this.mClose) {
-            if (this.gyS != null) {
-                this.gyS.bRD();
+            if (this.gyW != null) {
+                this.gyW.bRE();
             }
             dismiss();
-            LogManager.getFeedDiversionLogger().doCloseGuideFloatDialogLog(this.roomId + "", this.gyX);
-        }
-    }
-
-    public void FZ(String str) {
-        this.gyT = str;
-        if (this.gyP != null) {
-            k.a(this.gyP, this.gyT, true, false);
+            LogManager.getFeedDiversionLogger().doCloseGuideFloatDialogLog(this.roomId + "", this.gzb);
         }
     }
 
     public void Ga(String str) {
-        this.gyU = str;
-        if (this.gyQ != null) {
-            this.gyQ.setText(this.gyU);
+        this.gyX = str;
+        if (this.gyT != null) {
+            k.a(this.gyT, this.gyX, true, false);
         }
     }
 
     public void Gb(String str) {
-        this.gyV = str;
-        if (this.gyR != null) {
-            this.gyR.setText(this.gyV);
+        this.gyY = str;
+        if (this.gyU != null) {
+            this.gyU.setText(this.gyY);
+        }
+    }
+
+    public void Gc(String str) {
+        this.gyZ = str;
+        if (this.gyV != null) {
+            this.gyV.setText(this.gyZ);
         }
     }
 
@@ -107,15 +107,15 @@ public class a extends Dialog implements View.OnClickListener {
         this.roomId = j;
     }
 
-    public void Gc(String str) {
-        this.gyW = str;
+    public void Gd(String str) {
+        this.gza = str;
     }
 
-    public void Gd(String str) {
-        this.gyX = str;
+    public void Ge(String str) {
+        this.gzb = str;
     }
 
     public void a(InterfaceC0633a interfaceC0633a) {
-        this.gyS = interfaceC0633a;
+        this.gyW = interfaceC0633a;
     }
 }

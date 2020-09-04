@@ -15,24 +15,24 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public class WebSocketFrame {
     private static final boolean DEBUG = b.DEBUG;
-    private static final Charset cel = Charset.forName("UTF-8");
+    private static final Charset cep = Charset.forName("UTF-8");
     private byte[] PV;
     private boolean QD;
-    private OpCode cej;
-    private byte[] cem;
-    private int cen;
-    private String ceo;
+    private OpCode cen;
+    private byte[] ceq;
+    private int cer;
+    private String ces;
 
     WebSocketFrame(WebSocketFrame webSocketFrame) {
         a(webSocketFrame.aeB());
-        dK(webSocketFrame.aeC());
+        dL(webSocketFrame.aeC());
         G(webSocketFrame.aeD());
         H(webSocketFrame.aeF());
     }
 
     private WebSocketFrame(OpCode opCode, boolean z) {
         a(opCode);
-        dK(z);
+        dL(z);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -49,8 +49,8 @@ public class WebSocketFrame {
             }
             return;
         }
-        this.cen = (int) j;
-        byte[] bArr = new byte[this.cen];
+        this.cer = (int) j;
+        byte[] bArr = new byte[this.cer];
         int i = 0;
         for (WebSocketFrame webSocketFrame : list) {
             System.arraycopy(webSocketFrame.aeD(), 0, bArr, i, webSocketFrame.aeD().length);
@@ -67,18 +67,18 @@ public class WebSocketFrame {
 
     public WebSocketFrame(OpCode opCode, boolean z, String str) {
         this(opCode, z);
-        kP(str);
+        kQ(str);
     }
 
     private void a(OpCode opCode) {
-        this.cej = opCode;
+        this.cen = opCode;
     }
 
     public OpCode aeB() {
-        return this.cej;
+        return this.cen;
     }
 
-    private void dK(boolean z) {
+    private void dL(boolean z) {
         this.QD = z;
     }
 
@@ -88,40 +88,40 @@ public class WebSocketFrame {
 
     private void G(byte[] bArr) {
         this.PV = bArr;
-        this.cen = bArr.length;
-        this.ceo = null;
+        this.cer = bArr.length;
+        this.ces = null;
     }
 
     public byte[] aeD() {
         return this.PV;
     }
 
-    private void kP(String str) {
-        this.PV = kQ(str);
-        this.cen = str.length();
-        this.ceo = str;
+    private void kQ(String str) {
+        this.PV = kR(str);
+        this.cer = str.length();
+        this.ces = str;
     }
 
     public String aeE() {
-        if (this.ceo == null) {
-            this.ceo = I(aeD());
+        if (this.ces == null) {
+            this.ces = I(aeD());
         }
-        return this.ceo;
+        return this.ces;
     }
 
     private void H(byte[] bArr) {
         if (bArr != null && bArr.length != 4 && DEBUG) {
             Log.e("WebSocketFrame", "MaskingKey " + Arrays.toString(bArr) + " hasn't length 4");
         }
-        this.cem = bArr;
+        this.ceq = bArr;
     }
 
     private byte[] aeF() {
-        return this.cem;
+        return this.ceq;
     }
 
     private boolean isMasked() {
-        return this.cem != null && this.cem.length == 4;
+        return this.ceq != null && this.ceq.length == 4;
     }
 
     /* loaded from: classes8.dex */
@@ -190,7 +190,7 @@ public class WebSocketFrame {
     }
 
     static String p(byte[] bArr, int i, int i2) {
-        return new String(bArr, i, i2, cel);
+        return new String(bArr, i, i2, cep);
     }
 
     private static int gP(int i) throws EOFException {
@@ -219,8 +219,8 @@ public class WebSocketFrame {
         return webSocketFrame.aeB() == OpCode.Close ? new a() : webSocketFrame;
     }
 
-    static byte[] kQ(String str) {
-        return str.getBytes(cel);
+    static byte[] kR(String str) {
+        return str.getBytes(cep);
     }
 
     private String aeG() {
@@ -249,19 +249,19 @@ public class WebSocketFrame {
     }
 
     private void l(InputStream inputStream) throws IOException {
-        this.PV = new byte[this.cen];
+        this.PV = new byte[this.cer];
         int i = 0;
-        while (i < this.cen) {
-            i += gP(inputStream.read(this.PV, i, this.cen - i));
+        while (i < this.cer) {
+            i += gP(inputStream.read(this.PV, i, this.cer - i));
         }
         if (isMasked()) {
             for (int i2 = 0; i2 < this.PV.length; i2++) {
                 byte[] bArr = this.PV;
-                bArr[i2] = (byte) (bArr[i2] ^ this.cem[i2 % 4]);
+                bArr[i2] = (byte) (bArr[i2] ^ this.ceq[i2 % 4]);
             }
         }
         if (aeB() == OpCode.Text) {
-            this.ceo = I(aeD());
+            this.ces = I(aeD());
         }
     }
 
@@ -269,13 +269,13 @@ public class WebSocketFrame {
         int i = 0;
         byte gP = (byte) gP(inputStream.read());
         boolean z = (gP & 128) != 0;
-        this.cen = (byte) (gP & Byte.MAX_VALUE);
-        if (this.cen == 126) {
-            this.cen = ((gP(inputStream.read()) << 8) | gP(inputStream.read())) & 65535;
-            if (this.cen < 126) {
+        this.cer = (byte) (gP & Byte.MAX_VALUE);
+        if (this.cer == 126) {
+            this.cer = ((gP(inputStream.read()) << 8) | gP(inputStream.read())) & 65535;
+            if (this.cer < 126) {
                 throw new WebSocketException(CloseCode.ProtocolError, "Invalid data frame 2byte length.(not using minimal length encoding)");
             }
-        } else if (this.cen == 127) {
+        } else if (this.cer == 127) {
             long gP2 = (gP(inputStream.read()) << 56) | (gP(inputStream.read()) << 48) | (gP(inputStream.read()) << 40) | (gP(inputStream.read()) << 32) | (gP(inputStream.read()) << 24) | (gP(inputStream.read()) << 16) | (gP(inputStream.read()) << 8) | gP(inputStream.read());
             if (gP2 <= 65536) {
                 throw new IOException("Invalid data frame 4byte length.(not using minimal length encoding)");
@@ -283,20 +283,20 @@ public class WebSocketFrame {
             if (gP2 > 2147483647L) {
                 throw new WebSocketException(CloseCode.MessageTooLong, "Max frame length has been exceeded.");
             }
-            this.cen = (int) gP2;
+            this.cer = (int) gP2;
         }
-        if (this.cej.isControlFrame()) {
-            if (this.cen > 125) {
+        if (this.cen.isControlFrame()) {
+            if (this.cer > 125) {
                 throw new WebSocketException(CloseCode.ProtocolError, "Control frame with mPayload length > 125 bytes.");
             }
-            if (this.cej == OpCode.Close && this.cen == 1) {
+            if (this.cen == OpCode.Close && this.cer == 1) {
                 throw new WebSocketException(CloseCode.ProtocolError, "Received close frame with mPayload len 1.");
             }
         }
         if (z) {
-            this.cem = new byte[4];
-            while (i < this.cem.length) {
-                i += gP(inputStream.read(this.cem, i, this.cem.length - i));
+            this.ceq = new byte[4];
+            while (i < this.ceq.length) {
+                i += gP(inputStream.read(this.ceq, i, this.ceq.length - i));
             }
         }
     }
@@ -311,26 +311,26 @@ public class WebSocketFrame {
     }
 
     public void write(OutputStream outputStream) throws IOException {
-        outputStream.write((byte) ((this.QD ? (byte) 128 : (byte) 0) | (this.cej.getValue() & 15)));
-        this.cen = aeD().length;
-        if (this.cen <= 125) {
-            outputStream.write(isMasked() ? ((byte) this.cen) | 128 : (byte) this.cen);
-        } else if (this.cen < 65536) {
+        outputStream.write((byte) ((this.QD ? (byte) 128 : (byte) 0) | (this.cen.getValue() & 15)));
+        this.cer = aeD().length;
+        if (this.cer <= 125) {
+            outputStream.write(isMasked() ? ((byte) this.cer) | 128 : (byte) this.cer);
+        } else if (this.cer < 65536) {
             outputStream.write(isMasked() ? 254 : Opcodes.IAND);
-            outputStream.write(this.cen >>> 8);
-            outputStream.write(this.cen);
+            outputStream.write(this.cer >>> 8);
+            outputStream.write(this.cer);
         } else {
             outputStream.write(isMasked() ? 255 : 127);
             outputStream.write(new byte[4]);
-            outputStream.write(this.cen >>> 24);
-            outputStream.write(this.cen >>> 16);
-            outputStream.write(this.cen >>> 8);
-            outputStream.write(this.cen);
+            outputStream.write(this.cer >>> 24);
+            outputStream.write(this.cer >>> 16);
+            outputStream.write(this.cer >>> 8);
+            outputStream.write(this.cer);
         }
         if (isMasked()) {
-            outputStream.write(this.cem);
-            for (int i = 0; i < this.cen; i++) {
-                outputStream.write(aeD()[i] ^ this.cem[i % 4]);
+            outputStream.write(this.ceq);
+            for (int i = 0; i < this.cer; i++) {
+                outputStream.write(aeD()[i] ^ this.ceq[i % 4]);
             }
         } else {
             outputStream.write(aeD());
@@ -340,16 +340,16 @@ public class WebSocketFrame {
 
     /* loaded from: classes8.dex */
     public static class a extends WebSocketFrame {
-        private CloseCode cep;
-        private String ceq;
+        private CloseCode cet;
+        private String ceu;
 
         private static byte[] b(CloseCode closeCode, String str) {
             if (closeCode != null) {
-                byte[] kQ = kQ(str);
-                byte[] bArr = new byte[kQ.length + 2];
+                byte[] kR = kR(str);
+                byte[] bArr = new byte[kR.length + 2];
                 bArr[0] = (byte) ((closeCode.getValue() >> 8) & 255);
                 bArr[1] = (byte) (closeCode.getValue() & 255);
-                System.arraycopy(kQ, 0, bArr, 2, kQ.length);
+                System.arraycopy(kR, 0, bArr, 2, kR.length);
                 return bArr;
             }
             return new byte[0];
@@ -363,17 +363,17 @@ public class WebSocketFrame {
         private a(WebSocketFrame webSocketFrame) {
             super(webSocketFrame);
             if (webSocketFrame.aeD().length >= 2) {
-                this.cep = CloseCode.find(((webSocketFrame.aeD()[0] & 255) << 8) | (webSocketFrame.aeD()[1] & 255));
-                this.ceq = p(aeD(), 2, aeD().length - 2);
+                this.cet = CloseCode.find(((webSocketFrame.aeD()[0] & 255) << 8) | (webSocketFrame.aeD()[1] & 255));
+                this.ceu = p(aeD(), 2, aeD().length - 2);
             }
         }
 
         public CloseCode aeH() {
-            return this.cep;
+            return this.cet;
         }
 
         public String getCloseReason() {
-            return this.ceq;
+            return this.ceu;
         }
     }
 }

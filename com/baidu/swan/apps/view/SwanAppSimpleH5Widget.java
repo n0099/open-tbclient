@@ -10,7 +10,7 @@ public class SwanAppSimpleH5Widget extends SwanAppWebViewWidget {
         super(context);
         a(new SimpleWebViewClient());
         a(new SimpleWebChromeClient());
-        this.cfx.setOnWebViewHookHandler(this);
+        this.cfB.setOnWebViewHookHandler(this);
     }
 
     @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget
@@ -20,8 +20,8 @@ public class SwanAppSimpleH5Widget extends SwanAppWebViewWidget {
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.swan.apps.core.container.c
     public boolean afu() {
-        if (this.cmB != null) {
-            this.cmB.goBack();
+        if (this.cmF != null) {
+            this.cmF.goBack();
             return false;
         }
         return false;
@@ -35,21 +35,21 @@ public class SwanAppSimpleH5Widget extends SwanAppWebViewWidget {
 
         @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget.WebViewWidgetClient, com.baidu.browser.sailor.BdSailorWebViewClient
         public boolean shouldOverrideUrlLoading(BdSailorWebView bdSailorWebView, String str) {
-            return SwanAppSimpleH5Widget.this.cmB != null && SwanAppSimpleH5Widget.this.cmB.hu(str);
+            return SwanAppSimpleH5Widget.this.cmF != null && SwanAppSimpleH5Widget.this.cmF.hv(str);
         }
 
         @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget.WebViewWidgetClient, com.baidu.browser.sailor.BdSailorWebViewClient
         public void onPageFinished(BdSailorWebView bdSailorWebView, String str) {
-            if (SwanAppSimpleH5Widget.this.cmB != null) {
-                SwanAppSimpleH5Widget.this.cmB.hs(str);
+            if (SwanAppSimpleH5Widget.this.cmF != null) {
+                SwanAppSimpleH5Widget.this.cmF.ht(str);
             }
             super.onPageFinished(bdSailorWebView, str);
         }
 
         @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget.WebViewWidgetClient, com.baidu.browser.sailor.BdSailorWebViewClient
         public void onReceivedError(BdSailorWebView bdSailorWebView, int i, String str, String str2) {
-            if (SwanAppSimpleH5Widget.this.cmB != null) {
-                SwanAppSimpleH5Widget.this.cmB.d(i, str, str2);
+            if (SwanAppSimpleH5Widget.this.cmF != null) {
+                SwanAppSimpleH5Widget.this.cmF.d(i, str, str2);
             }
             super.onReceivedError(bdSailorWebView, i, str, str2);
         }
@@ -63,8 +63,8 @@ public class SwanAppSimpleH5Widget extends SwanAppWebViewWidget {
         @Override // com.baidu.browser.sailor.BdSailorWebChromeClient
         public void onReceivedTitle(BdSailorWebView bdSailorWebView, String str) {
             super.onReceivedTitle(bdSailorWebView, str);
-            if (SwanAppSimpleH5Widget.this.cmB != null) {
-                SwanAppSimpleH5Widget.this.cmB.ht(str);
+            if (SwanAppSimpleH5Widget.this.cmF != null) {
+                SwanAppSimpleH5Widget.this.cmF.hu(str);
             }
         }
     }

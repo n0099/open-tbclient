@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.data;
 
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ExceptionData {
     public Map<String, String> appendInfo = new HashMap();
     public String info;

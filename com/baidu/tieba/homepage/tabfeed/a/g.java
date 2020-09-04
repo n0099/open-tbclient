@@ -20,32 +20,32 @@ import com.baidu.tieba.card.aa;
 import com.baidu.tieba.card.s;
 /* loaded from: classes16.dex */
 public class g extends com.baidu.adp.widget.ListView.a<bv, al<bw>> {
-    private aa<bw> aeT;
-    private boolean ajr;
-    private v akI;
-    public BdUniqueId ePv;
+    private aa<bw> aeV;
+    private boolean ajt;
+    private v akK;
+    public BdUniqueId ePz;
     private TbPageContext<?> mPageContext;
     private String mTabName;
 
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.ajr = true;
-        this.aeT = new aa<bw>() { // from class: com.baidu.tieba.homepage.tabfeed.a.g.1
+        this.ajt = true;
+        this.aeV = new aa<bw>() { // from class: com.baidu.tieba.homepage.tabfeed.a.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             /* renamed from: b */
             public void a(View view, bw bwVar) {
-                s.cbX().kK(true);
+                s.cbY().kM(true);
                 com.baidu.tieba.homepage.tabfeed.b.a(view, bwVar, g.this.mTabName);
             }
         };
         this.mPageContext = tbPageContext;
-        this.ePv = bdUniqueId2;
+        this.ePz = bdUniqueId2;
         this.mTabName = str;
     }
 
     public void a(v vVar) {
-        this.akI = vVar;
+        this.akK = vVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -56,21 +56,21 @@ public class g extends com.baidu.adp.widget.ListView.a<bv, al<bw>> {
         aj.a aVar = new aj.a(this.mPageContext.getPageActivity(), false);
         x xVar = new x(this.mPageContext.getPageActivity());
         xVar.setFrom("index");
-        xVar.setFromCDN(this.ajr);
+        xVar.setFromCDN(this.ajt);
         aVar.c(xVar);
-        aj a = aVar.a(false, viewGroup, this.akI);
+        aj a = aVar.a(false, viewGroup, this.akK);
         a.setSourceForPb(2);
         al alVar = new al(a);
-        alVar.setPageId(this.ePv);
+        alVar.setPageId(this.ePz);
         a(new ab() { // from class: com.baidu.tieba.homepage.tabfeed.a.g.2
             @Override // com.baidu.adp.widget.ListView.ab
             public void a(View view, com.baidu.adp.widget.ListView.q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
                 if ((qVar instanceof bv) && (view.getTag() instanceof al)) {
                     al alVar2 = (al) view.getTag();
-                    bw bwVar = ((bv) qVar).dUS;
+                    bw bwVar = ((bv) qVar).dUW;
                     bwVar.objType = 1;
-                    if (g.this.aeT != null) {
-                        g.this.aeT.a(alVar2.getView(), bwVar);
+                    if (g.this.aeV != null) {
+                        g.this.aeV.a(alVar2.getView(), bwVar);
                     }
                     ay.a((AbsThreadDataSupport) bwVar, view.getContext(), 2, false);
                     alVar2.tR().b(new a.C0095a(1));
@@ -84,21 +84,21 @@ public class g extends com.baidu.adp.widget.ListView.a<bv, al<bw>> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bv bvVar, al<bw> alVar) {
-        if (bvVar == null || alVar == null || alVar.getView() == null || bvVar.dUS == null) {
+        if (bvVar == null || alVar == null || alVar.getView() == null || bvVar.dUW == null) {
             return null;
         }
-        bvVar.dUS.dZb = getPositionByType(i) + 1;
+        bvVar.dUW.dZf = getPositionByType(i) + 1;
         alVar.tR().setPosition(i);
-        alVar.b((al<bw>) bvVar.dUS);
+        alVar.b((al<bw>) bvVar.dUW);
         alVar.tR().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        alVar.tR().a(this.aeT);
+        alVar.tR().a(this.aeV);
         com.baidu.tieba.homepage.tabfeed.b.a(bvVar, this.mTabName);
         x xVar = (x) alVar.tR().tK();
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) xVar.afU.ajZ.getLayoutParams();
-        layoutParams.width = bvVar.eaP;
-        layoutParams.height = bvVar.eaQ;
-        if (xVar.afU.ajZ.getVisibility() != 8) {
-            xVar.afU.ajZ.setLayoutParams(layoutParams);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) xVar.afW.akb.getLayoutParams();
+        layoutParams.width = bvVar.eaT;
+        layoutParams.height = bvVar.eaU;
+        if (xVar.afW.akb.getVisibility() != 8) {
+            xVar.afW.akb.setLayoutParams(layoutParams);
         }
         return alVar.getView();
     }

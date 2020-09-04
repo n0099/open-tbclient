@@ -6,7 +6,7 @@ import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 /* loaded from: classes8.dex */
 public class c extends ProviderDelegation {
-    private static long cGe = -1;
+    private static long cGi = -1;
 
     @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
     public Bundle execCall(Bundle bundle) {
@@ -16,11 +16,11 @@ public class c extends ProviderDelegation {
     }
 
     public static long avu() {
-        if (cGe >= 0) {
-            return cGe;
+        if (cGi >= 0) {
+            return cGi;
         }
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(com.baidu.swan.apps.t.a.aoJ(), c.class, null);
-        cGe = callOnMainWithContentProvider.isOk() ? callOnMainWithContentProvider.mResult.getLong("result", 0L) : 0L;
-        return cGe;
+        cGi = callOnMainWithContentProvider.isOk() ? callOnMainWithContentProvider.mResult.getLong("result", 0L) : 0L;
+        return cGi;
     }
 }

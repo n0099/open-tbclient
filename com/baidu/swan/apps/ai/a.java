@@ -64,7 +64,7 @@ public final class a {
         String iconUrl = bVar.getIconUrl();
         if (!TextUtils.isEmpty(iconUrl) && (uri = ak.getUri(iconUrl)) != null) {
             m(bVar);
-            final c.a aVar = (c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) new c.a().nB(bVar.getAppId())).nE(bVar.aqN())).nI(bVar.aqV())).nG(bVar.getPage())).nH(bVar.aqU())).eE(bVar.isDebug())).nJ(bVar.aqY())).ic(bVar.getAppFrameType())).ib(bVar.getOrientation())).nF(c.e(bVar.getAppId(), bVar.aqN(), bVar.getAppFrameType()));
+            final c.a aVar = (c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) new c.a().nC(bVar.getAppId())).nF(bVar.aqN())).nJ(bVar.aqV())).nH(bVar.getPage())).nI(bVar.aqU())).eF(bVar.isDebug())).nK(bVar.aqY())).ic(bVar.getAppFrameType())).ib(bVar.getOrientation())).nG(c.e(bVar.getAppId(), bVar.aqN(), bVar.getAppFrameType()));
             if (s.i(uri)) {
                 a(context, bVar, aVar, s.b(uri, context), i);
                 b(context, bVar, interfaceC0335a);
@@ -96,7 +96,7 @@ public final class a {
                         h apP = com.baidu.swan.apps.t.a.apP();
                         String aqF = com.baidu.swan.apps.u.c.b.this.aqF();
                         if (!TextUtils.isEmpty(aqF) && apP.J(context, aqF)) {
-                            a.rc("click");
+                            a.rd("click");
                             if (apP.K(context, aqF)) {
                                 if (i != 1) {
                                     a.cs(context);
@@ -104,7 +104,7 @@ public final class a {
                                 }
                                 return;
                             } else if (apP.L(context, aqF)) {
-                                a.rc("show");
+                                a.rd("show");
                                 if (i != 1) {
                                     a.cs(context);
                                     return;
@@ -127,7 +127,7 @@ public final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void rc(String str) {
+    public static void rd(String str) {
         com.baidu.swan.apps.statistic.a.e eVar = new com.baidu.swan.apps.statistic.a.e();
         eVar.mAppId = d.azE().getAppId();
         eVar.mType = str;
@@ -139,8 +139,8 @@ public final class a {
     }
 
     private static void m(com.baidu.swan.apps.u.c.b bVar) {
-        bVar.nG(null);
-        bVar.nE("1230000000000000");
+        bVar.nH(null);
+        bVar.nF("1230000000000000");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -161,7 +161,7 @@ public final class a {
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i) {
                     }
-                }).fB(com.baidu.swan.apps.t.a.apf().getNightModeSwitcherState()).azl();
+                }).fC(com.baidu.swan.apps.t.a.apf().getNightModeSwitcherState()).azl();
                 ahZ.setCancelable(false);
                 ahZ.show();
             }

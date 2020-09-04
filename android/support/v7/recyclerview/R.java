@@ -94,19 +94,19 @@ public final class R {
 
     /* loaded from: classes.dex */
     public static final class id {
-        public static final int action_container = 0x7f0f1ce8;
-        public static final int action_divider = 0x7f0f1cf5;
-        public static final int action_image = 0x7f0f1ce9;
-        public static final int action_text = 0x7f0f1cea;
-        public static final int actions = 0x7f0f1cfb;
+        public static final int action_container = 0x7f0f1ce9;
+        public static final int action_divider = 0x7f0f1cf6;
+        public static final int action_image = 0x7f0f1cea;
+        public static final int action_text = 0x7f0f1ceb;
+        public static final int actions = 0x7f0f1cfc;
         public static final int async = 0x7f0f01d4;
         public static final int blocking = 0x7f0f01d5;
         public static final int bottom = 0x7f0f0167;
-        public static final int chronometer = 0x7f0f1cf9;
+        public static final int chronometer = 0x7f0f1cfa;
         public static final int end = 0x7f0f0168;
         public static final int forever = 0x7f0f01d6;
         public static final int icon = 0x7f0f0258;
-        public static final int icon_group = 0x7f0f1cfc;
+        public static final int icon_group = 0x7f0f1cfd;
         public static final int info = 0x7f0f06b4;
         public static final int italic = 0x7f0f01d7;
         public static final int item_touch_helper_previous_elevation = 0x7f0f0093;
@@ -115,12 +115,12 @@ public final class R {
         public static final int line3 = 0x7f0f009d;
         public static final int none = 0x7f0f0187;
         public static final int normal = 0x7f0f0190;
-        public static final int notification_background = 0x7f0f1cfa;
-        public static final int notification_main_column = 0x7f0f1cf7;
-        public static final int notification_main_column_container = 0x7f0f1cf6;
+        public static final int notification_background = 0x7f0f1cfb;
+        public static final int notification_main_column = 0x7f0f1cf8;
+        public static final int notification_main_column_container = 0x7f0f1cf7;
         public static final int right = 0x7f0f016a;
-        public static final int right_icon = 0x7f0f1cfd;
-        public static final int right_side = 0x7f0f1cf8;
+        public static final int right_icon = 0x7f0f1cfe;
+        public static final int right_side = 0x7f0f1cf9;
         public static final int start = 0x7f0f016b;
         public static final int tag_transition_group = 0x7f0f0141;
         public static final int text = 0x7f0f014d;

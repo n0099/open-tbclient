@@ -16,10 +16,10 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.d.a;
 import com.xiaomi.mipush.sdk.Constants;
 import tbclient.SkinInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ThreadSkinView extends TbImageView {
-    private SkinInfo kuJ;
-    private a.C0808a kuK;
+    private SkinInfo kuQ;
+    private a.C0808a kuR;
     private TbPageContext mTbPageContext;
 
     public ThreadSkinView(Context context) {
@@ -47,16 +47,16 @@ public class ThreadSkinView extends TbImageView {
             return;
         }
         this.mTbPageContext = tbPageContext;
-        if (this.kuJ != skinInfo && c0808a != null) {
-            this.kuK = c0808a;
-            this.kuK.delete(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
-            this.kuK.fS("obj_id", skinInfo.obj_id);
-            this.kuK.fS(TiebaInitialize.Params.OBJ_URL, skinInfo.url);
-            this.kuK.fS("obj_name", skinInfo.monitor_id);
-            this.kuK.fS(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE");
-            this.kuK.save();
+        if (this.kuQ != skinInfo && c0808a != null) {
+            this.kuR = c0808a;
+            this.kuR.delete(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
+            this.kuR.fT("obj_id", skinInfo.obj_id);
+            this.kuR.fT(TiebaInitialize.Params.OBJ_URL, skinInfo.url);
+            this.kuR.fT("obj_name", skinInfo.monitor_id);
+            this.kuR.fT(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE");
+            this.kuR.save();
         }
-        this.kuJ = skinInfo;
+        this.kuQ = skinInfo;
         int equipmentWidth = l.getEquipmentWidth(tbPageContext.getPageActivity());
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         layoutParams.width = equipmentWidth;
@@ -83,13 +83,13 @@ public class ThreadSkinView extends TbImageView {
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.kuJ != null && !StringUtils.isNull(this.kuJ.url)) {
-            if (this.kuK != null) {
-                this.kuK.delete(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
-                this.kuK.fS(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK");
-                this.kuK.save();
+        if (this.kuQ != null && !StringUtils.isNull(this.kuQ.url)) {
+            if (this.kuR != null) {
+                this.kuR.delete(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
+                this.kuR.fT(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK");
+                this.kuR.save();
             }
-            be.bju().b(this.mTbPageContext, new String[]{this.kuJ.url});
+            be.bju().b(this.mTbPageContext, new String[]{this.kuQ.url});
         }
     }
 }

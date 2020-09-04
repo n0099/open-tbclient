@@ -17,13 +17,13 @@ import java.util.concurrent.Executors;
 /* loaded from: classes8.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile b cml;
+    private static volatile b cmp;
     private Context mContext;
-    private volatile boolean cmm = false;
-    private boolean cmn = false;
-    private boolean cmo = false;
-    private final Object cmp = new Object();
-    private final Object cmq = new Object();
+    private volatile boolean cmq = false;
+    private boolean cmr = false;
+    private boolean cms = false;
+    private final Object cmt = new Object();
+    private final Object cmu = new Object();
     private ArrayList<a> mListeners = new ArrayList<>();
 
     /* loaded from: classes8.dex */
@@ -38,10 +38,10 @@ public final class b {
     public static synchronized b bT(Context context) {
         b bVar;
         synchronized (b.class) {
-            if (cml == null) {
-                cml = new b(context);
+            if (cmp == null) {
+                cmp = new b(context);
             }
-            bVar = cml;
+            bVar = cmp;
         }
         return bVar;
     }
@@ -52,7 +52,7 @@ public final class b {
         }
     }
 
-    public void ed(boolean z) {
+    public void ee(boolean z) {
         n(false, z);
     }
 
@@ -61,30 +61,30 @@ public final class b {
     }
 
     private void n(boolean z, final boolean z2) {
-        if (!this.cmm) {
-            synchronized (this.cmp) {
-                if (!this.cmn) {
+        if (!this.cmq) {
+            synchronized (this.cmt) {
+                if (!this.cmr) {
                     Executors.newSingleThreadExecutor().execute(new Runnable() { // from class: com.baidu.swan.apps.core.k.b.1
                         @Override // java.lang.Runnable
                         public void run() {
                             Process.setThreadPriority(10);
-                            b.this.ee(z2);
-                            b.this.cmm = true;
-                            synchronized (b.this.cmq) {
-                                b.this.cmo = true;
-                                b.this.cmq.notifyAll();
+                            b.this.ef(z2);
+                            b.this.cmq = true;
+                            synchronized (b.this.cmu) {
+                                b.this.cms = true;
+                                b.this.cmu.notifyAll();
                                 b.this.ajy();
                             }
                         }
                     });
-                    this.cmn = true;
+                    this.cmr = true;
                 }
             }
             if (z) {
-                synchronized (this.cmq) {
-                    while (!this.cmo) {
+                synchronized (this.cmu) {
+                    while (!this.cms) {
                         try {
-                            this.cmq.wait(1000L);
+                            this.cmu.wait(1000L);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -95,7 +95,7 @@ public final class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ee(boolean z) {
+    public void ef(boolean z) {
         WebKitFactory.setNeedDownloadCloudResource(false);
         WebKitFactory.setProcessType("1");
         WebView.setDataDirectorySuffix(ProcessUtils.getCurProcessName());
@@ -124,25 +124,25 @@ public final class b {
     }
 
     public boolean ajx() {
-        return this.cmm;
+        return this.cmq;
     }
 
     public void a(a aVar) {
-        synchronized (this.cmq) {
+        synchronized (this.cmu) {
             if (DEBUG) {
                 android.util.Log.d("BlinkInitHelper", "addBlinkInitListener.");
             }
             if (!this.mListeners.contains(aVar)) {
                 this.mListeners.add(aVar);
             }
-            if (this.cmo) {
+            if (this.cms) {
                 ajy();
             }
         }
     }
 
     public void b(a aVar) {
-        synchronized (this.cmq) {
+        synchronized (this.cmu) {
             boolean remove = this.mListeners.remove(aVar);
             if (DEBUG) {
                 android.util.Log.d("BlinkInitHelper", "delBlinkInitListener. listener: " + aVar + " ,isRemoved: " + remove);
@@ -151,7 +151,7 @@ public final class b {
     }
 
     public void ajy() {
-        synchronized (this.cmq) {
+        synchronized (this.cmu) {
             if (DEBUG) {
                 android.util.Log.d("BlinkInitHelper", "notifyBlinkLoaded.");
             }

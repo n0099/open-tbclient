@@ -17,7 +17,7 @@ import com.baidu.tieba.newdetail.a.c;
 /* loaded from: classes15.dex */
 public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.newdetail.a.a.kmb);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.newdetail.a.a.kmi);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -60,29 +60,29 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes15.dex */
     public static class a extends af.a {
-        private TextView dSz;
-        private View efZ;
-        private int iLR;
+        private TextView dSD;
+        private View egd;
+        private int iLX;
 
         a(View view, TextView textView, View view2) {
             super(view);
-            this.iLR = 3;
-            this.dSz = textView;
-            this.efZ = view2;
+            this.iLX = 3;
+            this.dSD = textView;
+            this.egd = view2;
         }
 
         void a(c cVar) {
             if (cVar != null) {
-                this.dSz.setText(cVar.title);
-                this.efZ.setVisibility(cVar.jZl ? 0 : 8);
+                this.dSD.setText(cVar.title);
+                this.egd.setVisibility(cVar.jZs ? 0 : 8);
             }
         }
 
         void onChangeSkinType(int i) {
-            if (this.iLR != i) {
-                ap.setViewTextColor(this.dSz, R.color.cp_cont_b);
-                ap.setBackgroundColor(this.efZ, R.color.cp_bg_line_c);
-                this.iLR = i;
+            if (this.iLX != i) {
+                ap.setViewTextColor(this.dSD, R.color.cp_cont_b);
+                ap.setBackgroundColor(this.egd, R.color.cp_bg_line_c);
+                this.iLX = i;
             }
         }
     }

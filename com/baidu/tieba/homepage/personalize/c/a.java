@@ -16,9 +16,9 @@ public class a {
         String str;
         int i2;
         if (bwVar != null) {
-            if (bwVar.eep) {
+            if (bwVar.eet) {
                 z = true;
-                str = bwVar.eeq;
+                str = bwVar.eeu;
                 i2 = 20;
             } else {
                 z = false;
@@ -28,14 +28,14 @@ public class a {
             String a = com.baidu.tieba.s.a.a(bwVar.getTid(), str, "", bwVar.getBaijiahaoData());
             aq a2 = com.baidu.tieba.s.a.a(bwVar, PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE, "common_exp", i, z, str, (String) null, i2);
             if (a2 != null) {
-                if (bwVar.eep) {
+                if (bwVar.eet) {
                     a2.delete("thread_type");
                     a2.ai("thread_type", bwVar.getThreadType());
                 }
-                c.dvE().a(bdUniqueId, a, a2);
+                c.dvJ().a(bdUniqueId, a, a2);
                 if (g.isEnabled()) {
-                    g.JK(a);
-                    if (g.cyh() >= 10) {
+                    g.JL(a);
+                    if (g.cyi() >= 10) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921482));
                         g.setEnabled(false);
                     }
@@ -49,9 +49,9 @@ public class a {
         int i3;
         boolean z = false;
         if (bwVar != null) {
-            if (bwVar.eep) {
+            if (bwVar.eet) {
                 z = true;
-                str = bwVar.eeq;
+                str = bwVar.eeu;
                 i3 = 20;
             } else {
                 str = null;
@@ -59,11 +59,11 @@ public class a {
             }
             aq a = com.baidu.tieba.s.a.a(bwVar, PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE, "common_click", i2, i, z, str, (String) null, i3);
             if (a != null) {
-                if (bwVar.eep) {
+                if (bwVar.eet) {
                     a.delete("thread_type");
                     a.ai("thread_type", bwVar.getThreadType());
                 }
-                c.dvE().b(bdUniqueId, a);
+                c.dvJ().b(bdUniqueId, a);
                 d(bwVar, i2);
             }
         }

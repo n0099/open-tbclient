@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class b extends BaseAdapter {
-    private int fxp = -1;
+    private int fxt = -1;
     private List<com.baidu.tieba.ala.data.b> mDataList;
     private TbPageContext mTbPageContext;
 
@@ -43,7 +43,7 @@ public class b extends BaseAdapter {
         if (view == null) {
             a aVar2 = new a();
             view = LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(a.h.ala_choose_feedback_reason_item_layout, viewGroup, false);
-            aVar2.fxq = (TextView) view.findViewById(a.g.id_feedback_content);
+            aVar2.fxu = (TextView) view.findViewById(a.g.id_feedback_content);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
@@ -51,12 +51,12 @@ public class b extends BaseAdapter {
         }
         com.baidu.tieba.ala.data.b item = getItem(i);
         if (item != null) {
-            aVar.fxq.setText(item.bIJ());
+            aVar.fxu.setText(item.bIK());
         }
-        if (i == this.fxp) {
-            aVar.fxq.setSelected(true);
+        if (i == this.fxt) {
+            aVar.fxu.setSelected(true);
         } else {
-            aVar.fxq.setSelected(false);
+            aVar.fxu.setSelected(false);
         }
         return view;
     }
@@ -73,17 +73,17 @@ public class b extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public int bDZ() {
-        return this.fxp;
+    public int bEa() {
+        return this.fxt;
     }
 
     public void sp(int i) {
-        this.fxp = i;
+        this.fxt = i;
     }
 
     /* loaded from: classes7.dex */
     private class a {
-        public TextView fxq;
+        public TextView fxu;
 
         private a() {
         }

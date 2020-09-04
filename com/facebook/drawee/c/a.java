@@ -5,22 +5,22 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 /* loaded from: classes4.dex */
 public class a {
-    InterfaceC0865a npZ;
-    final float nqa;
-    boolean nqb;
-    boolean nqc;
-    long nqd;
-    float nqe;
-    float nqf;
+    InterfaceC0865a nqr;
+    final float nqs;
+    boolean nqt;
+    boolean nqu;
+    long nqv;
+    float nqw;
+    float nqx;
 
     /* renamed from: com.facebook.drawee.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     public interface InterfaceC0865a {
-        boolean dPS();
+        boolean dQb();
     }
 
     public a(Context context) {
-        this.nqa = ViewConfiguration.get(context).getScaledTouchSlop();
+        this.nqs = ViewConfiguration.get(context).getScaledTouchSlop();
         init();
     }
 
@@ -29,51 +29,51 @@ public class a {
     }
 
     public void init() {
-        this.npZ = null;
+        this.nqr = null;
         reset();
     }
 
     public void reset() {
-        this.nqb = false;
-        this.nqc = false;
+        this.nqt = false;
+        this.nqu = false;
     }
 
     public void a(InterfaceC0865a interfaceC0865a) {
-        this.npZ = interfaceC0865a;
+        this.nqr = interfaceC0865a;
     }
 
-    public boolean dQV() {
-        return this.nqb;
+    public boolean dRe() {
+        return this.nqt;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.nqb = true;
-                this.nqc = true;
-                this.nqd = motionEvent.getEventTime();
-                this.nqe = motionEvent.getX();
-                this.nqf = motionEvent.getY();
+                this.nqt = true;
+                this.nqu = true;
+                this.nqv = motionEvent.getEventTime();
+                this.nqw = motionEvent.getX();
+                this.nqx = motionEvent.getY();
                 break;
             case 1:
-                this.nqb = false;
-                if (Math.abs(motionEvent.getX() - this.nqe) > this.nqa || Math.abs(motionEvent.getY() - this.nqf) > this.nqa) {
-                    this.nqc = false;
+                this.nqt = false;
+                if (Math.abs(motionEvent.getX() - this.nqw) > this.nqs || Math.abs(motionEvent.getY() - this.nqx) > this.nqs) {
+                    this.nqu = false;
                 }
-                if (this.nqc && motionEvent.getEventTime() - this.nqd <= ViewConfiguration.getLongPressTimeout() && this.npZ != null) {
-                    this.npZ.dPS();
+                if (this.nqu && motionEvent.getEventTime() - this.nqv <= ViewConfiguration.getLongPressTimeout() && this.nqr != null) {
+                    this.nqr.dQb();
                 }
-                this.nqc = false;
+                this.nqu = false;
                 break;
             case 2:
-                if (Math.abs(motionEvent.getX() - this.nqe) > this.nqa || Math.abs(motionEvent.getY() - this.nqf) > this.nqa) {
-                    this.nqc = false;
+                if (Math.abs(motionEvent.getX() - this.nqw) > this.nqs || Math.abs(motionEvent.getY() - this.nqx) > this.nqs) {
+                    this.nqu = false;
                     break;
                 }
                 break;
             case 3:
-                this.nqb = false;
-                this.nqc = false;
+                this.nqt = false;
+                this.nqu = false;
                 break;
         }
         return true;

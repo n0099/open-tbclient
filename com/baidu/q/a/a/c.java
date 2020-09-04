@@ -9,9 +9,9 @@ public interface c {
 
     void Uc(String str);
 
-    boolean dML();
+    boolean dMU();
 
-    c dMV();
+    c dNe();
 
     String getAAID();
 
@@ -23,7 +23,7 @@ public interface c {
 
     boolean isSupport();
 
-    void xK(boolean z);
+    void xM(boolean z);
 
-    void xL(boolean z);
+    void xN(boolean z);
 }

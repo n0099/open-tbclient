@@ -30,14 +30,14 @@ public final class f {
     /* loaded from: classes9.dex */
     public static final class a {
         private final String className;
-        private C0861a nkF;
-        private C0861a nkG;
-        private boolean nkH;
+        private C0861a nkX;
+        private C0861a nkY;
+        private boolean nkZ;
 
         private a(String str) {
-            this.nkF = new C0861a();
-            this.nkG = this.nkF;
-            this.nkH = false;
+            this.nkX = new C0861a();
+            this.nkY = this.nkX;
+            this.nkZ = false;
             this.className = (String) g.checkNotNull(str);
         }
 
@@ -54,10 +54,10 @@ public final class f {
         }
 
         public String toString() {
-            boolean z = this.nkH;
+            boolean z = this.nkZ;
             StringBuilder append = new StringBuilder(32).append(this.className).append('{');
             String str = "";
-            for (C0861a c0861a = this.nkF.nkI; c0861a != null; c0861a = c0861a.nkI) {
+            for (C0861a c0861a = this.nkX.nla; c0861a != null; c0861a = c0861a.nla) {
                 if (!z || c0861a.value != null) {
                     append.append(str);
                     str = ", ";
@@ -70,17 +70,17 @@ public final class f {
             return append.append('}').toString();
         }
 
-        private C0861a dOw() {
+        private C0861a dOF() {
             C0861a c0861a = new C0861a();
-            this.nkG.nkI = c0861a;
-            this.nkG = c0861a;
+            this.nkY.nla = c0861a;
+            this.nkY = c0861a;
             return c0861a;
         }
 
         private a F(String str, @Nullable Object obj) {
-            C0861a dOw = dOw();
-            dOw.value = obj;
-            dOw.name = (String) g.checkNotNull(str);
+            C0861a dOF = dOF();
+            dOF.value = obj;
+            dOF.name = (String) g.checkNotNull(str);
             return this;
         }
 
@@ -90,7 +90,7 @@ public final class f {
         public static final class C0861a {
             @Nullable
             String name;
-            C0861a nkI;
+            C0861a nla;
             @Nullable
             Object value;
 

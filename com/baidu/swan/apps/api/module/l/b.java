@@ -13,7 +13,7 @@ public class b extends com.baidu.swan.apps.api.a.d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b kf(String str) {
+    public com.baidu.swan.apps.api.c.b kg(String str) {
         if (DEBUG) {
             Log.d("Api-HandleException", "params = " + str);
         }
@@ -78,7 +78,7 @@ public class b extends com.baidu.swan.apps.api.a.d {
             if (TextUtils.isEmpty(optString2)) {
                 return new com.baidu.swan.apps.api.c.b(202, "path is required");
             }
-            if (ak.sK(optString2) && ak.aFg()) {
+            if (ak.sL(optString2) && ak.aFg()) {
                 com.baidu.swan.apps.core.f.bd("skeleton", "5秒内未触发骨架屏移除");
             } else if (DEBUG) {
                 Log.d("Api-HandleException", "path is not first page: " + optString2);

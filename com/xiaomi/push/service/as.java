@@ -20,8 +20,8 @@ class as extends XMPushService.i {
 
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
-        if (ap.a().a(this.a.f868a.g, this.a.f868a.f864b).f855a == null) {
-            ap.b.this.f857a.a(this.a.f868a.g, this.a.f868a.f864b, 2, null, null);
+        if (ap.a().a(this.a.f867a.g, this.a.f867a.f863b).f854a == null) {
+            ap.b.this.f856a.a(this.a.f867a.g, this.a.f867a.f863b, 2, null, null);
         }
     }
 }

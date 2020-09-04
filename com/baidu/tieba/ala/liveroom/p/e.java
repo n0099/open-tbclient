@@ -11,37 +11,37 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.liveroom.messages.AlaDiversionInfoResponseMessage;
 /* loaded from: classes7.dex */
 public class e extends BdBaseModel {
-    private a gGg;
-    private HttpMessageListener gGh;
+    private a gGk;
+    private HttpMessageListener gGl;
 
     /* loaded from: classes7.dex */
     public interface a {
         void a(com.baidu.tieba.ala.liveroom.data.c cVar);
 
-        void aT(int i, String str);
+        void aS(int i, String str);
     }
 
     public e(BdPageContext<?> bdPageContext, a aVar) {
         super(bdPageContext);
-        this.gGh = new HttpMessageListener(1021181) { // from class: com.baidu.tieba.ala.liveroom.p.e.1
+        this.gGl = new HttpMessageListener(1021181) { // from class: com.baidu.tieba.ala.liveroom.p.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021181 && (httpResponsedMessage instanceof AlaDiversionInfoResponseMessage)) {
                     AlaDiversionInfoResponseMessage alaDiversionInfoResponseMessage = (AlaDiversionInfoResponseMessage) httpResponsedMessage;
-                    if (e.this.gGg != null) {
+                    if (e.this.gGk != null) {
                         if (alaDiversionInfoResponseMessage.getError() != 0 || !alaDiversionInfoResponseMessage.isSuccess()) {
-                            e.this.gGg.aT(alaDiversionInfoResponseMessage.getError(), alaDiversionInfoResponseMessage.getErrorString());
+                            e.this.gGk.aS(alaDiversionInfoResponseMessage.getError(), alaDiversionInfoResponseMessage.getErrorString());
                         } else {
-                            e.this.gGg.a(alaDiversionInfoResponseMessage.bUW());
+                            e.this.gGk.a(alaDiversionInfoResponseMessage.bUX());
                         }
                     }
                 }
             }
         };
-        this.gGg = aVar;
+        this.gGk = aVar;
         initTasks();
-        registerListener(this.gGh);
+        registerListener(this.gGl);
     }
 
     private void initTasks() {

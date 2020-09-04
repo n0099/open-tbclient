@@ -4,81 +4,81 @@ import android.text.TextUtils;
 import android.util.Log;
 /* loaded from: classes6.dex */
 public final class a implements b {
-    private static final a oMg = new a();
-    private volatile boolean nfA = false;
-    private volatile boolean oMh = false;
+    private static final a oMy = new a();
+    private volatile boolean nfS = false;
+    private volatile boolean oMz = false;
 
-    public static b elU() {
-        return oMg;
+    public static b emd() {
+        return oMy;
     }
 
     @Override // tv.chushou.a.a.c.b
-    public boolean elV() {
-        return this.nfA;
+    public boolean eme() {
+        return this.nfS;
     }
 
     @Override // tv.chushou.a.a.c.b
     public void showLog(boolean z) {
-        this.nfA = z;
+        this.nfS = z;
     }
 
     @Override // tv.chushou.a.a.c.b
-    public void zh(boolean z) {
-        this.oMh = z;
+    public void zj(boolean z) {
+        this.oMz = z;
     }
 
-    public String elW() {
+    public String emf() {
         return "Router";
     }
 
     @Override // tv.chushou.a.a.c.b
     public void v(String str, String str2) {
-        if (this.nfA) {
+        if (this.nfS) {
             Log.v(WN(str), WO(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void d(String str, String str2) {
-        if (this.nfA) {
+        if (this.nfS) {
             Log.d(WN(str), WO(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void i(String str, String str2) {
-        if (this.nfA) {
+        if (this.nfS) {
             Log.i(WN(str), WO(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void w(String str, String str2) {
-        if (this.nfA) {
+        if (this.nfS) {
             Log.w(WN(str), WO(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void e(String str, String str2) {
-        if (this.nfA) {
+        if (this.nfS) {
             Log.e(WN(str), WO(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void e(String str, String str2, Throwable th) {
-        if (this.nfA) {
+        if (this.nfS) {
             Log.e(WN(str), WO(str2), th);
         }
     }
 
     private String WN(String str) {
-        return TextUtils.isEmpty(str) ? elW() : str;
+        return TextUtils.isEmpty(str) ? emf() : str;
     }
 
     private String WO(String str) {
-        if (this.oMh) {
+        if (this.oMz) {
             return str + a(Thread.currentThread().getStackTrace()[3]);
         }
         return str;

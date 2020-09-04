@@ -6,8 +6,8 @@ import android.os.Bundle;
 import com.baidu.m.a.a;
 /* loaded from: classes19.dex */
 public class BdPermissionActivity extends Activity {
-    private int aer;
-    private String[] aes;
+    private int aet;
+    private String[] aeu;
 
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {
@@ -17,8 +17,8 @@ public class BdPermissionActivity extends Activity {
 
     private void tn() {
         Intent intent = getIntent();
-        this.aer = intent.getIntExtra("request_code", 0);
-        this.aes = intent.getStringArrayExtra("permissions");
+        this.aet = intent.getIntExtra("request_code", 0);
+        this.aeu = intent.getStringArrayExtra("permissions");
     }
 
     @Override // android.app.Activity
@@ -28,24 +28,24 @@ public class BdPermissionActivity extends Activity {
     }
 
     private void tp() {
-        if (this.aes != null && this.aes.length != 0) {
+        if (this.aeu != null && this.aeu.length != 0) {
             boolean z = false;
-            for (String str : this.aes) {
+            for (String str : this.aeu) {
                 z = z || com.baidu.m.a.a.shouldShowRequestPermissionRationale(this, str);
             }
             if (z) {
-                com.baidu.m.a.a.requestPermissions(this, this.aes, this.aer);
-            } else if (b.f(this, this.aer)) {
-                com.baidu.m.a.a.requestPermissions(this, this.aes, this.aer);
+                com.baidu.m.a.a.requestPermissions(this, this.aeu, this.aet);
+            } else if (b.f(this, this.aet)) {
+                com.baidu.m.a.a.requestPermissions(this, this.aeu, this.aet);
             } else {
-                onRequestPermissionsResult(this.aer, this.aes, new int[0]);
+                onRequestPermissionsResult(this.aet, this.aeu, new int[0]);
             }
         }
     }
 
     @Override // android.app.Activity
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
-        a.InterfaceC0210a bj = a.tq().bj(this.aer);
+        a.InterfaceC0210a bj = a.tq().bj(this.aet);
         if (bj != null) {
             bj.onRequestPermissionsResult(i, strArr, iArr);
         }

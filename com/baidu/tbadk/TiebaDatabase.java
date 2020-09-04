@@ -4,7 +4,7 @@ import com.baidu.adp.base.a.b;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.az;
 import com.baidu.tbadk.core.util.ba;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class TiebaDatabase {
     private static TiebaDatabase _instance = new TiebaDatabase();
     private b mainDB;

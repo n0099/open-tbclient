@@ -8,31 +8,31 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 /* loaded from: classes6.dex */
 public class c {
-    private static Context amA;
-    private static ExecutorService amB;
-    private static c amz;
+    private static c amB;
+    private static Context amC;
+    private static ExecutorService amD;
     private static boolean an = false;
-    public l amx;
-    public p amy;
+    public p amA;
+    public l amz;
 
     private c(Context context) {
-        amA = context;
-        this.amy = new p(Looper.getMainLooper().getThread(), a.W);
-        this.amx = new l(new d(this), context);
-        if (amB == null) {
-            amB = Executors.newSingleThreadExecutor();
+        amC = context;
+        this.amA = new p(Looper.getMainLooper().getThread(), a.W);
+        this.amz = new l(new d(this), context);
+        if (amD == null) {
+            amD = Executors.newSingleThreadExecutor();
         }
     }
 
     public static c aa(Context context) {
-        if (amz == null) {
+        if (amB == null) {
             synchronized (c.class) {
-                if (amz == null) {
-                    amz = new c(context);
+                if (amB == null) {
+                    amB = new c(context);
                 }
             }
         }
-        return amz;
+        return amB;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -43,22 +43,22 @@ public class c {
             return;
         }
         a uH = a.uH();
-        uH.amt = c;
+        uH.amv = c;
         uH.a(j, j2, j3, j4);
     }
 
     public static void start() {
         an = true;
         if (Build.VERSION.SDK_INT >= 16) {
-            e.amD.start();
-            com.baidu.crabsdk.c.a.ds("start FrameMonitor...");
+            e.amF.start();
+            com.baidu.crabsdk.c.a.dt("start FrameMonitor...");
         }
     }
 
     public static void stop() {
         an = false;
         if (Build.VERSION.SDK_INT >= 16) {
-            e.amD.stop();
+            e.amF.stop();
         }
     }
 }

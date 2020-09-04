@@ -7,9 +7,9 @@ public interface j {
 
     void setRadius(float f);
 
-    void xV(boolean z);
+    void xX(boolean z);
 
-    void xW(boolean z);
+    void xY(boolean z);
 
     void z(float[] fArr);
 }

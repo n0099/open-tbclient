@@ -1,7 +1,7 @@
 package com.baidu.tbadk.mutiprocess.event;
 
 import com.baidu.tbadk.mutiprocess.SerializableEvent;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class GoodsEvent extends SerializableEvent {
     private boolean dispose;
     private String goodsList;

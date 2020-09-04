@@ -23,7 +23,7 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
                 b.this.mAppId = bundle2.getString("key_launch_app_id");
                 b.this.mStatus = bundle2.getInt("key_launch_status");
                 if (TextUtils.equals(string, b.this.mAppId)) {
-                    b.this.cIG.putInt("ok", b.this.mStatus);
+                    b.this.cIK.putInt("ok", b.this.mStatus);
                     b.this.finish();
                 }
                 b.yK.remove(string);
@@ -53,7 +53,7 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
         }
     }
 
-    public static void nj(String str) {
+    public static void nk(String str) {
         com.baidu.swan.apps.ap.e.b<Bundle> bVar = yK.get(str);
         if (bVar != null) {
             Bundle bundle = new Bundle();
@@ -63,7 +63,7 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
         }
     }
 
-    public static void nk(String str) {
+    public static void nl(String str) {
         com.baidu.swan.apps.ap.e.b<Bundle> bVar = yK.get(str);
         if (bVar != null) {
             Bundle bundle = new Bundle();

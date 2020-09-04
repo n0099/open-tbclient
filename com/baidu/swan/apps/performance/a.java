@@ -31,10 +31,10 @@ public class a implements com.baidu.swan.apps.ap.e.b<HybridUbcFlow> {
 
     private JSONObject c(HybridUbcFlow hybridUbcFlow) throws JSONException {
         JSONObject jSONObject = new JSONObject();
-        if (hybridUbcFlow != null && !hybridUbcFlow.cGk.isEmpty()) {
+        if (hybridUbcFlow != null && !hybridUbcFlow.cGo.isEmpty()) {
             jSONObject.put("flowId", hybridUbcFlow.avv());
             JSONArray jSONArray = new JSONArray();
-            for (UbcFlowEvent ubcFlowEvent : hybridUbcFlow.cGk) {
+            for (UbcFlowEvent ubcFlowEvent : hybridUbcFlow.cGo) {
                 if (!ubcFlowEvent.avY() && !TextUtils.isEmpty(ubcFlowEvent.id)) {
                     if (DEBUG) {
                         Log.i("FlowJarToH5Reporter", "buildJoMsg: event=" + ubcFlowEvent);

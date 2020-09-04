@@ -3,7 +3,7 @@ package com.baidu.tieba.lego.card.d;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
     public static <T> void a(List<T> list, T t) {
         if (!isNull(list)) {

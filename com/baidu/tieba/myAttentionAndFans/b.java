@@ -6,8 +6,8 @@ import com.baidu.tbadk.core.data.bc;
 import java.util.ArrayList;
 /* loaded from: classes17.dex */
 public abstract class b extends BaseAdapter {
-    protected ArrayList<UserData> efX = null;
-    boolean ghp = false;
+    protected ArrayList<UserData> egb = null;
+    boolean ght = false;
     private boolean mHasMore = false;
 
     public abstract void a(bc bcVar);
@@ -15,13 +15,13 @@ public abstract class b extends BaseAdapter {
     public abstract boolean fB(long j);
 
     public void resetData() {
-        this.efX.clear();
+        this.egb.clear();
     }
 
-    public void bLC() {
-        this.ghp = false;
-        if (this.efX != null && this.efX.size() == 0) {
-            this.ghp = true;
+    public void bLD() {
+        this.ght = false;
+        if (this.egb != null && this.egb.size() == 0) {
+            this.ght = true;
         }
     }
 

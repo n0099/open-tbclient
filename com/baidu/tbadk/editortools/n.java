@@ -1,5 +1,5 @@
 package com.baidu.tbadk.editortools;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface n extends b {
     void b(a aVar);
 

@@ -62,13 +62,13 @@ public abstract class a<V extends SwanEditText, M extends b> extends com.baidu.s
         if (m.maxLength != m2.maxLength) {
             a.gJ(10);
         }
-        if (m.cas != m2.cas) {
+        if (m.caw != m2.caw) {
             a.gJ(11);
         }
         if (m.selectionStart != m2.selectionStart || m.selectionEnd != m2.selectionEnd) {
             a.gJ(12);
         }
-        if (!TextUtils.equals(m.cat, m2.cat)) {
+        if (!TextUtils.equals(m.cax, m2.cax)) {
             a.gJ(13);
         }
         return a;
@@ -107,8 +107,8 @@ public abstract class a<V extends SwanEditText, M extends b> extends com.baidu.s
         if (text != null) {
             i = text.length();
         }
-        if (m.cas <= i && m.cas >= 0) {
-            v.setSelection(m.cas);
+        if (m.caw <= i && m.caw >= 0) {
+            v.setSelection(m.caw);
         }
     }
 
@@ -138,9 +138,9 @@ public abstract class a<V extends SwanEditText, M extends b> extends com.baidu.s
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean e(@NonNull V v, @NonNull M m) {
         if (DEBUG) {
-            Log.d("Component-EditText", "renderConfirmType:" + m.cat);
+            Log.d("Component-EditText", "renderConfirmType:" + m.cax);
         }
-        String str = m.cat;
+        String str = m.cax;
         char c = 65535;
         switch (str.hashCode()) {
             case -906336856:

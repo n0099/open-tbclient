@@ -10,19 +10,19 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class AlaEnterLiveHttpResonseMessage extends JsonHttpResponsedMessage {
-    private r aAh;
-    private am gEF;
+    private r aAj;
+    private am gEJ;
 
     public AlaEnterLiveHttpResonseMessage() {
         super(1021005);
     }
 
     public r LC() {
-        return this.aAh;
+        return this.aAj;
     }
 
-    public am bUX() {
-        return this.gEF;
+    public am bUY() {
+        return this.gEJ;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -34,14 +34,14 @@ public class AlaEnterLiveHttpResonseMessage extends JsonHttpResponsedMessage {
         at atVar2 = null;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.aAh = new r();
-            this.aAh.parserJson(optJSONObject);
-            this.aAh.aEm = jSONObject.optLong("logid");
-            if (this.aAh.mLiveInfo != null && this.aAh.mLiveInfo.live_id > 0) {
-                com.baidu.live.c.AD().putLong("ala_live_room_last_live_id", this.aAh.mLiveInfo.live_id);
+            this.aAj = new r();
+            this.aAj.parserJson(optJSONObject);
+            this.aAj.aEo = jSONObject.optLong("logid");
+            if (this.aAj.mLiveInfo != null && this.aAj.mLiveInfo.live_id > 0) {
+                com.baidu.live.c.AD().putLong("ala_live_room_last_live_id", this.aAj.mLiveInfo.live_id);
             }
-            if (this.aAh.mLiveInfo != null && this.aAh.mLiveInfo.broadGiftMsgId > 0) {
-                com.baidu.live.gift.a.broadGiftMsgId = this.aAh.mLiveInfo.broadGiftMsgId;
+            if (this.aAj.mLiveInfo != null && this.aAj.mLiveInfo.broadGiftMsgId > 0) {
+                com.baidu.live.gift.a.broadGiftMsgId = this.aAj.mLiveInfo.broadGiftMsgId;
             }
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("live_info");
             if (optJSONObject3 != null) {
@@ -70,10 +70,10 @@ public class AlaEnterLiveHttpResonseMessage extends JsonHttpResponsedMessage {
                     atVar2.parseJson(optJSONObject7);
                 }
                 if (apVar != null && atVar != null && atVar2 != null) {
-                    this.gEF = new am();
-                    this.gEF.aIi = apVar;
-                    this.gEF.aIj = atVar;
-                    this.gEF.aIk = atVar2;
+                    this.gEJ = new am();
+                    this.gEJ.aIk = apVar;
+                    this.gEJ.aIl = atVar;
+                    this.gEJ.aIm = atVar2;
                 }
             }
         }

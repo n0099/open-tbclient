@@ -27,12 +27,12 @@ public class ah extends com.baidu.tieba.frs.k<com.baidu.tieba.tbadkCore.p, ai> {
     public ai b(ViewGroup viewGroup) {
         View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.frs_video_activity_item, (ViewGroup) null);
         ai aiVar = new ai(inflate);
-        ap.setViewTextColor(aiVar.fuo, R.color.cp_cont_b);
-        ap.setViewTextColor(aiVar.ieq, R.color.cp_cont_h);
-        ap.setImageResource(aiVar.iep, R.drawable.icon_news_list_prompt);
-        ap.setImageResource(aiVar.ier, R.drawable.icon_index_category_arrow_r);
-        ap.setBackgroundColor(aiVar.ies, R.color.cp_bg_line_c);
-        ap.setBackgroundColor(aiVar.iet, R.color.cp_bg_line_c);
+        ap.setViewTextColor(aiVar.fus, R.color.cp_cont_b);
+        ap.setViewTextColor(aiVar.iew, R.color.cp_cont_h);
+        ap.setImageResource(aiVar.iev, R.drawable.icon_news_list_prompt);
+        ap.setImageResource(aiVar.iex, R.drawable.icon_index_category_arrow_r);
+        ap.setBackgroundColor(aiVar.iey, R.color.cp_bg_line_c);
+        ap.setBackgroundColor(aiVar.iez, R.color.cp_bg_line_c);
         ap.setBackgroundResource(inflate, R.drawable.home_thread_card_item_bg);
         return aiVar;
     }
@@ -54,11 +54,11 @@ public class ah extends com.baidu.tieba.frs.k<com.baidu.tieba.tbadkCore.p, ai> {
                 }
             }
         });
-        aiVar.fuo.setText(pVar != null ? pVar.text : "");
+        aiVar.fus.setText(pVar != null ? pVar.text : "");
         if (eJ(com.baidu.tbadk.core.sharedPref.b.bik().getLong(SharedPrefConfig.FRS_VIDEO_ACTIVITY_TIP + this.mForumId, 0L))) {
-            aiVar.iep.setVisibility(0);
+            aiVar.iev.setVisibility(0);
         } else {
-            aiVar.iep.setVisibility(8);
+            aiVar.iev.setVisibility(8);
         }
         return aiVar.getView();
     }

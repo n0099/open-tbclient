@@ -6,9 +6,9 @@ import tbclient.Myrecord;
 public class d {
     private int agree_num;
     private String apply_declaration;
-    private int hde;
-    private int hdf;
-    private boolean hdg = false;
+    private int hdi;
+    private int hdj;
+    private boolean hdk = false;
     private String nickname;
     private String portrait;
     private int post_num;
@@ -18,16 +18,16 @@ public class d {
     private long uid;
     private int vote_num;
 
-    public int caE() {
+    public int caF() {
         return this.agree_num;
     }
 
-    public int caF() {
-        return this.hde;
+    public int caG() {
+        return this.hdi;
     }
 
-    public int caG() {
-        return this.hdf;
+    public int caH() {
+        return this.hdj;
     }
 
     public int getPost_num() {
@@ -46,11 +46,11 @@ public class d {
         return this.uid;
     }
 
-    public int caH() {
+    public int caI() {
         return this.vote_num;
     }
 
-    public String caI() {
+    public String caJ() {
         return this.apply_declaration;
     }
 
@@ -66,8 +66,8 @@ public class d {
         return this.tid;
     }
 
-    public boolean caJ() {
-        return this.hdg;
+    public boolean caK() {
+        return this.hdk;
     }
 
     public static d a(ElectionList electionList) {
@@ -79,7 +79,7 @@ public class d {
         dVar.setNickname(electionList.name_show);
         dVar.setPortrait(electionList.portrait);
         dVar.vg(electionList.forum_level.intValue());
-        dVar.GT(electionList.apply_declaration);
+        dVar.GU(electionList.apply_declaration);
         dVar.setRank(electionList.rank.intValue());
         dVar.vf(electionList.apply_id.intValue());
         dVar.setPost_num(electionList.post_num.intValue());
@@ -87,7 +87,7 @@ public class d {
         dVar.setAgree_num(electionList.agree_num.intValue());
         dVar.setUid(electionList.uid.longValue());
         dVar.setTid(electionList.tid.longValue());
-        dVar.mY(electionList.is_cheat.intValue() == 1);
+        dVar.na(electionList.is_cheat.intValue() == 1);
         return dVar;
     }
 
@@ -100,7 +100,7 @@ public class d {
         dVar.setNickname(myrecord.name_show);
         dVar.setPortrait(myrecord.portrait);
         dVar.vg(myrecord.forum_level.intValue());
-        dVar.GT(myrecord.apply_declaration);
+        dVar.GU(myrecord.apply_declaration);
         dVar.setRank(myrecord.rank.intValue());
         dVar.vf(myrecord.apply_id.intValue());
         dVar.setPost_num(myrecord.post_num.intValue());
@@ -116,15 +116,15 @@ public class d {
     }
 
     public void vf(int i) {
-        this.hde = i;
+        this.hdi = i;
     }
 
-    public void GT(String str) {
+    public void GU(String str) {
         this.apply_declaration = str;
     }
 
     public void vg(int i) {
-        this.hdf = i;
+        this.hdj = i;
     }
 
     public void setNickname(String str) {
@@ -155,8 +155,8 @@ public class d {
         this.vote_num = i;
     }
 
-    public void mY(boolean z) {
-        this.hdg = z;
+    public void na(boolean z) {
+        this.hdk = z;
     }
 
     public void setTid(long j) {

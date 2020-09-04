@@ -83,40 +83,40 @@ public final class R {
 
     /* loaded from: classes2.dex */
     public static final class id {
-        public static final int action0 = 0x7f0f1ceb;
-        public static final int action_container = 0x7f0f1ce8;
-        public static final int action_divider = 0x7f0f1cf5;
-        public static final int action_image = 0x7f0f1ce9;
-        public static final int action_text = 0x7f0f1cea;
-        public static final int actions = 0x7f0f1cfb;
+        public static final int action0 = 0x7f0f1cec;
+        public static final int action_container = 0x7f0f1ce9;
+        public static final int action_divider = 0x7f0f1cf6;
+        public static final int action_image = 0x7f0f1cea;
+        public static final int action_text = 0x7f0f1ceb;
+        public static final int actions = 0x7f0f1cfc;
         public static final int async = 0x7f0f01d4;
         public static final int blocking = 0x7f0f01d5;
         public static final int bottom = 0x7f0f0167;
-        public static final int cancel_action = 0x7f0f1cec;
-        public static final int chronometer = 0x7f0f1cf9;
+        public static final int cancel_action = 0x7f0f1ced;
+        public static final int chronometer = 0x7f0f1cfa;
         public static final int end = 0x7f0f0168;
-        public static final int end_padder = 0x7f0f1cfe;
+        public static final int end_padder = 0x7f0f1cff;
         public static final int floating_click_view_id = 0x7f0f004e;
         public static final int floating_click_view_tag = 0x7f0f004f;
         public static final int forever = 0x7f0f01d6;
         public static final int icon = 0x7f0f0258;
-        public static final int icon_group = 0x7f0f1cfc;
+        public static final int icon_group = 0x7f0f1cfd;
         public static final int info = 0x7f0f06b4;
         public static final int italic = 0x7f0f01d7;
         public static final int left = 0x7f0f0169;
         public static final int line1 = 0x7f0f009c;
         public static final int line3 = 0x7f0f009d;
-        public static final int media_actions = 0x7f0f1cf4;
+        public static final int media_actions = 0x7f0f1cf5;
         public static final int none = 0x7f0f0187;
         public static final int normal = 0x7f0f0190;
-        public static final int notification_background = 0x7f0f1cfa;
-        public static final int notification_main_column = 0x7f0f1cf7;
-        public static final int notification_main_column_container = 0x7f0f1cf6;
+        public static final int notification_background = 0x7f0f1cfb;
+        public static final int notification_main_column = 0x7f0f1cf8;
+        public static final int notification_main_column_container = 0x7f0f1cf7;
         public static final int right = 0x7f0f016a;
-        public static final int right_icon = 0x7f0f1cfd;
-        public static final int right_side = 0x7f0f1cf8;
+        public static final int right_icon = 0x7f0f1cfe;
+        public static final int right_side = 0x7f0f1cf9;
         public static final int start = 0x7f0f016b;
-        public static final int status_bar_latest_event_content = 0x7f0f1cf3;
+        public static final int status_bar_latest_event_content = 0x7f0f1cf4;
         public static final int tag_transition_group = 0x7f0f0141;
         public static final int text = 0x7f0f014d;
         public static final int text2 = 0x7f0f014e;
@@ -152,14 +152,14 @@ public final class R {
 
     /* loaded from: classes2.dex */
     public static final class string {
-        public static final int player_floating_close_tips = 0x7f0810fa;
-        public static final int player_floating_close_warning = 0x7f0810fb;
-        public static final int player_floating_permission_message = 0x7f0810fc;
-        public static final int player_floating_permission_message_live = 0x7f0810fd;
-        public static final int player_floating_permission_negative = 0x7f0810fe;
-        public static final int player_floating_permission_positive = 0x7f0810ff;
-        public static final int player_floating_permission_title = 0x7f081100;
-        public static final int player_floating_permission_title_live = 0x7f081101;
+        public static final int player_floating_close_tips = 0x7f0810fb;
+        public static final int player_floating_close_warning = 0x7f0810fc;
+        public static final int player_floating_permission_message = 0x7f0810fd;
+        public static final int player_floating_permission_message_live = 0x7f0810fe;
+        public static final int player_floating_permission_negative = 0x7f0810ff;
+        public static final int player_floating_permission_positive = 0x7f081100;
+        public static final int player_floating_permission_title = 0x7f081101;
+        public static final int player_floating_permission_title_live = 0x7f081102;
         public static final int status_bar_notification_info_overflow = 0x7f080012;
     }
 

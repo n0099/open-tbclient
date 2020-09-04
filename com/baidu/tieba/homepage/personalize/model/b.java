@@ -22,21 +22,21 @@ public class b {
             for (int i = 0; i < count; i++) {
                 q qVar = (q) y.getItem(list, i);
                 if (qVar instanceof com.baidu.tieba.card.data.q) {
-                    ((com.baidu.tieba.card.data.q) qVar).nn(true);
+                    ((com.baidu.tieba.card.data.q) qVar).np(true);
                 }
                 q qVar2 = (q) y.getItem(list, i + 1);
                 if ((qVar instanceof com.baidu.tieba.card.data.q) && (qVar2 instanceof com.baidu.tieba.card.data.q)) {
                     com.baidu.tieba.card.data.q qVar3 = (com.baidu.tieba.card.data.q) qVar;
                     com.baidu.tieba.card.data.q qVar4 = (com.baidu.tieba.card.data.q) qVar2;
-                    if (qVar3.ccq()) {
-                        qVar4.nn(false);
+                    if (qVar3.ccr()) {
+                        qVar4.np(false);
                         if (qVar4 instanceof com.baidu.tieba.homepage.personalize.b.c) {
-                            qVar3.no(false);
+                            qVar3.nq(false);
                         }
                     }
                 }
                 if (qVar instanceof com.baidu.tieba.homepage.personalize.b.c) {
-                    ((com.baidu.tieba.homepage.personalize.b.c) qVar).no(false);
+                    ((com.baidu.tieba.homepage.personalize.b.c) qVar).nq(false);
                 }
             }
         }
@@ -59,7 +59,7 @@ public class b {
                 if ((qVar instanceof com.baidu.tieba.card.data.c) && (bce = (cVar = (com.baidu.tieba.card.data.c) qVar).bce()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(com.baidu.adp.lib.f.b.toLong(bce.getTid(), 0L))) != null) {
                     cVar.setSource(threadPersonalized.source);
                     cVar.setWeight(threadPersonalized.weight);
-                    cVar.Ha(threadPersonalized.abtest_tag);
+                    cVar.Hb(threadPersonalized.abtest_tag);
                     bce.mRecomAbTag = threadPersonalized.abtest_tag;
                     bce.mRecomSource = threadPersonalized.source;
                     bce.mRecomWeight = threadPersonalized.weight;

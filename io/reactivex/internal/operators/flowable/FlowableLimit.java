@@ -10,7 +10,7 @@ public final class FlowableLimit<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.b.c<? super T> cVar) {
-        this.omB.a((j) new LimitSubscriber(cVar, this.n));
+        this.omT.a((j) new LimitSubscriber(cVar, this.n));
     }
 
     /* loaded from: classes7.dex */

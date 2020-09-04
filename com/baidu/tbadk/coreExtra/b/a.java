@@ -4,15 +4,15 @@ import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.Disk.ops.d;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
-    private static volatile a ezB = null;
-    private boolean ezA;
-    private int ezC;
+    private static volatile a ezF = null;
+    private boolean ezE;
+    private int ezG;
 
     private a() {
-        this.ezA = false;
-        this.ezC = 0;
+        this.ezE = false;
+        this.ezG = 0;
         try {
             d dVar = new d("", "apk_ab_test.txt", DiskFileOperate.Action.READ);
             dVar.setSdCard(true);
@@ -20,10 +20,10 @@ public class a {
             if (dVar.call()) {
                 String content = dVar.getContent();
                 if (content != null) {
-                    this.ezC = Integer.parseInt(content);
+                    this.ezG = Integer.parseInt(content);
                 }
-                if (this.ezC == 1 || this.ezC == 2) {
-                    this.ezA = true;
+                if (this.ezG == 1 || this.ezG == 2) {
+                    this.ezE = true;
                 }
             }
         } catch (Throwable th) {
@@ -32,25 +32,25 @@ public class a {
     }
 
     public static a bmk() {
-        if (ezB == null) {
+        if (ezF == null) {
             synchronized (a.class) {
-                if (ezB == null) {
-                    ezB = new a();
+                if (ezF == null) {
+                    ezF = new a();
                 }
             }
         }
-        return ezB;
+        return ezF;
     }
 
     public boolean bml() {
-        return this.ezA;
+        return this.ezE;
     }
 
     public int bmm() {
-        return this.ezC;
+        return this.ezG;
     }
 
     public String bmn() {
-        return this.ezA ? "pub_env=" + this.ezC + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
+        return this.ezE ? "pub_env=" + this.ezG + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
     }
 }

@@ -1,20 +1,20 @@
 package com.baidu.tieba.im.message.chat;
 
 import com.baidu.tieba.im.message.chat.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b implements com.baidu.tbadk.mvc.b.a {
     private long createTime;
-    private boolean jwr;
-    private a.C0719a jws;
-    private com.baidu.tieba.im.db.pojo.a jwt;
-    private int jwu;
+    private int jwA;
+    private boolean jwx;
+    private a.C0719a jwy;
+    private com.baidu.tieba.im.db.pojo.a jwz;
 
     public static b a(ChatMessage chatMessage, a.C0719a c0719a) {
         b bVar = new b();
         if (chatMessage == null) {
             return bVar;
         }
-        c0719a.jwo /= 100;
+        c0719a.jwu /= 100;
         bVar.Bz(chatMessage.getReadCountPv());
         bVar.a(c0719a);
         bVar.setCreateTime(chatMessage.getTime());
@@ -24,28 +24,28 @@ public class b implements com.baidu.tbadk.mvc.b.a {
         return bVar;
     }
 
-    public boolean cHj() {
-        return this.jwr;
+    public boolean cHk() {
+        return this.jwx;
     }
 
-    public void qU(boolean z) {
-        this.jwr = z;
+    public void qW(boolean z) {
+        this.jwx = z;
     }
 
-    public a.C0719a cHk() {
-        return this.jws;
+    public a.C0719a cHl() {
+        return this.jwy;
     }
 
     public void a(a.C0719a c0719a) {
-        this.jws = c0719a;
+        this.jwy = c0719a;
     }
 
-    public com.baidu.tieba.im.db.pojo.a cHl() {
-        return this.jwt;
+    public com.baidu.tieba.im.db.pojo.a cHm() {
+        return this.jwz;
     }
 
     public void a(com.baidu.tieba.im.db.pojo.a aVar) {
-        this.jwt = aVar;
+        this.jwz = aVar;
     }
 
     public long getCreateTime() {
@@ -56,11 +56,11 @@ public class b implements com.baidu.tbadk.mvc.b.a {
         this.createTime = j;
     }
 
-    public int cHm() {
-        return this.jwu;
+    public int cHn() {
+        return this.jwA;
     }
 
     public void Bz(int i) {
-        this.jwu = i;
+        this.jwA = i;
     }
 }

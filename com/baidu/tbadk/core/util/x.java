@@ -6,7 +6,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import java.lang.reflect.Field;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class x {
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(Context context, Field[] fieldArr, InputMethodManager inputMethodManager) {

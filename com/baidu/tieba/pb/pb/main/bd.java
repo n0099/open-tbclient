@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.pb.main;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class bd {
     private TbPageContext mPageContext;
 
@@ -15,7 +15,7 @@ public class bd {
         new a(str, bArr).execute(new String[0]);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     private class a extends BdAsyncTask<String, Integer, String> {
         byte[] mData;
         String mUrl;

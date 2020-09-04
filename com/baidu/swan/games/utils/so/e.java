@@ -17,19 +17,19 @@ import java.util.zip.ZipFile;
 /* loaded from: classes8.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final String dxN = com.baidu.swan.apps.r.d.aoz() + "/v8_so/";
-    private static final boolean dxO = com.baidu.swan.apps.t.a.apB().aaa();
-    private static final String[] dxP = com.baidu.swan.apps.t.a.apB().aab();
-    private static String dxQ = null;
+    private static final String dxR = com.baidu.swan.apps.r.d.aoz() + "/v8_so/";
+    private static final boolean dxS = com.baidu.swan.apps.t.a.apB().aaa();
+    private static final String[] dxT = com.baidu.swan.apps.t.a.apB().aab();
+    private static String dxU = null;
 
     public static f a(@NonNull Context context, @NonNull SoLoader soLoader) {
         if (b(context, soLoader)) {
-            wh("loadV8EngineBySystemMethod:success.");
+            wi("loadV8EngineBySystemMethod:success.");
             return f.aQk();
         }
         f c = c(context, soLoader);
         if (c.isSuccess()) {
-            wh("loadV8EngineSoWithSystemPath:success.");
+            wi("loadV8EngineSoWithSystemPath:success.");
             return c;
         }
         f d = d(context, soLoader);
@@ -37,18 +37,18 @@ public class e {
             SoUtils.onEvent(SoUtils.SO_EVENT_ID_V8_SO, soLoader.getErrorLog());
             return d;
         }
-        wh("loadV8EngineSoWithCustomPath:success.");
+        wi("loadV8EngineSoWithCustomPath:success.");
         return d;
     }
 
     private static boolean b(@NonNull Context context, @NonNull SoLoader soLoader) {
-        if (dxO) {
+        if (dxS) {
             File findSoFilesInLibrary = SoLoader.findSoFilesInLibrary(context, "com.baidu.zeus");
             if (findSoFilesInLibrary == null || findSoFilesInLibrary.length() == 0) {
                 return false;
             }
-            dxQ = findSoFilesInLibrary.getAbsolutePath();
-            wh("loadV8EngineSo: v8 dependentFile:" + dxQ);
+            dxU = findSoFilesInLibrary.getAbsolutePath();
+            wi("loadV8EngineSo: v8 dependentFile:" + dxU);
         }
         return a((HashMap<String, String>) null, soLoader) && a("v8.engine", soLoader);
     }
@@ -82,8 +82,8 @@ public class e {
     private static boolean a(@Nullable HashMap<String, String> hashMap, @NonNull SoLoader soLoader) {
         boolean b;
         boolean z = true;
-        if (dxP != null && dxP.length != 0) {
-            String[] strArr = dxP;
+        if (dxT != null && dxT.length != 0) {
+            String[] strArr = dxT;
             int length = strArr.length;
             int i = 0;
             while (i < length) {
@@ -101,7 +101,7 @@ public class e {
     }
 
     private static f c(@NonNull Context context, @NonNull SoLoader soLoader) {
-        dxQ = null;
+        dxU = null;
         HashMap hashMap = new HashMap();
         Iterator<String> it = aQg().iterator();
         while (it.hasNext()) {
@@ -113,25 +113,25 @@ public class e {
     }
 
     private static f b(@NonNull HashMap<String, String> hashMap, @NonNull SoLoader soLoader) {
-        wh("loadV8EngineSoByMap:" + hashMap);
+        wi("loadV8EngineSoByMap:" + hashMap);
         String str = hashMap.get("com.baidu.zeus");
-        if (dxO && str == null) {
+        if (dxS && str == null) {
             return f.u(false, false);
         }
         boolean b = b(hashMap.get("zeusv8"), soLoader);
         boolean a2 = a(hashMap, soLoader);
         boolean b2 = b(hashMap.get("v8.engine"), soLoader);
         if (b2) {
-            dxQ = str;
+            dxU = str;
         }
         return f.u(b, a2 && b2);
     }
 
     private static f d(@NonNull Context context, @NonNull SoLoader soLoader) {
-        dxQ = null;
+        dxU = null;
         HashMap hashMap = new HashMap();
         String versionName = ak.getVersionName();
-        File file = new File(dxN, versionName);
+        File file = new File(dxR, versionName);
         Iterator<String> it = aQg().iterator();
         while (it.hasNext()) {
             String next = it.next();
@@ -180,16 +180,16 @@ public class e {
         ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add("v8.engine");
         arrayList.add("zeusv8");
-        if (dxO) {
+        if (dxS) {
             arrayList.add("com.baidu.zeus");
         }
-        if (dxP != null && dxP.length != 0) {
-            arrayList.addAll(Arrays.asList(dxP));
+        if (dxT != null && dxT.length != 0) {
+            arrayList.addAll(Arrays.asList(dxT));
         }
         return arrayList;
     }
 
-    private static void wh(String str) {
+    private static void wi(String str) {
         if (DEBUG) {
             Log.d("V8InnerSoLoader", str);
         }
@@ -197,7 +197,7 @@ public class e {
 
     public static void aQh() {
         File[] listFiles;
-        File file = new File(dxN);
+        File file = new File(dxR);
         if (file.exists() && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
             String versionName = ak.getVersionName();
             for (File file2 : listFiles) {
@@ -209,8 +209,8 @@ public class e {
     }
 
     public static String getV8SoDependentFilePath() {
-        if (dxO) {
-            return dxQ;
+        if (dxS) {
+            return dxU;
         }
         return null;
     }

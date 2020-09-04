@@ -7,70 +7,70 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.ala.AlaLastLiveroomInfo;
 /* loaded from: classes7.dex */
 public class a extends com.baidu.tieba.ala.liveroom.a {
-    private b gpv;
-    private boolean gpw;
+    private boolean gpA;
+    private b gpz;
     private TbPageContext mTbPageContext;
 
     public a(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.gpw = false;
+        this.gpA = false;
         this.mTbPageContext = tbPageContext;
-        this.gpv = new b(this.mTbPageContext);
+        this.gpz = new b(this.mTbPageContext);
     }
 
     public void a(r rVar, AlaLastLiveroomInfo alaLastLiveroomInfo) {
-        if (rVar == null || rVar.mLiveInfo == null || alaLastLiveroomInfo == null || this.gpv == null || this.gpv.getView() == null || rVar.mLiveInfo.live_id == alaLastLiveroomInfo.getLastLiveId()) {
-            this.gpw = false;
+        if (rVar == null || rVar.mLiveInfo == null || alaLastLiveroomInfo == null || this.gpz == null || this.gpz.getView() == null || rVar.mLiveInfo.live_id == alaLastLiveroomInfo.getLastLiveId()) {
+            this.gpA = false;
         } else if (alaLastLiveroomInfo.getLastLiveId() <= 0 && alaLastLiveroomInfo.getLastRoomId() <= 0) {
-            this.gpw = false;
+            this.gpA = false;
         } else {
-            this.gpv.d(alaLastLiveroomInfo);
-            this.gpv.getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.f.a.1
+            this.gpz.d(alaLastLiveroomInfo);
+            this.gpz.getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.f.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.gpv.bPf();
+                    a.this.gpz.bPg();
                 }
             });
-            this.gpv.show();
-            this.gpw = true;
+            this.gpz.show();
+            this.gpA = true;
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
     public void as(ViewGroup viewGroup) {
-        if (this.gpw) {
-            this.gpv.au(viewGroup);
+        if (this.gpA) {
+            this.gpz.au(viewGroup);
         }
     }
 
     public void dz(int i) {
-        if (this.gpv != null && this.gpw) {
-            this.gpv.bPi();
+        if (this.gpz != null && this.gpA) {
+            this.gpz.bPj();
             if (i == 1) {
-                this.gpv.show();
+                this.gpz.show();
             } else if (i == 2) {
-                this.gpv.hide();
+                this.gpz.hide();
             }
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
     public void BB() {
-        if (this.gpv != null) {
-            this.gpv.bPh();
+        if (this.gpz != null) {
+            this.gpz.bPi();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
     public void onDestroy() {
-        if (this.gpv != null) {
-            this.gpv.onDestroy();
+        if (this.gpz != null) {
+            this.gpz.onDestroy();
         }
     }
 
     public void setId(int i) {
-        if (this.gpv != null && this.gpv.getView() != null) {
-            this.gpv.getView().setId(i);
+        if (this.gpz != null && this.gpz.getView() != null) {
+            this.gpz.getView().setId(i);
         }
     }
 }

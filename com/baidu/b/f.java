@@ -35,11 +35,11 @@ public class f {
         return TextUtils.isEmpty(str);
     }
 
-    public static f cV(String str) {
-        return cW(e(str));
+    public static f cW(String str) {
+        return cX(e(str));
     }
 
-    private static f cW(String str) {
+    private static f cX(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

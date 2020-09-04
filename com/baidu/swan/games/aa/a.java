@@ -5,27 +5,27 @@ import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes8.dex */
 public class a {
-    private static final ReentrantLock dxq = new ReentrantLock();
-    private static volatile a dxr;
-    private d dqn;
-    private List<c> drf = new ArrayList(3);
+    private static final ReentrantLock dxu = new ReentrantLock();
+    private static volatile a dxv;
+    private d dqr;
+    private List<c> drj = new ArrayList(3);
 
     private a() {
     }
 
     public static a aPC() {
-        if (dxr == null) {
+        if (dxv == null) {
             synchronized (a.class) {
-                if (dxr == null) {
-                    dxr = new a();
+                if (dxv == null) {
+                    dxv = new a();
                 }
             }
         }
-        return dxr;
+        return dxv;
     }
 
     public void a(d dVar) {
-        this.dqn = dVar;
+        this.dqr = dVar;
         aPD();
     }
 
@@ -37,33 +37,33 @@ public class a {
     }
 
     public void release() {
-        this.dqn = null;
-        this.drf.clear();
+        this.dqr = null;
+        this.drj.clear();
     }
 
     private void a(c cVar) {
-        dxq.lock();
+        dxu.lock();
         try {
-            if (this.dqn != null) {
-                this.dqn.c(cVar);
+            if (this.dqr != null) {
+                this.dqr.c(cVar);
             } else {
-                this.drf.add(cVar);
+                this.drj.add(cVar);
             }
         } finally {
-            dxq.unlock();
+            dxu.unlock();
         }
     }
 
     private void aPD() {
-        if (!this.drf.isEmpty() && this.dqn != null) {
-            dxq.lock();
+        if (!this.drj.isEmpty() && this.dqr != null) {
+            dxu.lock();
             try {
-                for (c cVar : this.drf) {
-                    this.dqn.c(cVar);
+                for (c cVar : this.drj) {
+                    this.dqr.c(cVar);
                 }
-                this.drf.clear();
+                this.drj.clear();
             } finally {
-                dxq.unlock();
+                dxu.unlock();
             }
         }
     }

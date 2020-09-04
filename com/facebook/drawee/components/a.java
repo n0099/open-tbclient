@@ -7,18 +7,18 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes4.dex */
 public class a {
-    private static a nnb = null;
-    private final Runnable nnd = new Runnable() { // from class: com.facebook.drawee.components.a.1
+    private static a nnt = null;
+    private final Runnable nnv = new Runnable() { // from class: com.facebook.drawee.components.a.1
         @Override // java.lang.Runnable
         public void run() {
-            a.dPI();
-            for (InterfaceC0866a interfaceC0866a : a.this.nnc) {
+            a.dPR();
+            for (InterfaceC0866a interfaceC0866a : a.this.nnu) {
                 interfaceC0866a.release();
             }
-            a.this.nnc.clear();
+            a.this.nnu.clear();
         }
     };
-    private final Set<InterfaceC0866a> nnc = new HashSet();
+    private final Set<InterfaceC0866a> nnu = new HashSet();
     private final Handler mUiHandler = new Handler(Looper.getMainLooper());
 
     /* renamed from: com.facebook.drawee.components.a$a  reason: collision with other inner class name */
@@ -27,31 +27,31 @@ public class a {
         void release();
     }
 
-    public static synchronized a dPH() {
+    public static synchronized a dPQ() {
         a aVar;
         synchronized (a.class) {
-            if (nnb == null) {
-                nnb = new a();
+            if (nnt == null) {
+                nnt = new a();
             }
-            aVar = nnb;
+            aVar = nnt;
         }
         return aVar;
     }
 
     public void a(InterfaceC0866a interfaceC0866a) {
-        dPI();
-        if (this.nnc.add(interfaceC0866a) && this.nnc.size() == 1) {
-            this.mUiHandler.post(this.nnd);
+        dPR();
+        if (this.nnu.add(interfaceC0866a) && this.nnu.size() == 1) {
+            this.mUiHandler.post(this.nnv);
         }
     }
 
     public void b(InterfaceC0866a interfaceC0866a) {
-        dPI();
-        this.nnc.remove(interfaceC0866a);
+        dPR();
+        this.nnu.remove(interfaceC0866a);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void dPI() {
+    public static void dPR() {
         g.checkState(Looper.getMainLooper().getThread() == Thread.currentThread());
     }
 }

@@ -9,7 +9,7 @@ public class a {
     public static final String ALBUM_ID_VIDEO = String.valueOf(2147483646);
     private String albumId;
     private int count;
-    private MediaFileInfo dRC;
+    private MediaFileInfo dRG;
     private List<MediaFileInfo> fileList;
     private String name;
 
@@ -42,18 +42,18 @@ public class a {
     }
 
     public ImageFileInfo bas() {
-        if (this.dRC instanceof ImageFileInfo) {
-            return (ImageFileInfo) this.dRC;
+        if (this.dRG instanceof ImageFileInfo) {
+            return (ImageFileInfo) this.dRG;
         }
         return null;
     }
 
     public void a(MediaFileInfo mediaFileInfo) {
-        this.dRC = mediaFileInfo;
+        this.dRG = mediaFileInfo;
     }
 
     public MediaFileInfo bat() {
-        return this.dRC;
+        return this.dRG;
     }
 
     public List<MediaFileInfo> getFileList() {

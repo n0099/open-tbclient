@@ -6,17 +6,17 @@ import tbclient.Hottopic.JoinUser;
 import tbclient.Hottopic.UserInfo;
 /* loaded from: classes15.dex */
 public class h {
-    public List<l> iZw;
-    public long iZx;
+    public List<l> iZC;
+    public long iZD;
 
     public void a(JoinUser joinUser) {
-        this.iZx = joinUser.join_user_num.longValue();
-        this.iZw = new ArrayList();
+        this.iZD = joinUser.join_user_num.longValue();
+        this.iZC = new ArrayList();
         for (UserInfo userInfo : joinUser.join_user) {
             if (userInfo != null) {
                 l lVar = new l();
                 lVar.a(userInfo);
-                this.iZw.add(lVar);
+                this.iZC.add(lVar);
             }
         }
     }

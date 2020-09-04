@@ -1,5 +1,5 @@
 package com.baidu.tbadk.core.util;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class t {
     public int num = 0;
     public int failnum = 0;

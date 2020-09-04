@@ -5,19 +5,19 @@ import android.util.Log;
 /* loaded from: classes8.dex */
 public class f implements e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile f cHa;
-    private volatile d cHb;
-    private volatile com.baidu.swan.apps.performance.d.a cHc;
+    private static volatile f cHe;
+    private volatile d cHf;
+    private volatile com.baidu.swan.apps.performance.d.a cHg;
 
     public static f awb() {
-        if (cHa == null) {
+        if (cHe == null) {
             synchronized (f.class) {
-                if (cHa == null) {
-                    cHa = new f();
+                if (cHe == null) {
+                    cHe = new f();
                 }
             }
         }
-        return cHa;
+        return cHe;
     }
 
     private f() {
@@ -25,16 +25,16 @@ public class f implements e {
     }
 
     private void init() {
-        if (this.cHb == null) {
-            this.cHb = new b();
+        if (this.cHf == null) {
+            this.cHf = new b();
         }
-        if (this.cHc == null) {
-            this.cHc = new com.baidu.swan.apps.performance.d.c();
+        if (this.cHg == null) {
+            this.cHg = new com.baidu.swan.apps.performance.d.c();
         }
     }
 
     public com.baidu.swan.apps.performance.d.a awc() {
-        return this.cHc;
+        return this.cHg;
     }
 
     @Override // com.baidu.swan.apps.performance.a.e
@@ -43,8 +43,8 @@ public class f implements e {
             if (DEBUG) {
                 Log.d("StartUpInfoMarker", "aiapp start at - " + j);
             }
-            this.cHb.start(j);
-            this.cHc.start(j);
+            this.cHf.start(j);
+            this.cHg.start(j);
         }
     }
 
@@ -54,14 +54,14 @@ public class f implements e {
             if (DEBUG) {
                 Log.d("StartUpInfoMarker", "aiapp start cost at - " + j);
             }
-            this.cHb.bq(j);
-            this.cHc.bq(j);
+            this.cHf.bq(j);
+            this.cHg.bq(j);
             bt(j);
         }
     }
 
     private void bt(long j) {
-        com.baidu.swan.apps.am.e.daj.W(Long.valueOf(j));
+        com.baidu.swan.apps.am.e.dan.W(Long.valueOf(j));
     }
 
     public boolean isOn() {
@@ -77,6 +77,6 @@ public class f implements e {
             return false;
         }
         String appId = azJ.getAppId();
-        return (TextUtils.isEmpty(appId) || com.baidu.swan.apps.f.a.km(appId) == 0) ? false : true;
+        return (TextUtils.isEmpty(appId) || com.baidu.swan.apps.f.a.kn(appId) == 0) ? false : true;
     }
 }

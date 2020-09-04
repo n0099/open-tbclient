@@ -5,13 +5,13 @@ import android.app.Application;
 import android.view.MotionEvent;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
     private static a mInstance;
     private InterfaceC0805a mICrabSdk = getCrabSdk();
 
     /* renamed from: com.baidu.tieba.t.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface InterfaceC0805a {
         void behaviorRecordEvent(MotionEvent motionEvent, Activity activity);
 
@@ -21,7 +21,11 @@ public class a {
 
         void onResume(Activity activity);
 
+        void setFlutterPath(String str);
+
         void setLastFlutterPage(String str);
+
+        void setOpenFlutterPage(String str);
 
         void uploadException(Exception exc);
     }
@@ -85,6 +89,18 @@ public class a {
     public void setLastFlutterPage(String str) {
         if (this.mICrabSdk != null) {
             this.mICrabSdk.setLastFlutterPage(str);
+        }
+    }
+
+    public void setOpenFlutterPage(String str) {
+        if (this.mICrabSdk != null) {
+            this.mICrabSdk.setOpenFlutterPage(str);
+        }
+    }
+
+    public void setFlutterPath(String str) {
+        if (this.mICrabSdk != null) {
+            this.mICrabSdk.setFlutterPath(str);
         }
     }
 }

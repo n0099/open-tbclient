@@ -1,5 +1,5 @@
 package com.baidu.tieba.lego.card.view;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface j {
     void aHX();
 

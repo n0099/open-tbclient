@@ -3,7 +3,7 @@ package com.baidu.tbadk.coreExtra.d;
 import com.baidu.adp.framework.b.j;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class i extends j {
     public i() {
         super(0);

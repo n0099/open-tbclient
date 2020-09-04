@@ -5,42 +5,42 @@ import android.util.Log;
 /* loaded from: classes8.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String ccM;
-    private static String ccN;
+    private static String ccQ;
+    private static String ccR;
 
     public static boolean aee() {
-        return !TextUtils.isEmpty(ccM);
+        return !TextUtils.isEmpty(ccQ);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static boolean aef() {
-        return TextUtils.equals(ccN, "update_tag_by_remote_debug");
+        return TextUtils.equals(ccR, "update_tag_by_remote_debug");
     }
 
-    public static void kJ(String str) {
+    public static void kK(String str) {
         if (DEBUG) {
             Log.d("RemoteDebugger", "Current launch mode is " + str);
         }
-        ccN = str;
-        if (TextUtils.equals(ccN, "update_tag_by_activity_on_new_intent")) {
+        ccR = str;
+        if (TextUtils.equals(ccR, "update_tag_by_activity_on_new_intent")) {
             d.adX().adY();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void aeg() {
-        ccN = "update_tag_by_remote_debug";
+        ccR = "update_tag_by_remote_debug";
     }
 
     public static String aeh() {
-        return ccM + "/swan-core/master/master.html";
+        return ccQ + "/swan-core/master/master.html";
     }
 
     public static String aei() {
-        return ccM + "/swan-core/slaves/slaves.html";
+        return ccQ + "/swan-core/slaves/slaves.html";
     }
 
     public static void setWebUrl(String str) {
-        ccM = str;
+        ccQ = str;
     }
 }

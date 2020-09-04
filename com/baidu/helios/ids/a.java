@@ -9,23 +9,23 @@ import java.io.UnsupportedEncodingException;
 import java.util.concurrent.ExecutorService;
 /* loaded from: classes6.dex */
 public abstract class a {
-    protected a.C0148a axa;
-    protected C0149a axb;
+    protected a.C0148a axc;
+    protected C0149a axd;
     private String b;
 
     /* renamed from: com.baidu.helios.ids.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     public static class C0149a {
         public Context applicationContext;
-        public com.baidu.helios.common.c.a avP;
-        public ExecutorService avi;
-        public ExecutorService avj;
-        public TrustSubjectManager.d axe;
+        public com.baidu.helios.common.c.a avR;
+        public ExecutorService avk;
+        public ExecutorService avl;
+        public TrustSubjectManager.d axg;
     }
 
     /* loaded from: classes6.dex */
     public static class b {
-        public boolean axf = false;
+        public boolean axh = false;
     }
 
     /* loaded from: classes6.dex */
@@ -59,15 +59,15 @@ public abstract class a {
     }
 
     public final void a(C0149a c0149a) {
-        this.axb = c0149a;
-        this.axa = c0149a.avP.Ah().fv("ids");
+        this.axd = c0149a;
+        this.axc = c0149a.avR.Ah().fw("ids");
     }
 
     public abstract void a(b bVar);
 
     public void a(final c<String> cVar) {
         final String Am = Am();
-        this.axb.avi.submit(new Runnable() { // from class: com.baidu.helios.ids.a.1
+        this.axd.avk.submit(new Runnable() { // from class: com.baidu.helios.ids.a.1
             @Override // java.lang.Runnable
             public void run() {
                 cVar.a(Am, null);

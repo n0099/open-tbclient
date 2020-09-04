@@ -8,8 +8,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class a {
-    public List<C0333a> cJZ;
-    public String cKa;
+    public List<C0333a> cKd;
+    public String cKe;
 
     @Nullable
     public static a be(JSONObject jSONObject) {
@@ -18,7 +18,7 @@ public class a {
             return null;
         }
         a aVar = new a();
-        aVar.cKa = jSONObject.optString("more");
+        aVar.cKe = jSONObject.optString("more");
         JSONArray optJSONArray = jSONObject.optJSONArray("bind_app_list");
         if (optJSONArray == null || (length = optJSONArray.length()) <= 0) {
             return null;
@@ -31,11 +31,11 @@ public class a {
                 c0333a.appKey = optJSONObject.optString("app_key");
                 c0333a.appName = optJSONObject.optString("app_name");
                 c0333a.iconUrl = optJSONObject.optString("photo_addr");
-                c0333a.cKb = optJSONObject.optString(SuspensionBallEntity.KEY_SCHEME);
+                c0333a.cKf = optJSONObject.optString(SuspensionBallEntity.KEY_SCHEME);
                 arrayList.add(c0333a);
             }
         }
-        aVar.cJZ = arrayList;
+        aVar.cKd = arrayList;
         return aVar;
     }
 
@@ -45,7 +45,7 @@ public class a {
     public static class C0333a {
         public String appKey;
         public String appName;
-        public String cKb;
+        public String cKf;
         public String iconUrl;
 
         C0333a() {

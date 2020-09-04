@@ -12,12 +12,12 @@ import com.baidu.tbadk.coreExtra.data.AuthTokenData;
 import com.baidu.tbadk.switchs.BarDetailForDirSwitch;
 import java.lang.ref.WeakReference;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ad {
     private String mFrom = BarDetailForDirSwitch.BAR_DETAIL_DIR;
-    private a mdX;
+    private a men;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface a {
         void y(String str, long j);
 
@@ -29,15 +29,15 @@ public class ad {
     }
 
     public void a(a aVar) {
-        this.mdX = aVar;
+        this.men = aVar;
     }
 
     public void K(String str, long j) {
-        new b(str, j, this.mFrom, this.mdX, this, null).execute(new Integer[0]);
+        new b(str, j, this.mFrom, this.men, this, null).execute(new Integer[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class b extends BdAsyncTask<Integer, Integer, Integer> {
         private String authSid;
         private int errorCode;
@@ -46,18 +46,18 @@ public class ad {
         private String mForumName;
         private String mFrom;
         private com.baidu.tbadk.core.util.aa mNetwork = null;
-        private WeakReference<a> mdY;
-        private WeakReference<ad> mdZ;
+        private WeakReference<a> meo;
+        private WeakReference<ad> mep;
         private AuthTokenData tokenData;
 
         public b(String str, long j, String str2, a aVar, ad adVar, String str3) {
             this.mForumName = null;
             this.mForumId = 0L;
-            this.mdY = null;
-            this.mdZ = new WeakReference<>(adVar);
+            this.meo = null;
+            this.mep = new WeakReference<>(adVar);
             this.mForumName = str;
             this.mForumId = j;
-            this.mdY = new WeakReference<>(aVar);
+            this.meo = new WeakReference<>(aVar);
             this.mFrom = str2;
             this.authSid = str3;
             setPriority(3);
@@ -100,10 +100,10 @@ public class ad {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Integer num) {
             super.onPostExecute((b) num);
-            if (this.mdY != null) {
+            if (this.meo != null) {
                 com.baidu.tieba.tbadkCore.writeModel.a aVar = new com.baidu.tieba.tbadkCore.writeModel.a();
                 aVar.forumId = this.mForumId;
-                a aVar2 = this.mdY.get();
+                a aVar2 = this.meo.get();
                 if (aVar2 != null) {
                     if (num.intValue() == 1 && this.mNetwork != null && this.mNetwork.biQ().bjw().isRequestSuccess()) {
                         TbadkCoreApplication.getInst().delLikeForum(this.mForumName);

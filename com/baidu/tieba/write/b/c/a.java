@@ -13,27 +13,27 @@ import java.util.LinkedList;
 /* loaded from: classes3.dex */
 public class a {
     private boolean isOriginalImg;
-    private b mPC;
-    private e mPB = new e(true);
-    private com.baidu.tbadk.img.b eOV = new com.baidu.tbadk.img.b();
+    private b mPU;
+    private e mPT = new e(true);
+    private com.baidu.tbadk.img.b eOZ = new com.baidu.tbadk.img.b();
 
     /* renamed from: com.baidu.tieba.write.b.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public interface InterfaceC0829a {
-        void cQu();
+        void cQv();
     }
 
     public void a(LinkedList<ImageFileInfo> linkedList, boolean z, InterfaceC0829a interfaceC0829a) {
         if (linkedList == null || linkedList.size() <= 0) {
             if (interfaceC0829a != null) {
-                interfaceC0829a.cQu();
+                interfaceC0829a.cQv();
                 return;
             }
             return;
         }
         this.isOriginalImg = z;
-        if (this.mPC != null) {
-            this.mPC.cancel();
+        if (this.mPU != null) {
+            this.mPU.cancel();
         }
         LinkedList linkedList2 = new LinkedList();
         Iterator<ImageFileInfo> it = linkedList.iterator();
@@ -44,21 +44,21 @@ public class a {
             }
         }
         if (linkedList2.size() > 0) {
-            this.mPC = new b(linkedList, interfaceC0829a);
-            this.mPC.execute(new String[0]);
+            this.mPU = new b(linkedList, interfaceC0829a);
+            this.mPU.execute(new String[0]);
         } else if (interfaceC0829a != null) {
-            interfaceC0829a.cQu();
+            interfaceC0829a.cQv();
         }
     }
 
     /* loaded from: classes3.dex */
     public class b extends BdAsyncTask<String, Void, Void> {
-        LinkedList<ImageFileInfo> mPD;
-        InterfaceC0829a mPE;
+        LinkedList<ImageFileInfo> mPV;
+        InterfaceC0829a mPW;
 
         public b(LinkedList<ImageFileInfo> linkedList, InterfaceC0829a interfaceC0829a) {
-            this.mPD = linkedList;
-            this.mPE = interfaceC0829a;
+            this.mPV = linkedList;
+            this.mPW = interfaceC0829a;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -66,8 +66,8 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(String... strArr) {
             try {
-                if (this.mPD != null) {
-                    Iterator<ImageFileInfo> it = this.mPD.iterator();
+                if (this.mPV != null) {
+                    Iterator<ImageFileInfo> it = this.mPV.iterator();
                     while (it.hasNext()) {
                         ImageFileInfo next = it.next();
                         String j = a.this.j(next);
@@ -85,8 +85,8 @@ public class a {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Void r2) {
-            if (this.mPE != null) {
-                this.mPE.cQu();
+            if (this.mPW != null) {
+                this.mPW.cQv();
             }
         }
     }
@@ -99,7 +99,7 @@ public class a {
         if (imageFileInfo.getImageType() == 1) {
             return k(imageFileInfo);
         }
-        return this.mPB.c(imageFileInfo, this.isOriginalImg);
+        return this.mPT.c(imageFileInfo, this.isOriginalImg);
     }
 
     private String k(ImageFileInfo imageFileInfo) {
@@ -109,7 +109,7 @@ public class a {
         if (imageFileInfo == null || imageFileInfo.getImageType() != 1) {
             return null;
         }
-        com.baidu.adp.widget.ImageView.a a2 = this.eOV.a(imageFileInfo, true);
+        com.baidu.adp.widget.ImageView.a a2 = this.eOZ.a(imageFileInfo, true);
         if (a2 != null) {
             rawBitmap = a2.getRawBitmap();
         } else {
@@ -133,7 +133,7 @@ public class a {
             }
         }
         if (rawBitmap != null) {
-            return n.saveFileAsPic(e.eOU + "/", s.toMd5(imageFileInfo.toCachedKey(false)) + ".jpg", rawBitmap, 80, Bitmap.CompressFormat.JPEG);
+            return n.saveFileAsPic(e.eOY + "/", s.toMd5(imageFileInfo.toCachedKey(false)) + ".jpg", rawBitmap, 80, Bitmap.CompressFormat.JPEG);
         }
         return null;
     }

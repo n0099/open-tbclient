@@ -5,31 +5,31 @@ import com.baidu.tbadk.core.data.bw;
 import tbclient.ThreadInfo;
 /* loaded from: classes4.dex */
 public class c extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId fCw = BdUniqueId.gen();
+    public static final BdUniqueId fCA = BdUniqueId.gen();
     public String entryName;
-    public bw fCx;
-    public boolean fCy;
-    public boolean fCz;
+    public bw fCB;
+    public boolean fCC;
+    public boolean fCD;
     public String labelName;
     public int tabId;
     public boolean isLeft = false;
     public boolean isRight = false;
-    public boolean fCv = false;
+    public boolean fCz = false;
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return fCw;
+        return fCA;
     }
 
     @Deprecated
     public void a(ThreadInfo threadInfo) {
-        if (this.fCx == null) {
-            this.fCx = new bw();
+        if (this.fCB == null) {
+            this.fCB = new bw();
         }
-        this.fCx.a(threadInfo);
+        this.fCB.a(threadInfo);
     }
 
     public bw bce() {
-        return this.fCx;
+        return this.fCB;
     }
 }

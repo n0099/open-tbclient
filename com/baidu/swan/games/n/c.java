@@ -7,19 +7,19 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.swan.games.binding.model.JSTypeMismatchException;
 /* loaded from: classes8.dex */
 public class c {
-    public int duu;
-    public String duv;
-    public String dur = "";
+    public int duy;
+    public String duz;
+    public String duv = "";
     public int maxLength = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-    public boolean dus = false;
-    public boolean dut = false;
+    public boolean duw = false;
+    public boolean dux = false;
 
     public boolean h(com.baidu.swan.games.binding.model.c cVar) throws JSTypeMismatchException {
         try {
-            this.dur = cVar.optString("defaultValue");
+            this.duv = cVar.optString("defaultValue");
             this.maxLength = cVar.optInt("maxLength");
-            this.dus = cVar.optBoolean("multiple");
-            this.dut = cVar.optBoolean("confirmHold");
+            this.duw = cVar.optBoolean("multiple");
+            this.dux = cVar.optBoolean("confirmHold");
             String optString = cVar.optString("confirmType");
             char c = 65535;
             switch (optString.hashCode()) {
@@ -56,28 +56,28 @@ public class c {
             }
             switch (c) {
                 case 0:
-                    this.duu = 6;
-                    this.duv = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
+                    this.duy = 6;
+                    this.duz = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
                     return true;
                 case 1:
-                    this.duu = 5;
-                    this.duv = UnitedSchemeConstants.UNITED_SCHEME_NEXT;
+                    this.duy = 5;
+                    this.duz = UnitedSchemeConstants.UNITED_SCHEME_NEXT;
                     return true;
                 case 2:
-                    this.duu = 3;
-                    this.duv = "search";
+                    this.duy = 3;
+                    this.duz = "search";
                     return true;
                 case 3:
-                    this.duu = 2;
-                    this.duv = "go";
+                    this.duy = 2;
+                    this.duz = "go";
                     return true;
                 case 4:
-                    this.duu = 4;
-                    this.duv = UbcStatConstant.ContentType.UBC_TYPE_IM_SEND;
+                    this.duy = 4;
+                    this.duz = UbcStatConstant.ContentType.UBC_TYPE_IM_SEND;
                     return true;
                 default:
-                    this.duu = 6;
-                    this.duv = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
+                    this.duy = 6;
+                    this.duz = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
                     return true;
             }
         } catch (Exception e) {

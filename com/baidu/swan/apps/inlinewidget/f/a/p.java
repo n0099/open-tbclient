@@ -13,7 +13,7 @@ public class p extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.in
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.inlinewidget.a
     public void a(@NonNull ZeusPlugin.Command command, @NonNull com.baidu.swan.apps.inlinewidget.f.c.a aVar) {
-        aVar.ex(command.arg1 == 1);
+        aVar.ey(command.arg1 == 1);
         a(aVar, command.what, null, false);
     }
 }

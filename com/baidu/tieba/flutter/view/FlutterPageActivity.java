@@ -57,6 +57,8 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
     private boolean isAddSwipeBackLayout = true;
     private boolean mUseStyleImmersiveSticky = UtilHelper.canUseStyleImmersiveSticky();
     private long creatTime = 0;
+    private long startTime = 0;
+    private long flutterStartTime = 0;
 
     @Override // com.baidu.tbadk.TbPageContextSupport
     public TbPageContext<T> getPageContext() {
@@ -90,7 +92,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
     @Override // com.idlefish.flutterboost.containers.BoostFlutterActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         boolean z = false;
-        long currentTimeMillis = System.currentTimeMillis();
+        this.startTime = System.currentTimeMillis();
         if (!getIntent().getBooleanExtra("animated", true)) {
             this.animationType = 0;
         }
@@ -125,7 +127,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
             this.mUseStyleImmersiveSticky = UtilHelper.useNavigationBarStyleImmersiveSticky(getPageContext().getPageActivity());
         }
         enterExitAnimation();
-        this.creatTime = System.currentTimeMillis() - currentTimeMillis;
+        this.creatTime = System.currentTimeMillis() - this.startTime;
     }
 
     public void enterExitAnimation() {
@@ -175,6 +177,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
     @Override // com.idlefish.flutterboost.containers.BoostFlutterActivity, android.app.Activity
     public void onResume() {
         MenuKeyUtils.hideSoftMenuKey(getWindow());
+        this.flutterStartTime = System.currentTimeMillis();
         super.onResume();
         com.baidu.tieba.t.a.getInstance().onResume(this);
         this.lastResumeTime = System.currentTimeMillis();
@@ -206,7 +209,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
             d pageStayDurationItem = getPageStayDurationItem();
             pageStayDurationItem.setStayDurationTime(currentTimeMillis);
-            e.btZ().a(getPageContext().getPageActivity(), pageStayDurationItem, null);
+            e.bua().a(getPageContext().getPageActivity(), pageStayDurationItem, null);
         }
         TbadkCoreApplication.getInst().DelResumeNum();
         TbadkCoreApplication.getInst().setCurrentActivity(null);
@@ -242,12 +245,19 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
             hashMap = ((BoostFlutterActivity.SerializableMap) getIntent().getSerializableExtra("params")).getMap();
         }
         hashMap.put("native_view_cost", Long.valueOf(this.creatTime));
+        hashMap.put("native_start_time", Long.valueOf(this.startTime));
+        hashMap.put("flutter_start_time", Long.valueOf(this.flutterStartTime));
         return hashMap;
     }
 
     @Override // com.idlefish.flutterboost.containers.BoostFlutterActivity, com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
     public void setSwipeBackEnable(boolean z) {
         this.mSwipeBackLayout.setSwipeBackEnabled(z);
+    }
+
+    @Override // com.idlefish.flutterboost.containers.BoostFlutterActivity, com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
+    public void swipeBackControl(double d) {
+        this.mSwipeBackLayout.swipeBackControl(d);
     }
 
     public d getPageStayDurationItem() {

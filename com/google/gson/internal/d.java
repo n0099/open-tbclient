@@ -1,9 +1,9 @@
 package com.google.gson.internal;
 /* loaded from: classes3.dex */
 public final class d {
-    private static final int nCU = dXb();
+    private static final int nDm = dXk();
 
-    private static int dXb() {
+    private static int dXk() {
         return UP(System.getProperty("java.version"));
     }
 
@@ -47,11 +47,11 @@ public final class d {
         }
     }
 
-    public static int dXc() {
-        return nCU;
+    public static int dXl() {
+        return nDm;
     }
 
-    public static boolean dXd() {
-        return nCU >= 9;
+    public static boolean dXm() {
+        return nDm >= 9;
     }
 }

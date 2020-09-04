@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class PbSearchEmotionActivityConfig extends IntentConfig {
     public static final String AUTHOR_SHOW_NAME = "author_show_name";
     public static final String CURRENT_QUERY_WORD = "current_query_word";

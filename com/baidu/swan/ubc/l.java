@@ -45,5 +45,5 @@ public interface l {
 
     String getUserId(Context context);
 
-    boolean oQ(String str);
+    boolean oR(String str);
 }

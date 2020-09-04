@@ -8,9 +8,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.mutiprocess.event.PrivacyPolicyEvent;
 import com.baidu.webkit.sdk.PermissionRequest;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ae {
-    private static com.baidu.tbadk.mutiprocess.b ekg = new com.baidu.tbadk.mutiprocess.b<PrivacyPolicyEvent>() { // from class: com.baidu.tbadk.core.util.ae.1
+    private static com.baidu.tbadk.mutiprocess.b ekk = new com.baidu.tbadk.mutiprocess.b<PrivacyPolicyEvent>() { // from class: com.baidu.tbadk.core.util.ae.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tbadk.mutiprocess.b
         public boolean a(PrivacyPolicyEvent privacyPolicyEvent) {
@@ -28,14 +28,14 @@ public class ae {
     private static boolean isAgreePrivacyPolicy;
 
     public static void biW() {
-        com.baidu.tbadk.mutiprocess.g.btm().a(PrivacyPolicyEvent.class, ekg);
+        com.baidu.tbadk.mutiprocess.g.btn().a(PrivacyPolicyEvent.class, ekk);
     }
 
     public static void biX() {
         com.baidu.tbadk.mutiprocess.g.publishEvent(new PrivacyPolicyEvent(Boolean.valueOf(com.baidu.tbadk.core.sharedPref.b.bik().getBoolean("key_secret_is_show", false))));
     }
 
-    public static void il(boolean z) {
+    public static void im(boolean z) {
         isAgreePrivacyPolicy = z;
         com.baidu.tbadk.core.sharedPref.b.bik().putBoolean("key_secret_is_show", z);
         com.baidu.tbadk.mutiprocess.g.publishEvent(new PrivacyPolicyEvent(Boolean.valueOf(z)));

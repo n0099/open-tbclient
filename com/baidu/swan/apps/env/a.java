@@ -54,25 +54,25 @@ public abstract class a {
                 if (DEBUG) {
                     Log.d("AbsDefaultPurger", "clear storage files: " + str);
                 }
-                String rB = com.baidu.swan.apps.storage.b.rB(str);
-                if (!TextUtils.isEmpty(rB)) {
-                    com.baidu.swan.c.d.deleteFile(rB);
+                String rC = com.baidu.swan.apps.storage.b.rC(str);
+                if (!TextUtils.isEmpty(rC)) {
+                    com.baidu.swan.c.d.deleteFile(rC);
                 }
-                String rH = com.baidu.swan.apps.storage.b.rH(str);
-                if (!TextUtils.isEmpty(rH)) {
-                    com.baidu.swan.c.d.deleteFile(rH);
+                String rI = com.baidu.swan.apps.storage.b.rI(str);
+                if (!TextUtils.isEmpty(rI)) {
+                    com.baidu.swan.c.d.deleteFile(rI);
                 }
             }
         }
     }
 
-    public void me(String str) {
-        com.baidu.swan.pms.database.a.aTt().wA(str);
+    public void mf(String str) {
+        com.baidu.swan.pms.database.a.aTt().wB(str);
         com.baidu.swan.pms.database.a.aTt().b(com.baidu.swan.pms.model.f.class, str);
     }
 
-    public void mf(String str) {
-        com.baidu.swan.pms.database.a.aTt().wC(str);
+    public void mg(String str) {
+        com.baidu.swan.pms.database.a.aTt().wD(str);
     }
 
     @NonNull

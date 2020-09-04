@@ -26,12 +26,12 @@ public class a extends RecyclerView.ViewHolder implements View.OnClickListener {
     private boolean l;
     private String m;
     private int n;
-    private FrescoThumbnailView nPH;
-    private FoodView nTf;
-    private FrescoThumbnailView nTt;
-    private FrescoThumbnailView nTy;
-    private ListItem nXj;
-    private com.kascend.chushou.view.a.a<ListItem> nXk;
+    private FrescoThumbnailView nPZ;
+    private FrescoThumbnailView nTL;
+    private FrescoThumbnailView nTQ;
+    private FoodView nTx;
+    private ListItem nXB;
+    private com.kascend.chushou.view.a.a<ListItem> nXC;
     private int o;
     private int p;
     private int q;
@@ -45,11 +45,11 @@ public class a extends RecyclerView.ViewHolder implements View.OnClickListener {
         this.m = str;
         this.i = view.getContext();
         this.a = view;
-        this.nXk = aVar;
-        this.nTf = (FoodView) view.findViewById(a.f.iv_cover);
-        this.nTy = (FrescoThumbnailView) view.findViewById(a.f.iv_right_bottom_icon1);
-        this.nPH = (FrescoThumbnailView) view.findViewById(a.f.iv_right_bottom_icon2);
-        this.nTt = (FrescoThumbnailView) view.findViewById(a.f.iv_pkLiveIcon);
+        this.nXC = aVar;
+        this.nTx = (FoodView) view.findViewById(a.f.iv_cover);
+        this.nTQ = (FrescoThumbnailView) view.findViewById(a.f.iv_right_bottom_icon1);
+        this.nPZ = (FrescoThumbnailView) view.findViewById(a.f.iv_right_bottom_icon2);
+        this.nTL = (FrescoThumbnailView) view.findViewById(a.f.iv_pkLiveIcon);
         this.c = (TextView) view.findViewById(a.f.tv_creator);
         this.d = (TextView) view.findViewById(a.f.tv_count);
         this.h = (TextView) view.findViewById(a.f.tv_name);
@@ -77,7 +77,7 @@ public class a extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.nXj != null && PayHelper.STATUS_SUCC.equals(this.nXj.mType)) {
+        if (this.nXB != null && PayHelper.STATUS_SUCC.equals(this.nXB.mType)) {
             JSONObject O = com.kascend.chushou.d.e.O("_fromView", this.m);
             try {
                 O.put("__DOWN_X__", String.valueOf(this.n));
@@ -87,9 +87,9 @@ public class a extends RecyclerView.ViewHolder implements View.OnClickListener {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            com.kascend.chushou.d.e.a(this.i, this.nXj, O);
-        } else if (this.nXk != null && this.nXj != null) {
-            this.nXk.b(view, this.nXj);
+            com.kascend.chushou.d.e.a(this.i, this.nXB, O);
+        } else if (this.nXC != null && this.nXB != null) {
+            this.nXC.b(view, this.nXB);
         }
     }
 
@@ -98,22 +98,22 @@ public class a extends RecyclerView.ViewHolder implements View.OnClickListener {
     }
 
     public void a(ListItem listItem, int[] iArr, boolean z) {
-        this.nXj = listItem;
-        this.nTf.a(listItem, (FoodView.a) null, false, (String) null, false);
+        this.nXB = listItem;
+        this.nTx.a(listItem, (FoodView.a) null, false, (String) null, false);
         int size = listItem.mRightBottomIcons == null ? 0 : listItem.mRightBottomIcons.size();
         if (size == 0) {
-            this.nTy.setVisibility(8);
-            this.nPH.setVisibility(8);
+            this.nTQ.setVisibility(8);
+            this.nPZ.setVisibility(8);
         } else if (size == 1) {
-            this.nTy.setVisibility(8);
-            this.nPH.setVisibility(0);
-            this.nPH.i(listItem.mRightBottomIcons.get(0), 0, b.C1017b.oOy, b.C1017b.oOy);
+            this.nTQ.setVisibility(8);
+            this.nPZ.setVisibility(0);
+            this.nPZ.i(listItem.mRightBottomIcons.get(0), 0, b.C1017b.oOQ, b.C1017b.oOQ);
         } else {
             listItem.mRightBottomIcons.subList(0, 2);
-            this.nTy.setVisibility(0);
-            this.nTy.i(listItem.mRightBottomIcons.get(0), 0, b.C1017b.oOy, b.C1017b.oOy);
-            this.nPH.setVisibility(0);
-            this.nPH.i(listItem.mRightBottomIcons.get(1), 0, b.C1017b.oOy, b.C1017b.oOy);
+            this.nTQ.setVisibility(0);
+            this.nTQ.i(listItem.mRightBottomIcons.get(0), 0, b.C1017b.oOQ, b.C1017b.oOQ);
+            this.nPZ.setVisibility(0);
+            this.nPZ.i(listItem.mRightBottomIcons.get(1), 0, b.C1017b.oOQ, b.C1017b.oOQ);
         }
         tv.chushou.zues.widget.a.c cVar = new tv.chushou.zues.widget.a.c();
         if (PayHelper.STATUS_SUCC.equals(listItem.mType)) {

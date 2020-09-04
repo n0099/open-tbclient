@@ -19,22 +19,22 @@ import com.baidu.live.tieba.pb.interactionpopupwindow.d;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
 public abstract class a<V extends d, D extends IBaseDialogData> implements c {
-    protected V bnl;
-    protected D bnm;
+    protected V bno;
+    protected D bnp;
     private DialogInterface.OnCancelListener mCancelListenr;
     protected Context mContext;
     private AlertDialog mDialog;
     private DialogInterface.OnKeyListener mOnKeyListener;
     protected TbPageContext mPageContext;
     private int mDialogGravity = -1;
-    private boolean bnj = true;
-    private boolean bnk = false;
+    private boolean bnm = true;
+    private boolean bnn = false;
 
     public a(TbPageContext tbPageContext, V v, D d) {
         this.mPageContext = tbPageContext;
         this.mContext = tbPageContext.getPageActivity();
-        this.bnl = v;
-        this.bnm = d;
+        this.bno = v;
+        this.bnp = d;
         a(d);
     }
 
@@ -43,7 +43,7 @@ public abstract class a<V extends d, D extends IBaseDialogData> implements c {
             ShowUtil.showDialog(this.mDialog, this.mPageContext.getPageActivity());
             return;
         }
-        if (this.bnk) {
+        if (this.bnn) {
             this.mDialog = new AlertDialog.Builder(this.mContext, a.j.sdk_search_dialog).create();
         } else {
             this.mDialog = new AlertDialog.Builder(this.mContext).create();
@@ -76,9 +76,9 @@ public abstract class a<V extends d, D extends IBaseDialogData> implements c {
             }
             attributes.height = -2;
             window.setAttributes(attributes);
-            window.setContentView(this.bnl.getViewGroup());
+            window.setContentView(this.bno.getViewGroup());
             final AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-            ViewHelper.processAllViewsIn(this.bnl.getViewGroup(), false, new ViewHelper.ViewCallback() { // from class: com.baidu.live.tieba.pb.interactionpopupwindow.a.1
+            ViewHelper.processAllViewsIn(this.bno.getViewGroup(), false, new ViewHelper.ViewCallback() { // from class: com.baidu.live.tieba.pb.interactionpopupwindow.a.1
                 @Override // com.baidu.live.tbadk.core.util.ViewHelper.ViewCallback
                 public boolean onViewFound(View view) {
                     if (view instanceof EditText) {
@@ -113,14 +113,14 @@ public abstract class a<V extends d, D extends IBaseDialogData> implements c {
         return this;
     }
 
-    public a cq(boolean z) {
-        this.bnk = z;
+    public a cr(boolean z) {
+        this.bnn = z;
         return this;
     }
 
     public void a(D d) {
-        if (this.bnl != null) {
-            this.bnl.a(d);
+        if (this.bno != null) {
+            this.bno.a(d);
         }
     }
 }

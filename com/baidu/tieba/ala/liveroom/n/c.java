@@ -22,12 +22,12 @@ import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.core.view.HeadImageView;
 /* loaded from: classes7.dex */
 public class c extends Dialog {
-    private HeadImageView aAu;
-    private TextView aOQ;
-    private View bRc;
-    private View cMK;
-    private a gAA;
-    private String gAB;
+    private HeadImageView aAw;
+    private TextView aOS;
+    private View bRg;
+    private View cMO;
+    private a gAE;
+    private String gAF;
 
     /* loaded from: classes7.dex */
     public interface a {
@@ -40,18 +40,18 @@ public class c extends Dialog {
     }
 
     public void a(a aVar) {
-        this.gAA = aVar;
+        this.gAE = aVar;
     }
 
     public void show(String str) {
-        bSB();
-        this.aAu.startLoad(str, 25, false, false);
+        bSC();
+        this.aAw.startLoad(str, 25, false, false);
         Kl();
         show();
     }
 
-    public String bSy() {
-        return this.gAB;
+    public String bSz() {
+        return this.gAF;
     }
 
     private void init() {
@@ -63,10 +63,10 @@ public class c extends Dialog {
     private void Mt() {
         setCancelable(true);
         setCanceledOnTouchOutside(true);
-        bSz();
+        bSA();
     }
 
-    public void bSz() {
+    public void bSA() {
         show();
         Window window = getWindow();
         if (window != null) {
@@ -80,18 +80,18 @@ public class c extends Dialog {
                 if (UtilHelper.getRealScreenOrientation(getContext()) == 2) {
                     attributes.width = displayMetrics.heightPixels;
                     window.setGravity(17);
-                    this.cMK.setBackgroundResource(a.f.sdk_black_radius20_alpha70);
+                    this.cMO.setBackgroundResource(a.f.sdk_black_radius20_alpha70);
                     RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
                     layoutParams.addRule(13);
                     layoutParams.topMargin = getContext().getResources().getDimensionPixelSize(a.e.sdk_ds80);
-                    this.cMK.setLayoutParams(layoutParams);
+                    this.cMO.setLayoutParams(layoutParams);
                 } else {
                     attributes.width = displayMetrics.widthPixels;
                     window.setGravity(80);
-                    this.cMK.setBackgroundResource(a.f.ala_bg_guide_follow_float);
+                    this.cMO.setBackgroundResource(a.f.ala_bg_guide_follow_float);
                     RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, -2);
                     layoutParams2.addRule(12);
-                    this.cMK.setLayoutParams(layoutParams2);
+                    this.cMO.setLayoutParams(layoutParams2);
                 }
                 window.setAttributes(attributes);
             }
@@ -100,28 +100,28 @@ public class c extends Dialog {
 
     private void initView() {
         setContentView(a.h.ala_guide_follow_float);
-        this.bRc = findViewById(a.g.layout_root);
-        this.bRc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.n.c.1
+        this.bRg = findViewById(a.g.layout_root);
+        this.bRg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.n.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 c.this.dismiss();
             }
         });
-        this.cMK = findViewById(a.g.layout_container);
-        this.aOQ = (TextView) findViewById(a.g.tv_guide_folllow_tip);
-        this.aAu = (HeadImageView) findViewById(a.g.iv_avatar);
+        this.cMO = findViewById(a.g.layout_container);
+        this.aOS = (TextView) findViewById(a.g.tv_guide_folllow_tip);
+        this.aAw = (HeadImageView) findViewById(a.g.iv_avatar);
         if (TbadkCoreApplication.getInst().isHaokan()) {
-            this.aAu.setDefaultResource(a.f.sdk_pic_mycenter_avatar_def_hk);
-            this.aAu.setDefaultErrorResource(a.f.sdk_pic_mycenter_avatar_def_hk);
+            this.aAw.setDefaultResource(a.f.sdk_pic_mycenter_avatar_def_hk);
+            this.aAw.setDefaultErrorResource(a.f.sdk_pic_mycenter_avatar_def_hk);
         } else {
-            this.aAu.setDefaultResource(a.f.sdk_pic_mycenter_avatar_def);
-            this.aAu.setDefaultErrorResource(a.f.sdk_pic_mycenter_avatar_def);
+            this.aAw.setDefaultResource(a.f.sdk_pic_mycenter_avatar_def);
+            this.aAw.setDefaultErrorResource(a.f.sdk_pic_mycenter_avatar_def);
         }
-        this.aAu.setIsRound(true);
-        this.aAu.setAutoChangeStyle(false);
-        this.aAu.setBorderWidth(BdUtilHelper.getDimens(getContext(), a.e.sdk_ds4));
-        this.aAu.setBorderColor(872415231);
-        this.aAu.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.aAw.setIsRound(true);
+        this.aAw.setAutoChangeStyle(false);
+        this.aAw.setBorderWidth(BdUtilHelper.getDimens(getContext(), a.e.sdk_ds4));
+        this.aAw.setBorderColor(872415231);
+        this.aAw.setScaleType(ImageView.ScaleType.CENTER_CROP);
         TextView textView = (TextView) findViewById(a.g.tv_confirm);
         if (TbadkCoreApplication.getInst().isMobileBaidu()) {
             textView.setBackgroundResource(a.f.ala_live_follow_btn_radius_20_selector_hk);
@@ -133,19 +133,19 @@ public class c extends Dialog {
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.n.c.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.gAA != null) {
-                    c.this.gAA.onConfirm();
+                if (c.this.gAE != null) {
+                    c.this.gAE.onConfirm();
                 }
             }
         });
-        this.gAB = textView.getText().toString();
-        bSA();
+        this.gAF = textView.getText().toString();
+        bSB();
     }
 
-    private void bSA() {
+    private void bSB() {
         aw awVar;
-        if (com.baidu.live.w.a.Nk().beH != null && (awVar = com.baidu.live.w.a.Nk().beH.aGV) != null && !TextUtils.isEmpty(awVar.aJb)) {
-            this.aOQ.setText(awVar.aJb);
+        if (com.baidu.live.w.a.Nk().beJ != null && (awVar = com.baidu.live.w.a.Nk().beJ.aGX) != null && !TextUtils.isEmpty(awVar.aJd)) {
+            this.aOS.setText(awVar.aJd);
         }
     }
 
@@ -153,7 +153,7 @@ public class c extends Dialog {
         setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.liveroom.n.c.3
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                c.this.bSB();
+                c.this.bSC();
             }
         });
     }
@@ -162,13 +162,13 @@ public class c extends Dialog {
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 1.0f, 1, 0.0f);
         translateAnimation.setDuration(400L);
         translateAnimation.setInterpolator(new LinearInterpolator());
-        this.bRc.startAnimation(translateAnimation);
+        this.bRg.startAnimation(translateAnimation);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bSB() {
-        if (this.aAu != null) {
-            this.aAu.stopLoad();
+    public void bSC() {
+        if (this.aAw != null) {
+            this.aAw.stopLoad();
         }
     }
 }

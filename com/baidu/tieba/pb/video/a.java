@@ -11,7 +11,7 @@ import com.baidu.tieba.pb.pb.main.PbFragment;
 import com.baidu.tieba.pb.pb.main.o;
 /* loaded from: classes16.dex */
 public class a extends o<b, c> {
-    public View.OnClickListener fro;
+    public View.OnClickListener frt;
 
     public a(PbFragment pbFragment, BdUniqueId bdUniqueId) {
         super(pbFragment, bdUniqueId);
@@ -30,14 +30,14 @@ public class a extends o<b, c> {
     @Override // com.baidu.tieba.pb.pb.main.o, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, b bVar, c cVar) {
         super.a(i, view, viewGroup, (ViewGroup) bVar, (b) cVar);
-        if (cVar != null && cVar.hjT != null) {
-            if (this.fro != null) {
-                cVar.hjT.setOnClickListener(this.fro);
+        if (cVar != null && cVar.hjX != null) {
+            if (this.frt != null) {
+                cVar.hjX.setOnClickListener(this.frt);
             }
-            if (cVar.aiB != TbadkCoreApplication.getInst().getSkinType()) {
-                cVar.aiB = TbadkCoreApplication.getInst().getSkinType();
-                ap.setViewTextColor(cVar.hjT, R.color.cp_cont_f);
-                ap.setBackgroundResource(cVar.hjT, R.drawable.more_all);
+            if (cVar.aiD != TbadkCoreApplication.getInst().getSkinType()) {
+                cVar.aiD = TbadkCoreApplication.getInst().getSkinType();
+                ap.setViewTextColor(cVar.hjX, R.color.cp_cont_f);
+                ap.setBackgroundResource(cVar.hjX, R.drawable.more_all);
                 ap.setBackgroundResource(cVar.dividerLine, R.color.cp_bg_line_c);
             }
         }
@@ -45,6 +45,6 @@ public class a extends o<b, c> {
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.fro = onClickListener;
+        this.frt = onClickListener;
     }
 }

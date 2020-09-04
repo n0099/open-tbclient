@@ -7,18 +7,18 @@ import com.facebook.imagepipeline.c.p;
 import com.facebook.imagepipeline.d.h;
 /* loaded from: classes8.dex */
 public class i {
-    private final com.facebook.common.internal.j<Boolean> nuO;
-    private final boolean nvo;
-    private final b.a nvp;
-    private final boolean nvq;
-    private final com.facebook.common.g.b nvr;
-    private final boolean nvs;
-    private final boolean nvt;
-    private final int nvu;
-    private final int nvv;
-    private boolean nvw;
-    private final boolean nvx;
-    private final c nvy;
+    private final boolean nvG;
+    private final b.a nvH;
+    private final boolean nvI;
+    private final com.facebook.common.g.b nvJ;
+    private final boolean nvK;
+    private final boolean nvL;
+    private final int nvM;
+    private final int nvN;
+    private boolean nvO;
+    private final boolean nvP;
+    private final c nvQ;
+    private final com.facebook.common.internal.j<Boolean> nvg;
 
     /* loaded from: classes8.dex */
     public interface c {
@@ -26,93 +26,93 @@ public class i {
     }
 
     private i(a aVar) {
-        this.nvo = aVar.nvo;
-        this.nvp = aVar.nvp;
-        this.nvq = aVar.nvq;
-        this.nvr = aVar.nvr;
-        this.nvs = aVar.nvs;
-        this.nvt = aVar.nvt;
-        this.nvu = aVar.nvu;
-        this.nvv = aVar.nvv;
-        this.nvw = aVar.nvw;
-        this.nvx = aVar.nvx;
-        if (aVar.nvy == null) {
-            this.nvy = new b();
+        this.nvG = aVar.nvG;
+        this.nvH = aVar.nvH;
+        this.nvI = aVar.nvI;
+        this.nvJ = aVar.nvJ;
+        this.nvK = aVar.nvK;
+        this.nvL = aVar.nvL;
+        this.nvM = aVar.nvM;
+        this.nvN = aVar.nvN;
+        this.nvO = aVar.nvO;
+        this.nvP = aVar.nvP;
+        if (aVar.nvQ == null) {
+            this.nvQ = new b();
         } else {
-            this.nvy = aVar.nvy;
+            this.nvQ = aVar.nvQ;
         }
-        this.nuO = aVar.nuO;
+        this.nvg = aVar.nvg;
     }
 
-    public boolean dTb() {
-        return this.nvs;
-    }
-
-    public boolean dTc() {
-        return this.nvo;
-    }
-
-    public boolean dTd() {
-        return this.nvq;
-    }
-
-    public b.a dTe() {
-        return this.nvp;
-    }
-
-    public com.facebook.common.g.b dTf() {
-        return this.nvr;
-    }
-
-    public boolean dTg() {
-        return this.nvt;
-    }
-
-    public int dTh() {
-        return this.nvu;
-    }
-
-    public int dTi() {
-        return this.nvv;
-    }
-
-    public boolean dTj() {
-        return this.nvx;
-    }
-
-    public c dTk() {
-        return this.nvy;
+    public boolean dTk() {
+        return this.nvK;
     }
 
     public boolean dTl() {
-        return this.nvw;
+        return this.nvG;
     }
 
-    public com.facebook.common.internal.j<Boolean> dTm() {
-        return this.nuO;
+    public boolean dTm() {
+        return this.nvI;
+    }
+
+    public b.a dTn() {
+        return this.nvH;
+    }
+
+    public com.facebook.common.g.b dTo() {
+        return this.nvJ;
+    }
+
+    public boolean dTp() {
+        return this.nvL;
+    }
+
+    public int dTq() {
+        return this.nvM;
+    }
+
+    public int dTr() {
+        return this.nvN;
+    }
+
+    public boolean dTs() {
+        return this.nvP;
+    }
+
+    public c dTt() {
+        return this.nvQ;
+    }
+
+    public boolean dTu() {
+        return this.nvO;
+    }
+
+    public com.facebook.common.internal.j<Boolean> dTv() {
+        return this.nvg;
     }
 
     /* loaded from: classes8.dex */
     public static class a {
-        public com.facebook.common.internal.j<Boolean> nuO;
-        private b.a nvp;
-        private com.facebook.common.g.b nvr;
-        private c nvy;
-        private final h.a nvz;
-        private boolean nvo = false;
-        private boolean nvq = false;
-        private boolean nvs = false;
-        private boolean nvt = false;
-        private int nvu = 0;
-        private int nvv = 0;
-        public boolean nvw = false;
-        private boolean nvx = false;
+        private b.a nvH;
+        private com.facebook.common.g.b nvJ;
+        private c nvQ;
+        private final h.a nvR;
+        public com.facebook.common.internal.j<Boolean> nvg;
+        private boolean nvG = false;
+        private boolean nvI = false;
+        private boolean nvK = false;
+        private boolean nvL = false;
+        private int nvM = 0;
+        private int nvN = 0;
+        public boolean nvO = false;
+        private boolean nvP = false;
 
         public a(h.a aVar) {
-            this.nvz = aVar;
+            this.nvR = aVar;
         }
 
-        public i dTn() {
+        public i dTw() {
             return new i(this);
         }
     }

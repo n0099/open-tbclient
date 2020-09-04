@@ -381,7 +381,7 @@ public class OpenNative {
     private static void openNativeCustomVideo(Context context, Map<String, Object> map) {
         String str = (String) map.get("videoUrl");
         SimpleVideoPlayActivityConfig.a aVar = new SimpleVideoPlayActivityConfig.a();
-        aVar.yW(str).yV(str);
+        aVar.yX(str).yW(str);
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, aVar.dQ(context)));
     }
 
@@ -747,7 +747,7 @@ public class OpenNative {
                 str = arrayList.get(arrayList.size() - 1);
             }
             ImageViewerConfig.a aVar = new ImageViewerConfig.a();
-            aVar.x(arrayList).mM(((Integer) map.get("index")).intValue()).yP((String) map.get("forum_name")).yQ((String) map.get("forum_id")).yR((String) map.get("thread_id")).hH(true).yS(str).hI(true).hJ(true);
+            aVar.x(arrayList).mM(((Integer) map.get("index")).intValue()).yQ((String) map.get("forum_name")).yR((String) map.get("forum_id")).yS((String) map.get("thread_id")).hI(true).yT(str).hJ(true).hK(true);
             ImageViewerConfig dP = aVar.dP(context);
             dP.getIntent().putExtra(ImageViewerConfig.IS_SHOW_HOST, false);
             dP.getIntent().putExtra("from", "index");
@@ -790,7 +790,7 @@ public class OpenNative {
                 i = i2 + 1;
             }
             ImageViewerConfig.a aVar = new ImageViewerConfig.a();
-            aVar.x(arrayList).mM(((Integer) map.get("index")).intValue()).yP(str3).yQ(str2).yR(str4).hH(true).yS(str).hI(true).a(concurrentHashMap).hJ(true);
+            aVar.x(arrayList).mM(((Integer) map.get("index")).intValue()).yQ(str3).yR(str2).yS(str4).hI(true).yT(str).hJ(true).a(concurrentHashMap).hK(true);
             ImageViewerConfig dP = aVar.dP(context);
             dP.getIntent().putExtra(ImageViewerConfig.IS_SHOW_HOST, true);
             if (map.get("from") != null && (map.get("from") instanceof String)) {
@@ -870,44 +870,44 @@ public class OpenNative {
     }
 
     public static ArrayList<Integer> getGradientColor(ThemeElement themeElement, ThemeElement themeElement2, ThemeElement themeElement3) {
-        int fn;
+        int fo;
         int i;
-        int fn2;
+        int fo2;
         int i2;
-        int fn3;
-        int fn4;
+        int fo3;
+        int fo4;
         if (themeElement == null) {
-            int fn5 = com.baidu.tieba.lego.card.d.b.fn("#2BB8FF");
-            fn = com.baidu.tieba.lego.card.d.b.fn("#2BB8FF");
-            i = fn5;
+            int fo5 = com.baidu.tieba.lego.card.d.b.fo("#2BB8FF");
+            fo = com.baidu.tieba.lego.card.d.b.fo("#2BB8FF");
+            i = fo5;
         } else {
-            int fn6 = com.baidu.tieba.lego.card.d.b.fn(themeElement.common_color);
-            fn = com.baidu.tieba.lego.card.d.b.fn(themeElement.common_color);
-            i = fn6;
+            int fo6 = com.baidu.tieba.lego.card.d.b.fo(themeElement.common_color);
+            fo = com.baidu.tieba.lego.card.d.b.fo(themeElement.common_color);
+            i = fo6;
         }
         if (themeElement2 == null) {
-            int fn7 = com.baidu.tieba.lego.card.d.b.fn("#249BD6");
-            fn2 = com.baidu.tieba.lego.card.d.b.fn("#246CD6");
-            i2 = fn7;
+            int fo7 = com.baidu.tieba.lego.card.d.b.fo("#249BD6");
+            fo2 = com.baidu.tieba.lego.card.d.b.fo("#246CD6");
+            i2 = fo7;
         } else {
-            int fn8 = com.baidu.tieba.lego.card.d.b.fn(themeElement2.common_color);
-            fn2 = com.baidu.tieba.lego.card.d.b.fn(themeElement2.common_color);
-            i2 = fn8;
+            int fo8 = com.baidu.tieba.lego.card.d.b.fo(themeElement2.common_color);
+            fo2 = com.baidu.tieba.lego.card.d.b.fo(themeElement2.common_color);
+            i2 = fo8;
         }
         if (themeElement3 == null) {
-            fn3 = com.baidu.tieba.lego.card.d.b.fn("#249BD6");
-            fn4 = com.baidu.tieba.lego.card.d.b.fn("#246CD6");
+            fo3 = com.baidu.tieba.lego.card.d.b.fo("#249BD6");
+            fo4 = com.baidu.tieba.lego.card.d.b.fo("#246CD6");
         } else {
-            fn3 = com.baidu.tieba.lego.card.d.b.fn(themeElement3.common_color);
-            fn4 = com.baidu.tieba.lego.card.d.b.fn(themeElement3.common_color);
+            fo3 = com.baidu.tieba.lego.card.d.b.fo(themeElement3.common_color);
+            fo4 = com.baidu.tieba.lego.card.d.b.fo(themeElement3.common_color);
         }
         ArrayList<Integer> arrayList = new ArrayList<>();
         arrayList.add(Integer.valueOf(i));
-        arrayList.add(Integer.valueOf(fn));
+        arrayList.add(Integer.valueOf(fo));
         arrayList.add(Integer.valueOf(i2));
-        arrayList.add(Integer.valueOf(fn2));
-        arrayList.add(Integer.valueOf(fn3));
-        arrayList.add(Integer.valueOf(fn4));
+        arrayList.add(Integer.valueOf(fo2));
+        arrayList.add(Integer.valueOf(fo3));
+        arrayList.add(Integer.valueOf(fo4));
         return arrayList;
     }
 }

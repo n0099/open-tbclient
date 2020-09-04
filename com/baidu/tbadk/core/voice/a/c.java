@@ -10,7 +10,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.a.i;
 import com.baidu.tbadk.core.util.n;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c implements e<a> {
     @Override // com.baidu.adp.lib.e.e
     public boolean mP() {
@@ -56,12 +56,12 @@ public class c implements e<a> {
             aVar.Mn = iVar;
         }
         String str4 = TbConfig.SERVER_ADDRESS + TbConfig.VOICE_DATA + "?voice_md5=" + str;
-        byte[] Ao = iVar.Ao(!TextUtils.isEmpty(str3) ? str4 + "&play_from=" + str3 : str4);
+        byte[] Ap = iVar.Ap(!TextUtils.isEmpty(str3) ? str4 + "&play_from=" + str3 : str4);
         if (!iVar.bjD()) {
             aVar2.error_code = 3;
             aVar2.error_msg = h.getString(R.string.neterror);
             return aVar2;
-        } else if (Ao == null || Ao.length == 0) {
+        } else if (Ap == null || Ap.length == 0) {
             aVar2.error_code = 4;
             aVar2.error_msg = h.getString(R.string.voice_cache_error_no_file);
             return aVar2;
@@ -69,13 +69,13 @@ public class c implements e<a> {
             String str5 = null;
             if (str == null) {
                 i3 = 5;
-            } else if (Ao == null || Ao.length == 0) {
+            } else if (Ap == null || Ap.length == 0) {
                 i3 = 6;
             } else {
                 DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str, DiskFileOperate.Action.WRITE);
                 diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
                 diskFileOperate.setSubFolder(false);
-                diskFileOperate.setData(Ao);
+                diskFileOperate.setData(Ap);
                 if (aVar != null) {
                     com.baidu.tbadk.core.util.c.e eVar = new com.baidu.tbadk.core.util.c.e();
                     eVar.f(diskFileOperate);
@@ -85,7 +85,7 @@ public class c implements e<a> {
                 if (diskFileOperate.isSuccess() && diskFileOperate.getFileInfo() != null) {
                     str5 = diskFileOperate.getFileInfo().getAbsolutePath();
                     i3 = 0;
-                } else if (n.getAvailableSize() < Ao.length) {
+                } else if (n.getAvailableSize() < Ap.length) {
                     i3 = 2;
                 } else {
                     i3 = 1;

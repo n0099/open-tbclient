@@ -16,17 +16,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class b {
-    private static String bEP = "payChannel";
-    private static String bEQ = "payType";
-    private static volatile b bER;
-    private e bES;
+    private static String bET = "payChannel";
+    private static String bEU = "payType";
+    private static volatile b bEV;
+    private e bEW;
 
     /* loaded from: classes6.dex */
     class a extends com.baidu.poly.a.a.a<String> {
-        final /* synthetic */ com.baidu.poly.a.a.a bEJ;
+        final /* synthetic */ com.baidu.poly.a.a.a bEN;
 
         a(com.baidu.poly.a.a.a aVar) {
-            this.bEJ = aVar;
+            this.bEN = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -41,34 +41,34 @@ public class b {
                     JSONObject optJSONObject = jSONObject.optJSONObject("data");
                     if (optJSONObject == null) {
                         com.baidu.poly.a.h.a.a("7", optInt2 + "", jSONObject.optString("msg"));
-                        this.bEJ.a(new com.baidu.poly.a.i.b("msg = " + jSONObject.optString("msg")), "data is empty");
+                        this.bEN.a(new com.baidu.poly.a.i.b("msg = " + jSONObject.optString("msg")), "data is empty");
                     } else {
-                        this.bEJ.a(optJSONObject);
+                        this.bEN.a(optJSONObject);
                     }
                 } else {
                     com.baidu.poly.a.h.a.a("7", optInt2 + "", jSONObject.optString(BaseJsonData.TAG_ERRMSG));
-                    this.bEJ.a(new com.baidu.poly.a.i.b("errmsg = " + jSONObject.optString(BaseJsonData.TAG_ERRMSG)), "errno is " + optInt2);
+                    this.bEN.a(new com.baidu.poly.a.i.b("errmsg = " + jSONObject.optString(BaseJsonData.TAG_ERRMSG)), "errno is " + optInt2);
                 }
             } catch (JSONException e) {
                 com.baidu.poly.a.h.a.a("7", null, null);
-                this.bEJ.a(e, BdStatsConstant.StatsType.ERROR);
+                this.bEN.a(e, BdStatsConstant.StatsType.ERROR);
             }
         }
 
         @Override // com.baidu.poly.a.a.a
         public void a(Throwable th, String str) {
             com.baidu.poly.a.h.a.i("7");
-            this.bEJ.a(th, str);
+            this.bEN.a(th, str);
         }
     }
 
     /* renamed from: com.baidu.poly.a.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     class C0262b extends com.baidu.poly.a.a.a<String> {
-        final /* synthetic */ com.baidu.poly.a.a.a bEJ;
+        final /* synthetic */ com.baidu.poly.a.a.a bEN;
 
         C0262b(com.baidu.poly.a.a.a aVar) {
-            this.bEJ = aVar;
+            this.bEN = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -79,30 +79,30 @@ public class b {
                 JSONObject jSONObject = new JSONObject(str);
                 int optInt = jSONObject.optInt(BaseJsonData.TAG_ERRNO, -1);
                 if (optInt == 0) {
-                    this.bEJ.a(b.this.ac(jSONObject.optJSONObject("data")));
+                    this.bEN.a(b.this.ac(jSONObject.optJSONObject("data")));
                 } else {
                     com.baidu.poly.a.h.a.a("8", optInt + "", jSONObject.optString("msg"));
-                    this.bEJ.a(new com.baidu.poly.a.i.b("msg = " + jSONObject.optString("msg")), jSONObject.optString("msg"));
+                    this.bEN.a(new com.baidu.poly.a.i.b("msg = " + jSONObject.optString("msg")), jSONObject.optString("msg"));
                 }
             } catch (Throwable th) {
                 com.baidu.poly.a.h.a.a("8", null, null);
-                this.bEJ.a(th, g.Us().getResources().getString(b.g.common_error_tips));
+                this.bEN.a(th, g.Us().getResources().getString(b.g.common_error_tips));
             }
         }
 
         @Override // com.baidu.poly.a.a.a
         public void a(Throwable th, String str) {
             com.baidu.poly.a.h.a.i("8");
-            this.bEJ.a(th, g.Us().getResources().getString(b.g.common_error_tips));
+            this.bEN.a(th, g.Us().getResources().getString(b.g.common_error_tips));
         }
     }
 
     /* loaded from: classes6.dex */
     class c extends com.baidu.poly.a.a.a<String> {
-        final /* synthetic */ com.baidu.poly.a.a.a bEJ;
+        final /* synthetic */ com.baidu.poly.a.a.a bEN;
 
         c(com.baidu.poly.a.a.a aVar) {
-            this.bEJ = aVar;
+            this.bEN = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -113,30 +113,30 @@ public class b {
                 JSONObject jSONObject = new JSONObject(str);
                 int optInt = jSONObject.optInt(BaseJsonData.TAG_ERRNO, -1);
                 if (optInt == 0) {
-                    this.bEJ.a(b.this.ac(jSONObject.optJSONObject("data")));
+                    this.bEN.a(b.this.ac(jSONObject.optJSONObject("data")));
                 } else {
                     com.baidu.poly.a.h.a.a("8", optInt + "", jSONObject.optString("msg"));
-                    this.bEJ.a(new com.baidu.poly.a.i.b("msg = " + jSONObject.optString("msg")), "errno is " + optInt);
+                    this.bEN.a(new com.baidu.poly.a.i.b("msg = " + jSONObject.optString("msg")), "errno is " + optInt);
                 }
             } catch (Throwable th) {
                 com.baidu.poly.a.h.a.a("8", null, null);
-                this.bEJ.a(th, BdStatsConstant.StatsType.ERROR);
+                this.bEN.a(th, BdStatsConstant.StatsType.ERROR);
             }
         }
 
         @Override // com.baidu.poly.a.a.a
         public void a(Throwable th, String str) {
             com.baidu.poly.a.h.a.i("8");
-            this.bEJ.a(th, str);
+            this.bEN.a(th, str);
         }
     }
 
     /* loaded from: classes6.dex */
     class d extends com.baidu.poly.a.a.a<String> {
-        final /* synthetic */ com.baidu.poly.a.a.a bEJ;
+        final /* synthetic */ com.baidu.poly.a.a.a bEN;
 
         d(com.baidu.poly.a.a.a aVar) {
-            this.bEJ = aVar;
+            this.bEN = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -147,34 +147,34 @@ public class b {
                 JSONObject jSONObject = new JSONObject(str);
                 int optInt = jSONObject.optInt(BaseJsonData.TAG_ERRNO, -1);
                 if (optInt == 0) {
-                    this.bEJ.a(jSONObject.optJSONObject("data"));
+                    this.bEN.a(jSONObject.optJSONObject("data"));
                 } else {
-                    this.bEJ.a(new com.baidu.poly.a.i.b("msg = " + jSONObject.optString("msg")), "errno is " + optInt);
+                    this.bEN.a(new com.baidu.poly.a.i.b("msg = " + jSONObject.optString("msg")), "errno is " + optInt);
                 }
             } catch (Throwable th) {
-                this.bEJ.a(th, BdStatsConstant.StatsType.ERROR);
+                this.bEN.a(th, BdStatsConstant.StatsType.ERROR);
             }
         }
 
         @Override // com.baidu.poly.a.a.a
         public void a(Throwable th, String str) {
-            this.bEJ.a(th, str);
+            this.bEN.a(th, str);
         }
     }
 
     private b(e eVar) {
-        this.bES = eVar;
+        this.bEW = eVar;
     }
 
     public static b TT() {
-        if (bER == null) {
+        if (bEV == null) {
             synchronized (b.class) {
-                if (bER == null) {
-                    bER = new b(new f());
+                if (bEV == null) {
+                    bEV = new b(new f());
                 }
             }
         }
-        return bER;
+        return bEV;
     }
 
     private com.baidu.poly.a.a.c TU() {
@@ -199,7 +199,7 @@ public class b {
     public void b(Bundle bundle, com.baidu.poly.a.a.a<Map<String, String>> aVar) {
         com.baidu.poly.a.a.c TU = TU();
         com.baidu.poly.a.a.b a2 = a(bundle, TU);
-        this.bES.a(com.baidu.poly.a.b.d.y(), TU, a2, new c(aVar));
+        this.bEW.a(com.baidu.poly.a.b.d.y(), TU, a2, new c(aVar));
     }
 
     public void c(Bundle bundle, com.baidu.poly.a.a.a<JSONObject> aVar) {
@@ -211,7 +211,7 @@ public class b {
                 bVar.g(str, bundle.get(str).toString());
             }
         }
-        this.bES.a(com.baidu.poly.a.b.d.z(), TU, bVar, new d(aVar));
+        this.bEW.a(com.baidu.poly.a.b.d.z(), TU, bVar, new d(aVar));
     }
 
     public void a(Bundle bundle, com.baidu.poly.a.a.a<JSONObject> aVar) {
@@ -224,7 +224,7 @@ public class b {
             }
         }
         a(bundle, bVar, TU);
-        this.bES.a(com.baidu.poly.a.b.d.u(), TU, bVar, new a(aVar));
+        this.bEW.a(com.baidu.poly.a.b.d.u(), TU, bVar, new a(aVar));
     }
 
     public void a(Bundle bundle, com.baidu.poly.a.a.a<Map<String, String>> aVar, String str) {
@@ -236,15 +236,15 @@ public class b {
                 bVar.g(str2, bundle.get(str2).toString());
             }
         }
-        bVar.g(bEP, str);
+        bVar.g(bET, str);
         a(bundle, bVar, TU);
-        this.bES.a(com.baidu.poly.a.b.d.x(), TU, bVar, new C0262b(aVar));
+        this.bEW.a(com.baidu.poly.a.b.d.x(), TU, bVar, new C0262b(aVar));
     }
 
     public com.baidu.poly.a.a.b a(Bundle bundle, com.baidu.poly.a.a.c cVar) {
         com.baidu.poly.a.a.b bVar = new com.baidu.poly.a.a.b();
         a(bVar, bundle);
-        bVar.g(bEQ, "android");
+        bVar.g(bEU, "android");
         a(bundle, bVar, cVar);
         return bVar;
     }

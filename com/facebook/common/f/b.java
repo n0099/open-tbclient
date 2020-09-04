@@ -5,9 +5,9 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes9.dex */
 public class b extends FilterInputStream {
-    private final byte[] nlp;
-    private int nlq;
-    private int nlr;
+    private final byte[] nlH;
+    private int nlI;
+    private int nlJ;
 
     public b(InputStream inputStream, byte[] bArr) {
         super(inputStream);
@@ -17,13 +17,13 @@ public class b extends FilterInputStream {
         if (bArr == null) {
             throw new NullPointerException();
         }
-        this.nlp = bArr;
+        this.nlH = bArr;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public int read() throws IOException {
         int read = this.in.read();
-        return read != -1 ? read : dOS();
+        return read != -1 ? read : dPb();
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
@@ -40,11 +40,11 @@ public class b extends FilterInputStream {
             }
             int i3 = 0;
             while (i3 < i2) {
-                int dOS = dOS();
-                if (dOS == -1) {
+                int dPb = dPb();
+                if (dPb == -1) {
                     break;
                 }
-                bArr[i + i3] = (byte) dOS;
+                bArr[i + i3] = (byte) dPb;
                 i3++;
             }
             if (i3 <= 0) {
@@ -59,7 +59,7 @@ public class b extends FilterInputStream {
     public void reset() throws IOException {
         if (this.in.markSupported()) {
             this.in.reset();
-            this.nlq = this.nlr;
+            this.nlI = this.nlJ;
             return;
         }
         throw new IOException("mark is not supported");
@@ -69,17 +69,17 @@ public class b extends FilterInputStream {
     public void mark(int i) {
         if (this.in.markSupported()) {
             super.mark(i);
-            this.nlr = this.nlq;
+            this.nlJ = this.nlI;
         }
     }
 
-    private int dOS() {
-        if (this.nlq >= this.nlp.length) {
+    private int dPb() {
+        if (this.nlI >= this.nlH.length) {
             return -1;
         }
-        byte[] bArr = this.nlp;
-        int i = this.nlq;
-        this.nlq = i + 1;
+        byte[] bArr = this.nlH;
+        int i = this.nlI;
+        this.nlI = i + 1;
         return bArr[i] & 255;
     }
 }

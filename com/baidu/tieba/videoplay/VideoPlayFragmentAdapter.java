@@ -24,50 +24,50 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes18.dex */
 public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
-    private f.b lsf;
+    private f.b lsq;
     private List<VideoItemData> mDatas;
-    private SparseArray<VideoPlayFragment> mFA;
-    private VideoPlayFragment.a mFp;
+    private VideoPlayFragment.a mFH;
+    private boolean mFO;
+    private a mFP;
+    private long mFQ;
+    public String mFR;
+    private SparseArray<VideoPlayFragment> mFS;
     public String mFrom;
     public String mFromPage;
-    private boolean mFw;
-    private a mFx;
-    private long mFy;
-    public String mFz;
     private Rect mRect;
 
     public VideoPlayFragmentAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
-        this.mFy = -1L;
-        this.mFA = new SparseArray<>();
-        this.mFx = new a();
+        this.mFQ = -1L;
+        this.mFS = new SparseArray<>();
+        this.mFP = new a();
     }
 
     @Override // android.support.v4.app.FragmentStatePagerAdapter
     public Fragment getItem(int i) {
         VideoPlayFragment videoPlayFragment = new VideoPlayFragment();
-        videoPlayFragment.a(this.lsf);
-        videoPlayFragment.a(this.mFp);
+        videoPlayFragment.a(this.lsq);
+        videoPlayFragment.a(this.mFH);
         Bundle bundle = new Bundle();
         bundle.putSerializable(VideoPlayActivityConfig.VIDEO_DATA, (Serializable) y.getItem(this.mDatas, i));
         bundle.putSerializable(VideoPlayActivityConfig.VIDEO_INDEX, Integer.valueOf(i));
         bundle.putSerializable("page_from", this.mFrom);
         bundle.putSerializable("from", this.mFromPage);
-        bundle.putSerializable("obj_id", this.mFz);
-        if (this.mFw) {
+        bundle.putSerializable("obj_id", this.mFR);
+        if (this.mFO) {
             bundle.putParcelable(VideoPlayActivityConfig.VIDEO_COVER_RECT, this.mRect);
-            this.mFw = false;
+            this.mFO = false;
         }
         videoPlayFragment.setArguments(bundle);
         return videoPlayFragment;
     }
 
     public void a(VideoPlayFragment.a aVar) {
-        this.mFp = aVar;
+        this.mFH = aVar;
     }
 
     public void a(f.b bVar) {
-        this.lsf = bVar;
+        this.lsq = bVar;
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -81,13 +81,13 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
     @Override // android.support.v4.app.FragmentStatePagerAdapter, android.support.v4.view.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         super.destroyItem(viewGroup, i, obj);
-        this.mFA.remove(i);
+        this.mFS.remove(i);
     }
 
     @Override // android.support.v4.app.FragmentStatePagerAdapter, android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         VideoPlayFragment videoPlayFragment = (VideoPlayFragment) super.instantiateItem(viewGroup, i);
-        this.mFA.put(i, videoPlayFragment);
+        this.mFS.put(i, videoPlayFragment);
         return videoPlayFragment;
     }
 
@@ -101,19 +101,19 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
     }
 
     public VideoPlayFragment Jj(int i) {
-        return this.mFA.get(i);
+        return this.mFS.get(i);
     }
 
     public void a(List<VideoItemData> list, Rect rect) {
         this.mDatas = list;
-        this.mFw = true;
+        this.mFO = true;
         this.mRect = rect;
     }
 
-    public void dEH() {
+    public void dEQ() {
         int i = b.bik().getInt("nani_key_download_show_rate", 2);
-        if (this.mFy > 0 && i != 1) {
-            b.bik().putLong("key_vertical_shown_time", this.mFy);
+        if (this.mFQ > 0 && i != 1) {
+            b.bik().putLong("key_vertical_shown_time", this.mFQ);
         }
     }
 
@@ -123,12 +123,12 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
         VideoPlayFragment Jj;
         VideoPlayFragment Jj2;
         String str2 = null;
-        VideoPlayFragment videoPlayFragment = this.mFA.get(i);
+        VideoPlayFragment videoPlayFragment = this.mFS.get(i);
         if (videoPlayFragment != null) {
-            List<String> dEC = videoPlayFragment.dEC();
-            if (y.getCount(dEC) >= 5) {
-                list = dEC;
-                str = videoPlayFragment.dED();
+            List<String> dEL = videoPlayFragment.dEL();
+            if (y.getCount(dEL) >= 5) {
+                list = dEL;
+                str = videoPlayFragment.dEM();
             } else {
                 return;
             }
@@ -136,15 +136,15 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
             list = null;
             str = null;
         }
-        String dED = (i + (-1) < 0 || (Jj2 = Jj(i + (-1))) == null) ? null : Jj2.dED();
+        String dEM = (i + (-1) < 0 || (Jj2 = Jj(i + (-1))) == null) ? null : Jj2.dEM();
         if (i + 1 < getCount() && (Jj = Jj(i + 1)) != null) {
-            str2 = Jj.dED();
+            str2 = Jj.dEM();
         }
         ArrayList arrayList = new ArrayList();
         int count = y.getCount(list);
         for (int i2 = 0; i2 < count; i2++) {
             String str3 = list.get(i2);
-            if (!TextUtils.equals(str3, str) && !TextUtils.equals(str3, dED) && !TextUtils.equals(str3, str2)) {
+            if (!TextUtils.equals(str3, str) && !TextUtils.equals(str3, dEM) && !TextUtils.equals(str3, str2)) {
                 arrayList.add(str3);
             }
         }

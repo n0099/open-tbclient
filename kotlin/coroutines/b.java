@@ -5,7 +5,7 @@ import kotlin.h;
 @h
 /* loaded from: classes20.dex */
 public interface b extends c.b {
-    public static final a osb = a.osc;
+    public static final a ost = a.osu;
 
     <T> kotlin.coroutines.a<T> a(kotlin.coroutines.a<? super T> aVar);
 
@@ -14,7 +14,7 @@ public interface b extends c.b {
     @h
     /* loaded from: classes20.dex */
     public static final class a implements c.InterfaceC0971c<b> {
-        static final /* synthetic */ a osc = new a();
+        static final /* synthetic */ a osu = new a();
 
         private a() {
         }

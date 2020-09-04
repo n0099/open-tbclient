@@ -18,13 +18,13 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 /* loaded from: classes8.dex */
 public class c {
-    private static final String[] cck = {"https://mbd.baidu.com", "https://ossapi.baidu.com", "https://ext.baidu.com"};
+    private static final String[] cco = {"https://mbd.baidu.com", "https://ossapi.baidu.com", "https://ext.baidu.com"};
 
-    public static boolean kC(String str) {
+    public static boolean kD(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        for (String str2 : cck) {
+        for (String str2 : cco) {
             if (str.startsWith(str2)) {
                 return true;
             }
@@ -33,19 +33,19 @@ public class c {
     }
 
     public static String processCommonParams(String str) {
-        return addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(str, "uid", adw()), j.c, adx()), "ut", adv()), "osbranch", adz()), "pkgname", getPkgName()), "network", ady()), "appname", getAppName()), "hostname", getAppName()), "swan_sdk_version", adD()), "mnpunion", String.valueOf(f.bTS.abA() ? 2 : 0));
+        return addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(str, "uid", adw()), j.c, adx()), "ut", adv()), "osbranch", adz()), "pkgname", getPkgName()), "network", ady()), "appname", getAppName()), "hostname", getAppName()), "swan_sdk_version", adD()), "mnpunion", String.valueOf(f.bTW.abA() ? 2 : 0));
     }
 
     public static String adv() {
-        return dq(getDeviceInfo());
+        return dr(getDeviceInfo());
     }
 
     public static String adw() {
-        return dq(getUid());
+        return dr(getUid());
     }
 
     public static String adx() {
-        return dq(uG());
+        return dr(uG());
     }
 
     public static String ady() {
@@ -162,7 +162,7 @@ public class c {
         return str;
     }
 
-    public static String dq(String str) {
+    public static String dr(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }

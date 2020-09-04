@@ -39,7 +39,7 @@ public class o {
             this.a = new Thread.UncaughtExceptionHandler() { // from class: com.cmic.sso.sdk.e.o.a.2
                 @Override // java.lang.Thread.UncaughtExceptionHandler
                 public void uncaughtException(Thread thread, Throwable th) {
-                    com.cmic.sso.sdk.d.a.niN.add(th);
+                    com.cmic.sso.sdk.d.a.njf.add(th);
                     com.cmic.sso.sdk.b.a.gl(context).a("200025", "发生未知错误", aVar, null);
                 }
             };

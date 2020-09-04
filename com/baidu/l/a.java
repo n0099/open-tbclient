@@ -13,9 +13,9 @@ import org.json.JSONObject;
 /* loaded from: classes19.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static com.baidu.poly.a bEq = null;
-    private static com.baidu.poly.d.a.a bEr = null;
-    private static int bEs = 1;
+    private static com.baidu.poly.a bEu = null;
+    private static com.baidu.poly.d.a.a bEv = null;
+    private static int bEw = 1;
 
     public boolean a(Activity activity, String str, com.baidu.l.a.a aVar) {
         if (TextUtils.isEmpty(str)) {
@@ -216,7 +216,7 @@ public class a {
         return new com.baidu.poly.d.a.c() { // from class: com.baidu.l.a.2
             @Override // com.baidu.poly.d.a.c
             public void a(Activity activity, com.baidu.poly.d.a.b bVar, final com.baidu.poly.d.a.a aVar) {
-                if (bVar == null || TextUtils.isEmpty(bVar.channel) || bVar.bGK == null) {
+                if (bVar == null || TextUtils.isEmpty(bVar.channel) || bVar.bGO == null) {
                     a.a(aVar, 6, "支付信息不能为空");
                     return;
                 }
@@ -263,7 +263,7 @@ public class a {
                 switch (c) {
                     case 0:
                     case 1:
-                        c.TO().d(activity, bVar.bGK.optString("orderInfo"), new com.baidu.l.a.a() { // from class: com.baidu.l.a.2.1
+                        c.TO().d(activity, bVar.bGO.optString("orderInfo"), new com.baidu.l.a.a() { // from class: com.baidu.l.a.2.1
                             @Override // com.baidu.l.a.a
                             public void onPayResult(int i, String str2) {
                                 a.a(aVar, i, str2);
@@ -271,7 +271,7 @@ public class a {
                         });
                         break;
                     case 2:
-                        c.TO().a((Context) activity, bVar.bGK, new com.baidu.l.a.a() { // from class: com.baidu.l.a.2.2
+                        c.TO().a((Context) activity, bVar.bGO, new com.baidu.l.a.a() { // from class: com.baidu.l.a.2.2
                             @Override // com.baidu.l.a.a
                             public void onPayResult(int i, String str2) {
                                 a.a(aVar, i, str2);
@@ -279,7 +279,7 @@ public class a {
                         });
                         break;
                     case 3:
-                        c.TO().c(activity, bVar.bGK.optString("orderInfo"), new com.baidu.l.a.a() { // from class: com.baidu.l.a.2.3
+                        c.TO().c(activity, bVar.bGO.optString("orderInfo"), new com.baidu.l.a.a() { // from class: com.baidu.l.a.2.3
                             @Override // com.baidu.l.a.a
                             public void onPayResult(int i, String str2) {
                                 a.a(aVar, i, str2);
@@ -287,12 +287,12 @@ public class a {
                         });
                         break;
                     case 4:
-                        com.baidu.poly.d.a.a unused = a.bEr = aVar;
+                        com.baidu.poly.d.a.a unused = a.bEv = aVar;
                         d.TP();
-                        c.TO().f(activity, bVar.bGK);
+                        c.TO().f(activity, bVar.bGO);
                         break;
                     case 5:
-                        c.TO().a(activity, bVar.bGK, new com.baidu.l.a.a() { // from class: com.baidu.l.a.2.4
+                        c.TO().a(activity, bVar.bGO, new com.baidu.l.a.a() { // from class: com.baidu.l.a.2.4
                             @Override // com.baidu.l.a.a
                             public void onPayResult(int i, String str2) {
                                 a.a(aVar, i, str2);
@@ -317,18 +317,18 @@ public class a {
     }
 
     private static com.baidu.poly.a aK(Context context) {
-        if (bEq != null) {
-            return bEq;
+        if (bEu != null) {
+            return bEu;
         }
-        bEs = PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getInt("poly_cashier_env", 1);
-        bEq = new a.C0259a().fN(bEs).aM(context.getApplicationContext()).dg(false).TS();
-        return bEq;
+        bEw = PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getInt("poly_cashier_env", 1);
+        bEu = new a.C0259a().fN(bEw).aM(context.getApplicationContext()).dh(false).TS();
+        return bEu;
     }
 
     public static void K(int i, String str) {
-        if (bEr != null) {
-            bEr.onResult(i, str);
-            bEr = null;
+        if (bEv != null) {
+            bEv.onResult(i, str);
+            bEv = null;
         }
     }
 

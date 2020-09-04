@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b implements c {
     @Override // com.baidu.tbadk.widget.layout.c
     public int qX(int i) {

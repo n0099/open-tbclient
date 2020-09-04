@@ -9,17 +9,17 @@ import com.baidu.tbadk.core.util.at;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class TbVideoViewSet {
-    private static TbVideoViewSet ltU = null;
-    private LRULinkedHashMap<String, TbCyberVideoView> ltT = new LRULinkedHashMap<>();
-    private boolean ltV;
+    private static TbVideoViewSet luf = null;
+    private LRULinkedHashMap<String, TbCyberVideoView> lue = new LRULinkedHashMap<>();
+    private boolean lug;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface a {
-        void dks();
+        void dkv();
 
-        void dkt();
+        void dkw();
     }
 
     private TbVideoViewSet() {
@@ -34,33 +34,33 @@ public class TbVideoViewSet {
         });
     }
 
-    public static TbVideoViewSet dkr() {
-        if (ltU == null) {
+    public static TbVideoViewSet dku() {
+        if (luf == null) {
             synchronized (TbVideoViewSet.class) {
-                if (ltU == null) {
-                    ltU = new TbVideoViewSet();
+                if (luf == null) {
+                    luf = new TbVideoViewSet();
                 }
             }
         }
-        return ltU;
+        return luf;
     }
 
-    public TbCyberVideoView OG(String str) {
-        if (at.isEmpty(str) || !this.ltT.containsKey(str)) {
+    public TbCyberVideoView OH(String str) {
+        if (at.isEmpty(str) || !this.lue.containsKey(str)) {
             return null;
         }
-        return this.ltT.get(str);
+        return this.lue.get(str);
     }
 
     public void a(TbCyberVideoView tbCyberVideoView, String str) {
         String str2;
-        if (this.ltT.containsKey(str) && tbCyberVideoView != this.ltT.get(str)) {
-            TbCyberVideoView tbCyberVideoView2 = this.ltT.get(str);
+        if (this.lue.containsKey(str) && tbCyberVideoView != this.lue.get(str)) {
+            TbCyberVideoView tbCyberVideoView2 = this.lue.get(str);
             if (tbCyberVideoView2 != null && tbCyberVideoView2.isPlaying()) {
                 tbCyberVideoView2.stopPlayback();
             }
-        } else if (this.ltT.containsValue(tbCyberVideoView)) {
-            Iterator it = this.ltT.entrySet().iterator();
+        } else if (this.lue.containsValue(tbCyberVideoView)) {
+            Iterator it = this.lue.entrySet().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     str2 = null;
@@ -72,31 +72,31 @@ public class TbVideoViewSet {
                     break;
                 }
             }
-            if (!this.ltV && !at.isEmpty(str2)) {
-                this.ltT.remove(str2);
+            if (!this.lug && !at.isEmpty(str2)) {
+                this.lue.remove(str2);
             }
         }
-        this.ltT.put(str, tbCyberVideoView);
+        this.lue.put(str, tbCyberVideoView);
     }
 
-    public void OH(String str) {
+    public void OI(String str) {
         TbCyberVideoView tbCyberVideoView;
-        if (!this.ltV && this.ltT.containsKey(str) && (tbCyberVideoView = (TbCyberVideoView) this.ltT.remove(str)) != null) {
+        if (!this.lug && this.lue.containsKey(str) && (tbCyberVideoView = (TbCyberVideoView) this.lue.remove(str)) != null) {
             tbCyberVideoView.stopPlayback();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aoj() {
-        Iterator it = this.ltT.entrySet().iterator();
+        Iterator it = this.lue.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry entry = (Map.Entry) it.next();
             if (entry != null) {
                 TbCyberVideoView tbCyberVideoView = (TbCyberVideoView) entry.getValue();
                 if (tbCyberVideoView != null) {
-                    this.ltV = true;
+                    this.lug = true;
                     tbCyberVideoView.stopPlayback();
-                    this.ltV = false;
+                    this.lug = false;
                 }
                 it.remove();
             }
@@ -104,7 +104,7 @@ public class TbVideoViewSet {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class LRULinkedHashMap<K extends String, V> extends LinkedHashMap<K, TbCyberVideoView> {
         public static final int MAX_PLAYERS = 3;
         private static final long serialVersionUID = 1;
@@ -118,10 +118,10 @@ public class TbVideoViewSet {
             TbCyberVideoView value;
             boolean z = size() > 3;
             if (z && (value = entry.getValue()) != null) {
-                TbVideoViewSet.this.ltV = true;
-                value.dko();
+                TbVideoViewSet.this.lug = true;
+                value.dkr();
                 value.stopPlayback();
-                TbVideoViewSet.this.ltV = false;
+                TbVideoViewSet.this.lug = false;
             }
             return z;
         }

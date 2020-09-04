@@ -5,8 +5,8 @@ import kotlin.jvm.internal.q;
 @kotlin.h
 /* loaded from: classes8.dex */
 public final class i {
-    private String dpE;
-    private Integer dpF;
+    private String dpI;
+    private Integer dpJ;
 
     public i() {
         this(null, null, 3, null);
@@ -16,7 +16,7 @@ public final class i {
         if (this != obj) {
             if (obj instanceof i) {
                 i iVar = (i) obj;
-                if (!q.l((Object) this.dpE, (Object) iVar.dpE) || !q.l(this.dpF, iVar.dpF)) {
+                if (!q.l((Object) this.dpI, (Object) iVar.dpI) || !q.l(this.dpJ, iVar.dpJ)) {
                 }
             }
             return false;
@@ -25,19 +25,19 @@ public final class i {
     }
 
     public int hashCode() {
-        String str = this.dpE;
+        String str = this.dpI;
         int hashCode = (str != null ? str.hashCode() : 0) * 31;
-        Integer num = this.dpF;
+        Integer num = this.dpJ;
         return hashCode + (num != null ? num.hashCode() : 0);
     }
 
     public String toString() {
-        return "ResponseParams(responseMessage=" + this.dpE + ", responseStatusCode=" + this.dpF + ")";
+        return "ResponseParams(responseMessage=" + this.dpI + ", responseStatusCode=" + this.dpJ + ")";
     }
 
     public i(String str, Integer num) {
-        this.dpE = str;
-        this.dpF = num;
+        this.dpI = str;
+        this.dpJ = num;
     }
 
     public /* synthetic */ i(String str, Integer num, int i, o oVar) {
@@ -45,18 +45,18 @@ public final class i {
     }
 
     public final String getResponseMessage() {
-        return this.dpE;
+        return this.dpI;
     }
 
-    public final void uH(String str) {
-        this.dpE = str;
+    public final void uI(String str) {
+        this.dpI = str;
     }
 
     public final Integer aMl() {
-        return this.dpF;
+        return this.dpJ;
     }
 
     public final void d(Integer num) {
-        this.dpF = num;
+        this.dpJ = num;
     }
 }

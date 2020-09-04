@@ -7,5 +7,5 @@ public interface a {
 
     Bundle g(String str, Bundle bundle);
 
-    void xB(String str);
+    void xC(String str);
 }

@@ -13,24 +13,24 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.database.SwanAppDbControl;
 /* loaded from: classes8.dex */
 public class b {
-    private UriMatcher coJ = new UriMatcher(-1);
-    public static final String coI = AppRuntime.getApplication().getPackageName() + ".swan.favorite";
-    public static final Uri CONTENT_URI = Uri.parse("content://" + coI);
+    private UriMatcher coN = new UriMatcher(-1);
+    public static final String coM = AppRuntime.getApplication().getPackageName() + ".swan.favorite";
+    public static final Uri CONTENT_URI = Uri.parse("content://" + coM);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b() {
-        this.coJ.addURI(coI, "favorite", 0);
-        this.coJ.addURI(coI, "favorite_and_aps", 1);
-        this.coJ.addURI(coI, "history", 2);
-        this.coJ.addURI(coI, "history_with_app", 3);
-        this.coJ.addURI(coI, "favorite_with_aps_pms", 4);
-        this.coJ.addURI(coI, "history_with_aps_pms", 5);
-        this.coJ.addURI(coI, "user_behavior", 6);
+        this.coN.addURI(coM, "favorite", 0);
+        this.coN.addURI(coM, "favorite_and_aps", 1);
+        this.coN.addURI(coM, "history", 2);
+        this.coN.addURI(coM, "history_with_app", 3);
+        this.coN.addURI(coM, "favorite_with_aps_pms", 4);
+        this.coN.addURI(coM, "history_with_aps_pms", 5);
+        this.coN.addURI(coM, "user_behavior", 6);
     }
 
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        int match = this.coJ.match(uri);
+        int match = this.coN.match(uri);
         switch (match) {
             case 0:
                 Cursor a = SwanAppDbControl.bY(AppRuntime.getAppContext()).a(strArr, str, strArr2, str2);
@@ -79,7 +79,7 @@ public class b {
 
     @Nullable
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
-        int match = this.coJ.match(uri);
+        int match = this.coN.match(uri);
         switch (match) {
             case 0:
                 long b = SwanAppDbControl.bY(AppRuntime.getAppContext()).b(contentValues);
@@ -107,7 +107,7 @@ public class b {
     }
 
     public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
-        int match = this.coJ.match(uri);
+        int match = this.coN.match(uri);
         switch (match) {
             case 0:
                 return SwanAppDbControl.bY(AppRuntime.getAppContext()).b(str, strArr);
@@ -130,7 +130,7 @@ public class b {
     }
 
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        int match = this.coJ.match(uri);
+        int match = this.coN.match(uri);
         switch (match) {
             case 0:
                 return SwanAppDbControl.bY(AppRuntime.getAppContext()).a(contentValues, str, strArr);

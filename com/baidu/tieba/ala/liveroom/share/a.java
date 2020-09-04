@@ -16,33 +16,33 @@ import com.baidu.live.tbadk.data.ShareEntity;
 import com.baidu.tieba.ala.liveroom.share.AlaLandscapeShareView;
 /* loaded from: classes7.dex */
 public class a extends Dialog {
-    private r aAh;
-    private b gIt;
-    private View gIu;
+    private r aAj;
+    private b gIx;
+    private View gIy;
     private Context mContext;
     private TbPageContext mPageContext;
 
     public a(@NonNull Context context, TbPageContext tbPageContext, r rVar, b bVar) {
         super(context);
         this.mContext = context;
-        this.gIt = bVar;
+        this.gIx = bVar;
         this.mPageContext = tbPageContext;
-        this.aAh = rVar;
+        this.aAj = rVar;
         initView();
     }
 
     private void initView() {
-        ShareEntity z = z(this.aAh);
+        ShareEntity z = z(this.aAj);
         if (z != null) {
-            this.gIu = new AlaLandscapeShareView(this.mPageContext, z, new AlaLandscapeShareView.a() { // from class: com.baidu.tieba.ala.liveroom.share.a.1
+            this.gIy = new AlaLandscapeShareView(this.mPageContext, z, new AlaLandscapeShareView.a() { // from class: com.baidu.tieba.ala.liveroom.share.a.1
                 @Override // com.baidu.tieba.ala.liveroom.share.AlaLandscapeShareView.a
                 public void onClick(View view) {
-                    if (a.this.gIt != null) {
-                        a.this.gIt.dismiss();
+                    if (a.this.gIx != null) {
+                        a.this.gIx.dismiss();
                     }
                 }
             });
-            setContentView(this.gIu);
+            setContentView(this.gIy);
             int screenWidth = n.getScreenWidth(this.mContext);
             setCancelable(true);
             setCanceledOnTouchOutside(true);
@@ -62,7 +62,7 @@ public class a extends Dialog {
     private void Gg() {
         TranslateAnimation translateAnimation = new TranslateAnimation(0.0f, 0.0f, BdUtilHelper.dip2px(this.mContext, 200.0f), 0.0f);
         translateAnimation.setDuration(250L);
-        this.gIu.startAnimation(translateAnimation);
+        this.gIy.startAnimation(translateAnimation);
     }
 
     private ShareEntity z(r rVar) {
@@ -70,8 +70,8 @@ public class a extends Dialog {
             return null;
         }
         ShareEntity shareEntity = new ShareEntity();
-        shareEntity.userId = rVar.aDE.userId;
-        shareEntity.userName = rVar.aDE.userName;
+        shareEntity.userId = rVar.aDG.userId;
+        shareEntity.userName = rVar.aDG.userName;
         shareEntity.title = StringUtils.isNull(shareEntity.userName) ? "" : shareEntity.userName + "的直播";
         shareEntity.content = "精彩直播正在进行，邀请你速来围观。";
         String str = rVar.mLiveInfo.cover;

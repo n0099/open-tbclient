@@ -9,5 +9,5 @@ public interface b {
 
     void finishActivity();
 
-    void gd(String str, String str2);
+    void ge(String str, String str2);
 }

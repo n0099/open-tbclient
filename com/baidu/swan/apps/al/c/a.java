@@ -11,7 +11,7 @@ public class a {
     /* renamed from: com.baidu.swan.apps.al.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
     public static class C0338a {
-        public boolean cYV;
+        public boolean cYZ;
         public int level;
     }
 
@@ -23,7 +23,7 @@ public class a {
         }
         C0338a c0338a = new C0338a();
         c0338a.level = registerReceiver.getIntExtra("level", -1);
-        c0338a.cYV = registerReceiver.getIntExtra("plugged", 0) != 0;
+        c0338a.cYZ = registerReceiver.getIntExtra("plugged", 0) != 0;
         return c0338a;
     }
 }

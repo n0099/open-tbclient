@@ -1,5 +1,5 @@
 package com.baidu.tieba.frs;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface ay {
     void cf(int i, int i2);
 

@@ -3,10 +3,10 @@ package com.baidu.live.ar;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class e {
-    private String aAb;
-    private String aAc;
     private String aAd;
-    private String azU;
+    private String aAe;
+    private String aAf;
+    private String azW;
     private String mFile;
     private String mId;
     private String mName;
@@ -16,17 +16,17 @@ public class e {
         if (jSONObject != null) {
             this.mId = jSONObject.optString("id");
             this.mName = jSONObject.optString("name");
-            this.aAb = jSONObject.optString("bgurl");
+            this.aAd = jSONObject.optString("bgurl");
             this.mType = jSONObject.optString("type");
-            this.aAc = jSONObject.optString("current");
+            this.aAe = jSONObject.optString("current");
             this.mFile = jSONObject.optString("feature_file");
-            this.aAd = jSONObject.optString("feature_file_token");
-            this.azU = jSONObject.optString("thinface_value");
+            this.aAf = jSONObject.optString("feature_file_token");
+            this.azW = jSONObject.optString("thinface_value");
         }
     }
 
     public String AO() {
-        return this.aAb;
+        return this.aAd;
     }
 
     public String AP() {
@@ -42,10 +42,10 @@ public class e {
     }
 
     public String AQ() {
-        return this.aAc;
+        return this.aAe;
     }
 
     public String AR() {
-        return this.azU;
+        return this.azW;
     }
 }

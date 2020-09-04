@@ -2,7 +2,7 @@ package com.baidu.tbadk.core;
 
 import com.baidu.tbadk.coreExtra.message.UpdateClientInfoMessage;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface f {
     UpdateClientInfoMessage a(UpdateClientInfoMessage updateClientInfoMessage);
 

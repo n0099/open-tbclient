@@ -76,7 +76,7 @@ public class c {
         }
     }
 
-    public void cH(String str) {
+    public void cI(String str) {
         if (TextUtils.isEmpty(str)) {
             str = "";
         }
@@ -88,7 +88,7 @@ public class c {
         }
     }
 
-    public void cI(String str) {
+    public void cJ(String str) {
         if (this.TD.removePluginSetting(str)) {
             Bundle bundle = new Bundle();
             bundle.putString(PluginSettingIOService.KEY_SETTING_NAME, str);
@@ -96,7 +96,7 @@ public class c {
         }
     }
 
-    public void cx(String str) {
+    public void cy(String str) {
         PluginSetting findPluginSetting = findPluginSetting(str);
         if (findPluginSetting != null && !findPluginSetting.forbidden) {
             findPluginSetting.forbidden = true;
@@ -107,7 +107,7 @@ public class c {
         }
     }
 
-    public void cy(String str) {
+    public void cz(String str) {
         PluginSetting findPluginSetting = findPluginSetting(str);
         if (findPluginSetting != null && findPluginSetting.forbidden) {
             findPluginSetting.forbidden = false;
@@ -129,7 +129,7 @@ public class c {
         }
     }
 
-    public void cJ(String str) {
+    public void cK(String str) {
         PluginSetting findPluginSetting = findPluginSetting(str);
         if (findPluginSetting != null) {
             findPluginSetting.enable = true;
@@ -170,7 +170,7 @@ public class c {
         }
     }
 
-    public boolean cK(String str) {
+    public boolean cL(String str) {
         PluginSetting findPluginSetting = findPluginSetting(str);
         if (findPluginSetting == null) {
             return true;
@@ -186,17 +186,17 @@ public class c {
         }
     }
 
-    public void cL(String str) {
+    public void cM(String str) {
         if (this.TD.findPluginSetting(str) != null) {
-            cI(str);
-            cH("");
+            cJ(str);
+            cI("");
         }
     }
 
-    public void cM(String str) {
+    public void cN(String str) {
         if (this.TD.findPluginSetting(str) != null) {
-            cI(str);
-            cH("");
+            cJ(str);
+            cI("");
         }
     }
 

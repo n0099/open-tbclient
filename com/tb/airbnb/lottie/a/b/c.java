@@ -16,6 +16,6 @@ public class c extends f<Float> {
         if (aVar.GX == null || aVar.GY == null) {
             throw new IllegalStateException("Missing values for keyframe.");
         }
-        return (this.oiE == null || (f2 = (Float) this.oiE.b(aVar.AX, aVar.Ha.floatValue(), aVar.GX, aVar.GY, f, jh(), getProgress())) == null) ? Float.valueOf(com.tb.airbnb.lottie.d.e.lerp(aVar.GX.floatValue(), aVar.GY.floatValue(), f)) : f2;
+        return (this.oiW == null || (f2 = (Float) this.oiW.b(aVar.AX, aVar.Ha.floatValue(), aVar.GX, aVar.GY, f, jh(), getProgress())) == null) ? Float.valueOf(com.tb.airbnb.lottie.d.e.lerp(aVar.GX.floatValue(), aVar.GY.floatValue(), f)) : f2;
     }
 }

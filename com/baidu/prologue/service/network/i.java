@@ -6,9 +6,9 @@ import com.baidu.prologue.service.network.Request;
 import java.io.InputStream;
 /* loaded from: classes9.dex */
 public class i {
-    public static void ip(String str) {
+    public static void iq(String str) {
         if (!TextUtils.isEmpty(str)) {
-            final com.baidu.prologue.a.b.a aVar = com.baidu.prologue.a.b.a.bKi.get();
+            final com.baidu.prologue.a.b.a aVar = com.baidu.prologue.a.b.a.bKm.get();
             Request.a aVar2 = new Request.a(aVar.UK(), str);
             aVar2.aQ("User-Agent", aVar.userAgent());
             aVar2.Wc().a(new l() { // from class: com.baidu.prologue.service.network.i.1

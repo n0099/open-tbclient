@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.t;
 import tbclient.ActiveConfig.ActiveConfigReqIdl;
 import tbclient.ActiveConfig.DataReq;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ActiveConfigReqMsg extends NetMessage {
     public static final int LAUNTCH_FROM_HOME_PAGE = 1;
     public static final int LAUNTCH_FROM_START = 0;

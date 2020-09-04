@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.message.PushMessage;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class Static {
     static {
         CustomMessageListener customMessageListener = new CustomMessageListener(0) { // from class: com.baidu.tieba.tbadkCore.tiebaSwitchMsg.Static.1

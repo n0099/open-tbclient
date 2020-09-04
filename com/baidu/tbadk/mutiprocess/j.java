@@ -1,7 +1,7 @@
 package com.baidu.tbadk.mutiprocess;
 
 import android.content.Intent;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class j {
     public void a(Intent intent, a aVar) {
         if (aVar instanceof ParcelableEvent) {

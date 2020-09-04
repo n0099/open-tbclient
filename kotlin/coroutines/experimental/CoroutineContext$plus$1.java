@@ -20,16 +20,16 @@ final class CoroutineContext$plus$1 extends Lambda implements m<d, d.b, d> {
         a aVar;
         q.m(dVar, "acc");
         q.m(bVar, "element");
-        d b = dVar.b(bVar.egc());
-        if (b == e.osh) {
+        d b = dVar.b(bVar.egl());
+        if (b == e.osz) {
             return bVar;
         }
-        c cVar = (c) b.a(c.osf);
+        c cVar = (c) b.a(c.osx);
         if (cVar == null) {
             aVar = new a(b, bVar);
         } else {
-            d b2 = b.b(c.osf);
-            aVar = b2 == e.osh ? new a(bVar, cVar) : new a(new a(b2, bVar), cVar);
+            d b2 = b.b(c.osx);
+            aVar = b2 == e.osz ? new a(bVar, cVar) : new a(new a(b2, bVar), cVar);
         }
         return aVar;
     }

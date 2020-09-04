@@ -3,7 +3,7 @@ package com.google.ar.core;
 import com.google.ar.core.exceptions.FatalException;
 /* loaded from: classes11.dex */
 public class Config {
-    long nBU;
+    long nCm;
 
     private static native long nativeCreate(long j);
 
@@ -172,8 +172,8 @@ public class Config {
     }
 
     protected void finalize() throws Throwable {
-        if (this.nBU != 0) {
-            nativeDestroy(this.nBU);
+        if (this.nCm != 0) {
+            nativeDestroy(this.nCm);
         }
         super.finalize();
     }

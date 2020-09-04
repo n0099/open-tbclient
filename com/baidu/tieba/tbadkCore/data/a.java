@@ -3,18 +3,18 @@ package com.baidu.tieba.tbadkCore.data;
 import com.baidu.adp.lib.util.BdLog;
 import com.xiaomi.mipush.sdk.Constants;
 import tbclient.ActHot;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
-    private String dXy;
+    private String dXC;
     private int mHeight;
     private int mImageType;
     private String mTitle;
     private int mWidth;
-    private String mef;
-    private String meg;
+    private String mev;
+    private String mew;
 
-    public String dwi() {
-        return this.mef;
+    public String dwn() {
+        return this.mev;
     }
 
     public int getImageWidth() {
@@ -25,8 +25,8 @@ public class a {
         return this.mHeight;
     }
 
-    public String dwj() {
-        return this.dXy;
+    public String dwo() {
+        return this.dXC;
     }
 
     public String getTitle() {
@@ -34,7 +34,7 @@ public class a {
     }
 
     public String getDescription() {
-        return this.meg;
+        return this.mew;
     }
 
     public void a(ActHot actHot) {
@@ -55,10 +55,10 @@ public class a {
             if (this.mHeight <= 0) {
                 this.mHeight = 1;
             }
-            this.mef = actHot.img_src;
-            this.dXy = actHot.link;
+            this.mev = actHot.img_src;
+            this.dXC = actHot.link;
             this.mTitle = actHot.author_name;
-            this.meg = actHot.img_des;
+            this.mew = actHot.img_des;
             this.mImageType = actHot.img_type.intValue();
         }
     }

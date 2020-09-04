@@ -19,7 +19,7 @@ import org.apache.http.HttpHost;
 /* loaded from: classes8.dex */
 public final class b {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Set<String> cRT = i.N("https", "wss");
+    private static final Set<String> cRX = i.N("https", "wss");
 
     /* JADX WARN: Can't wrap try/catch for region: R(11:58|59|(3:62|(4:65|(1:102)(8:67|68|(3:96|97|(2:99|100)(1:101))(3:70|71|(2:73|74)(1:94))|77|(1:(1:80)(1:81))|(1:83)|84|(2:86|87)(1:88))|95|63)|103)|105|75|76|77|(0)|(0)|84|(0)(0)) */
     /* JADX WARN: Code restructure failed: missing block: B:80:0x0200, code lost:
@@ -38,7 +38,7 @@ public final class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean qD(String str) {
+    public static boolean qE(String str) {
         boolean z;
         String host;
         e azI = e.azI();
@@ -65,7 +65,7 @@ public final class b {
             return true;
         } else {
             String azK = e.azK();
-            if (!c.qJ(azK)) {
+            if (!c.qK(azK)) {
                 return true;
             }
             ArrayList<String> W = azI.aAc().W(azK, false);
@@ -142,7 +142,7 @@ public final class b {
         }
     }
 
-    public static boolean qE(String str) {
+    public static boolean qF(String str) {
         if (DEBUG && !com.baidu.swan.apps.ad.a.a.awN()) {
             Log.w("WebSafeCheckers", "checkWebAction: Debug下鉴权未开启");
             return true;
@@ -155,15 +155,15 @@ public final class b {
                 com.baidu.swan.apps.console.c.w("WebSafeCheckers", "get swanApp Null " + str);
                 return false;
             }
-            ArrayList<String> fN = azI.aAc().fN(true);
-            if (fN != null && fN.contains(str)) {
+            ArrayList<String> fO = azI.aAc().fO(true);
+            if (fO != null && fO.contains(str)) {
                 if (DEBUG) {
-                    Log.d("WebSafeCheckers", "Action in white list: " + str + ", " + fN);
+                    Log.d("WebSafeCheckers", "Action in white list: " + str + ", " + fO);
                     return true;
                 }
                 return true;
             }
-            com.baidu.swan.apps.console.c.d("WebSafeCheckers", "Action not in white list: action=" + str + ", whitelist=", fN);
+            com.baidu.swan.apps.console.c.d("WebSafeCheckers", "Action not in white list: action=" + str + ", whitelist=", fO);
             com.baidu.swan.apps.console.c.i("WebSafeCheckers", "action is not in white list: action=" + str);
             return false;
         }
@@ -205,7 +205,7 @@ public final class b {
                 return 0;
             }
             return 0;
-        } else if (qF(str2)) {
+        } else if (qG(str2)) {
             boolean YE = com.baidu.swan.apps.t.a.aoM().YE();
             if (!YE) {
                 if (DEBUG) {
@@ -223,7 +223,7 @@ public final class b {
                 return 1;
             }
             if (!TextUtils.isEmpty(str3)) {
-                return !com.baidu.swan.apps.ac.g.a.a(str, str2, com.baidu.swan.apps.ac.g.b.pC(str3)) ? 1 : 0;
+                return !com.baidu.swan.apps.ac.g.a.a(str, str2, com.baidu.swan.apps.ac.g.b.pD(str3)) ? 1 : 0;
             } else if (!new File(c.L(str4, "aiapps_folder/cloud_config", "server_domains.json")).exists()) {
                 if (DEBUG) {
                     Log.w("WebSafeCheckers", "服务器域名配置文件未下发放行");
@@ -294,8 +294,8 @@ public final class b {
         return false;
     }
 
-    private static boolean qF(String str) {
-        for (String str2 : cRT) {
+    private static boolean qG(String str) {
+        for (String str2 : cRX) {
             if (str.startsWith(str2)) {
                 return true;
             }
@@ -310,7 +310,7 @@ public final class b {
         return !YK && str.startsWith(HttpHost.DEFAULT_SCHEME_NAME);
     }
 
-    public static boolean qG(String str) {
+    public static boolean qH(String str) {
         if (DEBUG && !com.baidu.swan.apps.ad.a.a.awN()) {
             Log.w("WebSafeCheckers", "checkWebAction: Debug下鉴权未开启");
             return true;
@@ -346,11 +346,11 @@ public final class b {
         return true;
     }
 
-    public static boolean qH(String str) {
+    public static boolean qI(String str) {
         return !TextUtils.isEmpty(str) && str.toLowerCase().startsWith("weixin://wap/pay");
     }
 
-    public static boolean qI(String str) {
+    public static boolean qJ(String str) {
         return !TextUtils.isEmpty(str) && str.toLowerCase().startsWith("alipays://platformapi/startapp");
     }
 }

@@ -14,9 +14,9 @@ import android.view.animation.LinearInterpolator;
 import com.baidu.live.sdk.a;
 /* loaded from: classes7.dex */
 public class DanceRectView extends View {
-    private RectF[] btp;
-    private a[] btq;
-    private float btr;
+    private RectF[] bts;
+    private a[] btt;
+    private float btu;
     private int mColor;
     private Paint mPaint;
     private float mRadius;
@@ -28,7 +28,7 @@ public class DanceRectView extends View {
     }
 
     public void startAnim() {
-        if (this.btq != null && this.mValueAnimator != null) {
+        if (this.btt != null && this.mValueAnimator != null) {
             QF();
             this.mValueAnimator.start();
         }
@@ -43,11 +43,11 @@ public class DanceRectView extends View {
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        this.btr = (i2 - getPaddingTop()) - getPaddingBottom();
+        this.btu = (i2 - getPaddingTop()) - getPaddingBottom();
         float paddingLeft = (((i - getPaddingLeft()) - getPaddingRight()) * 1.0f) / 7.0f;
         int paddingLeft2 = getPaddingLeft();
         for (int i5 = 0; i5 < 4; i5++) {
-            this.btp[i5].set(paddingLeft2, this.btr * i5, paddingLeft2 + paddingLeft, i2 - getPaddingBottom());
+            this.bts[i5].set(paddingLeft2, this.btu * i5, paddingLeft2 + paddingLeft, i2 - getPaddingBottom());
             paddingLeft2 = (int) (paddingLeft2 + (2.0f * paddingLeft));
         }
     }
@@ -55,10 +55,10 @@ public class DanceRectView extends View {
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.btp != null && this.btq != null) {
+        if (this.bts != null && this.btt != null) {
             for (int i = 0; i < 4; i++) {
-                this.btp[i].top = getPaddingTop() + (this.btr * this.btq[i].btv);
-                canvas.drawRoundRect(this.btp[i], this.mRadius, this.mRadius, this.mPaint);
+                this.bts[i].top = getPaddingTop() + (this.btu * this.btt[i].bty);
+                canvas.drawRoundRect(this.bts[i], this.mRadius, this.mRadius, this.mPaint);
             }
         }
     }
@@ -85,17 +85,17 @@ public class DanceRectView extends View {
     }
 
     private void QD() {
-        this.btp = new RectF[4];
+        this.bts = new RectF[4];
         for (int i = 0; i < 4; i++) {
-            this.btp[i] = new RectF();
+            this.bts[i] = new RectF();
         }
     }
 
     private void QE() {
-        this.btq = new a[4];
+        this.btt = new a[4];
         for (int i = 0; i < 4; i++) {
-            this.btq[i] = new a();
-            this.btq[i].btt = 0.25f;
+            this.btt[i] = new a();
+            this.btt[i].btw = 0.25f;
         }
         QF();
     }
@@ -103,11 +103,11 @@ public class DanceRectView extends View {
     private void QF() {
         int i = 0;
         while (i < 4) {
-            this.btq[i].btw = i != 0;
-            a aVar = this.btq[i];
+            this.btt[i].btz = i != 0;
+            a aVar = this.btt[i];
             float f = (i * 1.0f) / 4.0f;
-            this.btq[i].btv = f;
-            aVar.btu = f;
+            this.btt[i].bty = f;
+            aVar.btx = f;
             i++;
         }
     }
@@ -121,7 +121,7 @@ public class DanceRectView extends View {
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
                 super.onAnimationStart(animator);
-                for (a aVar : DanceRectView.this.btq) {
+                for (a aVar : DanceRectView.this.btt) {
                     aVar.QH();
                 }
             }
@@ -129,7 +129,7 @@ public class DanceRectView extends View {
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationRepeat(Animator animator) {
                 super.onAnimationRepeat(animator);
-                for (a aVar : DanceRectView.this.btq) {
+                for (a aVar : DanceRectView.this.btt) {
                     aVar.QI();
                 }
                 DanceRectView.this.invalidate();
@@ -138,7 +138,7 @@ public class DanceRectView extends View {
         this.mValueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.live.view.DanceRectView.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                for (a aVar : DanceRectView.this.btq) {
+                for (a aVar : DanceRectView.this.btt) {
                     aVar.v(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
                 DanceRectView.this.invalidate();
@@ -149,55 +149,55 @@ public class DanceRectView extends View {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes7.dex */
     public static class a {
-        float btt;
-        float btu;
-        float btv;
-        boolean btw;
+        float btw;
+        float btx;
+        float bty;
+        boolean btz;
 
         private a() {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void QH() {
-            if (this.btv <= 0.0f) {
-                this.btv = 0.0f;
-                this.btu = 0.0f;
-                this.btw = false;
-            } else if (this.btv >= 1.0f - this.btt) {
-                float f = 1.0f - this.btt;
-                this.btv = f;
-                this.btu = f;
-                this.btw = true;
+            if (this.bty <= 0.0f) {
+                this.bty = 0.0f;
+                this.btx = 0.0f;
+                this.btz = false;
+            } else if (this.bty >= 1.0f - this.btw) {
+                float f = 1.0f - this.btw;
+                this.bty = f;
+                this.btx = f;
+                this.btz = true;
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void v(float f) {
             float f2 = 0.0f;
-            if (f != 0.0f && f != this.btt) {
-                if (this.btw) {
-                    float f3 = this.btu - f;
+            if (f != 0.0f && f != this.btw) {
+                if (this.btz) {
+                    float f3 = this.btx - f;
                     if (f3 >= 0.0f) {
                         f2 = f3;
                     }
                 } else {
-                    f2 = this.btu + f;
-                    if (f2 > 1.0f - this.btt) {
-                        f2 = 1.0f - this.btt;
+                    f2 = this.btx + f;
+                    if (f2 > 1.0f - this.btw) {
+                        f2 = 1.0f - this.btw;
                     }
                 }
-                this.btv = f2;
+                this.bty = f2;
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void QI() {
-            if (this.btw) {
-                this.btv = this.btu - this.btt;
+            if (this.btz) {
+                this.bty = this.btx - this.btw;
             } else {
-                this.btv = this.btu + this.btt;
+                this.bty = this.btx + this.btw;
             }
-            this.btu = this.btv;
+            this.btx = this.bty;
             QH();
         }
     }

@@ -110,11 +110,11 @@ public abstract class a extends aa {
                         public void a(com.baidu.swan.apps.scheme.actions.f.b bVar) {
                             com.baidu.swan.bdprivate.extensions.g.b.b bVar2 = new com.baidu.swan.bdprivate.extensions.g.b.b();
                             if (bVar != null && !TextUtils.isEmpty(bVar.coorType)) {
-                                bVar2.dhg = bVar.coorType;
+                                bVar2.dhk = bVar.coorType;
                                 bVar2.latitude = bVar.latitude;
                                 bVar2.longitude = bVar.longitude;
                             } else {
-                                bVar2.dhg = "unknown";
+                                bVar2.dhk = "unknown";
                             }
                             jVar.onNext(bVar2);
                             jVar.onCompleted();
@@ -139,8 +139,8 @@ public abstract class a extends aa {
         ResponseCallback<JSONObject> G = G(d);
         MediaType parse = MediaType.parse(HttpHelper.CONTENT_JSON);
         com.baidu.swan.apps.console.c.i("recommend", "encrypt request param");
-        String tm = com.baidu.swan.bdprivate.extensions.g.c.a.tm(aVar.toJsonString());
-        if (TextUtils.isEmpty(tm)) {
+        String tn = com.baidu.swan.bdprivate.extensions.g.c.a.tn(aVar.toJsonString());
+        if (TextUtils.isEmpty(tn)) {
             com.baidu.swan.apps.console.c.e("recommend", "encrypt request param fail");
             d.I(null);
             JSONObject jSONObject = new JSONObject();
@@ -151,11 +151,11 @@ public abstract class a extends aa {
                     e.printStackTrace();
                 }
             }
-            com.baidu.swan.bdprivate.extensions.g.c.a.tn(jSONObject.toString());
+            com.baidu.swan.bdprivate.extensions.g.c.a.to(jSONObject.toString());
             return;
         }
         com.baidu.swan.apps.console.c.i("recommend", "execute request");
-        ((PostBodyRequest.PostBodyRequestBuilder) HttpManager.getDefault(context.getApplicationContext()).postRequest().url(processCommonParams)).requestBody(RequestBody.create(parse, tm)).build().executeAsync(G);
+        ((PostBodyRequest.PostBodyRequestBuilder) HttpManager.getDefault(context.getApplicationContext()).postRequest().url(processCommonParams)).requestBody(RequestBody.create(parse, tn)).build().executeAsync(G);
     }
 
     @NonNull
@@ -197,7 +197,7 @@ public abstract class a extends aa {
                                 e.printStackTrace();
                             }
                         }
-                        com.baidu.swan.bdprivate.extensions.g.c.a.tn(jSONObject.toString());
+                        com.baidu.swan.bdprivate.extensions.g.c.a.to(jSONObject.toString());
                         return null;
                     }
                     return new JSONObject(string);
@@ -220,7 +220,7 @@ public abstract class a extends aa {
                         e2.printStackTrace();
                     }
                 }
-                com.baidu.swan.bdprivate.extensions.g.c.a.tn(jSONObject2.toString());
+                com.baidu.swan.bdprivate.extensions.g.c.a.to(jSONObject2.toString());
                 return null;
             }
 
@@ -238,7 +238,7 @@ public abstract class a extends aa {
                             e.printStackTrace();
                         }
                     }
-                    com.baidu.swan.bdprivate.extensions.g.c.a.tn(jSONObject2.toString());
+                    com.baidu.swan.bdprivate.extensions.g.c.a.to(jSONObject2.toString());
                 }
                 bVar.I(jSONObject);
             }
@@ -255,7 +255,7 @@ public abstract class a extends aa {
                         e.printStackTrace();
                     }
                 }
-                com.baidu.swan.bdprivate.extensions.g.c.a.tn(jSONObject.toString());
+                com.baidu.swan.bdprivate.extensions.g.c.a.to(jSONObject.toString());
             }
         };
     }

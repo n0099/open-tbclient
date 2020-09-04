@@ -3,7 +3,7 @@ package com.baidu.tieba.model.message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.AddPollPost.AddPollPostResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class AddPollPostSocketResponseMessage extends SocketResponsedMessage {
     private AddPollPostResIdl idl;
 

@@ -7,7 +7,7 @@ import tv.chushou.zues.widget.kpswitch.a;
 import tv.chushou.zues.widget.kpswitch.b;
 /* loaded from: classes6.dex */
 public class KPSwitchPanelRelativeLayout extends RelativeLayout implements a, b {
-    private tv.chushou.zues.widget.kpswitch.a.b oQc;
+    private tv.chushou.zues.widget.kpswitch.a.b oQu;
 
     public KPSwitchPanelRelativeLayout(Context context) {
         super(context);
@@ -25,30 +25,30 @@ public class KPSwitchPanelRelativeLayout extends RelativeLayout implements a, b 
     }
 
     private void init(AttributeSet attributeSet) {
-        this.oQc = new tv.chushou.zues.widget.kpswitch.a.b(this, attributeSet);
+        this.oQu = new tv.chushou.zues.widget.kpswitch.a.b(this, attributeSet);
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
-        if (!this.oQc.gm(i)) {
+        if (!this.oQu.gm(i)) {
             super.setVisibility(i);
         }
     }
 
     @Override // android.widget.RelativeLayout, android.view.View
     protected void onMeasure(int i, int i2) {
-        int[] ab = this.oQc.ab(i, i2);
+        int[] ab = this.oQu.ab(i, i2);
         super.onMeasure(ab[0], ab[1]);
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
-    public boolean emF() {
-        return this.oQc.emF();
+    public boolean emO() {
+        return this.oQu.emO();
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
     public boolean isVisible() {
-        return this.oQc.isVisible();
+        return this.oQu.isVisible();
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
@@ -58,29 +58,29 @@ public class KPSwitchPanelRelativeLayout extends RelativeLayout implements a, b 
 
     @Override // tv.chushou.zues.widget.kpswitch.a
     public void XC() {
-        this.oQc.XC();
+        this.oQu.XC();
     }
 
     public void setIgnoreRecommendHeight(boolean z) {
-        this.oQc.setIgnoreRecommendHeight(z);
+        this.oQu.setIgnoreRecommendHeight(z);
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.b
     public void OP(int i) {
-        this.oQc.OQ(i);
+        this.oQu.OQ(i);
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.b
-    public void yu(boolean z) {
-        this.oQc.zl(z);
+    public void yw(boolean z) {
+        this.oQu.zn(z);
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
-    public boolean emG() {
-        return this.oQc.emG();
+    public boolean emP() {
+        return this.oQu.emP();
     }
 
     public void setPanelEnabled(boolean z) {
-        this.oQc.setPanelEnabled(z);
+        this.oQu.setPanelEnabled(z);
     }
 }

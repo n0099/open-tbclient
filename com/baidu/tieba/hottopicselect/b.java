@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes15.dex */
 public class b extends BaseAdapter {
-    private String hQD;
+    private String hQJ;
     private LayoutInflater mInflater;
     private final List<d> mList = new ArrayList();
 
@@ -23,7 +23,7 @@ public class b extends BaseAdapter {
     }
 
     public void j(String str, List<d> list) {
-        this.hQD = str;
+        this.hQJ = str;
         this.mList.clear();
         if (list != null) {
             this.mList.addAll(list);
@@ -65,16 +65,16 @@ public class b extends BaseAdapter {
             if (view == null || !(view.getTag() instanceof a)) {
                 view = this.mInflater.inflate(R.layout.hot_suggest_item, (ViewGroup) null);
                 a aVar2 = new a();
-                aVar2.dzi = (TextView) view.findViewById(R.id.name);
-                aVar2.jdL = view.findViewById(R.id.divider_line_top);
-                aVar2.jdM = view.findViewById(R.id.divider_line_bottom);
+                aVar2.dzm = (TextView) view.findViewById(R.id.name);
+                aVar2.jdR = view.findViewById(R.id.divider_line_top);
+                aVar2.jdS = view.findViewById(R.id.divider_line_bottom);
                 view.setTag(aVar2);
                 aVar = aVar2;
             } else {
                 aVar = (a) view.getTag();
             }
-            aVar.jdL.setVisibility(i == 0 ? 0 : 8);
-            aVar.dzi.setText(at.highLightText(com.baidu.tbadk.plugins.b.Cz(at.cutStringWithEllipsisNew(item.getTopicName(), 18)), this.hQD, R.color.cp_link_tip_a));
+            aVar.jdR.setVisibility(i == 0 ? 0 : 8);
+            aVar.dzm.setText(at.highLightText(com.baidu.tbadk.plugins.b.CA(at.cutStringWithEllipsisNew(item.getTopicName(), 18)), this.hQJ, R.color.cp_link_tip_a));
             a(aVar, view, TbadkCoreApplication.getInst().getSkinType());
         }
         return view;
@@ -83,23 +83,23 @@ public class b extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes15.dex */
     public class a {
-        int aiB;
-        TextView dzi;
-        View jdL;
-        View jdM;
+        int aiD;
+        TextView dzm;
+        View jdR;
+        View jdS;
 
         private a() {
-            this.aiB = 3;
+            this.aiD = 3;
         }
     }
 
     private void a(a aVar, View view, int i) {
-        if (aVar != null && aVar.aiB != i) {
+        if (aVar != null && aVar.aiD != i) {
             ap.setBackgroundResource(view, R.drawable.addresslist_item_bg);
-            ap.setBackgroundColor(aVar.jdM, R.color.cp_bg_line_c);
-            ap.setBackgroundColor(aVar.jdL, R.color.cp_bg_line_c);
-            ap.setViewTextColor(aVar.dzi, R.color.cp_cont_b, 1);
-            aVar.aiB = i;
+            ap.setBackgroundColor(aVar.jdS, R.color.cp_bg_line_c);
+            ap.setBackgroundColor(aVar.jdR, R.color.cp_bg_line_c);
+            ap.setViewTextColor(aVar.dzm, R.color.cp_cont_b, 1);
+            aVar.aiD = i;
         }
     }
 }

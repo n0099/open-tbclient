@@ -9,13 +9,13 @@ public abstract class a implements IAdapterData {
     private b barrageCardInfo;
     private String barrageId;
     private int barrageType;
-    private com.baidu.live.data.a bbP;
-    private com.baidu.live.data.a bcn;
-    private List<Long> bco;
-    private long bcq;
-    private double bcr;
+    private com.baidu.live.data.a bbR;
+    private com.baidu.live.data.a bcp;
+    private List<Long> bcq;
     private long bcs;
-    private boolean bct;
+    private double bct;
+    private long bcu;
+    private boolean bcv;
     private long bornTime;
     private String content;
     private boolean hasRead;
@@ -35,7 +35,7 @@ public abstract class a implements IAdapterData {
     private int progressValue = 0;
     private long statisticsTaskId = -1;
     private boolean mIsPushForOperateAccount = false;
-    private boolean bcp = false;
+    private boolean bcr = false;
     private boolean isGifLoadSuccess = true;
     private boolean isUploading = false;
 
@@ -120,19 +120,19 @@ public abstract class a implements IAdapterData {
     }
 
     public com.baidu.live.data.a JK() {
-        return this.bbP;
+        return this.bbR;
     }
 
     public void e(com.baidu.live.data.a aVar) {
-        this.bbP = aVar;
+        this.bbR = aVar;
     }
 
     public com.baidu.live.data.a JL() {
-        return this.bcn;
+        return this.bcp;
     }
 
     public void f(com.baidu.live.data.a aVar) {
-        this.bcn = aVar;
+        this.bcp = aVar;
     }
 
     public int getMsgType() {
@@ -209,28 +209,28 @@ public abstract class a implements IAdapterData {
 
     public void l(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() > 0) {
-            if (this.bco == null) {
-                this.bco = new ArrayList();
+            if (this.bcq == null) {
+                this.bcq = new ArrayList();
             }
             for (int i = 0; i < jSONArray.length(); i++) {
                 long optLong = jSONArray.optLong(i);
                 if (optLong > 0) {
-                    this.bco.add(Long.valueOf(optLong));
+                    this.bcq.add(Long.valueOf(optLong));
                 }
             }
         }
     }
 
     public List<Long> JM() {
-        return this.bco;
+        return this.bcq;
     }
 
     public boolean JN() {
-        return this.bcp;
+        return this.bcr;
     }
 
     public void bR(boolean z) {
-        this.bcp = z;
+        this.bcr = z;
     }
 
     public int JO() {
@@ -245,7 +245,7 @@ public abstract class a implements IAdapterData {
         return this.barrageId;
     }
 
-    public void gR(String str) {
+    public void gS(String str) {
         this.barrageId = str;
     }
 
@@ -266,34 +266,34 @@ public abstract class a implements IAdapterData {
     }
 
     public long JS() {
-        return this.bcq;
-    }
-
-    public void aj(long j) {
-        this.bcq = j;
-    }
-
-    public double JT() {
-        return this.bcr;
-    }
-
-    public void o(double d) {
-        this.bcr = d;
-    }
-
-    public long JU() {
         return this.bcs;
     }
 
-    public void ak(long j) {
+    public void aj(long j) {
         this.bcs = j;
     }
 
-    public boolean JV() {
+    public double JT() {
         return this.bct;
     }
 
+    public void o(double d) {
+        this.bct = d;
+    }
+
+    public long JU() {
+        return this.bcu;
+    }
+
+    public void ak(long j) {
+        this.bcu = j;
+    }
+
+    public boolean JV() {
+        return this.bcv;
+    }
+
     public void JW() {
-        this.bct = true;
+        this.bcv = true;
     }
 }

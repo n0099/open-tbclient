@@ -9,7 +9,7 @@ import android.widget.RelativeLayout;
 import com.baidu.tieba.R;
 /* loaded from: classes17.dex */
 public class RecordLayout extends RelativeLayout {
-    private a mBn;
+    private a mBF;
     private float mDownX;
     private int mFlingDistance;
     private int mMaximumVelocity;
@@ -18,9 +18,9 @@ public class RecordLayout extends RelativeLayout {
 
     /* loaded from: classes17.dex */
     public interface a {
-        void dDu();
+        void dDD();
 
-        void dDv();
+        void dDE();
     }
 
     public RecordLayout(Context context) {
@@ -56,21 +56,21 @@ public class RecordLayout extends RelativeLayout {
                 break;
             case 1:
             case 3:
-                if (this.mBn != null) {
+                if (this.mBF != null) {
                     this.mVelocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
                     float xVelocity = this.mVelocityTracker.getXVelocity();
                     int rawX = (int) (motionEvent.getRawX() - this.mDownX);
                     if (Math.abs(xVelocity) > this.mMinimumVelocity && Math.abs(rawX) > this.mFlingDistance) {
                         if (rawX > 0) {
-                            this.mBn.dDv();
+                            this.mBF.dDE();
                         } else {
-                            this.mBn.dDu();
+                            this.mBF.dDD();
                         }
                     } else if (Math.abs(rawX) > 0.5d * com.baidu.adp.lib.util.l.getEquipmentWidth(getContext())) {
                         if (rawX > 0) {
-                            this.mBn.dDv();
+                            this.mBF.dDE();
                         } else {
-                            this.mBn.dDv();
+                            this.mBF.dDE();
                         }
                     }
                     this.mVelocityTracker.clear();
@@ -84,6 +84,6 @@ public class RecordLayout extends RelativeLayout {
     }
 
     public void setListener(a aVar) {
-        this.mBn = aVar;
+        this.mBF = aVar;
     }
 }

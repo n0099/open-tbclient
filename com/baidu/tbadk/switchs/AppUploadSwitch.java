@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class AppUploadSwitch extends a {
     public static final String KEY = "upload_app_lists";
     public static final int TYPE_CLOSE = 0;

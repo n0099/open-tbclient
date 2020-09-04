@@ -4,11 +4,11 @@ import com.baidu.adp.lib.util.BdLog;
 import com.xiaomi.mipush.sdk.Constants;
 import org.json.JSONObject;
 import tbclient.TaskInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class bu {
-    private long eav;
-    private String eaw;
-    private String eax;
+    private String eaA;
+    private String eaB;
+    private long eaz;
     private long endTime;
     private long forumId;
     private String forumName;
@@ -27,7 +27,7 @@ public class bu {
     }
 
     public long bdW() {
-        return this.eav;
+        return this.eaz;
     }
 
     public long bdX() {
@@ -43,7 +43,7 @@ public class bu {
     }
 
     public String getThreadImgUrl() {
-        return this.eax;
+        return this.eaB;
     }
 
     public int bdY() {
@@ -64,9 +64,9 @@ public class bu {
             this.forumId = taskInfo.forum_id.longValue();
             this.taskId = taskInfo.task_id != null ? taskInfo.task_id.longValue() : -1L;
             this.threadId = taskInfo.thread_id != null ? taskInfo.thread_id.longValue() : -1L;
-            this.eaw = taskInfo.bgimg;
-            this.eax = taskInfo.thread_img;
-            this.eav = taskInfo.start_time != null ? taskInfo.start_time.longValue() : -1L;
+            this.eaA = taskInfo.bgimg;
+            this.eaB = taskInfo.thread_img;
+            this.eaz = taskInfo.start_time != null ? taskInfo.start_time.longValue() : -1L;
             this.endTime = taskInfo.end_time != null ? taskInfo.end_time.longValue() : -1L;
             String str = taskInfo.thread_img_size;
             if (str != null) {
@@ -95,10 +95,10 @@ public class bu {
                 this.forumId = jSONObject.optLong("forum_id");
                 this.taskId = jSONObject.optLong("task_id");
                 this.threadId = jSONObject.optLong("thread_id");
-                this.eaw = jSONObject.optString("bgimg");
-                this.eav = jSONObject.optLong("start_time");
+                this.eaA = jSONObject.optString("bgimg");
+                this.eaz = jSONObject.optLong("start_time");
                 this.endTime = jSONObject.optLong("end_time");
-                this.eax = jSONObject.optString("thread_img");
+                this.eaB = jSONObject.optString("thread_img");
                 String optString = jSONObject.optString("thread_img_size");
                 if (optString != null && optString.length() > 0) {
                     String[] split = optString.split(Constants.ACCEPT_TIME_SEPARATOR_SP);

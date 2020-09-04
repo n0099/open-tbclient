@@ -9,8 +9,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class a {
-    public b geA;
-    public C0610a gez;
+    public C0610a geD;
+    public b geE;
     public int status;
 
     public void parserJson(JSONObject jSONObject) {
@@ -18,13 +18,13 @@ public class a {
             this.status = jSONObject.optInt("status");
             JSONObject optJSONObject = jSONObject.optJSONObject("config");
             if (optJSONObject != null) {
-                this.gez = new C0610a();
-                this.gez.dn(optJSONObject);
+                this.geD = new C0610a();
+                this.geD.dn(optJSONObject);
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("rank");
             if (optJSONObject2 != null) {
-                this.geA = new b();
-                this.geA.dp(optJSONObject2);
+                this.geE = new b();
+                this.geE.dp(optJSONObject2);
             }
         }
     }
@@ -32,15 +32,15 @@ public class a {
     /* renamed from: com.baidu.tieba.ala.guardthrone.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
     public static class C0610a {
-        public String geB;
-        public String geC;
-        public String geD;
-        public String geE;
         public String geF;
-        public long geG;
-        public long geH;
-        public long geI;
-        public List<C0611a> geJ;
+        public String geG;
+        public String geH;
+        public String geI;
+        public String geJ;
+        public long geK;
+        public long geL;
+        public long geM;
+        public List<C0611a> geN;
         public long startTime;
         public String username;
 
@@ -60,36 +60,36 @@ public class a {
         public void dn(JSONObject jSONObject) {
             JSONArray optJSONArray = jSONObject.optJSONArray(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.geJ = new ArrayList();
+                this.geN = new ArrayList();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     C0611a c0611a = new C0611a();
                     c0611a.m41do(optJSONArray.optJSONObject(i));
-                    this.geJ.add(c0611a);
+                    this.geN.add(c0611a);
                 }
             }
             if (!jSONObject.isNull("portrait")) {
-                this.geB = jSONObject.optString("portrait");
+                this.geF = jSONObject.optString("portrait");
             }
             if (!jSONObject.isNull("user_name")) {
                 this.username = jSONObject.optString("user_name");
             }
             if (!jSONObject.isNull("guard_seat_user")) {
-                this.geF = jSONObject.optString("guard_seat_user");
+                this.geJ = jSONObject.optString("guard_seat_user");
             }
-            this.geC = jSONObject.optString("frame_pic");
-            this.geD = jSONObject.optString("time_text");
-            this.geE = jSONObject.optString("rule_url");
+            this.geG = jSONObject.optString("frame_pic");
+            this.geH = jSONObject.optString("time_text");
+            this.geI = jSONObject.optString("rule_url");
             this.startTime = jSONObject.optLong("start_time");
-            this.geG = jSONObject.optLong("count_down");
-            this.geH = jSONObject.optLong("effect_time");
-            this.geI = jSONObject.optLong("polling_time");
+            this.geK = jSONObject.optLong("count_down");
+            this.geL = jSONObject.optLong("effect_time");
+            this.geM = jSONObject.optLong("polling_time");
         }
     }
 
     /* loaded from: classes7.dex */
     public static class b {
-        public C0612a geK;
-        public List<C0613b> geL;
+        public C0612a geO;
+        public List<C0613b> geP;
 
         /* renamed from: com.baidu.tieba.ala.guardthrone.b.a$b$b  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
@@ -123,17 +123,17 @@ public class a {
             if (jSONObject != null) {
                 JSONArray optJSONArray = jSONObject.optJSONArray("list");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
-                    this.geL = new ArrayList();
+                    this.geP = new ArrayList();
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         C0613b c0613b = new C0613b();
                         c0613b.dr(optJSONArray.optJSONObject(i));
-                        this.geL.add(c0613b);
+                        this.geP.add(c0613b);
                     }
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("info");
                 if (optJSONObject != null) {
-                    this.geK = new C0612a();
-                    this.geK.dq(optJSONObject);
+                    this.geO = new C0612a();
+                    this.geO.dq(optJSONObject);
                 }
             }
         }

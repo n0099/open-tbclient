@@ -6,32 +6,32 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes18.dex */
 public class a {
-    private static b dRV = null;
-    private static a dRW = null;
-    private static boolean dRX = false;
-    private static String dRY = "";
-    private static transient List<String> dRZ = new ArrayList(5);
+    private static b dRZ = null;
+    private static a dSa = null;
+    private static boolean dSb = false;
+    private static String dSc = "";
+    private static transient List<String> dSd = new ArrayList(5);
 
     private a() {
     }
 
     public static a b(BaseFragmentActivity baseFragmentActivity) {
-        if (dRW == null) {
+        if (dSa == null) {
             synchronized (a.class) {
-                if (dRW == null) {
-                    dRW = new a();
-                    dRV = b.c(baseFragmentActivity);
+                if (dSa == null) {
+                    dSa = new a();
+                    dRZ = b.c(baseFragmentActivity);
                 }
             }
-        } else if (dRV != null) {
-            dRV.a(baseFragmentActivity.getPageContext());
+        } else if (dRZ != null) {
+            dRZ.a(baseFragmentActivity.getPageContext());
         }
-        if (dRX && dRV != null) {
-            dRV.baL();
-            dRV.baM();
-            dRX = false;
+        if (dSb && dRZ != null) {
+            dRZ.baL();
+            dRZ.baM();
+            dSb = false;
         }
-        return dRW;
+        return dSa;
     }
 
     public void a(boolean z, boolean z2, boolean z3, b.a aVar) {
@@ -42,72 +42,72 @@ public class a {
         if (z2) {
             baF();
         }
-        hB(z3);
+        hC(z3);
         a(aVar);
     }
 
     public void baE() {
         baI();
-        if (dRV != null) {
-            dRV.baL();
-            dRX = false;
+        if (dRZ != null) {
+            dRZ.baL();
+            dSb = false;
         }
     }
 
     public void baF() {
         baI();
-        if (dRV != null) {
-            dRV.baM();
-            dRX = false;
+        if (dRZ != null) {
+            dRZ.baM();
+            dSb = false;
         }
     }
 
-    public void hB(boolean z) {
+    public void hC(boolean z) {
         baI();
-        if (dRV != null) {
-            dRV.hB(z);
+        if (dRZ != null) {
+            dRZ.hC(z);
         }
     }
 
     public void a(b.a aVar) {
         baI();
-        if (dRV != null) {
-            dRV.c(aVar);
+        if (dRZ != null) {
+            dRZ.c(aVar);
         }
     }
 
     public void b(b.a aVar) {
         baI();
-        if (dRV != null) {
-            if (dRV.baJ()) {
-                dRV.c(aVar);
+        if (dRZ != null) {
+            if (dRZ.baJ()) {
+                dRZ.c(aVar);
             }
-            dRV.baK();
+            dRZ.baK();
         }
     }
 
     public void a(int i, b.a aVar) {
         baI();
-        if (dRV != null) {
-            if (dRV.baJ()) {
-                dRV.c(aVar);
+        if (dRZ != null) {
+            if (dRZ.baJ()) {
+                dRZ.c(aVar);
             }
-            dRV.mG(i);
+            dRZ.mG(i);
         }
     }
 
     public void baG() {
         baI();
-        if (dRV != null) {
-            dRV.baG();
-            dRX = true;
+        if (dRZ != null) {
+            dRZ.baG();
+            dSb = true;
         }
     }
 
     public void resetContext() {
         baI();
-        if (dRV != null) {
-            dRV.resetContext();
+        if (dRZ != null) {
+            dRZ.resetContext();
         }
     }
 
@@ -118,22 +118,22 @@ public class a {
     }
 
     private void baI() {
-        if (dRV == null) {
+        if (dRZ == null) {
         }
     }
 
     public static void resetAll() {
         try {
-            if (dRV != null) {
-                if (dRW != null) {
-                    dRW.baH();
+            if (dRZ != null) {
+                if (dSa != null) {
+                    dSa.baH();
                 }
-                dRV.removeCallBack();
-                dRV.baN();
-                dRV = null;
+                dRZ.removeCallBack();
+                dRZ.baN();
+                dRZ = null;
             }
-            if (dRW != null) {
-                dRW = null;
+            if (dSa != null) {
+                dSa = null;
             }
         } catch (Throwable th) {
             th.printStackTrace();

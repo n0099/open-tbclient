@@ -9,19 +9,19 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes7.dex */
 public class TopTipSeekBar extends SeekBar implements SeekBar.OnSeekBarChangeListener {
-    private TextView fBe;
-    private int fCe;
-    private int fCf;
-    private final int fCg;
-    private final int fCh;
-    private SeekBar.OnSeekBarChangeListener fpk;
+    private TextView fBi;
+    private int fCi;
+    private int fCj;
+    private final int fCk;
+    private final int fCl;
+    private SeekBar.OnSeekBarChangeListener fpo;
     private TextView mTipView;
 
     public void setProcessDiff(int i) {
-        this.fCe = i;
+        this.fCi = i;
         if (this.mTipView != null) {
             this.mTipView.setTranslationX(getThumb().getBounds().centerX() - (this.mTipView.getMeasuredWidth() / 2));
-            this.mTipView.setText((getProgress() - this.fCe) + "%");
+            this.mTipView.setText((getProgress() - this.fCi) + "%");
         }
     }
 
@@ -30,13 +30,13 @@ public class TopTipSeekBar extends SeekBar implements SeekBar.OnSeekBarChangeLis
     }
 
     public void setDefThumb(TextView textView) {
-        this.fBe = textView;
+        this.fBi = textView;
     }
 
     public void setDefThumbPos(int i) {
-        this.fCf = i;
-        if (this.fBe != null) {
-            this.fBe.setTranslationX(((((getMeasuredWidth() - this.fCg) * i) * 1.0f) / 100.0f) + this.fCh);
+        this.fCj = i;
+        if (this.fBi != null) {
+            this.fBi.setTranslationX(((((getMeasuredWidth() - this.fCk) * i) * 1.0f) / 100.0f) + this.fCl);
         }
     }
 
@@ -50,10 +50,10 @@ public class TopTipSeekBar extends SeekBar implements SeekBar.OnSeekBarChangeLis
 
     public TopTipSeekBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fCe = 0;
-        this.fCf = 50;
-        this.fCg = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds48);
-        this.fCh = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds20);
+        this.fCi = 0;
+        this.fCj = 50;
+        this.fCk = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds48);
+        this.fCl = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds20);
         initView(context, attributeSet);
     }
 
@@ -63,7 +63,7 @@ public class TopTipSeekBar extends SeekBar implements SeekBar.OnSeekBarChangeLis
 
     @Override // android.widget.SeekBar
     public void setOnSeekBarChangeListener(SeekBar.OnSeekBarChangeListener onSeekBarChangeListener) {
-        this.fpk = onSeekBarChangeListener;
+        this.fpo = onSeekBarChangeListener;
     }
 
     @Override // android.widget.AbsSeekBar, android.widget.ProgressBar, android.view.View
@@ -71,31 +71,31 @@ public class TopTipSeekBar extends SeekBar implements SeekBar.OnSeekBarChangeLis
         super.onDraw(canvas);
         if (this.mTipView != null) {
             this.mTipView.setTranslationX(getThumb().getBounds().centerX() - (this.mTipView.getMeasuredWidth() / 2));
-            this.mTipView.setText((getProgress() - this.fCe) + "%");
+            this.mTipView.setText((getProgress() - this.fCi) + "%");
         }
-        if (this.fBe != null) {
-            this.fBe.setTranslationX(((((getMeasuredWidth() - this.fCg) * this.fCf) * 1.0f) / 100.0f) + this.fCh);
+        if (this.fBi != null) {
+            this.fBi.setTranslationX(((((getMeasuredWidth() - this.fCk) * this.fCj) * 1.0f) / 100.0f) + this.fCl);
         }
     }
 
     @Override // android.widget.SeekBar.OnSeekBarChangeListener
     public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
-        if (this.fpk != null) {
-            this.fpk.onProgressChanged(seekBar, i, z);
+        if (this.fpo != null) {
+            this.fpo.onProgressChanged(seekBar, i, z);
         }
     }
 
     @Override // android.widget.SeekBar.OnSeekBarChangeListener
     public void onStartTrackingTouch(SeekBar seekBar) {
-        if (this.fpk != null) {
-            this.fpk.onStartTrackingTouch(seekBar);
+        if (this.fpo != null) {
+            this.fpo.onStartTrackingTouch(seekBar);
         }
     }
 
     @Override // android.widget.SeekBar.OnSeekBarChangeListener
     public void onStopTrackingTouch(SeekBar seekBar) {
-        if (this.fpk != null) {
-            this.fpk.onStopTrackingTouch(seekBar);
+        if (this.fpo != null) {
+            this.fpo.onStopTrackingTouch(seekBar);
         }
     }
 }

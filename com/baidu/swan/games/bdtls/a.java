@@ -13,7 +13,7 @@ public class a {
         return z;
     }
 
-    public boolean uE(String str) {
+    public boolean uF(String str) {
         return !TextUtils.isEmpty(str) && (str.contains("ma/game/od/get_user_cloud_storage") || str.contains("ma/game/od/set_user_cloud_storage"));
     }
 }

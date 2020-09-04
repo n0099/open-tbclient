@@ -7,33 +7,33 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes13.dex */
 public class d extends com.baidu.tbadk.editortools.emotiontool.a {
-    private static d hsZ = new d();
-    private LinkedList<com.baidu.tbadk.editortools.emotiontool.c> hta;
+    private static d htf = new d();
+    private LinkedList<com.baidu.tbadk.editortools.emotiontool.c> htg;
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
     public int getIndex() {
         return 1;
     }
 
-    public static synchronized d cen() {
+    public static synchronized d ceo() {
         d dVar;
         synchronized (d.class) {
-            dVar = hsZ;
+            dVar = htf;
         }
         return dVar;
     }
 
     public List<com.baidu.tbadk.editortools.emotiontool.c> getGroups() {
-        return this.hta;
+        return this.htg;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
     public void a(a.InterfaceC0552a interfaceC0552a) {
-        if (this.hta == null || this.hta.isEmpty()) {
-            this.hta = new LinkedList<>();
-            if (TbFaceManager.bsV().brK() > 0) {
+        if (this.htg == null || this.htg.isEmpty()) {
+            this.htg = new LinkedList<>();
+            if (TbFaceManager.bsW().brL() > 0) {
                 c cVar = new c();
-                this.hta.add(cVar);
+                this.htg.add(cVar);
                 if (interfaceC0552a != null) {
                     interfaceC0552a.a(cVar);
                     return;
@@ -42,7 +42,7 @@ public class d extends com.baidu.tbadk.editortools.emotiontool.a {
             }
             return;
         }
-        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.hta.iterator();
+        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.htg.iterator();
         while (it.hasNext()) {
             com.baidu.tbadk.editortools.emotiontool.c next = it.next();
             if (interfaceC0552a != null) {
@@ -56,6 +56,6 @@ public class d extends com.baidu.tbadk.editortools.emotiontool.a {
     }
 
     public boolean isEmpty() {
-        return this.hta == null || this.hta.size() == 0;
+        return this.htg == null || this.htg.size() == 0;
     }
 }

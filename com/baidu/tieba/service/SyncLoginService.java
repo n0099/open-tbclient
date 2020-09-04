@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.av;
 import com.baidu.tieba.g;
 import com.baidu.tieba.model.d;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class SyncLoginService extends BdBaseService {
     private static String mStatistics = null;
     private a mSyncTask = null;
@@ -62,12 +62,12 @@ public class SyncLoginService extends BdBaseService {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Integer, d> {
-        aa bDY;
+        aa bEb;
 
         private a() {
-            this.bDY = null;
+            this.bEb = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -78,39 +78,39 @@ public class SyncLoginService extends BdBaseService {
             d dVar;
             Exception e;
             try {
-                this.bDY = new aa(TbConfig.SERVER_ADDRESS + Config.SYNC_LOGIN);
-                this.bDY.addPostData("_os_version", Build.VERSION.RELEASE);
+                this.bEb = new aa(TbConfig.SERVER_ADDRESS + Config.SYNC_LOGIN);
+                this.bEb.addPostData("_os_version", Build.VERSION.RELEASE);
                 StringBuffer stringBuffer = new StringBuffer(15);
                 stringBuffer.append(String.valueOf(l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp())));
                 stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 stringBuffer.append(String.valueOf(l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp())));
-                this.bDY.addPostData("_phone_screen", stringBuffer.toString());
-                this.bDY.addPostData("scr_w", String.valueOf(l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp())));
-                this.bDY.addPostData("scr_h", String.valueOf(l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp())));
-                this.bDY.addPostData("scr_dip", String.valueOf(l.getEquipmentDensity(TbadkCoreApplication.getInst().getApp())));
+                this.bEb.addPostData("_phone_screen", stringBuffer.toString());
+                this.bEb.addPostData("scr_w", String.valueOf(l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp())));
+                this.bEb.addPostData("scr_h", String.valueOf(l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp())));
+                this.bEb.addPostData("scr_dip", String.valueOf(l.getEquipmentDensity(TbadkCoreApplication.getInst().getApp())));
                 if (com.baidu.tbadk.coreExtra.messageCenter.d.boy().boB() > 0) {
-                    this.bDY.addPostData("_msg_status", "0");
+                    this.bEb.addPostData("_msg_status", "0");
                 } else {
-                    this.bDY.addPostData("_msg_status", "1");
+                    this.bEb.addPostData("_msg_status", "1");
                 }
                 String activeVersion = TbadkCoreApplication.getInst().getActiveVersion();
                 if (activeVersion != null) {
                     if (activeVersion.length() < 1) {
                         activeVersion = "0";
                     }
-                    this.bDY.addPostData("_active", activeVersion);
+                    this.bEb.addPostData("_active", activeVersion);
                 }
-                this.bDY.addPostData("_pic_quality", String.valueOf(TbadkCoreApplication.getInst().getViewImageQuality()));
+                this.bEb.addPostData("_pic_quality", String.valueOf(TbadkCoreApplication.getInst().getViewImageQuality()));
                 if (SyncLoginService.mStatistics != null) {
-                    this.bDY.addPostData("_msg_type", SyncLoginService.mStatistics);
+                    this.bEb.addPostData("_msg_type", SyncLoginService.mStatistics);
                 }
                 String packageName = TbadkCoreApplication.getInst().getPackageName();
-                this.bDY.addPostData("package", packageName);
-                this.bDY.addPostData("versioncode", TbadkCoreApplication.getInst().getVersionCode() + "");
-                this.bDY.addPostData("signmd5", av.getAPKMd5(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
-                this.bDY.addPostData("md5", g.getTiebaApkMd5());
-                String postNetData = this.bDY.postNetData();
-                if (this.bDY.biQ().bjw().isRequestSuccess()) {
+                this.bEb.addPostData("package", packageName);
+                this.bEb.addPostData("versioncode", TbadkCoreApplication.getInst().getVersionCode() + "");
+                this.bEb.addPostData("signmd5", av.getAPKMd5(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
+                this.bEb.addPostData("md5", g.getTiebaApkMd5());
+                String postNetData = this.bEb.postNetData();
+                if (this.bEb.biQ().bjw().isRequestSuccess()) {
                     dVar = new d();
                     try {
                         dVar.parserJson(postNetData);
@@ -132,8 +132,8 @@ public class SyncLoginService extends BdBaseService {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             SyncLoginService.this.mSyncTask = null;
-            if (this.bDY != null) {
-                this.bDY.cancelNetConnect();
+            if (this.bEb != null) {
+                this.bEb.cancelNetConnect();
             }
             super.cancel(true);
         }

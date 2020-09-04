@@ -8,9 +8,9 @@ import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.task.b;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
-    private static int bnU = 1;
+    private static int bnX = 1;
 
     public static com.baidu.tbadk.task.a b(int i, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
         try {
@@ -43,7 +43,7 @@ public class a {
         bVar.setResponsedClass(cls);
         bVar.setNeedCompress(z);
         bVar.a(dupLicateMode);
-        bVar.setRetry(bnU);
+        bVar.setRetry(bnX);
         MessageManager.getInstance().unRegisterTask(i);
         MessageManager.getInstance().registerTask(bVar);
         bVar.setNeedEncrypt(z2);

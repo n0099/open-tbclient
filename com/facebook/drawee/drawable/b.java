@@ -7,9 +7,9 @@ import android.os.SystemClock;
 /* loaded from: classes4.dex */
 public class b extends g implements Runnable {
     private int mInterval;
-    private boolean non;
-    float noo;
-    private boolean nop;
+    private boolean noH;
+    float noI;
+    private boolean noJ;
 
     public b(Drawable drawable, int i) {
         this(drawable, i, true);
@@ -17,10 +17,10 @@ public class b extends g implements Runnable {
 
     public b(Drawable drawable, int i, boolean z) {
         super((Drawable) com.facebook.common.internal.g.checkNotNull(drawable));
-        this.noo = 0.0f;
-        this.nop = false;
+        this.noI = 0.0f;
+        this.noJ = false;
         this.mInterval = i;
-        this.non = z;
+        this.noH = z;
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
@@ -29,31 +29,31 @@ public class b extends g implements Runnable {
         Rect bounds = getBounds();
         int i = bounds.right - bounds.left;
         int i2 = bounds.bottom - bounds.top;
-        float f = this.noo;
-        if (!this.non) {
-            f = 360.0f - this.noo;
+        float f = this.noI;
+        if (!this.noH) {
+            f = 360.0f - this.noI;
         }
         canvas.rotate(f, (i / 2) + bounds.left, bounds.top + (i2 / 2));
         super.draw(canvas);
         canvas.restoreToCount(save);
-        dQi();
+        dQr();
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.nop = false;
-        this.noo += dQj();
+        this.noJ = false;
+        this.noI += dQs();
         invalidateSelf();
     }
 
-    private void dQi() {
-        if (!this.nop) {
-            this.nop = true;
+    private void dQr() {
+        if (!this.noJ) {
+            this.noJ = true;
             scheduleSelf(this, SystemClock.uptimeMillis() + 20);
         }
     }
 
-    private int dQj() {
+    private int dQs() {
         return (int) ((20.0f / this.mInterval) * 360.0f);
     }
 }

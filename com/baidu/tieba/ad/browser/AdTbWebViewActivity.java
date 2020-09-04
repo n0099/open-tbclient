@@ -51,13 +51,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes15.dex */
 public class AdTbWebViewActivity extends AdBaseWebViewActivity {
-    private static boolean fog = false;
+    private static boolean fok = false;
     private static HashMap<String, String> mShareToTypes = new HashMap<>();
     private com.baidu.tieba.tbadkCore.e.a jsBridge;
     private String mBid;
     private l mHybridBridge;
     private ValueCallback<Uri> mUploadMessage;
-    protected AdBaseWebView foh = null;
+    protected AdBaseWebView fol = null;
     private com.baidu.tieba.tbadkCore.e.c jsCallback = new com.baidu.tieba.tbadkCore.e.c() { // from class: com.baidu.tieba.ad.browser.AdTbWebViewActivity.1
         @Override // com.baidu.tieba.tbadkCore.e.c
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
@@ -186,9 +186,9 @@ public class AdTbWebViewActivity extends AdBaseWebViewActivity {
     @Override // com.baidu.tieba.ad.browser.AdBaseWebViewActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.foh != null) {
+        if (this.fol != null) {
             try {
-                this.foh.onResume();
+                this.fol.onResume();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -200,9 +200,9 @@ public class AdTbWebViewActivity extends AdBaseWebViewActivity {
     @Override // com.baidu.tieba.ad.browser.AdBaseWebViewActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        if (this.foh != null) {
+        if (this.fol != null) {
             try {
-                this.foh.onPause();
+                this.fol.onPause();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -212,43 +212,43 @@ public class AdTbWebViewActivity extends AdBaseWebViewActivity {
 
     @Override // com.baidu.tieba.ad.browser.AdBaseWebViewActivity
     public View createWebView() {
-        if (this.foh == null) {
-            this.foh = new AdBridgeWebView(getPageContext().getPageActivity());
-            bAV();
+        if (this.fol == null) {
+            this.fol = new AdBridgeWebView(getPageContext().getPageActivity());
+            bAW();
         }
-        return this.foh;
+        return this.fol;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bAV() {
-        this.foh.getSettings().setJavaScriptEnabled(true);
-        this.foh.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
-        this.foh.getSettings().setAllowFileAccess(true);
-        this.foh.getSettings().setDatabaseEnabled(true);
-        this.foh.getSettings().setDomStorageEnabled(true);
-        this.foh.getSettings().setSupportZoom(true);
-        this.foh.getSettings().setBuiltInZoomControls(true);
-        this.foh.getSettings().setUseWideViewPort(true);
-        this.foh.getSettings().setDatabasePath(getApplicationContext().getDir(NgWebView.APP_DATABASE_PATH, 0).getAbsolutePath());
-        this.foh.setHorizontalScrollBarEnabled(false);
-        this.foh.setHorizontalScrollbarOverlay(false);
-        this.foh.setInitialScale(100);
-        this.foh.setScrollBarStyle(33554432);
-        if (this.foh.getLayoutParams() == null) {
-            this.foh.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+    public void bAW() {
+        this.fol.getSettings().setJavaScriptEnabled(true);
+        this.fol.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
+        this.fol.getSettings().setAllowFileAccess(true);
+        this.fol.getSettings().setDatabaseEnabled(true);
+        this.fol.getSettings().setDomStorageEnabled(true);
+        this.fol.getSettings().setSupportZoom(true);
+        this.fol.getSettings().setBuiltInZoomControls(true);
+        this.fol.getSettings().setUseWideViewPort(true);
+        this.fol.getSettings().setDatabasePath(getApplicationContext().getDir(NgWebView.APP_DATABASE_PATH, 0).getAbsolutePath());
+        this.fol.setHorizontalScrollBarEnabled(false);
+        this.fol.setHorizontalScrollbarOverlay(false);
+        this.fol.setInitialScale(100);
+        this.fol.setScrollBarStyle(33554432);
+        if (this.fol.getLayoutParams() == null) {
+            this.fol.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         }
         a aVar = new a();
-        this.foh.setWebViewClient(aVar);
-        this.foh.setDownloadListener(new b());
+        this.fol.setWebViewClient(aVar);
+        this.fol.setDownloadListener(new b());
         com.baidu.tieba.ad.browser.b bVar = new com.baidu.tieba.ad.browser.b(this);
         bVar.setOnJsPromptCallback(this.jsCallback);
-        this.foh.setWebChromeClient(bVar);
+        this.fol.setWebChromeClient(bVar);
         if (this.mEnableJs) {
             addJavascriptInterface();
         }
-        CompatibleUtile.getInstance().removeJavascriptInterface(this.foh);
+        CompatibleUtile.getInstance().removeJavascriptInterface(this.fol);
         boolean isHybridBridgeEnabled = TbadkCoreApplication.getInst().isHybridBridgeEnabled();
-        l a2 = q.a(isHybridBridgeEnabled, this.foh, aVar, bVar, null);
+        l a2 = q.a(isHybridBridgeEnabled, this.fol, aVar, bVar, null);
         this.mHybridBridge = a2;
         if (isHybridBridgeEnabled) {
             a2.a(new n(a2) { // from class: com.baidu.tieba.ad.browser.AdTbWebViewActivity.2
@@ -289,7 +289,7 @@ public class AdTbWebViewActivity extends AdBaseWebViewActivity {
                         com.baidu.adp.lib.f.e.mS().post(new Runnable() { // from class: com.baidu.tieba.ad.browser.AdTbWebViewActivity.3.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                AdTbWebViewActivity.this.foe.a(createShareContent);
+                                AdTbWebViewActivity.this.foi.a(createShareContent);
                             }
                         });
                     }
@@ -311,7 +311,7 @@ public class AdTbWebViewActivity extends AdBaseWebViewActivity {
                         } else if ("0".equals(optString)) {
                             AdTbWebViewActivity.this.mShowShareItem = false;
                         }
-                        AdTbWebViewActivity.this.foe.hD(AdTbWebViewActivity.this.mShowShareItem);
+                        AdTbWebViewActivity.this.foi.hE(AdTbWebViewActivity.this.mShowShareItem);
                     }
                 }
             });
@@ -402,34 +402,34 @@ public class AdTbWebViewActivity extends AdBaseWebViewActivity {
 
     @Override // com.baidu.tieba.ad.browser.AdBaseWebViewActivity
     public View getWebView() {
-        return this.foh;
+        return this.fol;
     }
 
     @Override // com.baidu.tieba.ad.browser.AdBaseWebViewActivity
     public void loadUrl(String str) {
-        if (this.isShowFullScreen && this.foe != null) {
-            this.foe.setFullScreen();
+        if (this.isShowFullScreen && this.foi != null) {
+            this.foi.setFullScreen();
         }
-        if (this.foh != null) {
-            CompatibleUtile.getInstance().loadUrl(this.foh, str);
+        if (this.fol != null) {
+            CompatibleUtile.getInstance().loadUrl(this.fol, str);
         }
     }
 
     @Override // com.baidu.tieba.ad.browser.AdBaseWebViewActivity
     public void webViewDestory() {
         if (this.jsBridge != null) {
-            this.jsBridge.dxh();
+            this.jsBridge.dxm();
         }
-        if (this.foh != null) {
-            this.foh.getSettings().setBuiltInZoomControls(true);
-            this.foh.setVisibility(8);
+        if (this.fol != null) {
+            this.fol.getSettings().setBuiltInZoomControls(true);
+            this.fol.setVisibility(8);
             com.baidu.adp.lib.f.e.mS().postDelayed(new Runnable() { // from class: com.baidu.tieba.ad.browser.AdTbWebViewActivity.5
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
-                        if (AdTbWebViewActivity.this.foh != null) {
-                            AdTbWebViewActivity.this.foh.destroy();
-                            AdTbWebViewActivity.this.foh = null;
+                        if (AdTbWebViewActivity.this.fol != null) {
+                            AdTbWebViewActivity.this.fol.destroy();
+                            AdTbWebViewActivity.this.fol = null;
                         }
                     } catch (Throwable th) {
                         BdLog.e(th);
@@ -441,8 +441,8 @@ public class AdTbWebViewActivity extends AdBaseWebViewActivity {
 
     @Override // com.baidu.tieba.ad.browser.AdBaseWebViewActivity
     public boolean webViewGoBack() {
-        if (this.foh != null && this.foh.canGoBack()) {
-            this.foh.goBack();
+        if (this.fol != null && this.fol.canGoBack()) {
+            this.fol.goBack();
             return true;
         }
         return false;
@@ -455,9 +455,9 @@ public class AdTbWebViewActivity extends AdBaseWebViewActivity {
 
     @Override // com.baidu.tieba.ad.browser.AdBaseWebViewActivity
     public void onReceivedError(int i) {
-        if (this.foh != null) {
-            this.mUrl = this.foh.getUrl();
-            this.foh.stopLoading();
+        if (this.fol != null) {
+            this.mUrl = this.fol.getUrl();
+            this.fol.stopLoading();
         }
         hideProgressBar();
         showNoDataView();
@@ -493,8 +493,8 @@ public class AdTbWebViewActivity extends AdBaseWebViewActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void trackFPS() {
-        if (!fog) {
-            fog = true;
+        if (!fok) {
+            fok = true;
             g.bhN().a(16, new j() { // from class: com.baidu.tieba.ad.browser.AdTbWebViewActivity.6
                 @Override // com.baidu.tbadk.core.hybrid.j
                 public void aU(List<Long> list) {
@@ -524,11 +524,11 @@ public class AdTbWebViewActivity extends AdBaseWebViewActivity {
     @Override // com.baidu.tieba.ad.browser.AdBaseWebViewActivity
     protected void setFullScreen() {
         this.isShowFullScreen = true;
-        if (this.isShowFullScreen && this.foe != null) {
+        if (this.isShowFullScreen && this.foi != null) {
             runOnUiThread(new Runnable() { // from class: com.baidu.tieba.ad.browser.AdTbWebViewActivity.7
                 @Override // java.lang.Runnable
                 public void run() {
-                    AdTbWebViewActivity.this.foe.setFullScreen();
+                    AdTbWebViewActivity.this.foi.setFullScreen();
                 }
             });
         }
@@ -543,18 +543,18 @@ public class AdTbWebViewActivity extends AdBaseWebViewActivity {
         @Override // android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
             super.onPageFinished(webView, str);
-            if (AdTbWebViewActivity.this.foh != null) {
+            if (AdTbWebViewActivity.this.fol != null) {
                 AdTbWebViewActivity.this.mUrl = str;
-                AdTbWebViewActivity.this.foh.loadUrl("javascript:window.local_obj.getIfFullScreen(document.getElementsByName(\"fc_fullscreen\")[0].content);");
-                String title = AdTbWebViewActivity.this.foh.getTitle();
+                AdTbWebViewActivity.this.fol.loadUrl("javascript:window.local_obj.getIfFullScreen(document.getElementsByName(\"fc_fullscreen\")[0].content);");
+                String title = AdTbWebViewActivity.this.fol.getTitle();
                 if (!StringUtils.isNull(title)) {
                     AdTbWebViewActivity.this.mUrlTitle = title;
                 }
                 if (!AdTbWebViewActivity.this.isShowFullScreen) {
-                    AdTbWebViewActivity.this.foe.yI(AdTbWebViewActivity.this.mUrlTitle);
+                    AdTbWebViewActivity.this.foi.yJ(AdTbWebViewActivity.this.mUrlTitle);
                 }
-                AdTbWebViewActivity.this.foe.setNavBarVisibility(AdTbWebViewActivity.this.mIsShowNavBar);
-                AdTbWebViewActivity.this.foe.hD(AdTbWebViewActivity.this.isNeedShowShareItem());
+                AdTbWebViewActivity.this.foi.setNavBarVisibility(AdTbWebViewActivity.this.mIsShowNavBar);
+                AdTbWebViewActivity.this.foi.hE(AdTbWebViewActivity.this.isNeedShowShareItem());
                 AdTbWebViewActivity.this.hideProgressBar();
                 AdTbWebViewActivity.this.stopLoadTimer();
             }
@@ -563,8 +563,8 @@ public class AdTbWebViewActivity extends AdBaseWebViewActivity {
         @Override // android.webkit.WebViewClient
         public void onReceivedError(WebView webView, int i, String str, String str2) {
             super.onReceivedError(webView, i, str, str2);
-            if (AdTbWebViewActivity.this.foh != null) {
-                AdTbWebViewActivity.this.foh.stopLoading();
+            if (AdTbWebViewActivity.this.fol != null) {
+                AdTbWebViewActivity.this.fol.stopLoading();
                 AdTbWebViewActivity.this.stopLoadTimer();
                 AdTbWebViewActivity.this.onReceivedError(i);
             }
@@ -573,7 +573,7 @@ public class AdTbWebViewActivity extends AdBaseWebViewActivity {
         @Override // android.webkit.WebViewClient
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
             super.onPageStarted(webView, str, bitmap);
-            if (AdTbWebViewActivity.this.foh != null) {
+            if (AdTbWebViewActivity.this.fol != null) {
                 AdTbWebViewActivity.this.mUrl = str;
                 AdTbWebViewActivity.this.showProgressBar();
                 AdTbWebViewActivity.this.startLoadTimer();
@@ -585,7 +585,7 @@ public class AdTbWebViewActivity extends AdBaseWebViewActivity {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            int b = com.baidu.tieba.ad.a.bAT().b(AdTbWebViewActivity.this.getPageContext().getPageActivity(), new String[]{str});
+            int b = com.baidu.tieba.ad.a.bAU().b(AdTbWebViewActivity.this.getPageContext().getPageActivity(), new String[]{str});
             if (b == 1) {
                 AdTbWebViewActivity.this.finish();
                 return true;
@@ -598,7 +598,7 @@ public class AdTbWebViewActivity extends AdBaseWebViewActivity {
                     AdTbWebViewActivity.this.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.ad.browser.AdTbWebViewActivity.a.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            AdTbWebViewActivity.this.foe.bbA();
+                            AdTbWebViewActivity.this.foi.bbA();
                         }
                     });
                 }

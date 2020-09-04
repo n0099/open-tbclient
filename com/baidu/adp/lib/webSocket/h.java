@@ -139,7 +139,7 @@ public class h {
         this.Pt = new i();
         try {
             l lVar = new l();
-            lVar.ch(this.Ps);
+            lVar.ci(this.Ps);
             this.Pt.a(this.Pp, this.Pr, this.Pv, lVar, this.Pq);
             return true;
         } catch (WebSocketException e) {

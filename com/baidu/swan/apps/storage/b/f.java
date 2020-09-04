@@ -7,11 +7,11 @@ public class f extends a {
     @Override // com.baidu.swan.apps.storage.b.a
     @NonNull
     public String aCY() {
-        String rE = com.baidu.swan.apps.storage.b.rE(com.baidu.swan.apps.runtime.d.azE().getAppId());
-        if (TextUtils.isEmpty(rE)) {
+        String rF = com.baidu.swan.apps.storage.b.rF(com.baidu.swan.apps.runtime.d.azE().getAppId());
+        if (TextUtils.isEmpty(rF)) {
             return "";
         }
-        return rE;
+        return rF;
     }
 
     @Override // com.baidu.swan.apps.storage.b.d

@@ -12,20 +12,20 @@ import java.util.List;
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static String lF(String str) {
-        return bs(str, "swan_sub_package_zip");
-    }
-
-    public static String bq(String str, String str2) {
-        return lF(d.C0426d.bB(str, str2).getPath());
-    }
-
     public static String lG(String str) {
         return bs(str, "swan_sub_package_zip");
     }
 
+    public static String bq(String str, String str2) {
+        return lG(d.C0426d.bB(str, str2).getPath());
+    }
+
+    public static String lH(String str) {
+        return bs(str, "swan_sub_package_zip");
+    }
+
     public static String br(String str, String str2) {
-        return lG(a.c.bB(str, str2).getPath());
+        return lH(a.c.bB(str, str2).getPath());
     }
 
     private static String bs(String str, String str2) {
@@ -69,7 +69,7 @@ public class b {
         } else {
             a.b y = com.baidu.swan.apps.r.a.a.y(file);
             if (y.type != -1) {
-                unzipFile = com.baidu.swan.apps.r.a.a.a(y.cuY, file2, y.type).isSuccess;
+                unzipFile = com.baidu.swan.apps.r.a.a.a(y.cvc, file2, y.type).isSuccess;
             } else {
                 unzipFile = com.baidu.swan.c.d.unzipFile(file.getAbsolutePath(), file2.getAbsolutePath());
             }
@@ -91,6 +91,6 @@ public class b {
         if (list == null || list.isEmpty()) {
             return false;
         }
-        return list.get(0).dFo;
+        return list.get(0).dFs;
     }
 }

@@ -36,22 +36,22 @@ public class b {
             TiebaStatic.log(aqVar);
             return;
         }
-        Bundle bpw = shareEntity.bpw();
-        if (bpw != null) {
-            int i3 = bpw.getInt("obj_param1");
+        Bundle bpx = shareEntity.bpx();
+        if (bpx != null) {
+            int i3 = bpx.getInt("obj_param1");
             if (i3 != 0) {
                 aqVar.ai("obj_param1", i3);
                 if (i3 == 2) {
-                    aqVar.dD("fid", bpw.getString("fid"));
+                    aqVar.dD("fid", bpx.getString("fid"));
                 } else if (i3 == 3) {
-                    int i4 = bpw.getInt("obj_type");
+                    int i4 = bpx.getInt("obj_type");
                     if (i4 != 0) {
                         aqVar.ai("obj_type", i4);
                     }
-                    aqVar.dD("tid", bpw.getString("tid")).dD("fid", bpw.getString("fid"));
+                    aqVar.dD("tid", bpx.getString("tid")).dD("fid", bpx.getString("fid"));
                 }
             }
-            String string = bpw.getString(TiebaInitialize.Params.OBJ_URL);
+            String string = bpx.getString(TiebaInitialize.Params.OBJ_URL);
             if (!at.isEmpty(string)) {
                 aqVar.dD(TiebaInitialize.Params.OBJ_URL, string);
             }
@@ -86,11 +86,11 @@ public class b {
             TiebaStatic.log(aqVar);
             return;
         }
-        Bundle bpw = shareEntity.bpw();
-        if (bpw != null) {
-            aqVar.dD("tid", bpw.getString("tid"));
-            aqVar.dD("uid", bpw.getString("uid"));
-            aqVar.dD("fid", bpw.getString("fid"));
+        Bundle bpx = shareEntity.bpx();
+        if (bpx != null) {
+            aqVar.dD("tid", bpx.getString("tid"));
+            aqVar.dD("uid", bpx.getString("uid"));
+            aqVar.dD("fid", bpx.getString("fid"));
         }
         TiebaStatic.log(aqVar);
     }

@@ -16,16 +16,16 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
 /* loaded from: classes4.dex */
 public class a {
-    private AlaEnterEffectData gWG;
-    private InterfaceC0659a gWM;
-    private TextView gWP;
-    private TextView gWQ;
-    private TextView gWR;
-    private TextView gWS;
+    private AlaEnterEffectData gWK;
+    private InterfaceC0659a gWQ;
     private TextView gWT;
-    private LinearLayout gWU;
-    private LinearLayout gWV;
+    private TextView gWU;
+    private TextView gWV;
     private TextView gWW;
+    private TextView gWX;
+    private LinearLayout gWY;
+    private LinearLayout gWZ;
+    private TextView gXa;
     private Context mContext;
     private RelativeLayout mRootView;
 
@@ -38,106 +38,106 @@ public class a {
     public a(Context context, AlaEnterEffectData alaEnterEffectData) {
         if (alaEnterEffectData != null && context != null) {
             this.mContext = context;
-            this.gWG = alaEnterEffectData;
+            this.gWK = alaEnterEffectData;
             this.mRootView = (RelativeLayout) LayoutInflater.from(context).inflate(R.layout.ala_enter_effect_detail_view, (ViewGroup) null);
-            this.gWP = (TextView) this.mRootView.findViewById(R.id.effet_name_tv);
-            this.gWQ = (TextView) this.mRootView.findViewById(R.id.left_time_tv);
-            this.gWR = (TextView) this.mRootView.findViewById(R.id.live_room_tv);
-            this.gWS = (TextView) this.mRootView.findViewById(R.id.confirm_button_tv);
-            this.gWT = (TextView) this.mRootView.findViewById(R.id.t_dou_price);
-            this.gWU = (LinearLayout) this.mRootView.findViewById(R.id.t_dou_price_layout);
-            this.gWV = (LinearLayout) this.mRootView.findViewById(R.id.cur_t_dou_layout);
-            this.gWW = (TextView) this.mRootView.findViewById(R.id.cur_t_dou);
+            this.gWT = (TextView) this.mRootView.findViewById(R.id.effet_name_tv);
+            this.gWU = (TextView) this.mRootView.findViewById(R.id.left_time_tv);
+            this.gWV = (TextView) this.mRootView.findViewById(R.id.live_room_tv);
+            this.gWW = (TextView) this.mRootView.findViewById(R.id.confirm_button_tv);
+            this.gWX = (TextView) this.mRootView.findViewById(R.id.t_dou_price);
+            this.gWY = (LinearLayout) this.mRootView.findViewById(R.id.t_dou_price_layout);
+            this.gWZ = (LinearLayout) this.mRootView.findViewById(R.id.cur_t_dou_layout);
+            this.gXa = (TextView) this.mRootView.findViewById(R.id.cur_t_dou);
             d(alaEnterEffectData);
         }
     }
 
     public void d(AlaEnterEffectData alaEnterEffectData) {
         if (alaEnterEffectData != null) {
-            this.gWG = alaEnterEffectData;
-            this.gWS.setEnabled(true);
-            if (3 != this.gWG.categoryType) {
-                if (2 == this.gWG.categoryType) {
-                    this.gWS.setBackgroundResource(R.drawable.ala_enter_effect_tdou_bg);
-                    this.gWS.setTextColor(this.mContext.getResources().getColor(R.color.cp_bg_line_d));
-                    this.gWU.setVisibility(0);
-                    this.gWT.setText(AlaStringHelper.formatLowercasekDou(alaEnterEffectData.price));
+            this.gWK = alaEnterEffectData;
+            this.gWW.setEnabled(true);
+            if (3 != this.gWK.categoryType) {
+                if (2 == this.gWK.categoryType) {
+                    this.gWW.setBackgroundResource(R.drawable.ala_enter_effect_tdou_bg);
+                    this.gWW.setTextColor(this.mContext.getResources().getColor(R.color.cp_bg_line_d));
+                    this.gWY.setVisibility(0);
+                    this.gWX.setText(AlaStringHelper.formatLowercasekDou(alaEnterEffectData.price));
                     Drawable drawable = this.mContext.getResources().getDrawable(R.drawable.icon_huobi_tdou);
                     int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(R.dimen.ds36);
                     drawable.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
-                    this.gWT.setCompoundDrawablePadding(this.mContext.getResources().getDimensionPixelSize(R.dimen.ds12));
-                    this.gWT.setCompoundDrawables(drawable, null, null, null);
-                    this.gWV.setVisibility(0);
-                    this.gWW.setText(AlaStringHelper.formatLowercasekDou(TbadkCoreApplication.getInst().currentAccountTdouNum));
+                    this.gWX.setCompoundDrawablePadding(this.mContext.getResources().getDimensionPixelSize(R.dimen.ds12));
+                    this.gWX.setCompoundDrawables(drawable, null, null, null);
+                    this.gWZ.setVisibility(0);
+                    this.gXa.setText(AlaStringHelper.formatLowercasekDou(TbadkCoreApplication.getInst().currentAccountTdouNum));
                     Drawable drawable2 = this.mContext.getResources().getDrawable(R.drawable.icon_huobi_tdou);
                     int dimensionPixelSize2 = this.mContext.getResources().getDimensionPixelSize(R.dimen.ds24);
                     drawable2.setBounds(0, 0, dimensionPixelSize2, dimensionPixelSize2);
-                    this.gWW.setCompoundDrawablePadding(this.mContext.getResources().getDimensionPixelSize(R.dimen.ds4));
-                    this.gWW.setCompoundDrawables(drawable2, null, null, null);
+                    this.gXa.setCompoundDrawablePadding(this.mContext.getResources().getDimensionPixelSize(R.dimen.ds4));
+                    this.gXa.setCompoundDrawables(drawable2, null, null, null);
                 } else {
-                    this.gWR.setVisibility(0);
-                    this.gWS.setBackgroundResource(R.drawable.mark_ops_btn_bg_wear_selector);
-                    this.gWS.setTextColor(this.mContext.getResources().getColorStateList(R.color.mark_ops_btn_txt_wear_color));
+                    this.gWV.setVisibility(0);
+                    this.gWW.setBackgroundResource(R.drawable.mark_ops_btn_bg_wear_selector);
+                    this.gWW.setTextColor(this.mContext.getResources().getColorStateList(R.color.mark_ops_btn_txt_wear_color));
                 }
             }
-            if (this.gWG.isOwn) {
-                if (this.gWG.isUsing()) {
-                    this.gWS.setBackgroundResource(R.drawable.mark_ops_btn_bg_unwear_selector);
-                    this.gWS.setTextColor(this.mContext.getResources().getColorStateList(R.color.mark_ops_btn_txt_unwear_color));
-                    this.gWS.setText(R.string.ala_stop_use);
-                    if (2 == this.gWG.categoryType) {
-                        this.gWV.setVisibility(8);
+            if (this.gWK.isOwn) {
+                if (this.gWK.isUsing()) {
+                    this.gWW.setBackgroundResource(R.drawable.mark_ops_btn_bg_unwear_selector);
+                    this.gWW.setTextColor(this.mContext.getResources().getColorStateList(R.color.mark_ops_btn_txt_unwear_color));
+                    this.gWW.setText(R.string.ala_stop_use);
+                    if (2 == this.gWK.categoryType) {
+                        this.gWZ.setVisibility(8);
                     }
                 } else {
-                    this.gWS.setText(R.string.ala_immediate_use);
+                    this.gWW.setText(R.string.ala_immediate_use);
                 }
-            } else if (3 == this.gWG.categoryType) {
-                this.gWS.setText(R.string.ala_nobility_open);
-                this.gWQ.setText(this.mContext.getString(R.string.ala_enter_effect_nobility_open_tip, alaEnterEffectData.nobilityName));
-            } else if (2 == this.gWG.categoryType) {
-                if (TbadkCoreApplication.getInst().currentAccountTdouNum >= this.gWG.price) {
-                    this.gWS.setText(R.string.ala_enter_effect_tdou_buy);
+            } else if (3 == this.gWK.categoryType) {
+                this.gWW.setText(R.string.ala_nobility_open);
+                this.gWU.setText(this.mContext.getString(R.string.ala_enter_effect_nobility_open_tip, alaEnterEffectData.nobilityName));
+            } else if (2 == this.gWK.categoryType) {
+                if (TbadkCoreApplication.getInst().currentAccountTdouNum >= this.gWK.price) {
+                    this.gWW.setText(R.string.ala_enter_effect_tdou_buy);
                 } else {
-                    this.gWS.setText(R.string.ala_enter_effect_get_t_dou);
+                    this.gWW.setText(R.string.ala_enter_effect_get_t_dou);
                 }
             } else {
-                this.gWS.setBackgroundDrawable(null);
-                this.gWS.setTextColor(this.mContext.getResources().getColor(R.color.white_alpha60));
-                this.gWS.setText(R.string.ala_enter_effect_not_own);
-                this.gWS.setEnabled(false);
+                this.gWW.setBackgroundDrawable(null);
+                this.gWW.setTextColor(this.mContext.getResources().getColor(R.color.white_alpha60));
+                this.gWW.setText(R.string.ala_enter_effect_not_own);
+                this.gWW.setEnabled(false);
             }
-            this.gWS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.a.1
+            this.gWW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (a.this.gWM != null) {
-                        a.this.gWM.Nb();
+                    if (a.this.gWQ != null) {
+                        a.this.gWQ.Nb();
                     }
                 }
             });
             if (!StringUtils.isNull(alaEnterEffectData.name)) {
-                this.gWP.setText(alaEnterEffectData.name);
+                this.gWT.setText(alaEnterEffectData.name);
             }
             long currentTimeMillis = (alaEnterEffectData.end_time * 1000) - System.currentTimeMillis();
             if (currentTimeMillis >= 0) {
-                this.gWQ.setText(this.mContext.getResources().getString(R.string.ala_left_time, at.formatDayOrHourTime(currentTimeMillis)));
+                this.gWU.setText(this.mContext.getResources().getString(R.string.ala_left_time, at.formatDayOrHourTime(currentTimeMillis)));
             }
             if (!StringUtils.isNull(alaEnterEffectData.effect_range_name)) {
-                this.gWR.setText(alaEnterEffectData.effect_range_name);
+                this.gWV.setText(alaEnterEffectData.effect_range_name);
             }
         }
     }
 
-    public void GM(String str) {
-        if (this.gWG != null && 2 == this.gWG.categoryType && this.gWS != null) {
-            this.gWS.setText(str);
+    public void GN(String str) {
+        if (this.gWK != null && 2 == this.gWK.categoryType && this.gWW != null) {
+            this.gWW.setText(str);
         }
     }
 
-    public RelativeLayout bZb() {
+    public RelativeLayout bZc() {
         return this.mRootView;
     }
 
     public void a(InterfaceC0659a interfaceC0659a) {
-        this.gWM = interfaceC0659a;
+        this.gWQ = interfaceC0659a;
     }
 }

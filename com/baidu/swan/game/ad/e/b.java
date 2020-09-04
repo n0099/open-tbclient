@@ -13,7 +13,7 @@ import okhttp3.Response;
 import org.json.JSONObject;
 /* loaded from: classes19.dex */
 public class b implements com.baidu.swan.game.ad.a.b {
-    private boolean dlX;
+    private boolean dmb;
     private Context mContext;
 
     public b(Context context) {
@@ -22,8 +22,8 @@ public class b implements com.baidu.swan.game.ad.a.b {
 
     @Override // com.baidu.swan.game.ad.a.b
     public void a(String str, ResponseCallback<AdResponseInfo> responseCallback) {
-        this.dlX = str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
-        if (this.dlX) {
+        this.dmb = str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
+        if (this.dmb) {
             com.baidu.swan.a.c.a.aSW().getRequest().url(str).cookieManager(com.baidu.swan.apps.t.a.apj().aau()).build().executeAsync(responseCallback);
             return;
         }
@@ -31,7 +31,7 @@ public class b implements com.baidu.swan.game.ad.a.b {
     }
 
     @Override // com.baidu.swan.game.ad.a.b
-    public void tQ(String str) {
+    public void tR(String str) {
         ResponseCallback<String> responseCallback = new ResponseCallback<String>() { // from class: com.baidu.swan.game.ad.e.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -52,8 +52,8 @@ public class b implements com.baidu.swan.game.ad.a.b {
             public void onFail(Exception exc) {
             }
         };
-        this.dlX = str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
-        if (this.dlX) {
+        this.dmb = str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
+        if (this.dmb) {
             com.baidu.swan.a.c.a.aSW().getRequest().url(str).cookieManager(com.baidu.swan.apps.t.a.apj().aau()).build().executeAsync(responseCallback);
             return;
         }
@@ -61,7 +61,7 @@ public class b implements com.baidu.swan.game.ad.a.b {
     }
 
     @Override // com.baidu.swan.game.ad.a.b
-    public void tR(String str) {
+    public void tS(String str) {
         if (!TextUtils.isEmpty(str)) {
             com.baidu.swan.a.b.a aVar = new com.baidu.swan.a.b.a();
             aVar.method = "POST";
@@ -73,8 +73,8 @@ public class b implements com.baidu.swan.game.ad.a.b {
 
     @Override // com.baidu.swan.game.ad.a.b
     public void b(String str, ResponseCallback<com.baidu.swan.game.ad.c.a> responseCallback) {
-        this.dlX = str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
-        if (this.dlX) {
+        this.dmb = str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
+        if (this.dmb) {
             com.baidu.swan.a.c.a.aSW().getRequest().url(str).cookieManager(com.baidu.swan.apps.t.a.apj().aau()).build().executeAsync(responseCallback);
             return;
         }
@@ -83,8 +83,8 @@ public class b implements com.baidu.swan.game.ad.a.b {
 
     @Override // com.baidu.swan.game.ad.a.b
     public void a(String str, JSONObject jSONObject, ResponseCallback<AdResponseInfo> responseCallback) {
-        this.dlX = str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
-        if (this.dlX) {
+        this.dmb = str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
+        if (this.dmb) {
             ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) com.baidu.swan.a.c.a.aSW().postRequest().url(str)).cookieManager(com.baidu.swan.apps.t.a.apj().aau())).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(responseCallback);
             return;
         }

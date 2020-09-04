@@ -6,7 +6,7 @@ import com.baidu.swan.apps.u.c.b;
 /* loaded from: classes8.dex */
 public class a {
     @Deprecated
-    public static boolean kl(String str) {
+    public static boolean km(String str) {
         return (TextUtils.isEmpty(str) || str.contains(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS)) ? false : true;
     }
 
@@ -22,7 +22,7 @@ public class a {
         return bVar != null && bVar.getType() == 2;
     }
 
-    public static int km(String str) {
+    public static int kn(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -35,7 +35,7 @@ public class a {
         return str.contains("_trial") ? 2 : 0;
     }
 
-    public static String kn(String str) {
+    public static String ko(String str) {
         if (!TextUtils.isEmpty(str)) {
             int indexOf = str.indexOf("_dev");
             if (indexOf > 0) {
@@ -50,7 +50,7 @@ public class a {
         return str;
     }
 
-    public static String ko(String str) {
+    public static String kp(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }

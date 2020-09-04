@@ -10,37 +10,37 @@ import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.view.FollowUserButton;
 /* loaded from: classes15.dex */
 public class al<T extends AbsThreadDataSupport> extends af.a {
-    private com.baidu.tieba.card.aa<T> ahd;
-    private aj<T> ahe;
-    private aq ahf;
-    private t ahg;
-    private ai ahh;
-    private ac ahi;
-    private i ahj;
+    private com.baidu.tieba.card.aa<T> ahf;
+    private aj<T> ahg;
+    private aq ahh;
+    private t ahi;
+    private ai ahj;
+    private ac ahk;
+    private i ahl;
     private BdUniqueId mId;
     private aa mNegFeedBackItem;
 
     public al(aj<T> ajVar) {
         super(ajVar.getView());
-        this.ahe = ajVar;
+        this.ahg = ajVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.af.a
     public View getView() {
-        return this.ahe.getView();
+        return this.ahg.getView();
     }
 
     public aj<T> tR() {
-        return this.ahe;
+        return this.ahg;
     }
 
     private TbPageContext getTbPageContext() {
-        return ((TbPageContextSupport) this.ahe.getView().getContext()).getPageContext();
+        return ((TbPageContextSupport) this.ahg.getView().getContext()).getPageContext();
     }
 
     private void c(d dVar) {
         if (dVar != null && dVar.tB() != null) {
-            this.ahe.a(dVar);
+            this.ahg.a(dVar);
         }
     }
 
@@ -51,45 +51,45 @@ public class al<T extends AbsThreadDataSupport> extends af.a {
         }
         if (this.mNegFeedBackItem == null) {
             this.mNegFeedBackItem = new aa(getTbPageContext(), align);
-            this.mNegFeedBackItem.aga.setUniqueId(this.mId);
+            this.mNegFeedBackItem.agc.setUniqueId(this.mId);
             this.mNegFeedBackItem.a(aVar);
         }
         this.mNegFeedBackItem.a(align);
-        this.ahe.b(this.mNegFeedBackItem);
+        this.ahg.b(this.mNegFeedBackItem);
     }
 
     public aa aL(boolean z) {
         if (this.mNegFeedBackItem == null) {
             this.mNegFeedBackItem = new aa(getTbPageContext(), z);
-            this.mNegFeedBackItem.aga.setUniqueId(this.mId);
+            this.mNegFeedBackItem.agc.setUniqueId(this.mId);
         }
-        this.ahe.b(this.mNegFeedBackItem);
+        this.ahg.b(this.mNegFeedBackItem);
         return this.mNegFeedBackItem;
     }
 
     public void a(boolean z, Align align) {
         if (!z) {
-            c(this.ahf);
+            c(this.ahh);
             return;
         }
-        if (this.ahf == null) {
-            this.ahf = new aq(getTbPageContext(), align);
+        if (this.ahh == null) {
+            this.ahh = new aq(getTbPageContext(), align);
         }
-        this.ahf.a(align);
-        this.ahe.b(this.ahf);
+        this.ahh.a(align);
+        this.ahg.b(this.ahh);
     }
 
     public void a(boolean z, FollowUserButton.a aVar) {
         if (!z) {
-            c(this.ahj);
+            c(this.ahl);
             return;
         }
-        if (this.ahj == null) {
-            this.ahj = new i(getTbPageContext(), com.baidu.tbadk.a.d.bad());
-            this.ahj.setOnClickEvent(aVar);
+        if (this.ahl == null) {
+            this.ahl = new i(getTbPageContext(), com.baidu.tbadk.a.d.bad());
+            this.ahl.setOnClickEvent(aVar);
         }
-        this.ahj.setPageUniqueId(this.mId);
-        this.ahe.b(this.ahj);
+        this.ahl.setPageUniqueId(this.mId);
+        this.ahg.b(this.ahl);
     }
 
     public t tS() {
@@ -97,37 +97,37 @@ public class al<T extends AbsThreadDataSupport> extends af.a {
     }
 
     public t aM(boolean z) {
-        if (this.ahg == null) {
-            this.ahg = new t(this.ahe.getContext());
+        if (this.ahi == null) {
+            this.ahi = new t(this.ahg.getContext());
         }
-        this.ahg.h(this.mId);
-        this.ahg.aI(z);
-        this.ahe.b(this.ahg);
-        return this.ahg;
+        this.ahi.h(this.mId);
+        this.ahi.aI(z);
+        this.ahg.b(this.ahi);
+        return this.ahi;
     }
 
     public ai tT() {
-        if (this.ahh == null) {
-            this.ahh = new ai(getTbPageContext());
-            this.ahh.setPageId(this.mId);
+        if (this.ahj == null) {
+            this.ahj = new ai(getTbPageContext());
+            this.ahj.setPageId(this.mId);
         }
-        this.ahe.b(this.ahh);
-        return this.ahh;
+        this.ahg.b(this.ahj);
+        return this.ahj;
     }
 
     public ac by(int i) {
-        if (this.ahi == null) {
-            this.ahi = new ac(this.ahe.getView().getContext(), i);
-            this.ahi.setPageId(this.mId);
+        if (this.ahk == null) {
+            this.ahk = new ac(this.ahg.getView().getContext(), i);
+            this.ahk.setPageId(this.mId);
         }
-        this.ahe.b(this.ahi);
-        return this.ahi;
+        this.ahg.b(this.ahk);
+        return this.ahk;
     }
 
     public void b(T t) {
         boolean z = false;
         if (t == null) {
-            this.ahe.getView().setVisibility(8);
+            this.ahg.getView().setVisibility(8);
             return;
         }
         if (t.bce() != null) {
@@ -136,37 +136,37 @@ public class al<T extends AbsThreadDataSupport> extends af.a {
         if (t.bce() != null && t.bce().beE() != null) {
             t.bce().beE().getName_show();
         }
-        this.ahe.getView().setVisibility(0);
-        if (this.mNegFeedBackItem != null && this.mNegFeedBackItem.aga != null) {
+        this.ahg.getView().setVisibility(0);
+        if (this.mNegFeedBackItem != null && this.mNegFeedBackItem.agc != null) {
             if (!t.isSelf() && t.bcg() != null) {
                 this.mNegFeedBackItem.f(t);
                 this.mNegFeedBackItem.F(t.bcg());
-                this.mNegFeedBackItem.aga.setVisibility(0);
+                this.mNegFeedBackItem.agc.setVisibility(0);
                 z = true;
-            } else if (this.mNegFeedBackItem != null && this.mNegFeedBackItem.aga != null) {
-                this.mNegFeedBackItem.aga.setVisibility(8);
+            } else if (this.mNegFeedBackItem != null && this.mNegFeedBackItem.agc != null) {
+                this.mNegFeedBackItem.agc.setVisibility(8);
             }
         }
-        if (this.ahf != null) {
-            this.ahf.f(t);
-            this.ahf.F(t.bce());
-        }
         if (this.ahh != null) {
-            this.ahh.aK(z);
+            this.ahh.f(t);
             this.ahh.F(t.bce());
         }
-        if (this.ahg != null) {
-            this.ahg.F(t.bce());
-        }
-        if (this.ahi != null) {
-            this.ahi.f(t);
-            this.ahi.F(t.bce());
-        }
         if (this.ahj != null) {
-            this.ahj.a(t, z);
+            this.ahj.aK(z);
             this.ahj.F(t.bce());
         }
-        this.ahe.g(t);
+        if (this.ahi != null) {
+            this.ahi.F(t.bce());
+        }
+        if (this.ahk != null) {
+            this.ahk.f(t);
+            this.ahk.F(t.bce());
+        }
+        if (this.ahl != null) {
+            this.ahl.a(t, z);
+            this.ahl.F(t.bce());
+        }
+        this.ahg.g(t);
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
@@ -174,7 +174,7 @@ public class al<T extends AbsThreadDataSupport> extends af.a {
     }
 
     public void b(com.baidu.tieba.card.aa<T> aaVar) {
-        this.ahd = aaVar;
-        this.ahe.a(aaVar);
+        this.ahf = aaVar;
+        this.ahg.a(aaVar);
     }
 }

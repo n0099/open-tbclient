@@ -5,12 +5,12 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes6.dex */
 public class a {
-    public static View oPI = null;
+    public static View oQa = null;
 
     /* renamed from: tv.chushou.zues.widget.kpswitch.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     public interface InterfaceC1018a {
-        void yt(boolean z);
+        void yv(boolean z);
     }
 
     public static void a(final View view, final View view2, final View view3, final InterfaceC1018a interfaceC1018a) {
@@ -21,7 +21,7 @@ public class a {
                 public void onClick(View view4) {
                     boolean a = a.a(view2, view, view3);
                     if (interfaceC1018a != null) {
-                        interfaceC1018a.yt(a);
+                        interfaceC1018a.yv(a);
                     }
                 }
             });
@@ -59,7 +59,7 @@ public class a {
         boolean z = true;
         boolean z2 = view2.getVisibility() != 0;
         if (!z2) {
-            if (oPI == null || oPI == view) {
+            if (oQa == null || oQa == view) {
                 e(view2, view3);
                 z = z2;
             }
@@ -67,7 +67,7 @@ public class a {
             dL(view2);
             z = z2;
         }
-        oPI = view;
+        oQa = view;
         return z;
     }
 

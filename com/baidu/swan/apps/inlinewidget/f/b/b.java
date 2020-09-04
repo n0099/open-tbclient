@@ -6,24 +6,24 @@ import com.baidu.swan.apps.inlinewidget.f.b.a.c;
 import com.baidu.swan.apps.performance.HybridUbcFlow;
 /* loaded from: classes8.dex */
 public class b {
-    private static final com.baidu.swan.apps.inlinewidget.f.b.a.a cuv = new com.baidu.swan.apps.inlinewidget.f.b.a.b();
-    private static volatile com.baidu.swan.apps.inlinewidget.f.b.a.a cuw = cuv;
+    private static final com.baidu.swan.apps.inlinewidget.f.b.a.a cuz = new com.baidu.swan.apps.inlinewidget.f.b.a.b();
+    private static volatile com.baidu.swan.apps.inlinewidget.f.b.a.a cuA = cuz;
 
     @NonNull
     public static com.baidu.swan.apps.inlinewidget.f.b.a.a aok() {
-        return cuw;
+        return cuA;
     }
 
     private static void a(@NonNull com.baidu.swan.apps.inlinewidget.f.b.a.a aVar) {
-        cuw = aVar;
+        cuA = aVar;
     }
 
-    public static void nc(String str) {
+    public static void nd(String str) {
         a(new c(str));
     }
 
     public static void aol() {
-        a(cuv);
+        a(cuz);
     }
 
     public static void aom() {
@@ -40,7 +40,7 @@ public class b {
         @Override // com.baidu.swan.apps.ap.e.b
         /* renamed from: a */
         public void I(HybridUbcFlow hybridUbcFlow) {
-            b.aok().ew(TextUtils.equals(hybridUbcFlow.avw().optString("type"), "3") || hybridUbcFlow.na("na_first_meaningful_paint"));
+            b.aok().ex(TextUtils.equals(hybridUbcFlow.avw().optString("type"), "3") || hybridUbcFlow.nb("na_first_meaningful_paint"));
         }
     }
 }

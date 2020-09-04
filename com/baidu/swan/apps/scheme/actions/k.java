@@ -33,7 +33,7 @@ public class k extends aa {
             com.baidu.swan.apps.console.c.e("GetLocalImgDataAction", "GetLocalImgDataAction bdfile path null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (com.baidu.swan.apps.storage.b.rJ(optString) != PathType.BD_FILE) {
+        } else if (com.baidu.swan.apps.storage.b.rK(optString) != PathType.BD_FILE) {
             com.baidu.swan.apps.console.c.e("GetLocalImgDataAction", "invalid path : " + optString);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(null, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND, com.baidu.swan.apps.scheme.f.getErrMessage(UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND));
             return false;

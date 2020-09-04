@@ -9,7 +9,7 @@ import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import com.baidu.tieba.video.VideoTitleData;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class PostWriteCallBackData implements Serializable {
     public static final int COPY_TW_ZHIBO_TAG = 3;
     public static final int ERROR_ANTI_USER = 340016;

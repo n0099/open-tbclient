@@ -28,9 +28,9 @@ import org.json.JSONObject;
 /* loaded from: classes19.dex */
 public class b extends com.baidu.swan.impl.map.a.a<g> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private WeakReference<e> dCq;
-    private String dCr;
-    private String dCs;
+    private WeakReference<e> dCu;
+    private String dCv;
+    private String dCw;
 
     public static b aSg() {
         return new b();
@@ -47,23 +47,23 @@ public class b extends com.baidu.swan.impl.map.a.a<g> {
             c.e("map", "cb is empty");
             return false;
         }
-        this.dCr = gVar.cxT;
+        this.dCv = gVar.cxX;
         if (DEBUG) {
-            Log.e("WalkNavigationAction", "mGuideDownloadKey = " + this.dCr);
+            Log.e("WalkNavigationAction", "mGuideDownloadKey = " + this.dCv);
         }
-        this.dCs = gVar.cxU;
+        this.dCw = gVar.cxY;
         if (DEBUG) {
-            Log.e("WalkNavigationAction", "mGuideIconPath = " + this.dCs);
+            Log.e("WalkNavigationAction", "mGuideIconPath = " + this.dCw);
         }
-        if (com.baidu.swan.apps.storage.b.rJ(this.dCs) == PathType.BD_FILE) {
-            this.dCs = com.baidu.swan.apps.storage.b.cn(this.dCs, com.baidu.swan.apps.runtime.e.azK());
+        if (com.baidu.swan.apps.storage.b.rK(this.dCw) == PathType.BD_FILE) {
+            this.dCw = com.baidu.swan.apps.storage.b.cn(this.dCw, com.baidu.swan.apps.runtime.e.azK());
         }
         if (!SwanAppNetworkUtils.isNetworkConnected(context)) {
             c.w("map", "no network");
             bVar.g(str, 1003, "no network");
             return false;
         }
-        this.dCq = new WeakReference<>(f.arY().ahn());
+        this.dCu = new WeakReference<>(f.arY().ahn());
         d.a(context, new d.a() { // from class: com.baidu.swan.impl.map.location.a.b.1
             @Override // com.baidu.swan.impl.map.a.b.d.a
             public void onSuccess() {
@@ -168,7 +168,7 @@ public class b extends com.baidu.swan.impl.map.a.a<g> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Activity activity, LatLng latLng, final com.baidu.swan.apps.w.b bVar, final g gVar) {
-        com.baidu.swan.impl.map.location.b.b.a(activity, latLng, new LatLng(gVar.cxS.latitude, gVar.cxS.longitude), new b.a() { // from class: com.baidu.swan.impl.map.location.a.b.5
+        com.baidu.swan.impl.map.location.b.b.a(activity, latLng, new LatLng(gVar.cxW.latitude, gVar.cxW.longitude), new b.a() { // from class: com.baidu.swan.impl.map.location.a.b.5
             @Override // com.baidu.swan.impl.map.location.b.b.a
             public void aSh() {
                 com.baidu.swan.apps.console.c.i("map", "walk navigation onPrepareStart ");
@@ -180,24 +180,24 @@ public class b extends com.baidu.swan.impl.map.a.a<g> {
                 Bundle bundle;
                 com.baidu.swan.apps.console.c.i("map", "walk navigation onPrepareSuccess ");
                 e ahn = f.arY().ahn();
-                if (b.this.dCq == null || ahn != b.this.dCq.get()) {
+                if (b.this.dCu == null || ahn != b.this.dCu.get()) {
                     bVar.g(gVar.callBack, 1001, "open navigation canceled on another page");
                     return;
                 }
                 SDKInitializer.setCoordType(CoordType.GCJ02);
-                if (TextUtils.isEmpty(b.this.dCr) && TextUtils.isEmpty(b.this.dCs)) {
+                if (TextUtils.isEmpty(b.this.dCv) && TextUtils.isEmpty(b.this.dCw)) {
                     bundle = null;
                 } else {
                     bundle = new Bundle();
-                    bundle.putString("guideKey", b.this.dCr);
-                    bundle.putString("guideIcon", b.this.dCs);
+                    bundle.putString("guideKey", b.this.dCv);
+                    bundle.putString("guideIcon", b.this.dCw);
                 }
                 com.baidu.swan.impl.map.location.b.a.ac(bundle).aRL();
                 bVar.d(gVar.callBack, null);
             }
 
             @Override // com.baidu.swan.impl.map.location.b.b.a
-            public void wt(String str) {
+            public void wu(String str) {
                 com.baidu.swan.apps.console.c.i("map", "walk navigation onPrepareFailed ");
                 SDKInitializer.setCoordType(CoordType.GCJ02);
                 if (str.contains("the distance is less than 30 meters")) {

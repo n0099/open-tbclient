@@ -8,7 +8,7 @@ import com.baidu.swan.apps.storage.c.g;
 /* loaded from: classes8.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private g csL;
+    private g csP;
     private SharedPreferences.Editor mEditor;
 
     /* loaded from: classes8.dex */
@@ -17,17 +17,17 @@ public class c {
     }
 
     private c() {
-        this.csL = new g("aiapps_guide_dialog_sp");
-        this.mEditor = this.csL.edit();
+        this.csP = new g("aiapps_guide_dialog_sp");
+        this.mEditor = this.csP.edit();
     }
 
     /* loaded from: classes8.dex */
     private static final class b {
-        private static final c csM = new c();
+        private static final c csQ = new c();
     }
 
     public static c anB() {
-        return b.csM;
+        return b.csQ;
     }
 
     public void a(@NonNull Activity activity, String str, String str2, a aVar) {

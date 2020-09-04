@@ -9,13 +9,13 @@ import android.view.View;
 import android.widget.FrameLayout;
 /* loaded from: classes8.dex */
 public class DragView extends FrameLayout {
-    private int baP;
-    private int dcK;
-    private int dcL;
-    private a dcM;
-    private int dcN;
-    private boolean dcO;
+    private int baR;
+    private int dcO;
     private int dcP;
+    private a dcQ;
+    private int dcR;
+    private boolean dcS;
+    private int dcT;
     private View mChildView;
     private int mLastMotionY;
     private float mSensitivity;
@@ -32,28 +32,28 @@ public class DragView extends FrameLayout {
 
     public DragView(Context context) {
         super(context);
-        this.dcN = 300;
+        this.dcR = 300;
         this.mSensitivity = 0.5f;
-        this.dcO = true;
-        this.dcP = Integer.MIN_VALUE;
+        this.dcS = true;
+        this.dcT = Integer.MIN_VALUE;
         init();
     }
 
     public DragView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dcN = 300;
+        this.dcR = 300;
         this.mSensitivity = 0.5f;
-        this.dcO = true;
-        this.dcP = Integer.MIN_VALUE;
+        this.dcS = true;
+        this.dcT = Integer.MIN_VALUE;
         init();
     }
 
     public DragView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.dcN = 300;
+        this.dcR = 300;
         this.mSensitivity = 0.5f;
-        this.dcO = true;
-        this.dcP = Integer.MIN_VALUE;
+        this.dcS = true;
+        this.dcT = Integer.MIN_VALUE;
         init();
     }
 
@@ -74,9 +74,9 @@ public class DragView extends FrameLayout {
             @Override // android.support.v4.widget.ViewDragHelper.Callback
             public void onViewReleased(View view, float f, float f2) {
                 if (DragView.this.mChildView != null) {
-                    int top = DragView.this.mChildView.getTop() - DragView.this.dcL;
-                    if (Math.abs(top) <= DragView.this.dcN) {
-                        DragView.this.mViewDragHelper.smoothSlideViewTo(DragView.this.getChildAt(0), DragView.this.dcK, DragView.this.dcL);
+                    int top = DragView.this.mChildView.getTop() - DragView.this.dcP;
+                    if (Math.abs(top) <= DragView.this.dcR) {
+                        DragView.this.mViewDragHelper.smoothSlideViewTo(DragView.this.getChildAt(0), DragView.this.dcO, DragView.this.dcP);
                     } else if (top < 0) {
                         DragView.this.mViewDragHelper.smoothSlideViewTo(DragView.this.getChildAt(0), 0, -DragView.this.mChildView.getMeasuredHeight());
                     } else {
@@ -89,14 +89,14 @@ public class DragView extends FrameLayout {
             @Override // android.support.v4.widget.ViewDragHelper.Callback
             public void onViewPositionChanged(View view, int i, int i2, int i3, int i4) {
                 super.onViewPositionChanged(view, i, i2, i3, i4);
-                if (DragView.this.dcM != null) {
-                    DragView.this.dcM.ij(i2 - DragView.this.dcL);
+                if (DragView.this.dcQ != null) {
+                    DragView.this.dcQ.ij(i2 - DragView.this.dcP);
                 }
             }
 
             @Override // android.support.v4.widget.ViewDragHelper.Callback
             public boolean tryCaptureView(View view, int i) {
-                return DragView.this.dcO;
+                return DragView.this.dcS;
             }
 
             @Override // android.support.v4.widget.ViewDragHelper.Callback
@@ -106,8 +106,8 @@ public class DragView extends FrameLayout {
 
             @Override // android.support.v4.widget.ViewDragHelper.Callback
             public int clampViewPositionVertical(View view, int i, int i2) {
-                if (i < DragView.this.dcP) {
-                    return DragView.this.dcP;
+                if (i < DragView.this.dcT) {
+                    return DragView.this.dcT;
                 }
                 return i;
             }
@@ -116,10 +116,10 @@ public class DragView extends FrameLayout {
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.dcO) {
+        if (this.dcS) {
             this.mViewDragHelper.processTouchEvent(motionEvent);
-            if (this.dcM != null) {
-                this.dcM.z(motionEvent);
+            if (this.dcQ != null) {
+                this.dcQ.z(motionEvent);
             }
             return true;
         }
@@ -128,7 +128,7 @@ public class DragView extends FrameLayout {
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (!this.dcO) {
+        if (!this.dcS) {
             return super.onInterceptTouchEvent(motionEvent);
         }
         int action = motionEvent.getAction();
@@ -137,11 +137,11 @@ public class DragView extends FrameLayout {
         if (motionEvent.getPointerCount() < 2) {
             switch (action) {
                 case 0:
-                    this.baP = x;
+                    this.baR = x;
                     this.mLastMotionY = y;
                     break;
                 case 2:
-                    if (Math.abs(y - this.mLastMotionY) <= Math.abs(x - this.baP)) {
+                    if (Math.abs(y - this.mLastMotionY) <= Math.abs(x - this.baR)) {
                         return false;
                     }
                     break;
@@ -160,23 +160,23 @@ public class DragView extends FrameLayout {
     public void computeScroll() {
         if (this.mViewDragHelper.continueSettling(true)) {
             ViewCompat.postInvalidateOnAnimation(this);
-        } else if (this.mChildView != null && Math.abs(this.mChildView.getTop() - this.dcL) >= this.dcN && this.dcM != null) {
-            this.dcM.onClose();
+        } else if (this.mChildView != null && Math.abs(this.mChildView.getTop() - this.dcP) >= this.dcR && this.dcQ != null) {
+            this.dcQ.onClose();
         }
     }
 
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        this.dcK = getLeft();
-        this.dcL = getTop();
+        this.dcO = getLeft();
+        this.dcP = getTop();
     }
 
     public void setOnCloseListener(a aVar) {
-        this.dcM = aVar;
+        this.dcQ = aVar;
     }
 
     public void setTopMinValue(int i) {
-        this.dcP = i;
+        this.dcT = i;
     }
 }

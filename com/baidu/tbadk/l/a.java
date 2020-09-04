@@ -1,11 +1,11 @@
 package com.baidu.tbadk.l;
 
 import com.baidu.tbadk.core.BaseFragment;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
-    private BaseFragment eRa;
+    private BaseFragment eRe;
 
     public a(BaseFragment baseFragment) {
-        this.eRa = baseFragment;
+        this.eRe = baseFragment;
     }
 }

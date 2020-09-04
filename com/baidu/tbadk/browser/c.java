@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.hybrid.o;
 import com.xiaomi.mipush.sdk.Constants;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c extends n {
     public c(l lVar) {
         super(lVar);

@@ -5,21 +5,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class z {
-    private View aQM;
-    private int eVA;
-    private boolean eVB;
+    private View aQO;
+    private int eVE;
+    private boolean eVF;
     private final Handler mHandler;
 
-    public void bvE() {
+    public void bvF() {
         this.mHandler.removeMessages(2);
         if (!this.mHandler.hasMessages(1)) {
             this.mHandler.sendEmptyMessageDelayed(1, 60L);
         }
     }
 
-    public void bvF() {
+    public void bvG() {
         this.mHandler.removeMessages(1);
         if (!this.mHandler.hasMessages(2)) {
             this.mHandler.sendEmptyMessageDelayed(2, 110L);
@@ -27,29 +27,29 @@ public class z {
     }
 
     public void hideFloatingView(boolean z) {
-        if (this.aQM != null) {
-            if (z || this.aQM.getVisibility() != 8) {
-                bvF();
+        if (this.aQO != null) {
+            if (z || this.aQO.getVisibility() != 8) {
+                bvG();
             }
         }
     }
 
     public void showFloatingView(boolean z) {
-        if (this.aQM != null) {
-            if (z || this.aQM.getVisibility() != 0) {
-                bvE();
+        if (this.aQO != null) {
+            if (z || this.aQO.getVisibility() != 0) {
+                bvF();
             }
         }
     }
 
     public void onScroll(int i, int i2) {
-        if (this.aQM != null) {
-            if (i != 0 && i2 > i && this.aQM.getVisibility() != 8) {
+        if (this.aQO != null) {
+            if (i != 0 && i2 > i && this.aQO.getVisibility() != 8) {
                 hideFloatingView(false);
-            } else if ((i == 0 || i2 < i) && this.aQM.getVisibility() != 0) {
+            } else if ((i == 0 || i2 < i) && this.aQO.getVisibility() != 0) {
                 showFloatingView(false);
             }
-            this.eVA = i;
+            this.eVE = i;
         }
     }
 
@@ -63,12 +63,12 @@ public class z {
             } else {
                 return;
             }
-            if (firstVisiblePosition > this.eVA) {
+            if (firstVisiblePosition > this.eVE) {
                 hideFloatingView(true);
-            } else if (firstVisiblePosition < this.eVA) {
+            } else if (firstVisiblePosition < this.eVE) {
                 showFloatingView(true);
-            } else if (firstVisiblePosition == this.eVA) {
-                if (firstVisiblePosition == 0 || !this.eVB) {
+            } else if (firstVisiblePosition == this.eVE) {
+                if (firstVisiblePosition == 0 || !this.eVF) {
                     showFloatingView(true);
                 } else {
                     hideFloatingView(true);

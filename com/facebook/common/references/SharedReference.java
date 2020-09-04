@@ -7,39 +7,39 @@ import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes9.dex */
 public class SharedReference<T> {
     @GuardedBy("itself")
-    private static final Map<Object, Integer> nle = new IdentityHashMap();
+    private static final Map<Object, Integer> nlw = new IdentityHashMap();
     @GuardedBy("this")
     private int mRefCount = 1;
     @GuardedBy("this")
     private T mValue;
-    private final c<T> nkS;
+    private final c<T> nlk;
 
     public SharedReference(T t, c<T> cVar) {
         this.mValue = (T) g.checkNotNull(t);
-        this.nkS = (c) g.checkNotNull(cVar);
+        this.nlk = (c) g.checkNotNull(cVar);
         aT(t);
     }
 
     private static void aT(Object obj) {
-        synchronized (nle) {
-            Integer num = nle.get(obj);
+        synchronized (nlw) {
+            Integer num = nlw.get(obj);
             if (num == null) {
-                nle.put(obj, 1);
+                nlw.put(obj, 1);
             } else {
-                nle.put(obj, Integer.valueOf(num.intValue() + 1));
+                nlw.put(obj, Integer.valueOf(num.intValue() + 1));
             }
         }
     }
 
     private static void aU(Object obj) {
-        synchronized (nle) {
-            Integer num = nle.get(obj);
+        synchronized (nlw) {
+            Integer num = nlw.get(obj);
             if (num == null) {
                 com.facebook.common.c.a.k("SharedReference", "No entry in sLiveObjects for value of type %s", obj.getClass());
             } else if (num.intValue() == 1) {
-                nle.remove(obj);
+                nlw.remove(obj);
             } else {
-                nle.put(obj, Integer.valueOf(num.intValue() - 1));
+                nlw.put(obj, Integer.valueOf(num.intValue() - 1));
             }
         }
     }
@@ -56,31 +56,31 @@ public class SharedReference<T> {
         return sharedReference != null && sharedReference.isValid();
     }
 
-    public synchronized void dOL() {
-        dOO();
+    public synchronized void dOU() {
+        dOX();
         this.mRefCount++;
     }
 
-    public void dOM() {
+    public void dOV() {
         T t;
-        if (dON() == 0) {
+        if (dOW() == 0) {
             synchronized (this) {
                 t = this.mValue;
                 this.mValue = null;
             }
-            this.nkS.release(t);
+            this.nlk.release(t);
             aU(t);
         }
     }
 
-    private synchronized int dON() {
-        dOO();
+    private synchronized int dOW() {
+        dOX();
         g.checkArgument(this.mRefCount > 0);
         this.mRefCount--;
         return this.mRefCount;
     }
 
-    private void dOO() {
+    private void dOX() {
         if (!a(this)) {
             throw new NullReferenceException();
         }

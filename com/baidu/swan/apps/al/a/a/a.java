@@ -62,7 +62,7 @@ public class a extends aa {
             c.i("accelerometer", " init ");
             final k kVar = new k("accelerometerChange", optParamsAsJo, optString);
             com.baidu.swan.apps.al.a.a aDw = com.baidu.swan.apps.al.a.a.aDw();
-            aDw.m(context, a.C0363a.jT(optParamsAsJo.optString("interval")));
+            aDw.m(context, a.C0363a.jU(optParamsAsJo.optString("interval")));
             aDw.a(new a.InterfaceC0337a() { // from class: com.baidu.swan.apps.al.a.a.a.1
                 @Override // com.baidu.swan.apps.al.a.a.InterfaceC0337a
                 public void b(double[] dArr) {

@@ -5,16 +5,16 @@ import java.util.HashMap;
 /* loaded from: classes16.dex */
 public class g {
     private static boolean enabled = true;
-    private static HashMap<String, Integer> iNR = new HashMap<>();
+    private static HashMap<String, Integer> iNX = new HashMap<>();
 
-    public static void JK(String str) {
+    public static void JL(String str) {
         if (!TextUtils.isEmpty(str)) {
-            iNR.put(str, 0);
+            iNX.put(str, 0);
         }
     }
 
-    public static int cyh() {
-        return iNR.size();
+    public static int cyi() {
+        return iNX.size();
     }
 
     public static boolean isEnabled() {
@@ -24,11 +24,11 @@ public class g {
     public static void setEnabled(boolean z) {
         enabled = z;
         if (!enabled) {
-            iNR.clear();
+            iNX.clear();
         }
     }
 
-    public static void cyi() {
-        iNR.clear();
+    public static void cyj() {
+        iNX.clear();
     }
 }

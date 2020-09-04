@@ -18,7 +18,7 @@ public class q {
             return;
         }
         a = true;
-        com.cmic.sso.sdk.c.c.a.dNj().a(aVar.b("isNeedToGetCert", true), aVar, new com.cmic.sso.sdk.c.c.d() { // from class: com.cmic.sso.sdk.e.q.1
+        com.cmic.sso.sdk.c.c.a.dNs().a(aVar.b("isNeedToGetCert", true), aVar, new com.cmic.sso.sdk.c.c.d() { // from class: com.cmic.sso.sdk.e.q.1
             @Override // com.cmic.sso.sdk.c.c.d
             public void j(String str, String str2, JSONObject jSONObject) {
                 try {
@@ -43,11 +43,11 @@ public class q {
         String str4;
         String str5;
         String str6 = null;
-        k.a dNp = k.dNp();
+        k.a dNy = k.dNy();
         try {
-            dNp.a("getConfigDate", p.b());
+            dNy.a("getConfigDate", p.b());
             if (jSONObject.has("client_valid")) {
-                dNp.a("client_valid", (Integer.valueOf(jSONObject.getString("client_valid")).intValue() * 60 * 60 * 1000) + System.currentTimeMillis());
+                dNy.a("client_valid", (Integer.valueOf(jSONObject.getString("client_valid")).intValue() * 60 * 60 * 1000) + System.currentTimeMillis());
             }
             if (jSONObject.has("Configlist")) {
                 JSONObject jSONObject2 = jSONObject.getJSONObject("Configlist");
@@ -81,14 +81,14 @@ public class q {
                                 str2 = null;
                             }
                             c.a("UmcConfigUtil", "HTTP:" + str5 + "||||||||HTTPS:" + str2);
-                            dNp.a("httpHost", str5);
-                            dNp.a("httpsHost", str2);
+                            dNy.a("httpHost", str5);
+                            dNy.a("httpsHost", str2);
                         }
                         str5 = null;
                         str2 = null;
                         c.a("UmcConfigUtil", "HTTP:" + str5 + "||||||||HTTPS:" + str2);
-                        dNp.a("httpHost", str5);
-                        dNp.a("httpsHost", str2);
+                        dNy.a("httpHost", str5);
+                        dNy.a("httpsHost", str2);
                     } else {
                         str2 = null;
                     }
@@ -111,7 +111,7 @@ public class q {
                             str = str.substring(str.lastIndexOf(ETAG.EQUAL) + 1);
                         }
                         c.a("UmcConfigUtil", "HTTPS:" + str);
-                        dNp.a("logHost", str);
+                        dNy.a("logHost", str);
                     } else {
                         str = null;
                     }
@@ -147,7 +147,7 @@ public class q {
                             str6 = str6.substring(str6.indexOf(":") + 1, str6.indexOf(Constants.ACCEPT_TIME_SEPARATOR_SP));
                         }
                         c.a("UmcConfigUtil", "log CERT:");
-                        dNp.a(SapiUtils.COOKIE_HTTPS_URL_PREFIX + str + "/log/logReport", str6);
+                        dNy.a(SapiUtils.COOKIE_HTTPS_URL_PREFIX + str + "/log/logReport", str6);
                     }
                     if (string2.contains("log1.cmpassport.com")) {
                         int length4 = split3.length;
@@ -167,7 +167,7 @@ public class q {
                             str6 = str6.substring(str6.indexOf(":") + 1, str6.indexOf(Constants.ACCEPT_TIME_SEPARATOR_SP));
                         }
                         c.a("UmcConfigUtil", "log1 CERT:");
-                        dNp.a("https://log1.cmpassport.com:9443/log/logReport", str6);
+                        dNy.a("https://log1.cmpassport.com:9443/log/logReport", str6);
                     }
                     if (TextUtils.isEmpty(str2) || !str2.contains(":")) {
                         charSequence2 = str2;
@@ -194,7 +194,7 @@ public class q {
                             str6 = str6.substring(str6.indexOf(":") + 1, str6.indexOf(Constants.ACCEPT_TIME_SEPARATOR_SP));
                         }
                         c.a("UmcConfigUtil", "httpsHost CERT:");
-                        dNp.a(SapiUtils.COOKIE_HTTPS_URL_PREFIX + str2 + "/unisdk", str6);
+                        dNy.a(SapiUtils.COOKIE_HTTPS_URL_PREFIX + str2 + "/unisdk", str6);
                     }
                     if (string2.contains("onekey1.cmpassport.com")) {
                         int length6 = split3.length;
@@ -214,32 +214,32 @@ public class q {
                             str3 = str3.substring(str3.indexOf(":") + 1, str3.indexOf(Constants.ACCEPT_TIME_SEPARATOR_SP));
                         }
                         c.a("UmcConfigUtil", "omekey1 CERT:");
-                        dNp.a("https://onekey1.cmpassport.com/unisdk", str3);
+                        dNy.a("https://onekey1.cmpassport.com/unisdk", str3);
                     }
                 }
-                a(jSONObject2, "CLOSE_CERT_VERIFY", "0", dNp);
-                a(jSONObject2, "CLOSE_FRIEND_WAPKS", "0", dNp);
-                a(jSONObject2, "CLOSE_LOGS_VERSION", "0", dNp);
-                a(jSONObject2, "CLOSE_IPV4_LIST", "0", dNp);
-                a(jSONObject2, "CLOSE_IPV6_LIST", "1", dNp);
-                a(jSONObject2, "CLOSE_M001_SDKVERSION_LIST", "0", dNp);
-                a(jSONObject2, "CLOSE_M001_APPID_LIST", "0", dNp);
-                a(jSONObject2, "CLOSE_M005_SDKVERSION_LIST", "0", dNp);
-                a(jSONObject2, "CLOSE_M005_APPID_LIST", "0", dNp);
+                a(jSONObject2, "CLOSE_CERT_VERIFY", "0", dNy);
+                a(jSONObject2, "CLOSE_FRIEND_WAPKS", "0", dNy);
+                a(jSONObject2, "CLOSE_LOGS_VERSION", "0", dNy);
+                a(jSONObject2, "CLOSE_IPV4_LIST", "0", dNy);
+                a(jSONObject2, "CLOSE_IPV6_LIST", "1", dNy);
+                a(jSONObject2, "CLOSE_M001_SDKVERSION_LIST", "0", dNy);
+                a(jSONObject2, "CLOSE_M001_APPID_LIST", "0", dNy);
+                a(jSONObject2, "CLOSE_M005_SDKVERSION_LIST", "0", dNy);
+                a(jSONObject2, "CLOSE_M005_APPID_LIST", "0", dNy);
                 if (jSONObject2.has("LOGS_CONTROL")) {
                     String[] split4 = jSONObject2.getString("LOGS_CONTROL").replace("h", "").split(ETAG.ITEM_SEPARATOR);
                     if (split4.length > 0 && !TextUtils.isEmpty(split4[0])) {
-                        dNp.a("maxFailedLogTimes", Integer.parseInt(split4[0]));
+                        dNy.a("maxFailedLogTimes", Integer.parseInt(split4[0]));
                     }
                     if (1 < split4.length && !TextUtils.isEmpty(split4[1])) {
-                        dNp.a("pauseTime", Integer.parseInt(split4[1]));
+                        dNy.a("pauseTime", Integer.parseInt(split4[1]));
                     }
                 }
             }
         } catch (Exception e) {
             c.a("UmcConfigUtil", e.getMessage());
         } finally {
-            dNp.b();
+            dNy.b();
         }
     }
 

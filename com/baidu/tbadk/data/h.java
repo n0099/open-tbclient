@@ -1,7 +1,7 @@
 package com.baidu.tbadk.data;
 
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class h {
     private String link;
     private TbPageContext pageContext;

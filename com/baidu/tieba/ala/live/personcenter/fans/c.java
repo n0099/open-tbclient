@@ -15,9 +15,9 @@ import com.baidu.live.tbadk.core.view.HeadImageView;
 import java.util.Iterator;
 /* loaded from: classes7.dex */
 public class c extends b {
-    private View.OnClickListener fRl;
-    private Drawable ghq;
-    private boolean ghr;
+    private View.OnClickListener fRp;
+    private Drawable ghu;
+    private boolean ghv;
     private Context mContext;
     private TbPageContext mPageContext;
     private int mSex;
@@ -25,28 +25,28 @@ public class c extends b {
     public c(TbPageContext tbPageContext, boolean z, int i) {
         this.mPageContext = tbPageContext;
         this.mContext = this.mPageContext.getPageActivity();
-        this.ghr = z;
+        this.ghv = z;
         this.mSex = i;
-        this.ghq = this.mContext.getResources().getDrawable(a.f.sdk_prc_btn_focus_cross_bg);
+        this.ghu = this.mContext.getResources().getDrawable(a.f.sdk_prc_btn_focus_cross_bg);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.ghp) {
+        if (this.ght) {
             return 1;
         }
-        if (this.efX == null) {
+        if (this.egb == null) {
             return 0;
         }
-        return this.efX.size();
+        return this.egb.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.efX == null) {
+        if (this.egb == null) {
             return null;
         }
-        return this.efX.get(i);
+        return this.egb.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -56,8 +56,8 @@ public class c extends b {
 
     public void a(e eVar) {
         if (eVar != null) {
-            this.efX = eVar.bdx();
-            bLC();
+            this.egb = eVar.bdx();
+            bLD();
             notifyDataSetChanged();
         }
     }
@@ -68,45 +68,45 @@ public class c extends b {
         if (view == null) {
             aVar = new a();
             view = LayoutInflater.from(this.mContext).inflate(a.h.sdk_prc_person_list_item, (ViewGroup) null);
-            aVar.ghs = (LinearLayout) view.findViewById(a.g.info);
-            aVar.fRH = (HeadImageView) view.findViewById(a.g.photo);
-            aVar.fRH.setIsRound(true);
-            aVar.fRH.setAutoChangeStyle(false);
-            aVar.fRH.setClickable(false);
+            aVar.ghw = (LinearLayout) view.findViewById(a.g.info);
+            aVar.fRL = (HeadImageView) view.findViewById(a.g.photo);
+            aVar.fRL.setIsRound(true);
+            aVar.fRL.setAutoChangeStyle(false);
+            aVar.fRL.setClickable(false);
             aVar.mName = (TextView) view.findViewById(a.g.name);
-            aVar.fRI = (TextView) view.findViewById(a.g.intro);
-            aVar.aZQ = (TextView) view.findViewById(a.g.attention_btn);
-            aVar.ght = (TextView) view.findViewById(a.g.at_list_nodata);
+            aVar.fRM = (TextView) view.findViewById(a.g.intro);
+            aVar.aZS = (TextView) view.findViewById(a.g.attention_btn);
+            aVar.ghx = (TextView) view.findViewById(a.g.at_list_nodata);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
-        if (this.ghp) {
-            aVar.ghs.setVisibility(8);
-            aVar.ght.setVisibility(0);
-            if (this.ghr) {
-                aVar.ght.setText(a.i.sdk_prc_not_have_fans);
+        if (this.ght) {
+            aVar.ghw.setVisibility(8);
+            aVar.ghx.setVisibility(0);
+            if (this.ghv) {
+                aVar.ghx.setText(a.i.sdk_prc_not_have_fans);
             } else if (this.mSex == 2) {
-                aVar.ght.setText(a.i.sdk_prc_her_no_fan_other);
+                aVar.ghx.setText(a.i.sdk_prc_her_no_fan_other);
             } else if (this.mSex == 1) {
-                aVar.ght.setText(a.i.sdk_prc_him_no_fan_other);
+                aVar.ghx.setText(a.i.sdk_prc_him_no_fan_other);
             } else {
-                aVar.ght.setText(a.i.sdk_prc_no_fan_other);
+                aVar.ghx.setText(a.i.sdk_prc_no_fan_other);
             }
         } else {
-            aVar.ght.setVisibility(8);
-            aVar.ghs.setVisibility(0);
-            com.baidu.tieba.ala.live.personcenter.fans.a aVar2 = (com.baidu.tieba.ala.live.personcenter.fans.a) ListUtils.getItem(this.efX, i);
+            aVar.ghx.setVisibility(8);
+            aVar.ghw.setVisibility(0);
+            com.baidu.tieba.ala.live.personcenter.fans.a aVar2 = (com.baidu.tieba.ala.live.personcenter.fans.a) ListUtils.getItem(this.egb, i);
             if (aVar2 != null) {
-                aVar.fRH.startLoad(aVar2.portrait, 12, false);
+                aVar.fRL.startLoad(aVar2.portrait, 12, false);
                 aVar.mName.setText(aVar2.getNameShow());
                 if (StringHelper.isEmpty(aVar2.intro)) {
-                    aVar.fRI.setVisibility(8);
+                    aVar.fRM.setVisibility(8);
                 } else {
-                    aVar.fRI.setVisibility(0);
-                    aVar.fRI.setText(aVar2.intro);
+                    aVar.fRM.setVisibility(0);
+                    aVar.fRM.setText(aVar2.intro);
                 }
-                b(aVar.aZQ, aVar2.bLB(), i);
+                b(aVar.aZS, aVar2.bLC(), i);
             }
         }
         return view;
@@ -119,12 +119,12 @@ public class c extends b {
     }
 
     public void t(View.OnClickListener onClickListener) {
-        this.fRl = onClickListener;
+        this.fRp = onClickListener;
     }
 
     public void at(String str, boolean z) {
-        if (this.efX != null && str != null) {
-            Iterator<com.baidu.tieba.ala.live.personcenter.fans.a> it = this.efX.iterator();
+        if (this.egb != null && str != null) {
+            Iterator<com.baidu.tieba.ala.live.personcenter.fans.a> it = this.egb.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
@@ -132,9 +132,9 @@ public class c extends b {
                 com.baidu.tieba.ala.live.personcenter.fans.a next = it.next();
                 if (next != null && str.equals(next.userId)) {
                     if (z) {
-                        next.ghn = 1;
+                        next.ghr = 1;
                     } else {
-                        next.ghn = 0;
+                        next.ghr = 0;
                     }
                 }
             }
@@ -144,11 +144,11 @@ public class c extends b {
 
     /* loaded from: classes7.dex */
     private static class a {
-        public TextView aZQ;
-        public HeadImageView fRH;
-        public TextView fRI;
-        public LinearLayout ghs;
-        public TextView ght;
+        public TextView aZS;
+        public HeadImageView fRL;
+        public TextView fRM;
+        public LinearLayout ghw;
+        public TextView ghx;
         public TextView mName;
 
         private a() {

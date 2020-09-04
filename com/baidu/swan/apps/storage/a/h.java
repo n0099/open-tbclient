@@ -40,13 +40,13 @@ public class h extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        int rL = eVar.azT().rL(cn2);
+        int rM = eVar.azT().rM(cn2);
         if (DEBUG) {
-            Log.d("RemoveSavedFileAction", "——> handle: statusCode " + rL);
+            Log.d("RemoveSavedFileAction", "——> handle: statusCode " + rM);
         }
-        if (rL > 2000) {
-            com.baidu.swan.apps.console.c.e("removeSavedFile", "file path status code : " + rL);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(rL, com.baidu.swan.apps.scheme.f.getErrMessage(rL)));
+        if (rM > 2000) {
+            com.baidu.swan.apps.console.c.e("removeSavedFile", "file path status code : " + rM);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(rM, com.baidu.swan.apps.scheme.f.getErrMessage(rM)));
             return false;
         } else if (com.baidu.swan.c.d.deleteFile(cn2)) {
             com.baidu.swan.apps.console.c.i("removeSavedFile", "file delete success");

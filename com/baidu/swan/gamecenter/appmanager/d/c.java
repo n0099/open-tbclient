@@ -11,15 +11,15 @@ public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static void a(String str, String str2, String str3, String str4, a aVar) {
-        String ut = b.ut(str2);
-        if (!TextUtils.isEmpty(ut)) {
+        String uu = b.uu(str2);
+        if (!TextUtils.isEmpty(uu)) {
             if (DEBUG) {
                 Log.d("GameCenterStatistic", "packageName:" + str + ";operation:" + str2 + ";value:" + str3 + ";errorCode:" + str4);
             }
             if (!TextUtils.isEmpty(str)) {
                 b bVar = new b();
                 bVar.a(aVar);
-                bVar.mType = ut;
+                bVar.mType = uu;
                 bVar.mValue = str3;
                 bVar.packageName = str;
                 bVar.mAppVersion = ak.getVersionName();

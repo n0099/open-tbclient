@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 import com.baidu.adp.widget.ListView.af;
 import com.baidu.adp.widget.ListView.e;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class h extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements r {
     private RecyclerView.Adapter Vv;
     RecyclerView.AdapterDataObserver Vw;

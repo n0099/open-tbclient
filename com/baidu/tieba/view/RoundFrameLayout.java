@@ -9,10 +9,10 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class RoundFrameLayout extends FrameLayout {
     private RectF Gl;
-    private Path mJJ;
+    private Path mKb;
 
     public RoundFrameLayout(Context context) {
         super(context);
@@ -31,7 +31,7 @@ public class RoundFrameLayout extends FrameLayout {
 
     private void init() {
         setWillNotDraw(false);
-        this.mJJ = new Path();
+        this.mKb = new Path();
         this.Gl = new RectF();
     }
 
@@ -39,7 +39,7 @@ public class RoundFrameLayout extends FrameLayout {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         this.Gl.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
-        this.mJJ.addOval(this.Gl, Path.Direction.CW);
+        this.mKb.addOval(this.Gl, Path.Direction.CW);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -50,7 +50,7 @@ public class RoundFrameLayout extends FrameLayout {
         int saveLayer = canvas.saveLayer(0.0f, 0.0f, getWidth(), getHeight(), null, 31);
         super.dispatchDraw(canvas);
         paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.MULTIPLY));
-        canvas.drawPath(this.mJJ, paint);
+        canvas.drawPath(this.mKb, paint);
         if (saveLayer >= 1 && saveLayer <= canvas.getSaveCount()) {
             canvas.restoreToCount(saveLayer);
         }

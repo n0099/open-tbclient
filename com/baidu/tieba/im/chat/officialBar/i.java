@@ -23,7 +23,7 @@ import java.util.List;
 /* loaded from: classes20.dex */
 public class i {
     private TbPageContext context;
-    private a jjx;
+    private a jjD;
     private String uid;
     private CustomMessageListener mCustomMessageListener = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.chat.officialBar.i.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -33,19 +33,19 @@ public class i {
                 if (customResponsedMessage.getCmd() == 2001147) {
                     i.this.j(customResponsedMessage);
                 } else if (customResponsedMessage.getCmd() == 2012123) {
-                    com.baidu.adp.lib.f.e.mS().removeCallbacks(i.this.jjz);
-                    com.baidu.adp.lib.f.e.mS().postDelayed(i.this.jjz, 1000L);
+                    com.baidu.adp.lib.f.e.mS().removeCallbacks(i.this.jjF);
+                    com.baidu.adp.lib.f.e.mS().postDelayed(i.this.jjF, 1000L);
                 }
             }
         }
     };
-    private Runnable jjz = new Runnable() { // from class: com.baidu.tieba.im.chat.officialBar.i.2
+    private Runnable jjF = new Runnable() { // from class: com.baidu.tieba.im.chat.officialBar.i.2
         @Override // java.lang.Runnable
         public void run() {
-            i.this.Jf(i.this.uid);
+            i.this.Jg(i.this.uid);
         }
     };
-    private com.baidu.adp.framework.listener.a jjA = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_HISTORY, 309669) { // from class: com.baidu.tieba.im.chat.officialBar.i.3
+    private com.baidu.adp.framework.listener.a jjG = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_HISTORY, 309669) { // from class: com.baidu.tieba.im.chat.officialBar.i.3
         @Override // com.baidu.adp.framework.listener.a
         @RequiresApi(api = 16)
         public void onMessage(ResponsedMessage<?> responsedMessage) {
@@ -58,16 +58,16 @@ public class i {
                     data = responsedMessage instanceof ResponseSocketMajorHistoryMessage ? ((ResponseSocketMajorHistoryMessage) responsedMessage).getData() : null;
                 }
                 if (data != null) {
-                    List<com.baidu.tieba.im.forum.broadcast.data.b> cEx = data.cEx();
-                    if (cEx != null && cEx.size() > 0) {
-                        LongSparseArray<com.baidu.tieba.im.forum.broadcast.data.b> longSparseArray2 = new LongSparseArray<>(cEx.size());
-                        for (com.baidu.tieba.im.forum.broadcast.data.b bVar : cEx) {
-                            longSparseArray2.put(bVar.cED(), bVar);
+                    List<com.baidu.tieba.im.forum.broadcast.data.b> cEy = data.cEy();
+                    if (cEy != null && cEy.size() > 0) {
+                        LongSparseArray<com.baidu.tieba.im.forum.broadcast.data.b> longSparseArray2 = new LongSparseArray<>(cEy.size());
+                        for (com.baidu.tieba.im.forum.broadcast.data.b bVar : cEy) {
+                            longSparseArray2.put(bVar.cEE(), bVar);
                         }
                         longSparseArray = longSparseArray2;
                     }
-                    if (i.this.jjx != null && longSparseArray != null) {
-                        i.this.jjx.onReadCountLoad(longSparseArray);
+                    if (i.this.jjD != null && longSparseArray != null) {
+                        i.this.jjD.onReadCountLoad(longSparseArray);
                     }
                 }
             }
@@ -85,10 +85,10 @@ public class i {
         this.context = tbPageContext;
         tbPageContext.registerListener(CmdConfigCustom.CMD_LOAD_HISTORY_OFFICICAL, this.mCustomMessageListener);
         tbPageContext.registerListener(CmdConfigCustom.MESSAGE_LIST_OFFICIAL_CMD, this.mCustomMessageListener);
-        tbPageContext.registerListener(this.jjA);
+        tbPageContext.registerListener(this.jjG);
     }
 
-    public void Jf(String str) {
+    public void Jg(String str) {
         this.uid = str;
         LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
         aVar.limit = 150;
@@ -110,15 +110,15 @@ public class i {
                         while (i < a2.size()) {
                             a.C0719a c0719a = a2.get(i);
                             com.baidu.tieba.im.message.chat.b a3 = com.baidu.tieba.im.message.chat.b.a(chatMessage, c0719a);
-                            a3.qU(i == 0 && !StringUtils.isNull(c0719a.src));
+                            a3.qW(i == 0 && !StringUtils.isNull(c0719a.src));
                             arrayList.add(a3);
                             i++;
                         }
                     }
                 }
                 sendReadCountMessage(arrayList);
-                if (this.jjx != null) {
-                    this.jjx.dy(arrayList);
+                if (this.jjD != null) {
+                    this.jjD.dy(arrayList);
                 }
             }
         }
@@ -128,8 +128,8 @@ public class i {
         if (list != null && list.size() > 0) {
             ArrayList arrayList = new ArrayList(list.size());
             for (com.baidu.tieba.im.message.chat.b bVar : list) {
-                if (bVar.cHj()) {
-                    arrayList.add(Long.valueOf(bVar.cHk().jwo));
+                if (bVar.cHk()) {
+                    arrayList.add(Long.valueOf(bVar.cHl().jwu));
                 }
             }
             BroadcastMajorHistoryRequestMessage broadcastMajorHistoryRequestMessage = new BroadcastMajorHistoryRequestMessage();
@@ -140,10 +140,10 @@ public class i {
     }
 
     public void destroy() {
-        com.baidu.adp.lib.f.e.mS().removeCallbacks(this.jjz);
+        com.baidu.adp.lib.f.e.mS().removeCallbacks(this.jjF);
     }
 
     public void a(a aVar) {
-        this.jjx = aVar;
+        this.jjD = aVar;
     }
 }

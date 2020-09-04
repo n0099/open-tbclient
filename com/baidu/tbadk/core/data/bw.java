@@ -68,89 +68,89 @@ import tbclient.VideoDesc;
 import tbclient.VideoInfo;
 import tbclient.Voice;
 import tbclient.ZhiBoInfoTW;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.ListView.q, com.baidu.tbadk.core.util.ah, com.baidu.tbadk.core.util.f.a {
     private String address;
     private String authorId;
-    private String bev;
-    public int dZb;
-    private SpannableString dZh;
-    private int ebJ;
-    private SpannableStringBuilder ebO;
-    private SpannableStringBuilder ebP;
-    private bs ebQ;
-    private String ebR;
-    private String ebS;
-    private r ecF;
-    private LiveCoverStatus ecL;
-    private long ecM;
-    public TwZhiBoUser ecT;
-    public List<TwAnchorProfitItem> ecU;
-    private SkinInfo ecY;
-    public int ecg;
-    private int ech;
-    private int eck;
-    public int ecl;
-    private String eco;
-    private String ecp;
-    private int ecr;
-    private VideoInfo ect;
-    private VideoDesc ecu;
-    private cd ecv;
-    private AlaInfoData ecw;
-    private long ecx;
-    public e edA;
-    private MediaData edB;
-    public int edC;
-    public OriginalThreadInfo edE;
-    private TopicModule edI;
-    private String edJ;
-    private String edK;
-    private VideoInfo edL;
-    private String edM;
-    private boolean edO;
-    public OriginalForumInfo edP;
-    public boolean edQ;
-    private String edR;
+    private String bex;
+    public int dZf;
+    private SpannableString dZl;
+    private int ebN;
+    private SpannableStringBuilder ebS;
+    private SpannableStringBuilder ebT;
+    private bs ebU;
+    private String ebV;
+    private String ebW;
+    private AlaInfoData ecA;
+    private long ecB;
+    private r ecJ;
+    private LiveCoverStatus ecP;
+    private long ecQ;
+    public TwZhiBoUser ecX;
+    public List<TwAnchorProfitItem> ecY;
+    public int eck;
+    private int ecl;
+    private int eco;
+    public int ecp;
+    private String ecs;
+    private String ect;
+    private int ecv;
+    private VideoInfo ecx;
+    private VideoDesc ecy;
+    private cd ecz;
+    private long edB;
+    private am edC;
+    public e edE;
+    private MediaData edF;
+    public int edG;
+    public OriginalThreadInfo edI;
+    private TopicModule edM;
+    private String edN;
+    private String edO;
+    private VideoInfo edP;
+    private String edQ;
     private boolean edS;
-    private SmartApp edT;
+    public OriginalForumInfo edT;
+    public boolean edU;
     private String edV;
-    private String edW;
-    private String edX;
-    private String edY;
+    private boolean edW;
+    private SmartApp edX;
     private String edZ;
-    private boolean eda;
-    private String edb;
+    private SkinInfo edc;
     private boolean ede;
-    public String edg;
-    public int edh;
-    public int edi;
-    public String edj;
+    private String edf;
+    private boolean edi;
     public String edk;
-    public long edl;
-    private List<ReportInfo> edp;
-    private boolean edv;
-    private long edx;
-    private am edy;
-    public String eea;
-    private boolean eed;
-    private boolean eee;
-    public boolean eef;
-    public boolean eeg;
-    public boolean eeh;
-    public boolean eei;
+    public int edl;
+    public int edm;
+    public String edn;
+    public String edo;
+    public long edp;
+    private List<ReportInfo> edt;
+    private boolean edz;
+    private Item eeA;
+    private List<HeadItem> eeB;
+    private String eea;
+    private String eeb;
+    private String eec;
+    private String eed;
+    public String eee;
+    private boolean eeh;
+    private boolean eei;
     public boolean eej;
     public boolean eek;
-    public String eel;
-    private int eem;
-    private String een;
-    private int eeo;
-    public String eeq;
+    public boolean eel;
+    public boolean eem;
+    public boolean een;
+    public boolean eeo;
+    public String eep;
+    private int eeq;
     private String eer;
-    private ThreadInfo ees;
-    private boolean eev;
-    private Item eew;
-    private List<HeadItem> eex;
+    private int ees;
+    public String eeu;
+    private String eev;
+    private ThreadInfo eew;
+    private boolean eez;
     private boolean isLinkThread;
     public boolean isPrivacy;
     public boolean isShareThread;
@@ -172,10 +172,6 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
     public int threadType;
     public String thread_share_link;
     private HashMap<String, MetaData> userMap;
-    public static final BdUniqueId eaR = BdUniqueId.gen();
-    public static final BdUniqueId eaS = BdUniqueId.gen();
-    public static final BdUniqueId eaT = BdUniqueId.gen();
-    public static final BdUniqueId eaU = BdUniqueId.gen();
     public static final BdUniqueId eaV = BdUniqueId.gen();
     public static final BdUniqueId eaW = BdUniqueId.gen();
     public static final BdUniqueId eaX = BdUniqueId.gen();
@@ -209,214 +205,218 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
     public static final BdUniqueId ebz = BdUniqueId.gen();
     public static final BdUniqueId ebA = BdUniqueId.gen();
     public static final BdUniqueId ebB = BdUniqueId.gen();
-    public static AtomicBoolean ebC = new AtomicBoolean(false);
-    public static AtomicBoolean ebD = new AtomicBoolean(false);
-    public static AtomicBoolean ebE = new AtomicBoolean(false);
+    public static final BdUniqueId ebC = BdUniqueId.gen();
+    public static final BdUniqueId ebD = BdUniqueId.gen();
+    public static final BdUniqueId ebE = BdUniqueId.gen();
     public static final BdUniqueId ebF = BdUniqueId.gen();
-    private static HashMap<Point, Integer> ecG = new HashMap<>();
-    private static HashMap<Integer, Integer> ecH = new HashMap<>();
-    public static final BdUniqueId ecR = BdUniqueId.gen();
-    public static final BdUniqueId ecZ = BdUniqueId.gen();
-    private static HashMap<Point, Integer> edq = new HashMap<>();
-    private static SparseArray<m.a> edr = new SparseArray<>(3);
-    public boolean eay = false;
-    public boolean eaz = false;
-    public boolean eaA = false;
-    public boolean eaB = false;
+    public static AtomicBoolean ebG = new AtomicBoolean(false);
+    public static AtomicBoolean ebH = new AtomicBoolean(false);
+    public static AtomicBoolean ebI = new AtomicBoolean(false);
+    public static final BdUniqueId ebJ = BdUniqueId.gen();
+    private static HashMap<Point, Integer> ecK = new HashMap<>();
+    private static HashMap<Integer, Integer> ecL = new HashMap<>();
+    public static final BdUniqueId ecV = BdUniqueId.gen();
+    public static final BdUniqueId edd = BdUniqueId.gen();
+    private static HashMap<Point, Integer> edu = new HashMap<>();
+    private static SparseArray<m.a> edv = new SparseArray<>(3);
     public boolean eaC = false;
     public boolean eaD = false;
     public boolean eaE = false;
     public boolean eaF = false;
-    private int ebG = 0;
-    private String ebH = "1";
-    public int ebI = 1;
-    private String ecj = null;
-    private int dXu = 0;
-    public int ecy = 0;
-    private String ecz = "";
-    public boolean ecA = false;
-    private String ecI = "";
-    public boolean edm = true;
-    public boolean eds = false;
-    public boolean edt = false;
-    private int edu = -1;
+    public boolean eaG = false;
+    public boolean eaH = false;
+    public boolean eaI = false;
+    public boolean eaJ = false;
+    private int ebK = 0;
+    private String ebL = "1";
+    public int ebM = 1;
+    private String ecn = null;
+    private int dXy = 0;
+    public int ecC = 0;
+    private String ecD = "";
+    public boolean ecE = false;
+    private String ecM = "";
+    public boolean edq = true;
+    public boolean edw = false;
+    public boolean edx = false;
+    private int edy = -1;
     public SparseArray<String> feedBackReasonMap = null;
-    public SparseArray<String> dYX = null;
-    public boolean edz = false;
-    private int edH = 0;
-    private boolean edN = false;
-    private boolean edU = false;
-    public boolean eeb = false;
-    public boolean eec = false;
+    public SparseArray<String> dZb = null;
+    public boolean edD = false;
+    private int edL = 0;
+    private boolean edR = false;
+    private boolean edY = false;
+    public boolean eef = false;
+    public boolean eeg = false;
     public boolean forbidComment = false;
-    public boolean eep = false;
+    public boolean eet = false;
     private String id = null;
     public String tid = null;
     private long fid = 0;
     private String title = null;
     private int is_god = 0;
     private int reply_num = 0;
-    private int ebT = 0;
-    private int ebU = 0;
-    private String last_time = null;
-    private long ebV = 0;
-    private int ebW = 0;
     private int ebX = 0;
     private int ebY = 0;
-    private int ebZ = 0;
-    private ca eca = new ca();
-    private MetaData ecb = new MetaData();
-    private String forum_name = null;
-    ArrayList<MediaData> ece = new ArrayList<>();
-    ArrayList<VoiceData.VoiceModel> ecf = new ArrayList<>();
+    private String last_time = null;
+    private long ebZ = 0;
+    private int eca = 0;
+    private int ecb = 0;
     private int ecc = 0;
     private int ecd = 0;
+    private ca ece = new ca();
+    private MetaData ecf = new MetaData();
+    private String forum_name = null;
+    ArrayList<MediaData> eci = new ArrayList<>();
+    ArrayList<VoiceData.VoiceModel> ecj = new ArrayList<>();
+    private int ecg = 0;
+    private int ech = 0;
     private String ad_url = null;
-    private String ebK = null;
+    private String ebO = null;
     private String from = null;
-    private int eci = 0;
-    private PraiseData ecm = new PraiseData();
-    private AnchorInfoData ecn = new AnchorInfoData();
+    private int ecm = 0;
+    private PraiseData ecq = new PraiseData();
+    private AnchorInfoData ecr = new AnchorInfoData();
     private long time = 0;
-    private int ecq = 0;
-    private ArrayList<a> ecC = new ArrayList<>();
-    private ci ecD = null;
-    private f ecE = null;
-    private int ecJ = 0;
-    private ArrayList<com.baidu.tbadk.coreExtra.view.c> ecs = new ArrayList<>();
+    private int ecu = 0;
+    private ArrayList<a> ecG = new ArrayList<>();
+    private ci ecH = null;
+    private f ecI = null;
+    private int ecN = 0;
+    private ArrayList<com.baidu.tbadk.coreExtra.view.c> ecw = new ArrayList<>();
     private boolean isHeadLive = false;
-    private String ecK = null;
-    private int ecB = 0;
-    private boolean ecN = false;
-    private boolean ecO = false;
-    private int ecP = 0;
-    private boolean ecQ = false;
+    private String ecO = null;
+    private int ecF = 0;
+    private boolean ecR = false;
+    private boolean ecS = false;
+    private int ecT = 0;
+    private boolean ecU = false;
     private int anchorLevel = 0;
-    public int edc = 0;
-    public o edd = new o();
-    private List<PbContent> ebN = new ArrayList();
-    private List<PbContent> ebL = new ArrayList();
-    private List<PbContent> ebM = new ArrayList();
+    public int edg = 0;
+    public o edh = new o();
+    private List<PbContent> ebR = new ArrayList();
+    private List<PbContent> ebP = new ArrayList();
+    private List<PbContent> ebQ = new ArrayList();
     private String category_name = null;
-    private bu ecS = new bu();
-    private ArrayList<com.baidu.tbadk.data.c> ecV = new ArrayList<>();
-    private PushStatusData ecW = new PushStatusData();
-    public boolean edn = false;
-    public int edo = -1;
-    private PostData edw = new PostData();
+    private bu ecW = new bu();
+    private ArrayList<com.baidu.tbadk.data.c> ecZ = new ArrayList<>();
+    private PushStatusData eda = new PushStatusData();
+    public boolean edr = false;
+    public int eds = -1;
+    private PostData edA = new PostData();
     private AgreeData agreeData = new AgreeData();
-    private int edf = 0;
-    public int edD = 0;
+    private int edj = 0;
+    public int edH = 0;
     private String tieba_game_information_source = "";
-    public String edG = "";
-    public String edF = "";
+    public String edK = "";
+    public String edJ = "";
     public String mUrl = "";
-    public String ecX = "";
-    PollData eey = new PollData();
-    private List<PbLinkData> eet = new ArrayList();
-    private List<PbGoodsData> eeu = new ArrayList();
-    public int eez = -1;
+    public String edb = "";
+    PollData eeC = new PollData();
+    private List<PbLinkData> eex = new ArrayList();
+    private List<PbGoodsData> eey = new ArrayList();
+    public int eeD = -1;
 
     static {
-        ecG.put(new Point(1, 1), Integer.valueOf(R.drawable.label_frs_lottery_ing));
-        ecG.put(new Point(1, 2), Integer.valueOf(R.drawable.label_frs_lottery_over));
-        ecG.put(new Point(1, 3), Integer.valueOf(R.drawable.label_frs_lottery_off));
-        ecG.put(new Point(1, 4), Integer.valueOf(R.drawable.label_frs_lottery_d));
-        ecG.put(new Point(2, 1), Integer.valueOf(R.drawable.label_frs_activity_shaiing));
-        ecG.put(new Point(2, 2), Integer.valueOf(R.drawable.label_frs_activity_shai_over));
-        ecG.put(new Point(2, 3), Integer.valueOf(R.drawable.label_frs_activity_shai_off));
-        ecG.put(new Point(2, 4), Integer.valueOf(R.drawable.label_frs_activity_shai_d));
-        edq.put(new Point(1, 1), Integer.valueOf(R.string.lottery_status_ing));
-        edq.put(new Point(1, 2), Integer.valueOf(R.string.lottery_status_over));
-        edq.put(new Point(1, 3), Integer.valueOf(R.string.lottery_status_off));
-        edq.put(new Point(1, 4), Integer.valueOf(R.string.lottery_status_not_start));
-        edq.put(new Point(2, 1), Integer.valueOf(R.string.share_picture_status_ing));
-        edq.put(new Point(2, 2), Integer.valueOf(R.string.share_picture_status_over));
-        edq.put(new Point(2, 3), Integer.valueOf(R.string.share_picture_status_off));
-        edq.put(new Point(2, 4), Integer.valueOf(R.string.share_picture_status_not_start));
-        ecH.put(1, Integer.valueOf(R.drawable.label_interview_no));
-        ecH.put(2, Integer.valueOf(R.drawable.label_interview_live));
-        ecH.put(3, Integer.valueOf(R.drawable.label_interview_off));
-        edr.put(1, new m.a(R.string.interview_live_status_not_start, R.color.cp_other_b, R.drawable.pic_dot_title_red));
-        edr.put(2, new m.a(R.string.interview_live_status_ing, R.color.cp_other_c, R.drawable.pic_dot_title_green));
-        edr.put(3, new m.a(R.string.interview_live_status_over, R.color.cp_link_tip_b, R.drawable.pic_dot_title_blue));
+        ecK.put(new Point(1, 1), Integer.valueOf(R.drawable.label_frs_lottery_ing));
+        ecK.put(new Point(1, 2), Integer.valueOf(R.drawable.label_frs_lottery_over));
+        ecK.put(new Point(1, 3), Integer.valueOf(R.drawable.label_frs_lottery_off));
+        ecK.put(new Point(1, 4), Integer.valueOf(R.drawable.label_frs_lottery_d));
+        ecK.put(new Point(2, 1), Integer.valueOf(R.drawable.label_frs_activity_shaiing));
+        ecK.put(new Point(2, 2), Integer.valueOf(R.drawable.label_frs_activity_shai_over));
+        ecK.put(new Point(2, 3), Integer.valueOf(R.drawable.label_frs_activity_shai_off));
+        ecK.put(new Point(2, 4), Integer.valueOf(R.drawable.label_frs_activity_shai_d));
+        edu.put(new Point(1, 1), Integer.valueOf(R.string.lottery_status_ing));
+        edu.put(new Point(1, 2), Integer.valueOf(R.string.lottery_status_over));
+        edu.put(new Point(1, 3), Integer.valueOf(R.string.lottery_status_off));
+        edu.put(new Point(1, 4), Integer.valueOf(R.string.lottery_status_not_start));
+        edu.put(new Point(2, 1), Integer.valueOf(R.string.share_picture_status_ing));
+        edu.put(new Point(2, 2), Integer.valueOf(R.string.share_picture_status_over));
+        edu.put(new Point(2, 3), Integer.valueOf(R.string.share_picture_status_off));
+        edu.put(new Point(2, 4), Integer.valueOf(R.string.share_picture_status_not_start));
+        ecL.put(1, Integer.valueOf(R.drawable.label_interview_no));
+        ecL.put(2, Integer.valueOf(R.drawable.label_interview_live));
+        ecL.put(3, Integer.valueOf(R.drawable.label_interview_off));
+        edv.put(1, new m.a(R.string.interview_live_status_not_start, R.color.cp_other_b, R.drawable.pic_dot_title_red));
+        edv.put(2, new m.a(R.string.interview_live_status_ing, R.color.cp_other_c, R.drawable.pic_dot_title_green));
+        edv.put(3, new m.a(R.string.interview_live_status_over, R.color.cp_link_tip_b, R.drawable.pic_dot_title_blue));
     }
 
     public bw() {
-        this.ech = 0;
-        this.ecr = 0;
-        this.ecM = 0L;
-        this.edC = 0;
+        this.ecl = 0;
+        this.ecv = 0;
+        this.ecQ = 0L;
+        this.edG = 0;
         this.post_num = 0;
         this.post_num = 0;
-        this.ecM = 0L;
-        this.ecr = 0;
-        this.ech = 0;
-        this.edC = 0;
+        this.ecQ = 0L;
+        this.ecv = 0;
+        this.ecl = 0;
+        this.edG = 0;
     }
 
     public String beb() {
-        return this.edV;
+        return this.edZ;
     }
 
     public String bec() {
-        return this.edW;
+        return this.eea;
     }
 
-    public void zk(String str) {
-        this.edW = str;
+    public void zl(String str) {
+        this.eea = str;
     }
 
     public String bed() {
-        return this.edX;
+        return this.eeb;
     }
 
     public SpannableStringBuilder bee() {
-        return this.ebP;
+        return this.ebT;
     }
 
     public SpannableString bef() {
-        return this.dZh;
+        return this.dZl;
     }
 
     public void a(SpannableString spannableString) {
         if (beE() != null && !bco() && !bcn()) {
-            if (this.ebP != null) {
-                this.ebP.insert(0, (CharSequence) spannableString);
+            if (this.ebT != null) {
+                this.ebT.insert(0, (CharSequence) spannableString);
                 return;
             }
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(this.dZh);
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(this.dZl);
             spannableStringBuilder.insert(0, (CharSequence) spannableString);
-            this.dZh = new SpannableString(spannableStringBuilder);
+            this.dZl = new SpannableString(spannableStringBuilder);
         }
     }
 
     public void beg() {
-        if (com.baidu.tbadk.core.util.y.getCount(this.eex) > 0) {
-            if (this.ebP != null) {
-                this.ebP.insert(0, (CharSequence) com.baidu.tbadk.widget.richText.e.bh(this.eex));
+        if (com.baidu.tbadk.core.util.y.getCount(this.eeB) > 0) {
+            if (this.ebT != null) {
+                this.ebT.insert(0, (CharSequence) com.baidu.tbadk.widget.richText.e.bh(this.eeB));
                 return;
             }
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(this.dZh);
-            spannableStringBuilder.insert(0, (CharSequence) com.baidu.tbadk.widget.richText.e.bh(this.eex));
-            this.dZh = new SpannableString(spannableStringBuilder);
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(this.dZl);
+            spannableStringBuilder.insert(0, (CharSequence) com.baidu.tbadk.widget.richText.e.bh(this.eeB));
+            this.dZl = new SpannableString(spannableStringBuilder);
         }
     }
 
     public String beh() {
-        return this.edY;
+        return this.eec;
     }
 
     public String bei() {
-        return this.edZ;
+        return this.eed;
     }
 
     public boolean bej() {
-        return this.ech == 1;
+        return this.ecl == 1;
     }
 
     public bu bek() {
-        return this.ecS;
+        return this.ecW;
     }
 
     public int getAnchorLevel() {
@@ -428,15 +428,15 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
     }
 
     public int getOperatorFlag() {
-        return this.ecr;
+        return this.ecv;
     }
 
     public void ne(int i) {
-        this.ecP = i;
+        this.ecT = i;
     }
 
     public int bel() {
-        return this.ecP;
+        return this.ecT;
     }
 
     public HashMap<String, MetaData> getUserMap() {
@@ -448,7 +448,7 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
     }
 
     public VideoInfo bem() {
-        return this.edL;
+        return this.edP;
     }
 
     public long getCreateTime() {
@@ -460,19 +460,19 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
     }
 
     public long ben() {
-        return this.ecx;
+        return this.ecB;
     }
 
     public String beo() {
-        return this.eco;
+        return this.ecs;
     }
 
     public PraiseData bep() {
-        return this.ecm;
+        return this.ecq;
     }
 
     public void a(PraiseData praiseData) {
-        this.ecm = praiseData;
+        this.ecq = praiseData;
     }
 
     public void setId(String str) {
@@ -480,19 +480,19 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
     }
 
     public String beq() {
-        return this.bev;
-    }
-
-    public void zl(String str) {
-        this.bev = str;
-    }
-
-    public String ber() {
-        return this.ebH;
+        return this.bex;
     }
 
     public void zm(String str) {
-        this.ebH = str;
+        this.bex = str;
+    }
+
+    public String ber() {
+        return this.ebL;
+    }
+
+    public void zn(String str) {
+        this.ebL = str;
     }
 
     public String getId() {
@@ -504,11 +504,11 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
     }
 
     public void nf(int i) {
-        this.ebG = i;
+        this.ebK = i;
     }
 
     public int bes() {
-        return this.ebG;
+        return this.ebK;
     }
 
     public String bet() {
@@ -536,19 +536,19 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
     }
 
     public List<PbContent> beu() {
-        return this.ebN;
+        return this.ebR;
     }
 
     public void aN(List<PbContent> list) {
-        this.ebN = list;
+        this.ebR = list;
     }
 
     public void aO(List<PbContent> list) {
-        this.ebL = list;
+        this.ebP = list;
     }
 
     public void aP(List<PbContent> list) {
-        this.ebM = list;
+        this.ebQ = list;
     }
 
     public String getTitle() {
@@ -564,55 +564,55 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
     }
 
     public int bew() {
-        return this.ebU;
-    }
-
-    public void nh(int i) {
-        this.ebU = i;
-    }
-
-    public long bex() {
-        return this.ebV;
-    }
-
-    public void cA(long j) {
-        this.ebV = j;
-    }
-
-    public int bey() {
-        return this.ebX;
-    }
-
-    public int bez() {
-        return this.ebW;
-    }
-
-    public void ni(int i) {
-        this.ebW = i;
-    }
-
-    public int beA() {
         return this.ebY;
     }
 
-    public void nj(int i) {
+    public void nh(int i) {
         this.ebY = i;
     }
 
-    public int beB() {
+    public long bex() {
         return this.ebZ;
     }
 
-    public List<PbContent> beC() {
-        return this.ebL;
+    public void cA(long j) {
+        this.ebZ = j;
     }
 
-    public ca beD() {
+    public int bey() {
+        return this.ecb;
+    }
+
+    public int bez() {
         return this.eca;
     }
 
+    public void ni(int i) {
+        this.eca = i;
+    }
+
+    public int beA() {
+        return this.ecc;
+    }
+
+    public void nj(int i) {
+        this.ecc = i;
+    }
+
+    public int beB() {
+        return this.ecd;
+    }
+
+    public List<PbContent> beC() {
+        return this.ebP;
+    }
+
+    public ca beD() {
+        return this.ece;
+    }
+
     public MetaData beE() {
-        return this.ecb;
+        return this.ecf;
     }
 
     public boolean beF() {
@@ -624,7 +624,7 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
     }
 
     public boolean beH() {
-        return (this.ecb == null || this.ecb.getGodUserData() == null || this.ecb.getGodUserData().getType() != 2) ? false : true;
+        return (this.ecf == null || this.ecf.getGodUserData() == null || this.ecf.getGodUserData().getType() != 2) ? false : true;
     }
 
     public boolean isLinkThread() {
@@ -632,19 +632,19 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
     }
 
     public void a(MetaData metaData) {
-        this.ecb = metaData;
+        this.ecf = metaData;
     }
 
     public String beI() {
         return this.forum_name;
     }
 
-    public void zn(String str) {
+    public void zo(String str) {
         this.forum_name = str;
     }
 
     public int beJ() {
-        return this.ecd;
+        return this.ech;
     }
 
     public String beK() {
@@ -652,43 +652,43 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
     }
 
     public int beL() {
-        return this.eci;
+        return this.ecm;
     }
 
     public void nk(int i) {
-        this.eci = i;
+        this.ecm = i;
     }
 
     public String beM() {
-        return this.ecj;
+        return this.ecn;
     }
 
-    public void zo(String str) {
-        this.ecj = str;
+    public void zp(String str) {
+        this.ecn = str;
     }
 
     public ArrayList<MediaData> beN() {
-        return this.ece;
+        return this.eci;
     }
 
     public ArrayList<a> beO() {
-        return this.ecC;
+        return this.ecG;
     }
 
     public void E(ArrayList<a> arrayList) {
-        this.ecC = arrayList;
+        this.ecG = arrayList;
     }
 
     public ci beP() {
-        return this.ecD;
+        return this.ecH;
     }
 
     public f beQ() {
-        return this.ecE;
+        return this.ecI;
     }
 
     public ArrayList<VoiceData.VoiceModel> beR() {
-        return this.ecf;
+        return this.ecj;
     }
 
     public int getThreadType() {
@@ -700,11 +700,11 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
     }
 
     public int beS() {
-        return this.ebJ;
+        return this.ebN;
     }
 
     public void nl(int i) {
-        this.ebJ = i;
+        this.ebN = i;
     }
 
     public String beT() {
@@ -712,7 +712,7 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
     }
 
     public String beU() {
-        return this.ecp;
+        return this.ect;
     }
 
     public String getAddress() {
@@ -724,43 +724,43 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
     }
 
     public String beV() {
-        return this.ecz;
+        return this.ecD;
     }
 
     public VideoInfo beW() {
-        return this.ect;
+        return this.ecx;
     }
 
     public void a(VideoInfo videoInfo) {
-        this.ect = videoInfo;
+        this.ecx = videoInfo;
     }
 
     public VideoDesc beX() {
-        return this.ecu;
+        return this.ecy;
     }
 
     public void a(AlaInfoData alaInfoData) {
-        this.ecw = alaInfoData;
+        this.ecA = alaInfoData;
     }
 
     public AlaInfoData beY() {
-        return this.ecw;
+        return this.ecA;
     }
 
     public PushStatusData beZ() {
-        return this.ecW;
+        return this.eda;
     }
 
     public SkinInfo bfa() {
-        return this.ecY;
+        return this.edc;
     }
 
     public long bfb() {
-        return this.edl;
+        return this.edp;
     }
 
     public boolean bfc() {
-        return this.edm;
+        return this.edq;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
@@ -770,7 +770,7 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
     public String bcf() {
-        return this.edk;
+        return this.edo;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
@@ -783,12 +783,12 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
         arVar.setFid(bce().getFid());
         arVar.setNid(bce().getNid());
         arVar.setFeedBackReasonMap(this.feedBackReasonMap);
-        arVar.dYX = this.dYX;
+        arVar.dZb = this.dZb;
         arVar.abTag = this.mRecomAbTag;
         arVar.weight = this.mRecomWeight;
         arVar.extra = this.mRecomExtra;
         arVar.source = this.mRecomSource;
-        arVar.dZb = this.dZb;
+        arVar.dZf = this.dZf;
         arVar.cardType = bgD();
         return arVar;
     }
@@ -799,48 +799,48 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
             try {
                 if (threadInfo.location != null) {
                     this.latitude = threadInfo.location.lat;
-                    this.ecp = threadInfo.location.lng;
+                    this.ect = threadInfo.location.lng;
                     this.address = threadInfo.location.name;
                 }
-                this.ech = threadInfo.is_tbread_dispatch.intValue();
+                this.ecl = threadInfo.is_tbread_dispatch.intValue();
                 this.id = threadInfo.id + "";
                 this.tid = threadInfo.tid + "";
                 this.fid = threadInfo.fid.longValue();
                 this.title = threadInfo.title;
                 this.is_god = threadInfo.is_god.intValue();
                 this.mCreateTime = threadInfo.create_time.intValue() * 1000;
-                this.ecx = threadInfo.audit_time.longValue() * 1000;
+                this.ecB = threadInfo.audit_time.longValue() * 1000;
                 this.reply_num = threadInfo.reply_num.intValue();
-                this.ebT = threadInfo.repost_num.intValue();
-                this.ebU = threadInfo.view_num.intValue();
+                this.ebX = threadInfo.repost_num.intValue();
+                this.ebY = threadInfo.view_num.intValue();
                 this.last_time = threadInfo.last_time;
-                this.ebV = threadInfo.last_time_int.intValue();
-                this.ebW = threadInfo.is_top.intValue();
-                this.ebX = threadInfo.is_membertop.intValue();
-                this.ebY = threadInfo.is_good.intValue();
-                this.ebZ = threadInfo.is_livepost.intValue();
-                this.eca.a(threadInfo.topic);
-                this.ecb.parserProtobuf(threadInfo.author);
+                this.ebZ = threadInfo.last_time_int.intValue();
+                this.eca = threadInfo.is_top.intValue();
+                this.ecb = threadInfo.is_membertop.intValue();
+                this.ecc = threadInfo.is_good.intValue();
+                this.ecd = threadInfo.is_livepost.intValue();
+                this.ece.a(threadInfo.topic);
+                this.ecf.parserProtobuf(threadInfo.author);
                 this.authorId = threadInfo.author_id.toString();
                 this.forum_name = threadInfo.fname;
-                this.ecc = threadInfo.has_commented.intValue();
-                this.ecd = threadInfo.show_commented.intValue();
+                this.ecg = threadInfo.has_commented.intValue();
+                this.ech = threadInfo.show_commented.intValue();
                 this.ad_url = threadInfo.click_url;
-                this.ect = threadInfo.video_info;
-                this.ecu = threadInfo.video_segment;
-                this.ecw = new AlaInfoData();
-                this.ecw.parserProtobuf(threadInfo.ala_info);
+                this.ecx = threadInfo.video_info;
+                this.ecy = threadInfo.video_segment;
+                this.ecA = new AlaInfoData();
+                this.ecA.parserProtobuf(threadInfo.ala_info);
                 this.from = threadInfo.from;
-                this.eci = threadInfo.collect_status.intValue();
-                this.ecj = threadInfo.collect_mark_pid;
-                this.eck = threadInfo.is_voice_thread.intValue();
+                this.ecm = threadInfo.collect_status.intValue();
+                this.ecn = threadInfo.collect_mark_pid;
+                this.eco = threadInfo.is_voice_thread.intValue();
                 this.threadType = threadInfo.thread_type.intValue();
-                this.ecl = threadInfo.thread_type.intValue();
-                this.eco = threadInfo.first_post_id + "";
-                this.ecz = threadInfo.post_id + "";
+                this.ecp = threadInfo.thread_type.intValue();
+                this.ecs = threadInfo.first_post_id + "";
+                this.ecD = threadInfo.post_id + "";
                 this.time = threadInfo.time.intValue() * 1000;
-                this.ebJ = threadInfo.is_ntitle.intValue();
-                this.ecq = threadInfo.is_activity.intValue();
+                this.ebN = threadInfo.is_ntitle.intValue();
+                this.ecu = threadInfo.is_activity.intValue();
                 if (threadInfo.agree != null) {
                     this.agreeData.threadId = threadInfo.id == null ? "" : String.valueOf(threadInfo.id);
                     this.agreeData.parseProtobuf(threadInfo.agree);
@@ -850,18 +850,18 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
                 } else {
                     this.tieba_game_information_source = "";
                 }
-                this.edx = threadInfo.share_num.longValue();
+                this.edB = threadInfo.share_num.longValue();
                 this.category_name = threadInfo.category_name;
-                this.ecr = threadInfo.operator_flag.intValue();
+                this.ecv = threadInfo.operator_flag.intValue();
                 if (threadInfo.is_operate_thread != null) {
-                    this.ede = threadInfo.is_operate_thread.intValue() == 1;
+                    this.edi = threadInfo.is_operate_thread.intValue() == 1;
                 }
-                this.ebL = threadInfo.rich_title;
-                this.ebN = threadInfo.first_post_content;
-                this.ebM = threadInfo.rich_abstract;
-                this.ecg = threadInfo.is_godthread_recommend.intValue();
-                if ((this.ecb == null || this.ecb.getUserId() == null || this.ecb.getUserId().equals("0")) && this.authorId != null && !this.authorId.equals("0") && this.userMap != null && (metaData = this.userMap.get(this.authorId)) != null) {
-                    this.ecb = metaData;
+                this.ebP = threadInfo.rich_title;
+                this.ebR = threadInfo.first_post_content;
+                this.ebQ = threadInfo.rich_abstract;
+                this.eck = threadInfo.is_godthread_recommend.intValue();
+                if ((this.ecf == null || this.ecf.getUserId() == null || this.ecf.getUserId().equals("0")) && this.authorId != null && !this.authorId.equals("0") && this.userMap != null && (metaData = this.userMap.get(this.authorId)) != null) {
+                    this.ecf = metaData;
                 }
                 StringBuilder sb = new StringBuilder();
                 List<Abstract> list = threadInfo._abstract;
@@ -872,21 +872,21 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
                         }
                     }
                 }
-                this.ebK = sb.toString();
+                this.ebO = sb.toString();
                 List<Media> list2 = threadInfo.media;
                 if (list2 != null) {
                     for (int i2 = 0; i2 < list2.size(); i2++) {
                         MediaData mediaData = new MediaData();
                         mediaData.parserProtobuf(list2.get(i2));
-                        this.ece.add(mediaData);
+                        this.eci.add(mediaData);
                     }
                 }
                 if (threadInfo.video_info != null && !StringUtils.isNull(threadInfo.video_info.video_url)) {
-                    this.ect = threadInfo.video_info;
+                    this.ecx = threadInfo.video_info;
                 }
                 if (threadInfo.video_channel_info != null && threadInfo.video_channel_info.channel_id.longValue() > 0) {
-                    this.ecv = new cd();
-                    this.ecv.a(threadInfo.video_channel_info);
+                    this.ecz = new cd();
+                    this.ecz.a(threadInfo.video_channel_info);
                 }
                 List<Voice> list3 = threadInfo.voice_info;
                 if (list3 != null) {
@@ -897,7 +897,7 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
                         voiceModel.from = CommonStatisticKey.FRS_VOICE_PLAY;
                         voiceModel.voiceId = voice.voice_md5;
                         voiceModel.duration = voice.during_time.intValue() / 1000;
-                        this.ecf.add(voiceModel);
+                        this.ecj.add(voiceModel);
                     }
                 }
                 List<ActInfo> list4 = threadInfo.act_info;
@@ -906,34 +906,34 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
                     for (int i4 = 0; i4 < size2; i4++) {
                         a aVar = new a();
                         aVar.a(list4.get(i4));
-                        this.ecC.add(aVar);
+                        this.ecG.add(aVar);
                     }
                 }
                 if (threadInfo.yule_post_activity != null) {
-                    this.ecD = new ci();
-                    this.ecD.a(threadInfo.yule_post_activity);
+                    this.ecH = new ci();
+                    this.ecH.a(threadInfo.yule_post_activity);
                 }
                 if (threadInfo.app_code != null) {
-                    this.ecE = new f();
-                    this.ecE.a(threadInfo.app_code);
+                    this.ecI = new f();
+                    this.ecI.a(threadInfo.app_code);
                 }
                 if (threadInfo.cartoon_info != null) {
-                    this.ecF = new r();
-                    this.ecF.a(threadInfo.cartoon_info);
+                    this.ecJ = new r();
+                    this.ecJ.a(threadInfo.cartoon_info);
                 }
-                this.ecm.setUserMap(this.userMap);
-                this.ecm.parserProtobuf(threadInfo.zan);
-                this.ecn.parserProtobuf(threadInfo.anchor_info);
+                this.ecq.setUserMap(this.userMap);
+                this.ecq.parserProtobuf(threadInfo.zan);
+                this.ecr.parserProtobuf(threadInfo.anchor_info);
                 if (!com.baidu.adp.lib.util.k.isEmpty(this.title)) {
-                    this.ecm.setTitle(this.title);
+                    this.ecq.setTitle(this.title);
                 } else {
-                    this.ecm.setTitle(this.ebK);
+                    this.ecq.setTitle(this.ebO);
                 }
-                this.ecI = threadInfo.livecover_src;
-                this.ecJ = threadInfo.storecount.intValue();
+                this.ecM = threadInfo.livecover_src;
+                this.ecN = threadInfo.storecount.intValue();
                 this.post_num = threadInfo.post_num.intValue();
-                this.ecB = threadInfo.post_num.intValue();
-                this.ecM = threadInfo.freq_num.longValue();
+                this.ecF = threadInfo.post_num.intValue();
+                this.ecQ = threadInfo.freq_num.longValue();
                 ZhiBoInfoTW zhiBoInfoTW = threadInfo.twzhibo_info;
                 if (zhiBoInfoTW != null) {
                     if (zhiBoInfoTW.labelInfo != null) {
@@ -942,61 +942,61 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
                             if (zhiBoInfoTW.labelInfo.get(i5) != null) {
                                 com.baidu.tbadk.coreExtra.view.c cVar = new com.baidu.tbadk.coreExtra.view.c();
                                 cVar.pO(zhiBoInfoTW.labelInfo.get(i5).labelHot.intValue());
-                                cVar.Br(zhiBoInfoTW.labelInfo.get(i5).labelId);
+                                cVar.Bs(zhiBoInfoTW.labelInfo.get(i5).labelId);
                                 cVar.setLabelName(zhiBoInfoTW.labelInfo.get(i5).labelContent);
-                                this.ecs.add(cVar);
+                                this.ecw.add(cVar);
                             }
                         }
                     }
                     NoticeInfo noticeInfo = zhiBoInfoTW.notice_info;
                     if (noticeInfo != null) {
-                        this.ecK = noticeInfo.notice;
+                        this.ecO = noticeInfo.notice;
                     }
-                    this.ecP = zhiBoInfoTW.copythread_remind.intValue();
-                    this.ecN = zhiBoInfoTW.is_copytwzhibo.intValue() > 0;
-                    this.ecO = zhiBoInfoTW.is_copytwzhibo.intValue() == 3;
-                    if (StringUtils.isNull(this.ecI)) {
-                        this.ecI = zhiBoInfoTW.livecover_src;
+                    this.ecT = zhiBoInfoTW.copythread_remind.intValue();
+                    this.ecR = zhiBoInfoTW.is_copytwzhibo.intValue() > 0;
+                    this.ecS = zhiBoInfoTW.is_copytwzhibo.intValue() == 3;
+                    if (StringUtils.isNull(this.ecM)) {
+                        this.ecM = zhiBoInfoTW.livecover_src;
                     }
                     if (zhiBoInfoTW.user != null) {
-                        this.ecT = zhiBoInfoTW.user.tw_anchor_info;
-                        this.ecU = zhiBoInfoTW.user.profit_list;
+                        this.ecX = zhiBoInfoTW.user.tw_anchor_info;
+                        this.ecY = zhiBoInfoTW.user.profit_list;
                     }
                 }
                 if (threadInfo.twzhibo_info != null) {
                     this.isHeadLive = threadInfo.twzhibo_info.is_headline.intValue() == 1;
-                    this.ecL = threadInfo.twzhibo_info.livecover_status;
-                    this.ecM = threadInfo.twzhibo_info.freq_num.intValue();
+                    this.ecP = threadInfo.twzhibo_info.livecover_status;
+                    this.ecQ = threadInfo.twzhibo_info.freq_num.intValue();
                     if (threadInfo.twzhibo_info.user != null && threadInfo.twzhibo_info.user.tw_anchor_info != null) {
                         this.anchorLevel = threadInfo.twzhibo_info.user.tw_anchor_info.anchor_level.intValue();
                     }
                 }
-                this.ecQ = threadInfo.is_copythread.intValue() == 1;
+                this.ecU = threadInfo.is_copythread.intValue() == 1;
                 if (threadInfo.task_info != null) {
-                    this.ecS.a(threadInfo.task_info);
+                    this.ecW.a(threadInfo.task_info);
                 }
                 if (threadInfo.ext_tails != null) {
                     for (int i6 = 0; i6 != threadInfo.ext_tails.size(); i6++) {
                         com.baidu.tbadk.data.c cVar2 = new com.baidu.tbadk.data.c();
                         cVar2.a(threadInfo.ext_tails.get(i6));
-                        this.ecV.add(cVar2);
+                        this.ecZ.add(cVar2);
                     }
                 }
-                this.ecW.parserProtobuf(threadInfo.push_status);
-                this.edb = threadInfo.lego_card;
-                this.ecY = threadInfo.skin_info;
-                this.edc = threadInfo.is_book_chapter.intValue();
-                this.edd.a(threadInfo.book_chapter);
+                this.eda.parserProtobuf(threadInfo.push_status);
+                this.edf = threadInfo.lego_card;
+                this.edc = threadInfo.skin_info;
+                this.edg = threadInfo.is_book_chapter.intValue();
+                this.edh.a(threadInfo.book_chapter);
                 this.mRecomSource = threadInfo.recom_source;
-                this.edk = threadInfo.recom_reason;
+                this.edo = threadInfo.recom_reason;
                 this.mRecomWeight = threadInfo.recom_weight;
                 this.mRecomAbTag = threadInfo.ab_tag;
                 this.mRecomExtra = threadInfo.recom_extra;
-                this.edl = threadInfo.last_read_pid.longValue();
-                this.edm = threadInfo.cheak_repeat.intValue() == 1;
-                this.edp = threadInfo.report_info;
+                this.edp = threadInfo.last_read_pid.longValue();
+                this.edq = threadInfo.cheak_repeat.intValue() == 1;
+                this.edt = threadInfo.report_info;
                 if (threadInfo.top_agree_post != null) {
-                    this.edw.a(threadInfo.top_agree_post, TbadkCoreApplication.getInst().getApplicationContext());
+                    this.edA.a(threadInfo.top_agree_post, TbadkCoreApplication.getInst().getApplicationContext());
                 }
                 List<DislikeInfo> list5 = threadInfo.dislike_info;
                 if (com.baidu.tbadk.core.util.y.getCount(list5) > 0) {
@@ -1009,109 +1009,109 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
                         }
                     }
                     this.feedBackReasonMap = sparseArray;
-                    this.dYX = sparseArray2;
+                    this.dZb = sparseArray2;
                 }
-                this.edv = threadInfo.is_multiforum_thread.intValue() == 1;
+                this.edz = threadInfo.is_multiforum_thread.intValue() == 1;
                 this.isLinkThread = threadInfo.is_link_thread.intValue() == 1;
                 if (this.isLinkThread && threadInfo.link_info != null) {
-                    this.edy = new am();
-                    this.edy.a(threadInfo.link_info);
+                    this.edC = new am();
+                    this.edC.a(threadInfo.link_info);
                 }
-                this.edz = threadInfo.is_partial_visible.intValue() == 1;
+                this.edD = threadInfo.is_partial_visible.intValue() == 1;
                 if (threadInfo.activity_info != null) {
-                    this.edA = new e();
-                    this.edA.a(threadInfo.activity_info);
+                    this.edE = new e();
+                    this.edE.a(threadInfo.activity_info);
                 }
                 if (threadInfo.pic_info != null) {
-                    this.edB = new MediaData();
-                    this.edB.parserProtobuf(threadInfo.pic_info);
+                    this.edF = new MediaData();
+                    this.edF.parserProtobuf(threadInfo.pic_info);
                 }
-                this.edf = threadInfo.is_called.intValue();
-                this.edC = threadInfo.middle_page_num.intValue();
-                this.edD = threadInfo.middle_page_pass_flag.intValue();
+                this.edj = threadInfo.is_called.intValue();
+                this.edG = threadInfo.middle_page_num.intValue();
+                this.edH = threadInfo.middle_page_pass_flag.intValue();
                 this.isShareThread = threadInfo.is_share_thread.intValue() == 1;
                 if (threadInfo.star_rank_icon != null) {
-                    this.edF = threadInfo.star_rank_icon.icon_pic_url;
-                    this.edG = threadInfo.star_rank_icon.icon_link;
+                    this.edJ = threadInfo.star_rank_icon.icon_pic_url;
+                    this.edK = threadInfo.star_rank_icon.icon_link;
                 }
                 if (threadInfo.origin_thread_info != null) {
-                    this.edE = new OriginalThreadInfo();
-                    this.edE.a(threadInfo.origin_thread_info);
+                    this.edI = new OriginalThreadInfo();
+                    this.edI.a(threadInfo.origin_thread_info);
                 } else {
-                    this.edE = null;
+                    this.edI = null;
                     this.isShareThread = false;
                 }
-                this.edH = threadInfo.is_topic.intValue();
-                this.edJ = threadInfo.topic_user_name;
-                this.edK = threadInfo.topic_h5_url;
-                this.edI = threadInfo.topic_module;
-                this.edM = threadInfo.presentation_style;
-                this.edP = OriginalForumInfo.parser(threadInfo.ori_forum_info);
-                this.edR = threadInfo.daily_paper_time;
+                this.edL = threadInfo.is_topic.intValue();
+                this.edN = threadInfo.topic_user_name;
+                this.edO = threadInfo.topic_h5_url;
+                this.edM = threadInfo.topic_module;
+                this.edQ = threadInfo.presentation_style;
+                this.edT = OriginalForumInfo.parser(threadInfo.ori_forum_info);
+                this.edV = threadInfo.daily_paper_time;
                 if (threadInfo.forum_info != null) {
-                    this.ebQ = new bs();
-                    this.ebQ.parserProtobuf(threadInfo.forum_info);
+                    this.ebU = new bs();
+                    this.ebU.parserProtobuf(threadInfo.forum_info);
                 }
                 if (threadInfo.swan_info != null) {
-                    this.edT = threadInfo.swan_info;
+                    this.edX = threadInfo.swan_info;
                 }
-                this.eea = threadInfo.t_share_img;
+                this.eee = threadInfo.t_share_img;
                 this.mNid = threadInfo.nid;
-                this.eeb = threadInfo.is_headlinepost.intValue() == 1;
+                this.eef = threadInfo.is_headlinepost.intValue() == 1;
                 this.thread_share_link = threadInfo.thread_share_link;
-                this.een = threadInfo.article_cover;
-                this.eeo = threadInfo.bjh_content_tag.intValue();
-                this.eem = threadInfo.is_bjh.intValue();
+                this.eer = threadInfo.article_cover;
+                this.ees = threadInfo.bjh_content_tag.intValue();
+                this.eeq = threadInfo.is_bjh.intValue();
                 if (threadInfo.baijiahao != null) {
                     this.mBaijiahao = new BaijiahaoData();
                     this.mBaijiahao.parseProto(threadInfo.baijiahao);
                     this.agreeData.baijiahaoData = this.mBaijiahao;
                 }
-                this.eep = threadInfo.is_s_card.intValue() == 1;
-                this.eeq = threadInfo.scard_packet_id;
+                this.eet = threadInfo.is_s_card.intValue() == 1;
+                this.eeu = threadInfo.scard_packet_id;
                 this.mTabId = threadInfo.tab_id.intValue();
                 this.mTabName = threadInfo.tab_name;
-                this.eer = threadInfo.wonderful_post_info;
+                this.eev = threadInfo.wonderful_post_info;
                 bfd();
                 this.forbidComment = threadInfo.if_comment.intValue() == 1;
                 this.noCommetStr = threadInfo.if_comment_info;
-                this.ees = threadInfo;
+                this.eew = threadInfo;
                 if (!com.baidu.tbadk.core.util.y.isEmpty(threadInfo.pb_link_info)) {
                     for (PbLinkInfo pbLinkInfo : threadInfo.pb_link_info) {
                         PbLinkData pbLinkData = new PbLinkData();
                         pbLinkData.parseProto(pbLinkInfo);
-                        if (pbLinkData.urlType == 2 && !this.eev) {
-                            this.eev = true;
+                        if (pbLinkData.urlType == 2 && !this.eez) {
+                            this.eez = true;
                         }
-                        this.eet.add(pbLinkData);
+                        this.eex.add(pbLinkData);
                     }
                 }
                 if (!com.baidu.tbadk.core.util.y.isEmpty(threadInfo.pb_goods_info)) {
                     for (PbGoodsInfo pbGoodsInfo : threadInfo.pb_goods_info) {
                         PbGoodsData pbGoodsData = new PbGoodsData();
                         pbGoodsData.parseProto(pbGoodsInfo);
-                        this.eeu.add(pbGoodsData);
+                        this.eey.add(pbGoodsData);
                     }
-                    if (this.eeu.size() > 0 && !this.eev) {
-                        this.eev = true;
+                    if (this.eey.size() > 0 && !this.eez) {
+                        this.eez = true;
                     }
                 }
                 if (threadInfo.item != null && threadInfo.item.item_id.longValue() != 0) {
-                    this.eew = threadInfo.item;
+                    this.eeA = threadInfo.item;
                 }
-                if (this.eew != null) {
+                if (this.eeA != null) {
                     this.itemData = new ItemData();
-                    this.itemData.parseProto(this.eew);
+                    this.itemData.parseProto(this.eeA);
                 }
-                this.eex = threadInfo.item_star;
-                if (!com.baidu.tbadk.core.util.y.isEmpty(this.eex)) {
+                this.eeB = threadInfo.item_star;
+                if (!com.baidu.tbadk.core.util.y.isEmpty(this.eeB)) {
                     this.itemStarData = new ItemStarData();
-                    this.itemStarData.parseProto(this.eex);
+                    this.itemStarData.parseProto(this.eeB);
                 }
                 if (threadInfo.poll_info != null) {
-                    this.eey.parserProtobuf(threadInfo.poll_info);
+                    this.eeC.parserProtobuf(threadInfo.poll_info);
                 }
-                this.eez = threadInfo.hot_num.intValue();
+                this.eeD = threadInfo.hot_num.intValue();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -1129,34 +1129,34 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
                 this.title = jSONObject.optString("title");
                 this.is_god = jSONObject.optInt("is_god");
                 this.mCreateTime = jSONObject.optLong("create_time", 0L) * 1000;
-                this.ecx = jSONObject.optLong("audit_time", 0L) * 1000;
+                this.ecB = jSONObject.optLong("audit_time", 0L) * 1000;
                 this.reply_num = jSONObject.optInt("reply_num", 0);
-                this.ebT = jSONObject.optInt("repost_num", 0);
-                this.ebU = jSONObject.optInt("view_num", 0);
+                this.ebX = jSONObject.optInt("repost_num", 0);
+                this.ebY = jSONObject.optInt("view_num", 0);
                 this.last_time = jSONObject.optString("last_time");
-                this.ebV = jSONObject.optLong("last_time_int", 0L);
-                this.ebW = jSONObject.optInt("is_top", 0);
-                this.ebX = jSONObject.optInt("is_membertop", 0);
-                this.ebY = jSONObject.optInt("is_good", 0);
-                this.ebZ = jSONObject.optInt("is_livepost", 0);
-                this.eca.parserJson(jSONObject.optJSONObject("topic"));
+                this.ebZ = jSONObject.optLong("last_time_int", 0L);
+                this.eca = jSONObject.optInt("is_top", 0);
+                this.ecb = jSONObject.optInt("is_membertop", 0);
+                this.ecc = jSONObject.optInt("is_good", 0);
+                this.ecd = jSONObject.optInt("is_livepost", 0);
+                this.ece.parserJson(jSONObject.optJSONObject("topic"));
                 this.authorId = jSONObject.optString("author_id");
-                this.ecb.parserJson(jSONObject.optJSONObject("author"));
+                this.ecf.parserJson(jSONObject.optJSONObject("author"));
                 this.forum_name = jSONObject.optString("fname");
-                this.ecc = jSONObject.optInt("has_commented", 0);
-                this.ecd = jSONObject.optInt("show_commented", 0);
+                this.ecg = jSONObject.optInt("has_commented", 0);
+                this.ech = jSONObject.optInt("show_commented", 0);
                 this.ad_url = jSONObject.optString("click_url");
                 this.from = jSONObject.optString("from");
-                this.eci = jSONObject.optInt("collect_status");
-                this.ecj = jSONObject.optString("collect_mark_pid");
-                this.eck = jSONObject.optInt("is_voice_thread");
+                this.ecm = jSONObject.optInt("collect_status");
+                this.ecn = jSONObject.optString("collect_mark_pid");
+                this.eco = jSONObject.optInt("is_voice_thread");
                 this.threadType = jSONObject.optInt("thread_type");
-                this.ecl = jSONObject.optInt("thread_type");
-                this.edx = jSONObject.optLong("share_num");
-                this.eco = jSONObject.optString("first_post_id", "0");
-                this.ecz = jSONObject.optString("post_id", "0");
+                this.ecp = jSONObject.optInt("thread_type");
+                this.edB = jSONObject.optLong("share_num");
+                this.ecs = jSONObject.optString("first_post_id", "0");
+                this.ecD = jSONObject.optString("post_id", "0");
                 this.time = jSONObject.optLong("time", 0L) * 1000;
-                this.ebJ = jSONObject.optInt("is_ntitle");
+                this.ebN = jSONObject.optInt("is_ntitle");
                 this.category_name = jSONObject.optString(MangaCategoryActivityConfig.CATEGORY_NAME);
                 this.tieba_game_information_source = jSONObject.optString("tieba_game_information_source", "");
                 this.agreeData.parseJson(jSONObject.optJSONObject("agree"));
@@ -1180,21 +1180,21 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
                         }
                     }
                     this.feedBackReasonMap = sparseArray;
-                    this.dYX = sparseArray2;
+                    this.dZb = sparseArray2;
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("top_agree_post");
                 if (optJSONObject2 != null) {
-                    this.ecS.parserJson(optJSONObject2);
+                    this.ecW.parserJson(optJSONObject2);
                 }
-                if ((this.ecb == null || this.ecb.getUserId() == null) && this.userMap != null) {
-                    this.ecb = this.userMap.get(this.authorId);
+                if ((this.ecf == null || this.ecf.getUserId() == null) && this.userMap != null) {
+                    this.ecf = this.userMap.get(this.authorId);
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("author");
                 if (optJSONObject3 != null && (optJSONObject = optJSONObject3.optJSONObject("ala_info")) != null) {
                     this.address = optJSONObject.optString("location");
                 }
-                this.ecw = new AlaInfoData();
-                this.ecw.parserJson(jSONObject.optJSONObject("ala_info"));
+                this.ecA = new AlaInfoData();
+                this.ecA.parserJson(jSONObject.optJSONObject("ala_info"));
                 StringBuilder sb = new StringBuilder();
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("abstract");
                 if (optJSONArray2 != null) {
@@ -1205,13 +1205,13 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
                         }
                     }
                 }
-                this.ebK = sb.toString();
+                this.ebO = sb.toString();
                 JSONArray optJSONArray3 = jSONObject.optJSONArray("media");
                 if (optJSONArray3 != null) {
                     for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
                         MediaData mediaData = new MediaData();
                         mediaData.parserJson(optJSONArray3.getJSONObject(i3));
-                        this.ece.add(mediaData);
+                        this.eci.add(mediaData);
                     }
                 }
                 JSONArray optJSONArray4 = jSONObject.optJSONArray("voice_info");
@@ -1223,7 +1223,7 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
                         voiceModel.from = CommonStatisticKey.FRS_VOICE_PLAY;
                         voiceModel.voiceId = jSONObject3.optString("voice_md5");
                         voiceModel.duration = jSONObject3.optInt("during_time") / 1000;
-                        this.ecf.add(voiceModel);
+                        this.ecj.add(voiceModel);
                     }
                 }
                 JSONArray optJSONArray5 = jSONObject.optJSONArray("act_info");
@@ -1231,82 +1231,82 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
                     for (int i5 = 0; i5 < optJSONArray5.length(); i5++) {
                         a aVar = new a();
                         aVar.parserJson(optJSONArray5.getJSONObject(i5));
-                        this.ecC.add(aVar);
+                        this.ecG.add(aVar);
                     }
                 }
                 JSONObject optJSONObject4 = jSONObject.optJSONObject("yule_post_activity");
                 if (optJSONObject4 != null) {
-                    this.ecD = new ci();
-                    this.ecD.parserJson(optJSONObject4);
+                    this.ecH = new ci();
+                    this.ecH.parserJson(optJSONObject4);
                 }
                 JSONObject optJSONObject5 = jSONObject.optJSONObject("app_code");
                 if (optJSONObject5 != null) {
-                    this.ecE = new f();
-                    this.ecE.parserJson(optJSONObject5);
+                    this.ecI = new f();
+                    this.ecI.parserJson(optJSONObject5);
                 }
                 JSONObject optJSONObject6 = jSONObject.optJSONObject("cartoon_info");
                 if (optJSONObject6 != null) {
-                    this.ecF = new r();
-                    this.ecF.parserJson(optJSONObject6);
+                    this.ecJ = new r();
+                    this.ecJ.parserJson(optJSONObject6);
                 }
-                this.ecm.setUserMap(this.userMap);
-                this.ecm.parserJson(jSONObject.optJSONObject(FeedData.TYPE_ZAN));
-                this.ecn.parserJson(jSONObject.optJSONObject("anchor_info"));
+                this.ecq.setUserMap(this.userMap);
+                this.ecq.parserJson(jSONObject.optJSONObject(FeedData.TYPE_ZAN));
+                this.ecr.parserJson(jSONObject.optJSONObject("anchor_info"));
                 if (!com.baidu.adp.lib.util.k.isEmpty(this.title)) {
-                    this.ecm.setTitle(this.title);
+                    this.ecq.setTitle(this.title);
                 } else {
-                    this.ecm.setTitle(this.ebK);
+                    this.ecq.setTitle(this.ebO);
                 }
                 JSONObject optJSONObject7 = jSONObject.optJSONObject("task_info");
                 if (optJSONObject7 != null) {
-                    this.ecS.parserJson(optJSONObject7);
+                    this.ecW.parserJson(optJSONObject7);
                 }
                 JSONArray optJSONArray6 = jSONObject.optJSONArray("ext_tails");
                 if (optJSONArray6 != null) {
                     for (int i6 = 0; i6 < optJSONArray6.length(); i6++) {
                         com.baidu.tbadk.data.c cVar = new com.baidu.tbadk.data.c();
                         cVar.parserJson(optJSONArray6.getJSONObject(i6));
-                        this.ecV.add(cVar);
+                        this.ecZ.add(cVar);
                     }
                 }
-                this.edc = jSONObject.optInt("is_book_chapter", 0);
-                this.edd.parserJson(jSONObject.optJSONObject("book_chapter"));
+                this.edg = jSONObject.optInt("is_book_chapter", 0);
+                this.edh.parserJson(jSONObject.optJSONObject("book_chapter"));
                 this.mRecomSource = jSONObject.optString(IntentConfig.RECOM_SOURCE);
-                this.edk = jSONObject.optString("recom_reason");
+                this.edo = jSONObject.optString("recom_reason");
                 this.mRecomWeight = jSONObject.optString("recom_weight");
                 this.mRecomExtra = jSONObject.optString("recom_extra");
-                this.edg = jSONObject.optString("recom_extra_img");
-                this.edj = jSONObject.optString("recom_extra_img_night");
-                this.edh = jSONObject.optInt("recom_extra_img_width", 0);
-                this.edi = jSONObject.optInt("recom_extra_img_height", 0);
-                this.edl = jSONObject.optLong("last_read_pid");
-                this.edm = jSONObject.optInt("cheak_repeat") == 1;
+                this.edk = jSONObject.optString("recom_extra_img");
+                this.edn = jSONObject.optString("recom_extra_img_night");
+                this.edl = jSONObject.optInt("recom_extra_img_width", 0);
+                this.edm = jSONObject.optInt("recom_extra_img_height", 0);
+                this.edp = jSONObject.optLong("last_read_pid");
+                this.edq = jSONObject.optInt("cheak_repeat") == 1;
                 JSONObject optJSONObject8 = jSONObject.optJSONObject("video_channel_info");
                 if (optJSONObject8 != null) {
-                    this.ecv = new cd();
-                    this.ecv.cS(optJSONObject8);
+                    this.ecz = new cd();
+                    this.ecz.cS(optJSONObject8);
                 }
-                this.edv = jSONObject.optInt("is_multiforum_thread") == 1;
+                this.edz = jSONObject.optInt("is_multiforum_thread") == 1;
                 this.isLinkThread = jSONObject.optBoolean("is_link_thread");
                 JSONObject optJSONObject9 = jSONObject.optJSONObject("link_info");
                 if (this.isLinkThread && optJSONObject9 != null) {
-                    this.edy = new am();
-                    this.edy.parserJson(optJSONObject9);
+                    this.edC = new am();
+                    this.edC.parserJson(optJSONObject9);
                 }
-                this.edz = jSONObject.optInt("is_partial_visible") == 1;
+                this.edD = jSONObject.optInt("is_partial_visible") == 1;
                 JSONObject optJSONObject10 = jSONObject.optJSONObject("activity_info");
                 if (optJSONObject10 != null) {
-                    this.edA = new e();
-                    this.edA.parserJson(optJSONObject10);
+                    this.edE = new e();
+                    this.edE.parserJson(optJSONObject10);
                 }
                 JSONObject optJSONObject11 = jSONObject.optJSONObject("pic_info");
                 if (optJSONObject11 != null) {
-                    this.edB = new MediaData();
-                    this.edB.parserJson(optJSONObject11);
+                    this.edF = new MediaData();
+                    this.edF.parserJson(optJSONObject11);
                 }
-                this.edf = jSONObject.optInt("is_called", 0);
-                this.edC = jSONObject.optInt("middle_page_num", 0);
-                this.edD = jSONObject.optInt("middle_page_pass_flag", 0);
+                this.edj = jSONObject.optInt("is_called", 0);
+                this.edG = jSONObject.optInt("middle_page_num", 0);
+                this.edH = jSONObject.optInt("middle_page_pass_flag", 0);
                 JSONObject optJSONObject12 = jSONObject.optJSONObject(WriteVideoActivityConfig.VIDEO_INFO);
                 if (optJSONObject12 != null) {
                     VideoInfo.Builder builder = new VideoInfo.Builder();
@@ -1323,19 +1323,19 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
                     builder.play_count = new Integer(optJSONObject12.optInt("play_count", 0));
                     builder.is_vertical = new Integer(optJSONObject12.optInt("is_vertical", 0));
                     builder.mcn_lead_page = new String(optJSONObject12.optString("mcn_lead_page"));
-                    this.ect = builder.build(true);
+                    this.ecx = builder.build(true);
                 }
                 this.isShareThread = jSONObject.optInt("is_share_thread", 0) == 1;
                 if (this.isShareThread) {
                     JSONObject optJSONObject13 = jSONObject.optJSONObject("origin_thread_info");
                     if (optJSONObject13 != null) {
-                        this.edE = new OriginalThreadInfo();
-                        this.edE.parserJson(optJSONObject13);
+                        this.edI = new OriginalThreadInfo();
+                        this.edI.parserJson(optJSONObject13);
                     } else {
-                        this.edE = null;
+                        this.edI = null;
                     }
                 } else {
-                    this.edE = null;
+                    this.edI = null;
                 }
                 JSONObject optJSONObject14 = jSONObject.optJSONObject("swan_info");
                 if (optJSONObject14 != null) {
@@ -1347,41 +1347,41 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
                     builder2.h5_url = optJSONObject14.optString("h5_url");
                     builder2.id = optJSONObject14.optString("id");
                     builder2.link = optJSONObject14.optString("link");
-                    this.edT = builder2.build(false);
+                    this.edX = builder2.build(false);
                 }
-                this.eea = jSONObject.optString("t_share_img");
+                this.eee = jSONObject.optString("t_share_img");
                 this.mNid = jSONObject.optString("nid");
-                this.eeb = jSONObject.optInt("is_headlinepost", 0) == 1;
-                this.eem = jSONObject.optInt(ImageViewerConfig.IS_BJH);
-                this.eeo = jSONObject.optInt("bjh_content_tag");
-                this.een = jSONObject.optString("article_cover");
+                this.eef = jSONObject.optInt("is_headlinepost", 0) == 1;
+                this.eeq = jSONObject.optInt(ImageViewerConfig.IS_BJH);
+                this.ees = jSONObject.optInt("bjh_content_tag");
+                this.eer = jSONObject.optString("article_cover");
                 JSONObject optJSONObject15 = jSONObject.optJSONObject(Constants.PAGE_BAIJIAHAO_NAME);
                 if (optJSONObject15 != null) {
                     this.mBaijiahao = new BaijiahaoData();
                     this.mBaijiahao.parseJson(optJSONObject15);
                     this.agreeData.baijiahaoData = this.mBaijiahao;
                 }
-                this.eep = jSONObject.optInt("is_s_card", 0) == 1;
-                this.eeq = jSONObject.optString("scard_packet_id");
+                this.eet = jSONObject.optInt("is_s_card", 0) == 1;
+                this.eeu = jSONObject.optString("scard_packet_id");
                 this.mTabId = jSONObject.optInt("tab_id");
                 this.mTabName = jSONObject.optString("tab_name");
-                this.eer = jSONObject.optString("wonderful_post_info");
+                this.eev = jSONObject.optString("wonderful_post_info");
                 bfd();
                 this.forbidComment = jSONObject.optInt("if_comment", 0) == 1;
                 this.noCommetStr = jSONObject.optString("if_comment_info");
                 JSONObject optJSONObject16 = jSONObject.optJSONObject("poll_info");
                 if (optJSONObject16 != null) {
-                    this.eey.parserJson(optJSONObject16);
+                    this.eeC.parserJson(optJSONObject16);
                 }
                 JSONArray optJSONArray7 = jSONObject.optJSONArray("pb_link_info");
                 if (optJSONArray7 != null) {
                     for (int i7 = 0; i7 < optJSONArray7.length(); i7++) {
                         PbLinkData pbLinkData = new PbLinkData();
                         pbLinkData.parseJson(optJSONArray7.getJSONObject(i7));
-                        if (pbLinkData.urlType == 2 && !this.eev) {
-                            this.eev = true;
+                        if (pbLinkData.urlType == 2 && !this.eez) {
+                            this.eez = true;
                         }
-                        this.eet.add(pbLinkData);
+                        this.eex.add(pbLinkData);
                     }
                 }
                 JSONArray optJSONArray8 = jSONObject.optJSONArray("pb_goods_info");
@@ -1389,13 +1389,13 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
                     for (int i8 = 0; i8 < optJSONArray8.length(); i8++) {
                         PbGoodsData pbGoodsData = new PbGoodsData();
                         pbGoodsData.parseJson(optJSONArray8.getJSONObject(i8));
-                        this.eeu.add(pbGoodsData);
+                        this.eey.add(pbGoodsData);
                     }
-                    if (this.eeu.size() > 0 && !this.eev) {
-                        this.eev = true;
+                    if (this.eey.size() > 0 && !this.eez) {
+                        this.eez = true;
                     }
                 }
-                this.eez = jSONObject.optInt("hot_num", -1);
+                this.eeD = jSONObject.optInt("hot_num", -1);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -1413,105 +1413,105 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
     }
 
     private void bfe() {
-        if (!StringUtils.isNull(this.ecb.getName_show())) {
-            this.edV = com.baidu.tbadk.core.util.at.cutChineseAndEnglishWithSuffix(this.ecb.getName_show(), 14, StringHelper.STRING_MORE);
+        if (!StringUtils.isNull(this.ecf.getName_show())) {
+            this.edZ = com.baidu.tbadk.core.util.at.cutChineseAndEnglishWithSuffix(this.ecf.getName_show(), 14, StringHelper.STRING_MORE);
         }
     }
 
     private void bff() {
-        if (this.ecw != null) {
-            if (this.ecw.openRecomDuration == 1 && this.mCreateTime > 0) {
+        if (this.ecA != null) {
+            if (this.ecA.openRecomDuration == 1 && this.mCreateTime > 0) {
                 String cO = com.baidu.tbadk.core.util.at.cO(this.mCreateTime);
                 if (!StringUtils.isNull(cO)) {
-                    this.edW = cO;
+                    this.eea = cO;
                 }
             }
-            if (this.ecw.openRecomFans == 1) {
+            if (this.ecA.openRecomFans == 1) {
                 int i = 0;
-                if (this.ecw != null && this.ecw.user_info != null) {
-                    i = this.ecw.user_info.anchor_fans;
+                if (this.ecA != null && this.ecA.user_info != null) {
+                    i = this.ecA.user_info.anchor_fans;
                 }
-                if (!TextUtils.isEmpty(this.edW) && i > 0) {
-                    this.edW += "   " + TbadkCoreApplication.getInst().getResources().getString(R.string.ala_card_anchor_fans) + " " + com.baidu.tbadk.core.util.at.cR(i);
+                if (!TextUtils.isEmpty(this.eea) && i > 0) {
+                    this.eea += "   " + TbadkCoreApplication.getInst().getResources().getString(R.string.ala_card_anchor_fans) + " " + com.baidu.tbadk.core.util.at.cR(i);
                 } else if (i > 0) {
-                    this.edW = TbadkCoreApplication.getInst().getResources().getString(R.string.ala_card_anchor_fans) + com.baidu.tbadk.core.util.at.cR(i);
+                    this.eea = TbadkCoreApplication.getInst().getResources().getString(R.string.ala_card_anchor_fans) + com.baidu.tbadk.core.util.at.cR(i);
                 }
             }
         }
     }
 
     private void bfg() {
-        if (bdo() || (bgw() && getType() != ebp)) {
+        if (bdo() || (bgw() && getType() != ebt)) {
             long j = this.mCreateTime;
             if (j != 0) {
                 String cM = com.baidu.tbadk.core.util.at.cM(j);
-                if (com.baidu.tbadk.core.util.at.Ag(cM)) {
+                if (com.baidu.tbadk.core.util.at.Ah(cM)) {
                     cM = com.baidu.tbadk.core.util.at.getFormatTimeShort(j);
                 }
-                this.edW = cM;
+                this.eea = cM;
             }
             String str = "";
-            if (this.ecb != null && this.ecb.getBaijiahaoInfo() != null && !TextUtils.isEmpty(this.ecb.getBaijiahaoInfo().auth_desc)) {
-                str = this.ecb.getBaijiahaoInfo().auth_desc;
+            if (this.ecf != null && this.ecf.getBaijiahaoInfo() != null && !TextUtils.isEmpty(this.ecf.getBaijiahaoInfo().auth_desc)) {
+                str = this.ecf.getBaijiahaoInfo().auth_desc;
             }
             if (bgF()) {
                 bfh();
-            } else if (!this.eef && this.ecb != null && this.ecb.showBazhuGrade()) {
-                String cutChineseAndEnglishWithSuffix = com.baidu.tbadk.core.util.at.cutChineseAndEnglishWithSuffix(this.ecb.getBazhuGradeData().getDesc(), 24, StringHelper.STRING_MORE);
-                if (!TextUtils.isEmpty(this.edW)) {
-                    this.edW += "   " + cutChineseAndEnglishWithSuffix;
+            } else if (!this.eej && this.ecf != null && this.ecf.showBazhuGrade()) {
+                String cutChineseAndEnglishWithSuffix = com.baidu.tbadk.core.util.at.cutChineseAndEnglishWithSuffix(this.ecf.getBazhuGradeData().getDesc(), 24, StringHelper.STRING_MORE);
+                if (!TextUtils.isEmpty(this.eea)) {
+                    this.eea += "   " + cutChineseAndEnglishWithSuffix;
                 } else {
-                    this.edW = cutChineseAndEnglishWithSuffix;
+                    this.eea = cutChineseAndEnglishWithSuffix;
                 }
-            } else if (!TextUtils.isEmpty(this.edW) && !TextUtils.isEmpty(str)) {
-                this.edW += "   " + str;
+            } else if (!TextUtils.isEmpty(this.eea) && !TextUtils.isEmpty(str)) {
+                this.eea += "   " + str;
             } else if (!TextUtils.isEmpty(str)) {
-                this.edW = str;
+                this.eea = str;
             }
-        } else if (getType() == ebp) {
+        } else if (getType() == ebt) {
             bff();
         } else {
             long bex = bex() * 1000;
             if (bex != 0) {
                 String cM2 = com.baidu.tbadk.core.util.at.cM(bex);
-                if (com.baidu.tbadk.core.util.at.Ag(cM2)) {
+                if (com.baidu.tbadk.core.util.at.Ah(cM2)) {
                     cM2 = com.baidu.tbadk.core.util.at.getFormatTimeShort(bex);
                 }
                 String string = TbadkCoreApplication.getInst().getApp().getString(R.string.repley_when);
                 if (bcn()) {
                     cM2 = com.baidu.tbadk.core.util.at.cN(bex);
                 }
-                this.edW = string + cM2;
+                this.eea = string + cM2;
             } else {
                 long j2 = this.mCreateTime;
                 String cM3 = com.baidu.tbadk.core.util.at.cM(j2);
-                if (com.baidu.tbadk.core.util.at.Ag(cM3)) {
+                if (com.baidu.tbadk.core.util.at.Ah(cM3)) {
                     cM3 = com.baidu.tbadk.core.util.at.getFormatTimeShort(j2);
                 }
-                this.edW = cM3;
+                this.eea = cM3;
             }
             if (bgF()) {
                 bfh();
-            } else if (!this.eef && this.ecb != null && this.ecb.showBazhuGrade()) {
-                String cutChineseAndEnglishWithSuffix2 = com.baidu.tbadk.core.util.at.cutChineseAndEnglishWithSuffix(this.ecb.getBazhuGradeData().getDesc(), this.eee ? 24 : 16, StringHelper.STRING_MORE);
-                if (!TextUtils.isEmpty(this.edW)) {
-                    this.edW += "   " + cutChineseAndEnglishWithSuffix2;
+            } else if (!this.eej && this.ecf != null && this.ecf.showBazhuGrade()) {
+                String cutChineseAndEnglishWithSuffix2 = com.baidu.tbadk.core.util.at.cutChineseAndEnglishWithSuffix(this.ecf.getBazhuGradeData().getDesc(), this.eei ? 24 : 16, StringHelper.STRING_MORE);
+                if (!TextUtils.isEmpty(this.eea)) {
+                    this.eea += "   " + cutChineseAndEnglishWithSuffix2;
                 } else {
-                    this.edW = cutChineseAndEnglishWithSuffix2;
+                    this.eea = cutChineseAndEnglishWithSuffix2;
                 }
             }
-            if (!TextUtils.isEmpty(this.edW) && !TextUtils.isEmpty(getAddress())) {
-                this.edW += " • " + getAddress();
+            if (!TextUtils.isEmpty(this.eea) && !TextUtils.isEmpty(getAddress())) {
+                this.eea += " • " + getAddress();
             }
         }
     }
 
     private void bfh() {
-        if (bgF() && !TextUtils.isEmpty(this.ecb.getNewGodData().getFieldName())) {
-            if (!TextUtils.isEmpty(this.edW)) {
-                this.edW += "   " + this.ecb.getNewGodData().getFieldName() + TbadkCoreApplication.getInst().getApp().getString(R.string.field_new_god);
+        if (bgF() && !TextUtils.isEmpty(this.ecf.getNewGodData().getFieldName())) {
+            if (!TextUtils.isEmpty(this.eea)) {
+                this.eea += "   " + this.ecf.getNewGodData().getFieldName() + TbadkCoreApplication.getInst().getApp().getString(R.string.field_new_god);
             } else {
-                this.edW = this.ecb.getNewGodData().getFieldName() + TbadkCoreApplication.getInst().getApp().getString(R.string.field_new_god);
+                this.eea = this.ecf.getNewGodData().getFieldName() + TbadkCoreApplication.getInst().getApp().getString(R.string.field_new_god);
             }
         }
     }
@@ -1521,59 +1521,59 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
             long bex = 1000 * bex();
             if (bex != 0) {
                 String cM = com.baidu.tbadk.core.util.at.cM(bex);
-                if (com.baidu.tbadk.core.util.at.Ag(cM)) {
+                if (com.baidu.tbadk.core.util.at.Ah(cM)) {
                     cM = com.baidu.tbadk.core.util.at.getFormatTimeShort(bex);
                 }
-                this.edW = cM;
+                this.eea = cM;
             }
             if (bgF()) {
                 bfh();
-            } else if (!this.eef && this.ecb != null && this.ecb.showBazhuGrade()) {
-                String cutChineseAndEnglishWithSuffix = com.baidu.tbadk.core.util.at.cutChineseAndEnglishWithSuffix(this.ecb.getBazhuGradeData().getDesc(), 24, StringHelper.STRING_MORE);
-                if (!TextUtils.isEmpty(this.edW)) {
-                    this.edW += "   " + cutChineseAndEnglishWithSuffix;
+            } else if (!this.eej && this.ecf != null && this.ecf.showBazhuGrade()) {
+                String cutChineseAndEnglishWithSuffix = com.baidu.tbadk.core.util.at.cutChineseAndEnglishWithSuffix(this.ecf.getBazhuGradeData().getDesc(), 24, StringHelper.STRING_MORE);
+                if (!TextUtils.isEmpty(this.eea)) {
+                    this.eea += "   " + cutChineseAndEnglishWithSuffix;
                 } else {
-                    this.edW = cutChineseAndEnglishWithSuffix;
+                    this.eea = cutChineseAndEnglishWithSuffix;
                 }
             }
-            if (!TextUtils.isEmpty(this.edW) && !TextUtils.isEmpty(getAddress())) {
-                this.edW += " • " + getAddress();
+            if (!TextUtils.isEmpty(this.eea) && !TextUtils.isEmpty(getAddress())) {
+                this.eea += " • " + getAddress();
             }
         }
     }
 
     private void bfj() {
-        if (beY() == null || beY().share_info == null || beY().share_info.share_user_count <= 0 || !bfY() || (this.edC > 0 && this.edD == 0)) {
-            this.edX = null;
+        if (beY() == null || beY().share_info == null || beY().share_info.share_user_count <= 0 || !bfY() || (this.edG > 0 && this.edH == 0)) {
+            this.eeb = null;
             return;
         }
         int i = beY().share_info.share_user_count;
         if (i == 1) {
-            this.edX = TbadkCoreApplication.getInst().getString(R.string.ala_live_share_live_label_simple);
+            this.eeb = TbadkCoreApplication.getInst().getString(R.string.ala_live_share_live_label_simple);
         } else {
-            this.edX = TbadkCoreApplication.getInst().getString(R.string.ala_live_share_live_label, new Object[]{com.baidu.tbadk.core.util.at.numberUniform(i)});
+            this.eeb = TbadkCoreApplication.getInst().getString(R.string.ala_live_share_live_label, new Object[]{com.baidu.tbadk.core.util.at.numberUniform(i)});
         }
     }
 
     private void bfk() {
-        this.ebP = bfB();
-        com.baidu.tieba.card.m.a(this, this.ebP, true);
+        this.ebT = bfB();
+        com.baidu.tieba.card.m.a(this, this.ebT, true);
     }
 
     private void bfl() {
-        this.dZh = bfz();
+        this.dZl = bfz();
     }
 
     private void bfm() {
-        this.edY = com.baidu.tbadk.core.util.at.getFormatTimeShort(bex() * 1000);
+        this.eec = com.baidu.tbadk.core.util.at.getFormatTimeShort(bex() * 1000);
     }
 
     private void bfn() {
-        this.edZ = com.baidu.tbadk.core.util.at.getFormatTimeShort(bex());
+        this.eed = com.baidu.tbadk.core.util.at.getFormatTimeShort(bex());
     }
 
     public SpannableStringBuilder bfo() {
-        return this.ebO;
+        return this.ebS;
     }
 
     public boolean isTop() {
@@ -1581,9 +1581,9 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
     }
 
     public int bfp() {
-        if (this.ecS != null) {
-            long bdW = this.ecS.bdW();
-            long bdX = this.ecS.bdX();
+        if (this.ecW != null) {
+            long bdW = this.ecW.bdW();
+            long bdX = this.ecW.bdX();
             long currentTimeMillis = System.currentTimeMillis() / 1000;
             if (currentTimeMillis < bdW) {
                 return 1;
@@ -1597,8 +1597,8 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
     }
 
     public int bfq() {
-        if (bfs() && this.ecC.size() >= 1) {
-            a aVar = this.ecC.get(0);
+        if (bfs() && this.ecG.size() >= 1) {
+            a aVar = this.ecG.get(0);
             int status = aVar.getStatus();
             if (status == 3) {
                 return status;
@@ -1615,21 +1615,21 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
     }
 
     public int bfr() {
-        if (!bfs() || this.ecC.size() < 1 || this.ecC.get(0) == null) {
+        if (!bfs() || this.ecG.size() < 1 || this.ecG.get(0) == null) {
             return -1;
         }
-        return this.ecC.get(0).bcq();
+        return this.ecG.get(0).bcq();
     }
 
     public boolean bfs() {
-        return this.ecq == 1;
+        return this.ecu == 1;
     }
 
     public String getActUrl() {
-        return (!bfs() || this.ecC.size() < 1 || this.ecC.get(0) == null) ? "" : this.ecC.get(0).getUrl();
+        return (!bfs() || this.ecG.size() < 1 || this.ecG.get(0) == null) ? "" : this.ecG.get(0).getUrl();
     }
 
-    private com.baidu.adp.widget.b zp(String str) {
+    private com.baidu.adp.widget.b zq(String str) {
         com.baidu.adp.widget.b bVar;
         if (str == null) {
             return null;
@@ -1660,7 +1660,7 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
     }
 
     public SmartApp bft() {
-        return this.edT;
+        return this.edX;
     }
 
     private void y(boolean z, boolean z2) {
@@ -1676,7 +1676,7 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
             } else if (bez() == 2) {
                 arrayList.add(Integer.valueOf(R.drawable.icon_notice));
             }
-            if (beB() == 1 || this.eca.bgT() != 0) {
+            if (beB() == 1 || this.ece.bgT() != 0) {
                 if (bek() != null && getThreadType() == 41) {
                     if (bfp() == 2) {
                         arrayList.add(Integer.valueOf(R.drawable.label_interview));
@@ -1686,21 +1686,21 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
                 }
             }
             if (z && bfM()) {
-                Integer num = ecH.get(Integer.valueOf(bfp()));
+                Integer num = ecL.get(Integer.valueOf(bfp()));
                 if (num != null) {
                     arrayList.add(num);
                 }
             }
-            if (beA() == 1 && !isTop() && ebo != getType() && ebw != getType()) {
+            if (beA() == 1 && !isTop() && ebs != getType() && ebA != getType()) {
                 arrayList.add(Integer.valueOf(R.drawable.icon_elite));
             }
-            if (this.ecn != null && this.ecn.getGroup_id() != 0) {
+            if (this.ecr != null && this.ecr.getGroup_id() != 0) {
                 arrayList.add(Integer.valueOf(R.drawable.icon_live_on));
             }
             if (beJ() == 1) {
                 arrayList.add(Integer.valueOf(R.drawable.frs_post_ding));
             }
-            Integer num2 = ecG.get(new Point(bfr(), bfq()));
+            Integer num2 = ecK.get(new Point(bfr(), bfq()));
             if (num2 != null) {
                 arrayList.add(num2);
             }
@@ -1711,7 +1711,7 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
                 arrayList.add(Integer.valueOf(R.drawable.icon_tag_giftsend));
             }
             if (!com.baidu.adp.lib.util.k.isEmpty(this.category_name)) {
-                bVar = zp(this.category_name);
+                bVar = zq(this.category_name);
             }
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
@@ -1734,7 +1734,7 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
                     bitmapDrawable.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
                 }
                 com.baidu.tbadk.core.view.i iVar = new com.baidu.tbadk.core.view.i(bitmapDrawable);
-                iVar.setOffset(com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst().getApplicationContext(), this.ebI));
+                iVar.setOffset(com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst().getApplicationContext(), this.ebM));
                 spannableString.setSpan(iVar, i2, i2 + 1, 33);
                 i2 += 2;
             }
@@ -1747,7 +1747,7 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
         if (bfw != null) {
             spannableStringBuilder.append((CharSequence) bfw);
         }
-        this.ebO = spannableStringBuilder;
+        this.ebS = spannableStringBuilder;
     }
 
     public boolean bfu() {
@@ -1806,7 +1806,7 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
         } else {
             spannableStringBuilder = new SpannableStringBuilder(bfw);
         }
-        this.ebO = spannableStringBuilder;
+        this.ebS = spannableStringBuilder;
     }
 
     private SpannableStringBuilder a(String str, SpannableStringBuilder spannableStringBuilder, boolean z, boolean z2, boolean z3, boolean z4) {
@@ -1819,12 +1819,12 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
             if (a2 == null) {
                 a2 = new SpannableStringBuilder();
             }
-            if (this.ebJ == 1) {
-                this.ebO = a2;
+            if (this.ebN == 1) {
+                this.ebS = a2;
                 return a2;
             }
-        } else if (this.ebJ == 1) {
-            this.ebO = new SpannableStringBuilder();
+        } else if (this.ebN == 1) {
+            this.ebS = new SpannableStringBuilder();
             return a2;
         }
         if (spannableStringBuilder != null) {
@@ -1840,20 +1840,20 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
 
     public void du(String str, String str2) {
         this.mUrl = str;
-        this.ecX = str2;
+        this.edb = str2;
     }
 
     public SpannableStringBuilder bfw() {
-        return com.baidu.tbadk.widget.richText.e.a(this, this.ebL, this.title);
+        return com.baidu.tbadk.widget.richText.e.a(this, this.ebP, this.title);
     }
 
     public SpannableStringBuilder bfx() {
-        return com.baidu.tbadk.widget.richText.e.a(this, this.ebM, this.ebK);
+        return com.baidu.tbadk.widget.richText.e.a(this, this.ebQ, this.ebO);
     }
 
     public ArrayList<com.baidu.tbadk.widget.richText.b> bfy() {
         ArrayList<com.baidu.tbadk.widget.richText.b> arrayList = new ArrayList<>();
-        if (this.eep) {
+        if (this.eet) {
             arrayList.add(new com.baidu.tbadk.widget.richText.b(TbadkCoreApplication.getInst().getResources().getString(R.string.s_card_package_icon)));
         }
         return arrayList;
@@ -1866,25 +1866,25 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
     }
 
     public SpannableString bfA() {
-        if (com.baidu.tbadk.core.util.y.isEmpty(this.ebN)) {
+        if (com.baidu.tbadk.core.util.y.isEmpty(this.ebR)) {
             return null;
         }
-        return new SpannableString(com.baidu.tbadk.widget.richText.e.a(this, this.ebN, this.ebK));
+        return new SpannableString(com.baidu.tbadk.widget.richText.e.a(this, this.ebR, this.ebO));
     }
 
     public String getAbstract() {
-        return this.ebK;
+        return this.ebO;
     }
 
-    public void zq(String str) {
-        this.ebK = str;
+    public void zr(String str) {
+        this.ebO = str;
     }
 
     public SpannableStringBuilder e(boolean z, boolean z2, boolean z3) {
         SpannableStringBuilder bfw;
         String spannableStringBuilder;
         SpannableStringBuilder spannableStringBuilder2;
-        if (this.ebJ == 1) {
+        if (this.ebN == 1) {
             bfw = bfx();
             spannableStringBuilder = bfw.toString();
         } else {
@@ -1896,7 +1896,7 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
         } else {
             spannableStringBuilder2 = new SpannableStringBuilder(bfw);
         }
-        this.ebO = spannableStringBuilder2;
+        this.ebS = spannableStringBuilder2;
         return spannableStringBuilder2;
     }
 
@@ -1906,33 +1906,33 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
 
     public SpannableStringBuilder B(boolean z, boolean z2) {
         SpannableStringBuilder bfx;
-        if (!StringUtils.isNull(this.title) && this.ebJ != 1) {
+        if (!StringUtils.isNull(this.title) && this.ebN != 1) {
             bfx = bfw();
         } else {
             bfx = bfx();
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(bfx);
-        this.ebO = spannableStringBuilder;
+        this.ebS = spannableStringBuilder;
         return spannableStringBuilder;
     }
 
     public SpannableStringBuilder bfB() {
-        if (StringUtils.isNull(this.title) || this.ebJ == 1) {
+        if (StringUtils.isNull(this.title) || this.ebN == 1) {
             return null;
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(bfw());
-        this.ebO = spannableStringBuilder;
+        this.ebS = spannableStringBuilder;
         return spannableStringBuilder;
     }
 
     public ActivityItemData bdj() {
-        if (this.ebL != null && this.ebL.size() > 0) {
-            int size = this.ebL.size();
+        if (this.ebP != null && this.ebP.size() > 0) {
+            int size = this.ebP.size();
             for (int i = 0; i < size; i++) {
-                PbContent pbContent = this.ebL.get(i);
+                PbContent pbContent = this.ebP.get(i);
                 if (pbContent != null && !TextUtils.isEmpty(pbContent.text) && 18 == pbContent.type.intValue() && bdk() && pbContent.text != null && pbContent.text.length() >= 3) {
                     ActivityItemData activityItemData = new ActivityItemData();
-                    activityItemData.link_url = com.baidu.tbadk.plugins.b.CB(pbContent.text);
+                    activityItemData.link_url = com.baidu.tbadk.plugins.b.CC(pbContent.text);
                     activityItemData.activity_name = pbContent.text.substring(1, pbContent.text.length() - 2);
                     return activityItemData;
                 }
@@ -1950,7 +1950,7 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
     }
 
     public AnchorInfoData bfE() {
-        return this.ecn;
+        return this.ecr;
     }
 
     public boolean bfF() {
@@ -1962,7 +1962,7 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
     }
 
     public boolean bfG() {
-        return this.threadType == 11 || this.eck == 1;
+        return this.threadType == 11 || this.eco == 1;
     }
 
     public boolean bfH() {
@@ -2004,16 +2004,16 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
                 next.preloadType = 2;
             }
         }
-        if (this.ect != null && !StringUtils.isNull(this.ect.thumbnail_url)) {
+        if (this.ecx != null && !StringUtils.isNull(this.ecx.thumbnail_url)) {
             PreLoadImageInfo preLoadImageInfo2 = new PreLoadImageInfo();
-            preLoadImageInfo2.imgUrl = this.ect.thumbnail_url;
+            preLoadImageInfo2.imgUrl = this.ecx.thumbnail_url;
             preLoadImageInfo2.procType = 10;
             preLoadImageInfo2.preloadType = 1;
             arrayList.add(preLoadImageInfo2);
         }
-        if (this.ecb != null) {
+        if (this.ecf != null) {
             PreLoadImageInfo preLoadImageInfo3 = new PreLoadImageInfo();
-            preLoadImageInfo3.imgUrl = this.ecb.getPortrait();
+            preLoadImageInfo3.imgUrl = this.ecf.getPortrait();
             preLoadImageInfo3.procType = 28;
             preLoadImageInfo3.preloadType = 3;
             arrayList.add(preLoadImageInfo3);
@@ -2023,7 +2023,7 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
 
     public boolean bfI() {
         String userId;
-        return this.ecb == null || (userId = this.ecb.getUserId()) == null || userId.equals("0");
+        return this.ecf == null || (userId = this.ecf.getUserId()) == null || userId.equals("0");
     }
 
     public boolean bfJ() {
@@ -2034,80 +2034,71 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
     public BdUniqueId getType() {
         if (bgt()) {
             if (beW() != null) {
-                return ebo;
+                return ebs;
             }
-            return eaS;
+            return eaW;
         }
         int bez = bez();
-        if (this.edH == 1) {
-            if (this.edI != null) {
-                return ebf;
+        if (this.edL == 1) {
+            if (this.edM != null) {
+                return ebj;
             }
-            return this.edL != null ? eby : ebx;
-        } else if (this.ecw != null && this.threadType == 60) {
-            return ebr;
+            return this.edP != null ? ebC : ebB;
+        } else if (this.ecA != null && this.threadType == 60) {
+            return ebv;
         } else {
-            if (this.ecw != null && this.threadType == 49) {
-                return ebp;
+            if (this.ecA != null && this.threadType == 49) {
+                return ebt;
             }
             if (this.threadType == 51) {
-                return ebq;
+                return ebu;
             }
             if (this.threadType == 63) {
-                return ebz;
+                return ebD;
             }
             if (this.threadType == 64) {
-                return ebA;
+                return ebE;
             }
             if (bez == 2 || bez == 1) {
-                return eaR;
+                return eaV;
             }
-            if (this.ect != null && bfR() && !bfJ()) {
-                return ebF;
+            if (this.ecx != null && bfR() && !bfJ()) {
+                return ebJ;
             }
-            if (this.ect != null && !bfJ()) {
+            if (this.ecx != null && !bfJ()) {
                 if (beH()) {
-                    return ebw;
-                }
-                return ebo;
-            } else if (this.isShareThread && this.edE != null) {
-                if (this.edE.dZi) {
-                    if (this.edE.videoInfo != null) {
-                        return ebv;
-                    }
-                    if (this.edE.bdm()) {
-                        return ebu;
-                    }
-                    return ebt;
+                    return ebA;
                 }
                 return ebs;
+            } else if (this.isShareThread && this.edI != null) {
+                if (this.edI.dZm) {
+                    if (this.edI.videoInfo != null) {
+                        return ebz;
+                    }
+                    if (this.edI.bdm()) {
+                        return eby;
+                    }
+                    return ebx;
+                }
+                return ebw;
             } else if (bdm()) {
-                return ebg;
+                return ebk;
             } else {
                 if (bfL()) {
-                    return ebC.get() ? ecR : eaS;
+                    return ebG.get() ? ecV : eaW;
                 } else if (bfs() && bfr() == 1) {
-                    return ebC.get() ? ecZ : eaS;
+                    return ebG.get() ? edd : eaW;
                 } else if (isLinkThread()) {
-                    return ebm;
+                    return ebq;
                 } else {
                     if (beH()) {
-                        return ebn;
-                    }
-                    if (this.eay) {
-                        return eaX;
-                    }
-                    if (this.eaz) {
-                        return eaY;
-                    }
-                    if (this.eaA) {
-                        return eaZ;
-                    }
-                    if (this.eaB) {
-                        return eba;
+                        return ebr;
                     }
                     if (this.eaC) {
                         return ebb;
+                    }
+                    if (this.eaD) {
+                        return ebc;
                     }
                     if (this.eaE) {
                         return ebd;
@@ -2115,23 +2106,32 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
                     if (this.eaF) {
                         return ebe;
                     }
-                    if (this.eaD) {
-                        return ebc;
+                    if (this.eaG) {
+                        return ebf;
                     }
-                    if (this.ecA) {
+                    if (this.eaI) {
+                        return ebh;
+                    }
+                    if (this.eaJ) {
+                        return ebi;
+                    }
+                    if (this.eaH) {
+                        return ebg;
+                    }
+                    if (this.ecE) {
                         int bfK = bfK();
                         if (bfK == 1) {
-                            return eaT;
+                            return eaX;
                         }
                         if (bfK == 2) {
-                            return eaU;
+                            return eaY;
                         }
                         if (bfK > 2) {
-                            return eaV;
+                            return eaZ;
                         }
-                        return eaS;
+                        return eaW;
                     }
-                    return eaS;
+                    return eaW;
                 }
             }
         }
@@ -2162,12 +2162,12 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
     }
 
     public void F(ArrayList<s> arrayList) {
-        if (this.ebJ == 1) {
-            this.dXu = 0;
+        if (this.ebN == 1) {
+            this.dXy = 0;
         } else if (arrayList == null || arrayList.size() <= 0) {
-            this.dXu = 0;
+            this.dXy = 0;
         } else {
-            this.dXu = 0;
+            this.dXy = 0;
             Iterator<s> it = arrayList.iterator();
             while (it.hasNext()) {
                 s next = it.next();
@@ -2177,7 +2177,7 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
                         if (it2.hasNext()) {
                             String next2 = it2.next();
                             if (!StringUtils.isNull(next2) && this.title.contains(next2)) {
-                                this.dXu = next.bcH();
+                                this.dXy = next.bcH();
                                 break;
                             }
                         }
@@ -2192,53 +2192,53 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
     }
 
     public boolean bfN() {
-        return this.eda;
-    }
-
-    public void hX(boolean z) {
-        this.eda = z;
-    }
-
-    public String bfO() {
-        return this.edb;
-    }
-
-    public r bfP() {
-        return this.ecF;
-    }
-
-    public void bfQ() {
-        if (this.ecy == 0) {
-            this.ecy = 1;
-        }
+        return this.ede;
     }
 
     public void hY(boolean z) {
-        this.edn = z;
+        this.ede = z;
     }
 
-    public boolean bfR() {
-        return this.edn;
+    public String bfO() {
+        return this.edf;
     }
 
-    public void nm(int i) {
-        this.edo = i + 1;
+    public r bfP() {
+        return this.ecJ;
     }
 
-    public int bfS() {
-        return this.edo;
-    }
-
-    public boolean bfT() {
-        return this.eed;
+    public void bfQ() {
+        if (this.ecC == 0) {
+            this.ecC = 1;
+        }
     }
 
     public void hZ(boolean z) {
-        this.eed = z;
+        this.edr = z;
+    }
+
+    public boolean bfR() {
+        return this.edr;
+    }
+
+    public void nm(int i) {
+        this.eds = i + 1;
+    }
+
+    public int bfS() {
+        return this.eds;
+    }
+
+    public boolean bfT() {
+        return this.eeh;
+    }
+
+    public void ia(boolean z) {
+        this.eeh = z;
     }
 
     public cd bfU() {
-        return this.ecv;
+        return this.ecz;
     }
 
     public boolean bfV() {
@@ -2258,11 +2258,11 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
     }
 
     public int bfZ() {
-        return this.edu;
+        return this.edy;
     }
 
     public void setSmartFrsPosition(int i) {
-        this.edu = i;
+        this.edy = i;
     }
 
     public SparseArray<String> getFeedBackReasonMap() {
@@ -2274,7 +2274,7 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
     }
 
     public boolean bgb() {
-        return this.edv;
+        return this.edz;
     }
 
     public long bgc() {
@@ -2314,19 +2314,19 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
     }
 
     public long bgg() {
-        return this.edx;
+        return this.edB;
     }
 
     public void cD(long j) {
-        this.edx = j;
+        this.edB = j;
     }
 
     public PostData bgh() {
-        return this.edw;
+        return this.edA;
     }
 
     public am bgi() {
-        return this.edy;
+        return this.edC;
     }
 
     private ArrayList<m.a> a(boolean z, boolean z2, boolean z3, boolean z4) {
@@ -2347,10 +2347,10 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
                     }
                 }
                 if (bfM()) {
-                    arrayList.add(edr.get(bfp()));
+                    arrayList.add(edv.get(bfp()));
                 }
                 if (bfs()) {
-                    Integer num = edq.get(new Point(bfr(), bfq()));
+                    Integer num = edu.get(new Point(bfr(), bfq()));
                     if (num != null) {
                         arrayList.add(new m.a(num.intValue(), R.color.cp_other_b, R.drawable.pic_dot_title_red));
                     } else {
@@ -2380,14 +2380,14 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
                     arrayList.add(new m.a(R.string.interview_live));
                 }
                 if (bfs()) {
-                    Integer num2 = edq.get(new Point(bfr(), bfq()));
+                    Integer num2 = edu.get(new Point(bfr(), bfq()));
                     if (num2 != null) {
                         arrayList.add(new m.a(num2.intValue(), R.color.cp_other_b, R.drawable.pic_dot_title_red));
                     } else {
                         arrayList.add(new m.a(R.string.card_promotion_text));
                     }
                 }
-                if (this.edc == 1) {
+                if (this.edg == 1) {
                     arrayList.add(new m.a(R.string.card_tbread_text));
                 }
                 if (beQ() != null) {
@@ -2416,99 +2416,99 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
     }
 
     public void G(ArrayList<MediaData> arrayList) {
-        this.ece = arrayList;
+        this.eci = arrayList;
     }
 
     public void H(ArrayList<VoiceData.VoiceModel> arrayList) {
-        this.ecf = arrayList;
+        this.ecj = arrayList;
     }
 
     public String bgj() {
-        return this.edJ;
-    }
-
-    public void zr(String str) {
-        this.edJ = str;
-    }
-
-    public void bgk() {
-        this.edH = 1;
-    }
-
-    public boolean bgl() {
-        return this.edH == 1;
-    }
-
-    public String bgm() {
-        return this.ebR;
-    }
-
-    public void zs(String str) {
-        this.ebR = str;
-    }
-
-    public String bgn() {
-        return this.ebS;
-    }
-
-    public void zt(String str) {
-        this.ebS = str;
-    }
-
-    public String bgo() {
-        return this.edK;
-    }
-
-    public void zu(String str) {
-        this.edK = str;
-    }
-
-    public boolean bgp() {
         return this.edN;
     }
 
-    public void ia(boolean z) {
-        this.edN = z;
+    public void zs(String str) {
+        this.edN = str;
     }
 
-    public boolean bgq() {
+    public void bgk() {
+        this.edL = 1;
+    }
+
+    public boolean bgl() {
+        return this.edL == 1;
+    }
+
+    public String bgm() {
+        return this.ebV;
+    }
+
+    public void zt(String str) {
+        this.ebV = str;
+    }
+
+    public String bgn() {
+        return this.ebW;
+    }
+
+    public void zu(String str) {
+        this.ebW = str;
+    }
+
+    public String bgo() {
         return this.edO;
     }
 
+    public void zv(String str) {
+        this.edO = str;
+    }
+
+    public boolean bgp() {
+        return this.edR;
+    }
+
     public void ib(boolean z) {
-        this.edO = z;
+        this.edR = z;
+    }
+
+    public boolean bgq() {
+        return this.edS;
+    }
+
+    public void ic(boolean z) {
+        this.edS = z;
     }
 
     public void b(VideoInfo videoInfo) {
-        this.edL = videoInfo;
+        this.edP = videoInfo;
     }
 
     public boolean bgr() {
-        return this.edP != null;
+        return this.edT != null;
     }
 
     public bs bgs() {
-        return this.ebQ;
+        return this.ebU;
     }
 
     public boolean bgt() {
-        return this.edS;
+        return this.edW;
     }
 
     @Override // com.baidu.tbadk.core.util.f.a
     public String getVideoUrl() {
-        if (this.ect != null) {
-            return this.ect.video_url;
+        if (this.ecx != null) {
+            return this.ecx.video_url;
         }
         return null;
     }
 
     public boolean bgu() {
-        return this.edU;
+        return this.edY;
     }
 
-    public void ic(boolean z) {
-        this.edU = z;
+    public void id(boolean z) {
+        this.edY = z;
     }
 
     public AgreeData bgv() {
@@ -2516,20 +2516,21 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
     }
 
     public boolean bgw() {
-        return this.eeg;
+        return this.eek;
     }
 
-    public void id(boolean z) {
-        this.eeg = z;
+    public void ie(boolean z) {
+        this.eek = z;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
     public boolean bcm() {
-        return this.eee;
+        return this.eei;
     }
 
-    public void ie(boolean z) {
-        this.eee = z;
+    /* renamed from: if  reason: not valid java name */
+    public void m39if(boolean z) {
+        this.eei = z;
     }
 
     public void setSortType(int i) {
@@ -2537,11 +2538,11 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
     }
 
     public TopicModule bgx() {
-        return this.edI;
+        return this.edM;
     }
 
     public String getShareImageUrl() {
-        return this.eea;
+        return this.eee;
     }
 
     public int[] getImageWidthAndHeight() {
@@ -2654,19 +2655,19 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
     }
 
     public void nq(int i) {
-        this.eem = i;
+        this.eeq = i;
     }
 
     public int bgB() {
-        return this.eeo;
+        return this.ees;
     }
 
     public String bgC() {
-        return this.een;
+        return this.eer;
     }
 
-    public void zv(String str) {
-        this.een = str;
+    public void zw(String str) {
+        this.eer = str;
     }
 
     public BaijiahaoData getBaijiahaoData() {
@@ -2696,7 +2697,7 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
         if (bgA()) {
             return 8;
         }
-        if (this.isShareThread && this.edE != null) {
+        if (this.isShareThread && this.edI != null) {
             return 9;
         }
         if (bfW()) {
@@ -2728,7 +2729,7 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
     }
 
     public boolean bgF() {
-        return this.ecb != null && this.ecb.isNewGod();
+        return this.ecf != null && this.ecf.isNewGod();
     }
 
     public boolean bgG() {
@@ -2736,19 +2737,19 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
     }
 
     public Item bgH() {
-        return this.eew;
+        return this.eeA;
     }
 
     public List<HeadItem> bgI() {
-        return this.eex;
+        return this.eeB;
     }
 
     public void a(Item item) {
-        this.eew = item;
+        this.eeA = item;
     }
 
     public void aQ(List<HeadItem> list) {
-        this.eex = list;
+        this.eeB = list;
     }
 
     public void a(ItemData itemData) {
@@ -2756,40 +2757,40 @@ public class bw extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
     }
 
     public PollData bgJ() {
-        return this.eey;
+        return this.eeC;
     }
 
     public void b(PollData pollData) {
-        this.eey = pollData;
+        this.eeC = pollData;
     }
 
     public List<PbLinkData> bgK() {
-        return this.eet;
+        return this.eex;
     }
 
     public void aR(List<PbLinkData> list) {
-        this.eet = list;
-        if (!com.baidu.tbadk.core.util.y.isEmpty(this.eet)) {
-            for (PbLinkData pbLinkData : this.eet) {
-                if (pbLinkData.urlType == 2 && !this.eev) {
-                    this.eev = true;
+        this.eex = list;
+        if (!com.baidu.tbadk.core.util.y.isEmpty(this.eex)) {
+            for (PbLinkData pbLinkData : this.eex) {
+                if (pbLinkData.urlType == 2 && !this.eez) {
+                    this.eez = true;
                 }
             }
         }
     }
 
     public List<PbGoodsData> bgL() {
-        return this.eeu;
+        return this.eey;
     }
 
     public void aS(List<PbGoodsData> list) {
-        this.eeu = list;
-        if (!com.baidu.tbadk.core.util.y.isEmpty(this.eet) && !this.eev) {
-            this.eev = true;
+        this.eey = list;
+        if (!com.baidu.tbadk.core.util.y.isEmpty(list) && !this.eez) {
+            this.eez = true;
         }
     }
 
     public boolean bgM() {
-        return this.eev;
+        return this.eez;
     }
 }

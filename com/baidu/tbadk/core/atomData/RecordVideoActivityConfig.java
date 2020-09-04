@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.frs.ForumWriteData;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class RecordVideoActivityConfig extends IntentConfig {
     public static final String ENTRANCE_FLAG = "entrance_flag";
     public static final String FORUM_WRITE_DATA = "forum_write_data";

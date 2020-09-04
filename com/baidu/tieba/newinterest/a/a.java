@@ -17,9 +17,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes17.dex */
 public class a extends BaseAdapter {
-    private int kro;
-    private final List<com.baidu.tieba.newinterest.data.b> krp;
-    private b krq;
+    private int krv;
+    private final List<com.baidu.tieba.newinterest.data.b> krw;
+    private b krx;
     private final Context mContext;
 
     /* loaded from: classes17.dex */
@@ -28,16 +28,16 @@ public class a extends BaseAdapter {
     }
 
     public a(List<com.baidu.tieba.newinterest.data.b> list, Context context) {
-        this.krp = list;
+        this.krw = list;
         this.mContext = context;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.krp == null) {
+        if (this.krw == null) {
             return 0;
         }
-        return this.krp.size();
+        return this.krw.size();
     }
 
     @Override // android.widget.Adapter
@@ -61,27 +61,27 @@ public class a extends BaseAdapter {
         } else {
             c0753a = (C0753a) view.getTag();
         }
-        final com.baidu.tieba.newinterest.data.b bVar = this.krp.get(i);
+        final com.baidu.tieba.newinterest.data.b bVar = this.krw.get(i);
         if (bVar.getIcon() > 0) {
-            SvgManager.bjq().a(c0753a.kru, bVar.getIcon(), (SvgManager.SvgResourceStateType) null);
+            SvgManager.bjq().a(c0753a.krB, bVar.getIcon(), (SvgManager.SvgResourceStateType) null);
         }
-        c0753a.krv.setText(bVar.getText());
-        a(c0753a.krw, bVar);
+        c0753a.krC.setText(bVar.getText());
+        a(c0753a.krD, bVar);
         if (bVar.isSelected()) {
-            this.kro++;
+            this.krv++;
         }
         view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.newinterest.a.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (!bVar.isSelected() && a.this.kro >= 10) {
+                if (!bVar.isSelected() && a.this.krv >= 10) {
                     l.showToast(a.this.mContext.getApplicationContext(), a.this.mContext.getApplicationContext().getString(R.string.max_interest_select_num));
                     return;
                 }
                 bVar.setSelected(!bVar.isSelected());
-                a.this.a(c0753a.krw, bVar);
+                a.this.a(c0753a.krD, bVar);
                 a.this.a(bVar);
-                if (a.this.krq != null) {
-                    a.this.krq.DF(a.this.kro);
+                if (a.this.krx != null) {
+                    a.this.krx.DF(a.this.krv);
                 }
                 if (bVar.isSelected()) {
                     aq aqVar = new aq("c13682");
@@ -95,9 +95,9 @@ public class a extends BaseAdapter {
         return view;
     }
 
-    public List<com.baidu.tieba.newinterest.data.b> cTJ() {
+    public List<com.baidu.tieba.newinterest.data.b> cTK() {
         ArrayList arrayList = new ArrayList();
-        for (com.baidu.tieba.newinterest.data.b bVar : this.krp) {
+        for (com.baidu.tieba.newinterest.data.b bVar : this.krw) {
             if (bVar.isSelected()) {
                 arrayList.add(bVar);
             }
@@ -108,15 +108,15 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.newinterest.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes17.dex */
     public static class C0753a {
-        public ImageView kru;
-        public TextView krv;
-        public ImageView krw;
+        public ImageView krB;
+        public TextView krC;
+        public ImageView krD;
 
         public C0753a(View view) {
-            this.kru = (ImageView) view.findViewById(R.id.interest_icon);
-            this.krv = (TextView) view.findViewById(R.id.interest_text);
-            this.krw = (ImageView) view.findViewById(R.id.select_status_view);
-            ap.setViewTextColor(this.krv, R.color.cp_cont_b);
+            this.krB = (ImageView) view.findViewById(R.id.interest_icon);
+            this.krC = (TextView) view.findViewById(R.id.interest_text);
+            this.krD = (ImageView) view.findViewById(R.id.select_status_view);
+            ap.setViewTextColor(this.krC, R.color.cp_cont_b);
             ap.setBackgroundResource(view, R.drawable.bg_interest_item_selection);
         }
     }
@@ -133,13 +133,13 @@ public class a extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.newinterest.data.b bVar) {
         if (bVar.isSelected()) {
-            this.kro++;
+            this.krv++;
         } else {
-            this.kro--;
+            this.krv--;
         }
     }
 
     public void a(b bVar) {
-        this.krq = bVar;
+        this.krx = bVar;
     }
 }

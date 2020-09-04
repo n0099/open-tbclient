@@ -43,8 +43,6 @@ public interface b extends c {
 
     void enableZoom(boolean z);
 
-    void er(boolean z);
-
     void es(boolean z);
 
     void et(boolean z);
@@ -52,6 +50,8 @@ public interface b extends c {
     void eu(boolean z);
 
     void ev(boolean z);
+
+    void ew(boolean z);
 
     void hK(int i);
 
@@ -67,9 +67,9 @@ public interface b extends c {
 
     void hQ(int i);
 
-    void mR(String str);
-
     void mS(String str);
+
+    void mT(String str);
 
     void setCameraFace(boolean z);
 

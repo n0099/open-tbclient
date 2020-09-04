@@ -2,9 +2,9 @@ package com.baidu.tieba.tbadkCore;
 
 import com.baidu.adp.BdUniqueId;
 import tbclient.ActBtn;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class p implements com.baidu.adp.widget.ListView.q {
-    public static final BdUniqueId mdA = BdUniqueId.gen();
+    public static final BdUniqueId mdP = BdUniqueId.gen();
     public String text;
     public String url;
 
@@ -17,6 +17,6 @@ public class p implements com.baidu.adp.widget.ListView.q {
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return mdA;
+        return mdP;
     }
 }

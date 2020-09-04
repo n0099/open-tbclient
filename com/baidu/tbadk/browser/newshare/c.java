@@ -13,49 +13,49 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c {
-    private ImageView aka;
-    private final ThreadAchievementShareInfo.ParamBean dSX;
-    private TextView dTF;
-    private TextView dTG;
-    private TextView dTH;
-    private TextView dTI;
-    private TbImageView dUg;
+    private ImageView akc;
+    private TextView dTJ;
+    private TextView dTK;
+    private TextView dTL;
+    private TextView dTM;
+    private final ThreadAchievementShareInfo.ParamBean dTb;
+    private TbImageView dUk;
     private final Context mContext;
     private final View mRoot;
 
     public c(Context context, ThreadAchievementShareInfo threadAchievementShareInfo) {
         this.mContext = context;
         this.mRoot = LayoutInflater.from(context).inflate(R.layout.video_interaction_achievement, (ViewGroup) null);
-        this.dSX = threadAchievementShareInfo.getParams();
+        this.dTb = threadAchievementShareInfo.getParams();
         initUI();
         initData();
     }
 
     private void initData() {
-        if (this.dSX != null && this.dSX.getVideo_info() != null && !TextUtils.isEmpty(this.dSX.getVideo_info().getThumbnail_url())) {
-            this.dUg.startLoad(this.dSX.getVideo_info().getThumbnail_url(), 10, false);
-            this.dTI.setText(at.cU(this.dSX.getAgree_num()));
-            this.dTF.setText(at.cU(this.dSX.getPost_num()));
+        if (this.dTb != null && this.dTb.getVideo_info() != null && !TextUtils.isEmpty(this.dTb.getVideo_info().getThumbnail_url())) {
+            this.dUk.startLoad(this.dTb.getVideo_info().getThumbnail_url(), 10, false);
+            this.dTM.setText(at.cU(this.dTb.getAgree_num()));
+            this.dTJ.setText(at.cU(this.dTb.getPost_num()));
         }
     }
 
     private void initUI() {
-        this.dTF = (TextView) this.mRoot.findViewById(R.id.comment_num);
-        this.dTG = (TextView) this.mRoot.findViewById(R.id.comment_desc);
-        this.dTH = (TextView) this.mRoot.findViewById(R.id.praise_desc);
-        this.dTI = (TextView) this.mRoot.findViewById(R.id.praise_num);
-        this.dTI.setTextColor(ap.getColor(R.color.cp_other_d));
-        this.dTF.setTextColor(ap.getColor(R.color.cp_other_d));
-        this.dTH.setTextColor(ap.getColor(R.color.cp_cont_b));
-        this.dTG.setTextColor(ap.getColor(R.color.cp_cont_b));
-        this.dUg = (TbImageView) this.mRoot.findViewById(R.id.video_img);
-        this.dUg.setDefaultBgResource(R.color.transparent);
-        this.dUg.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.dUg.setPlaceHolder(2);
-        this.aka = (ImageView) this.mRoot.findViewById(R.id.play_icon);
-        this.aka.setImageDrawable(SvgManager.bjq().a(R.drawable.ic_icon_pure_video_play44_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null));
+        this.dTJ = (TextView) this.mRoot.findViewById(R.id.comment_num);
+        this.dTK = (TextView) this.mRoot.findViewById(R.id.comment_desc);
+        this.dTL = (TextView) this.mRoot.findViewById(R.id.praise_desc);
+        this.dTM = (TextView) this.mRoot.findViewById(R.id.praise_num);
+        this.dTM.setTextColor(ap.getColor(R.color.cp_other_d));
+        this.dTJ.setTextColor(ap.getColor(R.color.cp_other_d));
+        this.dTL.setTextColor(ap.getColor(R.color.cp_cont_b));
+        this.dTK.setTextColor(ap.getColor(R.color.cp_cont_b));
+        this.dUk = (TbImageView) this.mRoot.findViewById(R.id.video_img);
+        this.dUk.setDefaultBgResource(R.color.transparent);
+        this.dUk.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.dUk.setPlaceHolder(2);
+        this.akc = (ImageView) this.mRoot.findViewById(R.id.play_icon);
+        this.akc.setImageDrawable(SvgManager.bjq().a(R.drawable.ic_icon_pure_video_play44_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null));
     }
 
     public View getView() {

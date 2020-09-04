@@ -175,7 +175,7 @@ public class TimeCodeBox extends AbstractBox implements SampleEntry {
     }
 
     public void setFlags(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_14, this, this, org.aspectj.a.a.a.gY(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_14, this, this, org.aspectj.a.a.a.ha(j)));
         this.flags = j;
     }
 

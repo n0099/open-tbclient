@@ -7,54 +7,54 @@ public class gd extends Exception {
     private gm a;
 
     /* renamed from: a  reason: collision with other field name */
-    private gn f387a;
+    private gn f386a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Throwable f388a;
+    private Throwable f387a;
 
     public gd() {
         this.a = null;
+        this.f386a = null;
         this.f387a = null;
-        this.f388a = null;
     }
 
     public gd(gm gmVar) {
         this.a = null;
+        this.f386a = null;
         this.f387a = null;
-        this.f388a = null;
         this.a = gmVar;
     }
 
     public gd(String str) {
         super(str);
         this.a = null;
+        this.f386a = null;
         this.f387a = null;
-        this.f388a = null;
     }
 
     public gd(String str, Throwable th) {
         super(str);
         this.a = null;
+        this.f386a = null;
         this.f387a = null;
-        this.f388a = null;
-        this.f388a = th;
+        this.f387a = th;
     }
 
     public gd(Throwable th) {
         this.a = null;
+        this.f386a = null;
         this.f387a = null;
-        this.f388a = null;
-        this.f388a = th;
+        this.f387a = th;
     }
 
     public Throwable a() {
-        return this.f388a;
+        return this.f387a;
     }
 
     @Override // java.lang.Throwable
     public String getMessage() {
         String message = super.getMessage();
-        return (message != null || this.f387a == null) ? (message != null || this.a == null) ? message : this.a.toString() : this.f387a.toString();
+        return (message != null || this.f386a == null) ? (message != null || this.a == null) ? message : this.a.toString() : this.f386a.toString();
     }
 
     @Override // java.lang.Throwable
@@ -65,18 +65,18 @@ public class gd extends Exception {
     @Override // java.lang.Throwable
     public void printStackTrace(PrintStream printStream) {
         super.printStackTrace(printStream);
-        if (this.f388a != null) {
+        if (this.f387a != null) {
             printStream.println("Nested Exception: ");
-            this.f388a.printStackTrace(printStream);
+            this.f387a.printStackTrace(printStream);
         }
     }
 
     @Override // java.lang.Throwable
     public void printStackTrace(PrintWriter printWriter) {
         super.printStackTrace(printWriter);
-        if (this.f388a != null) {
+        if (this.f387a != null) {
             printWriter.println("Nested Exception: ");
-            this.f388a.printStackTrace(printWriter);
+            this.f387a.printStackTrace(printWriter);
         }
     }
 
@@ -87,14 +87,14 @@ public class gd extends Exception {
         if (message != null) {
             sb.append(message).append(": ");
         }
-        if (this.f387a != null) {
-            sb.append(this.f387a);
+        if (this.f386a != null) {
+            sb.append(this.f386a);
         }
         if (this.a != null) {
             sb.append(this.a);
         }
-        if (this.f388a != null) {
-            sb.append("\n  -- caused by: ").append(this.f388a);
+        if (this.f387a != null) {
+            sb.append("\n  -- caused by: ").append(this.f387a);
         }
         return sb.toString();
     }

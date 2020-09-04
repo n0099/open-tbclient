@@ -2,9 +2,9 @@ package com.baidu.tieba.lego.card.d;
 
 import android.graphics.Color;
 import android.support.v7.widget.ActivityChooserView;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b {
-    public static int fn(String str) {
+    public static int fo(String str) {
         if (str == null || str.length() == 0) {
             return ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         }

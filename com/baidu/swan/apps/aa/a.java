@@ -12,24 +12,24 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static volatile a cFI;
+    public static volatile a cFM;
     public String appId;
-    public String cFG;
-    public String cFH;
-    public com.baidu.l.a.a cFJ;
+    public String cFK;
+    public String cFL;
+    public com.baidu.l.a.a cFN;
 
     private a() {
     }
 
     public static a avq() {
-        if (cFI == null) {
+        if (cFM == null) {
             synchronized (a.class) {
-                if (cFI == null) {
-                    cFI = new a();
+                if (cFM == null) {
+                    cFM = new a();
                 }
             }
         }
-        return cFI;
+        return cFM;
     }
 
     public boolean a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {

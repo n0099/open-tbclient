@@ -5,8 +5,8 @@ public final class f {
     private static boolean al = false;
     private static long am = 30000;
     private static boolean ap = false;
-    private static long nga;
-    private static long ngb;
+    private static long ngs;
+    private static long ngt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(long j) {
@@ -14,18 +14,18 @@ public final class f {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static long dMq() {
+    public static long dMz() {
         return am;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static long dMr() {
-        return nga;
+    public static long dMA() {
+        return ngs;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void b(long j) {
-        nga = j;
+        ngs = j;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -44,10 +44,10 @@ public final class f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void c(long j) {
-        ngb = j;
+        ngt = j;
     }
 
-    public static long dMs() {
-        return ngb;
+    public static long dMB() {
+        return ngt;
     }
 }

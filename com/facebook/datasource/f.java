@@ -10,13 +10,13 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes9.dex */
 public class f<T> implements j<b<T>> {
-    private final List<j<b<T>>> nlQ;
-    private final boolean nlV;
+    private final List<j<b<T>>> nmi;
+    private final boolean nmn;
 
     private f(List<j<b<T>>> list, boolean z) {
         com.facebook.common.internal.g.checkArgument(!list.isEmpty(), "List of suppliers is empty!");
-        this.nlQ = list;
-        this.nlV = z;
+        this.nmi = list;
+        this.nmn = z;
     }
 
     public static <T> f<T> v(List<j<b<T>>> list, boolean z) {
@@ -25,13 +25,13 @@ public class f<T> implements j<b<T>> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.j
-    /* renamed from: dPc */
+    /* renamed from: dPl */
     public b<T> get() {
         return new a();
     }
 
     public int hashCode() {
-        return this.nlQ.hashCode();
+        return this.nmi.hashCode();
     }
 
     public boolean equals(Object obj) {
@@ -41,11 +41,11 @@ public class f<T> implements j<b<T>> {
         if (!(obj instanceof f)) {
             return false;
         }
-        return com.facebook.common.internal.f.equal(this.nlQ, ((f) obj).nlQ);
+        return com.facebook.common.internal.f.equal(this.nmi, ((f) obj).nmi);
     }
 
     public String toString() {
-        return com.facebook.common.internal.f.aQ(this).E("list", this.nlQ).toString();
+        return com.facebook.common.internal.f.aQ(this).E("list", this.nmi).toString();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -54,34 +54,34 @@ public class f<T> implements j<b<T>> {
     public class a extends AbstractDataSource<T> {
         @GuardedBy("IncreasingQualityDataSource.this")
         @Nullable
-        private ArrayList<b<T>> nlW;
+        private ArrayList<b<T>> nmo;
         @GuardedBy("IncreasingQualityDataSource.this")
-        private int nlX;
-        private int nlY;
-        private AtomicInteger nlZ;
+        private int nmp;
+        private int nmq;
+        private AtomicInteger nmr;
         @Nullable
-        private Throwable nma;
+        private Throwable nms;
 
         public a() {
-            if (!f.this.nlV) {
-                dPg();
+            if (!f.this.nmn) {
+                dPp();
             }
         }
 
-        private void dPg() {
-            if (this.nlZ == null) {
+        private void dPp() {
+            if (this.nmr == null) {
                 synchronized (this) {
-                    if (this.nlZ == null) {
-                        this.nlZ = new AtomicInteger(0);
-                        int size = f.this.nlQ.size();
-                        this.nlY = size;
-                        this.nlX = size;
-                        this.nlW = new ArrayList<>(size);
+                    if (this.nmr == null) {
+                        this.nmr = new AtomicInteger(0);
+                        int size = f.this.nmi.size();
+                        this.nmq = size;
+                        this.nmp = size;
+                        this.nmo = new ArrayList<>(size);
                         for (int i = 0; i < size; i++) {
-                            b<T> bVar = (b) ((j) f.this.nlQ.get(i)).get();
-                            this.nlW.add(bVar);
-                            bVar.a(new C0863a(i), com.facebook.common.b.a.dOq());
-                            if (bVar.dOW()) {
+                            b<T> bVar = (b) ((j) f.this.nmi.get(i)).get();
+                            this.nmo.add(bVar);
+                            bVar.a(new C0863a(i), com.facebook.common.b.a.dOz());
+                            if (bVar.dPf()) {
                                 break;
                             }
                         }
@@ -92,45 +92,45 @@ public class f<T> implements j<b<T>> {
 
         @Nullable
         private synchronized b<T> KX(int i) {
-            return (this.nlW == null || i >= this.nlW.size()) ? null : this.nlW.get(i);
+            return (this.nmo == null || i >= this.nmo.size()) ? null : this.nmo.get(i);
         }
 
         @Nullable
         private synchronized b<T> KY(int i) {
             b<T> bVar = null;
             synchronized (this) {
-                if (this.nlW != null && i < this.nlW.size()) {
-                    bVar = this.nlW.set(i, null);
+                if (this.nmo != null && i < this.nmo.size()) {
+                    bVar = this.nmo.set(i, null);
                 }
             }
             return bVar;
         }
 
         @Nullable
-        private synchronized b<T> dPf() {
-            return KX(this.nlX);
+        private synchronized b<T> dPo() {
+            return KX(this.nmp);
         }
 
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
         @Nullable
         public synchronized T getResult() {
-            b<T> dPf;
-            if (f.this.nlV) {
-                dPg();
+            b<T> dPo;
+            if (f.this.nmn) {
+                dPp();
             }
-            dPf = dPf();
-            return dPf != null ? dPf.getResult() : null;
+            dPo = dPo();
+            return dPo != null ? dPo.getResult() : null;
         }
 
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
-        public synchronized boolean dOW() {
+        public synchronized boolean dPf() {
             boolean z;
-            if (f.this.nlV) {
-                dPg();
+            if (f.this.nmn) {
+                dPp();
             }
-            b<T> dPf = dPf();
-            if (dPf != null) {
-                z = dPf.dOW();
+            b<T> dPo = dPo();
+            if (dPo != null) {
+                z = dPo.dPf();
             }
             return z;
         }
@@ -138,13 +138,13 @@ public class f<T> implements j<b<T>> {
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
         public boolean ahA() {
             int i = 0;
-            if (f.this.nlV) {
-                dPg();
+            if (f.this.nmn) {
+                dPp();
             }
             synchronized (this) {
                 if (super.ahA()) {
-                    ArrayList<b<T>> arrayList = this.nlW;
-                    this.nlW = null;
+                    ArrayList<b<T>> arrayList = this.nmo;
+                    this.nmo = null;
                     if (arrayList != null) {
                         while (true) {
                             int i2 = i;
@@ -164,37 +164,37 @@ public class f<T> implements j<b<T>> {
         /* JADX INFO: Access modifiers changed from: private */
         public void a(int i, b<T> bVar) {
             a(i, bVar, bVar.isFinished());
-            if (bVar == dPf()) {
+            if (bVar == dPo()) {
                 b((a) null, i == 0 && bVar.isFinished());
             }
-            dPh();
+            dPq();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void b(int i, b<T> bVar) {
             l(c(i, bVar));
             if (i == 0) {
-                this.nma = bVar.dOY();
+                this.nms = bVar.dPh();
             }
-            dPh();
+            dPq();
         }
 
-        private void dPh() {
-            if (this.nlZ.incrementAndGet() == this.nlY && this.nma != null) {
-                x(this.nma);
+        private void dPq() {
+            if (this.nmr.incrementAndGet() == this.nmq && this.nms != null) {
+                x(this.nms);
             }
         }
 
         private void a(int i, b<T> bVar, boolean z) {
             synchronized (this) {
-                int i2 = this.nlX;
-                if (bVar == KX(i) && i != this.nlX) {
-                    if (dPf() == null || (z && i < this.nlX)) {
-                        this.nlX = i;
+                int i2 = this.nmp;
+                if (bVar == KX(i) && i != this.nmp) {
+                    if (dPo() == null || (z && i < this.nmp)) {
+                        this.nmp = i;
                     } else {
                         i = i2;
                     }
-                    for (int i3 = this.nlX; i3 > i; i3--) {
+                    for (int i3 = this.nmp; i3 > i; i3--) {
                         l(KY(i3));
                     }
                 }
@@ -203,7 +203,7 @@ public class f<T> implements j<b<T>> {
 
         @Nullable
         private synchronized b<T> c(int i, b<T> bVar) {
-            if (bVar == dPf()) {
+            if (bVar == dPo()) {
                 bVar = null;
             } else if (bVar == KX(i)) {
                 bVar = KY(i);
@@ -229,7 +229,7 @@ public class f<T> implements j<b<T>> {
 
             @Override // com.facebook.datasource.d
             public void d(b<T> bVar) {
-                if (bVar.dOW()) {
+                if (bVar.dPf()) {
                     a.this.a(this.mIndex, bVar);
                 } else if (bVar.isFinished()) {
                     a.this.b(this.mIndex, bVar);

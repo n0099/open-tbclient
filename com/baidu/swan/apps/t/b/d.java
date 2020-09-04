@@ -27,5 +27,5 @@ public interface d {
 
     double[] b(@NonNull com.baidu.swan.apps.scheme.actions.f.b bVar, @NonNull String str);
 
-    void eA(boolean z);
+    void eB(boolean z);
 }

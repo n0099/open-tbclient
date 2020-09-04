@@ -1,5 +1,5 @@
 package com.baidu.tieba.im.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
     public static int BA(int i) {
         switch (i) {

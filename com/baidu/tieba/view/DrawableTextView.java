@@ -5,7 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.TextView;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class DrawableTextView extends TextView {
     public DrawableTextView(Context context) {
         super(context);

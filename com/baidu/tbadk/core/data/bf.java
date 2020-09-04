@@ -2,9 +2,9 @@ package com.baidu.tbadk.core.data;
 
 import android.content.Intent;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class bf {
-    private String dZP;
+    private String dZT;
     private String recomExtra;
     private String recomSource;
     private String recomWeight;
@@ -13,7 +13,7 @@ public class bf {
         if (bwVar != null) {
             this.recomWeight = bwVar.mRecomWeight;
             this.recomSource = bwVar.mRecomSource;
-            this.dZP = bwVar.mRecomAbTag;
+            this.dZT = bwVar.mRecomAbTag;
             this.recomExtra = bwVar.mRecomExtra;
         }
     }
@@ -22,7 +22,7 @@ public class bf {
         if (intent != null) {
             this.recomWeight = intent.getStringExtra("recom_weight");
             this.recomSource = intent.getStringExtra(IntentConfig.RECOM_SOURCE);
-            this.dZP = intent.getStringExtra("recom_abtag");
+            this.dZT = intent.getStringExtra("recom_abtag");
             this.recomExtra = intent.getStringExtra("recom_extra");
         }
     }
@@ -31,16 +31,16 @@ public class bf {
         if (intent != null) {
             intent.putExtra("recom_weight", this.recomWeight);
             intent.putExtra(IntentConfig.RECOM_SOURCE, this.recomSource);
-            intent.putExtra("recom_abtag", this.dZP);
+            intent.putExtra("recom_abtag", this.dZT);
             intent.putExtra("recom_extra", this.recomExtra);
         }
     }
 
     public void a(com.baidu.tieba.play.o oVar) {
         if (oVar != null) {
-            oVar.ltc = this.recomWeight;
+            oVar.ltn = this.recomWeight;
             oVar.mSource = this.recomSource;
-            oVar.ltg = this.dZP;
+            oVar.lts = this.dZT;
             oVar.mExtra = this.recomExtra;
         }
     }

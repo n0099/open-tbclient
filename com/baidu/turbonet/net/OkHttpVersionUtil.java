@@ -4,18 +4,18 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.NoSuchElementException;
 /* loaded from: classes8.dex */
 public class OkHttpVersionUtil {
-    public static boolean dKI() throws RuntimeException {
-        String dKJ = dKJ();
-        if (dKJ.isEmpty()) {
+    public static boolean dKR() throws RuntimeException {
+        String dKS = dKS();
+        if (dKS.isEmpty()) {
             throw new NoSuchElementException();
         }
-        String[] split = dKJ.split("/");
+        String[] split = dKS.split("/");
         if (split.length != 2) {
-            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", dKJ));
+            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", dKS));
         }
         String[] split2 = split[1].split("\\.");
         if (split2.length != 3) {
-            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", dKJ));
+            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", dKS));
         }
         try {
             if (Integer.parseInt(split2[0]) == 3) {
@@ -25,12 +25,12 @@ public class OkHttpVersionUtil {
             }
             return false;
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", dKJ));
+            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", dKS));
         }
     }
 
-    private static String dKJ() {
-        if (dKK()) {
+    private static String dKS() {
+        if (dKT()) {
             try {
                 return (String) Class.forName("okhttp3.internal.Version").getMethod("userAgent", new Class[0]).invoke(null, new Object[0]);
             } catch (ClassNotFoundException e) {
@@ -46,7 +46,7 @@ public class OkHttpVersionUtil {
         return "";
     }
 
-    private static boolean dKK() {
+    private static boolean dKT() {
         try {
             Class.forName("okhttp3.OkHttpClient");
             return true;

@@ -13,13 +13,13 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.controller.HotTopicActivity;
 /* loaded from: classes15.dex */
 public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.data.i, com.baidu.tieba.hottopic.a.d> {
-    private HotTopicActivity iXq;
+    private HotTopicActivity iXw;
     public int mSkinType;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public h(HotTopicActivity hotTopicActivity, BdUniqueId bdUniqueId) {
         super(hotTopicActivity.getPageContext().getPageActivity(), bdUniqueId);
-        this.iXq = hotTopicActivity;
+        this.iXw = hotTopicActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -44,23 +44,23 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
     private void a(com.baidu.tieba.hottopic.a.d dVar, View view) {
         if (dVar != null) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-            if (this.iXq != null && dVar.aiB != this.mSkinType) {
-                dVar.aiB = this.mSkinType;
+            if (this.iXw != null && dVar.aiD != this.mSkinType) {
+                dVar.aiD = this.mSkinType;
                 ap.setBackgroundColor(dVar.getView(), R.color.cp_bg_line_d);
-                this.iXq.getLayoutMode().setNightMode(this.mSkinType == 1);
-                this.iXq.getLayoutMode().onModeChanged(view);
+                this.iXw.getLayoutMode().setNightMode(this.mSkinType == 1);
+                this.iXw.getLayoutMode().onModeChanged(view);
             }
         }
     }
 
     private void a(com.baidu.tieba.hottopic.a.d dVar, com.baidu.tieba.hottopic.data.i iVar) {
         if (dVar != null && iVar != null) {
-            dVar.jaB.setText(StringUtils.isNull(iVar.iYI) ? this.iXq.getResources().getString(R.string.pk_topic_default) : iVar.iYI.trim());
-            dVar.jaC.setText(at.cutStringWithSuffix(iVar.iYJ.trim(), 32, StringHelper.STRING_MORE));
-            dVar.jaC.setText(iVar.iYJ.trim());
-            dVar.jaD.setData(iVar, this.iXq);
-            dVar.jaE.setText(iVar.iZz.trim());
-            dVar.jaF.setText(iVar.iZC.trim());
+            dVar.jaH.setText(StringUtils.isNull(iVar.iYO) ? this.iXw.getResources().getString(R.string.pk_topic_default) : iVar.iYO.trim());
+            dVar.jaI.setText(at.cutStringWithSuffix(iVar.iYP.trim(), 32, StringHelper.STRING_MORE));
+            dVar.jaI.setText(iVar.iYP.trim());
+            dVar.jaJ.setData(iVar, this.iXw);
+            dVar.jaK.setText(iVar.iZF.trim());
+            dVar.jaL.setText(iVar.iZI.trim());
         }
     }
 }

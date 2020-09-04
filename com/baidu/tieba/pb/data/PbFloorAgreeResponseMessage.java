@@ -5,7 +5,7 @@ import com.baidu.tbadk.coreExtra.data.AuthTokenData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class PbFloorAgreeResponseMessage extends JsonHttpResponsedMessage {
     private CustomDialogData mActDialogData;
     private ContriInfo mContriInfo;

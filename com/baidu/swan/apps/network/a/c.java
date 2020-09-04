@@ -13,13 +13,13 @@ import okhttp3.Request;
 import okhttp3.Response;
 /* loaded from: classes8.dex */
 public class c implements Interceptor {
-    private static boolean cFd = true;
+    private static boolean cFh = true;
 
     @Override // okhttp3.Interceptor
     public Response intercept(Interceptor.Chain chain) throws IOException {
         HttpUrl resolve;
         Request request = chain.request();
-        if (!cFd) {
+        if (!cFh) {
             return chain.proceed(request);
         }
         if (!b(request)) {
@@ -67,7 +67,7 @@ public class c implements Interceptor {
     }
 
     public static Request a(Request request, String str, String str2) {
-        if (cFd && request != null) {
+        if (cFh && request != null) {
             if (str == null) {
                 str = "";
             }
@@ -80,7 +80,7 @@ public class c implements Interceptor {
     }
 
     public static HttpRequest a(HttpRequest httpRequest, String str, String str2) {
-        if (cFd && httpRequest != null) {
+        if (cFh && httpRequest != null) {
             if (str == null) {
                 str = "";
             }
@@ -94,7 +94,7 @@ public class c implements Interceptor {
 
     public static Map<String, String> bR(String str, String str2) {
         HashMap hashMap = new HashMap();
-        if (cFd) {
+        if (cFh) {
             if (str == null) {
                 str = "";
             }

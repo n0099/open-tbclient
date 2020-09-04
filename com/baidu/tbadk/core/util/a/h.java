@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util.a;
 
 import android.net.Proxy;
 import com.baidu.adp.lib.util.j;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class h {
     public static String getNetType() {
         try {

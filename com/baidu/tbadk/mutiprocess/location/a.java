@@ -10,9 +10,9 @@ import com.baidu.tieba.tbadkCore.location.LocationModel;
 import com.baidu.tieba.tbadkCore.location.LocationSocketRequestMessage;
 import com.baidu.tieba.tbadkCore.location.LocationSocketResponsedMessage;
 import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a implements b<LocationEvent> {
-    private c eQe = new c(CmdConfigSocket.CMD_GET_LOCATION, true) { // from class: com.baidu.tbadk.mutiprocess.location.a.1
+    private c eQi = new c(CmdConfigSocket.CMD_GET_LOCATION, true) { // from class: com.baidu.tbadk.mutiprocess.location.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -27,8 +27,8 @@ public class a implements b<LocationEvent> {
                 }
                 if (socketResponsedMessage.getError() == 0 && locationEvent.locationData != null) {
                     LocationModel.c(locationEvent.locationData);
-                    com.baidu.tieba.tbadkCore.location.b.dxi().setTimeStamp(System.currentTimeMillis());
-                    com.baidu.tieba.tbadkCore.location.b.dxi().setLocationData(locationEvent.locationData);
+                    com.baidu.tieba.tbadkCore.location.b.dxn().setTimeStamp(System.currentTimeMillis());
+                    com.baidu.tieba.tbadkCore.location.b.dxn().setLocationData(locationEvent.locationData);
                 }
                 g.publishEvent(locationEvent);
             }
@@ -40,8 +40,8 @@ public class a implements b<LocationEvent> {
     public boolean a(LocationEvent locationEvent) {
         if (locationEvent != null) {
             if (locationEvent.getType() == 3) {
-                MessageManager.getInstance().unRegisterListener(this.eQe);
-                MessageManager.getInstance().registerListener(this.eQe);
+                MessageManager.getInstance().unRegisterListener(this.eQi);
+                MessageManager.getInstance().registerListener(this.eQi);
                 LocationSocketRequestMessage locationSocketRequestMessage = new LocationSocketRequestMessage();
                 locationSocketRequestMessage.setLat(locationEvent.lat);
                 locationSocketRequestMessage.setLng(locationEvent.lng);

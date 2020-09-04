@@ -49,7 +49,7 @@ public class g {
         }
     }
 
-    public static String dq(String str) {
+    public static String dr(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }

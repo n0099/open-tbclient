@@ -27,22 +27,22 @@ public final class a {
             h.E("postMessage", "dispatchJSEvent start.");
             if (c.awp()) {
                 if (aVar.isWebView()) {
-                    str = "var " + NotificationCompat.CATEGORY_EVENT + " = new Event('" + aVar2.bXU + "');";
+                    str = "var " + NotificationCompat.CATEGORY_EVENT + " = new Event('" + aVar2.bXY + "');";
                     A2 = "";
                 } else {
                     str = "var " + NotificationCompat.CATEGORY_EVENT + " = new Object();";
-                    A2 = A(NotificationCompat.CATEGORY_EVENT, "type", aVar2.bXU);
+                    A2 = A(NotificationCompat.CATEGORY_EVENT, "type", aVar2.bXY);
                 }
-                format2 = new StringBuffer().append("javascript:(function(){").append(str).append(" ").append(A2).append(aVar2.mw(NotificationCompat.CATEGORY_EVENT)).append(" ").append(d(aVar)).append(".dispatchEvent(").append(NotificationCompat.CATEGORY_EVENT).append(");").append("})();").toString();
+                format2 = new StringBuffer().append("javascript:(function(){").append(str).append(" ").append(A2).append(aVar2.mx(NotificationCompat.CATEGORY_EVENT)).append(" ").append(d(aVar)).append(".dispatchEvent(").append(NotificationCompat.CATEGORY_EVENT).append(");").append("})();").toString();
             } else {
                 if (aVar.isWebView()) {
-                    format = String.format(Locale.getDefault(), "var %s = new Event('%s');", NotificationCompat.CATEGORY_EVENT, aVar2.bXU);
+                    format = String.format(Locale.getDefault(), "var %s = new Event('%s');", NotificationCompat.CATEGORY_EVENT, aVar2.bXY);
                     A = "";
                 } else {
                     format = String.format(Locale.getDefault(), "var %s = new Object();", NotificationCompat.CATEGORY_EVENT);
-                    A = A(NotificationCompat.CATEGORY_EVENT, "type", aVar2.bXU);
+                    A = A(NotificationCompat.CATEGORY_EVENT, "type", aVar2.bXY);
                 }
-                format2 = String.format(Locale.getDefault(), "javascript:(function(){%s %s %s})();", format, A + aVar2.mw(NotificationCompat.CATEGORY_EVENT), String.format(Locale.getDefault(), "%s.dispatchEvent(%s);", d(aVar), NotificationCompat.CATEGORY_EVENT));
+                format2 = String.format(Locale.getDefault(), "javascript:(function(){%s %s %s})();", format, A + aVar2.mx(NotificationCompat.CATEGORY_EVENT), String.format(Locale.getDefault(), "%s.dispatchEvent(%s);", d(aVar), NotificationCompat.CATEGORY_EVENT));
             }
             h.E("postMessage", "dispatchJSEvent buildEvent");
             if (DEBUG) {

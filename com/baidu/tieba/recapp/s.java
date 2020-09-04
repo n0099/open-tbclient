@@ -23,15 +23,15 @@ import com.baidu.tieba.recapp.report.DownloadStaticsData;
 import com.baidu.tieba.tbadkCore.d.a;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class s {
     public static final boolean a(Context context, AdvertAppInfo advertAppInfo, int i, DownloadStaticsData downloadStaticsData) {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.dWg;
-        if (StringUtils.isNull(str) && advertAppInfo.dWo != null) {
-            str = advertAppInfo.dWo.userName;
+        String str = advertAppInfo.dWk;
+        if (StringUtils.isNull(str) && advertAppInfo.dWs != null) {
+            str = advertAppInfo.dWs.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -43,17 +43,17 @@ public class s {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        com.baidu.tbadk.distribute.a.bri().b(advertAppInfo);
-        String str2 = advertAppInfo.dWg;
+        com.baidu.tbadk.distribute.a.brj().b(advertAppInfo);
+        String str2 = advertAppInfo.dWk;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.download.e.dnn().a(advertAppInfo.dWi, advertAppInfo.apkUrl, str2, i, com.baidu.tieba.recapp.download.e.Pp(advertAppInfo.dWi).intValue(), null, true, false, true, advertAppInfo.dWo.userPortrait, downloadStaticsData, advertAppInfo.dWo.userName);
+        com.baidu.tieba.recapp.download.e.dnq().a(advertAppInfo.dWm, advertAppInfo.apkUrl, str2, i, com.baidu.tieba.recapp.download.e.Pq(advertAppInfo.dWm).intValue(), null, true, false, true, advertAppInfo.dWs.userPortrait, downloadStaticsData, advertAppInfo.dWs.userName);
         return true;
     }
 
     public static final void e(AdvertAppInfo advertAppInfo) {
-        com.baidu.tieba.recapp.download.e.dnn().B(advertAppInfo.apkUrl, advertAppInfo.dWi, true);
+        com.baidu.tieba.recapp.download.e.dnq().B(advertAppInfo.apkUrl, advertAppInfo.dWm, true);
     }
 
     public static final void aQ(Context context, String str) {
@@ -165,15 +165,15 @@ public class s {
     }
 
     public static void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
-        r.dnh().sendFRS(z, str, str2, str3, list, str4);
+        r.dnk().sendFRS(z, str, str2, str3, list, str4);
     }
 
     public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
-        r.dnh().a(z, str, str2, str3, str4, list, str5);
+        r.dnk().a(z, str, str2, str3, str4, list, str5);
     }
 
     public static int c(TbPageContext tbPageContext, String str, String str2) {
-        if (com.baidu.tieba.a.bzf().bzg() != 1) {
+        if (com.baidu.tieba.a.bzg().bzh() != 1) {
             return h(tbPageContext, str);
         }
         if (tbPageContext == null || TextUtils.isEmpty(str)) {
@@ -228,15 +228,15 @@ public class s {
 
     private static boolean i(TbPageContext tbPageContext, String str) {
         String[] strArr = {str};
-        g dne = r.dnh().dne();
-        if (dne == null) {
+        g dnh = r.dnk().dnh();
+        if (dnh == null) {
             return false;
         }
-        if (dne.Dn(str)) {
-            dne.a(tbPageContext.getPageActivity(), strArr, true);
+        if (dnh.Do(str)) {
+            dnh.a(tbPageContext.getPageActivity(), strArr, true);
             return true;
         }
-        return dne.c(tbPageContext.getPageActivity(), strArr);
+        return dnh.c(tbPageContext.getPageActivity(), strArr);
     }
 
     public static int aR(Context context, String str) {
@@ -260,7 +260,7 @@ public class s {
         if (str.startsWith("tieba://deeplink?") && f(context, Uri.parse(Uri.parse(str).getQueryParameter(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT)))) {
             return 1;
         }
-        r.dnh().a(advertAppInfo, context);
+        r.dnk().a(advertAppInfo, context);
         return 2;
     }
 
@@ -271,11 +271,11 @@ public class s {
         return f(context, Uri.parse(Uri.parse(str).getQueryParameter(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT)));
     }
 
-    public static boolean Pk(String str) {
+    public static boolean Pl(String str) {
         return !TextUtils.isEmpty(str) && str.startsWith("tieba://deeplink?");
     }
 
-    public static String Pl(String str) {
+    public static String Pm(String str) {
         if (!TextUtils.isEmpty(str) && str.startsWith("tieba://deeplink?")) {
             return Uri.parse(str).getQueryParameter("wap");
         }
@@ -284,14 +284,14 @@ public class s {
 
     private static boolean aT(Context context, String str) {
         String[] strArr = {str};
-        g dne = r.dnh().dne();
-        if (dne == null) {
+        g dnh = r.dnk().dnh();
+        if (dnh == null) {
             return false;
         }
-        if (dne.Dn(str)) {
-            dne.a(context, strArr, true);
+        if (dnh.Do(str)) {
+            dnh.a(context, strArr, true);
             return true;
         }
-        return dne.c(context, strArr);
+        return dnh.c(context, strArr);
     }
 }

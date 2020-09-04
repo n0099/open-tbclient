@@ -3,7 +3,7 @@ package com.baidu.tieba.share;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.pb.data.ContriInfo;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class AddExperiencedResponseMessage extends JsonHttpResponsedMessage {
     private ContriInfo mContriInfo;
 

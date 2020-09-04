@@ -39,7 +39,7 @@ public class SignStatic {
         TbadkCoreApplication.getInst().RegisterIntent(SupplementSignActivityConfig.class, SupplementSignActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(SignAllForumActivityConfig.class, SignAllForumActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(SignAllForumAdvertActivityConfig.class, SignAllForumAdvertActivity.class);
-        bAn();
+        bAo();
         registerTask();
     }
 
@@ -70,7 +70,7 @@ public class SignStatic {
                     }
                     SignStatic.a(aaVar);
                     aaVar.biQ().bjv().mIsNeedTbs = true;
-                    aaVar.ik(true);
+                    aaVar.il(true);
                     String postNetData = aaVar.postNetData();
                     if (aaVar.isNetSuccess()) {
                         if (aaVar.biQ().bjw().isRequestSuccess()) {
@@ -121,7 +121,7 @@ public class SignStatic {
         }
     }
 
-    private static void bAn() {
+    private static void bAo() {
         be.bju().a(new be.a() { // from class: com.baidu.tieba.SignStatic.2
             @Override // com.baidu.tbadk.core.util.be.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {

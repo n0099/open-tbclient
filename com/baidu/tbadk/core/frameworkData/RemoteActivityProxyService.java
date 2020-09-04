@@ -10,7 +10,7 @@ import android.os.RemoteException;
 import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class RemoteActivityProxyService extends BdBaseService {
     public static final int PLUGIN_CHECK_RESULT = 0;
     public static final int PLUGIN_LOADED_FAILED = 2;
@@ -25,7 +25,7 @@ public class RemoteActivityProxyService extends BdBaseService {
         return this.mMessenger.getBinder();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     private static class a extends Handler {
         private a() {
         }

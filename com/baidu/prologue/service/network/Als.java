@@ -13,11 +13,11 @@ public class Als {
     private static final boolean DEBUG;
 
     static {
-        DEBUG = com.baidu.prologue.a.b.a.bKi.get() != null && com.baidu.prologue.a.b.a.bKi.get().UU();
+        DEBUG = com.baidu.prologue.a.b.a.bKm.get() != null && com.baidu.prologue.a.b.a.bKm.get().UU();
     }
 
     public static void a(@NonNull a aVar) {
-        com.baidu.prologue.a.b.a aVar2 = com.baidu.prologue.a.b.a.bKi.get();
+        com.baidu.prologue.a.b.a aVar2 = com.baidu.prologue.a.b.a.bKm.get();
         if (aVar2 == null) {
             if (DEBUG) {
                 throw new IllegalStateException("宿主App未初始化IAppContext");
@@ -27,12 +27,12 @@ public class Als {
         Request.a aVar3 = new Request.a(aVar2.UK(), "https://als.baidu.com/clog/clog");
         a(aVar3, aVar2);
         JSONArray jSONArray = new JSONArray();
-        jSONArray.put(aVar.bMk);
+        jSONArray.put(aVar.bMo);
         aVar3.aR(MapBundleKey.MapObjKey.OBJ_AD, jSONArray.toString());
         aVar3.We().Wc().a(new m() { // from class: com.baidu.prologue.service.network.Als.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.prologue.service.network.j
-            /* renamed from: ia */
+            /* renamed from: ib */
             public void onResponse(String str) {
                 if (Als.DEBUG) {
                     Log.d("Als", "Als get correct response.");
@@ -49,7 +49,7 @@ public class Als {
     }
 
     public static void a(String str, String str2, String str3, long j, String str4) {
-        com.baidu.prologue.a.b.a aVar = com.baidu.prologue.a.b.a.bKi.get();
+        com.baidu.prologue.a.b.a aVar = com.baidu.prologue.a.b.a.bKm.get();
         if (aVar == null) {
             if (DEBUG) {
                 throw new IllegalStateException("宿主App未初始化IAppContext");
@@ -63,7 +63,7 @@ public class Als {
         aVar2.We().Wc().a(new m() { // from class: com.baidu.prologue.service.network.Als.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.prologue.service.network.j
-            /* renamed from: ia */
+            /* renamed from: ib */
             public void onResponse(String str5) {
                 if (Als.DEBUG) {
                     Log.d("Als", "Als performance get correct response.");
@@ -105,7 +105,7 @@ public class Als {
 
     /* loaded from: classes9.dex */
     public static final class a {
-        private final JSONObject bMk = new JSONObject();
+        private final JSONObject bMo = new JSONObject();
 
         public a(@NonNull Type type) {
             aP("da_type", type.value);
@@ -120,19 +120,19 @@ public class Als {
             return aP("da_area", area.value);
         }
 
-        public a il(@NonNull String str) {
+        public a im(@NonNull String str) {
             return aP("extra_param", str);
         }
 
-        public a im(@NonNull String str) {
+        public a in(@NonNull String str) {
             return aP("da_ext1", str);
         }
 
-        public a in(@NonNull String str) {
+        public a io(@NonNull String str) {
             return aP("da_ext2", str);
         }
 
-        public a io(@NonNull String str) {
+        public a ip(@NonNull String str) {
             return aP("da_ext3", str);
         }
 
@@ -145,11 +145,11 @@ public class Als {
         }
 
         private <T> a k(String str, T t) {
-            if (Als.DEBUG && this.bMk.has(str)) {
+            if (Als.DEBUG && this.bMo.has(str)) {
                 throw new IllegalArgumentException("key " + str + " has been set!");
             }
             try {
-                this.bMk.put(str, t);
+                this.bMo.put(str, t);
             } catch (JSONException e) {
                 if (Als.DEBUG) {
                     throw new IllegalArgumentException("Json put create invalid exception");

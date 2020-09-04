@@ -15,43 +15,43 @@ import java.util.concurrent.TimeUnit;
 /* loaded from: classes19.dex */
 public class a implements d {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final long fsZ = TimeUnit.MINUTES.toMillis(3);
-    private static final C0578a fta = new C0578a();
-    private LocationClient dAg;
-    private LocationClientOption fsY;
+    private static final long ftd = TimeUnit.MINUTES.toMillis(3);
+    private static final C0578a fte = new C0578a();
+    private LocationClient dAk;
+    private LocationClientOption ftc;
 
     @Override // com.baidu.swan.apps.t.b.d
     public void a(String str, boolean z, boolean z2, d.a aVar) {
-        BDLocation dI = fta.dI(bCG());
+        BDLocation dI = fte.dI(bCH());
         boolean z3 = dI != null;
         if (z3) {
             aVar.a(a(dI, str));
         }
-        if (this.dAg == null) {
-            this.dAg = new LocationClient(AppRuntime.getAppContext());
+        if (this.dAk == null) {
+            this.dAk = new LocationClient(AppRuntime.getAppContext());
             LocationClientOption locationClientOption = new LocationClientOption();
             locationClientOption.setCoorType("gcj02");
             locationClientOption.setScanSpan(0);
             locationClientOption.setIgnoreKillProcess(true);
             locationClientOption.setIsNeedAddress(true);
-            this.dAg.setLocOption(locationClientOption);
-            this.fsY = locationClientOption;
-            this.dAg.start();
+            this.dAk.setLocOption(locationClientOption);
+            this.ftc = locationClientOption;
+            this.dAk.start();
         }
-        this.dAg.registerLocationListener(new b(this.dAg, aVar, str, z3));
-        this.fsY.setIsNeedAltitude(z2);
-        this.dAg.setLocOption(this.fsY);
+        this.dAk.registerLocationListener(new b(this.dAk, aVar, str, z3));
+        this.ftc.setIsNeedAltitude(z2);
+        this.dAk.setLocOption(this.ftc);
         ak.m(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.d.a.1
             @Override // java.lang.Runnable
             public void run() {
-                a.this.dAg.requestLocation();
+                a.this.dAk.requestLocation();
             }
         });
     }
 
     @Override // com.baidu.swan.apps.t.b.d
     public com.baidu.swan.apps.scheme.actions.f.b aqj() {
-        BDLocation bDLocation = fta.ftd;
+        BDLocation bDLocation = fte.fth;
         if (bDLocation == null) {
             return null;
         }
@@ -60,8 +60,8 @@ public class a implements d {
 
     @Override // com.baidu.swan.apps.t.b.d
     public void aqk() {
-        long bCG = bCG();
-        if (fta.ftd == null || (bCG > 0 && !fta.dH(bCG))) {
+        long bCH = bCH();
+        if (fte.fth == null || (bCH > 0 && !fte.dH(bCH))) {
             if (DEBUG) {
                 Log.i("SwanAppLocationImpl", "onWarmUp");
             }
@@ -105,7 +105,7 @@ public class a implements d {
     }
 
     @Override // com.baidu.swan.apps.t.b.d
-    public void eA(boolean z) {
+    public void eB(boolean z) {
     }
 
     private double[] a(double d, double d2, String str, String str2) {
@@ -128,39 +128,39 @@ public class a implements d {
         return dArr;
     }
 
-    private long bCG() {
-        return fsZ;
+    private long bCH() {
+        return ftd;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes19.dex */
     public static class b extends BDAbstractLocationListener {
         String coorType;
-        LocationClient fte;
-        d.a ftf;
-        boolean ftg;
+        LocationClient fti;
+        d.a ftj;
+        boolean ftk;
 
         public b(LocationClient locationClient, d.a aVar, String str, boolean z) {
-            this.fte = locationClient;
-            this.ftf = aVar;
+            this.fti = locationClient;
+            this.ftj = aVar;
             this.coorType = str;
-            this.ftg = z;
+            this.ftk = z;
         }
 
         @Override // com.baidu.location.BDAbstractLocationListener
         public void onReceiveLocation(BDLocation bDLocation) {
-            this.fte.unRegisterLocationListener(this);
+            this.fti.unRegisterLocationListener(this);
             int locType = bDLocation.getLocType();
             if (!a.sk(locType)) {
-                if (!this.ftg) {
-                    this.ftf.onFailed(locType);
+                if (!this.ftk) {
+                    this.ftj.onFailed(locType);
                     return;
                 }
                 return;
             }
-            a.fta.f(bDLocation);
-            if (!this.ftg) {
-                this.ftf.a(a.a(bDLocation, this.coorType));
+            a.fte.f(bDLocation);
+            if (!this.ftk) {
+                this.ftj.a(a.a(bDLocation, this.coorType));
             }
         }
     }
@@ -205,24 +205,24 @@ public class a implements d {
     /* renamed from: com.baidu.tieba.aiapps.apps.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes19.dex */
     public static class C0578a {
-        private long ftc;
-        private BDLocation ftd;
+        private long ftg;
+        private BDLocation fth;
 
         private C0578a() {
-            this.ftc = 0L;
+            this.ftg = 0L;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public synchronized void f(BDLocation bDLocation) {
-            this.ftd = bDLocation;
-            this.ftc = System.currentTimeMillis();
+            this.fth = bDLocation;
+            this.ftg = System.currentTimeMillis();
         }
 
         synchronized boolean dH(long j) {
             boolean z = true;
             synchronized (this) {
-                long currentTimeMillis = System.currentTimeMillis() - this.ftc;
-                boolean z2 = this.ftd != null;
+                long currentTimeMillis = System.currentTimeMillis() - this.ftg;
+                boolean z2 = this.fth != null;
                 boolean z3 = currentTimeMillis < j;
                 if (!z2 || !z3) {
                     z = false;
@@ -235,7 +235,7 @@ public class a implements d {
         }
 
         synchronized BDLocation dI(long j) {
-            return dH(j) ? this.ftd : null;
+            return dH(j) ? this.fth : null;
         }
     }
 }

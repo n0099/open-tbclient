@@ -6,31 +6,31 @@ import javax.annotation.concurrent.Immutable;
 @Immutable
 /* loaded from: classes8.dex */
 public class b {
-    private static final b nuc = dSg().dSo();
-    public final int nud;
-    public final boolean nue;
-    public final boolean nuf;
-    public final boolean nug;
-    public final boolean nuh;
-    public final Bitmap.Config nui;
+    private static final b nuv = dSp().dSx();
+    public final boolean nuA;
+    public final Bitmap.Config nuB;
     @Nullable
-    public final com.facebook.imagepipeline.decoder.b nuj;
+    public final com.facebook.imagepipeline.decoder.b nuC;
+    public final int nuw;
+    public final boolean nux;
+    public final boolean nuy;
+    public final boolean nuz;
 
     public b(c cVar) {
-        this.nud = cVar.dSh();
-        this.nue = cVar.dSi();
-        this.nuf = cVar.dSj();
-        this.nug = cVar.dSk();
-        this.nuh = cVar.dSm();
-        this.nui = cVar.dSn();
-        this.nuj = cVar.dSl();
+        this.nuw = cVar.dSq();
+        this.nux = cVar.dSr();
+        this.nuy = cVar.dSs();
+        this.nuz = cVar.dSt();
+        this.nuA = cVar.dSv();
+        this.nuB = cVar.dSw();
+        this.nuC = cVar.dSu();
     }
 
-    public static b dSf() {
-        return nuc;
+    public static b dSo() {
+        return nuv;
     }
 
-    public static c dSg() {
+    public static c dSp() {
         return new c();
     }
 
@@ -42,14 +42,14 @@ public class b {
             return false;
         }
         b bVar = (b) obj;
-        return this.nue == bVar.nue && this.nuf == bVar.nuf && this.nug == bVar.nug && this.nuh == bVar.nuh && this.nui == bVar.nui && this.nuj == bVar.nuj;
+        return this.nux == bVar.nux && this.nuy == bVar.nuy && this.nuz == bVar.nuz && this.nuA == bVar.nuA && this.nuB == bVar.nuB && this.nuC == bVar.nuC;
     }
 
     public int hashCode() {
-        return (((((((this.nug ? 1 : 0) + (((this.nuf ? 1 : 0) + (((this.nue ? 1 : 0) + (this.nud * 31)) * 31)) * 31)) * 31) + (this.nuh ? 1 : 0)) * 31) + this.nui.ordinal()) * 31) + (this.nuj != null ? this.nuj.hashCode() : 0);
+        return (((((((this.nuz ? 1 : 0) + (((this.nuy ? 1 : 0) + (((this.nux ? 1 : 0) + (this.nuw * 31)) * 31)) * 31)) * 31) + (this.nuA ? 1 : 0)) * 31) + this.nuB.ordinal()) * 31) + (this.nuC != null ? this.nuC.hashCode() : 0);
     }
 
     public String toString() {
-        return String.format(null, "%d-%b-%b-%b-%b-%s-%s", Integer.valueOf(this.nud), Boolean.valueOf(this.nue), Boolean.valueOf(this.nuf), Boolean.valueOf(this.nug), Boolean.valueOf(this.nuh), this.nui.name(), this.nuj);
+        return String.format(null, "%d-%b-%b-%b-%b-%s-%s", Integer.valueOf(this.nuw), Boolean.valueOf(this.nux), Boolean.valueOf(this.nuy), Boolean.valueOf(this.nuz), Boolean.valueOf(this.nuA), this.nuB.name(), this.nuC);
     }
 }

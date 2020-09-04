@@ -19,13 +19,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class i extends aa {
-    private final int dfP;
-    private final String dfQ;
+    private final int dfT;
+    private final String dfU;
 
     public i(j jVar) {
         super(jVar, "/swanAPI/thirdPartyLogin");
-        this.dfP = 10008;
-        this.dfQ = "app not installed";
+        this.dfT = 10008;
+        this.dfU = "app not installed";
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
@@ -45,10 +45,10 @@ public class i extends aa {
             return false;
         }
         final String optString2 = optParamsAsJo.optString("type", "");
-        int th = th(optString2);
+        int ti = ti(optString2);
         final b.a aVar = new b.a(optParamsAsJo);
         final Bundle bundle = new Bundle();
-        bundle.putInt("key_login_mode", th);
+        bundle.putInt("key_login_mode", ti);
         eVar.azU().b(context, "mapp_i_login", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.bdprivate.extensions.a.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.e.b
@@ -103,7 +103,7 @@ public class i extends aa {
         });
     }
 
-    private int th(String str) {
+    private int ti(String str) {
         char c = 65535;
         switch (str.hashCode()) {
             case -791575966:

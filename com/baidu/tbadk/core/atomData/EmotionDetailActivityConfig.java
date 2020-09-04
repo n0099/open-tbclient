@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class EmotionDetailActivityConfig extends IntentConfig {
     public static final String EMOTION_FROM_PACKAGE = "from_package";
     public static final String EMOTION_IS_GIF_KEY = "is_gif";

@@ -4,9 +4,10 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import tbclient.GetMyPost.DataReq;
 import tbclient.GetMyPost.GetMyPostReqIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class RequestGetMyPostNetMessage extends NetMessage {
     private String bFrom;
+    private boolean hideErrorToast;
     private long mForumId;
     private long mPostId;
     private int mQType;
@@ -40,6 +41,14 @@ public class RequestGetMyPostNetMessage extends NetMessage {
 
     public void setBFrom(String str) {
         this.bFrom = str;
+    }
+
+    public void setHideErrorToast(boolean z) {
+        this.hideErrorToast = z;
+    }
+
+    public boolean showErrorToast() {
+        return !this.hideErrorToast;
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage

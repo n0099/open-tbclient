@@ -20,17 +20,17 @@ import com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabRankListLayout;
 import tbclient.HotThreadList.HotThreadListResIdl;
 /* loaded from: classes16.dex */
 public class HotTopicHeaderView extends LinearLayout {
-    protected f ahW;
-    private HotTopicTabRankListLayout iLb;
-    private TextView iLc;
-    private View iLd;
-    private TextView iLe;
-    private com.baidu.tieba.homepage.hotTopic.tab.view.a iLf;
+    protected f ahY;
+    private HotTopicTabRankListLayout iLh;
+    private TextView iLi;
+    private View iLj;
+    private TextView iLk;
+    private com.baidu.tieba.homepage.hotTopic.tab.view.a iLl;
     private int mSkinType;
     private TextView mTitleView;
 
     public void setOnItemCoverListener(f fVar) {
-        this.ahW = fVar;
+        this.ahY = fVar;
     }
 
     public HotTopicHeaderView(Context context) {
@@ -56,22 +56,22 @@ public class HotTopicHeaderView extends LinearLayout {
         int dimens = l.getDimens(getContext(), R.dimen.tbds44);
         int dimens2 = l.getDimens(getContext(), R.dimen.tbds38);
         int dimens3 = l.getDimens(getContext(), R.dimen.tbds25);
-        this.iLc = new TextView(getContext());
-        this.iLc.setTextColor(getContext().getResources().getColor(R.color.cp_cont_b));
-        this.iLc.setTextSize(0, l.getDimens(getContext(), R.dimen.tbds44));
-        this.iLc.setTypeface(Typeface.DEFAULT_BOLD);
-        this.iLc.setIncludeFontPadding(false);
-        this.iLc.setSingleLine();
-        this.iLc.setEllipsize(TextUtils.TruncateAt.END);
-        this.iLc.setGravity(16);
-        this.iLc.setPadding(dimens, dimens2, dimens, dimens3);
-        addView(this.iLc);
-        this.iLb = new HotTopicTabRankListLayout(getContext());
-        this.iLb.setPadding(0, 0, 0, dimens3);
-        addView(this.iLb);
-        this.iLd = new View(getContext());
-        this.iLd.setLayoutParams(new LinearLayout.LayoutParams(-1, l.getDimens(getContext(), R.dimen.tbds17)));
-        addView(this.iLd);
+        this.iLi = new TextView(getContext());
+        this.iLi.setTextColor(getContext().getResources().getColor(R.color.cp_cont_b));
+        this.iLi.setTextSize(0, l.getDimens(getContext(), R.dimen.tbds44));
+        this.iLi.setTypeface(Typeface.DEFAULT_BOLD);
+        this.iLi.setIncludeFontPadding(false);
+        this.iLi.setSingleLine();
+        this.iLi.setEllipsize(TextUtils.TruncateAt.END);
+        this.iLi.setGravity(16);
+        this.iLi.setPadding(dimens, dimens2, dimens, dimens3);
+        addView(this.iLi);
+        this.iLh = new HotTopicTabRankListLayout(getContext());
+        this.iLh.setPadding(0, 0, 0, dimens3);
+        addView(this.iLh);
+        this.iLj = new View(getContext());
+        this.iLj.setLayoutParams(new LinearLayout.LayoutParams(-1, l.getDimens(getContext(), R.dimen.tbds17)));
+        addView(this.iLj);
         LinearLayout linearLayout = new LinearLayout(getContext());
         linearLayout.setOrientation(0);
         linearLayout.setGravity(16);
@@ -95,14 +95,14 @@ public class HotTopicHeaderView extends LinearLayout {
         textView2.setEllipsize(TextUtils.TruncateAt.END);
         textView2.setGravity(16);
         linearLayout.addView(textView2);
-        this.iLe = textView2;
+        this.iLk = textView2;
         addView(linearLayout);
-        this.iLf = new com.baidu.tieba.homepage.hotTopic.tab.view.a(getContext());
-        this.iLf.cxF().setLayoutParams(new LinearLayout.LayoutParams(-1, l.getDimens(getContext(), R.dimen.tbds138)));
-        addView(this.iLf.cxF());
-        this.iLc.setText(getString(R.string.hot_topic_tab_rank_list_title));
+        this.iLl = new com.baidu.tieba.homepage.hotTopic.tab.view.a(getContext());
+        this.iLl.cxG().setLayoutParams(new LinearLayout.LayoutParams(-1, l.getDimens(getContext(), R.dimen.tbds138)));
+        addView(this.iLl.cxG());
+        this.iLi.setText(getString(R.string.hot_topic_tab_rank_list_title));
         this.mTitleView.setText(getString(R.string.hot_topic_hot_tie_title));
-        this.iLe.setText(getString(R.string.hot_topic_hot_tie_sub_title));
+        this.iLk.setText(getString(R.string.hot_topic_hot_tie_sub_title));
     }
 
     private String getString(int i) {
@@ -111,36 +111,36 @@ public class HotTopicHeaderView extends LinearLayout {
 
     public void setData(HotThreadListResIdl hotThreadListResIdl) {
         if (hotThreadListResIdl != null && hotThreadListResIdl.data != null && !y.isEmpty(hotThreadListResIdl.data.topic_list)) {
-            this.iLc.setVisibility(0);
-            this.iLb.setVisibility(0);
-            this.iLb.setOnItemCoverListener(this.ahW);
-            this.iLb.a(new d(hotThreadListResIdl.data.topic_list));
+            this.iLi.setVisibility(0);
+            this.iLh.setVisibility(0);
+            this.iLh.setOnItemCoverListener(this.ahY);
+            this.iLh.a(new d(hotThreadListResIdl.data.topic_list));
         } else {
-            this.iLc.setVisibility(8);
-            this.iLb.setVisibility(8);
+            this.iLi.setVisibility(8);
+            this.iLh.setVisibility(8);
         }
         this.mTitleView.setVisibility(0);
-        this.iLe.setVisibility(0);
-        this.iLf.a(c.dh((hotThreadListResIdl == null || hotThreadListResIdl.data == null) ? null : hotThreadListResIdl.data.hot_thread_tab_info).cmB());
+        this.iLk.setVisibility(0);
+        this.iLl.a(c.dh((hotThreadListResIdl == null || hotThreadListResIdl.data == null) ? null : hotThreadListResIdl.data.hot_thread_tab_info).cmC());
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setOnTabSelectedListener(TabLayout.OnTabSelectedListener onTabSelectedListener) {
-        this.iLf.setOnTabSelectedListener(onTabSelectedListener);
+        this.iLl.setOnTabSelectedListener(onTabSelectedListener);
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            ap.setViewTextColor(this.iLc, R.color.cp_cont_b);
+            ap.setViewTextColor(this.iLi, R.color.cp_cont_b);
             ap.setViewTextColor(this.mTitleView, R.color.cp_cont_b);
-            ap.setViewTextColor(this.iLe, R.color.cp_cont_d);
-            ap.setBackgroundColor(this.iLd, R.color.cp_bg_line_c);
-            if (this.iLb != null) {
-                this.iLb.onChangeSkinType(i);
+            ap.setViewTextColor(this.iLk, R.color.cp_cont_d);
+            ap.setBackgroundColor(this.iLj, R.color.cp_bg_line_c);
+            if (this.iLh != null) {
+                this.iLh.onChangeSkinType(i);
             }
-            if (this.iLf != null) {
-                this.iLf.onChangeSkinType(i);
+            if (this.iLl != null) {
+                this.iLl.onChangeSkinType(i);
             }
         }
     }

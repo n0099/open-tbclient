@@ -12,10 +12,10 @@ import java.util.TimerTask;
 /* loaded from: classes8.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private boolean cxa;
-    private c cwY = new c(this);
-    private a cwZ = new a();
-    private final com.baidu.swan.apps.v.a.a cxb = com.baidu.swan.apps.v.a.c.ask();
+    private boolean cxe;
+    private c cxc = new c(this);
+    private a cxd = new a();
+    private final com.baidu.swan.apps.v.a.a cxf = com.baidu.swan.apps.v.a.c.ask();
 
     /* loaded from: classes8.dex */
     public interface b {
@@ -23,17 +23,17 @@ public class e {
     }
 
     public void ce(Context context) {
-        if (!this.cxa) {
-            this.cxa = true;
-            context.registerReceiver(this.cwY, c.getIntentFilter());
+        if (!this.cxe) {
+            this.cxe = true;
+            context.registerReceiver(this.cxc, c.getIntentFilter());
         }
     }
 
     public void cf(Context context) {
-        if (this.cxa) {
-            this.cxa = false;
+        if (this.cxe) {
+            this.cxe = false;
             try {
-                context.unregisterReceiver(this.cwY);
+                context.unregisterReceiver(this.cxc);
             } catch (IllegalArgumentException e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -55,38 +55,38 @@ public class e {
     }
 
     public void a(b bVar) {
-        this.cwZ.a(bVar);
+        this.cxd.a(bVar);
     }
 
     public void arP() {
         if (DEBUG) {
             Log.d("SwanAppCollectionPolicy", "startCollectionTimeOut");
         }
-        this.cxb.onPause();
-        this.cwZ.startTimer();
+        this.cxf.onPause();
+        this.cxd.startTimer();
     }
 
     private void arQ() {
-        this.cwZ.arT();
+        this.cxd.arT();
     }
 
     private void arR() {
-        this.cwZ.arU();
+        this.cxd.arU();
     }
 
     public void arS() {
         if (DEBUG) {
             Log.d("SwanAppCollectionPolicy", "stopCollectionTimeOut");
         }
-        this.cxb.onResume();
-        this.cwZ.acB();
+        this.cxf.onResume();
+        this.cxd.acB();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes8.dex */
     public static class a {
-        private b cxc;
-        private long cxd = 300;
+        private b cxg;
+        private long cxh = 300;
         private int mStatus = 0;
         private Timer mTimer;
 
@@ -132,14 +132,14 @@ public class e {
         }
 
         private void arW() {
-            this.cxd = com.baidu.swan.apps.performance.b.d.awt();
+            this.cxh = com.baidu.swan.apps.performance.b.d.awt();
             if (e.DEBUG && com.baidu.swan.apps.ad.a.a.awL().getBoolean("swan_5min_back_optimize", false)) {
-                this.cxd = 30L;
+                this.cxh = 30L;
             }
         }
 
         public void a(b bVar) {
-            this.cxc = bVar;
+            this.cxg = bVar;
         }
 
         private TimerTask arX() {
@@ -147,11 +147,11 @@ public class e {
                 @Override // java.util.TimerTask, java.lang.Runnable
                 public void run() {
                     if (e.DEBUG) {
-                        Log.d("SwanAppCollectionPolicy", "task run: " + a.this.cxd);
+                        Log.d("SwanAppCollectionPolicy", "task run: " + a.this.cxh);
                     }
-                    a.this.cxd -= 10;
-                    if (a.this.cxd <= 0 && a.this.cxc != null) {
-                        a.this.cxc.ig(1);
+                    a.this.cxh -= 10;
+                    if (a.this.cxh <= 0 && a.this.cxg != null) {
+                        a.this.cxg.ig(1);
                         a.this.acB();
                     }
                 }

@@ -69,7 +69,7 @@ public class h extends aa {
     public void a(final Activity activity, final CallbackHandler callbackHandler, final String str) {
         com.baidu.swan.apps.ab.a.a("android.permission.READ_CONTACTS", new String[]{"android.permission.READ_CONTACTS"}, 666, activity, new com.baidu.swan.apps.ab.b() { // from class: com.baidu.swan.bdprivate.extensions.a.h.2
             @Override // com.baidu.swan.apps.ab.b
-            public void iF(String str2) {
+            public void iG(String str2) {
                 h.this.b(activity, callbackHandler, str);
                 com.baidu.swan.apps.console.c.e("ReadContacts", str2 + "");
             }

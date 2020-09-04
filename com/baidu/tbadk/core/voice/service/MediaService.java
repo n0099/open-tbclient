@@ -12,7 +12,7 @@ import com.baidu.adp.base.BdBaseService;
 import com.baidu.tbadk.core.util.ae;
 import java.io.File;
 import java.lang.reflect.Method;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class MediaService extends BdBaseService implements MediaPlayer.OnErrorListener, MediaPlayer.OnPreparedListener {
     private int mElapsedTime = 0;
     private long mStartRecorderTime = 0;
@@ -224,7 +224,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
         this.mSeekTime = j;
         Voice voice = this.mVoice;
         e.bmi().bmh();
-        if (!this.mPlayer.AR(voice.getName()) && this.mPlayer.getErrorNo() != -1) {
+        if (!this.mPlayer.AS(voice.getName()) && this.mPlayer.getErrorNo() != -1) {
             Intent intent = new Intent("com.baidu.playPrepared");
             intent.putExtra("com.baidu.playPrepared_err_code", this.mPlayer.getErrorNo());
             sendBroadcast(intent);
@@ -283,7 +283,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
                     if (this.mPlayer instanceof e) {
                         ((e) this.mPlayer).setOnPreparedListener(null);
                     }
-                    if (this.mPlayer.AR(this.mVoice.getName())) {
+                    if (this.mPlayer.AS(this.mVoice.getName())) {
                         this.mPlayer.seek((int) om);
                         playVoice(null);
                     }
@@ -302,7 +302,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
                     if (this.mPlayer instanceof e) {
                         ((e) this.mPlayer).setOnPreparedListener(null);
                     }
-                    if (this.mPlayer.AR(this.mVoice.getName())) {
+                    if (this.mPlayer.AS(this.mVoice.getName())) {
                         this.mPlayer.seek((int) longExtra);
                         playVoice(null);
                     }
@@ -336,12 +336,12 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
             this.mFilePath = stringExtra + File.separator + stringExtra2;
             if (file.exists()) {
                 if (file.isDirectory() && file.canRead() && file.canWrite()) {
-                    z = this.mRecorder.AO(this.mFilePath);
+                    z = this.mRecorder.AP(this.mFilePath);
                 }
             } else {
                 file.mkdir();
                 if (file.isDirectory() && file.canRead() && file.canWrite()) {
-                    z = this.mRecorder.AO(this.mFilePath);
+                    z = this.mRecorder.AP(this.mFilePath);
                 }
             }
             if (z) {

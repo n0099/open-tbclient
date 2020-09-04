@@ -14,7 +14,7 @@ import java.util.List;
 /* loaded from: classes7.dex */
 public class b extends BaseAdapter {
     private List<com.baidu.tieba.ala.liveroom.challenge.a.b> dataList;
-    public String gqt;
+    public String gqx;
     private Context mContext;
 
     public b(Context context, List<com.baidu.tieba.ala.liveroom.challenge.a.b> list) {
@@ -49,7 +49,7 @@ public class b extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.h.layout_item_mvp_choose_punish, (ViewGroup) null);
             a aVar2 = new a(view);
-            aVar2.gqu.setDefaultBgResource(a.f.sdk_shape_transparent);
+            aVar2.gqy.setDefaultBgResource(a.f.sdk_shape_transparent);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
@@ -57,29 +57,29 @@ public class b extends BaseAdapter {
         }
         com.baidu.tieba.ala.liveroom.challenge.a.b bVar = (com.baidu.tieba.ala.liveroom.challenge.a.b) getItem(i);
         if (bVar != null) {
-            aVar.gqu.startLoad(bVar.bgurl, 10, false);
-            if (TextUtils.equals(this.gqt, bVar.id)) {
-                aVar.gqv.setImageResource(a.f.icon_mvp_choose_punish_check);
+            aVar.gqy.startLoad(bVar.bgurl, 10, false);
+            if (TextUtils.equals(this.gqx, bVar.id)) {
+                aVar.gqz.setImageResource(a.f.icon_mvp_choose_punish_check);
             } else {
-                aVar.gqv.setImageResource(a.f.icon_mvp_choose_punish_not_check);
+                aVar.gqz.setImageResource(a.f.icon_mvp_choose_punish_not_check);
             }
-            aVar.gqw.setText(bVar.name);
+            aVar.gqA.setText(bVar.name);
         }
         return view;
     }
 
     /* loaded from: classes7.dex */
     public static class a {
-        public TbImageView gqu;
-        public ImageView gqv;
-        public TextView gqw;
+        public TextView gqA;
+        public TbImageView gqy;
+        public ImageView gqz;
         public View rootView;
 
         public a(View view) {
             this.rootView = view;
-            this.gqu = (TbImageView) view.findViewById(a.g.sticker_imageView);
-            this.gqv = (ImageView) view.findViewById(a.g.check_imageView);
-            this.gqw = (TextView) view.findViewById(a.g.stickerName_textView);
+            this.gqy = (TbImageView) view.findViewById(a.g.sticker_imageView);
+            this.gqz = (ImageView) view.findViewById(a.g.check_imageView);
+            this.gqA = (TextView) view.findViewById(a.g.stickerName_textView);
         }
     }
 }

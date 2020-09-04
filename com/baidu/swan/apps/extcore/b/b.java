@@ -10,44 +10,44 @@ import com.baidu.swan.apps.extcore.model.ExtensionCore;
 public abstract class b<P extends com.baidu.swan.apps.extcore.d.b, R extends com.baidu.swan.apps.extcore.e.a> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     @NonNull
-    private P cqW;
+    private P cra;
     @NonNull
-    private R cqX;
+    private R crb;
 
     @Nullable
     public abstract ExtensionCore ako();
 
     public b(@NonNull P p, @NonNull R r) {
-        this.cqW = p;
-        this.cqX = r;
+        this.cra = p;
+        this.crb = r;
     }
 
     public void n(@Nullable com.baidu.swan.apps.ap.e.b<Exception> bVar) {
-        this.cqW.o(bVar);
+        this.cra.o(bVar);
     }
 
     public void amh() {
-        this.cqW.amh();
+        this.cra.amh();
     }
 
     public <T extends com.baidu.swan.apps.extcore.model.a> Exception a(T t) {
-        return t == null ? new Exception("ExtCore-Manager doRemoteUpdate: null updateInfo") : this.cqX.b(t);
+        return t == null ? new Exception("ExtCore-Manager doRemoteUpdate: null updateInfo") : this.crb.b(t);
     }
 
     @NonNull
     public P ami() {
-        return this.cqW;
+        return this.cra;
     }
 
     @NonNull
     public R amj() {
-        return this.cqX;
+        return this.crb;
     }
 
     @NonNull
     public ExtensionCore amk() {
         String path;
-        int amv = this.cqW.cqV.amv();
+        int amv = this.cra.cqZ.amv();
         if (com.baidu.swan.apps.extcore.f.a.hE(amv)) {
             ExtensionCore extensionCore = new ExtensionCore();
             extensionCore.extensionCoreVersionCode = 0L;
@@ -64,8 +64,8 @@ public abstract class b<P extends com.baidu.swan.apps.extcore.d.b, R extends com
             }
             return extensionCore;
         }
-        ExtensionCore amx = this.cqW.amx();
-        ExtensionCore amx2 = this.cqX.amx();
+        ExtensionCore amx = this.cra.amx();
+        ExtensionCore amx2 = this.crb.amx();
         if (amx.extensionCoreVersionCode >= amx2.extensionCoreVersionCode) {
             if (DEBUG) {
                 Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: preset=>" + amx.toString());

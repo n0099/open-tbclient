@@ -1,18 +1,18 @@
 package com.baidu.ubs.analytics.c;
 /* loaded from: classes5.dex */
 public final class e {
-    private static final e nfY = new e();
-    private l nfZ = new l();
+    private static final e ngq = new e();
+    private l ngr = new l();
 
-    public static e dMp() {
-        return nfY;
+    public static e dMy() {
+        return ngq;
     }
 
     public final void TL(String str) {
-        this.nfZ.TL(str);
+        this.ngr.TL(str);
     }
 
     public final void TM(String str) {
-        this.nfZ.TM(str);
+        this.ngr.TM(str);
     }
 }

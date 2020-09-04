@@ -7,7 +7,7 @@ import android.graphics.Paint;
 import android.view.View;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class g {
     public static float[] a(Bitmap bitmap, Matrix matrix) {
         float[] fArr = new float[8];

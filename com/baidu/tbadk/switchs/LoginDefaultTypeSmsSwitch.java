@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class LoginDefaultTypeSmsSwitch extends a {
     public static final String SWITCH_NAME = "android_pass_login_sms_enable";
     public static final int TYPE_CLOSED = 0;

@@ -12,15 +12,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ZoneInfo {
-    private static int ofs = 600;
-    public final List<String> oft;
-    public final Map<String, Long> ofu;
-    private final int ofv;
+    private static int ofK = 600;
+    public final List<String> ofL;
+    public final Map<String, Long> ofM;
+    private final int ofN;
 
     public ZoneInfo(int i, List<String> list, Map<String, Long> map) {
-        this.ofv = i;
-        this.oft = list;
-        this.ofu = map;
+        this.ofN = i;
+        this.ofL = list;
+        this.ofM = map;
     }
 
     public static ZoneInfo eG(JSONObject jSONObject) throws JSONException {
@@ -52,14 +52,14 @@ public class ZoneInfo {
     }
 
     public void Vr(String str) {
-        this.ofu.put(str, Long.valueOf((System.currentTimeMillis() / 1000) + ofs));
+        this.ofM.put(str, Long.valueOf((System.currentTimeMillis() / 1000) + ofK));
     }
 
     public String toString() {
         HashMap hashMap = new HashMap();
-        hashMap.put("ttl", Integer.valueOf(this.ofv));
-        hashMap.put("upDomainList", this.oft);
-        hashMap.put("upDomainMap", this.ofu);
+        hashMap.put("ttl", Integer.valueOf(this.ofN));
+        hashMap.put("upDomainList", this.ofL);
+        hashMap.put("upDomainMap", this.ofM);
         return new JSONObject(hashMap).toString();
     }
 }

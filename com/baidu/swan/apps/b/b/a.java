@@ -34,7 +34,7 @@ public class a extends d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b iy(String str) {
+    public com.baidu.swan.apps.api.c.b iz(String str) {
         Pair<com.baidu.swan.apps.api.c.b, JSONObject> aX = com.baidu.swan.apps.api.d.b.aX("Api-Base", str);
         com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aX.first;
         JSONObject jSONObject = (JSONObject) aX.second;
@@ -93,11 +93,11 @@ public class a extends d {
     }
 
     private boolean Yo() {
-        com.baidu.swan.apps.setting.oauth.e eVar = com.baidu.swan.apps.network.c.b.a.fa(true).get("scope_insert_bookshelf");
-        return eVar == null || (eVar.cVk < 0 && !eVar.forbidden);
+        com.baidu.swan.apps.setting.oauth.e eVar = com.baidu.swan.apps.network.c.b.a.fb(true).get("scope_insert_bookshelf");
+        return eVar == null || (eVar.cVo < 0 && !eVar.forbidden);
     }
 
-    public com.baidu.swan.apps.api.c.b iz(String str) {
+    public com.baidu.swan.apps.api.c.b iA(String str) {
         Pair<com.baidu.swan.apps.api.c.b, JSONObject> aX = com.baidu.swan.apps.api.d.b.aX("Api-Base", str);
         com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aX.first;
         JSONObject jSONObject = (JSONObject) aX.second;
@@ -132,7 +132,7 @@ public class a extends d {
         return bVar;
     }
 
-    public com.baidu.swan.apps.api.c.b iA(String str) {
+    public com.baidu.swan.apps.api.c.b iB(String str) {
         Pair<com.baidu.swan.apps.api.c.b, JSONObject> aX = com.baidu.swan.apps.api.d.b.aX("Api-Base", str);
         com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aX.first;
         JSONObject jSONObject = (JSONObject) aX.second;
@@ -172,7 +172,7 @@ public class a extends d {
         return bVar;
     }
 
-    public com.baidu.swan.apps.api.c.b iB(String str) {
+    public com.baidu.swan.apps.api.c.b iC(String str) {
         Pair<com.baidu.swan.apps.api.c.b, JSONObject> aX = com.baidu.swan.apps.api.d.b.aX("Api-Base", str);
         com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aX.first;
         JSONObject jSONObject = (JSONObject) aX.second;
@@ -182,22 +182,22 @@ public class a extends d {
                 return new com.baidu.swan.apps.api.c.b(202, "cb is invalid");
             }
             if (!com.baidu.swan.apps.runtime.d.azE().azA().azV().isLogin(getContext())) {
-                iC(optString);
+                iD(optString);
                 return new com.baidu.swan.apps.api.c.b(0);
             }
-            iD(optString);
+            iE(optString);
             return new com.baidu.swan.apps.api.c.b(0);
         }
         return bVar;
     }
 
-    private void iC(final String str) {
+    private void iD(final String str) {
         e azA = com.baidu.swan.apps.runtime.d.azE().azA();
         azA.azV().a(azA.azC(), null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.apps.b.b.a.4
             @Override // com.baidu.swan.apps.a.a
             public void onResult(int i) {
                 if (i == 0) {
-                    a.this.iD(str);
+                    a.this.iE(str);
                 } else {
                     a.this.a(str, new com.baidu.swan.apps.api.c.b(1001, "user is not login"));
                 }
@@ -206,7 +206,7 @@ public class a extends d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void iD(final String str) {
+    public void iE(final String str) {
         ak.d(new CallbackHandler() { // from class: com.baidu.swan.apps.b.b.a.5
             @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
             public void handleSchemeDispatchCallback(String str2, String str3) {
@@ -229,7 +229,7 @@ public class a extends d {
             @Override // java.lang.Runnable
             public void run() {
                 g.a aVar = new g.a(a.this.getContext());
-                aVar.e(string).qe(string2).azm().a(new com.baidu.swan.apps.view.c.a()).fA(false).a(string3, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.b.b.a.6.2
+                aVar.e(string).qf(string2).azm().a(new com.baidu.swan.apps.view.c.a()).fB(false).a(string3, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.b.b.a.6.2
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i) {
                         com.baidu.swan.apps.runtime.d.azE().azA().azU().aBp();
@@ -257,9 +257,9 @@ public class a extends d {
                 e.printStackTrace();
             }
         }
-        RequestBody create = RequestBody.create(f.a.cEB, jSONObject.toString());
-        String iE = iE(str);
-        if (TextUtils.isEmpty(iE)) {
+        RequestBody create = RequestBody.create(f.a.cEF, jSONObject.toString());
+        String iF = iF(str);
+        if (TextUtils.isEmpty(iF)) {
             a(bVar, 1001, "operation fail, msg = url is null", equals);
             return;
         }
@@ -267,11 +267,11 @@ public class a extends d {
             ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.b.b.a.7
                 @Override // java.lang.Runnable
                 public void run() {
-                    com.baidu.swan.apps.res.widget.b.d.k(a.this.getContext(), a.h.swan_bookshelf_insert_async).jj(10).fI(false).showHighLoadingToast();
+                    com.baidu.swan.apps.res.widget.b.d.k(a.this.getContext(), a.h.swan_bookshelf_insert_async).jj(10).fJ(false).showHighLoadingToast();
                 }
             });
         }
-        ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) com.baidu.swan.a.c.a.aSW().postRequest().requestBody(create).url(iE)).cookieManager(com.baidu.swan.apps.t.a.apj().aau())).build().executeAsync(new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.apps.b.b.a.8
+        ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) com.baidu.swan.a.c.a.aSW().postRequest().requestBody(create).url(iF)).cookieManager(com.baidu.swan.apps.t.a.apj().aau())).build().executeAsync(new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.apps.b.b.a.8
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             /* renamed from: a */
@@ -319,7 +319,7 @@ public class a extends d {
         });
     }
 
-    private String iE(String str) {
+    private String iF(String str) {
         char c = 65535;
         switch (str.hashCode()) {
             case -2130463047:

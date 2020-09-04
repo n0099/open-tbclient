@@ -5,21 +5,21 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes15.dex */
 public class a {
-    private ArrayList<Integer> fmW;
-    private c fmX;
+    private ArrayList<Integer> fna;
+    private c fnb;
     private HashMap<String, b> mData = new HashMap<>();
 
     public a(c cVar, ArrayList<Integer> arrayList) {
-        this.fmW = arrayList;
-        this.fmX = cVar;
+        this.fna = arrayList;
+        this.fnb = cVar;
     }
 
     public int au(String str, int i) {
-        if (this.mData == null || at.isEmpty(str) || this.fmW == null || !this.fmW.contains(Integer.valueOf(i))) {
+        if (this.mData == null || at.isEmpty(str) || this.fna == null || !this.fna.contains(Integer.valueOf(i))) {
             return 0;
         }
         if (!this.mData.containsKey(str)) {
-            Dh(str);
+            Di(str);
         }
         b bVar = this.mData.get(str);
         if (bVar == null) {
@@ -28,16 +28,16 @@ public class a {
         return bVar.rY(i);
     }
 
-    public void Dh(String str) {
-        if (this.mData != null && !at.isEmpty(str) && this.fmX != null) {
+    public void Di(String str) {
+        if (this.mData != null && !at.isEmpty(str) && this.fnb != null) {
             if (this.mData.containsKey(str)) {
                 b bVar = this.mData.get(str);
-                this.fmX.a(this.fmW, bVar);
+                this.fnb.a(this.fna, bVar);
                 this.mData.put(str, bVar);
                 return;
             }
             b bVar2 = new b();
-            this.fmX.a(this.fmW, bVar2);
+            this.fnb.a(this.fna, bVar2);
             this.mData.put(str, bVar2);
         }
     }

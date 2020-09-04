@@ -13,11 +13,11 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.imMessageCenter.im.stranger.a;
 /* loaded from: classes16.dex */
 public class MsgReplyCardView extends g {
-    private LinearLayout jDb;
-    private TextView jDc;
-    private TextView jDd;
-    private TextView jDe;
-    private TextView jDf;
+    private LinearLayout jDh;
+    private TextView jDi;
+    private TextView jDj;
+    private TextView jDk;
+    private TextView jDl;
 
     public MsgReplyCardView(TbPageContext<MsglistActivity<?>> tbPageContext) {
         super(tbPageContext, R.layout.msg_reply_card_view);
@@ -25,27 +25,27 @@ public class MsgReplyCardView extends g {
     }
 
     private void init() {
-        this.jDb = (LinearLayout) findViewById(R.id.reply_card);
-        this.jDc = (TextView) findViewById(R.id.reply_title);
-        this.jDd = (TextView) findViewById(R.id.reply_content);
-        this.jDe = (TextView) findViewById(R.id.reply_quote_content);
-        this.jDf = (TextView) findViewById(R.id.reply_frs_name);
-        this.jDb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.MsgReplyCardView.1
+        this.jDh = (LinearLayout) findViewById(R.id.reply_card);
+        this.jDi = (TextView) findViewById(R.id.reply_title);
+        this.jDj = (TextView) findViewById(R.id.reply_content);
+        this.jDk = (TextView) findViewById(R.id.reply_quote_content);
+        this.jDl = (TextView) findViewById(R.id.reply_frs_name);
+        this.jDh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.MsgReplyCardView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                MsgReplyCardView.this.jfA.onItemViewClick(view, 14, MsgReplyCardView.this.mPosition, 0L);
+                MsgReplyCardView.this.jfG.onItemViewClick(view, 14, MsgReplyCardView.this.mPosition, 0L);
             }
         });
     }
 
     public void a(TbPageContext<?> tbPageContext, ChatMessage chatMessage, View view) {
         if (chatMessage != null) {
-            a.C0727a Ln = a.Ln(chatMessage.getContent());
+            a.C0727a Lo = a.Lo(chatMessage.getContent());
             String valueOf = String.valueOf(chatMessage.getUserId());
-            this.jDc.setText(a(Ln, valueOf));
-            this.jDd.setText(Ln.jCL);
-            this.jDe.setText(b(Ln, valueOf));
-            this.jDf.setText(Ln.fName + this.mContext.getString(R.string.forum));
+            this.jDi.setText(a(Lo, valueOf));
+            this.jDj.setText(Lo.jCR);
+            this.jDk.setText(b(Lo, valueOf));
+            this.jDl.setText(Lo.fName + this.mContext.getString(R.string.forum));
         }
     }
 
@@ -53,11 +53,11 @@ public class MsgReplyCardView extends g {
         String string;
         String BP;
         if (!TextUtils.isEmpty(str) && str.equals(TbadkCoreApplication.getCurrentAccount())) {
-            string = BP(c0727a.jDh);
+            string = BP(c0727a.jDn);
             BP = this.mContext.getString(R.string.you);
         } else {
             string = this.mContext.getString(R.string.you);
-            BP = BP(c0727a.jDh);
+            BP = BP(c0727a.jDn);
         }
         return String.format(this.mContext.getString(R.string.add_friend_card_title), string, BQ(c0727a.type), BP);
     }
@@ -68,11 +68,11 @@ public class MsgReplyCardView extends g {
         if (!TextUtils.isEmpty(str) && str.equals(TbadkCoreApplication.getCurrentAccount())) {
             BP = this.mContext.getString(R.string.me);
         } else {
-            BP = BP(c0727a.jDh);
+            BP = BP(c0727a.jDn);
         }
         if (c0727a.type == 1) {
             sb.append(String.format(this.mContext.getString(R.string.add_friend_card_quote_comment), BP));
-            sb.append(c0727a.jDl);
+            sb.append(c0727a.jDr);
         } else {
             sb.append(String.format(this.mContext.getString(R.string.add_friend_card_quote_thread), BP));
             sb.append(c0727a.title);

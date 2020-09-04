@@ -12,30 +12,30 @@ import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.util.ax;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.ueg.UEGCancelModel;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b {
-    public static boolean msO = false;
-    private UEGCancelModel.a msM;
-    public int msN = ax.a.eli;
-    private UEGCancelModel msL = new UEGCancelModel();
+    public static boolean mtg = false;
+    private UEGCancelModel.a mte;
+    public int mtf = ax.a.elm;
+    private UEGCancelModel mtd = new UEGCancelModel();
 
     public b() {
-        if (this.msM == null) {
-            this.msM = new UEGCancelModel.a() { // from class: com.baidu.tieba.ueg.b.1
+        if (this.mte == null) {
+            this.mte = new UEGCancelModel.a() { // from class: com.baidu.tieba.ueg.b.1
                 @Override // com.baidu.tieba.ueg.UEGCancelModel.a
                 public void d(BlockPopInfoData blockPopInfoData) {
-                    if (blockPopInfoData != null && !b.msO) {
+                    if (blockPopInfoData != null && !b.mtg) {
                         b.this.a(blockPopInfoData);
                     }
                 }
             };
         }
-        this.msL.a(this.msM);
+        this.mtd.a(this.mte);
     }
 
     public void IF(int i) {
-        this.msN = i;
-        this.msL.cancelRequest();
+        this.mtf = i;
+        this.mtd.cancelRequest();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -57,7 +57,7 @@ public class b {
                 if (!z2 && z) {
                     com.baidu.tbadk.core.sharedPref.b.bik().putBoolean(str + i + currentAccount, true);
                     b(blockPopInfoData);
-                    TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).ai("obj_locate", this.msN).ai("obj_type", i));
+                    TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).ai("obj_locate", this.mtf).ai("obj_type", i));
                 }
             }
         }
@@ -67,19 +67,19 @@ public class b {
         Activity currentActivity;
         if (blockPopInfoData != null && (currentActivity = com.baidu.adp.base.a.lb().currentActivity()) != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(currentActivity);
-            aVar.zz(blockPopInfoData.block_info);
+            aVar.zA(blockPopInfoData.block_info);
             aVar.b(blockPopInfoData.ok_info, new a.b() { // from class: com.baidu.tieba.ueg.b.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     aVar2.dismiss();
-                    TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).ai("obj_locate", b.this.msN).ai("obj_type", blockPopInfoData.win_type));
+                    TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).ai("obj_locate", b.this.mtf).ai("obj_type", blockPopInfoData.win_type));
                 }
             });
             aVar.a(blockPopInfoData.ahead_info, new a.b() { // from class: com.baidu.tieba.ueg.b.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     b.this.c(blockPopInfoData);
-                    TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).ai("obj_locate", b.this.msN).ai("obj_type", blockPopInfoData.win_type));
+                    TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).ai("obj_locate", b.this.mtf).ai("obj_type", blockPopInfoData.win_type));
                 }
             });
             aVar.b(((f) currentActivity).getPageContext());
@@ -87,8 +87,8 @@ public class b {
         }
     }
 
-    public void wx(boolean z) {
-        msO = z;
+    public void wz(boolean z) {
+        mtg = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -100,8 +100,8 @@ public class b {
     }
 
     public void onDestroy() {
-        if (this.msL != null) {
-            this.msL.onDestroy();
+        if (this.mtd != null) {
+            this.mtd.onDestroy();
         }
     }
 }

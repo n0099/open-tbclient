@@ -13,30 +13,30 @@ public class a extends com.baidu.swan.apps.inlinewidget.b<com.baidu.swan.apps.in
     public a(@NonNull com.baidu.swan.apps.inlinewidget.rtcroom.c.a aVar) {
         super(aVar);
         anT();
-        this.ctg.a(new com.baidu.swan.apps.inlinewidget.rtcroom.a.a.d());
-        this.ctg.a(new com.baidu.swan.apps.inlinewidget.rtcroom.a.a.e());
-        this.ctg.a(new f());
-        this.ctg.a(new g());
-        this.ctg.a(new h());
-        this.ctg.a(new com.baidu.swan.apps.inlinewidget.rtcroom.a.a.a());
-        this.ctg.a(new i());
-        this.ctg.a(new com.baidu.swan.apps.inlinewidget.rtcroom.a.a.b());
-        this.ctg.a(new com.baidu.swan.apps.inlinewidget.rtcroom.a.a.c());
+        this.ctk.a(new com.baidu.swan.apps.inlinewidget.rtcroom.a.a.d());
+        this.ctk.a(new com.baidu.swan.apps.inlinewidget.rtcroom.a.a.e());
+        this.ctk.a(new f());
+        this.ctk.a(new g());
+        this.ctk.a(new h());
+        this.ctk.a(new com.baidu.swan.apps.inlinewidget.rtcroom.a.a.a());
+        this.ctk.a(new i());
+        this.ctk.a(new com.baidu.swan.apps.inlinewidget.rtcroom.a.a.b());
+        this.ctk.a(new com.baidu.swan.apps.inlinewidget.rtcroom.a.a.c());
     }
 
     @Override // com.baidu.swan.apps.inlinewidget.b, com.baidu.webkit.sdk.plugin.ZeusPlugin
     public void sendCommand(ZeusPlugin.Command command) {
         String str = command == null ? "" : command.what;
-        if (((com.baidu.swan.apps.inlinewidget.rtcroom.c.a) this.cti).SW()) {
+        if (((com.baidu.swan.apps.inlinewidget.rtcroom.c.a) this.ctm).SW()) {
             com.baidu.swan.apps.console.c.i("InlineRtcItemController", "isReleased command：" + str);
             return;
         }
-        com.baidu.swan.apps.console.c.i("InlineRtcItemController", "authorize type：" + ((com.baidu.swan.apps.inlinewidget.rtcroom.c.a) this.cti).aoc() + " command：" + str);
+        com.baidu.swan.apps.console.c.i("InlineRtcItemController", "authorize type：" + ((com.baidu.swan.apps.inlinewidget.rtcroom.c.a) this.ctm).aoc() + " command：" + str);
         super.sendCommand(command);
     }
 
     private void anT() {
-        ((com.baidu.swan.apps.inlinewidget.rtcroom.c.a) this.cti).a(new a.InterfaceC0410a() { // from class: com.baidu.swan.apps.inlinewidget.rtcroom.a.1
+        ((com.baidu.swan.apps.inlinewidget.rtcroom.c.a) this.ctm).a(new a.InterfaceC0410a() { // from class: com.baidu.swan.apps.inlinewidget.rtcroom.a.1
         });
     }
 }

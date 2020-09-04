@@ -26,11 +26,11 @@ public class a extends d {
     }
 
     @SuppressLint({"SwanBindApiNote"})
-    public com.baidu.swan.apps.api.c.b ti(String str) {
+    public com.baidu.swan.apps.api.c.b tj(String str) {
         return a(str, new c("getCommonSysInfo") { // from class: com.baidu.swan.bdprivate.extensions.c.a.1
             @Override // com.baidu.swan.apps.api.a.c
             protected boolean abK() {
-                return com.baidu.swan.apps.runtime.d.azE().axR() && com.baidu.swan.apps.runtime.d.azE().azA().azU().qZ("mapp_i_get_common_sys_info");
+                return com.baidu.swan.apps.runtime.d.azE().axR() && com.baidu.swan.apps.runtime.d.azE().azA().azU().ra("mapp_i_get_common_sys_info");
             }
 
             @Override // com.baidu.swan.apps.api.a.c

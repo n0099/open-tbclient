@@ -6,24 +6,24 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> bbu = new LinkedList();
-    private b fFG;
-    private c fFH;
-    private g fFI;
-    private f fFJ;
-    private d fFK;
-    private e fFL;
+    private List<com.baidu.adp.widget.ListView.a> bbw = new LinkedList();
+    private b fFK;
+    private c fFL;
+    private g fFM;
+    private f fFN;
+    private d fFO;
+    private e fFP;
     private TbPageContext mTbPageContext;
 
     public a(final TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        this.fFG = new b(tbPageContext);
-        this.fFH = new c(tbPageContext);
-        this.fFI = new g(tbPageContext);
-        this.fFJ = new f(tbPageContext);
-        this.fFK = new d(tbPageContext);
-        this.fFL = new e(tbPageContext);
-        this.fFH.a(new o() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.a.a.1
+        this.fFK = new b(tbPageContext);
+        this.fFL = new c(tbPageContext);
+        this.fFM = new g(tbPageContext);
+        this.fFN = new f(tbPageContext);
+        this.fFO = new d(tbPageContext);
+        this.fFP = new e(tbPageContext);
+        this.fFL.a(new o() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.a.a.1
             @Override // com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.o
             public void a(com.baidu.tieba.ala.alasquare.a.c cVar) {
                 if (cVar != null && cVar.bce() != null) {
@@ -31,7 +31,7 @@ public class a {
                 }
             }
         });
-        this.fFJ.a(new o() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.a.a.2
+        this.fFN.a(new o() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.a.a.2
             @Override // com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.o
             public void a(com.baidu.tieba.ala.alasquare.a.c cVar) {
                 if (cVar != null && cVar.bce() != null) {
@@ -39,15 +39,15 @@ public class a {
                 }
             }
         });
-        this.bbu.add(this.fFG);
-        this.bbu.add(this.fFH);
-        this.bbu.add(this.fFI);
-        this.bbu.add(this.fFJ);
-        this.bbu.add(this.fFK);
-        this.bbu.add(this.fFL);
+        this.bbw.add(this.fFK);
+        this.bbw.add(this.fFL);
+        this.bbw.add(this.fFM);
+        this.bbw.add(this.fFN);
+        this.bbw.add(this.fFO);
+        this.bbw.add(this.fFP);
     }
 
-    public List<com.baidu.adp.widget.ListView.a> bGe() {
-        return this.bbu;
+    public List<com.baidu.adp.widget.ListView.a> bGf() {
+        return this.bbw;
     }
 }

@@ -28,10 +28,10 @@ public class d extends g {
         editorTools.setBarLauncherType(5);
         editorTools.setBackgroundColorId(0);
         editorTools.setBarBackgroundColorId(R.color.cp_bg_line_d);
-        editorTools.ji(false);
+        editorTools.jk(false);
         editorTools.setMoreButtonAtEnd(true);
         e eVar = new e(editorTools);
-        eVar.a(bst());
+        eVar.a(bsu());
         eVar.isBJH = true;
         return eVar;
     }
@@ -39,20 +39,20 @@ public class d extends g {
     @Override // com.baidu.tbadk.editortools.pb.g, com.baidu.tbadk.editortools.c
     protected void b(com.baidu.tbadk.editortools.e eVar) {
         if (eVar instanceof e) {
-            final EditorTools brv = eVar.brv();
+            final EditorTools brw = eVar.brw();
             final e eVar2 = (e) eVar;
             com.baidu.tbadk.editortools.b bVar = new com.baidu.tbadk.editortools.b() { // from class: com.baidu.tbadk.editortools.pb.d.1
                 @Override // com.baidu.tbadk.editortools.b
                 public void a(com.baidu.tbadk.editortools.a aVar) {
                     int size;
-                    if (eVar2 != null && eVar2.brv() != null && aVar != null) {
+                    if (eVar2 != null && eVar2.brw() != null && aVar != null) {
                         switch (aVar.code) {
                             case 4:
-                                eVar2.BZ(aVar.data.toString());
+                                eVar2.Ca(aVar.data.toString());
                                 return;
                             case 5:
-                                if (!brv.brx()) {
-                                    TiebaStatic.eventStat(brv.getContext(), "pb_reply", "pbclick", 1, new Object[0]);
+                                if (!brw.bry()) {
+                                    TiebaStatic.eventStat(brw.getContext(), "pb_reply", "pbclick", 1, new Object[0]);
                                     return;
                                 }
                                 return;
@@ -81,8 +81,8 @@ public class d extends g {
                                 if (!StringUtils.isNull(d.this.getFrom(), true)) {
                                     albumActivityConfig.getIntent().putExtra("from", d.this.getFrom());
                                 }
-                                if (d.this.bss() != null && !StringUtils.isNull(d.this.bss().getId(), true)) {
-                                    albumActivityConfig.getIntent().putExtra("forum_id", d.this.bss().getId());
+                                if (d.this.bst() != null && !StringUtils.isNull(d.this.bst().getId(), true)) {
+                                    albumActivityConfig.getIntent().putExtra("forum_id", d.this.bst().getId());
                                 }
                                 albumActivityConfig.setRequestCode(RequestResponseCode.REQUEST_ALBUM_IMAGE);
                                 l.hideSoftKeyPad(eVar2.bmF().getPageActivity(), eVar2.bmF().getPageActivity().getCurrentFocus());
@@ -99,32 +99,32 @@ public class d extends g {
                     }
                 }
             };
-            brv.setActionListener(5, bVar);
-            brv.setActionListener(4, bVar);
-            brv.setActionListener(7, bVar);
-            brv.setActionListener(14, bVar);
-            brv.setActionListener(15, bVar);
-            brv.setActionListener(8, bVar);
-            brv.setActionListener(32, bVar);
-            brv.setActionListener(45, bVar);
+            brw.setActionListener(5, bVar);
+            brw.setActionListener(4, bVar);
+            brw.setActionListener(7, bVar);
+            brw.setActionListener(14, bVar);
+            brw.setActionListener(15, bVar);
+            brw.setActionListener(8, bVar);
+            brw.setActionListener(32, bVar);
+            brw.setActionListener(45, bVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.pb.g, com.baidu.tbadk.editortools.c
     protected void a(com.baidu.tbadk.editortools.e eVar) {
-        EditorTools brv = eVar.brv();
+        EditorTools brw = eVar.brw();
         ArrayList arrayList = new ArrayList();
         arrayList.add(5);
-        brv.b(new com.baidu.tbadk.editortools.imagetool.d(brv.getContext(), 1));
-        brv.b(new f(brv.getContext(), true, true));
-        brv.bc(arrayList);
-        m qe = brv.qe(5);
+        brw.b(new com.baidu.tbadk.editortools.imagetool.d(brw.getContext(), 1));
+        brw.b(new f(brw.getContext(), true, false));
+        brw.bc(arrayList);
+        m qe = brw.qe(5);
         if (qe != null) {
-            qe.eLq = 2;
-            qe.jk(false);
+            qe.eLu = 2;
+            qe.jm(false);
         }
-        brv.build();
-        brv.b(new com.baidu.tbadk.editortools.a(35, 5, false));
+        brw.build();
+        brw.b(new com.baidu.tbadk.editortools.a(35, 5, false));
     }
 
     /* JADX INFO: Access modifiers changed from: private */

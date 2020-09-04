@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.data;
 
 import org.json.JSONObject;
 import tbclient.VideoDesc;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ce {
     public static VideoDesc cT(JSONObject jSONObject) {
         VideoDesc.Builder builder = new VideoDesc.Builder();

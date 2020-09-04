@@ -15,7 +15,7 @@ import com.kascend.chushou.constants.ListItem;
 import com.kascend.chushou.widget.cswebview.CSWebView;
 /* loaded from: classes6.dex */
 public abstract class k {
-    public static final k nTJ = new k() { // from class: com.kascend.chushou.player.ui.food.k.2
+    public static final k nUb = new k() { // from class: com.kascend.chushou.player.ui.food.k.2
         @Override // com.kascend.chushou.player.ui.food.k
         int a() {
             return 17367043;
@@ -30,8 +30,8 @@ public abstract class k {
         }
     };
     private boolean a;
-    FoodView nTH;
-    private com.kascend.chushou.player.ui.food.a nTI;
+    FoodView nTZ;
+    private com.kascend.chushou.player.ui.food.a nUa;
     Context q;
     int m = AdCard.INVALID_NUM;
     int n = AdCard.INVALID_NUM;
@@ -64,8 +64,8 @@ public abstract class k {
     @CallSuper
     public void f(FoodView foodView) {
         this.q = foodView.getContext();
-        this.nTH = foodView;
-        this.nTH.removeAllViews();
+        this.nTZ = foodView;
+        this.nTZ.removeAllViews();
         LayoutInflater.from(foodView.getContext()).inflate(a(), (ViewGroup) foodView, true);
     }
 
@@ -78,12 +78,12 @@ public abstract class k {
                     this.a = true;
                 } else {
                     viewGroup.removeAllViews();
-                    this.nTI = null;
+                    this.nUa = null;
                     this.a = false;
                 }
             } else {
-                this.nTI = new com.kascend.chushou.player.ui.food.a(this.q.getApplicationContext());
-                this.nTI.setOnTouchListener(new View.OnTouchListener() { // from class: com.kascend.chushou.player.ui.food.k.1
+                this.nUa = new com.kascend.chushou.player.ui.food.a(this.q.getApplicationContext());
+                this.nUa.setOnTouchListener(new View.OnTouchListener() { // from class: com.kascend.chushou.player.ui.food.k.1
                     @Override // android.view.View.OnTouchListener
                     public boolean onTouch(View view, MotionEvent motionEvent) {
                         if (motionEvent.getActionMasked() == 0) {
@@ -94,7 +94,7 @@ public abstract class k {
                         } else if (motionEvent.getActionMasked() == 1) {
                             k.this.o = (int) motionEvent.getX();
                             k.this.p = (int) motionEvent.getY();
-                            k.this.nTH.a(k.this.m, k.this.n, k.this.o, k.this.p);
+                            k.this.nTZ.a(k.this.m, k.this.n, k.this.o, k.this.p);
                         }
                         if (k.this.d) {
                             return false;
@@ -102,15 +102,15 @@ public abstract class k {
                         if (motionEvent.getActionMasked() != 1 || System.currentTimeMillis() - k.this.c <= 1000) {
                             return true;
                         }
-                        k.this.nTI.performClick();
+                        k.this.nUa.performClick();
                         k.this.c = System.currentTimeMillis();
                         return true;
                     }
                 });
-                CSWebView.a(this.nTI, this.q, null, null);
-                this.nTI.resumeTimers();
-                this.nTI.onResume();
-                viewGroup.addView(this.nTI, 0, new ViewGroup.LayoutParams(-1, -1));
+                CSWebView.a(this.nUa, this.q, null, null);
+                this.nUa.resumeTimers();
+                this.nUa.onResume();
+                viewGroup.addView(this.nUa, 0, new ViewGroup.LayoutParams(-1, -1));
                 this.a = true;
             }
         } else {
@@ -120,7 +120,7 @@ public abstract class k {
                     ((com.kascend.chushou.player.ui.food.a) viewGroup.getChildAt(0)).destroy();
                 }
                 viewGroup.removeAllViews();
-                this.nTI = null;
+                this.nUa = null;
             }
         }
         return this.a;
@@ -133,14 +133,14 @@ public abstract class k {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void c() {
         this.d = true;
-        if (eal() != null) {
-            eal().setEnableTouch(true);
+        if (eau() != null) {
+            eau().setEnableTouch(true);
         }
     }
 
     @Nullable
-    public com.kascend.chushou.player.ui.food.a eal() {
-        return this.nTI;
+    public com.kascend.chushou.player.ui.food.a eau() {
+        return this.nUa;
     }
 
     public void a(ListItem listItem, boolean z, boolean z2) {
@@ -150,17 +150,17 @@ public abstract class k {
     /* JADX INFO: Access modifiers changed from: package-private */
     @CallSuper
     public void e() {
-        if (this.nTI != null) {
-            this.nTI.destroy();
-            this.nTI = null;
+        if (this.nUa != null) {
+            this.nUa.destroy();
+            this.nUa = null;
         }
     }
 
     @Nullable
     public final <T extends View> T Nk(@IdRes int i) {
-        if (this.nTH == null) {
+        if (this.nTZ == null) {
             return null;
         }
-        return (T) this.nTH.findViewById(i);
+        return (T) this.nTZ.findViewById(i);
     }
 }

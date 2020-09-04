@@ -3,7 +3,7 @@ package com.baidu.tieba.model.message;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.Share.ShareResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ShareReportHttpResponseMessage extends TbHttpResponsedMessage {
     private ShareResIdl idl;
 

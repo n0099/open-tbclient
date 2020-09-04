@@ -39,13 +39,13 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ap {
     private static String TYPE_ERROR;
-    private static String ekL;
-    private static AssetManager ekM;
-    private static SparseIntArray ekN;
-    private static SparseIntArray ekO;
+    private static String ekP;
+    private static AssetManager ekQ;
+    private static SparseIntArray ekR;
+    private static SparseIntArray ekS;
     public static Resources mPluginRes;
     private static Resources mSkinRes;
     private static String sPackagename;
@@ -62,23 +62,23 @@ public class ap {
         TYPE_ERROR = "skinType not support";
         sPackagename = null;
         sPacknameLength = 0;
-        ekN = new SparseIntArray();
-        ekO = new SparseIntArray();
+        ekR = new SparseIntArray();
+        ekS = new SparseIntArray();
     }
 
-    public static void Ab(String str) throws IllegalAccessException, InstantiationException, SecurityException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException {
+    public static void Ac(String str) throws IllegalAccessException, InstantiationException, SecurityException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException {
         if (!StringUtils.isNull(str)) {
             try {
                 Resources resources = TbadkCoreApplication.getInst().getResources();
                 if (resources != null) {
-                    ekM = (AssetManager) AssetManager.class.newInstance();
+                    ekQ = (AssetManager) AssetManager.class.newInstance();
                     File GetFile = n.GetFile(str);
                     if (GetFile == null || !GetFile.exists()) {
                         com.baidu.adp.lib.util.l.showToast(BdBaseApplication.getInst().getApp(), R.string.theme_skin_apk_error);
                     } else {
-                        ekM.getClass().getDeclaredMethod("addAssetPath", String.class).invoke(ekM, GetFile.getAbsolutePath());
-                        mSkinRes = new Resources(ekM, resources.getDisplayMetrics(), resources.getConfiguration());
-                        ekL = n.getApkFilePackageName(str);
+                        ekQ.getClass().getDeclaredMethod("addAssetPath", String.class).invoke(ekQ, GetFile.getAbsolutePath());
+                        mSkinRes = new Resources(ekQ, resources.getDisplayMetrics(), resources.getConfiguration());
+                        ekP = n.getApkFilePackageName(str);
                     }
                 }
             } catch (Throwable th) {
@@ -201,7 +201,7 @@ public class ap {
         if (mPluginRes == null) {
             mPluginRes = resources;
         }
-        int i3 = ekN.get(i, -1);
+        int i3 = ekR.get(i, -1);
         if (i3 == -1) {
             try {
                 str = resources.getResourceName(i);
@@ -219,12 +219,12 @@ public class ap {
                 i3 = mPluginRes.getIdentifier(str + "_1", null, null);
                 if (i3 <= 0) {
                     i2 = mPluginRes.getIdentifier(("com.baidu.tieba.pluginResource" + str.substring(str.indexOf(":"))) + "_1", null, null);
-                    ekN.put(i, i2);
+                    ekR.put(i, i2);
                     return i2;
                 }
             }
             i2 = i3;
-            ekN.put(i, i2);
+            ekR.put(i, i2);
             return i2;
         }
         return i3;
@@ -240,7 +240,7 @@ public class ap {
         if (mPluginRes == null) {
             mPluginRes = resources;
         }
-        int i3 = ekO.get(i, -1);
+        int i3 = ekS.get(i, -1);
         if (i3 != -1) {
             return i3;
         }
@@ -263,14 +263,14 @@ public class ap {
                 if (i2 <= 0) {
                     i2 = c(resources, i);
                 }
-                ekO.put(i, i2);
+                ekS.put(i, i2);
                 return i2;
             }
         }
         i2 = i3;
         if (i2 <= 0) {
         }
-        ekO.put(i, i2);
+        ekS.put(i, i2);
         return i2;
     }
 
@@ -335,7 +335,7 @@ public class ap {
         if (StringUtils.isNull(substring) || !substring.startsWith("/s_")) {
             return 0;
         }
-        return mSkinRes.getIdentifier(ekL + str.substring(str.indexOf(":")), null, null);
+        return mSkinRes.getIdentifier(ekP + str.substring(str.indexOf(":")), null, null);
     }
 
     public static void setViewTextColor(View view, int i) {

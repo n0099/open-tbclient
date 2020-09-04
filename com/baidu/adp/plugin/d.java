@@ -29,11 +29,11 @@ public class d {
         this.Rs.put(str, aVar);
     }
 
-    public synchronized a cj(String str) {
+    public synchronized a ck(String str) {
         return this.Rs.get(str);
     }
 
-    public synchronized void ck(String str) {
+    public synchronized void cl(String str) {
         this.Rs.remove(str);
     }
 

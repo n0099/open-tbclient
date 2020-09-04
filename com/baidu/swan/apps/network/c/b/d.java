@@ -26,19 +26,19 @@ public final class d {
     @h
     /* loaded from: classes8.dex */
     static final class a implements com.baidu.swan.apps.network.c.a.a {
-        final /* synthetic */ String cFs;
-        final /* synthetic */ kotlin.jvm.a.b cpZ;
+        final /* synthetic */ String cFw;
+        final /* synthetic */ kotlin.jvm.a.b cqd;
 
         a(kotlin.jvm.a.b bVar, String str) {
-            this.cpZ = bVar;
-            this.cFs = str;
+            this.cqd = bVar;
+            this.cFw = str;
         }
 
         @Override // com.baidu.swan.apps.network.c.a.a
         public final void auZ() {
             JSONArray avg = d.avg();
             if (avg == null || avg.length() == 0) {
-                kotlin.jvm.a.b bVar = this.cpZ;
+                kotlin.jvm.a.b bVar = this.cqd;
                 if (bVar != null) {
                     kotlin.l lVar = (kotlin.l) bVar.invoke(true);
                     return;
@@ -47,8 +47,8 @@ public final class d {
             }
             int length = avg.length();
             for (int i = 0; i < length; i++) {
-                if (q.l(this.cFs, avg.get(i))) {
-                    kotlin.jvm.a.b bVar2 = this.cpZ;
+                if (q.l(this.cFw, avg.get(i))) {
+                    kotlin.jvm.a.b bVar2 = this.cqd;
                     if (bVar2 != null) {
                         kotlin.l lVar2 = (kotlin.l) bVar2.invoke(true);
                         return;
@@ -56,7 +56,7 @@ public final class d {
                     return;
                 }
             }
-            kotlin.jvm.a.b bVar3 = this.cpZ;
+            kotlin.jvm.a.b bVar3 = this.cqd;
             if (bVar3 != null) {
                 kotlin.l lVar3 = (kotlin.l) bVar3.invoke(false);
             }

@@ -23,7 +23,7 @@ import org.json.JSONObject;
 public class f {
     private String mAppCachePath = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
     private BdUniqueId mPageId;
-    private e mQm;
+    private e mQE;
 
     public f(BdUniqueId bdUniqueId) {
         this.mPageId = bdUniqueId;
@@ -36,7 +36,7 @@ public class f {
     }
 
     public void a(e eVar) {
-        this.mQm = eVar;
+        this.mQE = eVar;
     }
 
     /* loaded from: classes3.dex */
@@ -57,7 +57,7 @@ public class f {
             com.baidu.adp.lib.Disk.ops.c cVar2 = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, av.getNameMd5FromUrl(cVar.imageUrl + 42), DiskFileOperate.Action.READ);
             cVar2.setSubFolder(true);
             cVar2.setIsFormatData(false);
-            ImageUploadResult f = new com.baidu.tbadk.img.f(null).f(gh(cVar2.buildPath(), cVar2.getName()), true, false);
+            ImageUploadResult f = new com.baidu.tbadk.img.f(null).f(gi(cVar2.buildPath(), cVar2.getName()), true, false);
             if (f != null && f.picInfo != null) {
                 if (f.picInfo.originPic != null && !StringUtils.isNull(f.picInfo.originPic.picUrl)) {
                     str = f.picInfo.originPic.picUrl;
@@ -68,7 +68,7 @@ public class f {
                 }
             }
             if (StringUtils.isNull(str)) {
-                str = cVar.mPW;
+                str = cVar.mQo;
             }
             aa aaVar = new aa();
             aaVar.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.POST_THREAD_ADDRESS);
@@ -82,7 +82,7 @@ public class f {
             aaVar.addPostData("new_vcode", "1");
             aaVar.addPostData("content", cVar.Rb);
             aaVar.addPostData("fid", cVar.forumId);
-            aaVar.addPostData("kw", cVar.mPV);
+            aaVar.addPostData("kw", cVar.mQn);
             aaVar.addPostData("is_hide", "0");
             aaVar.addPostData("call_from", "2");
             aaVar.addPostData("title", cVar.Rb);
@@ -95,7 +95,7 @@ public class f {
                 aaVar.addPostData("lat", String.valueOf(address.getLatitude()));
                 aaVar.addPostData("lng", String.valueOf(address.getLongitude()));
             }
-            LocationData locationData = com.baidu.tieba.tbadkCore.location.b.dxi().getLocationData();
+            LocationData locationData = com.baidu.tieba.tbadkCore.location.b.dxn().getLocationData();
             if (locationData != null) {
                 aaVar.addPostData("name", locationData.getFormatted_address());
                 aaVar.addPostData(IXAdRequestInfo.SN, locationData.getSn());
@@ -105,18 +105,18 @@ public class f {
                 aaVar.addPostData("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
             }
             aaVar.addPostData("tbopen_app_key", cVar.appKey);
-            aaVar.addPostData("tbopen_app_icon", cVar.mPU);
+            aaVar.addPostData("tbopen_app_icon", cVar.mQm);
             aaVar.addPostData("tbopen_app_name", cVar.appName);
             aaVar.addPostData("share_abstract", cVar.content);
             aaVar.addPostData("share_image", str);
             aaVar.addPostData("share_h5_url", cVar.linkUrl);
-            aaVar.addPostData("share_swan_app_key", cVar.mPT);
-            aaVar.addPostData("share_swan_path", cVar.mPX);
+            aaVar.addPostData("share_swan_app_key", cVar.mQl);
+            aaVar.addPostData("share_swan_path", cVar.mQp);
             String postNetData = aaVar.postNetData();
             d dVar = new d();
             try {
                 JSONObject jSONObject = new JSONObject(postNetData);
-                dVar.mPZ = jSONObject.optString("msg");
+                dVar.mQr = jSONObject.optString("msg");
                 dVar.preMsg = jSONObject.optString("pre_msg");
                 dVar.fid = cVar.forumId;
                 dVar.tid = jSONObject.optString("tid");
@@ -134,7 +134,7 @@ public class f {
             if (errorData.error_code != 0 && !j.isNetWorkAvailable()) {
                 errorData.setError_msg(TbadkCoreApplication.getInst().getApp().getString(R.string.neterror));
             }
-            dVar.mPY = errorData;
+            dVar.mQq = errorData;
             AntiData antiData = new AntiData();
             try {
                 antiData.parserJson(new JSONObject(postNetData).optJSONObject("anti_stat"));
@@ -144,7 +144,7 @@ public class f {
             return dVar;
         }
 
-        public String gh(String str, String str2) {
+        public String gi(String str, String str2) {
             String str3 = f.this.mAppCachePath + str2;
             if (str != null) {
                 return f.this.mAppCachePath + str + "/" + str2;
@@ -157,8 +157,8 @@ public class f {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public void onPostExecute(d dVar) {
-            if (f.this.mQm != null) {
-                f.this.mQm.a(dVar);
+            if (f.this.mQE != null) {
+                f.this.mQE.a(dVar);
             }
         }
     }

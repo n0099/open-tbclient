@@ -1,12 +1,12 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
-    private boolean ezD = false;
+    private boolean ezH = false;
 
     public boolean bmo() {
-        return this.ezD;
+        return this.ezH;
     }
 
     public void parseJson(JSONObject jSONObject) {
@@ -23,7 +23,7 @@ public class a {
 
     private void cW(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.ezD = true;
+            this.ezH = true;
         }
     }
 

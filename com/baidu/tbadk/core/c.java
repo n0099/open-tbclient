@@ -25,7 +25,7 @@ import com.baidu.webkit.internal.ETAG;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c {
     public static boolean IS_SUPPORT_NIGHT = false;
     private static String sPackagename = null;
@@ -34,7 +34,7 @@ public class c {
     private Resources pluginRes;
     private boolean isNightMode = false;
     Map<String, b> viewModeInfos = new HashMap();
-    public boolean dUx = false;
+    public boolean dUB = false;
 
     public void initModeInfos(String str, Context context, AttributeSet attributeSet) {
         int[] resID;
@@ -297,7 +297,7 @@ public class c {
 
     private Drawable getDrawable(boolean z, int i, int i2) {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == 2 || (!this.dUx && skinType == 4)) {
+        if (skinType == 2 || (!this.dUB && skinType == 4)) {
             return ap.getDrawable(i);
         }
         if (!z) {
@@ -333,7 +333,7 @@ public class c {
 
     private int getColor(boolean z, int i, int i2) {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == 2 || (!this.dUx && skinType == 4)) {
+        if (skinType == 2 || (!this.dUB && skinType == 4)) {
             return ap.getColor(i);
         }
         if (!z) {
@@ -355,7 +355,7 @@ public class c {
 
     private ColorStateList getColorList(boolean z, int i, int i2) {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == 2 || (!this.dUx && skinType == 4)) {
+        if (skinType == 2 || (!this.dUB && skinType == 4)) {
             return ap.getColorList(i);
         }
         if (!z) {

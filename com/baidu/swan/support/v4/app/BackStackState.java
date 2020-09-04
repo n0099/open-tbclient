@@ -38,21 +38,21 @@ public final class BackStackState implements Parcelable {
 
     public BackStackState(e eVar) {
         int i = 0;
-        for (e.a aVar = eVar.dHd; aVar != null; aVar = aVar.dHp) {
-            if (aVar.dHs != null) {
-                i += aVar.dHs.size();
+        for (e.a aVar = eVar.dHh; aVar != null; aVar = aVar.dHt) {
+            if (aVar.dHw != null) {
+                i += aVar.dHw.size();
             }
         }
-        this.mOps = new int[i + (eVar.dHf * 7)];
+        this.mOps = new int[i + (eVar.dHj * 7)];
         if (!eVar.mAddToBackStack) {
             throw new IllegalStateException("Not on back stack");
         }
         int i2 = 0;
-        for (e.a aVar2 = eVar.dHd; aVar2 != null; aVar2 = aVar2.dHp) {
+        for (e.a aVar2 = eVar.dHh; aVar2 != null; aVar2 = aVar2.dHt) {
             int i3 = i2 + 1;
             this.mOps[i2] = aVar2.cmd;
             int i4 = i3 + 1;
-            this.mOps[i3] = aVar2.dHr != null ? aVar2.dHr.mIndex : -1;
+            this.mOps[i3] = aVar2.dHv != null ? aVar2.dHv.mIndex : -1;
             int i5 = i4 + 1;
             this.mOps[i4] = aVar2.enterAnim;
             int i6 = i5 + 1;
@@ -61,13 +61,13 @@ public final class BackStackState implements Parcelable {
             this.mOps[i6] = aVar2.popEnterAnim;
             int i8 = i7 + 1;
             this.mOps[i7] = aVar2.popExitAnim;
-            if (aVar2.dHs != null) {
-                int size = aVar2.dHs.size();
+            if (aVar2.dHw != null) {
+                int size = aVar2.dHw.size();
                 int i9 = i8 + 1;
                 this.mOps[i8] = size;
                 int i10 = 0;
                 while (i10 < size) {
-                    this.mOps[i9] = aVar2.dHs.get(i10).mIndex;
+                    this.mOps[i9] = aVar2.dHw.get(i10).mIndex;
                     i10++;
                     i9++;
                 }
@@ -117,9 +117,9 @@ public final class BackStackState implements Parcelable {
             int i4 = i3 + 1;
             int i5 = this.mOps[i3];
             if (i5 >= 0) {
-                aVar.dHr = lVar.dHR.get(i5);
+                aVar.dHv = lVar.dHV.get(i5);
             } else {
-                aVar.dHr = null;
+                aVar.dHv = null;
             }
             int i6 = i4 + 1;
             aVar.enterAnim = this.mOps[i4];
@@ -132,13 +132,13 @@ public final class BackStackState implements Parcelable {
             int i10 = i9 + 1;
             int i11 = this.mOps[i9];
             if (i11 > 0) {
-                aVar.dHs = new ArrayList<>(i11);
+                aVar.dHw = new ArrayList<>(i11);
                 int i12 = 0;
                 while (i12 < i11) {
                     if (l.DEBUG) {
                         Log.v("FragmentManager", "Instantiate " + eVar + " set remove fragment #" + this.mOps[i10]);
                     }
-                    aVar.dHs.add(lVar.dHR.get(this.mOps[i10]));
+                    aVar.dHw.add(lVar.dHV.get(this.mOps[i10]));
                     i12++;
                     i10++;
                 }

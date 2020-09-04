@@ -49,7 +49,7 @@ public abstract class b extends aa {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("level", String.valueOf(c0338a.level <= 100 ? c0338a.level : 100));
-            jSONObject.put("isCharging", c0338a.cYV);
+            jSONObject.put("isCharging", c0338a.cYZ);
             return jSONObject;
         } catch (JSONException e) {
             return null;

@@ -27,7 +27,7 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class TiebaStatic {
     public static final String ALL_COST = "all_cost";
     public static final String CON_COST = "con_cost";
@@ -43,9 +43,9 @@ public class TiebaStatic {
     private static final long operateMsgUploadInterval = 86400000;
     private static Set<a> statisticCallbacks;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface a {
-        void Aj(String str);
+        void Ak(String str);
 
         void b(aq aqVar);
     }
@@ -93,9 +93,9 @@ public class TiebaStatic {
     }
 
     public static void net(com.baidu.tbadk.core.util.a.a aVar) {
-        if (aVar != null && aVar.bjx().elw.Lh <= 180000) {
+        if (aVar != null && aVar.bjx().elA.Lh <= 180000) {
             try {
-                if (aVar.bjx().elw.Lh >= 0 && aVar.bjx().elw.connectTime >= 0 && aVar.bjx().elw.Lg >= 0) {
+                if (aVar.bjx().elA.Lh >= 0 && aVar.bjx().elA.connectTime >= 0 && aVar.bjx().elA.Lg >= 0) {
                     int i = aVar.bjw().mServerErrorCode;
                     if (!aVar.bjw().isNetSuccess()) {
                         i = aVar.bjw().mNetErrorCode;
@@ -106,9 +106,9 @@ public class TiebaStatic {
                         str = aVar.bjw().mErrorString;
                     }
                     if (aVar.bjv().mIsRequestImage) {
-                        BdStatisticsManager.getInstance().imgNet(i == 0 ? null : aVar.bjv().getApiName(), currentActivity, aVar.bjx().elw.downloadSize, aVar.bjx().elw.Lf, aVar.bjx().elw.Lh, aVar.bjx().elw.connectTime, aVar.bjx().elw.Lg, aVar.bjx().elw.retry, i, str, new Object[0]);
+                        BdStatisticsManager.getInstance().imgNet(i == 0 ? null : aVar.bjv().getApiName(), currentActivity, aVar.bjx().elA.downloadSize, aVar.bjx().elA.Lf, aVar.bjx().elA.Lh, aVar.bjx().elA.connectTime, aVar.bjx().elA.Lg, aVar.bjx().elA.retry, i, str, new Object[0]);
                     } else {
-                        BdStatisticsManager.getInstance().net(aVar.bjv().getApiName(), currentActivity, aVar.bjx().elw.downloadSize, aVar.bjx().elw.Lf, aVar.bjx().elw.Lh, aVar.bjx().elw.connectTime, aVar.bjx().elw.Lg, aVar.bjx().elw.retry, i, str, new Object[0]);
+                        BdStatisticsManager.getInstance().net(aVar.bjv().getApiName(), currentActivity, aVar.bjx().elA.downloadSize, aVar.bjx().elA.Lf, aVar.bjx().elA.Lh, aVar.bjx().elA.connectTime, aVar.bjx().elA.Lg, aVar.bjx().elA.retry, i, str, new Object[0]);
                     }
                 }
             } catch (Exception e) {
@@ -292,7 +292,7 @@ public class TiebaStatic {
             u.biA();
             u.biB();
             u.biC();
-            com.baidu.tbadk.n.j.bul();
+            com.baidu.tbadk.n.j.bum();
             com.baidu.adp.lib.e.d.mO();
             BdStatisticsManager.getInstance().save();
             sendMultiProcessBroadcast();
@@ -437,11 +437,11 @@ public class TiebaStatic {
             if (!StringUtils.isNull(sampleId)) {
                 aqVar.dD("sample_id", sampleId);
             }
-            String buV = com.baidu.tbadk.util.a.buU().buV();
-            if (!StringUtils.isNull(buV)) {
-                aqVar.dD("newabtest_result", buV);
+            String buW = com.baidu.tbadk.util.a.buV().buW();
+            if (!StringUtils.isNull(buW)) {
+                aqVar.dD("newabtest_result", buW);
             }
-            com.baidu.tbadk.l.e.btV().c(aqVar);
+            com.baidu.tbadk.l.e.btW().c(aqVar);
         }
     }
 
@@ -534,7 +534,7 @@ public class TiebaStatic {
         if (!statisticCallbacks.isEmpty()) {
             for (a aVar : statisticCallbacks) {
                 if (aVar != null) {
-                    aVar.Aj(str);
+                    aVar.Ak(str);
                 }
             }
         }

@@ -9,10 +9,10 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ai;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class g extends f {
-    private boolean eto;
-    private CustomMessageListener etp;
+    private boolean ets;
+    private CustomMessageListener ett;
     protected boolean isDone;
     private CustomMessageListener listener;
     protected boolean mApplyImage;
@@ -20,7 +20,7 @@ public class g extends f {
     public g(TbPageContext<?> tbPageContext) {
         super(tbPageContext.getPageActivity());
         this.isDone = true;
-        this.eto = false;
+        this.ets = false;
         this.listener = new CustomMessageListener(CmdConfigCustom.CMD_PULL_IMAGE_CHANGE) { // from class: com.baidu.tbadk.core.view.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -30,7 +30,7 @@ public class g extends f {
                 }
             }
         };
-        this.etp = new CustomMessageListener(CmdConfigCustom.CMD_PULL_BGCOLOR_CHANGE) { // from class: com.baidu.tbadk.core.view.g.2
+        this.ett = new CustomMessageListener(CmdConfigCustom.CMD_PULL_BGCOLOR_CHANGE) { // from class: com.baidu.tbadk.core.view.g.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -85,7 +85,7 @@ public class g extends f {
                 this.mAnimImage.setOneShot(false);
                 this.mPullImage.setBackgroundDrawable(this.mAnimImage);
             }
-            if (this.eto) {
+            if (this.ets) {
                 this.mPullRoot.setBackgroundColor(0);
             }
         }
@@ -93,28 +93,28 @@ public class g extends f {
 
     private void h(TbPageContext<?> tbPageContext) {
         this.listener.setTag(tbPageContext.getUniqueId());
-        this.etp.setTag(tbPageContext.getUniqueId());
+        this.ett.setTag(tbPageContext.getUniqueId());
         tbPageContext.registerListener(this.listener);
-        tbPageContext.registerListener(this.etp);
+        tbPageContext.registerListener(this.ett);
     }
 
     public void setTag(BdUniqueId bdUniqueId) {
         if (this.listener != null) {
             this.listener.setTag(bdUniqueId);
         }
-        if (this.etp != null) {
-            this.etp.setTag(bdUniqueId);
+        if (this.ett != null) {
+            this.ett.setTag(bdUniqueId);
         }
         MessageManager.getInstance().registerListener(this.listener);
-        MessageManager.getInstance().registerListener(this.etp);
+        MessageManager.getInstance().registerListener(this.ett);
     }
 
     public void release() {
         MessageManager.getInstance().unRegisterListener(this.listener);
-        MessageManager.getInstance().unRegisterListener(this.etp);
+        MessageManager.getInstance().unRegisterListener(this.ett);
     }
 
-    public void iv(boolean z) {
-        this.eto = z;
+    public void iw(boolean z) {
+        this.ets = z;
     }
 }

@@ -40,7 +40,7 @@ public class b {
         return bVar;
     }
 
-    public static b DU(String str) {
+    public static b DV(String str) {
         b bVar = new b();
         try {
             JSONObject jSONObject = new JSONObject(str);

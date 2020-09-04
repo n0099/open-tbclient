@@ -9,16 +9,16 @@ import android.widget.PopupWindow;
 import android.widget.ScrollView;
 import com.baidu.adp.lib.util.l;
 import java.lang.reflect.Method;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class i extends PopupWindow {
     private Context context;
     private int count;
-    private LinearLayout eHv;
+    private LinearLayout eHz;
     private int mCurrentIndex;
-    private a mMG;
+    private a mMY;
     private int maxHeight;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface a {
         void Hs(int i);
     }
@@ -33,10 +33,10 @@ public class i extends PopupWindow {
     private void init(Context context) {
         ScrollView scrollView = new ScrollView(context);
         scrollView.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
-        this.eHv = new LinearLayout(context);
-        this.eHv.setOrientation(1);
-        this.eHv.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        scrollView.addView(this.eHv);
+        this.eHz = new LinearLayout(context);
+        this.eHz.setOrientation(1);
+        this.eHz.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+        scrollView.addView(this.eHz);
         scrollView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         scrollView.setPadding(0, 0, l.dip2px(context, 1.0f), l.dip2px(context, 1.0f));
         scrollView.setFadingEdgeLength(0);
@@ -67,8 +67,8 @@ public class i extends PopupWindow {
     }
 
     public void addView(View view) {
-        view.setOnClickListener(new b(this.count, this.mMG));
-        this.eHv.addView(view);
+        view.setOnClickListener(new b(this.count, this.mMY));
+        this.eHz.addView(view);
         this.count++;
     }
 
@@ -78,30 +78,30 @@ public class i extends PopupWindow {
 
     public void setCurrentIndex(int i) {
         if (this.mCurrentIndex != -1) {
-            this.eHv.getChildAt(this.mCurrentIndex).setSelected(false);
+            this.eHz.getChildAt(this.mCurrentIndex).setSelected(false);
         }
         this.mCurrentIndex = i;
-        this.eHv.getChildAt(this.mCurrentIndex).setSelected(true);
+        this.eHz.getChildAt(this.mCurrentIndex).setSelected(true);
     }
 
     public void a(a aVar) {
-        this.mMG = aVar;
+        this.mMY = aVar;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class b implements View.OnClickListener {
-        private a mMH;
+        private a mMZ;
         private int position;
 
         public b(int i, a aVar) {
             this.position = i;
-            this.mMH = aVar;
+            this.mMZ = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.mMH != null) {
-                this.mMH.Hs(this.position);
+            if (this.mMZ != null) {
+                this.mMZ.Hs(this.position);
             }
         }
     }

@@ -1,22 +1,22 @@
 package com.baidu.tbadk.editortools.emotiontool;
 
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class c {
     private int cols;
-    private com.baidu.adp.widget.ImageView.a eLB;
-    private com.baidu.adp.widget.ImageView.a eLC;
+    private com.baidu.adp.widget.ImageView.a eLF;
+    private com.baidu.adp.widget.ImageView.a eLG;
     private int rows;
 
-    public abstract boolean BQ(String str);
-
-    public abstract com.baidu.adp.widget.ImageView.a BR(String str);
+    public abstract boolean BR(String str);
 
     public abstract com.baidu.adp.widget.ImageView.a BS(String str);
 
-    public abstract boolean brL();
+    public abstract com.baidu.adp.widget.ImageView.a BT(String str);
 
-    public abstract EmotionGroupType brM();
+    public abstract boolean brM();
+
+    public abstract EmotionGroupType brN();
 
     public abstract int getEmotionsCount();
 
@@ -30,29 +30,29 @@ public abstract class c {
 
     public abstract String qh(int i);
 
-    public com.baidu.adp.widget.ImageView.a brN() {
-        return this.eLB;
+    public com.baidu.adp.widget.ImageView.a brO() {
+        return this.eLF;
     }
 
     public void c(com.baidu.adp.widget.ImageView.a aVar) {
         if (aVar != null) {
             aVar.getRawBitmap();
         }
-        this.eLB = aVar;
+        this.eLF = aVar;
     }
 
-    public com.baidu.adp.widget.ImageView.a brO() {
-        return this.eLC;
+    public com.baidu.adp.widget.ImageView.a brP() {
+        return this.eLG;
     }
 
     public void d(com.baidu.adp.widget.ImageView.a aVar) {
         if (aVar != null) {
             aVar.getRawBitmap();
         }
-        this.eLC = aVar;
+        this.eLG = aVar;
     }
 
-    public int brP() {
+    public int brQ() {
         return this.cols;
     }
 
@@ -61,7 +61,7 @@ public abstract class c {
         this.cols = i;
     }
 
-    public int brQ() {
+    public int brR() {
         return this.rows;
     }
 

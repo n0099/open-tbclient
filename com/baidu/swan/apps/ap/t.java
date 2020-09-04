@@ -57,7 +57,7 @@ public final class t {
         return Uri.parse(str);
     }
 
-    public static File sA(String str) {
+    public static File sB(String str) {
         return cv(com.baidu.swan.apps.v.f.arY().arE().aCZ(), str);
     }
 

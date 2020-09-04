@@ -6,7 +6,7 @@ import java.lang.ref.WeakReference;
 /* loaded from: classes20.dex */
 public class BaiduNativeAdPlacement {
     private String a;
-    private IXAdResponseInfo bDg;
+    private IXAdResponseInfo bDj;
     private boolean c;
     private boolean d;
     private boolean e = false;
@@ -16,7 +16,7 @@ public class BaiduNativeAdPlacement {
     private int i = 1;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void db(boolean z) {
+    public void dc(boolean z) {
         this.e = z;
     }
 
@@ -52,24 +52,24 @@ public class BaiduNativeAdPlacement {
 
     public void setAdResponse(IXAdResponseInfo iXAdResponseInfo) {
         this.d = false;
-        this.bDg = iXAdResponseInfo;
+        this.bDj = iXAdResponseInfo;
     }
 
     public boolean hasValidResponse() {
-        return this.bDg != null && Tq();
+        return this.bDj != null && Tq();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public IXAdResponseInfo Tp() {
-        return this.bDg;
+        return this.bDj;
     }
 
     protected boolean Tq() {
         boolean z;
-        if (this.bDg == null || this.bDg.getPrimaryAdInstanceInfo() == null) {
+        if (this.bDj == null || this.bDj.getPrimaryAdInstanceInfo() == null) {
             z = false;
         } else {
-            z = System.currentTimeMillis() - this.bDg.getPrimaryAdInstanceInfo().getCreateTime() <= 1800000;
+            z = System.currentTimeMillis() - this.bDj.getPrimaryAdInstanceInfo().getCreateTime() <= 1800000;
         }
         return z && !this.c;
     }
@@ -80,12 +80,12 @@ public class BaiduNativeAdPlacement {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void dc(boolean z) {
+    public void dd(boolean z) {
         this.c = z;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void dd(boolean z) {
+    public void de(boolean z) {
         this.d = z;
     }
 

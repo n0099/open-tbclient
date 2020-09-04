@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.at;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class VersionData implements Serializable {
     private static final int FORCE_UPDATE = 1;
     private static final int HAS_NEW_VERSION = 1;

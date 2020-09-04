@@ -14,20 +14,20 @@ import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import org.apache.http.HttpHost;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ClickableHeaderImageView extends HeadImageView {
-    private bw afJ;
-    private View.OnClickListener aiA;
-    private boolean eoX;
-    protected com.baidu.tbadk.h.d eoY;
+    private bw afL;
+    private View.OnClickListener aiC;
+    private boolean epb;
+    protected com.baidu.tbadk.h.d epc;
     public View.OnClickListener mOnClickListener;
 
     public void setOnInterceptClickEventListener(com.baidu.tbadk.h.d dVar) {
-        this.eoY = dVar;
+        this.epc = dVar;
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
-        this.aiA = onClickListener;
+        this.aiC = onClickListener;
     }
 
     public ClickableHeaderImageView(Context context) {
@@ -35,16 +35,16 @@ public class ClickableHeaderImageView extends HeadImageView {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ClickableHeaderImageView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if ((ClickableHeaderImageView.this.eoY == null || !ClickableHeaderImageView.this.eoY.onClickEvent(view)) && ClickableHeaderImageView.this.afJ != null) {
-                    MetaData beE = ClickableHeaderImageView.this.eoX ? ClickableHeaderImageView.this.afJ.bgh().beE() : ClickableHeaderImageView.this.afJ.beE();
+                if ((ClickableHeaderImageView.this.epc == null || !ClickableHeaderImageView.this.epc.onClickEvent(view)) && ClickableHeaderImageView.this.afL != null) {
+                    MetaData beE = ClickableHeaderImageView.this.epb ? ClickableHeaderImageView.this.afL.bgh().beE() : ClickableHeaderImageView.this.afL.beE();
                     if (beE != null && !StringUtils.isNull(beE.getName_show()) && !StringUtils.isNull(beE.getUserId())) {
                         long j = com.baidu.adp.lib.f.b.toLong(beE.getUserId(), 0L);
                         PersonPolymericActivityConfig createNormalConfig = new PersonPolymericActivityConfig(ClickableHeaderImageView.this.getContext()).createNormalConfig(j, j == com.baidu.adp.lib.f.b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L), beE.isBigV());
-                        createNormalConfig.setSourceTid(ClickableHeaderImageView.this.afJ.getTid());
-                        createNormalConfig.setSourceNid(ClickableHeaderImageView.this.afJ.getNid());
+                        createNormalConfig.setSourceTid(ClickableHeaderImageView.this.afL.getTid());
+                        createNormalConfig.setSourceNid(ClickableHeaderImageView.this.afL.getNid());
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, createNormalConfig));
-                        if (ClickableHeaderImageView.this.aiA != null) {
-                            ClickableHeaderImageView.this.aiA.onClick(view);
+                        if (ClickableHeaderImageView.this.aiC != null) {
+                            ClickableHeaderImageView.this.aiC.onClick(view);
                         }
                     }
                 }
@@ -58,16 +58,16 @@ public class ClickableHeaderImageView extends HeadImageView {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ClickableHeaderImageView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if ((ClickableHeaderImageView.this.eoY == null || !ClickableHeaderImageView.this.eoY.onClickEvent(view)) && ClickableHeaderImageView.this.afJ != null) {
-                    MetaData beE = ClickableHeaderImageView.this.eoX ? ClickableHeaderImageView.this.afJ.bgh().beE() : ClickableHeaderImageView.this.afJ.beE();
+                if ((ClickableHeaderImageView.this.epc == null || !ClickableHeaderImageView.this.epc.onClickEvent(view)) && ClickableHeaderImageView.this.afL != null) {
+                    MetaData beE = ClickableHeaderImageView.this.epb ? ClickableHeaderImageView.this.afL.bgh().beE() : ClickableHeaderImageView.this.afL.beE();
                     if (beE != null && !StringUtils.isNull(beE.getName_show()) && !StringUtils.isNull(beE.getUserId())) {
                         long j = com.baidu.adp.lib.f.b.toLong(beE.getUserId(), 0L);
                         PersonPolymericActivityConfig createNormalConfig = new PersonPolymericActivityConfig(ClickableHeaderImageView.this.getContext()).createNormalConfig(j, j == com.baidu.adp.lib.f.b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L), beE.isBigV());
-                        createNormalConfig.setSourceTid(ClickableHeaderImageView.this.afJ.getTid());
-                        createNormalConfig.setSourceNid(ClickableHeaderImageView.this.afJ.getNid());
+                        createNormalConfig.setSourceTid(ClickableHeaderImageView.this.afL.getTid());
+                        createNormalConfig.setSourceNid(ClickableHeaderImageView.this.afL.getNid());
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, createNormalConfig));
-                        if (ClickableHeaderImageView.this.aiA != null) {
-                            ClickableHeaderImageView.this.aiA.onClick(view);
+                        if (ClickableHeaderImageView.this.aiC != null) {
+                            ClickableHeaderImageView.this.aiC.onClick(view);
                         }
                     }
                 }
@@ -86,8 +86,8 @@ public class ClickableHeaderImageView extends HeadImageView {
     public void setData(bw bwVar, boolean z, boolean z2) {
         MetaData beE;
         if (bwVar != null && bwVar.beE() != null) {
-            this.afJ = bwVar;
-            this.eoX = z2;
+            this.afL = bwVar;
+            this.epb = z2;
             if (z2) {
                 beE = bwVar.bgh().beE();
             } else {
@@ -96,7 +96,7 @@ public class ClickableHeaderImageView extends HeadImageView {
             setContentDescription(beE.getName_show() + getContext().getString(R.string.somebodys_portrait));
             setUserId(beE.getUserId());
             setUserName(beE.getUserName());
-            if (bwVar.beY() != null && this.afJ.getThreadType() == 49) {
+            if (bwVar.beY() != null && this.afL.getThreadType() == 49) {
                 setUrl(bwVar.beE().getAvater());
                 startLoad(bwVar.beE().getAvater(), 28, false);
             } else {

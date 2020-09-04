@@ -13,13 +13,13 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 /* loaded from: classes7.dex */
 public class GiftPanelTabView extends LinearLayout {
-    private static final String[] aXd = {"礼物", "背包"};
-    private a aXe;
-    private int aXf;
-    private int aXg;
+    private static final String[] aXf = {"礼物", "背包"};
+    private a aXg;
     private int aXh;
     private int aXi;
     private int aXj;
+    private int aXk;
+    private int aXl;
     private MotionEvent mMotionEvent;
 
     /* loaded from: classes7.dex */
@@ -33,24 +33,24 @@ public class GiftPanelTabView extends LinearLayout {
     }
 
     public void setCallback(a aVar) {
-        this.aXe = aVar;
+        this.aXg = aVar;
     }
 
     public void setColors(int i, int i2, int i3, int i4) {
-        this.aXf = i;
-        this.aXg = i2;
-        this.aXh = i3;
-        this.aXi = i4;
+        this.aXh = i;
+        this.aXi = i2;
+        this.aXj = i3;
+        this.aXk = i4;
         refreshUI();
     }
 
     public int getSelect() {
-        return this.aXj;
+        return this.aXl;
     }
 
     public void setSelect(int i) {
         if (i >= 0 && i < getChildCount()) {
-            this.aXj = i;
+            this.aXl = i;
             refreshUI();
         }
     }
@@ -71,8 +71,8 @@ public class GiftPanelTabView extends LinearLayout {
         }
         View findChild = findChild((int) this.mMotionEvent.getX(), (int) this.mMotionEvent.getY());
         this.mMotionEvent = null;
-        if (findChild != null && (findPosByView = findPosByView(findChild)) != -1 && findPosByView != this.aXj && this.aXe != null) {
-            this.aXe.dY(findPosByView);
+        if (findChild != null && (findPosByView = findPosByView(findChild)) != -1 && findPosByView != this.aXl && this.aXg != null) {
+            this.aXg.dY(findPosByView);
         }
         return true;
     }
@@ -93,10 +93,10 @@ public class GiftPanelTabView extends LinearLayout {
     }
 
     private void Id() {
-        this.aXf = -13815746;
-        this.aXg = -15987436;
-        this.aXh = -1;
-        this.aXi = -13289398;
+        this.aXh = -13815746;
+        this.aXi = -15987436;
+        this.aXj = -1;
+        this.aXk = -13289398;
     }
 
     private void Ie() {
@@ -112,7 +112,7 @@ public class GiftPanelTabView extends LinearLayout {
         textView.setIncludeFontPadding(false);
         textView.setPadding(i2, 0, i2, 0);
         textView.setSelected(false);
-        textView.setText(aXd[i]);
+        textView.setText(aXf[i]);
         textView.setTextSize(0, getResources().getDimensionPixelOffset(a.e.sdk_fontsize28));
         float dimensionPixelOffset = getResources().getDimensionPixelOffset(a.e.sdk_ds26);
         GradientDrawable gradientDrawable = new GradientDrawable();
@@ -138,11 +138,11 @@ public class GiftPanelTabView extends LinearLayout {
                 if (childAt != null) {
                     Drawable background = childAt.getBackground();
                     if (background instanceof GradientDrawable) {
-                        ((GradientDrawable) background).setColor(i2 == this.aXj ? this.aXf : this.aXg);
+                        ((GradientDrawable) background).setColor(i2 == this.aXl ? this.aXh : this.aXi);
                         childAt.setBackgroundDrawable(background);
                     }
                     if (childAt instanceof TextView) {
-                        ((TextView) childAt).setTextColor(i2 == this.aXj ? this.aXh : this.aXi);
+                        ((TextView) childAt).setTextColor(i2 == this.aXl ? this.aXj : this.aXk);
                     }
                 }
                 i = i2 + 1;

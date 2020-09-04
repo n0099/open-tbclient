@@ -25,13 +25,13 @@ public abstract class gj {
     private static String c;
 
     /* renamed from: a  reason: collision with other field name */
-    private gn f397a;
+    private gn f396a;
 
     /* renamed from: a  reason: collision with other field name */
-    private List<gg> f398a;
+    private List<gg> f397a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final Map<String, Object> f399a;
+    private final Map<String, Object> f398a;
     private String d;
     private String e;
     private String f;
@@ -40,14 +40,14 @@ public abstract class gj {
     private String i;
 
     /* renamed from: a  reason: collision with other field name */
-    protected static final String f395a = Locale.getDefault().getLanguage().toLowerCase();
+    protected static final String f394a = Locale.getDefault().getLanguage().toLowerCase();
     private static String b = null;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final DateFormat f396a = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+    public static final DateFormat f395a = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
 
     static {
-        f396a.setTimeZone(TimeZone.getTimeZone("UTC"));
+        f395a.setTimeZone(TimeZone.getTimeZone("UTC"));
         c = gu.a(5) + Constants.ACCEPT_TIME_SEPARATOR_SERVER;
         a = 0L;
     }
@@ -59,9 +59,9 @@ public abstract class gj {
         this.g = null;
         this.h = null;
         this.i = null;
-        this.f398a = new CopyOnWriteArrayList();
-        this.f399a = new HashMap();
-        this.f397a = null;
+        this.f397a = new CopyOnWriteArrayList();
+        this.f398a = new HashMap();
+        this.f396a = null;
     }
 
     public gj(Bundle bundle) {
@@ -71,26 +71,26 @@ public abstract class gj {
         this.g = null;
         this.h = null;
         this.i = null;
-        this.f398a = new CopyOnWriteArrayList();
-        this.f399a = new HashMap();
-        this.f397a = null;
+        this.f397a = new CopyOnWriteArrayList();
+        this.f398a = new HashMap();
+        this.f396a = null;
         this.f = bundle.getString("ext_to");
         this.g = bundle.getString("ext_from");
         this.h = bundle.getString("ext_chid");
         this.e = bundle.getString("ext_pkt_id");
         Parcelable[] parcelableArray = bundle.getParcelableArray("ext_exts");
         if (parcelableArray != null) {
-            this.f398a = new ArrayList(parcelableArray.length);
+            this.f397a = new ArrayList(parcelableArray.length);
             for (Parcelable parcelable : parcelableArray) {
                 gg a2 = gg.a((Bundle) parcelable);
                 if (a2 != null) {
-                    this.f398a.add(a2);
+                    this.f397a.add(a2);
                 }
             }
         }
         Bundle bundle2 = bundle.getBundle("ext_ERROR");
         if (bundle2 != null) {
-            this.f397a = new gn(bundle2);
+            this.f396a = new gn(bundle2);
         }
     }
 
@@ -106,7 +106,7 @@ public abstract class gj {
     }
 
     public static String q() {
-        return f395a;
+        return f394a;
     }
 
     public Bundle a() {
@@ -126,13 +126,13 @@ public abstract class gj {
         if (!TextUtils.isEmpty(this.h)) {
             bundle.putString("ext_chid", this.h);
         }
-        if (this.f397a != null) {
-            bundle.putBundle("ext_ERROR", this.f397a.a());
+        if (this.f396a != null) {
+            bundle.putBundle("ext_ERROR", this.f396a.a());
         }
-        if (this.f398a != null) {
-            Bundle[] bundleArr = new Bundle[this.f398a.size()];
+        if (this.f397a != null) {
+            Bundle[] bundleArr = new Bundle[this.f397a.size()];
             int i = 0;
-            Iterator<gg> it = this.f398a.iterator();
+            Iterator<gg> it = this.f397a.iterator();
             while (true) {
                 int i2 = i;
                 if (!it.hasNext()) {
@@ -156,7 +156,7 @@ public abstract class gj {
     }
 
     public gg a(String str, String str2) {
-        for (gg ggVar : this.f398a) {
+        for (gg ggVar : this.f397a) {
             if (str2 == null || str2.equals(ggVar.b())) {
                 if (str.equals(ggVar.m312a())) {
                     return ggVar;
@@ -168,12 +168,12 @@ public abstract class gj {
 
     /* renamed from: a  reason: collision with other method in class */
     public gn m314a() {
-        return this.f397a;
+        return this.f396a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public synchronized Object m315a(String str) {
-        return this.f399a == null ? null : this.f399a.get(str);
+        return this.f398a == null ? null : this.f398a.get(str);
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -181,19 +181,19 @@ public abstract class gj {
 
     /* renamed from: a  reason: collision with other method in class */
     public synchronized Collection<gg> m317a() {
-        return this.f398a == null ? Collections.emptyList() : Collections.unmodifiableList(new ArrayList(this.f398a));
+        return this.f397a == null ? Collections.emptyList() : Collections.unmodifiableList(new ArrayList(this.f397a));
     }
 
     public void a(gg ggVar) {
-        this.f398a.add(ggVar);
+        this.f397a.add(ggVar);
     }
 
     public void a(gn gnVar) {
-        this.f397a = gnVar;
+        this.f396a = gnVar;
     }
 
     public synchronized Collection<String> b() {
-        return this.f399a == null ? Collections.emptySet() : Collections.unmodifiableSet(new HashSet(this.f399a.keySet()));
+        return this.f398a == null ? Collections.emptySet() : Collections.unmodifiableSet(new HashSet(this.f398a.keySet()));
     }
 
     public boolean equals(Object obj) {
@@ -205,11 +205,11 @@ public abstract class gj {
             return false;
         }
         gj gjVar = (gj) obj;
-        if (this.f397a != null) {
-            if (!this.f397a.equals(gjVar.f397a)) {
+        if (this.f396a != null) {
+            if (!this.f396a.equals(gjVar.f396a)) {
                 return false;
             }
-        } else if (gjVar.f397a != null) {
+        } else if (gjVar.f396a != null) {
             return false;
         }
         if (this.g != null) {
@@ -219,7 +219,7 @@ public abstract class gj {
         } else if (gjVar.g != null) {
             return false;
         }
-        if (this.f398a.equals(gjVar.f398a)) {
+        if (this.f397a.equals(gjVar.f397a)) {
             if (this.e != null) {
                 if (!this.e.equals(gjVar.e)) {
                     return false;
@@ -234,11 +234,11 @@ public abstract class gj {
             } else if (gjVar.h != null) {
                 return false;
             }
-            if (this.f399a != null) {
-                if (!this.f399a.equals(gjVar.f399a)) {
+            if (this.f398a != null) {
+                if (!this.f398a.equals(gjVar.f398a)) {
                     return false;
                 }
-            } else if (gjVar.f399a != null) {
+            } else if (gjVar.f398a != null) {
                 return false;
             }
             if (this.f != null) {
@@ -257,7 +257,7 @@ public abstract class gj {
     }
 
     public int hashCode() {
-        return (((((((this.h != null ? this.h.hashCode() : 0) + (((this.g != null ? this.g.hashCode() : 0) + (((this.f != null ? this.f.hashCode() : 0) + (((this.e != null ? this.e.hashCode() : 0) + ((this.d != null ? this.d.hashCode() : 0) * 31)) * 31)) * 31)) * 31)) * 31) + this.f398a.hashCode()) * 31) + this.f399a.hashCode()) * 31) + (this.f397a != null ? this.f397a.hashCode() : 0);
+        return (((((((this.h != null ? this.h.hashCode() : 0) + (((this.g != null ? this.g.hashCode() : 0) + (((this.f != null ? this.f.hashCode() : 0) + (((this.e != null ? this.e.hashCode() : 0) + ((this.d != null ? this.d.hashCode() : 0) * 31)) * 31)) * 31)) * 31)) * 31) + this.f397a.hashCode()) * 31) + this.f398a.hashCode()) * 31) + (this.f396a != null ? this.f396a.hashCode() : 0);
     }
 
     public String j() {
@@ -318,7 +318,7 @@ public abstract class gj {
         for (gg ggVar : m317a()) {
             sb.append(ggVar.d());
         }
-        if (this.f399a != null && !this.f399a.isEmpty()) {
+        if (this.f398a != null && !this.f398a.isEmpty()) {
             sb.append("<properties xmlns=\"http://www.jivesoftware.com/xmlns/xmpp/properties\">");
             for (String str : b()) {
                 Object m315a = m315a(str);

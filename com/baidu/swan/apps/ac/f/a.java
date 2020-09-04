@@ -6,24 +6,24 @@ import org.json.JSONObject;
 public class a implements Cloneable {
     public String Sq;
     public String cIA;
-    public String cIw;
-    public String cIx;
-    public int cIy;
-    public String cIz;
+    public String cIB;
+    public int cIC;
+    public String cID;
+    public String cIE;
 
     public a(JSONObject jSONObject, int i) {
-        this.cIy = 4;
+        this.cIC = 4;
         if (jSONObject != null) {
-            this.cIx = jSONObject.optString("version");
+            this.cIB = jSONObject.optString("version");
             this.Sq = jSONObject.optString("provider");
-            this.cIz = jSONObject.optString("path");
-            this.cIA = jSONObject.optString("config");
-            this.cIy = i;
+            this.cID = jSONObject.optString("path");
+            this.cIE = jSONObject.optString("config");
+            this.cIC = i;
         }
     }
 
     public boolean isValid() {
-        return (TextUtils.isEmpty(this.Sq) || TextUtils.isEmpty(this.cIx)) ? false : true;
+        return (TextUtils.isEmpty(this.Sq) || TextUtils.isEmpty(this.cIB)) ? false : true;
     }
 
     public Object clone() throws CloneNotSupportedException {
@@ -31,6 +31,6 @@ public class a implements Cloneable {
     }
 
     public String toString() {
-        return "SwanPluginModel{pluginAlias='" + this.cIw + "', pluginVersion='" + this.cIx + "', pluginName='" + this.Sq + "', pluginCategory=" + this.cIy + ", pluginPath='" + this.cIz + "', pluginPagesConfigFileName='" + this.cIA + "'}";
+        return "SwanPluginModel{pluginAlias='" + this.cIA + "', pluginVersion='" + this.cIB + "', pluginName='" + this.Sq + "', pluginCategory=" + this.cIC + ", pluginPath='" + this.cID + "', pluginPagesConfigFileName='" + this.cIE + "'}";
     }
 }

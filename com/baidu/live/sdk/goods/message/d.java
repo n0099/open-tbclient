@@ -11,7 +11,7 @@ public class d extends HttpMessage {
         super(1021208);
     }
 
-    public void gb(String str) {
+    public void gc(String str) {
         this.liveId = str;
         addParam("live_id", str);
     }

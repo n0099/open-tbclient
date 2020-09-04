@@ -23,127 +23,127 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.newlist.b.b;
 /* loaded from: classes15.dex */
 public class HotTopicListInfoItem extends RelativeLayout implements View.OnClickListener {
-    private f<b> ahW;
-    private TextView aiw;
-    private TextView aix;
-    private TextView dSz;
-    private int iLR;
-    private TbImageView iLZ;
-    private View iMe;
-    private TextView jaJ;
-    private TextView ksV;
-    private TextView ksW;
-    private TextView ksX;
-    private b ksY;
+    private f<b> ahY;
+    private TextView aiy;
+    private TextView aiz;
+    private TextView dSD;
+    private int iLX;
+    private TbImageView iMf;
+    private View iMk;
+    private TextView jaP;
+    private TextView ktc;
+    private TextView ktd;
+    private TextView kte;
+    private b ktf;
 
     public HotTopicListInfoItem(Context context) {
         super(context);
-        this.iLR = 3;
+        this.iLX = 3;
         initView();
     }
 
     public HotTopicListInfoItem(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.iLR = 3;
+        this.iLX = 3;
         initView();
     }
 
     public HotTopicListInfoItem(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.iLR = 3;
+        this.iLX = 3;
         initView();
     }
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(R.layout.hot_topic_list_info_item, (ViewGroup) this, true);
-        this.iMe = findViewById(R.id.rootLayout);
-        this.iLZ = (TbImageView) findViewById(R.id.coverView);
-        this.aiw = (TextView) findViewById(R.id.indexView);
-        this.dSz = (TextView) findViewById(R.id.titleView);
-        this.aix = (TextView) findViewById(R.id.tagView);
-        this.ksV = (TextView) findViewById(R.id.numView);
-        this.jaJ = (TextView) findViewById(R.id.descView);
-        this.ksW = (TextView) findViewById(R.id.titlePre);
-        this.ksX = (TextView) findViewById(R.id.titleNext);
-        this.iLZ.setPlaceHolder(1);
-        this.iLZ.setRadius(l.getDimens(getContext(), R.dimen.tbds10));
-        this.iLZ.setConrers(15);
+        this.iMk = findViewById(R.id.rootLayout);
+        this.iMf = (TbImageView) findViewById(R.id.coverView);
+        this.aiy = (TextView) findViewById(R.id.indexView);
+        this.dSD = (TextView) findViewById(R.id.titleView);
+        this.aiz = (TextView) findViewById(R.id.tagView);
+        this.ktc = (TextView) findViewById(R.id.numView);
+        this.jaP = (TextView) findViewById(R.id.descView);
+        this.ktd = (TextView) findViewById(R.id.titlePre);
+        this.kte = (TextView) findViewById(R.id.titleNext);
+        this.iMf.setPlaceHolder(1);
+        this.iMf.setRadius(l.getDimens(getContext(), R.dimen.tbds10));
+        this.iMf.setConrers(15);
         findViewById(R.id.rootLayout).setOnClickListener(this);
     }
 
     public void setOnItemCoverListener(f<b> fVar) {
-        this.ahW = fVar;
+        this.ahY = fVar;
     }
 
     public void a(b bVar) {
         if (bVar != null) {
-            this.ksY = bVar;
-            this.iLZ.startLoad(bVar.cover, 10, false);
-            this.dSz.setText(bVar.title);
-            this.jaJ.setText(bVar.desc);
-            String t = TagTextHelper.t(this.aix.getContext(), bVar.tag);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.dSz.getLayoutParams();
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.ksX.getLayoutParams();
+            this.ktf = bVar;
+            this.iMf.startLoad(bVar.cover, 10, false);
+            this.dSD.setText(bVar.title);
+            this.jaP.setText(bVar.desc);
+            String t = TagTextHelper.t(this.aiz.getContext(), bVar.tag);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.dSD.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.kte.getLayoutParams();
             if (TextUtils.isEmpty(t)) {
-                this.aix.setVisibility(8);
-                layoutParams.rightMargin = l.getDimens(this.aix.getContext(), R.dimen.tbds42);
-                this.dSz.setLayoutParams(layoutParams);
+                this.aiz.setVisibility(8);
+                layoutParams.rightMargin = l.getDimens(this.aiz.getContext(), R.dimen.tbds42);
+                this.dSD.setLayoutParams(layoutParams);
                 layoutParams2.leftMargin = -layoutParams.rightMargin;
-                this.ksX.setLayoutParams(layoutParams2);
+                this.kte.setLayoutParams(layoutParams2);
             } else {
-                layoutParams.rightMargin = l.getDimens(this.aix.getContext(), R.dimen.tbds100);
-                this.dSz.setLayoutParams(layoutParams);
+                layoutParams.rightMargin = l.getDimens(this.aiz.getContext(), R.dimen.tbds100);
+                this.dSD.setLayoutParams(layoutParams);
                 layoutParams2.leftMargin = -layoutParams.rightMargin;
-                this.ksX.setLayoutParams(layoutParams2);
-                this.aix.setVisibility(0);
-                this.aix.setText(t);
+                this.kte.setLayoutParams(layoutParams2);
+                this.aiz.setVisibility(0);
+                this.aiz.setText(t);
             }
-            cxH();
+            cxI();
             if (bVar.replyNum > 0) {
-                this.ksV.setVisibility(0);
-                this.ksV.setText(this.ksV.getContext().getResources().getString(R.string.hot_topic_rank_item_tag, at.cR(bVar.replyNum)));
+                this.ktc.setVisibility(0);
+                this.ktc.setText(this.ktc.getContext().getResources().getString(R.string.hot_topic_rank_item_tag, at.cR(bVar.replyNum)));
             } else {
-                this.ksV.setVisibility(4);
+                this.ktc.setVisibility(4);
             }
-            this.aiw.setText("" + bVar.index);
+            this.aiy.setText("" + bVar.index);
         }
     }
 
-    private void cxH() {
-        if (this.ksY != null) {
-            int nZ = TagTextHelper.nZ(this.ksY.tag);
-            Drawable background = this.aix.getBackground();
+    private void cxI() {
+        if (this.ktf != null) {
+            int nZ = TagTextHelper.nZ(this.ktf.tag);
+            Drawable background = this.aiz.getBackground();
             DrawableCompat.setTint(background, ap.getColor(nZ));
-            this.aix.setBackgroundDrawable(background);
-            int oa = TagTextHelper.oa(this.ksY.index);
-            Drawable background2 = this.aiw.getBackground();
+            this.aiz.setBackgroundDrawable(background);
+            int oa = TagTextHelper.oa(this.ktf.index);
+            Drawable background2 = this.aiy.getBackground();
             DrawableCompat.setTint(background2, ap.getColor(oa));
-            this.aiw.setBackgroundDrawable(background2);
+            this.aiy.setBackgroundDrawable(background2);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.iLR != i) {
-            a.g(this.iMe, R.color.cp_bg_line_e, R.color.cp_bg_line_c);
-            ap.setViewTextColor(this.aix, R.color.cp_cont_a);
-            ap.setViewTextColor(this.aiw, R.color.cp_cont_a);
-            ap.setViewTextColor(this.jaJ, R.color.cp_cont_d);
-            ap.setViewTextColor(this.ksV, R.color.cp_cont_d);
-            ap.setViewTextColor(this.dSz, R.color.cp_cont_b);
-            ap.setViewTextColor(this.ksW, R.color.cp_cont_b);
-            ap.setViewTextColor(this.ksX, R.color.cp_cont_b);
-            cxH();
-            this.iLR = i;
+        if (this.iLX != i) {
+            a.g(this.iMk, R.color.cp_bg_line_e, R.color.cp_bg_line_c);
+            ap.setViewTextColor(this.aiz, R.color.cp_cont_a);
+            ap.setViewTextColor(this.aiy, R.color.cp_cont_a);
+            ap.setViewTextColor(this.jaP, R.color.cp_cont_d);
+            ap.setViewTextColor(this.ktc, R.color.cp_cont_d);
+            ap.setViewTextColor(this.dSD, R.color.cp_cont_b);
+            ap.setViewTextColor(this.ktd, R.color.cp_cont_b);
+            ap.setViewTextColor(this.kte, R.color.cp_cont_b);
+            cxI();
+            this.iLX = i;
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.ksY != null && this.ksY.topicId > 0) {
-            if (this.ahW != null) {
-                this.ahW.a(view, this.ksY, this.ksY.index, this.ksY.topicId);
+        if (this.ktf != null && this.ktf.topicId > 0) {
+            if (this.ahY != null) {
+                this.ahY.a(view, this.ktf, this.ktf.index, this.ktf.topicId);
             }
-            new HotTopicActivityConfig(getContext()).createNormalConfig("" + this.ksY.topicId, null, "5").start();
+            new HotTopicActivityConfig(getContext()).createNormalConfig("" + this.ktf.topicId, null, "5").start();
         }
     }
 }

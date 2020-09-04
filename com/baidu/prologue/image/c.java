@@ -11,11 +11,11 @@ import com.bumptech.glide.util.Util;
 public class c {
     public static RequestManager aQ(Context context) {
         if (context == null) {
-            context = com.baidu.prologue.a.b.a.bKi.get().UK();
+            context = com.baidu.prologue.a.b.a.bKm.get().UK();
         } else if (Util.isOnMainThread() && !(context instanceof Application) && (context instanceof Activity)) {
             Activity activity = (Activity) context;
             if (activity.isFinishing() || y(activity)) {
-                context = com.baidu.prologue.a.b.a.bKi.get().UK();
+                context = com.baidu.prologue.a.b.a.bKm.get().UK();
             }
         }
         return Glide.with(context);

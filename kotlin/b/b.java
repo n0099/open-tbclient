@@ -6,13 +6,13 @@ import java.util.NoSuchElementException;
 public final class b extends kotlin.collections.n {
     private boolean hasNext;
     private int next;
-    private final int osN;
+    private final int otf;
     private final int step;
 
     public b(char c, char c2, int i) {
         boolean z = true;
         this.step = i;
-        this.osN = c2;
+        this.otf = c2;
         if (this.step > 0) {
             if (c > c2) {
                 z = false;
@@ -21,7 +21,7 @@ public final class b extends kotlin.collections.n {
             z = false;
         }
         this.hasNext = z;
-        this.next = this.hasNext ? c : this.osN;
+        this.next = this.hasNext ? c : this.otf;
     }
 
     @Override // java.util.Iterator
@@ -30,9 +30,9 @@ public final class b extends kotlin.collections.n {
     }
 
     @Override // kotlin.collections.n
-    public char efQ() {
+    public char efZ() {
         int i = this.next;
-        if (i == this.osN) {
+        if (i == this.otf) {
             if (!this.hasNext) {
                 throw new NoSuchElementException();
             }

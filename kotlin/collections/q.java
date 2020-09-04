@@ -6,7 +6,7 @@ import java.util.List;
 @kotlin.h
 /* loaded from: classes20.dex */
 public class q extends p {
-    public static final <T> List<T> efR() {
+    public static final <T> List<T> ega() {
         return EmptyList.INSTANCE;
     }
 
@@ -26,7 +26,7 @@ public class q extends p {
         kotlin.jvm.internal.q.m(list, "receiver$0");
         switch (list.size()) {
             case 0:
-                return o.efR();
+                return o.ega();
             case 1:
                 return o.bL(list.get(0));
             default:

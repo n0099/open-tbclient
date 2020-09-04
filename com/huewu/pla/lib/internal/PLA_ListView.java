@@ -305,7 +305,7 @@ public class PLA_ListView extends PLA_AbsListView {
             for (int i = 0; i < size; i++) {
                 PLA_AbsListView.LayoutParams layoutParams = (PLA_AbsListView.LayoutParams) arrayList.get(i).view.getLayoutParams();
                 if (layoutParams != null) {
-                    layoutParams.blm = false;
+                    layoutParams.blp = false;
                 }
             }
         }
@@ -441,7 +441,7 @@ public class PLA_ListView extends PLA_AbsListView {
             measureScrapChild(obtainView, 0, i);
             int measuredWidth = obtainView.getMeasuredWidth();
             i3 = obtainView.getMeasuredHeight();
-            if (recycleOnMeasure() && this.mRecycler.eQ(((PLA_AbsListView.LayoutParams) obtainView.getLayoutParams()).bll)) {
+            if (recycleOnMeasure() && this.mRecycler.eQ(((PLA_AbsListView.LayoutParams) obtainView.getLayoutParams()).blo)) {
                 this.mRecycler.dB(obtainView);
             }
             i4 = measuredWidth;
@@ -464,8 +464,8 @@ public class PLA_ListView extends PLA_AbsListView {
             layoutParams = new PLA_AbsListView.LayoutParams(-1, -2, 0);
             view.setLayoutParams(layoutParams);
         }
-        layoutParams.bll = this.mAdapter.getItemViewType(i);
-        layoutParams.bln = true;
+        layoutParams.blo = this.mAdapter.getItemViewType(i);
+        layoutParams.blq = true;
         int childMeasureSpec = ViewGroup.getChildMeasureSpec(i2, this.mListPadding.left + this.mListPadding.right, layoutParams.width);
         int i3 = layoutParams.height;
         if (i3 > 0) {
@@ -500,7 +500,7 @@ public class PLA_ListView extends PLA_AbsListView {
             View obtainView = obtainView(i2, zArr);
             measureScrapChild(obtainView, i2, i);
             int i9 = i2 > 0 ? i7 + i8 : i7;
-            if (recycleOnMeasure && fVar.eQ(((PLA_AbsListView.LayoutParams) obtainView.getLayoutParams()).bll)) {
+            if (recycleOnMeasure && fVar.eQ(((PLA_AbsListView.LayoutParams) obtainView.getLayoutParams()).blo)) {
                 com.huewu.pla.lib.a.i("measureHeightOfChildren");
                 fVar.dB(obtainView);
             }
@@ -796,14 +796,14 @@ public class PLA_ListView extends PLA_AbsListView {
         if (layoutParams == null) {
             layoutParams = new PLA_AbsListView.LayoutParams(-1, -2, 0);
         }
-        layoutParams.bll = this.mAdapter.getItemViewType(i);
-        layoutParams.blo = i;
-        if ((z3 && !layoutParams.bln) || (layoutParams.blm && layoutParams.bll == -2)) {
+        layoutParams.blo = this.mAdapter.getItemViewType(i);
+        layoutParams.blr = i;
+        if ((z3 && !layoutParams.blq) || (layoutParams.blp && layoutParams.blo == -2)) {
             attachViewToParent(view, z ? -1 : 0, layoutParams);
         } else {
-            layoutParams.bln = false;
-            if (layoutParams.bll == -2) {
-                layoutParams.blm = true;
+            layoutParams.blq = false;
+            if (layoutParams.blo == -2) {
+                layoutParams.blp = true;
             }
             addViewInLayout(view, z ? -1 : 0, layoutParams, true);
         }
@@ -985,7 +985,7 @@ public class PLA_ListView extends PLA_AbsListView {
             while (true) {
                 View view = childAt;
                 if (view.getBottom() < i3) {
-                    if (fVar.eQ(((PLA_AbsListView.LayoutParams) view.getLayoutParams()).bll)) {
+                    if (fVar.eQ(((PLA_AbsListView.LayoutParams) view.getLayoutParams()).blo)) {
                         detachViewFromParent(view);
                         fVar.dB(view);
                     } else {
@@ -1012,7 +1012,7 @@ public class PLA_ListView extends PLA_AbsListView {
                 int i4 = childCount2;
                 View view2 = childAt3;
                 if (view2.getTop() > height) {
-                    if (fVar.eQ(((PLA_AbsListView.LayoutParams) view2.getLayoutParams()).bll)) {
+                    if (fVar.eQ(((PLA_AbsListView.LayoutParams) view2.getLayoutParams()).blo)) {
                         detachViewFromParent(view2);
                         fVar.dB(view2);
                     } else {

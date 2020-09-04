@@ -20,50 +20,50 @@ import com.google.gson.Gson;
 /* loaded from: classes16.dex */
 public abstract class a implements View.OnClickListener {
     protected Gson gson = new Gson();
-    protected View hVo;
-    protected final BaseFragmentActivity hwQ;
-    protected final ForumWriteData ifP;
-    protected TextView ifQ;
-    protected SerializableItemInfo ifR;
-    protected final c ifS;
-    private i ifT;
-    private SaveDraftDialogView ifU;
+    protected View hVu;
+    protected final BaseFragmentActivity hwW;
+    protected final ForumWriteData ifV;
+    protected TextView ifW;
+    protected SerializableItemInfo ifX;
+    protected final c ifY;
+    private i ifZ;
+    private SaveDraftDialogView iga;
     protected TextView mCenterText;
     protected NavigationBar mNavigationBar;
     protected View mRoot;
 
-    public abstract void bsv();
+    public abstract void bsw();
 
-    protected abstract void cpZ();
+    protected abstract void cqa();
 
-    public abstract void cqb();
+    public abstract void cqc();
 
     protected abstract void initUI();
 
     public a(BaseFragmentActivity baseFragmentActivity, ForumWriteData forumWriteData, SerializableItemInfo serializableItemInfo) {
-        this.hwQ = baseFragmentActivity;
-        this.ifP = forumWriteData;
-        this.ifR = serializableItemInfo;
-        this.ifS = new c(this.hwQ, this.hwQ.getUniqueId(), this.ifP, this.ifR);
+        this.hwW = baseFragmentActivity;
+        this.ifV = forumWriteData;
+        this.ifX = serializableItemInfo;
+        this.ifY = new c(this.hwW, this.hwW.getUniqueId(), this.ifV, this.ifX);
         initUI();
-        buO();
-        cpZ();
+        buP();
+        cqa();
     }
 
-    protected void buO() {
+    protected void buP() {
         if (this.mNavigationBar != null) {
-            this.ifQ = new TextView(this.hwQ);
-            this.ifQ.setAlpha(0.5f);
-            this.ifQ.setText(this.hwQ.getString(R.string.send_post));
-            this.ifQ.setTextSize(0, l.getDimens(this.hwQ, R.dimen.tbds44));
+            this.ifW = new TextView(this.hwW);
+            this.ifW.setAlpha(0.5f);
+            this.ifW.setText(this.hwW.getString(R.string.send_post));
+            this.ifW.setTextSize(0, l.getDimens(this.hwW, R.dimen.tbds44));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 17;
-            layoutParams.rightMargin = l.getDimens(this.hwQ, R.dimen.tbds44);
-            this.ifQ.setLayoutParams(layoutParams);
-            this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.ifQ, this);
-            this.mCenterText = this.mNavigationBar.setCenterTextTitle(this.hwQ.getString(R.string.publish_comment));
-            this.mCenterText.setTextSize(0, l.getDimens(this.hwQ, R.dimen.tbds44));
-            this.hVo = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            layoutParams.rightMargin = l.getDimens(this.hwW, R.dimen.tbds44);
+            this.ifW.setLayoutParams(layoutParams);
+            this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.ifW, this);
+            this.mCenterText = this.mNavigationBar.setCenterTextTitle(this.hwW.getString(R.string.publish_comment));
+            this.mCenterText.setTextSize(0, l.getDimens(this.hwW, R.dimen.tbds44));
+            this.hVu = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         }
     }
 
@@ -75,42 +75,42 @@ public abstract class a implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cqa() {
-        if (this.ifU == null) {
-            this.ifU = new SaveDraftDialogView(this.hwQ);
-            this.ifU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.examination.a.1
+    public void cqb() {
+        if (this.iga == null) {
+            this.iga = new SaveDraftDialogView(this.hwW);
+            this.iga.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.examination.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (view != null) {
                         int id = view.getId();
                         if (id == R.id.save_draft_dialog_not_save) {
-                            a.this.cqc();
-                            a.this.hwQ.finish();
+                            a.this.cqd();
+                            a.this.hwW.finish();
                         } else if (id == R.id.save_draft_dialog_save) {
-                            a.this.bsv();
-                            a.this.hwQ.finish();
+                            a.this.bsw();
+                            a.this.hwW.finish();
                         }
-                        a.this.ifT.dismiss();
+                        a.this.ifZ.dismiss();
                     }
                 }
             });
         }
-        if (this.ifT == null) {
-            this.ifT = new i(this.hwQ.getPageContext());
-            this.ifT.setContentView(this.ifU);
+        if (this.ifZ == null) {
+            this.ifZ = new i(this.hwW.getPageContext());
+            this.ifZ.setContentView(this.iga);
         }
-        this.ifU.setText(this.hwQ.getString(R.string.write_save_draft_dialog_normal_title), null, this.hwQ.getString(R.string.save));
-        this.ifT.Nv();
+        this.iga.setText(this.hwW.getString(R.string.write_save_draft_dialog_normal_title), null, this.hwW.getString(R.string.save));
+        this.ifZ.Nv();
     }
 
-    protected void cqc() {
-        if (this.ifP != null) {
-            x.c(String.valueOf(this.ifP.forumId), (WriteData) null);
+    protected void cqd() {
+        if (this.ifV != null) {
+            x.c(String.valueOf(this.ifV.forumId), (WriteData) null);
         }
     }
 
     public void onDestroy() {
-        g.dismissDialog(this.ifT, this.hwQ);
+        g.dismissDialog(this.ifZ, this.hwW);
     }
 
     public void onChangeSkinType() {
@@ -118,8 +118,8 @@ public abstract class a implements View.OnClickListener {
         if (this.mCenterText != null) {
             ap.setViewTextColor(this.mCenterText, R.color.cp_cont_b);
         }
-        if (this.ifQ != null) {
-            ap.setViewTextColor(this.ifQ, R.color.cp_link_tip_c);
+        if (this.ifW != null) {
+            ap.setViewTextColor(this.ifW, R.color.cp_link_tip_c);
         }
         if (this.mNavigationBar != null) {
             this.mNavigationBar.onBackBtnOnChangeSkin();

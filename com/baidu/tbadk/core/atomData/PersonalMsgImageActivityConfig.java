@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class PersonalMsgImageActivityConfig extends AbsMsgImageActivityConfig {
     public PersonalMsgImageActivityConfig(Context context, String str, long j, String str2) {
         super(context);

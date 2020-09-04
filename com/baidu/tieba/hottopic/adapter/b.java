@@ -8,42 +8,42 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes15.dex */
 public class b {
-    private List<com.baidu.adp.widget.ListView.a> bbu = new ArrayList();
-    private BdTypeListView fCP;
-    private d iXa;
-    private c iXb;
-    private m iXc;
+    private List<com.baidu.adp.widget.ListView.a> bbw = new ArrayList();
+    private BdTypeListView fCT;
+    private d iXg;
+    private c iXh;
+    private m iXi;
 
     public b(HotRanklistActivity hotRanklistActivity, BdTypeListView bdTypeListView) {
         a(hotRanklistActivity, bdTypeListView);
     }
 
     private void a(HotRanklistActivity hotRanklistActivity, BdTypeListView bdTypeListView) {
-        this.iXa = new d(hotRanklistActivity, com.baidu.tieba.hottopic.data.c.iYS);
-        this.iXb = new c(hotRanklistActivity, com.baidu.tieba.hottopic.data.b.iYR);
-        this.iXc = new m(hotRanklistActivity, o.iZX);
-        this.bbu.add(this.iXa);
-        this.bbu.add(this.iXb);
-        this.bbu.add(this.iXc);
-        this.fCP = bdTypeListView;
-        this.fCP.addAdapters(this.bbu);
+        this.iXg = new d(hotRanklistActivity, com.baidu.tieba.hottopic.data.c.iYY);
+        this.iXh = new c(hotRanklistActivity, com.baidu.tieba.hottopic.data.b.iYX);
+        this.iXi = new m(hotRanklistActivity, o.jad);
+        this.bbw.add(this.iXg);
+        this.bbw.add(this.iXh);
+        this.bbw.add(this.iXi);
+        this.fCT = bdTypeListView;
+        this.fCT.addAdapters(this.bbw);
     }
 
     public void a(com.baidu.tieba.hottopic.data.j jVar, String str) {
         ArrayList<q> arrayList;
-        if (jVar.cAf() != null) {
-            arrayList = jVar.cAf();
+        if (jVar.cAg() != null) {
+            arrayList = jVar.cAg();
         } else {
             arrayList = new ArrayList<>();
         }
-        if (this.iXc != null) {
-            this.iXc.czv();
+        if (this.iXi != null) {
+            this.iXi.czw();
         }
-        if (this.iXa != null) {
-            this.iXa.JN(str);
+        if (this.iXg != null) {
+            this.iXg.JO(str);
         }
-        if (this.fCP != null) {
-            this.fCP.setData(arrayList);
+        if (this.fCT != null) {
+            this.fCT.setData(arrayList);
         }
     }
 }

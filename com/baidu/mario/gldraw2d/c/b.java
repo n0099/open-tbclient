@@ -8,9 +8,9 @@ import java.util.LinkedList;
 /* loaded from: classes20.dex */
 public class b extends a implements c {
     private static final String TAG = b.class.getSimpleName();
-    protected d byd;
-    protected com.baidu.mario.gldraw2d.d.c bye;
-    private int byf;
+    protected d byg;
+    protected com.baidu.mario.gldraw2d.d.c byh;
+    private int byi;
     protected int mProgramHandle;
     private int maPositionLoc;
     private int maTextureCoordLoc;
@@ -22,8 +22,8 @@ public class b extends a implements c {
 
     @Override // com.baidu.mario.gldraw2d.c.c
     public void a(d dVar, com.baidu.mario.gldraw2d.d.c cVar) {
-        this.byd = dVar;
-        this.bye = cVar;
+        this.byg = dVar;
+        this.byh = cVar;
         aL(this.mVertexShader, this.mFragmentShader);
         if (this.mProgramHandle == -1) {
             throw new RuntimeException("Unable to create program");
@@ -33,16 +33,16 @@ public class b extends a implements c {
 
     @Override // com.baidu.mario.gldraw2d.c.c
     public void c(com.baidu.mario.gldraw2d.d.a aVar, com.baidu.mario.gldraw2d.params.b bVar) {
-        if (this.byd == null || !this.byd.RA()) {
+        if (this.byg == null || !this.byg.RA()) {
             Log.e(TAG, "onDraw filter has not been setup!!!");
             return;
         }
         useProgram();
-        a(this.byd);
+        a(this.byg);
         a(aVar, bVar);
         b(aVar, bVar);
         Rw();
-        b(this.byd);
+        b(this.byg);
         Rx();
     }
 
@@ -53,7 +53,7 @@ public class b extends a implements c {
 
     @Override // com.baidu.mario.gldraw2d.c.a
     protected void aL(String str, String str2) {
-        if (this.byd.getType() != 36197) {
+        if (this.byg.getType() != 36197) {
             str2 = str2.replaceFirst("#extension GL_OES_EGL_image_external : require", "").replace("samplerExternalOES", "sampler2D");
         }
         this.mProgramHandle = com.baidu.mario.gldraw2d.e.a.createProgram(str, str2);
@@ -61,7 +61,7 @@ public class b extends a implements c {
 
     @Override // com.baidu.mario.gldraw2d.c.a
     protected void Rv() {
-        this.byf = GLES20.glGetUniformLocation(this.mProgramHandle, "uTexture");
+        this.byi = GLES20.glGetUniformLocation(this.mProgramHandle, "uTexture");
         this.maPositionLoc = GLES20.glGetAttribLocation(this.mProgramHandle, "aPosition");
         this.muMVPMatrixLoc = GLES20.glGetUniformLocation(this.mProgramHandle, "uMVPMatrix");
         this.muTexMatrixLoc = GLES20.glGetUniformLocation(this.mProgramHandle, "uTexMatrix");
@@ -77,7 +77,7 @@ public class b extends a implements c {
     protected void a(d dVar) {
         GLES20.glActiveTexture(33984);
         GLES20.glBindTexture(dVar.getType(), dVar.getId());
-        GLES20.glUniform1i(this.byf, 0);
+        GLES20.glUniform1i(this.byi, 0);
     }
 
     @Override // com.baidu.mario.gldraw2d.c.a

@@ -5,5 +5,5 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class MultiPartHeaders {
-    private final List<Pair<String, String>> ncc = new ArrayList();
+    private final List<Pair<String, String>> ncu = new ArrayList();
 }

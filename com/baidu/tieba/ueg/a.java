@@ -1,9 +1,9 @@
 package com.baidu.tieba.ueg;
 
 import com.baidu.adp.BdUniqueId;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface a {
-    void NW(String str);
+    void NX(String str);
 
     void x(BdUniqueId bdUniqueId);
 }

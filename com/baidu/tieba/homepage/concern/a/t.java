@@ -11,13 +11,13 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes16.dex */
 public class t extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.b.c, a> {
-    private static int iHA;
-    private static int iHz;
+    private static int iHF;
+    private static int iHG;
 
     public t(Context context) {
-        super(context, com.baidu.tieba.homepage.concern.b.c.iHI);
-        iHz = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds102);
-        iHA = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds166);
+        super(context, com.baidu.tieba.homepage.concern.b.c.iHO);
+        iHF = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds102);
+        iHG = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds166);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,37 +39,37 @@ public class t extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.concern.b.c cVar, a aVar) {
-        aVar.iHB.setText(cVar.tipString);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar.iHB.getLayoutParams();
-        if (cVar.iHL) {
-            layoutParams.height = iHA;
-            aVar.ies.setVisibility(0);
-        } else if (cVar.iHM) {
-            layoutParams.height = iHz;
+        aVar.iHH.setText(cVar.tipString);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar.iHH.getLayoutParams();
+        if (cVar.iHR) {
+            layoutParams.height = iHG;
+            aVar.iey.setVisibility(0);
+        } else if (cVar.iHS) {
+            layoutParams.height = iHF;
         }
-        aVar.iHB.setLayoutParams(layoutParams);
+        aVar.iHH.setLayoutParams(layoutParams);
         aVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         return aVar.getView();
     }
 
     /* loaded from: classes16.dex */
     public static class a extends af.a {
-        private int aiB;
-        public TextView iHB;
-        public View ies;
+        private int aiD;
+        public TextView iHH;
+        public View iey;
 
         public a(View view) {
             super(view);
-            this.aiB = 3;
-            this.iHB = (TextView) view.findViewById(R.id.concern_tip_txt);
-            this.ies = view.findViewById(R.id.concern_tip_top_line);
+            this.aiD = 3;
+            this.iHH = (TextView) view.findViewById(R.id.concern_tip_txt);
+            this.iey = view.findViewById(R.id.concern_tip_top_line);
         }
 
         protected void onChangeSkinType(int i) {
-            if (this.aiB != i) {
+            if (this.aiD != i) {
                 ap.setBackgroundColor(getView(), R.color.cp_bg_line_e);
-                ap.setViewTextColor(this.iHB, R.color.cp_cont_d);
-                ap.setBackgroundResource(this.ies, R.color.cp_bg_line_e);
+                ap.setViewTextColor(this.iHH, R.color.cp_cont_d);
+                ap.setBackgroundResource(this.iey, R.color.cp_bg_line_e);
             }
         }
     }

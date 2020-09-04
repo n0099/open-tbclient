@@ -5,7 +5,7 @@ import java.lang.reflect.Method;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes4.dex */
 public final class f extends e {
-    private a awI;
+    private a awK;
 
     /* loaded from: classes4.dex */
     private static class a {
@@ -57,16 +57,16 @@ public final class f extends e {
         this.d = 32;
         this.e = i;
         this.f = i2;
-        this.awI = new a();
+        this.awK = new a();
     }
 
     @Override // com.baidu.helios.common.cc.e
     public com.baidu.helios.common.cc.a n(byte[] bArr, int i, int i2) {
         long j = 4294967295L;
         try {
-            Object b = this.awI.b();
-            this.awI.a(b, bArr, i, i2);
-            j = this.awI.E(b);
+            Object b = this.awK.b();
+            this.awK.a(b, bArr, i, i2);
+            j = this.awK.E(b);
         } catch (Exception e) {
         }
         return com.baidu.helios.common.cc.a.a(new long[]{j});

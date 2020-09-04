@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public final class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static String TAG = "SwanAppParam";
-    private boolean cDD;
+    private boolean cDH;
     private String mBaseUrl;
     private String mPage;
     private String mParams;
@@ -26,7 +26,7 @@ public final class c {
     }
 
     public void ahj() {
-        this.cDD = false;
+        this.cDH = false;
     }
 
     public String toJSONString() {
@@ -35,7 +35,7 @@ public final class c {
             jSONObject.put("page", this.mPage);
             jSONObject.put("params", this.mParams);
             jSONObject.put("baseUrl", this.mBaseUrl);
-            jSONObject.put("isFirstPage", this.cDD);
+            jSONObject.put("isFirstPage", this.cDH);
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.e(TAG, "toJSONString error: " + Log.getStackTraceString(e));
@@ -44,7 +44,7 @@ public final class c {
         return jSONObject.toString();
     }
 
-    public static c oB(String str) {
+    public static c oC(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -54,7 +54,7 @@ public final class c {
             cVar.mPage = jSONObject.optString("page");
             cVar.mParams = jSONObject.optString("params");
             cVar.mBaseUrl = jSONObject.optString("baseUrl");
-            cVar.cDD = jSONObject.optBoolean("isFirstPage");
+            cVar.cDH = jSONObject.optBoolean("isFirstPage");
             return cVar;
         } catch (JSONException e) {
             if (DEBUG) {
@@ -67,30 +67,30 @@ public final class c {
 
     /* loaded from: classes8.dex */
     public static class a {
-        private c chm = new c();
-
-        public a oC(String str) {
-            this.chm.mPage = str;
-            return this;
-        }
+        private c chq = new c();
 
         public a oD(String str) {
-            this.chm.mParams = str;
+            this.chq.mPage = str;
             return this;
         }
 
         public a oE(String str) {
-            this.chm.mBaseUrl = str;
+            this.chq.mParams = str;
             return this;
         }
 
-        public a eS(boolean z) {
-            this.chm.cDD = z;
+        public a oF(String str) {
+            this.chq.mBaseUrl = str;
+            return this;
+        }
+
+        public a eT(boolean z) {
+            this.chq.cDH = z;
             return this;
         }
 
         public c aul() {
-            return this.chm;
+            return this.chq;
         }
     }
 }

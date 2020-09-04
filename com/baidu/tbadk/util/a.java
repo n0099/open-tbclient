@@ -3,21 +3,21 @@ package com.baidu.tbadk.util;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.coreExtra.data.ABTestExtraData;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
-    private static a eUF;
-    private com.baidu.tbadk.coreExtra.data.a eDt;
-    private ABTestExtraData eDu;
+    private static a eUJ;
+    private com.baidu.tbadk.coreExtra.data.a eDx;
+    private ABTestExtraData eDy;
 
-    public static a buU() {
-        if (eUF == null) {
+    public static a buV() {
+        if (eUJ == null) {
             synchronized (a.class) {
-                if (eUF == null) {
-                    eUF = new a();
+                if (eUJ == null) {
+                    eUJ = new a();
                 }
             }
         }
-        return eUF;
+        return eUJ;
     }
 
     public void a(com.baidu.tbadk.coreExtra.data.a aVar) {
@@ -26,26 +26,26 @@ public class a {
 
     private void b(com.baidu.tbadk.coreExtra.data.a aVar) {
         boolean z = false;
-        z = (aVar == null || this.eDt == null || aVar.bmo() != this.eDt.bmo()) ? true : true;
-        this.eDt = aVar;
+        z = (aVar == null || this.eDx == null || aVar.bmo() != this.eDx.bmo()) ? true : true;
+        this.eDx = aVar;
         if (z) {
-            CD("zan_or_cai_smallflow");
+            CE("zan_or_cai_smallflow");
         }
     }
 
-    private void CD(String str) {
+    private void CE(String str) {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156670, str));
     }
 
     public void a(ABTestExtraData aBTestExtraData) {
-        this.eDu = aBTestExtraData;
+        this.eDy = aBTestExtraData;
     }
 
-    public String buV() {
-        if (this.eDu == null) {
-            this.eDu = new ABTestExtraData();
-            this.eDu.parserABTestExtraFormSharedPref();
+    public String buW() {
+        if (this.eDy == null) {
+            this.eDy = new ABTestExtraData();
+            this.eDy.parserABTestExtraFormSharedPref();
         }
-        return this.eDu.getABTestResult();
+        return this.eDy.getABTestResult();
     }
 }

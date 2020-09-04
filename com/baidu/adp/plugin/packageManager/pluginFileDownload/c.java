@@ -34,9 +34,9 @@ public class c {
         }
     }
 
-    public void cF(String str) {
+    public void cG(String str) {
         if (this.To != null) {
-            this.To.cE(str);
+            this.To.cF(str);
         }
     }
 
@@ -44,7 +44,7 @@ public class c {
         this.To = bVar;
     }
 
-    public boolean cD(String str) {
+    public boolean cE(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

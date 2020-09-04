@@ -12,8 +12,8 @@ import com.baidu.swan.support.v4.app.FragmentActivity;
 /* loaded from: classes8.dex */
 public class SwanAppBaseActivity extends FragmentActivity {
     private static final boolean DEBUG = b.DEBUG;
-    private com.baidu.swan.apps.aj.b bRK = null;
-    private com.baidu.swan.apps.ab.c bRL;
+    private com.baidu.swan.apps.aj.b bRO = null;
+    private com.baidu.swan.apps.ab.c bRP;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
@@ -41,33 +41,33 @@ public class SwanAppBaseActivity extends FragmentActivity {
             }
             return;
         }
-        if (this.bRK == null) {
-            this.bRK = new com.baidu.swan.apps.aj.b();
+        if (this.bRO == null) {
+            this.bRO = new com.baidu.swan.apps.aj.b();
         }
         ViewGroup viewGroup = (ViewGroup) window.getDecorView();
         if (z) {
-            this.bRK.z(viewGroup);
+            this.bRO.z(viewGroup);
         } else {
-            this.bRK.A(viewGroup);
+            this.bRO.A(viewGroup);
         }
         if (z2) {
-            com.baidu.swan.apps.process.messaging.a.axs().a(new com.baidu.swan.apps.process.messaging.c(5).fp(true));
+            com.baidu.swan.apps.process.messaging.a.axs().a(new com.baidu.swan.apps.process.messaging.c(5).fq(true));
         }
     }
 
     public com.baidu.swan.apps.aj.b Yj() {
-        return this.bRK;
+        return this.bRO;
     }
 
     public void a(int i, @NonNull String[] strArr, c.a aVar) {
-        this.bRL = com.baidu.swan.apps.ab.c.awC();
-        this.bRL.a(this, i, strArr, aVar);
+        this.bRP = com.baidu.swan.apps.ab.c.awC();
+        this.bRP.a(this, i, strArr, aVar);
     }
 
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity, com.baidu.swan.support.v4.app.a.InterfaceC0521a
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        if (this.bRL != null) {
-            this.bRL.a(this, i, strArr, iArr);
+        if (this.bRP != null) {
+            this.bRP.a(this, i, strArr, iArr);
         } else {
             b(i, strArr, iArr);
         }

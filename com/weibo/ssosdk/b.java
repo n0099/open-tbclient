@@ -12,12 +12,12 @@ import org.json.JSONObject;
 public class b implements Cloneable {
     private Context appContext;
     private String appKey = "";
-    private String okw = "";
+    private String okO = "";
     private String from = "";
-    private String okx = "";
-    private String oky = "";
-    private String okz = "";
-    private String okA = "";
+    private String okP = "";
+    private String okQ = "";
+    private String okR = "";
+    private String okS = "";
     private HashMap<String, String> extra = new HashMap<>();
 
     private String VJ(String str) {
@@ -28,7 +28,7 @@ public class b implements Cloneable {
         }
     }
 
-    public String yE(boolean z) {
+    public String yG(boolean z) {
         if (this.extra.isEmpty()) {
             return "";
         }
@@ -46,23 +46,23 @@ public class b implements Cloneable {
         return jSONObject.toString();
     }
 
-    public String yF(boolean z) {
-        return z ? VJ(this.okz) : this.okz;
-    }
-
-    public String yG(boolean z) {
-        return z ? VJ(this.okx) : this.okx;
-    }
-
-    public void VK(String str) {
-        this.okx = str;
-    }
-
     public String yH(boolean z) {
-        return z ? VJ(this.oky) : this.oky;
+        return z ? VJ(this.okR) : this.okR;
     }
 
     public String yI(boolean z) {
+        return z ? VJ(this.okP) : this.okP;
+    }
+
+    public void VK(String str) {
+        this.okP = str;
+    }
+
+    public String yJ(boolean z) {
+        return z ? VJ(this.okQ) : this.okQ;
+    }
+
+    public String yK(boolean z) {
         return z ? VJ(this.from) : this.from;
     }
 
@@ -70,7 +70,7 @@ public class b implements Cloneable {
         this.from = str;
     }
 
-    public String yJ(boolean z) {
+    public String yL(boolean z) {
         return z ? VJ(this.appKey) : this.appKey;
     }
 
@@ -86,12 +86,12 @@ public class b implements Cloneable {
         this.appContext = context.getApplicationContext();
     }
 
-    public String yK(boolean z) {
-        return z ? VJ(this.okw) : this.okw;
+    public String yM(boolean z) {
+        return z ? VJ(this.okO) : this.okO;
     }
 
-    public boolean eel() {
-        return (this.appContext == null || TextUtils.isEmpty(this.appKey) || TextUtils.isEmpty(this.from) || TextUtils.isEmpty(this.okx)) ? false : true;
+    public boolean eeu() {
+        return (this.appContext == null || TextUtils.isEmpty(this.appKey) || TextUtils.isEmpty(this.from) || TextUtils.isEmpty(this.okP)) ? false : true;
     }
 
     public Object clone() {

@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class RequestEnterForumDataMessage extends CustomResponsedMessage<Boolean> {
     private boolean isCache;
 

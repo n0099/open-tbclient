@@ -14,28 +14,28 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class MercatorModel {
-    private final a.InterfaceC0018a fMY;
-    private boolean mhI;
+    private final a.InterfaceC0018a fNc;
+    private boolean mhX;
 
     private MercatorModel() {
-        this.mhI = false;
-        this.fMY = new a.InterfaceC0018a() { // from class: com.baidu.tieba.tbadkCore.util.MercatorModel.1
+        this.mhX = false;
+        this.fNc = new a.InterfaceC0018a() { // from class: com.baidu.tieba.tbadkCore.util.MercatorModel.1
             @Override // com.baidu.adp.lib.c.a.InterfaceC0018a
             public void onLocationGeted(int i, String str, Address address) {
                 TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-                if (i == 0 && address != null && inst != null && !MercatorModel.this.mhI) {
-                    MercatorModel.this.mhI = true;
+                if (i == 0 && address != null && inst != null && !MercatorModel.this.mhX) {
+                    MercatorModel.this.mhX = true;
                     String valueOf = String.valueOf(address.getLatitude());
                     String valueOf2 = String.valueOf(address.getLongitude());
                     String locString = BDLocManager.getInstance(inst).getLocString();
                     String version = TbConfig.getVersion();
                     String cuid = TbadkCoreApplication.getInst().getCuid();
                     String clientIP = UtilHelper.getClientIP();
-                    com.baidu.tieba.recapp.d.a.dnW().Kh(valueOf);
-                    com.baidu.tieba.recapp.d.a.dnW().Kg(valueOf2);
-                    com.baidu.tieba.recapp.d.a.dnW().fO(System.currentTimeMillis());
+                    com.baidu.tieba.recapp.d.a.dnZ().Ki(valueOf);
+                    com.baidu.tieba.recapp.d.a.dnZ().Kh(valueOf2);
+                    com.baidu.tieba.recapp.d.a.dnZ().fQ(System.currentTimeMillis());
                     HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MERCATOR);
                     httpMessage.addParam("cuid", cuid);
                     httpMessage.addParam("cip", clientIP);
@@ -44,7 +44,7 @@ public class MercatorModel {
                     httpMessage.addParam("longitude", valueOf2);
                     httpMessage.addParam("latitude", valueOf);
                     MessageManager.getInstance().sendMessage(httpMessage);
-                    MercatorModel.this.mhI = false;
+                    MercatorModel.this.mhX = false;
                 }
             }
         };
@@ -54,17 +54,17 @@ public class MercatorModel {
     }
 
     public void startLoad() {
-        com.baidu.adp.lib.c.a.mf().a(true, this.fMY);
+        com.baidu.adp.lib.c.a.mf().a(true, this.fNc);
     }
 
-    public static MercatorModel dxA() {
-        return a.mhP;
+    public static MercatorModel dxF() {
+        return a.mif;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a {
-        private static final MercatorModel mhP = new MercatorModel();
+        private static final MercatorModel mif = new MercatorModel();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -81,7 +81,7 @@ public class MercatorModel {
         return mercatorData;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class MercatorLocationResponseMessage extends JsonHttpResponsedMessage {
         public MercatorLocationResponseMessage(int i) {
             super(i);
@@ -96,43 +96,43 @@ public class MercatorModel {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class MercatorData extends OrmObject {
-        String mhK;
-        String mhL;
-        String mhM;
-        int mhN;
-        long mhO;
+        String mhZ;
+        String mia;
+        String mib;
+        int mic;
+        long mie;
 
         public MercatorData() {
         }
 
         public MercatorData(String str, String str2, String str3, int i, long j) {
-            this.mhK = str;
-            this.mhL = str2;
-            this.mhM = str3;
-            this.mhN = i;
-            this.mhO = j;
+            this.mhZ = str;
+            this.mia = str2;
+            this.mib = str3;
+            this.mic = i;
+            this.mie = j;
         }
 
-        public String dxB() {
-            return this.mhK;
+        public String dxG() {
+            return this.mhZ;
         }
 
-        public String dxC() {
-            return this.mhL;
+        public String dxH() {
+            return this.mia;
         }
 
-        public String dxD() {
-            return this.mhM;
+        public String dxI() {
+            return this.mib;
         }
 
-        public int dxE() {
-            return this.mhN;
+        public int dxJ() {
+            return this.mic;
         }
 
-        public long dxF() {
-            return this.mhO;
+        public long dxK() {
+            return this.mie;
         }
     }
 }

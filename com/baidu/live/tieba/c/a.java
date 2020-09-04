@@ -14,34 +14,34 @@ import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
 import com.baidu.live.tbadk.core.util.SkinManager;
 /* loaded from: classes7.dex */
 public class a {
-    private int bkA;
     private int bkB;
-    private View.OnClickListener bkE;
-    private boolean bkF;
-    private boolean bkr;
-    private String bks;
-    private int bky;
-    private int bkz;
+    private int bkC;
+    private int bkD;
+    private int bkE;
+    private View.OnClickListener bkH;
+    private boolean bkI;
+    private boolean bku;
+    private String bkv;
     private String mMessage;
     private TbPageContext mPageContext;
     private View mTargetView;
     private Handler mHandler = null;
-    private Guide bkq = null;
-    private int bkt = a.f.sdk_pic_sign_tip;
-    private int bku = 0;
-    private int bkv = 1;
-    private int bkw = 1000;
-    private int bkx = 3000;
+    private Guide bkt = null;
+    private int bkw = a.f.sdk_pic_sign_tip;
+    private int bkx = 0;
+    private int bky = 1;
+    private int bkz = 1000;
+    private int bkA = 3000;
     private int mXOffset = 5;
     private int mYOffset = 0;
-    private int bkC = 48;
-    private int bkD = 4;
+    private int bkF = 48;
+    private int bkG = 4;
     private boolean mUseDirectOffset = false;
-    private Runnable bkG = new Runnable() { // from class: com.baidu.live.tieba.c.a.1
+    private Runnable bkJ = new Runnable() { // from class: com.baidu.live.tieba.c.a.1
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.bkq == null && !StringUtils.isNull(a.this.mMessage)) {
-                if (!a.this.bkF || a.this.NH()) {
+            if (a.this.bkt == null && !StringUtils.isNull(a.this.mMessage)) {
+                if (!a.this.bkI || a.this.NH()) {
                     GuideBuilder guideBuilder = new GuideBuilder();
                     guideBuilder.setTargetView(a.this.mTargetView).setAlpha(0).setOverlayTarget(true).setOutsideTouchable(true);
                     guideBuilder.addComponent(new Component() { // from class: com.baidu.live.tieba.c.a.1.1
@@ -53,23 +53,23 @@ public class a {
                             SkinManager.setViewTextColor(textView, a.d.sdk_cp_cont_i);
                             textView.setTextSize(0, a.this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_fontsize28));
                             textView.setHeight(a.this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds76));
-                            textView.setPadding(a.this.bky, a.this.bkz, a.this.bkA, a.this.bkB);
+                            textView.setPadding(a.this.bkB, a.this.bkC, a.this.bkD, a.this.bkE);
                             textView.setSingleLine(true);
-                            SkinManager.setBackgroundResource(textView, a.this.bkt);
-                            if (a.this.bkE != null) {
-                                textView.setOnClickListener(a.this.bkE);
+                            SkinManager.setBackgroundResource(textView, a.this.bkw);
+                            if (a.this.bkH != null) {
+                                textView.setOnClickListener(a.this.bkH);
                             }
                             return textView;
                         }
 
                         @Override // com.baidu.live.adp.lib.guide.Component
                         public int getAnchor() {
-                            return a.this.bkD;
+                            return a.this.bkG;
                         }
 
                         @Override // com.baidu.live.adp.lib.guide.Component
                         public int getFitPosition() {
-                            return a.this.bkC;
+                            return a.this.bkF;
                         }
 
                         @Override // com.baidu.live.adp.lib.guide.Component
@@ -82,46 +82,46 @@ public class a {
                             return a.this.mYOffset;
                         }
                     });
-                    a.this.bkq = guideBuilder.createGuide();
-                    a.this.bkq.setShouldCheckLocInWindow(false);
-                    a.this.bkq.setUseDirectOffset(a.this.mUseDirectOffset);
-                    a.this.bkq.show(a.this.mPageContext.getPageActivity());
-                    a.this.bkr = true;
+                    a.this.bkt = guideBuilder.createGuide();
+                    a.this.bkt.setShouldCheckLocInWindow(false);
+                    a.this.bkt.setUseDirectOffset(a.this.mUseDirectOffset);
+                    a.this.bkt.show(a.this.mPageContext.getPageActivity());
+                    a.this.bku = true;
                     a.this.NF();
-                    a.this.mHandler.postDelayed(a.this.bkH, a.this.bkx);
+                    a.this.mHandler.postDelayed(a.this.bkK, a.this.bkA);
                 }
             }
         }
     };
-    private Runnable bkH = new Runnable() { // from class: com.baidu.live.tieba.c.a.2
+    private Runnable bkK = new Runnable() { // from class: com.baidu.live.tieba.c.a.2
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.bkq != null) {
-                a.this.bkq.dismiss();
+            if (a.this.bkt != null) {
+                a.this.bkt.dismiss();
             }
         }
     };
 
     public void eK(int i) {
-        this.bkC = i;
+        this.bkF = i;
     }
 
     public a(TbPageContext tbPageContext, View view) {
-        this.bky = 0;
-        this.bkz = 0;
-        this.bkA = 0;
         this.bkB = 0;
+        this.bkC = 0;
+        this.bkD = 0;
+        this.bkE = 0;
         this.mPageContext = tbPageContext;
         this.mTargetView = view;
-        this.bky = this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds24);
-        this.bkz = this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds24);
-        this.bkA = this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds24);
-        this.bkB = this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds10);
+        this.bkB = this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds24);
+        this.bkC = this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds24);
+        this.bkD = this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds24);
+        this.bkE = this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds10);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void NF() {
-        SharedPrefHelper.getInstance().putInt(this.bks, this.bku + 1);
+        SharedPrefHelper.getInstance().putInt(this.bkv, this.bkx + 1);
     }
 
     public void aG(String str, String str2) {
@@ -129,48 +129,48 @@ public class a {
     }
 
     public void f(String str, String str2, boolean z) {
-        if (!this.bkr && !StringUtils.isNull(str) && !StringUtils.isNull(str2) && this.mTargetView != null && this.mTargetView.getVisibility() == 0) {
+        if (!this.bku && !StringUtils.isNull(str) && !StringUtils.isNull(str2) && this.mTargetView != null && this.mTargetView.getVisibility() == 0) {
             this.mMessage = str;
-            this.bks = str2;
-            this.bku = SharedPrefHelper.getInstance().getInt(str2, 0);
-            if (this.bku < this.bkv) {
+            this.bkv = str2;
+            this.bkx = SharedPrefHelper.getInstance().getInt(str2, 0);
+            if (this.bkx < this.bky) {
                 if (z) {
                     NF();
-                    this.bkr = true;
+                    this.bku = true;
                 }
                 if (this.mHandler == null) {
                     this.mHandler = new Handler();
                 }
-                this.mHandler.postDelayed(this.bkG, this.bkw);
+                this.mHandler.postDelayed(this.bkJ, this.bkz);
             }
         }
     }
 
     public void NG() {
-        if (this.bkq != null) {
-            this.bkq.dismiss();
-            this.bkq = null;
+        if (this.bkt != null) {
+            this.bkt.dismiss();
+            this.bkt = null;
         }
         if (this.mHandler != null) {
-            this.mHandler.removeCallbacks(this.bkG);
-            this.mHandler.removeCallbacks(this.bkH);
+            this.mHandler.removeCallbacks(this.bkJ);
+            this.mHandler.removeCallbacks(this.bkK);
         }
     }
 
     public void eL(int i) {
         if (i > 0) {
-            this.bkt = i;
+            this.bkw = i;
         }
     }
 
     public void eM(int i) {
         if (i > 0) {
-            this.bkx = i;
+            this.bkA = i;
         }
     }
 
     public void c(View.OnClickListener onClickListener) {
-        this.bkE = onClickListener;
+        this.bkH = onClickListener;
     }
 
     public boolean NH() {

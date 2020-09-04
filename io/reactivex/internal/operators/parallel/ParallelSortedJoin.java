@@ -16,13 +16,13 @@ import org.b.d;
 /* loaded from: classes7.dex */
 public final class ParallelSortedJoin<T> extends g<T> {
     final Comparator<? super T> comparator;
-    final a<List<T>> ooH;
+    final a<List<T>> ooZ;
 
     @Override // io.reactivex.g
     protected void a(c<? super T> cVar) {
-        SortedJoinSubscription sortedJoinSubscription = new SortedJoinSubscription(cVar, this.ooH.eff(), this.comparator);
+        SortedJoinSubscription sortedJoinSubscription = new SortedJoinSubscription(cVar, this.ooZ.efo(), this.comparator);
         cVar.onSubscribe(sortedJoinSubscription);
-        this.ooH.a(sortedJoinSubscription.subscribers);
+        this.ooZ.a(sortedJoinSubscription.subscribers);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

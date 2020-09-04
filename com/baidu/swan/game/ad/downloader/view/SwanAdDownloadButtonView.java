@@ -11,12 +11,12 @@ import android.view.View;
 import com.baidu.swan.game.ad.c;
 /* loaded from: classes19.dex */
 public class SwanAdDownloadButtonView extends View {
-    private Paint dkk;
-    private int dkl;
-    private boolean dkm;
-    private boolean dkn;
-    private int dko;
-    private State dkp;
+    private Paint dko;
+    private int dkp;
+    private boolean dkq;
+    private boolean dkr;
+    private int dks;
+    private State dkt;
     private int mBgColor;
     private int mProgress;
     private float mRadius;
@@ -35,26 +35,26 @@ public class SwanAdDownloadButtonView extends View {
 
     public SwanAdDownloadButtonView(Context context) {
         super(context);
-        this.dkk = new Paint();
+        this.dko = new Paint();
         this.mTextPaint = new Paint();
         this.mTextColor = -1;
-        this.dko = 100;
-        this.dkp = State.PREPARE;
+        this.dks = 100;
+        this.dkt = State.PREPARE;
         this.mRadius = -1.0f;
-        this.dkk.setAntiAlias(true);
+        this.dko.setAntiAlias(true);
         this.mTextPaint.setAntiAlias(true);
         this.mTextSize = getResources().getDimensionPixelOffset(c.C0481c.swanapp_ad_dimens_14dp);
         this.mBgColor = context.getResources().getColor(c.b.swanapp_ad_download_button_default_bg_color);
-        this.dkl = context.getResources().getColor(c.b.swanapp_ad_download_button_default_fg_color);
-    }
-
-    public SwanAdDownloadButtonView gq(boolean z) {
-        this.dkn = z;
-        return this;
+        this.dkp = context.getResources().getColor(c.b.swanapp_ad_download_button_default_fg_color);
     }
 
     public SwanAdDownloadButtonView gr(boolean z) {
-        this.dkm = z;
+        this.dkr = z;
+        return this;
+    }
+
+    public SwanAdDownloadButtonView gs(boolean z) {
+        this.dkq = z;
         return this;
     }
 
@@ -71,16 +71,16 @@ public class SwanAdDownloadButtonView extends View {
         if (i < 0) {
             i = 0;
         }
-        if (i > this.dko) {
-            i = this.dko;
+        if (i > this.dks) {
+            i = this.dks;
         }
         this.mProgress = i;
         if (this.mProgress == 0) {
-            this.dkp = State.PREPARE;
-        } else if (this.mProgress == this.dko) {
-            this.dkp = State.FINISH;
+            this.dkt = State.PREPARE;
+        } else if (this.mProgress == this.dks) {
+            this.dkt = State.FINISH;
         } else {
-            this.dkp = State.DOWNLOADING;
+            this.dkt = State.DOWNLOADING;
         }
     }
 
@@ -89,11 +89,11 @@ public class SwanAdDownloadButtonView extends View {
     }
 
     public int getMax() {
-        return this.dko;
+        return this.dks;
     }
 
     public void setMax(int i) {
-        this.dko = i;
+        this.dks = i;
     }
 
     public SwanAdDownloadButtonView kJ(int i) {
@@ -110,7 +110,7 @@ public class SwanAdDownloadButtonView extends View {
     public void draw(Canvas canvas) {
         super.draw(canvas);
         if (getWidth() != 0 && getHeight() != 0 && !TextUtils.isEmpty(this.mText)) {
-            if (!this.dkn) {
+            if (!this.dkr) {
                 A(canvas);
             } else {
                 B(canvas);
@@ -121,14 +121,14 @@ public class SwanAdDownloadButtonView extends View {
     private void A(Canvas canvas) {
         float f = 0.0f;
         RectF rectF = new RectF(0, 0, getWidth() + 0, getHeight() + 0);
-        this.dkk.setColor(this.mBgColor);
-        this.dkk.setStyle(Paint.Style.FILL);
+        this.dko.setColor(this.mBgColor);
+        this.dko.setStyle(Paint.Style.FILL);
         if (this.mRadius > 0.0f) {
             f = this.mRadius;
-        } else if (this.dkm) {
+        } else if (this.dkq) {
             f = rectF.height() / 2.0f;
         }
-        canvas.drawRoundRect(rectF, f, f, this.dkk);
+        canvas.drawRoundRect(rectF, f, f, this.dko);
         this.mTextPaint.setColor(this.mTextColor);
         this.mTextPaint.setTextSize(this.mTextSize);
         Paint.FontMetrics fontMetrics = this.mTextPaint.getFontMetrics();
@@ -144,40 +144,40 @@ public class SwanAdDownloadButtonView extends View {
 
     private void a(Canvas canvas, RectF rectF) {
         float f = 0.0f;
-        this.dkk.setColor(this.mBgColor);
-        this.dkk.setStyle(Paint.Style.FILL);
+        this.dko.setColor(this.mBgColor);
+        this.dko.setStyle(Paint.Style.FILL);
         if (this.mRadius > 0.0f) {
             f = this.mRadius;
-        } else if (this.dkm) {
+        } else if (this.dkq) {
             f = rectF.height() / 2.0f;
         }
-        canvas.drawRoundRect(rectF, f, f, this.dkk);
+        canvas.drawRoundRect(rectF, f, f, this.dko);
     }
 
     private void b(Canvas canvas, RectF rectF) {
         float f = 0.0f;
-        switch (this.dkp) {
+        switch (this.dkt) {
             case DOWNLOADING:
                 Paint paint = new Paint();
                 paint.setStyle(Paint.Style.FILL);
-                float f2 = this.mProgress / this.dko;
-                paint.setShader(new LinearGradient(0.0f, 0.0f, rectF.width(), 0.0f, new int[]{this.dkl, 0}, new float[]{f2, f2 + 1.0E-4f}, Shader.TileMode.CLAMP));
+                float f2 = this.mProgress / this.dks;
+                paint.setShader(new LinearGradient(0.0f, 0.0f, rectF.width(), 0.0f, new int[]{this.dkp, 0}, new float[]{f2, f2 + 1.0E-4f}, Shader.TileMode.CLAMP));
                 if (this.mRadius > 0.0f) {
                     f = this.mRadius;
-                } else if (this.dkm) {
+                } else if (this.dkq) {
                     f = rectF.height() / 2.0f;
                 }
                 canvas.drawRoundRect(rectF, f, f, paint);
                 return;
             case FINISH:
-                this.dkk.setColor(this.dkl);
-                this.dkk.setStyle(Paint.Style.FILL);
+                this.dko.setColor(this.dkp);
+                this.dko.setStyle(Paint.Style.FILL);
                 if (this.mRadius > 0.0f) {
                     f = this.mRadius;
-                } else if (this.dkm) {
+                } else if (this.dkq) {
                     f = rectF.height() / 2.0f;
                 }
-                canvas.drawRoundRect(rectF, f, f, this.dkk);
+                canvas.drawRoundRect(rectF, f, f, this.dko);
                 return;
             default:
                 return;

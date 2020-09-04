@@ -26,13 +26,13 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes17.dex */
 public class b {
-    private List<com.baidu.tieba.newinterest.data.b> ksA;
-    private InterfaceC0755b ksy;
-    private a ksz;
+    private InterfaceC0755b ksF;
+    private a ksG;
+    private List<com.baidu.tieba.newinterest.data.b> ksH;
     private final BdUniqueId mBdUniqueId;
     private int mPageNum;
     private Gson gson = new Gson();
-    private com.baidu.adp.framework.listener.a ksB = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GUIDE_INTERESTED_FORUM, 309654) { // from class: com.baidu.tieba.newinterest.c.b.1
+    private com.baidu.adp.framework.listener.a ksI = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GUIDE_INTERESTED_FORUM, 309654) { // from class: com.baidu.tieba.newinterest.c.b.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null) {
@@ -44,22 +44,22 @@ public class b {
                         cVar = ((InterestedForumSocketResMsg) responsedMessage).getPageData();
                     }
                     if (responsedMessage.getError() != 0) {
-                        if (b.this.ksy != null) {
-                            b.this.ksy.onError(responsedMessage.getError(), responsedMessage.getErrorString());
+                        if (b.this.ksF != null) {
+                            b.this.ksF.onError(responsedMessage.getError(), responsedMessage.getErrorString());
                         }
-                    } else if (cVar == null || y.isEmpty(cVar.ksi)) {
-                        if (b.this.ksy != null) {
-                            b.this.ksy.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
+                    } else if (cVar == null || y.isEmpty(cVar.ksp)) {
+                        if (b.this.ksF != null) {
+                            b.this.ksF.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
                         }
-                    } else if (cVar != null && b.this.ksy != null) {
+                    } else if (cVar != null && b.this.ksF != null) {
                         b.c(b.this);
-                        b.this.ksy.a(cVar);
+                        b.this.ksF.a(cVar);
                     }
                 }
             }
         }
     };
-    private HttpMessageListener ksC = new HttpMessageListener(CmdConfigHttp.CMD_GUIDE_INTEREST_COMMIT) { // from class: com.baidu.tieba.newinterest.c.b.2
+    private HttpMessageListener ksJ = new HttpMessageListener(CmdConfigHttp.CMD_GUIDE_INTEREST_COMMIT) { // from class: com.baidu.tieba.newinterest.c.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -67,11 +67,11 @@ public class b {
                 if ((httpResponsedMessage.getOrginalMessage() == null || httpResponsedMessage.getOrginalMessage().getTag() == b.this.mBdUniqueId) && (httpResponsedMessage instanceof InterestCommitHttpResMsg)) {
                     InterestCommitHttpResMsg interestCommitHttpResMsg = (InterestCommitHttpResMsg) httpResponsedMessage;
                     if (interestCommitHttpResMsg.hasError() || interestCommitHttpResMsg.getErrno() != 0) {
-                        if (b.this.ksy != null) {
-                            b.this.ksy.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                        if (b.this.ksF != null) {
+                            b.this.ksF.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                         }
-                    } else if (b.this.ksz != null) {
-                        b.this.ksz.bHO();
+                    } else if (b.this.ksG != null) {
+                        b.this.ksG.bHP();
                     }
                 }
             }
@@ -80,7 +80,7 @@ public class b {
 
     /* loaded from: classes17.dex */
     public interface a {
-        void bHO();
+        void bHP();
     }
 
     /* renamed from: com.baidu.tieba.newinterest.c.b$b  reason: collision with other inner class name */
@@ -99,13 +99,13 @@ public class b {
 
     public b(BdUniqueId bdUniqueId) {
         this.mBdUniqueId = bdUniqueId;
-        this.ksB.setTag(this.mBdUniqueId);
-        this.ksC.setTag(this.mBdUniqueId);
-        MessageManager.getInstance().registerListener(this.ksB);
-        MessageManager.getInstance().registerListener(this.ksC);
+        this.ksI.setTag(this.mBdUniqueId);
+        this.ksJ.setTag(this.mBdUniqueId);
+        MessageManager.getInstance().registerListener(this.ksI);
+        MessageManager.getInstance().registerListener(this.ksJ);
+        cTU();
         cTT();
         cTS();
-        cTR();
     }
 
     private List<Integer> ev(List<com.baidu.tieba.newinterest.data.b> list) {
@@ -118,7 +118,7 @@ public class b {
         return arrayList;
     }
 
-    private void cTR() {
+    private void cTS() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GUIDE_INTEREST_COMMIT, TbConfig.SERVER_ADDRESS + TbConfig.GUIDE_INTEREST_COMMIT_URL);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
         tbHttpMessageTask.setResponsedClass(InterestCommitHttpResMsg.class);
@@ -126,7 +126,7 @@ public class b {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void cTS() {
+    private void cTT() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GUIDE_INTERESTED_FORUM, com.baidu.tieba.tbadkCore.a.a.bH(TbConfig.GUIDE_INTERESTED_FORUM_URL, 309654));
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
         tbHttpMessageTask.setResponsedClass(InterestedForumHttpResMsg.class);
@@ -134,7 +134,7 @@ public class b {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void cTT() {
+    private void cTU() {
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(309654);
         bVar.setResponsedClass(InterestedForumSocketResMsg.class);
         bVar.setNeedAck(true);
@@ -155,7 +155,7 @@ public class b {
             HashMap hashMap2 = new HashMap();
             for (d dVar : aVar.forum_info) {
                 if (dVar.selected) {
-                    hashMap2.put(dVar.ksj.forum_id, dVar.ksj.forum_name);
+                    hashMap2.put(dVar.ksq.forum_id, dVar.ksq.forum_name);
                 }
             }
             hashMap.put(aVar.class_name, hashMap2);
@@ -164,26 +164,26 @@ public class b {
     }
 
     public void a(InterfaceC0755b interfaceC0755b) {
-        this.ksy = interfaceC0755b;
+        this.ksF = interfaceC0755b;
     }
 
     public void a(a aVar) {
-        this.ksz = aVar;
+        this.ksG = aVar;
     }
 
     public void ey(List<com.baidu.tieba.newinterest.data.b> list) {
-        this.ksA = list;
+        this.ksH = list;
         this.mPageNum = 1;
     }
 
-    public void cTU() {
+    public void cTV() {
         InterestedForumReqMsg interestedForumReqMsg = new InterestedForumReqMsg();
-        interestedForumReqMsg.classidList = ev(this.ksA.subList((this.mPageNum - 1) * 3, Math.min(this.ksA.size(), this.mPageNum * 3)));
+        interestedForumReqMsg.classidList = ev(this.ksH.subList((this.mPageNum - 1) * 3, Math.min(this.ksH.size(), this.mPageNum * 3)));
         interestedForumReqMsg.setTag(this.mBdUniqueId);
         MessageManager.getInstance().sendMessage(interestedForumReqMsg);
     }
 
     public boolean hasMore() {
-        return (this.mPageNum + (-1)) * 3 < this.ksA.size();
+        return (this.mPageNum + (-1)) * 3 < this.ksH.size();
     }
 }

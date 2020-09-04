@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 /* loaded from: classes8.dex */
 public class c {
-    public static boolean vr(String str) {
+    public static boolean vs(String str) {
         return TextUtils.equals(PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getString("KEY_DEBUG_SWAN_GAME_CORE_MODE", "none"), str);
     }
 }

@@ -1,28 +1,28 @@
 package com.baidu.tieba.im.push;
 
 import com.baidu.adp.framework.d.e;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b {
-    private static b jxI = null;
-    private e jxJ;
+    private static b jxO = null;
+    private e jxP;
 
     private b() {
-        this.jxJ = null;
-        this.jxJ = new e(1000, 1000, 1000);
+        this.jxP = null;
+        this.jxP = new e(1000, 1000, 1000);
     }
 
-    public static b cHI() {
-        if (jxI == null) {
+    public static b cHJ() {
+        if (jxO == null) {
             synchronized (b.class) {
-                if (jxI == null) {
-                    jxI = new b();
+                if (jxO == null) {
+                    jxO = new b();
                 }
             }
         }
-        return jxI;
+        return jxO;
     }
 
     public e lB() {
-        return this.jxJ;
+        return this.jxP;
     }
 }

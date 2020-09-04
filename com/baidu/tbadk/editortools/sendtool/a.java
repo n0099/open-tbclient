@@ -6,28 +6,28 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.editortools.RawLayout;
 import com.baidu.tbadk.editortools.m;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a extends m {
     public a(Context context) {
         super(context, (String) null, 4);
-        this.eLs = false;
-        this.eLr = 2;
-        this.eLt = new int[]{4, 12, 10, 13, 11, 28, 29, 39, 9};
-        this.eKx = new SendView(context);
+        this.eLw = false;
+        this.eLv = 2;
+        this.eLx = new int[]{4, 12, 10, 13, 11, 28, 29, 39, 9};
+        this.eKB = new SendView(context);
         RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 80;
-        ((View) this.eKx).setLayoutParams(layoutParams);
+        ((View) this.eKB).setLayoutParams(layoutParams);
     }
 
     public void setText(int i) {
-        if (this.eKx != null && (this.eKx instanceof TextView)) {
-            ((TextView) this.eKx).setText(i);
+        if (this.eKB != null && (this.eKB instanceof TextView)) {
+            ((TextView) this.eKB).setText(i);
         }
     }
 
     public void setTextColor(@ColorRes int i) {
-        if (this.eKx != null) {
-            ((SendView) this.eKx).setTextColor(i);
+        if (this.eKB != null) {
+            ((SendView) this.eKB).setTextColor(i);
         }
     }
 }

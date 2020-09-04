@@ -24,7 +24,9 @@ import com.baidu.adp.lib.util.l;
 public class SwipeBackLayout extends FrameLayout {
     private boolean WN;
     private boolean WO;
-    private b WP;
+    private boolean WP;
+    private boolean WQ;
+    private b WR;
     private int mActivePointerId;
     private Activity mActivity;
     private int mAlphaBgColor;
@@ -78,6 +80,8 @@ public class SwipeBackLayout extends FrameLayout {
         this.mColorRect = new Rect();
         this.WN = false;
         this.WO = false;
+        this.WP = false;
+        this.WQ = false;
         this.mIsSupportNight = true;
         init(context);
     }
@@ -94,6 +98,8 @@ public class SwipeBackLayout extends FrameLayout {
         this.mColorRect = new Rect();
         this.WN = false;
         this.WO = false;
+        this.WP = false;
+        this.WQ = false;
         this.mIsSupportNight = true;
         init(context);
     }
@@ -110,6 +116,8 @@ public class SwipeBackLayout extends FrameLayout {
         this.mColorRect = new Rect();
         this.WN = false;
         this.WO = false;
+        this.WP = false;
+        this.WQ = false;
         this.mIsSupportNight = true;
         init(context);
     }
@@ -216,10 +224,16 @@ public class SwipeBackLayout extends FrameLayout {
 
     private boolean y(MotionEvent motionEvent) {
         int action = motionEvent.getAction() & 255;
-        if ((action == 1 || action == 3) && this.WN) {
-            this.WN = false;
-            this.mIsSwipeBackEnabled = true;
-            return true;
+        if (action == 1 || action == 3) {
+            if (this.WN) {
+                this.WN = false;
+                this.mIsSwipeBackEnabled = true;
+                return true;
+            } else if (this.WP) {
+                this.WP = false;
+                this.mIsSwipeBackEnabled = false;
+                return true;
+            }
         }
         return false;
     }
@@ -293,8 +307,8 @@ public class SwipeBackLayout extends FrameLayout {
                         scrollOrigin();
                         this.mIsFinish = false;
                     }
-                    if (this.WP != null) {
-                        this.WP.onSlidingEnd(this.mIsFinish);
+                    if (this.WR != null) {
+                        this.WR.onSlidingEnd(this.mIsFinish);
                         return true;
                     }
                     return true;
@@ -306,12 +320,22 @@ public class SwipeBackLayout extends FrameLayout {
                     scrollOrigin();
                     this.mIsFinish = false;
                 }
-                if (this.WP != null) {
-                    this.WP.onSlidingEnd(this.mIsFinish);
+                if (this.WR != null) {
+                    this.WR.onSlidingEnd(this.mIsFinish);
                     break;
                 }
                 break;
             case 2:
+                if (this.WQ) {
+                    completeScroll();
+                    int actionIndex2 = motionEvent.getActionIndex();
+                    this.mActivePointerId = motionEvent.getPointerId(actionIndex2);
+                    this.mLastMotionX = (motionEvent.getX(actionIndex2) - 1.0f) - this.mMoveDistance;
+                    this.mLastMotionY = motionEvent.getY(actionIndex2);
+                    this.mDownX = motionEvent.getX(actionIndex2);
+                    this.mIsSilding = false;
+                    this.WQ = false;
+                }
                 if (!this.mIsSilding) {
                     determineDrag(motionEvent);
                 }
@@ -350,8 +374,8 @@ public class SwipeBackLayout extends FrameLayout {
             float abs2 = Math.abs(y - this.mLastMotionY);
             if (f > 0.0f && abs > this.mMoveDistance && abs > abs2) {
                 this.mIsSilding = true;
-                if (this.WP != null) {
-                    this.WP.onSlidingStart();
+                if (this.WR != null) {
+                    this.WR.onSlidingStart();
                 }
                 this.mLastMotionX = x;
                 this.mLastMotionY = y;
@@ -465,6 +489,20 @@ public class SwipeBackLayout extends FrameLayout {
         this.mIsSwipeBackEnabled = z;
     }
 
+    public void swipeBackControl(double d) {
+        if (d == 1.0d) {
+            if (!this.mIsSwipeBackEnabled) {
+                this.WP = true;
+            }
+            this.WQ = true;
+            this.mIsSwipeBackEnabled = true;
+            this.mIsSilding = true;
+        } else if (d == 2.0d) {
+            this.mIsFinish = true;
+            scrollRight();
+        }
+    }
+
     public void setBgTransparent() {
         this.WO = true;
         if (this.mRealContentView != null) {
@@ -492,6 +530,6 @@ public class SwipeBackLayout extends FrameLayout {
     }
 
     public void setOnSlidingStateChangeListener(b bVar) {
-        this.WP = bVar;
+        this.WR = bVar;
     }
 }

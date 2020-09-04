@@ -1,9 +1,11 @@
 package com.baidu.tieba.k;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface h {
-    void ME(String str);
-
     void MF(String str);
+
+    void MG(String str);
+
+    void bm(int i, String str);
 
     void bn(int i, String str);
 
@@ -11,15 +13,13 @@ public interface h {
 
     void bp(int i, String str);
 
-    void bq(int i, String str);
-
-    void cRc();
-
     void cRd();
 
     void cRe();
 
     void cRf();
+
+    void cRg();
 
     void l(int i, int i2, String str);
 }

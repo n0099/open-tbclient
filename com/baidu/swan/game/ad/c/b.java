@@ -4,10 +4,10 @@ public class b {
     public String dlA;
     public String dlB;
     public String dlC;
-    public String dln;
-    public String dlo;
-    public String dlp;
-    public String dlq;
+    public String dlD;
+    public String dlE;
+    public String dlF;
+    public String dlG;
     public String dlr;
     public String dls;
     public String dlt;

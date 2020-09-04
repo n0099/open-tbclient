@@ -4,40 +4,40 @@ import com.baidu.swan.apps.media.chooser.model.MediaModel;
 import java.util.ArrayList;
 /* loaded from: classes8.dex */
 public class e {
-    private static ArrayList<MediaModel> cAW;
+    private static ArrayList<MediaModel> cBa;
 
     public static ArrayList<MediaModel> ath() {
-        return cAW;
+        return cBa;
     }
 
     public static int getSelectedCount() {
-        if (cAW == null) {
+        if (cBa == null) {
             return 0;
         }
-        return cAW.size();
+        return cBa.size();
     }
 
     public static String ati() {
-        if (cAW == null || cAW.size() == 0 || cAW.get(0) == null) {
+        if (cBa == null || cBa.size() == 0 || cBa.get(0) == null) {
             return null;
         }
-        return cAW.get(0).getType();
+        return cBa.get(0).getType();
     }
 
     public static boolean c(MediaModel mediaModel) {
-        if (cAW == null || cAW.size() == 0) {
+        if (cBa == null || cBa.size() == 0) {
             return false;
         }
-        return cAW.contains(mediaModel);
+        return cBa.contains(mediaModel);
     }
 
     public static int d(MediaModel mediaModel) {
-        if (mediaModel == null || cAW == null) {
+        if (mediaModel == null || cBa == null) {
             return -1;
         }
-        int size = cAW.size();
+        int size = cBa.size();
         for (int i = 0; i < size; i++) {
-            if (mediaModel.equals(cAW.get(i))) {
+            if (mediaModel.equals(cBa.get(i))) {
                 return i;
             }
         }
@@ -45,31 +45,31 @@ public class e {
     }
 
     public static void clear() {
-        if (cAW != null) {
-            cAW.clear();
-            cAW = null;
+        if (cBa != null) {
+            cBa.clear();
+            cBa = null;
         }
     }
 
     public static void e(MediaModel mediaModel) {
         if (mediaModel != null) {
-            if (cAW == null) {
-                cAW = new ArrayList<>();
+            if (cBa == null) {
+                cBa = new ArrayList<>();
             }
-            cAW.add(mediaModel);
+            cBa.add(mediaModel);
         }
     }
 
     public static void f(MediaModel mediaModel) {
-        if (cAW != null) {
-            cAW.remove(mediaModel);
+        if (cBa != null) {
+            cBa.remove(mediaModel);
         }
     }
 
     public static boolean g(MediaModel mediaModel) {
-        if (cAW == null) {
+        if (cBa == null) {
             return false;
         }
-        return cAW.contains(mediaModel);
+        return cBa.contains(mediaModel);
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.coreExtra.message;
 
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ResponsedPingMessage extends TbSocketReponsedMessage {
     public ResponsedPingMessage() {
         super(1003);

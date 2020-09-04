@@ -14,7 +14,7 @@ public class k {
     private double pk;
 
     /* renamed from: pl  reason: collision with root package name */
-    private double f962pl;
+    private double f961pl;
     private double pm;
 
     public void a(double d) {
@@ -72,14 +72,14 @@ public class k {
     public void e(double d) {
         if (this.pf < this.pa) {
             this.pf++;
-            this.f962pl = (((this.pf - 1) * this.f962pl) + d) / this.pf;
+            this.f961pl = (((this.pf - 1) * this.f961pl) + d) / this.pf;
             return;
         }
         if (this.pf == this.pa) {
             this.pf++;
         }
         this.pf = 0;
-        this.f962pl = 0.0d;
+        this.f961pl = 0.0d;
     }
 
     public void eA() {

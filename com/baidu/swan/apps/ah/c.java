@@ -34,18 +34,18 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class c {
-    public static long cUf;
-    private static ContentObserver cUg;
-    private static PackageManager cUh;
-    private static boolean cUi;
-    private static Runnable cUj;
+    public static long cUj;
+    private static ContentObserver cUk;
+    private static PackageManager cUl;
+    private static boolean cUm;
+    private static Runnable cUn;
     private static ContentResolver mContentResolver;
     private static Uri mImageUri;
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static long mLastTime = System.currentTimeMillis() - 10000;
     private static List<com.baidu.swan.apps.ah.a> mCallbacks = new ArrayList();
     private static int mCount = 0;
-    private static String cUk = null;
+    private static String cUo = null;
 
     static /* synthetic */ int aBi() {
         int i = mCount;
@@ -58,10 +58,10 @@ public class c {
     }
 
     public static void cq(Context context) {
-        cUh = context.getPackageManager();
+        cUl = context.getPackageManager();
         final Handler handler = new Handler(Looper.getMainLooper());
         mContentResolver = context.getContentResolver();
-        cUg = new ContentObserver(handler) { // from class: com.baidu.swan.apps.ah.c.1
+        cUk = new ContentObserver(handler) { // from class: com.baidu.swan.apps.ah.c.1
             @Override // android.database.ContentObserver
             public void onChange(boolean z, final Uri uri) {
                 super.onChange(z, uri);
@@ -77,7 +77,7 @@ public class c {
             }
         };
         if (cr(context)) {
-            mContentResolver.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, cUg);
+            mContentResolver.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, cUk);
         }
     }
 
@@ -87,10 +87,10 @@ public class c {
     public static void a(final Handler handler, Uri uri) {
         Cursor cursor;
         Closeable closeable = null;
-        if (!uri.toString().matches(a.cUn + ".*")) {
+        if (!uri.toString().matches(a.cUr + ".*")) {
             return;
         }
-        if (aBf() && cUi) {
+        if (aBf() && cUm) {
             mLastTime = System.currentTimeMillis();
             return;
         }
@@ -99,7 +99,7 @@ public class c {
         mLastTime = currentTimeMillis;
         try {
             try {
-                cursor = mContentResolver.query(uri, a.cUo, null, null, "date_added DESC");
+                cursor = mContentResolver.query(uri, a.cUs, null, null, "date_added DESC");
                 if (cursor != null) {
                     try {
                         if (cursor.moveToFirst()) {
@@ -120,11 +120,11 @@ public class c {
                                 d.closeSafely(cursor);
                                 return;
                             }
-                            cUk = mImageUri.toString();
-                            if (a.qX(string) && a.n(currentTimeMillis2, j)) {
-                                cUi = true;
+                            cUo = mImageUri.toString();
+                            if (a.qY(string) && a.n(currentTimeMillis2, j)) {
+                                cUm = true;
                                 final b bVar = new b(string, Long.valueOf(j), mImageUri);
-                                cUj = new Runnable() { // from class: com.baidu.swan.apps.ah.c.2
+                                cUn = new Runnable() { // from class: com.baidu.swan.apps.ah.c.2
                                     @Override // java.lang.Runnable
                                     public void run() {
                                         c.aBi();
@@ -142,17 +142,17 @@ public class c {
                                             }
                                             return;
                                         }
-                                        handler.postDelayed(c.cUj, 100L);
+                                        handler.postDelayed(c.cUn, 100L);
                                     }
                                 };
-                                handler.post(cUj);
+                                handler.post(cUn);
                             } else {
-                                cUi = false;
+                                cUm = false;
                             }
                         }
                     } catch (RuntimeException e) {
-                        if (cUh != null) {
-                            List<ProviderInfo> queryContentProviders = cUh.queryContentProviders(null, 0, 131072);
+                        if (cUl != null) {
+                            List<ProviderInfo> queryContentProviders = cUl.queryContentProviders(null, 0, 131072);
                             HashMap hashMap = new HashMap();
                             hashMap.put("from", "SystemScreenshot");
                             hashMap.put("page", "SystemScreenshot");
@@ -180,7 +180,7 @@ public class c {
     }
 
     public static boolean aBg() {
-        return g.ash().isForeground() && System.currentTimeMillis() - cUf > 2000;
+        return g.ash().isForeground() && System.currentTimeMillis() - cUj > 2000;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -225,7 +225,7 @@ public class c {
     }
 
     private static boolean aBh() {
-        return mImageUri == null || TextUtils.equals(cUk, mImageUri.toString());
+        return mImageUri == null || TextUtils.equals(cUo, mImageUri.toString());
     }
 
     private static boolean g(Uri uri) {
@@ -282,32 +282,32 @@ public class c {
 
     /* loaded from: classes8.dex */
     public static class b {
-        public long cUp;
-        public Uri cUq;
+        public long cUt;
+        public Uri cUu;
         public String mImagePath;
 
         private b(String str, Long l, Uri uri) {
             this.mImagePath = str;
-            this.cUp = l.longValue();
-            this.cUq = uri;
+            this.cUt = l.longValue();
+            this.cUu = uri;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes8.dex */
     public static class a {
-        private static String cUn;
-        private static String[] cUo;
+        private static String cUr;
+        private static String[] cUs;
 
         static {
-            cUn = null;
-            cUo = null;
-            cUn = MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString();
-            cUo = new String[]{"_display_name", "_data", "date_added", IMConstants.MSG_ROW_ID};
+            cUr = null;
+            cUs = null;
+            cUr = MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString();
+            cUs = new String[]{"_display_name", "_data", "date_added", IMConstants.MSG_ROW_ID};
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public static boolean qX(String str) {
+        public static boolean qY(String str) {
             if (str == null) {
                 return false;
             }

@@ -9,39 +9,39 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class e {
-    public JSONObject cVf;
-    public boolean cVg;
-    public a cVn;
-    public JSONObject cVo;
-    public String cVp;
-    public String cVq;
-    public String cVr;
-    public List<e> cVs;
+    public JSONObject cVj;
+    public boolean cVk;
+    public a cVr;
+    public JSONObject cVs;
+    public String cVt;
+    public String cVu;
+    public String cVv;
+    public List<e> cVw;
     public boolean forbidden;
     public final String id;
     public String grade = "";
     public String name = "";
-    public String cVh = "";
-    public String description = "";
-    public List<String> cVi = new ArrayList();
-    public final List<String> cVj = new ArrayList();
-    public int cVk = -1;
-    private String type = "";
     public String cVl = "";
-    public String cVm = "";
+    public String description = "";
+    public List<String> cVm = new ArrayList();
+    public final List<String> cVn = new ArrayList();
+    public int cVo = -1;
+    private String type = "";
+    public String cVp = "";
+    public String cVq = "";
 
     /* loaded from: classes8.dex */
     public static class a {
-        public String cVt;
-        public String cVu;
-        public String cVv;
-        public String cVw;
-        public JSONArray cVx;
+        public String cVA;
+        public JSONArray cVB;
+        public String cVx;
+        public String cVy;
+        public String cVz;
         public String detailUrl;
     }
 
     public void at(List<e> list) {
-        this.cVs = list;
+        this.cVw = list;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -50,11 +50,11 @@ public class e {
     }
 
     public boolean aBE() {
-        return this.cVk > 0;
+        return this.cVo > 0;
     }
 
     public boolean aBF() {
-        return this.cVk != 0;
+        return this.cVo != 0;
     }
 
     public boolean aBG() {
@@ -74,53 +74,53 @@ public class e {
 
     public static e i(String str, JSONObject jSONObject) {
         e eVar = new e(str);
-        eVar.cVf = jSONObject;
-        eVar.cVg = jSONObject.optBoolean("permit", false);
+        eVar.cVj = jSONObject;
+        eVar.cVk = jSONObject.optBoolean("permit", false);
         eVar.forbidden = jSONObject.optBoolean("forbidden", true);
         eVar.grade = jSONObject.optString("grade");
         eVar.type = jSONObject.optString("type", "");
         eVar.name = jSONObject.optString("name", "");
-        eVar.cVh = jSONObject.optString("short_name", "");
+        eVar.cVl = jSONObject.optString("short_name", "");
         eVar.description = jSONObject.optString("description", "");
-        eVar.cVk = jSONObject.optInt("tip_status", -1);
-        eVar.cVl = jSONObject.optString("explain", "");
-        eVar.cVm = jSONObject.optString("sub_explain", "");
+        eVar.cVo = jSONObject.optInt("tip_status", -1);
+        eVar.cVp = jSONObject.optString("explain", "");
+        eVar.cVq = jSONObject.optString("sub_explain", "");
         JSONArray optJSONArray = jSONObject.optJSONArray("ext");
         if (optJSONArray != null) {
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
-                eVar.cVj.add(optJSONArray.optString(i));
+                eVar.cVn.add(optJSONArray.optString(i));
             }
         }
         JSONArray optJSONArray2 = jSONObject.optJSONArray(Message.RULE);
         if (optJSONArray2 != null) {
             int length2 = optJSONArray2.length();
             for (int i2 = 0; i2 < length2; i2++) {
-                eVar.cVi.add(optJSONArray2.optString(i2));
+                eVar.cVm.add(optJSONArray2.optString(i2));
             }
         }
-        eVar.cVo = jSONObject.optJSONObject("other");
-        eVar.cVp = jSONObject.optString("plugin_app_name");
-        eVar.cVq = jSONObject.optString("plugin_icon_url");
+        eVar.cVs = jSONObject.optJSONObject("other");
+        eVar.cVt = jSONObject.optString("plugin_app_name");
+        eVar.cVu = jSONObject.optString("plugin_icon_url");
         return eVar;
     }
 
     public void aBH() {
-        if (this.cVo != null && this.cVo.keys() != null && this.cVo.keys().hasNext()) {
-            this.cVn = new a();
-            this.cVn.cVt = this.cVo.optString("detail_text");
-            this.cVn.detailUrl = this.cVo.optString("detail_url");
-            this.cVn.cVu = this.cVo.optString("text_color");
-            this.cVn.cVv = this.cVo.optString("keyword");
-            this.cVn.cVw = this.cVo.optString("key_color");
-            JSONObject optJSONObject = this.cVo.optJSONObject("developer_agreements");
+        if (this.cVs != null && this.cVs.keys() != null && this.cVs.keys().hasNext()) {
+            this.cVr = new a();
+            this.cVr.cVx = this.cVs.optString("detail_text");
+            this.cVr.detailUrl = this.cVs.optString("detail_url");
+            this.cVr.cVy = this.cVs.optString("text_color");
+            this.cVr.cVz = this.cVs.optString("keyword");
+            this.cVr.cVA = this.cVs.optString("key_color");
+            JSONObject optJSONObject = this.cVs.optJSONObject("developer_agreements");
             if (optJSONObject != null) {
-                this.cVn.cVx = optJSONObject.optJSONArray("details");
+                this.cVr.cVB = optJSONObject.optJSONArray("details");
             }
         }
     }
 
     public String toString() {
-        return String.format(Locale.getDefault(), "Scope(%s) tipStatus=%d", this.id, Integer.valueOf(this.cVk));
+        return String.format(Locale.getDefault(), "Scope(%s) tipStatus=%d", this.id, Integer.valueOf(this.cVo));
     }
 }

@@ -16,7 +16,7 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 /* loaded from: classes7.dex */
 public class d extends HttpMessage {
-    private AlaLiveExceptionInfo beC;
+    private AlaLiveExceptionInfo beE;
 
     public d() {
         super(1021049);
@@ -24,40 +24,40 @@ public class d extends HttpMessage {
 
     public void a(AlaLiveExceptionInfo alaLiveExceptionInfo) {
         long j;
-        this.beC = alaLiveExceptionInfo;
-        if (this.beC != null) {
-            addParam("appState", this.beC.appState);
-            addParam("connect", this.beC.connect ? 1 : 0);
-            addParam("dropFrame", this.beC.dropFrame);
-            addParam("live_id", this.beC.liveID);
-            addParam("lostRate", this.beC.lostRate);
-            addParam("ls", this.beC.liveType);
-            addParam("media_status", this.beC.mediaStatus);
-            addParam("net_speed", this.beC.netSpped);
-            addParam(HttpConstants.NETWORK_TYPE, this.beC.networkType);
-            addParam("node_ip", this.beC.nodeIP);
-            addParam("phone", this.beC.phone ? 1 : 0);
-            addParam("session_line", this.beC.sessionChannel);
-            addParam("status", this.beC.status);
-            addParam("stream_url", this.beC.streamUrl);
-            addParam("video_level", this.beC.videoLevel);
-            addParam("fps_min", this.beC.fpsMin);
-            addParam("fps_max", this.beC.fpsMax);
-            addParam("fps_avg", this.beC.fpsAvg);
-            addParam("failure_audio", this.beC.failureAudio);
-            addParam("failure_video", this.beC.failureVideo);
-            addParam("play_fail", this.beC.playFail);
-            addParam("lag_network_num", this.beC.lagNetworkNum);
-            addParam("lag_sync_num", this.beC.lagSyncNum);
-            addParam("lag_n_min", this.beC.lagnmin);
-            addParam("lag_n_max", this.beC.lagnmax);
-            addParam("lag_n_total", this.beC.lagntotal);
-            addParam("lag_s_min", this.beC.lagsmin);
-            addParam("lag_s_max", this.beC.lagsmax);
-            addParam("lag_s_total", this.beC.lagstotal);
-            addParam("connect_count", this.beC.connectCount);
-            addParam(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY, this.beC.eventType);
-            addParam("first_open", this.beC.firstOpenTime);
+        this.beE = alaLiveExceptionInfo;
+        if (this.beE != null) {
+            addParam("appState", this.beE.appState);
+            addParam("connect", this.beE.connect ? 1 : 0);
+            addParam("dropFrame", this.beE.dropFrame);
+            addParam("live_id", this.beE.liveID);
+            addParam("lostRate", this.beE.lostRate);
+            addParam("ls", this.beE.liveType);
+            addParam("media_status", this.beE.mediaStatus);
+            addParam("net_speed", this.beE.netSpped);
+            addParam(HttpConstants.NETWORK_TYPE, this.beE.networkType);
+            addParam("node_ip", this.beE.nodeIP);
+            addParam("phone", this.beE.phone ? 1 : 0);
+            addParam("session_line", this.beE.sessionChannel);
+            addParam("status", this.beE.status);
+            addParam("stream_url", this.beE.streamUrl);
+            addParam("video_level", this.beE.videoLevel);
+            addParam("fps_min", this.beE.fpsMin);
+            addParam("fps_max", this.beE.fpsMax);
+            addParam("fps_avg", this.beE.fpsAvg);
+            addParam("failure_audio", this.beE.failureAudio);
+            addParam("failure_video", this.beE.failureVideo);
+            addParam("play_fail", this.beE.playFail);
+            addParam("lag_network_num", this.beE.lagNetworkNum);
+            addParam("lag_sync_num", this.beE.lagSyncNum);
+            addParam("lag_n_min", this.beE.lagnmin);
+            addParam("lag_n_max", this.beE.lagnmax);
+            addParam("lag_n_total", this.beE.lagntotal);
+            addParam("lag_s_min", this.beE.lagsmin);
+            addParam("lag_s_max", this.beE.lagsmax);
+            addParam("lag_s_total", this.beE.lagstotal);
+            addParam("connect_count", this.beE.connectCount);
+            addParam(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY, this.beE.eventType);
+            addParam("first_open", this.beE.firstOpenTime);
             addParam("im_sdk_version", BIMManager.getVersion());
             addParam("im_sdk_connet", LoginManager.getInstance(TbadkCoreApplication.getInst().getContext()).isIMLogined() + "");
             if (IMConfigInternal.getInstance().getSDKVersionValue(TbadkCoreApplication.getInst().getContext()) >= 5850036) {

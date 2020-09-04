@@ -38,23 +38,23 @@ public class b extends AbsDelegateAdapter<c, a> {
                 string = this.mContext.getString(a.i.recommend_live_recommend);
                 break;
         }
-        aVar.lKM.setText(string);
+        aVar.lKZ.setText(string);
         int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds16);
         if (i == 0) {
-            aVar.lKM.setPadding(0, this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds20), 0, dimensionPixelSize);
+            aVar.lKZ.setPadding(0, this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds20), 0, dimensionPixelSize);
         } else {
-            aVar.lKM.setPadding(0, this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds40), 0, dimensionPixelSize);
+            aVar.lKZ.setPadding(0, this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds40), 0, dimensionPixelSize);
         }
         return view;
     }
 
     /* loaded from: classes7.dex */
     public static class a extends TypeAdapter.ViewHolder {
-        private TextView lKM;
+        private TextView lKZ;
 
         private a(View view) {
             super(view);
-            this.lKM = (TextView) view.findViewById(a.g.ala_recommend_live_type);
+            this.lKZ = (TextView) view.findViewById(a.g.ala_recommend_live_type);
         }
     }
 }

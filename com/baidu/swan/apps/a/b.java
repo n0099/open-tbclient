@@ -14,18 +14,18 @@ import okhttp3.Response;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class b extends f {
-    private final com.baidu.swan.apps.ap.d.c bRU;
-    private String bRV;
-    private boolean bRW;
+    private final com.baidu.swan.apps.ap.d.c bRY;
+    private String bRZ;
+    private boolean bSa;
 
     public b(e eVar) {
         super(eVar);
-        this.bRU = new com.baidu.swan.apps.ap.d.c();
-        this.bRW = false;
+        this.bRY = new com.baidu.swan.apps.ap.d.c();
+        this.bSa = false;
     }
 
     private void a(a aVar) {
-        this.bRU.b(aVar);
+        this.bRY.b(aVar);
     }
 
     public void a(final Activity activity, final Bundle bundle, com.baidu.swan.apps.a.a aVar) {
@@ -49,19 +49,19 @@ public class b extends f {
 
     @NonNull
     public String Yn() {
-        if (this.bRW) {
-            return TextUtils.isEmpty(this.bRV) ? "" : this.bRV;
+        if (this.bSa) {
+            return TextUtils.isEmpty(this.bRZ) ? "" : this.bRZ;
         }
         return getUid(AppRuntime.getAppContext());
     }
 
     public void setUid(String str) {
-        this.bRV = str;
-        this.bRW = true;
+        this.bRZ = str;
+        this.bSa = true;
     }
 
     public synchronized void clear() {
-        this.bRU.clear();
+        this.bRY.clear();
     }
 
     public static void a(String str, final e.a aVar) {
@@ -82,14 +82,14 @@ public class b extends f {
             public void onSuccess(JSONObject jSONObject, int i) {
                 if (jSONObject == null) {
                     com.baidu.swan.apps.console.c.e("SwanAppAccount", "Response is null");
-                    e.a.this.dv(false);
+                    e.a.this.dw(false);
                     return;
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 if (optJSONObject != null && optJSONObject.optBoolean("relate")) {
-                    e.a.this.dv(true);
+                    e.a.this.dw(true);
                 } else {
-                    e.a.this.dv(false);
+                    e.a.this.dw(false);
                 }
             }
 
@@ -103,12 +103,12 @@ public class b extends f {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes8.dex */
     public abstract class a extends com.baidu.swan.apps.ap.d.a implements com.baidu.swan.apps.a.a {
-        private final com.baidu.swan.apps.a.a bSa;
+        private final com.baidu.swan.apps.a.a bSe;
 
         protected abstract void a(com.baidu.swan.apps.a.a aVar);
 
         private a(com.baidu.swan.apps.a.a aVar) {
-            this.bSa = aVar;
+            this.bSe = aVar;
         }
 
         @Override // java.lang.Runnable
@@ -118,8 +118,8 @@ public class b extends f {
 
         @Override // com.baidu.swan.apps.a.a
         public void onResult(int i) {
-            if (this.bSa != null) {
-                this.bSa.onResult(i);
+            if (this.bSe != null) {
+                this.bSe.onResult(i);
             }
             finish();
         }

@@ -33,8 +33,8 @@ public class ShareEntity implements Parcelable {
             shareEntity.taskCompleteId = parcel.readString();
             shareEntity.diskPicOperate = parcel.readBundle();
             shareEntity.canShareBySmartApp = parcel.readByte() == 1;
-            shareEntity.fS(parcel.readLong());
-            shareEntity.vI(parcel.readByte() == 1);
+            shareEntity.fU(parcel.readLong());
+            shareEntity.vK(parcel.readByte() == 1);
             shareEntity.extLiveInfo = parcel.readString();
             return shareEntity;
         }
@@ -71,7 +71,7 @@ public class ShareEntity implements Parcelable {
         this.stats = bundle;
     }
 
-    public Bundle bpw() {
+    public Bundle bpx() {
         return this.stats;
     }
 
@@ -99,19 +99,19 @@ public class ShareEntity implements Parcelable {
         this.content = str;
     }
 
-    public void fS(long j) {
+    public void fU(long j) {
         this.readCount = j;
     }
 
-    public long dsw() {
+    public long dsB() {
         return this.readCount;
     }
 
-    public void vI(boolean z) {
+    public void vK(boolean z) {
         this.isVideoThread = z;
     }
 
-    public boolean dsx() {
+    public boolean dsC() {
         return this.isVideoThread;
     }
 
@@ -127,7 +127,7 @@ public class ShareEntity implements Parcelable {
         this.localFile = str;
     }
 
-    public String dsy() {
+    public String dsD() {
         return this.localFile;
     }
 
@@ -147,7 +147,7 @@ public class ShareEntity implements Parcelable {
         this.location = location;
     }
 
-    public int dsz() {
+    public int dsE() {
         return this.shareTo;
     }
 
@@ -155,7 +155,7 @@ public class ShareEntity implements Parcelable {
         this.shareTo = i;
     }
 
-    public int dsA() {
+    public int dsF() {
         return this.shareType;
     }
 
@@ -167,7 +167,7 @@ public class ShareEntity implements Parcelable {
         return this.tid;
     }
 
-    public String dsB() {
+    public String dsG() {
         return this.extLiveInfo;
     }
 
@@ -179,7 +179,7 @@ public class ShareEntity implements Parcelable {
         this.fName = str;
     }
 
-    public String dsC() {
+    public String dsH() {
         return this.fName;
     }
 
@@ -187,7 +187,7 @@ public class ShareEntity implements Parcelable {
         this.typeShareToSmallApp = i;
     }
 
-    public int dsD() {
+    public int dsI() {
         return this.typeShareToSmallApp;
     }
 
@@ -195,7 +195,7 @@ public class ShareEntity implements Parcelable {
         this.shareType = i;
     }
 
-    public boolean dsE() {
+    public boolean dsJ() {
         return this.shareType != 0 && (this.shareTo == 8 || this.shareTo == 4 || this.shareTo == 3 || this.shareTo == 2);
     }
 

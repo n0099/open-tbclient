@@ -27,29 +27,29 @@ public class d extends com.baidu.tieba.pb.pb.sub.a.a<com.baidu.tieba.pb.pb.sub.b
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.pb.pb.sub.a.a, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.pb.sub.b.b bVar, a aVar) {
-        ((a) this.UO).kTJ.setText(String.format(TbadkApplication.getInst().getString(R.string.subpb_floor_reply_count), String.valueOf(bVar == null ? 0 : bVar.getReplyNum())));
+        ((a) this.UO).kTQ.setText(String.format(TbadkApplication.getInst().getString(R.string.subpb_floor_reply_count), String.valueOf(bVar == null ? 0 : bVar.getReplyNum())));
         ((a) this.UO).onChangeSkinType();
         return aVar.getView();
     }
 
     /* loaded from: classes16.dex */
     public static class a extends af.a {
-        private View hkf;
-        private TextView kTJ;
+        private View hkj;
+        private TextView kTQ;
         private int mSkinType;
 
         public a(View view) {
             super(view);
             this.mSkinType = 3;
-            this.kTJ = (TextView) view.findViewById(R.id.floor_reply_text);
-            this.hkf = view.findViewById(R.id.floor_reply_top_line);
+            this.kTQ = (TextView) view.findViewById(R.id.floor_reply_text);
+            this.hkj = view.findViewById(R.id.floor_reply_top_line);
         }
 
         public void onChangeSkinType() {
             if (this.mSkinType != TbadkApplication.getInst().getSkinType()) {
-                ap.setViewTextColor(this.kTJ, R.color.cp_cont_b);
-                ap.setBackgroundColor(this.hkf, R.color.cp_bg_line_c);
-                ap.setBackgroundColor(this.kTJ, R.color.cp_bg_line_d);
+                ap.setViewTextColor(this.kTQ, R.color.cp_cont_b);
+                ap.setBackgroundColor(this.hkj, R.color.cp_bg_line_c);
+                ap.setBackgroundColor(this.kTQ, R.color.cp_bg_line_d);
             }
             this.mSkinType = TbadkApplication.getInst().getSkinType();
         }

@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
 import com.baidu.tbadk.mvc.b.f;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a implements f {
     private long cartoonId;
     private int chapterId;
@@ -22,7 +22,7 @@ public class a implements f {
     private String liveId = "";
     private String userName = "";
     private String description = "";
-    private boolean kkG = true;
+    private boolean kkN = true;
 
     public boolean equals(Object obj) {
         if (obj == null || !(obj instanceof a)) {
@@ -178,7 +178,7 @@ public class a implements f {
         return this.threadId;
     }
 
-    public String cSf() {
+    public String cSg() {
         return this.threadName;
     }
 
@@ -202,27 +202,27 @@ public class a implements f {
         this.forumName = str;
     }
 
-    public String brS() {
+    public String brT() {
         return this.postID;
     }
 
-    public void MP(String str) {
+    public void MQ(String str) {
         this.postID = str;
     }
 
-    public boolean cSg() {
+    public boolean cSh() {
         return this.isHostOnly;
     }
 
-    public void sf(boolean z) {
+    public void sh(boolean z) {
         this.isHostOnly = z;
     }
 
-    public boolean cSh() {
+    public boolean cSi() {
         return this.isSquence;
     }
 
-    public void sg(boolean z) {
+    public void si(boolean z) {
         this.isSquence = z;
     }
 
@@ -230,7 +230,7 @@ public class a implements f {
         return this.liveId;
     }
 
-    public void gb(String str) {
+    public void gc(String str) {
         this.liveId = str;
     }
 
@@ -250,12 +250,12 @@ public class a implements f {
         this.description = str;
     }
 
-    public boolean cSi() {
-        return this.kkG;
+    public boolean cSj() {
+        return this.kkN;
     }
 
-    public void sh(boolean z) {
-        this.kkG = z;
+    public void sj(boolean z) {
+        this.kkN = z;
     }
 
     @Override // com.baidu.tbadk.mvc.b.d
@@ -264,12 +264,12 @@ public class a implements f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public String btq() {
+    public String btr() {
         return toJsonObject().toString();
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public boolean Cp(String str) {
+    public boolean Cq(String str) {
         if (str != null) {
             try {
                 return dW(new JSONObject(str));

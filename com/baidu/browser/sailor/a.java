@@ -9,11 +9,11 @@ import com.baidu.webkit.sdk.WebChromeClient;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes19.dex */
 public final class a implements Runnable {
-    final /* synthetic */ BdSailorWebView aeE;
+    final /* synthetic */ BdSailorWebView aeG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(BdSailorWebView bdSailorWebView) {
-        this.aeE = bdSailorWebView;
+        this.aeG = bdSailorWebView;
     }
 
     @Override // java.lang.Runnable
@@ -26,30 +26,30 @@ public final class a implements Runnable {
         WebChromeClient.CustomViewCallback customViewCallback2;
         FrameLayout frameLayout3;
         try {
-            Context context = this.aeE.getContext();
+            Context context = this.aeG.getContext();
             Activity activity = context instanceof Activity ? (Activity) context : null;
             if (activity != null) {
-                if (this.aeE.getCurrentWebView() != null) {
-                    this.aeE.getCurrentWebView().setVisibility(0);
+                if (this.aeG.getCurrentWebView() != null) {
+                    this.aeG.getCurrentWebView().setVisibility(0);
                 }
-                this.aeE.setFullscreen(activity, false);
+                this.aeG.setFullscreen(activity, false);
                 Window window = activity.getWindow();
                 if (window == null || (frameLayout = (FrameLayout) window.getDecorView()) == null) {
                     return;
                 }
-                frameLayout2 = this.aeE.mFullscreenContainer;
+                frameLayout2 = this.aeG.mFullscreenContainer;
                 if (frameLayout2 != null) {
-                    frameLayout3 = this.aeE.mFullscreenContainer;
+                    frameLayout3 = this.aeG.mFullscreenContainer;
                     frameLayout.removeView(frameLayout3);
-                    this.aeE.mFullscreenContainer = null;
+                    this.aeG.mFullscreenContainer = null;
                 }
-                this.aeE.mCustomView = null;
-                customViewCallback = this.aeE.mCustomViewCallback;
+                this.aeG.mCustomView = null;
+                customViewCallback = this.aeG.mCustomViewCallback;
                 if (customViewCallback != null) {
-                    customViewCallback2 = this.aeE.mCustomViewCallback;
+                    customViewCallback2 = this.aeG.mCustomViewCallback;
                     customViewCallback2.onCustomViewHidden();
                 }
-                i = this.aeE.mOriginalOrientation;
+                i = this.aeG.mOriginalOrientation;
                 activity.setRequestedOrientation(i);
             }
         } catch (Exception e) {

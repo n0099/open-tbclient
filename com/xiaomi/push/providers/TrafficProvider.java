@@ -11,10 +11,10 @@ import com.xiaomi.push.gx;
 public class TrafficProvider extends ContentProvider {
 
     /* renamed from: a  reason: collision with other field name */
-    private SQLiteOpenHelper f793a;
+    private SQLiteOpenHelper f792a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Uri f792a = Uri.parse("content://com.xiaomi.push.providers.TrafficProvider/traffic");
+    public static final Uri f791a = Uri.parse("content://com.xiaomi.push.providers.TrafficProvider/traffic");
     private static final UriMatcher a = new UriMatcher(-1);
 
     static {
@@ -49,17 +49,17 @@ public class TrafficProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
-        this.f793a = new a(getContext());
+        this.f792a = new a(getContext());
         return true;
     }
 
     @Override // android.content.ContentProvider
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         Cursor query;
-        synchronized (a.f794a) {
+        synchronized (a.f793a) {
             switch (a.match(uri)) {
                 case 1:
-                    query = this.f793a.getReadableDatabase().query("traffic", strArr, str, strArr2, null, null, str2);
+                    query = this.f792a.getReadableDatabase().query("traffic", strArr, str, strArr2, null, null, str2);
                     break;
                 default:
                     throw new IllegalArgumentException("Unknown URI " + uri);

@@ -14,9 +14,9 @@ import com.baidu.live.message.AlaGiftRefreshScoresHttpResponseMessage;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes7.dex */
 public class c extends BdBaseModel {
-    private com.baidu.live.d bfd;
+    private com.baidu.live.d bff;
     private Handler handler = new Handler();
-    private HttpMessageListener bfe = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GIFT_REFRESH_SCORES) { // from class: com.baidu.live.l.c.1
+    private HttpMessageListener bfg = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GIFT_REFRESH_SCORES) { // from class: com.baidu.live.l.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -28,11 +28,11 @@ public class c extends BdBaseModel {
                     TbadkCoreApplication.getInst().currentAccountFlowerNum = LE.mPetalTotal;
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(AlaCmdConfigCustom.CMD_ALA_UPDATE_GIFT_PANEL_SCORE_DATA));
                 }
-                if (c.this.bfd != null) {
+                if (c.this.bff != null) {
                     c.this.handler.post(new Runnable() { // from class: com.baidu.live.l.c.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            c.this.bfd.AE();
+                            c.this.bff.AE();
                         }
                     });
                 }
@@ -41,11 +41,11 @@ public class c extends BdBaseModel {
     };
 
     public void initListener() {
-        registerListener(this.bfe);
+        registerListener(this.bfg);
     }
 
     public void a(com.baidu.live.d dVar) {
-        this.bfd = dVar;
+        this.bff = dVar;
     }
 
     public boolean refreshCurUserScores() {
@@ -69,7 +69,7 @@ public class c extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.bfe);
+        MessageManager.getInstance().unRegisterListener(this.bfg);
         this.handler.removeCallbacksAndMessages(null);
     }
 }

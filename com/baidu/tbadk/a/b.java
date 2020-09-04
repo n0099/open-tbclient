@@ -9,9 +9,9 @@ import com.baidu.tieba.compatible.EditorHelper;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b {
-    private static b dRh;
+    private static b dRl;
     private final HashMap<String, a> mSwitchs = new HashMap<>();
 
     public b() {
@@ -21,14 +21,14 @@ public class b {
     }
 
     public static b aZJ() {
-        if (dRh == null) {
+        if (dRl == null) {
             synchronized (b.class) {
-                if (dRh == null) {
-                    dRh = new b();
+                if (dRl == null) {
+                    dRl = new b();
                 }
             }
         }
-        return dRh;
+        return dRl;
     }
 
     private static String aZK() {
@@ -39,14 +39,14 @@ public class b {
         return TbadkCoreApplication.getInst().getSharedPreferences(aZK(), 0);
     }
 
-    public synchronized a xX(String str) {
+    public synchronized a xY(String str) {
         return this.mSwitchs.get(str);
     }
 
     private String dq(String str, String str2) {
-        a xX = xX(str);
-        if (xX != null && !TextUtils.isEmpty(xX.dRf)) {
-            return xX.dRf;
+        a xY = xY(str);
+        if (xY != null && !TextUtils.isEmpty(xY.dRj)) {
+            return xY.dRj;
         }
         return str2;
     }
@@ -87,7 +87,7 @@ public class b {
                 this.mSwitchs.putAll(hashMap);
             }
             EditorHelper.putString(getSharedPreferences(), "pref_key_abtest_switchs", jSONArray.toString());
-            com.baidu.tbadk.core.sharedPref.b.bik().putInt("static_opt_open", xY("static_opt_open_test") ? 1 : 0);
+            com.baidu.tbadk.core.sharedPref.b.bik().putInt("static_opt_open", xZ("static_opt_open_test") ? 1 : 0);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -110,7 +110,7 @@ public class b {
         return hashMap;
     }
 
-    public static boolean xY(String str) {
+    public static boolean xZ(String str) {
         return "a".equalsIgnoreCase(aZJ().dq(str, ""));
     }
 }

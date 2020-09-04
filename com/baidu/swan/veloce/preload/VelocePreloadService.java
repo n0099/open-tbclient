@@ -27,7 +27,7 @@ public class VelocePreloadService extends Service {
         if (intent != null && ACTION_START_SWAN_APP.equals(intent.getAction())) {
             String stringExtra = intent.getStringExtra(KEY_SCHEME);
             if (b.aWI() != null) {
-                b.aWI().xB(stringExtra);
+                b.aWI().xC(stringExtra);
             }
         }
         return super.onStartCommand(intent, i, i2);

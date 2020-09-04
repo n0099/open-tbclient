@@ -17,7 +17,7 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class a extends aa {
-    private boolean czg;
+    private boolean czk;
     private String mCallback;
     private int mCount;
     private String mMode;
@@ -48,7 +48,7 @@ public class a extends aa {
             }
             this.mCount = parseString.optInt("count");
             this.mMode = parseString.optString("mode");
-            this.czg = parseString.optBoolean("compressed");
+            this.czk = parseString.optBoolean("compressed");
             c(context, unitedSchemeEntity, callbackHandler, eVar);
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
@@ -58,7 +58,7 @@ public class a extends aa {
     private void c(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final e eVar) {
         com.baidu.swan.apps.ab.a.a("android.permission.WRITE_EXTERNAL_STORAGE", new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 3, context, new com.baidu.swan.apps.ab.b() { // from class: com.baidu.swan.apps.media.chooser.a.a.1
             @Override // com.baidu.swan.apps.ab.b
-            public void iF(String str) {
+            public void iG(String str) {
                 if (a.DEBUG) {
                     Log.d("SwanAppAction", str + "");
                 }
@@ -79,7 +79,7 @@ public class a extends aa {
         bundle.putBoolean("isShowCamera", false);
         bundle.putInt("count", this.mCount);
         bundle.putString("mode", this.mMode);
-        bundle.putBoolean("compressed", this.czg);
+        bundle.putBoolean("compressed", this.czk);
         bundle.putString("swanAppId", eVar.id);
         bundle.putString("swanTmpPath", f.arY().arE().aCZ());
         d.a(context, bundle, new com.baidu.swan.apps.media.chooser.c.c() { // from class: com.baidu.swan.apps.media.chooser.a.a.2
@@ -94,7 +94,7 @@ public class a extends aa {
             }
 
             @Override // com.baidu.swan.apps.media.chooser.c.c
-            public void oj(String str) {
+            public void ok(String str) {
                 com.baidu.swan.apps.console.c.e("chooseAlbum", str);
                 UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1002, str).toString(), a.this.mCallback);
             }

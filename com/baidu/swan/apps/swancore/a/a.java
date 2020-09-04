@@ -8,24 +8,24 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static JSONObject cYt;
+    private static JSONObject cYx;
 
     public static synchronized JSONObject aDk() {
         JSONObject jSONObject;
         synchronized (a.class) {
-            if (cYt != null) {
+            if (cYx != null) {
                 if (DEBUG) {
-                    Log.d("SwanCoreConfigHelper", "return cache obj : " + cYt.toString());
+                    Log.d("SwanCoreConfigHelper", "return cache obj : " + cYx.toString());
                 }
-                jSONObject = cYt;
+                jSONObject = cYx;
             } else {
                 JSONObject rawSwitch = com.baidu.swan.apps.t.a.aoM().getRawSwitch();
                 if (rawSwitch == null) {
-                    cYt = new JSONObject();
+                    cYx = new JSONObject();
                     if (DEBUG) {
                         Log.d("SwanCoreConfigHelper", "raw switch is null, return empty obj");
                     }
-                    jSONObject = cYt;
+                    jSONObject = cYx;
                 } else {
                     Iterator<String> keys = rawSwitch.keys();
                     while (keys.hasNext()) {
@@ -33,11 +33,11 @@ public class a {
                             keys.remove();
                         }
                     }
-                    cYt = rawSwitch;
+                    cYx = rawSwitch;
                     if (DEBUG) {
-                        Log.d("SwanCoreConfigHelper", "return new obj : " + cYt.toString());
+                        Log.d("SwanCoreConfigHelper", "return new obj : " + cYx.toString());
                     }
-                    jSONObject = cYt;
+                    jSONObject = cYx;
                 }
             }
         }
@@ -49,7 +49,7 @@ public class a {
             if (DEBUG) {
                 Log.d("SwanCoreConfigHelper", "release cache ab obj ");
             }
-            cYt = null;
+            cYx = null;
         }
     }
 

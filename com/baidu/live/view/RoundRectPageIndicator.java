@@ -14,14 +14,14 @@ import android.view.View;
 import com.baidu.live.sdk.a;
 /* loaded from: classes7.dex */
 public class RoundRectPageIndicator extends View implements ViewPager.OnPageChangeListener {
-    private Paint btW;
-    private Paint btX;
-    private RectF btY;
-    private RectF btZ;
-    private float bua;
-    private float bub;
-    private boolean buc;
+    private Paint btZ;
+    private Paint bua;
+    private RectF bub;
+    private RectF buc;
     private float bud;
+    private float bue;
+    private boolean bug;
+    private float buh;
     private int mCount;
     private int mCurrentPosition;
 
@@ -37,27 +37,27 @@ public class RoundRectPageIndicator extends View implements ViewPager.OnPageChan
     }
 
     public void setItemWidth(float f) {
-        this.bua = f;
+        this.bud = f;
         invalidate();
     }
 
     public void setItemRadius(float f) {
-        this.bub = f;
+        this.bue = f;
         invalidate();
     }
 
     public void setTrackColor(int i) {
-        this.btW.setColor(i);
+        this.btZ.setColor(i);
         invalidate();
     }
 
     public void setSlideColor(int i) {
-        this.btX.setColor(i);
+        this.bua.setColor(i);
         invalidate();
     }
 
     public void setSingleShow(boolean z) {
-        this.buc = z;
+        this.bug = z;
         if (this.mCount == 1) {
             invalidate();
         }
@@ -75,7 +75,7 @@ public class RoundRectPageIndicator extends View implements ViewPager.OnPageChan
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
-        this.bud = 0.0f;
+        this.buh = 0.0f;
         this.mCurrentPosition = i;
         invalidate();
     }
@@ -94,11 +94,11 @@ public class RoundRectPageIndicator extends View implements ViewPager.OnPageChan
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         if (this.mCount > 0) {
-            if (this.mCount != 1 || this.buc) {
-                this.btY.set(getPaddingLeft(), getPaddingTop(), getPaddingLeft() + (this.bua * this.mCount), getHeight() - getPaddingBottom());
-                canvas.drawRoundRect(this.btY, this.bub, this.bub, this.btW);
-                this.btZ.set(getPaddingLeft() + (this.bua * (this.mCurrentPosition + this.bud)), getPaddingTop(), getPaddingLeft() + (this.bua * (this.mCurrentPosition + 1 + this.bud)), getHeight() - getPaddingBottom());
-                canvas.drawRoundRect(this.btZ, this.bub, this.bub, this.btX);
+            if (this.mCount != 1 || this.bug) {
+                this.bub.set(getPaddingLeft(), getPaddingTop(), getPaddingLeft() + (this.bud * this.mCount), getHeight() - getPaddingBottom());
+                canvas.drawRoundRect(this.bub, this.bue, this.bue, this.btZ);
+                this.buc.set(getPaddingLeft() + (this.bud * (this.mCurrentPosition + this.buh)), getPaddingTop(), getPaddingLeft() + (this.bud * (this.mCurrentPosition + 1 + this.buh)), getHeight() - getPaddingBottom());
+                canvas.drawRoundRect(this.buc, this.bue, this.bue, this.bua);
             }
         }
     }
@@ -129,26 +129,26 @@ public class RoundRectPageIndicator extends View implements ViewPager.OnPageChan
     }
 
     private void sr() {
-        this.btW = new Paint(1);
-        this.btW.setStyle(Paint.Style.FILL);
-        this.btX = new Paint(1);
-        this.btX.setStyle(Paint.Style.FILL);
+        this.btZ = new Paint(1);
+        this.btZ.setStyle(Paint.Style.FILL);
+        this.bua = new Paint(1);
+        this.bua.setStyle(Paint.Style.FILL);
     }
 
     private void QK() {
-        this.btY = new RectF();
-        this.btZ = new RectF();
+        this.bub = new RectF();
+        this.buc = new RectF();
     }
 
     private void initAttrs(Context context, AttributeSet attributeSet) {
         if (!isInEditMode()) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.k.sdk_RoundRectPageIndicator);
             this.mCount = obtainStyledAttributes.getInteger(a.k.sdk_RoundRectPageIndicator_sdk_rrpi_item_count, 0);
-            this.bua = obtainStyledAttributes.getDimensionPixelOffset(a.k.sdk_RoundRectPageIndicator_sdk_rrpi_item_width, 0);
-            this.bub = obtainStyledAttributes.getDimensionPixelOffset(a.k.sdk_RoundRectPageIndicator_sdk_rrpi_item_radius, 0);
-            this.btW.setColor(obtainStyledAttributes.getColor(a.k.sdk_RoundRectPageIndicator_sdk_rrpi_track_color, 0));
-            this.btX.setColor(obtainStyledAttributes.getColor(a.k.sdk_RoundRectPageIndicator_sdk_rrpi_slide_color, 0));
-            this.buc = obtainStyledAttributes.getBoolean(a.k.sdk_RoundRectPageIndicator_sdk_rrpi_single_show, false);
+            this.bud = obtainStyledAttributes.getDimensionPixelOffset(a.k.sdk_RoundRectPageIndicator_sdk_rrpi_item_width, 0);
+            this.bue = obtainStyledAttributes.getDimensionPixelOffset(a.k.sdk_RoundRectPageIndicator_sdk_rrpi_item_radius, 0);
+            this.btZ.setColor(obtainStyledAttributes.getColor(a.k.sdk_RoundRectPageIndicator_sdk_rrpi_track_color, 0));
+            this.bua.setColor(obtainStyledAttributes.getColor(a.k.sdk_RoundRectPageIndicator_sdk_rrpi_slide_color, 0));
+            this.bug = obtainStyledAttributes.getBoolean(a.k.sdk_RoundRectPageIndicator_sdk_rrpi_single_show, false);
             obtainStyledAttributes.recycle();
         }
     }
@@ -157,7 +157,7 @@ public class RoundRectPageIndicator extends View implements ViewPager.OnPageChan
         int mode = View.MeasureSpec.getMode(i);
         int size = View.MeasureSpec.getSize(i);
         if (mode != 1073741824) {
-            int paddingLeft = (int) (getPaddingLeft() + (this.bua * this.mCount) + getPaddingRight());
+            int paddingLeft = (int) (getPaddingLeft() + (this.bud * this.mCount) + getPaddingRight());
             return mode == Integer.MIN_VALUE ? Math.min(paddingLeft, size) : paddingLeft;
         }
         return size;
@@ -175,7 +175,7 @@ public class RoundRectPageIndicator extends View implements ViewPager.OnPageChan
 
     private void c(int i, float f) {
         this.mCurrentPosition = i;
-        this.bud = f;
+        this.buh = f;
         invalidate();
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class az extends com.baidu.adp.base.a.c {
     public az(Context context) {
         super(context, "baidu_tieba.db", 21);

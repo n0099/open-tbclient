@@ -8,7 +8,7 @@ import com.baidu.android.util.devices.RomUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.switchs.IsFullScreenSwitch;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class g {
     public static boolean bit() {
         boolean z = true;

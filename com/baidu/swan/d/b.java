@@ -18,8 +18,8 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b {
     private static final String SPLASH = File.separator;
-    private static final String dMR = "zeus" + SPLASH + "libs" + SPLASH;
-    private Method dMT;
+    private static final String dMV = "zeus" + SPLASH + "libs" + SPLASH;
+    private Method dMX;
     private Context mContext;
     private JSONObject mJson_elf;
     private JSONObject mJson_meta;
@@ -36,12 +36,12 @@ public class b {
     private int mOffset_7z = 0;
     private boolean mHooked = false;
     private String mTempPath = null;
-    private boolean dMS = false;
+    private boolean dMW = false;
 
     private void init() {
         try {
             System.load(aXF() + "libzeuslzma.so");
-            this.dMS = true;
+            this.dMW = true;
         } catch (Throwable th) {
         }
     }
@@ -63,7 +63,7 @@ public class b {
 
     public boolean aXz() {
         if (aXy()) {
-            if (this.dMS && aXA() && isEnoughSpace(this.m7zTotal)) {
+            if (this.dMW && aXA() && isEnoughSpace(this.m7zTotal)) {
                 hook(false);
                 return aXB() && aXD() && aXC();
             }
@@ -242,7 +242,7 @@ public class b {
     }
 
     private String aXF() {
-        return this.mContext.getFilesDir() + SPLASH + dMR;
+        return this.mContext.getFilesDir() + SPLASH + dMV;
     }
 
     private boolean deleteDir(File file) {
@@ -293,16 +293,16 @@ public class b {
 
     private void a(AssetManager assetManager, String str, int i, int i2, int i3) {
         SevenZipUtils sevenZipUtils = SevenZipUtils.getInstance();
-        if (this.dMT == null) {
+        if (this.dMX == null) {
             try {
-                this.dMT = SevenZipUtils.class.getDeclaredMethod("decodeAndMerge", AssetManager.class, String.class, Integer.TYPE, Integer.TYPE, Integer.TYPE);
+                this.dMX = SevenZipUtils.class.getDeclaredMethod("decodeAndMerge", AssetManager.class, String.class, Integer.TYPE, Integer.TYPE, Integer.TYPE);
             } catch (Exception e) {
             }
         }
-        if (this.dMT != null) {
+        if (this.dMX != null) {
             try {
-                this.dMT.setAccessible(true);
-                this.dMT.invoke(sevenZipUtils, assetManager, str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3));
+                this.dMX.setAccessible(true);
+                this.dMX.invoke(sevenZipUtils, assetManager, str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3));
             } catch (Exception e2) {
             }
         }

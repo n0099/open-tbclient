@@ -9,7 +9,7 @@ import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tieba.R;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class SmallTailInfo extends OrmObject implements Serializable {
     private static final String EMOTION_PREFIX = "#(";
     private static final String EMOTION_SUFFIX = ")";
@@ -22,7 +22,7 @@ public class SmallTailInfo extends OrmObject implements Serializable {
     public int showColorId;
     public transient SpannableString tailSpannable;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class SmallTailInfoContent extends OrmObject implements Serializable {
         private static final long serialVersionUID = -2017172862365526905L;
         public String text;
@@ -51,13 +51,13 @@ public class SmallTailInfo extends OrmObject implements Serializable {
                         sb.append(smallTailInfoContent.text);
                     }
                 } else if (smallTailInfoContent.type == 2 && !StringUtils.isNull(smallTailInfoContent.text)) {
-                    String BP = TbFaceManager.bsV().BP(smallTailInfoContent.text);
-                    if (!StringUtils.isNull(BP)) {
-                        sb.append(EMOTION_PREFIX + BP + EMOTION_SUFFIX);
+                    String BQ = TbFaceManager.bsW().BQ(smallTailInfoContent.text);
+                    if (!StringUtils.isNull(BQ)) {
+                        sb.append(EMOTION_PREFIX + BQ + EMOTION_SUFFIX);
                     }
                 }
             }
-            this.tailSpannable = TbFaceManager.bsV().a(TbadkCoreApplication.getInst(), sb.toString(), null);
+            this.tailSpannable = TbFaceManager.bsW().a(TbadkCoreApplication.getInst(), sb.toString(), null);
         }
     }
 

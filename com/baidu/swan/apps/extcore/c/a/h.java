@@ -35,7 +35,7 @@ public class h extends aa {
                         com.baidu.swan.apps.setting.oauth.c.a(hVar, callbackHandler, unitedSchemeEntity);
                         return;
                     }
-                    com.baidu.swan.apps.ad.a.a.fi(com.baidu.swan.apps.extcore.c.a.hA(b.optInt("emitReplaceGameCore")));
+                    com.baidu.swan.apps.ad.a.a.fj(com.baidu.swan.apps.extcore.c.a.hA(b.optInt("emitReplaceGameCore")));
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                     com.baidu.swan.apps.ad.a.a.agw();
                 }

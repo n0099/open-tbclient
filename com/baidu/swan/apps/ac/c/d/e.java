@@ -24,9 +24,9 @@ public class e extends a {
 
     @Override // com.baidu.swan.apps.ac.c.d.a
     void a(SwanAppActivity swanAppActivity, String str, com.baidu.swan.apps.ac.c.b.b bVar, final com.baidu.swan.apps.setting.b.a aVar, final com.baidu.swan.apps.core.f.b<com.baidu.swan.apps.ac.c.c.a> bVar2) {
-        final com.baidu.swan.apps.ac.c.c.a aVar2 = new com.baidu.swan.apps.ac.c.c.a(bVar.caT);
-        aVar2.caU = bVar.caU;
-        if (aVar == null || aVar.cWr.aEc() != 0) {
+        final com.baidu.swan.apps.ac.c.c.a aVar2 = new com.baidu.swan.apps.ac.c.c.a(bVar.caX);
+        aVar2.caY = bVar.caY;
+        if (aVar == null || aVar.cWv.aEc() != 0) {
             com.baidu.swan.apps.ac.d.a.print("open data result failure");
             bVar2.K(aVar2);
             return;
@@ -34,7 +34,7 @@ public class e extends a {
         com.baidu.swan.apps.ac.d.a.print("obtain user info detail, get login code");
         b.a aVar3 = new b.a(bVar.pageParams);
         Bundle bundle = new Bundle();
-        bundle.putString("__plugin__", bVar.cId);
+        bundle.putString("__plugin__", bVar.cIh);
         com.baidu.swan.apps.runtime.d.azE().azA().azU().a(swanAppActivity, aVar3, bundle, new com.baidu.swan.apps.ap.e.b<h<f.c>>() { // from class: com.baidu.swan.apps.ac.c.d.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.e.b
@@ -45,7 +45,7 @@ public class e extends a {
                     bVar2.K(aVar2);
                     return;
                 }
-                JSONObject jSONObject = aVar.cVz;
+                JSONObject jSONObject = aVar.cVD;
                 if (jSONObject != null) {
                     try {
                         jSONObject.put("code", hVar.mData.code);
@@ -55,7 +55,7 @@ public class e extends a {
                             com.baidu.swan.apps.ac.d.a.print(Log.getStackTraceString(e));
                         }
                     }
-                    aVar2.cIj = jSONObject.toString();
+                    aVar2.cIn = jSONObject.toString();
                 }
                 bVar2.K(aVar2);
             }

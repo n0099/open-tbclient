@@ -7,19 +7,19 @@ import java.util.BitSet;
 public class hu implements ix<hu, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */
-    public long f468a;
+    public long f467a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ho f469a;
+    public ho f468a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f470a;
+    public String f469a;
 
     /* renamed from: a  reason: collision with other field name */
-    private BitSet f471a = new BitSet(1);
+    private BitSet f470a = new BitSet(1);
 
     /* renamed from: a  reason: collision with other field name */
-    private static final jn f467a = new jn("DataCollectionItem");
+    private static final jn f466a = new jn("DataCollectionItem");
     private static final jf a = new jf("", (byte) 10, 1);
     private static final jf b = new jf("", (byte) 8, 2);
     private static final jf c = new jf("", Constants.GZIP_CAST_TYPE, 3);
@@ -34,13 +34,13 @@ public class hu implements ix<hu, Object>, Serializable, Cloneable {
         if (getClass().equals(huVar.getClass())) {
             int compareTo = Boolean.valueOf(m356a()).compareTo(Boolean.valueOf(huVar.m356a()));
             if (compareTo == 0) {
-                if (!m356a() || (a4 = iy.a(this.f468a, huVar.f468a)) == 0) {
+                if (!m356a() || (a4 = iy.a(this.f467a, huVar.f467a)) == 0) {
                     int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(huVar.b()));
                     if (compareTo2 == 0) {
-                        if (!b() || (a3 = iy.a(this.f469a, huVar.f469a)) == 0) {
+                        if (!b() || (a3 = iy.a(this.f468a, huVar.f468a)) == 0) {
                             int compareTo3 = Boolean.valueOf(c()).compareTo(Boolean.valueOf(huVar.c()));
                             if (compareTo3 == 0) {
-                                if (!c() || (a2 = iy.a(this.f470a, huVar.f470a)) == 0) {
+                                if (!c() || (a2 = iy.a(this.f469a, huVar.f469a)) == 0) {
                                     return 0;
                                 }
                                 return a2;
@@ -59,31 +59,31 @@ public class hu implements ix<hu, Object>, Serializable, Cloneable {
     }
 
     public hu a(long j) {
-        this.f468a = j;
+        this.f467a = j;
         a(true);
         return this;
     }
 
     public hu a(ho hoVar) {
-        this.f469a = hoVar;
+        this.f468a = hoVar;
         return this;
     }
 
     public hu a(String str) {
-        this.f470a = str;
+        this.f469a = str;
         return this;
     }
 
     public String a() {
-        return this.f470a;
+        return this.f469a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public void m355a() {
-        if (this.f469a == null) {
+        if (this.f468a == null) {
             throw new jj("Required field 'collectionType' was not present! Struct: " + toString());
         }
-        if (this.f470a == null) {
+        if (this.f469a == null) {
             throw new jj("Required field 'content' was not present! Struct: " + toString());
         }
     }
@@ -101,13 +101,13 @@ public class hu implements ix<hu, Object>, Serializable, Cloneable {
                 m355a();
                 return;
             }
-            switch (m485a.f780a) {
+            switch (m485a.f779a) {
                 case 1:
                     if (m485a.a != 10) {
                         jl.a(jiVar, m485a.a);
                         break;
                     } else {
-                        this.f468a = jiVar.m484a();
+                        this.f467a = jiVar.m484a();
                         a(true);
                         break;
                     }
@@ -116,7 +116,7 @@ public class hu implements ix<hu, Object>, Serializable, Cloneable {
                         jl.a(jiVar, m485a.a);
                         break;
                     } else {
-                        this.f469a = ho.a(jiVar.m483a());
+                        this.f468a = ho.a(jiVar.m483a());
                         break;
                     }
                 case 3:
@@ -124,7 +124,7 @@ public class hu implements ix<hu, Object>, Serializable, Cloneable {
                         jl.a(jiVar, m485a.a);
                         break;
                     } else {
-                        this.f470a = jiVar.m490a();
+                        this.f469a = jiVar.m490a();
                         break;
                     }
                 default:
@@ -136,25 +136,25 @@ public class hu implements ix<hu, Object>, Serializable, Cloneable {
     }
 
     public void a(boolean z) {
-        this.f471a.set(0, z);
+        this.f470a.set(0, z);
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public boolean m356a() {
-        return this.f471a.get(0);
+        return this.f470a.get(0);
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public boolean m357a(hu huVar) {
-        if (huVar != null && this.f468a == huVar.f468a) {
+        if (huVar != null && this.f467a == huVar.f467a) {
             boolean b2 = b();
             boolean b3 = huVar.b();
-            if ((b2 || b3) && !(b2 && b3 && this.f469a.equals(huVar.f469a))) {
+            if ((b2 || b3) && !(b2 && b3 && this.f468a.equals(huVar.f468a))) {
                 return false;
             }
             boolean c2 = c();
             boolean c3 = huVar.c();
-            return !(c2 || c3) || (c2 && c3 && this.f470a.equals(huVar.f470a));
+            return !(c2 || c3) || (c2 && c3 && this.f469a.equals(huVar.f469a));
         }
         return false;
     }
@@ -162,18 +162,18 @@ public class hu implements ix<hu, Object>, Serializable, Cloneable {
     @Override // com.xiaomi.push.ix
     public void b(ji jiVar) {
         m355a();
-        jiVar.a(f467a);
+        jiVar.a(f466a);
         jiVar.a(a);
-        jiVar.a(this.f468a);
+        jiVar.a(this.f467a);
         jiVar.b();
-        if (this.f469a != null) {
+        if (this.f468a != null) {
             jiVar.a(b);
-            jiVar.a(this.f469a.a());
+            jiVar.a(this.f468a.a());
             jiVar.b();
         }
-        if (this.f470a != null) {
+        if (this.f469a != null) {
             jiVar.a(c);
-            jiVar.a(this.f470a);
+            jiVar.a(this.f469a);
             jiVar.b();
         }
         jiVar.c();
@@ -181,11 +181,11 @@ public class hu implements ix<hu, Object>, Serializable, Cloneable {
     }
 
     public boolean b() {
-        return this.f469a != null;
+        return this.f468a != null;
     }
 
     public boolean c() {
-        return this.f470a != null;
+        return this.f469a != null;
     }
 
     public boolean equals(Object obj) {
@@ -202,20 +202,20 @@ public class hu implements ix<hu, Object>, Serializable, Cloneable {
     public String toString() {
         StringBuilder sb = new StringBuilder("DataCollectionItem(");
         sb.append("collectedAt:");
-        sb.append(this.f468a);
+        sb.append(this.f467a);
         sb.append(", ");
         sb.append("collectionType:");
+        if (this.f468a == null) {
+            sb.append("null");
+        } else {
+            sb.append(this.f468a);
+        }
+        sb.append(", ");
+        sb.append("content:");
         if (this.f469a == null) {
             sb.append("null");
         } else {
             sb.append(this.f469a);
-        }
-        sb.append(", ");
-        sb.append("content:");
-        if (this.f470a == null) {
-            sb.append("null");
-        } else {
-            sb.append(this.f470a);
         }
         sb.append(")");
         return sb.toString();

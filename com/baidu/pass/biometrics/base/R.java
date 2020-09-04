@@ -1,8 +1,8 @@
 package com.baidu.pass.biometrics.base;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public final class R {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public static final class anim {
         public static final int abc_fade_in = 0x7f040000;
         public static final int abc_fade_out = 0x7f040001;
@@ -18,7 +18,7 @@ public final class R {
         public static final int abc_tooltip_exit = 0x7f04000b;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public static final class attr {
         public static final int actionBarDivider = 0x7f0100e5;
         public static final int actionBarItemBackground = 0x7f0100e6;
@@ -290,14 +290,14 @@ public final class R {
         public static final int windowNoTitle = 0x7f0100d1;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public static final class bool {
         public static final int abc_action_bar_embed_tabs = 0x7f0c0000;
         public static final int abc_allow_stacked_button_bar = 0x7f0c0001;
         public static final int abc_config_actionMenuItemAllCaps = 0x7f0c0002;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public static final class color {
         public static final int abc_background_cache_hint_selector_material_dark = 0x7f0b0c3d;
         public static final int abc_background_cache_hint_selector_material_light = 0x7f0b0c3e;
@@ -403,7 +403,7 @@ public final class R {
         public static final int tooltip_background_light = 0x7f0b0b00;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public static final class dimen {
         public static final int abc_action_bar_content_inset_material = 0x7f090242;
         public static final int abc_action_bar_content_inset_with_nav = 0x7f090243;
@@ -518,7 +518,7 @@ public final class R {
         public static final int tooltip_y_offset_touch = 0x7f090a03;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public static final class drawable {
         public static final int abc_ab_share_pack_mtrl_alpha = 0x7f020001;
         public static final int abc_action_bar_item_background_material = 0x7f020002;
@@ -631,7 +631,7 @@ public final class R {
         public static final int tooltip_frame_light = 0x7f021de7;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public static final class id {
         public static final int action_bar = 0x7f0f0272;
         public static final int action_bar_activity_content = 0x7f0f0005;
@@ -640,17 +640,17 @@ public final class R {
         public static final int action_bar_spinner = 0x7f0f0006;
         public static final int action_bar_subtitle = 0x7f0f0251;
         public static final int action_bar_title = 0x7f0f0250;
-        public static final int action_container = 0x7f0f1ce8;
+        public static final int action_container = 0x7f0f1ce9;
         public static final int action_context_bar = 0x7f0f0273;
-        public static final int action_divider = 0x7f0f1cf5;
-        public static final int action_image = 0x7f0f1ce9;
+        public static final int action_divider = 0x7f0f1cf6;
+        public static final int action_image = 0x7f0f1cea;
         public static final int action_menu_divider = 0x7f0f0008;
         public static final int action_menu_presenter = 0x7f0f0009;
         public static final int action_mode_bar = 0x7f0f026f;
         public static final int action_mode_bar_stub = 0x7f0f026e;
         public static final int action_mode_close_button = 0x7f0f0252;
-        public static final int action_text = 0x7f0f1cea;
-        public static final int actions = 0x7f0f1cfb;
+        public static final int action_text = 0x7f0f1ceb;
+        public static final int actions = 0x7f0f1cfc;
         public static final int activity_chooser_view_content = 0x7f0f0253;
         public static final int add = 0x7f0f01a8;
         public static final int alertTitle = 0x7f0f0266;
@@ -660,7 +660,7 @@ public final class R {
         public static final int buttonPanel = 0x7f0f0259;
         public static final int center = 0x7f0f016f;
         public static final int checkbox = 0x7f0f0269;
-        public static final int chronometer = 0x7f0f1cf9;
+        public static final int chronometer = 0x7f0f1cfa;
         public static final int content = 0x7f0f01b4;
         public static final int contentPanel = 0x7f0f025c;
         public static final int custom = 0x7f0f0263;
@@ -676,7 +676,7 @@ public final class R {
         public static final int group_divider = 0x7f0f15e2;
         public static final int home = 0x7f0f0077;
         public static final int icon = 0x7f0f0258;
-        public static final int icon_group = 0x7f0f1cfc;
+        public static final int icon_group = 0x7f0f1cfd;
         public static final int image = 0x7f0f0255;
         public static final int info = 0x7f0f06b4;
         public static final int italic = 0x7f0f01d7;
@@ -691,19 +691,19 @@ public final class R {
         public static final int next_btn = 0x7f0f18ed;
         public static final int none = 0x7f0f0187;
         public static final int normal = 0x7f0f0190;
-        public static final int notification_background = 0x7f0f1cfa;
-        public static final int notification_main_column = 0x7f0f1cf7;
-        public static final int notification_main_column_container = 0x7f0f1cf6;
+        public static final int notification_background = 0x7f0f1cfb;
+        public static final int notification_main_column = 0x7f0f1cf8;
+        public static final int notification_main_column_container = 0x7f0f1cf7;
         public static final int parentPanel = 0x7f0f025b;
         public static final int positive_btn = 0x7f0f107e;
         public static final int progress_circular = 0x7f0f00c4;
         public static final int progress_horizontal = 0x7f0f00c5;
         public static final int radio = 0x7f0f026b;
         public static final int right = 0x7f0f016a;
-        public static final int right_icon = 0x7f0f1cfd;
-        public static final int right_side = 0x7f0f1cf8;
-        public static final int rim_base_toast_icon = 0x7f0f1d71;
-        public static final int rim_base_toast_message = 0x7f0f1d72;
+        public static final int right_icon = 0x7f0f1cfe;
+        public static final int right_side = 0x7f0f1cf9;
+        public static final int rim_base_toast_icon = 0x7f0f1d72;
+        public static final int rim_base_toast_message = 0x7f0f1d73;
         public static final int root_view = 0x7f0f02e1;
         public static final int screen = 0x7f0f01aa;
         public static final int scrollIndicatorDown = 0x7f0f0261;
@@ -747,7 +747,7 @@ public final class R {
         public static final int wrap_content = 0x7f0f01af;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public static final class integer {
         public static final int abc_config_activityDefaultDur = 0x7f0d0001;
         public static final int abc_config_activityShortDur = 0x7f0d0002;
@@ -756,7 +756,7 @@ public final class R {
         public static final int status_bar_notification_info_maxnum = 0x7f0d0017;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public static final class layout {
         public static final int abc_action_bar_title_item = 0x7f030000;
         public static final int abc_action_bar_up_container = 0x7f030001;
@@ -799,7 +799,7 @@ public final class R {
         public static final int support_simple_spinner_dropdown_item = 0x7f030804;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public static final class string {
         public static final int abc_action_bar_home_description = 0x7f080000;
         public static final int abc_action_bar_up_description = 0x7f080001;
@@ -831,20 +831,20 @@ public final class R {
         public static final int abc_shareactionprovider_share_with_application = 0x7f08000f;
         public static final int abc_toolbar_collapse_description = 0x7f080010;
         public static final int app_name = 0x7f08045c;
-        public static final int pass_bio_error_msg_network_unavailable = 0x7f080fcb;
-        public static final int pass_bio_error_msg_no_login = 0x7f080fcc;
-        public static final int pass_bio_error_msg_param = 0x7f080fce;
-        public static final int pass_bio_error_msg_server_error = 0x7f080fcf;
-        public static final int pass_bio_error_msg_ssl_peer_unverified = 0x7f080fd0;
-        public static final int pass_bio_error_msg_unknown = 0x7f080fd1;
-        public static final int pass_bio_error_msg_user_cancel = 0x7f080fd2;
-        public static final int pass_bio_multi_window_tips = 0x7f080fd4;
-        public static final int pass_bio_result_msg_success = 0x7f080fdc;
+        public static final int pass_bio_error_msg_network_unavailable = 0x7f080fcc;
+        public static final int pass_bio_error_msg_no_login = 0x7f080fcd;
+        public static final int pass_bio_error_msg_param = 0x7f080fcf;
+        public static final int pass_bio_error_msg_server_error = 0x7f080fd0;
+        public static final int pass_bio_error_msg_ssl_peer_unverified = 0x7f080fd1;
+        public static final int pass_bio_error_msg_unknown = 0x7f080fd2;
+        public static final int pass_bio_error_msg_user_cancel = 0x7f080fd3;
+        public static final int pass_bio_multi_window_tips = 0x7f080fd5;
+        public static final int pass_bio_result_msg_success = 0x7f080fdd;
         public static final int search_menu_title = 0x7f080011;
         public static final int status_bar_notification_info_overflow = 0x7f080012;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public static final class style {
         public static final int AlertDialog_AppCompat = 0x7f0a009b;
         public static final int AlertDialog_AppCompat_Light = 0x7f0a009c;
@@ -1190,7 +1190,7 @@ public final class R {
         public static final int style_pass_dialog = 0x7f0a02d7;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public static final class styleable {
         public static final int ActionBarLayout_android_layout_gravity = 0x00000000;
         public static final int ActionBar_background = 0x0000000a;

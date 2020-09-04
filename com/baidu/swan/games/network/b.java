@@ -10,7 +10,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 /* loaded from: classes8.dex */
 public class b extends HttpManager {
-    private static volatile b duT;
+    private static volatile b duX;
 
     private b() {
         super(com.baidu.swan.apps.t.a.aoJ());
@@ -23,14 +23,14 @@ public class b extends HttpManager {
     }
 
     public static b aOD() {
-        if (duT == null) {
+        if (duX == null) {
             synchronized (b.class) {
-                if (duT == null) {
-                    duT = new b();
+                if (duX == null) {
+                    duX = new b();
                 }
             }
         }
-        return duT;
+        return duX;
     }
 
     @Override // com.baidu.searchbox.http.AbstractHttpManager
@@ -41,9 +41,9 @@ public class b extends HttpManager {
         com.baidu.swan.games.t.a.a azS = e.azI().azS();
         OkHttpClient.Builder newBuilder = super.initClient().newBuilder();
         int i = 60000;
-        if (azS != null && azS.dvR != null) {
-            i = azS.dvR.cQN;
-            newBuilder.connectTimeout(azS.dvR.cQO, TimeUnit.MILLISECONDS);
+        if (azS != null && azS.dvV != null) {
+            i = azS.dvV.cQR;
+            newBuilder.connectTimeout(azS.dvV.cQS, TimeUnit.MILLISECONDS);
             newBuilder.addNetworkInterceptor(new com.baidu.swan.apps.network.a.d());
         }
         newBuilder.readTimeout(i, TimeUnit.MILLISECONDS);

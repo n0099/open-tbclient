@@ -1,19 +1,19 @@
 package com.baidu.tieba.tbadkCore.data;
 
 import android.util.SparseIntArray;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class f {
-    public static final int[] mel = {3, 8, 13};
-    public static final int[] men = {2, 12};
-    public static final int[] meo = {20};
-    public static final int[] mep = {3, 13, 23};
-    private SparseIntArray meq = new SparseIntArray();
-    private String mer;
-    private final int[] mes;
+    public static final int[] meB = {3, 8, 13};
+    public static final int[] meC = {2, 12};
+    public static final int[] meD = {20};
+    public static final int[] meE = {3, 13, 23};
+    private SparseIntArray meF = new SparseIntArray();
+    private String meG;
+    private final int[] meH;
 
     public f(String str, int[] iArr) {
-        this.mes = iArr;
-        this.mer = str;
+        this.meH = iArr;
+        this.meG = str;
     }
 
     public void HL(int i) {
@@ -21,38 +21,38 @@ public class f {
         if (i < 0) {
             i = 0;
         }
-        if (this.meq != null) {
-            this.meq.clear();
-            if (this.mes != null) {
-                for (int i2 : this.mes) {
+        if (this.meF != null) {
+            this.meF.clear();
+            if (this.meH != null) {
+                for (int i2 : this.meH) {
                     if (i2 >= 0) {
-                        this.meq.append(i2 + i, i2);
+                        this.meF.append(i2 + i, i2);
                     }
                 }
             }
         }
     }
 
-    public void dwl() {
+    public void dwq() {
         HL(0);
     }
 
     public void dk(int i, int i2) {
-        if (i >= 0 && i2 >= 0 && this.meq != null) {
-            this.meq.append(i2, i);
+        if (i >= 0 && i2 >= 0 && this.meF != null) {
+            this.meF.append(i2, i);
         }
     }
 
     public int HM(int i) {
-        if (i >= 0 && this.meq != null) {
-            return this.meq.get(i, -1);
+        if (i >= 0 && this.meF != null) {
+            return this.meF.get(i, -1);
         }
         return -1;
     }
 
     public void HN(int i) {
-        if (this.meq != null) {
-            this.meq.delete(i);
+        if (this.meF != null) {
+            this.meF.delete(i);
         }
     }
 }

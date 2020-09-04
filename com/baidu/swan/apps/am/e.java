@@ -12,7 +12,7 @@ import java.util.Set;
 /* loaded from: classes8.dex */
 public final class e implements com.baidu.swan.apps.am.b, d {
     private static Handler sHandler = new Handler(Looper.getMainLooper());
-    private final Map<c<?>, Set<a>> dam = new HashMap();
+    private final Map<c<?>, Set<a>> daq = new HashMap();
 
     /* loaded from: classes8.dex */
     public interface a extends com.baidu.swan.apps.ap.e.b<Set<c<?>>> {
@@ -20,11 +20,11 @@ public final class e implements com.baidu.swan.apps.am.b, d {
 
     /* loaded from: classes8.dex */
     private static class b {
-        private static final e daq = new e();
+        private static final e dav = new e();
     }
 
     public static e aEg() {
-        return b.daq;
+        return b.dav;
     }
 
     public e j(com.baidu.swan.apps.am.a aVar) {
@@ -38,10 +38,10 @@ public final class e implements com.baidu.swan.apps.am.b, d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e a(c<?>... cVarArr) {
-        synchronized (this.dam) {
+        synchronized (this.daq) {
             for (c<?> cVar : cVarArr) {
-                if (!this.dam.containsKey(cVar)) {
-                    this.dam.put(cVar, new HashSet());
+                if (!this.daq.containsKey(cVar)) {
+                    this.daq.put(cVar, new HashSet());
                 }
             }
         }
@@ -50,8 +50,8 @@ public final class e implements com.baidu.swan.apps.am.b, d {
 
     public e a(a aVar, c<?>... cVarArr) {
         if (aVar != null) {
-            synchronized (this.dam) {
-                HashSet keySet = m(cVarArr) ? this.dam.keySet() : i.N(cVarArr);
+            synchronized (this.daq) {
+                HashSet keySet = m(cVarArr) ? this.daq.keySet() : i.N(cVarArr);
                 for (c<?> cVar : keySet) {
                     if (cVar != null) {
                         a(cVar).add(aVar);
@@ -64,10 +64,10 @@ public final class e implements com.baidu.swan.apps.am.b, d {
     }
 
     private Set<a> a(@NonNull c<?> cVar) {
-        Set<a> set = this.dam.get(cVar);
+        Set<a> set = this.daq.get(cVar);
         if (set == null) {
             HashSet hashSet = new HashSet();
-            this.dam.put(cVar, hashSet);
+            this.daq.put(cVar, hashSet);
             return hashSet;
         }
         return set;
@@ -75,8 +75,8 @@ public final class e implements com.baidu.swan.apps.am.b, d {
 
     public e b(a aVar, c<?>... cVarArr) {
         if (aVar != null) {
-            synchronized (this.dam) {
-                for (c<?> cVar : m(cVarArr) ? this.dam.keySet() : i.N(cVarArr)) {
+            synchronized (this.daq) {
+                for (c<?> cVar : m(cVarArr) ? this.daq.keySet() : i.N(cVarArr)) {
                     if (cVar != null) {
                         a(cVar).remove(aVar);
                     }
@@ -98,7 +98,7 @@ public final class e implements com.baidu.swan.apps.am.b, d {
     protected e f(Set<c<?>> set) {
         if (!set.isEmpty()) {
             HashSet hashSet = new HashSet();
-            synchronized (this.dam) {
+            synchronized (this.daq) {
                 for (c<?> cVar : set) {
                     hashSet.addAll(a(cVar));
                 }

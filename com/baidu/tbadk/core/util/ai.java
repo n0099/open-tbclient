@@ -26,36 +26,36 @@ import java.util.zip.ZipInputStream;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ai {
-    private static ai ekq;
+    private static ai eku;
     private Drawable[] drawables;
-    private a[] eko;
+    private a[] eks;
     private boolean hasDayDefault;
     private boolean hasNightDefault;
-    private boolean ekp = true;
+    private boolean ekt = true;
     private int pullview_backgroundColor_day = -1315344;
     private int pullview_backgroundColor_night = -14670029;
     private PorterDuffColorFilter nightColorSkin = new PorterDuffColorFilter(-5000269, PorterDuff.Mode.MULTIPLY);
     private int[] defaultResources = {R.drawable.listview_pull_refresh01, R.drawable.listview_pull_refresh02};
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a {
         public Drawable dayDrawable;
         public Drawable nightDrawable;
     }
 
     private ai() {
-        im(com.baidu.tbadk.core.sharedPref.b.bik().getBoolean(SharedPrefConfig.PULL_VIEW_SHOULD_SHOW_3D_LOADING, this.ekp));
+        in(com.baidu.tbadk.core.sharedPref.b.bik().getBoolean(SharedPrefConfig.PULL_VIEW_SHOULD_SHOW_3D_LOADING, this.ekt));
     }
 
     public static ai bjb() {
         synchronized (ai.class) {
-            if (ekq == null) {
-                ekq = new ai();
+            if (eku == null) {
+                eku = new ai();
             }
         }
-        return ekq;
+        return eku;
     }
 
     public void saveOrUpdateImages(final String str, final String str2, String str3, String str4, String str5) {
@@ -85,7 +85,7 @@ public class ai {
         }
         if (TextUtils.isEmpty(str)) {
             com.baidu.tbadk.core.sharedPref.b.bik().putBoolean(SharedPrefConfig.PULL_VIEW_SHOULD_SHOW_3D_LOADING, true);
-            im(true);
+            in(true);
             com.baidu.adp.lib.f.h.mT().submitTaskToSingleThread(new Runnable() { // from class: com.baidu.tbadk.core.util.ai.1
                 @Override // java.lang.Runnable
                 public void run() {
@@ -100,7 +100,7 @@ public class ai {
             return;
         }
         com.baidu.tbadk.core.sharedPref.b.bik().putBoolean(SharedPrefConfig.PULL_VIEW_SHOULD_SHOW_3D_LOADING, false);
-        im(false);
+        in(false);
         String string = com.baidu.tbadk.core.sharedPref.b.bik().getString(SharedPrefConfig.PULL_IMAGE_URL, "");
         final int i5 = com.baidu.adp.lib.f.b.toInt(str3, 0);
         if (str.equals(string)) {
@@ -162,27 +162,27 @@ public class ai {
 
     public AnimationDrawable getDefaultAnimationDrawable(int i) {
         a[] aVarArr;
-        if (this.eko == null) {
-            this.eko = new a[this.defaultResources.length];
+        if (this.eks == null) {
+            this.eks = new a[this.defaultResources.length];
             for (int i2 = 0; i2 < this.defaultResources.length; i2++) {
-                this.eko[i2] = new a();
+                this.eks[i2] = new a();
             }
         }
         boolean z = i == 1 || i == 4;
         if (z && !this.hasNightDefault) {
             this.hasNightDefault = true;
             for (int i3 = 0; i3 < this.defaultResources.length; i3++) {
-                this.eko[i3].nightDrawable = new BitmapDrawable(ap.getBitmap565Quality(this.defaultResources[i3]));
+                this.eks[i3].nightDrawable = new BitmapDrawable(ap.getBitmap565Quality(this.defaultResources[i3]));
             }
         }
         if (!z && !this.hasDayDefault) {
             this.hasDayDefault = true;
             for (int i4 = 0; i4 < this.defaultResources.length; i4++) {
-                this.eko[i4].dayDrawable = new BitmapDrawable(ap.getBitmap565Quality(this.defaultResources[i4]));
+                this.eks[i4].dayDrawable = new BitmapDrawable(ap.getBitmap565Quality(this.defaultResources[i4]));
             }
         }
         AnimationDrawable animationDrawable = new AnimationDrawable();
-        for (a aVar : this.eko) {
+        for (a aVar : this.eks) {
             if (aVar != null) {
                 Drawable drawable = z ? aVar.nightDrawable : aVar.dayDrawable;
                 if (drawable != null) {
@@ -538,10 +538,10 @@ public class ai {
     }
 
     public boolean bjc() {
-        return this.ekp;
+        return this.ekt;
     }
 
-    public void im(boolean z) {
-        this.ekp = z;
+    public void in(boolean z) {
+        this.ekt = z;
     }
 }

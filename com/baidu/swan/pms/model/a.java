@@ -1,7 +1,7 @@
 package com.baidu.swan.pms.model;
 /* loaded from: classes14.dex */
 public class a {
-    public String dFl;
+    public String dFp;
     public String errorMsg;
     public int errorNo;
 
@@ -12,10 +12,10 @@ public class a {
     public a(int i, String str, String str2) {
         this.errorNo = i;
         this.errorMsg = str;
-        this.dFl = str2;
+        this.dFp = str2;
     }
 
     public String toString() {
-        return "ErrCode=" + this.errorNo + ",ErrMsg=" + this.errorMsg + ",TipMsg=" + this.dFl;
+        return "ErrCode=" + this.errorNo + ",ErrMsg=" + this.errorMsg + ",TipMsg=" + this.dFp;
     }
 }

@@ -6,11 +6,11 @@ import com.baidu.m.a.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes19.dex */
 public final class b implements a.InterfaceC0210a {
-    final /* synthetic */ BdUploadHandler aeG;
+    final /* synthetic */ BdUploadHandler aeI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(BdUploadHandler bdUploadHandler) {
-        this.aeG = bdUploadHandler;
+        this.aeI = bdUploadHandler;
     }
 
     @Override // com.baidu.m.a.a.InterfaceC0210a
@@ -25,9 +25,9 @@ public final class b implements a.InterfaceC0210a {
                 }
             }
             if (z) {
-                this.aeG.mCanHandleResult = true;
-                activity = this.aeG.mActivity;
-                createCamcorderIntent = this.aeG.createCamcorderIntent();
+                this.aeI.mCanHandleResult = true;
+                activity = this.aeI.mActivity;
+                createCamcorderIntent = this.aeI.createCamcorderIntent();
                 activity.startActivityForResult(createCamcorderIntent, 11);
             }
             com.baidu.browser.core.permission.a.tq().bi(4099);

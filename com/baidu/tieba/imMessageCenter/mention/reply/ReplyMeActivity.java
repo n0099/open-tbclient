@@ -10,8 +10,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.imMessageCenter.mention.ReplyMessageFragment;
 /* loaded from: classes16.dex */
 public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManager.c {
-    private VoiceManager hSO;
-    private ReplyMessageFragment jGT;
+    private VoiceManager hSU;
+    private ReplyMessageFragment jGZ;
     private NavigationBar mNavigationBar;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -22,42 +22,42 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
         this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.setCenterTextTitle(getResources().getString(R.string.reply));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.jGT = new ReplyMessageFragment();
-        getSupportFragmentManager().beginTransaction().add(R.id.container, this.jGT).commitAllowingStateLoss();
+        this.jGZ = new ReplyMessageFragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.container, this.jGZ).commitAllowingStateLoss();
         adjustResizeForSoftInput();
-        this.hSO = getVoiceManager();
-        this.hSO.onCreate(getPageContext());
+        this.hSU = getVoiceManager();
+        this.hSU.onCreate(getPageContext());
     }
 
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        if (this.hSO != null) {
-            this.hSO.onStart(getPageContext());
+        if (this.hSU != null) {
+            this.hSU.onStart(getPageContext());
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.hSO != null) {
-            this.hSO.onResume(getPageContext());
+        if (this.hSU != null) {
+            this.hSU.onResume(getPageContext());
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        if (this.hSO != null) {
-            this.hSO.onPause(getPageContext());
+        if (this.hSU != null) {
+            this.hSU.onPause(getPageContext());
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        if (this.hSO != null) {
-            this.hSO.onStop(getPageContext());
+        if (this.hSU != null) {
+            this.hSU.onStop(getPageContext());
         }
     }
 
@@ -65,15 +65,15 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.hSO != null) {
-            this.hSO.onDestory(getPageContext());
+        if (this.hSU != null) {
+            this.hSU.onDestory(getPageContext());
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        if (this.jGT != null) {
-            this.jGT.onChangeSkinType(i);
+        if (this.jGZ != null) {
+            this.jGZ.onChangeSkinType(i);
         }
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
     }
@@ -85,15 +85,15 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager getVoiceManager() {
-        if (this.hSO == null) {
-            this.hSO = VoiceManager.instance();
+        if (this.hSU == null) {
+            this.hSU = VoiceManager.instance();
         }
-        return this.hSO;
+        return this.hSU;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        this.jGT.onActivityResult(i, i2, intent);
+        this.jGZ.onActivityResult(i, i2, intent);
     }
 }

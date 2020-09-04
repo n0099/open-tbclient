@@ -17,20 +17,20 @@ import com.baidu.tieba.sdk.b.f;
 public class a implements CustomMessageTask.CustomRunnable {
     @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage customMessage) {
-        f dpu = com.baidu.tieba.sdk.d.a.dpo().dpu();
-        if (dpu != null) {
+        f dpx = com.baidu.tieba.sdk.d.a.dpr().dpx();
+        if (dpx != null) {
             if (customMessage.getData() instanceof s) {
                 s sVar = (s) customMessage.getData();
                 ShareEntity shareEntity = new ShareEntity();
-                a(sVar.aEt, shareEntity);
+                a(sVar.aEv, shareEntity);
                 f(shareEntity);
-                dpu.a(sVar.activity, shareEntity);
+                dpx.a(sVar.activity, shareEntity);
             } else if (customMessage.getData() instanceof ShareEntityWrapperData) {
                 ShareEntityWrapperData shareEntityWrapperData = (ShareEntityWrapperData) customMessage.getData();
                 f(shareEntityWrapperData.shareEntity);
                 ShareEntity shareEntity2 = shareEntityWrapperData.shareEntity;
                 if (shareEntity2.sharePanel()) {
-                    dpu.a(shareEntityWrapperData.activity, shareEntityWrapperData.shareEntity);
+                    dpx.a(shareEntityWrapperData.activity, shareEntityWrapperData.shareEntity);
                 } else {
                     try {
                         IShareChannel buildShareChannel = ShareSingleManager.getInstance().buildShareChannel();
@@ -46,7 +46,7 @@ public class a implements CustomMessageTask.CustomRunnable {
                             }
                         }
                     } catch (Exception e) {
-                        dpu.a(shareEntityWrapperData.activity, shareEntityWrapperData.shareEntity);
+                        dpx.a(shareEntityWrapperData.activity, shareEntityWrapperData.shareEntity);
                     }
                 }
             }
@@ -56,20 +56,20 @@ public class a implements CustomMessageTask.CustomRunnable {
 
     private void a(r rVar, ShareEntity shareEntity) {
         if (rVar != null && shareEntity != null) {
-            shareEntity.userId = rVar.aDE.userId;
-            shareEntity.userName = rVar.aDE.userName;
-            if (rVar.aEe != null && !TextUtils.isEmpty(rVar.aEe.aEc)) {
-                shareEntity.title = rVar.aEe.aEc;
+            shareEntity.userId = rVar.aDG.userId;
+            shareEntity.userName = rVar.aDG.userName;
+            if (rVar.aEg != null && !TextUtils.isEmpty(rVar.aEg.aEe)) {
+                shareEntity.title = rVar.aEg.aEe;
             } else {
                 shareEntity.title = StringUtils.isNull(shareEntity.userName) ? "" : shareEntity.userName + "的直播";
             }
-            if (rVar.aEe != null && !TextUtils.isEmpty(rVar.aEe.subTitle)) {
-                shareEntity.content = rVar.aEe.subTitle;
+            if (rVar.aEg != null && !TextUtils.isEmpty(rVar.aEg.subTitle)) {
+                shareEntity.content = rVar.aEg.subTitle;
             } else {
                 shareEntity.content = "精彩直播正在进行，邀请你速来围观。";
             }
-            if (rVar.aEe != null && !TextUtils.isEmpty(rVar.aEe.imgUrl)) {
-                shareEntity.imageUrl = rVar.aEe.imgUrl;
+            if (rVar.aEg != null && !TextUtils.isEmpty(rVar.aEg.imgUrl)) {
+                shareEntity.imageUrl = rVar.aEg.imgUrl;
             } else {
                 shareEntity.imageUrl = rVar.mLiveInfo.cover;
             }

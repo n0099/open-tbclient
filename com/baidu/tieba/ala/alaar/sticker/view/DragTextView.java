@@ -15,31 +15,31 @@ import com.baidu.live.tbadk.widget.TbImageView;
 import com.baidu.tieba.ala.alaar.sticker.model.PicStickerItem;
 /* loaded from: classes7.dex */
 public class DragTextView extends TextView {
-    private float bpJ;
-    private float cLu;
-    private GestureDetector.OnGestureListener fAA;
-    private int fAe;
-    private int fAf;
-    private int fAg;
-    private int fAh;
+    private float bpM;
+    private float cLy;
+    private CharSequence fAA;
+    int fAB;
+    int fAC;
+    int fAD;
+    private GestureDetector.OnGestureListener fAE;
     private int fAi;
     private int fAj;
     private int fAk;
-    private e fAl;
-    private GestureDetector fAm;
-    private boolean fAn;
-    private boolean fAo;
-    private TbImageView fAp;
-    private final int fAq;
-    private int fAr;
-    private int fAs;
-    private boolean fAt;
-    private float fAu;
-    private float fAv;
-    private CharSequence fAw;
-    int fAx;
-    int fAy;
-    int fAz;
+    private int fAl;
+    private int fAm;
+    private int fAn;
+    private int fAo;
+    private e fAp;
+    private GestureDetector fAq;
+    private boolean fAr;
+    private boolean fAs;
+    private TbImageView fAt;
+    private final int fAu;
+    private int fAv;
+    private int fAw;
+    private boolean fAx;
+    private float fAy;
+    private float fAz;
     private int mActivePointerId;
     private float mDownX;
     private float mDownY;
@@ -52,30 +52,30 @@ public class DragTextView extends TextView {
         super(context);
         this.mActivePointerId = -1;
         this.mIsSilding = false;
-        this.fAn = false;
-        this.fAo = true;
-        this.fAq = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds300);
-        this.fAr = this.fAq;
-        this.fAs = this.fAq;
-        this.fAt = false;
+        this.fAr = false;
+        this.fAs = true;
+        this.fAu = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds300);
+        this.fAv = this.fAu;
+        this.fAw = this.fAu;
+        this.fAx = false;
         this.type = 2;
-        this.fAA = new GestureDetector.OnGestureListener() { // from class: com.baidu.tieba.ala.alaar.sticker.view.DragTextView.1
+        this.fAE = new GestureDetector.OnGestureListener() { // from class: com.baidu.tieba.ala.alaar.sticker.view.DragTextView.1
             @Override // android.view.GestureDetector.OnGestureListener
             public boolean onDown(MotionEvent motionEvent) {
-                DragTextView.this.fAt = false;
+                DragTextView.this.fAx = false;
                 return false;
             }
 
             @Override // android.view.GestureDetector.OnGestureListener
             public void onShowPress(MotionEvent motionEvent) {
-                DragTextView.this.fAt = false;
+                DragTextView.this.fAx = false;
             }
 
             @Override // android.view.GestureDetector.OnGestureListener
             public boolean onSingleTapUp(MotionEvent motionEvent) {
-                DragTextView.this.fAt = true;
-                if (DragTextView.this.fAl != null && DragTextView.this.fAn) {
-                    DragTextView.this.fAl.onClick(DragTextView.this);
+                DragTextView.this.fAx = true;
+                if (DragTextView.this.fAp != null && DragTextView.this.fAr) {
+                    DragTextView.this.fAp.onClick(DragTextView.this);
                     return false;
                 }
                 return false;
@@ -83,21 +83,21 @@ public class DragTextView extends TextView {
 
             @Override // android.view.GestureDetector.OnGestureListener
             public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-                DragTextView.this.fAt = false;
+                DragTextView.this.fAx = false;
                 return false;
             }
 
             @Override // android.view.GestureDetector.OnGestureListener
             public void onLongPress(MotionEvent motionEvent) {
-                DragTextView.this.fAt = false;
-                if (DragTextView.this.fAl != null) {
-                    DragTextView.this.fAl.onLongPress();
+                DragTextView.this.fAx = false;
+                if (DragTextView.this.fAp != null) {
+                    DragTextView.this.fAp.onLongPress();
                 }
             }
 
             @Override // android.view.GestureDetector.OnGestureListener
             public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-                DragTextView.this.fAt = false;
+                DragTextView.this.fAx = false;
                 return false;
             }
         };
@@ -108,30 +108,30 @@ public class DragTextView extends TextView {
         super(context, attributeSet);
         this.mActivePointerId = -1;
         this.mIsSilding = false;
-        this.fAn = false;
-        this.fAo = true;
-        this.fAq = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds300);
-        this.fAr = this.fAq;
-        this.fAs = this.fAq;
-        this.fAt = false;
+        this.fAr = false;
+        this.fAs = true;
+        this.fAu = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds300);
+        this.fAv = this.fAu;
+        this.fAw = this.fAu;
+        this.fAx = false;
         this.type = 2;
-        this.fAA = new GestureDetector.OnGestureListener() { // from class: com.baidu.tieba.ala.alaar.sticker.view.DragTextView.1
+        this.fAE = new GestureDetector.OnGestureListener() { // from class: com.baidu.tieba.ala.alaar.sticker.view.DragTextView.1
             @Override // android.view.GestureDetector.OnGestureListener
             public boolean onDown(MotionEvent motionEvent) {
-                DragTextView.this.fAt = false;
+                DragTextView.this.fAx = false;
                 return false;
             }
 
             @Override // android.view.GestureDetector.OnGestureListener
             public void onShowPress(MotionEvent motionEvent) {
-                DragTextView.this.fAt = false;
+                DragTextView.this.fAx = false;
             }
 
             @Override // android.view.GestureDetector.OnGestureListener
             public boolean onSingleTapUp(MotionEvent motionEvent) {
-                DragTextView.this.fAt = true;
-                if (DragTextView.this.fAl != null && DragTextView.this.fAn) {
-                    DragTextView.this.fAl.onClick(DragTextView.this);
+                DragTextView.this.fAx = true;
+                if (DragTextView.this.fAp != null && DragTextView.this.fAr) {
+                    DragTextView.this.fAp.onClick(DragTextView.this);
                     return false;
                 }
                 return false;
@@ -139,21 +139,21 @@ public class DragTextView extends TextView {
 
             @Override // android.view.GestureDetector.OnGestureListener
             public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-                DragTextView.this.fAt = false;
+                DragTextView.this.fAx = false;
                 return false;
             }
 
             @Override // android.view.GestureDetector.OnGestureListener
             public void onLongPress(MotionEvent motionEvent) {
-                DragTextView.this.fAt = false;
-                if (DragTextView.this.fAl != null) {
-                    DragTextView.this.fAl.onLongPress();
+                DragTextView.this.fAx = false;
+                if (DragTextView.this.fAp != null) {
+                    DragTextView.this.fAp.onLongPress();
                 }
             }
 
             @Override // android.view.GestureDetector.OnGestureListener
             public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-                DragTextView.this.fAt = false;
+                DragTextView.this.fAx = false;
                 return false;
             }
         };
@@ -164,30 +164,30 @@ public class DragTextView extends TextView {
         super(context, attributeSet, i);
         this.mActivePointerId = -1;
         this.mIsSilding = false;
-        this.fAn = false;
-        this.fAo = true;
-        this.fAq = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds300);
-        this.fAr = this.fAq;
-        this.fAs = this.fAq;
-        this.fAt = false;
+        this.fAr = false;
+        this.fAs = true;
+        this.fAu = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds300);
+        this.fAv = this.fAu;
+        this.fAw = this.fAu;
+        this.fAx = false;
         this.type = 2;
-        this.fAA = new GestureDetector.OnGestureListener() { // from class: com.baidu.tieba.ala.alaar.sticker.view.DragTextView.1
+        this.fAE = new GestureDetector.OnGestureListener() { // from class: com.baidu.tieba.ala.alaar.sticker.view.DragTextView.1
             @Override // android.view.GestureDetector.OnGestureListener
             public boolean onDown(MotionEvent motionEvent) {
-                DragTextView.this.fAt = false;
+                DragTextView.this.fAx = false;
                 return false;
             }
 
             @Override // android.view.GestureDetector.OnGestureListener
             public void onShowPress(MotionEvent motionEvent) {
-                DragTextView.this.fAt = false;
+                DragTextView.this.fAx = false;
             }
 
             @Override // android.view.GestureDetector.OnGestureListener
             public boolean onSingleTapUp(MotionEvent motionEvent) {
-                DragTextView.this.fAt = true;
-                if (DragTextView.this.fAl != null && DragTextView.this.fAn) {
-                    DragTextView.this.fAl.onClick(DragTextView.this);
+                DragTextView.this.fAx = true;
+                if (DragTextView.this.fAp != null && DragTextView.this.fAr) {
+                    DragTextView.this.fAp.onClick(DragTextView.this);
                     return false;
                 }
                 return false;
@@ -195,21 +195,21 @@ public class DragTextView extends TextView {
 
             @Override // android.view.GestureDetector.OnGestureListener
             public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-                DragTextView.this.fAt = false;
+                DragTextView.this.fAx = false;
                 return false;
             }
 
             @Override // android.view.GestureDetector.OnGestureListener
             public void onLongPress(MotionEvent motionEvent) {
-                DragTextView.this.fAt = false;
-                if (DragTextView.this.fAl != null) {
-                    DragTextView.this.fAl.onLongPress();
+                DragTextView.this.fAx = false;
+                if (DragTextView.this.fAp != null) {
+                    DragTextView.this.fAp.onLongPress();
                 }
             }
 
             @Override // android.view.GestureDetector.OnGestureListener
             public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-                DragTextView.this.fAt = false;
+                DragTextView.this.fAx = false;
                 return false;
             }
         };
@@ -217,50 +217,50 @@ public class DragTextView extends TextView {
     }
 
     private void init(Context context) {
-        this.fAe = (int) (context.getResources().getDisplayMetrics().density * 12.0f);
-        this.fAm = new GestureDetector(context, this.fAA);
-        this.fAx = BdUtilHelper.dip2px(context, 98.0f) / 2;
-        this.fAy = BdUtilHelper.dip2px(context, 162.0f) / 2;
-        this.fAz = BdUtilHelper.dip2px(context, 64.0f) / 2;
+        this.fAi = (int) (context.getResources().getDisplayMetrics().density * 12.0f);
+        this.fAq = new GestureDetector(context, this.fAE);
+        this.fAB = BdUtilHelper.dip2px(context, 98.0f) / 2;
+        this.fAC = BdUtilHelper.dip2px(context, 162.0f) / 2;
+        this.fAD = BdUtilHelper.dip2px(context, 64.0f) / 2;
     }
 
     public void setCanEdit(boolean z) {
-        this.fAn = z;
+        this.fAr = z;
     }
 
     public void setStickerCanOperate(boolean z) {
-        this.fAo = z;
+        this.fAs = z;
     }
 
     public void setParentBorder(int i, int i2, int i3, int i4) {
         if (this.type == 2) {
-            this.fAj = this.fAy;
+            this.fAn = this.fAC;
         } else {
-            this.fAj = this.fAx;
+            this.fAn = this.fAB;
         }
-        this.fAk = this.fAz;
-        this.fAf = i;
-        this.fAh = i3;
-        this.fAg = i2;
-        this.fAi = i4;
+        this.fAo = this.fAD;
+        this.fAj = i;
+        this.fAl = i3;
+        this.fAk = i2;
+        this.fAm = i4;
     }
 
     public void setImRightViewSize(int i, int i2) {
-        this.fAr = i;
-        this.fAs = i2;
+        this.fAv = i;
+        this.fAw = i2;
     }
 
     @Override // android.widget.TextView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         int i;
         int i2;
-        if (!this.fAo) {
+        if (!this.fAs) {
             return super.onTouchEvent(motionEvent);
         }
-        this.fAm.onTouchEvent(motionEvent);
+        this.fAq.onTouchEvent(motionEvent);
         switch (motionEvent.getAction() & 255) {
             case 0:
-                this.fAt = false;
+                this.fAx = false;
                 int actionIndex = MotionEventCompat.getActionIndex(motionEvent);
                 this.mActivePointerId = MotionEventCompat.getPointerId(motionEvent, actionIndex);
                 if (!isInvalidEvent(motionEvent, actionIndex, this.mActivePointerId)) {
@@ -268,15 +268,15 @@ public class DragTextView extends TextView {
                     this.mLastMotionY = motionEvent.getY();
                     this.mDownX = MotionEventCompat.getX(motionEvent, actionIndex);
                     this.mDownY = MotionEventCompat.getY(motionEvent, actionIndex);
-                    this.cLu = getX();
-                    this.bpJ = getY();
-                    if (this.fAl != null && this.fAl.bES()) {
-                        this.fAu = getTranslationX();
-                        this.fAv = getTranslationY();
-                        this.fAw = getText();
+                    this.cLy = getX();
+                    this.bpM = getY();
+                    if (this.fAp != null && this.fAp.bET()) {
+                        this.fAy = getTranslationX();
+                        this.fAz = getTranslationY();
+                        this.fAA = getText();
                     }
-                    if (this.fAl != null) {
-                        this.fAl.bER();
+                    if (this.fAp != null) {
+                        this.fAp.bES();
                         return true;
                     }
                     return true;
@@ -285,8 +285,8 @@ public class DragTextView extends TextView {
             case 1:
             case 3:
                 setAlpha(1.0f);
-                if (this.fAl != null && !this.fAt) {
-                    this.fAl.e(this, (int) this.cLu, (int) this.bpJ, getWidth() + ((int) this.cLu), getHeight() + ((int) this.bpJ));
+                if (this.fAp != null && !this.fAx) {
+                    this.fAp.e(this, (int) this.cLy, (int) this.bpM, getWidth() + ((int) this.cLy), getHeight() + ((int) this.bpM));
                 }
                 endDrag();
                 break;
@@ -296,20 +296,20 @@ public class DragTextView extends TextView {
                 }
                 if (this.mIsSilding) {
                     getParent().requestDisallowInterceptTouchEvent(true);
-                    if (!isInvalidEvent(motionEvent, getPointerIndex(motionEvent, this.mActivePointerId), this.mActivePointerId) && (this.fAl == null || this.fAl.bES())) {
+                    if (!isInvalidEvent(motionEvent, getPointerIndex(motionEvent, this.mActivePointerId), this.mActivePointerId) && (this.fAp == null || this.fAp.bET())) {
                         int diffX = getDiffX(motionEvent);
                         int M = M(motionEvent);
                         int x = ((int) getX()) + diffX;
                         int y = ((int) getY()) + M;
                         int width = x + getWidth();
                         int height = y + getHeight();
-                        int i3 = this.fAg;
-                        int i4 = this.fAf - this.fAj;
-                        int i5 = this.fAj + this.fAh;
-                        int i6 = this.fAh - this.fAr;
-                        int i7 = (this.fAi - this.fAs) + this.fAk;
-                        int i8 = this.fAk + this.fAi;
-                        int i9 = i6 - this.fAj;
+                        int i3 = this.fAk;
+                        int i4 = this.fAj - this.fAn;
+                        int i5 = this.fAn + this.fAl;
+                        int i6 = this.fAl - this.fAv;
+                        int i7 = (this.fAm - this.fAw) + this.fAo;
+                        int i8 = this.fAo + this.fAm;
+                        int i9 = i6 - this.fAn;
                         if (y < i3) {
                             height = getHeight() + i3;
                         } else {
@@ -341,13 +341,13 @@ public class DragTextView extends TextView {
                         } else {
                             int width2 = getWidth() + i9;
                         }
-                        this.cLu = i9;
-                        this.bpJ = i2;
+                        this.cLy = i9;
+                        this.bpM = i2;
                         setTranslationX(i9);
                         setTranslationY(i2);
                         setAlpha(0.7f);
-                        if (this.fAl != null) {
-                            this.fAl.w((int) this.cLu, (int) this.bpJ, ((int) this.cLu) + getWidth(), ((int) this.bpJ) + getHeight());
+                        if (this.fAp != null) {
+                            this.fAp.w((int) this.cLy, (int) this.bpM, ((int) this.cLy) + getWidth(), ((int) this.bpM) + getHeight());
                             break;
                         }
                     }
@@ -363,10 +363,10 @@ public class DragTextView extends TextView {
     }
 
     public void setBackground(PicStickerItem picStickerItem) {
-        if (this.fAp == null) {
-            this.fAp = new TbImageView(getContext());
+        if (this.fAt == null) {
+            this.fAt = new TbImageView(getContext());
         }
-        this.fAp.startLoad(picStickerItem.url, 10, false);
+        this.fAt.startLoad(picStickerItem.url, 10, false);
     }
 
     private void endDrag() {
@@ -382,7 +382,7 @@ public class DragTextView extends TextView {
             float abs = Math.abs(x - this.mLastMotionX);
             float y = MotionEventCompat.getY(motionEvent, pointerIndex);
             float abs2 = Math.abs(y - this.mLastMotionY);
-            if (abs > this.fAe || abs2 > this.fAe) {
+            if (abs > this.fAi || abs2 > this.fAi) {
                 this.mIsSilding = true;
                 this.mLastMotionX = x;
                 this.mLastMotionY = y;
@@ -421,18 +421,18 @@ public class DragTextView extends TextView {
     }
 
     public void setOnDragViewEventListener(e eVar) {
-        this.fAl = eVar;
+        this.fAp = eVar;
     }
 
     public void setType(int i) {
         this.type = i;
     }
 
-    public void bFa() {
-        setTranslationX(this.fAu);
-        setTranslationY(this.fAv);
+    public void bFb() {
+        setTranslationX(this.fAy);
+        setTranslationY(this.fAz);
         if (this.type == 2) {
-            setText(this.fAw);
+            setText(this.fAA);
         }
         if (getParent() != null && ((View) getParent()).getVisibility() == 0) {
             setVisibility(0);

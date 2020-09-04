@@ -11,14 +11,14 @@ import android.widget.TextView;
 import tv.chushou.widget.a.b;
 /* loaded from: classes6.dex */
 public class EmptyLoadingView extends RelativeLayout implements View.OnClickListener {
-    private static View.OnClickListener nZm;
+    private static View.OnClickListener nZE;
     private View.OnClickListener mLoginListener;
     private int mType;
-    private ImageView nZn;
-    private TextView nZo;
-    private AnimationImageView nZp;
-    private TextView nZq;
-    private View.OnClickListener nZr;
+    private ImageView nZF;
+    private TextView nZG;
+    private AnimationImageView nZH;
+    private TextView nZI;
+    private View.OnClickListener nZJ;
 
     public EmptyLoadingView(Context context) {
         this(context, null, 0);
@@ -32,18 +32,18 @@ public class EmptyLoadingView extends RelativeLayout implements View.OnClickList
         super(context, attributeSet, i);
         this.mType = 4;
         LayoutInflater.from(context.getApplicationContext()).inflate(b.e.commonres_empty_loading_view, (ViewGroup) this, true);
-        this.nZn = (ImageView) findViewById(b.d.iv_empty);
-        this.nZo = (TextView) findViewById(b.d.tv_desc);
-        this.nZp = (AnimationImageView) findViewById(b.d.iv_loading);
-        this.nZq = (TextView) findViewById(b.d.tv_button);
-        this.nZn.setOnClickListener(this);
-        this.nZo.setOnClickListener(this);
-        this.nZq.setOnClickListener(this);
+        this.nZF = (ImageView) findViewById(b.d.iv_empty);
+        this.nZG = (TextView) findViewById(b.d.tv_desc);
+        this.nZH = (AnimationImageView) findViewById(b.d.iv_loading);
+        this.nZI = (TextView) findViewById(b.d.tv_button);
+        this.nZF.setOnClickListener(this);
+        this.nZG.setOnClickListener(this);
+        this.nZI.setOnClickListener(this);
         setOnClickListener(this);
     }
 
     public static void ap(View.OnClickListener onClickListener) {
-        nZm = onClickListener;
+        nZE = onClickListener;
     }
 
     @Override // android.view.View.OnClickListener
@@ -53,15 +53,15 @@ public class EmptyLoadingView extends RelativeLayout implements View.OnClickList
                 if (this.mLoginListener != null) {
                     this.mLoginListener.onClick(view);
                     return;
-                } else if (nZm != null) {
-                    nZm.onClick(view);
+                } else if (nZE != null) {
+                    nZE.onClick(view);
                     return;
                 } else {
                     return;
                 }
             default:
-                if (this.nZr != null) {
-                    this.nZr.onClick(view);
+                if (this.nZJ != null) {
+                    this.nZJ.onClick(view);
                     return;
                 }
                 return;
@@ -69,7 +69,7 @@ public class EmptyLoadingView extends RelativeLayout implements View.OnClickList
     }
 
     public void setReloadListener(View.OnClickListener onClickListener) {
-        this.nZr = onClickListener;
+        this.nZJ = onClickListener;
     }
 
     public void setLoginListener(View.OnClickListener onClickListener) {
@@ -77,15 +77,15 @@ public class EmptyLoadingView extends RelativeLayout implements View.OnClickList
     }
 
     public void Ns(int i) {
-        if (this.nZp != null) {
+        if (this.nZH != null) {
             switch (i) {
                 case 1:
                     this.mType = 1;
                     setVisibility(0);
-                    this.nZp.setVisibility(0);
-                    this.nZn.setVisibility(8);
-                    this.nZo.setVisibility(8);
-                    this.nZq.setVisibility(8);
+                    this.nZH.setVisibility(0);
+                    this.nZF.setVisibility(8);
+                    this.nZG.setVisibility(8);
+                    this.nZI.setVisibility(8);
                     return;
                 case 2:
                     this.mType = 2;
@@ -94,48 +94,48 @@ public class EmptyLoadingView extends RelativeLayout implements View.OnClickList
                 case 3:
                     this.mType = 3;
                     setVisibility(0);
-                    this.nZp.setVisibility(8);
-                    this.nZn.setVisibility(0);
-                    this.nZn.setImageResource(b.c.commonres_pagestatus_net_error);
-                    this.nZn.setClickable(true);
-                    this.nZo.setVisibility(0);
-                    this.nZo.setText(b.f.commonres_pagestatus_net_error);
-                    this.nZq.setVisibility(0);
-                    this.nZq.setText(b.f.commonres_pagestatus_action_refresh);
+                    this.nZH.setVisibility(8);
+                    this.nZF.setVisibility(0);
+                    this.nZF.setImageResource(b.c.commonres_pagestatus_net_error);
+                    this.nZF.setClickable(true);
+                    this.nZG.setVisibility(0);
+                    this.nZG.setText(b.f.commonres_pagestatus_net_error);
+                    this.nZI.setVisibility(0);
+                    this.nZI.setText(b.f.commonres_pagestatus_action_refresh);
                     return;
                 case 4:
                     this.mType = 4;
                     setVisibility(0);
-                    this.nZp.setVisibility(8);
-                    this.nZn.setVisibility(0);
-                    this.nZn.setImageResource(b.c.commonres_pagestatus_unknown_error);
-                    this.nZn.setClickable(true);
-                    this.nZo.setVisibility(0);
-                    this.nZo.setText(b.f.commonres_pagestatus_unknown);
-                    this.nZq.setVisibility(0);
-                    this.nZq.setText(b.f.commonres_pagestatus_action_refresh);
+                    this.nZH.setVisibility(8);
+                    this.nZF.setVisibility(0);
+                    this.nZF.setImageResource(b.c.commonres_pagestatus_unknown_error);
+                    this.nZF.setClickable(true);
+                    this.nZG.setVisibility(0);
+                    this.nZG.setText(b.f.commonres_pagestatus_unknown);
+                    this.nZI.setVisibility(0);
+                    this.nZI.setText(b.f.commonres_pagestatus_action_refresh);
                     return;
                 case 5:
                     this.mType = 5;
                     setVisibility(0);
-                    this.nZp.setVisibility(8);
-                    this.nZn.setVisibility(0);
-                    this.nZn.setImageResource(b.c.commonres_pagestatus_need_login);
-                    this.nZn.setClickable(true);
-                    this.nZo.setVisibility(8);
-                    this.nZq.setVisibility(0);
-                    this.nZq.setText(b.f.commonres_pagestatus_action_login);
+                    this.nZH.setVisibility(8);
+                    this.nZF.setVisibility(0);
+                    this.nZF.setImageResource(b.c.commonres_pagestatus_need_login);
+                    this.nZF.setClickable(true);
+                    this.nZG.setVisibility(8);
+                    this.nZI.setVisibility(0);
+                    this.nZI.setText(b.f.commonres_pagestatus_action_login);
                     return;
                 case 6:
                     this.mType = 6;
                     setVisibility(0);
-                    this.nZp.setVisibility(8);
-                    this.nZn.setVisibility(0);
-                    this.nZn.setImageResource(b.c.commonres_pagestatus_empty);
-                    this.nZn.setClickable(true);
-                    this.nZo.setVisibility(0);
-                    this.nZo.setText(b.f.commonres_pagestatus_empty);
-                    this.nZq.setVisibility(8);
+                    this.nZH.setVisibility(8);
+                    this.nZF.setVisibility(0);
+                    this.nZF.setImageResource(b.c.commonres_pagestatus_empty);
+                    this.nZF.setClickable(true);
+                    this.nZG.setVisibility(0);
+                    this.nZG.setText(b.f.commonres_pagestatus_empty);
+                    this.nZI.setVisibility(8);
                     return;
                 default:
                     this.mType = -1;

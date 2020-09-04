@@ -27,7 +27,7 @@ public class e extends com.baidu.adp.widget.ListView.a<i, com.baidu.tieba.card.a
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, i iVar, com.baidu.tieba.card.a.a<h> aVar) {
-        aVar.ccE().a(iVar);
+        aVar.ccF().a(iVar);
         return aVar.getView();
     }
 }

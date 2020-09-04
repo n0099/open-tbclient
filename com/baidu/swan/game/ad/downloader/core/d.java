@@ -17,10 +17,10 @@ import okhttp3.Request;
 import okhttp3.Response;
 /* loaded from: classes19.dex */
 public class d implements Runnable {
-    private final com.baidu.swan.game.ad.downloader.c.d djT;
-    private final DownloadInfo djZ;
-    private final a dkc;
-    private long dkd;
+    private final com.baidu.swan.game.ad.downloader.c.d djX;
+    private final DownloadInfo dkd;
+    private final a dkg;
+    private long dkh;
 
     /* loaded from: classes19.dex */
     public interface a {
@@ -30,35 +30,35 @@ public class d implements Runnable {
     }
 
     public d(com.baidu.swan.game.ad.downloader.c.d dVar, DownloadInfo downloadInfo, a aVar) {
-        this.djT = dVar;
-        this.djZ = downloadInfo;
-        this.dkd = downloadInfo.getProgress();
-        this.dkc = aVar;
+        this.djX = dVar;
+        this.dkd = downloadInfo;
+        this.dkh = downloadInfo.getProgress();
+        this.dkg = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Process.setThreadPriority(10);
         try {
-            if (this.djZ.getSize() <= 0) {
-                long tF = tF(this.djZ.getUri());
-                if (tF <= 0) {
+            if (this.dkd.getSize() <= 0) {
+                long tG = tG(this.dkd.getUri());
+                if (tG <= 0) {
                     throw new DownloadException(6, "length <= 0");
                 }
-                this.djZ.setSize(tF);
+                this.dkd.setSize(tG);
             }
-            this.djZ.setStatus(SwanAdDownloadState.DOWNLOADING.value());
-            this.djT.l(this.djZ);
+            this.dkd.setStatus(SwanAdDownloadState.DOWNLOADING.value());
+            this.djX.l(this.dkd);
             executeDownload();
         } catch (DownloadException e) {
-            this.djZ.setStatus(SwanAdDownloadState.DOWNLOAD_FAILED.value());
-            this.djZ.setException(e);
-            this.djT.l(this.djZ);
-            this.djT.b(e);
+            this.dkd.setStatus(SwanAdDownloadState.DOWNLOAD_FAILED.value());
+            this.dkd.setException(e);
+            this.djX.l(this.dkd);
+            this.djX.b(e);
         }
     }
 
-    private long tF(String str) {
+    private long tG(String str) {
         try {
             Response execute = new OkHttpClient().newCall(new Request.Builder().url(str).build()).execute();
             if (execute == null || !execute.isSuccessful()) {
@@ -96,13 +96,13 @@ public class d implements Runnable {
         int i = 0;
         try {
             try {
-                URL url = new URL(this.djZ.getUri());
-                long j = this.dkd;
+                URL url = new URL(this.dkd.getUri());
+                long j = this.dkh;
                 Response execute = new OkHttpClient().newCall(new Request.Builder().addHeader("RANGE", "bytes=" + j + Constants.ACCEPT_TIME_SEPARATOR_SERVER).url(url).build()).execute();
                 if (execute != null) {
                     inputStream = execute.body().byteStream();
                     try {
-                        randomAccessFile = new RandomAccessFile(this.djZ.getPath(), "rw");
+                        randomAccessFile = new RandomAccessFile(this.dkd.getPath(), "rw");
                     } catch (DownloadPauseException e) {
                     } catch (ProtocolException e2) {
                         e = e2;
@@ -124,11 +124,11 @@ public class d implements Runnable {
                             aIE();
                             i += read;
                             randomAccessFile.write(bArr, 0, read);
-                            this.djZ.setProgress(this.dkd + i);
-                            this.dkc.aID();
+                            this.dkd.setProgress(this.dkh + i);
+                            this.dkg.aID();
                         }
                         execute.body().close();
-                        this.dkc.aIx();
+                        this.dkg.aIx();
                     } catch (DownloadPauseException e5) {
                         randomAccessFile2 = randomAccessFile;
                         if (inputStream != null) {
@@ -216,7 +216,7 @@ public class d implements Runnable {
     }
 
     private void aIE() {
-        if (this.djZ.isPause()) {
+        if (this.dkd.isPause()) {
             throw new DownloadPauseException(7);
         }
     }

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.BdToken.completeTask;
 
 import java.io.Serializable;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class CompleteTaskToastData implements Serializable {
     public int activityId;
     public int duration;

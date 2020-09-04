@@ -1,9 +1,9 @@
 package com.baidu.tbadk.ala;
 
 import com.baidu.tbadk.core.data.AlaUserInfoData;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
-    public AlaUserInfoData dRx;
-    public boolean dRy;
+    public AlaUserInfoData dRB;
+    public boolean dRC;
     public int type;
 }

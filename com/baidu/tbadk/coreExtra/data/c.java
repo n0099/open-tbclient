@@ -1,17 +1,17 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c {
-    private int ezE;
+    private int ezI;
 
     public boolean bmp() {
-        return this.ezE == 1;
+        return this.ezI == 1;
     }
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.ezE = jSONObject.optInt("agree_icon", 0);
+            this.ezI = jSONObject.optInt("agree_icon", 0);
         }
     }
 }

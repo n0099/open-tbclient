@@ -13,7 +13,7 @@ public class c extends com.baidu.swan.apps.api.a.d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b jb(String str) {
+    public com.baidu.swan.apps.api.c.b jc(String str) {
         if (DEBUG) {
             Log.d("Api-NavigationBar", "set navigation bar title");
         }
@@ -57,7 +57,7 @@ public class c extends com.baidu.swan.apps.api.a.d {
         return new com.baidu.swan.apps.api.c.b(0);
     }
 
-    public com.baidu.swan.apps.api.c.b jc(String str) {
+    public com.baidu.swan.apps.api.c.b jd(String str) {
         if (DEBUG) {
             Log.d("Api-NavigationBar", "set navigation bar color");
         }
@@ -91,7 +91,7 @@ public class c extends com.baidu.swan.apps.api.a.d {
                 if (ahm == null || !ahm.K(optString2, true)) {
                     com.baidu.swan.apps.console.c.e("Api-NavigationBar", "set title color fail");
                     c.this.a(optString, new com.baidu.swan.apps.api.c.b(1001));
-                } else if (!ahm.v(SwanAppConfigData.fn(optString3), true)) {
+                } else if (!ahm.v(SwanAppConfigData.fo(optString3), true)) {
                     com.baidu.swan.apps.console.c.e("Api-NavigationBar", "set title background fail");
                     c.this.a(optString, new com.baidu.swan.apps.api.c.b(1001));
                 } else {
@@ -106,14 +106,14 @@ public class c extends com.baidu.swan.apps.api.a.d {
         return new com.baidu.swan.apps.api.c.b(0);
     }
 
-    public com.baidu.swan.apps.api.c.b jd(String str) {
+    public com.baidu.swan.apps.api.c.b je(String str) {
         if (DEBUG) {
             Log.d("Api-NavigationBar", "start hide navigation bar loading");
         }
         return G(str, false);
     }
 
-    public com.baidu.swan.apps.api.c.b je(String str) {
+    public com.baidu.swan.apps.api.c.b jf(String str) {
         if (DEBUG) {
             Log.d("Api-NavigationBar", "start show navigation bar loading");
         }

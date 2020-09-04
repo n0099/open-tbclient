@@ -29,9 +29,9 @@ public class a {
                 a.this.a(bVar, 1, 0);
             }
         });
-        aVar.dEO = false;
-        aVar.dEP = false;
-        aVar.dEQ = false;
+        aVar.dES = false;
+        aVar.dET = false;
+        aVar.dEU = false;
         com.baidu.swan.a.c.a.aSW().a(aVar);
     }
 

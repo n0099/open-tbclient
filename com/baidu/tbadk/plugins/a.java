@@ -1,11 +1,11 @@
 package com.baidu.tbadk.plugins;
 
 import android.content.ContentProvider;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
-    private static ContentProvider eTN;
+    private static ContentProvider eTR;
 
-    public static ContentProvider buE() {
-        return eTN;
+    public static ContentProvider buF() {
+        return eTR;
     }
 }

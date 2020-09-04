@@ -31,7 +31,7 @@ public class k {
         return a.getSharedPreferences("ssoconfigs", 0).getString(d.a(str), str2);
     }
 
-    public static a dNp() {
+    public static a dNy() {
         return new a(a.getSharedPreferences("ssoconfigs", 0).edit());
     }
 

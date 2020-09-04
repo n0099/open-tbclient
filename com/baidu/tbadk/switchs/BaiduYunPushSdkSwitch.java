@@ -4,7 +4,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.featureSwitch.a;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BaiduYunPushSdkSwitch extends a {
     public static final String BAIDU_YUN_PUSH_SDK_KEY = "android_baiduyun_push";
     public static final int OFF_TYPE = 0;

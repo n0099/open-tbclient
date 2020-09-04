@@ -5,53 +5,53 @@ import java.util.List;
 /* loaded from: classes5.dex */
 public class c {
     final int capacityHint;
-    Object[] oqo;
-    Object[] oqp;
-    int oqq;
+    Object[] oqG;
+    Object[] oqH;
+    int oqI;
     volatile int size;
 
     public void add(Object obj) {
         if (this.size == 0) {
-            this.oqo = new Object[this.capacityHint + 1];
-            this.oqp = this.oqo;
-            this.oqo[0] = obj;
-            this.oqq = 1;
+            this.oqG = new Object[this.capacityHint + 1];
+            this.oqH = this.oqG;
+            this.oqG[0] = obj;
+            this.oqI = 1;
             this.size = 1;
-        } else if (this.oqq == this.capacityHint) {
+        } else if (this.oqI == this.capacityHint) {
             Object[] objArr = new Object[this.capacityHint + 1];
             objArr[0] = obj;
-            this.oqp[this.capacityHint] = objArr;
-            this.oqp = objArr;
-            this.oqq = 1;
+            this.oqH[this.capacityHint] = objArr;
+            this.oqH = objArr;
+            this.oqI = 1;
             this.size++;
         } else {
-            this.oqp[this.oqq] = obj;
-            this.oqq++;
+            this.oqH[this.oqI] = obj;
+            this.oqI++;
             this.size++;
         }
     }
 
-    public Object[] eft() {
-        return this.oqo;
+    public Object[] efC() {
+        return this.oqG;
     }
 
     public int size() {
         return this.size;
     }
 
-    List<Object> ekt() {
+    List<Object> ekC() {
         int i = this.capacityHint;
         int i2 = this.size;
         ArrayList arrayList = new ArrayList(i2 + 1);
         int i3 = 0;
-        Object[] eft = eft();
+        Object[] efC = efC();
         int i4 = 0;
         while (i3 < i2) {
-            arrayList.add(eft[i4]);
+            arrayList.add(efC[i4]);
             i3++;
             i4++;
             if (i4 == i) {
-                eft = (Object[]) eft[i];
+                efC = (Object[]) efC[i];
                 i4 = 0;
             }
         }
@@ -59,6 +59,6 @@ public class c {
     }
 
     public String toString() {
-        return ekt().toString();
+        return ekC().toString();
     }
 }

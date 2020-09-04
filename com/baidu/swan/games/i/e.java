@@ -12,12 +12,12 @@ import java.util.Map;
 @SuppressLint({"UseSparseArrays"})
 /* loaded from: classes8.dex */
 public class e {
-    private com.baidu.swan.games.f.a cdS;
-    private f drC;
-    private i drD;
+    private com.baidu.swan.games.f.a cdW;
+    private f drG;
+    private i drH;
 
     public e(com.baidu.swan.games.f.a aVar) {
-        this.cdS = aVar;
+        this.cdW = aVar;
         aNn();
     }
 
@@ -29,8 +29,8 @@ public class e {
         } else {
             lVar = new l();
         }
-        this.drC = new f(AppRuntime.getAppContext(), com.baidu.swan.apps.v.f.arY().arF(), lVar);
-        this.drD = i.aNw();
+        this.drG = new f(AppRuntime.getAppContext(), com.baidu.swan.apps.v.f.arY().arF(), lVar);
+        this.drH = i.aNw();
     }
 
     @JavascriptInterface
@@ -40,31 +40,31 @@ public class e {
 
     @JavascriptInterface
     public void mkdirSync(String str, boolean z) {
-        if (n.a(this.drC, this.cdS, (JsObject) null, (String) null)) {
-            this.drD.z(str);
-            n.a(this.cdS, this.drC.b(str, z, true), JSExceptionType.Error, "unknown error", "mkdirSync:");
+        if (n.a(this.drG, this.cdW, (JsObject) null, (String) null)) {
+            this.drH.z(str);
+            n.a(this.cdW, this.drG.b(str, z, true), JSExceptionType.Error, "unknown error", "mkdirSync:");
         }
     }
 
     @JavascriptInterface
     public void mkdir(JsObject jsObject) {
-        if (n.a(this.drC, this.cdS, jsObject, "fail parameter error: parameter.dirPath should be String instead of ")) {
+        if (n.a(this.drG, this.cdW, jsObject, "fail parameter error: parameter.dirPath should be String instead of ")) {
             final int a = n.a("dirPath", jsObject);
             final com.baidu.swan.games.i.a.b bVar = new com.baidu.swan.games.i.a.b();
-            final Map<String, Object> a2 = n.a(this.drC, jsObject, bVar, "mkdir:fail parameter error: parameter.dirPath should be String instead of Undefined;");
+            final Map<String, Object> a2 = n.a(this.drG, jsObject, bVar, "mkdir:fail parameter error: parameter.dirPath should be String instead of Undefined;");
             if (a2 != null) {
                 final String j = n.j("dirPath", a2);
                 final Boolean bool = (Boolean) n.a("recursive", a2, Boolean.FALSE);
-                this.drD.a(new Runnable() { // from class: com.baidu.swan.games.i.e.1
+                this.drH.a(new Runnable() { // from class: com.baidu.swan.games.i.e.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        final c b = e.this.drC.b(j, bool.booleanValue(), false);
-                        e.this.cdS.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.i.e.1.1
+                        final c b = e.this.drG.b(j, bool.booleanValue(), false);
+                        e.this.cdW.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.i.e.1.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 HashMap hashMap = new HashMap();
                                 hashMap.put(Integer.valueOf(a), "dirPath");
-                                if (n.a(n.a(b, "mkdir:", a2), bVar, hashMap, e.this.cdS)) {
+                                if (n.a(n.a(b, "mkdir:", a2), bVar, hashMap, e.this.cdW)) {
                                     bVar.errMsg = "mkdir:" + b.errMsg;
                                     n.b(bVar, a2);
                                 }
@@ -78,9 +78,9 @@ public class e {
 
     @JavascriptInterface
     public void writeFileSync(String str, String str2, String str3) {
-        if (n.a(this.drC, this.cdS, (JsObject) null, (String) null)) {
-            this.drD.z(str);
-            n.a(this.cdS, this.drC.a(true, str, (Object) str2, str3), JSExceptionType.Error, "unknown error", "writeFileSync:");
+        if (n.a(this.drG, this.cdW, (JsObject) null, (String) null)) {
+            this.drH.z(str);
+            n.a(this.cdW, this.drG.a(true, str, (Object) str2, str3), JSExceptionType.Error, "unknown error", "writeFileSync:");
         }
     }
 
@@ -91,9 +91,9 @@ public class e {
 
     @JavascriptInterface
     public void writeFileSync(String str, JsArrayBuffer jsArrayBuffer) {
-        if (n.a(this.drC, this.cdS, (JsObject) null, (String) null)) {
-            this.drD.z(str);
-            n.a(this.cdS, this.drC.a(true, str, (Object) (jsArrayBuffer == null ? new byte[0] : jsArrayBuffer.buffer()), (String) null), JSExceptionType.Error, "unknown error", "writeFileSync:");
+        if (n.a(this.drG, this.cdW, (JsObject) null, (String) null)) {
+            this.drH.z(str);
+            n.a(this.cdW, this.drG.a(true, str, (Object) (jsArrayBuffer == null ? new byte[0] : jsArrayBuffer.buffer()), (String) null), JSExceptionType.Error, "unknown error", "writeFileSync:");
         }
     }
 
@@ -104,35 +104,35 @@ public class e {
 
     @JavascriptInterface
     public void writeFile(JsObject jsObject) {
-        if (n.a(this.drC, this.cdS, jsObject, "fail parameter error: parameter.dirPath should be String instead of ")) {
+        if (n.a(this.drG, this.cdW, jsObject, "fail parameter error: parameter.dirPath should be String instead of ")) {
             final int a = n.a("filePath", jsObject);
             final String ld = n.ld(n.a("data", jsObject));
             final int a2 = n.a("encoding", jsObject);
             final byte[] g = n.g(jsObject);
             final com.baidu.swan.games.i.a.b bVar = new com.baidu.swan.games.i.a.b();
-            final Map<String, Object> a3 = n.a(this.drC, jsObject, bVar, "writeFile:fail parameter error: parameter.filePath should be String instead of Undefined;");
+            final Map<String, Object> a3 = n.a(this.drG, jsObject, bVar, "writeFile:fail parameter error: parameter.filePath should be String instead of Undefined;");
             if (a3 != null) {
                 final String j = n.j("data", a3);
                 final String j2 = n.j("filePath", a3);
-                this.drD.a(new Runnable() { // from class: com.baidu.swan.games.i.e.9
+                this.drH.a(new Runnable() { // from class: com.baidu.swan.games.i.e.9
                     @Override // java.lang.Runnable
                     public void run() {
-                        final c a4 = e.this.drC.a(false, j2, TextUtils.isEmpty(j) ? g : j, n.j("encoding", a3));
+                        final c a4 = e.this.drG.a(false, j2, TextUtils.isEmpty(j) ? g : j, n.j("encoding", a3));
                         if (!TextUtils.isEmpty(ld)) {
                             a4.errMsg = ld;
                             a4.errCode = -2;
-                            n.a(e.this.cdS, ld);
+                            n.a(e.this.cdW, ld);
                         } else if (a2 != 7 && a2 != 12) {
                             a4.errMsg = "fail encoding must be a string";
                             a4.errCode = -2;
-                            n.a(e.this.cdS, a4.errMsg);
+                            n.a(e.this.cdW, a4.errMsg);
                         }
-                        e.this.cdS.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.i.e.9.1
+                        e.this.cdW.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.i.e.9.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 HashMap hashMap = new HashMap();
                                 hashMap.put(Integer.valueOf(a), "filePath");
-                                if (n.a(n.a(a4, "writeFile:", a3), bVar, hashMap, e.this.cdS)) {
+                                if (n.a(n.a(a4, "writeFile:", a3), bVar, hashMap, e.this.cdW)) {
                                     bVar.errMsg = "writeFile:" + a4.errMsg;
                                     n.b(bVar, a3);
                                 }
@@ -146,30 +146,30 @@ public class e {
 
     @JavascriptInterface
     public void unlinkSync(String str) {
-        if (n.a(this.drC, this.cdS, (JsObject) null, (String) null)) {
-            this.drD.z(str);
-            n.a(this.cdS, this.drC.ah(str, true), JSExceptionType.Error, "unknown error", "unlinkSync:");
+        if (n.a(this.drG, this.cdW, (JsObject) null, (String) null)) {
+            this.drH.z(str);
+            n.a(this.cdW, this.drG.ah(str, true), JSExceptionType.Error, "unknown error", "unlinkSync:");
         }
     }
 
     @JavascriptInterface
     public void unlink(JsObject jsObject) {
-        if (n.a(this.drC, this.cdS, jsObject, "fail parameter error: parameter.filePath should be String instead of ")) {
+        if (n.a(this.drG, this.cdW, jsObject, "fail parameter error: parameter.filePath should be String instead of ")) {
             final int a = n.a("filePath", jsObject);
             final com.baidu.swan.games.i.a.b bVar = new com.baidu.swan.games.i.a.b();
-            final Map<String, Object> a2 = n.a(this.drC, jsObject, bVar, "unlink:fail parameter error: parameter.filePath should be String instead of Undefined;");
+            final Map<String, Object> a2 = n.a(this.drG, jsObject, bVar, "unlink:fail parameter error: parameter.filePath should be String instead of Undefined;");
             if (a2 != null) {
                 final String j = n.j("filePath", a2);
-                this.drD.a(new Runnable() { // from class: com.baidu.swan.games.i.e.10
+                this.drH.a(new Runnable() { // from class: com.baidu.swan.games.i.e.10
                     @Override // java.lang.Runnable
                     public void run() {
-                        final c ah = e.this.drC.ah(j, false);
-                        e.this.cdS.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.i.e.10.1
+                        final c ah = e.this.drG.ah(j, false);
+                        e.this.cdW.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.i.e.10.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 HashMap hashMap = new HashMap();
                                 hashMap.put(Integer.valueOf(a), "filePath");
-                                if (n.a(n.a(ah, "unlink:", a2), bVar, hashMap, e.this.cdS)) {
+                                if (n.a(n.a(ah, "unlink:", a2), bVar, hashMap, e.this.cdW)) {
                                     bVar.errMsg = "unlink:" + ah.errMsg;
                                     n.b(bVar, a2);
                                 }
@@ -183,25 +183,25 @@ public class e {
 
     @JavascriptInterface
     public void unzip(JsObject jsObject) {
-        if (n.a(this.drC, this.cdS, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
+        if (n.a(this.drG, this.cdW, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
             final int a = n.a("zipFilePath", jsObject);
             final int a2 = n.a("targetPath", jsObject);
             final com.baidu.swan.games.i.a.b bVar = new com.baidu.swan.games.i.a.b();
-            final Map<String, Object> a3 = n.a(this.drC, jsObject, bVar, "unzip:fail parameter error: parameter.zipFilePath should be String instead of Undefined;");
+            final Map<String, Object> a3 = n.a(this.drG, jsObject, bVar, "unzip:fail parameter error: parameter.zipFilePath should be String instead of Undefined;");
             if (a3 != null) {
                 final String j = n.j("zipFilePath", a3);
                 final String j2 = n.j("targetPath", a3);
-                this.drD.a(new Runnable() { // from class: com.baidu.swan.games.i.e.11
+                this.drH.a(new Runnable() { // from class: com.baidu.swan.games.i.e.11
                     @Override // java.lang.Runnable
                     public void run() {
-                        final c cL = e.this.drC.cL(j, j2);
-                        e.this.cdS.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.i.e.11.1
+                        final c cL = e.this.drG.cL(j, j2);
+                        e.this.cdW.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.i.e.11.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 HashMap hashMap = new HashMap();
                                 hashMap.put(Integer.valueOf(a), "zipFilePath");
                                 hashMap.put(Integer.valueOf(a2), "targetPath");
-                                if (n.a(n.a(cL, "unzip:", a3), bVar, hashMap, e.this.cdS)) {
+                                if (n.a(n.a(cL, "unzip:", a3), bVar, hashMap, e.this.cdW)) {
                                     bVar.errMsg = "unzip:" + cL.errMsg;
                                     n.b(bVar, a3);
                                 }
@@ -220,10 +220,10 @@ public class e {
 
     @JavascriptInterface
     public String saveFileSync(String str, String str2) {
-        if (n.a(this.drC, this.cdS, (JsObject) null, (String) null)) {
-            this.drD.z(str, str2);
-            c q = this.drC.q(str, str2, true);
-            n.a(this.cdS, q, JSExceptionType.Error, "unknown error", "saveFileSync:");
+        if (n.a(this.drG, this.cdW, (JsObject) null, (String) null)) {
+            this.drH.z(str, str2);
+            c q = this.drG.q(str, str2, true);
+            n.a(this.cdW, q, JSExceptionType.Error, "unknown error", "saveFileSync:");
             if (q == null || q.errCode != 0 || q.result == null) {
                 return null;
             }
@@ -234,28 +234,28 @@ public class e {
 
     @JavascriptInterface
     public void saveFile(JsObject jsObject) {
-        if (n.a(this.drC, this.cdS, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
+        if (n.a(this.drG, this.cdW, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
             final int a = n.a("tempFilePath", jsObject);
             final int a2 = n.a("filePath", jsObject);
             if (a2 == 12) {
                 a2 = 7;
             }
             final com.baidu.swan.games.i.a.b bVar = new com.baidu.swan.games.i.a.b();
-            final Map<String, Object> a3 = n.a(this.drC, jsObject, bVar, "saveFile:fail parameter error: parameter.tempFilePath should be String instead of Undefined;");
+            final Map<String, Object> a3 = n.a(this.drG, jsObject, bVar, "saveFile:fail parameter error: parameter.tempFilePath should be String instead of Undefined;");
             if (a3 != null) {
                 final String j = n.j("tempFilePath", a3);
                 final String j2 = n.j("filePath", a3);
-                this.drD.a(new Runnable() { // from class: com.baidu.swan.games.i.e.12
+                this.drH.a(new Runnable() { // from class: com.baidu.swan.games.i.e.12
                     @Override // java.lang.Runnable
                     public void run() {
-                        final c q = e.this.drC.q(j, j2, false);
-                        e.this.cdS.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.i.e.12.1
+                        final c q = e.this.drG.q(j, j2, false);
+                        e.this.cdW.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.i.e.12.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 HashMap hashMap = new HashMap();
                                 hashMap.put(Integer.valueOf(a), "tempFilePath");
                                 hashMap.put(Integer.valueOf(a2), "filePath");
-                                if (n.a(n.a(q, "saveFile:", a3), bVar, hashMap, e.this.cdS)) {
+                                if (n.a(n.a(q, "saveFile:", a3), bVar, hashMap, e.this.cdW)) {
                                     com.baidu.swan.games.i.a.g gVar = new com.baidu.swan.games.i.a.g();
                                     gVar.savedFilePath = q.result != null ? q.result.get(0) : null;
                                     gVar.errMsg = q.errMsg;
@@ -271,10 +271,10 @@ public class e {
 
     @JavascriptInterface
     public String[] readdirSync(String str) {
-        if (n.a(this.drC, this.cdS, (JsObject) null, (String) null)) {
-            this.drD.z(str);
-            c ai = this.drC.ai(str, true);
-            n.a(this.cdS, ai, JSExceptionType.Error, "unknown error", "readdirSync:");
+        if (n.a(this.drG, this.cdW, (JsObject) null, (String) null)) {
+            this.drH.z(str);
+            c ai = this.drG.ai(str, true);
+            n.a(this.cdW, ai, JSExceptionType.Error, "unknown error", "readdirSync:");
             if (ai != null && ai.errCode == 0) {
                 int size = ai.result == null ? 0 : ai.result.size();
                 return size == 0 ? new String[0] : (String[]) ai.result.toArray(new String[size]);
@@ -286,22 +286,22 @@ public class e {
 
     @JavascriptInterface
     public void readdir(JsObject jsObject) {
-        if (n.a(this.drC, this.cdS, jsObject, "fail parameter error: parameter.dirPath should be String instead of ")) {
+        if (n.a(this.drG, this.cdW, jsObject, "fail parameter error: parameter.dirPath should be String instead of ")) {
             final int a = n.a("dirPath", jsObject);
             final com.baidu.swan.games.i.a.b bVar = new com.baidu.swan.games.i.a.b();
-            final Map<String, Object> a2 = n.a(this.drC, jsObject, bVar, "readdir:fail parameter error: parameter.dirPath should be String instead of Undefined;");
+            final Map<String, Object> a2 = n.a(this.drG, jsObject, bVar, "readdir:fail parameter error: parameter.dirPath should be String instead of Undefined;");
             if (a2 != null) {
                 final String j = n.j("dirPath", a2);
-                this.drD.a(new Runnable() { // from class: com.baidu.swan.games.i.e.13
+                this.drH.a(new Runnable() { // from class: com.baidu.swan.games.i.e.13
                     @Override // java.lang.Runnable
                     public void run() {
-                        final c ai = e.this.drC.ai(j, false);
-                        e.this.cdS.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.i.e.13.1
+                        final c ai = e.this.drG.ai(j, false);
+                        e.this.cdW.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.i.e.13.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 HashMap hashMap = new HashMap();
                                 hashMap.put(Integer.valueOf(a), "dirPath");
-                                if (n.a(n.a(ai, "readdir:", a2), bVar, hashMap, e.this.cdS)) {
+                                if (n.a(n.a(ai, "readdir:", a2), bVar, hashMap, e.this.cdW)) {
                                     com.baidu.swan.games.i.a.e eVar = new com.baidu.swan.games.i.a.e();
                                     int size = ai.result == null ? 0 : ai.result.size();
                                     eVar.files = size == 0 ? new String[0] : (String[]) ai.result.toArray(new String[size]);
@@ -323,31 +323,31 @@ public class e {
 
     @JavascriptInterface
     public void rmdirSync(String str, boolean z) {
-        if (n.a(this.drC, this.cdS, (JsObject) null, (String) null)) {
-            this.drD.z(str);
-            n.a(this.cdS, this.drC.c(str, z, true), JSExceptionType.Error, "unknown error", "rmdirSync:");
+        if (n.a(this.drG, this.cdW, (JsObject) null, (String) null)) {
+            this.drH.z(str);
+            n.a(this.cdW, this.drG.c(str, z, true), JSExceptionType.Error, "unknown error", "rmdirSync:");
         }
     }
 
     @JavascriptInterface
     public void rmdir(JsObject jsObject) {
-        if (n.a(this.drC, this.cdS, jsObject, "fail parameter error: parameter.dirPath should be String instead of ")) {
+        if (n.a(this.drG, this.cdW, jsObject, "fail parameter error: parameter.dirPath should be String instead of ")) {
             final int a = n.a("dirPath", jsObject);
             final com.baidu.swan.games.i.a.b bVar = new com.baidu.swan.games.i.a.b();
-            final Map<String, Object> a2 = n.a(this.drC, jsObject, bVar, "rmdir:fail parameter error: parameter.dirPath should be String instead of Undefined;");
+            final Map<String, Object> a2 = n.a(this.drG, jsObject, bVar, "rmdir:fail parameter error: parameter.dirPath should be String instead of Undefined;");
             if (a2 != null) {
                 final String j = n.j("dirPath", a2);
                 final Boolean bool = (Boolean) n.a("recursive", a2, Boolean.FALSE);
-                this.drD.a(new Runnable() { // from class: com.baidu.swan.games.i.e.14
+                this.drH.a(new Runnable() { // from class: com.baidu.swan.games.i.e.14
                     @Override // java.lang.Runnable
                     public void run() {
-                        final c c = e.this.drC.c(j, bool.booleanValue(), false);
-                        e.this.cdS.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.i.e.14.1
+                        final c c = e.this.drG.c(j, bool.booleanValue(), false);
+                        e.this.cdW.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.i.e.14.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 HashMap hashMap = new HashMap();
                                 hashMap.put(Integer.valueOf(a), "dirPath");
-                                if (n.a(n.a(c, "rmdir:", a2), bVar, hashMap, e.this.cdS)) {
+                                if (n.a(n.a(c, "rmdir:", a2), bVar, hashMap, e.this.cdW)) {
                                     n.b(bVar, a2);
                                 }
                             }
@@ -360,10 +360,10 @@ public class e {
 
     @JavascriptInterface
     public String readFileSync(String str, String str2) {
-        if (n.a(this.drC, this.cdS, (JsObject) null, (String) null)) {
-            this.drD.z(str);
-            c r = this.drC.r(str, str2, true);
-            n.a(this.cdS, r, JSExceptionType.Error, "unknown error", "readFileSync:");
+        if (n.a(this.drG, this.cdW, (JsObject) null, (String) null)) {
+            this.drH.z(str);
+            c r = this.drG.r(str, str2, true);
+            n.a(this.cdW, r, JSExceptionType.Error, "unknown error", "readFileSync:");
             if (r == null || r.errCode != 0 || r.result == null) {
                 return null;
             }
@@ -374,49 +374,49 @@ public class e {
 
     @JavascriptInterface
     public JsArrayBuffer readFileSync(String str) {
-        if (n.a(this.drC, this.cdS, (JsObject) null, (String) null)) {
-            this.drD.z(str);
-            c r = this.drC.r(str, null, true);
-            n.a(this.cdS, r, JSExceptionType.Error, "unknown error", "readFileSync:");
-            if (r.drB == null) {
-                r.drB = new byte[0];
+        if (n.a(this.drG, this.cdW, (JsObject) null, (String) null)) {
+            this.drH.z(str);
+            c r = this.drG.r(str, null, true);
+            n.a(this.cdW, r, JSExceptionType.Error, "unknown error", "readFileSync:");
+            if (r.drF == null) {
+                r.drF = new byte[0];
             }
-            return new JsArrayBuffer(r.drB, r.drB.length);
+            return new JsArrayBuffer(r.drF, r.drF.length);
         }
         return null;
     }
 
     @JavascriptInterface
     public void readFile(JsObject jsObject) {
-        if (n.a(this.drC, this.cdS, jsObject, "fail parameter error: parameter.dirPath should be String instead of ")) {
+        if (n.a(this.drG, this.cdW, jsObject, "fail parameter error: parameter.dirPath should be String instead of ")) {
             final int a = n.a("filePath", jsObject);
             final int a2 = n.a("encoding", jsObject);
             final com.baidu.swan.games.i.a.b bVar = new com.baidu.swan.games.i.a.b();
-            final Map<String, Object> a3 = n.a(this.drC, jsObject, bVar, "readFile:fail parameter error: parameter.filePath should be String instead of Undefined;");
+            final Map<String, Object> a3 = n.a(this.drG, jsObject, bVar, "readFile:fail parameter error: parameter.filePath should be String instead of Undefined;");
             if (a3 != null) {
                 final String j = n.j("encoding", a3);
                 final String j2 = n.j("filePath", a3);
-                this.drD.a(new Runnable() { // from class: com.baidu.swan.games.i.e.15
+                this.drH.a(new Runnable() { // from class: com.baidu.swan.games.i.e.15
                     @Override // java.lang.Runnable
                     public void run() {
-                        final c r = e.this.drC.r(j2, j, false);
+                        final c r = e.this.drG.r(j2, j, false);
                         if (a2 != 7 && a2 != 12) {
                             r.errMsg = "fail encoding must be a string";
                             r.errCode = -2;
-                            n.a(e.this.cdS, r.errMsg);
+                            n.a(e.this.cdW, r.errMsg);
                         }
-                        e.this.cdS.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.i.e.15.1
+                        e.this.cdW.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.i.e.15.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 HashMap hashMap = new HashMap();
                                 hashMap.put(Integer.valueOf(a), "filePath");
-                                if (n.a(n.a(r, "readFile:", a3), bVar, hashMap, e.this.cdS)) {
+                                if (n.a(n.a(r, "readFile:", a3), bVar, hashMap, e.this.cdW)) {
                                     if (TextUtils.isEmpty(j)) {
                                         com.baidu.swan.games.i.a.a aVar = new com.baidu.swan.games.i.a.a();
-                                        if (r.drB == null) {
-                                            r.drB = new byte[0];
+                                        if (r.drF == null) {
+                                            r.drF = new byte[0];
                                         }
-                                        aVar.data = new JsArrayBuffer(r.drB, r.drB.length);
+                                        aVar.data = new JsArrayBuffer(r.drF, r.drF.length);
                                         aVar.errMsg = r.errMsg;
                                         n.b(aVar, a3);
                                         return;
@@ -437,33 +437,33 @@ public class e {
 
     @JavascriptInterface
     public void renameSync(String str, String str2) {
-        if (n.a(this.drC, this.cdS, (JsObject) null, (String) null)) {
-            this.drD.z(str, str2);
-            n.a(this.cdS, this.drC.s(str, str2, true), JSExceptionType.Error, "unknown error", "renameSync:");
+        if (n.a(this.drG, this.cdW, (JsObject) null, (String) null)) {
+            this.drH.z(str, str2);
+            n.a(this.cdW, this.drG.s(str, str2, true), JSExceptionType.Error, "unknown error", "renameSync:");
         }
     }
 
     @JavascriptInterface
     public void rename(JsObject jsObject) {
-        if (n.a(this.drC, this.cdS, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
+        if (n.a(this.drG, this.cdW, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
             final int a = n.a("oldPath", jsObject);
             final int a2 = n.a("newPath", jsObject);
             final com.baidu.swan.games.i.a.b bVar = new com.baidu.swan.games.i.a.b();
-            final Map<String, Object> a3 = n.a(this.drC, jsObject, bVar, "rename:fail parameter error: parameter.oldPath should be String instead of Undefined;");
+            final Map<String, Object> a3 = n.a(this.drG, jsObject, bVar, "rename:fail parameter error: parameter.oldPath should be String instead of Undefined;");
             if (a3 != null) {
                 final String j = n.j("oldPath", a3);
                 final String j2 = n.j("newPath", a3);
-                this.drD.a(new Runnable() { // from class: com.baidu.swan.games.i.e.16
+                this.drH.a(new Runnable() { // from class: com.baidu.swan.games.i.e.16
                     @Override // java.lang.Runnable
                     public void run() {
-                        final c s = e.this.drC.s(j, j2, false);
-                        e.this.cdS.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.i.e.16.1
+                        final c s = e.this.drG.s(j, j2, false);
+                        e.this.cdW.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.i.e.16.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 HashMap hashMap = new HashMap();
                                 hashMap.put(Integer.valueOf(a), "oldPath");
                                 hashMap.put(Integer.valueOf(a2), "newPath");
-                                if (n.a(n.a(s, "rename:", a3), bVar, hashMap, e.this.cdS)) {
+                                if (n.a(n.a(s, "rename:", a3), bVar, hashMap, e.this.cdW)) {
                                     n.b(bVar, a3);
                                 }
                             }
@@ -476,33 +476,33 @@ public class e {
 
     @JavascriptInterface
     public void copyFileSync(String str, String str2) {
-        if (n.a(this.drC, this.cdS, (JsObject) null, (String) null)) {
-            this.drD.z(str, str2);
-            n.a(this.cdS, this.drC.t(str, str2, true), JSExceptionType.Error, "unknown error", "copyFileSync:");
+        if (n.a(this.drG, this.cdW, (JsObject) null, (String) null)) {
+            this.drH.z(str, str2);
+            n.a(this.cdW, this.drG.t(str, str2, true), JSExceptionType.Error, "unknown error", "copyFileSync:");
         }
     }
 
     @JavascriptInterface
     public void copyFile(JsObject jsObject) {
-        if (n.a(this.drC, this.cdS, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
+        if (n.a(this.drG, this.cdW, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
             final int a = n.a("srcPath", jsObject);
             final int a2 = n.a("destPath", jsObject);
             final com.baidu.swan.games.i.a.b bVar = new com.baidu.swan.games.i.a.b();
-            final Map<String, Object> a3 = n.a(this.drC, jsObject, bVar, "copyFile:fail parameter error: parameter.srcPath should be String instead of Undefined;");
+            final Map<String, Object> a3 = n.a(this.drG, jsObject, bVar, "copyFile:fail parameter error: parameter.srcPath should be String instead of Undefined;");
             if (a3 != null) {
                 final String j = n.j("srcPath", a3);
                 final String j2 = n.j("destPath", a3);
-                this.drD.a(new Runnable() { // from class: com.baidu.swan.games.i.e.2
+                this.drH.a(new Runnable() { // from class: com.baidu.swan.games.i.e.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        final c t = e.this.drC.t(j, j2, false);
-                        e.this.cdS.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.i.e.2.1
+                        final c t = e.this.drG.t(j, j2, false);
+                        e.this.cdW.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.i.e.2.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 HashMap hashMap = new HashMap();
                                 hashMap.put(Integer.valueOf(a), "srcPath");
                                 hashMap.put(Integer.valueOf(a2), "destPath");
-                                if (n.a(n.a(t, "copyFile:", a3), bVar, hashMap, e.this.cdS)) {
+                                if (n.a(n.a(t, "copyFile:", a3), bVar, hashMap, e.this.cdW)) {
                                     n.b(bVar, a3);
                                 }
                             }
@@ -515,9 +515,9 @@ public class e {
 
     @JavascriptInterface
     public void appendFileSync(String str, String str2, String str3) {
-        if (n.a(this.drC, this.cdS, (JsObject) null, (String) null)) {
-            this.drD.z(str);
-            n.a(this.cdS, this.drC.b(str, str2, str3, true), JSExceptionType.Error, "unknown error", "appendFileSync:");
+        if (n.a(this.drG, this.cdW, (JsObject) null, (String) null)) {
+            this.drH.z(str);
+            n.a(this.cdW, this.drG.b(str, str2, str3, true), JSExceptionType.Error, "unknown error", "appendFileSync:");
         }
     }
 
@@ -538,36 +538,36 @@ public class e {
 
     @JavascriptInterface
     public void appendFile(JsObject jsObject) {
-        if (n.a(this.drC, this.cdS, jsObject, "fail parameter error: parameter.filePath should be String instead of ")) {
+        if (n.a(this.drG, this.cdW, jsObject, "fail parameter error: parameter.filePath should be String instead of ")) {
             final int a = n.a("encoding", jsObject);
             final int a2 = n.a("filePath", jsObject);
             int a3 = n.a("data", jsObject);
             final String ld = (a3 == 5 || a3 == 2 || a3 == 3) ? "fail data argument must not be a number" : n.ld(a3);
             final byte[] g = n.g(jsObject);
             final com.baidu.swan.games.i.a.b bVar = new com.baidu.swan.games.i.a.b();
-            final Map<String, Object> a4 = n.a(this.drC, jsObject, bVar, "appendFile:fail parameter error: parameter.filePath should be String instead of Undefined;");
+            final Map<String, Object> a4 = n.a(this.drG, jsObject, bVar, "appendFile:fail parameter error: parameter.filePath should be String instead of Undefined;");
             if (a4 != null) {
                 final String j = n.j("data", a4);
                 final String j2 = n.j("filePath", a4);
-                this.drD.a(new Runnable() { // from class: com.baidu.swan.games.i.e.3
+                this.drH.a(new Runnable() { // from class: com.baidu.swan.games.i.e.3
                     @Override // java.lang.Runnable
                     public void run() {
-                        final c b = e.this.drC.b(j2, TextUtils.isEmpty(j) ? g : j, n.j("encoding", a4), false);
+                        final c b = e.this.drG.b(j2, TextUtils.isEmpty(j) ? g : j, n.j("encoding", a4), false);
                         if (!TextUtils.isEmpty(ld)) {
                             b.errMsg = ld;
                             b.errCode = -2;
-                            n.a(e.this.cdS, ld);
+                            n.a(e.this.cdW, ld);
                         } else if (a != 7 && a != 12) {
                             b.errMsg = "fail encoding must be a string";
                             b.errCode = -2;
-                            n.a(e.this.cdS, b.errMsg);
+                            n.a(e.this.cdW, b.errMsg);
                         }
-                        e.this.cdS.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.i.e.3.1
+                        e.this.cdW.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.i.e.3.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 HashMap hashMap = new HashMap();
                                 hashMap.put(Integer.valueOf(a2), "filePath");
-                                if (n.a(n.a(b, "appendFile:", a4), bVar, hashMap, e.this.cdS)) {
+                                if (n.a(n.a(b, "appendFile:", a4), bVar, hashMap, e.this.cdW)) {
                                     n.b(bVar, a4);
                                 }
                             }
@@ -580,30 +580,30 @@ public class e {
 
     @JavascriptInterface
     public void accessSync(String str) {
-        if (n.a(this.drC, this.cdS, (JsObject) null, (String) null)) {
-            this.drD.z(str);
-            n.a(this.cdS, this.drC.aj(str, true), JSExceptionType.Error, "unknown error", "accessSync:");
+        if (n.a(this.drG, this.cdW, (JsObject) null, (String) null)) {
+            this.drH.z(str);
+            n.a(this.cdW, this.drG.aj(str, true), JSExceptionType.Error, "unknown error", "accessSync:");
         }
     }
 
     @JavascriptInterface
     public void access(JsObject jsObject) {
-        if (n.a(this.drC, this.cdS, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
+        if (n.a(this.drG, this.cdW, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
             final int a = n.a("path", jsObject);
             final com.baidu.swan.games.i.a.b bVar = new com.baidu.swan.games.i.a.b();
-            final Map<String, Object> a2 = n.a(this.drC, jsObject, bVar, "access:fail parameter error: parameter.path should be String instead of Undefined;");
+            final Map<String, Object> a2 = n.a(this.drG, jsObject, bVar, "access:fail parameter error: parameter.path should be String instead of Undefined;");
             if (a2 != null) {
                 final String j = n.j("path", a2);
-                this.drD.a(new Runnable() { // from class: com.baidu.swan.games.i.e.4
+                this.drH.a(new Runnable() { // from class: com.baidu.swan.games.i.e.4
                     @Override // java.lang.Runnable
                     public void run() {
-                        final c aj = e.this.drC.aj(j, false);
-                        e.this.cdS.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.i.e.4.1
+                        final c aj = e.this.drG.aj(j, false);
+                        e.this.cdW.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.i.e.4.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 HashMap hashMap = new HashMap();
                                 hashMap.put(Integer.valueOf(a), "path");
-                                if (n.a(n.a(aj, "access:", a2), bVar, hashMap, e.this.cdS)) {
+                                if (n.a(n.a(aj, "access:", a2), bVar, hashMap, e.this.cdW)) {
                                     n.b(bVar, a2);
                                 }
                             }
@@ -616,10 +616,10 @@ public class e {
 
     @JavascriptInterface
     public j statSync(String str) {
-        if (n.a(this.drC, this.cdS, (JsObject) null, (String) null)) {
-            this.drD.z(str);
-            c ak = this.drC.ak(str, true);
-            n.a(this.cdS, ak, JSExceptionType.Error, "unknown error", "statSync:");
+        if (n.a(this.drG, this.cdW, (JsObject) null, (String) null)) {
+            this.drH.z(str);
+            c ak = this.drG.ak(str, true);
+            n.a(this.cdW, ak, JSExceptionType.Error, "unknown error", "statSync:");
             if (ak == null || ak.errCode != 0) {
                 return null;
             }
@@ -630,22 +630,22 @@ public class e {
 
     @JavascriptInterface
     public void stat(JsObject jsObject) {
-        if (n.a(this.drC, this.cdS, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
+        if (n.a(this.drG, this.cdW, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
             final int a = n.a("path", jsObject);
             final com.baidu.swan.games.i.a.b bVar = new com.baidu.swan.games.i.a.b();
-            final Map<String, Object> a2 = n.a(this.drC, jsObject, bVar, "stat:fail parameter error: parameter.path should be String instead of Undefined;");
+            final Map<String, Object> a2 = n.a(this.drG, jsObject, bVar, "stat:fail parameter error: parameter.path should be String instead of Undefined;");
             if (a2 != null) {
                 final String j = n.j("path", a2);
-                this.drD.a(new Runnable() { // from class: com.baidu.swan.games.i.e.5
+                this.drH.a(new Runnable() { // from class: com.baidu.swan.games.i.e.5
                     @Override // java.lang.Runnable
                     public void run() {
-                        final c ak = e.this.drC.ak(j, false);
-                        e.this.cdS.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.i.e.5.1
+                        final c ak = e.this.drG.ak(j, false);
+                        e.this.cdW.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.i.e.5.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 HashMap hashMap = new HashMap();
                                 hashMap.put(Integer.valueOf(a), "path");
-                                if (n.a(n.a(ak, "stat:", a2), bVar, hashMap, e.this.cdS)) {
+                                if (n.a(n.a(ak, "stat:", a2), bVar, hashMap, e.this.cdW)) {
                                     com.baidu.swan.games.i.a.h hVar = new com.baidu.swan.games.i.a.h();
                                     hVar.stats = ak.stats;
                                     hVar.errMsg = ak.errMsg;
@@ -661,26 +661,26 @@ public class e {
 
     @JavascriptInterface
     public void getFileInfo(JsObject jsObject) {
-        if (n.a(this.drC, this.cdS, jsObject, "fail parameter error: parameter.filePath should be String instead of ")) {
+        if (n.a(this.drG, this.cdW, jsObject, "fail parameter error: parameter.filePath should be String instead of ")) {
             final int a = n.a("filePath", jsObject);
             final com.baidu.swan.games.i.a.b bVar = new com.baidu.swan.games.i.a.b();
-            final Map<String, Object> a2 = n.a(this.drC, jsObject, bVar, "getFileInfo:fail parameter error: parameter.filePath should be String instead of Undefined;");
+            final Map<String, Object> a2 = n.a(this.drG, jsObject, bVar, "getFileInfo:fail parameter error: parameter.filePath should be String instead of Undefined;");
             if (a2 != null) {
                 final String j = n.j("filePath", a2);
-                this.drD.a(new Runnable() { // from class: com.baidu.swan.games.i.e.6
+                this.drH.a(new Runnable() { // from class: com.baidu.swan.games.i.e.6
                     @Override // java.lang.Runnable
                     public void run() {
-                        final c ve = e.this.drC.ve(j);
-                        e.this.cdS.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.i.e.6.1
+                        final c vf = e.this.drG.vf(j);
+                        e.this.cdW.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.i.e.6.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 HashMap hashMap = new HashMap();
                                 hashMap.put(Integer.valueOf(a), "filePath");
-                                if (n.a(n.a(ve, "getFileInfo:", a2), bVar, hashMap, e.this.cdS)) {
+                                if (n.a(n.a(vf, "getFileInfo:", a2), bVar, hashMap, e.this.cdW)) {
                                     com.baidu.swan.games.i.a.c cVar = new com.baidu.swan.games.i.a.c();
-                                    cVar.errMsg = "getFileInfo:" + ve.errMsg;
-                                    cVar.digest = ve.digest;
-                                    cVar.size = (int) ve.size;
+                                    cVar.errMsg = "getFileInfo:" + vf.errMsg;
+                                    cVar.digest = vf.digest;
+                                    cVar.size = (int) vf.size;
                                     n.b(cVar, a2);
                                 }
                             }
@@ -695,15 +695,15 @@ public class e {
     public void getSavedFileList(JsObject jsObject) {
         final com.baidu.swan.games.i.a.b bVar;
         final Map<String, Object> a;
-        if (n.a(this.drC, this.cdS, jsObject, "fail parameter error: parameter.filePath should be String instead of ") && (a = n.a(this.drC, jsObject, (bVar = new com.baidu.swan.games.i.a.b()), "getSavedFileList:fail parameter error: parameter.filePath should be String instead of Undefined;")) != null) {
-            this.drD.a(new Runnable() { // from class: com.baidu.swan.games.i.e.7
+        if (n.a(this.drG, this.cdW, jsObject, "fail parameter error: parameter.filePath should be String instead of ") && (a = n.a(this.drG, jsObject, (bVar = new com.baidu.swan.games.i.a.b()), "getSavedFileList:fail parameter error: parameter.filePath should be String instead of Undefined;")) != null) {
+            this.drH.a(new Runnable() { // from class: com.baidu.swan.games.i.e.7
                 @Override // java.lang.Runnable
                 public void run() {
-                    final c aNo = e.this.drC.aNo();
-                    e.this.cdS.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.i.e.7.1
+                    final c aNo = e.this.drG.aNo();
+                    e.this.cdW.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.i.e.7.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (n.a(n.a(aNo, "getSavedFileList:", a), bVar, (Map<Integer, String>) null, e.this.cdS)) {
+                            if (n.a(n.a(aNo, "getSavedFileList:", a), bVar, (Map<Integer, String>) null, e.this.cdW)) {
                                 com.baidu.swan.games.i.a.d dVar = new com.baidu.swan.games.i.a.d();
                                 int size = aNo.fileList == null ? 0 : aNo.fileList.size();
                                 dVar.fileList = size == 0 ? new d[0] : (d[]) aNo.fileList.toArray(new d[size]);
@@ -719,22 +719,22 @@ public class e {
 
     @JavascriptInterface
     public void removeSavedFile(JsObject jsObject) {
-        if (n.a(this.drC, this.cdS, jsObject, "fail parameter error: parameter.filePath should be String instead of ")) {
+        if (n.a(this.drG, this.cdW, jsObject, "fail parameter error: parameter.filePath should be String instead of ")) {
             final int a = n.a("filePath", jsObject);
             final com.baidu.swan.games.i.a.b bVar = new com.baidu.swan.games.i.a.b();
-            final Map<String, Object> a2 = n.a(this.drC, jsObject, bVar, "removeSavedFile:fail parameter error: parameter.filePath should be String instead of Undefined;");
+            final Map<String, Object> a2 = n.a(this.drG, jsObject, bVar, "removeSavedFile:fail parameter error: parameter.filePath should be String instead of Undefined;");
             if (a2 != null) {
                 final String j = n.j("filePath", a2);
-                this.drD.a(new Runnable() { // from class: com.baidu.swan.games.i.e.8
+                this.drH.a(new Runnable() { // from class: com.baidu.swan.games.i.e.8
                     @Override // java.lang.Runnable
                     public void run() {
-                        final c vd = e.this.drC.vd(j);
-                        e.this.cdS.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.i.e.8.1
+                        final c ve = e.this.drG.ve(j);
+                        e.this.cdW.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.i.e.8.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 HashMap hashMap = new HashMap();
                                 hashMap.put(Integer.valueOf(a), "filePath");
-                                if (n.a(n.a(vd, "removeSavedFile:", a2), bVar, hashMap, e.this.cdS)) {
+                                if (n.a(n.a(ve, "removeSavedFile:", a2), bVar, hashMap, e.this.cdW)) {
                                     n.b(bVar, a2);
                                 }
                             }

@@ -22,12 +22,12 @@ public final class R {
 
     /* loaded from: classes2.dex */
     public static final class id {
-        public static final int svCancelBg = 0x7f0f265c;
+        public static final int svCancelBg = 0x7f0f265d;
         public static final int tag_barrier_available_rect_bottom = 0x7f0f00f5;
         public static final int tag_barrier_available_rect_top = 0x7f0f00f6;
         public static final int tag_barrier_rect = 0x7f0f00f7;
         public static final int tag_barrier_type = 0x7f0f00f8;
-        public static final int tvCancelHint = 0x7f0f265d;
+        public static final int tvCancelHint = 0x7f0f265e;
     }
 
     /* loaded from: classes2.dex */
@@ -37,7 +37,7 @@ public final class R {
 
     /* loaded from: classes2.dex */
     public static final class string {
-        public static final int suspension_window_cancel = 0x7f081744;
+        public static final int suspension_window_cancel = 0x7f081745;
     }
 
     /* loaded from: classes2.dex */

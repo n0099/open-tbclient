@@ -17,25 +17,25 @@ import com.baidu.live.tbadk.core.util.CustomToast;
 import com.baidu.live.tbadk.coreextra.message.UpdateAttentionMessage;
 /* loaded from: classes7.dex */
 public class a implements e {
-    private String aAE;
-    private boolean bbH;
-    private c gQN;
-    private int gQO;
+    private String aAG;
+    private boolean bbJ;
+    private c gQR;
+    private int gQS;
     private String mGroupId;
     private String mLiveId;
     private TbPageContext mPageContext;
     private String mUserId;
     private String mUserName;
-    private BdUniqueId fRa = BdUniqueId.gen();
-    private InterfaceC0649a gQP = new InterfaceC0649a() { // from class: com.baidu.tieba.ala.person.b.a.1
+    private BdUniqueId fRe = BdUniqueId.gen();
+    private InterfaceC0649a gQT = new InterfaceC0649a() { // from class: com.baidu.tieba.ala.person.b.a.1
         @Override // com.baidu.tieba.ala.person.b.a.InterfaceC0649a
         public void a(com.baidu.tieba.ala.person.a.b bVar, View view, int i) {
             if (bVar.live_status != 1) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(a.this.mPageContext.getPageActivity(), bVar.id, bVar.name, bVar.portrait, 0, 0, null, null, 0L, 0L, 0L, bVar.ghn, a.this.mGroupId, a.this.mLiveId, a.this.bbH, a.this.aAE, null, bVar.getNameShow(), "")));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(a.this.mPageContext.getPageActivity(), bVar.id, bVar.name, bVar.portrait, 0, 0, null, null, 0L, 0L, 0L, bVar.ghr, a.this.mGroupId, a.this.mLiveId, a.this.bbJ, a.this.aAG, null, bVar.getNameShow(), "")));
             }
         }
     };
-    private CustomMessageListener aZZ = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.ala.person.b.a.2
+    private CustomMessageListener bab = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.ala.person.b.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -43,11 +43,11 @@ public class a implements e {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                 if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().toUid != null) {
                     if (updateAttentionMessage.getData().isSucc) {
-                        if (a.this.gQN != null) {
-                            a.this.gQN.aw(updateAttentionMessage.getData().toUid, updateAttentionMessage.isAttention());
+                        if (a.this.gQR != null) {
+                            a.this.gQR.aw(updateAttentionMessage.getData().toUid, updateAttentionMessage.isAttention());
                         }
                         Message<?> message = updateAttentionMessage.getmOrginalMessage();
-                        if (message != null && message.getTag() != null && message.getTag().equals(a.this.fRa)) {
+                        if (message != null && message.getTag() != null && message.getTag().equals(a.this.fRe)) {
                             if (updateAttentionMessage.getData().isAttention) {
                                 com.baidu.live.view.a.Qx().a(a.this.mPageContext, true);
                                 return;
@@ -58,8 +58,8 @@ public class a implements e {
                         }
                         return;
                     }
-                    if (a.this.gQN != null) {
-                        a.this.gQN.aw(updateAttentionMessage.getData().toUid, !updateAttentionMessage.isAttention());
+                    if (a.this.gQR != null) {
+                        a.this.gQR.aw(updateAttentionMessage.getData().toUid, !updateAttentionMessage.isAttention());
                     }
                     if (!com.baidu.live.view.a.Qx().a(updateAttentionMessage.getData(), (BdPageContext<?>) a.this.mPageContext, false) && updateAttentionMessage.getData().errorString != null) {
                         CustomToast.newInstance().showToast(updateAttentionMessage.getData().errorString);
@@ -77,30 +77,30 @@ public class a implements e {
 
     public a(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        MessageManager.getInstance().registerListener(this.aZZ);
+        MessageManager.getInstance().registerListener(this.bab);
     }
 
     private void createView() {
-        if (this.gQN == null) {
-            this.gQN = new c(this.mPageContext, this.mUserId, this.fRa);
-            if (this.gQO == 1) {
-                this.gQN.uM(0);
-            } else if (this.gQO == 2) {
-                this.gQN.uM(1);
+        if (this.gQR == null) {
+            this.gQR = new c(this.mPageContext, this.mUserId, this.fRe);
+            if (this.gQS == 1) {
+                this.gQR.uM(0);
+            } else if (this.gQS == 2) {
+                this.gQR.uM(1);
             }
-            this.gQN.a(this.gQP);
+            this.gQR.a(this.gQT);
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public View getPanelView() {
-        if (this.gQN == null) {
+        if (this.gQR == null) {
             createView();
         }
-        if (this.gQN == null) {
+        if (this.gQR == null) {
             return null;
         }
-        return this.gQN.getView();
+        return this.gQR.getView();
     }
 
     @Override // com.baidu.live.liveroom.d.d
@@ -124,23 +124,23 @@ public class a implements e {
 
     @Override // com.baidu.live.liveroom.d.d
     public void enterForeground() {
-        if (this.gQN != null) {
-            this.gQN.enterForeground();
+        if (this.gQR != null) {
+            this.gQR.enterForeground();
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.aZZ);
-        if (this.gQN != null) {
-            this.gQN.onDestory();
+        MessageManager.getInstance().unRegisterListener(this.bab);
+        if (this.gQR != null) {
+            this.gQR.onDestory();
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public void onChangeSkinType(int i) {
-        if (this.gQN != null) {
-            this.gQN.onChangeSkinType(i);
+        if (this.gQR != null) {
+            this.gQR.onChangeSkinType(i);
         }
     }
 }

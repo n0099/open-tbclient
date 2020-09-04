@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class SelectForumActivityConfig extends IntentConfig {
     public static final String EXTRA_KEY_BAIJIAHAO_DATA = "extra_key_baijiahao_data";
     public static final String EXTRA_KEY_FROM = "extra_key_from";

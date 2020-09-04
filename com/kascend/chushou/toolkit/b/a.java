@@ -19,11 +19,11 @@ import tv.chushou.zues.utils.e;
 import tv.chushou.zues.utils.h;
 /* loaded from: classes6.dex */
 public class a {
-    private static final tv.chushou.zues.toolkit.b.a nWH = tv.chushou.zues.toolkit.b.a.oMU;
-    private static a nWK;
+    private static final tv.chushou.zues.toolkit.b.a nWZ = tv.chushou.zues.toolkit.b.a.oNm;
+    private static a nXc;
     private final Object d = new Object();
     private Map<View, String> e = Collections.synchronizedMap(new WeakHashMap());
-    private final tv.chushou.zues.toolkit.a.b.a<Drawable> nWI = new tv.chushou.zues.toolkit.a.b.a<>(15, new tv.chushou.zues.toolkit.a.b.b<Drawable>() { // from class: com.kascend.chushou.toolkit.b.a.1
+    private final tv.chushou.zues.toolkit.a.b.a<Drawable> nXa = new tv.chushou.zues.toolkit.a.b.a<>(15, new tv.chushou.zues.toolkit.a.b.b<Drawable>() { // from class: com.kascend.chushou.toolkit.b.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // tv.chushou.zues.toolkit.a.b.b
         /* renamed from: a */
@@ -31,26 +31,26 @@ public class a {
             return 1;
         }
     });
-    private tv.chushou.zues.toolkit.a.a.a nWJ;
+    private tv.chushou.zues.toolkit.a.a.a nXb;
 
-    public static a eaq() {
-        if (nWK == null) {
+    public static a eaz() {
+        if (nXc == null) {
             synchronized (a.class) {
-                if (nWK == null) {
-                    nWK = new a();
+                if (nXc == null) {
+                    nXc = new a();
                 }
             }
         }
-        return nWK;
+        return nXc;
     }
 
     public static void b() {
     }
 
     private a() {
-        this.nWJ = null;
+        this.nXb = null;
         try {
-            this.nWJ = tv.chushou.zues.toolkit.a.a.a.b(com.kascend.chushou.d.c.nHv.e(), 1, 1, 10485760L);
+            this.nXb = tv.chushou.zues.toolkit.a.a.a.b(com.kascend.chushou.d.c.nHN.e(), 1, 1, 10485760L);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -64,8 +64,8 @@ public class a {
             }
             this.e.put(view, str);
             Drawable drawable = null;
-            if (this.nWI != null) {
-                drawable = this.nWI.get(str);
+            if (this.nXa != null) {
+                drawable = this.nXa.get(str);
             }
             if (drawable != null) {
                 view.setBackgroundDrawable(drawable.getConstantState().newDrawable());
@@ -97,19 +97,19 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes6.dex */
     public class b implements Runnable {
-        c nWO;
+        c nXg;
 
         b(c cVar) {
-            this.nWO = cVar;
+            this.nXg = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Drawable Vf;
-            if (!a.this.a(this.nWO) && !h.isEmpty(this.nWO.a) && (Vf = a.this.Vf(this.nWO.a)) != null) {
-                a.this.nWI.put(this.nWO.a, Vf);
-                if (!a.this.a(this.nWO)) {
-                    ((Activity) this.nWO.b.getContext()).runOnUiThread(new RunnableC0902a(Vf, this.nWO));
+            if (!a.this.a(this.nXg) && !h.isEmpty(this.nXg.a) && (Vf = a.this.Vf(this.nXg.a)) != null) {
+                a.this.nXa.put(this.nXg.a, Vf);
+                if (!a.this.a(this.nXg)) {
+                    ((Activity) this.nXg.b.getContext()).runOnUiThread(new RunnableC0902a(Vf, this.nXg));
                 }
             }
         }
@@ -119,23 +119,23 @@ public class a {
     /* loaded from: classes6.dex */
     class RunnableC0902a implements Runnable {
         Drawable a;
-        c nWM;
+        c nXe;
 
         RunnableC0902a(Drawable drawable, c cVar) {
             this.a = drawable;
-            this.nWM = cVar;
+            this.nXe = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (!a.this.a(this.nWM)) {
-                this.nWM.b.setBackgroundDrawable(this.a);
+            if (!a.this.a(this.nXe)) {
+                this.nXe.b.setBackgroundDrawable(this.a);
             }
         }
     }
 
     private void b(String str, View view) {
-        tv.chushou.a.a.b.a.elT().K(new b(new c(str, view)));
+        tv.chushou.a.a.b.a.emc().K(new b(new c(str, view)));
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [195=5, 197=4, 198=4, 199=4] */
@@ -147,11 +147,11 @@ public class a {
         InputStream inputStream;
         Throwable th;
         InputStream inputStream2 = null;
-        if (this.nWJ == null) {
+        if (this.nXb == null) {
             return null;
         }
         try {
-            a.c WR = this.nWJ.WR(str);
+            a.c WR = this.nXb.WR(str);
             if (WR == null) {
                 if (0 != 0) {
                     try {
@@ -227,8 +227,8 @@ public class a {
         Drawable Ve;
         a.C1010a WS;
         Drawable drawable = null;
-        if (this.nWJ != null) {
-            ?? r1 = nWH;
+        if (this.nXb != null) {
+            ?? r1 = nWZ;
             String WT = r1.WT(str);
             try {
                 try {
@@ -240,9 +240,9 @@ public class a {
                             th = th;
                         }
                         try {
-                            if (Ve == null && (WS = this.nWJ.WS(WT)) != null) {
+                            if (Ve == null && (WS = this.nXb.WS(WT)) != null) {
                                 OutputStream Oz = WS.Oz(0);
-                                Http http = (Http) tv.chushou.basis.d.b.elL().S(Http.class);
+                                Http http = (Http) tv.chushou.basis.d.b.elU().S(Http.class);
                                 if (http == null) {
                                     WS.abort();
                                     drawable = Ve;

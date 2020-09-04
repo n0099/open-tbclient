@@ -15,35 +15,35 @@ import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.NavigationBarCoverTip;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
-    private String dXX;
-    private final com.baidu.tbadk.h.g eQa;
-    private View hXV;
+    private String dYb;
+    private final com.baidu.tbadk.h.g eQe;
+    private View hYb;
     private Activity mActivity;
-    private View.OnClickListener mGU;
-    private NavigationBarCoverTip.a mGV;
+    private View.OnClickListener mHm;
+    private NavigationBarCoverTip.a mHn;
 
     public static DefaultNavigationBarCoverTip c(Activity activity, String str, String str2) {
         if (activity == null) {
             activity = TbadkCoreApplication.getInst().getCurrentActivity();
         }
-        return new DefaultNavigationBarCoverTip(activity).gf(str, str2);
+        return new DefaultNavigationBarCoverTip(activity).gg(str, str2);
     }
 
     private DefaultNavigationBarCoverTip(Activity activity) {
         super(activity);
-        this.mGU = new View.OnClickListener() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.1
+        this.mHm = new View.OnClickListener() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 TbPageContext<?> tbPageContext;
                 DefaultNavigationBarCoverTip.this.hideTip();
-                if (DefaultNavigationBarCoverTip.this.mActivity != null && !TextUtils.isEmpty(DefaultNavigationBarCoverTip.this.dXX) && (tbPageContext = UtilHelper.getTbPageContext(DefaultNavigationBarCoverTip.this.mActivity)) != null) {
-                    be.bju().b(tbPageContext, new String[]{DefaultNavigationBarCoverTip.this.dXX});
+                if (DefaultNavigationBarCoverTip.this.mActivity != null && !TextUtils.isEmpty(DefaultNavigationBarCoverTip.this.dYb) && (tbPageContext = UtilHelper.getTbPageContext(DefaultNavigationBarCoverTip.this.mActivity)) != null) {
+                    be.bju().b(tbPageContext, new String[]{DefaultNavigationBarCoverTip.this.dYb});
                 }
             }
         };
-        this.eQa = new com.baidu.tbadk.h.g() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.2
+        this.eQe = new com.baidu.tbadk.h.g() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.2
             @Override // com.baidu.tbadk.h.g, android.app.Application.ActivityLifecycleCallbacks
             public void onActivityDestroyed(Activity activity2) {
                 if (activity2 == DefaultNavigationBarCoverTip.this.mActivity) {
@@ -52,36 +52,36 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
                 }
             }
         };
-        this.mGV = new NavigationBarCoverTip.a() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.3
+        this.mHn = new NavigationBarCoverTip.a() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.3
             @Override // com.baidu.tieba.view.NavigationBarCoverTip.a
             public void Mr() {
             }
 
             @Override // com.baidu.tieba.view.NavigationBarCoverTip.a
-            public void dFa() {
+            public void dFj() {
                 DefaultNavigationBarCoverTip.this.detach();
             }
         };
         this.mActivity = activity;
-        bDq();
-        setCoverTipListener(this.mGV);
+        bDr();
+        setCoverTipListener(this.mHn);
     }
 
     public void show() {
         ViewGroup viewGroup;
-        if (this.mActivity != null && this.hXV != null && (viewGroup = (ViewGroup) this.mActivity.findViewById(16908290)) != null) {
+        if (this.mActivity != null && this.hYb != null && (viewGroup = (ViewGroup) this.mActivity.findViewById(16908290)) != null) {
             viewGroup.addView(this, new ViewGroup.LayoutParams(-1, -2));
-            e(this.mActivity, this.hXV);
+            e(this.mActivity, this.hYb);
         }
     }
 
-    private DefaultNavigationBarCoverTip gf(String str, String str2) {
+    private DefaultNavigationBarCoverTip gg(String str, String str2) {
         if (!TextUtils.isEmpty(str)) {
             Context context = getContext();
-            this.dXX = str2;
-            this.hXV = View.inflate(context, R.layout.write_thread_share_guide, null);
-            TextView textView = (TextView) this.hXV.findViewById(R.id.write_thread_success_tips);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.hXV.findViewById(R.id.share_icon);
+            this.dYb = str2;
+            this.hYb = View.inflate(context, R.layout.write_thread_share_guide, null);
+            TextView textView = (TextView) this.hYb.findViewById(R.id.write_thread_success_tips);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.hYb.findViewById(R.id.share_icon);
             tBSpecificationBtn.setTextSize(R.dimen.tbds34);
             com.baidu.tbadk.core.view.commonBtn.c cVar = new com.baidu.tbadk.core.view.commonBtn.c();
             cVar.blp();
@@ -89,7 +89,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
             textView.setSingleLine();
             textView.setEllipsize(TextUtils.TruncateAt.END);
             textView.setText(str);
-            tBSpecificationBtn.setOnClickListener(this.mGU);
+            tBSpecificationBtn.setOnClickListener(this.mHm);
             if (TextUtils.isEmpty(str2)) {
                 tBSpecificationBtn.setVisibility(8);
             } else {
@@ -103,9 +103,9 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
         return this;
     }
 
-    private void bDq() {
+    private void bDr() {
         try {
-            TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(this.eQa);
+            TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(this.eQe);
         } catch (Exception e) {
             e.printStackTrace();
         }

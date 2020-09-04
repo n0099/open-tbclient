@@ -4,9 +4,9 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 /* loaded from: classes8.dex */
 public class aq {
-    private final Queue<Runnable> cPW = new ArrayDeque();
-    private Runnable dbB = null;
-    private boolean dbC = false;
+    private final Queue<Runnable> cQa = new ArrayDeque();
+    private Runnable dbF = null;
+    private boolean dbG = false;
 
     /* JADX WARN: Code restructure failed: missing block: B:10:0x0013, code lost:
         if (aFC() != false) goto L9;
@@ -19,7 +19,7 @@ public class aq {
         synchronized (this) {
             boolean z2 = runnable == null;
             if (!z2) {
-                this.cPW.offer(runnable);
+                this.cQa.offer(runnable);
             }
             if (!z2) {
             }
@@ -31,30 +31,30 @@ public class aq {
     public synchronized boolean aFz() {
         boolean aFB;
         aFB = aFB();
-        this.dbC = true;
+        this.dbG = true;
         return aFB;
     }
 
     public synchronized void aFA() {
-        this.dbC = false;
+        this.dbG = false;
         aFC();
     }
 
     private boolean aFB() {
-        return !this.dbC && this.dbB == null;
+        return !this.dbG && this.dbF == null;
     }
 
     private synchronized boolean aFC() {
         boolean aFB;
         aFB = aFB();
         if (aFB) {
-            while (!this.cPW.isEmpty()) {
-                this.dbB = this.cPW.poll();
-                if (this.dbB != null) {
-                    this.dbB.run();
+            while (!this.cQa.isEmpty()) {
+                this.dbF = this.cQa.poll();
+                if (this.dbF != null) {
+                    this.dbF.run();
                 }
             }
-            this.dbB = null;
+            this.dbF = null;
         }
         return aFB;
     }

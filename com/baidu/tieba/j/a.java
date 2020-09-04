@@ -7,7 +7,7 @@ import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.aa;
 import java.net.URLEncoder;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
     public static boolean zA(int i) {
         switch (i) {
@@ -26,27 +26,27 @@ public class a {
             return false;
         }
         if ((aaVar.isNetSuccess() ? aaVar.getServerErrorCode() : aaVar.getNetErrorCode()) == 1990055) {
-            cvF();
+            cvG();
             return true;
         }
         return false;
     }
 
-    public static void cvF() {
+    public static void cvG() {
         if (!l.isMainThread()) {
             TbadkCoreApplication.getInst().handler.post(new Runnable() { // from class: com.baidu.tieba.j.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.cvG();
+                    a.cvH();
                 }
             });
         } else {
-            cvG();
+            cvH();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void cvG() {
+    public static final void cvH() {
         Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
         StringBuilder sb = new StringBuilder(UrlSchemaHelper.REAL_NAME_AUTH_URL);
         sb.append("&u=").append(URLEncoder.encode(UrlSchemaHelper.FINISH_THIS_WEBVIEW));

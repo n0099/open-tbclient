@@ -18,28 +18,28 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    public static List<Pair<String, Pair<String, String>>> cHJ;
+    public static List<Pair<String, Pair<String, String>>> cHN;
 
     static {
         if (DEBUG) {
-            cHJ = new ArrayList();
-            cHJ.add(new Pair<>("总时长", new Pair("na_pms_start_req", "na_end_update_db")));
-            cHJ.add(new Pair<>("PMS信息获取时长", new Pair("na_pms_start_req", "na_pms_end_req")));
-            cHJ.add(new Pair<>("包下载时长", new Pair("na_pms_start_download", "na_pms_end_download")));
-            cHJ.add(new Pair<>("Icon下载时长", new Pair("na_pms_start_icon", "na_pms_end_icon")));
-            cHJ.add(new Pair<>("签名校验时长", new Pair("na_pms_start_check_sign", "na_pms_end_check_sign")));
-            cHJ.add(new Pair<>("包解压时长", new Pair("na_package_start_unzip", "na_package_end_unzip")));
-            cHJ.add(new Pair<>("包解密时长", new Pair("na_package_start_decrypt", "na_package_end_decrypt")));
-            cHJ.add(new Pair<>("更新数据库时长", new Pair("na_start_update_db", "na_end_update_db")));
+            cHN = new ArrayList();
+            cHN.add(new Pair<>("总时长", new Pair("na_pms_start_req", "na_end_update_db")));
+            cHN.add(new Pair<>("PMS信息获取时长", new Pair("na_pms_start_req", "na_pms_end_req")));
+            cHN.add(new Pair<>("包下载时长", new Pair("na_pms_start_download", "na_pms_end_download")));
+            cHN.add(new Pair<>("Icon下载时长", new Pair("na_pms_start_icon", "na_pms_end_icon")));
+            cHN.add(new Pair<>("签名校验时长", new Pair("na_pms_start_check_sign", "na_pms_end_check_sign")));
+            cHN.add(new Pair<>("包解压时长", new Pair("na_package_start_unzip", "na_package_end_unzip")));
+            cHN.add(new Pair<>("包解密时长", new Pair("na_package_start_decrypt", "na_package_end_decrypt")));
+            cHN.add(new Pair<>("更新数据库时长", new Pair("na_start_update_db", "na_end_update_db")));
         }
     }
 
     public static void a(String str, String str2, List<UbcFlowEvent> list, String str3) {
         if (!TextUtils.isEmpty(str) && list != null && list.size() > 0) {
-            com.baidu.swan.apps.statistic.a rn = h.rn("770");
+            com.baidu.swan.apps.statistic.a ro = h.ro("770");
             for (UbcFlowEvent ubcFlowEvent : list) {
                 if (ubcFlowEvent != null) {
-                    com.baidu.swan.apps.statistic.b.a(rn, ubcFlowEvent.id, ubcFlowEvent.value(), ubcFlowEvent.avW());
+                    com.baidu.swan.apps.statistic.b.a(ro, ubcFlowEvent.id, ubcFlowEvent.value(), ubcFlowEvent.avW());
                 }
             }
             JSONObject jSONObject = new JSONObject();
@@ -58,9 +58,9 @@ public class a {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            com.baidu.swan.apps.statistic.b.a(rn, jSONObject.toString());
-            com.baidu.swan.apps.statistic.b.c(rn);
-            b(str, list, cHJ);
+            com.baidu.swan.apps.statistic.b.a(ro, jSONObject.toString());
+            com.baidu.swan.apps.statistic.b.c(ro);
+            b(str, list, cHN);
         }
     }
 

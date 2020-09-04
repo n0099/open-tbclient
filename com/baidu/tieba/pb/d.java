@@ -1,16 +1,16 @@
 package com.baidu.tieba.pb;
 
 import com.baidu.adp.BdUniqueId;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class d {
     private long forumId;
-    private long kuI;
+    private long kuP;
     private BdUniqueId mPageId;
     private int source;
     private long threadId;
 
     public void fG(long j) {
-        this.kuI = j;
+        this.kuP = j;
     }
 
     public void setForumId(long j) {
@@ -29,16 +29,16 @@ public class d {
         this.threadId = j;
     }
 
-    public BdUniqueId cUW() {
+    public BdUniqueId cUX() {
         return this.mPageId;
     }
 
-    public int cUX() {
+    public int cUY() {
         return this.source;
     }
 
-    public long cUY() {
-        return this.kuI;
+    public long cUZ() {
+        return this.kuP;
     }
 
     public long getForumId() {

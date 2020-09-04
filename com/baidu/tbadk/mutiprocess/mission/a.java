@@ -3,7 +3,7 @@ package com.baidu.tbadk.mutiprocess.mission;
 import com.baidu.tbadk.BdToken.c;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.mutiprocess.b;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a implements b<MissionEvent> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mutiprocess.b

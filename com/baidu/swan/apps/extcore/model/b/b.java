@@ -5,7 +5,7 @@ import com.baidu.swan.apps.r.d;
 import java.io.File;
 /* loaded from: classes8.dex */
 public abstract class b implements a {
-    public static final String crz = d.aoz() + File.separator + "extension_core";
+    public static final String crD = d.aoz() + File.separator + "extension_core";
 
     @Override // com.baidu.swan.apps.extcore.model.b.a
     @NonNull

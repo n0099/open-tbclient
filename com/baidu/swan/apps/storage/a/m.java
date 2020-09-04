@@ -28,7 +28,7 @@ public class m extends aa {
         if (aA == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (com.baidu.swan.apps.storage.c.rP(aA)) {
+        } else if (com.baidu.swan.apps.storage.c.rQ(aA)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "exceed storage key max length");
             return false;
         } else {
@@ -36,7 +36,7 @@ public class m extends aa {
             if (az == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
-            } else if (com.baidu.swan.apps.storage.c.rQ(az)) {
+            } else if (com.baidu.swan.apps.storage.c.rR(az)) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "exceed storage item max length");
                 return false;
             } else {
@@ -46,7 +46,7 @@ public class m extends aa {
                     return false;
                 }
                 azT.aCP().putString(aA, az);
-                com.baidu.swan.apps.am.e.dai.update();
+                com.baidu.swan.apps.am.e.dam.update();
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
                 return true;
             }

@@ -45,54 +45,54 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes15.dex */
 public class j implements ImageViewerBottomLayout.b, ImageViewerBottomLayout.c {
-    private com.baidu.tbadk.core.dialog.i hkl;
-    private k hkm;
-    private com.baidu.tbadk.core.dialog.g huv;
-    private final ImageViewerActivity jIY;
-    private a jIZ;
-    private MultiImageView jIj;
-    private com.baidu.tieba.ueg.c jJb;
-    private com.baidu.tbadk.core.dialog.g jJc;
-    private com.baidu.tbadk.core.dialog.g jJd;
-    private com.baidu.tbadk.core.dialog.g jJe;
-    private com.baidu.tbadk.core.dialog.g jJf;
-    private com.baidu.tbadk.core.dialog.g jJg;
+    private com.baidu.tbadk.core.dialog.i hkp;
+    private k hkq;
+    private com.baidu.tbadk.core.dialog.g huB;
+    private MultiImageView jIp;
+    private final ImageViewerActivity jJe;
+    private a jJf;
+    private com.baidu.tieba.ueg.c jJh;
+    private com.baidu.tbadk.core.dialog.g jJi;
+    private com.baidu.tbadk.core.dialog.g jJj;
+    private com.baidu.tbadk.core.dialog.g jJk;
+    private com.baidu.tbadk.core.dialog.g jJl;
+    private com.baidu.tbadk.core.dialog.g jJm;
     private PermissionJudgePolicy mPermissionJudgement;
-    private String jJa = null;
-    private List<com.baidu.tbadk.core.dialog.g> hkq = null;
-    private CustomMessageListener jJh = new CustomMessageListener(2921403) { // from class: com.baidu.tieba.image.j.1
+    private String jJg = null;
+    private List<com.baidu.tbadk.core.dialog.g> hku = null;
+    private CustomMessageListener jJn = new CustomMessageListener(2921403) { // from class: com.baidu.tieba.image.j.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             o oVar;
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof o) && !j.this.jIY.isFinishing() && (oVar = (o) customResponsedMessage.getData()) != null) {
-                oVar.mfU = null;
-                if (!TextUtils.isEmpty(oVar.mfW) && !TextUtils.isEmpty(oVar.mfT) && oVar.mfT.equals(j.this.jJa)) {
-                    j.this.jIj.setCurrentImageQRInfo(oVar.mfW);
-                    j.this.Lw(oVar.mfW);
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof o) && !j.this.jJe.isFinishing() && (oVar = (o) customResponsedMessage.getData()) != null) {
+                oVar.mgj = null;
+                if (!TextUtils.isEmpty(oVar.mgl) && !TextUtils.isEmpty(oVar.mgi) && oVar.mgi.equals(j.this.jJg)) {
+                    j.this.jIp.setCurrentImageQRInfo(oVar.mgl);
+                    j.this.Lx(oVar.mgl);
                 }
             }
         }
     };
-    private k.b jJi = new k.b() { // from class: com.baidu.tieba.image.j.3
+    private k.b jJo = new k.b() { // from class: com.baidu.tieba.image.j.3
         @Override // com.baidu.tbadk.core.dialog.k.b
         public void onClick() {
-            j.this.jIj.pS(j.this.jIY.cBh());
-            j.this.cbS();
+            j.this.jIp.pS(j.this.jJe.cBi());
+            j.this.cbT();
         }
     };
-    private k.b jJj = new k.b() { // from class: com.baidu.tieba.image.j.4
+    private k.b jJp = new k.b() { // from class: com.baidu.tieba.image.j.4
         @Override // com.baidu.tbadk.core.dialog.k.b
         public void onClick() {
-            g.aJ(j.this.jIY.getPageContext().getPageActivity(), j.this.jIj.getCurrentImageUrl());
-            j.this.cbS();
+            g.aJ(j.this.jJe.getPageContext().getPageActivity(), j.this.jIp.getCurrentImageUrl());
+            j.this.cbT();
             j.this.Cf(1);
         }
     };
-    private k.b jJk = new k.b() { // from class: com.baidu.tieba.image.j.5
+    private k.b jJq = new k.b() { // from class: com.baidu.tieba.image.j.5
         @Override // com.baidu.tbadk.core.dialog.k.b
         public void onClick() {
-            String currentImageUrl = j.this.jIj.getCurrentImageUrl();
+            String currentImageUrl = j.this.jIp.getCurrentImageUrl();
             if (TbadkCoreApplication.getInst().isMainProcess(true)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.EMOTION_USER_COLLECT, currentImageUrl));
             } else {
@@ -100,14 +100,14 @@ public class j implements ImageViewerBottomLayout.b, ImageViewerBottomLayout.c {
                 intent.putExtra(com.baidu.tbadk.imageManager.d.IMAGE_URL, currentImageUrl);
                 TbadkCoreApplication.getInst().sendBroadcast(intent);
             }
-            j.this.cbS();
+            j.this.cbT();
             j.this.Cf(2);
         }
     };
-    private k.b huw = new k.b() { // from class: com.baidu.tieba.image.j.6
+    private k.b huC = new k.b() { // from class: com.baidu.tieba.image.j.6
         @Override // com.baidu.tbadk.core.dialog.k.b
         public void onClick() {
-            Activity pageActivity = j.this.jIY.getPageContext().getPageActivity();
+            Activity pageActivity = j.this.jJe.getPageContext().getPageActivity();
             if (j.this.mPermissionJudgement == null) {
                 j.this.mPermissionJudgement = new PermissionJudgePolicy();
             }
@@ -115,90 +115,90 @@ public class j implements ImageViewerBottomLayout.b, ImageViewerBottomLayout.c {
             j.this.mPermissionJudgement.appendRequestPermission(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
             if (!j.this.mPermissionJudgement.startRequestPermission(pageActivity)) {
                 j.this.saveImage();
-                j.this.cbS();
+                j.this.cbT();
                 j.this.Cf(3);
             }
         }
     };
-    private k.b jJl = new k.b() { // from class: com.baidu.tieba.image.j.7
+    private k.b jJr = new k.b() { // from class: com.baidu.tieba.image.j.7
         @Override // com.baidu.tbadk.core.dialog.k.b
         public void onClick() {
-            j.this.bpP();
-            j.this.cbS();
+            j.this.bpQ();
+            j.this.cbT();
             j.this.Cf(4);
-            j.this.cKU();
+            j.this.cKV();
         }
     };
-    private k.b jJm = new AnonymousClass8();
+    private k.b jJs = new AnonymousClass8();
 
     public j(@Nullable ImageViewerActivity imageViewerActivity) {
-        this.jIY = imageViewerActivity;
-        this.jIY.registerListener(this.jJh);
+        this.jJe = imageViewerActivity;
+        this.jJe.registerListener(this.jJn);
     }
 
     public void j(@Nullable MultiImageView multiImageView) {
-        this.jIj = multiImageView;
-        if (this.hkl == null) {
-            this.hkm = new k(this.jIY);
+        this.jIp = multiImageView;
+        if (this.hkp == null) {
+            this.hkq = new k(this.jJe);
         }
-        if (this.hkq == null) {
-            this.hkq = new ArrayList();
+        if (this.hku == null) {
+            this.hku = new ArrayList();
         }
-        ceW();
-        this.hkl = new com.baidu.tbadk.core.dialog.i(this.jIY.getPageContext(), this.hkm);
+        ceX();
+        this.hkp = new com.baidu.tbadk.core.dialog.i(this.jJe.getPageContext(), this.hkq);
     }
 
-    public void ceW() {
-        this.hkq.clear();
-        String pR = this.jIj.pR(this.jIY.cBh());
+    public void ceX() {
+        this.hku.clear();
+        String pR = this.jIp.pR(this.jJe.cBi());
         if (pR != null) {
-            this.jJc = new com.baidu.tbadk.core.dialog.g(pR, this.hkm);
-            this.jJc.a(this.jJi);
-            this.hkq.add(this.jJc);
+            this.jJi = new com.baidu.tbadk.core.dialog.g(pR, this.hkq);
+            this.jJi.a(this.jJo);
+            this.hku.add(this.jJi);
         }
-        this.huv = new com.baidu.tbadk.core.dialog.g(getString(R.string.save_to_local), this.hkm);
-        this.huv.a(this.huw);
-        this.hkq.add(this.huv);
-        if (this.jIY != null && !this.jIY.cKQ()) {
-            this.jJe = new com.baidu.tbadk.core.dialog.g(getString(R.string.save_to_emotion), this.hkm);
-            this.jJe.a(this.jJk);
-            this.hkq.add(this.jJe);
+        this.huB = new com.baidu.tbadk.core.dialog.g(getString(R.string.save_to_local), this.hkq);
+        this.huB.a(this.huC);
+        this.hku.add(this.huB);
+        if (this.jJe != null && !this.jJe.cKR()) {
+            this.jJk = new com.baidu.tbadk.core.dialog.g(getString(R.string.save_to_emotion), this.hkq);
+            this.jJk.a(this.jJq);
+            this.hku.add(this.jJk);
         }
-        this.jJd = new com.baidu.tbadk.core.dialog.g(getString(R.string.identify_image), this.hkm);
-        this.jJd.a(this.jJj);
-        this.hkq.add(this.jJd);
-        String currentImageQRInfo = this.jIj.getCurrentImageQRInfo();
+        this.jJj = new com.baidu.tbadk.core.dialog.g(getString(R.string.identify_image), this.hkq);
+        this.jJj.a(this.jJp);
+        this.hku.add(this.jJj);
+        String currentImageQRInfo = this.jIp.getCurrentImageQRInfo();
         if (!TextUtils.isEmpty(currentImageQRInfo) && !currentImageQRInfo.equals("qr_none")) {
-            this.jJg = new com.baidu.tbadk.core.dialog.g(getString(R.string.image_qr_code), this.hkm);
-            this.jJg.a(this.jJm);
-            this.hkq.add(this.jJg);
+            this.jJm = new com.baidu.tbadk.core.dialog.g(getString(R.string.image_qr_code), this.hkq);
+            this.jJm.a(this.jJs);
+            this.hku.add(this.jJm);
         }
-        this.jJf = new com.baidu.tbadk.core.dialog.g(getString(R.string.image_share), this.hkm);
-        this.jJf.a(this.jJl);
-        this.hkq.add(this.jJf);
-        this.hkm.a(new k.a() { // from class: com.baidu.tieba.image.j.2
+        this.jJl = new com.baidu.tbadk.core.dialog.g(getString(R.string.image_share), this.hkq);
+        this.jJl.a(this.jJr);
+        this.hku.add(this.jJl);
+        this.hkq.a(new k.a() { // from class: com.baidu.tieba.image.j.2
             @Override // com.baidu.tbadk.core.dialog.k.a
             public void onClick() {
-                j.this.cbS();
+                j.this.cbT();
             }
         });
-        this.hkm.aT(this.hkq);
+        this.hkq.aT(this.hku);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public String getString(int i) {
-        return this.jIY.getString(i);
+        return this.jJe.getString(i);
     }
 
-    public void cbS() {
-        if (this.hkl != null && this.hkl.isShowing()) {
-            this.hkl.dismiss();
+    public void cbT() {
+        if (this.hkp != null && this.hkp.isShowing()) {
+            this.hkp.dismiss();
         }
     }
 
     public void show() {
-        if (this.hkl != null && !this.jIY.isFinishing()) {
-            this.hkl.Nv();
+        if (this.hkp != null && !this.jJe.isFinishing()) {
+            this.hkp.Nv();
         }
     }
 
@@ -210,28 +210,28 @@ public class j implements ImageViewerBottomLayout.b, ImageViewerBottomLayout.c {
 
         @Override // com.baidu.tbadk.core.dialog.k.b
         public void onClick() {
-            final String currentImageQRInfo = j.this.jIj.getCurrentImageQRInfo();
+            final String currentImageQRInfo = j.this.jIp.getCurrentImageQRInfo();
             if (!TextUtils.isEmpty(currentImageQRInfo) && !"qr_none".equals(currentImageQRInfo)) {
                 if (!l.isNetOk()) {
-                    l.showToast(j.this.jIY.getPageContext().getPageActivity(), j.this.getString(R.string.network_not_available));
+                    l.showToast(j.this.jJe.getPageContext().getPageActivity(), j.this.getString(R.string.network_not_available));
                     return;
                 }
-                if (j.this.jJb != null && !j.this.jJb.isCancelled()) {
-                    j.this.jJb.cancel();
+                if (j.this.jJh != null && !j.this.jJh.isCancelled()) {
+                    j.this.jJh.cancel();
                 }
-                j.this.jJb = new com.baidu.tieba.ueg.c(currentImageQRInfo, new c.a() { // from class: com.baidu.tieba.image.j.8.1
+                j.this.jJh = new com.baidu.tieba.ueg.c(currentImageQRInfo, new c.a() { // from class: com.baidu.tieba.image.j.8.1
                     @Override // com.baidu.tieba.ueg.c.a
-                    public void cKW() {
+                    public void cKX() {
                         j.this.openUrl(currentImageQRInfo);
                     }
 
                     @Override // com.baidu.tieba.ueg.c.a
-                    public void cKX() {
-                        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(j.this.jIY.getPageContext().getPageActivity());
+                    public void cKY() {
+                        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(j.this.jJe.getPageContext().getPageActivity());
                         aVar.setTitleShowCenter(true);
-                        aVar.zy(j.this.getString(R.string.qr_url_jump_external_title));
+                        aVar.zz(j.this.getString(R.string.qr_url_jump_external_title));
                         aVar.setMessageShowCenter(true);
-                        aVar.zz(j.this.getString(R.string.qr_url_jump_external_message));
+                        aVar.zA(j.this.getString(R.string.qr_url_jump_external_message));
                         aVar.a(j.this.getString(R.string.confirm), new a.b() { // from class: com.baidu.tieba.image.j.8.1.1
                             @Override // com.baidu.tbadk.core.dialog.a.b
                             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -245,36 +245,36 @@ public class j implements ImageViewerBottomLayout.b, ImageViewerBottomLayout.c {
                                 aVar2.dismiss();
                             }
                         });
-                        aVar.m39if(false);
                         aVar.ig(false);
-                        aVar.b(j.this.jIY.getPageContext()).bhg();
+                        aVar.ih(false);
+                        aVar.b(j.this.jJe.getPageContext()).bhg();
                     }
 
                     @Override // com.baidu.tieba.ueg.c.a
-                    public void cKY() {
-                        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(j.this.jIY.getPageContext().getPageActivity());
-                        aVar.zy(null);
+                    public void cKZ() {
+                        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(j.this.jJe.getPageContext().getPageActivity());
+                        aVar.zz(null);
                         aVar.setMessageShowCenter(true);
-                        aVar.zz(j.this.getString(R.string.qr_url_risk_forbid));
+                        aVar.zA(j.this.getString(R.string.qr_url_risk_forbid));
                         aVar.a(j.this.getString(R.string.qr_url_risk_forbid_button), new a.b() { // from class: com.baidu.tieba.image.j.8.1.3
                             @Override // com.baidu.tbadk.core.dialog.a.b
                             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                                 aVar2.dismiss();
                             }
                         });
-                        aVar.m39if(false);
                         aVar.ig(false);
-                        aVar.b(j.this.jIY.getPageContext()).bhg();
+                        aVar.ih(false);
+                        aVar.b(j.this.jJe.getPageContext()).bhg();
                     }
 
                     @Override // com.baidu.tieba.ueg.c.a
                     public void onError(String str) {
-                        l.showToast(j.this.jIY.getPageContext().getPageActivity(), j.this.getString(R.string.qr_scan_error));
+                        l.showToast(j.this.jJe.getPageContext().getPageActivity(), j.this.getString(R.string.qr_scan_error));
                     }
                 });
-                j.this.jJb.setPriority(3);
-                j.this.jJb.execute(new String[0]);
-                j.this.cbS();
+                j.this.jJh.setPriority(3);
+                j.this.jJh.execute(new String[0]);
+                j.this.cbT();
                 j.this.Cf(5);
             }
         }
@@ -282,15 +282,15 @@ public class j implements ImageViewerBottomLayout.b, ImageViewerBottomLayout.c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void openUrl(String str) {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(this.jIY.getPageContext().getPageActivity(), null, str, false)));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(this.jJe.getPageContext().getPageActivity(), null, str, false)));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void saveImage() {
         try {
-            this.jIZ = new a(this.jIj.getCurrentImageUrl(), this.jIj.getCurrentImageData());
-            this.jIZ.execute(new String[0]);
-            if (ImageViewerConfig.FROM_DISCOVER_BEAUTY.equals(this.jIY.getFrom())) {
+            this.jJf = new a(this.jIp.getCurrentImageUrl(), this.jIp.getCurrentImageData());
+            this.jJf.execute(new String[0]);
+            if (ImageViewerConfig.FROM_DISCOVER_BEAUTY.equals(this.jJe.getFrom())) {
                 TiebaStatic.log("c12173");
             }
         } catch (Exception e) {
@@ -298,9 +298,9 @@ public class j implements ImageViewerBottomLayout.b, ImageViewerBottomLayout.c {
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.ImageViewerBottomLayout.c
-    public void bpP() {
+    public void bpQ() {
         UrlDragImageView currentUrlDragImageView;
-        if (this.jIj != null && (currentUrlDragImageView = this.jIj.getCurrentUrlDragImageView()) != null) {
+        if (this.jIp != null && (currentUrlDragImageView = this.jIp.getCurrentUrlDragImageView()) != null) {
             ImageUrlData imageUrlData = currentUrlDragImageView.getmAssistUrlData();
             String str = "";
             String str2 = "";
@@ -309,7 +309,7 @@ public class j implements ImageViewerBottomLayout.b, ImageViewerBottomLayout.c {
                 str2 = com.baidu.tbadk.core.util.c.c.getNameMd5FromUrl(str);
             }
             if (TextUtils.isEmpty(str)) {
-                str = this.jIj.getCurrentImageUrl();
+                str = this.jIp.getCurrentImageUrl();
                 str2 = av.getNameMd5FromUrl(str);
             }
             ShareItem shareItem = new ShareItem();
@@ -332,14 +332,14 @@ public class j implements ImageViewerBottomLayout.b, ImageViewerBottomLayout.c {
                 shareItem.diskPicOperate = bundle;
             }
             shareItem.isFromImageViewer = true;
-            shareItem.eEs = 14;
-            this.jIY.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new ShareDialogConfig(this.jIY, shareItem, false)));
+            shareItem.eEw = 14;
+            this.jJe.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new ShareDialogConfig(this.jJe, shareItem, false)));
         }
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.ImageViewerBottomLayout.b
-    public void bpO() {
-        Activity pageActivity = this.jIY.getPageContext().getPageActivity();
+    public void bpP() {
+        Activity pageActivity = this.jJe.getPageContext().getPageActivity();
         if (this.mPermissionJudgement == null) {
             this.mPermissionJudgement = new PermissionJudgePolicy();
         }
@@ -367,9 +367,9 @@ public class j implements ImageViewerBottomLayout.b, ImageViewerBottomLayout.c {
         public String doInBackground(String... strArr) {
             ImageUrlData imageUrlData;
             String nameMd5FromUrl;
-            Map<String, ImageUrlData> cKH = j.this.jIY.cKH();
-            if (this.mUrl != null && cKH != null) {
-                Iterator<Map.Entry<String, ImageUrlData>> it = cKH.entrySet().iterator();
+            Map<String, ImageUrlData> cKI = j.this.jJe.cKI();
+            if (this.mUrl != null && cKI != null) {
+                Iterator<Map.Entry<String, ImageUrlData>> it = cKI.entrySet().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         imageUrlData = null;
@@ -382,15 +382,15 @@ public class j implements ImageViewerBottomLayout.b, ImageViewerBottomLayout.c {
                     }
                 }
                 if (imageUrlData != null) {
-                    String str = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath() + as.bjo().Ae(nameMd5FromUrl) + "/" + av.getNameMd5FromUrl(imageUrlData.originalUrl);
+                    String str = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath() + as.bjo().Af(nameMd5FromUrl) + "/" + av.getNameMd5FromUrl(imageUrlData.originalUrl);
                     int[] imageFileWH = n.getImageFileWH(str);
-                    if (imageFileWH != null && imageFileWH.length == 2 && imageFileWH[0] > 0 && n.copyImageFile(str, this.mUrl, j.this.jIY.getPageContext().getPageActivity()) == 0) {
-                        return j.this.jIY.getPageContext().getString(R.string.save_image_to_album);
+                    if (imageFileWH != null && imageFileWH.length == 2 && imageFileWH[0] > 0 && n.copyImageFile(str, this.mUrl, j.this.jJe.getPageContext().getPageActivity()) == 0) {
+                        return j.this.jJe.getPageContext().getString(R.string.save_image_to_album);
                     }
                 }
             }
             if (this.mUrl != null && this.mData != null) {
-                switch (n.saveImageFileByUser(this.mUrl, this.mData, j.this.jIY.getPageContext().getPageActivity())) {
+                switch (n.saveImageFileByUser(this.mUrl, this.mData, j.this.jJe.getPageContext().getPageActivity())) {
                     case -2:
                         return n.getSdErrorString();
                     case 0:
@@ -405,39 +405,39 @@ public class j implements ImageViewerBottomLayout.b, ImageViewerBottomLayout.c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            j.this.jIY.showToast(str);
-            j.this.jIZ = null;
+            j.this.jJe.showToast(str);
+            j.this.jJf = null;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            j.this.jIZ = null;
+            j.this.jJf = null;
             super.cancel(true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Cf(int i) {
-        TiebaStatic.log(new aq("c13270").dD("uid", this.jIY.getUserId()).ai("obj_type", i));
+        TiebaStatic.log(new aq("c13270").dD("uid", this.jJe.getUserId()).ai("obj_type", i));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cKU() {
+    public void cKV() {
     }
 
-    public void Lw(String str) {
+    public void Lx(String str) {
         int i;
         boolean z = false;
-        if (this.hkl != null && !this.jIY.isFinishing() && this.hkl.isShowing() && !TextUtils.isEmpty(str) && !"qr_none".equals(str)) {
-            this.jJg = new com.baidu.tbadk.core.dialog.g(getString(R.string.image_qr_code), this.hkm);
-            this.jJg.a(this.jJm);
+        if (this.hkp != null && !this.jJe.isFinishing() && this.hkp.isShowing() && !TextUtils.isEmpty(str) && !"qr_none".equals(str)) {
+            this.jJm = new com.baidu.tbadk.core.dialog.g(getString(R.string.image_qr_code), this.hkq);
+            this.jJm.a(this.jJs);
             int i2 = 0;
             while (true) {
-                if (i2 < this.hkq.size()) {
-                    if (this.jJd == null || this.hkq.get(i2) != this.jJd || (i = i2 + 1) > this.hkq.size()) {
+                if (i2 < this.hku.size()) {
+                    if (this.jJj == null || this.hku.get(i2) != this.jJj || (i = i2 + 1) > this.hku.size()) {
                         i2++;
                     } else {
-                        this.hkq.add(i, this.jJg);
+                        this.hku.add(i, this.jJm);
                         z = true;
                         break;
                     }
@@ -446,9 +446,9 @@ public class j implements ImageViewerBottomLayout.b, ImageViewerBottomLayout.c {
                 }
             }
             if (!z) {
-                this.hkq.add(this.jJg);
+                this.hku.add(this.jJm);
             }
-            this.hkm.aT(this.hkq);
+            this.hkq.aT(this.hku);
         }
     }
 
@@ -460,37 +460,37 @@ public class j implements ImageViewerBottomLayout.b, ImageViewerBottomLayout.c {
             if ((imageUrlData == null || TextUtils.isEmpty(imageUrlData.qrInfo)) && (imageBitmap = dragImageView.getImageBitmap()) != null && !imageBitmap.isRecycled()) {
                 o oVar = new o();
                 oVar.type = 0;
-                oVar.mfU = imageBitmap;
-                String currentImageUrl = this.jIj.getCurrentImageUrl();
+                oVar.mgj = imageBitmap;
+                String currentImageUrl = this.jIp.getCurrentImageUrl();
                 if (!TextUtils.isEmpty(currentImageUrl)) {
-                    oVar.mfT = String.valueOf(System.currentTimeMillis()) + av.getNameMd5FromUrl(currentImageUrl);
+                    oVar.mgi = String.valueOf(System.currentTimeMillis()) + av.getNameMd5FromUrl(currentImageUrl);
                 } else {
-                    oVar.mfT = String.valueOf(BdUniqueId.gen().getId());
+                    oVar.mgi = String.valueOf(BdUniqueId.gen().getId());
                 }
-                this.jJa = oVar.mfT;
-                this.jIY.sendMessage(new CustomMessage(2921403, oVar));
+                this.jJg = oVar.mgi;
+                this.jJe.sendMessage(new CustomMessage(2921403, oVar));
             }
         }
     }
 
-    public void cKV() {
-        this.jJa = null;
+    public void cKW() {
+        this.jJg = null;
     }
 
     public void release() {
-        if (this.jIZ != null) {
-            this.jIZ.cancel();
-            this.jIZ = null;
+        if (this.jJf != null) {
+            this.jJf.cancel();
+            this.jJf = null;
         }
-        if (this.jJb != null) {
-            this.jJb.cancel();
-            this.jJb = null;
+        if (this.jJh != null) {
+            this.jJh.cancel();
+            this.jJh = null;
         }
     }
 
     public void onChangeSkinType() {
-        if (this.hkm != null) {
-            this.hkm.onChangeSkinType();
+        if (this.hkq != null) {
+            this.hkq.onChangeSkinType();
         }
     }
 }

@@ -13,11 +13,11 @@ import com.baidu.swan.apps.runtime.i;
 import com.baidu.swan.facade.a;
 /* loaded from: classes20.dex */
 public class LoadingActivity extends Activity implements com.baidu.swan.apps.ap.e.b<i.a> {
-    private TextView ddJ;
-    private LoadingProgressBar dhO;
-    private TextView dhP;
-    private e dhQ = null;
-    private final com.baidu.swan.apps.ap.e.b<e> dhR = new com.baidu.swan.apps.ap.e.b<e>() { // from class: com.baidu.swan.facade.requred.webview.LoadingActivity.1
+    private TextView ddN;
+    private LoadingProgressBar dhS;
+    private TextView dhT;
+    private e dhU = null;
+    private final com.baidu.swan.apps.ap.e.b<e> dhV = new com.baidu.swan.apps.ap.e.b<e>() { // from class: com.baidu.swan.facade.requred.webview.LoadingActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.ap.e.b
         /* renamed from: a */
@@ -30,7 +30,7 @@ public class LoadingActivity extends Activity implements com.baidu.swan.apps.ap.
             });
         }
     };
-    private final com.baidu.swan.apps.ap.e.b<e> dhS = new com.baidu.swan.apps.ap.e.b<e>() { // from class: com.baidu.swan.facade.requred.webview.LoadingActivity.2
+    private final com.baidu.swan.apps.ap.e.b<e> dhW = new com.baidu.swan.apps.ap.e.b<e>() { // from class: com.baidu.swan.facade.requred.webview.LoadingActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.ap.e.b
         /* renamed from: a */
@@ -53,24 +53,24 @@ public class LoadingActivity extends Activity implements com.baidu.swan.apps.ap.
     private void init() {
         Intent intent = getIntent();
         String stringExtra = intent == null ? "" : intent.getStringExtra("so_lib_name");
-        com.baidu.swan.apps.env.b.c cVar = com.baidu.swan.apps.env.b.c.cpW;
+        com.baidu.swan.apps.env.b.c cVar = com.baidu.swan.apps.env.b.c.cqa;
         if (TextUtils.isEmpty(stringExtra)) {
             stringExtra = "";
         }
-        this.dhQ = cVar.mk(stringExtra);
-        if (this.dhQ == null || this.dhQ.alL()) {
+        this.dhU = cVar.ml(stringExtra);
+        if (this.dhU == null || this.dhU.alL()) {
             finish();
             return;
         }
-        this.dhQ.k(this.dhR);
-        this.dhQ.j(this.dhS);
+        this.dhU.k(this.dhV);
+        this.dhU.j(this.dhW);
     }
 
     private void initViews() {
-        this.dhO = (LoadingProgressBar) findViewById(a.c.pb_loading_progressbar);
-        this.ddJ = (TextView) findViewById(a.c.tv_progress);
-        this.dhP = (TextView) findViewById(a.c.tv_hide);
-        this.dhP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.facade.requred.webview.LoadingActivity.3
+        this.dhS = (LoadingProgressBar) findViewById(a.c.pb_loading_progressbar);
+        this.ddN = (TextView) findViewById(a.c.tv_progress);
+        this.dhT = (TextView) findViewById(a.c.tv_hide);
+        this.dhT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.facade.requred.webview.LoadingActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 LoadingActivity.this.finish();
@@ -79,20 +79,20 @@ public class LoadingActivity extends Activity implements com.baidu.swan.apps.ap.
     }
 
     void aHR() {
-        d.b alG = this.dhQ == null ? null : this.dhQ.alG();
+        d.b alG = this.dhU == null ? null : this.dhU.alG();
         if (alG != null && alG.valid()) {
-            int min = (int) ((Math.min(Math.max(alG.current, 0L), alG.cqg) / alG.cqg) * 100.0d);
-            if (this.dhO != null && this.ddJ != null && min > 0) {
-                this.dhO.setProgress(min);
-                this.ddJ.setText(String.valueOf(min));
+            int min = (int) ((Math.min(Math.max(alG.current, 0L), alG.cqk) / alG.cqk) * 100.0d);
+            if (this.dhS != null && this.ddN != null && min > 0) {
+                this.dhS.setProgress(min);
+                this.ddN.setText(String.valueOf(min));
             }
         }
     }
 
     @Override // android.app.Activity
     protected void onDestroy() {
-        if (this.dhQ != null) {
-            this.dhQ.l(this.dhS).m(this.dhR);
+        if (this.dhU != null) {
+            this.dhU.l(this.dhW).m(this.dhV);
         }
         unregisterListener();
         super.onDestroy();

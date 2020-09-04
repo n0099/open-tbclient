@@ -3,16 +3,16 @@ package com.baidu.tieba;
 import android.text.TextUtils;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.h;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class StringU {
-    private static boolean fmg;
+    private static boolean fmk;
 
     private static native String toUpper(String str);
 
     static {
         try {
-            fmg = h.oc().loadLibrary("stringu", 2);
-            if (fmg) {
+            fmk = h.oc().loadLibrary("stringu", 2);
+            if (fmk) {
                 E("stringu_so_load_success", null);
             } else {
                 E("stringu_so_load_retry_fail", "retry to load so failed at 2 times");
@@ -27,10 +27,10 @@ public class StringU {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String Df(String str) {
+    public static String Dg(String str) {
         String str2;
         String str3 = "";
-        if (fmg && !TextUtils.isEmpty(str)) {
+        if (fmk && !TextUtils.isEmpty(str)) {
             try {
                 str3 = toUpper(str);
                 if (TextUtils.isEmpty(str3)) {

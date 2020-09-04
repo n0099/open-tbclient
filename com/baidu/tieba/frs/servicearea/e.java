@@ -21,16 +21,16 @@ public class e {
                 tbPageContext = ((BaseFragmentActivity) context).getPageContext();
             }
             if (tbPageContext != null) {
-                if (aaVar.mdT != null) {
-                    com.baidu.tieba.aiapps.a.b(aaVar.mdT.id, aaVar.mdT.link, "1191003700000000", aaVar.mdT.dPG);
+                if (aaVar.mei != null) {
+                    com.baidu.tieba.aiapps.a.b(aaVar.mei.id, aaVar.mei.link, "1191003700000000", aaVar.mei.dPK);
                 } else {
                     be.bju().b(tbPageContext, new String[]{aaVar.link});
                 }
-                if (aaVar.hvJ) {
+                if (aaVar.hvP) {
                     if (view != null) {
                         view.setVisibility(8);
                     }
-                    aaVar.hvJ = false;
+                    aaVar.hvP = false;
                     com.baidu.tbadk.core.sharedPref.b.bik().putString("frs_service_version_" + aaVar.forumName + aaVar.name, aaVar.version);
                 }
             }
@@ -41,7 +41,7 @@ public class e {
         if (aaVar != null) {
             aq aqVar = new aq("c13627");
             aqVar.dD("fid", aaVar.forumId);
-            aqVar.ai("obj_type", aaVar.mdT == null ? 1 : 2);
+            aqVar.ai("obj_type", aaVar.mei == null ? 1 : 2);
             aqVar.ai("obj_locate", aaVar.index);
             aqVar.dD("uid", TbadkCoreApplication.getCurrentAccount());
             aqVar.dD("obj_name", aaVar.name);
@@ -53,7 +53,7 @@ public class e {
         if (aaVar != null) {
             aq aqVar = new aq("c13626");
             aqVar.dD("fid", aaVar.forumId);
-            aqVar.ai("obj_type", aaVar.mdT == null ? 1 : 2);
+            aqVar.ai("obj_type", aaVar.mei == null ? 1 : 2);
             aqVar.ai("obj_locate", aaVar.index);
             aqVar.dD("uid", TbadkCoreApplication.getCurrentAccount());
             aqVar.dD("obj_name", aaVar.name);

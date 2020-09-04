@@ -11,14 +11,14 @@ import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class a {
     protected final String mFileName;
-    private final long mii;
-    private final String mij;
-    private final int mik;
-    private final int mil;
-    private e mim;
+    private final int miA;
+    private final int miB;
+    private e miC;
+    private final long miy;
+    private final String miz;
 
     public abstract void cancel();
 
@@ -28,20 +28,20 @@ public abstract class a {
 
     public a(String str, int i, int i2, long j, String str2) {
         this.mFileName = str;
-        this.mil = i2;
-        this.mii = j;
-        this.mij = str2;
-        this.mik = i;
+        this.miB = i2;
+        this.miy = j;
+        this.miz = str2;
+        this.miA = i;
     }
 
     public void a(e eVar) {
-        this.mim = eVar;
+        this.miC = eVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void notifyProgress(int i) {
-        if (this.mim != null) {
-            this.mim.aD(i / 100.0f);
+        if (this.miC != null) {
+            this.miC.aD(i / 100.0f);
         }
     }
 
@@ -58,10 +58,10 @@ public abstract class a {
         } else {
             aa aaVar = new aa(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_VIDEO);
             aaVar.addPostData("chunk_no", String.valueOf(i));
-            aaVar.addPostData("chunk_sum", String.valueOf(this.mil));
+            aaVar.addPostData("chunk_sum", String.valueOf(this.miB));
             aaVar.addPostData("chunk_size", String.valueOf(b.length));
-            aaVar.addPostData("video_size", String.valueOf(this.mii));
-            aaVar.addPostData("video_md5", this.mij);
+            aaVar.addPostData("video_size", String.valueOf(this.miy));
+            aaVar.addPostData("video_md5", this.miz);
             aaVar.addPostData("video_len", String.valueOf(j));
             aaVar.addPostData("tbs", TbadkCoreApplication.getInst().getTbs());
             aaVar.addPostData("video_chunk", b);
@@ -93,15 +93,15 @@ public abstract class a {
         if (randomAccessFile == null || i < 0) {
             return null;
         }
-        if (i == this.mil) {
-            i2 = (int) (this.mii - ((i - 1) * this.mik));
+        if (i == this.miB) {
+            i2 = (int) (this.miy - ((i - 1) * this.miA));
         } else {
-            i2 = this.mik;
+            i2 = this.miA;
         }
         byte[] bArr = new byte[i2];
         try {
             synchronized (randomAccessFile) {
-                randomAccessFile.seek((i - 1) * this.mik);
+                randomAccessFile.seek((i - 1) * this.miA);
                 r3 = randomAccessFile.read(bArr, 0, i2) != -1;
             }
         } catch (IOException e) {

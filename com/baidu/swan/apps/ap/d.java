@@ -20,9 +20,9 @@ import java.lang.ref.WeakReference;
 /* loaded from: classes8.dex */
 public class d implements SlideInterceptor {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private WeakReference<SwanAppActivity> daO;
-    private com.baidu.swan.apps.aj.b daP;
-    private BroadcastReceiver daQ = new BroadcastReceiver() { // from class: com.baidu.swan.apps.ap.d.1
+    private WeakReference<SwanAppActivity> daS;
+    private com.baidu.swan.apps.aj.b daT;
+    private BroadcastReceiver daU = new BroadcastReceiver() { // from class: com.baidu.swan.apps.ap.d.1
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if ("android.intent.action.CLOSE_SYSTEM_DIALOGS".equals(intent.getAction())) {
@@ -39,22 +39,22 @@ public class d implements SlideInterceptor {
     private SlideHelper mSlideHelper = new SlideHelper();
 
     public d(SwanAppActivity swanAppActivity) {
-        this.daO = new WeakReference<>(swanAppActivity);
+        this.daS = new WeakReference<>(swanAppActivity);
     }
 
     public void aEt() {
-        if (this.daO.get() != null) {
+        if (this.daS.get() != null) {
             this.mSlideHelper.setCanSlide(canSlide());
         }
     }
 
     public void aEu() {
-        SwanAppActivity swanAppActivity = this.daO.get();
+        SwanAppActivity swanAppActivity = this.daS.get();
         if (swanAppActivity != null) {
-            this.daP = swanAppActivity.Yj();
-            if (this.daP != null) {
-                if (com.baidu.swan.apps.u.a.a.eC(false).booleanValue()) {
-                    this.daP.setVisibility(0);
+            this.daT = swanAppActivity.Yj();
+            if (this.daT != null) {
+                if (com.baidu.swan.apps.u.a.a.eD(false).booleanValue()) {
+                    this.daT.setVisibility(0);
                 }
                 aEw();
             }
@@ -62,16 +62,16 @@ public class d implements SlideInterceptor {
     }
 
     public void onCreate() {
-        SwanAppActivity swanAppActivity = this.daO.get();
+        SwanAppActivity swanAppActivity = this.daS.get();
         if (swanAppActivity != null) {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.intent.action.CLOSE_SYSTEM_DIALOGS");
-            swanAppActivity.registerReceiver(this.daQ, intentFilter);
+            swanAppActivity.registerReceiver(this.daU, intentFilter);
         }
     }
 
     public void aEv() {
-        SwanAppActivity swanAppActivity = this.daO.get();
+        SwanAppActivity swanAppActivity = this.daS.get();
         if (swanAppActivity != null) {
             b.a XZ = swanAppActivity.XZ();
             if ((XZ != null && "1230000000000000".equals(XZ.aqN())) || swanAppActivity.XP() == 1) {
@@ -83,20 +83,20 @@ public class d implements SlideInterceptor {
     }
 
     public void onResume() {
-        if (com.baidu.swan.apps.u.a.a.eC(true).booleanValue()) {
-            this.daP.setVisibility(0);
+        if (com.baidu.swan.apps.u.a.a.eD(true).booleanValue()) {
+            this.daT.setVisibility(0);
         }
     }
 
     public void onDestroy() {
         SwanAppActivity swanAppActivity;
-        if (this.daO != null && (swanAppActivity = this.daO.get()) != null) {
-            swanAppActivity.unregisterReceiver(this.daQ);
+        if (this.daS != null && (swanAppActivity = this.daS.get()) != null) {
+            swanAppActivity.unregisterReceiver(this.daU);
         }
     }
 
     public void aEw() {
-        final SwanAppActivity swanAppActivity = this.daO.get();
+        final SwanAppActivity swanAppActivity = this.daS.get();
         if (swanAppActivity != null && !swanAppActivity.isDestroyed()) {
             this.mSlideHelper.attachSlideView(swanAppActivity, swanAppActivity.findViewById(16908290), new SlidingPaneLayout.LayoutParams(-1, -1));
             this.mSlideHelper.attachActivity(swanAppActivity);
@@ -145,7 +145,7 @@ public class d implements SlideInterceptor {
         com.baidu.swan.apps.core.d.f XX;
         com.baidu.swan.apps.adaptation.b.c ahb;
         boolean z = true;
-        SwanAppActivity swanAppActivity = this.daO.get();
+        SwanAppActivity swanAppActivity = this.daS.get();
         if (swanAppActivity == null || !swanAppActivity.XR() || (XX = swanAppActivity.XX()) == null || (ahb = ahb()) == null) {
             return false;
         }
@@ -160,7 +160,7 @@ public class d implements SlideInterceptor {
     private com.baidu.swan.apps.adaptation.b.c ahb() {
         com.baidu.swan.apps.core.d.f XX;
         com.baidu.swan.apps.core.d.c ahm;
-        SwanAppActivity swanAppActivity = this.daO.get();
+        SwanAppActivity swanAppActivity = this.daS.get();
         if (swanAppActivity == null || (XX = swanAppActivity.XX()) == null || (ahm = XX.ahm()) == null) {
             return null;
         }
@@ -168,7 +168,7 @@ public class d implements SlideInterceptor {
     }
 
     private boolean canSlide() {
-        SwanAppActivity swanAppActivity = this.daO.get();
+        SwanAppActivity swanAppActivity = this.daS.get();
         if (swanAppActivity == null) {
             return false;
         }
@@ -176,16 +176,16 @@ public class d implements SlideInterceptor {
     }
 
     private boolean aEx() {
-        SwanAppActivity swanAppActivity = this.daO.get();
+        SwanAppActivity swanAppActivity = this.daS.get();
         if (swanAppActivity == null || swanAppActivity.isDestroyed() || !swanAppActivity.XR()) {
             return false;
         }
         com.baidu.swan.apps.core.d.e ahn = swanAppActivity.XX().ahn();
         if (ahn != null) {
-            if (ahn.agB() == null || !ahn.agB().cRM) {
+            if (ahn.agB() == null || !ahn.agB().cRQ) {
                 return true;
             }
-            com.baidu.swan.apps.setting.oauth.e eVar = com.baidu.swan.apps.network.c.b.a.fa(true).get("scope_disable_swipe_back");
+            com.baidu.swan.apps.setting.oauth.e eVar = com.baidu.swan.apps.network.c.b.a.fb(true).get("scope_disable_swipe_back");
             return eVar == null || eVar.forbidden;
         }
         if (DEBUG) {
@@ -205,7 +205,7 @@ public class d implements SlideInterceptor {
     /* JADX INFO: Access modifiers changed from: private */
     public void aEy() {
         if (com.baidu.swan.apps.t.a.apf().getNightModeSwitcherState()) {
-            this.daP.setVisibility(8);
+            this.daT.setVisibility(8);
         }
     }
 }

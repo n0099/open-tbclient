@@ -7,7 +7,7 @@ import com.baidu.adp.lib.Disk.d;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.tbadk.TbConfig;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ImagesInvalidService extends BdBaseService {
     public static final int DELAY_TIMES = 10000;
     private static final long FILE_VALID_TIME = 259200000;
@@ -37,7 +37,7 @@ public class ImagesInvalidService extends BdBaseService {
         this.mDiskFileOperate = null;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     private static class a extends DiskFileOperate implements com.baidu.adp.lib.Disk.a {
         public a(String str, String str2, DiskFileOperate.Action action) {
             super(str, str2, action);

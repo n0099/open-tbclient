@@ -21,18 +21,18 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes16.dex */
 public class a extends BaseAdapter {
-    private List<EmotionImageData> hFa;
-    private EmotionView.a kOr;
-    private int kPw;
-    private PbEmotionBar.a kPx;
-    private Set<String> kps = new HashSet();
+    private List<EmotionImageData> hFg;
+    private EmotionView.a kOy;
+    private int kPD;
+    private PbEmotionBar.a kPE;
+    private Set<String> kpz = new HashSet();
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (y.isEmpty(this.hFa)) {
+        if (y.isEmpty(this.hFg)) {
             return 0;
         }
-        return this.hFa.size() + 1;
+        return this.hFg.size() + 1;
     }
 
     @Override // android.widget.Adapter
@@ -41,7 +41,7 @@ public class a extends BaseAdapter {
     }
 
     public void setData(List<EmotionImageData> list) {
-        this.hFa = list;
+        this.hFg = list;
     }
 
     @Override // android.widget.Adapter
@@ -55,33 +55,33 @@ public class a extends BaseAdapter {
         if (view == null) {
             c0773a = new C0773a();
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item_pb_emotion_bar, (ViewGroup) null);
-            c0773a.kpA = (EmotionView) view.findViewById(R.id.iv_emotion);
-            c0773a.kpA.chH();
-            c0773a.kpA.setController(this.kOr);
-            c0773a.kpA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.a.1
+            c0773a.kpH = (EmotionView) view.findViewById(R.id.iv_emotion);
+            c0773a.kpH.chI();
+            c0773a.kpH.setController(this.kOy);
+            c0773a.kpH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (a.this.kPx != null && (view2 instanceof EmotionView)) {
-                        a.this.kPx.b(((EmotionView) view2).getData(), ((EmotionView) view2).getIsGif());
+                    if (a.this.kPE != null && (view2 instanceof EmotionView)) {
+                        a.this.kPE.b(((EmotionView) view2).getData(), ((EmotionView) view2).getIsGif());
                         TiebaStatic.log("c12176");
                     }
                 }
             });
-            c0773a.igT = (TextView) view.findViewById(R.id.tv_more);
-            ap.setViewTextColor(c0773a.igT, R.color.cp_cont_d);
-            c0773a.igT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.a.2
+            c0773a.igZ = (TextView) view.findViewById(R.id.tv_more);
+            ap.setViewTextColor(c0773a.igZ, R.color.cp_cont_d);
+            c0773a.igZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (a.this.kPx != null) {
+                    if (a.this.kPE != null) {
                         ArrayList arrayList = new ArrayList();
-                        if (!y.isEmpty(a.this.hFa)) {
-                            for (EmotionImageData emotionImageData : a.this.hFa) {
+                        if (!y.isEmpty(a.this.hFg)) {
+                            for (EmotionImageData emotionImageData : a.this.hFg) {
                                 if (emotionImageData != null && !TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
                                     arrayList.add(emotionImageData.getThumbUrl());
                                 }
                             }
                         }
-                        a.this.kPx.c(null, null, arrayList);
+                        a.this.kPE.c(null, null, arrayList);
                     }
                 }
             });
@@ -90,65 +90,65 @@ public class a extends BaseAdapter {
             c0773a = (C0773a) view.getTag();
         }
         if (i >= 0) {
-            if (i < this.hFa.size()) {
-                c0773a.kpA.getLayoutParams().width = this.kPw;
-                c0773a.kpA.getLayoutParams().height = this.kPw;
-                c0773a.kpA.reset();
-                c0773a.kpA.setTag(R.id.iv_emotion, null);
-                EmotionImageData emotionImageData = this.hFa.get(i);
+            if (i < this.hFg.size()) {
+                c0773a.kpH.getLayoutParams().width = this.kPD;
+                c0773a.kpH.getLayoutParams().height = this.kPD;
+                c0773a.kpH.reset();
+                c0773a.kpH.setTag(R.id.iv_emotion, null);
+                EmotionImageData emotionImageData = this.hFg.get(i);
                 if (emotionImageData != null) {
-                    c0773a.kpA.a(emotionImageData);
-                    if (this.kps != null && !TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
-                        this.kps.add(emotionImageData.getThumbUrl() + c0773a.kpA.getLoadProcType());
+                    c0773a.kpH.a(emotionImageData);
+                    if (this.kpz != null && !TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
+                        this.kpz.add(emotionImageData.getThumbUrl() + c0773a.kpH.getLoadProcType());
                     }
                 }
-                c0773a.kpA.setVisibility(0);
-                c0773a.igT.setVisibility(8);
-            } else if (i == this.hFa.size()) {
-                c0773a.igT.getLayoutParams().width = this.kPw;
-                c0773a.igT.getLayoutParams().height = this.kPw;
-                c0773a.kpA.setVisibility(8);
-                c0773a.igT.setVisibility(0);
+                c0773a.kpH.setVisibility(0);
+                c0773a.igZ.setVisibility(8);
+            } else if (i == this.hFg.size()) {
+                c0773a.igZ.getLayoutParams().width = this.kPD;
+                c0773a.igZ.getLayoutParams().height = this.kPD;
+                c0773a.kpH.setVisibility(8);
+                c0773a.igZ.setVisibility(0);
             }
         }
         return view;
     }
 
     public void EA(int i) {
-        if (this.kPw != i) {
-            this.kPw = i;
+        if (this.kPD != i) {
+            this.kPD = i;
             notifyDataSetChanged();
         }
     }
 
     public void a(EmotionView.a aVar) {
-        this.kOr = aVar;
+        this.kOy = aVar;
     }
 
     public void a(PbEmotionBar.a aVar) {
-        this.kPx = aVar;
+        this.kPE = aVar;
     }
 
     /* renamed from: com.baidu.tieba.pb.pb.main.emotion.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes16.dex */
     static class C0773a {
-        TextView igT;
-        EmotionView kpA;
+        TextView igZ;
+        EmotionView kpH;
 
         C0773a() {
         }
     }
 
-    public void cTk() {
+    public void cTl() {
         new BdAsyncTask<Void, Void, Boolean>() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.a.3
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Boolean doInBackground(Void... voidArr) {
-                if (a.this.kps != null) {
-                    for (String str : a.this.kps) {
+                if (a.this.kpz != null) {
+                    for (String str : a.this.kpz) {
                         if (!TextUtils.isEmpty(str)) {
-                            c.bsW().deletePic(str);
+                            c.bsX().deletePic(str);
                         }
                     }
                     return true;

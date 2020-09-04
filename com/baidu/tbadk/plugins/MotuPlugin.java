@@ -2,7 +2,7 @@ package com.baidu.tbadk.plugins;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface MotuPlugin {
     Bitmap createOneKeyFilterAndApply(Context context, String str, Bitmap bitmap);
 

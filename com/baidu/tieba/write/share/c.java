@@ -8,10 +8,10 @@ public class c {
     public String forumId;
     public String imageUrl;
     public String linkUrl;
-    public String mPT;
-    public String mPU;
-    public String mPV;
-    public String mPW;
-    public String mPX;
+    public String mQl;
+    public String mQm;
+    public String mQn;
+    public String mQo;
+    public String mQp;
     public String title;
 }

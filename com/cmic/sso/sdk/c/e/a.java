@@ -13,7 +13,7 @@ import javax.net.ssl.TrustManagerFactory;
 /* loaded from: classes7.dex */
 public class a {
     private X509Certificate a;
-    private SSLContext niL;
+    private SSLContext njd;
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [34=4] */
     /* JADX WARN: Removed duplicated region for block: B:38:0x003d A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -79,14 +79,14 @@ public class a {
             keyStore.setCertificateEntry("cert", this.a);
             TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
             trustManagerFactory.init(keyStore);
-            this.niL = SSLContext.getInstance(BdSailorConfig.SAILOR_BASE_SSL);
-            this.niL.init(null, trustManagerFactory.getTrustManagers(), null);
+            this.njd = SSLContext.getInstance(BdSailorConfig.SAILOR_BASE_SSL);
+            this.njd.init(null, trustManagerFactory.getTrustManagers(), null);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public SSLContext dNm() {
-        return this.niL;
+    public SSLContext dNv() {
+        return this.njd;
     }
 }

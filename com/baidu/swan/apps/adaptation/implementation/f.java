@@ -33,7 +33,7 @@ public class f extends com.baidu.swan.apps.t.b.a {
             return null;
         }
         HttpUrl.Builder addPathSegments = parse.newBuilder().addPathSegments(str);
-        for (Map.Entry<String, String> entry : com.baidu.swan.apps.i.b.adu().ccj.entrySet()) {
+        for (Map.Entry<String, String> entry : com.baidu.swan.apps.i.b.adu().ccn.entrySet()) {
             addPathSegments.addQueryParameter(entry.getKey(), entry.getValue());
         }
         HttpUrl build = addPathSegments.build();
@@ -41,9 +41,9 @@ public class f extends com.baidu.swan.apps.t.b.a {
         aVar.method = "POST";
         aVar.url = com.baidu.swan.apps.i.c.processCommonParams(build.toString());
         aVar.requestBody = com.baidu.swan.apps.setting.oauth.c.q(map);
-        aVar.dEO = true;
-        aVar.dEP = true;
-        aVar.dEQ = false;
+        aVar.dES = true;
+        aVar.dET = true;
+        aVar.dEU = false;
         HttpRequestBuilder d = com.baidu.swan.a.c.b.d(aVar);
         com.baidu.swan.a.c.a.aSW().a(d, aVar);
         return d.build();

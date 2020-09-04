@@ -9,16 +9,16 @@ import com.baidu.live.adp.lib.safe.SafeHandler;
 import com.baidu.live.sdk.a;
 /* loaded from: classes7.dex */
 public class AlaLiveStreamStatusView extends LinearLayout {
-    private boolean fOn;
-    private TextView gLN;
-    private int gLO;
-    private Runnable gLP;
+    private boolean fOr;
+    private TextView gLR;
+    private int gLS;
+    private Runnable gLT;
 
     public AlaLiveStreamStatusView(Context context) {
         super(context);
-        this.gLO = 1;
-        this.fOn = true;
-        this.gLP = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveStreamStatusView.1
+        this.gLS = 1;
+        this.fOr = true;
+        this.gLT = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveStreamStatusView.1
             @Override // java.lang.Runnable
             public void run() {
                 AlaLiveStreamStatusView.this.setVisibility(4);
@@ -29,9 +29,9 @@ public class AlaLiveStreamStatusView extends LinearLayout {
 
     public AlaLiveStreamStatusView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gLO = 1;
-        this.fOn = true;
-        this.gLP = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveStreamStatusView.1
+        this.gLS = 1;
+        this.fOr = true;
+        this.gLT = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveStreamStatusView.1
             @Override // java.lang.Runnable
             public void run() {
                 AlaLiveStreamStatusView.this.setVisibility(4);
@@ -42,9 +42,9 @@ public class AlaLiveStreamStatusView extends LinearLayout {
 
     public AlaLiveStreamStatusView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.gLO = 1;
-        this.fOn = true;
-        this.gLP = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveStreamStatusView.1
+        this.gLS = 1;
+        this.fOr = true;
+        this.gLT = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveStreamStatusView.1
             @Override // java.lang.Runnable
             public void run() {
                 AlaLiveStreamStatusView.this.setVisibility(4);
@@ -55,12 +55,12 @@ public class AlaLiveStreamStatusView extends LinearLayout {
 
     private void initViews() {
         View.inflate(getContext(), a.h.ala_live_stream_status_layout, this);
-        this.gLN = (TextView) findViewById(a.g.ala_live_stream_status_txt);
+        this.gLR = (TextView) findViewById(a.g.ala_live_stream_status_txt);
     }
 
     public void a(int i, boolean z, int i2, boolean z2) {
         String string;
-        this.gLO = i2;
+        this.gLS = i2;
         setVisibility(0);
         if (z && i >= 80) {
             setVisibility(4);
@@ -68,8 +68,8 @@ public class AlaLiveStreamStatusView extends LinearLayout {
             setVisibility(0);
         }
         if (i > 80) {
-            SafeHandler.getInst().removeCallbacks(this.gLP);
-            SafeHandler.getInst().postDelayed(this.gLP, 5000L);
+            SafeHandler.getInst().removeCallbacks(this.gLT);
+            SafeHandler.getInst().postDelayed(this.gLT, 5000L);
             string = getContext().getResources().getString(a.i.ala_stream_status_very_good);
         } else if (i > 40) {
             string = getContext().getResources().getString(a.i.ala_stream_status_good);
@@ -78,22 +78,22 @@ public class AlaLiveStreamStatusView extends LinearLayout {
         } else {
             string = getContext().getResources().getString(a.i.ala_stream_status_bad);
         }
-        this.gLN.setText(string);
+        this.gLR.setText(string);
     }
 
     public int getCurLevel() {
-        return this.gLO;
+        return this.gLS;
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
-        if (!this.fOn) {
+        if (!this.fOr) {
             i = 4;
         }
         super.setVisibility(i);
     }
 
     public void setCanVisible(boolean z) {
-        this.fOn = z;
+        this.fOr = z;
     }
 }

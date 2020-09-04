@@ -3,9 +3,9 @@ package com.baidu.live.gift;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class i {
-    private String aDd;
-    private boolean aDf;
-    private List<g> aNC;
+    private String aDf;
+    private boolean aDh;
+    private List<g> aNE;
     private int categoryId;
 
     public int getCategoryId() {
@@ -17,22 +17,22 @@ public class i {
     }
 
     public void setCategoryName(String str) {
-        this.aDd = str;
+        this.aDf = str;
     }
 
     public List<g> Er() {
-        return this.aNC;
+        return this.aNE;
     }
 
     public void C(List<g> list) {
-        this.aNC = list;
+        this.aNE = list;
     }
 
     public boolean Es() {
-        return this.aDf;
+        return this.aDh;
     }
 
     public void bg(boolean z) {
-        this.aDf = z;
+        this.aDh = z;
     }
 }

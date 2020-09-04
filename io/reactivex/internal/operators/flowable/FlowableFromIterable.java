@@ -6,12 +6,12 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import java.util.Iterator;
 /* loaded from: classes7.dex */
 public final class FlowableFromIterable<T> extends io.reactivex.g<T> {
-    final Iterable<? extends T> omY;
+    final Iterable<? extends T> onr;
 
     @Override // io.reactivex.g
     public void a(org.b.c<? super T> cVar) {
         try {
-            a(cVar, this.omY.iterator());
+            a(cVar, this.onr.iterator());
         } catch (Throwable th) {
             io.reactivex.exceptions.a.J(th);
             EmptySubscription.error(th, cVar);

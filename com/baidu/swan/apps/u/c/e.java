@@ -15,13 +15,13 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public abstract class e<SelfT extends e<SelfT>> extends com.baidu.swan.apps.u.c.a.c<SelfT> {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private Pair<String, JSONObject> cvP;
+    private Pair<String, JSONObject> cvT;
 
     public boolean aqL() {
         return getBoolean("cts_launch_mode", false);
     }
 
-    public SelfT eD(boolean z) {
+    public SelfT eE(boolean z) {
         T("cts_launch_mode", z);
         return (SelfT) aqJ();
     }
@@ -30,7 +30,7 @@ public abstract class e<SelfT extends e<SelfT>> extends com.baidu.swan.apps.u.c.
         return getString("mAppTitle");
     }
 
-    public SelfT nD(String str) {
+    public SelfT nE(String str) {
         bJ("mAppTitle", str);
         return (SelfT) aqJ();
     }
@@ -39,7 +39,7 @@ public abstract class e<SelfT extends e<SelfT>> extends com.baidu.swan.apps.u.c.
         return getString("mAppKey");
     }
 
-    public SelfT nC(String str) {
+    public SelfT nD(String str) {
         bJ("mAppKey", str);
         return (SelfT) aqJ();
     }
@@ -48,7 +48,7 @@ public abstract class e<SelfT extends e<SelfT>> extends com.baidu.swan.apps.u.c.
         return getString("mAppId", "");
     }
 
-    public SelfT nB(String str) {
+    public SelfT nC(String str) {
         bJ("mAppId", str);
         return (SelfT) aqJ();
     }
@@ -57,7 +57,7 @@ public abstract class e<SelfT extends e<SelfT>> extends com.baidu.swan.apps.u.c.
         return getString("app_icon_url");
     }
 
-    public SelfT nA(String str) {
+    public SelfT nB(String str) {
         bJ("app_icon_url", str);
         return (SelfT) aqJ();
     }
@@ -66,7 +66,7 @@ public abstract class e<SelfT extends e<SelfT>> extends com.baidu.swan.apps.u.c.
         return "";
     }
 
-    public SelfT nz(String str) {
+    public SelfT nA(String str) {
         return (SelfT) aqJ();
     }
 
@@ -90,7 +90,7 @@ public abstract class e<SelfT extends e<SelfT>> extends com.baidu.swan.apps.u.c.
         return "";
     }
 
-    public SelfT ny(String str) {
+    public SelfT nz(String str) {
         return (SelfT) aqJ();
     }
 
@@ -98,7 +98,7 @@ public abstract class e<SelfT extends e<SelfT>> extends com.baidu.swan.apps.u.c.
         return "";
     }
 
-    public SelfT nx(String str) {
+    public SelfT ny(String str) {
         return (SelfT) aqJ();
     }
 
@@ -114,7 +114,7 @@ public abstract class e<SelfT extends e<SelfT>> extends com.baidu.swan.apps.u.c.
         return "";
     }
 
-    public SelfT nw(String str) {
+    public SelfT nx(String str) {
         return (SelfT) aqJ();
     }
 
@@ -161,7 +161,7 @@ public abstract class e<SelfT extends e<SelfT>> extends com.baidu.swan.apps.u.c.
         return getString("mFromLast");
     }
 
-    public SelfT nE(String str) {
+    public SelfT nF(String str) {
         bJ("mFromLast", aqN());
         return (SelfT) bJ("mFrom", str);
     }
@@ -170,7 +170,7 @@ public abstract class e<SelfT extends e<SelfT>> extends com.baidu.swan.apps.u.c.
         return getString("launchScheme");
     }
 
-    public SelfT nF(String str) {
+    public SelfT nG(String str) {
         return (SelfT) bJ("launchScheme", str);
     }
 
@@ -178,7 +178,7 @@ public abstract class e<SelfT extends e<SelfT>> extends com.baidu.swan.apps.u.c.
         return getString("mPage");
     }
 
-    public SelfT nG(String str) {
+    public SelfT nH(String str) {
         return (SelfT) bJ("mPage", str);
     }
 
@@ -191,7 +191,7 @@ public abstract class e<SelfT extends e<SelfT>> extends com.baidu.swan.apps.u.c.
     }
 
     public Bundle aqS() {
-        return nO("mExtraData");
+        return nP("mExtraData");
     }
 
     public SelfT G(Bundle bundle) {
@@ -225,7 +225,7 @@ public abstract class e<SelfT extends e<SelfT>> extends com.baidu.swan.apps.u.c.
         return getString("mClickId");
     }
 
-    public SelfT nH(String str) {
+    public SelfT nI(String str) {
         return (SelfT) bJ("mClickId", str);
     }
 
@@ -233,7 +233,7 @@ public abstract class e<SelfT extends e<SelfT>> extends com.baidu.swan.apps.u.c.
         return getBoolean("mIsDebug", false);
     }
 
-    public SelfT eE(boolean z) {
+    public SelfT eF(boolean z) {
         return (SelfT) T("mIsDebug", z);
     }
 
@@ -241,7 +241,7 @@ public abstract class e<SelfT extends e<SelfT>> extends com.baidu.swan.apps.u.c.
         return getString("notInHistory");
     }
 
-    public SelfT nI(String str) {
+    public SelfT nJ(String str) {
         return (SelfT) bJ("notInHistory", str);
     }
 
@@ -257,12 +257,12 @@ public abstract class e<SelfT extends e<SelfT>> extends com.baidu.swan.apps.u.c.
         return getString("targetSwanVersion");
     }
 
-    public SelfT nJ(String str) {
+    public SelfT nK(String str) {
         return (SelfT) bJ("targetSwanVersion", str);
     }
 
     public SwanCoreVersion akn() {
-        return (SwanCoreVersion) nP("swanCoreVersion");
+        return (SwanCoreVersion) nQ("swanCoreVersion");
     }
 
     public SelfT b(SwanCoreVersion swanCoreVersion) {
@@ -270,7 +270,7 @@ public abstract class e<SelfT extends e<SelfT>> extends com.baidu.swan.apps.u.c.
     }
 
     public ExtensionCore ako() {
-        return (ExtensionCore) nP("extensionCore");
+        return (ExtensionCore) nQ("extensionCore");
     }
 
     public SelfT c(ExtensionCore extensionCore) {
@@ -289,7 +289,7 @@ public abstract class e<SelfT extends e<SelfT>> extends com.baidu.swan.apps.u.c.
         return getBoolean("console_switch", false);
     }
 
-    public SelfT eF(boolean z) {
+    public SelfT eG(boolean z) {
         return (SelfT) T("console_switch", z);
     }
 
@@ -325,12 +325,12 @@ public abstract class e<SelfT extends e<SelfT>> extends com.baidu.swan.apps.u.c.
         return getString("remoteDebugUrl");
     }
 
-    public SelfT nK(String str) {
+    public SelfT nL(String str) {
         return (SelfT) bJ("remoteDebugUrl", str);
     }
 
     public PMSAppInfo ard() {
-        return (PMSAppInfo) nP("pms_db_info_onload");
+        return (PMSAppInfo) nQ("pms_db_info_onload");
     }
 
     public SelfT k(PMSAppInfo pMSAppInfo) {
@@ -353,35 +353,35 @@ public abstract class e<SelfT extends e<SelfT>> extends com.baidu.swan.apps.u.c.
 
     public JSONObject arf() {
         String aqP = aqP();
-        if (this.cvP != null && TextUtils.equals((CharSequence) this.cvP.first, aqP)) {
-            return (JSONObject) this.cvP.second;
+        if (this.cvT != null && TextUtils.equals((CharSequence) this.cvT.first, aqP)) {
+            return (JSONObject) this.cvT.second;
         }
-        this.cvP = null;
+        this.cvT = null;
         if (TextUtils.isEmpty(aqP)) {
-            this.cvP = null;
+            this.cvT = null;
             return null;
         }
         String queryParameter = Uri.parse(aqP).getQueryParameter("_baiduboxapp");
         if (!TextUtils.isEmpty(queryParameter)) {
             try {
-                this.cvP = new Pair<>(aqP, new JSONObject(queryParameter).optJSONObject("ext"));
+                this.cvT = new Pair<>(aqP, new JSONObject(queryParameter).optJSONObject("ext"));
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
                 }
             }
         }
-        if (this.cvP == null) {
+        if (this.cvT == null) {
             return null;
         }
-        return (JSONObject) this.cvP.second;
+        return (JSONObject) this.cvT.second;
     }
 
     public String arg() {
         return getString("launch_id");
     }
 
-    public SelfT nL(String str) {
+    public SelfT nM(String str) {
         return (SelfT) bJ("launch_id", str);
     }
 
@@ -389,7 +389,7 @@ public abstract class e<SelfT extends e<SelfT>> extends com.baidu.swan.apps.u.c.
         return getBoolean("swan_app_independent", false);
     }
 
-    public SelfT eG(boolean z) {
+    public SelfT eH(boolean z) {
         return (SelfT) T("swan_app_independent", z);
     }
 
@@ -397,7 +397,7 @@ public abstract class e<SelfT extends e<SelfT>> extends com.baidu.swan.apps.u.c.
         return getString("swan_app_sub_root_path");
     }
 
-    public SelfT nM(String str) {
+    public SelfT nN(String str) {
         return (SelfT) bJ("swan_app_sub_root_path", str);
     }
 }

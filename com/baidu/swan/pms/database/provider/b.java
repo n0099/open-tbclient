@@ -19,26 +19,26 @@ import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes14.dex */
 public class b {
     private Context mContext;
-    public static final String dhy = AppRuntime.getAppContext().getPackageName() + ".aiapp.pms";
-    public static final Uri dEZ = Uri.parse("content://" + dhy + "/framework");
-    public static final Uri dFa = Uri.parse("content://" + dhy + "/swan_app");
-    public static final Uri dFb = Uri.parse("content://" + dhy + "/pkg_main");
-    public static final Uri dFc = Uri.parse("content://" + dhy + "/pkg_sub");
-    public static final Uri dFd = Uri.parse("content://" + dhy + "/" + ETAG.KEY_EXTENSION);
-    public static final Uri dFe = Uri.parse("content://" + dhy + "/swan_plugin");
-    public static final Uri dFf = Uri.parse("content://" + dhy + "/so_lib");
-    public static final Uri dFg = Uri.parse("content://" + dhy + "/swan_mini_pkg");
-    private static UriMatcher dFh = new UriMatcher(-1);
+    public static final String dhC = AppRuntime.getAppContext().getPackageName() + ".aiapp.pms";
+    public static final Uri dFd = Uri.parse("content://" + dhC + "/framework");
+    public static final Uri dFe = Uri.parse("content://" + dhC + "/swan_app");
+    public static final Uri dFf = Uri.parse("content://" + dhC + "/pkg_main");
+    public static final Uri dFg = Uri.parse("content://" + dhC + "/pkg_sub");
+    public static final Uri dFh = Uri.parse("content://" + dhC + "/" + ETAG.KEY_EXTENSION);
+    public static final Uri dFi = Uri.parse("content://" + dhC + "/swan_plugin");
+    public static final Uri dFj = Uri.parse("content://" + dhC + "/so_lib");
+    public static final Uri dFk = Uri.parse("content://" + dhC + "/swan_mini_pkg");
+    private static UriMatcher dFl = new UriMatcher(-1);
 
     static {
-        dFh.addURI(dhy, "framework", 2);
-        dFh.addURI(dhy, "pkg_main", 0);
-        dFh.addURI(dhy, "pkg_sub", 1);
-        dFh.addURI(dhy, ETAG.KEY_EXTENSION, 3);
-        dFh.addURI(dhy, "swan_app", 4);
-        dFh.addURI(dhy, "swan_plugin", 5);
-        dFh.addURI(dhy, "swan_mini_pkg", 6);
-        dFh.addURI(dhy, "so_lib", 7);
+        dFl.addURI(dhC, "framework", 2);
+        dFl.addURI(dhC, "pkg_main", 0);
+        dFl.addURI(dhC, "pkg_sub", 1);
+        dFl.addURI(dhC, ETAG.KEY_EXTENSION, 3);
+        dFl.addURI(dhC, "swan_app", 4);
+        dFl.addURI(dhC, "swan_plugin", 5);
+        dFl.addURI(dhC, "swan_mini_pkg", 6);
+        dFl.addURI(dhC, "so_lib", 7);
     }
 
     public b(Context context) {
@@ -46,7 +46,7 @@ public class b {
     }
 
     private String o(Uri uri) {
-        switch (dFh.match(uri)) {
+        switch (dFl.match(uri)) {
             case 0:
                 return "pkg_main";
             case 1:

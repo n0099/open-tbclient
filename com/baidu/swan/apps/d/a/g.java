@@ -2,13 +2,13 @@ package com.baidu.swan.apps.d.a;
 @kotlin.h
 /* loaded from: classes8.dex */
 public final class g {
-    private static Boolean bTT;
+    private static Boolean bTX;
 
     public static final Boolean abC() {
-        return bTT;
+        return bTX;
     }
 
     public static final void c(Boolean bool) {
-        bTT = bool;
+        bTX = bool;
     }
 }

@@ -3,12 +3,12 @@ package com.baidu.tieba.frs;
 import android.content.Context;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class an {
     private String forumGameLabel;
     private String forumId;
     private String forumName;
-    private final List<com.baidu.tbadk.mainTab.b> hSa = new LinkedList();
+    private final List<com.baidu.tbadk.mainTab.b> hSg = new LinkedList();
     private Context mContext;
 
     public an(Context context) {
@@ -17,17 +17,17 @@ public class an {
 
     public void b(com.baidu.tbadk.mainTab.b bVar) {
         if (bVar != null && bVar.getFragmentTabStructure() != null) {
-            for (com.baidu.tbadk.mainTab.b bVar2 : this.hSa) {
+            for (com.baidu.tbadk.mainTab.b bVar2 : this.hSg) {
                 if (bVar2 != null && bVar2.getFragmentTabStructure() != null && bVar2.getFragmentTabStructure().type == bVar.getFragmentTabStructure().type) {
                     return;
                 }
             }
-            this.hSa.add(bVar);
+            this.hSg.add(bVar);
         }
     }
 
-    public List<com.baidu.tbadk.mainTab.b> clx() {
-        return this.hSa;
+    public List<com.baidu.tbadk.mainTab.b> cly() {
+        return this.hSg;
     }
 
     public void setForumName(String str) {

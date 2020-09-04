@@ -118,84 +118,84 @@ import java.util.List;
 import java.util.regex.Matcher;
 /* loaded from: classes3.dex */
 public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActivity> implements PopupWindow.OnDismissListener, a.InterfaceC0210a, i.a {
-    private OriginalThreadCardView ahu;
-    private EditorTools eKD;
-    private LocationModel eMo;
-    private NewWriteModel eMp;
-    List<af> fPp;
-    private String hQF;
-    private String hQG;
+    private OriginalThreadCardView ahw;
+    private EditorTools eKH;
+    private LocationModel eMs;
+    private NewWriteModel eMt;
+    List<af> fPt;
+    private String hQL;
+    private String hQM;
     private boolean isPrivacy;
-    private TextView lUD;
-    private com.baidu.tieba.write.i lUE;
-    private ImageView lUF;
-    private View lUG;
-    private int lUh;
+    private TextView lUS;
+    private com.baidu.tieba.write.i lUT;
+    private ImageView lUU;
+    private View lUV;
+    private int lUw;
     private BaijiahaoData mBaijiahaoData;
     private GestureDetector mGestureDetector;
     private List<HotTopicBussinessData> mList;
+    private FrsTabInfoData mNM;
     private NavigationBar mNavigationBar;
-    private FrsTabInfoData mNu;
     private PostTopicData mPostTopicData;
     private PostPrefixData mPrefixData;
     private int mPrivateThread;
-    private ForumTabSelectedView mRT;
-    private com.baidu.tieba.write.editor.b mUA;
-    private g mUC;
-    private com.baidu.tieba.view.b mUJ;
-    private OriginalThreadInfo.ShareInfo mUb;
-    private LinearLayout mUd;
-    private LinearLayout mUe;
-    private View mUh;
-    private Toast mUj;
-    private AdditionData mUl;
-    private RelativeLayout mUm;
-    private TextView mUn;
-    private TextView mUo;
-    private TextView mUp;
-    af mUq;
-    private int mUr;
-    private String mUs;
-    private int mUt;
-    private PostCategoryView mUu;
-    private HotTopicBussinessData mUx;
-    private TextView mUy;
-    private static final int izP = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds24);
-    private static final int feH = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds44);
-    private String mTZ = "";
-    private boolean mUa = false;
-    private WriteData lUg = null;
-    private boolean mUc = false;
+    private ForumTabSelectedView mSl;
+    private View mUA;
+    private Toast mUC;
+    private AdditionData mUD;
+    private RelativeLayout mUE;
+    private TextView mUF;
+    private TextView mUG;
+    private TextView mUH;
+    af mUI;
+    private int mUJ;
+    private String mUK;
+    private int mUL;
+    private PostCategoryView mUM;
+    private HotTopicBussinessData mUP;
+    private TextView mUQ;
+    private com.baidu.tieba.write.editor.b mUS;
+    private g mUU;
+    private OriginalThreadInfo.ShareInfo mUu;
+    private LinearLayout mUw;
+    private LinearLayout mUx;
+    private com.baidu.tieba.view.b mVb;
+    private static final int izV = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds24);
+    private static final int feL = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds44);
+    private String mUs = "";
+    private boolean mUt = false;
+    private WriteData lUv = null;
+    private boolean mUv = false;
     private InputMethodManager mInputManager = null;
-    private EditText lUy = null;
-    private View lUz = null;
-    private LinearLayout lUB = null;
-    private SpanGroupEditText mUf = null;
-    private FeedBackModel mUg = null;
-    private ArrayList<WritePrefixItemLayout> mUi = new ArrayList<>();
-    private final KeyEvent hEQ = new KeyEvent(0, 67);
+    private EditText lUN = null;
+    private View lUO = null;
+    private LinearLayout lUQ = null;
+    private SpanGroupEditText mUy = null;
+    private FeedBackModel mUz = null;
+    private ArrayList<WritePrefixItemLayout> mUB = new ArrayList<>();
+    private final KeyEvent hEW = new KeyEvent(0, 67);
     private View mBack = null;
-    private TextView kGp = null;
+    private TextView kGw = null;
     private TextView mName = null;
-    private DialogInterface.OnCancelListener hJE = null;
+    private DialogInterface.OnCancelListener hJK = null;
     private final Handler mHandler = new Handler();
-    private RelativeLayout jfk = null;
-    private String eMt = null;
+    private RelativeLayout jfq = null;
+    private String eMx = null;
     private WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
-    private int eMu = 0;
+    private int eMy = 0;
     private View mRootView = null;
-    private ScrollView mUv = null;
-    private boolean mUw = false;
-    private com.baidu.tbadk.core.view.a eUv = null;
+    private ScrollView mUN = null;
+    private boolean mUO = false;
+    private com.baidu.tbadk.core.view.a eUz = null;
     private String mFrom = "write";
-    private String iwr = "2";
-    private SpannableStringBuilder mUz = new SpannableStringBuilder();
-    private boolean bdD = false;
-    private final c mUB = new c();
-    private boolean mRx = false;
-    private TbFaceManager.a mUD = new TbFaceManager.a() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.1
+    private String iwx = "2";
+    private SpannableStringBuilder mUR = new SpannableStringBuilder();
+    private boolean bdF = false;
+    private final c mUT = new c();
+    private boolean mRP = false;
+    private TbFaceManager.a mUV = new TbFaceManager.a() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.1
         @Override // com.baidu.tbadk.imageManager.TbFaceManager.a
-        public ImageSpan Cj(String str) {
+        public ImageSpan Ck(String str) {
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new RequestStaticEmotionMessage(null, str), com.baidu.adp.widget.ImageView.a.class);
             com.baidu.adp.widget.ImageView.a aVar = runTask != null ? (com.baidu.adp.widget.ImageView.a) runTask.getData() : null;
             if (aVar == null) {
@@ -212,7 +212,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
             return new com.baidu.tbadk.core.view.e(bitmapDrawable, 0);
         }
     };
-    private final AntiHelper.a hUk = new AntiHelper.a() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.12
+    private final AntiHelper.a hUq = new AntiHelper.a() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.12
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.a
         public void onPositiveButtonClick(com.baidu.tbadk.core.dialog.a aVar) {
             TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).ai("obj_locate", ax.a.LOCATE_WRITE));
@@ -223,14 +223,14 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
             TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).ai("obj_locate", ax.a.LOCATE_WRITE));
         }
     };
-    private final NewWriteModel.d eMD = new NewWriteModel.d() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.20
+    private final NewWriteModel.d eMH = new NewWriteModel.d() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.20
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
         public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, ag agVar, WriteData writeData, AntiData antiData) {
             TransmitPostEditActivity.this.closeLoadingDialog();
-            if (postWriteCallBackData != null && TransmitPostEditActivity.this.lUg != null) {
-                TransmitPostEditActivity.this.mUB.bf(null);
+            if (postWriteCallBackData != null && TransmitPostEditActivity.this.lUv != null) {
+                TransmitPostEditActivity.this.mUT.bf(null);
                 if (z) {
-                    TransmitPostEditActivity.this.jp(z);
+                    TransmitPostEditActivity.this.jr(z);
                     TransmitPostEditActivity.this.c(true, postWriteCallBackData);
                     TransmitPostEditActivity.this.l(postWriteCallBackData);
                     Intent intent = new Intent();
@@ -241,9 +241,9 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     TransmitPostEditActivity.this.finish();
                 } else if (postWriteCallBackData.isSensitiveError()) {
                     TransmitPostEditActivity.this.showToast(postWriteCallBackData.getErrorString());
-                    TransmitPostEditActivity.this.mUB.Sw(postWriteCallBackData.getErrorString());
-                    TransmitPostEditActivity.this.mUB.bf(postWriteCallBackData.getSensitiveWords());
-                    TransmitPostEditActivity.this.mUB.b(TransmitPostEditActivity.this.lUy, TransmitPostEditActivity.this.mUf);
+                    TransmitPostEditActivity.this.mUT.Sw(postWriteCallBackData.getErrorString());
+                    TransmitPostEditActivity.this.mUT.bf(postWriteCallBackData.getSensitiveWords());
+                    TransmitPostEditActivity.this.mUT.b(TransmitPostEditActivity.this.lUN, TransmitPostEditActivity.this.mUy);
                 } else if (postWriteCallBackData != null && postWriteCallBackData.isErrorLinkCountExceedLimit()) {
                     if (at.isEmpty(postWriteCallBackData.getErrorString())) {
                         DefaultNavigationBarCoverTip.c(TransmitPostEditActivity.this.getActivity(), TransmitPostEditActivity.this.getActivity().getString(R.string.current_links_too_much_please_modify_and_publish), null).show();
@@ -253,9 +253,9 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                 } else if (postWriteCallBackData != null && postWriteCallBackData.isErrorShowApplyMemberDialog()) {
                     com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(TransmitPostEditActivity.this.getActivity());
                     if (at.isEmpty(postWriteCallBackData.getErrorString())) {
-                        aVar.zz(TransmitPostEditActivity.this.getActivity().getString(R.string.open_member_and_add_more_links));
+                        aVar.zA(TransmitPostEditActivity.this.getActivity().getString(R.string.open_member_and_add_more_links));
                     } else {
-                        aVar.zz(postWriteCallBackData.getErrorString());
+                        aVar.zA(postWriteCallBackData.getErrorString());
                     }
                     aVar.b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.20.1
                         @Override // com.baidu.tbadk.core.dialog.a.b
@@ -283,7 +283,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     writeData.setVcodeMD5(agVar.getVcode_md5());
                     writeData.setVcodeUrl(agVar.getVcode_pic_url());
                     writeData.setVcodeExtra(agVar.bmZ());
-                    if (com.baidu.tbadk.t.a.CO(agVar.bmY())) {
+                    if (com.baidu.tbadk.t.a.CP(agVar.bmY())) {
                         TransmitPostEditActivity.this.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(TransmitPostEditActivity.this.getPageContext().getPageActivity(), RequestResponseCode.REQUEST_VCODE, writeData, false, agVar.bmY())));
                         return;
                     }
@@ -294,9 +294,9 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
             }
         }
     };
-    private final LocationModel.a eMB = new LocationModel.a() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.21
+    private final LocationModel.a eMF = new LocationModel.a() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.21
         @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
-        public void bsp() {
+        public void bsq() {
             TransmitPostEditActivity.this.showToast(R.string.no_network_guide);
             TransmitPostEditActivity.this.a(0, true, (String) null);
         }
@@ -320,24 +320,24 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
             }
         }
     };
-    private final CustomMessageListener mhn = new CustomMessageListener(CmdConfigCustom.CMD_SELECT_LOCATION) { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.22
+    private final CustomMessageListener mhC = new CustomMessageListener(CmdConfigCustom.CMD_SELECT_LOCATION) { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.22
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage instanceof ResponsedSelectLocation) {
                 ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
                 if (responsedSelectLocation.isShowLocation()) {
-                    TransmitPostEditActivity.this.eMo.we(false);
-                    TransmitPostEditActivity.this.eMo.fU(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
+                    TransmitPostEditActivity.this.eMs.wg(false);
+                    TransmitPostEditActivity.this.eMs.fV(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
                     TransmitPostEditActivity.this.a(2, true, responsedSelectLocation.getName());
                     return;
                 }
-                TransmitPostEditActivity.this.eMo.we(true);
+                TransmitPostEditActivity.this.eMs.wg(true);
                 TransmitPostEditActivity.this.a(0, true, (String) null);
             }
         }
     };
-    private CustomMessageListener mUE = new CustomMessageListener(CmdConfigCustom.CMD_UEG_VALIDATE_TIPS) { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.23
+    private CustomMessageListener mUW = new CustomMessageListener(CmdConfigCustom.CMD_UEG_VALIDATE_TIPS) { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.23
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -346,106 +346,106 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
             }
         }
     };
-    private final View.OnClickListener mUF = new View.OnClickListener() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.24
+    private final View.OnClickListener mUX = new View.OnClickListener() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.24
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            TransmitPostEditActivity.this.eKD.b(new com.baidu.tbadk.editortools.a(5, -1, null));
-            int dHB = TransmitPostEditActivity.this.dHB();
-            if (dHB >= 0 && dHB < TransmitPostEditActivity.this.mUf.getText().length()) {
-                TransmitPostEditActivity.this.mUf.setSelection(dHB);
+            TransmitPostEditActivity.this.eKH.b(new com.baidu.tbadk.editortools.a(5, -1, null));
+            int dHK = TransmitPostEditActivity.this.dHK();
+            if (dHK >= 0 && dHK < TransmitPostEditActivity.this.mUy.getText().length()) {
+                TransmitPostEditActivity.this.mUy.setSelection(dHK);
             }
         }
     };
-    private boolean mUG = true;
-    private final View.OnFocusChangeListener gsB = new View.OnFocusChangeListener() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.2
+    private boolean mUY = true;
+    private final View.OnFocusChangeListener gsF = new View.OnFocusChangeListener() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.2
         @Override // android.view.View.OnFocusChangeListener
         public void onFocusChange(View view, boolean z) {
-            if (view == TransmitPostEditActivity.this.lUy || view == TransmitPostEditActivity.this.mBack || view == TransmitPostEditActivity.this.kGp) {
+            if (view == TransmitPostEditActivity.this.lUN || view == TransmitPostEditActivity.this.mBack || view == TransmitPostEditActivity.this.kGw) {
                 if (z) {
-                    TransmitPostEditActivity.this.mUG = true;
-                    TransmitPostEditActivity.this.dHC();
-                    if (TransmitPostEditActivity.this.eKD != null) {
-                        TransmitPostEditActivity.this.eKD.bpX();
+                    TransmitPostEditActivity.this.mUY = true;
+                    TransmitPostEditActivity.this.dHL();
+                    if (TransmitPostEditActivity.this.eKH != null) {
+                        TransmitPostEditActivity.this.eKH.bpY();
                     }
-                    com.baidu.adp.lib.util.l.showSoftKeyPad(TransmitPostEditActivity.this.getActivity(), TransmitPostEditActivity.this.lUy);
-                } else if (view == TransmitPostEditActivity.this.lUy) {
-                    TransmitPostEditActivity.this.lUD.setVisibility(0);
+                    com.baidu.adp.lib.util.l.showSoftKeyPad(TransmitPostEditActivity.this.getActivity(), TransmitPostEditActivity.this.lUN);
+                } else if (view == TransmitPostEditActivity.this.lUN) {
+                    TransmitPostEditActivity.this.lUS.setVisibility(0);
                 }
             }
-            if (view == TransmitPostEditActivity.this.mUf && z) {
-                TransmitPostEditActivity.this.mUG = false;
-                TransmitPostEditActivity.this.dHC();
-                TransmitPostEditActivity.this.eKD.bpX();
-                com.baidu.adp.lib.util.l.showSoftKeyPad(TransmitPostEditActivity.this.getActivity(), TransmitPostEditActivity.this.mUf);
+            if (view == TransmitPostEditActivity.this.mUy && z) {
+                TransmitPostEditActivity.this.mUY = false;
+                TransmitPostEditActivity.this.dHL();
+                TransmitPostEditActivity.this.eKH.bpY();
+                com.baidu.adp.lib.util.l.showSoftKeyPad(TransmitPostEditActivity.this.getActivity(), TransmitPostEditActivity.this.mUy);
             }
-            TransmitPostEditActivity.this.dHH();
+            TransmitPostEditActivity.this.dHQ();
         }
     };
-    private TextWatcher mUH = new TextWatcher() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.5
-        private String mUL = "";
-        private String mUM;
+    private TextWatcher mUZ = new TextWatcher() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.5
+        private String mVd = "";
+        private String mVe;
 
         @Override // android.text.TextWatcher
         public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            this.mUM = charSequence != null ? charSequence.toString() : "";
+            this.mVe = charSequence != null ? charSequence.toString() : "";
         }
 
         @Override // android.text.TextWatcher
         public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            if ((charSequence != null ? charSequence.toString().length() : 0) > (this.mUM != null ? this.mUM.toString().length() : 0)) {
+            if ((charSequence != null ? charSequence.toString().length() : 0) > (this.mVe != null ? this.mVe.toString().length() : 0)) {
                 TransmitPostEditActivity.this.a(charSequence, i, i3, "from_title");
             }
         }
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
-            TransmitPostEditActivity.this.dth();
-            TransmitPostEditActivity.this.dHI();
-            EditText dHU = TransmitPostEditActivity.this.dHU();
-            if (editable != null && dHU != null && dHU.getText() != null) {
-                if (this.mUL == null || !this.mUL.equals(editable.toString())) {
-                    if (TransmitPostEditActivity.this.mUB != null) {
-                        this.mUL = dHU.getText().toString();
-                        TransmitPostEditActivity.this.mUB.b(dHU, true);
+            TransmitPostEditActivity.this.dtm();
+            TransmitPostEditActivity.this.dHR();
+            EditText dId = TransmitPostEditActivity.this.dId();
+            if (editable != null && dId != null && dId.getText() != null) {
+                if (this.mVd == null || !this.mVd.equals(editable.toString())) {
+                    if (TransmitPostEditActivity.this.mUT != null) {
+                        this.mVd = dId.getText().toString();
+                        TransmitPostEditActivity.this.mUT.b(dId, true);
                         return;
                     }
                     return;
                 }
-                dHU.setSelection(dHU.getSelectionEnd());
+                dId.setSelection(dId.getSelectionEnd());
             }
         }
     };
-    private TextWatcher mUI = new TextWatcher() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.6
-        private String mUM;
-        private String mUN = "";
+    private TextWatcher mVa = new TextWatcher() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.6
+        private String mVe;
+        private String mVf = "";
 
         @Override // android.text.TextWatcher
         public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            this.mUM = charSequence != null ? charSequence.toString() : "";
+            this.mVe = charSequence != null ? charSequence.toString() : "";
         }
 
         @Override // android.text.TextWatcher
         public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            if ((charSequence != null ? charSequence.toString().length() : 0) > (this.mUM != null ? this.mUM.toString().length() : 0)) {
+            if ((charSequence != null ? charSequence.toString().length() : 0) > (this.mVe != null ? this.mVe.toString().length() : 0)) {
                 TransmitPostEditActivity.this.a(charSequence, i, i3, "from_content");
             }
         }
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
-            TransmitPostEditActivity.this.dth();
-            EditText dHT = TransmitPostEditActivity.this.dHT();
-            if (editable != null && dHT != null && dHT.getText() != null) {
-                int selectionEnd = dHT.getSelectionEnd();
-                if (this.mUN == null || !this.mUN.equals(editable.toString())) {
-                    if (TransmitPostEditActivity.this.mUB != null) {
-                        this.mUN = dHT.getText().toString();
-                        TransmitPostEditActivity.this.mUB.b(dHT, false);
+            TransmitPostEditActivity.this.dtm();
+            EditText dIc = TransmitPostEditActivity.this.dIc();
+            if (editable != null && dIc != null && dIc.getText() != null) {
+                int selectionEnd = dIc.getSelectionEnd();
+                if (this.mVf == null || !this.mVf.equals(editable.toString())) {
+                    if (TransmitPostEditActivity.this.mUT != null) {
+                        this.mVf = dIc.getText().toString();
+                        TransmitPostEditActivity.this.mUT.b(dIc, false);
                         return;
                     }
                     return;
                 }
-                dHT.setSelection(selectionEnd);
+                dIc.setSelection(selectionEnd);
             }
         }
     };
@@ -464,35 +464,35 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void brY() {
+    public void brZ() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SelectLocationActivityConfig(getPageContext().getPageActivity())));
     }
 
-    public void bsa() {
+    public void bsb() {
         if (!UtilHelper.isSystemLocationProviderEnabled(getPageContext().getPageActivity())) {
             showToast(R.string.location_system_permission_prompt);
             a(0, true, (String) null);
         } else if (!TbadkCoreApplication.getInst().getLocationShared()) {
-            bsc();
-        } else if (this.eMo.dxn()) {
-            brY();
+            bsd();
+        } else if (this.eMs.dxs()) {
+            brZ();
         } else {
-            this.eMo.we(false);
+            this.eMs.wg(false);
             a(1, true, (String) null);
-            this.eMo.dxl();
+            this.eMs.dxq();
         }
     }
 
-    private void bsc() {
+    private void bsd() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
         aVar.nt(R.string.location_app_permission_prompt).a(R.string.isopen, new a.b() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.26
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
                     TransmitPostEditActivity.this.a(1, true, (String) null);
-                    TransmitPostEditActivity.this.eMo.dxp();
+                    TransmitPostEditActivity.this.eMs.dxu();
                 } else {
-                    TransmitPostEditActivity.this.eMB.bsp();
+                    TransmitPostEditActivity.this.eMF.bsq();
                 }
                 aVar2.dismiss();
             }
@@ -507,12 +507,12 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int dHB() {
-        int selectionEnd = dHT().getSelectionEnd();
-        ImageSpan[] imageSpanArr = (ImageSpan[]) dHT().getText().getSpans(0, dHT().getText().length(), ImageSpan.class);
+    public int dHK() {
+        int selectionEnd = dIc().getSelectionEnd();
+        ImageSpan[] imageSpanArr = (ImageSpan[]) dIc().getText().getSpans(0, dIc().getText().length(), ImageSpan.class);
         for (int i = 0; i < imageSpanArr.length; i++) {
-            int spanStart = dHT().getText().getSpanStart(imageSpanArr[i]);
-            int spanEnd = dHT().getText().getSpanEnd(imageSpanArr[i]);
+            int spanStart = dIc().getText().getSpanStart(imageSpanArr[i]);
+            int spanEnd = dIc().getText().getSpanEnd(imageSpanArr[i]);
             if (selectionEnd > spanStart && selectionEnd < spanEnd) {
                 return spanEnd;
             }
@@ -521,19 +521,19 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dHC() {
-        if (this.eKD != null) {
-            this.eKD.setBarLauncherEnabled(!this.mUG);
-            this.eKD.setToolEnabled(true, 26);
+    public void dHL() {
+        if (this.eKH != null) {
+            this.eKH.setBarLauncherEnabled(!this.mUY);
+            this.eKH.setToolEnabled(true, 26);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.mUw) {
-            this.lUy.setVisibility(8);
-            dth();
+        if (this.mUO) {
+            this.lUN.setVisibility(8);
+            dtm();
         }
     }
 
@@ -553,90 +553,90 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         this.mInputManager = (InputMethodManager) getSystemService("input_method");
         initData(bundle);
         initUI();
-        this.eMo = new LocationModel(getPageContext());
-        this.eMo.a(this.eMB);
-        registerListener(this.mhn);
-        registerListener(this.mUE);
-        cKE();
-        this.mUf.requestFocus();
-        dnT();
-        dIb();
+        this.eMs = new LocationModel(getPageContext());
+        this.eMs.a(this.eMF);
+        registerListener(this.mhC);
+        registerListener(this.mUW);
+        cKF();
+        this.mUy.requestFocus();
+        dnW();
+        dIk();
     }
 
     @SuppressLint({"ResourceAsColor"})
-    private void cKE() {
-        this.eKD = new EditorTools(getActivity());
-        this.eKD.setBarMaxLauCount(4);
-        this.eKD.setMoreButtonAtEnd(true);
-        this.eKD.setBarLauncherType(1);
-        this.eKD.jh(true);
-        this.eKD.ji(true);
-        this.eKD.setBackgroundColorId(R.color.cp_bg_line_h);
-        dHD();
-        this.eKD.build();
-        if (this.mRx) {
-            this.eKD.b(new com.baidu.tbadk.editortools.a(35, 5, false));
+    private void cKF() {
+        this.eKH = new EditorTools(getActivity());
+        this.eKH.setBarMaxLauCount(4);
+        this.eKH.setMoreButtonAtEnd(true);
+        this.eKH.setBarLauncherType(1);
+        this.eKH.jj(true);
+        this.eKH.jk(true);
+        this.eKH.setBackgroundColorId(R.color.cp_bg_line_h);
+        dHM();
+        this.eKH.build();
+        if (this.mRP) {
+            this.eKH.b(new com.baidu.tbadk.editortools.a(35, 5, false));
         }
-        if (this.mUd != null) {
-            this.mUd.addView(this.eKD);
+        if (this.mUw != null) {
+            this.mUw.addView(this.eKH);
         }
-        cJW();
-        this.eKD.display();
-        com.baidu.tbadk.editortools.h qb = this.eKD.qb(6);
-        if (qb != null && !TextUtils.isEmpty(this.eMt)) {
+        cJX();
+        this.eKH.display();
+        com.baidu.tbadk.editortools.h qb = this.eKH.qb(6);
+        if (qb != null && !TextUtils.isEmpty(this.eMx)) {
             ((View) qb).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    TransmitPostEditActivity.this.showToast(TransmitPostEditActivity.this.eMt);
+                    TransmitPostEditActivity.this.showToast(TransmitPostEditActivity.this.eMx);
                 }
             });
         }
-        if (!this.mUw) {
-            this.eKD.b(new com.baidu.tbadk.editortools.a(34, 5, 1));
+        if (!this.mUO) {
+            this.eKH.b(new com.baidu.tbadk.editortools.a(34, 5, 1));
         }
-        this.eKD.bpX();
+        this.eKH.bpY();
         if (XiaoyingUtil.showXiaoyingTool() && !com.baidu.tbadk.core.sharedPref.b.bik().getBoolean(SharedPrefConfig.XIAOYING_HAS_CLICK, false)) {
-            this.eKD.b(new com.baidu.tbadk.editortools.a(2, 19, "N"));
+            this.eKH.b(new com.baidu.tbadk.editortools.a(2, 19, "N"));
         }
         if (!com.baidu.tbadk.core.sharedPref.b.bik().getBoolean(SharedPrefConfig.HOT_TOPIC_HAS_CLICK, false)) {
-            this.eKD.b(new com.baidu.tbadk.editortools.a(2, 26, " "));
+            this.eKH.b(new com.baidu.tbadk.editortools.a(2, 26, " "));
         }
-        if (this.lUg.getType() == 0) {
+        if (this.lUv.getType() == 0) {
             AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) getPageContext().getPageActivity(), this.writeImagesInfo.toJsonString(), true, true);
-            albumActivityConfig.getIntent().putExtra("forum_id", this.lUg.getForumId());
+            albumActivityConfig.getIntent().putExtra("forum_id", this.lUv.getForumId());
             albumActivityConfig.getIntent().putExtra("from", this.mFrom);
             albumActivityConfig.setRequestCode(RequestResponseCode.REQUEST_ALBUM_IMAGE);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, albumActivityConfig));
         }
-        if (!this.mRx) {
-            dHF();
+        if (!this.mRP) {
+            dHO();
         }
     }
 
-    private void dHD() {
+    private void dHM() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(5);
-        this.eKD.b(new com.baidu.tbadk.editortools.a.a(getActivity(), 2));
-        if (!this.mRx && this.mUl == null) {
-            if (this.mUA == null) {
-                this.mUA = new com.baidu.tieba.write.editor.b(getActivity(), this.iwr);
-                this.mUA.dGk();
-                this.mUA.setFrom("from_share_write");
-                this.mUA.bM(this.lUg.getForumId(), this.mPrivateThread);
+        this.eKH.b(new com.baidu.tbadk.editortools.a.a(getActivity(), 2));
+        if (!this.mRP && this.mUD == null) {
+            if (this.mUS == null) {
+                this.mUS = new com.baidu.tieba.write.editor.b(getActivity(), this.iwx);
+                this.mUS.dGt();
+                this.mUS.setFrom("from_share_write");
+                this.mUS.bM(this.lUv.getForumId(), this.mPrivateThread);
             }
-            this.eKD.b(this.mUA);
+            this.eKH.b(this.mUS);
         }
-        this.eKD.bc(arrayList);
-        com.baidu.tbadk.editortools.m qe = this.eKD.qe(5);
+        this.eKH.bc(arrayList);
+        com.baidu.tbadk.editortools.m qe = this.eKH.qe(5);
         if (qe != null) {
-            qe.eLq = 1;
-            if (this.mRx) {
-                qe.jk(false);
+            qe.eLu = 1;
+            if (this.mRP) {
+                qe.jm(false);
             }
         }
     }
 
-    private void cJW() {
+    private void cJX() {
         com.baidu.tbadk.editortools.b bVar = new com.baidu.tbadk.editortools.b() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.4
             @Override // com.baidu.tbadk.editortools.b
             public void a(com.baidu.tbadk.editortools.a aVar) {
@@ -660,31 +660,31 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                         }
                     }
                     if (aVar.code == 16) {
-                        if (TransmitPostEditActivity.this.dHS()) {
+                        if (TransmitPostEditActivity.this.dIb()) {
                             TransmitPostEditActivity.this.showToast(R.string.over_limit_tip);
                         } else {
                             TransmitPostEditActivity.this.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AtListActivityConfig(TransmitPostEditActivity.this.getPageContext().getPageActivity(), RequestResponseCode.REQUEST_AT_SELECT, true)));
                         }
                     } else if (aVar.code == 24) {
-                        if (TransmitPostEditActivity.this.dHS()) {
+                        if (TransmitPostEditActivity.this.dIb()) {
                             TransmitPostEditActivity.this.showToast(R.string.over_limit_tip);
                         } else if (aVar.data != null && (aVar.data instanceof t)) {
                             TransmitPostEditActivity.this.e((t) aVar.data);
                         }
                     } else if (aVar.code == 3) {
-                        TransmitPostEditActivity.this.dHV();
+                        TransmitPostEditActivity.this.dIe();
                     } else if (aVar.code == 12 || aVar.code == 13 || aVar.code == 46 || aVar.code == 49) {
-                        TransmitPostEditActivity.this.dth();
+                        TransmitPostEditActivity.this.dtm();
                     } else if (aVar.code == 18) {
-                        if (aVar.data != null && TransmitPostEditActivity.this.mUl == null) {
-                            TransmitPostEditActivity.this.bsd();
+                        if (aVar.data != null && TransmitPostEditActivity.this.mUD == null) {
+                            TransmitPostEditActivity.this.bse();
                             return;
                         }
-                        switch (TransmitPostEditActivity.this.eMu) {
+                        switch (TransmitPostEditActivity.this.eMy) {
                             case 0:
                                 Activity pageActivity = TransmitPostEditActivity.this.getPageContext().getPageActivity();
                                 if (ae.checkLocationForGoogle(pageActivity)) {
-                                    TransmitPostEditActivity.this.bsa();
+                                    TransmitPostEditActivity.this.bsb();
                                     return;
                                 } else {
                                     ae.d(pageActivity, 0);
@@ -694,30 +694,30 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                             default:
                                 return;
                             case 2:
-                                TransmitPostEditActivity.this.brY();
+                                TransmitPostEditActivity.this.brZ();
                                 return;
                         }
                     } else if (aVar.code == 20) {
-                        if (TransmitPostEditActivity.this.eMo != null) {
-                            TransmitPostEditActivity.this.eMo.we(true);
+                        if (TransmitPostEditActivity.this.eMs != null) {
+                            TransmitPostEditActivity.this.eMs.wg(true);
                         }
                     } else if (aVar.code == 27) {
                         com.baidu.tbadk.core.sharedPref.b.bik().putBoolean(SharedPrefConfig.XIAOYING_HAS_CLICK, true);
                         aq aqVar = new aq("c10645");
-                        if (TransmitPostEditActivity.this.lUg != null) {
-                            str = TransmitPostEditActivity.this.lUg.getForumId();
+                        if (TransmitPostEditActivity.this.lUv != null) {
+                            str = TransmitPostEditActivity.this.lUv.getForumId();
                         } else {
                             str = "";
                         }
                         aqVar.dD("fid", str);
                         TiebaStatic.log(aqVar);
-                        if (TransmitPostEditActivity.this.lUg == null || (videoInfo = TransmitPostEditActivity.this.lUg.getVideoInfo()) == null || !videoInfo.isAvaliable()) {
-                            TransmitPostEditActivity.this.eKD.b(new com.baidu.tbadk.editortools.a(2, 19, null));
+                        if (TransmitPostEditActivity.this.lUv == null || (videoInfo = TransmitPostEditActivity.this.lUv.getVideoInfo()) == null || !videoInfo.isAvaliable()) {
+                            TransmitPostEditActivity.this.eKH.b(new com.baidu.tbadk.editortools.a(2, 19, null));
                             if (XiaoyingUtil.isXiaoyingInstalled()) {
                                 if (!XiaoyingUtil.isXiaoyingForbidden()) {
-                                    if (TransmitPostEditActivity.this.eKD.brx()) {
-                                        TransmitPostEditActivity.this.eKD.bpX();
-                                        TransmitPostEditActivity.this.eKD.b(new com.baidu.tbadk.editortools.a(5, -1, null));
+                                    if (TransmitPostEditActivity.this.eKH.bry()) {
+                                        TransmitPostEditActivity.this.eKH.bpY();
+                                        TransmitPostEditActivity.this.eKH.b(new com.baidu.tbadk.editortools.a(5, -1, null));
                                     }
                                     XiaoyingUtil.startXiaoying(TransmitPostEditActivity.this.getActivity());
                                     return;
@@ -728,126 +728,126 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                             XiaoyingUtil.showGoPluginDetailDialog(TransmitPostEditActivity.this.getPageContext(), TransmitPostEditActivity.this.getResources().getString(R.string.plugin_video_install_tips), TransmitPostEditActivity.this.getResources().getString(R.string.plugin_go_install));
                             return;
                         }
-                        TransmitPostEditActivity.this.eKD.b(new com.baidu.tbadk.editortools.a(2, 19, " "));
-                        TransmitPostEditActivity.this.eKD.b(new com.baidu.tbadk.editortools.a(28, 20, videoInfo));
+                        TransmitPostEditActivity.this.eKH.b(new com.baidu.tbadk.editortools.a(2, 19, " "));
+                        TransmitPostEditActivity.this.eKH.b(new com.baidu.tbadk.editortools.a(28, 20, videoInfo));
                     } else if (aVar.code == 29) {
-                        TransmitPostEditActivity.this.eKD.b(new com.baidu.tbadk.editortools.a(2, 19, null));
-                        TransmitPostEditActivity.this.eKD.b(new com.baidu.tbadk.editortools.a(1, 2, null));
-                        TransmitPostEditActivity.this.lUg.setVideoInfo(null);
-                        TransmitPostEditActivity.this.dth();
-                        if (TransmitPostEditActivity.this.mUf != null) {
-                            TransmitPostEditActivity.this.mUf.requestFocus();
+                        TransmitPostEditActivity.this.eKH.b(new com.baidu.tbadk.editortools.a(2, 19, null));
+                        TransmitPostEditActivity.this.eKH.b(new com.baidu.tbadk.editortools.a(1, 2, null));
+                        TransmitPostEditActivity.this.lUv.setVideoInfo(null);
+                        TransmitPostEditActivity.this.dtm();
+                        if (TransmitPostEditActivity.this.mUy != null) {
+                            TransmitPostEditActivity.this.mUy.requestFocus();
                         }
-                        TransmitPostEditActivity.this.eKD.bpX();
-                        TransmitPostEditActivity.this.eKD.b(new com.baidu.tbadk.editortools.a(5, -1, null));
-                        TransmitPostEditActivity.this.ShowSoftKeyPad(TransmitPostEditActivity.this.mInputManager, TransmitPostEditActivity.this.mUf);
+                        TransmitPostEditActivity.this.eKH.bpY();
+                        TransmitPostEditActivity.this.eKH.b(new com.baidu.tbadk.editortools.a(5, -1, null));
+                        TransmitPostEditActivity.this.ShowSoftKeyPad(TransmitPostEditActivity.this.mInputManager, TransmitPostEditActivity.this.mUy);
                     } else if (aVar.code == 43) {
                         com.baidu.tbadk.core.sharedPref.b.bik().putBoolean(SharedPrefConfig.HOT_TOPIC_HAS_CLICK, true);
-                        TransmitPostEditActivity.this.eKD.b(new com.baidu.tbadk.editortools.a(2, 26, null));
-                        TransmitPostEditActivity.this.mUa = true;
-                        TransmitPostEditActivity.this.xp(true);
-                        if (TransmitPostEditActivity.this.dHU().isFocused()) {
-                            TransmitPostEditActivity.this.mTZ = "from_title";
-                        } else if (TransmitPostEditActivity.this.dHT().isFocused()) {
-                            TransmitPostEditActivity.this.mTZ = "from_content";
+                        TransmitPostEditActivity.this.eKH.b(new com.baidu.tbadk.editortools.a(2, 26, null));
+                        TransmitPostEditActivity.this.mUt = true;
+                        TransmitPostEditActivity.this.xr(true);
+                        if (TransmitPostEditActivity.this.dId().isFocused()) {
+                            TransmitPostEditActivity.this.mUs = "from_title";
+                        } else if (TransmitPostEditActivity.this.dIc().isFocused()) {
+                            TransmitPostEditActivity.this.mUs = "from_content";
                         }
                     } else if (aVar.code == 45) {
-                        TransmitPostEditActivity.this.mUe.setVisibility(0);
-                        TransmitPostEditActivity.this.mUe.requestFocus();
+                        TransmitPostEditActivity.this.mUx.setVisibility(0);
+                        TransmitPostEditActivity.this.mUx.requestFocus();
                     } else if (aVar.code == 53) {
-                        if (TransmitPostEditActivity.this.mUe.hasFocus()) {
-                            TransmitPostEditActivity.this.mUf.requestFocus();
-                            TransmitPostEditActivity.this.mUf.setSelection(TransmitPostEditActivity.this.mUf.getText().toString().length());
+                        if (TransmitPostEditActivity.this.mUx.hasFocus()) {
+                            TransmitPostEditActivity.this.mUy.requestFocus();
+                            TransmitPostEditActivity.this.mUy.setSelection(TransmitPostEditActivity.this.mUy.getText().toString().length());
                         }
-                        TransmitPostEditActivity.this.mUe.setVisibility(8);
+                        TransmitPostEditActivity.this.mUx.setVisibility(8);
                     } else if (aVar.code == 55 && aVar.data != null && (aVar.data instanceof Boolean)) {
                         TransmitPostEditActivity.this.isPrivacy = ((Boolean) aVar.data).booleanValue();
                     }
                 }
             }
         };
-        this.eKD.setActionListener(31, bVar);
-        this.eKD.setActionListener(16, bVar);
-        this.eKD.setActionListener(14, bVar);
-        this.eKD.setActionListener(24, bVar);
-        this.eKD.setActionListener(3, bVar);
-        this.eKD.setActionListener(10, bVar);
-        this.eKD.setActionListener(11, bVar);
-        this.eKD.setActionListener(12, bVar);
-        this.eKD.setActionListener(13, bVar);
-        this.eKD.setActionListener(15, bVar);
-        this.eKD.setActionListener(18, bVar);
-        this.eKD.setActionListener(20, bVar);
-        this.eKD.setActionListener(25, bVar);
-        this.eKD.setActionListener(27, bVar);
-        this.eKD.setActionListener(29, bVar);
-        this.eKD.setActionListener(43, bVar);
-        this.eKD.setActionListener(45, bVar);
-        this.eKD.setActionListener(53, bVar);
-        this.eKD.setActionListener(48, bVar);
-        this.eKD.setActionListener(46, bVar);
-        this.eKD.setActionListener(49, bVar);
-        this.eKD.setActionListener(47, bVar);
-        this.eKD.setActionListener(55, bVar);
+        this.eKH.setActionListener(31, bVar);
+        this.eKH.setActionListener(16, bVar);
+        this.eKH.setActionListener(14, bVar);
+        this.eKH.setActionListener(24, bVar);
+        this.eKH.setActionListener(3, bVar);
+        this.eKH.setActionListener(10, bVar);
+        this.eKH.setActionListener(11, bVar);
+        this.eKH.setActionListener(12, bVar);
+        this.eKH.setActionListener(13, bVar);
+        this.eKH.setActionListener(15, bVar);
+        this.eKH.setActionListener(18, bVar);
+        this.eKH.setActionListener(20, bVar);
+        this.eKH.setActionListener(25, bVar);
+        this.eKH.setActionListener(27, bVar);
+        this.eKH.setActionListener(29, bVar);
+        this.eKH.setActionListener(43, bVar);
+        this.eKH.setActionListener(45, bVar);
+        this.eKH.setActionListener(53, bVar);
+        this.eKH.setActionListener(48, bVar);
+        this.eKH.setActionListener(46, bVar);
+        this.eKH.setActionListener(49, bVar);
+        this.eKH.setActionListener(47, bVar);
+        this.eKH.setActionListener(55, bVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bsd() {
-        if (this.eMo.bXz()) {
-            if (this.eMo.dxn()) {
-                a(2, true, com.baidu.tieba.tbadkCore.location.b.dxi().getLocationData().getFormatted_address());
+    public void bse() {
+        if (this.eMs.bXA()) {
+            if (this.eMs.dxs()) {
+                a(2, true, com.baidu.tieba.tbadkCore.location.b.dxn().getLocationData().getFormatted_address());
                 return;
             }
             a(1, true, (String) null);
-            this.eMo.dxl();
+            this.eMs.dxq();
             return;
         }
         a(0, true, (String) null);
     }
 
-    protected void dsZ() {
-        if (this.eMp != null) {
-            this.eMp.cancelLoadData();
+    protected void dte() {
+        if (this.eMt != null) {
+            this.eMt.cancelLoadData();
         }
-        if (this.mUg != null) {
-            this.mUg.cancelLoadData();
+        if (this.mUz != null) {
+            this.mUz.cancelLoadData();
         }
-        if (this.eMo != null) {
-            this.eMo.cancelLoadData();
-        }
-    }
-
-    private void dHE() {
-        if (this.mUC != null) {
-            this.mUC.hideTip();
+        if (this.eMs != null) {
+            this.eMs.cancelLoadData();
         }
     }
 
-    private void dHF() {
-        if (this.mUC == null) {
-            this.mUC = new g(getPageContext());
+    private void dHN() {
+        if (this.mUU != null) {
+            this.mUU.hideTip();
         }
-        this.mUC.d(this.eKD);
+    }
+
+    private void dHO() {
+        if (this.mUU == null) {
+            this.mUU = new g(getPageContext());
+        }
+        this.mUU.d(this.eKH);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        dHE();
+        dHN();
         TiebaPrepareImageService.StopService();
-        dsZ();
+        dte();
         super.onDestroy();
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dHG() {
-        if (this.lUg == null) {
+    public void dHP() {
+        if (this.lUv == null) {
             finish();
             return;
         }
-        this.lUg.setTitle(dHU().getText().toString());
-        this.lUg.setContent(dHT().getText().toString());
+        this.lUv.setTitle(dId().getText().toString());
+        this.lUv.setContent(dIc().getText().toString());
         finish();
     }
 
@@ -855,22 +855,22 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         Editable text;
         if (i == 4) {
-            if (this.lUE != null && this.lUE.isShowing()) {
-                com.baidu.adp.lib.f.g.dismissPopupWindow(this.lUE, getPageContext().getPageActivity());
+            if (this.lUT != null && this.lUT.isShowing()) {
+                com.baidu.adp.lib.f.g.dismissPopupWindow(this.lUT, getPageContext().getPageActivity());
                 return true;
-            } else if (this.eKD.brx()) {
-                this.eKD.bpX();
+            } else if (this.eKH.bry()) {
+                this.eKH.bpY();
                 return true;
             } else {
-                dsZ();
-                dHG();
+                dte();
+                dHP();
                 return true;
             }
         }
-        if (i == 67 && (text = dHT().getText()) != null) {
-            int selectionStart = dHT().getSelectionStart();
+        if (i == 67 && (text = dIc().getText()) != null) {
+            int selectionStart = dIc().getSelectionStart();
             if (selectionStart - 1 > 0 && selectionStart - 1 < text.length() && text.charAt(selectionStart - 1) == 0) {
-                dHT().onKeyDown(67, this.hEQ);
+                dIc().onKeyDown(67, this.hEW);
             }
         }
         return super.onKeyDown(i, keyEvent);
@@ -882,60 +882,60 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         getLayoutMode().setNightMode(i == 1);
-        getLayoutMode().onModeChanged(this.jfk);
+        getLayoutMode().onModeChanged(this.jfq);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        ap.setViewTextColor(this.kGp, R.color.cp_link_tip_a, 1);
-        dHC();
-        ap.setBackgroundColor(this.lUz, R.color.cp_bg_line_c);
-        ap.setBackgroundColor(dHU(), R.color.cp_bg_line_d);
-        ap.setBackgroundColor(dHT(), R.color.cp_bg_line_d);
-        dth();
-        this.eKD.onChangeSkinType(i);
-        if (this.mUu != null) {
-            this.mUu.bkF();
+        ap.setViewTextColor(this.kGw, R.color.cp_link_tip_a, 1);
+        dHL();
+        ap.setBackgroundColor(this.lUO, R.color.cp_bg_line_c);
+        ap.setBackgroundColor(dId(), R.color.cp_bg_line_d);
+        ap.setBackgroundColor(dIc(), R.color.cp_bg_line_d);
+        dtm();
+        this.eKH.onChangeSkinType(i);
+        if (this.mUM != null) {
+            this.mUM.bkF();
         }
         ap.setViewTextColor(this.mName, R.color.cp_cont_b);
-        dHH();
-        dHI();
-        if (this.mUB != null) {
-            this.mUB.c(dHU(), dHT());
+        dHQ();
+        dHR();
+        if (this.mUT != null) {
+            this.mUT.c(dId(), dIc());
         }
-        if (this.ahu != null) {
-            this.ahu.onChangeSkinType();
+        if (this.ahw != null) {
+            this.ahw.onChangeSkinType();
         }
-        if (this.mRT != null) {
-            this.mRT.onChangeSkinType(i);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void dHH() {
-        if (this.lUy.hasFocus()) {
-            this.lUy.setHintTextColor(ap.getColor(R.color.cp_cont_e));
-        } else {
-            this.lUy.setHintTextColor(ap.getColor(R.color.cp_cont_d));
-        }
-        if (this.mUf.hasFocus()) {
-            this.mUf.setHintTextColor(ap.getColor(R.color.cp_cont_e));
-        } else {
-            this.mUf.setHintTextColor(ap.getColor(R.color.cp_cont_d));
+        if (this.mSl != null) {
+            this.mSl.onChangeSkinType(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dHI() {
-        if (this.lUy != null) {
-            if (this.lUy.getText().toString().length() == 0) {
-                this.lUy.getPaint().setFakeBoldText(false);
-            } else if (this.lUy.getText().toString().length() > 0) {
-                this.lUy.getPaint().setFakeBoldText(true);
+    public void dHQ() {
+        if (this.lUN.hasFocus()) {
+            this.lUN.setHintTextColor(ap.getColor(R.color.cp_cont_e));
+        } else {
+            this.lUN.setHintTextColor(ap.getColor(R.color.cp_cont_d));
+        }
+        if (this.mUy.hasFocus()) {
+            this.mUy.setHintTextColor(ap.getColor(R.color.cp_cont_e));
+        } else {
+            this.mUy.setHintTextColor(ap.getColor(R.color.cp_cont_d));
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void dHR() {
+        if (this.lUN != null) {
+            if (this.lUN.getText().toString().length() == 0) {
+                this.lUN.getPaint().setFakeBoldText(false);
+            } else if (this.lUN.getText().toString().length() > 0) {
+                this.lUN.getPaint().setFakeBoldText(true);
             }
         }
     }
 
     private void initUI() {
-        this.eUv = new com.baidu.tbadk.core.view.a(getPageContext());
-        this.mUw = this.lUg.getType() == 4 || 5 == this.lUg.getType();
+        this.eUz = new com.baidu.tbadk.core.view.a(getPageContext());
+        this.mUO = this.lUv.getType() == 4 || 5 == this.lUv.getType();
         this.mRootView = LayoutInflater.from(getActivity()).inflate(R.layout.write_activity, (ViewGroup) null);
         setContentView(this.mRootView);
         this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
@@ -946,17 +946,17 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         }
         this.mName = this.mNavigationBar.setCenterTextTitle("");
         ap.setViewTextColor(this.mName, R.color.cp_cont_b);
-        dHL();
-        this.mUv = (ScrollView) findViewById(R.id.write_scrollview);
-        this.mUv.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.7
+        dHU();
+        this.mUN = (ScrollView) findViewById(R.id.write_scrollview);
+        this.mUN.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.7
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 2) {
-                    if (TransmitPostEditActivity.this.mUf != null) {
-                        com.baidu.adp.lib.util.l.hideSoftKeyPad(TransmitPostEditActivity.this.getPageContext().getContext(), TransmitPostEditActivity.this.mUf);
+                    if (TransmitPostEditActivity.this.mUy != null) {
+                        com.baidu.adp.lib.util.l.hideSoftKeyPad(TransmitPostEditActivity.this.getPageContext().getContext(), TransmitPostEditActivity.this.mUy);
                     }
-                    if (TransmitPostEditActivity.this.eKD != null) {
-                        TransmitPostEditActivity.this.eKD.bpX();
+                    if (TransmitPostEditActivity.this.eKH != null) {
+                        TransmitPostEditActivity.this.eKH.bpY();
                         return false;
                     }
                     return false;
@@ -966,73 +966,73 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         });
         addGlobalLayoutListener();
         adjustResizeForSoftInput();
-        this.jfk = (RelativeLayout) findViewById(R.id.parent);
-        this.mUd = (LinearLayout) findViewById(R.id.tool_view);
-        this.mUd.setContentDescription(IStringUtil.TOP_PATH);
-        this.mUe = (LinearLayout) findViewById(R.id.title_view);
-        this.lUz = findViewById(R.id.interval_view);
-        this.mUy = (TextView) findViewById(R.id.hot_topic_title_edt);
-        dtg();
-        if (this.mUw) {
-            this.mUv.setVisibility(8);
+        this.jfq = (RelativeLayout) findViewById(R.id.parent);
+        this.mUw = (LinearLayout) findViewById(R.id.tool_view);
+        this.mUw.setContentDescription(IStringUtil.TOP_PATH);
+        this.mUx = (LinearLayout) findViewById(R.id.title_view);
+        this.lUO = findViewById(R.id.interval_view);
+        this.mUQ = (TextView) findViewById(R.id.hot_topic_title_edt);
+        dtl();
+        if (this.mUO) {
+            this.mUN.setVisibility(8);
             this.writeImagesInfo.setMaxImagesAllowed(6);
         }
-        dti();
-        dHR();
-        this.lUB = (LinearLayout) findViewById(R.id.post_content_container);
-        this.lUB.setDrawingCacheEnabled(false);
-        this.lUB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.8
+        dtn();
+        dIa();
+        this.lUQ = (LinearLayout) findViewById(R.id.post_content_container);
+        this.lUQ.setDrawingCacheEnabled(false);
+        this.lUQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.8
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 view.requestFocus();
-                TransmitPostEditActivity.this.eKD.b(new com.baidu.tbadk.editortools.a(5, -1, null));
-                TransmitPostEditActivity.this.mUf.requestFocus();
+                TransmitPostEditActivity.this.eKH.b(new com.baidu.tbadk.editortools.a(5, -1, null));
+                TransmitPostEditActivity.this.mUy.requestFocus();
             }
         });
-        this.mBack.setOnFocusChangeListener(this.gsB);
+        this.mBack.setOnFocusChangeListener(this.gsF);
         this.mBack.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.9
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                TransmitPostEditActivity.this.dsZ();
-                TransmitPostEditActivity.this.dHG();
+                TransmitPostEditActivity.this.dte();
+                TransmitPostEditActivity.this.dHP();
             }
         });
-        dHO();
-        dHQ();
-        dHK();
-        dHC();
-        dHP();
-        dtf();
-        dHW();
-        dHJ();
-        if (this.lUg.getType() == 4 && this.lUG != null && this.mUh != null) {
-            this.lUG.setVisibility(8);
-            this.mUh.setVisibility(8);
+        dHX();
+        dHZ();
+        dHT();
+        dHL();
+        dHY();
+        dtk();
+        dIf();
+        dHS();
+        if (this.lUv.getType() == 4 && this.lUV != null && this.mUA != null) {
+            this.lUV.setVisibility(8);
+            this.mUA.setVisibility(8);
         }
-        dth();
-        ShowSoftKeyPad(this.mInputManager, this.lUy);
+        dtm();
+        ShowSoftKeyPad(this.mInputManager, this.lUN);
     }
 
-    private void dHJ() {
-        this.mRT = (ForumTabSelectedView) findViewById(R.id.frs_tab_list);
-        this.mRT.setData(this.mNu);
-        this.mRT.setActivity(this);
+    private void dHS() {
+        this.mSl = (ForumTabSelectedView) findViewById(R.id.frs_tab_list);
+        this.mSl.setData(this.mNM);
+        this.mSl.setActivity(this);
     }
 
-    private void dHK() {
+    private void dHT() {
         String str;
         String str2;
-        if (this.lUg != null) {
-            switch (this.lUg.getType()) {
+        if (this.lUv != null) {
+            switch (this.lUv.getType()) {
                 case 0:
                 case 9:
-                    if (this.iwr != null && this.iwr.equals("1")) {
+                    if (this.iwx != null && this.iwx.equals("1")) {
                         this.mName.setText(R.string.share_to_home_page);
-                        if (this.mRx) {
+                        if (this.mRP) {
                             this.mName.setText(R.string.transmit_to_dynamic_title);
                         }
-                    } else if (this.iwr != null && this.iwr.equals("2")) {
-                        String fixedBarText = UtilHelper.getFixedBarText(getResources().getString(R.string.share_to) + this.lUg.getForumName(), 9, true, false);
+                    } else if (this.iwx != null && this.iwx.equals("2")) {
+                        String fixedBarText = UtilHelper.getFixedBarText(getResources().getString(R.string.share_to) + this.lUv.getForumName(), 9, true, false);
                         if (fixedBarText.length() < 14) {
                             str2 = fixedBarText + getResources().getString(R.string.bar);
                         } else {
@@ -1042,62 +1042,62 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     } else {
                         this.mName.setText("");
                     }
-                    this.lUy.setVisibility(0);
-                    this.mUf.setFilters(new InputFilter[]{new InputFilter.LengthFilter(5000)});
+                    this.lUN.setVisibility(0);
+                    this.mUy.setFilters(new InputFilter[]{new InputFilter.LengthFilter(5000)});
                     return;
                 case 4:
                     this.mName.setText(R.string.publish_photo_live);
-                    this.mUf.setFilters(new InputFilter[]{new InputFilter.LengthFilter(5000)});
+                    this.mUy.setFilters(new InputFilter[]{new InputFilter.LengthFilter(5000)});
                     return;
                 default:
                     this.mName.setText(R.string.send_reply);
-                    this.mUf.setFilters(new InputFilter[]{new InputFilter.LengthFilter(1000)});
-                    this.lUy.setVisibility(8);
+                    this.mUy.setFilters(new InputFilter[]{new InputFilter.LengthFilter(1000)});
+                    this.lUN.setVisibility(8);
                     return;
             }
         }
     }
 
-    private void dHL() {
-        if (this.mRx) {
-            this.kGp = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.dynamic_publish));
+    private void dHU() {
+        if (this.mRP) {
+            this.kGw = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.dynamic_publish));
         } else {
-            this.kGp = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.share));
+            this.kGw = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.share));
         }
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.kGp.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.kGw.getLayoutParams();
         layoutParams.rightMargin = com.baidu.adp.lib.util.l.getDimens(getPageContext().getPageActivity(), R.dimen.ds14);
-        this.kGp.setLayoutParams(layoutParams);
-        this.kGp.setOnFocusChangeListener(this.gsB);
+        this.kGw.setLayoutParams(layoutParams);
+        this.kGw.setOnFocusChangeListener(this.gsF);
     }
 
-    private void dHM() {
-        if (this.lUg != null && this.lUg.getType() == 0 && this.lUg.getType() == 9 && !this.mUc && this.mPostTopicData != null && !StringUtils.isNull(this.mPostTopicData.getTitleTopic())) {
+    private void dHV() {
+        if (this.lUv != null && this.lUv.getType() == 0 && this.lUv.getType() == 9 && !this.mUv && this.mPostTopicData != null && !StringUtils.isNull(this.mPostTopicData.getTitleTopic())) {
             String cutStringWithSuffix = at.cutStringWithSuffix(this.mPostTopicData.getTitleTopic(), 31, null);
-            if (!StringUtils.isNull(cutStringWithSuffix) && dHU() != null) {
-                dHU().setText(cutStringWithSuffix);
-                dHU().setSelection(cutStringWithSuffix.length());
+            if (!StringUtils.isNull(cutStringWithSuffix) && dId() != null) {
+                dId().setText(cutStringWithSuffix);
+                dId().setSelection(cutStringWithSuffix.length());
             }
         }
     }
 
-    private void dHN() {
-        this.fPp = null;
-        this.mUr = -1;
-        this.mUt = -1;
-        ah xt = com.baidu.tieba.frs.ag.cnU().xt(1);
+    private void dHW() {
+        this.fPt = null;
+        this.mUJ = -1;
+        this.mUL = -1;
+        ah xt = com.baidu.tieba.frs.ag.cnV().xt(1);
         if (xt != null) {
-            this.fPp = xt.hXr;
-            this.mUr = getIntent().getIntExtra("category_id", -1);
-            if (this.fPp != null && !this.fPp.isEmpty() && this.mUr >= 0) {
-                this.mUq = new af();
-                this.mUq.hXn = 0;
-                this.mUq.name = getPageContext().getResources().getString(R.string.category_auto);
-                this.mUt = this.mUq.hXn;
-                this.mUs = this.mUq.name;
-                for (af afVar : this.fPp) {
-                    if (afVar.hXn == this.mUr) {
-                        this.mUt = afVar.hXn;
-                        this.mUs = afVar.name;
+            this.fPt = xt.hXx;
+            this.mUJ = getIntent().getIntExtra("category_id", -1);
+            if (this.fPt != null && !this.fPt.isEmpty() && this.mUJ >= 0) {
+                this.mUI = new af();
+                this.mUI.hXt = 0;
+                this.mUI.name = getPageContext().getResources().getString(R.string.category_auto);
+                this.mUL = this.mUI.hXt;
+                this.mUK = this.mUI.name;
+                for (af afVar : this.fPt) {
+                    if (afVar.hXt == this.mUJ) {
+                        this.mUL = afVar.hXt;
+                        this.mUK = afVar.name;
                         return;
                     }
                 }
@@ -1105,31 +1105,31 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         }
     }
 
-    private void dHO() {
-        if (this.fPp != null && !this.fPp.isEmpty()) {
+    private void dHX() {
+        if (this.fPt != null && !this.fPt.isEmpty()) {
             LinearLayout linearLayout = (LinearLayout) findViewById(R.id.place_post_category);
             linearLayout.setVisibility(0);
             findViewById(R.id.interval_view_cate).setVisibility(0);
-            this.mUu = (PostCategoryView) linearLayout.findViewById(R.id.category_selected);
-            this.mUu.setText(this.mUs);
-            this.mUu.setCategoryContainerData(this.fPp, this.mUq, this.mUt);
-            this.mUu.setCategoryContainerClickCallback(new TabMenuPopView.a() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.10
+            this.mUM = (PostCategoryView) linearLayout.findViewById(R.id.category_selected);
+            this.mUM.setText(this.mUK);
+            this.mUM.setCategoryContainerData(this.fPt, this.mUI, this.mUL);
+            this.mUM.setCategoryContainerClickCallback(new TabMenuPopView.a() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.10
                 @Override // com.baidu.tieba.frs.TabMenuPopView.a
                 public void a(View view, bf bfVar) {
                     if (bfVar != null) {
-                        TransmitPostEditActivity.this.mUu.setText(bfVar.name);
-                        TransmitPostEditActivity.this.lUg.setCategoryTo(bfVar.hXn);
-                        TransmitPostEditActivity.this.mUt = bfVar.hXn;
-                        TransmitPostEditActivity.this.mUu.dHg();
+                        TransmitPostEditActivity.this.mUM.setText(bfVar.name);
+                        TransmitPostEditActivity.this.lUv.setCategoryTo(bfVar.hXt);
+                        TransmitPostEditActivity.this.mUL = bfVar.hXt;
+                        TransmitPostEditActivity.this.mUM.dHp();
                     }
                 }
             });
             linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.11
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    TransmitPostEditActivity.this.mUu.dHf();
-                    TransmitPostEditActivity.this.HidenSoftKeyPad(TransmitPostEditActivity.this.mInputManager, TransmitPostEditActivity.this.dHU());
-                    TransmitPostEditActivity.this.HidenSoftKeyPad(TransmitPostEditActivity.this.mInputManager, TransmitPostEditActivity.this.dHT());
+                    TransmitPostEditActivity.this.mUM.dHo();
+                    TransmitPostEditActivity.this.HidenSoftKeyPad(TransmitPostEditActivity.this.mInputManager, TransmitPostEditActivity.this.dId());
+                    TransmitPostEditActivity.this.HidenSoftKeyPad(TransmitPostEditActivity.this.mInputManager, TransmitPostEditActivity.this.dIc());
                 }
             });
         }
@@ -1141,94 +1141,94 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
 
     @Override // android.app.Activity
     protected Dialog onCreateDialog(int i) {
-        this.mUJ = new com.baidu.tieba.view.b(getPageContext().getPageActivity(), new TimePickerDialog.OnTimeSetListener() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.13
+        this.mVb = new com.baidu.tieba.view.b(getPageContext().getPageActivity(), new TimePickerDialog.OnTimeSetListener() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.13
             @Override // android.app.TimePickerDialog.OnTimeSetListener
             public void onTimeSet(TimePicker timePicker, int i2, int i3) {
             }
         }, new Date().getHours(), new Date().getMinutes(), false);
-        this.mUJ.setTitle(R.string.no_disturb_start_time);
-        this.mUJ.setButton(-1, getPageContext().getString(R.string.alert_yes_button), this.mUJ);
-        this.mUJ.setButton(-2, getPageContext().getString(R.string.cancel), this.mUJ);
-        return this.mUJ;
+        this.mVb.setTitle(R.string.no_disturb_start_time);
+        this.mVb.setButton(-1, getPageContext().getString(R.string.alert_yes_button), this.mVb);
+        this.mVb.setButton(-2, getPageContext().getString(R.string.cancel), this.mVb);
+        return this.mVb;
     }
 
-    private void dHP() {
-        this.mUm = (RelativeLayout) findViewById(R.id.addition_container);
-        this.mUn = (TextView) findViewById(R.id.addition_create_time);
-        this.mUo = (TextView) findViewById(R.id.addition_last_time);
-        this.mUp = (TextView) findViewById(R.id.addition_last_content);
-        if (this.mUl != null) {
-            this.mUm.setVisibility(0);
-            this.mUn.setText(getPageContext().getString(R.string.write_addition_create) + at.getFormatTime(this.mUl.getCreateTime() * 1000));
-            if (this.mUl.getAlreadyCount() == 0) {
-                this.mUo.setVisibility(8);
+    private void dHY() {
+        this.mUE = (RelativeLayout) findViewById(R.id.addition_container);
+        this.mUF = (TextView) findViewById(R.id.addition_create_time);
+        this.mUG = (TextView) findViewById(R.id.addition_last_time);
+        this.mUH = (TextView) findViewById(R.id.addition_last_content);
+        if (this.mUD != null) {
+            this.mUE.setVisibility(0);
+            this.mUF.setText(getPageContext().getString(R.string.write_addition_create) + at.getFormatTime(this.mUD.getCreateTime() * 1000));
+            if (this.mUD.getAlreadyCount() == 0) {
+                this.mUG.setVisibility(8);
             } else {
-                this.mUo.setText(getPageContext().getString(R.string.write_addition_last) + at.getFormatTime(this.mUl.getLastAdditionTime() * 1000));
+                this.mUG.setText(getPageContext().getString(R.string.write_addition_last) + at.getFormatTime(this.mUD.getLastAdditionTime() * 1000));
             }
-            String lastAdditionContent = this.mUl.getLastAdditionContent();
+            String lastAdditionContent = this.mUD.getLastAdditionContent();
             if (!TextUtils.isEmpty(lastAdditionContent)) {
-                this.mUp.setText(lastAdditionContent);
+                this.mUH.setText(lastAdditionContent);
             } else {
-                this.mUp.setVisibility(8);
+                this.mUH.setVisibility(8);
             }
-            dHT().setHint(String.format(getPageContext().getString(R.string.write_addition_hint), Integer.valueOf(this.mUl.getAlreadyCount()), Integer.valueOf(this.mUl.getTotalCount())));
+            dIc().setHint(String.format(getPageContext().getString(R.string.write_addition_hint), Integer.valueOf(this.mUD.getAlreadyCount()), Integer.valueOf(this.mUD.getTotalCount())));
             this.mName.setText(R.string.write_addition_title);
             return;
         }
-        this.mUm.setVisibility(8);
+        this.mUE.setVisibility(8);
     }
 
-    private void dtf() {
-        this.lUG = findViewById(R.id.post_prefix_layout);
-        this.lUD = (TextView) findViewById(R.id.post_prefix);
-        this.mUh = findViewById(R.id.prefix_divider);
-        this.lUF = (ImageView) findViewById(R.id.prefix_icon);
+    private void dtk() {
+        this.lUV = findViewById(R.id.post_prefix_layout);
+        this.lUS = (TextView) findViewById(R.id.post_prefix);
+        this.mUA = findViewById(R.id.prefix_divider);
+        this.lUU = (ImageView) findViewById(R.id.prefix_icon);
         if (this.mPrefixData != null && this.mPrefixData.getPrefixs().size() > 1) {
-            this.lUG.setVisibility(0);
+            this.lUV.setVisibility(0);
             ArrayList<String> prefixs = this.mPrefixData.getPrefixs();
             int size = prefixs.size();
-            this.lUh = 1;
-            this.lUG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.14
+            this.lUw = 1;
+            this.lUV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.14
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    TransmitPostEditActivity.this.lUD.setVisibility(0);
-                    TransmitPostEditActivity.this.lUG.setSelected(true);
-                    com.baidu.adp.lib.f.g.showPopupWindowAsDropDown(TransmitPostEditActivity.this.lUE, view, 0, com.baidu.adp.lib.util.l.dip2px(TransmitPostEditActivity.this.getPageContext().getPageActivity(), 1.0f));
-                    TransmitPostEditActivity.this.eKD.bpX();
-                    TransmitPostEditActivity.this.HidenSoftKeyPad(TransmitPostEditActivity.this.mInputManager, TransmitPostEditActivity.this.lUy);
-                    TransmitPostEditActivity.this.HidenSoftKeyPad(TransmitPostEditActivity.this.mInputManager, TransmitPostEditActivity.this.mUf);
+                    TransmitPostEditActivity.this.lUS.setVisibility(0);
+                    TransmitPostEditActivity.this.lUV.setSelected(true);
+                    com.baidu.adp.lib.f.g.showPopupWindowAsDropDown(TransmitPostEditActivity.this.lUT, view, 0, com.baidu.adp.lib.util.l.dip2px(TransmitPostEditActivity.this.getPageContext().getPageActivity(), 1.0f));
+                    TransmitPostEditActivity.this.eKH.bpY();
+                    TransmitPostEditActivity.this.HidenSoftKeyPad(TransmitPostEditActivity.this.mInputManager, TransmitPostEditActivity.this.lUN);
+                    TransmitPostEditActivity.this.HidenSoftKeyPad(TransmitPostEditActivity.this.mInputManager, TransmitPostEditActivity.this.mUy);
                 }
             });
-            this.lUF = (ImageView) findViewById(R.id.prefix_icon);
+            this.lUU = (ImageView) findViewById(R.id.prefix_icon);
             if (size > 1) {
-                this.lUF.setVisibility(0);
-                this.lUD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.15
+                this.lUU.setVisibility(0);
+                this.lUS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.15
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        TransmitPostEditActivity.this.lUD.setSelected(true);
-                        com.baidu.adp.lib.f.g.showPopupWindowAsDropDown(TransmitPostEditActivity.this.lUE, view, 0, com.baidu.adp.lib.util.l.dip2px(TransmitPostEditActivity.this.getPageContext().getPageActivity(), 1.0f));
-                        TransmitPostEditActivity.this.eKD.bpX();
-                        TransmitPostEditActivity.this.HidenSoftKeyPad(TransmitPostEditActivity.this.mInputManager, TransmitPostEditActivity.this.dHU());
-                        TransmitPostEditActivity.this.HidenSoftKeyPad(TransmitPostEditActivity.this.mInputManager, TransmitPostEditActivity.this.dHT());
+                        TransmitPostEditActivity.this.lUS.setSelected(true);
+                        com.baidu.adp.lib.f.g.showPopupWindowAsDropDown(TransmitPostEditActivity.this.lUT, view, 0, com.baidu.adp.lib.util.l.dip2px(TransmitPostEditActivity.this.getPageContext().getPageActivity(), 1.0f));
+                        TransmitPostEditActivity.this.eKH.bpY();
+                        TransmitPostEditActivity.this.HidenSoftKeyPad(TransmitPostEditActivity.this.mInputManager, TransmitPostEditActivity.this.dId());
+                        TransmitPostEditActivity.this.HidenSoftKeyPad(TransmitPostEditActivity.this.mInputManager, TransmitPostEditActivity.this.dIc());
                     }
                 });
             }
-            this.lUE = new com.baidu.tieba.write.i(getPageContext().getPageActivity());
-            this.lUE.a(this);
-            this.lUE.setMaxHeight(com.baidu.adp.lib.util.l.getDimens(getActivity(), R.dimen.ds510));
-            this.lUE.setOutsideTouchable(true);
-            this.lUE.setFocusable(true);
-            this.lUE.setOnDismissListener(this);
-            this.lUE.setBackgroundDrawable(ap.getDrawable(R.color.cp_bg_line_d));
+            this.lUT = new com.baidu.tieba.write.i(getPageContext().getPageActivity());
+            this.lUT.a(this);
+            this.lUT.setMaxHeight(com.baidu.adp.lib.util.l.getDimens(getActivity(), R.dimen.ds510));
+            this.lUT.setOutsideTouchable(true);
+            this.lUT.setFocusable(true);
+            this.lUT.setOnDismissListener(this);
+            this.lUT.setBackgroundDrawable(ap.getDrawable(R.color.cp_bg_line_d));
             int color = ap.getColor(R.color.cp_cont_b);
             int color2 = ap.getColor(R.color.cp_cont_c);
-            ap.setBackgroundResource(this.lUD, R.color.cp_bg_line_d);
-            ap.setImageResource(this.lUF, R.drawable.icon_frs_arrow_n);
-            this.lUD.setTextColor(color);
-            this.mUi.clear();
+            ap.setBackgroundResource(this.lUS, R.color.cp_bg_line_d);
+            ap.setImageResource(this.lUU, R.drawable.icon_frs_arrow_n);
+            this.lUS.setTextColor(color);
+            this.mUB.clear();
             for (int i = 0; i < size; i++) {
                 WritePrefixItemLayout writePrefixItemLayout = new WritePrefixItemLayout(getActivity());
-                this.mUi.add(writePrefixItemLayout);
+                this.mUB.add(writePrefixItemLayout);
                 writePrefixItemLayout.setPrefixText(prefixs.get(i));
                 if (i == 0) {
                     writePrefixItemLayout.setPrefixTextColor(color2);
@@ -1238,138 +1238,138 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                 if (i != size - 1) {
                     writePrefixItemLayout.setDividerStyle(false);
                 }
-                this.lUE.addView(writePrefixItemLayout);
+                this.lUT.addView(writePrefixItemLayout);
             }
-            this.lUE.setCurrentIndex(0);
-            this.lUD.setText(prefixs.get(1));
+            this.lUT.setCurrentIndex(0);
+            this.lUS.setText(prefixs.get(1));
             JP(1);
             return;
         }
-        this.lUG.setVisibility(8);
+        this.lUV.setVisibility(8);
     }
 
-    protected void dHQ() {
-        this.kGp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.16
+    protected void dHZ() {
+        this.kGw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.16
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
                     TransmitPostEditActivity.this.showToast(R.string.neterror);
                 }
-                if (!com.baidu.tieba.write.c.a.isFastDoubleClick() && !TransmitPostEditActivity.this.dIc()) {
-                    if (TransmitPostEditActivity.this.mUB.a(TransmitPostEditActivity.this.lUy, TransmitPostEditActivity.this.mUf)) {
-                        TransmitPostEditActivity.this.showToast(TransmitPostEditActivity.this.mUB.dFy());
+                if (!com.baidu.tieba.write.c.a.isFastDoubleClick() && !TransmitPostEditActivity.this.dIl()) {
+                    if (TransmitPostEditActivity.this.mUT.a(TransmitPostEditActivity.this.lUN, TransmitPostEditActivity.this.mUy)) {
+                        TransmitPostEditActivity.this.showToast(TransmitPostEditActivity.this.mUT.dFH());
                         return;
                     }
-                    TransmitPostEditActivity.this.HidenSoftKeyPad(TransmitPostEditActivity.this.mInputManager, TransmitPostEditActivity.this.dHU());
-                    TransmitPostEditActivity.this.HidenSoftKeyPad(TransmitPostEditActivity.this.mInputManager, TransmitPostEditActivity.this.dHT());
-                    TransmitPostEditActivity.this.eKD.bpX();
+                    TransmitPostEditActivity.this.HidenSoftKeyPad(TransmitPostEditActivity.this.mInputManager, TransmitPostEditActivity.this.dId());
+                    TransmitPostEditActivity.this.HidenSoftKeyPad(TransmitPostEditActivity.this.mInputManager, TransmitPostEditActivity.this.dIc());
+                    TransmitPostEditActivity.this.eKH.bpY();
                     TiebaStatic.log(new aq("c12608").ai("obj_locate", 7));
-                    TransmitPostEditActivity.this.dHZ();
+                    TransmitPostEditActivity.this.dIi();
                 }
             }
         });
     }
 
-    protected void dtg() {
-        this.lUy = (EditText) findViewById(R.id.post_title);
-        this.lUy.setOnClickListener(this.mUF);
-        this.lUy.setOnFocusChangeListener(this.gsB);
-        if ((this.lUg.getType() == 0 || this.lUg.getType() == 9 || this.lUg.getType() == 7) && this.lUg.getTitle() != null) {
-            this.lUy.setText(this.lUg.getTitle());
-            this.lUy.setSelection(this.lUg.getTitle().length());
+    protected void dtl() {
+        this.lUN = (EditText) findViewById(R.id.post_title);
+        this.lUN.setOnClickListener(this.mUX);
+        this.lUN.setOnFocusChangeListener(this.gsF);
+        if ((this.lUv.getType() == 0 || this.lUv.getType() == 9 || this.lUv.getType() == 7) && this.lUv.getTitle() != null) {
+            this.lUN.setText(this.lUv.getTitle());
+            this.lUN.setSelection(this.lUv.getTitle().length());
         }
-        this.lUy.addTextChangedListener(this.mUH);
-        if (!this.lUg.getHaveDraft()) {
-            dHM();
+        this.lUN.addTextChangedListener(this.mUZ);
+        if (!this.lUv.getHaveDraft()) {
+            dHV();
         }
-        this.lUy.setHint(getResources().getString(R.string.post_title_hint));
+        this.lUN.setHint(getResources().getString(R.string.post_title_hint));
     }
 
-    protected void dti() {
-        this.mUf = (SpanGroupEditText) findViewById(R.id.post_content);
-        this.mUf.setDrawingCacheEnabled(false);
-        this.mUf.setOnClickListener(this.mUF);
-        this.mUf.setTransLink(!this.mRx);
-        if (this.eMp != null) {
-            this.eMp.setSpanGroupManager(this.mUf.getSpanGroupManager());
+    protected void dtn() {
+        this.mUy = (SpanGroupEditText) findViewById(R.id.post_content);
+        this.mUy.setDrawingCacheEnabled(false);
+        this.mUy.setOnClickListener(this.mUX);
+        this.mUy.setTransLink(!this.mRP);
+        if (this.eMt != null) {
+            this.eMt.setSpanGroupManager(this.mUy.getSpanGroupManager());
         }
-        if (this.lUg != null) {
-            this.lUg.setSpanGroupManager(this.mUf.getSpanGroupManager());
+        if (this.lUv != null) {
+            this.lUv.setSpanGroupManager(this.mUy.getSpanGroupManager());
         }
-        if (this.lUg.getContent() != null && this.lUg.getContent().length() > 0) {
-            this.mUf.setText(TbFaceManager.bsV().ap(getPageContext().getPageActivity(), this.lUg.getContent()));
-            this.mUf.setSelection(this.mUf.getText().length());
+        if (this.lUv.getContent() != null && this.lUv.getContent().length() > 0) {
+            this.mUy.setText(TbFaceManager.bsW().ap(getPageContext().getPageActivity(), this.lUv.getContent()));
+            this.mUy.setSelection(this.mUy.getText().length());
         }
-        if (!at.isEmpty(this.hQF)) {
-            this.mUf.setSelection(0);
+        if (!at.isEmpty(this.hQL)) {
+            this.mUy.setSelection(0);
         }
-        this.mUf.setOnFocusChangeListener(this.gsB);
-        this.mUf.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.17
+        this.mUy.setOnFocusChangeListener(this.gsF);
+        this.mUy.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.17
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 1) {
                     view.requestFocus();
-                    TransmitPostEditActivity.this.eKD.b(new com.baidu.tbadk.editortools.a(5, -1, null));
-                    TransmitPostEditActivity.this.mUf.requestFocus();
+                    TransmitPostEditActivity.this.eKH.b(new com.baidu.tbadk.editortools.a(5, -1, null));
+                    TransmitPostEditActivity.this.mUy.requestFocus();
                     return false;
                 }
                 return false;
             }
         });
-        this.mUf.addTextChangedListener(this.mUI);
-        if (this.mRx) {
-            this.mUf.setHint(R.string.dynamic_transmit_publish_edit_str);
-        } else if (this.mUb != null && this.mUb.showType == 3) {
-            this.mUf.setHint(R.string.share_video_default);
+        this.mUy.addTextChangedListener(this.mVa);
+        if (this.mRP) {
+            this.mUy.setHint(R.string.dynamic_transmit_publish_edit_str);
+        } else if (this.mUu != null && this.mUu.showType == 3) {
+            this.mUy.setHint(R.string.share_video_default);
         } else {
-            this.mUf.setHint(R.string.share_txt_default);
+            this.mUy.setHint(R.string.share_txt_default);
         }
     }
 
-    private void dHR() {
-        this.ahu = (OriginalThreadCardView) findViewById(R.id.write_original_thread_cardview);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ahu.getLayoutParams();
-        layoutParams.topMargin -= izP;
-        layoutParams.leftMargin = feH;
-        layoutParams.rightMargin = feH;
-        this.ahu.setLayoutParams(layoutParams);
-        this.ahu.setVisibility(0);
-        this.ahu.a(this.mUb);
-        this.ahu.setEnabled(false);
+    private void dIa() {
+        this.ahw = (OriginalThreadCardView) findViewById(R.id.write_original_thread_cardview);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ahw.getLayoutParams();
+        layoutParams.topMargin -= izV;
+        layoutParams.leftMargin = feL;
+        layoutParams.rightMargin = feL;
+        this.ahw.setLayoutParams(layoutParams);
+        this.ahw.setVisibility(0);
+        this.ahw.a(this.mUu);
+        this.ahw.setEnabled(false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean dHS() {
+    public boolean dIb() {
         int i = 5000;
-        if (this.mUl != null) {
+        if (this.mUD != null) {
             i = 1000;
         }
-        return dHT().getText() != null && dHT().getText().length() >= i;
+        return dIc().getText() != null && dIc().getText().length() >= i;
     }
 
-    private void BT(String str) {
+    private void BU(String str) {
         if (!StringUtils.isNull(str)) {
             int i = -1;
             Editable editable = null;
-            if ("from_content".equals(this.mTZ)) {
-                this.mTZ = "";
-                dHT().requestFocus();
-                if (dHT().getText() != null && dHT().getText().length() + str.length() > 5000) {
+            if ("from_content".equals(this.mUs)) {
+                this.mUs = "";
+                dIc().requestFocus();
+                if (dIc().getText() != null && dIc().getText().length() + str.length() > 5000) {
                     showToast(R.string.over_limit_tip);
                     return;
                 } else {
-                    i = dHT().getSelectionStart();
-                    editable = dHT().getText();
+                    i = dIc().getSelectionStart();
+                    editable = dIc().getText();
                 }
-            } else if ("from_title".equals(this.mTZ)) {
-                this.mTZ = "";
-                dHU().requestFocus();
-                if (dHU().getText() != null && dHU().getText().length() + str.length() > 31) {
+            } else if ("from_title".equals(this.mUs)) {
+                this.mUs = "";
+                dId().requestFocus();
+                if (dId().getText() != null && dId().getText().length() + str.length() > 31) {
                     showToast(R.string.over_limit_tip);
                     return;
                 } else {
-                    i = dHU().getSelectionStart();
-                    editable = dHU().getText();
+                    i = dId().getSelectionStart();
+                    editable = dId().getText();
                 }
             }
             if (editable != null && i >= 0 && i <= editable.length()) {
@@ -1379,147 +1379,147 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void xp(boolean z) {
+    public void xr(boolean z) {
         if (!com.baidu.tbadk.plugins.b.a(getPageContext(), z, false)) {
             HotSelectActivityConfig hotSelectActivityConfig = new HotSelectActivityConfig(getPageContext().getPageActivity(), RequestResponseCode.REQUEST_HOT_SELECT, HotSelectActivityConfig.FROM_POST_THREAD);
-            if (this.lUg != null) {
-                hotSelectActivityConfig.setForumExtra(com.baidu.adp.lib.f.b.toLong(this.lUg.getForumId(), 0L), this.lUg.getFirstDir(), this.lUg.getSecondDir());
+            if (this.lUv != null) {
+                hotSelectActivityConfig.setForumExtra(com.baidu.adp.lib.f.b.toLong(this.lUv.getForumId(), 0L), this.lUv.getFirstDir(), this.lUv.getSecondDir());
             }
             sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, hotSelectActivityConfig));
         }
     }
 
     protected void e(t tVar) {
-        if (((ImageSpan[]) dHT().getText().getSpans(0, dHT().getText().length(), ImageSpan.class)).length >= 10) {
-            if (this.mUj == null) {
-                this.mUj = Toast.makeText(getPageContext().getPageActivity(), R.string.too_many_face, 0);
+        if (((ImageSpan[]) dIc().getText().getSpans(0, dIc().getText().length(), ImageSpan.class)).length >= 10) {
+            if (this.mUC == null) {
+                this.mUC = Toast.makeText(getPageContext().getPageActivity(), R.string.too_many_face, 0);
             }
-            if (Build.VERSION.SDK_INT >= 28 && this.mUj.getView().isShown()) {
-                this.mUj.cancel();
+            if (Build.VERSION.SDK_INT >= 28 && this.mUC.getView().isShown()) {
+                this.mUC.cancel();
             }
-            this.mUj.show();
+            this.mUC.show();
             return;
         }
-        com.baidu.tieba.face.b.b(this, tVar, dHT());
+        com.baidu.tieba.face.b.b(this, tVar, dIc());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public EditText dHT() {
-        return this.mUf;
+    public EditText dIc() {
+        return this.mUy;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public EditText dHU() {
-        return this.lUy;
+    public EditText dId() {
+        return this.lUN;
     }
 
-    protected void dHV() {
-        if (dHT().getSelectionStart() > 0) {
-            String substring = dHT().getText().toString().substring(0, dHT().getSelectionStart());
-            Matcher matcher = com.baidu.tieba.face.a.hEP.matcher(substring);
+    protected void dIe() {
+        if (dIc().getSelectionStart() > 0) {
+            String substring = dIc().getText().toString().substring(0, dIc().getSelectionStart());
+            Matcher matcher = com.baidu.tieba.face.a.hEV.matcher(substring);
             if (matcher.find()) {
-                dHT().getText().delete(dHT().getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), dHT().getSelectionStart());
+                dIc().getText().delete(dIc().getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), dIc().getSelectionStart());
                 return;
             }
-            dHT().onKeyDown(67, this.hEQ);
+            dIc().onKeyDown(67, this.hEW);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void showLoadingDialog(String str, DialogInterface.OnCancelListener onCancelListener) {
-        this.eUv.setCancelListener(null);
-        this.eUv.setTipString(R.string.sending);
-        this.eUv.setDialogVisiable(true);
+        this.eUz.setCancelListener(null);
+        this.eUz.setTipString(R.string.sending);
+        this.eUz.setDialogVisiable(true);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void closeLoadingDialog() {
-        this.eUv.setDialogVisiable(false);
+        this.eUz.setDialogVisiable(false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dth() {
-        if (this.lUg != null) {
+    public void dtm() {
+        if (this.lUv != null) {
             String str = "";
             String str2 = "";
-            if (dHU() != null) {
-                str = dHU().getText().toString();
+            if (dId() != null) {
+                str = dId().getText().toString();
             }
-            if (dHT() != null) {
-                str2 = dHT().getText().toString().trim();
+            if (dIc() != null) {
+                str2 = dIc().getText().toString().trim();
             }
             String trim = str.trim();
-            if (this.lUg.getType() == 0 || this.lUg.getType() == 9 || this.lUg.getType() == 7) {
+            if (this.lUv.getType() == 0 || this.lUv.getType() == 9 || this.lUv.getType() == 7) {
                 if (this.mPrefixData != null && this.mPrefixData.getPrefixs().size() > 0) {
                     this.mPrefixData.getPrefixs();
-                    if (this.lUh == 0) {
+                    if (this.lUw == 0) {
                         if (TextUtils.isEmpty(trim)) {
-                            this.lUg.setIsNoTitle(true);
+                            this.lUv.setIsNoTitle(true);
                         } else {
-                            this.lUg.setIsNoTitle(false);
-                            xq(true);
+                            this.lUv.setIsNoTitle(false);
+                            xs(true);
                             return;
                         }
                     } else {
-                        this.lUg.setIsNoTitle(false);
-                        xq(true);
+                        this.lUv.setIsNoTitle(false);
+                        xs(true);
                         return;
                     }
                 } else if (TextUtils.isEmpty(trim)) {
-                    this.lUg.setIsNoTitle(true);
+                    this.lUv.setIsNoTitle(true);
                 } else {
-                    this.lUg.setIsNoTitle(false);
-                    xq(true);
+                    this.lUv.setIsNoTitle(false);
+                    xs(true);
                     return;
                 }
             }
             if (this.writeImagesInfo.getChosedFiles() != null && this.writeImagesInfo.size() > 0) {
-                if (!this.mUw) {
-                    xq(true);
+                if (!this.mUO) {
+                    xs(true);
                     return;
                 } else if (this.writeImagesInfo.size() >= 1) {
-                    xq(true);
+                    xs(true);
                 }
             }
             if (!TextUtils.isEmpty(str2)) {
-                xq(true);
-            } else if (this.lUg.getVideoInfo() != null) {
-                xq(true);
+                xs(true);
+            } else if (this.lUv.getVideoInfo() != null) {
+                xs(true);
             } else {
-                xq(false);
+                xs(false);
             }
         }
     }
 
-    private void xq(boolean z) {
-        ap.setNavbarTitleColor(this.kGp, R.color.cp_link_tip_a, R.color.s_navbar_title_color);
+    private void xs(boolean z) {
+        ap.setNavbarTitleColor(this.kGw, R.color.cp_link_tip_a, R.color.s_navbar_title_color);
     }
 
     private void initData(Bundle bundle) {
         String str;
-        this.eMp = new NewWriteModel(this);
-        this.eMp.b(this.eMD);
-        this.hJE = new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.18
+        this.eMt = new NewWriteModel(this);
+        this.eMt.b(this.eMH);
+        this.hJK = new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.18
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
                 TransmitPostEditActivity.this.destroyWaitingDialog();
-                TransmitPostEditActivity.this.dsZ();
+                TransmitPostEditActivity.this.dte();
             }
         };
-        this.lUg = new WriteData();
+        this.lUv = new WriteData();
         if (bundle != null) {
-            this.lUg.setType(bundle.getInt("type", 0));
-            this.lUg.setForumId(bundle.getString("forum_id"));
-            this.lUg.setForumName(bundle.getString("forum_name"));
-            this.lUg.setFirstDir(bundle.getString("forum_first_dir"));
-            this.lUg.setSecondDir(bundle.getString("forum_second_dir"));
-            this.lUg.setThreadId(bundle.getString("thread_id"));
+            this.lUv.setType(bundle.getInt("type", 0));
+            this.lUv.setForumId(bundle.getString("forum_id"));
+            this.lUv.setForumName(bundle.getString("forum_name"));
+            this.lUv.setFirstDir(bundle.getString("forum_first_dir"));
+            this.lUv.setSecondDir(bundle.getString("forum_second_dir"));
+            this.lUv.setThreadId(bundle.getString("thread_id"));
             String string = bundle.getString("KEY_WRITE_IMAGES_INFO_STRING");
             String string2 = bundle.getString("addition_data");
             if (!StringUtils.isNull(string2)) {
-                this.mUl = (AdditionData) OrmObject.objectWithJsonStr(string2, AdditionData.class);
+                this.mUD = (AdditionData) OrmObject.objectWithJsonStr(string2, AdditionData.class);
             }
-            this.lUg.setIsAddition(this.mUl != null);
+            this.lUv.setIsAddition(this.mUD != null);
             String string3 = bundle.getString("prefix_data");
             if (!StringUtils.isNull(string3)) {
                 this.mPrefixData = (PostPrefixData) OrmObject.objectWithJsonStr(string3, PostPrefixData.class);
@@ -1530,115 +1530,115 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
             }
             this.mFrom = bundle.getString("from");
             this.mPrivateThread = bundle.getInt("private_thread");
-            this.lUg.setTitle(bundle.getString("write_title"));
-            this.lUg.setContent(bundle.getString("write_content"));
+            this.lUv.setTitle(bundle.getString("write_title"));
+            this.lUv.setContent(bundle.getString("write_content"));
             this.mList = (List) bundle.getSerializable("hot_topic_forum_list");
-            this.iwr = bundle.getString("KEY_CALL_FROM");
+            this.iwx = bundle.getString("KEY_CALL_FROM");
             String string5 = bundle.getString(TransmitPostEditActivityConfig.KEY_ORIGINAL_THREAD);
             if (!StringUtils.isNull(string5)) {
-                this.mUb = (OriginalThreadInfo.ShareInfo) OrmObject.objectWithJsonStr(string5, OriginalThreadInfo.ShareInfo.class);
+                this.mUu = (OriginalThreadInfo.ShareInfo) OrmObject.objectWithJsonStr(string5, OriginalThreadInfo.ShareInfo.class);
             }
             this.mBaijiahaoData = (BaijiahaoData) bundle.getSerializable(TransmitPostEditActivityConfig.BAIJIAHAO_DATA);
-            this.hQF = bundle.getString(TransmitPostEditActivityConfig.TRANSMIT_ORIGIN_THREAD_CONTENT);
-            this.hQG = bundle.getString(TransmitPostEditActivityConfig.TRANSMIT_THREAD_AUTHOR_NAME_SHOW);
-            this.mNu = (FrsTabInfoData) bundle.getSerializable("tab_list");
-            this.lUg.mDynamicForwardData = (ForwardUploadData) bundle.getSerializable(TransmitPostEditActivityConfig.PUBLISH_FORWARD_UPLOAD_DATA);
+            this.hQL = bundle.getString(TransmitPostEditActivityConfig.TRANSMIT_ORIGIN_THREAD_CONTENT);
+            this.hQM = bundle.getString(TransmitPostEditActivityConfig.TRANSMIT_THREAD_AUTHOR_NAME_SHOW);
+            this.mNM = (FrsTabInfoData) bundle.getSerializable("tab_list");
+            this.lUv.mDynamicForwardData = (ForwardUploadData) bundle.getSerializable(TransmitPostEditActivityConfig.PUBLISH_FORWARD_UPLOAD_DATA);
             str = string;
         } else {
             Intent intent = getIntent();
-            this.lUg.setType(intent.getIntExtra("type", 0));
-            this.lUg.setForumId(intent.getStringExtra("forum_id"));
-            this.lUg.setForumName(intent.getStringExtra("forum_name"));
-            this.lUg.setFirstDir(intent.getStringExtra("forum_first_dir"));
-            this.lUg.setSecondDir(intent.getStringExtra("forum_second_dir"));
-            this.lUg.setThreadId(intent.getStringExtra("thread_id"));
-            this.mUl = (AdditionData) intent.getSerializableExtra("addition_data");
-            this.lUg.setIsAddition(this.mUl != null);
+            this.lUv.setType(intent.getIntExtra("type", 0));
+            this.lUv.setForumId(intent.getStringExtra("forum_id"));
+            this.lUv.setForumName(intent.getStringExtra("forum_name"));
+            this.lUv.setFirstDir(intent.getStringExtra("forum_first_dir"));
+            this.lUv.setSecondDir(intent.getStringExtra("forum_second_dir"));
+            this.lUv.setThreadId(intent.getStringExtra("thread_id"));
+            this.mUD = (AdditionData) intent.getSerializableExtra("addition_data");
+            this.lUv.setIsAddition(this.mUD != null);
             this.mPrefixData = (PostPrefixData) intent.getSerializableExtra("prefix_data");
             this.mPostTopicData = (PostTopicData) intent.getSerializableExtra("hot_topic");
             this.mFrom = intent.getStringExtra("from");
             this.mPrivateThread = intent.getIntExtra("private_thread", 0);
-            this.lUg.setTitle(intent.getStringExtra("write_title"));
-            this.lUg.setContent(intent.getStringExtra("write_content"));
+            this.lUv.setTitle(intent.getStringExtra("write_title"));
+            this.lUv.setContent(intent.getStringExtra("write_content"));
             this.mList = (List) intent.getSerializableExtra("hot_topic_forum_list");
-            this.iwr = intent.getStringExtra("KEY_CALL_FROM");
+            this.iwx = intent.getStringExtra("KEY_CALL_FROM");
             String stringExtra = intent.getStringExtra("KEY_WRITE_IMAGES_INFO_STRING");
             this.mBaijiahaoData = (BaijiahaoData) intent.getSerializableExtra(TransmitPostEditActivityConfig.BAIJIAHAO_DATA);
-            this.mUb = (OriginalThreadInfo.ShareInfo) intent.getSerializableExtra(TransmitPostEditActivityConfig.KEY_ORIGINAL_THREAD);
-            this.lUg.mDynamicForwardData = (ForwardUploadData) intent.getSerializableExtra(TransmitPostEditActivityConfig.PUBLISH_FORWARD_UPLOAD_DATA);
-            this.hQF = intent.getStringExtra(TransmitPostEditActivityConfig.TRANSMIT_ORIGIN_THREAD_CONTENT);
-            this.hQG = intent.getStringExtra(TransmitPostEditActivityConfig.TRANSMIT_THREAD_AUTHOR_NAME_SHOW);
-            this.mNu = (FrsTabInfoData) intent.getSerializableExtra("tab_list");
+            this.mUu = (OriginalThreadInfo.ShareInfo) intent.getSerializableExtra(TransmitPostEditActivityConfig.KEY_ORIGINAL_THREAD);
+            this.lUv.mDynamicForwardData = (ForwardUploadData) intent.getSerializableExtra(TransmitPostEditActivityConfig.PUBLISH_FORWARD_UPLOAD_DATA);
+            this.hQL = intent.getStringExtra(TransmitPostEditActivityConfig.TRANSMIT_ORIGIN_THREAD_CONTENT);
+            this.hQM = intent.getStringExtra(TransmitPostEditActivityConfig.TRANSMIT_THREAD_AUTHOR_NAME_SHOW);
+            this.mNM = (FrsTabInfoData) intent.getSerializableExtra("tab_list");
             str = stringExtra;
         }
         if (this.writeImagesInfo == null) {
             this.writeImagesInfo = new WriteImagesInfo();
         }
-        if (this.lUg.mDynamicForwardData != null) {
-            this.mRx = true;
+        if (this.lUv.mDynamicForwardData != null) {
+            this.mRP = true;
         }
         if (str != null) {
             this.writeImagesInfo.parseJson(str);
             this.writeImagesInfo.updateQuality();
         }
-        this.writeImagesInfo.setMaxImagesAllowed(this.lUg.getType() == 4 ? 6 : 9);
-        this.lUg.setWriteImagesInfo(this.writeImagesInfo);
+        this.writeImagesInfo.setMaxImagesAllowed(this.lUv.getType() == 4 ? 6 : 9);
+        this.lUv.setWriteImagesInfo(this.writeImagesInfo);
         if (this.mPrefixData != null && this.mPrefixData.getPrefixs().size() > 0) {
             this.mPrefixData.getPrefixs().add(0, getPageContext().getString(R.string.write_no_prefix));
         }
-        if (this.mUb != null && this.mUb.videoId != null) {
-            this.lUg.setVideoId(this.mUb.videoId);
-            this.lUg.setOriginalVideoCover(this.mUb.showPicUrl);
-            this.lUg.setOriginalVideoTitle(this.mUb.showText);
+        if (this.mUu != null && this.mUu.videoId != null) {
+            this.lUv.setVideoId(this.mUu.videoId);
+            this.lUv.setOriginalVideoCover(this.mUu.showPicUrl);
+            this.lUv.setOriginalVideoTitle(this.mUu.showText);
         }
-        if (!at.isEmpty(this.hQF)) {
-            if (!at.isEmpty(this.hQG)) {
-                this.lUg.setContent("//@" + this.hQG + " :" + this.hQF);
+        if (!at.isEmpty(this.hQL)) {
+            if (!at.isEmpty(this.hQM)) {
+                this.lUv.setContent("//@" + this.hQM + " :" + this.hQL);
             } else {
-                this.lUg.setContent(this.hQF);
+                this.lUv.setContent(this.hQL);
             }
         }
-        if (this.lUg != null && this.lUg.getForumName() != null && TbadkCoreApplication.getInst().getYijianfankuiFname() != null && this.lUg.getForumName().equals(TbadkCoreApplication.getInst().getYijianfankuiFname())) {
-            this.mUc = true;
+        if (this.lUv != null && this.lUv.getForumName() != null && TbadkCoreApplication.getInst().getYijianfankuiFname() != null && this.lUv.getForumName().equals(TbadkCoreApplication.getInst().getYijianfankuiFname())) {
+            this.mUv = true;
         }
-        dHN();
+        dHW();
     }
 
-    private void dHW() {
+    private void dIf() {
         HotTopicBussinessData hotTopicBussinessData = (HotTopicBussinessData) y.getItem(this.mList, 0);
         if (hotTopicBussinessData != null && !TextUtils.isEmpty(hotTopicBussinessData.mTopicName)) {
-            this.lUy.setText(com.baidu.tbadk.plugins.b.Cy(com.baidu.tbadk.plugins.b.Cz(hotTopicBussinessData.mTopicName)));
-            this.lUy.setMovementMethod(com.baidu.tieba.view.c.dEZ());
+            this.lUN.setText(com.baidu.tbadk.plugins.b.Cz(com.baidu.tbadk.plugins.b.CA(hotTopicBussinessData.mTopicName)));
+            this.lUN.setMovementMethod(com.baidu.tieba.view.c.dFi());
         }
     }
 
     private void a(HotTopicBussinessData hotTopicBussinessData) {
         if (hotTopicBussinessData != null) {
-            SpannableString Cy = com.baidu.tbadk.plugins.b.Cy(com.baidu.tbadk.plugins.b.Cz(hotTopicBussinessData.mTopicName));
-            if (Cy != null) {
-                this.lUy.setText(Cy);
+            SpannableString Cz = com.baidu.tbadk.plugins.b.Cz(com.baidu.tbadk.plugins.b.CA(hotTopicBussinessData.mTopicName));
+            if (Cz != null) {
+                this.lUN.setText(Cz);
             }
-            this.mUy.setText(hotTopicBussinessData.mForumName);
+            this.mUQ.setText(hotTopicBussinessData.mForumName);
         }
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
-        bundle.putInt("type", this.lUg.getType());
-        bundle.putString("forum_id", this.lUg.getForumId());
-        bundle.putString("forum_name", this.lUg.getForumName());
-        bundle.putString("forum_first_dir", this.lUg.getFirstDir());
-        bundle.putString("forum_second_dir", this.lUg.getSecondDir());
-        bundle.putString("thread_id", this.lUg.getThreadId());
+        bundle.putInt("type", this.lUv.getType());
+        bundle.putString("forum_id", this.lUv.getForumId());
+        bundle.putString("forum_name", this.lUv.getForumName());
+        bundle.putString("forum_first_dir", this.lUv.getFirstDir());
+        bundle.putString("forum_second_dir", this.lUv.getSecondDir());
+        bundle.putString("thread_id", this.lUv.getThreadId());
         bundle.putInt("private_thread", this.mPrivateThread);
         bundle.putString("from", this.mFrom);
-        bundle.putString("KEY_CALL_FROM", this.iwr);
-        bundle.putSerializable("tab_list", this.mNu);
+        bundle.putString("KEY_CALL_FROM", this.iwx);
+        bundle.putSerializable("tab_list", this.mNM);
         if (this.writeImagesInfo != null) {
             bundle.putString("KEY_WRITE_IMAGES_INFO_STRING", this.writeImagesInfo.toJsonString());
         }
-        if (this.mUl != null) {
-            bundle.putString("addition_data", OrmObject.jsonStrWithObject(this.mUl));
+        if (this.mUD != null) {
+            bundle.putString("addition_data", OrmObject.jsonStrWithObject(this.mUD));
         }
         if (this.mPrefixData != null) {
             bundle.putString("prefix_data", OrmObject.jsonStrWithObject(this.mPrefixData));
@@ -1647,12 +1647,12 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
             bundle.putString("hot_topic", OrmObject.jsonStrWithObject(this.mPostTopicData));
         }
         bundle.putString("from", this.mFrom);
-        bundle.putString("KEY_CALL_FROM", this.iwr);
-        if (this.lUg.mDynamicForwardData != null) {
-            bundle.putSerializable(TransmitPostEditActivityConfig.PUBLISH_FORWARD_UPLOAD_DATA, this.lUg.mDynamicForwardData);
+        bundle.putString("KEY_CALL_FROM", this.iwx);
+        if (this.lUv.mDynamicForwardData != null) {
+            bundle.putSerializable(TransmitPostEditActivityConfig.PUBLISH_FORWARD_UPLOAD_DATA, this.lUv.mDynamicForwardData);
         }
-        if (this.mUb != null) {
-            bundle.putString(TransmitPostEditActivityConfig.KEY_ORIGINAL_THREAD, OrmObject.jsonStrWithObject(this.mUb));
+        if (this.mUu != null) {
+            bundle.putString(TransmitPostEditActivityConfig.KEY_ORIGINAL_THREAD, OrmObject.jsonStrWithObject(this.mUu));
         }
         super.onSaveInstanceState(bundle);
     }
@@ -1660,20 +1660,20 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
     @Override // android.app.Activity
     protected void onRestoreInstanceState(Bundle bundle) {
         super.onRestoreInstanceState(bundle);
-        String obj = dHT().getEditableText().toString();
+        String obj = dIc().getEditableText().toString();
         if (obj != null) {
-            dHT().setText(TbFaceManager.bsV().a(getPageContext().getPageActivity(), obj, this.mUD));
-            dHT().setSelection(dHT().getText().length());
+            dIc().setText(TbFaceManager.bsW().a(getPageContext().getPageActivity(), obj, this.mUV));
+            dIc().setSelection(dIc().getText().length());
         }
     }
 
-    private String dHX() {
-        if (dHT() == null || dHT().getText() == null) {
+    private String dIg() {
+        if (dIc() == null || dIc().getText() == null) {
             return "";
         }
-        String obj = dHT().getText().toString();
+        String obj = dIc().getText().toString();
         if (StringUtils.isNull(obj)) {
-            if (this.mUb != null && this.mUb.showType == 3) {
+            if (this.mUu != null && this.mUu.showType == 3) {
                 return getString(R.string.share_video_default);
             }
             return getString(R.string.share_txt_default);
@@ -1681,16 +1681,16 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         return obj;
     }
 
-    private String dHY() {
-        if (this.lUg == null || dHU() == null || dHU().getVisibility() != 0 || dHU().getText() == null) {
+    private String dIh() {
+        if (this.lUv == null || dId() == null || dId().getVisibility() != 0 || dId().getText() == null) {
             return "";
         }
-        String obj = dHU().getText().toString();
-        if (this.mPrefixData != null && y.getCount(this.mPrefixData.getPrefixs()) > 0 && this.lUh != 0 && this.lUg.getType() != 4 && this.lUD != null && this.lUD.getText() != null) {
-            obj = this.lUD.getText().toString() + obj;
+        String obj = dId().getText().toString();
+        if (this.mPrefixData != null && y.getCount(this.mPrefixData.getPrefixs()) > 0 && this.lUw != 0 && this.lUv.getType() != 4 && this.lUS != null && this.lUS.getText() != null) {
+            obj = this.lUS.getText().toString() + obj;
         }
         if (this.mPrefixData != null && !StringUtils.isNull(this.mPrefixData.getImplicitTitle())) {
-            obj = this.mPrefixData.getImplicitTitle() + this.lUg.getTitle();
+            obj = this.mPrefixData.getImplicitTitle() + this.lUv.getTitle();
         }
         if (TextUtils.isEmpty(obj)) {
             return getString(R.string.share_txt_default);
@@ -1698,66 +1698,66 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         return obj;
     }
 
-    private void cqf() {
-        if (this.lUg != null && this.lUg.mDynamicForwardData != null) {
-            dGN();
+    private void cqg() {
+        if (this.lUv != null && this.lUv.mDynamicForwardData != null) {
+            dGW();
             return;
         }
-        dsZ();
-        this.lUg.setContent(dHX());
-        this.lUg.setTitle(dHY());
-        if (this.mUr >= 0) {
-            this.lUg.setCategoryFrom(this.mUr);
+        dte();
+        this.lUv.setContent(dIg());
+        this.lUv.setTitle(dIh());
+        if (this.mUJ >= 0) {
+            this.lUv.setCategoryFrom(this.mUJ);
         }
-        if (this.mUt >= 0) {
-            this.lUg.setCategoryTo(this.mUt);
+        if (this.mUL >= 0) {
+            this.lUv.setCategoryTo(this.mUL);
         }
-        this.lUg.setWriteImagesInfo(this.writeImagesInfo);
-        this.lUg.setHasLocationData(this.eMo != null && this.eMo.bXz());
-        this.eMp.wg(this.writeImagesInfo.size() > 0);
-        if (!y.isEmpty(this.mList) && this.mUx != null && this.mUx.mIsGlobalBlock == 0) {
-            this.lUg.setForumId(String.valueOf(this.mUx.mForumId));
-            this.lUg.setForumName(this.mUx.mForumName);
+        this.lUv.setWriteImagesInfo(this.writeImagesInfo);
+        this.lUv.setHasLocationData(this.eMs != null && this.eMs.bXA());
+        this.eMt.wi(this.writeImagesInfo.size() > 0);
+        if (!y.isEmpty(this.mList) && this.mUP != null && this.mUP.mIsGlobalBlock == 0) {
+            this.lUv.setForumId(String.valueOf(this.mUP.mForumId));
+            this.lUv.setForumName(this.mUP.mForumName);
         }
-        dGO();
-        this.eMp.d(this.lUg);
-        this.lUg.setContent(this.lUg.getContent().replaceAll("\u0000\n", ""));
-        this.lUg.setContent(this.lUg.getContent().replaceAll("\u0000", ""));
-        this.lUg.setVcode(null);
-        this.eMp.cKZ().setVoice(null);
-        this.eMp.cKZ().setVoiceDuringTime(-1);
+        dGX();
+        this.eMt.d(this.lUv);
+        this.lUv.setContent(this.lUv.getContent().replaceAll("\u0000\n", ""));
+        this.lUv.setContent(this.lUv.getContent().replaceAll("\u0000", ""));
+        this.lUv.setVcode(null);
+        this.eMt.cLa().setVoice(null);
+        this.eMt.cLa().setVoiceDuringTime(-1);
         if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
             showToast(R.string.neterror);
             return;
         }
-        showLoadingDialog(getPageContext().getString(R.string.sending), this.hJE);
-        this.eMp.dxS();
+        showLoadingDialog(getPageContext().getString(R.string.sending), this.hJK);
+        this.eMt.dxX();
     }
 
-    private void dGO() {
+    private void dGX() {
         FrsTabItemData selectedTabItemData;
-        if (this.lUg != null && this.mRT != null && (selectedTabItemData = this.mRT.getSelectedTabItemData()) != null) {
-            this.lUg.setTabId(selectedTabItemData.tabId);
-            this.lUg.setTabName(selectedTabItemData.name);
-            this.lUg.setIsGeneralTab(selectedTabItemData.isGeneralTab);
+        if (this.lUv != null && this.mSl != null && (selectedTabItemData = this.mSl.getSelectedTabItemData()) != null) {
+            this.lUv.setTabId(selectedTabItemData.tabId);
+            this.lUv.setTabName(selectedTabItemData.name);
+            this.lUv.setIsGeneralTab(selectedTabItemData.isGeneralTab);
         }
     }
 
-    private void dGN() {
+    private void dGW() {
         if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
             showToast(R.string.neterror);
             return;
         }
-        this.lUg.mDynamicForwardData.forward_content = dHX();
-        this.lUg.mDynamicForwardData.inputText = dHX();
-        this.lUg.mDynamicForwardData.locationPoiId = "0";
+        this.lUv.mDynamicForwardData.forward_content = dIg();
+        this.lUv.mDynamicForwardData.inputText = dIg();
+        this.lUv.mDynamicForwardData.locationPoiId = "0";
         showLoadingDialog(getPageContext().getString(R.string.sending), (DialogInterface.OnCancelListener) null);
-        com.baidu.tieba.write.b.c.b.dGz().a(this.lUg.mDynamicForwardData, new b.a() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.19
+        com.baidu.tieba.write.b.c.b.dGI().a(this.lUv.mDynamicForwardData, new b.a() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.19
             @Override // com.baidu.tieba.write.b.c.b.a
             public void onSuccess(String str) {
                 TransmitPostEditActivity.this.closeLoadingDialog();
                 com.baidu.tieba.tbadkCore.writeModel.c.g(TransmitPostEditActivity.this.getPageContext().getPageActivity(), null, null, null);
-                TransmitPostEditActivity.this.jp(true);
+                TransmitPostEditActivity.this.jr(true);
                 Intent intent = new Intent();
                 intent.putExtras(new Bundle());
                 TransmitPostEditActivity.this.setResult(-1, intent);
@@ -1783,9 +1783,9 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
             sb.append(str);
         }
         if (z) {
-            if (this.mUl != null) {
-                i2 = this.mUl.getTotalCount();
-                i = this.mUl.getAlreadyCount() + 1;
+            if (this.mUD != null) {
+                i2 = this.mUD.getTotalCount();
+                i = this.mUD.getAlreadyCount() + 1;
             } else {
                 i = 0;
                 i2 = 0;
@@ -1806,8 +1806,8 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         super.onActivityResult(i, i2, intent);
         if (i2 == -1) {
             if (i == 12004) {
-                if (this.eKD != null && !this.eKD.brx()) {
-                    dHT().requestFocus();
+                if (this.eKH != null && !this.eKH.bry()) {
+                    dIc().requestFocus();
                     this.mInputManager.toggleSoftInput(0, 2);
                 }
                 ArrayList<String> stringArrayListExtra = intent != null ? intent.getStringArrayListExtra("name_show") : null;
@@ -1821,7 +1821,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                             sb.append(" ");
                             i3 = i4 + 1;
                         } else {
-                            dHT().getText().insert(dHT().getSelectionStart(), sb.toString());
+                            dIc().getText().insert(dIc().getSelectionStart(), sb.toString());
                             return;
                         }
                     }
@@ -1835,21 +1835,21 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     String stringExtra = intent.getStringExtra(HotTopicActivityConfig.HOT_TOPIC_SELECT_STRING);
                     if (!StringUtils.isNull(stringExtra)) {
                         StringBuilder sb2 = new StringBuilder();
-                        if (this.mUa) {
-                            sb2.append(com.baidu.tbadk.plugins.b.eTO);
-                            this.mUa = false;
+                        if (this.mUt) {
+                            sb2.append(com.baidu.tbadk.plugins.b.eTS);
+                            this.mUt = false;
                         }
                         sb2.append(stringExtra);
-                        BT(sb2.toString());
+                        BU(sb2.toString());
                     }
                 }
             } else if (i == 25005 && intent != null && !y.isEmpty(this.mList) && !y.isEmpty(this.mList) && intent.getIntExtra("hot_topic_change_fourm", 0) < this.mList.size()) {
-                this.mUx = this.mList.get(intent.getIntExtra("hot_topic_change_fourm", 0));
-                a(this.mUx);
+                this.mUP = this.mList.get(intent.getIntExtra("hot_topic_change_fourm", 0));
+                a(this.mUP);
             }
         } else if (i2 == 0) {
-            if (this.eKD != null && !this.eKD.brx()) {
-                this.mUf.requestFocus();
+            if (this.eKH != null && !this.eKH.bry()) {
+                this.mUy.requestFocus();
                 this.mInputManager.toggleSoftInput(0, 2);
             }
             switch (i) {
@@ -1862,18 +1862,18 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                 case RequestResponseCode.REQUEST_VCODE /* 12006 */:
                     if (intent != null && intent.getExtras() != null && (intent.getExtras().getSerializable("post_write_callback_data") instanceof PostWriteCallBackData) && (postWriteCallBackData = (PostWriteCallBackData) intent.getExtras().getSerializable("post_write_callback_data")) != null && postWriteCallBackData.isSensitiveError()) {
                         showToast(postWriteCallBackData.getErrorString());
-                        this.mUB.Sw(postWriteCallBackData.getErrorString());
-                        this.mUB.bf(postWriteCallBackData.getSensitiveWords());
-                        this.mUB.b(this.lUy, this.mUf);
+                        this.mUT.Sw(postWriteCallBackData.getErrorString());
+                        this.mUT.bf(postWriteCallBackData.getSensitiveWords());
+                        this.mUT.b(this.lUN, this.mUy);
                         return;
                     }
                     return;
                 case RequestResponseCode.REQUEST_HOT_SELECT /* 25004 */:
-                    if ("from_title".equals(this.mTZ)) {
-                        dHU().requestFocus();
+                    if ("from_title".equals(this.mUs)) {
+                        dId().requestFocus();
                         return;
-                    } else if ("from_content".equals(this.mTZ)) {
-                        dHT().requestFocus();
+                    } else if ("from_content".equals(this.mUs)) {
+                        dIc().requestFocus();
                         return;
                     } else {
                         return;
@@ -1885,38 +1885,38 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dHZ() {
-        if ("1".equals(this.iwr)) {
-            this.lUg.setCanNoForum(true);
-            this.lUg.setTransmitForumData("[]");
-        } else if ("2".equals(this.iwr)) {
-            this.lUg.setCanNoForum(false);
+    public void dIi() {
+        if ("1".equals(this.iwx)) {
+            this.lUv.setCanNoForum(true);
+            this.lUv.setTransmitForumData("[]");
+        } else if ("2".equals(this.iwx)) {
+            this.lUv.setCanNoForum(false);
         }
-        dIa();
-        this.lUg.setPrivacy(this.isPrivacy);
-        this.lUg.setIsShareThread(true);
-        if (this.mUb != null && !StringUtils.isNull(this.mUb.threadId)) {
-            this.lUg.setOriginalThreadId(this.mUb.threadId);
+        dIj();
+        this.lUv.setPrivacy(this.isPrivacy);
+        this.lUv.setIsShareThread(true);
+        if (this.mUu != null && !StringUtils.isNull(this.mUu.threadId)) {
+            this.lUv.setOriginalThreadId(this.mUu.threadId);
         }
-        this.lUg.setBaijiahaoData(this.mBaijiahaoData);
-        if (this.mUb != null) {
-            this.lUg.setOriBaijiahaoData(this.mUb.oriUgcInfo);
+        this.lUv.setBaijiahaoData(this.mBaijiahaoData);
+        if (this.mUu != null) {
+            this.lUv.setOriBaijiahaoData(this.mUu.oriUgcInfo);
         }
-        this.lUg.setCallFrom(this.iwr);
-        cqf();
+        this.lUv.setCallFrom(this.iwx);
+        cqg();
     }
 
-    private void dIa() {
-        if (this.eKD != null) {
-            this.eKD.b(new com.baidu.tbadk.editortools.a(54, 15, null));
+    private void dIj() {
+        if (this.eKH != null) {
+            this.eKH.b(new com.baidu.tbadk.editortools.a(54, 15, null));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
-        HidenSoftKeyPad(this.mInputManager, dHU());
-        HidenSoftKeyPad(this.mInputManager, dHT());
+        HidenSoftKeyPad(this.mInputManager, dId());
+        HidenSoftKeyPad(this.mInputManager, dIc());
         super.onPause();
     }
 
@@ -1924,8 +1924,8 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
     public void c(boolean z, PostWriteCallBackData postWriteCallBackData) {
         if (postWriteCallBackData != null) {
             String errorString = postWriteCallBackData.getErrorString();
-            if (AntiHelper.bz(postWriteCallBackData.getErrorCode(), postWriteCallBackData.getErrorString())) {
-                if (AntiHelper.a(getPageContext().getPageActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getErrorCode(), this.hUk) != null) {
+            if (AntiHelper.by(postWriteCallBackData.getErrorCode(), postWriteCallBackData.getErrorString())) {
+                if (AntiHelper.a(getPageContext().getPageActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getErrorCode(), this.hUq) != null) {
                     TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).ai("obj_locate", ax.a.LOCATE_WRITE));
                 }
             } else if (postWriteCallBackData.getErrorCode() != 0) {
@@ -1934,8 +1934,8 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     errorString2 = getPageContext().getPageActivity().getString(R.string.send_share_thread_fail);
                 }
                 showToast(errorString2);
-            } else if (this.lUg.getType() != 7) {
-                if (this.mUl == null) {
+            } else if (this.lUv.getType() != 7) {
+                if (this.mUD == null) {
                     if (!d(postWriteCallBackData)) {
                         com.baidu.tieba.tbadkCore.writeModel.c.g(getPageContext().getPageActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
                         return;
@@ -1949,48 +1949,48 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, boolean z, String str) {
-        this.eMu = i;
-        if (this.eKD != null) {
-            this.eKD.b(new com.baidu.tbadk.editortools.a(19, 15, new com.baidu.tbadk.editortools.d.a(i, z, str)));
+        this.eMy = i;
+        if (this.eKH != null) {
+            this.eKH.b(new com.baidu.tbadk.editortools.a(19, 15, new com.baidu.tbadk.editortools.d.a(i, z, str)));
         }
     }
 
-    private void dIb() {
-        if (!this.mUw && this.eKD != null) {
-            this.eKD.b(new com.baidu.tbadk.editortools.a(12, -1, new com.baidu.tbadk.editortools.imagetool.a(this.writeImagesInfo, true)));
-            this.eKD.b(new com.baidu.tbadk.editortools.a(12, 11, new com.baidu.tbadk.editortools.imagetool.a(this.writeImagesInfo, true)));
+    private void dIk() {
+        if (!this.mUO && this.eKH != null) {
+            this.eKH.b(new com.baidu.tbadk.editortools.a(12, -1, new com.baidu.tbadk.editortools.imagetool.a(this.writeImagesInfo, true)));
+            this.eKH.b(new com.baidu.tbadk.editortools.a(12, 11, new com.baidu.tbadk.editortools.imagetool.a(this.writeImagesInfo, true)));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void jp(boolean z) {
-        if (this.eKD != null) {
-            this.eKD.b(new com.baidu.tbadk.editortools.a(9, -1, Boolean.valueOf(z)));
+    public void jr(boolean z) {
+        if (this.eKH != null) {
+            this.eKH.b(new com.baidu.tbadk.editortools.a(9, -1, Boolean.valueOf(z)));
         }
     }
 
     private void JP(int i) {
-        if (i < this.mUi.size()) {
-            for (int i2 = 0; i2 < this.mUi.size(); i2++) {
-                this.mUi.get(i2).xc(false);
+        if (i < this.mUB.size()) {
+            for (int i2 = 0; i2 < this.mUB.size(); i2++) {
+                this.mUB.get(i2).xe(false);
             }
-            this.mUi.get(i).xc(true);
+            this.mUB.get(i).xe(true);
         }
     }
 
     @Override // com.baidu.tieba.write.i.a
     public void Hs(int i) {
-        this.lUh = i;
-        this.lUE.setCurrentIndex(i);
+        this.lUw = i;
+        this.lUT.setCurrentIndex(i);
         JP(i);
-        this.lUD.setText(this.mPrefixData.getPrefixs().get(i));
-        dth();
-        com.baidu.adp.lib.f.g.dismissPopupWindow(this.lUE, getPageContext().getPageActivity());
+        this.lUS.setText(this.mPrefixData.getPrefixs().get(i));
+        dtm();
+        com.baidu.adp.lib.f.g.dismissPopupWindow(this.lUT, getPageContext().getPageActivity());
     }
 
     @Override // android.widget.PopupWindow.OnDismissListener
     public void onDismiss() {
-        this.lUG.setSelected(false);
+        this.lUV.setSelected(false);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.Window.Callback
@@ -2015,11 +2015,11 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.tbadk.m.a
     public String getCurrentPageKey() {
-        if (this.lUg != null) {
-            if (this.lUg.getType() == 4) {
+        if (this.lUv != null) {
+            if (this.lUv.getType() == 4) {
                 return PageStayDurationConstants.PageName.PHOTOLIVE_WRITE;
             }
-            if (this.lUg.getType() == 5) {
+            if (this.lUv.getType() == 5) {
                 return PageStayDurationConstants.PageName.PHOTOLIVE_UPDATE;
             }
         }
@@ -2031,19 +2031,19 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
     @TargetApi(23)
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         if (i == 0) {
-            bsa();
+            bsb();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onKeyboardVisibilityChanged(boolean z) {
-        this.bdD = z;
-        if (this.mUA != null && !z) {
-            this.mUA.cfP();
+        this.bdF = z;
+        if (this.mUS != null && !z) {
+            this.mUS.cfQ();
         }
-        if (this.mUC != null && !z) {
-            dHE();
+        if (this.mUU != null && !z) {
+            dHN();
         }
     }
 
@@ -2054,39 +2054,39 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(CharSequence charSequence, int i, int i2, String str) {
-        if (this.bdD && charSequence != null && i2 == 1 && i < charSequence.length() && i >= 0) {
-            this.mUa = false;
-            this.mTZ = "";
+        if (this.bdF && charSequence != null && i2 == 1 && i < charSequence.length() && i >= 0) {
+            this.mUt = false;
+            this.mUs = "";
             if ("from_content".equals(str)) {
-                this.mTZ = "from_content";
+                this.mUs = "from_content";
             } else if ("from_title".equals(str)) {
-                this.mTZ = "from_title";
+                this.mUs = "from_title";
             }
-            if (com.baidu.tbadk.plugins.b.Cx(String.valueOf(charSequence.charAt(i)))) {
-                xp(false);
+            if (com.baidu.tbadk.plugins.b.Cy(String.valueOf(charSequence.charAt(i)))) {
+                xr(false);
             }
         }
     }
 
-    public void dnT() {
+    public void dnW() {
         if (!y.isEmpty(this.mList)) {
-            this.mUe.setVisibility(0);
-            this.mUe.requestFocus();
+            this.mUx.setVisibility(0);
+            this.mUx.requestFocus();
             return;
         }
-        this.mUe.setVisibility(8);
+        this.mUx.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean dIc() {
-        if (((ImageSpan[]) dHT().getText().getSpans(0, dHT().getText().length(), ImageSpan.class)).length > 10) {
-            if (this.mUj == null) {
-                this.mUj = Toast.makeText(getPageContext().getPageActivity(), R.string.too_many_face, 0);
+    public boolean dIl() {
+        if (((ImageSpan[]) dIc().getText().getSpans(0, dIc().getText().length(), ImageSpan.class)).length > 10) {
+            if (this.mUC == null) {
+                this.mUC = Toast.makeText(getPageContext().getPageActivity(), R.string.too_many_face, 0);
             }
-            if (Build.VERSION.SDK_INT >= 28 && this.mUj.getView().isShown()) {
-                this.mUj.cancel();
+            if (Build.VERSION.SDK_INT >= 28 && this.mUC.getView().isShown()) {
+                this.mUC.cancel();
             }
-            this.mUj.show();
+            this.mUC.show();
             return true;
         }
         return false;

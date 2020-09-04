@@ -18,7 +18,7 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class a implements l {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private Boolean cFE = null;
+    private Boolean cFI = null;
     private Context mContext = AppRuntime.getAppContext();
 
     @Override // com.baidu.swan.ubc.l
@@ -33,7 +33,7 @@ public class a implements l {
     }
 
     @Override // com.baidu.swan.ubc.l
-    public boolean oQ(String str) {
+    public boolean oR(String str) {
         int i;
         d aoM = com.baidu.swan.apps.t.a.aoM();
         String str2 = aoM != null ? aoM.getSwitch("ANDROID_UBC_SAMPLE_" + str, "") : "";
@@ -56,15 +56,15 @@ public class a implements l {
 
     @Override // com.baidu.swan.ubc.l
     public boolean avn() {
-        return com.baidu.swan.apps.ad.a.a.avn() && (avm() || com.baidu.swan.apps.b.bRQ);
+        return com.baidu.swan.apps.ad.a.a.avn() && (avm() || com.baidu.swan.apps.b.bRU);
     }
 
     @Override // com.baidu.swan.ubc.l
     public boolean avo() {
-        if (this.cFE == null) {
-            this.cFE = Boolean.valueOf(com.baidu.swan.apps.t.a.aoM().getSwitch("swan_ceres_add_counter", false));
+        if (this.cFI == null) {
+            this.cFI = Boolean.valueOf(com.baidu.swan.apps.t.a.aoM().getSwitch("swan_ceres_add_counter", false));
         }
-        return this.cFE.booleanValue();
+        return this.cFI.booleanValue();
     }
 
     @Override // com.baidu.swan.ubc.l

@@ -1,7 +1,7 @@
 package com.baidu.live.ar;
 /* loaded from: classes7.dex */
 public class c {
-    public int azN;
+    public int azP;
     public String mFile;
     public String mName;
 
@@ -9,7 +9,7 @@ public class c {
         if (fVar != null) {
             this.mName = fVar.getName();
             this.mFile = fVar.AP();
-            this.azN = fVar.AS();
+            this.azP = fVar.AS();
         }
     }
 }

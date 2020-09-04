@@ -12,11 +12,11 @@ import java.net.URL;
 /* loaded from: classes7.dex */
 public class i {
     public static boolean D(Context context, String str) {
-        return c(context, str, "BAIDUZID", aJ(ExtraParamsManager.getBaiduzid(), hy(str)));
+        return c(context, str, "BAIDUZID", aJ(ExtraParamsManager.getBaiduzid(), hz(str)));
     }
 
     public static boolean E(Context context, String str) {
-        return c(context, str, "BAIDUCUID", aK(ExtraParamsManager.getBase64(ExtraParamsManager.getInstance().buildParamsExtra().getCuid()), hy(str)));
+        return c(context, str, "BAIDUCUID", aK(ExtraParamsManager.getBase64(ExtraParamsManager.getInstance().buildParamsExtra().getCuid()), hz(str)));
     }
 
     private static boolean c(Context context, String str, String str2, String str3) {
@@ -25,14 +25,14 @@ public class i {
             return false;
         }
         try {
-            String hy = hy(str);
-            if (TextUtils.isEmpty(hy)) {
+            String hz = hz(str);
+            if (TextUtils.isEmpty(hz)) {
                 return false;
             }
             CookieSyncManager.createInstance(context);
             CookieManager cookieManager = CookieManager.getInstance();
             cookieManager.setAcceptCookie(true);
-            String[] split = cookieManager.getCookie(hy).split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+            String[] split = cookieManager.getCookie(hz).split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
             if (split.length > 0) {
                 z = true;
                 for (String str4 : split) {
@@ -50,7 +50,7 @@ public class i {
                 z = true;
             }
             if (z) {
-                cookieManager.setCookie(hy, str2 + ETAG.EQUAL + str3);
+                cookieManager.setCookie(hz, str2 + ETAG.EQUAL + str3);
                 CookieSyncManager.getInstance().sync();
                 return true;
             }
@@ -60,7 +60,7 @@ public class i {
         }
     }
 
-    public static String hy(String str) {
+    public static String hz(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

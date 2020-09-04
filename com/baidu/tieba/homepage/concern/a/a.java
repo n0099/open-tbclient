@@ -10,21 +10,21 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.card.aa;
 /* loaded from: classes16.dex */
 public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.k, com.baidu.tieba.card.a.a<com.baidu.tieba.card.k>> implements com.baidu.tieba.a.f {
-    private String agH;
-    public BdUniqueId ePv;
-    private aa hyp;
-    private com.baidu.tieba.card.k iGT;
+    private String agJ;
+    public BdUniqueId ePz;
+    private aa hyv;
+    private com.baidu.tieba.card.k iGZ;
     private TbPageContext<?> mPageContext;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.hyp = new aa<com.baidu.tieba.card.data.k>() { // from class: com.baidu.tieba.homepage.concern.a.a.1
+        this.hyv = new aa<com.baidu.tieba.card.data.k>() { // from class: com.baidu.tieba.homepage.concern.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             public void a(View view, com.baidu.tieba.card.data.k kVar) {
-                if (view != null && a.this.iGT != null && a.this.iGT.getView() != null && kVar != null && kVar.bce() != null && !StringUtils.isNull(kVar.bce().getTid())) {
-                    com.baidu.tieba.homepage.concern.b.a(view, kVar, view == a.this.iGT.cbC() ? 1 : 2);
-                    if (view == a.this.iGT.gja.getCommentContainer() || view == a.this.iGT.hhd.getCommentContainer()) {
+                if (view != null && a.this.iGZ != null && a.this.iGZ.getView() != null && kVar != null && kVar.bce() != null && !StringUtils.isNull(kVar.bce().getTid())) {
+                    com.baidu.tieba.homepage.concern.b.a(view, kVar, view == a.this.iGZ.cbD() ? 1 : 2);
+                    if (view == a.this.iGZ.gje.getCommentContainer() || view == a.this.iGZ.hhh.getCommentContainer()) {
                         aq aqVar = new aq("c12942");
                         aqVar.ai("obj_locate", 7);
                         aqVar.ai("obj_type", 5);
@@ -43,33 +43,33 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aK */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.card.k> b(ViewGroup viewGroup) {
-        this.iGT = new com.baidu.tieba.card.k(this.mPageContext, this.ePv);
-        this.iGT.id(true);
-        if (this.ePv != null) {
-            this.iGT.p(this.ePv);
+        this.iGZ = new com.baidu.tieba.card.k(this.mPageContext, this.ePz);
+        this.iGZ.ie(true);
+        if (this.ePz != null) {
+            this.iGZ.p(this.ePz);
         }
-        return new com.baidu.tieba.card.a.a<>(this.iGT);
+        return new com.baidu.tieba.card.a.a<>(this.iGZ);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.k kVar, com.baidu.tieba.card.a.a<com.baidu.tieba.card.k> aVar) {
-        if (kVar == null || aVar == null || aVar.ccE() == null) {
+        if (kVar == null || aVar == null || aVar.ccF() == null) {
             return null;
         }
         kVar.vy(i + 1);
-        com.baidu.tieba.card.s.cbX().e(kVar.Hd("c12351"));
-        if (aVar.ccE() instanceof com.baidu.tieba.a.e) {
-            aVar.ccE().setPage(this.agH);
+        com.baidu.tieba.card.s.cbY().e(kVar.He("c12351"));
+        if (aVar.ccF() instanceof com.baidu.tieba.a.e) {
+            aVar.ccF().setPage(this.agJ);
         }
-        aVar.ccE().a(kVar);
-        aVar.ccE().c(this.hyp);
+        aVar.ccF().a(kVar);
+        aVar.ccF().c(this.hyv);
         return aVar.getView();
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Dj(String str) {
-        this.agH = str;
+    public void Dk(String str) {
+        this.agJ = str;
     }
 }

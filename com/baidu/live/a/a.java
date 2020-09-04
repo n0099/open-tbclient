@@ -10,13 +10,13 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.im.n;
 /* loaded from: classes7.dex */
 public class a {
-    private static Application.ActivityLifecycleCallbacks ayM;
+    private static Application.ActivityLifecycleCallbacks ayO;
 
     public static void d(Application application) {
-        if (ayM == null) {
-            ayM = new C0163a();
+        if (ayO == null) {
+            ayO = new C0163a();
         }
-        application.registerActivityLifecycleCallbacks(ayM);
+        application.registerActivityLifecycleCallbacks(ayO);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -38,16 +38,16 @@ public class a {
     /* renamed from: com.baidu.live.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
     public static class C0163a implements Application.ActivityLifecycleCallbacks {
-        private n ayN;
-        private CustomMessageListener ayO;
+        private n ayP;
+        private CustomMessageListener ayQ;
 
         private C0163a() {
-            this.ayO = new CustomMessageListener(2913191) { // from class: com.baidu.live.a.a.a.1
+            this.ayQ = new CustomMessageListener(2913191) { // from class: com.baidu.live.a.a.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    if (C0163a.this.ayN != null) {
-                        C0163a.this.ayN.Js();
+                    if (C0163a.this.ayP != null) {
+                        C0163a.this.ayP.Js();
                     }
                 }
             };
@@ -60,11 +60,11 @@ public class a {
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityStarted(Activity activity) {
             if (a.p(activity)) {
-                if (this.ayN == null) {
-                    this.ayN = new n();
+                if (this.ayP == null) {
+                    this.ayP = new n();
                 }
-                this.ayN.init(String.valueOf(activity.hashCode()));
-                MessageManager.getInstance().registerListener(this.ayO);
+                this.ayP.init(String.valueOf(activity.hashCode()));
+                MessageManager.getInstance().registerListener(this.ayQ);
             }
         }
 
@@ -87,10 +87,10 @@ public class a {
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
             if (a.p(activity)) {
-                if (this.ayN != null) {
-                    this.ayN.destroy(String.valueOf(activity.hashCode()));
+                if (this.ayP != null) {
+                    this.ayP.destroy(String.valueOf(activity.hashCode()));
                 }
-                MessageManager.getInstance().unRegisterListener(this.ayO);
+                MessageManager.getInstance().unRegisterListener(this.ayQ);
             }
         }
     }

@@ -2,9 +2,9 @@ package com.baidu.tbadk.core;
 
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.core.util.au;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class k {
-    private static k dUC;
+    private static k dUG;
     private int mIsAbstractOn = 1;
     private int mUploadImageQuality = 0;
     private int mAddImageWater = 0;
@@ -14,16 +14,16 @@ public class k {
 
     public static k bbM() {
         k kVar;
-        if (dUC == null) {
+        if (dUG == null) {
             synchronized (k.class) {
-                if (dUC == null) {
-                    dUC = new k();
+                if (dUG == null) {
+                    dUG = new k();
                 }
-                kVar = dUC;
+                kVar = dUG;
             }
             return kVar;
         }
-        return dUC;
+        return dUG;
     }
 
     private k() {

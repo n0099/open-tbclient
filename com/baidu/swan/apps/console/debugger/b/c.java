@@ -12,11 +12,11 @@ import org.json.JSONObject;
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     String Pp;
-    String ccS;
-    String ccT;
-    String ccU;
-    String ccV;
-    JSONArray ccW;
+    String ccW;
+    String ccX;
+    String ccY;
+    String ccZ;
+    JSONArray cda;
     String mAppKey;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -24,12 +24,12 @@ public class c {
         c cVar = new c();
         try {
             cVar.mAppKey = jSONObject.getString("appKey");
-            cVar.ccS = jSONObject.getString("appUrl") + "?swanJsVersion" + ETAG.EQUAL + com.baidu.swan.apps.swancore.b.jC(0) + ETAG.ITEM_SEPARATOR + "appVersion" + ETAG.EQUAL + ak.getVersionName();
+            cVar.ccW = jSONObject.getString("appUrl") + "?swanJsVersion" + ETAG.EQUAL + com.baidu.swan.apps.swancore.b.jC(0) + ETAG.ITEM_SEPARATOR + "appVersion" + ETAG.EQUAL + ak.getVersionName();
             cVar.Pp = jSONObject.getString("wsUrl");
-            cVar.ccT = jSONObject.optString("notInHistory", "1");
-            cVar.ccU = jSONObject.optString("masterPreload");
-            cVar.ccV = jSONObject.optString("slavePreload");
-            cVar.ccW = jSONObject.optJSONArray("hosts");
+            cVar.ccX = jSONObject.optString("notInHistory", "1");
+            cVar.ccY = jSONObject.optString("masterPreload");
+            cVar.ccZ = jSONObject.optString("slavePreload");
+            cVar.cda = jSONObject.optJSONArray("hosts");
             return cVar;
         } catch (JSONException e) {
             if (DEBUG) {
@@ -44,7 +44,7 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String gM(int i) {
-        return P(i, this.ccS);
+        return P(i, this.ccW);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -53,9 +53,9 @@ public class c {
     }
 
     private String P(int i, String str) {
-        if (this.ccW != null && !TextUtils.isEmpty(str) && i >= 0 && i < this.ccW.length()) {
+        if (this.cda != null && !TextUtils.isEmpty(str) && i >= 0 && i < this.cda.length()) {
             Uri parse = Uri.parse(str);
-            String optString = this.ccW.optString(i);
+            String optString = this.cda.optString(i);
             if (!TextUtils.isEmpty(optString) && parse.getHost() != null) {
                 return str.replace(parse.getHost(), optString);
             }
@@ -66,6 +66,6 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean isInvalid() {
-        return TextUtils.isEmpty(this.mAppKey) || TextUtils.isEmpty(this.ccS) || TextUtils.isEmpty(this.Pp);
+        return TextUtils.isEmpty(this.mAppKey) || TextUtils.isEmpty(this.ccW) || TextUtils.isEmpty(this.Pp);
     }
 }

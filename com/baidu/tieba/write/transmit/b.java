@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b extends BaseAdapter {
-    private static int kpG = 3;
+    private static int kpN = 3;
     private Context mContext;
     private List<TransmitForumData> mDataList = new ArrayList();
 
@@ -60,32 +60,32 @@ public class b extends BaseAdapter {
 
     /* loaded from: classes3.dex */
     public static class a {
-        public TextView eus;
-        public BarImageView kpI;
-        public View mQu;
+        public TextView euw;
+        public BarImageView kpP;
+        public View mQM;
         public int mSkinType = 3;
 
         public a(View view) {
             if (view != null) {
-                this.eus = (TextView) view.findViewById(R.id.transmit_forum_name);
-                this.kpI = (BarImageView) view.findViewById(R.id.forum_avatar);
-                this.mQu = view.findViewById(R.id.divider_line);
+                this.euw = (TextView) view.findViewById(R.id.transmit_forum_name);
+                this.kpP = (BarImageView) view.findViewById(R.id.forum_avatar);
+                this.mQM = view.findViewById(R.id.divider_line);
             }
         }
 
         public void b(TransmitForumData transmitForumData) {
             if (transmitForumData != null) {
-                this.eus.setText(transmitForumData.forumName);
-                this.kpI.startLoad(transmitForumData.avatar, 10, false);
+                this.euw.setText(transmitForumData.forumName);
+                this.kpP.startLoad(transmitForumData.avatar, 10, false);
             }
         }
 
         public void bkF() {
-            if (b.kpG != this.mSkinType) {
-                ap.setViewTextColor(this.eus, R.color.cp_cont_b);
-                ap.setBackgroundColor(this.mQu, R.color.cp_bg_line_c);
+            if (b.kpN != this.mSkinType) {
+                ap.setViewTextColor(this.euw, R.color.cp_cont_b);
+                ap.setBackgroundColor(this.mQM, R.color.cp_bg_line_c);
             }
-            this.mSkinType = b.kpG;
+            this.mSkinType = b.kpN;
         }
     }
 
@@ -96,9 +96,9 @@ public class b extends BaseAdapter {
     }
 
     public void onChangeSkinType(int i) {
-        if (kpG != i) {
+        if (kpN != i) {
             notifyDataSetChanged();
         }
-        kpG = i;
+        kpN = i;
     }
 }

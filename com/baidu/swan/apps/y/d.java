@@ -8,23 +8,23 @@ import java.lang.ref.WeakReference;
 /* loaded from: classes8.dex */
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.runtime.e.DEBUG;
-    boolean cDZ;
-    private WeakReference<Bitmap> cEc;
     boolean cEd;
+    private WeakReference<Bitmap> cEg;
+    boolean cEh;
     String id;
     Rect rect;
     long remainTime;
     String url;
-    int cEb = 0;
+    int cEf = 0;
     long startTime = System.currentTimeMillis();
-    int cEa = 0;
+    int cEe = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(String str, String str2, long j, boolean z) {
         this.id = str;
         this.url = str2;
         this.remainTime = j;
-        this.cEd = z;
+        this.cEh = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -52,21 +52,21 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void auA() {
-        this.cEa = 1;
+        this.cEe = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void auB() {
-        this.cEa = 2;
+        this.cEe = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean isChecked() {
-        return this.cEa == 2;
+        return this.cEe == 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void p(Bitmap bitmap) {
-        this.cEc = new WeakReference<>(bitmap);
+        this.cEg = new WeakReference<>(bitmap);
     }
 }

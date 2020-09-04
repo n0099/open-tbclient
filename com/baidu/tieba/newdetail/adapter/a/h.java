@@ -23,29 +23,29 @@ import com.baidu.tieba.card.aa;
 import com.baidu.tieba.card.s;
 /* loaded from: classes15.dex */
 public class h extends a<bv, al<bw>> {
-    private aa<bv> aeT;
-    private v akI;
-    public BdUniqueId ePv;
+    private aa<bv> aeV;
+    private v akK;
+    public BdUniqueId ePz;
     private TbPageContext<?> mPageContext;
 
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.aeT = new aa<bv>() { // from class: com.baidu.tieba.newdetail.adapter.a.h.1
+        this.aeV = new aa<bv>() { // from class: com.baidu.tieba.newdetail.adapter.a.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             public void a(View view, bv bvVar) {
                 if (bvVar != null) {
-                    s.cbX().kK(true);
-                    h.this.g(view, bvVar.dUS);
+                    s.cbY().kM(true);
+                    h.this.g(view, bvVar.dUW);
                 }
             }
         };
         this.mPageContext = tbPageContext;
-        this.ePv = bdUniqueId2;
+        this.ePz = bdUniqueId2;
     }
 
     public void a(v vVar) {
-        this.akI = vVar;
+        this.akK = vVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -61,8 +61,8 @@ public class h extends a<bv, al<bw>> {
         aj.a aVar = new aj.a(this.mPageContext.getPageActivity(), false);
         am amVar = new am(this.mPageContext.getPageActivity());
         com.baidu.tbadk.core.data.c cVar = new com.baidu.tbadk.core.data.c();
-        cVar.dWK = 22;
-        cVar.dWQ = 19;
+        cVar.dWO = 22;
+        cVar.dWU = 19;
         amVar.setAgreeStatisticData(cVar);
         amVar.setFrom(18);
         amVar.setStType("personalize_page");
@@ -70,19 +70,19 @@ public class h extends a<bv, al<bw>> {
         amVar.setFromForPb(17);
         amVar.bk(32);
         aVar.b(amVar);
-        aj a = aVar.a(true, viewGroup, this.akI);
+        aj a = aVar.a(true, viewGroup, this.akK);
         a.setSourceForPb(17);
         al alVar = new al(a);
-        alVar.setPageId(this.ePv);
+        alVar.setPageId(this.ePz);
         a(new ab() { // from class: com.baidu.tieba.newdetail.adapter.a.h.2
             @Override // com.baidu.adp.widget.ListView.ab
             public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
                 if ((qVar instanceof bv) && (view.getTag() instanceof al)) {
                     al alVar2 = (al) view.getTag();
-                    bw bwVar = ((bv) qVar).dUS;
+                    bw bwVar = ((bv) qVar).dUW;
                     bwVar.objType = 1;
-                    if (h.this.aeT != null) {
-                        h.this.aeT.a(alVar2.getView(), (bv) qVar);
+                    if (h.this.aeV != null) {
+                        h.this.aeV.a(alVar2.getView(), (bv) qVar);
                     }
                     ay.a((AbsThreadDataSupport) bwVar, view.getContext(), 17, false, com.baidu.card.f.a((v) viewGroup2, view, i));
                     alVar2.tR().b(new a.C0095a(1));
@@ -96,10 +96,10 @@ public class h extends a<bv, al<bw>> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(final int i, final View view, final ViewGroup viewGroup, bv bvVar, al alVar) {
-        if (bvVar == null || alVar == null || alVar.getView() == null || bvVar.dUS == null) {
+        if (bvVar == null || alVar == null || alVar.getView() == null || bvVar.dUW == null) {
             return null;
         }
-        bvVar.dUS.dZb = getPositionByType(i) + 1;
+        bvVar.dUW.dZf = getPositionByType(i) + 1;
         alVar.tR().setPosition(i);
         if (alVar.tR().tL() instanceof am) {
             ((am) alVar.tR().tL()).setOnCommentClickCallback(new ThreadCommentAndPraiseInfoLayout.a() { // from class: com.baidu.tieba.newdetail.adapter.a.h.3
@@ -113,7 +113,7 @@ public class h extends a<bv, al<bw>> {
         }
         alVar.b((al) bvVar);
         alVar.tR().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        alVar.tR().a(this.aeT);
+        alVar.tR().a(this.aeV);
         com.baidu.tieba.newdetail.b.b(this, bvVar);
         return alVar.getView();
     }

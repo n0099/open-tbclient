@@ -25,7 +25,7 @@ public class a {
         }
     }
 
-    public int bLp() {
+    public int bLq() {
         return this.maxCount;
     }
 

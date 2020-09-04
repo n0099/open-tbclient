@@ -5,7 +5,7 @@ import android.net.Uri;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class WriteImageActivityConfig extends IntentConfig {
     public static final String CANCEL_TEXT = "cancel_text";
     public static final String DELET_FLAG = "delete";

@@ -3,7 +3,7 @@ package com.baidu.live.gift;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class e {
-    private int aMP;
+    private int aMR;
     private int isLandScape;
     public String videoMd5;
     public String videoUrl;
@@ -19,7 +19,7 @@ public class e {
             this.videoUrl = jSONObject.optString("video_url");
             this.videoMd5 = jSONObject.optString("video_md5");
             this.isLandScape = jSONObject.optInt("is_landscape");
-            this.aMP = jSONObject.optInt("need_download");
+            this.aMR = jSONObject.optInt("need_download");
         }
     }
 
@@ -28,6 +28,6 @@ public class e {
     }
 
     public boolean Dz() {
-        return this.aMP == 1;
+        return this.aMR == 1;
     }
 }

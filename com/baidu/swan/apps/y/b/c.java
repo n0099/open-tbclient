@@ -21,8 +21,8 @@ class c extends a {
         try {
             int pixel = bitmap.getPixel(rect.left + 1, rect.top + 1);
             boolean z2 = pixel == -1 || pixel == -657931;
-            if (!z2 && this.cEw != null) {
-                for (Integer num : this.cEw) {
+            if (!z2 && this.cEA != null) {
+                for (Integer num : this.cEA) {
                     if (num.intValue() == pixel) {
                         z = true;
                         break;

@@ -11,8 +11,8 @@ import android.widget.TextView;
 import com.baidu.swan.apps.a;
 /* loaded from: classes8.dex */
 public class SwanAppBottomTabIconView extends RelativeLayout {
-    private TextView cZG;
-    private boolean cZH;
+    private TextView cZK;
+    private boolean cZL;
     private ImageView mIconView;
     private ImageView mRedDot;
     private TextView mTextView;
@@ -23,7 +23,7 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
         this.mIconView = (ImageView) findViewById(a.f.bottom_tab_icon);
         this.mTextView = (TextView) findViewById(a.f.bottom_tab_text);
         this.mRedDot = (ImageView) findViewById(a.f.bottom_tab_red_dot);
-        this.cZG = (TextView) findViewById(a.f.bottom_tab_badge);
+        this.cZK = (TextView) findViewById(a.f.bottom_tab_badge);
     }
 
     public void setIconView(int i) {
@@ -47,15 +47,15 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
     }
 
     public boolean aDT() {
-        return this.cZH;
+        return this.cZL;
     }
 
     public void setmIsSelect(boolean z) {
-        this.cZH = z;
+        this.cZL = z;
     }
 
     public void setBadgeText(String str) {
-        this.cZG.setText(str);
+        this.cZK.setText(str);
     }
 
     public void setRedDotVisibleState(boolean z) {
@@ -68,9 +68,9 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
 
     public void setBadgeVisibleState(boolean z) {
         if (z) {
-            this.cZG.setVisibility(0);
+            this.cZK.setVisibility(0);
         } else {
-            this.cZG.setVisibility(8);
+            this.cZK.setVisibility(8);
         }
     }
 }

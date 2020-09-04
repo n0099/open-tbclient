@@ -8,28 +8,28 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes18.dex */
 public class b implements com.baidu.h.a.b.a.b {
-    private d bxP;
+    private d bxS;
     private Context mContext;
-    private boolean bxO = false;
-    private final Map<String, a> bxQ = new ConcurrentHashMap();
+    private boolean bxR = false;
+    private final Map<String, a> bxT = new ConcurrentHashMap();
 
     public b(Context context, d dVar) {
         this.mContext = context;
-        this.bxP = dVar;
+        this.bxS = dVar;
     }
 
     private a h(String str, String str2, boolean z) {
-        a aVar = new a(this.bxP.c(this.mContext, str, str2, z));
-        this.bxQ.put(str, aVar);
+        a aVar = new a(this.bxS.c(this.mContext, str, str2, z));
+        this.bxT.put(str, aVar);
         return aVar;
     }
 
-    public a hC(String str) {
-        return this.bxQ.get(str);
+    public a hD(String str) {
+        return this.bxT.get(str);
     }
 
-    public com.baidu.h.a.b.c hD(String str) {
-        return this.bxQ.get(str).Ro();
+    public com.baidu.h.a.b.c hE(String str) {
+        return this.bxT.get(str).Ro();
     }
 
     @Override // com.baidu.h.a.b.a.b
@@ -39,71 +39,71 @@ public class b implements com.baidu.h.a.b.a.b {
     }
 
     @Override // com.baidu.h.a.b.a.b
-    public synchronized void hB(String str) {
-        a hC = hC(str);
-        if (hC != null) {
-            hC.hB(str);
-            this.bxQ.remove(str);
+    public synchronized void hC(String str) {
+        a hD = hD(str);
+        if (hD != null) {
+            hD.hC(str);
+            this.bxT.remove(str);
         }
     }
 
     @Override // com.baidu.h.a.b.a.b
     public synchronized void IW() {
         try {
-            for (Map.Entry<String, a> entry : this.bxQ.entrySet()) {
+            for (Map.Entry<String, a> entry : this.bxT.entrySet()) {
                 String key = entry.getKey();
-                a aVar = this.bxQ.get(key);
+                a aVar = this.bxT.get(key);
                 if (aVar != null) {
                     if (aVar.Rp()) {
                         aVar.IW();
                     }
-                    this.bxQ.remove(key);
+                    this.bxT.remove(key);
                 }
             }
-            this.bxP.unregisterConnectListener();
-            this.bxO = false;
+            this.bxS.unregisterConnectListener();
+            this.bxR = false;
         } catch (Exception e) {
         }
     }
 
     @Override // com.baidu.h.a.b.a.b
     public synchronized void a(String str, e eVar, f fVar) {
-        a hC = hC(str);
-        if (hC != null) {
-            hC.a(str, eVar, fVar);
+        a hD = hD(str);
+        if (hD != null) {
+            hD.a(str, eVar, fVar);
         }
     }
 
     @Override // com.baidu.h.a.b.a.b
     public void a(String str, com.baidu.h.a.b.a.d dVar) {
-        a hC = hC(str);
-        if (hC != null) {
-            hC.a(str, dVar);
+        a hD = hD(str);
+        if (hD != null) {
+            hD.a(str, dVar);
         }
     }
 
     private void register() {
-        if (!this.bxO) {
-            this.bxP.unregisterConnectListener();
-            this.bxP.a(new com.baidu.h.a.b.a() { // from class: com.baidu.h.b.a.a.b.1
+        if (!this.bxR) {
+            this.bxS.unregisterConnectListener();
+            this.bxS.a(new com.baidu.h.a.b.a() { // from class: com.baidu.h.b.a.a.b.1
                 @Override // com.baidu.h.a.b.a
                 public void onResult(int i) {
                     if (i == 0) {
                         b.this.reconnect();
                     } else if (1 == i) {
-                        b.this.bxP.Rd();
+                        b.this.bxS.Rd();
                     }
                 }
             });
-            this.bxO = true;
+            this.bxR = true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void reconnect() {
         try {
-            for (Map.Entry<String, a> entry : this.bxQ.entrySet()) {
-                a aVar = this.bxQ.get(entry.getKey());
+            for (Map.Entry<String, a> entry : this.bxT.entrySet()) {
+                a aVar = this.bxT.get(entry.getKey());
                 if (aVar != null) {
                     aVar.Br();
                 }

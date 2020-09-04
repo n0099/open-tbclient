@@ -41,16 +41,16 @@ public class e extends a {
         if (d.mText == null || d.mText.length() <= 0) {
             i = 0;
         } else {
-            if (d.bZD && d.mItalic) {
+            if (d.bZH && d.mItalic) {
                 i2 = 3;
-            } else if (d.bZD) {
+            } else if (d.bZH) {
                 i2 = 1;
             } else {
                 i2 = d.mItalic ? 2 : 0;
             }
             TextPaint textPaint = new TextPaint();
-            textPaint.setTypeface(Typeface.create(d.bZB, i2));
-            textPaint.setTextSize(d.bZC);
+            textPaint.setTypeface(Typeface.create(d.bZF, i2));
+            textPaint.setTextSize(d.bZG);
             textPaint.getTextBounds(d.mText, 0, d.mText.length(), new Rect());
             i = ah.J(rect.width());
         }

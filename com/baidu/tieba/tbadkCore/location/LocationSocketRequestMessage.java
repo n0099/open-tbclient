@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import tbclient.GetPoisByLocation.DataReq;
 import tbclient.GetPoisByLocation.GetPoisByLocationReqIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class LocationSocketRequestMessage extends TbSocketMessage {
     private String lat;
     private String lng;

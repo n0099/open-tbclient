@@ -3,5 +3,5 @@ package com.baidu.swan.apps.ab;
 public interface b {
     void N(int i, String str);
 
-    void iF(String str);
+    void iG(String str);
 }

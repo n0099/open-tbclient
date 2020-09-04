@@ -6,10 +6,10 @@ import com.baidu.live.tbadk.encryption.EncryptionHelper;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class k {
-    public String aKh;
+    public String aKj;
     public String avatar;
-    public String gcE;
-    public boolean gcF;
+    public String gcI;
+    public boolean gcJ;
     public String id;
     public int level;
     public String liveId;
@@ -24,16 +24,16 @@ public class k {
         this.id = jSONObject.optString("id");
         String optString = jSONObject.optString("anchor_id");
         if (!TextUtils.isEmpty(optString)) {
-            this.aKh = EncryptionHelper.getDecryptUserId(optString);
+            this.aKj = EncryptionHelper.getDecryptUserId(optString);
         }
         this.name = jSONObject.optString("regiment_name");
         this.score = jSONObject.optString(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE);
-        this.gcE = jSONObject.optString("week_score");
+        this.gcI = jSONObject.optString("week_score");
         this.avatar = jSONObject.optString("guard_club_portrait");
         this.level = jSONObject.optInt("guard_level");
         this.liveStatus = jSONObject.optInt("live_status");
         this.liveId = jSONObject.optString("live_id");
-        this.gcF = jSONObject.optInt("is_join") == 1;
+        this.gcJ = jSONObject.optInt("is_join") == 1;
         return this;
     }
 }

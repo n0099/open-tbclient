@@ -6,7 +6,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class ao {
-    public List<an> aIm;
+    public List<an> aIo;
     public String liveId;
 
     public void parserJson(JSONObject jSONObject) {
@@ -14,13 +14,13 @@ public class ao {
             this.liveId = jSONObject.optString("live_id");
             JSONArray optJSONArray = jSONObject.optJSONArray("list");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.aIm = new ArrayList();
+                this.aIo = new ArrayList();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     if (optJSONObject != null) {
                         an anVar = new an();
                         anVar.parserJson(optJSONObject);
-                        this.aIm.add(anVar);
+                        this.aIo.add(anVar);
                     }
                 }
             }

@@ -22,8 +22,8 @@ public class a {
     private List<GeneralTabGift> c;
     private List<tv.chushou.zues.widget.gift.a.a> d;
     private List<tv.chushou.zues.widget.gift.a.a> e;
-    private GiftComboConfig nJx;
-    private static final float[] nJy = new float[40];
+    private GiftComboConfig nJP;
+    private static final float[] nJQ = new float[40];
     private static final float[] k = new float[40];
     private String a = "GiftShowManager";
     private boolean g = false;
@@ -32,8 +32,8 @@ public class a {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == Integer.MAX_VALUE) {
-                tv.chushou.zues.widget.gift.a.a dZf = a.this.dZf();
-                if (dZf == null) {
+                tv.chushou.zues.widget.gift.a.a dZo = a.this.dZo();
+                if (dZo == null) {
                     a.this.h.sendEmptyMessageDelayed(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 500L);
                     return;
                 }
@@ -42,7 +42,7 @@ public class a {
                     int i2 = i;
                     if (i2 < a.this.f.size()) {
                         if (!((GiftFrameLayout) a.this.f.get(i2)).isShowing()) {
-                            ((GiftFrameLayout) a.this.f.get(i2)).b(dZf);
+                            ((GiftFrameLayout) a.this.f.get(i2)).b(dZo);
                             return;
                         }
                         i = i2 + 1;
@@ -62,8 +62,8 @@ public class a {
             while (true) {
                 int i2 = i;
                 if (i2 < this.f.size()) {
-                    if (this.f.get(i2).getGift() == aVar.oON) {
-                        this.f.get(i2).a(aVar.oON.bVw / 1000, gB(aVar.oON.oOL));
+                    if (this.f.get(i2).getGift() == aVar.oPf) {
+                        this.f.get(i2).a(aVar.oPf.bVA / 1000, gD(aVar.oPf.oPd));
                     }
                     i = i2 + 1;
                 } else {
@@ -76,7 +76,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public tv.chushou.zues.widget.gift.a.a dZf() {
+    public tv.chushou.zues.widget.gift.a.a dZo() {
         if (this.d == null || this.d.size() <= 0) {
             return null;
         }
@@ -112,21 +112,21 @@ public class a {
         if (bVar.j.size() > 0) {
             this.c.addAll(bVar.j);
         } else {
-            if (bVar != null && bVar.dZc() != null && bVar.dZc().mGeneralTabGifts != null) {
+            if (bVar != null && bVar.dZl() != null && bVar.dZl().mGeneralTabGifts != null) {
                 int i = 0;
                 while (true) {
                     int i2 = i;
-                    if (i2 >= bVar.dZc().mGeneralTabGifts.size()) {
+                    if (i2 >= bVar.dZl().mGeneralTabGifts.size()) {
                         break;
                     }
-                    bVar.j.add(bVar.dZc().mGeneralTabGifts.get(i2).deepClone());
+                    bVar.j.add(bVar.dZl().mGeneralTabGifts.get(i2).deepClone());
                     i = i2 + 1;
                 }
             }
             this.c.addAll(bVar.j);
         }
-        if (bVar.dZc() != null) {
-            this.nJx = bVar.dZc().mGiftComboConfig;
+        if (bVar.dZl() != null) {
+            this.nJP = bVar.dZl().mGiftComboConfig;
         }
     }
 
@@ -172,10 +172,10 @@ public class a {
                     tv.chushou.zues.widget.gift.a.a aVar2 = this.d.get(size);
                     if (!aVar2.equals(aVar)) {
                         size--;
-                    } else if (aVar.oOK > aVar2.oOK) {
-                        aVar2.oOK = aVar.oOK;
-                        aVar2.bVw = aVar.bVw;
-                        aVar2.oOI = aVar.oOI;
+                    } else if (aVar.oPc > aVar2.oPc) {
+                        aVar2.oPc = aVar.oPc;
+                        aVar2.bVA = aVar.bVA;
+                        aVar2.oPa = aVar.oPa;
                         z = true;
                     } else {
                         a(aVar);
@@ -188,7 +188,7 @@ public class a {
                     int i2 = 0;
                     for (int i3 = 0; i3 < this.f.size(); i3++) {
                         GiftFrameLayout giftFrameLayout = this.f.get(i3);
-                        if (giftFrameLayout.getGift() != null && giftFrameLayout.getGift().equals(aVar) && !giftFrameLayout.emC() && aVar.oOK > giftFrameLayout.getGift().oOK && giftFrameLayout.updateTime > j) {
+                        if (giftFrameLayout.getGift() != null && giftFrameLayout.getGift().equals(aVar) && !giftFrameLayout.emL() && aVar.oPc > giftFrameLayout.getGift().oPc && giftFrameLayout.updateTime > j) {
                             j = giftFrameLayout.updateTime;
                             i2 = i3;
                             z2 = false;
@@ -197,7 +197,7 @@ public class a {
                     if (z2) {
                         a(aVar);
                     } else {
-                        this.f.get(i2).OO(aVar.oOK);
+                        this.f.get(i2).OO(aVar.oPc);
                     }
                 }
             }
@@ -207,7 +207,7 @@ public class a {
 
     private void a(tv.chushou.zues.widget.gift.a.a aVar) {
         int i;
-        if (!h.isEmpty(com.kascend.chushou.d.h.dYr().b()) && com.kascend.chushou.d.h.dYr().b().equals(aVar.mUserId)) {
+        if (!h.isEmpty(com.kascend.chushou.d.h.dYA().b()) && com.kascend.chushou.d.h.dYA().b().equals(aVar.mUserId)) {
             int size = this.d.size();
             int size2 = this.d.size() - 1;
             while (true) {
@@ -241,10 +241,10 @@ public class a {
             if (chatInfo.mType.equals("3") && chatInfo.mUserComboCount > 0) {
                 tv.chushou.zues.widget.gift.a.a aVar = new tv.chushou.zues.widget.gift.a.a();
                 aVar.mUserId = chatInfo.mUserID;
-                aVar.oOF = chatInfo.mPrivilegeInfo.mAvatarFrame;
+                aVar.oOX = chatInfo.mPrivilegeInfo.mAvatarFrame;
                 if (chatInfo.mGift != null) {
-                    aVar.aHi = String.valueOf(chatInfo.mGift.id);
-                    aVar.oOG = this.b.getString(a.i.str_gift_send_out) + chatInfo.mGift.name;
+                    aVar.aHk = String.valueOf(chatInfo.mGift.id);
+                    aVar.oOY = this.b.getString(a.i.str_gift_send_out) + chatInfo.mGift.name;
                     if (this.c != null && this.c.size() > 0) {
                         int i2 = 0;
                         boolean z2 = false;
@@ -252,10 +252,10 @@ public class a {
                             GeneralTabGift generalTabGift = this.c.get(i2);
                             if (generalTabGift != null && generalTabGift.mGeneralGifts != null) {
                                 for (int i3 = 0; i3 < generalTabGift.mGeneralGifts.size(); i3++) {
-                                    if (aVar.aHi.equals(String.valueOf(generalTabGift.mGeneralGifts.get(i3).mId))) {
-                                        aVar.oOI = generalTabGift.mGeneralGifts.get(i3).mRepeatedBg;
-                                        aVar.bVw = generalTabGift.mGeneralGifts.get(i3).mDuration;
-                                        aVar.oOL = generalTabGift.mGeneralGifts.get(i3).mPoint;
+                                    if (aVar.aHk.equals(String.valueOf(generalTabGift.mGeneralGifts.get(i3).mId))) {
+                                        aVar.oPa = generalTabGift.mGeneralGifts.get(i3).mRepeatedBg;
+                                        aVar.bVA = generalTabGift.mGeneralGifts.get(i3).mDuration;
+                                        aVar.oPd = generalTabGift.mGeneralGifts.get(i3).mPoint;
                                         z = true;
                                         break;
                                     }
@@ -270,21 +270,21 @@ public class a {
                         }
                     }
                     if (!h.isEmpty(chatInfo.mGift.mRepeatedBg)) {
-                        aVar.oOI = chatInfo.mGift.mRepeatedBg;
+                        aVar.oPa = chatInfo.mGift.mRepeatedBg;
                     }
                 } else {
-                    aVar.aHi = "";
-                    aVar.oOG = "";
+                    aVar.aHk = "";
+                    aVar.oOY = "";
                 }
                 aVar.mShowAvatar = chatInfo.mPrivilegeInfo.mShowAvatar;
-                aVar.oOE = chatInfo.mHeadIcon;
-                aVar.oOH = chatInfo.mGift.icon;
-                aVar.oOJ = chatInfo.mUserComboCount;
-                aVar.oOK = chatInfo.mUserComboCount;
+                aVar.oOW = chatInfo.mHeadIcon;
+                aVar.oOZ = chatInfo.mGift.icon;
+                aVar.oPb = chatInfo.mUserComboCount;
+                aVar.oPc = chatInfo.mUserComboCount;
                 aVar.mNickName = chatInfo.mUserNickname;
-                long a = a(chatInfo.mUserComboCount * aVar.oOL);
+                long a = a(chatInfo.mUserComboCount * aVar.oPd);
                 if (a != -1) {
-                    aVar.bVw = a;
+                    aVar.bVA = a;
                 }
                 this.e.add(aVar);
             }
@@ -293,8 +293,8 @@ public class a {
     }
 
     private long a(long j) {
-        if (this.nJx != null && !h.isEmpty(this.nJx.durationList)) {
-            for (GiftComboConfig.Duration duration : this.nJx.durationList) {
+        if (this.nJP != null && !h.isEmpty(this.nJP.durationList)) {
+            for (GiftComboConfig.Duration duration : this.nJP.durationList) {
                 if (duration.startPoint <= j && duration.endPoint > j) {
                     return duration.duration * 1000;
                 }
@@ -305,39 +305,39 @@ public class a {
 
     private void e() {
         if (h.isEmpty(this.d)) {
-            GiftFrameLayout.oOR = 1.0d;
+            GiftFrameLayout.oPj = 1.0d;
             return;
         }
         int size = this.d.size();
         if (size <= 1) {
-            GiftFrameLayout.oOR = 1.0d;
+            GiftFrameLayout.oPj = 1.0d;
         } else if (size >= 20) {
-            GiftFrameLayout.oOR = 0.1d;
+            GiftFrameLayout.oPj = 0.1d;
         } else if (size >= 10) {
-            GiftFrameLayout.oOR = 0.2d;
+            GiftFrameLayout.oPj = 0.2d;
         } else {
-            GiftFrameLayout.oOR = 0.3d;
+            GiftFrameLayout.oPj = 0.3d;
         }
     }
 
     static {
-        nJy[0] = 0.98f;
+        nJQ[0] = 0.98f;
         k[0] = 0.95f;
         for (int i = 1; i < 40; i++) {
-            nJy[i] = nJy[i - 1] * 0.98f;
+            nJQ[i] = nJQ[i - 1] * 0.98f;
             k[i] = k[i - 1] * 0.95f;
         }
     }
 
-    private float dZg() {
+    private float dZp() {
         int size = this.d.size();
         if (size >= 50) {
-            return nJy[39];
+            return nJQ[39];
         }
         if (size <= 10) {
             return 1.0f;
         }
-        return nJy[size - 11];
+        return nJQ[size - 11];
     }
 
     private float g() {
@@ -351,7 +351,7 @@ public class a {
         return k[size - 11];
     }
 
-    private float gB(long j) {
-        return j < 100000 ? g() : dZg();
+    private float gD(long j) {
+        return j < 100000 ? g() : dZp();
     }
 }

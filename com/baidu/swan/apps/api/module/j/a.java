@@ -20,7 +20,7 @@ public class a extends d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b jR(String str) {
+    public com.baidu.swan.apps.api.c.b jS(String str) {
         if (DEBUG) {
             Log.d("Api-Subscription", "subscribe with json string:  " + str);
         }
@@ -69,9 +69,9 @@ public class a extends d {
             }
         });
         aVar.tag = request.tag();
-        aVar.dEO = true;
-        aVar.dEP = true;
-        aVar.dEQ = true;
+        aVar.dES = true;
+        aVar.dET = true;
+        aVar.dEU = true;
         com.baidu.swan.a.c.a.aSW().b(aVar);
     }
 

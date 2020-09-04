@@ -12,8 +12,8 @@ import com.baidu.swan.pms.model.PMSAppInfo;
 /* loaded from: classes8.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static c cly = new c();
-    private static d clz = new d();
+    private static c clC = new c();
+    private static d clD = new d();
 
     /* renamed from: com.baidu.swan.apps.core.prefetch.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
@@ -27,11 +27,11 @@ public final class a {
     }
 
     static com.baidu.swan.apps.process.messaging.service.c a(@NonNull PrefetchEvent prefetchEvent) {
-        return e.ayg().a((e) prefetchEvent.appId, (e.a<e>) cly);
+        return e.ayg().a((e) prefetchEvent.appId, (e.a<e>) clC);
     }
 
     static com.baidu.swan.apps.process.messaging.service.c b(@NonNull PrefetchEvent prefetchEvent) {
-        return e.ayg().a((e) prefetchEvent.appId, (e.a<e>) clz);
+        return e.ayg().a((e) prefetchEvent.appId, (e.a<e>) clD);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -97,10 +97,10 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(@NonNull com.baidu.swan.apps.process.messaging.service.c cVar, @NonNull PrefetchEvent prefetchEvent, @NonNull b bVar) {
-        PMSAppInfo wz = com.baidu.swan.pms.database.a.aTt().wz(prefetchEvent.appId);
-        boolean h = h(wz);
-        if (h && !wz.aTD()) {
-            bVar.a(cVar, wz);
+        PMSAppInfo wA = com.baidu.swan.pms.database.a.aTt().wA(prefetchEvent.appId);
+        boolean h = h(wA);
+        if (h && !wA.aTD()) {
+            bVar.a(cVar, wA);
         } else {
             a(h, cVar, prefetchEvent, bVar);
         }
@@ -147,10 +147,10 @@ public final class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.process.messaging.service.e.a
         public boolean a(String str, com.baidu.swan.apps.process.messaging.service.c cVar) {
-            if (cVar.cJB == null) {
+            if (cVar.cJF == null) {
                 return false;
             }
-            return TextUtils.equals(str, cVar.cJB.appId);
+            return TextUtils.equals(str, cVar.cJF.appId);
         }
     }
 

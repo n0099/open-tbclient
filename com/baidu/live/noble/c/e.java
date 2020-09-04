@@ -13,17 +13,17 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.live.utils.p;
 /* loaded from: classes7.dex */
 public class e extends BdBaseModel {
-    private a bga;
-    private HttpMessageListener bgb = new HttpMessageListener(1021190) { // from class: com.baidu.live.noble.c.e.1
+    private a bgc;
+    private HttpMessageListener bgd = new HttpMessageListener(1021190) { // from class: com.baidu.live.noble.c.e.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaNobleUserListResponseMessage) && e.this.bga != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaNobleUserListResponseMessage) && e.this.bgc != null) {
                 com.baidu.live.noble.data.b LU = ((AlaNobleUserListResponseMessage) httpResponsedMessage).LU();
                 if (LU != null) {
-                    e.this.bga.a(LU);
+                    e.this.bgc.a(LU);
                 } else {
-                    e.this.bga.onFail(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                    e.this.bgc.onFail(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
@@ -39,9 +39,9 @@ public class e extends BdBaseModel {
 
     public e(TbPageContext tbPageContext, a aVar) {
         this.mPageContext = tbPageContext;
-        this.bga = aVar;
+        this.bgc = aVar;
         Ma();
-        MessageManager.getInstance().registerListener(this.bgb);
+        MessageManager.getInstance().registerListener(this.bgd);
     }
 
     private void Ma() {
@@ -75,6 +75,6 @@ public class e extends BdBaseModel {
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterTask(1021190);
-        MessageManager.getInstance().unRegisterListener(this.bgb);
+        MessageManager.getInstance().unRegisterListener(this.bgd);
     }
 }

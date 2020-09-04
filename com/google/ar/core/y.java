@@ -6,23 +6,23 @@ import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationExceptio
 /* loaded from: classes11.dex */
 public class y {
     boolean a = false;
-    final /* synthetic */ InstallActivity nCw;
+    final /* synthetic */ InstallActivity nCO;
 
     public void a(p pVar) {
-        synchronized (this.nCw) {
+        synchronized (this.nCO) {
             if (!this.a) {
-                InstallActivity.a(this.nCw, pVar);
+                InstallActivity.a(this.nCO, pVar);
                 switch (pVar.ordinal()) {
                     case 0:
                         return;
                     case 1:
-                        InstallActivity.a(this.nCw, new UnavailableUserDeclinedInstallationException());
+                        InstallActivity.a(this.nCO, new UnavailableUserDeclinedInstallationException());
                         break;
                     case 2:
-                        if (!InstallActivity.d(this.nCw)) {
-                            InstallActivity.e(this.nCw);
+                        if (!InstallActivity.d(this.nCO)) {
+                            InstallActivity.e(this.nCO);
                         }
-                        InstallActivity.a(this.nCw, (Exception) null);
+                        InstallActivity.a(this.nCO, (Exception) null);
                         break;
                 }
                 this.a = true;
@@ -31,19 +31,19 @@ public class y {
     }
 
     public void a(Exception exc) {
-        synchronized (this.nCw) {
+        synchronized (this.nCO) {
             if (!this.a) {
                 this.a = true;
-                InstallActivity.a(this.nCw, p.CANCELLED);
+                InstallActivity.a(this.nCO, p.CANCELLED);
                 if (!(exc instanceof UnavailableException)) {
                 }
-                InstallActivity.a(this.nCw, exc);
+                InstallActivity.a(this.nCO, exc);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(InstallActivity installActivity) {
-        this.nCw = installActivity;
+        this.nCO = installActivity;
     }
 }

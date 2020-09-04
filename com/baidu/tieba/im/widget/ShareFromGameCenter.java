@@ -14,17 +14,17 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ShareFromGameCenter extends LinearLayout {
-    private TextView aia;
-    private ShareFromGameCenterMsgData jAf;
-    private HeadImageView jAm;
-    private Button jAn;
-    private TbImageView jAo;
-    private LinearLayout jAp;
-    private LinearLayout jAq;
-    private TextView jAr;
-    private LinearLayout jjW;
+    private TextView aic;
+    private ShareFromGameCenterMsgData jAl;
+    private HeadImageView jAs;
+    private Button jAt;
+    private TbImageView jAu;
+    private LinearLayout jAv;
+    private LinearLayout jAw;
+    private TextView jAx;
+    private LinearLayout jkc;
     private Context mContext;
     private TextView mTitle;
 
@@ -43,86 +43,86 @@ public class ShareFromGameCenter extends LinearLayout {
     public void initUI() {
         LayoutInflater.from(getContext()).inflate(R.layout.share_from_game_center_pic_and_word, this);
         setOrientation(1);
-        this.jAp = (LinearLayout) findViewById(R.id.share_info_layout);
-        this.jAq = (LinearLayout) findViewById(R.id.game_share_content);
-        this.jjW = (LinearLayout) findViewById(R.id.small_tail);
+        this.jAv = (LinearLayout) findViewById(R.id.share_info_layout);
+        this.jAw = (LinearLayout) findViewById(R.id.game_share_content);
+        this.jkc = (LinearLayout) findViewById(R.id.small_tail);
         this.mTitle = (TextView) findViewById(R.id.game_title);
-        this.aia = (TextView) findViewById(R.id.game_desc);
-        this.jAm = (HeadImageView) findViewById(R.id.game_img);
-        this.jAm.setDefaultResource(R.drawable.pic_avatar_ba_140);
-        this.jAm.setAutoChangeStyle(false);
-        this.jAn = (Button) findViewById(R.id.accept_invite_button);
-        this.jAo = (TbImageView) findViewById(R.id.tail_icon);
-        this.jAo.setDefaultResource(R.drawable.tb_launcher_icon);
-        this.jAo.setAutoChangeStyle(false);
-        this.jAr = (TextView) findViewById(R.id.tail_game_from);
+        this.aic = (TextView) findViewById(R.id.game_desc);
+        this.jAs = (HeadImageView) findViewById(R.id.game_img);
+        this.jAs.setDefaultResource(R.drawable.pic_avatar_ba_140);
+        this.jAs.setAutoChangeStyle(false);
+        this.jAt = (Button) findViewById(R.id.accept_invite_button);
+        this.jAu = (TbImageView) findViewById(R.id.tail_icon);
+        this.jAu.setDefaultResource(R.drawable.tb_launcher_icon);
+        this.jAu.setAutoChangeStyle(false);
+        this.jAx = (TextView) findViewById(R.id.tail_game_from);
     }
 
     public void setData(ShareFromGameCenterMsgData shareFromGameCenterMsgData, boolean z) {
         if (shareFromGameCenterMsgData != null) {
-            this.jAf = shareFromGameCenterMsgData;
-            qZ(z);
+            this.jAl = shareFromGameCenterMsgData;
+            rb(z);
         }
     }
 
-    private void qZ(boolean z) {
+    private void rb(boolean z) {
         if (z) {
-            this.jAp.setBackgroundDrawable(this.mContext.getResources().getDrawable(R.drawable.selector_msg_text_bubble_me));
+            this.jAv.setBackgroundDrawable(this.mContext.getResources().getDrawable(R.drawable.selector_msg_text_bubble_me));
             this.mTitle.setTextColor(this.mContext.getResources().getColor(R.color.cp_cont_g));
-            this.aia.setTextColor(this.mContext.getResources().getColor(R.color.cp_cont_g));
+            this.aic.setTextColor(this.mContext.getResources().getColor(R.color.cp_cont_g));
         } else {
             this.mTitle.setTextColor(this.mContext.getResources().getColor(R.color.cp_cont_b));
-            this.aia.setTextColor(this.mContext.getResources().getColor(R.color.cp_cont_f));
-            this.jAp.setBackgroundDrawable(this.mContext.getResources().getDrawable(R.drawable.selector_msg_text_bubble_other));
+            this.aic.setTextColor(this.mContext.getResources().getColor(R.color.cp_cont_f));
+            this.jAv.setBackgroundDrawable(this.mContext.getResources().getDrawable(R.drawable.selector_msg_text_bubble_other));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(l.getDimens(getContext(), R.dimen.ds14), 0, 0, 0);
             layoutParams.height = l.getDimens(getContext(), R.dimen.ds48);
-            this.jjW.setLayoutParams(layoutParams);
+            this.jkc.setLayoutParams(layoutParams);
         }
-        this.mTitle.setText(this.jAf.getTitle());
-        this.jAm.setDefaultResource(R.drawable.pic_avatar_ba_140);
-        this.jAm.setAutoChangeStyle(false);
-        this.jAm.startLoad(this.jAf.getImageUrl(), 10, false);
-        this.aia.setText(this.jAf.getContent());
-        this.jAn.setTextColor(this.mContext.getResources().getColor(R.color.cp_cont_b));
-        this.jAn.setBackgroundResource(R.drawable.btn_appdownload);
-        if (!TextUtils.isEmpty(this.jAf.getButton())) {
+        this.mTitle.setText(this.jAl.getTitle());
+        this.jAs.setDefaultResource(R.drawable.pic_avatar_ba_140);
+        this.jAs.setAutoChangeStyle(false);
+        this.jAs.startLoad(this.jAl.getImageUrl(), 10, false);
+        this.aic.setText(this.jAl.getContent());
+        this.jAt.setTextColor(this.mContext.getResources().getColor(R.color.cp_cont_b));
+        this.jAt.setBackgroundResource(R.drawable.btn_appdownload);
+        if (!TextUtils.isEmpty(this.jAl.getButton())) {
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, l.getDimens(getContext(), R.dimen.ds60));
             int dimens = l.getDimens(getContext(), R.dimen.ds30);
             layoutParams2.setMargins(dimens, l.getDimens(getContext(), R.dimen.ds18), dimens, dimens);
-            this.jAn.setLayoutParams(layoutParams2);
-            this.jAn.setVisibility(0);
-            this.jAn.setText(this.jAf.getButton());
+            this.jAt.setLayoutParams(layoutParams2);
+            this.jAt.setVisibility(0);
+            this.jAt.setText(this.jAl.getButton());
         } else {
             LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-2, -2);
             int dimens2 = l.getDimens(getContext(), R.dimen.ds30);
             layoutParams3.setMargins(dimens2, l.getDimens(getContext(), R.dimen.ds20), dimens2, dimens2);
-            this.jAn.setVisibility(8);
-            this.jAq.setLayoutParams(layoutParams3);
+            this.jAt.setVisibility(8);
+            this.jAw.setLayoutParams(layoutParams3);
         }
-        if (TextUtils.isEmpty(this.jAf.getShareSource())) {
-            this.jjW.setVisibility(8);
+        if (TextUtils.isEmpty(this.jAl.getShareSource())) {
+            this.jkc.setVisibility(8);
         }
-        this.jAr.setText(this.jAf.getShareSource());
-        this.jAo.setDefaultResource(R.drawable.tb_launcher_icon);
-        this.jAo.setAutoChangeStyle(false);
-        this.jAo.startLoad(this.jAf.getShareSourceIcon(), 10, false);
-        TiebaStatic.eventStat(this.mContext, "game_show", "show", 1, "dev_id", com.baidu.tieba.tbadkCore.util.b.QU(this.jAf.getShareSourceUrl()), "ref_id", "2000801");
+        this.jAx.setText(this.jAl.getShareSource());
+        this.jAu.setDefaultResource(R.drawable.tb_launcher_icon);
+        this.jAu.setAutoChangeStyle(false);
+        this.jAu.startLoad(this.jAl.getShareSourceIcon(), 10, false);
+        TiebaStatic.eventStat(this.mContext, "game_show", "show", 1, "dev_id", com.baidu.tieba.tbadkCore.util.b.QU(this.jAl.getShareSourceUrl()), "ref_id", "2000801");
     }
 
     public LinearLayout getTail() {
-        return this.jjW;
+        return this.jkc;
     }
 
     public LinearLayout getContentBody() {
-        return this.jAp;
+        return this.jAv;
     }
 
     public ImageView getTiebaIcon() {
-        return this.jAo;
+        return this.jAu;
     }
 
     public void setTiebaIcon(TbImageView tbImageView) {
-        this.jAo = tbImageView;
+        this.jAu = tbImageView;
     }
 }

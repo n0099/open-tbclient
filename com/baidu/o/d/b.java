@@ -9,101 +9,101 @@ import com.baidu.swan.apps.ap.c;
 import com.baidu.webkit.sdk.PermissionRequest;
 /* loaded from: classes7.dex */
 public class b {
-    private String dMX;
-    private com.baidu.o.b dNh;
+    private String dNb;
+    private com.baidu.o.b dNl;
 
     private b() {
-        this.dNh = null;
-        this.dMX = "";
+        this.dNl = null;
+        this.dNb = "";
     }
 
     /* loaded from: classes7.dex */
     private static class a {
-        private static final b dNi = new b();
+        private static final b dNm = new b();
     }
 
     public static b aXM() {
-        return a.dNi;
+        return a.dNm;
     }
 
     public void a(Context context, RtcConfig rtcConfig, String str, String str2) {
-        if (this.dNh != null) {
-            this.dNh.stop();
-            this.dNh = null;
+        if (this.dNl != null) {
+            this.dNl.stop();
+            this.dNl = null;
         }
         if (context != null && rtcConfig != null && str != null && str2 != null) {
-            this.dMX = str;
-            this.dNh = new com.baidu.o.b(context, rtcConfig, str, str2);
+            this.dNb = str;
+            this.dNl = new com.baidu.o.b(context, rtcConfig, str, str2);
         }
     }
 
-    public void xE(String str) {
-        if (this.dMX.equals(str) && this.dNh != null) {
-            this.dNh.stop();
-            this.dNh = null;
+    public void xF(String str) {
+        if (this.dNb.equals(str) && this.dNl != null) {
+            this.dNl.stop();
+            this.dNl = null;
         }
     }
 
-    public boolean xF(String str) {
-        return (this.dMX == null || str == null || !this.dMX.equals(str)) ? false : true;
+    public boolean xG(String str) {
+        return (this.dNb == null || str == null || !this.dNb.equals(str)) ? false : true;
     }
 
     public void bq(String str) {
-        if (this.dNh != null) {
-            this.dNh.bq(str);
+        if (this.dNl != null) {
+            this.dNl.bq(str);
         }
     }
 
     public void stop() {
-        if (this.dNh.getPlayerView() != null && this.dNh.getPlayerView().getParent() != null) {
-            ((ViewGroup) this.dNh.getPlayerView().getParent()).removeView(this.dNh.getPlayerView());
+        if (this.dNl.getPlayerView() != null && this.dNl.getPlayerView().getParent() != null) {
+            ((ViewGroup) this.dNl.getPlayerView().getParent()).removeView(this.dNl.getPlayerView());
         }
-        if (this.dNh != null) {
-            this.dNh.stop();
+        if (this.dNl != null) {
+            this.dNl.stop();
         }
     }
 
     public void mute() {
-        if (this.dNh != null) {
-            this.dNh.mute();
+        if (this.dNl != null) {
+            this.dNl.mute();
         }
     }
 
     public void unMute() {
-        if (this.dNh != null) {
-            this.dNh.unMute();
+        if (this.dNl != null) {
+            this.dNl.unMute();
         }
     }
 
     public void switchCamera() {
-        if (this.dNh != null) {
-            this.dNh.switchCamera();
+        if (this.dNl != null) {
+            this.dNl.switchCamera();
         }
     }
 
     public boolean updateRTCConfig(RtcConfig rtcConfig) {
-        if (this.dNh != null) {
-            return this.dNh.updateRTCConfig(rtcConfig);
+        if (this.dNl != null) {
+            return this.dNl.updateRTCConfig(rtcConfig);
         }
         return false;
     }
 
     public void resetPreview() {
-        if (this.dNh != null) {
-            this.dNh.resetPreview();
+        if (this.dNl != null) {
+            this.dNl.resetPreview();
         }
     }
 
     public View getRecorderView() {
-        if (this.dNh != null) {
-            return this.dNh.getRecorderView();
+        if (this.dNl != null) {
+            return this.dNl.getRecorderView();
         }
         return null;
     }
 
     public View getPlayerView() {
-        if (this.dNh != null) {
-            return this.dNh.getPlayerView();
+        if (this.dNl != null) {
+            return this.dNl.getPlayerView();
         }
         return null;
     }

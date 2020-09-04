@@ -7,10 +7,10 @@ public class u extends com.baidu.swan.c.i {
 
     /* loaded from: classes10.dex */
     private static final class a {
-        private static final u dKw = new u();
+        private static final u dKA = new u();
     }
 
     public static u aWn() {
-        return a.dKw;
+        return a.dKA;
     }
 }

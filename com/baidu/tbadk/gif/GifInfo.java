@@ -1,7 +1,7 @@
 package com.baidu.tbadk.gif;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class GifInfo extends OrmObject {
     public String mDynamicUrl;
     public String mGid;

@@ -8,7 +8,7 @@ import com.baidu.tbadk.util.ai;
 import com.baidu.tbadk.util.t;
 import tbclient.CompleteTask.CompleteTaskReqIdl;
 import tbclient.CompleteTask.DataReq;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class CompleteTaskReqMsg extends NetMessage {
     public static final int TASK_TYPE_DEFAULT = 0;
     public static final int TASK_TYPE_SHARE = 2;

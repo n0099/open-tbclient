@@ -15,11 +15,11 @@ import okhttp3.ResponseBody;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public abstract class h<ResultDataT> extends com.baidu.swan.apps.setting.oauth.b<ResultDataT> {
-    private final Map<String, String> cGJ = new HashMap();
-    private String cWj;
-    private JSONObject cWk;
-    private boolean cWl;
-    private boolean cWm;
+    private final Map<String, String> cGN = new HashMap();
+    private String cWn;
+    private JSONObject cWo;
+    private boolean cWp;
+    private boolean cWq;
 
     protected abstract HttpRequest a(h hVar);
 
@@ -73,7 +73,7 @@ public abstract class h<ResultDataT> extends com.baidu.swan.apps.setting.oauth.b
             v(new OAuthException(10001));
             return;
         }
-        ra(body.string());
+        rb(body.string());
     }
 
     @NonNull
@@ -87,28 +87,28 @@ public abstract class h<ResultDataT> extends com.baidu.swan.apps.setting.oauth.b
 
     /* JADX INFO: Access modifiers changed from: protected */
     public h<ResultDataT> cj(String str, String str2) {
-        this.cGJ.put(str, str2);
+        this.cGN.put(str, str2);
         return this;
     }
 
     public Map<String, String> aBX() {
-        return this.cGJ;
+        return this.cGN;
     }
 
     public void aBY() {
-        this.cWl = true;
+        this.cWp = true;
     }
 
     public void aBZ() {
-        this.cWm = true;
+        this.cWq = true;
     }
 
-    protected void ra(String str) {
+    protected void rb(String str) {
         int optInt;
-        this.cWj = str;
+        this.cWn = str;
         try {
-            this.cWk = new JSONObject(this.cWj);
-            optInt = this.cWk.optInt(BaseJsonData.TAG_ERRNO);
+            this.cWo = new JSONObject(this.cWn);
+            optInt = this.cWo.optInt(BaseJsonData.TAG_ERRNO);
         } catch (OAuthException e) {
             v(e);
         } catch (Exception e2) {
@@ -116,22 +116,22 @@ public abstract class h<ResultDataT> extends com.baidu.swan.apps.setting.oauth.b
             v(new OAuthException(10005));
             com.baidu.swan.apps.statistic.h.b(10005, null);
         }
-        if ((this.cWl && optInt == 402) || (this.cWm && optInt == 401)) {
-            this.cWl = false;
-            this.cWm = false;
-            if (com.baidu.swan.apps.d.a.f.bTS.abA()) {
-                com.baidu.swan.apps.d.a.f.bTS.abz();
+        if ((this.cWp && optInt == 402) || (this.cWq && optInt == 401)) {
+            this.cWp = false;
+            this.cWq = false;
+            if (com.baidu.swan.apps.d.a.f.bTW.abA()) {
+                com.baidu.swan.apps.d.a.f.bTW.abz();
             }
-            rb(str);
+            rc(str);
         } else if (jq(optInt)) {
-            if (com.baidu.swan.apps.d.a.f.bTS.abA()) {
-                com.baidu.swan.apps.d.a.f.bTS.abz();
-                rb(str);
+            if (com.baidu.swan.apps.d.a.f.bTW.abA()) {
+                com.baidu.swan.apps.d.a.f.bTW.abz();
+                rc(str);
             } else if (DEBUG) {
                 throw new RuntimeException("is not AllianceLogin, error number");
             }
         } else {
-            V(bB(this.cWk));
+            V(bB(this.cWo));
             aBR();
             finish();
         }
@@ -141,7 +141,7 @@ public abstract class h<ResultDataT> extends com.baidu.swan.apps.setting.oauth.b
         return i == 600101 || i == 600102 || i == 600103 || i == 402 || i == 401;
     }
 
-    private void rb(final String str) {
+    private void rc(final String str) {
         aBW().azV().a(com.baidu.swan.apps.v.f.arY().arI(), null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.apps.setting.oauth.a.h.3
             @Override // com.baidu.swan.apps.a.a
             public void onResult(int i) {
@@ -150,7 +150,7 @@ public abstract class h<ResultDataT> extends com.baidu.swan.apps.setting.oauth.b
                     h.this.aBy();
                     return;
                 }
-                h.this.ra(str);
+                h.this.rb(str);
             }
         });
     }
@@ -160,6 +160,6 @@ public abstract class h<ResultDataT> extends com.baidu.swan.apps.setting.oauth.b
     }
 
     public String toString() {
-        return String.format("%s \n  status(%s) errorcode(%s)  \n  strResponse :: %s \n  joResponse ::  %s \n  Result :: %s \n  Exception :: %s", super.toString(), aBz(), Integer.valueOf(this.cUW.getErrorCode()), this.cWj, this.cWk, this.cUW.mData, this.cUW.aBQ());
+        return String.format("%s \n  status(%s) errorcode(%s)  \n  strResponse :: %s \n  joResponse ::  %s \n  Result :: %s \n  Exception :: %s", super.toString(), aBz(), Integer.valueOf(this.cVa.getErrorCode()), this.cWn, this.cWo, this.cVa.mData, this.cVa.aBQ());
     }
 }

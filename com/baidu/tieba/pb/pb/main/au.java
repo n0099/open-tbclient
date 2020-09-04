@@ -21,56 +21,56 @@ import java.util.List;
 import tbclient.PbPage.PbSortType;
 /* loaded from: classes16.dex */
 public class au extends af.a {
-    public boolean Xx;
-    private CustomMessageListener dUB;
-    private SortSwitchButton.a kAr;
-    private SortSwitchButton.a kEx;
-    public TextLineView kJY;
-    public TextLineView kJZ;
-    public SortSwitchButton kKa;
-    public TextView kKb;
-    public View kKc;
-    public View kKd;
-    public View kKe;
+    public boolean Xz;
+    private CustomMessageListener dUF;
+    private SortSwitchButton.a kAy;
+    private SortSwitchButton.a kEE;
     public TextLineView kKf;
-    private View kKg;
-    private View kKh;
-    private TextView kKi;
-    private List<TextLineView> kKj;
-    private int kKk;
-    private View.OnClickListener kKl;
-    private com.baidu.tieba.pb.data.n kKm;
-    private BdUniqueId kKn;
-    private BdUniqueId kKo;
-    private View.OnClickListener kKp;
-    private View.OnClickListener kKq;
-    private CustomMessageListener kKr;
+    public TextLineView kKg;
+    public SortSwitchButton kKh;
+    public TextView kKi;
+    public View kKj;
+    public View kKk;
+    public View kKl;
+    public TextLineView kKm;
+    private View kKn;
+    private View kKo;
+    private TextView kKp;
+    private List<TextLineView> kKq;
+    private int kKr;
+    private View.OnClickListener kKs;
+    private com.baidu.tieba.pb.data.n kKt;
+    private BdUniqueId kKu;
+    private BdUniqueId kKv;
+    private View.OnClickListener kKw;
+    private View.OnClickListener kKx;
+    private CustomMessageListener kKy;
     private View mRootView;
     public int mSkinType;
 
     public au(TbPageContext tbPageContext, View view) {
         super(view);
         this.mSkinType = 3;
-        this.kKk = 0;
-        this.Xx = true;
-        this.kEx = new SortSwitchButton.a() { // from class: com.baidu.tieba.pb.pb.main.au.1
+        this.kKr = 0;
+        this.Xz = true;
+        this.kEE = new SortSwitchButton.a() { // from class: com.baidu.tieba.pb.pb.main.au.1
             @Override // com.baidu.tieba.view.SortSwitchButton.a
             public boolean xL(int i) {
-                if (au.this.kAr != null) {
-                    return au.this.kAr.xL(i);
+                if (au.this.kAy != null) {
+                    return au.this.kAy.xL(i);
                 }
                 return true;
             }
         };
-        this.kKp = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.au.4
+        this.kKw = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.au.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (au.this.kKl != null) {
-                    au.this.kKl.onClick(view2);
+                if (au.this.kKs != null) {
+                    au.this.kKs.onClick(view2);
                 }
                 if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
                     if (view2 == null || !(view2.getTag() instanceof Boolean) || ((Boolean) view2.getTag()).booleanValue()) {
-                        for (TextLineView textLineView : au.this.kKj) {
+                        for (TextLineView textLineView : au.this.kKq) {
                             if (textLineView != null) {
                                 if (textLineView != view2) {
                                     textLineView.setSelected(false);
@@ -83,28 +83,28 @@ public class au extends af.a {
                 }
             }
         };
-        this.kKq = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.au.5
+        this.kKx = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.au.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (au.this.kKl != null) {
-                    au.this.kKl.onClick(view2);
+                if (au.this.kKs != null) {
+                    au.this.kKs.onClick(view2);
                 }
             }
         };
-        this.dUB = new CustomMessageListener(CmdConfigCustom.PB_ON_SCROLL) { // from class: com.baidu.tieba.pb.pb.main.au.6
+        this.dUF = new CustomMessageListener(CmdConfigCustom.PB_ON_SCROLL) { // from class: com.baidu.tieba.pb.pb.main.au.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (au.this.kKm != null && au.this.kKm.UM == com.baidu.tieba.pb.data.n.kxY && customResponsedMessage != null && getTag() == au.this.kKn && (customResponsedMessage.getData() instanceof az.a)) {
-                    ((az.a) customResponsedMessage.getData()).kMS = au.this;
+                if (au.this.kKt != null && au.this.kKt.UM == com.baidu.tieba.pb.data.n.kyf && customResponsedMessage != null && getTag() == au.this.kKu && (customResponsedMessage.getData() instanceof az.a)) {
+                    ((az.a) customResponsedMessage.getData()).kMZ = au.this;
                 }
             }
         };
-        this.kKr = new CustomMessageListener(CmdConfigCustom.PB_ON_SCROLL) { // from class: com.baidu.tieba.pb.pb.main.au.7
+        this.kKy = new CustomMessageListener(CmdConfigCustom.PB_ON_SCROLL) { // from class: com.baidu.tieba.pb.pb.main.au.7
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (au.this.kKm == null || au.this.kKm.UM != com.baidu.tieba.pb.data.n.kxZ || customResponsedMessage == null || getTag() != au.this.kKo || !(customResponsedMessage.getData() instanceof az.a)) {
+                if (au.this.kKt == null || au.this.kKt.UM != com.baidu.tieba.pb.data.n.kyg || customResponsedMessage == null || getTag() != au.this.kKv || !(customResponsedMessage.getData() instanceof az.a)) {
                 }
             }
         };
@@ -115,45 +115,45 @@ public class au extends af.a {
                 public void onClick(View view2) {
                 }
             });
-            this.kJY = (TextLineView) view.findViewById(R.id.reply_title);
-            this.kJY.setOnClickListener(this.kKp);
-            this.kKe = view.findViewById(R.id.reply_god_title_group);
-            this.kKf = (TextLineView) view.findViewById(R.id.reply_god_title);
-            this.kKf.setSelected(false);
-            this.kKh = view.findViewById(R.id.reply_all_title_frame);
-            this.kKg = view.findViewById(R.id.reply_all_title);
-            this.kKi = (TextView) view.findViewById(R.id.reply_title_dynamic);
-            this.kJZ = (TextLineView) view.findViewById(R.id.floor_owner_reply);
-            this.kJZ.setOnClickListener(this.kKp);
-            this.kKa = (SortSwitchButton) view.findViewById(R.id.pb_sort_switch_btn);
-            this.kKa.setOnSwitchChangeListener(this.kEx);
-            this.kKa.setVisibility(0);
-            this.kKb = (TextView) view.findViewById(R.id.pb_god_reply_entrance_text);
-            this.kJY.setSelected(true);
-            this.kJZ.setSelected(false);
-            this.kKj = new ArrayList();
-            this.kKj.add(this.kJY);
-            this.kKj.add(this.kJZ);
-            this.kKc = view.findViewById(R.id.divider_with_reply_title);
-            this.kKd = view.findViewById(R.id.divider_bottom);
-            this.kKa.changeState(2);
+            this.kKf = (TextLineView) view.findViewById(R.id.reply_title);
+            this.kKf.setOnClickListener(this.kKw);
+            this.kKl = view.findViewById(R.id.reply_god_title_group);
+            this.kKm = (TextLineView) view.findViewById(R.id.reply_god_title);
+            this.kKm.setSelected(false);
+            this.kKo = view.findViewById(R.id.reply_all_title_frame);
+            this.kKn = view.findViewById(R.id.reply_all_title);
+            this.kKp = (TextView) view.findViewById(R.id.reply_title_dynamic);
+            this.kKg = (TextLineView) view.findViewById(R.id.floor_owner_reply);
+            this.kKg.setOnClickListener(this.kKw);
+            this.kKh = (SortSwitchButton) view.findViewById(R.id.pb_sort_switch_btn);
+            this.kKh.setOnSwitchChangeListener(this.kEE);
+            this.kKh.setVisibility(0);
+            this.kKi = (TextView) view.findViewById(R.id.pb_god_reply_entrance_text);
+            this.kKf.setSelected(true);
+            this.kKg.setSelected(false);
+            this.kKq = new ArrayList();
+            this.kKq.add(this.kKf);
+            this.kKq.add(this.kKg);
+            this.kKj = view.findViewById(R.id.divider_with_reply_title);
+            this.kKk = view.findViewById(R.id.divider_bottom);
+            this.kKh.changeState(2);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public void tp(boolean z) {
+    public void tr(boolean z) {
         if (z) {
-            this.kJZ.setSelected(true);
-            this.kJY.setSelected(false);
+            this.kKg.setSelected(true);
+            this.kKf.setSelected(false);
             return;
         }
-        this.kJZ.setSelected(false);
-        this.kJY.setSelected(true);
+        this.kKg.setSelected(false);
+        this.kKf.setSelected(true);
     }
 
     public void p(List<PbSortType> list, int i) {
         if (com.baidu.tbadk.core.util.y.isEmpty(list)) {
-            this.kKa.setVisibility(8);
+            this.kKh.setVisibility(8);
             return;
         }
         ArrayList arrayList = new ArrayList();
@@ -163,75 +163,75 @@ public class au extends af.a {
             pVar.QO(pbSortType.sort_name);
             arrayList.add(pVar);
         }
-        this.kKa.setVisibility(0);
-        this.kKa.setData(arrayList, i);
+        this.kKh.setVisibility(0);
+        this.kKh.setData(arrayList, i);
     }
 
     public void a(com.baidu.tieba.pb.data.n nVar) {
-        this.kKm = nVar;
+        this.kKt = nVar;
         if (nVar != null) {
-            if (nVar.UM == com.baidu.tieba.pb.data.n.kxZ) {
-                this.kKe.getContext();
-                if (TextUtils.isEmpty(nVar.kyb)) {
-                    this.kKh.setVisibility(0);
-                    this.kKe.setVisibility(8);
-                    this.kJY.setVisibility(0);
-                    this.kJY.setSelected(false);
-                    this.kJY.setClickable(false);
-                    this.kJY.setText(TbadkCoreApplication.getInst().getString(R.string.god_reply));
+            if (nVar.UM == com.baidu.tieba.pb.data.n.kyg) {
+                this.kKl.getContext();
+                if (TextUtils.isEmpty(nVar.kyi)) {
+                    this.kKo.setVisibility(0);
+                    this.kKl.setVisibility(8);
+                    this.kKf.setVisibility(0);
+                    this.kKf.setSelected(false);
+                    this.kKf.setClickable(false);
+                    this.kKf.setText(TbadkCoreApplication.getInst().getString(R.string.god_reply));
                 } else {
-                    this.kKh.setVisibility(8);
-                    this.kJY.setVisibility(8);
-                    this.kKe.setVisibility(0);
-                    this.kKe.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.au.3
+                    this.kKo.setVisibility(8);
+                    this.kKf.setVisibility(8);
+                    this.kKl.setVisibility(0);
+                    this.kKl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.au.3
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
-                            if (au.this.kKl != null) {
-                                au.this.kKl.onClick(au.this.kKe);
+                            if (au.this.kKs != null) {
+                                au.this.kKs.onClick(au.this.kKl);
                             }
                         }
                     });
                 }
-                this.kKa.setVisibility(8);
-                this.kJZ.setVisibility(8);
-                this.kKd.setVisibility(8);
-            } else if (nVar.UM == com.baidu.tieba.pb.data.n.kxY) {
-                this.kKe.setVisibility(8);
-                this.kKh.setVisibility(0);
-                this.kJY.setClickable(true);
-                this.kJY.setText(TbadkCoreApplication.getInst().getString(R.string.all_reply));
-                this.kJZ.setVisibility(0);
-                tp(nVar.kyd);
-                if (nVar.kye != null) {
-                    this.kKa.setVisibility(0);
+                this.kKh.setVisibility(8);
+                this.kKg.setVisibility(8);
+                this.kKk.setVisibility(8);
+            } else if (nVar.UM == com.baidu.tieba.pb.data.n.kyf) {
+                this.kKl.setVisibility(8);
+                this.kKo.setVisibility(0);
+                this.kKf.setClickable(true);
+                this.kKf.setText(TbadkCoreApplication.getInst().getString(R.string.all_reply));
+                this.kKg.setVisibility(0);
+                tr(nVar.kyk);
+                if (nVar.kyl != null) {
+                    this.kKh.setVisibility(0);
                     int i = 0;
                     while (true) {
-                        if (i >= nVar.kye.size()) {
+                        if (i >= nVar.kyl.size()) {
                             i = 0;
                             break;
-                        } else if (nVar.kye.get(i) != null && nVar.sortType == nVar.kye.get(i).sort_type.intValue()) {
+                        } else if (nVar.kyl.get(i) != null && nVar.sortType == nVar.kyl.get(i).sort_type.intValue()) {
                             break;
                         } else {
                             i++;
                         }
                     }
-                    p(nVar.kye, i);
+                    p(nVar.kyl, i);
                 }
-                this.kKd.setVisibility(0);
+                this.kKk.setVisibility(0);
             }
-            if (this.Xx) {
-                this.kKd.getLayoutParams().height = (int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.tbds16);
-                com.baidu.tbadk.core.util.ap.setBackgroundColor(this.kKh, R.color.cp_bg_line_h);
+            if (this.Xz) {
+                this.kKk.getLayoutParams().height = (int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.tbds16);
+                com.baidu.tbadk.core.util.ap.setBackgroundColor(this.kKo, R.color.cp_bg_line_h);
             } else {
-                this.kKd.getLayoutParams().height = 0;
-                com.baidu.tbadk.core.util.ap.setBackgroundColor(this.kKh, R.color.cp_bg_line_e);
+                this.kKk.getLayoutParams().height = 0;
+                com.baidu.tbadk.core.util.ap.setBackgroundColor(this.kKo, R.color.cp_bg_line_e);
             }
             if (nVar.isDynamic) {
-                this.kKi.setVisibility(0);
-                this.kKg.setVisibility(8);
+                this.kKp.setVisibility(0);
+                this.kKn.setVisibility(8);
             } else {
-                this.kKi.setVisibility(8);
-                this.kKg.setVisibility(0);
+                this.kKp.setVisibility(8);
+                this.kKn.setVisibility(0);
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -239,55 +239,55 @@ public class au extends af.a {
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            com.baidu.tbadk.core.util.ap.setBackgroundColor(this.kKh, R.color.cp_bg_line_d);
-            com.baidu.tbadk.core.util.ap.setBackgroundColor(this.kKe, R.color.cp_bg_line_d);
-            this.kJY.onChangeSkinType(i);
-            this.kJZ.onChangeSkinType(i);
-            com.baidu.tbadk.core.util.ap.setViewTextColor(this.kKf, R.color.cp_cont_b);
-            if (this.kKm != null && this.kKm.UM == com.baidu.tieba.pb.data.n.kxZ) {
-                com.baidu.tbadk.core.util.ap.setViewTextColor(this.kJY, R.color.cp_cont_j, 1);
+            com.baidu.tbadk.core.util.ap.setBackgroundColor(this.kKo, R.color.cp_bg_line_d);
+            com.baidu.tbadk.core.util.ap.setBackgroundColor(this.kKl, R.color.cp_bg_line_d);
+            this.kKf.onChangeSkinType(i);
+            this.kKg.onChangeSkinType(i);
+            com.baidu.tbadk.core.util.ap.setViewTextColor(this.kKm, R.color.cp_cont_b);
+            if (this.kKt != null && this.kKt.UM == com.baidu.tieba.pb.data.n.kyg) {
+                com.baidu.tbadk.core.util.ap.setViewTextColor(this.kKf, R.color.cp_cont_j, 1);
             }
-            com.baidu.tbadk.core.util.ap.setViewTextColor(this.kKb, R.color.cp_cont_j);
-            this.kKb.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, com.baidu.tbadk.core.util.ap.getDrawable(R.drawable.icon_gob_reply_jump), (Drawable) null);
-            this.kKa.onChangeSkinType();
-            com.baidu.tbadk.core.util.ap.setBackgroundColor(this.kKc, R.color.cp_bg_line_c);
-            if (this.Xx) {
-                com.baidu.tbadk.core.util.ap.setBackgroundResource(this.kKd, R.drawable.personalize_tab_shadow);
-                com.baidu.tbadk.core.util.ap.setBackgroundColor(this.kKh, R.color.cp_bg_line_h);
+            com.baidu.tbadk.core.util.ap.setViewTextColor(this.kKi, R.color.cp_cont_j);
+            this.kKi.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, com.baidu.tbadk.core.util.ap.getDrawable(R.drawable.icon_gob_reply_jump), (Drawable) null);
+            this.kKh.onChangeSkinType();
+            com.baidu.tbadk.core.util.ap.setBackgroundColor(this.kKj, R.color.cp_bg_line_c);
+            if (this.Xz) {
+                com.baidu.tbadk.core.util.ap.setBackgroundResource(this.kKk, R.drawable.personalize_tab_shadow);
+                com.baidu.tbadk.core.util.ap.setBackgroundColor(this.kKo, R.color.cp_bg_line_h);
             } else {
-                com.baidu.tbadk.core.util.ap.setBackgroundColor(this.kKh, R.color.cp_bg_line_e);
+                com.baidu.tbadk.core.util.ap.setBackgroundColor(this.kKo, R.color.cp_bg_line_e);
             }
-            com.baidu.tbadk.core.util.ap.setViewTextColor(this.kKi, R.color.cp_cont_b, 1);
+            com.baidu.tbadk.core.util.ap.setViewTextColor(this.kKp, R.color.cp_cont_b, 1);
         }
         this.mSkinType = i;
     }
 
     public void m(BdUniqueId bdUniqueId) {
-        this.kKn = bdUniqueId;
+        this.kKu = bdUniqueId;
         MessageManager.getInstance().unRegisterListener(bdUniqueId);
-        this.dUB.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.dUB);
+        this.dUF.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.dUF);
     }
 
     public void v(BdUniqueId bdUniqueId) {
-        this.kKo = bdUniqueId;
+        this.kKv = bdUniqueId;
         MessageManager.getInstance().unRegisterListener(bdUniqueId);
-        this.kKr.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.kKr);
+        this.kKy.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.kKy);
     }
 
     public void U(View.OnClickListener onClickListener) {
-        this.kKl = onClickListener;
+        this.kKs = onClickListener;
     }
 
     public void setOnSwitchChangeListener(SortSwitchButton.a aVar) {
-        this.kAr = aVar;
+        this.kAy = aVar;
     }
 
     public void w(BdUniqueId bdUniqueId) {
-        if (this.kKa != null) {
-            this.kKa.setListenerTag(bdUniqueId);
-            this.kKa.setCommenId(bdUniqueId);
+        if (this.kKh != null) {
+            this.kKh.setListenerTag(bdUniqueId);
+            this.kKh.setCommenId(bdUniqueId);
         }
     }
 

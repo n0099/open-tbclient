@@ -6,23 +6,23 @@ import com.baidu.adp.lib.cache.l;
 import com.baidu.adp.lib.util.StringUtils;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
-    private static a hVg;
-    private FrsLinkHashMap<String, Long> hVh;
+    private static a hVm;
+    private FrsLinkHashMap<String, Long> hVn;
 
     private a() {
     }
 
-    public static a cmK() {
-        if (hVg == null) {
+    public static a cmL() {
+        if (hVm == null) {
             synchronized (a.class) {
-                if (hVg == null) {
-                    hVg = new a();
+                if (hVm == null) {
+                    hVm = new a();
                 }
             }
         }
-        return hVg;
+        return hVm;
     }
 
     private void A(String str, long j) {
@@ -36,7 +36,7 @@ public class a {
                 if (dw != null) {
                     String str2 = dw.get("hot_topic_key");
                     if (!StringUtils.isNull(str2) && (frsHotTopicListData = (FrsHotTopicListData) OrmObject.objectWithJsonStr(str2, FrsHotTopicListData.class)) != null) {
-                        a.this.hVh = frsHotTopicListData.mSceneMap;
+                        a.this.hVn = frsHotTopicListData.mSceneMap;
                     }
                 }
                 return null;
@@ -48,14 +48,14 @@ public class a {
 
     public boolean B(String str, long j) {
         boolean z;
-        if (this.hVh == null) {
-            this.hVh = new FrsLinkHashMap<>();
+        if (this.hVn == null) {
+            this.hVn = new FrsLinkHashMap<>();
             A(str, j);
         }
-        if (StringUtils.isNull(str) || this.hVh.isEmpty()) {
+        if (StringUtils.isNull(str) || this.hVn.isEmpty()) {
             return false;
         }
-        Iterator<Map.Entry<String, Long>> it = this.hVh.entrySet().iterator();
+        Iterator<Map.Entry<String, Long>> it = this.hVn.entrySet().iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -67,15 +67,15 @@ public class a {
                 break;
             }
         }
-        if (z && this.hVh.get(str).longValue() == j) {
+        if (z && this.hVn.get(str).longValue() == j) {
             return false;
         }
-        this.hVh.put(str, Long.valueOf(j));
-        cmL();
+        this.hVn.put(str, Long.valueOf(j));
+        cmM();
         return true;
     }
 
-    private void cmL() {
+    private void cmM() {
         BdAsyncTask<Void, Void, Void> bdAsyncTask = new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.frs.FrsHotTopic.a.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -84,7 +84,7 @@ public class a {
                 l<String> dw = com.baidu.tbadk.core.c.a.bhb().dw("tb.frs_hottopic", "");
                 if (dw != null) {
                     FrsHotTopicListData frsHotTopicListData = new FrsHotTopicListData();
-                    frsHotTopicListData.mSceneMap = a.this.hVh;
+                    frsHotTopicListData.mSceneMap = a.this.hVn;
                     String jsonStrWithObject = OrmObject.jsonStrWithObject(frsHotTopicListData);
                     if (!StringUtils.isNull(jsonStrWithObject)) {
                         dw.setForever("hot_topic_key", jsonStrWithObject);

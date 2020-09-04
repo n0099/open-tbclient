@@ -12,14 +12,14 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes11.dex */
 public final class aj implements Runnable {
     final /* synthetic */ Activity a;
-    final /* synthetic */ y nCk;
-    final /* synthetic */ w nCz;
+    final /* synthetic */ y nCC;
+    final /* synthetic */ w nCR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(w wVar, Activity activity, y yVar) {
-        this.nCz = wVar;
+        this.nCR = wVar;
         this.a = activity;
-        this.nCk = yVar;
+        this.nCC = yVar;
     }
 
     @Override // java.lang.Runnable
@@ -28,16 +28,16 @@ public final class aj implements Runnable {
         Bundle b;
         try {
             AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-            aVar = this.nCz.nCs;
+            aVar = this.nCR.nCK;
             String str = this.a.getApplicationInfo().packageName;
-            w wVar = this.nCz;
+            w wVar = this.nCR;
             b = w.b();
             aVar.a(str, Collections.singletonList(b), new Bundle(), new x(this, atomicBoolean));
             new Handler().postDelayed(new ak(this, atomicBoolean), IMConnection.RETRY_DELAY_TIMES);
         } catch (RemoteException e) {
             Log.w("ARCore-InstallService", "requestInstall threw, launching fullscreen.", e);
-            w wVar2 = this.nCz;
-            w.b(this.a, this.nCk);
+            w wVar2 = this.nCR;
+            w.b(this.a, this.nCC);
         }
     }
 }

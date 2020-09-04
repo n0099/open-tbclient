@@ -87,7 +87,7 @@ public interface r {
 
     HttpRequest i(Context context, Map<String, String> map);
 
-    String iH(String str);
+    String iI(String str);
 
     boolean isDebug();
 

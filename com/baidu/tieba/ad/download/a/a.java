@@ -11,29 +11,29 @@ import java.util.Set;
 /* loaded from: classes15.dex */
 public class a implements c {
     private static final String TAG = a.class.getSimpleName();
-    public final DownloadCacheKey foZ;
+    public final DownloadCacheKey fpd;
     private final Object mLock = new Object();
     private int mPercent = 0;
     private int mState = 0;
-    private final Set<d> fpa = new HashSet();
-    private final com.baidu.tieba.ad.download.c foY = new com.baidu.tieba.ad.download.c("DOWNLOAD_PAGE", "DOWNLOAD_BUTTON", "");
+    private final Set<d> fpe = new HashSet();
+    private final com.baidu.tieba.ad.download.c fpc = new com.baidu.tieba.ad.download.c();
 
     public a(DownloadCacheKey downloadCacheKey) {
-        this.foZ = downloadCacheKey;
+        this.fpd = downloadCacheKey;
     }
 
     public void setState(int i) {
         this.mState = i;
     }
 
-    public int bBk() {
+    public int bBl() {
         return this.mState;
     }
 
     public boolean a(d dVar) {
         boolean add;
         synchronized (this.mLock) {
-            add = this.fpa.add(dVar);
+            add = this.fpe.add(dVar);
         }
         return add;
     }
@@ -41,47 +41,47 @@ public class a implements c {
     public boolean b(d dVar) {
         boolean remove;
         synchronized (this.mLock) {
-            remove = this.fpa.remove(dVar);
+            remove = this.fpe.remove(dVar);
         }
         return remove;
     }
 
-    public boolean bBl() {
-        return this.fpa.isEmpty();
+    public boolean bBm() {
+        return this.fpe.isEmpty();
     }
 
-    public void bBm() {
-        if (this.foZ != null) {
-            this.foY.at(710, this.foZ.mPackageName);
-            AdDownloadData d = com.baidu.tieba.ad.download.d.bBf().d(this.foZ);
+    public void bBn() {
+        if (this.fpd != null) {
+            AdDownloadData d = com.baidu.tieba.ad.download.d.bBg().d(this.fpd);
+            this.fpc.g(710, this.fpd.mPackageName, d.getExtInfo());
             d.extra().setStatus(DownloadStatus.STATUS_INSTALL_SUCCESS);
             d.extra().setPercent(100);
-            if (!bBl()) {
-                for (d dVar : this.fpa) {
-                    dVar.f(this.foZ);
+            if (!bBm()) {
+                for (d dVar : this.fpe) {
+                    dVar.f(this.fpd);
                 }
             }
         }
     }
 
-    public void bBn() {
-        if (this.foZ != null) {
-            com.baidu.tieba.ad.download.d.bBf().d(this.foZ).extra().setStatus(DownloadStatus.STATUS_NONE);
-            if (!bBl()) {
-                for (d dVar : this.fpa) {
-                    dVar.g(this.foZ);
+    public void bBo() {
+        if (this.fpd != null) {
+            com.baidu.tieba.ad.download.d.bBg().d(this.fpd).extra().setStatus(DownloadStatus.STATUS_NONE);
+            if (!bBm()) {
+                for (d dVar : this.fpe) {
+                    dVar.g(this.fpd);
                 }
             }
         }
     }
 
     @Override // com.baidu.tieba.ad.download.a.c
-    public void Dx(String str) {
-        if (this.foZ != null) {
-            com.baidu.tieba.ad.download.d.bBf().d(this.foZ).extra().setStatus(DownloadStatus.STATUS_DOWNLOADING);
-            if (!bBl()) {
-                for (d dVar : this.fpa) {
-                    dVar.e(this.foZ);
+    public void Dy(String str) {
+        if (this.fpd != null) {
+            com.baidu.tieba.ad.download.d.bBg().d(this.fpd).extra().setStatus(DownloadStatus.STATUS_DOWNLOADING);
+            if (!bBm()) {
+                for (d dVar : this.fpe) {
+                    dVar.e(this.fpd);
                 }
             }
         }
@@ -89,11 +89,11 @@ public class a implements c {
 
     @Override // com.baidu.tieba.ad.download.a.c
     public void av(String str, int i) {
-        if (this.foZ != null) {
-            com.baidu.tieba.ad.download.d.bBf().d(this.foZ).extra().setStatus(DownloadStatus.STATUS_PAUSED);
-            if (!bBl()) {
-                for (d dVar : this.fpa) {
-                    dVar.b(this.foZ, this.mPercent);
+        if (this.fpd != null) {
+            com.baidu.tieba.ad.download.d.bBg().d(this.fpd).extra().setStatus(DownloadStatus.STATUS_PAUSED);
+            if (!bBm()) {
+                for (d dVar : this.fpe) {
+                    dVar.b(this.fpd, this.mPercent);
                 }
             }
         }
@@ -101,11 +101,11 @@ public class a implements c {
 
     @Override // com.baidu.tieba.ad.download.a.c
     public void a(String str, StopStatus stopStatus) {
-        if (this.foZ != null) {
-            com.baidu.tieba.ad.download.d.bBf().d(this.foZ).extra().setStatus(DownloadStatus.STATUS_NONE);
-            if (!bBl()) {
-                for (d dVar : this.fpa) {
-                    dVar.a(this.foZ, stopStatus);
+        if (this.fpd != null) {
+            com.baidu.tieba.ad.download.d.bBg().d(this.fpd).extra().setStatus(DownloadStatus.STATUS_NONE);
+            if (!bBm()) {
+                for (d dVar : this.fpe) {
+                    dVar.a(this.fpd, stopStatus);
                 }
             }
         }
@@ -113,15 +113,15 @@ public class a implements c {
 
     @Override // com.baidu.tieba.ad.download.a.c
     public void onSuccess(String str, String str2) {
-        if (this.foZ != null) {
-            this.foY.at(704, this.foZ.mPackageName);
-            AdDownloadData d = com.baidu.tieba.ad.download.d.bBf().d(this.foZ);
+        if (this.fpd != null) {
+            AdDownloadData d = com.baidu.tieba.ad.download.d.bBg().d(this.fpd);
+            this.fpc.g(704, this.fpd.mPackageName, d.getExtInfo());
             d.extra().setStatus(DownloadStatus.STATUS_SUCCESS);
             d.extra().setPercent(100);
-            com.baidu.tieba.ad.download.d.bBf().d(this.foZ).extra().setDownloadPath(str2);
-            if (!bBl()) {
-                for (d dVar : this.fpa) {
-                    dVar.a(this.foZ, str2, false);
+            com.baidu.tieba.ad.download.d.bBg().d(this.fpd).extra().setDownloadPath(str2);
+            if (!bBm()) {
+                for (d dVar : this.fpe) {
+                    dVar.a(this.fpd, str2, false);
                 }
             }
         }
@@ -129,36 +129,41 @@ public class a implements c {
 
     @Override // com.baidu.tieba.ad.download.a.c
     public void aw(String str, int i) {
-        if (this.foZ != null) {
+        if (this.fpd != null) {
             this.mPercent = i;
-            com.baidu.tieba.ad.download.d.bBf().d(this.foZ).extra().setPercent(i);
-            if (!bBl()) {
-                for (d dVar : this.fpa) {
-                    dVar.a(this.foZ, this.mPercent);
+            com.baidu.tieba.ad.download.d.bBg().d(this.fpd).extra().setPercent(i);
+            if (!bBm()) {
+                for (d dVar : this.fpe) {
+                    dVar.a(this.fpd, this.mPercent);
                 }
             }
         }
     }
 
-    public void a(String str, DownloadStatus downloadStatus, @Nullable String str2) {
+    public void a(String str, DownloadStatus downloadStatus, @Nullable String str2, String str3) {
+        int i;
         switch (downloadStatus) {
             case STATUS_NONE:
-                this.foY.l(str, 701, str2);
-                return;
+                i = 701;
+                break;
             case STATUS_DOWNLOADING:
-                this.foY.l(str, CyberPlayerManager.MEDIA_INFO_BUFFERING_END, str2);
-                return;
+                i = CyberPlayerManager.MEDIA_INFO_BUFFERING_END;
+                break;
             case STATUS_PAUSED:
-                this.foY.l(str, 703, str2);
-                return;
+                i = 703;
+                break;
             case STATUS_SUCCESS:
-                this.foY.l(str, 705, str2);
-                return;
+                i = 705;
+                break;
             case STATUS_INSTALL_SUCCESS:
-                this.foY.l(str, 706, str2);
-                return;
+                i = 706;
+                break;
             default:
-                return;
+                i = -1;
+                break;
+        }
+        if (i != -1) {
+            this.fpc.c(str, i, str2, str3);
         }
     }
 }

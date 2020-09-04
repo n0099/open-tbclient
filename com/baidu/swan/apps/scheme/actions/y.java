@@ -87,7 +87,7 @@ public class y extends aa {
     public void a(@NonNull final Context context, final File file, @NonNull final UnitedSchemeEntity unitedSchemeEntity, @NonNull final CallbackHandler callbackHandler, final String str) {
         com.baidu.swan.apps.ab.a.a("android.permission.WRITE_EXTERNAL_STORAGE", new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 3, context, new com.baidu.swan.apps.ab.b() { // from class: com.baidu.swan.apps.scheme.actions.y.2
             @Override // com.baidu.swan.apps.ab.b
-            public void iF(String str2) {
+            public void iG(String str2) {
                 boolean e = com.baidu.swan.apps.ap.c.aEs() ? y.this.e(context, file) : y.this.f(context, file);
                 int i = e ? 0 : 1001;
                 String str3 = e ? "save success" : "can not save to album : " + file;
@@ -104,19 +104,19 @@ public class y extends aa {
     }
 
     private File a(com.baidu.swan.apps.runtime.e eVar, String str, URI uri) {
-        String rS;
+        String rT;
         com.baidu.swan.apps.storage.b.c arE = com.baidu.swan.apps.v.f.arY().arE();
         if ("bdfile".equalsIgnoreCase(uri.getScheme())) {
-            rS = arE.rT(str);
+            rT = arE.rU(str);
         } else if (com.baidu.swan.apps.ad.a.a.j(eVar.XZ())) {
-            rS = arE.rI(str);
+            rT = arE.rJ(str);
         } else {
-            rS = arE.rS(str);
+            rT = arE.rT(str);
         }
-        if (TextUtils.isEmpty(rS)) {
+        if (TextUtils.isEmpty(rT)) {
             return null;
         }
-        return new File(rS);
+        return new File(rT);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -202,9 +202,9 @@ public class y extends aa {
     }
 
     private String G(File file) {
-        String xu = com.baidu.swan.c.d.xu(file.getPath());
+        String xv = com.baidu.swan.c.d.xv(file.getPath());
         String valueOf = String.valueOf(System.currentTimeMillis());
-        return TextUtils.isEmpty(xu) ? valueOf : valueOf + "." + xu;
+        return TextUtils.isEmpty(xv) ? valueOf : valueOf + "." + xv;
     }
 
     private void g(Context context, File file) {

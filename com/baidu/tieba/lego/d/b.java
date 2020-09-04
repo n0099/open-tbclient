@@ -5,17 +5,17 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.lego.c.e;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b implements a {
-    public static final AtomicReference<a> jSZ = new AtomicReference<>(null);
-    private static final a jTa = new b();
+    public static final AtomicReference<a> jTf = new AtomicReference<>(null);
+    private static final a jTg = new b();
 
     private b() {
     }
 
-    public static a cNu() {
-        a aVar = jSZ.get();
-        return aVar == null ? jTa : aVar;
+    public static a cNv() {
+        a aVar = jTf.get();
+        return aVar == null ? jTg : aVar;
     }
 
     @Override // com.baidu.tieba.lego.d.a

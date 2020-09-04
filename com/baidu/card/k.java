@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.data.AbsThreadDataSupport;
 import com.baidu.tieba.R;
 /* loaded from: classes15.dex */
 public class k extends h {
-    private AbsThreadDataSupport aeW;
-    private ForumGoodsEnterLayout afl;
-    private int afm;
+    private AbsThreadDataSupport aeY;
+    private ForumGoodsEnterLayout afn;
+    private int afo;
     private final View.OnClickListener mOnClickListener;
 
     public k(Context context) {
@@ -20,7 +20,7 @@ public class k extends h {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (k.this.tw() != null) {
-                    k.this.tw().a(view, k.this.aeW);
+                    k.this.tw().a(view, k.this.aeY);
                 }
             }
         };
@@ -28,19 +28,19 @@ public class k extends h {
         int dimens2 = com.baidu.adp.lib.util.l.getDimens(context, com.baidu.tbadk.a.b.a.aL(R.dimen.tbds21, R.dimen.tbds0));
         setTopMargin(dimens);
         bn(dimens2);
-        this.afl = new ForumGoodsEnterLayout(context);
-        this.afl.setOnAfterClickListener(this.mOnClickListener);
+        this.afn = new ForumGoodsEnterLayout(context);
+        this.afn.setOnAfterClickListener(this.mOnClickListener);
     }
 
     public void tE() {
         int dimens = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds30);
         setTopMargin(dimens);
         bn(0);
-        a(this.afl, dimens, 0);
+        a(this.afn, dimens, 0);
     }
 
     public void bo(int i) {
-        this.afm = i;
+        this.afo = i;
     }
 
     public void a(View view, int i, int i2) {
@@ -57,21 +57,21 @@ public class k extends h {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.afl;
+        return this.afn;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.o
     /* renamed from: b */
     public void F(AbsThreadDataSupport absThreadDataSupport) {
-        this.aeW = absThreadDataSupport;
-        this.afl.setSourceForPb(this.aeR.tN());
-        this.afl.setFrstype(this.afm);
-        this.afl.setData(absThreadDataSupport);
+        this.aeY = absThreadDataSupport;
+        this.afn.setSourceForPb(this.aeT.tN());
+        this.afn.setFrstype(this.afo);
+        this.afn.setData(absThreadDataSupport);
     }
 
     @Override // com.baidu.card.p
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.afl.onChangeSkinType(tbPageContext, i);
+        this.afn.onChangeSkinType(tbPageContext, i);
     }
 }

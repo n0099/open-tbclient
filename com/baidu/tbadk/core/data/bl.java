@@ -4,11 +4,11 @@ import com.baidu.adp.BdUniqueId;
 import java.util.ArrayList;
 import tbclient.RecommendInfo;
 import tbclient.SchoolRecomUserInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class bl extends bw {
-    public static final BdUniqueId dZX = BdUniqueId.gen();
+    public static final BdUniqueId eab = BdUniqueId.gen();
     private String title = "";
-    private ArrayList<bn> dZY = new ArrayList<>();
+    private ArrayList<bn> eac = new ArrayList<>();
 
     public void a(RecommendInfo recommendInfo) {
         if (recommendInfo != null) {
@@ -17,7 +17,7 @@ public class bl extends bw {
                 if (schoolRecomUserInfo != null) {
                     bn bnVar = new bn();
                     bnVar.a(schoolRecomUserInfo);
-                    this.dZY.add(bnVar);
+                    this.eac.add(bnVar);
                 }
             }
         }
@@ -29,11 +29,11 @@ public class bl extends bw {
     }
 
     public ArrayList<bn> bdL() {
-        return this.dZY;
+        return this.eac;
     }
 
     @Override // com.baidu.tbadk.core.data.bw, com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return dZX;
+        return eab;
     }
 }

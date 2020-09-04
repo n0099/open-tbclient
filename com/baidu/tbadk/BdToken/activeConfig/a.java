@@ -6,33 +6,33 @@ import java.util.ArrayList;
 import tbclient.ActiveConfig.DataRes;
 import tbclient.FloatStrategy;
 import tbclient.MissionInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
-    private DataRes dQA;
-    public NewUserRedPackageData dQE;
-    public ActiveCenterData dQF;
+    private DataRes dQE;
+    public NewUserRedPackageData dQI;
+    public ActiveCenterData dQJ;
     public boolean isNewUser = false;
-    public String dQB = "";
-    private final ArrayList<com.baidu.tbadk.BdToken.b> dQC = new ArrayList<>();
-    private final ArrayList<FloatStrategy> dQD = new ArrayList<>();
+    public String dQF = "";
+    private final ArrayList<com.baidu.tbadk.BdToken.b> dQG = new ArrayList<>();
+    private final ArrayList<FloatStrategy> dQH = new ArrayList<>();
 
     public ArrayList<com.baidu.tbadk.BdToken.b> aZB() {
-        return this.dQC;
+        return this.dQG;
     }
 
     public ArrayList<FloatStrategy> aZC() {
-        return this.dQD;
+        return this.dQH;
     }
 
     public void a(DataRes dataRes) {
-        this.dQA = dataRes;
-        this.dQC.clear();
-        this.dQD.clear();
+        this.dQE = dataRes;
+        this.dQG.clear();
+        this.dQH.clear();
         if (dataRes != null) {
             this.isNewUser = dataRes.is_new_user.intValue() == 1;
-            this.dQB = dataRes.active_url;
-            this.dQD.addAll(dataRes.float_list);
-            for (MissionInfo missionInfo : this.dQA.mission_list) {
+            this.dQF = dataRes.active_url;
+            this.dQH.addAll(dataRes.float_list);
+            for (MissionInfo missionInfo : this.dQE.mission_list) {
                 if (missionInfo != null) {
                     com.baidu.tbadk.BdToken.b bVar = new com.baidu.tbadk.BdToken.b(missionInfo);
                     if (missionInfo.tasktype.intValue() == 5) {
@@ -40,15 +40,15 @@ public class a {
                     } else if (missionInfo.tasktype.intValue() == 9) {
                         p.aYW().q(bVar);
                     } else if (bVar.aXV()) {
-                        this.dQC.add(bVar);
+                        this.dQG.add(bVar);
                     }
                 }
             }
-            this.dQE = new NewUserRedPackageData();
-            this.dQE.parseProto(dataRes);
+            this.dQI = new NewUserRedPackageData();
+            this.dQI.parseProto(dataRes);
             if (dataRes.active_center != null) {
-                this.dQF = new ActiveCenterData();
-                this.dQF.parseProto(dataRes);
+                this.dQJ = new ActiveCenterData();
+                this.dQJ.parseProto(dataRes);
             }
         }
     }

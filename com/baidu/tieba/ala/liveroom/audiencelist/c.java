@@ -23,33 +23,33 @@ import com.baidu.live.tieba.horizonallist.widget.AdapterView;
 import com.baidu.live.view.AlphaGradientHListView;
 /* loaded from: classes7.dex */
 public class c {
-    private r aAh;
-    private ViewGroup fZu;
-    private com.baidu.live.liveroom.a.a gph;
-    private a gpi;
-    public FrameLayout gpj;
-    public FrameLayout gpk;
-    private AlphaGradientHListView gpl;
-    private String gpm;
-    private boolean gpn;
+    private r aAj;
+    private ViewGroup fZy;
+    private com.baidu.live.liveroom.a.a gpl;
+    private a gpm;
+    public FrameLayout gpn;
+    public FrameLayout gpo;
+    private AlphaGradientHListView gpp;
+    private String gpq;
+    private boolean gpr;
     private String mGroupId;
     private String mLiveId;
     private TbPageContext mTbPageContext;
     private String otherParams;
-    private AdapterView.c gpo = new AdapterView.c() { // from class: com.baidu.tieba.ala.liveroom.audiencelist.c.1
+    private AdapterView.c gps = new AdapterView.c() { // from class: com.baidu.tieba.ala.liveroom.audiencelist.c.1
         @Override // com.baidu.live.tieba.horizonallist.widget.AdapterView.c
         public void a(AdapterView<?> adapterView, View view, int i, long j) {
-            j jVar = (j) c.this.gpi.getItem(i);
+            j jVar = (j) c.this.gpm.getItem(i);
             if (jVar != null) {
-                if (c.this.gph != null) {
-                    c.this.gph.ey(5);
+                if (c.this.gpl != null) {
+                    c.this.gpl.ey(5);
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(c.this.getPageContext().getPageActivity(), String.valueOf(jVar.aDE.userId), jVar.aDE.userName, jVar.aDE.portrait, jVar.aDE.sex, jVar.aDE.levelId, null, null, 0L, jVar.aDE.fansCount, jVar.aDE.followCount, jVar.aDE.userStatus, c.this.mGroupId, c.this.mLiveId, c.this.gpn, c.this.gpm, jVar.aDE.appId, jVar.aDE.userName, c.this.otherParams)));
-                LogManager.getCommonLogger().doClickTopRightAuthorLog(c.this.aAh.mLiveInfo.feed_id, i, c.this.JY());
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(c.this.getPageContext().getPageActivity(), String.valueOf(jVar.aDG.userId), jVar.aDG.userName, jVar.aDG.portrait, jVar.aDG.sex, jVar.aDG.levelId, null, null, 0L, jVar.aDG.fansCount, jVar.aDG.followCount, jVar.aDG.userStatus, c.this.mGroupId, c.this.mLiveId, c.this.gpr, c.this.gpq, jVar.aDG.appId, jVar.aDG.userName, c.this.otherParams)));
+                LogManager.getCommonLogger().doClickTopRightAuthorLog(c.this.aAj.mLiveInfo.feed_id, i, c.this.JY());
             }
         }
     };
-    CustomMessageListener fPP = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.audiencelist.c.2
+    CustomMessageListener fPT = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.audiencelist.c.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -65,9 +65,9 @@ public class c {
 
     public c(TbPageContext tbPageContext, com.baidu.live.liveroom.a.a aVar, boolean z) {
         this.mTbPageContext = tbPageContext;
-        this.gph = aVar;
-        this.gpn = z;
-        MessageManager.getInstance().registerListener(this.fPP);
+        this.gpl = aVar;
+        this.gpr = z;
+        MessageManager.getInstance().registerListener(this.fPT);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -78,36 +78,36 @@ public class c {
     public void a(String str, String str2, String str3, r rVar) {
         this.mGroupId = str;
         this.mLiveId = str2;
-        this.gpm = str3;
-        this.aAh = rVar;
+        this.gpq = str3;
+        this.aAj = rVar;
     }
 
     public void c(ViewGroup viewGroup, int i, int i2) {
         if (viewGroup != null) {
-            if (this.gpj == null) {
-                this.gpj = (FrameLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(a.h.ala_live_audience_list_layout, (ViewGroup) null);
+            if (this.gpn == null) {
+                this.gpn = (FrameLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(a.h.ala_live_audience_list_layout, (ViewGroup) null);
             }
-            if (this.fZu != null && this.fZu.indexOfChild(this.gpj) > 0) {
-                this.fZu.removeView(this.gpj);
+            if (this.fZy != null && this.fZy.indexOfChild(this.gpn) > 0) {
+                this.fZy.removeView(this.gpn);
             }
-            this.fZu = viewGroup;
-            this.gpj.setId(a.g.ala_liveroom_audience);
-            this.gpk = (FrameLayout) this.gpj.findViewById(a.g.content_layout);
-            this.gpl = (AlphaGradientHListView) this.gpj.findViewById(a.g.ala_live_guest_listview);
-            this.gpl.setDividerWidth(BdUtilHelper.getDimens(getPageContext().getPageActivity(), a.e.sdk_ds0));
-            this.gpi = new a(getPageContext().getPageActivity());
-            this.gpl.setAdapter((ListAdapter) this.gpi);
-            this.gpl.setSelector(getPageContext().getPageActivity().getResources().getDrawable(a.f.sdk_transparent_bg));
-            this.gpl.setOnItemClickListener(this.gpo);
-            this.gpl.setColor(getPageContext().getResources().getColor(a.d.sdk_white_alpha100), getPageContext().getResources().getColor(a.d.sdk_white_alpha0));
-            this.gpl.setNeedAlphaShade(true);
+            this.fZy = viewGroup;
+            this.gpn.setId(a.g.ala_liveroom_audience);
+            this.gpo = (FrameLayout) this.gpn.findViewById(a.g.content_layout);
+            this.gpp = (AlphaGradientHListView) this.gpn.findViewById(a.g.ala_live_guest_listview);
+            this.gpp.setDividerWidth(BdUtilHelper.getDimens(getPageContext().getPageActivity(), a.e.sdk_ds0));
+            this.gpm = new a(getPageContext().getPageActivity());
+            this.gpp.setAdapter((ListAdapter) this.gpm);
+            this.gpp.setSelector(getPageContext().getPageActivity().getResources().getDrawable(a.f.sdk_transparent_bg));
+            this.gpp.setOnItemClickListener(this.gps);
+            this.gpp.setColor(getPageContext().getResources().getColor(a.d.sdk_white_alpha100), getPageContext().getResources().getColor(a.d.sdk_white_alpha0));
+            this.gpp.setNeedAlphaShade(true);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, BdUtilHelper.getDimens(getPageContext().getPageActivity(), a.e.sdk_ds82));
             layoutParams.addRule(1, i);
             layoutParams.addRule(8, i);
             layoutParams.addRule(0, i2);
             layoutParams.leftMargin = BdUtilHelper.getDimens(getPageContext().getPageActivity(), a.e.sdk_ds10);
             layoutParams.rightMargin = BdUtilHelper.dip2px(getPageContext().getPageActivity(), -6.0f);
-            this.fZu.addView(this.gpj, layoutParams);
+            this.fZy.addView(this.gpn, layoutParams);
         }
     }
 
@@ -115,22 +115,22 @@ public class c {
     }
 
     public void e(k kVar) {
-        if (this.gpi != null) {
-            this.gpi.d(kVar);
-            this.gpi.notifyDataSetChanged();
+        if (this.gpm != null) {
+            this.gpm.d(kVar);
+            this.gpm.notifyDataSetChanged();
         }
     }
 
     public boolean c(j jVar) {
-        if (this.gpi == null || !this.gpi.b(jVar)) {
+        if (this.gpm == null || !this.gpm.b(jVar)) {
             return false;
         }
-        this.gpi.notifyDataSetChanged();
+        this.gpm.notifyDataSetChanged();
         return true;
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.fPP);
+        MessageManager.getInstance().unRegisterListener(this.fPT);
     }
 
     public String JY() {

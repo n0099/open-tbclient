@@ -10,28 +10,28 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes8.dex */
 public final class c {
-    private boolean cIV;
-    private final Message cJg;
-    private final Set<SwanAppProcessInfo> cJh;
-    private final Set<String> cJi;
-    private boolean cJj;
-    private long cJk;
+    private boolean cIZ;
+    private final Message cJk;
+    private final Set<SwanAppProcessInfo> cJl;
+    private final Set<String> cJm;
+    private boolean cJn;
+    private long cJo;
 
     @NonNull
     public Message axw() {
-        if (this.cJg.obj == null) {
+        if (this.cJk.obj == null) {
             T(new Bundle());
         }
-        return this.cJg;
+        return this.cJk;
     }
 
     public c(Message message) {
-        this.cJh = new HashSet();
-        this.cJi = new HashSet();
-        this.cIV = false;
-        this.cJj = false;
-        this.cJk = 0L;
-        this.cJg = message == null ? Message.obtain() : message;
+        this.cJl = new HashSet();
+        this.cJm = new HashSet();
+        this.cIZ = false;
+        this.cJn = false;
+        this.cJo = 0L;
+        this.cJk = message == null ? Message.obtain() : message;
     }
 
     public c(int i, Object obj) {
@@ -46,13 +46,13 @@ public final class c {
         this(Message.obtain());
     }
 
-    public c fo(boolean z) {
-        this.cJj = z;
+    public c fp(boolean z) {
+        this.cJn = z;
         return this;
     }
 
     public boolean isSticky() {
-        return this.cJj;
+        return this.cJn;
     }
 
     private boolean a(int[] iArr, int i) {
@@ -69,14 +69,14 @@ public final class c {
 
     public c a(SwanAppProcessInfo... swanAppProcessInfoArr) {
         if (swanAppProcessInfoArr != null) {
-            this.cJh.addAll(Arrays.asList(swanAppProcessInfoArr));
+            this.cJl.addAll(Arrays.asList(swanAppProcessInfoArr));
         }
         return this;
     }
 
     public c u(String... strArr) {
         if (strArr != null) {
-            this.cJi.addAll(Arrays.asList(strArr));
+            this.cJm.addAll(Arrays.asList(strArr));
         }
         return this;
     }
@@ -112,25 +112,25 @@ public final class c {
         return this;
     }
 
-    public c fp(boolean z) {
-        this.cIV = z;
+    public c fq(boolean z) {
+        this.cIZ = z;
         return this;
     }
 
     public Set<SwanAppProcessInfo> axy() {
-        return new HashSet(this.cJh);
+        return new HashSet(this.cJl);
     }
 
     public Set<String> axz() {
-        return new HashSet(this.cJi);
+        return new HashSet(this.cJm);
     }
 
     public boolean axA() {
-        return this.cIV;
+        return this.cIZ;
     }
 
     public c T(Object obj) {
-        this.cJg.obj = obj;
+        this.cJk.obj = obj;
         return this;
     }
 
@@ -138,14 +138,14 @@ public final class c {
         if (j < 0) {
             j = 0;
         }
-        this.cJk = j;
+        this.cJo = j;
         return this;
     }
 
     public long axB() {
-        if (this.cJk < 0) {
+        if (this.cJo < 0) {
             return 0L;
         }
-        return this.cJk;
+        return this.cJo;
     }
 }

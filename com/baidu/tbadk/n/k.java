@@ -2,10 +2,10 @@ package com.baidu.tbadk.n;
 
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.tbadk.core.util.t;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class k extends l {
     public static void b(t tVar, t tVar2, t tVar3, t tVar4, t tVar5, int i) {
-        if (m.bun().buo()) {
+        if (m.buo().bup()) {
             com.baidu.adp.lib.stats.a mN = mN();
             mN.append("action", "dlStat");
             mN.append("c_dnum", String.valueOf(tVar.num));
@@ -39,7 +39,7 @@ public class k extends l {
     }
 
     public static void b(int i, int i2, long j) {
-        if (m.bun().buo()) {
+        if (m.buo().bup()) {
             com.baidu.adp.lib.stats.a mN = mN();
             mN.append("action", "dcStat");
             mN.append("dcnum", String.valueOf(i));

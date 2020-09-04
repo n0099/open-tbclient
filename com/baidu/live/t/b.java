@@ -7,5 +7,5 @@ public interface b {
 
     boolean c(Activity activity, int i);
 
-    void ha(String str);
+    void hb(String str);
 }

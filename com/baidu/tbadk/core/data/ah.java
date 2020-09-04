@@ -1,6 +1,6 @@
 package com.baidu.tbadk.core.data;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ah {
-    public String dYH;
-    public String dYI;
+    public String dYL;
+    public String dYM;
 }

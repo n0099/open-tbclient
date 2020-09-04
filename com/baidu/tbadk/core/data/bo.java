@@ -4,29 +4,29 @@ import com.baidu.adp.BdUniqueId;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.User;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class bo extends AbsThreadDataSupport {
-    public static final BdUniqueId dXF = BdUniqueId.gen();
-    public int dZU;
-    private boolean eaf;
+    public static final BdUniqueId dXJ = BdUniqueId.gen();
+    public int dZY;
+    private boolean eaj;
     public String title;
-    public boolean eah = true;
-    private List<MetaData> eag = new ArrayList();
+    public boolean eal = true;
+    private List<MetaData> eak = new ArrayList();
 
     public void aM(List<User> list) {
         if (list != null) {
-            int min = Math.min(list.size(), this.eah ? 10 : list.size());
+            int min = Math.min(list.size(), this.eal ? 10 : list.size());
             for (int i = 0; i < min; i++) {
                 MetaData metaData = new MetaData();
                 metaData.parserProtobuf(list.get(i));
-                this.eag.add(metaData);
+                this.eak.add(metaData);
             }
         }
     }
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return dXF;
+        return dXJ;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
@@ -40,14 +40,14 @@ public class bo extends AbsThreadDataSupport {
     }
 
     public List<MetaData> bdR() {
-        return this.eag;
+        return this.eak;
     }
 
     public boolean bdS() {
-        return this.eaf;
+        return this.eaj;
     }
 
-    public void hV(boolean z) {
-        this.eaf = z;
+    public void hW(boolean z) {
+        this.eaj = z;
     }
 }

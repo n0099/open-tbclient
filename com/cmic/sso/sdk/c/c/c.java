@@ -19,13 +19,13 @@ public class c {
     private long h;
     private String i;
     private int j;
-    private Network niJ;
-    private g niK;
+    private Network njb;
+    private g njc;
 
     private c(String str, Map<String, String> map, g gVar, String str2, String str3) {
         this.e = false;
         this.b = str;
-        this.niK = gVar;
+        this.njc = gVar;
         this.c = map == null ? new HashMap<>() : map;
         this.a = gVar == null ? "" : gVar.b().toString();
         this.d = str2;
@@ -83,12 +83,12 @@ public class c {
         return !e.a(this.f) || this.b.contains("logReport") || this.b.contains("uniConfig");
     }
 
-    public Network dNk() {
-        return this.niJ;
+    public Network dNt() {
+        return this.njb;
     }
 
     public void f(Network network) {
-        this.niJ = network;
+        this.njb = network;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -107,7 +107,7 @@ public class c {
         return i < 2;
     }
 
-    public g dNl() {
-        return this.niK;
+    public g dNu() {
+        return this.njc;
     }
 }

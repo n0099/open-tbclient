@@ -27,7 +27,7 @@ public final class b {
     }
 
     public static void b(int i, com.baidu.swan.apps.ap.e.b<Exception> bVar) {
-        a(b.a.aDu().fV(true).sd("openSwanApp").aDv(), i, bVar);
+        a(b.a.aDu().fW(true).se("openSwanApp").aDv(), i, bVar);
     }
 
     private static void a(com.baidu.swan.apps.swancore.d.b bVar, int i, com.baidu.swan.apps.ap.e.b<Exception> bVar2) {
@@ -126,21 +126,21 @@ public final class b {
         }
         String sb2 = sb.toString();
         if (DEBUG) {
-            Log.d("SwanAppSwanCoreManager", "version code: " + j + " ,version name: " + ((Object) sb) + " equals: " + (j == sb(sb2)));
+            Log.d("SwanAppSwanCoreManager", "version code: " + j + " ,version name: " + ((Object) sb) + " equals: " + (j == sc(sb2)));
         }
         return sb2;
     }
 
-    public static long sb(String str) {
-        String[] mE = mE(str);
-        if (mE == null) {
+    public static long sc(String str) {
+        String[] mF = mF(str);
+        if (mF == null) {
             return 0L;
         }
         int i = 0;
         long j = 0;
         while (i < 3) {
             try {
-                j = (j << 16) | (i < mE.length ? Integer.parseInt(mE[i]) : 0L);
+                j = (j << 16) | (i < mF.length ? Integer.parseInt(mF[i]) : 0L);
                 i++;
             } catch (NumberFormatException e) {
                 if (DEBUG) {
@@ -155,7 +155,7 @@ public final class b {
         return j;
     }
 
-    private static String[] mE(String str) {
+    private static String[] mF(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -237,7 +237,7 @@ public final class b {
         return com.baidu.swan.apps.storage.c.h.aDf().getBoolean("KEY_SWAN_APP_DEBUG_SWAN_CORE_MODE", false);
     }
 
-    public static void fU(boolean z) {
+    public static void fV(boolean z) {
         com.baidu.swan.apps.storage.c.h.aDf().putBoolean("KEY_SWAN_APP_DEBUG_SWAN_CORE_MODE", z);
     }
 

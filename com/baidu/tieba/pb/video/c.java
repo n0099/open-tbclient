@@ -7,17 +7,17 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes16.dex */
 public class c extends af.a {
-    public int aiB;
+    public int aiD;
     public View dividerLine;
-    public TextView hjT;
+    public TextView hjX;
 
     public c(View view) {
         super(view);
-        this.aiB = 3;
-        this.hjT = (TextView) view.findViewById(R.id.look_more_view);
+        this.aiD = 3;
+        this.hjX = (TextView) view.findViewById(R.id.look_more_view);
         this.dividerLine = view.findViewById(R.id.divider_line_above_more_god_replays);
-        ap.setViewTextColor(this.hjT, R.color.cp_cont_f);
-        ap.setBackgroundResource(this.hjT, R.drawable.more_all);
+        ap.setViewTextColor(this.hjX, R.color.cp_cont_f);
+        ap.setBackgroundResource(this.hjX, R.drawable.more_all);
         ap.setBackgroundResource(this.dividerLine, R.color.cp_bg_line_c);
     }
 }

@@ -4,7 +4,7 @@ public class dq {
     private static volatile dq a;
 
     /* renamed from: a  reason: collision with other field name */
-    private dp f228a;
+    private dp f227a;
 
     public static dq a() {
         if (a == null) {
@@ -19,10 +19,10 @@ public class dq {
 
     /* renamed from: a  reason: collision with other method in class */
     public dp m232a() {
-        return this.f228a;
+        return this.f227a;
     }
 
     public void a(dp dpVar) {
-        this.f228a = dpVar;
+        this.f227a = dpVar;
     }
 }

@@ -30,14 +30,14 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class d {
-    public static final Pattern dOJ = Pattern.compile("\\$[0-9A-Za-z@_]{5,200}[#$]", 2);
-    private long dOK;
-    private t dOL;
-    private e dOM;
-    private AtomicBoolean dON = new AtomicBoolean(false);
-    private e.a dOO = new e.a() { // from class: com.baidu.tbadk.BdToken.d.1
+    public static final Pattern dON = Pattern.compile("\\$[0-9A-Za-z@_]{5,200}[#$]", 2);
+    private long dOO;
+    private t dOP;
+    private e dOQ;
+    private AtomicBoolean dOR = new AtomicBoolean(false);
+    private e.a dOS = new e.a() { // from class: com.baidu.tbadk.BdToken.d.1
         @Override // com.baidu.tbadk.BdToken.e.a
         public void a(boolean z, x xVar) {
             if (z && xVar != null) {
@@ -50,37 +50,37 @@ public class d {
     private boolean isInit;
 
     public static final d aYH() {
-        return a.dOQ;
+        return a.dOU;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a {
-        private static final d dOQ = new d();
+        private static final d dOU = new d();
     }
 
     public void Z(Activity activity) {
         if (!this.isInit) {
             registerTask();
             registerListener();
-            this.dOM = new e();
-            this.dOM.a(this.dOO);
-            this.dOL = new t();
+            this.dOQ = new e();
+            this.dOQ.a(this.dOS);
+            this.dOP = new t();
             String clipBoardContent = getClipBoardContent();
             if (!at.isEmpty(clipBoardContent)) {
-                aYH().xM(clipBoardContent);
+                aYH().xN(clipBoardContent);
             } else if (UtilHelper.isActivityStartFromScheme(activity)) {
                 com.baidu.adp.lib.f.e.mS().postDelayed(new Runnable() { // from class: com.baidu.tbadk.BdToken.d.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        d.aYH().xM(d.this.getClipBoardContent());
+                        d.aYH().xN(d.this.getClipBoardContent());
                     }
                 }, 4000L);
             } else if (an.isEmui() || an.bji()) {
                 com.baidu.adp.lib.f.e.mS().postDelayed(new Runnable() { // from class: com.baidu.tbadk.BdToken.d.3
                     @Override // java.lang.Runnable
                     public void run() {
-                        d.aYH().xM(d.this.getClipBoardContent());
+                        d.aYH().xN(d.this.getClipBoardContent());
                     }
                 }, 2000L);
             }
@@ -101,7 +101,7 @@ public class d {
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage responsedMessage) {
                 g decryptData;
-                d.this.dON.compareAndSet(true, false);
+                d.this.dOR.compareAndSet(true, false);
                 if (responsedMessage instanceof DecryptCodeHttpRespMsg) {
                     decryptData = ((DecryptCodeHttpRespMsg) responsedMessage).getDecryptData();
                 } else if (responsedMessage instanceof DecryptCodeSocketRespMsg) {
@@ -127,11 +127,11 @@ public class d {
                         String queryParameter4 = parse != null ? parse.getQueryParameter("fname") : "";
                         String queryParameter5 = parse != null ? parse.getQueryParameter("eqid") : "";
                         if (TextUtils.isEmpty(queryParameter) || TextUtils.isEmpty(queryParameter2) || !queryParameter2.startsWith("tbcm")) {
-                            d.this.xR(decryptData.getUrl());
+                            d.this.xS(decryptData.getUrl());
                             TiebaStatic.log(new aq("c13390").dD("obj_type", queryParameter2).dD("obj_source", queryParameter).dD("tid", queryParameter3).dD("fname", queryParameter4).dD("query", queryParameter5));
                             return;
                         }
-                        d.this.xR(decryptData.getUrl());
+                        d.this.xS(decryptData.getUrl());
                         TiebaStatic.log(new aq("c13390").dD("obj_type", queryParameter2).dD("obj_source", queryParameter).dD("tid", queryParameter3).dD("fname", queryParameter4));
                     }
                 }
@@ -142,19 +142,19 @@ public class d {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                    d.this.xM(d.this.getClipBoardContent());
+                    d.this.xN(d.this.getClipBoardContent());
                 }
             }
         });
     }
 
-    public void xM(String str) {
-        xN(str);
-        xP(str);
+    public void xN(String str) {
         xO(str);
+        xQ(str);
+        xP(str);
     }
 
-    public void xN(String str) {
+    public void xO(String str) {
         if (!at.isEmpty(str)) {
             new BdAsyncTask<String, Integer, String>() { // from class: com.baidu.tbadk.BdToken.d.6
                 /* JADX DEBUG: Method merged with bridge method */
@@ -182,19 +182,19 @@ public class d {
                 public void onPostExecute(String str2) {
                     super.onPostExecute((AnonymousClass6) str2);
                     if (str2 == null) {
-                        if (d.this.dOL != null && d.this.aYI()) {
-                            d.this.dOL.check();
+                        if (d.this.dOP != null && d.this.aYI()) {
+                            d.this.dOP.check();
                             return;
                         }
                         return;
                     }
-                    d.this.xQ(str2);
+                    d.this.xR(str2);
                 }
             }.execute(str);
         }
     }
 
-    public void xO(String str) {
+    public void xP(String str) {
         if (!at.isEmpty(str)) {
             new BdAsyncTask<String, Integer, String>() { // from class: com.baidu.tbadk.BdToken.d.7
                 /* JADX DEBUG: Method merged with bridge method */
@@ -206,7 +206,7 @@ public class d {
                         return null;
                     }
                     String str2 = strArr[0];
-                    if (at.isEmpty(str2) || (matcher = d.dOJ.matcher(str2)) == null || !matcher.find()) {
+                    if (at.isEmpty(str2) || (matcher = d.dON.matcher(str2)) == null || !matcher.find()) {
                         return null;
                     }
                     return str2;
@@ -217,8 +217,8 @@ public class d {
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public void onPostExecute(String str2) {
                     super.onPostExecute((AnonymousClass7) str2);
-                    if (str2 != null && !d.this.dON.get()) {
-                        d.this.dON.compareAndSet(false, true);
+                    if (str2 != null && !d.this.dOR.get()) {
+                        d.this.dOR.compareAndSet(false, true);
                         DecryptCodeReqMsg decryptCodeReqMsg = new DecryptCodeReqMsg();
                         decryptCodeReqMsg.setCode(str2);
                         MessageManager.getInstance().sendMessage(decryptCodeReqMsg);
@@ -228,9 +228,9 @@ public class d {
         }
     }
 
-    public void xP(String str) {
+    public void xQ(String str) {
         if (!at.isEmpty(str) && str.contains("^sZqulxTVsT$")) {
-            xQ(str);
+            xR(str);
         }
     }
 
@@ -241,8 +241,8 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void xQ(String str) {
-        this.dOM.load(str);
+    public void xR(String str) {
+        this.dOQ.load(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -252,10 +252,10 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public String getClipBoardContent() {
-        if (System.currentTimeMillis() - this.dOK < 2000) {
+        if (System.currentTimeMillis() - this.dOO < 2000) {
             return null;
         }
-        this.dOK = System.currentTimeMillis();
+        this.dOO = System.currentTimeMillis();
         return UtilHelper.getClipBoardContent();
     }
 
@@ -273,13 +273,13 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void xR(String str) {
+    public void xS(String str) {
         Activity currentActivity;
         Uri parse;
         if (!at.isEmpty(str) && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null && (parse = Uri.parse(str)) != null) {
-            if (str.startsWith(f.dOT)) {
+            if (str.startsWith(f.dOX)) {
                 Uri.Builder buildUpon = Uri.parse(str).buildUpon();
-                buildUpon.appendQueryParameter(f.dPn, f.dPz);
+                buildUpon.appendQueryParameter(f.dPr, f.dPD);
                 parse = buildUpon.build();
             }
             UtilHelper.dealOneScheme(currentActivity, parse.toString());

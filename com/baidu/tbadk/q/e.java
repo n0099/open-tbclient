@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.relogin.ReloginManager;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class e extends com.baidu.adp.framework.b.c {
     public e(int i) {
         super(i);

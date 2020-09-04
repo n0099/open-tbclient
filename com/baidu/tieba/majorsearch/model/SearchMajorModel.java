@@ -14,7 +14,7 @@ import com.baidu.tieba.majorsearch.message.SearchMajorHttpResponsedMessage;
 import java.util.List;
 /* loaded from: classes18.dex */
 public class SearchMajorModel extends BdBaseModel {
-    a jXE;
+    a jXL;
     private HttpMessageListener mHttpMessageListener;
 
     /* loaded from: classes18.dex */
@@ -48,17 +48,17 @@ public class SearchMajorModel extends BdBaseModel {
                     } else {
                         searchMajorHttpResponsedMessage = (SearchMajorHttpResponsedMessage) httpResponsedMessage;
                     }
-                    if (searchMajorHttpResponsedMessage != null && searchMajorHttpResponsedMessage.getData() != null && !y.isEmpty(searchMajorHttpResponsedMessage.getData().jXD)) {
-                        SearchMajorModel.this.jXE.bd(searchMajorHttpResponsedMessage.getData().jXD);
+                    if (searchMajorHttpResponsedMessage != null && searchMajorHttpResponsedMessage.getData() != null && !y.isEmpty(searchMajorHttpResponsedMessage.getData().jXK)) {
+                        SearchMajorModel.this.jXL.bd(searchMajorHttpResponsedMessage.getData().jXK);
                     } else {
-                        SearchMajorModel.this.jXE.b(errorData);
+                        SearchMajorModel.this.jXL.b(errorData);
                     }
                 }
             }
         };
         this.mHttpMessageListener.setSelfListener(true);
         registerListener(this.mHttpMessageListener);
-        this.jXE = aVar;
+        this.jXL = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

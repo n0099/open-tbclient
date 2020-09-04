@@ -1,5 +1,5 @@
 package com.baidu.tbadk.switchs;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class PbNormalLikeButtonSwitch extends BaseNormalSwitch {
     private static final PbNormalLikeButtonSwitch mInstance = new PbNormalLikeButtonSwitch();
     private final String SWITCH_NAME = "android_pb_normal_like_btn";

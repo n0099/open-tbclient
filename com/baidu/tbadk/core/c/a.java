@@ -11,12 +11,12 @@ import com.baidu.live.tbadk.core.dbcache.DBKVCacheManager;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a extends CustomMessageListener {
     private static HashMap<String, l<byte[]>> byteCacheMap;
     private static ArrayList<String> noEvictList;
     private static HashMap<String, l<String>> stringCacheMap;
-    public static a eeT = null;
+    public static a eeX = null;
     private static HashMap<String, Integer> cacheCountLimitMap = new HashMap<>();
 
     static {
@@ -78,10 +78,10 @@ public class a extends CustomMessageListener {
     }
 
     public static a bhb() {
-        if (eeT == null) {
-            eeT = new a();
+        if (eeX == null) {
+            eeX = new a();
         }
-        return eeT;
+        return eeX;
     }
 
     private a() {
@@ -89,11 +89,11 @@ public class a extends CustomMessageListener {
         MessageManager.getInstance().registerListenerFromBackground(this);
     }
 
-    public l<byte[]> zw(String str) {
+    public l<byte[]> zx(String str) {
         return dv(str, null);
     }
 
-    public l<String> zx(String str) {
+    public l<String> zy(String str) {
         return dw(str, null);
     }
 

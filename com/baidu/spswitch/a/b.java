@@ -3,17 +3,17 @@ package com.baidu.spswitch.a;
 import android.view.View;
 /* loaded from: classes9.dex */
 public class b implements com.baidu.spswitch.a {
-    private final View bQY;
-    private boolean bQZ = false;
-    private boolean bRa = false;
+    private final View bRc;
+    private boolean bRd = false;
+    private boolean bRe = false;
 
     public b(View view) {
-        this.bQY = view;
+        this.bRc = view;
     }
 
     public int[] ab(int i, int i2) {
-        if (this.bQZ) {
-            this.bQY.setVisibility(8);
+        if (this.bRd) {
+            this.bRc.setVisibility(8);
             i = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
             i2 = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
         }
@@ -22,16 +22,16 @@ public class b implements com.baidu.spswitch.a {
 
     public boolean gm(int i) {
         if (i == 0) {
-            this.bQZ = false;
+            this.bRd = false;
         }
-        if (i == this.bQY.getVisibility()) {
+        if (i == this.bRc.getVisibility()) {
             return true;
         }
         return XJ() && i == 0;
     }
 
     public boolean XJ() {
-        return this.bRa;
+        return this.bRe;
     }
 
     @Override // com.baidu.spswitch.a
@@ -41,6 +41,6 @@ public class b implements com.baidu.spswitch.a {
 
     @Override // com.baidu.spswitch.a
     public void XC() {
-        this.bQZ = true;
+        this.bRd = true;
     }
 }

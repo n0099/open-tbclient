@@ -6,8 +6,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.zip.CRC32;
 /* loaded from: classes8.dex */
 public class b {
-    public final String cci;
-    public final Map<String, String> ccj = new HashMap();
+    public final String ccm;
+    public final Map<String, String> ccn = new HashMap();
     public final long delta;
     public final long serverTime;
 
@@ -18,13 +18,13 @@ public class b {
     private b(long j) {
         this.delta = TimeUnit.MILLISECONDS.toSeconds(j);
         this.serverTime = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - j);
-        this.cci = Long.toHexString(kB(this.serverTime + "#" + this.delta));
-        this.ccj.put("timestamp", Long.toString(this.serverTime));
-        this.ccj.put("delta", Long.toString(this.delta));
-        this.ccj.put("rasign", this.cci);
+        this.ccm = Long.toHexString(kC(this.serverTime + "#" + this.delta));
+        this.ccn.put("timestamp", Long.toString(this.serverTime));
+        this.ccn.put("delta", Long.toString(this.delta));
+        this.ccn.put("rasign", this.ccm);
     }
 
-    private long kB(String str) {
+    private long kC(String str) {
         CRC32 crc32 = new CRC32();
         crc32.reset();
         crc32.update(str.getBytes());
@@ -32,14 +32,14 @@ public class b {
     }
 
     public String toString() {
-        return super.toString() + " serverTime:" + this.serverTime + " delta:" + this.delta + " rasign:" + this.cci;
+        return super.toString() + " serverTime:" + this.serverTime + " delta:" + this.delta + " rasign:" + this.ccm;
     }
 
     public String aN(long j) {
-        return Long.toHexString(kB(j + "#smartapp_formid"));
+        return Long.toHexString(kC(j + "#smartapp_formid"));
     }
 
     public String aO(long j) {
-        return Long.toHexString(kB(j + "#payid"));
+        return Long.toHexString(kC(j + "#payid"));
     }
 }

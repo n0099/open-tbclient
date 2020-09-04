@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class r {
     private static View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.BdToken.r.1
         @Override // android.view.View.OnClickListener

@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.data;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.Baijiahao;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BaijiahaoData implements Serializable {
     public static final int UGC_TYPE_ARTICLE = 1;
     public static final int UGC_TYPE_FEED_PIC = 3;

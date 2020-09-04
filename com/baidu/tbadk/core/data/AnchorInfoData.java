@@ -5,7 +5,7 @@ import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.AnchorInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class AnchorInfoData extends OrmObject implements Serializable {
     private static final long serialVersionUID = 1;
     private int isVip;

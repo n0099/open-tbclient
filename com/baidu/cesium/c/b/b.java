@@ -9,7 +9,7 @@ import java.security.GeneralSecurityException;
 import java.util.Random;
 /* loaded from: classes9.dex */
 public class b {
-    private static final int[] alA = s(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, 45, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
+    private static final int[] alC = s(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, 45, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
     private final int g;
 
     public b(int i) {
@@ -58,8 +58,8 @@ public class b {
     }
 
     static void d(int[] iArr, int[] iArr2) {
-        System.arraycopy(alA, 0, iArr, 0, alA.length);
-        System.arraycopy(iArr2, 0, iArr, alA.length, 8);
+        System.arraycopy(alC, 0, iArr, 0, alC.length);
+        System.arraycopy(iArr2, 0, iArr, alC.length, 8);
     }
 
     static int[] s(byte[] bArr) {

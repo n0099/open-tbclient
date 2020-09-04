@@ -1,43 +1,43 @@
 package master.flame.danmaku.danmaku.model;
 /* loaded from: classes6.dex */
 public class j {
-    public int own = 0;
-    public int owo = 0;
-    public int owp = 0;
-    public int owq = 0;
-    public int owr = 0;
-    public int ows = 0;
+    public int owF = 0;
+    public int owG = 0;
+    public int owH = 0;
+    public int owI = 0;
+    public int owJ = 0;
+    public int owK = 0;
 
     public void resetAll() {
-        this.owo = 0;
-        this.own = 0;
-        this.owp = 0;
-        this.owq = 0;
-        this.owr = 0;
-        this.ows = 0;
+        this.owG = 0;
+        this.owF = 0;
+        this.owH = 0;
+        this.owI = 0;
+        this.owJ = 0;
+        this.owK = 0;
     }
 
-    public void ehK() {
-        this.owo++;
+    public void ehT() {
+        this.owG++;
     }
 
-    public void ehL() {
-        this.own++;
+    public void ehU() {
+        this.owF++;
     }
 
-    public void ehM() {
-        this.owp++;
+    public void ehV() {
+        this.owH++;
     }
 
-    public void ehN() {
-        this.owq++;
+    public void ehW() {
+        this.owI++;
     }
 
-    public void ehO() {
-        this.owr++;
+    public void ehX() {
+        this.owJ++;
     }
 
-    public void ehP() {
-        this.ows++;
+    public void ehY() {
+        this.owK++;
     }
 }

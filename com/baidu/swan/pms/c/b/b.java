@@ -22,19 +22,19 @@ public class b extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.b> {
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: a */
     public com.baidu.swan.pms.model.a ag(com.baidu.swan.pms.c.c.b bVar) {
-        this.dFu.aiw();
+        this.dFy.aiw();
         f fVar = new f();
-        a(bVar.dGb, fVar);
-        a(bVar.dGc, fVar);
         a(bVar.dGf, fVar);
-        a(bVar.dGh, fVar);
-        v(bVar.dGg);
+        a(bVar.dGg, fVar);
+        a(bVar.dGj, fVar);
+        a(bVar.dGl, fVar);
+        v(bVar.dGk);
         if (fVar.aUK() == 0) {
-            this.dFu.afB();
+            this.dFy.afB();
             return null;
         }
-        this.dFu.a(fVar);
-        com.baidu.swan.pms.c.a.a.a(bVar, this.dFu);
+        this.dFy.a(fVar);
+        com.baidu.swan.pms.c.a.a.a(bVar, this.dFy);
         return null;
     }
 
@@ -46,20 +46,20 @@ public class b extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.b> {
         if (bVar == null) {
             return false;
         }
-        if (bVar.dGb == null && ((bVar.dGc == null || bVar.dGc.isEmpty()) && bVar.dGf == null && bVar.dGh == null && bVar.dGg == null)) {
+        if (bVar.dGf == null && ((bVar.dGg == null || bVar.dGg.isEmpty()) && bVar.dGj == null && bVar.dGl == null && bVar.dGk == null)) {
             return false;
         }
-        if (bVar.dGb == null || bVar.dGb.ajo()) {
-            if (bVar.dGc != null) {
-                for (com.baidu.swan.pms.model.g gVar : bVar.dGc) {
+        if (bVar.dGf == null || bVar.dGf.ajo()) {
+            if (bVar.dGg != null) {
+                for (com.baidu.swan.pms.model.g gVar : bVar.dGg) {
                     if (!gVar.ajo()) {
                         return false;
                     }
                 }
             }
-            if (bVar.dGf == null || bVar.dGf.ajo()) {
-                if (bVar.dGh == null || bVar.dGh.ajo()) {
-                    return bVar.dGg == null || bVar.dGg.ajo();
+            if (bVar.dGj == null || bVar.dGj.ajo()) {
+                if (bVar.dGl == null || bVar.dGl.ajo()) {
+                    return bVar.dGk == null || bVar.dGk.ajo();
                 }
                 return false;
             }

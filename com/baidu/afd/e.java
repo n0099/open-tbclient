@@ -1,10 +1,10 @@
 package com.baidu.afd;
 
 import com.baidu.tieba.lego.card.model.ICardInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class e {
-    public boolean Yf = false;
-    public ICardInfo Yg;
-    public ParseError Yh;
+    public boolean Yh = false;
+    public ICardInfo Yi;
+    public ParseError Yj;
     public String ext;
 }

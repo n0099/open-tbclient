@@ -11,47 +11,47 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes7.dex */
 public class m {
-    private static Map<Long, Long> bqu = new HashMap();
-    private static Map<Long, Set<Long>> bqv = new HashMap();
+    private static Map<Long, Long> bqx = new HashMap();
+    private static Map<Long, Set<Long>> bqy = new HashMap();
 
     public static Long av(long j) {
-        if (bqu.containsKey(Long.valueOf(j))) {
-            return bqu.get(Long.valueOf(j));
+        if (bqx.containsKey(Long.valueOf(j))) {
+            return bqx.get(Long.valueOf(j));
         }
         return 0L;
     }
 
     public static void h(long j, long j2) {
-        bqu.put(Long.valueOf(j), Long.valueOf(j2));
+        bqx.put(Long.valueOf(j), Long.valueOf(j2));
     }
 
     public static boolean i(long j, long j2) {
         Set<Long> set;
-        if (bqv.containsKey(Long.valueOf(j)) && (set = bqv.get(Long.valueOf(j))) != null) {
+        if (bqy.containsKey(Long.valueOf(j)) && (set = bqy.get(Long.valueOf(j))) != null) {
             return set.contains(Long.valueOf(j2));
         }
         return false;
     }
 
     public static void j(long j, long j2) {
-        if (!bqv.containsKey(Long.valueOf(j))) {
+        if (!bqy.containsKey(Long.valueOf(j))) {
             HashSet hashSet = new HashSet();
             hashSet.add(Long.valueOf(j2));
-            bqv.put(Long.valueOf(j), hashSet);
+            bqy.put(Long.valueOf(j), hashSet);
             return;
         }
-        Set<Long> set = bqv.get(Long.valueOf(j));
+        Set<Long> set = bqy.get(Long.valueOf(j));
         if (set != null) {
             set.add(Long.valueOf(j2));
             return;
         }
         HashSet hashSet2 = new HashSet();
         hashSet2.add(Long.valueOf(j2));
-        bqv.put(Long.valueOf(j), hashSet2);
+        bqy.put(Long.valueOf(j), hashSet2);
     }
 
     public static void Pl() {
-        bqv.clear();
+        bqy.clear();
     }
 
     public static void k(long j, long j2) {

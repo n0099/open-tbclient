@@ -1,8 +1,8 @@
 package com.baidu.afd;
 
 import com.baidu.adp.BdUniqueId;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b {
-    public static final BdUniqueId XT = BdUniqueId.gen();
-    public static final BdUniqueId XU = BdUniqueId.gen();
+    public static final BdUniqueId XV = BdUniqueId.gen();
+    public static final BdUniqueId XW = BdUniqueId.gen();
 }

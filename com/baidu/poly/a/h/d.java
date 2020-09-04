@@ -16,12 +16,12 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class d {
-    public static String bFO;
-    public static String bFP;
-    public static String bFQ;
-    public static String bFR;
-    private static List<com.baidu.poly.a.h.b> bFS;
-    private static Object bFT = new Object();
+    public static String bFS;
+    public static String bFT;
+    public static String bFU;
+    public static String bFV;
+    private static List<com.baidu.poly.a.h.b> bFW;
+    private static Object bFX = new Object();
     public static String nd;
 
     /* loaded from: classes6.dex */
@@ -38,12 +38,12 @@ public class d {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes6.dex */
     public static class b extends com.baidu.poly.a.a.a {
-        final /* synthetic */ com.baidu.poly.a.a.c bEH;
-        final /* synthetic */ com.baidu.poly.a.a.b bEI;
+        final /* synthetic */ com.baidu.poly.a.a.c bEL;
+        final /* synthetic */ com.baidu.poly.a.a.b bEM;
 
         b(com.baidu.poly.a.a.c cVar, com.baidu.poly.a.a.b bVar) {
-            this.bEH = cVar;
-            this.bEI = bVar;
+            this.bEL = cVar;
+            this.bEM = bVar;
         }
 
         @Override // com.baidu.poly.a.a.a
@@ -52,19 +52,19 @@ public class d {
 
         @Override // com.baidu.poly.a.a.a
         public void a(Throwable th, String str) {
-            d.b(this.bEH.getMap(), this.bEI.getMap());
+            d.b(this.bEL.getMap(), this.bEM.getMap());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes6.dex */
     public static class c extends com.baidu.poly.a.a.a {
-        final /* synthetic */ JSONArray bFM;
-        final /* synthetic */ JSONObject bFN;
+        final /* synthetic */ JSONArray bFQ;
+        final /* synthetic */ JSONObject bFR;
 
         c(JSONArray jSONArray, JSONObject jSONObject) {
-            this.bFM = jSONArray;
-            this.bFN = jSONObject;
+            this.bFQ = jSONArray;
+            this.bFR = jSONObject;
         }
 
         @Override // com.baidu.poly.a.a.a
@@ -73,16 +73,16 @@ public class d {
 
         @Override // com.baidu.poly.a.a.a
         public void a(Throwable th, String str) {
-            this.bFM.put(this.bFN);
+            this.bFQ.put(this.bFR);
         }
     }
 
     public static void H() {
         nd = null;
-        bFO = null;
-        bFP = null;
-        bFQ = null;
-        bFR = null;
+        bFS = null;
+        bFT = null;
+        bFU = null;
+        bFV = null;
     }
 
     private static JSONArray TW() {
@@ -135,23 +135,23 @@ public class d {
         bVar.g("dm", "cashier");
         bVar.g("os", "android");
         bVar.g("v", "2.7.5");
-        if (!TextUtils.isEmpty(bFR)) {
-            bVar.g("n", bFR);
+        if (!TextUtils.isEmpty(bFV)) {
+            bVar.g("n", bFV);
         }
-        if (!TextUtils.isEmpty(bFO)) {
-            bVar.g("d", bFO);
+        if (!TextUtils.isEmpty(bFS)) {
+            bVar.g("d", bFS);
         }
-        if (!TextUtils.isEmpty(bFP)) {
-            bVar.g(SuspensionBallUbc.VALUE_DT, bFP);
+        if (!TextUtils.isEmpty(bFT)) {
+            bVar.g(SuspensionBallUbc.VALUE_DT, bFT);
         }
-        if (!TextUtils.isEmpty(bFQ)) {
-            bVar.g("dp", bFQ);
+        if (!TextUtils.isEmpty(bFU)) {
+            bVar.g("dp", bFU);
         }
         return bVar;
     }
 
     private static void clear() {
-        List<com.baidu.poly.a.h.b> list = bFS;
+        List<com.baidu.poly.a.h.b> list = bFW;
         if (list != null) {
             list.clear();
         }
@@ -160,12 +160,12 @@ public class d {
     /* JADX INFO: Access modifiers changed from: private */
     public static synchronized void doFlush() {
         synchronized (d.class) {
-            List<com.baidu.poly.a.h.b> list = bFS;
+            List<com.baidu.poly.a.h.b> list = bFW;
             if (list != null && !list.isEmpty()) {
                 com.baidu.poly.a.a.b Ul = Ul();
-                synchronized (bFT) {
+                synchronized (bFX) {
                     JSONArray jSONArray = new JSONArray();
-                    for (com.baidu.poly.a.h.b bVar : bFS) {
+                    for (com.baidu.poly.a.h.b bVar : bFW) {
                         JSONObject Ui = bVar.Ui();
                         if (Ui != null) {
                             jSONArray.put(Ui);
@@ -197,12 +197,12 @@ public class d {
     }
 
     public static void a(com.baidu.poly.a.h.b bVar) {
-        if (bFS == null) {
-            bFS = new ArrayList();
+        if (bFW == null) {
+            bFW = new ArrayList();
         }
         if (bVar != null) {
-            synchronized (bFT) {
-                bFS.add(bVar);
+            synchronized (bFX) {
+                bFW.add(bVar);
             }
         }
     }
@@ -217,7 +217,7 @@ public class d {
             bVar = new com.baidu.poly.a.h.b("3");
         }
         if (bVar != null) {
-            bVar.hY(str);
+            bVar.hZ(str);
             a(bVar);
         }
     }

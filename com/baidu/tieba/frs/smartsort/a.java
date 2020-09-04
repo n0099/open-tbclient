@@ -12,81 +12,81 @@ import com.baidu.tieba.frs.be;
 import com.baidu.tieba.frs.q;
 /* loaded from: classes16.dex */
 public class a {
-    private int bRl;
-    private TextView iiv;
-    private be inF;
-    private final FrsFragment iom;
-    private boolean iqt;
-    private int iqu = -1;
+    private int bRp;
+    private TextView iiB;
+    private be inL;
+    private final FrsFragment ios;
+    private int iqA = -1;
+    private boolean iqz;
 
     public a(FrsFragment frsFragment) {
-        this.bRl = 0;
+        this.bRp = 0;
         if (frsFragment == null) {
             throw new NullPointerException("FrsFragment is null");
         }
-        this.iom = frsFragment;
+        this.ios = frsFragment;
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.bRl = UtilHelper.getStatusBarHeight();
+            this.bRp = UtilHelper.getStatusBarHeight();
         }
     }
 
-    public void csq() {
-        if (this.iqt && this.iqu >= 0) {
-            yt(this.iqu);
+    public void csr() {
+        if (this.iqz && this.iqA >= 0) {
+            yt(this.iqA);
         }
-        this.iqt = false;
+        this.iqz = false;
     }
 
     public void ys(int i) {
         if (i >= 0) {
-            pa(true);
+            pc(true);
             yu(i);
             return;
         }
-        pa(false);
+        pc(false);
         yu(i);
     }
 
     private void yt(int i) {
         FrameLayout frameLayout;
         String string;
-        q clS = this.iom.clS();
-        if (clS != null && clS.getListView() != null && (frameLayout = (FrameLayout) clS.cns()) != null) {
-            if (this.iiv == null && this.iom.getPageContext() != null) {
-                this.iiv = new TextView(this.iom.getPageContext().getPageActivity());
-                this.iiv.setTextSize(0, this.iom.getResources().getDimensionPixelSize(R.dimen.fontsize28));
-                this.iiv.setGravity(17);
+        q clT = this.ios.clT();
+        if (clT != null && clT.getListView() != null && (frameLayout = (FrameLayout) clT.cnt()) != null) {
+            if (this.iiB == null && this.ios.getPageContext() != null) {
+                this.iiB = new TextView(this.ios.getPageContext().getPageActivity());
+                this.iiB.setTextSize(0, this.ios.getResources().getDimensionPixelSize(R.dimen.fontsize28));
+                this.iiB.setGravity(17);
             }
-            if (this.iiv != null) {
+            if (this.iiB != null) {
                 if (i > 0) {
                     string = String.format(TbadkCoreApplication.getInst().getString(R.string.recommend_frs_refresh_return), Integer.valueOf(i));
                 } else {
                     string = TbadkCoreApplication.getInst().getString(R.string.smart_frs_refresh_nodata);
                 }
-                this.iiv.setText(string);
+                this.iiB.setText(string);
             }
-            ap.setBackgroundResource(this.iiv, R.color.cp_link_tip_a);
-            ap.setViewTextColor(this.iiv, R.color.cp_cont_i);
+            ap.setBackgroundResource(this.iiB, R.color.cp_link_tip_a);
+            ap.setViewTextColor(this.iiB, R.color.cp_cont_i);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds56));
-            if (this.inF == null) {
-                this.inF = new be();
+            if (this.inL == null) {
+                this.inL = new be();
             }
-            this.inF.a(this.iiv, frameLayout, layoutParams, 2000);
-            this.iqu = -1;
+            this.inL.a(this.iiB, frameLayout, layoutParams, 2000);
+            this.iqA = -1;
         }
     }
 
-    public void pa(boolean z) {
-        this.iqt = z;
+    public void pc(boolean z) {
+        this.iqz = z;
     }
 
     public void yu(int i) {
-        this.iqu = i;
+        this.iqA = i;
     }
 
     public void onDestroy() {
-        if (this.inF != null) {
-            this.inF.onDestroy();
+        if (this.inL != null) {
+            this.inL.onDestroy();
         }
     }
 }

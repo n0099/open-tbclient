@@ -40,11 +40,11 @@ public class f extends aa {
             com.baidu.swan.games.v.c.g(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity").toString());
             return false;
         }
-        final String pB = com.baidu.swan.apps.ac.g.b.pB(optParamsAsJo.optString("__plugin__", null));
+        final String pC = com.baidu.swan.apps.ac.g.b.pC(optParamsAsJo.optString("__plugin__", null));
         com.baidu.swan.apps.a.b azV = eVar.azV();
         final boolean bC = com.baidu.swan.apps.setting.oauth.c.bC(optParamsAsJo);
         if (azV.isLogin(context) || !bC) {
-            a(bC, callbackHandler, optString, azC, pB, "snsapi_userinfo");
+            a(bC, callbackHandler, optString, azC, pC, "snsapi_userinfo");
         } else {
             final Activity activity = azC;
             azV.a(azC, null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.apps.setting.a.f.1
@@ -52,7 +52,7 @@ public class f extends aa {
                 public void onResult(int i) {
                     switch (i) {
                         case 0:
-                            f.this.a(bC, callbackHandler, optString, activity, pB, "snsapi_userinfo");
+                            f.this.a(bC, callbackHandler, optString, activity, pC, "snsapi_userinfo");
                             return;
                         default:
                             callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
@@ -76,7 +76,7 @@ public class f extends aa {
                 if (!aVar.aCb()) {
                     com.baidu.swan.apps.setting.oauth.c.a(aVar, callbackHandler, str);
                 } else {
-                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(aVar.cVz, 0).toString());
+                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(aVar.cVD, 0).toString());
                 }
             }
         });

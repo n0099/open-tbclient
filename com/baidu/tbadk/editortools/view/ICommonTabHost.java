@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.editortools.n;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class ICommonTabHost extends LinearLayout implements n {
     public ICommonTabHost(Context context) {
         super(context);

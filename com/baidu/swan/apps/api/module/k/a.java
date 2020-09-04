@@ -16,7 +16,7 @@ public class a extends com.baidu.swan.apps.api.a.d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b jS(String str) {
+    public com.baidu.swan.apps.api.c.b jT(String str) {
         if (DEBUG) {
             Log.d("Api-Accelerometer", "start listen accelerometer");
         }
@@ -26,7 +26,7 @@ public class a extends com.baidu.swan.apps.api.a.d {
                 com.baidu.swan.apps.console.c.i("Api-Accelerometer", " init ");
                 final k kVar = new k("accelerometerChange", jSONObject, str2);
                 com.baidu.swan.apps.al.a.a aDw = com.baidu.swan.apps.al.a.a.aDw();
-                aDw.m(a.this.getContext(), C0363a.jT(jSONObject.optString("interval")));
+                aDw.m(a.this.getContext(), C0363a.jU(jSONObject.optString("interval")));
                 aDw.a(new a.InterfaceC0337a() { // from class: com.baidu.swan.apps.api.module.k.a.1.1
                     @Override // com.baidu.swan.apps.al.a.a.InterfaceC0337a
                     public void b(double[] dArr) {
@@ -66,16 +66,16 @@ public class a extends com.baidu.swan.apps.api.a.d {
     /* renamed from: com.baidu.swan.apps.api.module.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
     public static class C0363a {
-        private static ArrayMap<String, Integer> bXB = new ArrayMap<>(3);
+        private static ArrayMap<String, Integer> bXF = new ArrayMap<>(3);
 
         static {
-            bXB.put("ui", 60);
-            bXB.put(ConstantData.Forum.SPECAIL_FORUM_TYPE_GAME, 20);
-            bXB.put("normal", 200);
+            bXF.put("ui", 60);
+            bXF.put(ConstantData.Forum.SPECAIL_FORUM_TYPE_GAME, 20);
+            bXF.put("normal", 200);
         }
 
-        public static int jT(String str) {
-            Integer num = bXB.get(str);
+        public static int jU(String str) {
+            Integer num = bXF.get(str);
             if (num != null) {
                 return num.intValue();
             }

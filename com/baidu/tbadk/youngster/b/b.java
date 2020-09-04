@@ -4,50 +4,50 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b {
-    public static void CY(String str) {
+    public static void CZ(String str) {
         AccountData currentAccountInfo;
         if (!StringUtils.isNull(str) && (currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo()) != null) {
             com.baidu.tbadk.core.sharedPref.b.bik().putString("key_youngster_verify", a(new com.baidu.tbadk.youngster.a.a(currentAccountInfo.getID(), currentAccountInfo.getPortrait(), str)));
         }
     }
 
-    public static void bzd() {
+    public static void bze() {
         com.baidu.tbadk.core.sharedPref.b.bik().remove("key_youngster_verify");
     }
 
-    public static boolean bze() {
+    public static boolean bzf() {
         String string = com.baidu.tbadk.core.sharedPref.b.bik().getString("key_youngster_verify", "");
         if (StringUtils.isNull(string)) {
-            bzd();
+            bze();
             return false;
         }
         AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
         if (currentAccountInfo == null) {
-            bzd();
+            bze();
             return false;
         }
-        com.baidu.tbadk.youngster.a.a Da = Da(string);
-        if (Da != null && !StringUtils.isNull(Da.getUid()) && Da.getUid().equals(currentAccountInfo.getID()) && !StringUtils.isNull(Da.getPortrait()) && Da.getPortrait().equals(currentAccountInfo.getPortrait())) {
+        com.baidu.tbadk.youngster.a.a Db = Db(string);
+        if (Db != null && !StringUtils.isNull(Db.getUid()) && Db.getUid().equals(currentAccountInfo.getID()) && !StringUtils.isNull(Db.getPortrait()) && Db.getPortrait().equals(currentAccountInfo.getPortrait())) {
             return true;
         }
-        bzd();
+        bze();
         return false;
     }
 
-    public static boolean CZ(String str) {
+    public static boolean Da(String str) {
         if (StringUtils.isNull(str)) {
             return false;
         }
         String string = com.baidu.tbadk.core.sharedPref.b.bik().getString("key_youngster_verify", "");
         if (StringUtils.isNull(string)) {
-            bzd();
+            bze();
             return false;
         }
-        com.baidu.tbadk.youngster.a.a Da = Da(string);
-        if (Da != null) {
-            return str.equals(Da.getPassword());
+        com.baidu.tbadk.youngster.a.a Db = Db(string);
+        if (Db != null) {
+            return str.equals(Db.getPassword());
         }
         return false;
     }
@@ -59,7 +59,7 @@ public class b {
         return aVar.getUid() + Constants.ACCEPT_TIME_SEPARATOR_SP + aVar.getPortrait() + Constants.ACCEPT_TIME_SEPARATOR_SP + aVar.getPassword();
     }
 
-    private static com.baidu.tbadk.youngster.a.a Da(String str) {
+    private static com.baidu.tbadk.youngster.a.a Db(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }

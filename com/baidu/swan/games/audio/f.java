@@ -14,23 +14,23 @@ import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class f {
-    private static final HashMap<String, String> dov = new HashMap<>();
+    private static final HashMap<String, String> doz = new HashMap<>();
 
     static {
-        dov.put("494433", ".mp3");
-        dov.put("524946", ".wav");
+        doz.put("494433", ".mp3");
+        doz.put("524946", ".wav");
     }
 
     public static d a(g gVar) {
         d dVar = new d();
-        dVar.cyk = gVar.cyk;
-        dVar.cyt = gVar.autoplay;
+        dVar.cyo = gVar.cyo;
+        dVar.cyx = gVar.autoplay;
         dVar.mLoop = gVar.loop;
         dVar.mUrl = gVar.src;
-        dVar.dos = gVar.startTime;
-        dVar.cyu = gVar.obeyMuteSwitch;
+        dVar.dow = gVar.startTime;
+        dVar.cyy = gVar.obeyMuteSwitch;
         dVar.mVolume = gVar.volume;
-        dVar.cyq = aKY().toString();
+        dVar.cyu = aKY().toString();
         return dVar;
     }
 
@@ -60,7 +60,7 @@ public class f {
         return f <= 1.0f && f >= 0.0f;
     }
 
-    public static String ux(String str) throws MalformedURLException {
+    public static String uy(String str) throws MalformedURLException {
         int lastIndexOf = str.lastIndexOf(46);
         String str2 = "";
         if (lastIndexOf != -1) {
@@ -103,7 +103,7 @@ public class f {
         for (int i = 0; i < 3; i++) {
             bArr2[i] = bArr[i];
         }
-        return dov.get(bytesToHexString(bArr2));
+        return doz.get(bytesToHexString(bArr2));
     }
 
     private static String bytesToHexString(byte[] bArr) {

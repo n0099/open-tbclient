@@ -9,14 +9,14 @@ import com.baidu.swan.pms.model.PMSAppInfo;
 /* loaded from: classes8.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private c clG = c.clH;
+    private c clK = c.clL;
 
     public void a(@NonNull PrefetchEvent prefetchEvent, @NonNull com.baidu.swan.apps.process.messaging.service.c cVar, @Nullable PMSAppInfo pMSAppInfo) {
         a(cVar, prefetchEvent, pMSAppInfo);
         cVar.g(prefetchEvent);
         if (DEBUG) {
             Log.d("PrefetchMessenger", "onPrefetchReady event: " + prefetchEvent);
-            Log.d("PrefetchMessenger", "onPrefetchReady client id: " + cVar.cJz.index);
+            Log.d("PrefetchMessenger", "onPrefetchReady client id: " + cVar.cJD.index);
         }
     }
 
@@ -34,12 +34,12 @@ public final class b {
         bundle.setClassLoader(PrefetchEvent.class.getClassLoader());
         bundle.putParcelable("swan_app_bundle_prefetch", prefetchEvent);
         if (pMSAppInfo == null) {
-            pMSAppInfo = com.baidu.swan.pms.database.a.aTt().wz(prefetchEvent.appId);
+            pMSAppInfo = com.baidu.swan.pms.database.a.aTt().wA(prefetchEvent.appId);
         }
         if (pMSAppInfo != null) {
             bundle.putParcelable("swan_app_prefetch_pms_info", pMSAppInfo);
-            if (this.clG.a(prefetchEvent, pMSAppInfo, bundle)) {
-                com.baidu.swan.apps.process.messaging.a.axs().a(new com.baidu.swan.apps.process.messaging.c(120, bundle).a(cVar.cJz).fo(true));
+            if (this.clK.a(prefetchEvent, pMSAppInfo, bundle)) {
+                com.baidu.swan.apps.process.messaging.a.axs().a(new com.baidu.swan.apps.process.messaging.c(120, bundle).a(cVar.cJD).fp(true));
             }
         }
     }

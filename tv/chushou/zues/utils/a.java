@@ -74,12 +74,12 @@ public class a {
         return packageInfo != null;
     }
 
-    public static boolean emh() {
-        Application elJ = h.elJ();
-        if (elJ == null) {
+    public static boolean emq() {
+        Application elS = h.elS();
+        if (elS == null) {
             return false;
         }
-        NetworkInfo activeNetworkInfo = ((ConnectivityManager) elJ.getSystemService("connectivity")).getActiveNetworkInfo();
+        NetworkInfo activeNetworkInfo = ((ConnectivityManager) elS.getSystemService("connectivity")).getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isAvailable();
     }
 
@@ -100,7 +100,7 @@ public class a {
         return networkInfo != null && networkInfo.getState() == NetworkInfo.State.CONNECTED;
     }
 
-    public static boolean emi() {
+    public static boolean emr() {
         FileInputStream fileInputStream;
         boolean z = false;
         try {

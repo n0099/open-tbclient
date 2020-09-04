@@ -7,14 +7,14 @@ import com.baidu.swan.apps.process.SwanAppProcessInfo;
 import com.baidu.swan.apps.runtime.i;
 /* loaded from: classes8.dex */
 public class m extends a {
-    public final h cQL;
+    public final h cQP;
 
     public m() {
         this(null);
     }
 
     public m(h hVar) {
-        this.cQL = hVar == null ? d.azE() : hVar;
+        this.cQP = hVar == null ? d.azE() : hVar;
     }
 
     public SwanAppProcessInfo axP() {
@@ -75,8 +75,8 @@ public class m extends a {
         aAt().w(bVar);
     }
 
-    public void qg(String str) {
-        aAt().qg(str);
+    public void qh(String str) {
+        aAt().qh(str);
     }
 
     public void f(String str, Bundle bundle) {
@@ -107,6 +107,6 @@ public class m extends a {
     }
 
     public h aAt() {
-        return this.cQL;
+        return this.cQP;
     }
 }

@@ -45,7 +45,7 @@ public final class i {
         deflater2 = null;
         DeflaterOutputStream deflaterOutputStream2 = null;
         synchronized (i.class) {
-            com.baidu.crabsdk.c.a.ds("writeFile: " + str);
+            com.baidu.crabsdk.c.a.dt("writeFile: " + str);
             h.m(str);
             if (com.baidu.crabsdk.a.G) {
                 String c = com.baidu.crabsdk.c.d.c(com.baidu.crabsdk.a.d, str);
@@ -55,7 +55,7 @@ public final class i {
                     com.baidu.crabsdk.c.a.a("crash content AES failed!", e);
                 }
                 try {
-                    h.b("key_" + str, com.baidu.crabsdk.c.e.dz(c));
+                    h.b("key_" + str, com.baidu.crabsdk.c.e.dA(c));
                 } catch (Exception e2) {
                     h.b("key_" + str, "NoEncrypt_" + c);
                     e2.printStackTrace();
@@ -271,13 +271,13 @@ public final class i {
         return arrayList;
     }
 
-    public static String dJ(String str) {
+    public static String dK(String str) {
         if (str == null) {
             return "";
         }
         StringBuilder sb = new StringBuilder();
         try {
-            com.baidu.crabsdk.c.a.ds("So libs path is: " + str);
+            com.baidu.crabsdk.c.a.dt("So libs path is: " + str);
             File[] listFiles = new File(str).listFiles();
             if (listFiles != null && listFiles.length > 0) {
                 for (File file : listFiles) {
@@ -296,11 +296,11 @@ public final class i {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        com.baidu.crabsdk.c.a.ds("All so libs: " + sb.toString());
+        com.baidu.crabsdk.c.a.dt("All so libs: " + sb.toString());
         return sb.toString();
     }
 
-    public static byte[] dY(String str) {
+    public static byte[] dZ(String str) {
         ByteArrayOutputStream byteArrayOutputStream;
         FileInputStream fileInputStream;
         Throwable th;
@@ -417,7 +417,7 @@ public final class i {
                 } else if (obj instanceof Float) {
                     jSONObject.put(str, (Float) obj);
                 } else {
-                    com.baidu.crabsdk.c.a.dt("mapRecord2JSON: unexpected key[" + str + "]'s value " + obj);
+                    com.baidu.crabsdk.c.a.du("mapRecord2JSON: unexpected key[" + str + "]'s value " + obj);
                 }
             } catch (JSONException e) {
                 com.baidu.crabsdk.c.a.a("Could not create JSON object for key " + str, e);

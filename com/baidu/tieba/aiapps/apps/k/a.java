@@ -51,9 +51,9 @@ public class a implements com.baidu.swan.veloce.a {
     }
 
     @Override // com.baidu.swan.veloce.a
-    public void xB(String str) {
+    public void xC(String str) {
         if (!TextUtils.isEmpty(str)) {
-            com.baidu.swan.facade.b.b.ts(str);
+            com.baidu.swan.facade.b.b.tt(str);
         }
     }
 }

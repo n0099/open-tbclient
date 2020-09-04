@@ -1,5 +1,5 @@
 package com.baidu.tbadk.youngster.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
     private String mPassword;
     private String mPortrait;

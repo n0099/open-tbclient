@@ -62,7 +62,7 @@ public class a {
                     String optString3 = optJSONObject2.optString("ukey");
                     if (!TextUtils.isEmpty(optString3) && (Vx = d.Vx()) != null) {
                         for (e eVar : Vx) {
-                            if (TextUtils.equals(eVar.bKI, optString3)) {
+                            if (TextUtils.equals(eVar.bKM, optString3)) {
                                 arrayList.add(eVar);
                                 list = arrayList;
                                 break;
@@ -86,7 +86,7 @@ public class a {
         List<e> p = e.p(jSONArray);
         if (z) {
             for (e eVar : p) {
-                eVar.bKS = true;
+                eVar.bKW = true;
             }
         } else {
             new ArrayList();

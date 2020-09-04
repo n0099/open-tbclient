@@ -1,13 +1,9 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.BdUniqueId;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class bv extends AbsThreadDataSupport implements com.baidu.adp.widget.ListView.q {
-    public bw dUS;
-    public boolean eay = false;
-    public boolean eaz = false;
-    public boolean eaA = false;
-    public boolean eaB = false;
+    public bw dUW;
     public boolean eaC = false;
     public boolean eaD = false;
     public boolean eaE = false;
@@ -21,82 +17,74 @@ public class bv extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
     public boolean eaM = false;
     public boolean eaN = false;
     public boolean eaO = false;
-    public int eaP = 0;
-    public int eaQ = 0;
+    public boolean eaP = false;
+    public boolean eaQ = false;
+    public boolean eaR = false;
+    public boolean eaS = false;
+    public int eaT = 0;
+    public int eaU = 0;
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        if (this.dUS == null) {
+        if (this.dUW == null) {
             return null;
         }
-        if (this.dUS.bgt()) {
-            if (this.dUS.beW() != null) {
-                return bw.ebo;
+        if (this.dUW.bgt()) {
+            if (this.dUW.beW() != null) {
+                return bw.ebs;
             }
-            return bw.eaS;
+            return bw.eaW;
         }
-        int bez = this.dUS.bez();
-        if (this.dUS.threadType == 63) {
-            bw bwVar = this.dUS;
-            return bw.ebz;
-        } else if (this.dUS.threadType == 64) {
-            bw bwVar2 = this.dUS;
-            return bw.ebA;
-        } else if (this.dUS.threadType == 65) {
-            bw bwVar3 = this.dUS;
-            return bw.ebg;
-        } else if (this.dUS.beY() != null && this.dUS.threadType == 60) {
-            return bw.ebr;
+        int bez = this.dUW.bez();
+        if (this.dUW.threadType == 63) {
+            bw bwVar = this.dUW;
+            return bw.ebD;
+        } else if (this.dUW.threadType == 64) {
+            bw bwVar2 = this.dUW;
+            return bw.ebE;
+        } else if (this.dUW.threadType == 65) {
+            bw bwVar3 = this.dUW;
+            return bw.ebk;
+        } else if (this.dUW.beY() != null && this.dUW.threadType == 60) {
+            return bw.ebv;
         } else {
-            if (this.dUS.beY() != null && this.dUS.threadType == 49) {
-                return bw.ebp;
+            if (this.dUW.beY() != null && this.dUW.threadType == 49) {
+                return bw.ebt;
             }
-            if (this.dUS.threadType == 51) {
-                return bw.ebq;
+            if (this.dUW.threadType == 51) {
+                return bw.ebu;
             }
             if (bez == 2 || bez == 1) {
-                return bw.eaR;
+                return bw.eaV;
             }
-            if (this.dUS.beW() != null && this.dUS.bfR() && !this.dUS.bfJ()) {
-                return bw.ebF;
+            if (this.dUW.beW() != null && this.dUW.bfR() && !this.dUW.bfJ()) {
+                return bw.ebJ;
             }
-            if (this.dUS.isShareThread && this.dUS.edE != null) {
-                if (this.dUS.edE.dZi) {
-                    if (this.dUS.edE.videoInfo != null) {
-                        return bw.ebv;
+            if (this.dUW.isShareThread && this.dUW.edI != null) {
+                if (this.dUW.edI.dZm) {
+                    if (this.dUW.edI.videoInfo != null) {
+                        return bw.ebz;
                     }
-                    if (this.dUS.edE.bdm()) {
-                        return bw.ebu;
+                    if (this.dUW.edI.bdm()) {
+                        return bw.eby;
                     }
-                    return bw.ebt;
+                    return bw.ebx;
                 }
-                return bw.ebs;
-            } else if (this.dUS.bfL()) {
-                bw bwVar4 = this.dUS;
-                return bw.ebC.get() ? bw.ecR : bw.eaS;
-            } else if (this.dUS.bfs() && this.dUS.bfr() == 1) {
-                bw bwVar5 = this.dUS;
-                return bw.ebC.get() ? bw.ecZ : bw.eaS;
-            } else if (this.dUS.isLinkThread()) {
-                return bw.ebm;
+                return bw.ebw;
+            } else if (this.dUW.bfL()) {
+                bw bwVar4 = this.dUW;
+                return bw.ebG.get() ? bw.ecV : bw.eaW;
+            } else if (this.dUW.bfs() && this.dUW.bfr() == 1) {
+                bw bwVar5 = this.dUW;
+                return bw.ebG.get() ? bw.edd : bw.eaW;
+            } else if (this.dUW.isLinkThread()) {
+                return bw.ebq;
             } else {
-                if (this.dUS.bgl()) {
-                    return this.dUS.bem() != null ? bw.eby : bw.ebx;
-                } else if (this.eaO) {
-                    return bw.eaW;
+                if (this.dUW.bgl()) {
+                    return this.dUW.bem() != null ? bw.ebC : bw.ebB;
+                } else if (this.eaS) {
+                    return bw.eba;
                 } else {
-                    if (this.eay) {
-                        return bw.eaX;
-                    }
-                    if (this.eaz) {
-                        return bw.eaY;
-                    }
-                    if (this.eaA) {
-                        return bw.eaZ;
-                    }
-                    if (this.eaB) {
-                        return bw.eba;
-                    }
                     if (this.eaC) {
                         return bw.ebb;
                     }
@@ -110,32 +98,44 @@ public class bv extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
                         return bw.ebe;
                     }
                     if (this.eaG) {
-                        return bw.ebo;
+                        return bw.ebf;
                     }
-                    if (this.dUS.beH()) {
-                        if (this.eaH) {
-                            return bw.ebw;
-                        }
-                        return bw.ebn;
-                    } else if (this.eaI) {
-                        return bw.ebB;
-                    } else {
-                        if (this.eaJ) {
-                            return bw.ebh;
-                        }
-                        if (this.eaK) {
-                            return bw.ebi;
-                        }
+                    if (this.eaH) {
+                        return bw.ebg;
+                    }
+                    if (this.eaI) {
+                        return bw.ebh;
+                    }
+                    if (this.eaJ) {
+                        return bw.ebi;
+                    }
+                    if (this.eaK) {
+                        return bw.ebs;
+                    }
+                    if (this.dUW.beH()) {
                         if (this.eaL) {
-                            return bw.ebj;
+                            return bw.ebA;
                         }
-                        if (this.eaM) {
-                            return bw.ebk;
-                        }
+                        return bw.ebr;
+                    } else if (this.eaM) {
+                        return bw.ebF;
+                    } else {
                         if (this.eaN) {
                             return bw.ebl;
                         }
-                        return bw.eaS;
+                        if (this.eaO) {
+                            return bw.ebm;
+                        }
+                        if (this.eaP) {
+                            return bw.ebn;
+                        }
+                        if (this.eaQ) {
+                            return bw.ebo;
+                        }
+                        if (this.eaR) {
+                            return bw.ebp;
+                        }
+                        return bw.eaW;
                     }
                 }
             }
@@ -144,31 +144,31 @@ public class bv extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
     public bw bce() {
-        return this.dUS;
+        return this.dUW;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
     public ar bcg() {
-        if (this.dUS == null || this.dUS.feedBackReasonMap == null || this.dUS.feedBackReasonMap.size() <= 0) {
+        if (this.dUW == null || this.dUW.feedBackReasonMap == null || this.dUW.feedBackReasonMap.size() <= 0) {
             return null;
         }
         ar arVar = new ar();
         arVar.setTid(bce().getTid());
         arVar.setFid(bce().getFid());
         arVar.setNid(bce().getNid());
-        arVar.setFeedBackReasonMap(this.dUS.feedBackReasonMap);
-        arVar.dYX = this.dUS.dYX;
-        arVar.abTag = this.dUS.mRecomAbTag;
-        arVar.weight = this.dUS.mRecomWeight;
-        arVar.extra = this.dUS.mRecomExtra;
-        arVar.source = this.dUS.mRecomSource;
-        arVar.dZb = this.dUS.dZb;
-        arVar.cardType = this.dUS.bgD();
+        arVar.setFeedBackReasonMap(this.dUW.feedBackReasonMap);
+        arVar.dZb = this.dUW.dZb;
+        arVar.abTag = this.dUW.mRecomAbTag;
+        arVar.weight = this.dUW.mRecomWeight;
+        arVar.extra = this.dUW.mRecomExtra;
+        arVar.source = this.dUW.mRecomSource;
+        arVar.dZf = this.dUW.dZf;
+        arVar.cardType = this.dUW.bgD();
         return arVar;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
     public String bcf() {
-        return this.dUS.edk;
+        return this.dUW.edo;
     }
 }

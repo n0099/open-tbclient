@@ -123,28 +123,28 @@ public class DownloadInfo implements Serializable {
 
     /* loaded from: classes19.dex */
     public static final class a {
-        private long dki = -1;
+        private long dkm = -1;
         private String id;
         private String packageName;
         private String path;
         private String url;
 
         public a bW(long j) {
-            this.dki = j;
-            return this;
-        }
-
-        public a tH(String str) {
-            this.url = str;
+            this.dkm = j;
             return this;
         }
 
         public a tI(String str) {
-            this.path = str;
+            this.url = str;
             return this;
         }
 
         public a tJ(String str) {
+            this.path = str;
+            return this;
+        }
+
+        public a tK(String str) {
             this.packageName = str;
             return this;
         }
@@ -162,7 +162,7 @@ public class DownloadInfo implements Serializable {
             if (TextUtils.isEmpty(this.packageName)) {
                 downloadInfo.setPackageName(this.packageName);
             }
-            if (this.dki == -1) {
+            if (this.dkm == -1) {
                 bW(System.currentTimeMillis());
             }
             if (TextUtils.isEmpty(this.id)) {

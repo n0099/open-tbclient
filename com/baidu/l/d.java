@@ -6,7 +6,7 @@ import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 public class d {
     public static void TP() {
         if (ProcessUtils.isMainProcess()) {
-            b.TN().hS("");
+            b.TN().hT("");
         }
     }
 

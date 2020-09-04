@@ -8,7 +8,7 @@ import java.util.Map;
 public class b {
 
     /* renamed from: de  reason: collision with root package name */
-    private static int f959de = 1;
+    private static int f958de = 1;
     private static int df = 2;
     private static int dg = 3;
     private Map<String, String> dh = new HashMap();
@@ -25,7 +25,7 @@ public class b {
 
     public String getValue(int i, String str) {
         String str2 = null;
-        if (i == f959de) {
+        if (i == f958de) {
             str2 = this.dh.get(str);
         } else if (i == df) {
             str2 = this.di.get(str);
@@ -40,7 +40,7 @@ public class b {
     }
 
     public void setValue(int i, String str, String str2) {
-        if (i == f959de) {
+        if (i == f958de) {
             this.dh.put(str, str2);
         } else if (i == df) {
             this.di.put(str, str2);

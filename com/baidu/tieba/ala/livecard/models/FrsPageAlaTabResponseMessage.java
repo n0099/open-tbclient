@@ -45,7 +45,7 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
                     bw bwVar = new bw();
-                    bwVar.zl("frs_live_play");
+                    bwVar.zm("frs_live_play");
                     bwVar.parserJson(jSONObject2);
                     this.mThreadList.add(bwVar);
                 }
@@ -56,7 +56,7 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
                 for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                     JSONObject jSONObject3 = optJSONArray2.getJSONObject(i3);
                     bw bwVar2 = new bw();
-                    bwVar2.zl("frs_live_play");
+                    bwVar2.zm("frs_live_play");
                     bwVar2.parserJson(jSONObject3);
                     this.mAltList.add(bwVar2);
                 }

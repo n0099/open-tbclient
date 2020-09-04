@@ -1,5 +1,5 @@
 package com.baidu.tbadk.core.data;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class at {
     private String content;
     private String link;

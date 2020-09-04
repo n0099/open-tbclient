@@ -31,14 +31,14 @@ import com.baidu.tieba.square.a.a;
 import java.util.List;
 /* loaded from: classes16.dex */
 public class b {
-    private View bRc;
-    private g fMN;
-    public ForumHeaderView hvM;
-    private RelativeLayout lXB;
-    private TextView lXC;
-    private com.baidu.tieba.square.view.b lXD;
-    private RelativeLayout lXE;
-    private View.OnClickListener lXF;
+    private View bRg;
+    private g fMR;
+    public ForumHeaderView hvS;
+    private RelativeLayout lXQ;
+    private TextView lXR;
+    private com.baidu.tieba.square.view.b lXS;
+    private RelativeLayout lXT;
+    private View.OnClickListener lXU;
     private Context mActivity;
     public NavigationBar mNavigationBar;
     private NoDataView mNoDataView;
@@ -57,7 +57,7 @@ public class b {
     public b(Context context, TbPageContext tbPageContext) {
         this.mActivity = context;
         this.mTbPageContext = tbPageContext;
-        this.bRc = LayoutInflater.from(this.mActivity).inflate(R.layout.forum_square_activity, (ViewGroup) null);
+        this.bRg = LayoutInflater.from(this.mActivity).inflate(R.layout.forum_square_activity, (ViewGroup) null);
         initUI();
         initListener();
     }
@@ -67,111 +67,111 @@ public class b {
     }
 
     public View getRootLayout() {
-        return this.bRc;
+        return this.bRg;
     }
 
     private void initUI() {
-        this.mNavigationBar = (NavigationBar) this.bRc.findViewById(R.id.navigation_bar);
+        this.mNavigationBar = (NavigationBar) this.bRg.findViewById(R.id.navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setCenterTextTitle(this.mActivity.getString(R.string.forum_square));
-        this.lXC = (TextView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.navigation_right_button_layout, (View.OnClickListener) null).findViewById(R.id.right_textview);
-        this.lXC.setText(this.mActivity.getString(R.string.forum_square_create_bar));
-        this.lXB = (RelativeLayout) this.bRc.findViewById(R.id.forum_header_serch_container);
-        this.hvM = (ForumHeaderView) this.bRc.findViewById(R.id.forum_header_serch_view);
-        this.hvM.setFrom(1);
-        this.hvM.setSearchHint(TbSingleton.getInstance().getHotSearch());
-        this.lXD = new com.baidu.tieba.square.view.b(this.mTbPageContext, this.bRc);
-        this.lXE = (RelativeLayout) this.bRc.findViewById(R.id.layout_container);
+        this.lXR = (TextView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.navigation_right_button_layout, (View.OnClickListener) null).findViewById(R.id.right_textview);
+        this.lXR.setText(this.mActivity.getString(R.string.forum_square_create_bar));
+        this.lXQ = (RelativeLayout) this.bRg.findViewById(R.id.forum_header_serch_container);
+        this.hvS = (ForumHeaderView) this.bRg.findViewById(R.id.forum_header_serch_view);
+        this.hvS.setFrom(1);
+        this.hvS.setSearchHint(TbSingleton.getInstance().getHotSearch());
+        this.lXS = new com.baidu.tieba.square.view.b(this.mTbPageContext, this.bRg);
+        this.lXT = (RelativeLayout) this.bRg.findViewById(R.id.layout_container);
         changeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void duC() {
+    public void duH() {
         this.mNavigationBar.setVisibility(8);
-        this.hvM.setVisibility(8);
-        this.lXB.setVisibility(8);
-        ((LinearLayout.LayoutParams) this.lXE.getLayoutParams()).bottomMargin = l.getDimens(this.mTbPageContext.getPageActivity(), R.dimen.tbds22);
+        this.hvS.setVisibility(8);
+        this.lXQ.setVisibility(8);
+        ((LinearLayout.LayoutParams) this.lXT.getLayoutParams()).bottomMargin = l.getDimens(this.mTbPageContext.getPageActivity(), R.dimen.tbds22);
     }
 
-    public Pair<Integer, Integer> duE() {
-        return this.lXD != null ? this.lXD.duE() : new Pair<>(0, 0);
+    public Pair<Integer, Integer> duJ() {
+        return this.lXS != null ? this.lXS.duJ() : new Pair<>(0, 0);
     }
 
     public void scrollToPositionWithOffset(int i, int i2) {
-        if (this.lXD != null) {
-            this.lXD.scrollToPositionWithOffset(i, i2);
+        if (this.lXS != null) {
+            this.lXS.scrollToPositionWithOffset(i, i2);
         }
     }
 
     public void a(a.InterfaceC0801a interfaceC0801a) {
-        if (this.lXD != null) {
-            this.lXD.a(interfaceC0801a);
+        if (this.lXS != null) {
+            this.lXS.a(interfaceC0801a);
         }
     }
 
     public void e(BdListView.e eVar) {
-        if (this.lXD != null) {
-            this.lXD.e(eVar);
+        if (this.lXS != null) {
+            this.lXS.e(eVar);
         }
     }
 
     public void b(RecyclerView.OnScrollListener onScrollListener) {
-        if (this.lXD != null) {
-            this.lXD.b(onScrollListener);
+        if (this.lXS != null) {
+            this.lXS.b(onScrollListener);
         }
     }
 
-    public String duF() {
-        return this.lXD.duF();
+    public String duK() {
+        return this.lXS.duK();
     }
 
     public void Qq(String str) {
-        if (this.lXD != null) {
-            this.lXD.Qq(str);
+        if (this.lXS != null) {
+            this.lXS.Qq(str);
         }
     }
 
     public void c(String str, List<String> list, boolean z) {
-        if (this.lXD != null) {
-            this.lXD.c(str, list, z);
+        if (this.lXS != null) {
+            this.lXS.c(str, list, z);
         }
     }
 
     public void fc(List<q> list) {
-        if (this.lXD != null) {
-            this.lXD.fc(list);
+        if (this.lXS != null) {
+            this.lXS.fc(list);
         }
     }
 
     public void s(List<q> list, int i) {
-        if (this.lXD != null) {
-            this.lXD.s(list, i);
+        if (this.lXS != null) {
+            this.lXS.s(list, i);
         }
     }
 
-    public void duG() {
-        if (this.lXD != null) {
-            this.lXD.duG();
+    public void duL() {
+        if (this.lXS != null) {
+            this.lXS.duL();
         }
     }
 
     public void ah(View.OnClickListener onClickListener) {
-        if (this.lXC != null) {
-            this.lXC.setOnClickListener(onClickListener);
+        if (this.lXR != null) {
+            this.lXR.setOnClickListener(onClickListener);
         }
     }
 
     public void changeSkinType(int i) {
-        if (this.hvM != null) {
-            this.hvM.onChangeSkinType();
+        if (this.hvS != null) {
+            this.hvS.onChangeSkinType();
         }
         if (this.mNavigationBar != null && this.mActivity != null) {
             this.mNavigationBar.onChangeSkinType(this.mTbPageContext, i);
         }
-        if (this.lXD != null) {
-            this.lXD.onChangeSkinType(i);
+        if (this.lXS != null) {
+            this.lXS.onChangeSkinType(i);
         }
-        if (this.fMN != null) {
-            this.fMN.onChangeSkinType();
+        if (this.fMR != null) {
+            this.fMR.onChangeSkinType();
         }
         if (this.mRefreshView != null) {
             this.mRefreshView.onChangeSkinType();
@@ -180,69 +180,69 @@ public class b {
             this.mNoDataView.setSubTitleTextColor(R.color.cp_cont_b);
             this.mNoDataView.onChangeSkinType(this.mTbPageContext, i);
         }
-        ap.setViewTextColor(this.lXC, R.color.cp_cont_b, 1);
-        ap.setBackgroundColor(this.bRc, R.color.cp_bg_line_e);
-        ap.setBackgroundColor(this.lXB, R.color.cp_bg_line_h);
+        ap.setViewTextColor(this.lXR, R.color.cp_cont_b, 1);
+        ap.setBackgroundColor(this.bRg, R.color.cp_bg_line_e);
+        ap.setBackgroundColor(this.lXQ, R.color.cp_bg_line_h);
         ap.setBackgroundColor(this.mNavigationBar, R.color.cp_bg_line_h, i);
     }
 
     public void setSearchHint(String str) {
-        if (this.hvM != null) {
-            this.hvM.setSearchHint(str);
+        if (this.hvS != null) {
+            this.hvS.setSearchHint(str);
         }
     }
 
     public void ai(View.OnClickListener onClickListener) {
-        this.lXF = onClickListener;
+        this.lXU = onClickListener;
     }
 
-    public void nK(boolean z) {
-        if (!cgw()) {
+    public void nM(boolean z) {
+        if (!cgx()) {
             if (this.mRefreshView == null) {
-                this.mRefreshView = new h(this.mActivity, this.lXF);
+                this.mRefreshView = new h(this.mActivity, this.lXU);
                 this.mRefreshView.setLayoutMargin(l.getDimens(this.mActivity, R.dimen.ds250));
             }
-            this.mRefreshView.attachView(this.lXE, z);
+            this.mRefreshView.attachView(this.lXT, z);
             this.mRefreshView.showRefreshButton();
         }
     }
 
-    private boolean cgw() {
+    private boolean cgx() {
         if (this.mRefreshView != null) {
             return this.mRefreshView.isViewAttached();
         }
         return false;
     }
 
-    public void bFW() {
+    public void bFX() {
         if (this.mRefreshView != null) {
-            this.mRefreshView.dettachView(this.lXE);
+            this.mRefreshView.dettachView(this.lXT);
             this.mRefreshView = null;
         }
     }
 
     public void hideLoadingView() {
-        if (this.fMN != null) {
-            this.fMN.dettachView(this.lXE);
-            this.fMN = null;
+        if (this.fMR != null) {
+            this.fMR.dettachView(this.lXT);
+            this.fMR = null;
         }
     }
 
-    public boolean cgv() {
-        if (this.fMN != null) {
-            return this.fMN.isViewAttached();
+    public boolean cgw() {
+        if (this.fMR != null) {
+            return this.fMR.isViewAttached();
         }
         return false;
     }
 
-    public void gS(boolean z) {
-        if (!cgv()) {
-            if (this.fMN == null) {
-                this.fMN = new g(this.mActivity);
-                this.fMN.setTopMargin(l.getDimens(this.mActivity, R.dimen.ds250));
+    public void gT(boolean z) {
+        if (!cgw()) {
+            if (this.fMR == null) {
+                this.fMR = new g(this.mActivity);
+                this.fMR.setTopMargin(l.getDimens(this.mActivity, R.dimen.ds250));
             }
-            this.fMN.onChangeSkinType();
-            this.fMN.attachView(this.lXE, z);
+            this.fMR.onChangeSkinType();
+            this.fMR.attachView(this.lXT, z);
         }
     }
 
@@ -252,75 +252,75 @@ public class b {
         }
     }
 
-    public void duH() {
-        hideLoadingView();
-        hideNoDataView();
-        nK(true);
-        if (this.lXD != null) {
-            this.lXD.Fr(8);
-        }
-    }
-
-    public void duI() {
-        bFW();
-        hideNoDataView();
-        gS(true);
-    }
-
-    public void duJ() {
-        hideLoadingView();
-        bFW();
-        hideNoDataView();
-        if (this.lXD != null) {
-            this.lXD.hideLoadingView();
-            this.lXD.Fr(0);
-        }
-    }
-
-    public void duK() {
-        hideLoadingView();
-        bFW();
-        hideNoDataView();
-        if (this.lXD != null) {
-            this.lXD.gS(true);
-            this.lXD.HE(8);
-        }
-    }
-
-    public void duL() {
-        if (this.lXD != null) {
-            this.lXD.duL();
-        }
-    }
-
     public void duM() {
-        if (this.lXD != null) {
-            this.lXD.duM();
+        hideLoadingView();
+        hideNoDataView();
+        nM(true);
+        if (this.lXS != null) {
+            this.lXS.Fr(8);
         }
     }
 
     public void duN() {
-        if (this.lXD != null) {
-            this.lXD.duN();
+        bFX();
+        hideNoDataView();
+        gT(true);
+    }
+
+    public void duO() {
+        hideLoadingView();
+        bFX();
+        hideNoDataView();
+        if (this.lXS != null) {
+            this.lXS.hideLoadingView();
+            this.lXS.Fr(0);
         }
     }
 
-    public void bGT() {
-        if (this.lXD != null) {
-            this.lXD.bGT();
+    public void duP() {
+        hideLoadingView();
+        bFX();
+        hideNoDataView();
+        if (this.lXS != null) {
+            this.lXS.gT(true);
+            this.lXS.HE(8);
         }
     }
 
-    public boolean vR(boolean z) {
+    public void duQ() {
+        if (this.lXS != null) {
+            this.lXS.duQ();
+        }
+    }
+
+    public void duR() {
+        if (this.lXS != null) {
+            this.lXS.duR();
+        }
+    }
+
+    public void duS() {
+        if (this.lXS != null) {
+            this.lXS.duS();
+        }
+    }
+
+    public void bGU() {
+        if (this.lXS != null) {
+            this.lXS.bGU();
+        }
+    }
+
+    public boolean vT(boolean z) {
         if (z) {
             if (j.isNetWorkAvailable()) {
-                duN();
+                duS();
             } else {
-                duL();
+                duQ();
             }
             return true;
         }
-        duM();
+        duR();
         return false;
     }
 }

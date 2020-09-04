@@ -17,22 +17,22 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes20.dex */
 public class AdDebugActivity extends BaseActivity<AdDebugActivity> implements View.OnClickListener {
-    private LinearLayout hlI;
-    private TextView jDC;
-    private List<AppData> lCo;
+    private LinearLayout hlM;
+    private TextView jDI;
+    private List<AppData> lCz;
     private TextView mTitle;
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == R.id.ad_debug_copy) {
-            a.copyToClipboard(this.jDC.getText().toString());
+            a.copyToClipboard(this.jDI.getText().toString());
             showToast("已复制到系统剪贴板");
             return;
         }
-        int indexOfChild = this.hlI.indexOfChild(view);
-        if (indexOfChild >= 0 && indexOfChild < this.lCo.size()) {
+        int indexOfChild = this.hlM.indexOfChild(view);
+        if (indexOfChild >= 0 && indexOfChild < this.lCz.size()) {
             this.mTitle.setText("AD" + indexOfChild);
-            a(this.lCo.get(indexOfChild));
+            a(this.lCz.get(indexOfChild));
         }
     }
 
@@ -42,40 +42,40 @@ public class AdDebugActivity extends BaseActivity<AdDebugActivity> implements Vi
         super.onCreate(bundle);
         setContentView(R.layout.ad_debug_layout);
         this.mTitle = (TextView) findViewById(R.id.ad_debug_label_data);
-        this.jDC = (TextView) findViewById(R.id.ad_debug_content);
-        this.hlI = (LinearLayout) findViewById(R.id.ad_debug_item_container);
+        this.jDI = (TextView) findViewById(R.id.ad_debug_content);
+        this.hlM = (LinearLayout) findViewById(R.id.ad_debug_item_container);
         ((TextView) findViewById(R.id.ad_debug_copy)).setOnClickListener(this);
-        this.jDC.setMovementMethod(new ScrollingMovementMethod());
-        this.jDC.setText("没刷到广告~ 换个姿势试试！");
-        this.lCo = r.dnh().dnf();
+        this.jDI.setMovementMethod(new ScrollingMovementMethod());
+        this.jDI.setText("没刷到广告~ 换个姿势试试！");
+        this.lCz = r.dnk().dni();
         bkd();
     }
 
     private void bkd() {
-        if (this.lCo.size() == 0) {
-            TextView dnk = dnk();
-            dnk.setOnClickListener(null);
-            dnk.setText("No AD");
-            this.hlI.addView(dnk, new LinearLayout.LayoutParams(-1, -1, 1.0f));
+        if (this.lCz.size() == 0) {
+            TextView dnn = dnn();
+            dnn.setOnClickListener(null);
+            dnn.setText("No AD");
+            this.hlM.addView(dnn, new LinearLayout.LayoutParams(-1, -1, 1.0f));
             return;
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 != this.lCo.size()) {
-                TextView dnk2 = dnk();
-                dnk2.setText("AD" + i2);
-                AppData appData = this.lCo.get(i2);
+            if (i2 != this.lCz.size()) {
+                TextView dnn2 = dnn();
+                dnn2.setText("AD" + i2);
+                AppData appData = this.lCz.get(i2);
                 if (appData.mDiscardReason > 0) {
-                    ap.setBackgroundResource(dnk2, R.drawable.btn_all_red);
+                    ap.setBackgroundResource(dnn2, R.drawable.btn_all_red);
                 } else {
-                    ap.setBackgroundResource(dnk2, R.drawable.btn_all_green);
+                    ap.setBackgroundResource(dnn2, R.drawable.btn_all_green);
                 }
                 if (i2 == 0) {
                     a(appData);
                     this.mTitle.setText("AD0");
                 }
-                this.hlI.addView(dnk2, new LinearLayout.LayoutParams(-1, -1, 1.0f));
+                this.hlM.addView(dnn2, new LinearLayout.LayoutParams(-1, -1, 1.0f));
                 i = i2 + 1;
             } else {
                 return;
@@ -83,7 +83,7 @@ public class AdDebugActivity extends BaseActivity<AdDebugActivity> implements Vi
         }
     }
 
-    private TextView dnk() {
+    private TextView dnn() {
         TextView textView = new TextView(this);
         textView.setGravity(17);
         ap.setViewTextColor(textView, R.color.cp_other_f);
@@ -94,7 +94,7 @@ public class AdDebugActivity extends BaseActivity<AdDebugActivity> implements Vi
     private void a(AppData appData) {
         String str;
         if (appData == null) {
-            this.jDC.setText("数据格式错误");
+            this.jDI.setText("数据格式错误");
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -102,7 +102,7 @@ public class AdDebugActivity extends BaseActivity<AdDebugActivity> implements Vi
             try {
                 String str2 = new String();
                 if (appData.mDiscardReason > 0) {
-                    String str3 = f.lHP.get(Integer.valueOf(appData.mDiscardReason));
+                    String str3 = f.lIc.get(Integer.valueOf(appData.mDiscardReason));
                     if (TextUtils.isEmpty(str3)) {
                         str3 = "未知原因";
                     }
@@ -116,7 +116,7 @@ public class AdDebugActivity extends BaseActivity<AdDebugActivity> implements Vi
                     optJSONObject.put("lego_card", new JSONObject(optString));
                     jSONObject.put("goods", optJSONObject);
                 }
-                this.jDC.setText(str + jSONObject.toString(4));
+                this.jDI.setText(str + jSONObject.toString(4));
             } catch (Exception e) {
                 e.printStackTrace();
             }

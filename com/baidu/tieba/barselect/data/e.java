@@ -3,41 +3,41 @@ package com.baidu.tieba.barselect.data;
 import tbclient.ElectionInfo.Basic;
 /* loaded from: classes15.dex */
 public class e {
-    private long hdh;
-    private long hdi;
-    private long hdj;
-    private long hdk;
-    private int hdl;
-    private int hdm;
-    private boolean hdn;
+    private long hdl;
+    private long hdm;
+    private long hdn;
+    private long hdo;
+    private int hdp;
+    private int hdq;
+    private boolean hdr;
     private int status = 0;
 
-    public int caK() {
-        return this.hdl;
+    public int caL() {
+        return this.hdp;
     }
 
     public int getStatus() {
         return this.status;
     }
 
-    public long caL() {
-        return this.hdh;
-    }
-
     public long caM() {
-        return this.hdj;
+        return this.hdl;
     }
 
     public long caN() {
-        return this.hdk;
+        return this.hdn;
     }
 
     public long caO() {
-        return this.hdi;
+        return this.hdo;
     }
 
-    public boolean caP() {
-        return this.hdn;
+    public long caP() {
+        return this.hdm;
+    }
+
+    public boolean caQ() {
+        return this.hdr;
     }
 
     public static e a(Basic basic) {
@@ -45,18 +45,18 @@ public class e {
             return null;
         }
         e eVar = new e();
-        eVar.et(GU(basic.remind_time));
+        eVar.et(GV(basic.remind_time));
         eVar.setStatus(basic.status.intValue());
         eVar.vi(basic.candidate_num.intValue());
         eVar.vj(basic.total_vote_num.intValue());
-        eVar.er(GU(basic.begin_apply_time));
-        eVar.eu(GU(basic.begin_vote_time));
-        eVar.es(GU(basic.begin_public_time));
-        eVar.mZ(basic.is_voted.booleanValue());
+        eVar.er(GV(basic.begin_apply_time));
+        eVar.eu(GV(basic.begin_vote_time));
+        eVar.es(GV(basic.begin_public_time));
+        eVar.nb(basic.is_voted.booleanValue());
         return eVar;
     }
 
-    private static long GU(String str) {
+    private static long GV(String str) {
         try {
             return Long.parseLong(str);
         } catch (Exception e) {
@@ -66,19 +66,19 @@ public class e {
     }
 
     public void vi(int i) {
-        this.hdl = i;
+        this.hdp = i;
     }
 
     public void er(long j) {
-        this.hdh = j;
+        this.hdl = j;
     }
 
     public void es(long j) {
-        this.hdj = j;
+        this.hdn = j;
     }
 
     public void et(long j) {
-        this.hdk = j;
+        this.hdo = j;
     }
 
     public void setStatus(int i) {
@@ -86,14 +86,14 @@ public class e {
     }
 
     public void vj(int i) {
-        this.hdm = i;
+        this.hdq = i;
     }
 
     public void eu(long j) {
-        this.hdi = j;
+        this.hdm = j;
     }
 
-    public void mZ(boolean z) {
-        this.hdn = z;
+    public void nb(boolean z) {
+        this.hdr = z;
     }
 }

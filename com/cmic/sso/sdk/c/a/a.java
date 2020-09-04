@@ -52,9 +52,9 @@ public class a implements b {
         try {
             try {
                 URL url = new URL(cVar.a());
-                if (cVar.dNk() != null) {
+                if (cVar.dNt() != null) {
                     com.cmic.sso.sdk.e.c.b("ConnectionInterceptor", "开始wifi下取号");
-                    httpURLConnection = (HttpURLConnection) cVar.dNk().openConnection(url);
+                    httpURLConnection = (HttpURLConnection) cVar.dNt().openConnection(url);
                 } else {
                     com.cmic.sso.sdk.e.c.b("ConnectionInterceptor", "使用当前网络环境发送请求");
                     httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -94,7 +94,7 @@ public class a implements b {
                             com.cmic.sso.sdk.e.c.a("ConnectionInterceptor", "请求失败: " + cVar.a());
                             if (e instanceof SSLHandshakeException) {
                             }
-                            com.cmic.sso.sdk.d.a.niN.add(e);
+                            com.cmic.sso.sdk.d.a.njf.add(e);
                             if (!(e instanceof EOFException)) {
                             }
                             a(outputStream);
@@ -205,7 +205,7 @@ public class a implements b {
                     if (e instanceof SSLHandshakeException) {
                         aVar.a("isNeedToGetCert", true);
                     }
-                    com.cmic.sso.sdk.d.a.niN.add(e);
+                    com.cmic.sso.sdk.d.a.njf.add(e);
                     i = !(e instanceof EOFException) ? 200050 : 102102;
                     a(outputStream);
                     a(inputStream);
@@ -288,7 +288,7 @@ public class a implements b {
             }
             com.cmic.sso.sdk.e.c.b("ConnectionInterceptor", "cer: " + a);
             if (!TextUtils.isEmpty(a)) {
-                ((HttpsURLConnection) httpURLConnection).setSSLSocketFactory(new com.cmic.sso.sdk.c.e.a(a).dNm().getSocketFactory());
+                ((HttpsURLConnection) httpURLConnection).setSSLSocketFactory(new com.cmic.sso.sdk.c.e.a(a).dNv().getSocketFactory());
             }
         }
     }

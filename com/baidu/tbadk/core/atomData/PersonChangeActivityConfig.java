@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class PersonChangeActivityConfig extends IntentConfig {
     public static final String IS_FROM_PERSONINFO = "isFromPersonInfo";
     public static final String TAG_DATA = "data";

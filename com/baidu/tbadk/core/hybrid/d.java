@@ -10,25 +10,25 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class d implements h {
-    private final l egY;
-    private final HashMap<String, Method> egZ = new HashMap<>();
+    private final l ehc;
+    private final HashMap<String, Method> ehd = new HashMap<>();
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tbadk.core.hybrid.d */
     /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Multi-variable type inference failed */
     public d(l lVar) {
-        this.egY = lVar;
+        this.ehc = lVar;
         t(getClass());
-        if (this.egZ.isEmpty()) {
+        if (this.ehd.isEmpty()) {
             throw new IllegalStateException("No native methods found!");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public Context getContext() {
-        return this.egY.getContext();
+        return this.ehc.getContext();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -47,13 +47,13 @@ public abstract class d implements h {
         if (jSONObject != null) {
             hashMap.put("data", jSONObject);
         }
-        this.egY.a(m.m(str, hashMap));
+        this.ehc.a(m.m(str, hashMap));
     }
 
     @Override // com.baidu.tbadk.core.hybrid.h
     public void a(String str, JSONObject jSONObject, JSONObject jSONObject2) {
         Object invoke;
-        Method method = this.egZ.get(str);
+        Method method = this.ehd.get(str);
         if (method != null) {
             o oVar = (o) method.getAnnotation(o.class);
             String optString = jSONObject2.optString(WBConstants.SHARE_CALLBACK_ID);
@@ -126,7 +126,7 @@ public abstract class d implements h {
         HashMap hashMap = new HashMap(4);
         hashMap.put("errNo", str2);
         hashMap.put("errMsg", str3);
-        this.egY.a(m.m(optString, hashMap));
+        this.ehc.a(m.m(optString, hashMap));
     }
 
     private void t(Class<? extends d> cls) {
@@ -145,7 +145,7 @@ public abstract class d implements h {
                     value = method.getName();
                 }
                 method.setAccessible(true);
-                this.egZ.put(value, method);
+                this.ehd.put(value, method);
             }
         }
         Class<? super Object> superclass = cls.getSuperclass();

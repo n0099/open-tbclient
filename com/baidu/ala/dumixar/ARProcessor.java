@@ -270,7 +270,7 @@ public class ARProcessor implements SurfaceTexture.OnFrameAvailableListener {
         if (this.mEffect != null) {
             a aVar = this.mEffect;
             b.SY();
-            aVar.hL(c.cW(z));
+            aVar.hM(c.cX(z));
         }
     }
 
@@ -542,7 +542,7 @@ public class ARProcessor implements SurfaceTexture.OnFrameAvailableListener {
     }
 
     public boolean checkTipResFile(Sticker sticker) {
-        return sticker.isSupport(a.getVersion()) && !TextUtils.isEmpty(sticker.getPath()) && new File(sticker.getPath()).exists() && a.hM(sticker.getPath());
+        return sticker.isSupport(a.getVersion()) && !TextUtils.isEmpty(sticker.getPath()) && new File(sticker.getPath()).exists() && a.hN(sticker.getPath());
     }
 
     public Sticker getFace() {
@@ -881,14 +881,14 @@ public class ARProcessor implements SurfaceTexture.OnFrameAvailableListener {
                         bool2 = null;
                         bool3 = null;
                     }
-                    ARProcessor.this.beautyEnableStatus.cX(bool3 == null || bool3.booleanValue());
-                    ARProcessor.this.beautyEnableStatus.cY(bool2 == null || bool2.booleanValue());
-                    ARProcessor.this.beautyEnableStatus.cZ(bool == null || bool.booleanValue());
+                    ARProcessor.this.beautyEnableStatus.cY(bool3 == null || bool3.booleanValue());
+                    ARProcessor.this.beautyEnableStatus.cZ(bool2 == null || bool2.booleanValue());
+                    ARProcessor.this.beautyEnableStatus.da(bool == null || bool.booleanValue());
                     com.baidu.minivideo.arface.bean.a aVar = ARProcessor.this.beautyEnableStatus;
                     if (bool4 == null || bool4.booleanValue()) {
                         z = true;
                     }
-                    aVar.da(z);
+                    aVar.db(z);
                     if (ARProcessor.this.mDuArProcessorCallback != null) {
                         SafeHandler.getInst().post(new Runnable() { // from class: com.baidu.ala.dumixar.ARProcessor.8.1
                             @Override // java.lang.Runnable

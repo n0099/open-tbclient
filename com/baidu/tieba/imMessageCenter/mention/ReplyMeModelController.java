@@ -21,67 +21,67 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes16.dex */
 public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<l>, NetModel.b<k, l> {
-    private FeedData jDJ;
-    private f jDK;
-    private ReplyMessageFragment jFp;
-    private k jFq;
-    private ReplyMeNetModel jFr;
-    private ReplyMeCacheModel jFs;
+    private FeedData jDP;
+    private f jDQ;
+    private ReplyMessageFragment jFv;
+    private k jFw;
+    private ReplyMeNetModel jFx;
+    private ReplyMeCacheModel jFy;
 
     public ReplyMeModelController(ReplyMessageFragment replyMessageFragment) {
         super(replyMessageFragment.getPageContext());
-        this.jFp = replyMessageFragment;
+        this.jFv = replyMessageFragment;
     }
 
     public void aj(Bundle bundle) {
-        this.jFq = new k();
-        this.jFr = new ReplyMeNetModel(this.jFp.getPageContext(), this.jFq);
-        this.jFr.a(this);
-        this.jFr.setUniqueId(this.jFp.getUniqueId());
-        this.jFs = new ReplyMeCacheModel(this.jFp.getPageContext());
-        this.jFs.a(this);
-        this.jFs.setUniqueId(this.jFp.getUniqueId());
-        this.jDK = new f();
+        this.jFw = new k();
+        this.jFx = new ReplyMeNetModel(this.jFv.getPageContext(), this.jFw);
+        this.jFx.a(this);
+        this.jFx.setUniqueId(this.jFv.getUniqueId());
+        this.jFy = new ReplyMeCacheModel(this.jFv.getPageContext());
+        this.jFy.a(this);
+        this.jFy.setUniqueId(this.jFv.getUniqueId());
+        this.jDQ = new f();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean ccI() {
-        if (this.jFr.isLoading() || !cJA()) {
+    public boolean ccJ() {
+        if (this.jFx.isLoading() || !cJB()) {
             return false;
         }
-        this.jFq.e(this.jDJ);
-        this.jFr.setNeedCache(false);
-        this.jFr.loadData();
+        this.jFw.e(this.jDP);
+        this.jFx.setNeedCache(false);
+        this.jFx.loadData();
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean crr() {
-        if (this.jFr.isLoading() || !cJA()) {
+    public boolean crs() {
+        if (this.jFx.isLoading() || !cJB()) {
             return false;
         }
-        this.jDJ = null;
-        this.jFq.reset();
-        this.jFr.setNeedCache(true);
-        this.jFr.loadData();
+        this.jDP = null;
+        this.jFw.reset();
+        this.jFx.setNeedCache(true);
+        this.jFx.loadData();
         return true;
     }
 
-    protected boolean cJA() {
+    protected boolean cJB() {
         if (TbadkCoreApplication.isLogin()) {
             return true;
         }
-        if (this.jDK != null && this.jDK.jFg != null) {
-            this.jDK.jFg.clear();
+        if (this.jDQ != null && this.jDQ.jFm != null) {
+            this.jDQ.jFm.clear();
         }
-        this.jFp.cJX();
-        this.jFp.b(false, (ArrayList<q>) null);
+        this.jFv.cJY();
+        this.jFv.b(false, (ArrayList<q>) null);
         return false;
     }
 
-    public boolean ccH() {
-        if (cJA()) {
-            this.jFs.a((com.baidu.tbadk.mvc.b.e) this.jFq);
+    public boolean ccI() {
+        if (cJB()) {
+            this.jFy.a((com.baidu.tbadk.mvc.b.e) this.jFw);
             return true;
         }
         return true;
@@ -92,13 +92,13 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
         boolean z3;
         boolean z4;
         if (kVar.getUpdateType() != 4) {
-            this.jDK.cJS().clear();
+            this.jDQ.cJT().clear();
         }
-        this.jDK.a(lVar);
-        if (lVar != null && lVar.cJS() != null && lVar.cJS().size() > 0) {
-            this.jDJ = lVar.cJS().get(lVar.cJS().size() - 1);
-            if (this.jDK.getPage() != null) {
-                z4 = this.jDK.getPage().bdu() == 1;
+        this.jDQ.a(lVar);
+        if (lVar != null && lVar.cJT() != null && lVar.cJT().size() > 0) {
+            this.jDP = lVar.cJT().get(lVar.cJT().size() - 1);
+            if (this.jDQ.getPage() != null) {
+                z4 = this.jDQ.getPage().bdu() == 1;
             } else {
                 z4 = true;
             }
@@ -114,40 +114,40 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
                 z2 = z4;
             }
         } else {
-            this.jDJ = null;
+            this.jDP = null;
             z2 = false;
             z3 = false;
         }
         com.baidu.tbadk.coreExtra.messageCenter.b.bnV().boi();
         ArrayList<q> arrayList = new ArrayList<>();
-        Iterator<FeedData> it = this.jDK.jFg.iterator();
+        Iterator<FeedData> it = this.jDQ.jFm.iterator();
         while (it.hasNext()) {
             com.baidu.tieba.imMessageCenter.mention.base.a aVar = new com.baidu.tieba.imMessageCenter.mention.base.a();
             aVar.f(it.next());
             if (z) {
-                aVar.rn(false);
+                aVar.rp(false);
             }
             arrayList.add(aVar);
         }
-        this.jFp.b(z2, arrayList);
+        this.jFv.b(z2, arrayList);
         return z3;
     }
 
     public void BX(int i) {
-        if (this.jDK != null && this.jDK.cJS() != null && i < this.jDK.cJS().size()) {
-            this.jDK.cJS().remove(i);
+        if (this.jDQ != null && this.jDQ.cJT() != null && i < this.jDQ.cJT().size()) {
+            this.jDQ.cJT().remove(i);
         }
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel.a
     public void a(ReadCacheRespMsg<List<l>> readCacheRespMsg, ReadCacheMessage<l> readCacheMessage) {
         if (readCacheRespMsg != null && readCacheRespMsg.getData() != null && readCacheRespMsg.getData().size() > 0) {
-            a(this.jFq, readCacheRespMsg.getData().get(0), true);
+            a(this.jFw, readCacheRespMsg.getData().get(0), true);
         }
-        this.jDJ = null;
-        this.jFq.reset();
-        this.jFr.setNeedCache(true);
-        this.jFr.loadData();
+        this.jDP = null;
+        this.jFw.reset();
+        this.jFx.setNeedCache(true);
+        this.jFx.loadData();
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel.a
@@ -176,7 +176,7 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
             if (this.mErrorCode != 0) {
-                this.jFp.a(errorData);
+                this.jFv.a(errorData);
             }
         }
     }
@@ -203,7 +203,7 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
             if (this.mErrorCode != 0) {
-                this.jFp.a(errorData);
+                this.jFv.a(errorData);
             }
         }
     }
@@ -219,11 +219,11 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
     }
 
     public void onDestroy() {
-        if (this.jFr != null) {
-            this.jFr.a((NetModel.b) null);
+        if (this.jFx != null) {
+            this.jFx.a((NetModel.b) null);
         }
-        if (this.jFs != null) {
-            this.jFs.a((CacheModel.a) null);
+        if (this.jFy != null) {
+            this.jFy.a((CacheModel.a) null);
         }
     }
 }

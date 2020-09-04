@@ -1,9 +1,9 @@
 package com.baidu.tieba.recapp;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface l {
-    void dmU();
+    void dmX();
 
-    void dmV();
+    void dmY();
 
-    int dmW();
+    int dmZ();
 }

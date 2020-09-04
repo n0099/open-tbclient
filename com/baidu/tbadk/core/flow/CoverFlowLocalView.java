@@ -14,123 +14,123 @@ import com.baidu.tbadk.core.flow.a.a;
 import com.baidu.tbadk.core.flow.a.d;
 import com.baidu.tbadk.widget.viewpager.ListViewPager;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class CoverFlowLocalView<T extends com.baidu.tbadk.core.flow.a.a> extends FrameLayout {
-    private boolean egA;
-    private boolean egB;
-    private d<T> egC;
-    private CoverFlowLocalView<T>.c egD;
-    private CoverFlowLocalView<T>.b egE;
-    private long egF;
-    private boolean egs;
-    private ListViewPager egt;
-    private IndicatorView egu;
-    private com.baidu.tbadk.core.flow.a.c egv;
-    private CoverFlowLocalAdapter<T> egw;
-    private com.baidu.tbadk.core.flow.a egx;
-    private CoverFlowLocalView<T>.a egy;
-    private boolean egz;
+    private CoverFlowLocalAdapter<T> egA;
+    private com.baidu.tbadk.core.flow.a egB;
+    private CoverFlowLocalView<T>.a egC;
+    private boolean egD;
+    private boolean egE;
+    private boolean egF;
+    private d<T> egG;
+    private CoverFlowLocalView<T>.c egH;
+    private CoverFlowLocalView<T>.b egI;
+    private long egJ;
+    private boolean egw;
+    private ListViewPager egx;
+    private IndicatorView egy;
+    private com.baidu.tbadk.core.flow.a.c egz;
     private View mCustomView;
 
     public CoverFlowLocalView(Context context) {
         super(context);
         this.mCustomView = null;
-        this.egy = new a();
-        this.egz = false;
-        this.egA = true;
-        this.egB = true;
-        this.egD = new c();
-        this.egE = new b();
-        this.egF = 5000L;
+        this.egC = new a();
+        this.egD = false;
+        this.egE = true;
+        this.egF = true;
+        this.egH = new c();
+        this.egI = new b();
+        this.egJ = 5000L;
         init(context);
     }
 
     public CoverFlowLocalView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mCustomView = null;
-        this.egy = new a();
-        this.egz = false;
-        this.egA = true;
-        this.egB = true;
-        this.egD = new c();
-        this.egE = new b();
-        this.egF = 5000L;
+        this.egC = new a();
+        this.egD = false;
+        this.egE = true;
+        this.egF = true;
+        this.egH = new c();
+        this.egI = new b();
+        this.egJ = 5000L;
         init(context);
     }
 
     public CoverFlowLocalView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mCustomView = null;
-        this.egy = new a();
-        this.egz = false;
-        this.egA = true;
-        this.egB = true;
-        this.egD = new c();
-        this.egE = new b();
-        this.egF = 5000L;
+        this.egC = new a();
+        this.egD = false;
+        this.egE = true;
+        this.egF = true;
+        this.egH = new c();
+        this.egI = new b();
+        this.egJ = 5000L;
         init(context);
     }
 
     public void setCallback(d<T> dVar) {
-        this.egC = dVar;
+        this.egG = dVar;
     }
 
     private void init(Context context) {
         dR(context);
         dS(context);
         setCoverFlowFactory(new com.baidu.tbadk.core.flow.a.b());
-        addView(this.egt);
-        addView(this.egu);
-        this.egw = new CoverFlowLocalAdapter<>(context);
-        this.egw.setOnClickListener(this.egD);
-        this.egt.setAdapter(this.egw);
-        this.egt.setOnPageChangeListener(this.egE);
+        addView(this.egx);
+        addView(this.egy);
+        this.egA = new CoverFlowLocalAdapter<>(context);
+        this.egA.setOnClickListener(this.egH);
+        this.egx.setAdapter(this.egA);
+        this.egx.setOnPageChangeListener(this.egI);
     }
 
     private void dR(Context context) {
-        this.egt = new ListViewPager(context);
+        this.egx = new ListViewPager(context);
     }
 
     private void dS(Context context) {
-        this.egu = new IndicatorView(context);
-        this.egu.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
+        this.egy = new IndicatorView(context);
+        this.egy.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
     }
 
     public void setData(List<T> list) {
         if (list != null && !list.isEmpty()) {
-            this.egw.a(list, this.egx);
+            this.egA.a(list, this.egB);
             int size = list.size();
             if (size > 1) {
-                this.egu.setVisibility(0);
-                this.egu.setCount(size);
-                this.egt.setCurrentItem(0, false);
-                this.egu.setPosition(0.0f);
-                if (this.egB) {
+                this.egy.setVisibility(0);
+                this.egy.setCount(size);
+                this.egx.setCurrentItem(0, false);
+                this.egy.setPosition(0.0f);
+                if (this.egF) {
                     bhD();
                     return;
                 }
                 return;
             }
-            this.egu.setVisibility(8);
-            this.egu.setCount(size);
-            this.egt.setCurrentItem(0, false);
-            this.egu.setPosition(0.0f);
+            this.egy.setVisibility(8);
+            this.egy.setCount(size);
+            this.egx.setCurrentItem(0, false);
+            this.egy.setPosition(0.0f);
             bhE();
         }
     }
 
     public void setCoverFlowFactory(com.baidu.tbadk.core.flow.a aVar) {
         if (aVar != null) {
-            this.egx = aVar;
-            this.egv = aVar.ua();
-            this.egv.g(this.egu);
-            aVar.tZ().b(this.egt);
+            this.egB = aVar;
+            this.egz = aVar.ua();
+            this.egz.g(this.egy);
+            aVar.tZ().b(this.egx);
             this.mCustomView = aVar.bhC();
             if (this.mCustomView != null) {
                 removeAllViews();
-                addView(this.egt);
+                addView(this.egx);
                 addView(this.mCustomView);
-                addView(this.egu);
+                addView(this.egy);
             }
         }
     }
@@ -140,28 +140,28 @@ public class CoverFlowLocalView<T extends com.baidu.tbadk.core.flow.a.a> extends
     }
 
     public void bhE() {
-        this.egy.removeMessages(1);
+        this.egC.removeMessages(1);
     }
 
     public void bhF() {
-        this.egy.removeMessages(1);
-        this.egy.sendEmptyMessageDelayed(1, this.egF);
+        this.egC.removeMessages(1);
+        this.egC.sendEmptyMessageDelayed(1, this.egJ);
     }
 
     public void setIndicatorVisible(int i) {
-        if (this.egu != null) {
-            this.egu.setVisibility(i);
+        if (this.egy != null) {
+            this.egy.setVisibility(i);
         }
     }
 
     public void setMarqueenTime(long j) {
-        this.egF = j;
+        this.egJ = j;
         bhF();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     @SuppressLint({"HandlerLeak"})
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a extends Handler {
         private a() {
         }
@@ -182,40 +182,40 @@ public class CoverFlowLocalView<T extends com.baidu.tbadk.core.flow.a.a> extends
     /* JADX INFO: Access modifiers changed from: private */
     public void bhG() {
         int count;
-        if (this.egt != null && this.egw != null && (count = this.egw.getCount()) > 1) {
-            int currentItem = this.egt.getCurrentItem();
+        if (this.egx != null && this.egA != null && (count = this.egA.getCount()) > 1) {
+            int currentItem = this.egx.getCurrentItem();
             int i = count - 2;
             if (currentItem < 1) {
-                this.egt.setCurrentItem(i, false);
+                this.egx.setCurrentItem(i, false);
             } else if (currentItem > i) {
-                this.egt.setCurrentItem(1, false);
+                this.egx.setCurrentItem(1, false);
             } else {
-                this.egt.setCurrentItem(currentItem + 1);
+                this.egx.setCurrentItem(currentItem + 1);
             }
-            this.egt.invalidate();
+            this.egx.invalidate();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean bhH() {
         int count;
-        if (this.egw == null || !this.egs || (count = this.egw.getCount()) <= 1) {
+        if (this.egA == null || !this.egw || (count = this.egA.getCount()) <= 1) {
             return false;
         }
-        int currentItem = this.egt.getCurrentItem();
+        int currentItem = this.egx.getCurrentItem();
         int i = count - 2;
         if (currentItem < 1) {
-            this.egt.setCurrentItem(i, false);
-            this.egt.invalidate();
+            this.egx.setCurrentItem(i, false);
+            this.egx.invalidate();
         } else if (currentItem > i) {
-            this.egt.setCurrentItem(1, false);
-            this.egt.invalidate();
+            this.egx.setCurrentItem(1, false);
+            this.egx.invalidate();
         }
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class b implements ViewPager.OnPageChangeListener {
         private b() {
         }
@@ -224,25 +224,25 @@ public class CoverFlowLocalView<T extends com.baidu.tbadk.core.flow.a.a> extends
         /* JADX WARN: Multi-variable type inference failed */
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageScrolled(int i, float f, int i2) {
-            if (CoverFlowLocalView.this.egu != null && CoverFlowLocalView.this.egw != null) {
-                if (CoverFlowLocalView.this.egw.getCount() == 1 && i == 0 && CoverFlowLocalView.this.egC != null) {
-                    CoverFlowLocalView.this.egC.a(1, CoverFlowLocalView.this.egw.nG(i));
+            if (CoverFlowLocalView.this.egy != null && CoverFlowLocalView.this.egA != null) {
+                if (CoverFlowLocalView.this.egA.getCount() == 1 && i == 0 && CoverFlowLocalView.this.egG != null) {
+                    CoverFlowLocalView.this.egG.a(1, CoverFlowLocalView.this.egA.nG(i));
                 }
-                if (CoverFlowLocalView.this.egu.getVisibility() == 0 && !CoverFlowLocalView.this.egz) {
-                    if (CoverFlowLocalView.this.egs) {
-                        int count = CoverFlowLocalView.this.egw.getCount();
+                if (CoverFlowLocalView.this.egy.getVisibility() == 0 && !CoverFlowLocalView.this.egD) {
+                    if (CoverFlowLocalView.this.egw) {
+                        int count = CoverFlowLocalView.this.egA.getCount();
                         if (i == 0) {
-                            CoverFlowLocalView.this.egu.setPosition((count - 3) + f);
+                            CoverFlowLocalView.this.egy.setPosition((count - 3) + f);
                             return;
                         } else if (i == count - 1) {
-                            CoverFlowLocalView.this.egu.setPosition(f);
+                            CoverFlowLocalView.this.egy.setPosition(f);
                             return;
                         } else {
-                            CoverFlowLocalView.this.egu.setPosition((i - 1) + f);
+                            CoverFlowLocalView.this.egy.setPosition((i - 1) + f);
                             return;
                         }
                     }
-                    CoverFlowLocalView.this.egu.setPosition(i + f);
+                    CoverFlowLocalView.this.egy.setPosition(i + f);
                 }
             }
         }
@@ -251,14 +251,14 @@ public class CoverFlowLocalView<T extends com.baidu.tbadk.core.flow.a.a> extends
         /* JADX WARN: Multi-variable type inference failed */
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            if (CoverFlowLocalView.this.egw != null) {
-                int count = CoverFlowLocalView.this.egw.getCount();
+            if (CoverFlowLocalView.this.egA != null) {
+                int count = CoverFlowLocalView.this.egA.getCount();
                 if (i >= 0 && i < count) {
-                    if (CoverFlowLocalView.this.egz) {
+                    if (CoverFlowLocalView.this.egD) {
                         CoverFlowLocalView.this.setIndicatorSelected(i);
                     }
-                    if (CoverFlowLocalView.this.egC != null) {
-                        CoverFlowLocalView.this.egC.a(i, CoverFlowLocalView.this.egw.nG(i));
+                    if (CoverFlowLocalView.this.egG != null) {
+                        CoverFlowLocalView.this.egG.a(i, CoverFlowLocalView.this.egA.nG(i));
                     }
                 }
             }
@@ -266,16 +266,16 @@ public class CoverFlowLocalView<T extends com.baidu.tbadk.core.flow.a.a> extends
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i) {
-            if (CoverFlowLocalView.this.egt != null && CoverFlowLocalView.this.egw != null) {
+            if (CoverFlowLocalView.this.egx != null && CoverFlowLocalView.this.egA != null) {
                 switch (i) {
                     case 0:
-                        if (CoverFlowLocalView.this.egB) {
+                        if (CoverFlowLocalView.this.egF) {
                             CoverFlowLocalView.this.bhI();
                             return;
                         }
                         return;
                     case 1:
-                        if (!CoverFlowLocalView.this.egA) {
+                        if (!CoverFlowLocalView.this.egE) {
                             CoverFlowLocalView.this.bhE();
                             CoverFlowLocalView.this.bhH();
                             return;
@@ -290,20 +290,20 @@ public class CoverFlowLocalView<T extends com.baidu.tbadk.core.flow.a.a> extends
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setIndicatorSelected(int i) {
-        if (this.egs) {
-            int count = this.egw.getCount();
+        if (this.egw) {
+            int count = this.egA.getCount();
             if (i == 0) {
-                this.egu.setPosition(0.0f);
+                this.egy.setPosition(0.0f);
                 return;
             } else if (i == count - 1) {
-                this.egu.setPosition(i);
+                this.egy.setPosition(i);
                 return;
             } else {
-                this.egu.setPosition(i - 1);
+                this.egy.setPosition(i - 1);
                 return;
             }
         }
-        this.egu.setPosition(i);
+        this.egy.setPosition(i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -314,14 +314,14 @@ public class CoverFlowLocalView<T extends com.baidu.tbadk.core.flow.a.a> extends
     }
 
     public void setCanRepeat(boolean z) {
-        this.egs = z;
-        if (this.egw != null) {
-            this.egw.setCanRepeat(z);
+        this.egw = z;
+        if (this.egA != null) {
+            this.egA.setCanRepeat(z);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class c implements View.OnClickListener {
         private c() {
         }
@@ -330,43 +330,43 @@ public class CoverFlowLocalView<T extends com.baidu.tbadk.core.flow.a.a> extends
         public void onClick(View view) {
             int intValue;
             com.baidu.tbadk.core.flow.a.a nG;
-            if (CoverFlowLocalView.this.egC != null && (view.getTag() instanceof Integer) && (nG = CoverFlowLocalView.this.egw.nG((intValue = ((Integer) view.getTag()).intValue()))) != null) {
-                CoverFlowLocalView.this.egC.e(intValue, nG.bcC());
+            if (CoverFlowLocalView.this.egG != null && (view.getTag() instanceof Integer) && (nG = CoverFlowLocalView.this.egA.nG((intValue = ((Integer) view.getTag()).intValue()))) != null) {
+                CoverFlowLocalView.this.egG.e(intValue, nG.bcC());
             }
         }
     }
 
     public void setSwipeControlInterface(SwipeBackLayout.c cVar) {
-        if (this.egt != null) {
-            this.egt.setSwipeControlInterface(cVar);
+        if (this.egx != null) {
+            this.egx.setSwipeControlInterface(cVar);
         }
     }
 
     public void setDisableParentEvent(boolean z) {
-        if (this.egt != null) {
-            this.egt.setDisableParentEvent(z);
+        if (this.egx != null) {
+            this.egx.setDisableParentEvent(z);
         }
     }
 
     public void setIndicatorNoOffet(boolean z) {
-        this.egz = z;
+        this.egD = z;
     }
 
     public void setPageMargin(int i) {
-        if (this.egt != null) {
-            this.egt.setPageMargin(i);
+        if (this.egx != null) {
+            this.egx.setPageMargin(i);
         }
     }
 
     public void setIsAutoPlayDragging(boolean z) {
-        this.egA = z;
+        this.egE = z;
     }
 
     private boolean getAutoPlayPlayDragging() {
-        return this.egA;
+        return this.egE;
     }
 
     public void setAutoPlay(boolean z) {
-        this.egB = z;
+        this.egF = z;
     }
 }

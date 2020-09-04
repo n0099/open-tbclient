@@ -19,7 +19,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class TiebaActiveService extends BdBaseService {
     private static final int ACTIVE_FAIL = 1;
     private static final int ACTIVE_SUCC = 2;
@@ -142,12 +142,12 @@ public class TiebaActiveService extends BdBaseService {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Integer, String> {
-        aa lNp;
+        aa lNC;
 
         private a() {
-            this.lNp = null;
+            this.lNC = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -156,19 +156,19 @@ public class TiebaActiveService extends BdBaseService {
         public String doInBackground(String... strArr) {
             String postNetData;
             try {
-                this.lNp = new aa(Config.CHANNEL_ADDRESS);
-                this.lNp.addPostData("apk", TbadkCoreApplication.getInst().getApp().getPackageName());
-                this.lNp.addPostData("imei", TbadkCoreApplication.getInst().getImei());
-                this.lNp.addPostData("model", Build.MODEL);
-                this.lNp.addPostData("edition", TbConfig.getVersion());
-                this.lNp.addPostData("system", Build.VERSION.SDK);
-                this.lNp.biQ().bjv().bjz().mIsBaiduServer = false;
-                postNetData = this.lNp.postNetData();
+                this.lNC = new aa(Config.CHANNEL_ADDRESS);
+                this.lNC.addPostData("apk", TbadkCoreApplication.getInst().getApp().getPackageName());
+                this.lNC.addPostData("imei", TbadkCoreApplication.getInst().getImei());
+                this.lNC.addPostData("model", Build.MODEL);
+                this.lNC.addPostData("edition", TbConfig.getVersion());
+                this.lNC.addPostData("system", Build.VERSION.SDK);
+                this.lNC.biQ().bjv().bjz().mIsBaiduServer = false;
+                postNetData = this.lNC.postNetData();
             } catch (Exception e) {
                 b.bik().putInt(SharedPrefConfig.ACTIVE_STATE, 1);
                 BdLog.e(e.getMessage());
             }
-            if (this.lNp.isNetSuccess()) {
+            if (this.lNC.isNetSuccess()) {
                 return postNetData;
             }
             return null;
@@ -177,8 +177,8 @@ public class TiebaActiveService extends BdBaseService {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             TiebaActiveService.this.mActiveTask = null;
-            if (this.lNp != null) {
-                this.lNp.cancelNetConnect();
+            if (this.lNC != null) {
+                this.lNC.cancelNetConnect();
             }
             super.cancel(true);
         }

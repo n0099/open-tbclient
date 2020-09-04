@@ -8,12 +8,12 @@ import javax.annotation.Nullable;
 /* loaded from: classes9.dex */
 public class f implements j<e> {
     private final Context mContext;
-    private final g nmf;
-    private final com.facebook.imagepipeline.d.g nmt;
-    private final Set<com.facebook.drawee.controller.c> nmw;
+    private final com.facebook.imagepipeline.d.g nmL;
+    private final Set<com.facebook.drawee.controller.c> nmO;
+    private final g nmx;
 
     public f(Context context, @Nullable b bVar) {
-        this(context, com.facebook.imagepipeline.d.j.dTo(), bVar);
+        this(context, com.facebook.imagepipeline.d.j.dTx(), bVar);
     }
 
     public f(Context context, com.facebook.imagepipeline.d.j jVar, @Nullable b bVar) {
@@ -22,20 +22,20 @@ public class f implements j<e> {
 
     public f(Context context, com.facebook.imagepipeline.d.j jVar, Set<com.facebook.drawee.controller.c> set, @Nullable b bVar) {
         this.mContext = context;
-        this.nmt = jVar.dPp();
-        if (bVar != null && bVar.dPl() != null) {
-            this.nmf = bVar.dPl();
+        this.nmL = jVar.dPy();
+        if (bVar != null && bVar.dPu() != null) {
+            this.nmx = bVar.dPu();
         } else {
-            this.nmf = new g();
+            this.nmx = new g();
         }
-        this.nmf.a(context.getResources(), com.facebook.drawee.components.a.dPH(), jVar.gs(context), i.dOv(), this.nmt.dSC(), bVar != null ? bVar.dPk() : null, bVar != null ? bVar.dPm() : null);
-        this.nmw = set;
+        this.nmx.a(context.getResources(), com.facebook.drawee.components.a.dPQ(), jVar.gs(context), i.dOE(), this.nmL.dSL(), bVar != null ? bVar.dPt() : null, bVar != null ? bVar.dPv() : null);
+        this.nmO = set;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.j
-    /* renamed from: dPA */
+    /* renamed from: dPJ */
     public e get() {
-        return new e(this.mContext, this.nmf, this.nmt, this.nmw);
+        return new e(this.mContext, this.nmx, this.nmL, this.nmO);
     }
 }

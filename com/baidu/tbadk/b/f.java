@@ -1,7 +1,7 @@
 package com.baidu.tbadk.b;
 
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface f {
     h a(Object obj, HashMap<String, String> hashMap, String str);
 

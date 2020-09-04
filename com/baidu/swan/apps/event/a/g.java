@@ -6,17 +6,17 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class g<T> extends a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public boolean cqQ = true;
+    public boolean cqU = true;
     public T mData;
 
     public g() {
-        this.bXU = "message";
+        this.bXY = "message";
     }
 
     @Override // com.baidu.swan.apps.event.a.a
-    public String mw(String str) {
+    public String mx(String str) {
         if (this.mData instanceof String) {
-            String encode = this.cqQ ? Uri.encode((String) this.mData) : (String) this.mData;
+            String encode = this.cqU ? Uri.encode((String) this.mData) : (String) this.mData;
             if (DEBUG) {
                 Log.d("SwanAppWebMessage", "mData: " + this.mData);
                 Log.d("SwanAppWebMessage", "encode mData: " + encode);

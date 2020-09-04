@@ -13,23 +13,23 @@ public class k extends l {
     }
 
     public k(bw bwVar) {
-        this.dUS = bwVar;
+        this.dUW = bwVar;
     }
 
     public static boolean aa(bw bwVar) {
         return bwVar != null && bwVar.getThreadType() == 49;
     }
 
-    public aq Hd(String str) {
-        aq He = He(str);
-        He.delete("obj_type");
-        He.delete("obj_type");
-        He.ai("obj_type", 3);
-        return He;
+    public aq He(String str) {
+        aq Hf = Hf(str);
+        Hf.delete("obj_type");
+        Hf.delete("obj_type");
+        Hf.ai("obj_type", 3);
+        return Hf;
     }
 
     @Override // com.baidu.tieba.card.data.l, com.baidu.tieba.card.data.c, com.baidu.tbadk.core.data.AbsThreadDataSupport
     public bw bce() {
-        return this.dUS;
+        return this.dUW;
     }
 }

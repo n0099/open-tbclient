@@ -1,5 +1,5 @@
 package com.baidu.tbadk.g;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface b {
     void baR();
 }

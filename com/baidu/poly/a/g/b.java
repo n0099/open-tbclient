@@ -17,7 +17,7 @@ public class b {
         return sb.toString();
     }
 
-    public static String dC(String str) {
+    public static String dD(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }

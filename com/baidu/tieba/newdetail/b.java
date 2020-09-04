@@ -16,8 +16,8 @@ public class b {
         } else if (obj instanceof com.baidu.tieba.newdetail.a.b) {
             com.baidu.tieba.newdetail.a.b bVar = (com.baidu.tieba.newdetail.a.b) obj;
             aq aqVar2 = new aq(str);
-            if (bVar.dUS != null) {
-                aqVar2.dD("tid", bVar.dUS.getTid());
+            if (bVar.dUW != null) {
+                aqVar2.dD("tid", bVar.dUW.getTid());
             }
             aqVar2.dD("uid", TbadkCoreApplication.getCurrentAccount());
             aqVar2.bjn();
@@ -27,7 +27,7 @@ public class b {
     public static void a(com.baidu.tieba.newdetail.adapter.a.a aVar, AbsThreadDataSupport absThreadDataSupport) {
         if (absThreadDataSupport != null && absThreadDataSupport.bce() != null) {
             bw bce = absThreadDataSupport.bce();
-            aq aqVar = new aq(aVar.cSA() ? "c13823" : "c13822");
+            aq aqVar = new aq(aVar.cSB() ? "c13823" : "c13822");
             aqVar.dD("tid", bce.getTid());
             aqVar.u("fid", bce.getFid());
             aqVar.dD("uid", TbadkCoreApplication.getCurrentAccount());
@@ -38,7 +38,7 @@ public class b {
     public static void b(com.baidu.tieba.newdetail.adapter.a.a aVar, AbsThreadDataSupport absThreadDataSupport) {
         if (absThreadDataSupport != null && absThreadDataSupport.bce() != null) {
             bw bce = absThreadDataSupport.bce();
-            aq aqVar = new aq(aVar.cSA() ? "c13824" : "c13821");
+            aq aqVar = new aq(aVar.cSB() ? "c13824" : "c13821");
             aqVar.dD("tid", bce.getTid());
             aqVar.u("fid", bce.getFid());
             aqVar.dD("uid", TbadkCoreApplication.getCurrentAccount());

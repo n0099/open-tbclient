@@ -11,17 +11,17 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.live.utils.p;
 /* loaded from: classes7.dex */
 public class b extends BdBaseModel {
-    private a gOj;
-    private HttpMessageListener gOk = new HttpMessageListener(1021120) { // from class: com.baidu.tieba.ala.f.b.1
+    private a gOn;
+    private HttpMessageListener gOo = new HttpMessageListener(1021120) { // from class: com.baidu.tieba.ala.f.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaSdkGetGiftListHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == b.this.getUniqueId() && b.this.gOj != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaSdkGetGiftListHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == b.this.getUniqueId() && b.this.gOn != null) {
                 AlaSdkGetGiftListHttpResponseMessage alaSdkGetGiftListHttpResponseMessage = (AlaSdkGetGiftListHttpResponseMessage) httpResponsedMessage;
                 if (alaSdkGetGiftListHttpResponseMessage.getError() != 0 || !alaSdkGetGiftListHttpResponseMessage.isSuccess()) {
-                    b.this.gOj.onFail(alaSdkGetGiftListHttpResponseMessage.getError(), alaSdkGetGiftListHttpResponseMessage.getErrorString());
+                    b.this.gOn.onFail(alaSdkGetGiftListHttpResponseMessage.getError(), alaSdkGetGiftListHttpResponseMessage.getErrorString());
                 } else {
-                    b.this.gOj.c(alaSdkGetGiftListHttpResponseMessage);
+                    b.this.gOn.c(alaSdkGetGiftListHttpResponseMessage);
                 }
             }
         }
@@ -45,9 +45,9 @@ public class b extends BdBaseModel {
 
     public b(TbPageContext tbPageContext, a aVar) {
         this.mPageContext = tbPageContext;
-        this.gOj = aVar;
+        this.gOn = aVar;
         DH();
-        registerListener(this.gOk);
+        registerListener(this.gOo);
     }
 
     public void request() {
@@ -66,7 +66,7 @@ public class b extends BdBaseModel {
 
     public void onDestroy() {
         cancelMessage();
-        MessageManager.getInstance().unRegisterListener(this.gOk);
+        MessageManager.getInstance().unRegisterListener(this.gOo);
         MessageManager.getInstance().unRegisterTask(1021120);
     }
 }

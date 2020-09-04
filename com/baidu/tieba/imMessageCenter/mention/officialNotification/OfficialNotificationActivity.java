@@ -11,8 +11,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.imMessageCenter.mention.OfficialNotificationFragment;
 /* loaded from: classes16.dex */
 public class OfficialNotificationActivity extends BaseFragmentActivity {
-    private BaseFragment fZb;
-    private RelativeLayout jGK;
+    private BaseFragment fZf;
+    private RelativeLayout jGQ;
     private NavigationBar mNavigationBar;
     private ViewGroup mRootView;
 
@@ -20,13 +20,13 @@ public class OfficialNotificationActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.base_fragment_activity);
-        cKb();
+        cKc();
         OB();
     }
 
-    private void cKb() {
+    private void cKc() {
         this.mRootView = (ViewGroup) findViewById(R.id.root_layout);
-        this.jGK = (RelativeLayout) findViewById(R.id.container_layout);
+        this.jGQ = (RelativeLayout) findViewById(R.id.container_layout);
         this.mNavigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setCenterTextTitle(getString(R.string.system_message));
@@ -37,10 +37,10 @@ public class OfficialNotificationActivity extends BaseFragmentActivity {
         BaseFragment baseFragment = (BaseFragment) supportFragmentManager.findFragmentByTag(a(OfficialNotificationFragment.class, 0L));
         if (baseFragment == null) {
             baseFragment = new OfficialNotificationFragment();
-            supportFragmentManager.beginTransaction().add(this.jGK.getId(), baseFragment).commit();
+            supportFragmentManager.beginTransaction().add(this.jGQ.getId(), baseFragment).commit();
             baseFragment.setPrimary(true);
         }
-        this.fZb = baseFragment;
+        this.fZf = baseFragment;
     }
 
     private static String a(Class cls, long j) {
@@ -52,8 +52,8 @@ public class OfficialNotificationActivity extends BaseFragmentActivity {
         if (this.mNavigationBar != null) {
             this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         }
-        if (this.fZb != null) {
-            this.fZb.onChangeSkinType(i);
+        if (this.fZf != null) {
+            this.fZf.onChangeSkinType(i);
         }
     }
 }

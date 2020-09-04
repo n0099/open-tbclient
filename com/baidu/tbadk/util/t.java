@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import java.lang.reflect.Field;
 import tbclient.CommonReq;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class t {
     public static void a(Object obj, boolean z) {
         a(obj, z, false);
@@ -81,7 +81,7 @@ public class t {
                     builder.z_id = TbadkCoreApplication.getInst().getZid();
                 }
                 builder.net_type = Integer.valueOf(com.baidu.adp.lib.util.j.netType());
-                builder.oaid = x.bvD();
+                builder.oaid = x.bvE();
                 builder.sample_id = TbSingleton.getInstance().getSampleId();
                 field.set(obj, builder.build(false));
             } catch (Throwable th) {

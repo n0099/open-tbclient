@@ -29,9 +29,9 @@ import okhttp3.Response;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class a extends aa {
-    private c ccO;
-    private ExecutorService ccx;
-    private int ccy;
+    private ExecutorService ccB;
+    private int ccC;
+    private c ccS;
 
     public a(j jVar) {
         super(jVar, "/swanAPI/wirelessdebuglaunch");
@@ -45,8 +45,8 @@ public class a extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        this.ccO = c.aO(optParamsAsJo);
-        if (this.ccO == null || this.ccO.isInvalid()) {
+        this.ccS = c.aO(optParamsAsJo);
+        if (this.ccS == null || this.ccS.isInvalid()) {
             if (DEBUG) {
                 Log.e("WirelessDebugAction", "Wireless Debug params is invalid");
             }
@@ -62,30 +62,30 @@ public class a extends aa {
         if (ael.exists()) {
             ael.delete();
         }
-        this.ccx = Executors.newFixedThreadPool(4);
-        this.ccy = 0;
-        if (this.ccO.ccW == null || this.ccO.ccW.length() <= 0) {
+        this.ccB = Executors.newFixedThreadPool(4);
+        this.ccC = 0;
+        if (this.ccS.cda == null || this.ccS.cda.length() <= 0) {
             ExecutorUtilsExt.postOnSerial(new Runnable() { // from class: com.baidu.swan.apps.console.debugger.b.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.a(context, a.this.ccO.ccS, a.this.ccO.Pp, ael, unitedSchemeEntity, callbackHandler);
+                    a.this.a(context, a.this.ccS.ccW, a.this.ccS.Pp, ael, unitedSchemeEntity, callbackHandler);
                 }
             }, "WirelessDebugAction");
             return;
         }
-        int length = this.ccO.ccW.length();
+        int length = this.ccS.cda.length();
         for (int i = 0; i < length; i++) {
-            final String gM = this.ccO.gM(i);
+            final String gM = this.ccS.gM(i);
             if (TextUtils.isEmpty(gM)) {
-                int i2 = this.ccy + 1;
-                this.ccy = i2;
+                int i2 = this.ccC + 1;
+                this.ccC = i2;
                 if (i2 >= length) {
                     com.baidu.swan.apps.console.c.e("WirelessDebugAction", "Hosts are invalid");
                     T(context, "404");
                 }
             } else {
-                final String gN = this.ccO.gN(i);
-                this.ccx.execute(new Runnable() { // from class: com.baidu.swan.apps.console.debugger.b.a.2
+                final String gN = this.ccS.gN(i);
+                this.ccB.execute(new Runnable() { // from class: com.baidu.swan.apps.console.debugger.b.a.2
                     @Override // java.lang.Runnable
                     public void run() {
                         a.this.a(context, gM, gN, ael, unitedSchemeEntity, callbackHandler);
@@ -98,7 +98,7 @@ public class a extends aa {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [208=4] */
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Code restructure failed: missing block: B:32:0x00b5, code lost:
-        if (r0 >= r7.ccO.ccW.length()) goto L39;
+        if (r0 >= r7.ccS.cda.length()) goto L39;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -109,14 +109,14 @@ public class a extends aa {
             if (executeSync != null && executeSync.code() == 200 && executeSync.body() != null) {
                 f.streamToFile(executeSync.body().byteStream(), file);
                 Intent a = com.baidu.swan.apps.u.c.c.a(context, aej());
-                a.putExtra("masterPreload", this.ccO.ccU);
-                a.putExtra("slavePreload", this.ccO.ccV);
+                a.putExtra("masterPreload", this.ccS.ccY);
+                a.putExtra("slavePreload", this.ccS.ccZ);
                 a.putExtra("extraWSUrl", str2);
                 context.startActivity(a);
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                if (this.ccx != null) {
-                    this.ccx.shutdownNow();
-                    this.ccx = null;
+                if (this.ccB != null) {
+                    this.ccB.shutdownNow();
+                    this.ccB = null;
                 }
                 if (!ProcessUtils.isMainProcess()) {
                     if (DEBUG) {
@@ -135,9 +135,9 @@ public class a extends aa {
         } catch (IOException e) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             synchronized (this) {
-                if (this.ccO.ccW != null) {
-                    int i = this.ccy + 1;
-                    this.ccy = i;
+                if (this.ccS.cda != null) {
+                    int i = this.ccC + 1;
+                    this.ccC = i;
                 }
                 com.baidu.swan.apps.console.c.e("WirelessDebugAction", "Host IPs are invalid");
                 T(context, "404");
@@ -147,7 +147,7 @@ public class a extends aa {
     }
 
     private c.a aej() {
-        return (c.a) ((c.a) ((c.a) new c.a().nB(this.ccO.mAppKey)).eE(false)).nI(this.ccO.ccT);
+        return (c.a) ((c.a) ((c.a) new c.a().nC(this.ccS.mAppKey)).eF(false)).nJ(this.ccS.ccX);
     }
 
     private void T(Context context, String str) {
@@ -155,11 +155,11 @@ public class a extends aa {
         if (TextUtils.isEmpty(string)) {
             com.baidu.swan.apps.res.widget.b.d.a(context, "IPs are invalid ：" + str).showToast();
         } else {
-            SchemeRouter.invoke(context, SchemeConfig.getSchemeHead() + "://v1/easybrowse/open?url=" + dq(string + "?" + str));
+            SchemeRouter.invoke(context, SchemeConfig.getSchemeHead() + "://v1/easybrowse/open?url=" + dr(string + "?" + str));
         }
     }
 
-    private String dq(String str) {
+    private String dr(String str) {
         try {
             return URLEncoder.encode(str, "UTF-8");
         } catch (UnsupportedEncodingException e) {

@@ -1,43 +1,43 @@
 package kascend.core.utils;
 /* loaded from: classes6.dex */
 public class b {
-    private static final byte[] orJ = new byte[128];
-    private static final char[] orK = new char[64];
+    private static final byte[] osb = new byte[128];
+    private static final char[] osc = new char[64];
 
     static {
         int i = 0;
         for (int i2 = 0; i2 < 128; i2++) {
-            orJ[i2] = -1;
+            osb[i2] = -1;
         }
         for (int i3 = 90; i3 >= 65; i3--) {
-            orJ[i3] = (byte) (i3 - 65);
+            osb[i3] = (byte) (i3 - 65);
         }
         for (int i4 = 122; i4 >= 97; i4--) {
-            orJ[i4] = (byte) ((i4 - 97) + 26);
+            osb[i4] = (byte) ((i4 - 97) + 26);
         }
         for (int i5 = 57; i5 >= 48; i5--) {
-            orJ[i5] = (byte) ((i5 - 48) + 52);
+            osb[i5] = (byte) ((i5 - 48) + 52);
         }
-        orJ[43] = 62;
-        orJ[47] = 63;
+        osb[43] = 62;
+        osb[47] = 63;
         for (int i6 = 0; i6 <= 25; i6++) {
-            orK[i6] = (char) (i6 + 65);
+            osc[i6] = (char) (i6 + 65);
         }
         int i7 = 26;
         int i8 = 0;
         while (i7 <= 51) {
-            orK[i7] = (char) (i8 + 97);
+            osc[i7] = (char) (i8 + 97);
             i7++;
             i8++;
         }
         int i9 = 52;
         while (i9 <= 61) {
-            orK[i9] = (char) (i + 48);
+            osc[i9] = (char) (i + 48);
             i9++;
             i++;
         }
-        orK[62] = '+';
-        orK[63] = '/';
+        osc[62] = '+';
+        osc[63] = '/';
     }
 
     public static byte[] decode(String str) throws Exception {
@@ -80,10 +80,10 @@ public class b {
                 if (!k(c4)) {
                     return null;
                 }
-                byte b2 = orJ[c];
-                byte b3 = orJ[c2];
-                byte b4 = orJ[c3];
-                byte b5 = orJ[c4];
+                byte b2 = osb[c];
+                byte b3 = osb[c2];
+                byte b4 = osb[c3];
+                byte b5 = osb[c4];
                 int i8 = i3 + 1;
                 bArr[i3] = (byte) ((b2 << 2) | (b3 >> 4));
                 int i9 = i8 + 1;
@@ -98,8 +98,8 @@ public class b {
                 int i11 = i10 + 1;
                 char c6 = charArray[i10];
                 if (k(c6)) {
-                    byte b6 = orJ[c5];
-                    byte b7 = orJ[c6];
+                    byte b6 = osb[c5];
+                    byte b7 = osb[c6];
                     int i12 = i11 + 1;
                     char c7 = charArray[i11];
                     int i13 = i12 + 1;
@@ -116,7 +116,7 @@ public class b {
                         } else if (j(c7) || !j(c8)) {
                             return null;
                         } else {
-                            byte b8 = orJ[c7];
+                            byte b8 = osb[c7];
                             if ((b8 & 3) == 0) {
                                 byte[] bArr3 = new byte[(i4 * 3) + 2];
                                 System.arraycopy(bArr, 0, bArr3, 0, i4 * 3);
@@ -127,8 +127,8 @@ public class b {
                             return null;
                         }
                     }
-                    byte b9 = orJ[c7];
-                    byte b10 = orJ[c8];
+                    byte b9 = osb[c7];
+                    byte b10 = osb[c8];
                     int i14 = i3 + 1;
                     bArr[i3] = (byte) ((b6 << 2) | (b7 >> 4));
                     int i15 = i14 + 1;
@@ -173,6 +173,6 @@ public class b {
     }
 
     private static boolean k(char c) {
-        return c < 128 && orJ[c] != -1;
+        return c < 128 && osb[c] != -1;
     }
 }

@@ -32,9 +32,9 @@ public class a implements com.baidu.swan.apps.adaptation.a.l {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.l
-    public void ds(boolean z) {
+    public void dt(boolean z) {
         if (z) {
-            com.baidu.swan.apps.core.k.b.bT(AppRuntime.getAppContext()).ed(ProcessUtils.isMainProcess());
+            com.baidu.swan.apps.core.k.b.bT(AppRuntime.getAppContext()).ee(ProcessUtils.isMainProcess());
         } else {
             com.baidu.swan.apps.core.k.b.bT(AppRuntime.getAppContext()).ajw();
         }

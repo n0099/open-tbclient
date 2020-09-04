@@ -18,7 +18,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
-    private long cvO;
+    private long cvS;
 
     /* loaded from: classes8.dex */
     public static final class a extends b<a> {
@@ -58,8 +58,8 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
         }
 
         @Override // com.baidu.swan.apps.u.c.b, com.baidu.swan.apps.u.c.e
-        public /* synthetic */ e nw(String str) {
-            return super.nw(str);
+        public /* synthetic */ e nE(String str) {
+            return super.nE(str);
         }
 
         @Override // com.baidu.swan.apps.u.c.b, com.baidu.swan.apps.u.c.e
@@ -98,7 +98,7 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
         }
         D(intent.getExtras());
         if (d.v(intent)) {
-            nE("1250000000000000");
+            nF("1250000000000000");
             n("box_cold_launch", -1L);
         }
         return (SelfT) aqJ();
@@ -115,7 +115,7 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
         k.avV().J(bundle);
         super.D(bundle);
         if (TextUtils.isEmpty(bundle.getString("mPage"))) {
-            nN("mPage");
+            nO("mPage");
         }
         return (SelfT) aqJ();
     }
@@ -133,21 +133,21 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
 
     public static b aqv() {
         a aVar = new a();
-        aVar.nD("小程序测试");
-        aVar.nB("wSfMyKIbrbNg7ogTFTcBuk1P8mgGTlB1");
+        aVar.nE("小程序测试");
+        aVar.nC("wSfMyKIbrbNg7ogTFTcBuk1P8mgGTlB1");
         aVar.be(Color.parseColor("#FF308EF0"));
-        aVar.nE("1230000000000000");
-        aVar.nz("小程序简介");
-        aVar.ny("测试服务类目");
-        aVar.nx("测试主体信息");
-        aVar.nC("CdKRXT4IrCwTD6LIBS7DIlL8rmbKx58N");
-        aVar.nw("1.0");
-        aVar.nA("https://gss3.bdstatic.com/9rkZsjib41gCpNKfpU_Y_D3/searchbox/aps/1516937209_WechatIMG147.jpeg");
+        aVar.nF("1230000000000000");
+        aVar.nA("小程序简介");
+        aVar.nz("测试服务类目");
+        aVar.ny("测试主体信息");
+        aVar.nD("CdKRXT4IrCwTD6LIBS7DIlL8rmbKx58N");
+        aVar.nx("1.0");
+        aVar.nB("https://gss3.bdstatic.com/9rkZsjib41gCpNKfpU_Y_D3/searchbox/aps/1516937209_WechatIMG147.jpeg");
         return aVar;
     }
 
     public static String a(b bVar, SwanAppConfigData swanAppConfigData) {
-        return b(nn(bVar.getPage()), swanAppConfigData);
+        return b(no(bVar.getPage()), swanAppConfigData);
     }
 
     public static String a(String str, SwanAppConfigData swanAppConfigData) {
@@ -172,11 +172,11 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
             }
             return null;
         }
-        String deleteQueryParam = ai.deleteQueryParam(parse.getEncodedQuery(), com.baidu.swan.apps.scheme.a.a.cUd);
+        String deleteQueryParam = ai.deleteQueryParam(parse.getEncodedQuery(), com.baidu.swan.apps.scheme.a.a.cUh);
         if (!TextUtils.isEmpty(deleteQueryParam)) {
             b = b + "?" + deleteQueryParam;
         }
-        return b(nn(b), swanAppConfigData);
+        return b(no(b), swanAppConfigData);
     }
 
     private static String b(String str, Uri uri) {
@@ -191,7 +191,7 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
         return substring.replaceAll("/+", "/");
     }
 
-    public static String nn(String str) {
+    public static String no(String str) {
         if (!TextUtils.isEmpty(str) && str.startsWith(File.separator)) {
             return str.substring(1);
         }
@@ -203,10 +203,10 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
             return null;
         }
         String delAllParamsFromUrl = ai.delAllParamsFromUrl(str);
-        if (com.baidu.swan.apps.ac.b.a.pu(delAllParamsFromUrl)) {
-            return ai.deleteQueryParam(str, com.baidu.swan.apps.scheme.a.a.cUd);
+        if (com.baidu.swan.apps.ac.b.a.pv(delAllParamsFromUrl)) {
+            return ai.deleteQueryParam(str, com.baidu.swan.apps.scheme.a.a.cUh);
         }
-        if (swanAppConfigData.qx(j.qW(delAllParamsFromUrl))) {
+        if (swanAppConfigData.qy(j.qX(delAllParamsFromUrl))) {
             return str;
         }
         return null;
@@ -241,13 +241,13 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.u.c.e
-    /* renamed from: no */
-    public SelfT nD(String str) {
+    /* renamed from: np */
+    public SelfT nE(String str) {
         PMSAppInfo ard = ard();
         if (ard != null) {
             ard.appName = str;
         }
-        return (SelfT) super.nD(str);
+        return (SelfT) super.nE(str);
     }
 
     @Override // com.baidu.swan.apps.u.c.e
@@ -258,13 +258,13 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.u.c.e
-    /* renamed from: np */
-    public SelfT nC(String str) {
+    /* renamed from: nq */
+    public SelfT nD(String str) {
         PMSAppInfo ard = ard();
         if (ard != null) {
             ard.appKey = str;
         }
-        return (SelfT) super.nC(str);
+        return (SelfT) super.nD(str);
     }
 
     @Override // com.baidu.swan.apps.u.c.e
@@ -275,13 +275,13 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.u.c.e
-    /* renamed from: nq */
-    public SelfT nB(String str) {
-        super.nB(str);
+    /* renamed from: nr */
+    public SelfT nC(String str) {
+        super.nC(str);
         PMSAppInfo ard = ard();
         if (ard != null) {
             ard.appId = str;
-            return (SelfT) super.nB(str);
+            return (SelfT) super.nC(str);
         }
         return (SelfT) aqJ();
     }
@@ -294,13 +294,13 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.u.c.e
-    /* renamed from: nr */
-    public SelfT nA(String str) {
-        super.nA(str);
+    /* renamed from: ns */
+    public SelfT nB(String str) {
+        super.nB(str);
         PMSAppInfo ard = ard();
         if (ard != null) {
             ard.iconUrl = str;
-            return (SelfT) super.nA(str);
+            return (SelfT) super.nB(str);
         }
         return (SelfT) aqJ();
     }
@@ -313,12 +313,12 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.u.c.e
-    /* renamed from: ns */
-    public SelfT nz(String str) {
+    /* renamed from: nt */
+    public SelfT nA(String str) {
         PMSAppInfo ard = ard();
         if (ard != null) {
             ard.description = str;
-            return (SelfT) super.nz(str);
+            return (SelfT) super.nA(str);
         }
         return (SelfT) aqJ();
     }
@@ -358,12 +358,12 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.u.c.e
-    /* renamed from: nt */
-    public SelfT ny(String str) {
+    /* renamed from: nu */
+    public SelfT nz(String str) {
         PMSAppInfo ard = ard();
         if (ard != null) {
             ard.serviceCategory = str;
-            return (SelfT) super.ny(str);
+            return (SelfT) super.nz(str);
         }
         return (SelfT) aqJ();
     }
@@ -376,12 +376,12 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.u.c.e
-    /* renamed from: nu */
-    public SelfT nx(String str) {
+    /* renamed from: nv */
+    public SelfT ny(String str) {
         PMSAppInfo ard = ard();
         if (ard != null) {
             ard.subjectInfo = str;
-            return (SelfT) super.nx(str);
+            return (SelfT) super.ny(str);
         }
         return (SelfT) aqJ();
     }
@@ -416,13 +416,13 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.u.c.e
-    /* renamed from: nv */
-    public SelfT nw(String str) {
+    /* renamed from: nw */
+    public SelfT nx(String str) {
         PMSAppInfo ard = ard();
         if (!TextUtils.isEmpty(str) && ard != null) {
             try {
                 ard.versionCode = Integer.parseInt(str);
-                return (SelfT) super.nw(str);
+                return (SelfT) super.nx(str);
             } catch (NumberFormatException e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -477,17 +477,17 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
 
     @Override // com.baidu.swan.apps.u.c.e
     public long aqH() {
-        return this.cvO;
+        return this.cvS;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.u.c.e
     /* renamed from: bc */
     public SelfT bd(long j) {
-        if (this.cvO >= 1 || j <= 0) {
+        if (this.cvS >= 1 || j <= 0) {
             return (SelfT) aqJ();
         }
-        this.cvO = j;
+        this.cvS = j;
         return (SelfT) super.bd(j);
     }
 }

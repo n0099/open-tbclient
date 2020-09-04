@@ -15,7 +15,7 @@ import javax.crypto.NoSuchPaddingException;
 import javax.security.cert.CertificateException;
 import javax.security.cert.X509Certificate;
 import org.json.JSONArray;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c {
     private String mKey;
 

@@ -12,31 +12,31 @@ public class a {
     /* renamed from: com.baidu.poly.a.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     static class RunnableC0263a implements Runnable {
-        final /* synthetic */ com.baidu.poly.b.a bEV;
+        final /* synthetic */ com.baidu.poly.b.a bEZ;
 
         /* renamed from: com.baidu.poly.a.c.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
         class C0264a extends com.baidu.poly.b.a {
-            final /* synthetic */ JSONArray bET;
+            final /* synthetic */ JSONArray bEX;
 
             C0264a(JSONArray jSONArray) {
-                this.bET = jSONArray;
+                this.bEX = jSONArray;
             }
 
             @Override // com.baidu.poly.b.a
             public void onResult(int i, String str) {
-                com.baidu.poly.b.a aVar = RunnableC0263a.this.bEV;
+                com.baidu.poly.b.a aVar = RunnableC0263a.this.bEZ;
                 if (aVar != null) {
                     aVar.onResult(i, str);
                 }
                 if (i == 1) {
-                    a.b(this.bET);
+                    a.b(this.bEX);
                 }
             }
         }
 
         RunnableC0263a(com.baidu.poly.b.a aVar) {
-            this.bEV = aVar;
+            this.bEZ = aVar;
         }
 
         @Override // java.lang.Runnable

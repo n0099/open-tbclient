@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class YoungsterPasswordActivityConfig extends IntentConfig {
     public static final String KEY_YOUNGSTER_PASSWORD_FROM = "key_youngster_password_from";
     public static final String KEY_YOUNGSTER_PASSWORD_INPUT = "key_youngster_password_input";

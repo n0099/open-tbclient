@@ -5,9 +5,9 @@ import kotlin.collections.ad;
 @kotlin.h
 /* loaded from: classes20.dex */
 public class f implements Iterable<Integer> {
-    public static final a osW = new a(null);
-    private final int osU;
-    private final int osV;
+    public static final a oto = new a(null);
+    private final int otm;
+    private final int otn;
     private final int step;
 
     public f(int i, int i2, int i3) {
@@ -17,47 +17,47 @@ public class f implements Iterable<Integer> {
         if (i3 == Integer.MIN_VALUE) {
             throw new IllegalArgumentException("Step must be greater than Int.MIN_VALUE to avoid overflow on negation.");
         }
-        this.osU = i;
-        this.osV = kotlin.internal.d.ak(i, i2, i3);
+        this.otm = i;
+        this.otn = kotlin.internal.d.ak(i, i2, i3);
         this.step = i3;
     }
 
     public final int getFirst() {
-        return this.osU;
+        return this.otm;
     }
 
     public final int getLast() {
-        return this.osV;
+        return this.otn;
     }
 
-    public final int egt() {
+    public final int egC() {
         return this.step;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Iterable
-    /* renamed from: egu */
+    /* renamed from: egD */
     public ad iterator() {
-        return new g(this.osU, this.osV, this.step);
+        return new g(this.otm, this.otn, this.step);
     }
 
     public boolean isEmpty() {
-        return this.step > 0 ? this.osU > this.osV : this.osU < this.osV;
+        return this.step > 0 ? this.otm > this.otn : this.otm < this.otn;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof f) && ((isEmpty() && ((f) obj).isEmpty()) || (this.osU == ((f) obj).osU && this.osV == ((f) obj).osV && this.step == ((f) obj).step));
+        return (obj instanceof f) && ((isEmpty() && ((f) obj).isEmpty()) || (this.otm == ((f) obj).otm && this.otn == ((f) obj).otn && this.step == ((f) obj).step));
     }
 
     public int hashCode() {
         if (isEmpty()) {
             return -1;
         }
-        return (((this.osU * 31) + this.osV) * 31) + this.step;
+        return (((this.otm * 31) + this.otn) * 31) + this.step;
     }
 
     public String toString() {
-        return this.step > 0 ? this.osU + IStringUtil.TOP_PATH + this.osV + " step " + this.step : this.osU + " downTo " + this.osV + " step " + (-this.step);
+        return this.step > 0 ? this.otm + IStringUtil.TOP_PATH + this.otn + " step " + this.step : this.otm + " downTo " + this.otn + " step " + (-this.step);
     }
 
     @kotlin.h

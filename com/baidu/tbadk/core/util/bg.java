@@ -15,15 +15,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tieba.R;
 import java.util.LinkedList;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class bg {
     private static int mSkin_1_common_color = -1;
     private static int mMore_color = -1;
     private static boolean mIsNeedInit = false;
-    private static com.baidu.adp.lib.d.a<Integer, Integer> elq = new com.baidu.adp.lib.d.a<>(500);
+    private static com.baidu.adp.lib.d.a<Integer, Integer> elu = new com.baidu.adp.lib.d.a<>(500);
     private static Context mAppContext = null;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface a {
         boolean onViewFound(View view);
     }
@@ -65,16 +65,16 @@ public class bg {
 
     public static void prepareNewView(View view) {
         if (view != null) {
-            elq.remove(Integer.valueOf(System.identityHashCode(view)));
+            elu.remove(Integer.valueOf(System.identityHashCode(view)));
         }
     }
 
     public static void processSkin(ViewGroup viewGroup, int i) {
         int identityHashCode = System.identityHashCode(viewGroup);
-        Integer num = elq.get(Integer.valueOf(identityHashCode));
+        Integer num = elu.get(Integer.valueOf(identityHashCode));
         if (num == null || i != num.intValue()) {
             processSkin0(viewGroup, i);
-            elq.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
+            elu.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
         }
     }
 

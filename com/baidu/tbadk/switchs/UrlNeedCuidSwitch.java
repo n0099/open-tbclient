@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class UrlNeedCuidSwitch extends a {
     public static final int TYPE_CLOSE = 0;
     public static final int TYPE_OPEN = 1;

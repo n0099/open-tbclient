@@ -7,17 +7,17 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
 /* loaded from: classes15.dex */
 public class l extends b<AbsThreadDataSupport> {
-    private AbsThreadDataSupport aeW;
-    private CardForumHeadLayout afo;
+    private AbsThreadDataSupport aeY;
+    private CardForumHeadLayout afq;
 
     public l(Context context) {
         super(context);
-        this.afo = new CardForumHeadLayout(context);
-        this.afo.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.l.1
+        this.afq = new CardForumHeadLayout(context);
+        this.afq.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.l.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (l.this.tw() != null) {
-                    l.this.tw().a(view, l.this.aeW);
+                    l.this.tw().a(view, l.this.aeY);
                 }
             }
         });
@@ -26,23 +26,23 @@ public class l extends b<AbsThreadDataSupport> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.afo;
+        return this.afq;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.o
     /* renamed from: b */
     public void F(AbsThreadDataSupport absThreadDataSupport) {
-        if (this.afo != null && absThreadDataSupport != null) {
-            this.aeW = absThreadDataSupport;
-            this.afo.setData(absThreadDataSupport.bce());
+        if (this.afq != null && absThreadDataSupport != null) {
+            this.aeY = absThreadDataSupport;
+            this.afq.setData(absThreadDataSupport.bce());
         }
     }
 
     @Override // com.baidu.card.p
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        if (this.afo != null) {
-            this.afo.onChangeSkinType();
+        if (this.afq != null) {
+            this.afq.onChangeSkinType();
         }
     }
 }

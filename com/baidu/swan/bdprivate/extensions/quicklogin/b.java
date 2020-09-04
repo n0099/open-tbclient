@@ -12,7 +12,7 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
             /* renamed from: B */
             public void I(Bundle bundle2) {
                 if (bundle2 != null) {
-                    b.this.cIG.putParcelable("quick_login_info", bundle2.getParcelable("quick_login_info_result"));
+                    b.this.cIK.putParcelable("quick_login_info", bundle2.getParcelable("quick_login_info_result"));
                 }
                 b.this.finish();
             }
@@ -27,8 +27,8 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
                     bVar.I(null);
                     return;
                 }
-                b.this.cIG.putParcelable("quick_login_info_result", quickLoginInfo);
-                bVar.I(b.this.cIG);
+                b.this.cIK.putParcelable("quick_login_info_result", quickLoginInfo);
+                bVar.I(b.this.cIK);
             }
         });
     }

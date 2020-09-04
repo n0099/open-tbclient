@@ -17,12 +17,12 @@ public class a extends com.baidu.swan.apps.api.a.d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b jD(String str) {
+    public com.baidu.swan.apps.api.c.b jE(String str) {
         if (DEBUG) {
             Log.d("Api-NavigateBack", "handle: " + str);
         }
         String uuid = UUID.randomUUID().toString();
-        j.pk(uuid);
+        j.pl(uuid);
         Pair<com.baidu.swan.apps.api.c.b, JSONObject> aX = com.baidu.swan.apps.api.d.b.aX("Api-NavigateBack", str);
         com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aX.first;
         if (!bVar.isSuccess()) {
@@ -55,7 +55,7 @@ public class a extends com.baidu.swan.apps.api.a.d {
         if (DEBUG) {
             Log.d("Api-NavigateBack", "real back delta: " + optInt);
         }
-        final f.b ha = XX.ln("navigateBack").al(f.cii, f.cih).ha(optInt);
+        final f.b ha = XX.lo("navigateBack").al(f.cim, f.cil).ha(optInt);
         ak.m(new Runnable() { // from class: com.baidu.swan.apps.api.module.g.a.1
             @Override // java.lang.Runnable
             public void run() {
@@ -67,12 +67,12 @@ public class a extends com.baidu.swan.apps.api.a.d {
         });
         i.bT("route", uuid).f(new UbcFlowEvent("na_push_page_end"));
         j.T(1, uuid);
-        j.pl(uuid);
+        j.pm(uuid);
         if (!(XX.ahm() instanceof e)) {
             com.baidu.swan.apps.console.c.e("Api-NavigateBack", "top fragment error");
             return new com.baidu.swan.apps.api.c.b(1001, "top fragment error");
         }
         e eVar = (e) XX.ahm();
-        return new com.baidu.swan.apps.api.c.b(0, com.baidu.swan.apps.scheme.actions.k.a.qS(eVar != null ? eVar.agW() : ""));
+        return new com.baidu.swan.apps.api.c.b(0, com.baidu.swan.apps.scheme.actions.k.a.qT(eVar != null ? eVar.agW() : ""));
     }
 }

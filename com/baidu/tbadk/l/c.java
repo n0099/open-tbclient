@@ -16,14 +16,14 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c {
-    private static boolean btU() {
+    private static boolean btV() {
         return TbadkCoreApplication.getInst().isDebugMode();
     }
 
     private static final void g(Object obj, String str) {
-        if (btU()) {
+        if (btV()) {
             if (obj != null) {
                 str = obj.getClass().getSimpleName() + " : " + str;
             }
@@ -32,13 +32,13 @@ public class c {
     }
 
     public static final void printLog(String str) {
-        if (btU()) {
+        if (btV()) {
             Log.d("TbPageKeyHelper", str);
         }
     }
 
     private static final void c(FragmentManager fragmentManager) {
-        if (btU()) {
+        if (btV()) {
             List<Fragment> fragments = fragmentManager.getFragments();
             if (!y.isEmpty(fragments)) {
                 printLog("FragmentManager---->" + fragmentManager);
@@ -54,16 +54,16 @@ public class c {
     }
 
     private static final void a(b bVar) {
-        if (btU() && bVar != null) {
+        if (btV() && bVar != null) {
             String currentPageKey = bVar.getCurrentPageKey();
-            String btT = bVar.btT();
-            ArrayList<String> btR = bVar.btR();
+            String btU = bVar.btU();
             ArrayList<String> btS = bVar.btS();
+            ArrayList<String> btT = bVar.btT();
             StringBuilder sb = new StringBuilder("Current TbPageExtra:");
             sb.append("currentPageKey=").append(currentPageKey).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-            sb.append("prePageKey=").append(btT).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-            sb.append("preList=").append(btR.toString()).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-            sb.append("nextList=").append(btS.toString());
+            sb.append("prePageKey=").append(btU).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            sb.append("preList=").append(btS.toString()).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            sb.append("nextList=").append(btT.toString());
             g(bVar, sb.toString());
         }
     }

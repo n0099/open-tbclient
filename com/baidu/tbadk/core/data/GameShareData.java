@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import com.baidu.ar.gesture.GestureAR;
 import com.baidu.live.tbadk.core.util.TbEnum;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class GameShareData implements Parcelable {
     public static final Parcelable.Creator<GameShareData> CREATOR = new Parcelable.Creator<GameShareData>() { // from class: com.baidu.tbadk.core.data.GameShareData.1
         /* JADX DEBUG: Method merged with bridge method */

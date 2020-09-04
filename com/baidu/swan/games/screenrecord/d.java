@@ -5,58 +5,58 @@ import android.util.Log;
 /* loaded from: classes8.dex */
 public class d {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile d dwu = null;
-    private GameRecorderController dtl;
-    private boolean dwv;
+    private static volatile d dwy = null;
+    private GameRecorderController dtp;
+    private boolean dwz;
 
     private d() {
     }
 
     public static d aOZ() {
-        if (dwu == null) {
+        if (dwy == null) {
             synchronized (d.class) {
-                if (dwu == null) {
-                    dwu = new d();
+                if (dwy == null) {
+                    dwy = new d();
                 }
             }
         }
-        return dwu;
+        return dwy;
     }
 
     public void g(GameRecorderController gameRecorderController) {
-        if (this.dtl != null && this.dtl != gameRecorderController) {
-            this.dtl.release();
+        if (this.dtp != null && this.dtp != gameRecorderController) {
+            this.dtp.release();
         }
-        this.dtl = gameRecorderController;
+        this.dtp = gameRecorderController;
     }
 
     @NonNull
     public GameRecorderController aPa() {
         if (DEBUG) {
-            Log.i("GameRecorderManager", "getRecorderController:" + this.dtl);
+            Log.i("GameRecorderManager", "getRecorderController:" + this.dtp);
         }
-        return this.dtl == null ? GameRecorderController.aOY() : this.dtl;
+        return this.dtp == null ? GameRecorderController.aOY() : this.dtp;
     }
 
     public void h(GameRecorderController gameRecorderController) {
-        if (this.dtl != null && this.dtl == gameRecorderController) {
-            this.dtl.release();
-            this.dtl = null;
+        if (this.dtp != null && this.dtp == gameRecorderController) {
+            this.dtp.release();
+            this.dtp = null;
         }
     }
 
     public boolean aPb() {
         if (DEBUG) {
-            Log.i("GameRecorderManager", "isGamePause:" + this.dwv);
+            Log.i("GameRecorderManager", "isGamePause:" + this.dwz);
         }
-        return this.dwv;
+        return this.dwz;
     }
 
     public void aPc() {
-        this.dwv = true;
+        this.dwz = true;
     }
 
     public void aPd() {
-        this.dwv = false;
+        this.dwz = false;
     }
 }

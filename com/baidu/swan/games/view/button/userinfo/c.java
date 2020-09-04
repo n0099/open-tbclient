@@ -17,9 +17,9 @@ public class c {
                 @Override // com.baidu.swan.apps.ap.e.b
                 /* renamed from: a */
                 public void I(com.baidu.swan.apps.setting.b.a aVar2) {
-                    if (aVar2 != null && aVar2.cVz != null) {
-                        com.baidu.swan.apps.console.c.d("OpenData", "onOpenDataCallback success: ", aVar2.cVz);
-                        aVar.cm(aVar2.cVz);
+                    if (aVar2 != null && aVar2.cVD != null) {
+                        com.baidu.swan.apps.console.c.d("OpenData", "onOpenDataCallback success: ", aVar2.cVD);
+                        aVar.cm(aVar2.cVD);
                         return;
                     }
                     aVar.cm(null);

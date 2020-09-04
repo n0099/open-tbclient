@@ -6,26 +6,26 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.xiaomi.mipush.sdk.Constants;
 import org.json.JSONObject;
 import tbclient.FrsPage.Banner;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ad {
-    private int dYl;
-    private String dYm;
-    private int dYn;
-    private String dYo;
-    public String dYp;
-    public float dYq;
-    public boolean dYr = true;
+    private int dYp;
+    private String dYq;
+    private int dYr;
+    private String dYs;
+    public String dYt;
+    public float dYu;
+    public boolean dYv = true;
     private String mDesc;
     private String mTagName;
     private int mType;
     private String mValue;
 
     public int bcQ() {
-        return this.dYl;
+        return this.dYp;
     }
 
     public String bcR() {
-        return this.dYm;
+        return this.dYq;
     }
 
     public String getValue() {
@@ -37,22 +37,22 @@ public class ad {
     }
 
     public String bcJ() {
-        return this.dYo;
+        return this.dYs;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.dYl = jSONObject.optInt("bannerType");
-                this.dYm = jSONObject.optString("bannerUrl");
+                this.dYp = jSONObject.optInt("bannerType");
+                this.dYq = jSONObject.optString("bannerUrl");
                 this.mValue = jSONObject.optString("value");
                 this.mType = jSONObject.optInt("type");
                 this.mDesc = jSONObject.optString("desc");
-                this.dYn = jSONObject.optInt("template_id");
-                this.dYo = jSONObject.optString("obj_id");
+                this.dYr = jSONObject.optInt("template_id");
+                this.dYs = jSONObject.optString("obj_id");
                 this.mTagName = jSONObject.optString("tag_name");
-                this.dYp = jSONObject.optString("tag_name_url");
-                za(jSONObject.optString("tag_name_wh"));
+                this.dYt = jSONObject.optString("tag_name_url");
+                zb(jSONObject.optString("tag_name_wh"));
             } catch (Exception e) {
                 BdLog.e(e.toString());
             }
@@ -61,20 +61,20 @@ public class ad {
 
     public void a(Banner banner) {
         if (banner != null) {
-            this.dYl = banner.banner_type.intValue();
-            this.dYm = banner.banner_url;
+            this.dYp = banner.banner_type.intValue();
+            this.dYq = banner.banner_url;
             this.mValue = banner.value;
             this.mType = banner.type.intValue();
             this.mDesc = banner.desc;
-            this.dYn = banner.template_id.intValue();
-            this.dYo = banner.obj_id;
+            this.dYr = banner.template_id.intValue();
+            this.dYs = banner.obj_id;
             this.mTagName = banner.tag_name;
-            this.dYp = banner.tag_name_url;
-            za(banner.tag_name_wh);
+            this.dYt = banner.tag_name_url;
+            zb(banner.tag_name_wh);
         }
     }
 
-    private void za(String str) {
+    private void zb(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
@@ -82,7 +82,7 @@ public class ad {
                     int i = com.baidu.adp.lib.f.b.toInt(split[0], 1);
                     int i2 = com.baidu.adp.lib.f.b.toInt(split[1], 1);
                     if (i2 != 0) {
-                        this.dYq = i / i2;
+                        this.dYu = i / i2;
                     }
                 }
             } catch (Exception e) {
@@ -95,6 +95,6 @@ public class ad {
         if (StringUtils.isNull(this.mValue)) {
             return false;
         }
-        return this.mType == 1 ? this.dYl == 1 || this.dYl == 4 || this.dYl == 2 || this.dYl == 3 : this.mType == 2 && !StringUtils.isNull(this.mDesc);
+        return this.mType == 1 ? this.dYp == 1 || this.dYp == 4 || this.dYp == 2 || this.dYp == 3 : this.mType == 2 && !StringUtils.isNull(this.mDesc);
     }
 }

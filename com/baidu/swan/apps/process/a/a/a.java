@@ -7,26 +7,26 @@ import android.util.Log;
 /* loaded from: classes8.dex */
 public abstract class a {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public int cIE;
-    public Bundle cID = new Bundle();
-    public String cIF = "";
-    public Bundle cIG = new Bundle();
+    public int cII;
+    public Bundle cIH = new Bundle();
+    public String cIJ = "";
+    public Bundle cIK = new Bundle();
 
     public abstract void y(@NonNull Bundle bundle);
 
     public void finish() {
-        K(this.cIG);
+        K(this.cIK);
     }
 
     public void K(@Nullable Bundle bundle) {
         if (DEBUG) {
             Log.d("MDelegate-Delegation", "messenger delegation finish");
         }
-        if (!com.baidu.swan.apps.process.a.b.d.a.pG(this.cIF)) {
+        if (!com.baidu.swan.apps.process.a.b.d.a.pH(this.cIJ)) {
             if (DEBUG) {
-                Log.d("MDelegate-Delegation", "messenger delegation finish with send result to client: " + this.cIE + " observer: " + this.cIF);
+                Log.d("MDelegate-Delegation", "messenger delegation finish with send result to client: " + this.cII + " observer: " + this.cIJ);
             }
-            b.a(this.cIE, this.cIF, bundle);
+            b.a(this.cII, this.cIJ, bundle);
         }
     }
 }

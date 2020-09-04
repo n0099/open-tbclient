@@ -1,20 +1,20 @@
 package com.baidu.tbadk.imageManager;
 
 import android.content.Context;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface a {
-    int BN(String str);
-
     int BO(String str);
 
-    String BP(String str);
+    int BP(String str);
+
+    String BQ(String str);
 
     C0554a ao(Context context, String str);
 
-    int brK();
+    int brL();
 
     /* renamed from: com.baidu.tbadk.imageManager.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class C0554a {
         private int mHeight;
         private int mWidth;

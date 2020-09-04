@@ -37,10 +37,10 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
         q.m(webSocketRequest, "request");
         q.m(iWebSocketListener, "listener");
         URI create = URI.create(webSocketRequest.getUrl());
-        List efR = o.efR();
+        List ega = o.ega();
         List<String> protocols = webSocketRequest.getProtocols();
         if (protocols == null) {
-            list = efR;
+            list = ega;
             aVar2 = aVar;
             aVar3 = javaWebSockeClientImpl$connect$1;
             javaWebSockeClientImpl$connect$12 = javaWebSockeClientImpl$connect$1;
@@ -56,7 +56,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
             for (String str : list2) {
                 arrayList.add(new b(str));
             }
-            list = efR;
+            list = ega;
             aVar2 = aVar;
             aVar3 = javaWebSockeClientImpl$connect$1;
             javaWebSockeClientImpl$connect$12 = javaWebSockeClientImpl$connect$1;
@@ -73,11 +73,11 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
         new a(uri, aVar5, headers) { // from class: com.baidu.searchbox.websocket.JavaWebSockeClientImpl$connect$1
             @Override // org.java_websocket.a.a
             public void onOpen(org.java_websocket.c.h hVar) {
-                Iterator<String> ejx;
+                Iterator<String> ejG;
                 HashMap hashMap = new HashMap();
-                if (hVar != null && (ejx = hVar.ejx()) != null) {
-                    while (ejx.hasNext()) {
-                        String next = ejx.next();
+                if (hVar != null && (ejG = hVar.ejG()) != null) {
+                    while (ejG.hasNext()) {
+                        String next = ejG.next();
                         hashMap.put(next, hVar.Wy(next));
                     }
                 }

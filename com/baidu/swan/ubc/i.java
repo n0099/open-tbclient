@@ -6,12 +6,12 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes10.dex */
 public class i {
-    private String ZT;
-    private String dJH;
-    private int dJI;
-    private JSONObject dJJ;
-    private String dJK;
-    private boolean dJL;
+    private String ZV;
+    private String dJL;
+    private int dJM;
+    private JSONObject dJN;
+    private String dJO;
+    private boolean dJP;
     private String mCategory;
     private String mContent;
     private String mId;
@@ -20,30 +20,30 @@ public class i {
 
     public i(String str, String str2, int i) {
         this.mContent = "";
-        this.dJL = false;
-        this.ZT = "";
+        this.dJP = false;
+        this.ZV = "";
         this.mId = str;
-        this.dJH = str;
-        this.dJI = -1;
+        this.dJL = str;
+        this.dJM = -1;
         this.mContent = str2;
         this.mOption = i;
         if ((this.mOption & 2) == 0) {
             this.mTime = System.currentTimeMillis();
         }
         try {
-            this.dJJ = new JSONObject(this.mContent);
+            this.dJN = new JSONObject(this.mContent);
         } catch (JSONException e) {
         }
     }
 
     public i(String str, JSONObject jSONObject, int i) {
         this.mContent = "";
-        this.dJL = false;
-        this.ZT = "";
+        this.dJP = false;
+        this.ZV = "";
         this.mId = str;
-        this.dJH = str;
-        this.dJI = -1;
-        this.dJJ = jSONObject;
+        this.dJL = str;
+        this.dJM = -1;
+        this.dJN = jSONObject;
         this.mOption = i;
         if ((this.mOption & 2) == 0) {
             this.mTime = System.currentTimeMillis();
@@ -52,29 +52,29 @@ public class i {
 
     public i(String str, String str2, int i, String str3, int i2) {
         this.mContent = "";
-        this.dJL = false;
-        this.ZT = "";
+        this.dJP = false;
+        this.ZV = "";
         this.mId = str2;
-        this.dJH = str;
-        this.dJI = i;
+        this.dJL = str;
+        this.dJM = i;
         this.mContent = str3;
         this.mOption = i2;
         if ((this.mOption & 2) == 0) {
             this.mTime = System.currentTimeMillis();
         }
         try {
-            this.dJJ = new JSONObject(this.mContent);
+            this.dJN = new JSONObject(this.mContent);
         } catch (JSONException e) {
         }
     }
 
     public i(String str, String str2, int i, String str3, long j, int i2) {
         this.mContent = "";
-        this.dJL = false;
-        this.ZT = "";
+        this.dJP = false;
+        this.ZV = "";
         this.mId = str2;
-        this.dJH = str;
-        this.dJI = i;
+        this.dJL = str;
+        this.dJM = i;
         this.mContent = str3;
         this.mOption = i2;
         if ((this.mOption & 2) == 0) {
@@ -86,7 +86,7 @@ public class i {
         }
         if (!TextUtils.isEmpty(this.mContent)) {
             try {
-                this.dJJ = new JSONObject(this.mContent);
+                this.dJN = new JSONObject(this.mContent);
             } catch (JSONException e) {
             }
         }
@@ -97,11 +97,11 @@ public class i {
     }
 
     public String aVQ() {
-        return this.dJH;
+        return this.dJL;
     }
 
     public int aVR() {
-        return this.dJI;
+        return this.dJM;
     }
 
     public String getContent() {
@@ -117,7 +117,7 @@ public class i {
     }
 
     public String aVS() {
-        return this.dJK;
+        return this.dJO;
     }
 
     public void setCategory(String str) {
@@ -129,28 +129,28 @@ public class i {
     }
 
     public JSONObject aVT() {
-        return this.dJJ;
+        return this.dJN;
     }
 
     public String getFileName() {
-        return this.ZT;
+        return this.ZV;
     }
 
     public String aVU() {
-        return this.dJJ != null ? this.dJJ.optString("bizId") : "";
+        return this.dJN != null ? this.dJN.optString("bizId") : "";
     }
 
-    public void hh(boolean z) {
-        this.dJL = z;
+    public void hi(boolean z) {
+        this.dJP = z;
     }
 
     public boolean aVO() {
-        return this.dJL;
+        return this.dJP;
     }
 
     public void aVV() {
-        if (this.mId != null && this.mId.equals(this.dJH) && d.aVB().xb(this.mId)) {
-            this.dJK = e.aVF().avl();
+        if (this.mId != null && this.mId.equals(this.dJL) && d.aVB().xc(this.mId)) {
+            this.dJO = e.aVF().avl();
         }
     }
 }

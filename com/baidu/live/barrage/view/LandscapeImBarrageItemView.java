@@ -35,23 +35,23 @@ import com.baidu.live.tbadk.widget.TbImageView;
 import com.tb.airbnb.lottie.LottieAnimationView;
 /* loaded from: classes7.dex */
 public class LandscapeImBarrageItemView extends RelativeLayout {
-    private ObjectAnimator aAA;
-    private ImageView aAB;
-    private com.baidu.live.data.a aAD;
-    private View aAt;
-    private HeadImageView aAu;
+    private ImageView aAA;
+    private LottieAnimationView aAB;
+    private ObjectAnimator aAC;
+    private ImageView aAD;
+    private com.baidu.live.data.a aAF;
     private View aAv;
-    private TextView aAw;
-    private ImageView aAx;
-    private ImageView aAy;
-    private LottieAnimationView aAz;
-    private TbImageView aBe;
-    private a aBf;
-    private aj aBg;
-    private br aBh;
-    public long aBi;
-    public int aBj;
-    private View.OnClickListener aBk;
+    private HeadImageView aAw;
+    private View aAx;
+    private TextView aAy;
+    private ImageView aAz;
+    private TbImageView aBg;
+    private a aBh;
+    private aj aBi;
+    private br aBj;
+    public long aBk;
+    public int aBl;
+    private View.OnClickListener aBm;
     private String mContent;
     private int msgType;
     public long timeStamp;
@@ -63,11 +63,11 @@ public class LandscapeImBarrageItemView extends RelativeLayout {
 
     public LandscapeImBarrageItemView(Context context) {
         super(context);
-        this.aBk = new View.OnClickListener() { // from class: com.baidu.live.barrage.view.LandscapeImBarrageItemView.4
+        this.aBm = new View.OnClickListener() { // from class: com.baidu.live.barrage.view.LandscapeImBarrageItemView.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (LandscapeImBarrageItemView.this.aBf != null) {
-                    LandscapeImBarrageItemView.this.aBf.b(LandscapeImBarrageItemView.this.aAD);
+                if (LandscapeImBarrageItemView.this.aBh != null) {
+                    LandscapeImBarrageItemView.this.aBh.b(LandscapeImBarrageItemView.this.aAF);
                 }
             }
         };
@@ -76,11 +76,11 @@ public class LandscapeImBarrageItemView extends RelativeLayout {
 
     public LandscapeImBarrageItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aBk = new View.OnClickListener() { // from class: com.baidu.live.barrage.view.LandscapeImBarrageItemView.4
+        this.aBm = new View.OnClickListener() { // from class: com.baidu.live.barrage.view.LandscapeImBarrageItemView.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (LandscapeImBarrageItemView.this.aBf != null) {
-                    LandscapeImBarrageItemView.this.aBf.b(LandscapeImBarrageItemView.this.aAD);
+                if (LandscapeImBarrageItemView.this.aBh != null) {
+                    LandscapeImBarrageItemView.this.aBh.b(LandscapeImBarrageItemView.this.aAF);
                 }
             }
         };
@@ -88,11 +88,11 @@ public class LandscapeImBarrageItemView extends RelativeLayout {
     }
 
     public void setCallback(a aVar) {
-        this.aBf = aVar;
+        this.aBh = aVar;
     }
 
     public void setDisplayInfo(com.baidu.live.data.a aVar, String str, String str2, int i) {
-        this.aAD = aVar;
+        this.aAF = aVar;
         this.mContent = str2;
         Bm();
         this.msgType = i;
@@ -100,19 +100,19 @@ public class LandscapeImBarrageItemView extends RelativeLayout {
 
     public void setEffectInfo(aj ajVar) {
         if (ajVar != null) {
-            this.aBg = ajVar;
-            if (ajVar.aHY != 0 || ajVar.aHZ != 0) {
-                b(new int[]{ajVar.aHY, ajVar.aHZ}, new int[]{ajVar.aIa, ajVar.aIa}, ajVar.aIc);
+            this.aBi = ajVar;
+            if (ajVar.aIa != 0 || ajVar.aIb != 0) {
+                b(new int[]{ajVar.aIa, ajVar.aIb}, new int[]{ajVar.aIc, ajVar.aIc}, ajVar.aIe);
             }
-            setTail(ajVar.aId);
+            setTail(ajVar.aIf);
         }
     }
 
     public void setUIInfo(br brVar, boolean z) {
         int i = 0;
-        this.aAt.setVisibility(brVar == null ? 8 : 0);
+        this.aAv.setVisibility(brVar == null ? 8 : 0);
         if (brVar == null) {
-            this.aAw.setPadding(getResources().getDimensionPixelOffset(a.e.sdk_ds20), this.aAw.getPaddingTop(), getResources().getDimensionPixelOffset(a.e.sdk_ds24), this.aAw.getBottom());
+            this.aAy.setPadding(getResources().getDimensionPixelOffset(a.e.sdk_ds20), this.aAy.getPaddingTop(), getResources().getDimensionPixelOffset(a.e.sdk_ds24), this.aAy.getBottom());
         } else if (Build.VERSION.SDK_INT >= 16) {
             if (brVar.price >= 300) {
                 i = 2;
@@ -120,10 +120,10 @@ public class LandscapeImBarrageItemView extends RelativeLayout {
                 i = 1;
             }
             m(i, z);
-            if (this.aBh == null || !this.aBh.id.equals(brVar.id)) {
-                this.aBh = brVar;
-                setAvatarBg(this.aBh.Dc());
-                b(this.aBh.Dd(), this.aBh.De(), 205);
+            if (this.aBj == null || !this.aBj.id.equals(brVar.id)) {
+                this.aBj = brVar;
+                setAvatarBg(this.aBj.Dc());
+                b(this.aBj.Dd(), this.aBj.De(), 205);
                 setNobleInfo(brVar);
             }
         }
@@ -132,17 +132,17 @@ public class LandscapeImBarrageItemView extends RelativeLayout {
     private void setNobleInfo(br brVar) {
         if (brVar != null) {
             if (brVar.type == 17) {
-                this.aAB.setVisibility(0);
-                if (brVar.aKR == 7) {
-                    this.aAB.setImageResource(a.f.icon_live_im_barrage_noble_prime_big);
+                this.aAD.setVisibility(0);
+                if (brVar.aKT == 7) {
+                    this.aAD.setImageResource(a.f.icon_live_im_barrage_noble_prime_big);
                 } else {
-                    this.aAB.setImageResource(a.f.icon_live_im_barrage_noble_prime_small);
+                    this.aAD.setImageResource(a.f.icon_live_im_barrage_noble_prime_small);
                 }
-                this.aAx.setVisibility(8);
-                this.aAy.setVisibility(8);
+                this.aAz.setVisibility(8);
+                this.aAA.setVisibility(8);
                 return;
             }
-            this.aAB.setVisibility(8);
+            this.aAD.setVisibility(8);
         }
     }
 
@@ -150,37 +150,37 @@ public class LandscapeImBarrageItemView extends RelativeLayout {
         this.timeStamp = System.currentTimeMillis();
         setBackgroundColor(0);
         LayoutInflater.from(getContext()).inflate(a.h.ala_im_barrage_item_landscape, (ViewGroup) this, true);
-        this.aAt = findViewById(a.g.bg_avatar);
-        this.aAu = (HeadImageView) findViewById(a.g.iv_avatar);
-        this.aAv = findViewById(a.g.mask_avatar);
-        this.aAw = (TextView) findViewById(a.g.tv_content);
-        this.aAx = (ImageView) findViewById(a.g.iv_light);
-        this.aAy = (ImageView) findViewById(a.g.iv_sweep);
-        this.aBe = (TbImageView) findViewById(a.g.iv_tail);
-        this.aAz = (LottieAnimationView) findViewById(a.g.lottie_star);
-        this.aAB = (ImageView) findViewById(a.g.barrage_prime);
-        this.aAw.setMovementMethod(g.Jc());
-        this.aAu.setIsRound(true);
-        this.aAu.setAutoChangeStyle(false);
-        this.aAu.setDefaultBgResource(a.f.sdk_default_avatar);
-        this.aAz.loop(true);
-        this.aAz.setAnimation("im_barrage_item_star.json");
-        this.aAt.setOnClickListener(this.aBk);
-        this.aAA = ObjectAnimator.ofFloat(this.aAy, "translationX", 0.0f, 0.0f);
-        this.aAA.setDuration(800L);
-        this.aAA.setInterpolator(new AccelerateInterpolator());
-        this.aAA.setRepeatCount(-1);
-        this.aAA.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.live.barrage.view.LandscapeImBarrageItemView.1
+        this.aAv = findViewById(a.g.bg_avatar);
+        this.aAw = (HeadImageView) findViewById(a.g.iv_avatar);
+        this.aAx = findViewById(a.g.mask_avatar);
+        this.aAy = (TextView) findViewById(a.g.tv_content);
+        this.aAz = (ImageView) findViewById(a.g.iv_light);
+        this.aAA = (ImageView) findViewById(a.g.iv_sweep);
+        this.aBg = (TbImageView) findViewById(a.g.iv_tail);
+        this.aAB = (LottieAnimationView) findViewById(a.g.lottie_star);
+        this.aAD = (ImageView) findViewById(a.g.barrage_prime);
+        this.aAy.setMovementMethod(g.Jc());
+        this.aAw.setIsRound(true);
+        this.aAw.setAutoChangeStyle(false);
+        this.aAw.setDefaultBgResource(a.f.sdk_default_avatar);
+        this.aAB.loop(true);
+        this.aAB.setAnimation("im_barrage_item_star.json");
+        this.aAv.setOnClickListener(this.aBm);
+        this.aAC = ObjectAnimator.ofFloat(this.aAA, "translationX", 0.0f, 0.0f);
+        this.aAC.setDuration(800L);
+        this.aAC.setInterpolator(new AccelerateInterpolator());
+        this.aAC.setRepeatCount(-1);
+        this.aAC.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.live.barrage.view.LandscapeImBarrageItemView.1
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
                 super.onAnimationCancel(animator);
-                LandscapeImBarrageItemView.this.aAy.setVisibility(8);
+                LandscapeImBarrageItemView.this.aAA.setVisibility(8);
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
                 super.onAnimationStart(animator);
-                LandscapeImBarrageItemView.this.aAy.setVisibility(0);
+                LandscapeImBarrageItemView.this.aAA.setVisibility(0);
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -189,19 +189,19 @@ public class LandscapeImBarrageItemView extends RelativeLayout {
                 animator.setStartDelay(0L);
             }
         });
-        this.aAA.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.live.barrage.view.LandscapeImBarrageItemView.2
+        this.aAC.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.live.barrage.view.LandscapeImBarrageItemView.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 if (valueAnimator.getAnimatedFraction() <= 0.5f) {
-                    LandscapeImBarrageItemView.this.aAy.setAlpha(valueAnimator.getAnimatedFraction() * 2.0f * 0.8f);
+                    LandscapeImBarrageItemView.this.aAA.setAlpha(valueAnimator.getAnimatedFraction() * 2.0f * 0.8f);
                 } else {
-                    LandscapeImBarrageItemView.this.aAy.setAlpha((2.0f - (valueAnimator.getAnimatedFraction() * 2.0f)) * 0.8f);
+                    LandscapeImBarrageItemView.this.aAA.setAlpha((2.0f - (valueAnimator.getAnimatedFraction() * 2.0f)) * 0.8f);
                 }
             }
         });
-        this.aBe.setDefaultBgResource(a.f.sdk_shape_transparent);
-        this.aBe.setDefaultErrorResource(a.f.sdk_shape_transparent);
-        this.aBe.setAutoChangeStyle(false);
+        this.aBg.setDefaultBgResource(a.f.sdk_shape_transparent);
+        this.aBg.setDefaultErrorResource(a.f.sdk_shape_transparent);
+        this.aBg.setAutoChangeStyle(false);
     }
 
     private void Bm() {
@@ -210,9 +210,9 @@ public class LandscapeImBarrageItemView extends RelativeLayout {
     }
 
     private void Bn() {
-        if (this.aAu != null && this.aAD != null) {
-            this.aAu.stopLoad();
-            this.aAu.startLoad(this.aAD.portrait, 12, false, false);
+        if (this.aAw != null && this.aAF != null) {
+            this.aAw.stopLoad();
+            this.aAw.startLoad(this.aAF.portrait, 12, false, false);
         }
     }
 
@@ -221,8 +221,8 @@ public class LandscapeImBarrageItemView extends RelativeLayout {
         String str2;
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
         if (this.msgType == 1 || this.msgType == 2 || this.msgType == 3) {
-            if (this.aAD != null) {
-                String nameShow = this.aAD.getNameShow();
+            if (this.aAF != null) {
+                String nameShow = this.aAF.getNameShow();
                 if (nameShow != null) {
                     if (TextHelper.getTextLengthWithEmoji(nameShow) > 20) {
                         nameShow = TextHelper.subStringWithEmoji(nameShow, 20) + StringHelper.STRING_MORE;
@@ -243,8 +243,8 @@ public class LandscapeImBarrageItemView extends RelativeLayout {
                 spannableStringBuilder.append((CharSequence) valueOf);
             }
         } else {
-            if (this.aAD != null) {
-                String nameShow2 = this.aAD.getNameShow();
+            if (this.aAF != null) {
+                String nameShow2 = this.aAF.getNameShow();
                 if (nameShow2 != null) {
                     if (TextHelper.getTextLengthWithEmoji(nameShow2) > 20) {
                         nameShow2 = TextHelper.subStringWithEmoji(nameShow2, 20) + StringHelper.STRING_MORE;
@@ -259,12 +259,12 @@ public class LandscapeImBarrageItemView extends RelativeLayout {
             }
             spannableStringBuilder.append((CharSequence) this.mContent);
         }
-        this.aAw.setText(spannableStringBuilder);
+        this.aAy.setText(spannableStringBuilder);
     }
 
     private void setAvatarBg(int[] iArr) {
         GradientDrawable gradientDrawable;
-        Drawable background = this.aAt.getBackground();
+        Drawable background = this.aAv.getBackground();
         if (background instanceof GradientDrawable) {
             gradientDrawable = (GradientDrawable) background;
         } else {
@@ -280,12 +280,12 @@ public class LandscapeImBarrageItemView extends RelativeLayout {
         } else {
             gradientDrawable.setColor(iArr[0]);
         }
-        this.aAt.setBackgroundDrawable(gradientDrawable);
+        this.aAv.setBackgroundDrawable(gradientDrawable);
     }
 
     private void b(int[] iArr, int[] iArr2, int i) {
         com.baidu.live.view.g gVar;
-        Drawable background = this.aAw.getBackground();
+        Drawable background = this.aAy.getBackground();
         if (background instanceof com.baidu.live.view.g) {
             gVar = (com.baidu.live.view.g) background;
         } else {
@@ -305,43 +305,43 @@ public class LandscapeImBarrageItemView extends RelativeLayout {
         } else {
             gVar.setColors(iArr);
         }
-        this.aAw.setBackgroundDrawable(gVar);
+        this.aAy.setBackgroundDrawable(gVar);
     }
 
     private void m(int i, boolean z) {
-        if (this.aAA != null) {
-            this.aAA.cancel();
+        if (this.aAC != null) {
+            this.aAC.cancel();
         }
-        if (this.aAz != null) {
-            this.aAz.cancelAnimation();
+        if (this.aAB != null) {
+            this.aAB.cancelAnimation();
         }
-        this.aAx.setVisibility(i >= 1 ? 0 : 8);
+        this.aAz.setVisibility(i >= 1 ? 0 : 8);
         if (i == 2) {
-            this.aAv.setVisibility(0);
-            this.aAA.setStartDelay(z ? 300L : 0L);
+            this.aAx.setVisibility(0);
+            this.aAC.setStartDelay(z ? 300L : 0L);
             post(new Runnable() { // from class: com.baidu.live.barrage.view.LandscapeImBarrageItemView.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    LandscapeImBarrageItemView.this.aAA.setFloatValues(0.0f, (LandscapeImBarrageItemView.this.aAw.getWidth() - LandscapeImBarrageItemView.this.aAw.getPaddingLeft()) - LandscapeImBarrageItemView.this.aAw.getPaddingRight());
-                    LandscapeImBarrageItemView.this.aAA.start();
+                    LandscapeImBarrageItemView.this.aAC.setFloatValues(0.0f, (LandscapeImBarrageItemView.this.aAy.getWidth() - LandscapeImBarrageItemView.this.aAy.getPaddingLeft()) - LandscapeImBarrageItemView.this.aAy.getPaddingRight());
+                    LandscapeImBarrageItemView.this.aAC.start();
                 }
             });
-            this.aAz.setVisibility(0);
-            this.aAz.playAnimation();
-            this.aAw.setTextColor(-531173);
+            this.aAB.setVisibility(0);
+            this.aAB.playAnimation();
+            this.aAy.setTextColor(-531173);
             return;
         }
-        this.aAv.setVisibility(8);
-        this.aAy.setVisibility(8);
-        this.aAz.setVisibility(4);
-        this.aAz.cancelAnimation();
-        this.aAw.setTextColor(-1);
+        this.aAx.setVisibility(8);
+        this.aAA.setVisibility(8);
+        this.aAB.setVisibility(4);
+        this.aAB.cancelAnimation();
+        this.aAy.setTextColor(-1);
     }
 
     public void setTail(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.aBe.startLoad(str, 10, false, false);
-            this.aBe.setVisibility(0);
+            this.aBg.startLoad(str, 10, false, false);
+            this.aBg.setVisibility(0);
         }
     }
 
@@ -355,9 +355,9 @@ public class LandscapeImBarrageItemView extends RelativeLayout {
         public void updateDrawState(TextPaint textPaint) {
             int i = 0;
             int i2 = -1;
-            if (LandscapeImBarrageItemView.this.aBg != null) {
-                i = LandscapeImBarrageItemView.this.aBg.aIe;
-                i2 = LandscapeImBarrageItemView.this.aBg.aIf;
+            if (LandscapeImBarrageItemView.this.aBi != null) {
+                i = LandscapeImBarrageItemView.this.aBi.aIg;
+                i2 = LandscapeImBarrageItemView.this.aBi.aIh;
             }
             if (i == 0) {
                 if (LandscapeImBarrageItemView.this.msgType == 3) {
@@ -377,8 +377,8 @@ public class LandscapeImBarrageItemView extends RelativeLayout {
 
         @Override // android.text.style.ClickableSpan
         public void onClick(@NonNull View view) {
-            if (LandscapeImBarrageItemView.this.aBk != null) {
-                LandscapeImBarrageItemView.this.aBk.onClick(view);
+            if (LandscapeImBarrageItemView.this.aBm != null) {
+                LandscapeImBarrageItemView.this.aBm.onClick(view);
             }
         }
     }

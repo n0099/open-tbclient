@@ -6,9 +6,9 @@ import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.view.l;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c {
-    private static String kuH;
+    private static String kuO;
 
     public static SpannableStringBuilder aN(Context context, String str) {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
@@ -21,10 +21,10 @@ public class c {
         return spannableStringBuilder;
     }
 
-    public static String cUV() {
-        if (TextUtils.isEmpty(kuH)) {
-            kuH = com.baidu.tbadk.core.sharedPref.b.bik().getString("nick_name_activity_link", "");
+    public static String cUW() {
+        if (TextUtils.isEmpty(kuO)) {
+            kuO = com.baidu.tbadk.core.sharedPref.b.bik().getString("nick_name_activity_link", "");
         }
-        return kuH;
+        return kuO;
     }
 }

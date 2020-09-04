@@ -8,14 +8,14 @@ import com.baidu.bdhttpdns.h;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class g implements f.a {
-    private final BDHttpDns.a ado;
-    private final BDHttpDns adv;
-    private final h adw;
+    private final BDHttpDns.a adq;
+    private final BDHttpDns adx;
+    private final h ady;
 
     public g(Context context, BDHttpDns.a aVar) {
-        this.ado = aVar;
-        this.adv = BDHttpDns.P(context);
-        this.adw = this.adv.sO();
+        this.adq = aVar;
+        this.adx = BDHttpDns.P(context);
+        this.ady = this.adx.sO();
     }
 
     @Override // com.baidu.bdhttpdns.f.a
@@ -23,8 +23,8 @@ public class g implements f.a {
         switch (i) {
             case -1:
                 l.a("Async resolve failed, host(%s), dns resolve failed", str);
-                if (this.ado != null) {
-                    this.ado.a(new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_NONE, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveErrorDnsResolve, arrayList, arrayList2));
+                if (this.adq != null) {
+                    this.adq.a(new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_NONE, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveErrorDnsResolve, arrayList, arrayList2));
                     return;
                 }
                 return;
@@ -40,9 +40,9 @@ public class g implements f.a {
                 aVar.b(System.currentTimeMillis() / 1000);
                 aVar.a(arrayList);
                 aVar.b(arrayList2);
-                this.adw.a(str, aVar);
-                if (this.ado != null) {
-                    this.ado.a(new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_FROM_DNS, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, arrayList, arrayList2));
+                this.ady.a(str, aVar);
+                if (this.adq != null) {
+                    this.adq.a(new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_FROM_DNS, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, arrayList, arrayList2));
                     return;
                 }
                 return;

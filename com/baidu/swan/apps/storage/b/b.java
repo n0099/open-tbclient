@@ -4,13 +4,8 @@ import android.support.annotation.NonNull;
 /* loaded from: classes8.dex */
 public class b implements c {
     @Override // com.baidu.swan.apps.storage.b.c
-    public String rR(String str) {
-        return str;
-    }
-
-    @Override // com.baidu.swan.apps.storage.b.c
     public String rS(String str) {
-        return null;
+        return str;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
@@ -34,6 +29,11 @@ public class b implements c {
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
+    public String rX(String str) {
+        return null;
+    }
+
+    @Override // com.baidu.swan.apps.storage.b.c
     public String aCZ() {
         return null;
     }
@@ -44,17 +44,17 @@ public class b implements c {
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String rI(String str) {
+    public String rJ(String str) {
         return null;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public boolean rC(String str) {
+    public boolean rD(String str) {
         return false;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public boolean rD(String str) {
+    public boolean rE(String str) {
         return false;
     }
 

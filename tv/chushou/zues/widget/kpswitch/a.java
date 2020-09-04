@@ -5,9 +5,9 @@ public interface a {
 
     void XC();
 
-    boolean emF();
+    boolean emO();
 
-    boolean emG();
+    boolean emP();
 
     boolean isVisible();
 }

@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.img.effect.RotateImageAction;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class e extends b {
     private int rotateType = 0;
 
@@ -33,7 +33,7 @@ public class e extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.bsW().freePicCache(BitmapHelper.getBitmapSize(bitmap) * 2);
+        com.baidu.tbadk.imageManager.c.bsX().freePicCache(BitmapHelper.getBitmapSize(bitmap) * 2);
         if (this.rotateType == 0 || this.rotateType == 1) {
             return BitmapHelper.rotateBitmap(bitmap, this.rotateType);
         }

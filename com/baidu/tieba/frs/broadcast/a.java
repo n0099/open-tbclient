@@ -24,7 +24,7 @@ public class a {
     private TbPageContext context;
     private String forumId;
     private String forumName;
-    private HttpMessageListener hUK = new HttpMessageListener(CmdConfigHttp.CMD_GET_FORUM_MANAGER_RIGHTS) { // from class: com.baidu.tieba.frs.broadcast.a.3
+    private HttpMessageListener hUQ = new HttpMessageListener(CmdConfigHttp.CMD_GET_FORUM_MANAGER_RIGHTS) { // from class: com.baidu.tieba.frs.broadcast.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -48,7 +48,7 @@ public class a {
     public a(TbPageContext tbPageContext) {
         this.context = tbPageContext;
         registerTask();
-        tbPageContext.registerListener(this.hUK);
+        tbPageContext.registerListener(this.hUQ);
     }
 
     public void e(int i, String str, String str2, String str3) {
@@ -56,20 +56,20 @@ public class a {
         this.forumId = str;
         this.forumName = str2;
         this.threadId = str3;
-        Ix(str);
+        Iy(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showDialog(final int i) {
         final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.context.getPageActivity());
-        aVar.ii(true);
+        aVar.ij(true);
         aVar.nv(R.color.cp_cont_b);
         if (this.type == 1) {
             aVar.ns(R.string.top_success);
         } else if (this.type == 2) {
             aVar.ns(R.string.set_good_success);
         }
-        aVar.zz(String.format(this.context.getString(R.string.forum_broadcast_intro), Integer.valueOf(i)));
+        aVar.zA(String.format(this.context.getString(R.string.forum_broadcast_intro), Integer.valueOf(i)));
         aVar.nw(1);
         aVar.a(this.context.getString(R.string.send_forum_broadcast), new a.b() { // from class: com.baidu.tieba.frs.broadcast.a.1
             @Override // com.baidu.tbadk.core.dialog.a.b
@@ -95,7 +95,7 @@ public class a {
                 } else {
                     oVar.ab(a.this.forumId, a.this.forumName, "0");
                 }
-                oVar.zU(a.this.threadId);
+                oVar.zV(a.this.threadId);
                 oVar.start();
             }
         });
@@ -118,7 +118,7 @@ public class a {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    private void Ix(String str) {
+    private void Iy(String str) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_FORUM_MANAGER_RIGHTS);
         httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
         httpMessage.addParam("forum_id", str);

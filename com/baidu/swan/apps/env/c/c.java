@@ -19,10 +19,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public final class c implements b {
-    private final b.C0401b cqH;
+    private final b.C0401b cqL;
 
     private c(b.C0401b c0401b) {
-        this.cqH = c0401b == null ? new b.C0401b() : c0401b;
+        this.cqL = c0401b == null ? new b.C0401b() : c0401b;
     }
 
     public static c alW() {
@@ -34,32 +34,32 @@ public final class c implements b {
     }
 
     public b.C0401b alX() {
-        return this.cqH;
+        return this.cqL;
     }
 
     public c hu(int i) {
-        if (isValid() && i != this.cqH.cqG && (this.cqH.cqG == 0 || this.cqH.cqG == this.cqH.cqF)) {
-            this.cqH.cqG = i;
+        if (isValid() && i != this.cqL.cqK && (this.cqL.cqK == 0 || this.cqL.cqK == this.cqL.cqJ)) {
+            this.cqL.cqK = i;
         }
         return this;
     }
 
     public c hv(int i) {
         if (isValid()) {
-            this.cqH.cqF = i;
+            this.cqL.cqJ = i;
         }
         return this;
     }
 
     public int alY() {
-        return this.cqH.cqG == 0 ? this.cqH.cqF : this.cqH.cqG;
+        return this.cqL.cqK == 0 ? this.cqL.cqJ : this.cqL.cqK;
     }
 
-    public c mv(@Nullable String str) {
-        if (isValid() && !TextUtils.isEmpty(str) && !a(this.cqH.cqE.get(str))) {
-            a mu = a.mu(str);
-            if (a(mu)) {
-                this.cqH.cqE.put(mu.alV(), mu);
+    public c mw(@Nullable String str) {
+        if (isValid() && !TextUtils.isEmpty(str) && !a(this.cqL.cqI.get(str))) {
+            a mv = a.mv(str);
+            if (a(mv)) {
+                this.cqL.cqI.put(mv.alV(), mv);
             }
         }
         return this;
@@ -67,8 +67,8 @@ public final class c implements b {
 
     public boolean isValid() {
         boolean z;
-        synchronized (this.cqH) {
-            z = this.cqH.mIsValid;
+        synchronized (this.cqL) {
+            z = this.cqL.mIsValid;
         }
         return z;
     }
@@ -91,7 +91,7 @@ public final class c implements b {
                     jSONArray.put(jSONObject);
                 }
             }
-            if (cqD) {
+            if (cqH) {
                 Log.i("PurgerStatistic", "queryHisList: cursor=" + count + " items=" + jSONArray.length());
             }
             if (N != null) {
@@ -102,7 +102,7 @@ public final class c implements b {
                 }
             }
         } catch (JSONException e) {
-            if (cqD) {
+            if (cqH) {
                 e.printStackTrace();
                 Log.i("PurgerStatistic", "queryHisList: e=" + e);
             }
@@ -111,8 +111,8 @@ public final class c implements b {
     }
 
     public void ama() {
-        if (cqD) {
-            Log.i("PurgerStatistic", "performReport: " + this.cqH);
+        if (cqH) {
+            Log.i("PurgerStatistic", "performReport: " + this.cqL);
         }
         if (isValid()) {
             ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.swan.apps.env.c.c.1
@@ -128,16 +128,16 @@ public final class c implements b {
     public void amb() {
         String str;
         b.a value;
-        synchronized (this.cqH) {
+        synchronized (this.cqL) {
             if (isValid()) {
-                this.cqH.mIsValid = false;
+                this.cqL.mIsValid = false;
                 e eVar = new e();
                 eVar.mFrom = "swan";
                 eVar.mSource = "NA";
                 int alY = alY();
                 eVar.mType = String.valueOf(alY);
                 JSONArray jSONArray = new JSONArray();
-                for (Map.Entry<String, b.a> entry : this.cqH.cqE.entrySet()) {
+                for (Map.Entry<String, b.a> entry : this.cqL.cqI.entrySet()) {
                     if (!TextUtils.isEmpty(entry.getKey()) && (value = entry.getValue()) != null && value.isValid()) {
                         jSONArray.put(value.toJSONObject());
                     }
@@ -146,7 +146,7 @@ public final class c implements b {
                 if (7 == alY) {
                     eVar.u("history_list", alZ());
                 }
-                if (cqD) {
+                if (cqH) {
                     JSONObject jSONObject = eVar.toJSONObject();
                     if (jSONObject == null) {
                         str = "null";

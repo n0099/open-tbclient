@@ -5,5 +5,5 @@ public interface b {
 
     void N(int i, int i2, int i3);
 
-    void cwp();
+    void cwq();
 }

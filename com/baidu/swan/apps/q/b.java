@@ -6,35 +6,35 @@ import com.baidu.swan.apps.component.components.textarea.SwanEditText;
 /* loaded from: classes8.dex */
 public class b {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile b cuz;
-    private SwanEditText cuA;
+    private static volatile b cuD;
+    private SwanEditText cuE;
     private TextWatcher mTextWatcher;
 
     private b() {
     }
 
     public static b aov() {
-        if (cuz == null) {
+        if (cuD == null) {
             synchronized (b.class) {
-                if (cuz == null) {
-                    cuz = new b();
+                if (cuD == null) {
+                    cuD = new b();
                 }
             }
         }
-        return cuz;
+        return cuD;
     }
 
     public SwanEditText ca(Context context) {
-        this.cuA = new SwanEditText(context);
-        return this.cuA;
+        this.cuE = new SwanEditText(context);
+        return this.cuE;
     }
 
     public SwanEditText aow() {
-        return this.cuA;
+        return this.cuE;
     }
 
     public void aox() {
-        this.cuA = null;
+        this.cuE = null;
     }
 
     public TextWatcher aoy() {

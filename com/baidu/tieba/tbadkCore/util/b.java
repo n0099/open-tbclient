@@ -2,9 +2,9 @@ package com.baidu.tieba.tbadkCore.util;
 
 import android.text.TextUtils;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b {
-    private static String kRx = "tbgametype";
+    private static String kRE = "tbgametype";
 
     public static String QU(String str) {
         String[] split;

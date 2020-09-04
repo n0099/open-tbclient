@@ -6,15 +6,15 @@ import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.av;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class x extends a {
-    private boolean ajr;
+    private boolean ajt;
     private int procType;
 
     public x(boolean z, int i) {
-        this.ajr = true;
+        this.ajt = true;
         this.procType = 0;
-        this.ajr = z;
+        this.ajt = z;
         this.procType = i;
     }
 
@@ -35,7 +35,7 @@ public class x extends a {
 
     @Override // com.baidu.tbadk.core.util.c.a
     public boolean isFromCDN() {
-        return this.ajr;
+        return this.ajt;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
@@ -56,22 +56,22 @@ public class x extends a {
         com.baidu.adp.lib.stats.a mN = com.baidu.tbadk.core.util.u.mN();
         mN.startTimer();
         byte[] bArr = new byte[0];
-        com.baidu.adp.lib.Disk.ops.c Aq = Aq(av.getNameMd5FromUrl(str2));
-        if (Aq == null) {
+        com.baidu.adp.lib.Disk.ops.c Ar = Ar(av.getNameMd5FromUrl(str2));
+        if (Ar == null) {
             return null;
         }
-        Aq.a(DiskFileOperate.OperateType.TRY_SUCCESS);
-        Aq.setSubFolder(true);
-        Aq.setIsFormatData(false);
-        Aq.setLock(bArr);
-        Aq.setSdCard(false);
+        Ar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
+        Ar.setSubFolder(true);
+        Ar.setIsFormatData(false);
+        Ar.setLock(bArr);
+        Ar.setSdCard(false);
         if (aVar != null) {
             e eVar = new e();
-            eVar.f(Aq);
+            eVar.f(Ar);
             aVar.Mn = eVar;
         }
         boolean isWifiNet = com.baidu.adp.lib.util.j.isWifiNet();
-        if (!com.baidu.adp.lib.Disk.d.lG().c(Aq)) {
+        if (!com.baidu.adp.lib.Disk.d.lG().c(Ar)) {
             com.baidu.tbadk.core.util.u.a(mN, str2, false, mN.getTimeCost(), isWifiNet);
             return null;
         }
@@ -85,10 +85,10 @@ public class x extends a {
             } catch (InterruptedException e) {
             }
         }
-        if (!Aq.isSuccess()) {
+        if (!Ar.isSuccess()) {
             aVar2 = null;
         } else {
-            aVar2 = a(Aq, str2, i, i2);
+            aVar2 = a(Ar, str2, i, i2);
         }
         if (aVar2 != null) {
             com.baidu.tbadk.core.util.u.a(mN, str2, true, mN.getTimeCost(), isWifiNet);

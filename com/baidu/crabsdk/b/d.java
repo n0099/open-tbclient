@@ -11,15 +11,15 @@ import java.util.Date;
 import java.util.List;
 /* loaded from: classes6.dex */
 public final class d {
-    private static com.baidu.crabsdk.c.b<List> anf = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.f);
-    private static float ang = 0.0f;
-    private static float anh = 0.0f;
+    private static com.baidu.crabsdk.c.b<List> anh = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.f);
     private static float ani = 0.0f;
     private static float anj = 0.0f;
+    private static float ank = 0.0f;
+    private static float anl = 0.0f;
     private static String bc = "";
-    private static long ank = 0;
-    private static long anl = 0;
-    private static Rect anm = null;
+    private static long anm = 0;
+    private static long ann = 0;
+    private static Rect ano = null;
 
     private static List<View> I(View view) {
         ArrayList arrayList = new ArrayList();
@@ -28,19 +28,19 @@ public final class d {
             for (int i = 0; i < viewGroup.getChildCount(); i++) {
                 View childAt = viewGroup.getChildAt(i);
                 if (childAt.getVisibility() == 0) {
-                    int i2 = (int) ang;
-                    int i3 = (int) anh;
-                    if (anm == null) {
-                        anm = new Rect();
+                    int i2 = (int) ani;
+                    int i3 = (int) anj;
+                    if (ano == null) {
+                        ano = new Rect();
                     }
-                    childAt.getDrawingRect(anm);
+                    childAt.getDrawingRect(ano);
                     int[] iArr = new int[2];
                     childAt.getLocationOnScreen(iArr);
-                    anm.left = iArr[0];
-                    anm.top = iArr[1];
-                    anm.right += iArr[0];
-                    anm.bottom = iArr[1] + anm.bottom;
-                    if (anm.contains(i2, i3)) {
+                    ano.left = iArr[0];
+                    ano.top = iArr[1];
+                    ano.right += iArr[0];
+                    ano.bottom = iArr[1] + ano.bottom;
+                    if (ano.contains(i2, i3)) {
                         arrayList.add(childAt);
                         arrayList.addAll(I(childAt));
                     }
@@ -67,27 +67,27 @@ public final class d {
         switch (i) {
             case 1:
                 arrayList.add("click");
-                arrayList.add("(" + ang + ", " + anh + ")");
+                arrayList.add("(" + ani + ", " + anj + ")");
                 break;
             case 2:
                 arrayList.add("doubleClick");
-                arrayList.add("(" + ang + ", " + anh + ")");
+                arrayList.add("(" + ani + ", " + anj + ")");
                 break;
             case 3:
                 arrayList.add("longPressed");
-                arrayList.add("(" + ang + ", " + anh + ")");
+                arrayList.add("(" + ani + ", " + anj + ")");
                 break;
             case 4:
                 arrayList.add("scroll");
-                arrayList.add("from:(" + ang + ", " + anh + ") to:(" + ani + ", " + anj + ")");
+                arrayList.add("from:(" + ani + ", " + anj + ") to:(" + ank + ", " + anl + ")");
                 break;
             case 5:
                 arrayList.add("fling");
-                arrayList.add("from:(" + ang + ", " + anh + ") to:(" + ani + ", " + anj + ")");
+                arrayList.add("from:(" + ani + ", " + anj + ") to:(" + ank + ", " + anl + ")");
                 break;
         }
         arrayList.add(bc);
-        anf.add(arrayList);
+        anh.add(arrayList);
     }
 
     public static void dispatchTouchEvent(MotionEvent motionEvent, Activity activity) {
@@ -97,21 +97,21 @@ public final class d {
         bc = activity.getClass().getName();
         switch (motionEvent.getAction()) {
             case 0:
-                ang = motionEvent.getX();
-                anh = motionEvent.getY();
-                ank = System.currentTimeMillis();
-                return;
-            case 1:
                 ani = motionEvent.getX();
                 anj = motionEvent.getY();
-                anl = System.currentTimeMillis();
-                if (Math.abs(anj - anh) > 30.0f) {
+                anm = System.currentTimeMillis();
+                return;
+            case 1:
+                ank = motionEvent.getX();
+                anl = motionEvent.getY();
+                ann = System.currentTimeMillis();
+                if (Math.abs(anl - anj) > 30.0f) {
                     a(4, activity);
                     return;
-                } else if (Math.abs(ani - ang) > 30.0f && Math.abs(anj - anh) < 30.0f) {
+                } else if (Math.abs(ank - ani) > 30.0f && Math.abs(anl - anj) < 30.0f) {
                     a(5, activity);
                     return;
-                } else if (anl - ank > 300) {
+                } else if (ann - anm > 300) {
                     a(3, activity);
                     return;
                 } else {
@@ -126,9 +126,9 @@ public final class d {
 
     public static String w() {
         StringBuilder sb = new StringBuilder();
-        int size = anf.size();
+        int size = anh.size();
         for (int i = 0; i < size; i++) {
-            List list = anf.get(i);
+            List list = anh.get(i);
             if (list == null || list.size() <= 0) {
                 return sb.toString();
             }

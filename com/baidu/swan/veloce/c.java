@@ -7,11 +7,11 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes14.dex */
 public class c {
-    private static boolean dKO = false;
-    private static boolean dKP = false;
-    private static String dKQ = "";
-    private static String dKR = "";
-    private static HashMap<String, List<VeloceIpcResult.a>> dKS = new HashMap<>();
+    private static boolean dKS = false;
+    private static boolean dKT = false;
+    private static String dKU = "";
+    private static String dKV = "";
+    private static HashMap<String, List<VeloceIpcResult.a>> dKW = new HashMap<>();
 
     private static Bundle mn(int i) {
         Bundle bundle = new Bundle();
@@ -25,14 +25,14 @@ public class c {
             if (TextUtils.isEmpty(str)) {
                 mn = null;
             } else {
-                List<VeloceIpcResult.a> list = dKS.get(str);
+                List<VeloceIpcResult.a> list = dKW.get(str);
                 if (list == null) {
                     mn = null;
                 } else {
                     for (VeloceIpcResult.a aVar : list) {
                         aVar.a(VeloceIpcResult.f(0, bundle));
                     }
-                    dKS.remove(list);
+                    dKW.remove(list);
                     mn = mn(0);
                 }
             }

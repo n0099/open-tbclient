@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.util.t;
 import tbclient.GetPrivateInfo.GetPrivateInfoReqIdl;
 import tbclient.GetPrivateInfo.ReqData;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class PrivateInfoNetMessage extends NetMessage {
     public PrivateInfoNetMessage() {
         super(1002501, CmdConfigSocket.CMD_GET_PRIVATE_INFO);

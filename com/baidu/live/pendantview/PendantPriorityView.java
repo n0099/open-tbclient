@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 /* loaded from: classes7.dex */
 public class PendantPriorityView extends LinearLayout {
-    protected int bgC;
+    protected int bgE;
 
     public PendantPriorityView(Context context) {
         this(context, null);
@@ -19,7 +19,7 @@ public class PendantPriorityView extends LinearLayout {
 
     public PendantPriorityView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bgC = 0;
+        this.bgE = 0;
         setOrientation(1);
     }
 
@@ -30,14 +30,14 @@ public class PendantPriorityView extends LinearLayout {
             super.addView(view, T, layoutParams);
             if (view instanceof PendantChildView) {
                 PendantChildView pendantChildView = (PendantChildView) view;
-                if (this.bgC >= 0) {
+                if (this.bgE >= 0) {
                     LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) pendantChildView.getLayoutParams();
                     if (layoutParams2 != null) {
                         int priority = pendantChildView.getPriority();
                         if (priority == 105 || priority == 0 || priority == 100 || priority == 20 || priority == 90) {
                             layoutParams2.bottomMargin = 0;
                         } else {
-                            layoutParams2.bottomMargin = this.bgC;
+                            layoutParams2.bottomMargin = this.bgE;
                         }
                     }
                     view.setLayoutParams(layoutParams2);
@@ -47,7 +47,7 @@ public class PendantPriorityView extends LinearLayout {
     }
 
     public void setDefaultItemMargin(int i) {
-        this.bgC = i;
+        this.bgE = i;
     }
 
     protected int T(View view) {

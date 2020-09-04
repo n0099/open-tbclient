@@ -3,9 +3,9 @@ package master.flame.danmaku.danmaku.model.a;
 public interface c<T> {
     void bQ(T t);
 
-    boolean eir();
+    boolean eiA();
 
-    T eit();
+    T eiC();
 
-    void yU(boolean z);
+    void yW(boolean z);
 }

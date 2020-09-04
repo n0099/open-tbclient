@@ -5,41 +5,41 @@ import com.baidu.tieba.video.cloudmusic.data.CloudMusicData;
 import com.baidu.tieba.video.cloudmusic.model.CloudMusicModel;
 /* loaded from: classes17.dex */
 public class b implements c.a {
-    private final CloudMusicModel muv;
-    private final c.b muw;
+    private final CloudMusicModel muN;
+    private final c.b muO;
 
     public b(CloudMusicModel cloudMusicModel, c.b bVar) {
-        this.muv = cloudMusicModel;
-        this.muw = bVar;
+        this.muN = cloudMusicModel;
+        this.muO = bVar;
         bVar.a(this);
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.c.a
-    public void dBg() {
-        this.muw.wz(true);
-        this.muv.a(new com.baidu.tieba.video.cloudmusic.model.a<CloudMusicData>() { // from class: com.baidu.tieba.video.cloudmusic.b.1
+    public void dBp() {
+        this.muO.wB(true);
+        this.muN.a(new com.baidu.tieba.video.cloudmusic.model.a<CloudMusicData>() { // from class: com.baidu.tieba.video.cloudmusic.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.video.cloudmusic.model.a
             /* renamed from: b */
             public void aL(CloudMusicData cloudMusicData) {
-                b.this.muw.wz(false);
+                b.this.muO.wB(false);
                 if (cloudMusicData != null) {
-                    b.this.muw.wA(false);
+                    b.this.muO.wC(false);
                     if (cloudMusicData.tag_list.isEmpty()) {
-                        b.this.muw.wA(true);
+                        b.this.muO.wC(true);
                         return;
                     } else {
-                        b.this.muw.a(cloudMusicData);
+                        b.this.muO.a(cloudMusicData);
                         return;
                     }
                 }
-                b.this.muw.wA(true);
+                b.this.muO.wC(true);
             }
         });
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.c.a
-    public void coU() {
-        this.muv.cancelLoadData();
+    public void coV() {
+        this.muN.cancelLoadData();
     }
 }

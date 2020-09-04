@@ -47,7 +47,7 @@ public class f {
         }
     }
 
-    public static void uG(String str) {
+    public static void uH(String str) {
         if (a.DEBUG) {
             Log.d("BDTLS", "bdtls success");
         }

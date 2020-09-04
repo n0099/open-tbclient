@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowableAmb<T> extends io.reactivex.g<T> {
-    final Iterable<? extends org.b.b<? extends T>> omC;
+    final Iterable<? extends org.b.b<? extends T>> omU;
     final org.b.b<? extends T>[] sources;
 
     @Override // io.reactivex.g
@@ -19,7 +19,7 @@ public final class FlowableAmb<T> extends io.reactivex.g<T> {
             org.b.b<? extends T>[] bVarArr2 = new org.b.b[8];
             try {
                 int i = 0;
-                for (org.b.b<? extends T> bVar : this.omC) {
+                for (org.b.b<? extends T> bVar : this.omU) {
                     if (bVar == null) {
                         EmptySubscription.error(new NullPointerException("One of the sources is null"), cVar);
                         return;
@@ -55,23 +55,23 @@ public final class FlowableAmb<T> extends io.reactivex.g<T> {
     /* loaded from: classes7.dex */
     static final class a<T> implements org.b.d {
         final org.b.c<? super T> actual;
-        final AmbInnerSubscriber<T>[] omD;
-        final AtomicInteger omE = new AtomicInteger();
+        final AmbInnerSubscriber<T>[] omV;
+        final AtomicInteger omW = new AtomicInteger();
 
         a(org.b.c<? super T> cVar, int i) {
             this.actual = cVar;
-            this.omD = new AmbInnerSubscriber[i];
+            this.omV = new AmbInnerSubscriber[i];
         }
 
         public void a(org.b.b<? extends T>[] bVarArr) {
-            AmbInnerSubscriber<T>[] ambInnerSubscriberArr = this.omD;
+            AmbInnerSubscriber<T>[] ambInnerSubscriberArr = this.omV;
             int length = ambInnerSubscriberArr.length;
             for (int i = 0; i < length; i++) {
                 ambInnerSubscriberArr[i] = new AmbInnerSubscriber<>(this, i + 1, this.actual);
             }
-            this.omE.lazySet(0);
+            this.omW.lazySet(0);
             this.actual.onSubscribe(this);
-            for (int i2 = 0; i2 < length && this.omE.get() == 0; i2++) {
+            for (int i2 = 0; i2 < length && this.omW.get() == 0; i2++) {
                 bVarArr[i2].subscribe(ambInnerSubscriberArr[i2]);
             }
         }
@@ -79,11 +79,11 @@ public final class FlowableAmb<T> extends io.reactivex.g<T> {
         @Override // org.b.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
-                int i = this.omE.get();
+                int i = this.omW.get();
                 if (i > 0) {
-                    this.omD[i - 1].request(j);
+                    this.omV[i - 1].request(j);
                 } else if (i == 0) {
-                    for (AmbInnerSubscriber<T> ambInnerSubscriber : this.omD) {
+                    for (AmbInnerSubscriber<T> ambInnerSubscriber : this.omV) {
                         ambInnerSubscriber.request(j);
                     }
                 }
@@ -91,8 +91,8 @@ public final class FlowableAmb<T> extends io.reactivex.g<T> {
         }
 
         public boolean NN(int i) {
-            if (this.omE.get() == 0 && this.omE.compareAndSet(0, i)) {
-                AmbInnerSubscriber<T>[] ambInnerSubscriberArr = this.omD;
+            if (this.omW.get() == 0 && this.omW.compareAndSet(0, i)) {
+                AmbInnerSubscriber<T>[] ambInnerSubscriberArr = this.omV;
                 int length = ambInnerSubscriberArr.length;
                 for (int i2 = 0; i2 < length; i2++) {
                     if (i2 + 1 != i) {
@@ -106,9 +106,9 @@ public final class FlowableAmb<T> extends io.reactivex.g<T> {
 
         @Override // org.b.d
         public void cancel() {
-            if (this.omE.get() != -1) {
-                this.omE.lazySet(-1);
-                for (AmbInnerSubscriber<T> ambInnerSubscriber : this.omD) {
+            if (this.omW.get() != -1) {
+                this.omW.lazySet(-1);
+                for (AmbInnerSubscriber<T> ambInnerSubscriber : this.omV) {
                     ambInnerSubscriber.cancel();
                 }
             }

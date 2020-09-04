@@ -11,7 +11,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class d extends com.baidu.live.view.web.a {
-    private AlaLastLiveroomInfo bvs;
+    private AlaLastLiveroomInfo bvv;
     private boolean isHost;
 
     @Override // com.baidu.live.view.web.a
@@ -20,7 +20,7 @@ public class d extends com.baidu.live.view.web.a {
     }
 
     @Override // com.baidu.live.view.web.a
-    public void hq(String str) {
+    public void hr(String str) {
         if (!this.isHost) {
             Log.d("JsInterface", "@@ JsInterface-impl LiveBridgeJsInterface params = " + str);
             try {
@@ -35,7 +35,7 @@ public class d extends com.baidu.live.view.web.a {
                 String jSONObject2 = jSONObject.toString();
                 AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = new AlaLiveRoomActivityConfig(TbadkCoreApplication.getInst());
                 alaLiveRoomActivityConfig.addExtraByLiveId(parseLong, jSONObject2);
-                alaLiveRoomActivityConfig.addLastLiveInfoParams(this.bvs);
+                alaLiveRoomActivityConfig.addLastLiveInfoParams(this.bvv);
                 alaLiveRoomActivityConfig.setNeedStopImWhenClose(true);
                 alaLiveRoomActivityConfig.getIntent().addFlags(268435456);
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_ALA_LIVE_ROOM_START, alaLiveRoomActivityConfig));
@@ -50,6 +50,6 @@ public class d extends com.baidu.live.view.web.a {
     }
 
     public void b(AlaLastLiveroomInfo alaLastLiveroomInfo) {
-        this.bvs = alaLastLiveroomInfo;
+        this.bvv = alaLastLiveroomInfo;
     }
 }

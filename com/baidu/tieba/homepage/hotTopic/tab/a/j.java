@@ -11,7 +11,7 @@ import com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabThreadItem;
 public class j extends com.baidu.tieba.homepage.hotTopic.tab.a.a<com.baidu.tieba.homepage.hotTopic.tab.b.e, a> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.hotTopic.tab.b.a.iLK);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.hotTopic.tab.b.a.iLQ);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,7 +20,7 @@ public class j extends com.baidu.tieba.homepage.hotTopic.tab.a.a<com.baidu.tieba
     /* renamed from: bB */
     public a b(ViewGroup viewGroup) {
         HotTopicTabThreadItem hotTopicTabThreadItem = new HotTopicTabThreadItem(viewGroup.getContext());
-        hotTopicTabThreadItem.setOnItemCoverListener(this.ahW);
+        hotTopicTabThreadItem.setOnItemCoverListener(this.ahY);
         hotTopicTabThreadItem.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
         a aVar = new a(hotTopicTabThreadItem);
         aVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -42,21 +42,21 @@ public class j extends com.baidu.tieba.homepage.hotTopic.tab.a.a<com.baidu.tieba
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes16.dex */
     public static class a extends af.a {
-        private HotTopicTabThreadItem iLF;
+        private HotTopicTabThreadItem iLL;
 
         a(HotTopicTabThreadItem hotTopicTabThreadItem) {
             super(hotTopicTabThreadItem);
-            this.iLF = hotTopicTabThreadItem;
+            this.iLL = hotTopicTabThreadItem;
         }
 
         void a(com.baidu.tieba.homepage.hotTopic.tab.b.e eVar) {
             if (eVar != null) {
-                this.iLF.a(eVar);
+                this.iLL.a(eVar);
             }
         }
 
         void onChangeSkinType(int i) {
-            this.iLF.onChangeSkinType(i);
+            this.iLL.onChangeSkinType(i);
         }
     }
 }

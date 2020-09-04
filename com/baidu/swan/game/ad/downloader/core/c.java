@@ -10,12 +10,12 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes19.dex */
 public class c implements d.a {
-    private final com.baidu.swan.game.ad.downloader.c.d djT;
-    private final DownloadInfo djZ;
-    private final a dka;
+    private final com.baidu.swan.game.ad.downloader.c.d djX;
+    private final DownloadInfo dkd;
+    private final a dke;
     private final ExecutorService mExecutorService;
     private long mLastRefreshTime = System.currentTimeMillis();
-    private volatile AtomicBoolean dkb = new AtomicBoolean(false);
+    private volatile AtomicBoolean dkf = new AtomicBoolean(false);
 
     /* loaded from: classes19.dex */
     public interface a {
@@ -24,27 +24,27 @@ public class c implements d.a {
 
     public c(ExecutorService executorService, com.baidu.swan.game.ad.downloader.c.d dVar, DownloadInfo downloadInfo, a aVar) {
         this.mExecutorService = executorService;
-        this.djT = dVar;
-        this.djZ = downloadInfo;
-        this.dka = aVar;
+        this.djX = dVar;
+        this.dkd = downloadInfo;
+        this.dke = aVar;
     }
 
     public void start() {
-        this.mExecutorService.submit(new d(this.djT, this.djZ, this));
+        this.mExecutorService.submit(new d(this.djX, this.dkd, this));
     }
 
     @Override // com.baidu.swan.game.ad.downloader.core.d.a
     public void aID() {
-        if (!this.dkb.get()) {
+        if (!this.dkf.get()) {
             synchronized (this) {
-                if (!this.dkb.get()) {
-                    this.dkb.set(true);
+                if (!this.dkf.get()) {
+                    this.dkf.set(true);
                     long currentTimeMillis = System.currentTimeMillis();
                     if (currentTimeMillis - this.mLastRefreshTime > 1000) {
-                        this.djT.l(this.djZ);
+                        this.djX.l(this.dkd);
                         this.mLastRefreshTime = currentTimeMillis;
                     }
-                    this.dkb.set(false);
+                    this.dkf.set(false);
                 }
             }
         }
@@ -52,16 +52,16 @@ public class c implements d.a {
 
     @Override // com.baidu.swan.game.ad.downloader.core.d.a
     public void aIx() {
-        if (this.djZ.getProgress() == this.djZ.getSize()) {
-            String ag = e.ag(AppRuntime.getAppContext(), this.djZ.getPath());
+        if (this.dkd.getProgress() == this.dkd.getSize()) {
+            String ag = e.ag(AppRuntime.getAppContext(), this.dkd.getPath());
             if (com.baidu.swan.apps.b.DEBUG) {
                 Log.d("AdDownload", "解析包名" + ag);
             }
-            this.djZ.setPackageName(ag);
-            this.djZ.setStatus(SwanAdDownloadState.DOWNLOADED.value());
-            this.djT.l(this.djZ);
-            if (this.dka != null) {
-                this.dka.k(this.djZ);
+            this.dkd.setPackageName(ag);
+            this.dkd.setStatus(SwanAdDownloadState.DOWNLOADED.value());
+            this.djX.l(this.dkd);
+            if (this.dke != null) {
+                this.dke.k(this.dkd);
             }
         }
     }

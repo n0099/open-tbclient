@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.e.b;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.at;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class DealIntentService extends BdBaseService {
     private static String ACTION_ON_POST_EXSIT = "TaskExsits";
     private static String ACTION_ON_POST_START = "TaskNeedsTobeStart";
@@ -88,7 +88,7 @@ public class DealIntentService extends BdBaseService {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Integer, String> {
         private Intent intent;
 

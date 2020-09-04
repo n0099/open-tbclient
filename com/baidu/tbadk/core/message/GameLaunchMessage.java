@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.message;
 import android.content.Context;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class GameLaunchMessage extends CustomResponsedMessage<Boolean> {
     public Context context;
     public String gameId;

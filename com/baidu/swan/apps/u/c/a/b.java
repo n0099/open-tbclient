@@ -6,7 +6,7 @@ import com.baidu.swan.apps.ap.aq;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
 public abstract class b<ValueT> {
-    private final ValueT cww;
+    private final ValueT cwA;
 
     protected abstract ValueT a(Bundle bundle, String str, ValueT valuet);
 
@@ -17,11 +17,11 @@ public abstract class b<ValueT> {
     }
 
     public b(ValueT valuet) {
-        this.cww = valuet;
+        this.cwA = valuet;
     }
 
     public ValueT a(c cVar, String str) {
-        return a(cVar, str, (String) this.cww);
+        return a(cVar, str, (String) this.cwA);
     }
 
     public ValueT a(c cVar, String str, ValueT valuet) {

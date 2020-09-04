@@ -1428,6 +1428,10 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
         return !APP_ID_MOBILE_BAIDU.equals(TbConfig.getSubappType());
     }
 
+    public boolean isBaidu() {
+        return APP_ID_MOBILE_BAIDU.equals(TbConfig.getSubappType());
+    }
+
     public boolean isHaokan() {
         return "haokan".equals(TbConfig.getSubappType());
     }

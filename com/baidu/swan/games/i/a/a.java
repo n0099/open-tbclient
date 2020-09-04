@@ -6,19 +6,19 @@ import com.baidu.searchbox.v8engine.V8JavascriptField;
 public class a {
     @V8JavascriptField
     public JsArrayBuffer data;
-    private int dsM;
-    private int dsN;
+    private int dsQ;
+    private int dsR;
     @V8JavascriptField
     public String errMsg;
 
     public a() {
-        this.dsM = 0;
-        int i = this.dsM;
-        this.dsM = i + 1;
-        this.dsN = i;
+        this.dsQ = 0;
+        int i = this.dsQ;
+        this.dsQ = i + 1;
+        this.dsR = i;
     }
 
     public String toString() {
-        return "ArrayBufferCallBack" + this.dsN;
+        return "ArrayBufferCallBack" + this.dsR;
     }
 }

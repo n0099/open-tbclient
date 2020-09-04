@@ -7,7 +7,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.GetUserInfo.GetUserInfoResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class GetUserInfoSocketResponseMessage extends TbSocketReponsedMessage {
     private a mData;
 
@@ -39,8 +39,8 @@ public class GetUserInfoSocketResponseMessage extends TbSocketReponsedMessage {
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         super.afterDispatchInBackGround(i, (int) bArr);
-        if (this.mData != null && this.mData.bsO() != null) {
-            b.bsP().a(this.mData.bsO());
+        if (this.mData != null && this.mData.bsP() != null) {
+            b.bsQ().a(this.mData.bsP());
         } else {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_INFO_CHANGED));
         }

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import android.support.v7.widget.ActivityChooserView;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class y {
     private int FrsMaxCache;
     private int FrsPn;

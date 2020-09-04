@@ -14,10 +14,10 @@ import java.util.Set;
 public class k<T extends j> extends com.baidu.swan.pms.a.b<com.baidu.swan.pms.model.g> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     @NonNull
-    private final T ckT;
+    private final T ckX;
 
     public k(@NonNull T t) {
-        this.ckT = t;
+        this.ckX = t;
     }
 
     public String getAppKey() {
@@ -45,7 +45,7 @@ public class k<T extends j> extends com.baidu.swan.pms.a.b<com.baidu.swan.pms.mo
     public Bundle a(@NonNull Bundle bundle, Set<String> set) {
         Bundle bundle2 = new Bundle();
         if (set.contains("event_performance_ubc")) {
-            this.ckT.bf(bundle.getString("performance_ubc_event_id"), bundle.getString("performance_ubc_extra_key_for_event"));
+            this.ckX.bf(bundle.getString("performance_ubc_event_id"), bundle.getString("performance_ubc_extra_key_for_event"));
             set.remove("event_performance_ubc");
         }
         return bundle2;
@@ -82,7 +82,7 @@ public class k<T extends j> extends com.baidu.swan.pms.a.b<com.baidu.swan.pms.mo
     @CallSuper
     public void a(com.baidu.swan.pms.model.g gVar, com.baidu.swan.pms.model.a aVar) {
         super.a((k<T>) gVar, aVar);
-        com.baidu.swan.c.d.xs(gVar.filePath);
+        com.baidu.swan.c.d.xt(gVar.filePath);
         if (DEBUG) {
             Log.d("SwanPMSSubDownload", "PMSPkgSub onDownloadError " + gVar + ", error=" + aVar);
         }
@@ -96,10 +96,10 @@ public class k<T extends j> extends com.baidu.swan.pms.a.b<com.baidu.swan.pms.mo
 
     private com.baidu.swan.apps.am.a g(com.baidu.swan.pms.model.g gVar) {
         if (!ae.e(new File(gVar.filePath), gVar.sign)) {
-            return new com.baidu.swan.apps.am.a().bO(12L).bQ(2300L).sk("分包签名校验失败");
+            return new com.baidu.swan.apps.am.a().bO(12L).bQ(2300L).sl("分包签名校验失败");
         }
         if (!com.baidu.swan.apps.core.pms.f.b.j(gVar)) {
-            return new com.baidu.swan.apps.am.a().bO(12L).bQ(2320L).sk("分包解压失败");
+            return new com.baidu.swan.apps.am.a().bO(12L).bQ(2320L).sl("分包解压失败");
         }
         return null;
     }

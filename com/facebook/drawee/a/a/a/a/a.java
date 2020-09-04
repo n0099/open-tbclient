@@ -7,61 +7,61 @@ import com.facebook.imagepipeline.g.f;
 import javax.annotation.Nullable;
 /* loaded from: classes9.dex */
 public class a extends com.facebook.drawee.controller.b<f> {
-    private final h nmT;
-    private final g nmq;
-    private final com.facebook.common.time.b nna;
+    private final g nmI;
+    private final h nnl;
+    private final com.facebook.common.time.b nns;
 
     public a(com.facebook.common.time.b bVar, h hVar, g gVar) {
-        this.nna = bVar;
-        this.nmT = hVar;
-        this.nmq = gVar;
+        this.nns = bVar;
+        this.nnl = hVar;
+        this.nmI = gVar;
     }
 
     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
     public void g(String str, Object obj) {
-        this.nmT.gk(this.nna.now());
-        this.nmT.Uz(str);
-        this.nmT.bb(obj);
-        this.nmq.a(this.nmT, 0);
+        this.nnl.gm(this.nns.now());
+        this.nnl.Uz(str);
+        this.nnl.bb(obj);
+        this.nmI.a(this.nnl, 0);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
     /* renamed from: a */
     public void h(String str, @Nullable f fVar) {
-        this.nmT.gl(this.nna.now());
-        this.nmT.Uz(str);
-        this.nmT.a(fVar);
-        this.nmq.a(this.nmT, 2);
+        this.nnl.gn(this.nns.now());
+        this.nnl.Uz(str);
+        this.nnl.a(fVar);
+        this.nmI.a(this.nnl, 2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
     public void a(String str, @Nullable f fVar, @Nullable Animatable animatable) {
-        this.nmT.gm(this.nna.now());
-        this.nmT.Uz(str);
-        this.nmT.a(fVar);
-        this.nmT.xP(true);
-        this.nmq.a(this.nmT, 3);
+        this.nnl.go(this.nns.now());
+        this.nnl.Uz(str);
+        this.nnl.a(fVar);
+        this.nnl.xR(true);
+        this.nmI.a(this.nnl, 3);
     }
 
     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
     public void h(String str, Throwable th) {
-        this.nmT.gn(this.nna.now());
-        this.nmT.Uz(str);
-        this.nmT.xP(false);
-        this.nmq.a(this.nmT, 5);
+        this.nnl.gp(this.nns.now());
+        this.nnl.Uz(str);
+        this.nnl.xR(false);
+        this.nmI.a(this.nnl, 5);
     }
 
     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
-    public void gv(String str) {
-        super.gv(str);
-        int dPF = this.nmT.dPF();
-        if (dPF != 3 && dPF != 5) {
-            this.nmT.go(this.nna.now());
-            this.nmT.Uz(str);
-            this.nmT.xO(true);
-            this.nmq.a(this.nmT, 4);
+    public void gw(String str) {
+        super.gw(str);
+        int dPO = this.nnl.dPO();
+        if (dPO != 3 && dPO != 5) {
+            this.nnl.gq(this.nns.now());
+            this.nnl.Uz(str);
+            this.nnl.xQ(true);
+            this.nmI.a(this.nnl, 4);
         }
     }
 }

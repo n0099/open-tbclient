@@ -11,9 +11,9 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 /* loaded from: classes7.dex */
 public class l implements ILoginListener {
-    private static volatile l bbn;
-    private boolean bbl = false;
-    private a bbm;
+    private static volatile l bbp;
+    private boolean bbn = false;
+    private a bbo;
     private boolean mIsDestroy;
     private boolean mIsLogin;
 
@@ -26,14 +26,14 @@ public class l implements ILoginListener {
     }
 
     public static l Jo() {
-        if (bbn == null) {
+        if (bbp == null) {
             synchronized (l.class) {
-                if (bbn == null) {
-                    bbn = new l();
+                if (bbp == null) {
+                    bbp = new l();
                 }
             }
         }
-        return bbn;
+        return bbp;
     }
 
     public void init(Context context) {
@@ -49,12 +49,12 @@ public class l implements ILoginListener {
             BIMManager.init(context, Constants.APPID_TIEBA, 0, cuid);
         }
         LogUtils.d("imlog", "BIMManager init env:" + i);
-        this.bbl = true;
+        this.bbn = true;
     }
 
     public void a(a aVar) {
         this.mIsLogin = true;
-        this.bbm = aVar;
+        this.bbo = aVar;
         String fromHost = TbConfig.getFromHost();
         String currentFromHost = TbConfig.getCurrentFromHost();
         if (TbadkCoreApplication.isLogin()) {
@@ -75,9 +75,9 @@ public class l implements ILoginListener {
 
     @Override // com.baidu.android.imsdk.account.ILoginListener
     public void onLoginResult(int i, String str) {
-        if (this.bbm != null) {
-            this.bbm.o(i, str);
-            this.bbm = null;
+        if (this.bbo != null) {
+            this.bbo.o(i, str);
+            this.bbo = null;
         }
     }
 

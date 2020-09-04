@@ -14,7 +14,7 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class p extends aa implements com.baidu.swan.apps.network.f {
     int RESULT_CODE_SUCCESS;
-    int cSE;
+    int cSI;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -23,7 +23,7 @@ public class p extends aa implements com.baidu.swan.apps.network.f {
     public p(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/file/openDocument");
         this.RESULT_CODE_SUCCESS = 1;
-        this.cSE = 3;
+        this.cSI = 3;
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
@@ -59,9 +59,9 @@ public class p extends aa implements com.baidu.swan.apps.network.f {
                 return false;
             }
             String optString2 = b.optString("fileType");
-            String xu = com.baidu.swan.c.d.xu(cn2);
-            if (!TextUtils.isEmpty(xu)) {
-                optString2 = xu;
+            String xv = com.baidu.swan.c.d.xv(cn2);
+            if (!TextUtils.isEmpty(xv)) {
+                optString2 = xv;
             } else if (TextUtils.isEmpty(optString2)) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal file ext");
                 return false;

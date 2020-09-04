@@ -11,9 +11,10 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.adp.plugin.packageManager.pluginSettings.c;
 import com.baidu.adp.plugin.util.Util;
-import com.baidu.adp.plugin.util.a;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.switchs.FlutterCrabReportEnableSwitch;
 import com.baidu.tbadk.switchs.FlutterCrashRepairEnableSwitch;
+import com.baidu.tieba.t.a;
 import com.idlefish.flutterboost.interfaces.IContainerManager;
 import com.idlefish.flutterboost.interfaces.INativeRouter;
 import dalvik.system.PathClassLoader;
@@ -149,6 +150,9 @@ public class FlutterBoost {
     }
 
     public void doInitialFlutter() {
+        if (FlutterCrabReportEnableSwitch.isOn()) {
+            a.getInstance().setFlutterPath("doInitialFlutter");
+        }
         if (this.mEngine == null) {
             long currentTimeMillis = System.currentTimeMillis();
             if (this.mPlatform.lifecycleListener != null) {
@@ -275,13 +279,16 @@ public class FlutterBoost {
     private FlutterEngine createEngine() {
         List list;
         boolean z = false;
+        if (FlutterCrabReportEnableSwitch.isOn()) {
+            a.getInstance().setFlutterPath("createEngine1");
+        }
         if (this.mEngine == null) {
-            synchronized (a.mLock) {
+            synchronized (com.baidu.adp.plugin.util.a.mLock) {
                 PluginSetting findPluginSetting = c.qq().findPluginSetting("com.baidu.tieba.pluginFlutter");
                 try {
                     if (FlutterCrashRepairEnableSwitch.isOn() && findPluginSetting != null && findPluginSetting.apkPath != null) {
-                        Object pathList = a.getPathList((PathClassLoader) TbadkCoreApplication.getInst().getClassLoader());
-                        Object D = a.D(pathList);
+                        Object pathList = com.baidu.adp.plugin.util.a.getPathList((PathClassLoader) TbadkCoreApplication.getInst().getClassLoader());
+                        Object D = com.baidu.adp.plugin.util.a.D(pathList);
                         if (D instanceof File[]) {
                             File[] fileArr = (File[]) D;
                             for (int i = 0; i < fileArr.length; i++) {
@@ -303,7 +310,7 @@ public class FlutterBoost {
                         if (!z) {
                             String replace = findPluginSetting.apkPath.replace(".apk", "/lib");
                             if (D instanceof File[]) {
-                                list = a.f(D, new File(replace));
+                                list = com.baidu.adp.plugin.util.a.f(D, new File(replace));
                             } else if (D instanceof List) {
                                 List list3 = (List) D;
                                 list3.add(0, new File(replace));
@@ -311,17 +318,17 @@ public class FlutterBoost {
                             } else {
                                 list = D;
                             }
-                            a.setField(pathList, pathList.getClass(), "nativeLibraryDirectories", list);
+                            com.baidu.adp.plugin.util.a.setField(pathList, pathList.getClass(), "nativeLibraryDirectories", list);
                             if (Build.VERSION.SDK_INT > 25 || (Build.VERSION.SDK_INT == 25 && Util.isPreview())) {
                                 Method declaredMethod = pathList.getClass().getDeclaredMethod("makePathElements", List.class);
                                 declaredMethod.setAccessible(true);
-                                a.setField(pathList, pathList.getClass(), "nativeLibraryPathElements", declaredMethod.invoke(pathList.getClass(), (List) list));
+                                com.baidu.adp.plugin.util.a.setField(pathList, pathList.getClass(), "nativeLibraryPathElements", declaredMethod.invoke(pathList.getClass(), (List) list));
                             } else if (Build.VERSION.SDK_INT >= 23) {
                                 Method declaredMethod2 = pathList.getClass().getDeclaredMethod("makePathElements", List.class, File.class, List.class);
                                 declaredMethod2.setAccessible(true);
-                                a.setField(pathList, pathList.getClass(), "nativeLibraryPathElements", declaredMethod2.invoke(pathList.getClass(), (List) list, null, new ArrayList()));
+                                com.baidu.adp.plugin.util.a.setField(pathList, pathList.getClass(), "nativeLibraryPathElements", declaredMethod2.invoke(pathList.getClass(), (List) list, null, new ArrayList()));
                             } else {
-                                a.setField(pathList, pathList.getClass(), "nativeLibraryDirectories", list);
+                                com.baidu.adp.plugin.util.a.setField(pathList, pathList.getClass(), "nativeLibraryDirectories", list);
                             }
                         }
                     }
@@ -330,6 +337,9 @@ public class FlutterBoost {
                     e.printStackTrace();
                 }
                 FlutterMain.startInitialization(this.mPlatform.getApplication());
+                if (FlutterCrabReportEnableSwitch.isOn()) {
+                    a.getInstance().setFlutterPath("createEngine2");
+                }
                 String[] strArr = new String[0];
                 if (findPluginSetting != null && findPluginSetting.apkPath != null) {
                     strArr = new String[]{"--aot-shared-library-name=" + findPluginSetting.apkPath.replace(".apk", "") + "/lib/libapp.so"};
@@ -337,7 +347,13 @@ public class FlutterBoost {
                 FlutterMain.ensureInitializationComplete(this.mPlatform.getApplication().getApplicationContext(), new FlutterShellArgs(strArr).toArray());
                 this.mEngine = new FlutterEngine(this.mPlatform.getApplication().getApplicationContext(), FlutterLoader.getInstance(), new FlutterJNI(), null, false);
                 registerPlugins(this.mEngine);
+                if (FlutterCrabReportEnableSwitch.isOn()) {
+                    a.getInstance().setFlutterPath("createEngine3");
+                }
             }
+        }
+        if (FlutterCrabReportEnableSwitch.isOn()) {
+            a.getInstance().setFlutterPath("createEngine4");
         }
         return this.mEngine;
     }

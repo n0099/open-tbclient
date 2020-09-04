@@ -18,7 +18,7 @@ public class a extends d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b iQ(String str) {
+    public com.baidu.swan.apps.api.c.b iR(String str) {
         if (DEBUG) {
             Log.d("Api-CheckSession", "start check session");
         }
@@ -33,12 +33,12 @@ public class a extends d {
             c.h(abH, UnitedSchemeUtility.wrapCallbackParams(1001, "empty app key").toString());
             return new com.baidu.swan.apps.api.c.b(1001, "empty app key");
         }
-        JSONObject iP = iP(str);
-        if (iP == null) {
+        JSONObject iQ = iQ(str);
+        if (iQ == null) {
             c.h(abH, UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams").toString());
             return new com.baidu.swan.apps.api.c.b(201, "empty joParams");
         }
-        final String optString = iP.optString("cb");
+        final String optString = iQ.optString("cb");
         if (TextUtils.isEmpty(optString)) {
             c.h(abH, UnitedSchemeUtility.wrapCallbackParams(201, "empty cb").toString());
             return new com.baidu.swan.apps.api.c.b(201, "empty cb");

@@ -4,42 +4,42 @@ import android.text.TextUtils;
 import java.io.File;
 /* loaded from: classes8.dex */
 public class f {
-    private static volatile f dvD;
-    private boolean dvE;
-    private String dvF;
-    private String dvG;
+    private static volatile f dvH;
+    private boolean dvI;
+    private String dvJ;
+    private String dvK;
 
     public static f aOM() {
-        if (dvD == null) {
+        if (dvH == null) {
             synchronized (f.class) {
-                if (dvD == null) {
-                    dvD = new f();
+                if (dvH == null) {
+                    dvH = new f();
                 }
             }
         }
-        return dvD;
+        return dvH;
     }
 
     private f() {
     }
 
     public boolean aON() {
-        return this.dvE;
+        return this.dvI;
     }
 
-    public void gG(boolean z) {
-        this.dvE = z;
+    public void gH(boolean z) {
+        this.dvI = z;
     }
 
     public String aOO() {
-        return TextUtils.isEmpty(this.dvG) ? "" : this.dvG + File.separator + "index.js";
-    }
-
-    public void vF(String str) {
-        this.dvF = str;
+        return TextUtils.isEmpty(this.dvK) ? "" : this.dvK + File.separator + "index.js";
     }
 
     public void vG(String str) {
-        this.dvG = str;
+        this.dvJ = str;
+    }
+
+    public void vH(String str) {
+        this.dvK = str;
     }
 }

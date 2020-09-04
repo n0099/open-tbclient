@@ -5,8 +5,8 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class YanZhiSignInHttpResponseMessage extends JsonHttpResponsedMessage {
-    private String gAn;
-    private String gAo;
+    private String gAr;
+    private String gAs;
 
     public YanZhiSignInHttpResponseMessage() {
         super(1021153);
@@ -17,16 +17,16 @@ public class YanZhiSignInHttpResponseMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && jSONObject.optJSONObject("data") != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.gAn = optJSONObject.optString("sign_status");
-            this.gAo = optJSONObject.optString("visit_yanzhi_tab");
+            this.gAr = optJSONObject.optString("sign_status");
+            this.gAs = optJSONObject.optString("visit_yanzhi_tab");
         }
     }
 
-    public boolean bSm() {
-        return !StringUtils.isNull(this.gAn) && this.gAn.equals("1");
+    public boolean bSn() {
+        return !StringUtils.isNull(this.gAr) && this.gAr.equals("1");
     }
 
-    public boolean bSn() {
-        return !StringUtils.isNull(this.gAo) && this.gAo.equals("1");
+    public boolean bSo() {
+        return !StringUtils.isNull(this.gAs) && this.gAs.equals("1");
     }
 }

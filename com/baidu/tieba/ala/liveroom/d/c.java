@@ -18,318 +18,318 @@ import com.baidu.tieba.ala.liveroom.views.AlaLiveView;
 import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public class c {
-    private AlaLastLiveroomInfo fxt;
-    private bf gnO;
-    private boolean gnU;
-    private com.baidu.tieba.ala.liveroom.data.a gna;
-    private short goJ = 0;
-    private com.baidu.live.liveroom.f.a goK;
-    private com.baidu.live.liveroom.a.c goL;
+    private AlaLastLiveroomInfo fxx;
+    private bf gnS;
+    private boolean gnY;
+    private com.baidu.tieba.ala.liveroom.data.a gne;
+    private short goN = 0;
+    private com.baidu.live.liveroom.f.a goO;
+    private com.baidu.live.liveroom.a.c goP;
     private String otherParams;
 
     public void d(short s) {
-        if (this.goK != null && (this.goK instanceof b)) {
-            this.goK.cb(true);
-            this.goK = null;
+        if (this.goO != null && (this.goO instanceof b)) {
+            this.goO.cb(true);
+            this.goO = null;
         }
-        if (this.goK == null) {
-            this.goK = com.baidu.live.liveroom.f.c.Lx().Ly().b(s);
-            if (this.goK != null) {
-                this.goK.setActivity(this.gna.pageContext.getPageActivity());
-                this.goK.a(this.goL);
-                this.goK.b(this.gna.gxf);
-                if (this.gna.gxf.getParent() != null && (this.gna.gxf.getParent() instanceof ViewGroup)) {
-                    this.goK.o((ViewGroup) this.gna.gxf.getParent());
+        if (this.goO == null) {
+            this.goO = com.baidu.live.liveroom.f.c.Lx().Ly().b(s);
+            if (this.goO != null) {
+                this.goO.setActivity(this.gne.pageContext.getPageActivity());
+                this.goO.a(this.goP);
+                this.goO.b(this.gne.gxj);
+                if (this.gne.gxj.getParent() != null && (this.gne.gxj.getParent() instanceof ViewGroup)) {
+                    this.goO.o((ViewGroup) this.gne.gxj.getParent());
                 }
-                this.goK.a(this.gna.gxd, this.gna.bel);
-                this.goJ = (short) 0;
-                this.gna.gxi = false;
-                this.goK.init();
+                this.goO.a(this.gne.gxh, this.gne.ben);
+                this.goN = (short) 0;
+                this.gne.gxm = false;
+                this.goO.init();
                 return;
             }
             return;
         }
-        this.goK.b(this.gna.gxf);
-        if (this.gna.gxf.getParent() != null && (this.gna.gxf.getParent() instanceof ViewGroup)) {
-            this.goK.o((ViewGroup) this.gna.gxf.getParent());
+        this.goO.b(this.gne.gxj);
+        if (this.gne.gxj.getParent() != null && (this.gne.gxj.getParent() instanceof ViewGroup)) {
+            this.goO.o((ViewGroup) this.gne.gxj.getParent());
         }
-        this.goK.a(this.gna.gxd, this.gna.bel);
+        this.goO.a(this.gne.gxh, this.gne.ben);
     }
 
     public void e(short s) {
         if (1 == s) {
-            if (this.goK != null && !(this.goK instanceof a)) {
-                this.goK.cb(true);
-                this.goK = null;
+            if (this.goO != null && !(this.goO instanceof a)) {
+                this.goO.cb(true);
+                this.goO = null;
             }
-            if (this.goK == null) {
+            if (this.goO == null) {
                 a aVar = new a();
-                this.goJ = (short) 0;
-                aVar.a(this.gna);
-                aVar.a(this.goL);
-                aVar.setActivity(this.gna.pageContext.getPageActivity());
-                this.gna.gxi = false;
+                this.goN = (short) 0;
+                aVar.a(this.gne);
+                aVar.a(this.goP);
+                aVar.setActivity(this.gne.pageContext.getPageActivity());
+                this.gne.gxm = false;
                 aVar.setOtherParams(this.otherParams);
                 aVar.init();
-                this.goK = aVar;
+                this.goO = aVar;
             }
-            this.goK.a(this.gna.gxd, this.gna.bel);
+            this.goO.a(this.gne.gxh, this.gne.ben);
         } else if (2 == s) {
-            if (this.goK != null && !(this.goK instanceof d)) {
-                this.goK.cb(true);
-                this.goK = null;
+            if (this.goO != null && !(this.goO instanceof d)) {
+                this.goO.cb(true);
+                this.goO = null;
             }
-            if (this.goK == null) {
+            if (this.goO == null) {
                 d dVar = new d();
-                this.goJ = (short) 0;
-                dVar.a(this.gna);
-                dVar.a(this.goL);
-                dVar.setActivity(this.gna.pageContext.getPageActivity());
-                this.gna.gxi = false;
+                this.goN = (short) 0;
+                dVar.a(this.gne);
+                dVar.a(this.goP);
+                dVar.setActivity(this.gne.pageContext.getPageActivity());
+                this.gne.gxm = false;
                 dVar.setOtherParams(this.otherParams);
                 dVar.init();
-                this.goK = dVar;
+                this.goO = dVar;
             }
         }
-        if (this.goK instanceof b) {
-            b bVar = (b) this.goK;
-            bVar.bNS();
-            bVar.lH(this.gnU);
-            bVar.a(this.gnO);
+        if (this.goO instanceof b) {
+            b bVar = (b) this.goO;
+            bVar.bNT();
+            bVar.lJ(this.gnY);
+            bVar.a(this.gnS);
         }
     }
 
     public void a(TbPageContext tbPageContext, AlaLiveView alaLiveView, f fVar, e eVar, com.baidu.tieba.ala.liveroom.p.d dVar, String str, boolean z, long j, ArrayList<AlaBroadcastGiftToastData> arrayList, bf bfVar) {
-        if (this.gna == null) {
-            this.gna = new com.baidu.tieba.ala.liveroom.data.a();
+        if (this.gne == null) {
+            this.gne = new com.baidu.tieba.ala.liveroom.data.a();
         }
-        this.gna.pageContext = tbPageContext;
-        this.gna.gxf = alaLiveView;
-        this.gna.bel = fVar;
-        this.gna.gxd = eVar;
-        this.gna.gxe = dVar;
-        this.gna.fromType = str;
-        this.gna.enterTime = j;
-        this.gna.gxg = z;
-        this.gna.gxj = arrayList;
-        this.gna.gxk = false;
-        this.gnO = bfVar;
+        this.gne.pageContext = tbPageContext;
+        this.gne.gxj = alaLiveView;
+        this.gne.ben = fVar;
+        this.gne.gxh = eVar;
+        this.gne.gxi = dVar;
+        this.gne.fromType = str;
+        this.gne.enterTime = j;
+        this.gne.gxk = z;
+        this.gne.gxn = arrayList;
+        this.gne.gxo = false;
+        this.gnS = bfVar;
     }
 
-    public void lH(boolean z) {
-        this.gnU = z;
-        if (this.goK != null && (this.goK instanceof b)) {
-            ((b) this.goK).lH(z);
+    public void lJ(boolean z) {
+        this.gnY = z;
+        if (this.goO != null && (this.goO instanceof b)) {
+            ((b) this.goO).lJ(z);
         }
     }
 
     public void a(com.baidu.live.liveroom.a.c cVar) {
-        this.goL = cVar;
-        if (this.goK != null) {
-            this.goK.a(this.goL);
+        this.goP = cVar;
+        if (this.goO != null) {
+            this.goO.a(this.goP);
         }
     }
 
     public void a(AlaLiveRoomBlurPageLayout alaLiveRoomBlurPageLayout) {
-        if (this.gna != null) {
-            this.gna.gxd = alaLiveRoomBlurPageLayout;
+        if (this.gne != null) {
+            this.gne.gxh = alaLiveRoomBlurPageLayout;
         }
     }
 
-    public void lL(boolean z) {
-        if (this.goJ != 1) {
-            if (this.gna != null) {
-                this.gna.gxi = false;
+    public void lN(boolean z) {
+        if (this.goN != 1) {
+            if (this.gne != null) {
+                this.gne.gxm = false;
             }
             try {
-                if (this.goK != null) {
-                    if (this.gna != null) {
-                        if (this.goK instanceof d) {
-                            ((d) this.goK).b(this.fxt);
-                        } else if (this.goK instanceof a) {
-                            ((a) this.goK).b(this.fxt);
+                if (this.goO != null) {
+                    if (this.gne != null) {
+                        if (this.goO instanceof d) {
+                            ((d) this.goO).b(this.fxx);
+                        } else if (this.goO instanceof a) {
+                            ((a) this.goO).b(this.fxx);
                         }
-                        this.goK.m(this.gna.gxe.LC());
+                        this.goO.m(this.gne.gxi.LC());
                     }
-                    if ((this.goK instanceof d) && z) {
-                        ((d) this.goK).lN(true);
+                    if ((this.goO instanceof d) && z) {
+                        ((d) this.goO).lP(true);
                     }
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            this.goJ = (short) 1;
+            this.goN = (short) 1;
         }
     }
 
     public void dD(int i) {
-        if (this.gna != null) {
-            this.gna.gxk = true;
+        if (this.gne != null) {
+            this.gne.gxo = true;
         }
-        if (this.goK != null) {
-            this.goK.dD(i);
-        }
-    }
-
-    public void bOJ() {
-        if (this.gna != null) {
-            this.gna.gxh = true;
-        }
-    }
-
-    public void a(r rVar) {
-        if (this.goK != null) {
-            this.goK.k(rVar);
-        }
-    }
-
-    public void c(k kVar) {
-        if (this.goK != null) {
-            this.goK.b(kVar);
-        }
-    }
-
-    public void lM(boolean z) {
-        if (this.goJ != 3) {
-            try {
-                if (this.gna != null) {
-                    this.gna.gxi = false;
-                }
-                if (this.goK != null) {
-                    this.goK.cd(z);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            this.goJ = (short) 3;
+        if (this.goO != null) {
+            this.goO.dD(i);
         }
     }
 
     public void bOK() {
-        if (this.goJ != 4) {
+        if (this.gne != null) {
+            this.gne.gxl = true;
+        }
+    }
+
+    public void a(r rVar) {
+        if (this.goO != null) {
+            this.goO.k(rVar);
+        }
+    }
+
+    public void c(k kVar) {
+        if (this.goO != null) {
+            this.goO.b(kVar);
+        }
+    }
+
+    public void lO(boolean z) {
+        if (this.goN != 3) {
             try {
-                if (this.gna != null) {
-                    this.gna.gxi = true;
-                    if (this.goK != null) {
-                        this.goK.n(this.gna.gxe.LC());
+                if (this.gne != null) {
+                    this.gne.gxm = false;
+                }
+                if (this.goO != null) {
+                    this.goO.cd(z);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            this.goN = (short) 3;
+        }
+    }
+
+    public void bOL() {
+        if (this.goN != 4) {
+            try {
+                if (this.gne != null) {
+                    this.gne.gxm = true;
+                    if (this.goO != null) {
+                        this.goO.n(this.gne.gxi.LC());
                     }
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            this.gnO = null;
-            this.goJ = (short) 4;
+            this.gnS = null;
+            this.goN = (short) 4;
         }
-    }
-
-    public boolean bOL() {
-        if (this.goK == null || !(this.goK instanceof b)) {
-            return false;
-        }
-        return ((b) this.goK).bNK();
     }
 
     public boolean bOM() {
-        if (this.goK != null && (this.goK instanceof b) && ((b) this.goK).god) {
+        if (this.goO == null || !(this.goO instanceof b)) {
             return false;
         }
-        if (this.goJ != 5) {
-            if (this.gna != null) {
-                this.gna.gxi = false;
+        return ((b) this.goO).bNL();
+    }
+
+    public boolean bON() {
+        if (this.goO != null && (this.goO instanceof b) && ((b) this.goO).goh) {
+            return false;
+        }
+        if (this.goN != 5) {
+            if (this.gne != null) {
+                this.gne.gxm = false;
             }
             try {
-                if (this.goK != null) {
-                    boolean Lv = this.goK.Lv();
-                    if (Lv && (this.goK instanceof b)) {
-                        ((b) this.goK).goc = true;
+                if (this.goO != null) {
+                    boolean Lv = this.goO.Lv();
+                    if (Lv && (this.goO instanceof b)) {
+                        ((b) this.goO).gog = true;
                     }
                     return Lv;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            this.goJ = (short) 5;
+            this.goN = (short) 5;
         }
-        if (this.goK != null && (this.goK instanceof b)) {
-            ((b) this.goK).goc = true;
+        if (this.goO != null && (this.goO instanceof b)) {
+            ((b) this.goO).gog = true;
         }
         return true;
     }
 
     public void onDestroy() {
-        if (this.goK != null) {
-            this.goK.cb(false);
+        if (this.goO != null) {
+            this.goO.cb(false);
         }
     }
 
     public void enterBackground() {
-        if (this.goK != null) {
-            this.goK.onPause();
+        if (this.goO != null) {
+            this.goO.onPause();
         }
     }
 
     public void enterForeground() {
-        if (this.goK != null) {
-            this.goK.onResume();
-        }
-    }
-
-    public void bON() {
-        if (this.goK != null) {
-            this.goK.onStop();
+        if (this.goO != null) {
+            this.goO.onResume();
         }
     }
 
     public void bOO() {
-        if (this.goK != null) {
-            this.goK.onStart();
+        if (this.goO != null) {
+            this.goO.onStop();
+        }
+    }
+
+    public void bOP() {
+        if (this.goO != null) {
+            this.goO.onStart();
         }
     }
 
     public void onActivityResult(int i, int i2, Intent intent) {
-        if (this.goK != null) {
-            this.goK.onActivityResult(i, i2, intent);
+        if (this.goO != null) {
+            this.goO.onActivityResult(i, i2, intent);
         }
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.goK != null) {
-            this.goK.f(z, TbadkCoreApplication.getInst().getKeyboardHeight());
+        if (this.goO != null) {
+            this.goO.f(z, TbadkCoreApplication.getInst().getKeyboardHeight());
         }
     }
 
     public void l(int i, int i2, int i3) {
-        if (this.goK != null) {
-            this.goK.l(i, i2, i3);
+        if (this.goO != null) {
+            this.goO.l(i, i2, i3);
         }
     }
 
-    public com.baidu.tieba.ala.liveroom.data.a bOF() {
-        return this.gna;
+    public com.baidu.tieba.ala.liveroom.data.a bOG() {
+        return this.gne;
     }
 
     public void setOtherParams(String str) {
         this.otherParams = str;
     }
 
-    public com.baidu.live.liveroom.f.a bOP() {
-        return this.goK;
+    public com.baidu.live.liveroom.f.a bOQ() {
+        return this.goO;
     }
 
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (this.goK != null) {
-            return this.goK.onKeyDown(i, keyEvent);
+        if (this.goO != null) {
+            return this.goO.onKeyDown(i, keyEvent);
         }
         return false;
     }
 
     public void b(AlaLastLiveroomInfo alaLastLiveroomInfo) {
-        this.fxt = alaLastLiveroomInfo;
+        this.fxx = alaLastLiveroomInfo;
     }
 
     public void a(au auVar) {
-        if (this.goK instanceof b) {
-            ((b) this.goK).a(auVar);
+        if (this.goO instanceof b) {
+            ((b) this.goO).a(auVar);
         }
     }
 }

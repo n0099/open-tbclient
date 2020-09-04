@@ -24,9 +24,9 @@ public class e implements PermissionProxy {
             }
             return;
         }
-        final String uY = uY(str);
+        final String uZ = uZ(str);
         com.baidu.swan.apps.runtime.e azI = com.baidu.swan.apps.runtime.e.azI();
-        if (TextUtils.isEmpty(uY) || azI == null || azI.azC() == null) {
+        if (TextUtils.isEmpty(uZ) || azI == null || azI.azC() == null) {
             permissionListener.onPermissionResult(str, 2);
         } else {
             azI.azU().b(azI.azC(), str, new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.swan.games.f.c.e.1
@@ -35,7 +35,7 @@ public class e implements PermissionProxy {
                 /* renamed from: a */
                 public void I(h<b.d> hVar) {
                     if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
-                        e.this.a(str, uY, permissionListener);
+                        e.this.a(str, uZ, permissionListener);
                     } else {
                         permissionListener.onPermissionResult(str, 2);
                     }
@@ -44,7 +44,7 @@ public class e implements PermissionProxy {
         }
     }
 
-    private String uY(String str) {
+    private String uZ(String str) {
         if (str == null) {
             return null;
         }
@@ -78,7 +78,7 @@ public class e implements PermissionProxy {
         String[] strArr = {str2};
         com.baidu.swan.apps.ab.a.a(str2, strArr, 2, com.baidu.swan.apps.runtime.d.azE().azC(), new com.baidu.swan.apps.ab.b() { // from class: com.baidu.swan.games.f.c.e.2
             @Override // com.baidu.swan.apps.ab.b
-            public void iF(String str3) {
+            public void iG(String str3) {
                 permissionListener.onPermissionResult(str, 0);
             }
 

@@ -14,20 +14,20 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.data.ShareFromTopicMsgData;
 /* loaded from: classes15.dex */
 public class ShareCardView extends LinearLayout {
-    private TbImageView ePE;
-    private EditText izr;
-    private TextView jcM;
-    private ShareFromTopicMsgData jcN;
+    private TbImageView ePI;
+    private EditText izx;
+    private TextView jcS;
+    private ShareFromTopicMsgData jcT;
     private LinearLayout mRootView;
     private TextView title;
 
     public EditText getChatMsgView() {
-        return this.izr;
+        return this.izx;
     }
 
     public void aJ(String str, boolean z) {
-        if (this.ePE != null) {
-            this.ePE.startLoad(str, z ? 17 : 18, false);
+        if (this.ePI != null) {
+            this.ePI.startLoad(str, z ? 17 : 18, false);
         }
     }
 
@@ -46,26 +46,26 @@ public class ShareCardView extends LinearLayout {
         setOrientation(1);
         this.mRootView = (LinearLayout) findViewById(R.id.share_content);
         this.title = (TextView) findViewById(R.id.share_title_view);
-        this.izr = (EditText) findViewById(R.id.chat_msg);
-        this.ePE = (TbImageView) findViewById(R.id.chat_group_img);
-        this.jcM = (TextView) findViewById(R.id.chat_group_desc);
+        this.izx = (EditText) findViewById(R.id.chat_msg);
+        this.ePI = (TbImageView) findViewById(R.id.chat_group_img);
+        this.jcS = (TextView) findViewById(R.id.chat_group_desc);
         ap.setViewTextColor(this.title, R.color.cp_cont_b, 1);
-        ap.setViewTextColor(this.izr, R.color.cp_cont_b, 2);
-        ap.setViewTextColor(this.jcM, R.color.cp_cont_f, 1);
-        this.izr.setHintTextColor(ap.getColor(R.color.cp_cont_e));
-        this.izr.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
-        cuN();
+        ap.setViewTextColor(this.izx, R.color.cp_cont_b, 2);
+        ap.setViewTextColor(this.jcS, R.color.cp_cont_f, 1);
+        this.izx.setHintTextColor(ap.getColor(R.color.cp_cont_e));
+        this.izx.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
+        cuO();
     }
 
-    public void cuN() {
+    public void cuO() {
         this.mRootView.setFocusable(true);
         this.mRootView.setFocusableInTouchMode(true);
         this.mRootView.requestFocus();
     }
 
     public String getLeaveMsg() {
-        if (this.izr != null) {
-            return k.charSequence2String(this.izr.getText(), null);
+        if (this.izx != null) {
+            return k.charSequence2String(this.izx.getText(), null);
         }
         return null;
     }
@@ -78,15 +78,15 @@ public class ShareCardView extends LinearLayout {
     }
 
     public void setData(ShareFromTopicMsgData shareFromTopicMsgData) {
-        this.jcN = shareFromTopicMsgData;
+        this.jcT = shareFromTopicMsgData;
         updateUI();
     }
 
     private void updateUI() {
-        this.title.setText(this.jcN.getTitle());
-        BdLog.e("mData.getImageUrl()的图片URL" + this.jcN.getImageUrl());
-        this.ePE.setTag(this.jcN.getImageUrl());
-        BdLog.e("mData.getContent()的Content" + this.jcN.getContent());
-        this.jcM.setText(this.jcN.getContent());
+        this.title.setText(this.jcT.getTitle());
+        BdLog.e("mData.getImageUrl()的图片URL" + this.jcT.getImageUrl());
+        this.ePI.setTag(this.jcT.getImageUrl());
+        BdLog.e("mData.getContent()的Content" + this.jcT.getContent());
+        this.jcS.setText(this.jcT.getContent());
     }
 }

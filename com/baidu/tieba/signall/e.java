@@ -7,21 +7,21 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.aa;
 /* loaded from: classes18.dex */
 public class e {
-    private static final String lVT = TbConfig.SERVER_ADDRESS + Config.M_SIGN;
-    private aa bDY = null;
+    private static final String lWi = TbConfig.SERVER_ADDRESS + Config.M_SIGN;
+    private aa bEb = null;
     private String mAuthSid;
 
     public void setAuthSid(String str) {
         this.mAuthSid = str;
     }
 
-    public String dud() {
-        this.bDY = new aa(lVT);
-        this.bDY.addPostData("authsid", this.mAuthSid);
-        this.bDY.biQ().bjv().mNeedBackgroundLogin = true;
-        this.bDY.biQ().bjv().mIsNeedTbs = true;
-        this.bDY.ik(true);
-        return this.bDY.postNetData();
+    public String dui() {
+        this.bEb = new aa(lWi);
+        this.bEb.addPostData("authsid", this.mAuthSid);
+        this.bEb.biQ().bjv().mNeedBackgroundLogin = true;
+        this.bEb.biQ().bjv().mIsNeedTbs = true;
+        this.bEb.il(true);
+        return this.bEb.postNetData();
     }
 
     public String Qj(String str) {
@@ -30,32 +30,32 @@ public class e {
         if (currentAccountObj != null) {
             str2 = currentAccountObj.getID();
         }
-        this.bDY = new aa(lVT);
-        this.bDY.addPostData("user_id", str2);
-        this.bDY.addPostData("forum_ids", str);
-        this.bDY.addPostData("authsid", this.mAuthSid);
-        this.bDY.biQ().bjv().mNeedBackgroundLogin = true;
-        this.bDY.biQ().bjv().mIsNeedTbs = true;
-        this.bDY.ik(true);
-        return this.bDY.postNetData();
+        this.bEb = new aa(lWi);
+        this.bEb.addPostData("user_id", str2);
+        this.bEb.addPostData("forum_ids", str);
+        this.bEb.addPostData("authsid", this.mAuthSid);
+        this.bEb.biQ().bjv().mNeedBackgroundLogin = true;
+        this.bEb.biQ().bjv().mIsNeedTbs = true;
+        this.bEb.il(true);
+        return this.bEb.postNetData();
     }
 
     public void cancel() {
-        if (this.bDY != null) {
-            this.bDY.cancelNetConnect();
+        if (this.bEb != null) {
+            this.bEb.cancelNetConnect();
         }
     }
 
     public boolean isRequestSuccess() {
-        if (this.bDY != null) {
-            return this.bDY.biQ().bjw().isRequestSuccess();
+        if (this.bEb != null) {
+            return this.bEb.biQ().bjw().isRequestSuccess();
         }
         return false;
     }
 
     public String bbK() {
-        if (this.bDY != null) {
-            return this.bDY.getErrorString();
+        if (this.bEb != null) {
+            return this.bEb.getErrorString();
         }
         return null;
     }

@@ -30,7 +30,7 @@ public class a extends d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b jH(String str) {
+    public com.baidu.swan.apps.api.c.b jI(String str) {
         e azA = com.baidu.swan.apps.runtime.d.azE().azA();
         final JSONObject parseString = v.parseString(azA.azU().getString(C0360a.b(azA), (String) null));
         return a(str, new c("getSwanId") { // from class: com.baidu.swan.apps.api.module.h.a.1
@@ -192,7 +192,7 @@ public class a extends d {
         }
     }
 
-    public com.baidu.swan.apps.api.c.b jI(String str) {
+    public com.baidu.swan.apps.api.c.b jJ(String str) {
         if (DEBUG) {
             Log.d("Api-Setting", "start request");
         }
@@ -235,7 +235,7 @@ public class a extends d {
         });
     }
 
-    public com.baidu.swan.apps.api.c.b jJ(String str) {
+    public com.baidu.swan.apps.api.c.b jK(String str) {
         if (DEBUG) {
             Log.d("Api-Setting", "start get user info");
         }
@@ -248,12 +248,12 @@ public class a extends d {
             com.baidu.swan.games.v.c.g(abH, UnitedSchemeUtility.wrapCallbackParams(1001, "empty clientId").toString());
             return new com.baidu.swan.apps.api.c.b(1001, "empty clientId");
         } else {
-            JSONObject iP = iP(str);
-            if (iP == null) {
+            JSONObject iQ = iQ(str);
+            if (iQ == null) {
                 com.baidu.swan.games.v.c.g(abH, UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams").toString());
                 return new com.baidu.swan.apps.api.c.b(201, "empty joParams");
             }
-            final String optString = iP.optString("cb");
+            final String optString = iQ.optString("cb");
             if (TextUtils.isEmpty(optString)) {
                 com.baidu.swan.games.v.c.g(abH, UnitedSchemeUtility.wrapCallbackParams(201, "empty cb").toString());
                 return new com.baidu.swan.apps.api.c.b(201, "empty cb");
@@ -263,11 +263,11 @@ public class a extends d {
                 com.baidu.swan.games.v.c.g(abH, UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity").toString());
                 return new com.baidu.swan.apps.api.c.b(1001, "the context is not an activity");
             }
-            final String pB = com.baidu.swan.apps.ac.g.b.pB(iP.optString("__plugin__", null));
+            final String pC = com.baidu.swan.apps.ac.g.b.pC(iQ.optString("__plugin__", null));
             com.baidu.swan.apps.a.b azV = azJ.azV();
-            final boolean bC = com.baidu.swan.apps.setting.oauth.c.bC(iP);
+            final boolean bC = com.baidu.swan.apps.setting.oauth.c.bC(iQ);
             if (azV.isLogin(azC) || !bC) {
-                a(bC, optString, azC, pB, "snsapi_userinfo");
+                a(bC, optString, azC, pC, "snsapi_userinfo");
             } else {
                 final Activity activity = azC;
                 azV.a(azC, null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.apps.api.module.h.a.4
@@ -275,7 +275,7 @@ public class a extends d {
                     public void onResult(int i) {
                         switch (i) {
                             case 0:
-                                a.this.a(bC, optString, activity, pB, "snsapi_userinfo");
+                                a.this.a(bC, optString, activity, pC, "snsapi_userinfo");
                                 return;
                             default:
                                 a.this.a(optString, new com.baidu.swan.apps.api.c.b(10004, "user not logged in"));
@@ -298,9 +298,9 @@ public class a extends d {
                 com.baidu.swan.apps.api.c.b bVar;
                 com.baidu.swan.apps.console.c.d("OpenData", "onOpenDataCallback:: ", aVar);
                 if (aVar.aCb()) {
-                    bVar = new com.baidu.swan.apps.api.c.b(0, aVar.cVz);
+                    bVar = new com.baidu.swan.apps.api.c.b(0, aVar.cVD);
                 } else {
-                    int aEc = (int) aVar.cWr.aEc();
+                    int aEc = (int) aVar.cWv.aEc();
                     bVar = new com.baidu.swan.apps.api.c.b(aEc, com.baidu.swan.apps.setting.oauth.c.gC(aEc));
                     com.baidu.swan.games.v.c.g(a.this.abJ().abH(), bVar.toJsonString());
                 }

@@ -14,70 +14,70 @@ public class b extends m {
 
     public b(Context context, String str) {
         super(context, (String) null, 15);
-        this.eLs = false;
+        this.eLw = false;
         this.context = context;
-        this.eLr = 3;
-        this.eKx = new EditorInfoContainer(context, str);
-        this.eLt = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54, 57};
+        this.eLv = 3;
+        this.eKB = new EditorInfoContainer(context, str);
+        this.eLx = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54, 57};
     }
 
-    public void dgB() {
+    public void dgC() {
         BaseActivity baseActivity = (BaseActivity) this.context;
-        e eVar = new e(baseActivity.getPageContext(), (View) this.eKx);
+        e eVar = new e(baseActivity.getPageContext(), (View) this.eKB);
         eVar.eL(R.drawable.bg_tip_blue_left_less_than_right_down);
         eVar.eK(16);
-        eVar.ns(true);
+        eVar.nu(true);
         eVar.setAnchor(2);
         eVar.setUseDirectOffset(true);
         eVar.vF(l.getDimens(baseActivity, R.dimen.ds32));
         eVar.vC(baseActivity.getResources().getDimensionPixelSize(R.dimen.tbds27));
         eVar.vD(baseActivity.getResources().getDimensionPixelSize(R.dimen.tbds41));
         eVar.eM((int) IMConnection.RETRY_DELAY_TIMES);
-        eVar.nr(false);
+        eVar.nt(false);
         if (eVar.y(baseActivity.getString(R.string.write_location_topic_hint_title), "write_hint_tip_key", true)) {
-            ((EditorInfoContainer) this.eKx).fZ(IMConnection.RETRY_DELAY_TIMES);
+            ((EditorInfoContainer) this.eKB).gb(IMConnection.RETRY_DELAY_TIMES);
         }
     }
 
     public void setFrom(String str) {
-        if (this.eKx instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.eKx).setFrom(str);
+        if (this.eKB instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.eKB).setFrom(str);
         }
     }
 
     public void bM(String str, int i) {
-        if (this.eKx instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.eKx).bM(str, i);
+        if (this.eKB instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.eKB).bM(str, i);
         }
     }
 
-    public void xg(boolean z) {
-        if (this.eKx instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.eKx).xg(z);
+    public void xi(boolean z) {
+        if (this.eKB instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.eKB).xi(z);
         }
     }
 
-    public void cfP() {
-        if (this.eKx instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.eKx).cfP();
+    public void cfQ() {
+        if (this.eKB instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.eKB).cfQ();
         }
     }
 
-    public void dGk() {
-        if (this.eKx instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.eKx).dGk();
+    public void dGt() {
+        if (this.eKB instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.eKB).dGt();
         }
     }
 
-    public void dGm() {
-        if (this.eKx instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.eKx).hide();
+    public void dGv() {
+        if (this.eKB instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.eKB).hide();
         }
     }
 
-    public void xh(boolean z) {
-        if (this.eKx instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.eKx).xh(z);
+    public void xj(boolean z) {
+        if (this.eKB instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.eKB).xj(z);
         }
     }
 }

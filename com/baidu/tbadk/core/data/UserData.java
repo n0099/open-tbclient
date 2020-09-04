@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.view.TbCheckBox;
 import com.baidu.tbadk.data.IconData;
 import java.util.ArrayList;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class UserData extends com.baidu.tbadk.data.UserData implements com.baidu.tbadk.core.util.ah, com.baidu.tbadk.core.util.w, TbCheckBox.b {
     public static final int TYPE_COMMON_ATTENTION = 1;
     public static final int TYPE_NORMAL_USER = 0;

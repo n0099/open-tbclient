@@ -1,8 +1,8 @@
 package com.baidu.tieba.card.data;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class n {
     public String desc;
-    public String eab;
+    public String eaf;
     public int tag;
     public long topicId;
 }

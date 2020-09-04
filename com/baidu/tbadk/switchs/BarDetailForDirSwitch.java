@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BarDetailForDirSwitch extends a {
     public static final String BAR_DETAIL_DIR = "bar_detail";
     public static final int DEFAULT_TYPE = 0;

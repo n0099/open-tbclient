@@ -9,7 +9,7 @@ import android.net.Uri;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class MainSharedPrefProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public boolean onCreate() {
@@ -41,7 +41,7 @@ public class MainSharedPrefProvider extends ContentProvider {
                 SharedPreferences.Editor edit = sharedPreferences.edit();
                 edit.putString(lastPathSegment, asString);
                 edit.commit();
-                if (zJ(lastPathSegment)) {
+                if (zK(lastPathSegment)) {
                     aT(lastPathSegment, asString);
                     return null;
                 }
@@ -60,7 +60,7 @@ public class MainSharedPrefProvider extends ContentProvider {
             SharedPreferences.Editor edit = sharedPreferences.edit();
             edit.remove(lastPathSegment);
             edit.commit();
-            if (zJ(lastPathSegment)) {
+            if (zK(lastPathSegment)) {
                 aT(lastPathSegment, null);
                 return 0;
             }
@@ -82,7 +82,7 @@ public class MainSharedPrefProvider extends ContentProvider {
         TbadkCoreApplication.getInst().getApp().sendBroadcast(intent);
     }
 
-    private boolean zJ(String str) {
+    private boolean zK(String str) {
         if (str == null || str.length() == 0) {
             return false;
         }

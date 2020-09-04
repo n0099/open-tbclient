@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 /* loaded from: classes8.dex */
 public abstract class d {
     private Exception Qb;
-    private b cVd;
+    private b cVh;
 
     protected abstract boolean aBB() throws Exception;
 
@@ -16,7 +16,7 @@ public abstract class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d a(b bVar) {
-        this.cVd = bVar;
+        this.cVh = bVar;
         return this;
     }
 
@@ -52,7 +52,7 @@ public abstract class d {
         c.h(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.d.2
             @Override // java.lang.Runnable
             public void run() {
-                d.this.cVd.b(d.this);
+                d.this.cVh.b(d.this);
             }
         });
     }

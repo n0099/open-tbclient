@@ -6,9 +6,9 @@ import kotlin.jvm.internal.q;
 @h
 /* loaded from: classes20.dex */
 public abstract class d {
-    public static final b osI = new b(null);
-    private static final d osG = kotlin.internal.c.osp.egf();
-    public static final a osH = a.osJ;
+    public static final b ota = new b(null);
+    private static final d osY = kotlin.internal.c.osH.ego();
+    public static final a osZ = a.otb;
 
     public abstract int NX(int i);
 
@@ -118,68 +118,68 @@ public abstract class d {
 
         @Override // kotlin.random.d
         public int NX(int i) {
-            return d.osG.NX(i);
+            return d.osY.NX(i);
         }
 
         @Override // kotlin.random.d
         public int nextInt() {
-            return d.osG.nextInt();
+            return d.osY.nextInt();
         }
 
         @Override // kotlin.random.d
         public int nextInt(int i) {
-            return d.osG.nextInt(i);
+            return d.osY.nextInt(i);
         }
 
         @Override // kotlin.random.d
         public int ed(int i, int i2) {
-            return d.osG.ed(i, i2);
+            return d.osY.ed(i, i2);
         }
 
         @Override // kotlin.random.d
         public long nextLong() {
-            return d.osG.nextLong();
+            return d.osY.nextLong();
         }
 
         @Override // kotlin.random.d
         public boolean nextBoolean() {
-            return d.osG.nextBoolean();
+            return d.osY.nextBoolean();
         }
 
         @Override // kotlin.random.d
         public double nextDouble() {
-            return d.osG.nextDouble();
+            return d.osY.nextDouble();
         }
 
         @Override // kotlin.random.d
         public float nextFloat() {
-            return d.osG.nextFloat();
+            return d.osY.nextFloat();
         }
 
         @Override // kotlin.random.d
         public byte[] az(byte[] bArr) {
             q.m(bArr, com.baidu.fsg.base.statistics.b.j);
-            return d.osG.az(bArr);
+            return d.osY.az(bArr);
         }
 
         @Override // kotlin.random.d
         public byte[] x(byte[] bArr, int i, int i2) {
             q.m(bArr, com.baidu.fsg.base.statistics.b.j);
-            return d.osG.x(bArr, i, i2);
+            return d.osY.x(bArr, i, i2);
         }
     }
 
     @h
     /* loaded from: classes20.dex */
     public static final class a extends d {
-        public static final a osJ = new a();
+        public static final a otb = new a();
 
         private a() {
         }
 
         @Override // kotlin.random.d
         public int NX(int i) {
-            return d.osI.NX(i);
+            return d.ota.NX(i);
         }
     }
 }

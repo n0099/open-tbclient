@@ -10,7 +10,7 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.editortools.n;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c {
     @SuppressLint({"ResourceAsColor"})
     public static n x(Context context, int i) {

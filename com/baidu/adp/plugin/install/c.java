@@ -172,7 +172,7 @@ public class c {
                             String action = intent.getAction();
                             if ("com.baidu.adp.plugin.installed".equals(action)) {
                                 c.this.h(str, z);
-                                com.baidu.adp.plugin.packageManager.status.a.qw().cN(str);
+                                com.baidu.adp.plugin.packageManager.status.a.qw().cO(str);
                             } else if ("com.baidu.adp.plugin.installfail".equals(action)) {
                                 if (z) {
                                     c.this.RH = false;
@@ -267,7 +267,7 @@ public class c {
         this.RI.execute(new String[0]);
     }
 
-    public boolean cn(String str) {
+    public boolean co(String str) {
         if (this.RK != null) {
             return TextUtils.equals(str, this.RK.pkgName);
         }
@@ -290,9 +290,9 @@ public class c {
             return false;
         }
         String substring = str.substring(lastIndexOf + 1, lastIndexOf2);
-        PluginSetting cv = PluginPackageManager.pO().cv(substring);
-        if (substring != null && substring.length() > 0 && cv != null && cv.apkPath != null) {
-            File file = new File(cv.apkPath);
+        PluginSetting cw = PluginPackageManager.pO().cw(substring);
+        if (substring != null && substring.length() > 0 && cw != null && cw.apkPath != null) {
+            File file = new File(cw.apkPath);
             boolean exists = file.exists();
             boolean isFile = file.isFile();
             long length = file.length();
@@ -306,7 +306,7 @@ public class c {
                             inputStream = context.getAssets().open(str);
                             if (g.compareTo(Util.g(inputStream)) == 0) {
                                 if (this.RF != null) {
-                                    this.RF.cl(substring);
+                                    this.RF.cm(substring);
                                 }
                                 com.baidu.adp.plugin.b.a.py().f("plugin_install", "install_timeequals", substring, g.toString());
                                 com.baidu.adp.lib.f.a.close((InputStream) fileInputStream);
@@ -322,8 +322,8 @@ public class c {
                             com.baidu.adp.lib.f.a.close((InputStream) fileInputStream);
                             com.baidu.adp.lib.f.a.close(inputStream);
                             c(context, "assets://" + str, false);
-                            com.baidu.adp.plugin.b.a.py().a("plugin_install", substring, cv, str2);
-                            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(MessageConfig.PLUGIN_INSTALL_START, com.baidu.adp.plugin.packageManager.status.a.qw().cP(substring)));
+                            com.baidu.adp.plugin.b.a.py().a("plugin_install", substring, cw, str2);
+                            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(MessageConfig.PLUGIN_INSTALL_START, com.baidu.adp.plugin.packageManager.status.a.qw().cQ(substring)));
                             return true;
                         }
                     } catch (Throwable th) {
@@ -347,8 +347,8 @@ public class c {
             }
         }
         c(context, "assets://" + str, false);
-        com.baidu.adp.plugin.b.a.py().a("plugin_install", substring, cv, str2);
-        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(MessageConfig.PLUGIN_INSTALL_START, com.baidu.adp.plugin.packageManager.status.a.qw().cP(substring)));
+        com.baidu.adp.plugin.b.a.py().a("plugin_install", substring, cw, str2);
+        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(MessageConfig.PLUGIN_INSTALL_START, com.baidu.adp.plugin.packageManager.status.a.qw().cQ(substring)));
         return true;
     }
 
@@ -477,12 +477,12 @@ public class c {
         }
     }
 
-    public static File co(String str) {
-        PluginSetting cv = PluginPackageManager.pO().cv(str);
-        if (cv == null || cv.apkPath == null || cv.apkPath.length() <= 0) {
+    public static File cp(String str) {
+        PluginSetting cw = PluginPackageManager.pO().cw(str);
+        if (cw == null || cw.apkPath == null || cw.apkPath.length() <= 0) {
             return null;
         }
-        return new File(cv.apkPath);
+        return new File(cw.apkPath);
     }
 
     private void ph() {
@@ -818,7 +818,7 @@ public class c {
             }
         }
 
-        private boolean cp(String str) {
+        private boolean cq(String str) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
@@ -842,7 +842,7 @@ public class c {
             super.onPostExecute(strArr);
             if (strArr != null && strArr.length > 0) {
                 for (String str : strArr) {
-                    if (str != null && str.endsWith(".apk") && cp(str) && c.this.l(this.mContext, "plugins/" + str, "install_from_start")) {
+                    if (str != null && str.endsWith(".apk") && cq(str) && c.this.l(this.mContext, "plugins/" + str, "install_from_start")) {
                         z = true;
                     }
                 }

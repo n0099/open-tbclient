@@ -13,32 +13,32 @@ import com.baidu.tieba.setting.more.MsgSettingItemView;
 import java.util.ArrayList;
 /* loaded from: classes20.dex */
 public class a extends BaseAdapter implements BdSwitchView.a {
-    private ArrayList<OfficialAccountPushInfo> efX;
-    private TbPageContext efn;
-    private BdSwitchView.a lSd;
+    private TbPageContext efr;
+    private ArrayList<OfficialAccountPushInfo> egb;
+    private BdSwitchView.a lSs;
 
     public a(TbPageContext tbPageContext) {
-        this.efn = tbPageContext;
+        this.efr = tbPageContext;
     }
 
     public void setData(ArrayList<OfficialAccountPushInfo> arrayList) {
-        this.efX = arrayList;
+        this.egb = arrayList;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.efX == null) {
+        if (this.egb == null) {
             return 0;
         }
-        return this.efX.size();
+        return this.egb.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.efX == null || i < 0 || i >= this.efX.size()) {
+        if (this.egb == null || i < 0 || i >= this.egb.size()) {
             return null;
         }
-        return this.efX.get(i);
+        return this.egb.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -53,47 +53,47 @@ public class a extends BaseAdapter implements BdSwitchView.a {
     public View getView(int i, View view, ViewGroup viewGroup) {
         C0797a c0797a;
         if (view == null) {
-            view = LayoutInflater.from(this.efn.getPageActivity()).inflate(R.layout.official_account_push_item, viewGroup, false);
+            view = LayoutInflater.from(this.efr.getPageActivity()).inflate(R.layout.official_account_push_item, viewGroup, false);
             c0797a = new C0797a();
-            c0797a.lSe = (MsgSettingItemView) view.findViewById(R.id.item_official_account_push);
+            c0797a.lSt = (MsgSettingItemView) view.findViewById(R.id.item_official_account_push);
             view.setTag(c0797a);
         } else {
             c0797a = (C0797a) view.getTag();
         }
         OfficialAccountPushInfo officialAccountPushInfo = (OfficialAccountPushInfo) getItem(i);
         if (at.isEmpty(officialAccountPushInfo.name)) {
-            c0797a.lSe.setVisibility(8);
+            c0797a.lSt.setVisibility(8);
         } else {
-            c0797a.lSe.setVisibility(0);
-            c0797a.lSe.setText(officialAccountPushInfo.name);
+            c0797a.lSt.setVisibility(0);
+            c0797a.lSt.setText(officialAccountPushInfo.name);
             if (officialAccountPushInfo.is_on == 1) {
-                c0797a.lSe.getSwitchView().turnOnNoCallback();
+                c0797a.lSt.getSwitchView().turnOnNoCallback();
             } else {
-                c0797a.lSe.getSwitchView().turnOffNoCallback();
+                c0797a.lSt.getSwitchView().turnOffNoCallback();
             }
-            c0797a.lSe.setLineVisibility(true);
-            c0797a.lSe.onChangeSkinType(this.efn, TbadkCoreApplication.getInst().getSkinType());
-            c0797a.lSe.getSwitchView().setOnSwitchStateChangeListener(this);
-            c0797a.lSe.getSwitchView().setTag(officialAccountPushInfo);
+            c0797a.lSt.setLineVisibility(true);
+            c0797a.lSt.onChangeSkinType(this.efr, TbadkCoreApplication.getInst().getSkinType());
+            c0797a.lSt.getSwitchView().setOnSwitchStateChangeListener(this);
+            c0797a.lSt.getSwitchView().setTag(officialAccountPushInfo);
         }
         return view;
     }
 
     public void setSwitchStateChangeListener(BdSwitchView.a aVar) {
-        this.lSd = aVar;
+        this.lSs = aVar;
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (this.lSd != null) {
-            this.lSd.a(view, switchState);
+        if (this.lSs != null) {
+            this.lSs.a(view, switchState);
         }
     }
 
     /* renamed from: com.baidu.tieba.setting.officialAccountPush.a$a  reason: collision with other inner class name */
     /* loaded from: classes20.dex */
     public class C0797a {
-        MsgSettingItemView lSe;
+        MsgSettingItemView lSt;
 
         public C0797a() {
         }

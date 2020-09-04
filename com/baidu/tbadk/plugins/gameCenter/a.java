@@ -3,26 +3,26 @@ package com.baidu.tbadk.plugins.gameCenter;
 import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.ContentProvider;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
-    private static ContentProvider eTN;
-    private static Service eTU;
-    private static BroadcastReceiver eTV;
-    private static BroadcastReceiver eTW;
+    private static ContentProvider eTR;
+    private static Service eTY;
+    private static BroadcastReceiver eTZ;
+    private static BroadcastReceiver eUa;
 
-    public static Service buH() {
-        return eTU;
+    public static Service buI() {
+        return eTY;
     }
 
-    public static ContentProvider buE() {
-        return eTN;
-    }
-
-    public static BroadcastReceiver buI() {
-        return eTV;
+    public static ContentProvider buF() {
+        return eTR;
     }
 
     public static BroadcastReceiver buJ() {
-        return eTW;
+        return eTZ;
+    }
+
+    public static BroadcastReceiver buK() {
+        return eUa;
     }
 }

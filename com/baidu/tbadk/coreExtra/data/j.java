@@ -1,25 +1,25 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class j {
-    private final int dkL;
-    private final int dkM;
-    private final TbPageContext<?> efn;
+    private final int dkP;
+    private final int dkQ;
+    private final TbPageContext<?> efr;
 
     public TbPageContext<?> bmF() {
-        return this.efn;
+        return this.efr;
     }
 
     public int aJe() {
-        return this.dkM;
+        return this.dkQ;
     }
 
     public int aJd() {
-        return this.dkL;
+        return this.dkP;
     }
 
     public boolean isAvailable() {
-        return this.efn != null && this.dkM > 0 && this.dkL > 0;
+        return this.efr != null && this.dkQ > 0 && this.dkP > 0;
     }
 }

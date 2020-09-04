@@ -8,14 +8,14 @@ import kotlin.jvm.internal.q;
 @kotlin.h
 /* loaded from: classes20.dex */
 public final class b<T> implements c<T> {
-    private final kotlin.jvm.a.a<T> otm;
-    private final kotlin.jvm.a.b<T, T> otn;
+    private final kotlin.jvm.a.a<T> otE;
+    private final kotlin.jvm.a.b<T, T> otF;
 
     @kotlin.h
     /* loaded from: classes20.dex */
     public static final class a implements Iterator<T> {
         private T nextItem;
-        private int otk = -2;
+        private int otC = -2;
 
         @Override // java.util.Iterator
         public void remove() {
@@ -26,44 +26,44 @@ public final class b<T> implements c<T> {
         a() {
         }
 
-        private final void egC() {
+        private final void egL() {
             T t;
-            if (this.otk == -2) {
-                t = (T) b.this.otm.invoke();
+            if (this.otC == -2) {
+                t = (T) b.this.otE.invoke();
             } else {
-                kotlin.jvm.a.b bVar = b.this.otn;
+                kotlin.jvm.a.b bVar = b.this.otF;
                 T t2 = this.nextItem;
                 if (t2 == null) {
-                    q.egj();
+                    q.egs();
                 }
                 t = (T) bVar.invoke(t2);
             }
             this.nextItem = t;
-            this.otk = this.nextItem == null ? 0 : 1;
+            this.otC = this.nextItem == null ? 0 : 1;
         }
 
         @Override // java.util.Iterator
         public T next() {
-            if (this.otk < 0) {
-                egC();
+            if (this.otC < 0) {
+                egL();
             }
-            if (this.otk == 0) {
+            if (this.otC == 0) {
                 throw new NoSuchElementException();
             }
             T t = this.nextItem;
             if (t == null) {
                 throw new TypeCastException("null cannot be cast to non-null type T");
             }
-            this.otk = -1;
+            this.otC = -1;
             return t;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            if (this.otk < 0) {
-                egC();
+            if (this.otC < 0) {
+                egL();
             }
-            return this.otk == 1;
+            return this.otC == 1;
         }
     }
 
@@ -73,8 +73,8 @@ public final class b<T> implements c<T> {
     public b(kotlin.jvm.a.a<? extends T> aVar, kotlin.jvm.a.b<? super T, ? extends T> bVar) {
         q.m(aVar, "getInitialValue");
         q.m(bVar, "getNextValue");
-        this.otm = aVar;
-        this.otn = bVar;
+        this.otE = aVar;
+        this.otF = bVar;
     }
 
     @Override // kotlin.sequences.c

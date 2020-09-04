@@ -49,16 +49,16 @@ public class a extends aa {
         }
         c.i("LaunchAction", "launch scheme = " + str);
         String alv = SwanLauncher.alv();
-        d.azE().azA().azM().nL(alv);
+        d.azE().azA().azM().nM(alv);
         HashMap<String, String> params = unitedSchemeEntity.getParams();
         String str2 = params.get("params");
         String str3 = params.get("from");
         if (TextUtils.isEmpty(str2)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-            com.baidu.swan.apps.am.a sm = new com.baidu.swan.apps.am.a().bO(1L).bP(1L).sm("paramsValue is empty");
-            com.baidu.swan.apps.am.e.aEg().j(sm);
-            com.baidu.swan.apps.u.b.a.a(context, sm, 0, "");
-            h.b(new com.baidu.swan.apps.statistic.a.d().i(sm).rw(str3).cm(SuspensionBallEntity.KEY_SCHEME, str));
+            com.baidu.swan.apps.am.a sn = new com.baidu.swan.apps.am.a().bO(1L).bP(1L).sn("paramsValue is empty");
+            com.baidu.swan.apps.am.e.aEg().j(sn);
+            com.baidu.swan.apps.u.b.a.a(context, sn, 0, "");
+            h.b(new com.baidu.swan.apps.statistic.a.d().i(sn).rx(str3).cm(SuspensionBallEntity.KEY_SCHEME, str));
             return false;
         }
         try {
@@ -73,13 +73,13 @@ public class a extends aa {
             final String optString8 = jSONObject.optString("cb");
             if (TextUtils.isEmpty(optString)) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                com.baidu.swan.apps.am.a sm2 = new com.baidu.swan.apps.am.a().bO(1L).bP(1L).sm("appId is empty");
-                com.baidu.swan.apps.am.e.aEg().j(sm2);
-                com.baidu.swan.apps.u.b.a.a(context, sm2, 0, "");
-                h.b(new com.baidu.swan.apps.statistic.a.d().i(sm2).rw(str3).cm(SuspensionBallEntity.KEY_SCHEME, str));
+                com.baidu.swan.apps.am.a sn2 = new com.baidu.swan.apps.am.a().bO(1L).bP(1L).sn("appId is empty");
+                com.baidu.swan.apps.am.e.aEg().j(sn2);
+                com.baidu.swan.apps.u.b.a.a(context, sn2, 0, "");
+                h.b(new com.baidu.swan.apps.statistic.a.d().i(sn2).rx(str3).cm(SuspensionBallEntity.KEY_SCHEME, str));
                 return false;
             }
-            final c.a aVar = (c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) new c.a().nB(optString)).nG(optString2)).nE(str3)).nF(str)).nH(optString6)).nI(optString7)).nL(alv);
+            final c.a aVar = (c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) new c.a().nC(optString)).nH(optString2)).nF(str3)).nG(str)).nI(optString6)).nJ(optString7)).nM(alv);
             if (eVar != null && !TextUtils.isEmpty(optString4)) {
                 aVar.bI("extraData", optString3);
                 aVar.bI("navi", optString4);
@@ -89,7 +89,7 @@ public class a extends aa {
                     return false;
                 }
                 String appId = XZ.getAppId();
-                if (com.baidu.swan.apps.f.a.a(XZ) && !com.baidu.swan.apps.f.a.kl(optString)) {
+                if (com.baidu.swan.apps.f.a.a(XZ) && !com.baidu.swan.apps.f.a.km(optString)) {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                     return false;
                 }
@@ -107,40 +107,40 @@ public class a extends aa {
 
                     @Override // com.baidu.swan.apps.r.d.b
                     public void onSuccess() {
-                        ((c.a) aVar.eE(true)).nJ("1.6.0");
+                        ((c.a) aVar.eF(true)).nK("1.6.0");
                         SwanLauncher.alu().a(aVar, (Bundle) null);
                         a.a(optString4, optString, callbackHandler, unitedSchemeEntity, optString8);
                     }
 
                     @Override // com.baidu.swan.apps.r.d.b
                     public void onFailed() {
-                        com.baidu.swan.apps.am.a sm3 = new com.baidu.swan.apps.am.a().bO(7L).bP(9L).sm("debug download pkg fail");
-                        com.baidu.swan.apps.am.e.aEg().j(sm3);
-                        com.baidu.swan.apps.u.b.a.a(com.baidu.swan.apps.t.a.aoJ(), sm3, 0, optString);
-                        h.b(new com.baidu.swan.apps.statistic.a.d().i(sm3).a(aVar));
+                        com.baidu.swan.apps.am.a sn3 = new com.baidu.swan.apps.am.a().bO(7L).bP(9L).sn("debug download pkg fail");
+                        com.baidu.swan.apps.am.e.aEg().j(sn3);
+                        com.baidu.swan.apps.u.b.a.a(com.baidu.swan.apps.t.a.aoJ(), sn3, 0, optString);
+                        h.b(new com.baidu.swan.apps.statistic.a.d().i(sn3).a(aVar));
                         unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                     }
                 });
                 return true;
             } else if (TextUtils.isEmpty(optString5)) {
-                aVar.eE(false);
+                aVar.eF(false);
                 SwanLauncher.alu().a(aVar, (Bundle) null);
                 a(optString4, optString, callbackHandler, unitedSchemeEntity, optString8);
                 return true;
             } else {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                com.baidu.swan.apps.am.a sm3 = new com.baidu.swan.apps.am.a().bO(1L).bP(1L).sm("release but downloadUrl is not empty");
-                com.baidu.swan.apps.am.e.aEg().j(sm3);
-                com.baidu.swan.apps.u.b.a.a(context, sm3, 0, optString);
-                h.b(new com.baidu.swan.apps.statistic.a.d().rw(str3).rv(optString).a(aVar).cm(SuspensionBallEntity.KEY_SCHEME, str));
+                com.baidu.swan.apps.am.a sn3 = new com.baidu.swan.apps.am.a().bO(1L).bP(1L).sn("release but downloadUrl is not empty");
+                com.baidu.swan.apps.am.e.aEg().j(sn3);
+                com.baidu.swan.apps.u.b.a.a(context, sn3, 0, optString);
+                h.b(new com.baidu.swan.apps.statistic.a.d().rx(str3).rw(optString).a(aVar).cm(SuspensionBallEntity.KEY_SCHEME, str));
                 return false;
             }
         } catch (JSONException e) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-            com.baidu.swan.apps.am.a sm4 = new com.baidu.swan.apps.am.a().bO(1L).bP(1L).sm("parse paramsValue with JSONException:" + e.getMessage());
-            com.baidu.swan.apps.am.e.aEg().j(sm4);
-            com.baidu.swan.apps.u.b.a.a(context, sm4, 0, "");
-            h.b(new com.baidu.swan.apps.statistic.a.d().i(sm4).rw(str3).cm(SuspensionBallEntity.KEY_SCHEME, str));
+            com.baidu.swan.apps.am.a sn4 = new com.baidu.swan.apps.am.a().bO(1L).bP(1L).sn("parse paramsValue with JSONException:" + e.getMessage());
+            com.baidu.swan.apps.am.e.aEg().j(sn4);
+            com.baidu.swan.apps.u.b.a.a(context, sn4, 0, "");
+            h.b(new com.baidu.swan.apps.statistic.a.d().i(sn4).rx(str3).cm(SuspensionBallEntity.KEY_SCHEME, str));
             return false;
         }
     }

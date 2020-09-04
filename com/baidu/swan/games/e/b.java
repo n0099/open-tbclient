@@ -5,7 +5,7 @@ import java.io.File;
 /* loaded from: classes8.dex */
 public class b {
     public static File amo() {
-        return com.baidu.swan.games.l.a.vt("aigames_debug_dashboard");
+        return com.baidu.swan.games.l.a.vu("aigames_debug_dashboard");
     }
 
     public static void amp() {

@@ -2,35 +2,35 @@ package com.baidu.tieba;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
-    private static final a fjS = new a();
-    private AtomicBoolean fjT = new AtomicBoolean(false);
-    private int fjU = 0;
-    private int fjV;
+    private static final a fjW = new a();
+    private AtomicBoolean fjX = new AtomicBoolean(false);
+    private int fjY = 0;
+    private int fjZ;
 
     private a() {
     }
 
-    public static a bzf() {
-        return fjS;
+    public static a bzg() {
+        return fjW;
     }
 
     public void parse(JSONObject jSONObject) {
-        boolean z = this.fjT.get();
+        boolean z = this.fjX.get();
         if (jSONObject != null && !z) {
-            this.fjT.set(true);
-            this.fjU = jSONObject.optInt("tieba_landing_page_type_switch", -1);
-            this.fjV = jSONObject.optInt("tieba_fix_apk_install_status_switch", 1);
+            this.fjX.set(true);
+            this.fjY = jSONObject.optInt("tieba_landing_page_type_switch", -1);
+            this.fjZ = jSONObject.optInt("tieba_fix_apk_install_status_switch", 1);
         }
     }
 
     @Deprecated
-    public int bzg() {
-        return this.fjU;
+    public int bzh() {
+        return this.fjY;
     }
 
-    public boolean bzh() {
-        return this.fjV == 1;
+    public boolean bzi() {
+        return this.fjZ == 1;
     }
 }

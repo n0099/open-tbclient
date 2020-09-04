@@ -4,7 +4,7 @@ public final class g<T> {
     final float loadFactor;
     int mask;
     int maxSize;
-    T[] oqr;
+    T[] oqJ;
     int size;
 
     public g() {
@@ -16,12 +16,12 @@ public final class g<T> {
         int NR = h.NR(i);
         this.mask = NR - 1;
         this.maxSize = (int) (NR * f);
-        this.oqr = (T[]) new Object[NR];
+        this.oqJ = (T[]) new Object[NR];
     }
 
     public boolean add(T t) {
         T t2;
-        T[] tArr = this.oqr;
+        T[] tArr = this.oqJ;
         int i = this.mask;
         int NQ = NQ(t.hashCode()) & i;
         T t3 = tArr[NQ];
@@ -48,7 +48,7 @@ public final class g<T> {
 
     public boolean remove(T t) {
         T t2;
-        T[] tArr = this.oqr;
+        T[] tArr = this.oqJ;
         int i = this.mask;
         int NQ = NQ(t.hashCode()) & i;
         T t3 = tArr[NQ];
@@ -97,7 +97,7 @@ public final class g<T> {
     }
 
     void rehash() {
-        T[] tArr = this.oqr;
+        T[] tArr = this.oqJ;
         int length = tArr.length;
         int i = length << 1;
         int i2 = i - 1;
@@ -121,7 +121,7 @@ public final class g<T> {
             } else {
                 this.mask = i2;
                 this.maxSize = (int) (i * this.loadFactor);
-                this.oqr = tArr2;
+                this.oqJ = tArr2;
                 return;
             }
         }
@@ -132,8 +132,8 @@ public final class g<T> {
         return i2 ^ (i2 >>> 16);
     }
 
-    public Object[] efu() {
-        return this.oqr;
+    public Object[] efD() {
+        return this.oqJ;
     }
 
     public int size() {

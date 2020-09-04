@@ -4,7 +4,7 @@ import android.os.Build;
 import android.view.Window;
 import android.view.WindowManager;
 import java.lang.reflect.Field;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c {
     public static int IG(int i) {
         if (Build.VERSION.SDK_INT >= 26) {

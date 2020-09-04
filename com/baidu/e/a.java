@@ -16,9 +16,9 @@ import io.flutter.plugin.platform.PlatformView;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class a implements MethodChannel.MethodCallHandler, PlatformView {
-    private View amn;
-    private String amo;
-    private com.baidu.tieba.square.a amp;
+    private View amp;
+    private String amq;
+    private com.baidu.tieba.square.a amr;
     private final MethodChannel methodChannel;
     private int viewId;
 
@@ -49,19 +49,19 @@ public class a implements MethodChannel.MethodCallHandler, PlatformView {
             if (obj4 != null) {
                 Double.valueOf(obj4.toString()).doubleValue();
             }
-            this.amo = String.valueOf(map.get("persistentViewId"));
+            this.amq = String.valueOf(map.get("persistentViewId"));
             if ("BarSquare".equals(String.valueOf(map.get("nativeViewType")))) {
-                this.amp = new com.baidu.tieba.square.a(TbadkApplication.getInst().getCurrentActivity(), ((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext());
-                this.amp.duC();
-                this.amp.startLoadData();
-                this.amn = this.amp.lXy.getRootLayout();
+                this.amr = new com.baidu.tieba.square.a(TbadkApplication.getInst().getCurrentActivity(), ((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext());
+                this.amr.duH();
+                this.amr.startLoadData();
+                this.amp = this.amr.lXN.getRootLayout();
             }
         }
     }
 
     @Override // io.flutter.plugin.platform.PlatformView
     public View getView() {
-        return this.amn;
+        return this.amp;
     }
 
     @Override // io.flutter.plugin.common.MethodChannel.MethodCallHandler
@@ -73,8 +73,8 @@ public class a implements MethodChannel.MethodCallHandler, PlatformView {
             result.success(true);
         } else if (methodCall.method.equals("selectForumCategory")) {
             String str = (String) methodCall.arguments;
-            if (this.amp != null && !TextUtils.isEmpty(str)) {
-                this.amp.Qp(str);
+            if (this.amr != null && !TextUtils.isEmpty(str)) {
+                this.amr.Qp(str);
             }
             result.success(null);
         } else {

@@ -7,41 +7,41 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class a {
-    private List<AbsDelegateAdapter> bbu = new ArrayList();
-    private BdTypeListView bbw;
-    private b gPJ;
-    private c gPK;
-    private e gPL;
-    private f gPM;
-    private d gPN;
+    private List<AbsDelegateAdapter> bbw = new ArrayList();
+    private BdTypeListView bby;
+    private b gPN;
+    private c gPO;
+    private e gPP;
+    private f gPQ;
+    private d gPR;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
         this.mPageContext = tbPageContext;
-        this.bbw = bdTypeListView;
+        this.bby = bdTypeListView;
         Jv();
     }
 
     private void Jv() {
-        this.gPJ = new b(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.a.gPQ);
-        this.gPK = new c(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.b.gPT);
-        this.gPL = new e(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.d.gPV);
-        this.gPM = new f(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.e.gPW);
-        this.gPN = new d(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.c.gPU);
-        this.bbu.add(this.gPJ);
-        this.bbu.add(this.gPK);
-        this.bbu.add(this.gPL);
-        this.bbu.add(this.gPM);
-        this.bbu.add(this.gPN);
-        this.bbw.addAdapters(this.bbu);
+        this.gPN = new b(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.a.gPU);
+        this.gPO = new c(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.b.gPX);
+        this.gPP = new e(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.d.gPZ);
+        this.gPQ = new f(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.e.gQa);
+        this.gPR = new d(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.c.gPY);
+        this.bbw.add(this.gPN);
+        this.bbw.add(this.gPO);
+        this.bbw.add(this.gPP);
+        this.bbw.add(this.gPQ);
+        this.bbw.add(this.gPR);
+        this.bby.addAdapters(this.bbw);
     }
 
     public void onDestroy() {
-        if (this.gPJ != null) {
-            this.gPJ.onDestroy();
+        if (this.gPN != null) {
+            this.gPN.onDestroy();
         }
-        if (this.gPK != null) {
-            this.gPK.onDestroy();
+        if (this.gPO != null) {
+            this.gPO.onDestroy();
         }
     }
 }

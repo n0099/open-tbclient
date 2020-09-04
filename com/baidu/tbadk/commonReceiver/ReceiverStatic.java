@@ -2,7 +2,7 @@ package com.baidu.tbadk.commonReceiver;
 
 import android.content.IntentFilter;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ReceiverStatic {
     static {
         ScreenLockReceiver screenLockReceiver = new ScreenLockReceiver();

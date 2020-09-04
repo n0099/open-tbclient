@@ -6,7 +6,7 @@ import com.baidu.tbadk.data.VideoEasterEggData;
 import com.baidu.tieba.pb.data.ContriInfo;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b {
     final AntiData antiData;
     private String colorMsg;
@@ -17,8 +17,8 @@ public class b {
     private ContriInfo mContriInfo;
     private bp mReplyPrivacyTip;
     private VideoEasterEggData mVideoEasterEggData;
-    private String miV;
-    private String miW;
+    private String mjk;
+    private String mjl;
     private String preMsg;
     private String videoId;
     private String threadId = null;
@@ -35,19 +35,19 @@ public class b {
         return this.errorCode != 0;
     }
 
-    public boolean dxW() {
+    public boolean dyb() {
         return this.errorCode == 5 || this.errorCode == 6;
     }
 
-    public boolean dxX() {
+    public boolean dyc() {
         return this.errorCode == 1990055;
     }
 
-    public boolean dxY() {
+    public boolean dyd() {
         return this.errorCode == 3250012;
     }
 
-    public boolean dxZ() {
+    public boolean dye() {
         return this.errorCode == 227001;
     }
 
@@ -63,7 +63,7 @@ public class b {
         this.errorString = str;
     }
 
-    public AntiData ckT() {
+    public AntiData ckU() {
         return this.antiData;
     }
 
@@ -107,20 +107,20 @@ public class b {
         return this.isCopyTWZhibo;
     }
 
-    public String dya() {
-        return this.miV;
+    public String dyf() {
+        return this.mjk;
     }
 
     public void Rc(String str) {
-        this.miV = str;
+        this.mjk = str;
     }
 
-    public String dyb() {
-        return this.miW;
+    public String dyg() {
+        return this.mjl;
     }
 
     public void Rd(String str) {
-        this.miW = str;
+        this.mjl = str;
     }
 
     public CustomDialogData getActivityDialog() {

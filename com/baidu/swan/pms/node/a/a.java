@@ -4,20 +4,20 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes14.dex */
 public class a {
-    private JSONArray dGu;
-    private JSONObject dGv;
+    private JSONArray dGy;
+    private JSONObject dGz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(JSONArray jSONArray, JSONObject jSONObject) {
-        this.dGu = jSONArray;
-        this.dGv = jSONObject;
+        this.dGy = jSONArray;
+        this.dGz = jSONObject;
     }
 
     public JSONObject aUx() {
-        return this.dGv;
+        return this.dGz;
     }
 
     public JSONArray aUy() {
-        return this.dGu;
+        return this.dGy;
     }
 }

@@ -8,21 +8,21 @@ import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
     public static Domain PASS_LOGIN_ADDRESS = Domain.DOMAIN_ONLINE;
     private static boolean mIsUseOldLogin = true;
-    public static c ezz = null;
+    public static c ezD = null;
 
     public static void init() {
         CustomResponsedMessage runTask;
-        if (ezz == null && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_PASS_MANAGER, c.class)) != null && runTask.getData() != null) {
-            ezz = (c) runTask.getData();
+        if (ezD == null && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_PASS_MANAGER, c.class)) != null && runTask.getData() != null) {
+            ezD = (c) runTask.getData();
         }
     }
 
     public static c bmj() {
-        return ezz;
+        return ezD;
     }
 
     public static void checkPassV6Switch() {

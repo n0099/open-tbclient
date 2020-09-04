@@ -11,40 +11,40 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes14.dex */
 public class e {
-    private static e dGF;
-    private a dGG = new a();
-    private String dGH = AppRuntime.getAppContext().getString(e.a.swan_launch_failed_default_dialog_msg);
-    private String dGI = AppRuntime.getAppContext().getString(e.a.swan_launch_failed_default_toast_msg);
+    private static e dGJ;
+    private a dGK = new a();
+    private String dGL = AppRuntime.getAppContext().getString(e.a.swan_launch_failed_default_dialog_msg);
+    private String dGM = AppRuntime.getAppContext().getString(e.a.swan_launch_failed_default_toast_msg);
 
     public static e aUE() {
-        if (dGF == null) {
+        if (dGJ == null) {
             synchronized (e.class) {
-                if (dGF == null) {
-                    dGF = new e();
+                if (dGJ == null) {
+                    dGJ = new e();
                 }
             }
         }
-        return dGF;
+        return dGJ;
     }
 
     private e() {
     }
 
     public String getVersion() {
-        return this.dGG.getString("tips_config_version", "0");
+        return this.dGK.getString("tips_config_version", "0");
     }
 
     public String co(long j) {
-        return this.dGG.getString(String.format("%04d", Long.valueOf(j)), this.dGH);
+        return this.dGK.getString(String.format("%04d", Long.valueOf(j)), this.dGL);
     }
 
     public String cp(long j) {
-        return this.dGG.getString(String.format("%04d", Long.valueOf(j)), this.dGI);
+        return this.dGK.getString(String.format("%04d", Long.valueOf(j)), this.dGM);
     }
 
     public void b(HashMap<String, String> hashMap, String str) {
         if (hashMap != null && !hashMap.isEmpty() && !TextUtils.isEmpty(str)) {
-            SharedPreferences.Editor edit = this.dGG.edit();
+            SharedPreferences.Editor edit = this.dGK.edit();
             edit.clear();
             edit.putString("tips_config_version", str);
             for (Map.Entry<String, String> entry : hashMap.entrySet()) {

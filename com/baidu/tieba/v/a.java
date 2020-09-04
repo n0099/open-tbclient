@@ -3,7 +3,7 @@ package com.baidu.tieba.v;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
     public static void a(final View view, int i, final Animation.AnimationListener animationListener) {
         if (view != null && i >= 0) {

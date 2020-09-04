@@ -24,7 +24,7 @@ public class b {
         hashMap.put("bundle_id", cVar.getBundleId());
         hashMap.put("category", String.valueOf(cVar.getCategory()));
         if (cVar.aUk() == -1) {
-            pMSAppInfo = com.baidu.swan.pms.database.a.aTt().wz(cVar.getBundleId());
+            pMSAppInfo = com.baidu.swan.pms.database.a.aTt().wA(cVar.getBundleId());
             if (pMSAppInfo != null && com.baidu.swan.pms.database.a.aTt().c(com.baidu.swan.pms.model.f.class, cVar.getBundleId()) != null) {
                 cVar.cl(pMSAppInfo.versionCode);
             } else {
@@ -34,7 +34,7 @@ public class b {
         hashMap.put("pkg_ver", String.valueOf(cVar.aUk()));
         if (cVar.aUl() == -1) {
             if (pMSAppInfo == null) {
-                pMSAppInfo = com.baidu.swan.pms.database.a.aTt().wz(cVar.getBundleId());
+                pMSAppInfo = com.baidu.swan.pms.database.a.aTt().wA(cVar.getBundleId());
             }
             if (pMSAppInfo != null && pMSAppInfo.csProtocolVersion >= PMSConstants.b.getVersion()) {
                 cVar.cm(pMSAppInfo.appSign);
@@ -49,7 +49,7 @@ public class b {
         String aUn = cVar.aUn();
         if (TextUtils.isEmpty(aUn)) {
             aUn = lQ(cVar.getCategory());
-            cVar.wH(aUn);
+            cVar.wI(aUn);
         }
         if (TextUtils.isEmpty(aUn)) {
             aUn = "0";
@@ -58,7 +58,7 @@ public class b {
         String aUo = cVar.aUo();
         if (TextUtils.isEmpty(aUo)) {
             aUo = lR(cVar.getCategory());
-            cVar.wI(aUo);
+            cVar.wJ(aUo);
         }
         if (TextUtils.isEmpty(aUo)) {
             aUo = "0";
@@ -87,13 +87,13 @@ public class b {
         hashMap.put("expect_pkg_ver", String.valueOf(fVar.aUt()));
         hashMap.put("sub_id", fVar.aUr());
         if (TextUtils.isEmpty(fVar.aUn())) {
-            fVar.wL(lQ(fVar.getCategory()));
+            fVar.wM(lQ(fVar.getCategory()));
         }
         if (!TextUtils.isEmpty(fVar.aUn())) {
             hashMap.put("framework_ver", fVar.aUn());
         }
         if (TextUtils.isEmpty(fVar.aUo())) {
-            fVar.wM(lR(fVar.getCategory()));
+            fVar.wN(lR(fVar.getCategory()));
         }
         if (!TextUtils.isEmpty(fVar.aUo())) {
             hashMap.put("extension_ver", fVar.aUo());
@@ -113,7 +113,7 @@ public class b {
         hashMap.put("bundle_id", dVar.aUp());
         hashMap.put("category", String.valueOf(dVar.getCategory()));
         if (TextUtils.isEmpty(dVar.aUq())) {
-            dVar.wK(String.valueOf(-1));
+            dVar.wL(String.valueOf(-1));
         }
         hashMap.put("plugin_ver", dVar.aUq());
         return hashMap;

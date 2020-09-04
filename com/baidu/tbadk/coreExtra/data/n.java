@@ -7,21 +7,21 @@ import com.baidu.tbadk.core.data.UserData;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class n {
-    private ArrayList<String> dYR;
-    private AntiData eAl = new AntiData();
+    private ArrayList<String> dYV;
+    private AntiData eAp = new AntiData();
     private UserData mUser;
 
     public n() {
         this.mUser = null;
-        this.dYR = null;
+        this.dYV = null;
         this.mUser = new UserData();
-        this.dYR = new ArrayList<>(3);
+        this.dYV = new ArrayList<>(3);
     }
 
     public ArrayList<String> bmK() {
-        return this.dYR;
+        return this.dYV;
     }
 
     public void parserJson(String str) {
@@ -38,10 +38,10 @@ public class n {
             JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.dYR.add(optJSONArray.optString(i, null));
+                    this.dYV.add(optJSONArray.optString(i, null));
                 }
             }
-            this.eAl.parserJson(jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI));
+            this.eAp.parserJson(jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }

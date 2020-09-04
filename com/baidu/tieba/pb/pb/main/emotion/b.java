@@ -11,9 +11,9 @@ import com.baidu.tieba.face.view.EmotionView;
 import java.util.List;
 /* loaded from: classes16.dex */
 public class b extends BaseAdapter {
-    private List<EmotionImageData> hFa;
-    private a kOq;
-    private EmotionView.a kOr;
+    private List<EmotionImageData> hFg;
+    private a kOx;
+    private EmotionView.a kOy;
 
     /* loaded from: classes16.dex */
     public interface a {
@@ -22,10 +22,10 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (y.isEmpty(this.hFa)) {
+        if (y.isEmpty(this.hFg)) {
             return 0;
         }
-        return this.hFa.size();
+        return this.hFg.size();
     }
 
     @Override // android.widget.Adapter
@@ -34,7 +34,7 @@ public class b extends BaseAdapter {
     }
 
     public void setData(List<EmotionImageData> list) {
-        this.hFa = list;
+        this.hFg = list;
     }
 
     @Override // android.widget.Adapter
@@ -48,14 +48,14 @@ public class b extends BaseAdapter {
         if (view == null) {
             C0771b c0771b2 = new C0771b();
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_sug_emotion, (ViewGroup) null);
-            c0771b2.kpA = (EmotionView) view.findViewById(R.id.emotion_view);
-            c0771b2.kpA.chH();
-            c0771b2.kpA.setController(this.kOr);
-            c0771b2.kpA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.b.1
+            c0771b2.kpH = (EmotionView) view.findViewById(R.id.emotion_view);
+            c0771b2.kpH.chI();
+            c0771b2.kpH.setController(this.kOy);
+            c0771b2.kpH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (b.this.kOq != null && (view2 instanceof EmotionView)) {
-                        b.this.kOq.d(((EmotionView) view2).getData());
+                    if (b.this.kOx != null && (view2 instanceof EmotionView)) {
+                        b.this.kOx.d(((EmotionView) view2).getData());
                     }
                 }
             });
@@ -64,24 +64,24 @@ public class b extends BaseAdapter {
         } else {
             c0771b = (C0771b) view.getTag();
         }
-        if (this.hFa != null && i >= 0 && i < this.hFa.size()) {
-            c0771b.kpA.a(this.hFa.get(i));
+        if (this.hFg != null && i >= 0 && i < this.hFg.size()) {
+            c0771b.kpH.a(this.hFg.get(i));
         }
         return view;
     }
 
     public void a(a aVar) {
-        this.kOq = aVar;
+        this.kOx = aVar;
     }
 
     public void a(EmotionView.a aVar) {
-        this.kOr = aVar;
+        this.kOy = aVar;
     }
 
     /* renamed from: com.baidu.tieba.pb.pb.main.emotion.b$b  reason: collision with other inner class name */
     /* loaded from: classes16.dex */
     static class C0771b {
-        EmotionView kpA;
+        EmotionView kpH;
 
         C0771b() {
         }

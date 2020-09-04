@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.DeleteFriend.DeleteFriendResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ResponseDeleteFriendMessage extends SocketResponsedMessage {
     private long friendId;
 

@@ -11,7 +11,7 @@ import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
 /* loaded from: classes17.dex */
 public class ZXingView extends QRCodeView {
-    private MultiFormatReader lAz;
+    private MultiFormatReader lAK;
 
     public ZXingView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
@@ -19,12 +19,12 @@ public class ZXingView extends QRCodeView {
 
     public ZXingView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        dmD();
+        dmG();
     }
 
-    private void dmD() {
-        this.lAz = new MultiFormatReader();
-        this.lAz.setHints(a.lAy);
+    private void dmG() {
+        this.lAK = new MultiFormatReader();
+        this.lAK.setHints(a.lAJ);
     }
 
     @Override // com.baidu.tieba.qrcode.lib.core.c.a
@@ -33,16 +33,16 @@ public class ZXingView extends QRCodeView {
         PlanarYUVLuminanceSource planarYUVLuminanceSource;
         try {
             try {
-                Rect FZ = this.lzu.FZ(i2);
+                Rect FZ = this.lzF.FZ(i2);
                 if (FZ != null) {
                     planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i, i2, FZ.left, FZ.top, FZ.width(), FZ.height(), false);
                 } else {
                     planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i, i2, 0, 0, i, i2, false);
                 }
-                result = this.lAz.decodeWithState(new BinaryBitmap(new HybridBinarizer(planarYUVLuminanceSource)));
+                result = this.lAK.decodeWithState(new BinaryBitmap(new HybridBinarizer(planarYUVLuminanceSource)));
             } catch (Exception e) {
                 e.printStackTrace();
-                this.lAz.reset();
+                this.lAK.reset();
                 result = null;
             }
             if (result != null) {
@@ -50,7 +50,7 @@ public class ZXingView extends QRCodeView {
             }
             return null;
         } finally {
-            this.lAz.reset();
+            this.lAK.reset();
         }
     }
 }
